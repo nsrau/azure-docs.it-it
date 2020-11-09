@@ -120,6 +120,8 @@
           href: customize-branding.md
         - name: Configurare 'Rimanere connessi?'
           href: keep-me-signed-in.md
+        - name: Come trovare l'ID tenant
+          href: active-directory-how-to-find-tenant.md
         - name: Associare una sottoscrizione di Azure
           href: active-directory-how-subscriptions-associated-directory.md
         - name: Aggiungere le informazioni sulla privacy

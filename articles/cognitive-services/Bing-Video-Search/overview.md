@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2c52f909cf3cc77b4f5e40ee9804d0c473e575c5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6f5da1d17722f89bee88a4b69177583e095eeac3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85601939"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094286"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Che cos'è l'API Ricerca video Bing?
+
+> [!WARNING]
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L'API Ricerca video Bing semplifica l'aggiunta di funzionalità di ricerca video a servizi e applicazioni. Tramite l'invio di query di ricerca utente con l'API, è possibile ottenere e visualizzare video pertinenti e di alta qualità in modo simile a [Bing Video](https://www.bing.com/video). Usare questa API per i risultati di ricerca che contengono solo video. L'[API Ricerca Web Bing](../bing-web-search/search-the-web.md) può restituire altri tipi di contenuti Web, tra cui pagine Web, video, notizie e immagini.
 

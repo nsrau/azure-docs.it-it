@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: f09a77043a552d8d7f09c2a6abcb78f89cbf8ee2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 23077d7d6b476bcca0812dcff8660376568f7dd9
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420683"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376333"
 ---
 # <a name="one-vs-all-multiclass"></a>One-vs-All Multiclass
 
@@ -26,7 +26,7 @@ Questo modulo è utile per la creazione di modelli che stimano tre o più risult
 
 Alcuni algoritmi di classificazione consentono l'uso di più di due classi per progettazione. Altri limitano i possibili risultati a uno di due valori, ovvero un modello binario o a due classi. Gli algoritmi di classificazione binaria, tuttavia, possono essere adattati per le attività di classificazione multiclasse attraverso diverse strategie. 
 
-Questo modulo implementa il metodo One-vs-All, in cui viene creato un modello binario per ogni classe di output multipla. Il modulo valuta ognuno di questi modelli binari per le singole classi rispetto al suo complemento (tutte le altre classi nel modello) come se si trattasse di un problema di classificazione binaria. Il modulo esegue quindi la stima eseguendo questi classificatori binari e scegliendo la stima con il Punteggio di confidenza più elevato.  
+Questo modulo implementa il metodo One-vs-All, in cui viene creato un modello binario per ogni classe di output multipla. Il modulo valuta ognuno di questi modelli binari per le singole classi rispetto al suo complemento (tutte le altre classi nel modello) come se si trattasse di un problema di classificazione binaria. Oltre alla relativa efficienza computazionale ( `n_classes` sono necessari solo i classificatori), un vantaggio di questo approccio è l'interpretazione. Poiché ogni classe è rappresentata da uno e un solo classificatore, è possibile ottenere informazioni sulla classe controllando il classificatore corrispondente. Si tratta della strategia più utilizzata per la classificazione multiclasse ed è una scelta predefinita. Il modulo esegue quindi la stima eseguendo questi classificatori binari e scegliendo la stima con il Punteggio di confidenza più elevato. 
 
 In sostanza, il modulo crea un insieme di singoli modelli e quindi unisce i risultati, per creare un singolo modello che stima tutte le classi. Qualsiasi classificatore binario può essere utilizzato come base per un modello One-versus-all.  
 

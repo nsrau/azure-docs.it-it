@@ -95,6 +95,8 @@
       href: use-azure-portal-to-invoke-direct-methods.md
     - name: Distribuire in Azure Stack Edge
       href: deploy-azure-stack-edge-how-to.md
+    - name: Configurare un controllo di segnali
+      href: configure-signal-gate-how-to.md
     - name: Risolvere problemi
       href: troubleshoot-how-to.md
 - name: Informazioni di riferimento

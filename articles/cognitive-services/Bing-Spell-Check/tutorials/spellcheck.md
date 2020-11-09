@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: b87a2cd3e6edc6a47de77f475c40d30ce1606e01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8fa86ef33fe7b0d9e97aebca96b3aa5465f24a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316614"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099862"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Esercitazione: Creare un client di controllo ortografico per una pagina Web
+
+> [!WARNING]
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
 In questa esercitazione verrà creata una pagina Web che consente agli utenti di eseguire query sull'API Controllo ortografico Bing. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
@@ -123,7 +128,7 @@ La funzione di supporto getSubscriptionKeyLocalStorage tenta innanzitutto di rec
     }
 ```
 
-La funzione helper getSubscriptionKey accetta un solo parametro, **invalidate**. Se **invalidate** è **True**, la funzione getSubscriptionKey elimina il cookie contenente la chiave dell'API Controllo ortografico Bing. Se **invalidate** è **False**, la funzione getSubscriptionKey restituisce il valore della chiave dell'API Controllo ortografico Bing.
+La funzione helper getSubscriptionKey accetta un solo parametro, **invalidate**. Se **invalidate** è **True** , la funzione getSubscriptionKey elimina il cookie contenente la chiave dell'API Controllo ortografico Bing. Se **invalidate** è **False** , la funzione getSubscriptionKey restituisce il valore della chiave dell'API Controllo ortografico Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {

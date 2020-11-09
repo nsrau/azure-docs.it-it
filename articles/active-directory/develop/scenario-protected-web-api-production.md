@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ccae831498c8c10895387b78c07e4f8ddc228be1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf8eb144ab23d45e57ee8d52f06363ea37b600ec
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87026561"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375279"
 ---
 # <a name="protected-web-api---move-to-production"></a>API Web protetta: passa all'ambiente di produzione
 
@@ -27,18 +27,11 @@ Ora che si è appreso come proteggere l'API Web, ecco come è possibile spostarl
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come chiamare un'API downstream.
+Informazioni su come chiamare un'API downstream nello [scenario: un'API Web che chiama le API Web](scenario-web-api-call-api-overview.md).
 
-> [!div class="nextstepaction"]
-> [Scenario-API Web chiama API downstream](scenario-web-api-call-api-overview.md)
 
-Per altre informazioni, vedere Esercitazioni ed esempi.
+Per altre informazioni, vedere Esercitazioni ed esempi su GitHub:
 
-> [!div class="nextstepaction"]
-> [Chiamata di un'API protetta tramite un daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
-
-> [!div class="nextstepaction"]
-> [Esercitazione sull'API Web di ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
-
-> [!div class="nextstepaction"]
-> [Esempio di API Web ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
+- [Chiamata di un'API protetta tramite un daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
+- [Esercitazione sull'API Web di ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
+- [Esempio di API Web ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)

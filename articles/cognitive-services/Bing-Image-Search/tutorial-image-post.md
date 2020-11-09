@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 5d455751dcabd67213566d605e83fda297e187d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76670c6a061ce3f257d9df8cfe61b1cc020194c6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316682"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100219"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Esercitazione: Estrarre i dettagli dell'immagine usando l'API Ricerca immagini Bing e C#
+
+> [!WARNING]
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Nell'API Ricerca immagini Bing sono disponibili più [endpoint](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint). L'endpoint `/details` accetta una richiesta POST con un'immagine e può restituire un'ampia gamma di dettagli relativi all'immagine. L'applicazione C# invia un'immagine tramite l'API e visualizza i dettagli restituiti da Bing, costituiti da oggetti JSON, come illustrato di seguito:
 

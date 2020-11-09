@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: trbye
-ms.openlocfilehash: 613ee87064cc3b0bbbae8b8ac2e31a5ed60d39f2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: eae4aece79cd387aaa7e708591ca31442eaa05c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097202"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136234"
 ---
 Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per Python. Se si vuole solo il nome del pacchetto per iniziare autonomamente, eseguire `pip install azure-cognitiveservices-speech`.
 
@@ -20,25 +20,20 @@ Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/s
 - Il pacchetto Speech SDK per Python è disponibile per i sistemi operativi seguenti:
   - Windows: x64 e x86
   - Mac: macOS X versione 10.12 o successiva
-  - Linux: Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8 su x64
+  - Linux: vedere l'elenco di [distribuzioni Linux e architetture di destinazione supportate](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Le piattaforme Linux supportate richiedono l'installazione di alcune librerie (`libssl` per il supporto di Secure Sockets Layer e `libasound2` per il supporto audio). Per i comandi necessari per installare le versioni corrette di queste librerie, identificare la propria distribuzione di seguito.
 
-  - In Ubuntu eseguire i comandi seguenti per installare i pacchetti necessari:
+  - In Ubuntu/Debian eseguire i comandi seguenti per installare i pacchetti necessari:
 
     ```sh
     sudo apt-get update
     sudo apt-get install build-essential libssl1.0.0 libasound2
     ```
 
-  - In Debian 9 eseguire i comandi seguenti per installare i pacchetti necessari:
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.2 libasound2
-    ```
+    Se libssl1.0.0 non è disponibile, installare libssl1.0.x (dove x è maggiore di 0) o libssl1.1.
 
   - In RHEL/CentOS eseguire i comandi seguenti per installare i pacchetti necessari:
 

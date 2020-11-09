@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: a07365dd313f75a844e41b71427d8ddcf78ded85
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 25d716513c7ceb9311588b75b0fad1c68bf71bfd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91742503"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081111"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Esercitazione: Compilare una pagina Web di Ricerca personalizzata
+
+> [!WARNING]
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Ricerca personalizzata Bing consente di creare esperienze di ricerca personalizzata per gli argomenti a cui si è interessati. Ad esempio, se si è proprietari di un sito Web di arti marziali che offre un'esperienza di ricerca, è possibile specificare i domini, i siti secondari e le pagine Web cercati da Bing. Gli utenti visualizzano risultati di ricerca specifici per il contenuto a cui sono interessati anziché scorrere risultati generali che possono includere contenuto irrilevante. 
 
@@ -130,7 +135,7 @@ L'interfaccia utente ospitata può essere usata in due modi.
 - Opzione 1: integrare il frammento di codice JavaScript fornito nell'applicazione.
 - Opzione 2: usare l'endpoint HTML fornito.
 
-La parte restante di questa esercitazione illustra l'**opzione 1: Frammento di codice JavaScript**.  
+La parte restante di questa esercitazione illustra l' **opzione 1: Frammento di codice JavaScript**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Configurare la soluzione di Visual Studio
 
@@ -138,7 +143,7 @@ La parte restante di questa esercitazione illustra l'**opzione 1: Frammento di c
   
 2. Scegliere **Nuovo** dal menu **File** e quindi selezionare **Progetto**.  
   
-3. Nella finestra **Nuovo progetto** selezionare **Visual C# / Web / Applicazione Web ASP.NET Core**, assegnare un nome al progetto e quindi fare clic su **OK**.  
+3. Nella finestra **Nuovo progetto** selezionare **Visual C# / Web / Applicazione Web ASP.NET Core** , assegnare un nome al progetto e quindi fare clic su **OK**.  
   
    ![Screenshot della finestra Nuovo progetto](./media/custom-search-new-project.png)  
   

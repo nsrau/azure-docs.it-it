@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 5256db4547f8c19960a6f470ce3c84b2eef25e24
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 444b76a594e768face892462da12a1cbb35a5106
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776613"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324686"
 ---
 # <a name="getting-started"></a>Introduzione
 
@@ -35,15 +35,15 @@ Le distribuzioni di Servizi cognitivi basate sul cloud sono algoritmi intelligen
 
 ### <a name="containerized-services-optional"></a>Servizi in contenitori (facoltativo)
 
-Se l'applicazione o il carico di lavoro usa set di dati di dimensioni estremamente grandi, richiede una rete privata o non può contattare il cloud, la comunicazione con i servizi cloud potrebbe risultare impossibile. In questa situazione, le distribuzioni di Servizi cognitivi in contenitori offrono i vantaggi seguenti:
+Se l'applicazione o il carico di lavoro usa set di dati di grandi dimensioni, richiede una rete privata o non può contattare il cloud, la comunicazione con i servizi cloud potrebbe risultare impossibile. In questa situazione, le distribuzioni di Servizi cognitivi in contenitori offrono i vantaggi seguenti:
 
-* **Bassa connettività**: è possibile distribuire Servizi cognitivi in contenitori in qualsiasi ambiente informatico, sia sul cloud che non. Se l'applicazione non riesce a contattare il cloud, è consigliabile distribuire Servizi cognitivi in contenitori.
+* **Bassa connettività** : è possibile distribuire Servizi cognitivi in contenitori in qualsiasi ambiente informatico, sia sul cloud che non. Se l'applicazione non riesce a contattare il cloud, è consigliabile distribuire Servizi cognitivi in contenitori.
 
-* **Bassa latenza**: poiché i servizi in contenitori non richiedono la comunicazione roundtrip verso/dal cloud, le risposte vengono restituite con latenze molto inferiori.
+* **Bassa latenza** : poiché i servizi in contenitori non richiedono la comunicazione roundtrip verso/dal cloud, le risposte vengono restituite con latenze molto inferiori.
 
-* **Privacy e sicurezza dei dati**: è possibile distribuire i servizi in contenitori in reti private, in modo che i dati sensibili non lascino la rete.
+* **Privacy e sicurezza dei dati** : è possibile distribuire i servizi in contenitori in reti private, in modo che i dati sensibili non lascino la rete.
 
-* **Scalabilità elevata**: i servizi in contenitori non prevedono "limiti di velocità" e vengono eseguiti in computer gestiti dall'utente. Quindi, è possibile raggiungere dimensioni illimitate di Servizi cognitivi per gestire carichi di lavoro molto più grandi.
+* **Scalabilità elevata** : i servizi in contenitori non prevedono "limiti di velocità" e vengono eseguiti in computer gestiti dall'utente. Quindi, è possibile raggiungere dimensioni illimitate di Servizi cognitivi per gestire carichi di lavoro molto più grandi.
 
 Seguire [questa guida](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support?tabs=luis) creare un servizio cognitivo in contenitori.
 
@@ -70,7 +70,7 @@ Azure Databricks è una piattaforma di analisi basata su Apache Spark configurab
 Facoltativamente, è possibile usare Synapse Analytics per creare un cluster Spark. Azure Synapse Analytics riunisce funzionalità aziendali di data warehousing e analisi di Big Data. Offre la libertà di eseguire query sui dati in base alle proprie esigenze, usando risorse serverless su richiesta o con provisioning, su scala. Per iniziare a usare Synapse Analytics, seguire questa procedura:
 
 1. [Creare un'area di lavoro di Synapse (anteprima)](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
-1. [Creare un nuovo pool di Apache Spark (anteprima) con il portale di Azure](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
+1. [Creare un nuovo pool di Apache Spark serverless (anteprima) con il portale di Azure](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
 
 In Synapse Analytics l'opzione Servizi cognitivi per Big Data è installata per impostazione predefinita.
 
@@ -136,7 +136,7 @@ display(results.select("text", col("sentiment")[0].getItem("score").alias("senti
 
 ### <a name="expected-results"></a>Risultati previsti
 
-| text                                      |   sentiment |
+| text                                      |   Valutazione |
 |:------------------------------------------|------------:|
 | I am so happy today, its sunny!           |   0,978959  |
 | I am frustrated by this rush hour traffic |   0,0237956 |

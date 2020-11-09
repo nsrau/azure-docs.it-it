@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 58bbda6d3b02042c6e512e03e108cd69fbd7ed51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fa09ee40ca646be6ee104c7b2d4428c92934337
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91277326"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084630"
 ---
 # <a name="tutorial-single-page-web-app"></a>Esercitazione: App Web a singola pagina
+
+> [!WARNING]
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L'API Ricerca entità Bing consente di cercare informazioni su *entità* e *località* nel Web. È possibile richiedere un tipo di risultato, oppure entrambi, in una determinata query. Di seguito vengono fornite le definizioni di località ed entità.
 
@@ -442,7 +447,7 @@ function renderSearchResults(results) {
 
 ## <a name="rendering-result-items"></a>Rendering degli elementi di risultati
 
-Nel codice JavaScript l'oggetto `searchItemRenderers` contiene i *renderer*: funzioni che generano codice HTML per ciascun tipo di risultato della ricerca.
+Nel codice JavaScript l'oggetto `searchItemRenderers` contiene i *renderer* : funzioni che generano codice HTML per ciascun tipo di risultato della ricerca.
 
 ```javascript
 searchItemRenderers = { 

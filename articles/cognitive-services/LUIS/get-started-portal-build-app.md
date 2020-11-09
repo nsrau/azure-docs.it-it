@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 38fffd7793e1f5bd59ac6dde4499b2eb25009b52
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 74866c65111fae9e6fb3b79d9b59819b14b03c16
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91303858"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131473"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Avvio rapido: Creare una nuova app nel portale LUIS
 
@@ -20,21 +20,22 @@ Questo argomento di avvio rapido illustra come creare una nuova app nel portale 
 
 ## <a name="create-an-app"></a>Creare un'app
 
-1. Selezionare di nuovo **+ New app for conversation** (Nuova app di conversazione) sulla barra degli strumenti contestuale, quindi selezionare **New app for conversation**.
+Per creare un'applicazione, fare clic su **+ Nuova app**. 
 
-    > [!div class="mx-imgBorder"]
-    > [![Screenshot della creazione di una nuova app nel portale LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+Nella finestra visualizzata immettere le informazioni seguenti:
 
-1. Nella finestra popup configurare l'app con le impostazioni seguenti e quindi selezionare **Done** (Fine).
+|Nome  |Descrizione  |
+|---------|---------|
+|Nome     | Un nome per l'app, ad esempio "home automation". Obbligatorio.        |
+|culture     | La lingua compresa e parlata dall'app. Obbligatorio.   |
+|Descrizione | Una descrizione dell'app. Facoltativa.
+|Risorsa Previsione | La risorsa di previsione che riceverà le query. Facoltativa. |
 
-   |Nome impostazione| valore | Scopo|
-   |--|--|--|
-   |Nome|`myEnglishApp`|Nome univoco dell'app LUIS;<br>obbligatorio|
-   |Impostazioni cultura|**English**|Lingua delle espressioni degli utenti, **en-us**;<br>obbligatorio|
-   |Descrizione (facoltativa)|`App made with LUIS Portal`|Descrizione dell'app;<br>facoltativo|
-   |Risorsa di previsione (facoltativa) |-  |Non selezionare. LUIS offre una chiave iniziale da usare gratuitamente per la creazione e per 1.000 richieste di endpoint di previsione. |
+Selezionare **Fine**.
 
-   ![Screenshot dell'immissione delle nuove impostazioni dell'app](./media/get-started-portal-build-app/create-new-app-settings.png)
+>[!NOTE]
+>Le impostazioni cultura non possono essere modificate dopo la creazione dell'applicazione.
+
 
 ## <a name="create-intents"></a>Creare finalità
 
@@ -45,14 +46,14 @@ Dopo aver creato l'app LUIS, è necessario creare le finalità. Le finalità son
 
 I due diversi _intenti_ dell'app si allineano alle finalità seguenti:
 
-|Finalità|Testo di esempio dall'utente<br>noto come un'_espressione_|
+|Finalità|Testo di esempio dall'utente<br>noto come un' _espressione_|
 |--|--|
 |ApplyForJob|`I want to apply for the new software engineering position in Cairo.`|
 |FindForm|`Where is the job transfer form hrf-123456?`|
 
 Per creare le finalità, seguire questa procedura:
 
-1. Dopo aver creato l'app, usare la pagina **Intents** (Funzionalità) della sezione **Build** (Crea). Selezionare **Create** (Crea).
+1. Dopo aver creato l'app, assicurarsi che sia aperta la pagina **Intents** (Finalità) della sezione **Build** (Compila). Selezionare **Create** (Crea).
 
    [![Screenshot della selezione di 'Crea' per creare una nuova finalità](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
@@ -60,14 +61,9 @@ Per creare le finalità, seguire questa procedura:
 
 ## <a name="add-an-example-utterance"></a>Aggiungere un'espressione di esempio
 
-Le espressioni di esempio vengono aggiunte dopo la creazione delle finalità. Le espressioni di esempio sono costituite da testo immesso da un utente in un chatbot o un'altra applicazione client. Associano l'intento del testo dell'utente a una finalità LUIS.
+Le espressioni di esempio vengono aggiunte dopo la creazione delle finalità. Le espressioni di esempio sono costituite da testo immesso da un utente in un chatbot o un'altra applicazione client. Associano l'intento del testo dell'utente a una finalità LUIS. Per la finalità `FindForm` di questa applicazione di esempio, le espressioni di esempio includeranno il numero di modulo. Poiché l'applicazione client necessita del numero di modulo per soddisfare la richiesta dell'utente, è importante includerlo nell'espressione.
 
-Per la finalità `FindForm` di questa applicazione di esempio, le espressioni di esempio includeranno il numero di modulo. Poiché l'applicazione client necessita del numero di modulo per soddisfare la richiesta dell'utente, è importante includerlo nell'espressione.
-
-> [!div class="mx-imgBorder"]
-> [![Screenshot relativo all'immissione di espressioni di esempio per la finalità FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
-
-Aggiungere le 15 espressioni di esempio seguenti alla finalità `FindForm`.
+Nella pagina **Intents** (Finalità) per `FindForm` aggiungere le **espressioni di esempio** seguenti nell'apposita sezione. 
 
 |#|Espressioni di esempio|
 |--|--|

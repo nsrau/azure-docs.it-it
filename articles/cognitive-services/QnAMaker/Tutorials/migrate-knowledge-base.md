@@ -4,13 +4,13 @@ description: Il processo di migrazione consiste nell'esportazione del contenuto 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
-ms.date: 03/25/2020
-ms.openlocfilehash: 9ba5f1d3d240867a8f6da52b9666c500c5b6446e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 78e22a9ec150435c1bc83873a2fcf0a00560c0c1
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777376"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375959"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Eseguire la migrazione di una knowledge base utilizzando la funzione di importazione ed esportazione
 
@@ -22,6 +22,9 @@ La migrazione è il processo di creazione di una nuova Knowledge base da una Kno
 
 Per eseguire la migrazione di una Knowledge base è necessario esportare da una Knowledge Base esistente e quindi importarla in un'altra.
 
+> [!NOTE]
+> Seguire le istruzioni seguenti per eseguire la migrazione della Knowledge Base esistente a una nuova QnA Maker gestita (anteprima).
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Prima di iniziare, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/).
@@ -31,7 +34,7 @@ Per eseguire la migrazione di una Knowledge base è necessario esportare da una 
 1. Accedere al [portale di QnA Maker](https://qnamaker.ai).
 1. Selezionare la Knowledge base Origin che si desidera migrare.
 
-1. Nella pagina **Impostazioni** selezionare **Esporta Knowledge base** per scaricare un file con estensione TSV che contiene il contenuto della Knowledge base di origine: domande, risposte, metadati, richieste di completamento e i nomi delle origini dati da cui sono stati estratti.
+1. Nella pagina **Impostazioni** selezionare **Esporta Knowledge base** per scaricare un file con estensione TSV che contiene il contenuto della Knowledge base di origine: domande, risposte, metadati, richieste di completamento e i nomi delle origini dati da cui sono stati estratti. Gli ID QnA esportati con domande e risposte possono essere usati per aggiornare una coppia di QnA specifica tramite l' [API di aggiornamento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). L'ID QnA per una coppia di QnA specifica rimane invariato tra più operazioni di esportazione.
 
 1. Selezionare **Crea una Knowledge base** dal menu in alto e quindi creare una Knowledge base _vuota_ . È vuota perché quando viene creata, non verrà aggiunto alcun URL o file. Questi vengono aggiunti durante il passaggio di importazione, dopo la creazione.
 
@@ -41,7 +44,7 @@ Per eseguire la migrazione di una Knowledge base è necessario esportare da una 
 
 1. Nel passaggio 5 Selezionare **Crea**.
 
-1. In questa nuova knowledge base aprire la scheda **Settings** (Impostazioni) e fare clic su **Import knowledge base** (Importa knowledge base). Questa operazione importa le domande, le risposte, i metadati, le richieste di completamento e mantiene i nomi delle origini dati da cui sono stati estratti.
+1. In questa nuova knowledge base aprire la scheda **Settings** (Impostazioni) e fare clic su **Import knowledge base** (Importa knowledge base). Questa operazione importa le domande, le risposte, i metadati, le richieste di completamento e mantiene i nomi delle origini dati da cui sono stati estratti. **Le coppie di QnA create nella nuova Knowledge base avranno lo stesso ID QnA presente nel file esportato**. Ciò consente di creare una replica esatta della Knowledge base.
 
    > [!div class="mx-imgBorder"]
    > [![Importare una knowledge base](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 7ca290b7b7df9e4e03aec78b611361ba52942523
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893816"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286678"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Nozioni di base sull'interfaccia della riga di comando per Voce
 
@@ -72,8 +72,9 @@ In questo comando è possibile specificare sia la lingua di origine (lingua **da
 
 ### <a name="configuration-files-in-the-datastore"></a>File di configurazione nell'archivio dati
 
-L'interfaccia della riga di comando del servizio Voce può eseguire la lettura e la scrittura di più impostazioni nei file di configurazione, che sono archiviati nell'archivio dati locale dell'interfaccia della riga di comando del servizio Voce e che sono denominati all'interno delle chiamate dell'interfaccia della riga di comando del servizio Voce usando il simbolo @. L'interfaccia della riga di comando del servizio Voce tenta di salvare una nuova impostazione in una nuova sottodirectory `./spx/data` creata nella directory di lavoro corrente.
-Quando si cerca un valore di configurazione, l'interfaccia della riga di comando del servizio Voce esegue la ricerca nella directory di lavoro corrente, quindi nel percorso `./spx/data`.
+Il comportamento dell'interfaccia della riga di comando di Voce può essere basato sulle impostazioni dei file di configurazione, a cui è possibile fare riferimento all'interno delle chiamate all'interfaccia della riga di comando di Voce tramite un simbolo @.
+L'interfaccia della riga di comando di Voce salva una nuova impostazione in una nuova sottodirectory `./spx/data` creata nella directory di lavoro corrente.
+Per la ricerca di un valore di configurazione, l'interfaccia della riga di comando di Voce cerca nella directory di lavoro corrente, quindi nell'archivio dati nella sottodirectory `./spx/data` e infine in altri archivi dati, tra cui un archivio dati finale di sola lettura disponibile nel binario `spx`.
 In precedenza, si usava l'archivio dati per salvare i valori `@key` e `@region`, quindi non era necessario specificarli con ogni chiamata della riga di comando.
 È anche possibile usare i file di configurazione per archiviare le proprie impostazioni di configurazione o usarli per passare URL o altri contenuti dinamici generati in fase di esecuzione.
 
@@ -181,4 +182,4 @@ spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.ts
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Completare le guide introduttive al [riconoscimento vocale](./quickstarts/speech-to-text-from-microphone.md) o alla [sintesi vocale](./quickstarts/text-to-speech.md) tramite il Software Development Kit (SDK).
+* Completare le guide di avvio rapido sul [riconoscimento vocale](get-started-speech-to-text.md?pivots=programmer-tool-spx) o sulla [sintesi vocale](get-started-text-to-speech.md?pivots=programmer-tool-spx) tramite l'interfaccia della riga di comando di Voce.

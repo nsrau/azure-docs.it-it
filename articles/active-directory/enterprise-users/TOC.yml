@@ -4,7 +4,7 @@
   items:
     - name: 'Utenti, gruppi, licenze e ruoli di Azure AD'
       href: directory-overview-user-model.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Aggiungere utenti ad Azure AD
       href: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
@@ -70,6 +70,8 @@
           href: ../fundamentals/active-directory-whatis.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
         - name: Gestire i nomi di dominio
           href: domains-manage.md
+        - name: Verificare i sottodomini come gestiti
+          href: domains-verify-custom-subdomain.md
         - name: Eliminare una directory
           href: directory-delete-howto.md
         - name: Più directory

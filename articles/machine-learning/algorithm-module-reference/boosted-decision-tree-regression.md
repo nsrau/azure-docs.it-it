@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 21cd1491da4374babaff8b5b4b451a3cce874368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 664943fc5535883b3df77b2795383e5c0586a71c
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898836"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375330"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Modulo di regressione dell'albero delle decisioni con boosting
 
@@ -52,39 +52,39 @@ Il metodo di boosting dei gradienti può essere usato anche per problemi di clas
 
 ## <a name="how-to-configure-boosted-decision-tree-regression"></a>Come configurare la regressione dell'albero delle decisioni con boosting
 
-1.  Aggiungere il modulo di **albero delle decisioni con boosting** alla pipeline. È possibile trovare questo modulo in **Machine Learning**, **Initialize**, nella categoria **regressione** . 
+1.  Aggiungere il modulo di **albero delle decisioni con boosting** alla pipeline. È possibile trovare questo modulo in **Machine Learning** , **Initialize** , nella categoria **regressione** . 
   
 2.  Specificare il modo in cui si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .  
   
-    -   **Singolo parametro**: selezionare questa opzione se si sa come si desidera configurare il modello e specificare un set di valori specifico come argomenti. 
+    -   **Singolo parametro** : selezionare questa opzione se si sa come si desidera configurare il modello e specificare un set di valori specifico come argomenti. 
      
-    -   **Intervallo parametri**: selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali.    
+    -   **Intervallo parametri** : selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali.    
    
   
-3. **Numero massimo di foglie per albero**: indica il numero massimo di nodi terminali (foglie) che possono essere creati in qualsiasi albero.  
+3. **Numero massimo di foglie per albero** : indica il numero massimo di nodi terminali (foglie) che possono essere creati in qualsiasi albero.  
 
     Aumentando questo valore, potenzialmente si aumentano le dimensioni dell'albero e si ottiene una maggiore precisione. Possono tuttavia verificarsi casi di overfitting e tempi di training più lunghi.  
 
-4. **Numero minimo di campioni per nodo foglia**: indica il numero minimo di case necessari per creare qualsiasi nodo terminale (foglia) in un albero.
+4. **Numero minimo di campioni per nodo foglia** : indica il numero minimo di case necessari per creare qualsiasi nodo terminale (foglia) in un albero.
 
     Aumentando questo valore, aumenta la soglia per la creazione di nuove regole. Ad esempio, con un valore predefinito di 1, anche un singolo caso può determinare la creazione di una nuova regola. Se si aumenta il valore a 5, i dati di training devono contenere almeno 5 casi che soddisfano le stesse condizioni.
 
-5. **Velocità di apprendimento**: digitare un numero compreso tra 0 e 1 che definisce le dimensioni del passaggio durante l'apprendimento. La velocità di apprendimento determina la velocità o la lentezza della convergenza degli studenti sulla soluzione ottimale. Se le dimensioni del passaggio sono troppo grandi, è possibile che si richieda la soluzione ottimale. Se le dimensioni del passaggio sono troppo ridotte, il training impiega più tempo per convergere sulla soluzione migliore.
+5. **Velocità di apprendimento** : digitare un numero compreso tra 0 e 1 che definisce le dimensioni del passaggio durante l'apprendimento. La velocità di apprendimento determina la velocità o la lentezza della convergenza degli studenti sulla soluzione ottimale. Se le dimensioni del passaggio sono troppo grandi, è possibile che si richieda la soluzione ottimale. Se le dimensioni del passaggio sono troppo ridotte, il training impiega più tempo per convergere sulla soluzione migliore.
 
-6. **Numero di alberi costruiti**: indica il numero totale di alberi delle decisioni da creare nell'insieme. Creando più alberi delle decisioni, è possibile ottenere una migliore copertura, ma aumenta il tempo di training.
+6. **Numero di alberi costruiti** : indica il numero totale di alberi delle decisioni da creare nell'insieme. Creando più alberi delle decisioni, è possibile ottenere una migliore copertura, ma aumenta il tempo di training.
 
-    Questo valore controlla anche il numero di alberi visualizzati durante la visualizzazione del modello sottoposto a training. Se si desidera visualizzare o stampare un singolo albero, è possibile impostare il valore su 1; Tuttavia, viene prodotto un solo albero (l'albero con il set di parametri iniziale) e non vengono eseguite altre iterazioni.
+    Se si imposta il valore su 1; Tuttavia, viene prodotto un solo albero (l'albero con il set di parametri iniziale) e non vengono eseguite altre iterazioni.
 
-7. Valore di **inizializzazione numero casuale**: digitare un numero intero non negativo facoltativo da utilizzare come valore di inizializzazione casuale. La specifica di un valore di inizializzazione garantisce la riproducibilità tra esecuzioni con gli stessi dati e parametri.
+7. Valore di **inizializzazione numero casuale** : digitare un numero intero non negativo facoltativo da utilizzare come valore di inizializzazione casuale. La specifica di un valore di inizializzazione garantisce la riproducibilità tra esecuzioni con gli stessi dati e parametri.
 
     Per impostazione predefinita, il valore di inizializzazione casuale è impostato su 0, il che significa che il valore di inizializzazione iniziale viene ottenuto dal clock di sistema.
   
 
 9. Eseguire il training del modello:
 
-    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
+    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro** , connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
   
-    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri**, connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
+    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri** , connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

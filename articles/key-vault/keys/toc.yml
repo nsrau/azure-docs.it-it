@@ -30,6 +30,10 @@
   items:
     - name: Esempi di codice di Key Vault
       href: /samples/browse/?expanded=azure&products=azure-key-vault
+- name: Concetti
+  items:
+    - name: 'Tipi di chiave, algoritmi e operazioni'
+      href: about-keys-details.md
 - name: Informazioni di riferimento
   items:
     - name: Azure PowerShell

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 7f9677bfd793e7ff21ff2c6c7e6760b630dc074b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76fd09b5e2c2540cbc1608558800e7897a6cf839
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898542"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375364"
 ---
 # <a name="decision-forest-regression-module"></a>Modulo di regressione della foresta delle decisioni
 
@@ -42,15 +42,15 @@ Per altre informazioni sul framework teorico per questo algoritmo e sulla relati
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Come configurare il modello di regressione della foresta delle decisioni
 
-1. Aggiungere il modulo di **regressione della foresta delle decisioni** alla pipeline. È possibile trovare il modulo nella finestra di progettazione in **Machine Learning**, **inizializzare il modello**e **regressione**.
+1. Aggiungere il modulo di **regressione della foresta delle decisioni** alla pipeline. È possibile trovare il modulo nella finestra di progettazione in **Machine Learning** , **inizializzare il modello** e **regressione**.
 
-2. Aprire le proprietà del modulo e, per il **metodo di ricampionamento**, scegliere il metodo usato per creare i singoli alberi.  È possibile scegliere tra l' **insaccamento** o la **replica**.
+2. Aprire le proprietà del modulo e, per il **metodo di ricampionamento** , scegliere il metodo usato per creare i singoli alberi.  È possibile scegliere tra l' **insaccamento** o la **replica**.
 
-    - **Insaccamento**: l'insaccamento viene chiamato anche *aggregazione bootstrap*. Ogni albero in una foresta delle decisioni di regressione restituisce una distribuzione gaussiana mediante la stima. L'aggregazione consiste nell'individuare un controllo gaussiana i cui primi due istanti corrispondono ai momenti della combinazione di distribuzioni di Gauss fornite combinando tutte le distribuzioni restituite da singoli alberi.
+    - **Insaccamento** : l'insaccamento viene chiamato anche *aggregazione bootstrap*. Ogni albero in una foresta delle decisioni di regressione restituisce una distribuzione gaussiana mediante la stima. L'aggregazione consiste nell'individuare un controllo gaussiana i cui primi due istanti corrispondono ai momenti della combinazione di distribuzioni di Gauss fornite combinando tutte le distribuzioni restituite da singoli alberi.
 
          Per ulteriori informazioni, vedere la voce Wikipedia per l' [aggregazione bootstrap](https://wikipedia.org/wiki/Bootstrap_aggregating).
 
-    - **Replicate**: nella replica ogni albero viene sottoposto a training esattamente sugli stessi dati di input. La determinazione del predicato Split utilizzato per ogni nodo della struttura ad albero rimane casuale e gli alberi saranno diversi.
+    - **Replicate** : nella replica ogni albero viene sottoposto a training esattamente sugli stessi dati di input. La determinazione del predicato Split utilizzato per ogni nodo della struttura ad albero rimane casuale e gli alberi saranno diversi.
 
          Per altre informazioni sul processo di training con l'opzione **replicate** , vedere [foreste delle decisioni per visione artificiale e analisi delle immagini mediche. Criminisi e J. Shotton. Springer 2013.](https://research.microsoft.com/projects/decisionforests/)..
 
@@ -60,29 +60,29 @@ Per altre informazioni sul framework teorico per questo algoritmo e sulla relati
 
       Se si conosce il modo in cui si desidera configurare il modello, è possibile definire come argomenti un set specifico di valori. Questi valori possono essere stati appresi dalle sperimentazioni o ricevuti come istruzioni.
 
-    - **Intervallo parametri**: selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali. 
+    - **Intervallo parametri** : selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali. 
 
 
 
-4. Per **numero di alberi delle decisioni**, indicare il numero totale di alberi delle decisioni da creare nell'insieme. Creando più alberi delle decisioni, è possibile ottenere una migliore copertura, ma saranno necessari tempi di training maggiori.
+4. Per **numero di alberi delle decisioni** , indicare il numero totale di alberi delle decisioni da creare nell'insieme. Creando più alberi delle decisioni, è possibile ottenere una migliore copertura, ma saranno necessari tempi di training maggiori.
 
     > [!TIP]
-    > Questo valore controlla anche il numero di alberi visualizzati durante la visualizzazione del modello sottoposto a training. Se si desidera visualizzare o stampare un singolo albero, è possibile impostare il valore su 1; Ciò significa tuttavia che verrà prodotto solo un albero (l'albero con il set di parametri iniziale) e non verranno eseguite altre iterazioni.
+    > Se si imposta il valore su 1; Ciò significa tuttavia che verrà prodotto solo un albero (l'albero con il set di parametri iniziale) e non verranno eseguite altre iterazioni.
 
-5. Per la **profondità massima degli alberi delle decisioni**, digitare un numero per limitare la profondità massima di qualsiasi albero delle decisioni. L'aumento della profondità dell'albero potrebbe aumentare la precisione, con il rischio però di overfitting e di aumento dei tempi di training.
+5. Per la **profondità massima degli alberi delle decisioni** , digitare un numero per limitare la profondità massima di qualsiasi albero delle decisioni. L'aumento della profondità dell'albero potrebbe aumentare la precisione, con il rischio però di overfitting e di aumento dei tempi di training.
 
-6. Per **numero di divisioni casuali per nodo**, digitare il numero di divisioni da usare durante la compilazione di ogni nodo dell'albero. Una *suddivisione* indica che le funzionalità di ogni livello dell'albero (nodo) sono divise in modo casuale.
+6. Per **numero di divisioni casuali per nodo** , digitare il numero di divisioni da usare durante la compilazione di ogni nodo dell'albero. Una *suddivisione* indica che le funzionalità di ogni livello dell'albero (nodo) sono divise in modo casuale.
 
-7. Per il **numero minimo di campioni per nodo foglia**, indicare il numero minimo di case necessari per creare qualsiasi nodo terminale (foglia) in un albero.
+7. Per il **numero minimo di campioni per nodo foglia** , indicare il numero minimo di case necessari per creare qualsiasi nodo terminale (foglia) in un albero.
 
      Aumentando questo valore, aumenta la soglia per la creazione di nuove regole. Ad esempio, con un valore predefinito di 1, anche un singolo caso può determinare la creazione di una nuova regola. Se si aumenta il valore a 5, i dati di training devono contenere almeno cinque casi che soddisfano le stesse condizioni.
 
 
 9. Eseguire il training del modello:
 
-    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
+    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro** , connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
   
-    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri**, connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
+    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri** , connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

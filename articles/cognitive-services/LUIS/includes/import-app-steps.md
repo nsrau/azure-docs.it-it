@@ -5,13 +5,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: include
-ms.date: 06/22/2020
-ms.openlocfilehash: aa0ba1de63cbcf1d9485c71b6bec7a29afb5140f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: b70a22e502de5441b5c91a8f33357375834f54e1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91545748"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130730"
 ---
 1. Nella pagina **My apps** (App personali) del [portale LUIS](https://www.luis.ai) selezionare **+ New app for conversation** (Nuova app di conversazione) e quindi **Import as JSON** (Importa come JSON). Trovare il file JSON salvato nel passaggio precedente. Non è necessario modificare il nome dell'app. Selezionare **Operazione completata**
 
@@ -20,6 +20,4 @@ ms.locfileid: "91545748"
     > [!TIP]
     > La clonazione in una nuova versione è una procedura consigliata prima di modificare l'app. Dopo aver cambiato la versione, esportarla come file con estensione json o lu e archiviare il file nel sistema di controllo del codice sorgente.
 
-1. Selezionare **Build** (Compila) e quindi **Intents** (Finalità) per visualizzare le finalità, ovvero i blocchi principali di un'app LUIS.
-
-    ![Passare dalla pagina Versions (Versioni) alla pagina Intents (Finalità).](../media/tutorial-machine-learned-entity/new-version-imported-app.png)
+1. Selezionare **Build** (Compila) nella parte superiore dello schermo, quindi fare clic su **Intents** (Finalità) nel menu di spostamento sinistro. Verranno visualizzate e finalità dell'app, che rappresentano i principali blocchi costitutivi di un'app LUIS.

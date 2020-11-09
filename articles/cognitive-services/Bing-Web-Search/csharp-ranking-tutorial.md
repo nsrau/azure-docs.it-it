@@ -12,14 +12,19 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8bfd7b6e5c9a2a7e3d9ed750e544036f3874271f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9131dbff9b732ecfc7f6edb62b42959abcc17da8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933223"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078680"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Compilare un client di ricerca app console in C#
+
+> [!WARNING]
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Questa esercitazione mostra come compilare una semplice app della console .NET Core che consenta agli utenti di eseguire query sull'API Ricerca Web Bing e di visualizzare i risultati classificati.
 
@@ -49,7 +54,7 @@ Assegnare all'applicazione il nome **MyConsoleSearchApp** e fare clic su **OK**.
 JSON.net consente di lavorare con le risposte JSON restituite dall'API. Aggiungere il pacchetto NuGet al progetto:
 
 - In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
-- Nella scheda **Sfoglia**, cercare `Newtonsoft.Json`. Selezionare la versione più recente e fare clic su **Installa**.
+- Nella scheda **Sfoglia** , cercare `Newtonsoft.Json`. Selezionare la versione più recente e fare clic su **Installa**.
 - Fare clic su **OK** nella finestra **Rivedi modifiche**.
 - Chiudere la scheda di Visual Studio denominata **NuGet: MyConsoleSearchApp**.
 
@@ -58,12 +63,12 @@ JSON.net consente di lavorare con le risposte JSON restituite dall'API. Aggiunge
 Questa esercitazione si basa sull'assembly `System.Web`. Aggiungere un riferimento a questo assembly per il progetto:
 
 - In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Riferimenti** e scegliere **Aggiungi riferimento**
-- Selezionare **Assembly > Framework**, quindi scorrere verso il basso e controllare **System.Web**
+- Selezionare **Assembly > Framework** , quindi scorrere verso il basso e controllare **System.Web**
 - Selezionare **OK**.
 
 ## <a name="add-some-necessary-using-statements"></a>Aggiungere alcune istruzioni per l'uso necessarie
 
-Il codice in questa esercitazione richiede altre tre istruzioni per l'uso. Aggiungere queste istruzioni sotto le istruzioni `using` esistenti nella parte superiore di **Program.cs**:
+Il codice in questa esercitazione richiede altre tre istruzioni per l'uso. Aggiungere queste istruzioni sotto le istruzioni `using` esistenti nella parte superiore di **Program.cs** :
 
 ```csharp
 using System.Web;

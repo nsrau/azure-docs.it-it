@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: b6a914df9ed277625d3706465fe335e128aeced1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b5b171941a3da42d2f5b385303c51285ff793599
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545158"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376775"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parametri del server nel database di Azure per MySQL
 
@@ -31,7 +31,7 @@ Vedere le sezioni seguenti per altre informazioni sui limiti dei diversi paramet
 
 ### <a name="thread-pools"></a>Pool di thread
 
-MySQL assegna tradizionalmente un thread per ogni connessione client. Con l'aumentare del numero di utenti simultanei, si verifica un calo delle prestazioni corrispondente. Molti thread attivi possono influire significativamente sulle prestazioni a causa di un aumento del cambio del contesto, della contesa dei thread e della località non valida per le cache della CPU.
+MySQL assegna tradizionalmente un thread per ogni connessione client. Con l'aumentare del numero di utenti simultanei, esiste un calo di forma corrispondente. Molti thread attivi possono influire significativamente sulle prestazioni a causa di un aumento del cambio del contesto, della contesa dei thread e della località non valida per le cache della CPU.
 
 I pool di thread, una funzionalità lato server e diversi dal pool di connessioni, ottimizzano le prestazioni introducendo un pool dinamico di thread di lavoro che possono essere usati per limitare il numero di thread attivi in esecuzione sul server e ridurre al minimo la varianza dei thread. Ciò consente di garantire che un aumento delle connessioni non provochi l'esaurimento delle risorse del server o l'arresto anomalo del sistema con un errore di memoria insufficiente. I pool di thread sono più efficienti per query brevi e carichi di lavoro con utilizzo intensivo della CPU, ad esempio carichi di lavoro OLTP.
 
@@ -57,9 +57,9 @@ Per migliorare le prestazioni delle query brevi nel pool di thread, database di 
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-In database di Azure per MySQL i log binari sono sempre abilitati, ovvero `log_bin` è impostato su on. Se si vogliono usare i trigger, verrà generato un errore simile a quello in *cui non si dispone del privilegio Super e la registrazione binaria è abilitata (è possibile usare la variabile meno sicura `log_bin_trust_function_creators` )* . 
+In database di Azure per MySQL i log binari sono sempre abilitati, ovvero `log_bin` è impostato su on. Se si vogliono usare i trigger, verrà generato un errore simile a quello in *cui non si dispone del privilegio Super e la registrazione binaria è abilitata (è possibile usare la variabile meno sicura `log_bin_trust_function_creators` )*. 
 
-Il formato di registrazione binario è sempre **Row** e tutte le connessioni al server utilizzano **sempre** la registrazione binaria basata su righe. Con la registrazione binaria basata su righe, non esistono problemi di sicurezza e la registrazione binaria non può essere interrotta, quindi è possibile impostare in modo sicuro [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) su **true** .
+Il formato di registrazione binario è sempre **Row** e tutte le connessioni al server utilizzano **sempre** la registrazione binaria basata su righe. Con la registrazione binaria basata su righe, non esistono problemi di sicurezza e la registrazione binaria non può essere interrotta, quindi è possibile impostare in modo sicuro [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) su **true**.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -108,7 +108,7 @@ Per altre informazioni su questo parametro, esaminare la [documentazione di MySQ
 
 MySQL archivia la tabella InnoDB in spazi di tabella diversi in base alla configurazione specificata durante la creazione della tabella. Lo [spazio di tabella del sistema](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) è l'area di archiviazione per il dizionario dei dati InnoDB. Uno [spazio di tabella di un file per tabella](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contiene dati e indici per una sola tabella InnoDB e viene archiviato nel file system del file di dati in uso. Questo comportamento è controllato dal parametro del server `innodb_file_per_table`. Impostando `innodb_file_per_table` su `OFF` InnoDB crea tabelle nello spazio di tabella del sistema. Altrimenti, InnoDB crea tabelle in spazi di tabella di un file per tabella.
 
-Database di Azure per MySQL supporta al massimo **1 TB** in un unico file di dati. Se le dimensioni del database sono maggiori di 1 TB, è necessario creare la tabella nello spazio di tabella [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table). Se si dispone di una singola tabella di dimensioni superiori a 1 TB, è necessario usare la tabella di partizione.
+Il database di Azure per MySQL supporta al massimo **4 TB** in un unico file di dati. Se le dimensioni del database sono maggiori di 4 TB, è necessario creare la tabella in [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tabella. Se le dimensioni di una singola tabella sono maggiori di 4 TB, è necessario utilizzare la tabella di partizione.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
@@ -215,7 +215,7 @@ Per altre informazioni su questo parametro, esaminare la [documentazione di MySQ
 
 ### <a name="innodb_strict_mode"></a>innodb_strict_mode
 
-Se viene visualizzato un errore simile a "dimensioni di riga troppo grandi (> 8126)", potrebbe essere necessario disattivare il parametro **innodb_strict_mode** . Il parametro Server **innodb_strict_mode** non può essere modificato globalmente a livello di server perché le dimensioni dei dati delle righe sono maggiori di 8K, i dati verranno troncati senza errori che comportano una potenziale perdita di dati. Si consiglia di modificare lo schema in modo che corrisponda al limite delle dimensioni della pagina. 
+Se viene visualizzato un errore simile a "dimensioni di riga troppo grandi (> 8126)", potrebbe essere necessario disattivare il parametro **innodb_strict_mode**. Il parametro Server **innodb_strict_mode** non può essere modificato globalmente a livello di server perché le dimensioni dei dati delle righe sono maggiori di 8K, i dati verranno troncati senza errori che comportano una potenziale perdita di dati. Si consiglia di modificare lo schema in modo che corrisponda al limite delle dimensioni della pagina. 
 
 Questo parametro può essere impostato a livello di sessione usando `init_connect` . Per impostare **innodb_strict_mode** a livello di sessione, fare riferimento a [parametro impostazione non elencato](./howto-server-parameters.md#setting-parameters-not-listed).
 

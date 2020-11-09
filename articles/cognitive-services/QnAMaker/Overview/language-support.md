@@ -7,44 +7,76 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 09/24/2019
-ms.openlocfilehash: c990b6980dea871679b0b301e293e4fb94748db7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2019
+ms.openlocfilehash: dc910c01c401468a3dae392a6318344bee25efb7
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650892"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375641"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Supporto delle lingue per una risorsa QnA Maker e Knowledge base
+
+Questo articolo descrive le opzioni di supporto del linguaggio per le risorse QnA Maker e le Knowledge base. 
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
 
 La lingua per il servizio viene selezionata quando si crea la prima Knowledge base nella risorsa. Tutte le Knowledge base aggiuntive nella risorsa devono essere nella stessa lingua. 
 
 La lingua determina la pertinenza dei risultati QnA Maker fornisce in risposta alle query degli utenti. La risorsa QnA Maker e tutte le Knowledge base all'interno di tale risorsa supportano una sola lingua. Il linguaggio singolo è necessario per fornire i risultati ottimali per la risposta a una query.
 
+# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+
+In QnA Maker gestiti è possibile scegliere di rendere le impostazioni della lingua a livello di singolo Knowledge base. Questa impostazione può essere abilitata solo con la Knowledge base del servizio. Una volta impostato, non è possibile modificare le impostazioni della lingua per il servizio. 
+
+Se si seleziona Impostazioni lingua come specifiche della Knowledge base, è possibile creare le basi di conoscenza di lingue diverse nel servizio stesso. 
+
+---
+
 ## <a name="single-language-per-resource"></a>Singola lingua per risorsa
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
 
 Considerare quanto segue:
 
 * Un servizio QnA Maker e tutte le relative Knowledge base supportano solo una lingua.
+* La lingua viene impostata in modo esplicito al momento della creazione della prima Knowledge base del servizio.
+* Il linguaggio è determinato dai file e dagli URL aggiunti al momento della creazione della Knowledge base.
+* Non è possibile modificare la lingua per altre Knowledge base nel servizio.
+* Il linguaggio viene usato dal servizio ricerca cognitiva (Ranker #1) e dal servizio di QnA Maker (Ranker #2) per generare la risposta migliore a una query.
+
+# <a name="qnamaker-managed-preview"></a>[Gestito da QnAMaker (anteprima)](#tab/v2)
+![Impostazione della lingua in QnA Maker gestita](../media/language-support/language-setting-managed.png)
+
+Se **non si seleziona la casella di controllo per abilitare l'impostazione della lingua per la Knowledge base** , tenere presente quanto segue: 
+* Un servizio QnA Maker e tutte le relative Knowledge base supporteranno solo una lingua.
 * La lingua viene impostata in modo esplicito al momento della creazione della prima Knowledge base del servizio
 * Il linguaggio è determinato dai file e dagli URL aggiunti quando viene creata la Knowledge base
 * Non è possibile modificare la lingua per altre Knowledge base nel servizio
 * Il linguaggio viene usato dal servizio ricerca cognitiva (Ranker #1) e dal servizio QnA Maker (Ranker #2) per generare la risposta migliore a una query
 
-## <a name="supporting-multiple-languages"></a>Supporto di più lingue
+---
+
+## <a name="supporting-multiple-languages-in-one-qna-maker-resource"></a>Supporto di più lingue in una risorsa QnA Maker
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+Questa funzionalità non è supportata nella versione stabile attualmente disponibile a livello generale (GA). Consultare QnA Maker Managed per testare questa funzionalità. 
+
+# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+* Quando si crea la prima Knowledge base nel servizio, è possibile scegliere di abilitare l'impostazione della lingua per ogni Knowledge base. Selezionare la casella di controllo per creare Knowledge base appartenenti a lingue diverse all'interno di un servizio.
+* Non è possibile modificare l'opzione di impostazione della lingua per il servizio, una volta creata la prima Knowledge base.
+* Se si abilitano impostazioni della lingua specifiche per ogni Knowledge base, anziché disporre di un indice di test per il servizio, sarà presente un indice di test per ogni Knowledge base. 
+
+![Impostazione della lingua in QnA Maker gestita](../media/language-support/language-setting-managed.png)
+
+---
+
+## <a name="supporting-multiple-languages-in-one-knowledge-base"></a>Supporto di più lingue in una Knowledge base
 
 Se è necessario supportare un sistema Knowledge base, che include diverse lingue, è possibile:
 
 * Utilizzare il [servizio di conversione](../../translator/translator-info-overview.md) per tradurre una domanda in una sola lingua prima di inviare la domanda alla Knowledge base. In questo modo è possibile concentrarsi sulla qualità di una singola lingua e sulla qualità delle domande e risposte alternative.
 * Creare una risorsa di QnA Maker e una Knowledge base all'interno di tale risorsa per ogni lingua. In questo modo è possibile gestire le domande alternative separate e il testo di risposta più sfumato per ogni lingua. In questo modo si ottiene una maggiore flessibilità, ma è necessario un costo di manutenzione molto più elevato quando le domande o le risposte cambiano in tutte le lingue.
-
-Esaminare le [lingue supportate](../overview/language-support.md) per QnA Maker.
-
-### <a name="support-each-language-with-a-qna-maker-resource"></a>Supportare ogni lingua con una risorsa QnA Maker
-
-* Creare una risorsa QnA Maker per ogni lingua
-* Aggiungi solo file e URL per tale lingua
-* Usare una convenzione di denominazione per la risorsa per identificare la lingua. Un esempio è `qna-maker-fr` relativo a tutte le Knowledge base per i documenti in francese
 
 
 ## <a name="languages-supported"></a>Lingue supportate

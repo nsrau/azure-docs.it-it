@@ -1,16 +1,14 @@
 ---
 title: Eseguire una query sulla Knowledge base-QnA Maker
 description: È necessario pubblicare una Knowledge base. Una volta pubblicato, la Knowledge base viene sottoposta a query nell'endpoint di stima di runtime tramite l'API generateAnswer.
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.openlocfilehash: e903714aab35de40c1179045505e1520c65b3ebc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: e8dd056a7b6357b8342d3059e17baa88db92b404
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776919"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376713"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Eseguire una query sulla Knowledge base per le risposte
 
@@ -18,9 +16,11 @@ ms.locfileid: "91776919"
 
 ## <a name="how-qna-maker-processes-a-user-query-to-select-the-best-answer"></a>Come QnA Maker elabora una query utente per selezionare la risposta migliore
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+
 La Knowledge base con formazione e [pubblicazione](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QnA Maker riceve una query utente, da un bot o da un'altra applicazione client, nell' [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Il diagramma seguente illustra il processo di ricezione della query utente.
 
-![Processo del modello di classificazione per una query utente](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
+![Processo del modello di classificazione per una query utente](../media/qnamaker-concepts-knowledgebase/ranker-v1.png)
 
 ### <a name="ranker-process"></a>Processo di classificazione
 
@@ -38,6 +38,30 @@ Il processo è illustrato nella tabella seguente.
 |||
 
 Le funzionalità usate includono ma non sono limitate alla semantica a livello di parola, alla priorità a livello di termine in un corpus e ai modelli semantici appresi in modo approfondito per determinare la somiglianza e la pertinenza tra due stringhe di testo.
+
+# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+
+La Knowledge base con formazione e [pubblicazione](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) QnA Maker riceve una query utente, da un bot o da un'altra applicazione client, nell' [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). Il diagramma seguente illustra il processo di ricezione della query utente.
+
+![Processo del modello di classificazione per un'anteprima della query utente](../media/qnamaker-concepts-knowledgebase/ranker-v2.png)
+
+### <a name="ranker-process"></a>Processo di classificazione
+
+Il processo è illustrato nella tabella seguente.
+
+|Passaggio|Scopo|
+|--|--|
+|1|L'applicazione client invia la query utente all' [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
+|2|QnA Maker pre-elabora la query utente con rilevamento della lingua, ortografia e Word breaker.|
+|3|Questa pre-elaborazione viene eseguita per modificare la query utente per ottenere risultati di ricerca migliori.|
+|4|Questa query modificata viene inviata a un indice di ricerca cognitiva di Azure, che riceve il `top` numero di risultati. Se la risposta corretta non è presente in questi risultati, aumentare leggermente il valore di `top` . In genere, il valore 10 per `top` funziona nel 90% delle query.|
+|5|QnA Maker usa il modello basato su trasformatori all'avanguardia per determinare la somiglianza tra la query utente e i risultati QnA candidati recuperati da Azure ricerca cognitiva. Il modello basato su Transformer è un modello multilingue di apprendimento avanzato, che funziona orizzontalmente per tutte le lingue per determinare i punteggi di confidenza e il nuovo ordine di rango.|
+|6|I nuovi risultati vengono restituiti all'applicazione client in ordine di rango.|
+|||
+
+Il Ranker opera su tutte le domande e risposte alternative per trovare le coppie QnA più corrispondenti per la query utente. Gli utenti dispongono della flessibilità necessaria per configurare il Ranker in modo da interrogare solo il rango. 
+
+---
 
 ## <a name="http-request-and-response-with-endpoint"></a>Richiesta e risposta HTTP con endpoint
 Quando si pubblica la Knowledge base, il servizio crea un endpoint HTTP basato su REST che può essere integrato nell'applicazione, in genere un bot di chat.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: a765bf547924cbba1c4cff36a97df4ae88df1787
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: d5467537e105225541ffc501d345fd2fa57e0803
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495939"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324557"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Esercitazione: Creare una soluzione end-to-end
 
@@ -48,7 +48,7 @@ Per completare lo scenario, si dovrà interagire con i componenti dell'app di es
 
 Ecco i componenti implementati dall'app di esempio *AdtSampleApp* dello scenario edilizio:
 * Autenticazione del dispositivo 
-* Esempi di utilizzo di [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) (disponibili in *CommandLoop.cs* )
+* Esempi di utilizzo di [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) (disponibili in *CommandLoop.cs* )
 * Interfaccia console per chiamare l'API di Gemelli digitali di Azure
 * *SampleClientApp* : una soluzione di esempio di Gemelli digitali di Azure
 * *SampleFunctionsApp* : un'app di Funzioni di Azure che aggiorna il grafo di Gemelli digitali di Azure come risultato dei dati di telemetria provenienti da eventi dell'hub IoT e di Gemelli digitali di Azure
@@ -59,11 +59,11 @@ Il progetto di esempio contiene anche un componente di autorizzazione interattiv
 
 Prima di tutto, si userà la soluzione *AdtSampleApp* dal progetto di esempio per creare il componente Gemelli digitali di Azure dello scenario end-to-end ( **sezione A** ):
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="Estratto del grafo dello scenario edilizio completo che evidenzia la sezione A, ovvero l'istanza di Gemelli digitali di Azure":::
 
 Nella finestra di Visual Studio in cui è aperto il progetto _**AdtE2ESample**_ premere questo pulsante sulla barra degli strumenti per eseguirlo:
 
-:::image type="content" source="media/tutorial-end-to-end/start-button-sample.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/start-button-sample.png" alt-text="Pulsante di avvio di Visual Studio (progetto SampleClientApp)":::
 
 Viene aperta una finestra della console, in cui viene eseguita l'autenticazione e si attende un comando. In questa console eseguire il comando successivo per creare un'istanza della soluzione Gemelli digitali di Azure di esempio.
 
@@ -74,11 +74,11 @@ Viene aperta una finestra della console, in cui viene eseguita l'autenticazione 
 SetupBuildingScenario
 ```
 
-L'output di questo comando è costituito da una serie di messaggi di conferma, mentre vengono creati e connessi tre [**gemelli digitali**](concepts-twins-graph.md) nell'istanza di Gemelli digitali di Azure, ovvero un piano denominato *floor1* , una stanza denominata *room21* e un sensore di temperatura denominato *thermostat67* . Questi gemelli digitali rappresentano le entità che esisterebbero in un ambiente reale.
+L'output di questo comando è costituito da una serie di messaggi di conferma, mentre vengono creati e connessi tre [**gemelli digitali**](concepts-twins-graph.md) nell'istanza di Gemelli digitali di Azure, ovvero un piano denominato *floor1* , una stanza denominata *room21* e un sensore di temperatura denominato *thermostat67*. Questi gemelli digitali rappresentano le entità che esisterebbero in un ambiente reale.
 
 Sono connessi tramite relazioni nel [**grafo dei gemelli**](concepts-twins-graph.md) seguente. Il grafo dei gemelli rappresenta l'ambiente nel suo complesso, incluso il modo in cui le entità interagiscono e sono correlate tra loro.
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-graph.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)" border="false":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-graph.png" alt-text="Grafo che mostra che floor1 contiene room21 e che room21 contiene thermostat67" border="false":::
 
 È possibile verificare che i gemelli sono stati creati con il comando seguente, che esegue una query sull'istanza di Gemelli digitali di Azure connessa per recuperare tutti i gemelli digitali che contiene:
 
@@ -87,7 +87,7 @@ Query
 ```
 
 >[!TIP]
-> Questo metodo semplificato viene fornito come parte del progetto _**AdtE2ESample**_ . All'esterno del contesto di questo codice di esempio è possibile eseguire query per tutti i gemelli nell'istanza in qualsiasi momento, usando le [API Query](/rest/api/digital-twins/dataplane/query) o i [comandi dell'interfaccia della riga di comando](how-to-use-cli.md).
+> Questo metodo semplificato viene fornito come parte del progetto _**AdtE2ESample**_. All'esterno del contesto di questo codice di esempio è possibile eseguire query per tutti i gemelli nell'istanza in qualsiasi momento, usando le [API Query](/rest/api/digital-twins/dataplane/query) o i [comandi dell'interfaccia della riga di comando](how-to-use-cli.md).
 >
 > Di seguito è disponibile il corpo completo della query per ottenere tutti i gemelli digitali nell'istanza:
 > 
@@ -106,37 +106,37 @@ Il passaggio successivo prevede la configurazione di un'[app di Funzioni di Azur
 
 In questa sezione si pubblicherà l'app per le funzioni scritta in precedenza e si verificherà che sia in grado di accedere a Gemelli digitali di Azure assegnandole un'identità di Azure Active Directory (Azure AD). Completando questi passaggi sarà possibile usare le funzioni all'interno dell'app per le funzioni nel resto dell'esercitazione. 
 
-Tornare nella finestra di Visual Studio in cui è aperto il progetto _**AdtE2ESample**_ . L'app per le funzioni si trova nel file di progetto _**SampleFunctionsApp**_ . È possibile visualizzarlo nel riquadro *Esplora soluzioni* .
+Tornare nella finestra di Visual Studio in cui è aperto il progetto _**AdtE2ESample**_. L'app per le funzioni si trova nel file di progetto _**SampleFunctionsApp**_. È possibile visualizzarlo nel riquadro *Esplora soluzioni*.
 
 ### <a name="update-dependencies"></a>Aggiornare le dipendenze
 
 Prima di pubblicare l'app, è consigliabile assicurarsi che le dipendenze siano aggiornate, assicurandosi di avere la versione più recente di tutti i pacchetti inclusi.
 
-Nel riquadro *Esplora soluzioni* espandere *SampleFunctionsApp > Dipendenze* . Fare clic con il pulsante destro del mouse su *Pacchetti* e scegliere *Gestisci pacchetti NuGet...* .
+Nel riquadro *Esplora soluzioni* espandere *SampleFunctionsApp > Dipendenze*. Fare clic con il pulsante destro del mouse su *Pacchetti* e scegliere *Gestisci pacchetti NuGet...* .
 
-:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)" border="false":::
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Gestire i pacchetti NuGet per il progetto SampleFunctionsApp" border="false":::
 
-Verrà aperto Gestione pacchetti NuGet. Selezionare la scheda *Aggiornamenti* e se sono presenti pacchetti da aggiornare, selezionare la casella accanto a *Seleziona tutti i pacchetti* . Fare quindi clic su *Aggiorna* .
+Verrà aperto Gestione pacchetti NuGet. Selezionare la scheda *Aggiornamenti* e se sono presenti pacchetti da aggiornare, selezionare la casella accanto a *Seleziona tutti i pacchetti*. Fare quindi clic su *Aggiorna*.
 
-:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Visual Studio: Selezione per aggiornare tutti i pacchetti in Gestione pacchetti NuGet":::
 
 ### <a name="publish-the-app"></a>Pubblicare l'app
 
-Tornare nella finestra di Visual Studio in cui è aperto il progetto _**AdtE2ESample**_ . Nel riquadro *Esplora soluzioni* fare clic con il pulsante destro del mouse per selezionare il file di progetto _**SampleFunctionsApp**_ e scegliere **Pubblica** .
+Tornare nella finestra di Visual Studio in cui è aperto il progetto _**AdtE2ESample**_. Nel riquadro *Esplora soluzioni* fare clic con il pulsante destro del mouse per selezionare il file di progetto _**SampleFunctionsApp**_ e scegliere **Pubblica**.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Visual Studio: pubblicare il progetto":::
 
-Nella pagina *Pubblica* che segue lasciare la selezione di destinazione predefinita, **Azure** , e premere *Avanti* . 
+Nella pagina *Pubblica* che segue lasciare la selezione di destinazione predefinita, **Azure** , e premere *Avanti*. 
 
-Per una destinazione specifica, scegliere **App per le funzioni di Azure (Windows)** e premere *Avanti* .
+Per una destinazione specifica, scegliere **App per le funzioni di Azure (Windows)** e premere *Avanti*.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: destinazione specifica":::
 
 Nella pagina *Istanza di Funzioni* scegliere la propria sottoscrizione. Si dovrebbe popolare una finestra con i *gruppi di risorse* della sottoscrizione.
 
-Selezionare il gruppo di risorse dell'istanza e quindi *+ Crea una nuova applicazione di Funzioni di Azure* .
+Selezionare il gruppo di risorse dell'istanza e quindi *+ Crea una nuova applicazione di Funzioni di Azure*.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: Istanza di Funzioni (prima dell'app per le funzioni)":::
 
 Nella finestra *App per le funzioni (Windows) - Crea nuova* compilare i campi come segue:
 * **Nome** è il nome del piano a consumo che verrà usato da Azure per ospitare l'app di Funzioni di Azure. Diventerà anche il nome dell'app per le funzioni che contiene la funzione effettiva. È possibile scegliere un valore univoco o lasciare il suggerimento predefinito.
@@ -144,23 +144,23 @@ Nella finestra *App per le funzioni (Windows) - Crea nuova* compilare i campi co
 * Assicurarsi che **Gruppo di risorse** corrisponda al gruppo di risorse da usare
 * Lasciare **Consumo** per *Tipo di piano*
 * In **Località** selezionare la località che corrisponde al gruppo di risorse
-* Creare una nuova risorsa **Archiviazione di Azure** usando il collegamento *Nuovo* . Impostare la località che corrisponde al gruppo di risorse, usare gli altri valori predefiniti e premere "OK".
+* Creare una nuova risorsa **Archiviazione di Azure** usando il collegamento *Nuovo*. Impostare la località che corrisponde al gruppo di risorse, usare gli altri valori predefiniti e premere "OK".
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: App per le funzioni (Windows) - Crea nuova":::
 
 Scegliere quindi **Create** (Crea).
 
-Verrà visualizzata di nuovo la pagina *Istanza di Funzioni* , in cui è ora visibile la nuova app per le funzioni sotto il gruppo di risorse. Premere *Fine* .
+Verrà visualizzata di nuovo la pagina *Istanza di Funzioni* , in cui è ora visibile la nuova app per le funzioni sotto il gruppo di risorse. Premere *Fine*.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: Istanza di Funzioni (dopo l'app per le funzioni)":::
 
-Nel riquadro *Pubblica* visualizzato di nuovo nella finestra principale di Visual Studio verificare che tutte le informazioni siano corrette e selezionare **Pubblica** .
+Nel riquadro *Pubblica* visualizzato di nuovo nella finestra principale di Visual Studio verificare che tutte le informazioni siano corrette e selezionare **Pubblica**.
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: pubblicazione":::
 
 > [!NOTE]
-> Se viene visualizzato un popup simile al seguente: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)" border="false":::
-> Selezionare **Tentativo di recuperare le credenziali da Azure** e quindi **Salva** .
+> Se viene visualizzato un popup simile al seguente: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: credenziali di pubblicazione" border="false":::
+> Selezionare **Tentativo di recuperare le credenziali da Azure** e quindi **Salva**.
 >
 > Se viene visualizzato un avviso per *aggiornare la versione di Funzioni in Azure* o che indica che *la versione del runtime di Funzioni non corrisponde alla versione in esecuzione in Azure* :
 >
@@ -200,7 +200,7 @@ In questo passaggio un termostato simulato registrato nell'[hub IoT](../iot-hub/
 
 Questo evento si verifica in questa parte dello scenario end-to-end ( **freccia B** ):
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-b.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-b.png" alt-text="Estratto della rappresentazione grafica dello scenario edilizio completo che evidenzia la freccia B, gli elementi prima di Gemelli digitali di Azure: il dispositivo, l'hub IoT e la prima funzione di Azure":::
 
 Ecco le azioni che verranno completate per configurare la connessione del dispositivo:
 1. Creare un hub IoT che gestirà il dispositivo simulato
@@ -229,28 +229,28 @@ Connettere quindi l'hub IoT alla funzione di Azure *ProcessHubToDTEvents* nell'a
 
 A tale scopo, creare una **sottoscrizione di eventi** nell'hub IoT, con la funzione di Azure come endpoint. In questo modo si "sottoscrive" la funzione agli eventi che si verificano nell'hub IoT.
 
-Nel [portale di Azure](https://portal.azure.com/) passare all'hub IoT appena creato cercandone il nome nella barra di ricerca in alto. Scegliere *Eventi* dal menu dell'hub e selezionare *+ Sottoscrizione di eventi* .
+Nel [portale di Azure](https://portal.azure.com/) passare all'hub IoT appena creato cercandone il nome nella barra di ricerca in alto. Scegliere *Eventi* dal menu dell'hub e selezionare *+ Sottoscrizione di eventi*.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-1.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/event-subscription-1.png" alt-text="Portale di Azure: sottoscrizione di eventi dell'hub IoT":::
 
-Verrà visualizzata la pagina *Crea sottoscrizione di eventi* .
+Verrà visualizzata la pagina *Crea sottoscrizione di eventi*.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Portale di Azure: Crea sottoscrizione di eventi":::
 
 Compilare i campi come indicato di seguito (i campi compilati per impostazione predefinita non sono indicati):
 * *DETTAGLI SOTTOSCRIZIONE EVENTO* > **Nome** : assegnare un nome alla sottoscrizione di eventi.
 * *DETTAGLI ARGOMENTO* > **Nome dell'argomento del sistema** : Specificare un nome da usare per l'argomento di sistema. 
 * *TIPI DI EVENTO* > **Filtra per tipi di evento** : selezionare *Messaggi di telemetria del dispositivo* nelle opzioni del menu.
 * *DETTAGLI ENDPOINT* > **Tipo di endpoint** : selezionare *Funzione di Azure* nelle opzioni del menu.
-* *DETTAGLI ENDPOINT* > **Endpoint** : scegliere il collegamento *Seleziona un endpoint* . Verrà aperta la finestra *Seleziona funzione di Azure* : :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)" border="false":::
+* *DETTAGLI ENDPOINT* > **Endpoint** : scegliere il collegamento *Seleziona un endpoint*. Verrà aperta la finestra *Seleziona funzione di Azure* : :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Sottoscrizione di eventi nel portale di Azure: Seleziona funzione di Azure" border="false":::
     - Compilare i campi **Sottoscrizione** , **Gruppo di risorse** , **App per le funzioni** e **Funzione** ( *ProcessHubToDTEvents* ). È possibile che alcuni di questi campi vengano prepopolati dopo aver selezionato la sottoscrizione.
-    - Premere **Confermare la selezione** .
+    - Premere **Confermare la selezione**.
 
-Di nuovo nella pagina *Crea sottoscrizione di eventi* premere **Crea** .
+Di nuovo nella pagina *Crea sottoscrizione di eventi* premere **Crea**.
 
 ### <a name="register-the-simulated-device-with-iot-hub"></a>Registrare il dispositivo simulato con l'hub IoT 
 
-In questa sezione viene creata una rappresentazione del dispositivo nell'hub IoT con l'ID *thermostat67* . Il dispositivo simulato si connetterà a questa rappresentazione e in questo modo gli eventi di telemetria verranno trasferiti dal dispositivo all'hub IoT, in cui la funzione di Azure sottoscritta nel passaggio precedente resta in ascolto, pronta a prelevare gli eventi e a continuare l'elaborazione.
+In questa sezione viene creata una rappresentazione del dispositivo nell'hub IoT con l'ID *thermostat67*. Il dispositivo simulato si connetterà a questa rappresentazione e in questo modo gli eventi di telemetria verranno trasferiti dal dispositivo all'hub IoT, in cui la funzione di Azure sottoscritta nel passaggio precedente resta in ascolto, pronta a prelevare gli eventi e a continuare l'elaborazione.
 
 In Azure Cloud Shell creare un dispositivo nell'hub IoT con il comando seguente:
 
@@ -278,10 +278,10 @@ az iot hub device-identity connection-string show --device-id thermostat67 --hub
 
 Questi valori verranno inseriti nel codice del simulatore del dispositivo nel progetto locale per connettere il simulatore a questo hub IoT e al dispositivo hub IoT.
 
-In una nuova finestra di Visual Studio, nella cartella della soluzione scaricata, aprire _DeviceSimulator > **DeviceSimulator.sln**_ .
+In una nuova finestra di Visual Studio, nella cartella della soluzione scaricata, aprire _DeviceSimulator > **DeviceSimulator.sln**_.
 
 >[!NOTE]
-> A questo punto dovrebbero essere aperte due finestre di Visual Studio, una con _**DeviceSimulator.sln**_ e una precedente con _**AdtE2ESample.sln**_ .
+> A questo punto dovrebbero essere aperte due finestre di Visual Studio, una con _**DeviceSimulator.sln**_ e una precedente con _**AdtE2ESample.sln**_.
 
 Nel riquadro *Esplora soluzioni* di questa nuova finestra di Visual Studio selezionare _DeviceSimulator/ **AzureIoTHub.cs**_ per aprirlo nella finestra di modifica. Sostituire i valori della stringa di connessione seguente con quelli raccolti prima:
 
@@ -294,17 +294,17 @@ Salvare il file.
 
 A questo punto, per visualizzare i risultati della simulazione dei dati configurata, eseguire il progetto **DeviceSimulator** premendo questo pulsante sulla barra degli strumenti:
 
-:::image type="content" source="media/tutorial-end-to-end/start-button-simulator.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/start-button-simulator.png" alt-text="Pulsante di avvio di Visual Studio (progetto DeviceSimulator)":::
 
 Verrà aperta una finestra della console che visualizza i messaggi di telemetria simulati sulle temperature. Questi messaggi vengono inviati all'hub IoT, dove vengono quindi prelevati ed elaborati dalla funzione di Azure.
 
-:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Output della console del simulatore del dispositivo che mostra l'invio di dati di telemetria sulle temperature":::
 
 Non è necessario eseguire altre operazioni in questa console, ma lasciarla in esecuzione mentre si completano i passaggi successivi.
 
 ### <a name="see-the-results-in-azure-digital-twins"></a>Visualizzare i risultati in Gemelli digitali di Azure
 
-La funzione *ProcessHubToDTEvents* pubblicata in precedenza resta in ascolto dei dati dell'hub IoT e chiama un'API di Gemelli digitali di Azure per aggiornare la proprietà *Temperature* nel gemello *thermostat67* .
+La funzione *ProcessHubToDTEvents* pubblicata in precedenza resta in ascolto dei dati dell'hub IoT e chiama un'API di Gemelli digitali di Azure per aggiornare la proprietà *Temperature* nel gemello *thermostat67*.
 
 Per visualizzare i dati dal lato Gemelli digitali di Azure, passare alla finestra di Visual Studio in cui è aperto il progetto _**AdtE2ESample**_ ed eseguirlo.
 
@@ -316,7 +316,7 @@ ObserveProperties thermostat67 Temperature
 
 Verranno visualizzate le temperature aggiornate in tempo reale *dall'istanza di Gemelli digitali di Azure* registrate nella console ogni 10 secondi.
 
-:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="Output della console che mostra il log dei messaggi sulle temperature del gemello digitale thermostat67":::
 
 Dopo averne verificato il corretto funzionamento, è possibile arrestare l'esecuzione di entrambi i progetti. Tenere aperte le finestre di Visual Studio, perché si continuerà a usarle nel resto dell'esercitazione.
 
@@ -326,10 +326,10 @@ Finora in questa esercitazione è stato illustrato come aggiornare Gemelli digit
 
 A tale scopo, si userà la funzione di Azure *ProcessDTRoutedData* per aggiornare un gemello *Stanza* quando viene aggiornato il gemello *Termostato* connesso. Questo evento si verifica in questa parte dello scenario end-to-end ( **freccia C** ):
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Estratto della rappresentazione grafica dello scenario edilizio completo che evidenzia la freccia C, gli elementi dopo Gemelli digitali di Azure: Griglia di eventi e la seconda funzione di Azure":::
 
 Ecco le azioni che verranno completate per configurare questo flusso di dati:
-1. Creare un endpoint di Gemelli digitali di Azure che connette l'istanza a Griglia di eventi
+1. Creare un endpoint di Griglia di eventi in Gemelli digitali di Azure che connette l'istanza a Griglia di eventi
 2. Configurare una route all'interno di Gemelli digitali di Azure per inviare gli eventi di modifica delle proprietà dei gemelli all'endpoint
 3. Distribuire un'app di Funzioni di Azure che resta in ascolto (tramite [Griglia di eventi](../event-grid/overview.md)) sull'endpoint e aggiorna gli altri gemelli di conseguenza
 4. Eseguire il dispositivo simulato e sottoporre a query Gemelli digitali di Azure per vedere i risultati in tempo reale
@@ -354,7 +354,7 @@ az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-g
 
 L'output di questo comando è costituito da informazioni sull'argomento di Griglia di eventi creato.
 
-Successivamente, creare un endpoint di Gemelli digitali di Azure che punta all'argomento di Griglia di eventi. Usare il comando seguente, inserendo i valori necessari nei campi segnaposto:
+Creare quindi un endpoint di Griglia di eventi in Gemelli digitali di Azure che connetterà l'istanza all'argomento di Griglia di eventi. Usare il comando seguente, inserendo i valori necessari nei campi segnaposto:
 
 ```azurecli-interactive
 az dt endpoint create eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
@@ -370,13 +370,13 @@ az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-nam
 
 Cercare il campo `provisioningState` nell'output e verificare che il valore sia "Succeeded". Si può anche pronunciare "Provisioning", a indicare che l'endpoint è ancora in fase di creazione. In questo caso, attendere alcuni secondi ed eseguire di nuovo il comando per verificare che sia stato completato correttamente.
 
-:::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Risultato della query che mostra l'endpoint con provisioningState Succeeded":::
 
-Salvare i nomi assegnati all'argomento di Griglia di eventi e all'endpoint di Gemelli digitali di Azure. Verranno usati in seguito.
+Salvare i nomi assegnati all'argomento di Griglia di eventi e all'endpoint di Griglia di eventi in Gemelli digitali di Azure. Verranno usati in seguito.
 
 ### <a name="set-up-route"></a>Configurare la route
 
-Successivamente, creare una route di Gemelli digitali di Azure che invia eventi all'endpoint di Gemelli digitali di Azure appena creato.
+Creare quindi una route di Gemelli digitali di Azure che invia eventi all'endpoint di Griglia di eventi appena creato.
 
 ```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
@@ -393,20 +393,20 @@ Successivamente, sottoscrivere la funzione di Azure *ProcessDTRoutedData* all'ar
 
 A tale scopo, creare una **sottoscrizione di Griglia di eventi** dall'argomento di Griglia di eventi alla funzione di Azure *ProcessDTRoutedData* come endpoint.
 
-Nel [portale di Azure](https://portal.azure.com/) passare all'argomento di Griglia di eventi cercandone il nome nella barra di ricerca in alto. Selezionare *+ Sottoscrizione di eventi* .
+Nel [portale di Azure](https://portal.azure.com/) passare all'argomento di Griglia di eventi cercandone il nome nella barra di ricerca in alto. Selezionare *+ Sottoscrizione di eventi*.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Portale di Azure: Sottoscrizione di eventi di Griglia di eventi":::
 
 La procedura per creare questa sottoscrizione di eventi è simile a quella eseguita per sottoscrivere la prima funzione di Azure all'hub IoT in precedenza in questa esercitazione. Questa volta non è necessario specificare *Messaggi di telemetria del dispositivo* come tipo di evento di cui restare in ascolto e ci si connetterà a una funzione di Azure diversa.
 
 Nella pagina *Crea sottoscrizione di eventi* compilare i campi come indicato di seguito (i campi compilati per impostazione predefinita non sono indicati):
 * *DETTAGLI SOTTOSCRIZIONE EVENTO* > **Nome** : assegnare un nome alla sottoscrizione di eventi.
 * *DETTAGLI ENDPOINT* > **Tipo di endpoint** : selezionare *Funzione di Azure* nelle opzioni del menu.
-* *DETTAGLI ENDPOINT* > **Endpoint** : scegliere il collegamento *Seleziona un endpoint* . Verrà aperta la finestra *Seleziona funzione di Azure* :
+* *DETTAGLI ENDPOINT* > **Endpoint** : scegliere il collegamento *Seleziona un endpoint*. Verrà aperta la finestra *Seleziona funzione di Azure* :
     - Compilare i campi **Sottoscrizione** , **Gruppo di risorse** , **App per le funzioni** e **Funzione** ( *ProcessDTRoutedData* ). È possibile che alcuni di questi campi vengano prepopolati dopo aver selezionato la sottoscrizione.
-    - Premere **Confermare la selezione** .
+    - Premere **Confermare la selezione**.
 
-Di nuovo nella pagina *Crea sottoscrizione di eventi* premere **Crea** .
+Di nuovo nella pagina *Crea sottoscrizione di eventi* premere **Crea**.
 
 ### <a name="run-the-simulation-and-see-the-results"></a>Eseguire la simulazione e visualizzare i risultati
 
@@ -414,21 +414,21 @@ A questo punto è possibile eseguire il simulatore del dispositivo per avviare i
 
 Così come quando è stato eseguito il simulatore del dispositivo in precedenza, verrà aperta una finestra della console che visualizza i messaggi di telemetria simulati sulle temperature. Questi eventi passano attraverso il flusso configurato in precedenza per aggiornare il gemello *thermostat67* e quindi continuano a seguire il flusso configurato di recente per aggiornare il gemello *room21* di conseguenza.
 
-:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="Output della console del simulatore del dispositivo che mostra l'invio di dati di telemetria sulle temperature":::
 
 Non è necessario eseguire altre operazioni in questa console, ma lasciarla in esecuzione mentre si completano i passaggi successivi.
 
 Per visualizzare i dati dal lato Gemelli digitali di Azure, passare alla finestra di Visual Studio in cui è aperto il progetto _**AdtE2ESample**_ ed eseguirlo.
 
-Nella finestra della console del progetto che viene visualizzata eseguire il comando seguente per ottenere le temperature segnalate **sia** dal gemello digitale *thermostat67* che dal gemello digitale *room21* .
+Nella finestra della console del progetto che viene visualizzata eseguire il comando seguente per ottenere le temperature segnalate **sia** dal gemello digitale *thermostat67* che dal gemello digitale *room21*.
 
 ```cmd
 ObserveProperties thermostat67 Temperature room21 Temperature
 ```
 
-Verranno visualizzate le temperature aggiornate in tempo reale *dall'istanza di Gemelli digitali di Azure* registrate nella console ogni 10 secondi. Si noti che la temperatura per *room21* viene aggiornata in base agli aggiornamenti di *thermostat67* .
+Verranno visualizzate le temperature aggiornate in tempo reale *dall'istanza di Gemelli digitali di Azure* registrate nella console ogni 10 secondi. Si noti che la temperatura per *room21* viene aggiornata in base agli aggiornamenti di *thermostat67*.
 
-:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Rappresentazione grafica dello scenario edilizio. Illustra il flusso dei dati da un dispositivo all'hub IoT, a un'istanza di Gemelli digitali di Azure tramite una funzione di Azure (sezione A), quindi a un'altra funzione di Azure per l'elaborazione tramite Griglia di eventi (freccia C)":::
+:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Output della console che mostra il log dei messaggi sulle temperature del termostato e della stanza":::
 
 Dopo averne verificato il corretto funzionamento, è possibile arrestare l'esecuzione di entrambi i progetti. È anche possibile chiudere le finestre di Visual Studio, in quanto l'esercitazione è stata completata.
 

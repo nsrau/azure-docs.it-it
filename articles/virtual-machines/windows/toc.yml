@@ -36,18 +36,20 @@
       href: tutorial-virtual-network.md
     - name: 9 - Eseguire il backup delle macchine virtuali
       href: tutorial-backup-vms.md
-    - name: 10 - Gestire le macchine virtuali
+    - name: 10 - Abilitare il ripristino di emergenza
+      href: tutorial-disaster-recovery.md
+    - name: 11 - Gestire le VM
       displayName: scope policy RBAC lock tag
       href: tutorial-govern-resources.md
-    - name: 11 - Tenere traccia delle macchine virtuali e aggiornarle
+    - name: 12 - Tenere traccia delle VM e aggiornarle
       href: tutorial-config-management.md
-    - name: 12 - Monitorare le macchine virtuali
+    - name: 13 - Monitorare le VM
       href: tutorial-monitor.md
-    - name: 13 - Gestire la sicurezza delle macchine virtuali
+    - name: 14 - Gestire la sicurezza delle VM
       href: tutorial-azure-security.md
-    - name: 14 - Installare uno stack SQL\IIS\.NET
+    - name: 15 - Installare uno stack SQL\IIS\.NET
       href: tutorial-iis-sql.md
-    - name: '15: Proteggere il server Web con SSL'
+    - name: 16 - Proteggere il server Web con SSL
       href: tutorial-secure-web-server.md
 - name: Esempi
   items:
@@ -270,7 +272,7 @@
         - name: Istanze riservate
           items:
             - name: Pagare in anticipo le VM
-              href: prepay-reserved-vm-instances.md
+              href: ../prepay-reserved-vm-instances.md
             - name: Pagare in anticipo gli host dedicati
               href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Cosa sono le prenotazioni di Azure?

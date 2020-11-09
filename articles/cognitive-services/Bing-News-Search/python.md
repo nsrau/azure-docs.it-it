@@ -11,20 +11,25 @@ ms.topic: quickstart
 ms.date: 06/16/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-python
-ms.openlocfilehash: 115d0204b4e1a05e5d4c655efb52b3fc3123bebe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9d73bbbfb5d6339e4bd1c6c4d38ec268b2461150
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87851835"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095493"
 ---
 # <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>Guida introduttiva: Eseguire una ricerca di notizie con Python e l'API REST Ricerca notizie Bing
+
+> [!WARNING]
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Usare questa guida di avvio rapido per effettuare la prima chiamata all'API Ricerca notizie Bing. Questa semplice applicazione Python invia una query di ricerca all'API ed elabora il risultato JSON. 
 
 Anche se l'applicazione è scritta in Python, l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
-Per eseguire questo codice di esempio come Jupyter Notebook in [MyBinder](https://mybinder.org), selezionare la notifica di **avvio del binder**: 
+Per eseguire questo codice di esempio come Jupyter Notebook in [MyBinder](https://mybinder.org), selezionare la notifica di **avvio del binder** : 
 
 [![avvio del binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingNewsSearchAPI.ipynb)
 

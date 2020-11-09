@@ -4,13 +4,13 @@ description: QnA Maker prevede metalimiti per alcune parti della knowledge base 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 02/14/2020
-ms.openlocfilehash: 773c9caa2fb25b3abe4fb451bc59598c485a6110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: c61c550e9a09d0f0708e8f1dbc63e76b329a8166
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776256"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375619"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
 
@@ -20,7 +20,7 @@ QnA Maker limiti indicati di seguito sono una combinazione dei limiti del piano 
 
 Il numero massimo di Knowledge base è basato sui [limiti del livello di ricerca cognitiva di Azure](../../search/search-limits-quotas-capacity.md).
 
-|**Livello ricerca cognitiva di Azure** | **Free** | **Base** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Livello ricerca cognitiva di Azure** | **Gratuito** | **Base** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Numero massimo di knowledge base pubblicate consentite|2|14|49|199|199|2999|
 
@@ -51,6 +51,9 @@ I nomi file non possono includere i caratteri seguenti:
 
 Il numero massimo di file che è possibile estrarre e le dimensioni massime del file sono basati sui limiti del piano **[tariffario QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)**.
 
+> [!NOTE]
+> QnA Maker Managed (Preview) è un servizio gratuito senza limiti per il numero di origini che è possibile aggiungere. La velocità effettiva è attualmente limitata a 10 transazioni al secondo per le API di gestione e le API di stima.
+
 ### <a name="maximum-number-of-deep-links-from-url"></a>Numero massimo di collegamenti profondi dall'URL
 
 Il numero massimo di collegamenti profondi che possono essere sottoposti a ricerca per indicizzazione per l'estrazione di QnAs da una pagina URL è **20**.
@@ -63,7 +66,7 @@ I metadati vengono presentati come coppia chiave-valore basata su testo, ad esem
 
 Il numero massimo di campi di metadati per Knowledge base è basato sui **[limiti del livello di ricerca cognitiva di Azure](../../search/search-limits-quotas-capacity.md)**.
 
-|**Livello ricerca cognitiva di Azure** | **Free** | **Base** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Livello ricerca cognitiva di Azure** | **Gratuito** | **Base** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Numero massimo di campi di metadati per ogni servizio QnA Maker (attraverso tutte le knowledge base)|1\.000|100*|1\.000|1\.000|1\.000|1\.000|
 
@@ -71,10 +74,10 @@ Il numero massimo di campi di metadati per Knowledge base è basato sui **[limit
 
 Nella tabella seguente sono elencati i caratteri di lunghezza e accettabili per il nome e il valore dei metadati.
 
-|Item|Caratteri consentiti|Corrispondenza del criterio Regex|Caratteri max|
+|Elemento|Caratteri consentiti|Corrispondenza del criterio Regex|Caratteri max|
 |--|--|--|--|
 |Nome (chiave)|Consente<br>alfanumerico (lettere e cifre)<br>`_` sottolineatura<br> Non devono contenere spazi.|`^[a-zA-Z0-9_]+$`|100|
-|Valore|Consente tutti gli elementi eccetto<br>`:` virgola<br>`|` (barra verticale)<br>È consentito un solo valore.|`^[^:|]+$`|500|
+|valore|Consente tutti gli elementi eccetto<br>`:` virgola<br>`|` (barra verticale)<br>È consentito un solo valore.|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>Limiti di contenuto della Knowledge Base

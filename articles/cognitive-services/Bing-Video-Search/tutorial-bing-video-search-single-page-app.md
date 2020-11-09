@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 2bdd51218c098dcd778d9a72a98fe42b96357b4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b750554ec231cddd0403c89a33f2af4349ff188
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328718"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098997"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Esercitazione: App a pagina singola Ricerca video
+
+> [!WARNING]
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 L'API Ricerca video Bing consente di eseguire ricerche sul Web e di ottenere come risultati video pertinenti a una query di ricerca. In questa esercitazione viene compilata un'applicazione Web a pagina singola che usa l'API Ricerca video Bing per visualizzare i risultati della ricerca nella pagina. L'applicazione include componenti HTML, CSS e JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.
@@ -320,7 +325,7 @@ Come illustrato in precedenza in `renderSearchResults()`, viene eseguito il rend
 
 ## <a name="rendering-result-items"></a>Rendering degli elementi di risultati
 
-Nel codice JavaScript l'oggetto `searchItemRenderers` può contenere *renderer*: funzioni che generano HTML per ciascun tipo di risultato della ricerca. La pagina di ricerca video usa solo `videos`. Per vari tipi di renderer, vedere altre esercitazioni.
+Nel codice JavaScript l'oggetto `searchItemRenderers` può contenere *renderer* : funzioni che generano HTML per ciascun tipo di risultato della ricerca. La pagina di ricerca video usa solo `videos`. Per vari tipi di renderer, vedere altre esercitazioni.
 
 ```javascript
 searchItemRenderers = {

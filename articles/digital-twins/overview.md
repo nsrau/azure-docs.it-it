@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 7ff1e2f00b20344fc19d797ed5bafdfbc2113b66
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f0c19130312db4e6ef500a0750f40359931d48d2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044667"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099114"
 ---
 # <a name="what-is-azure-digital-twins"></a>Cos'è il servizio Gemelli digitali di Azure?
 
@@ -52,7 +52,7 @@ Ecco un esempio di questa visualizzazione:
 
 Gemelli digitali di Azure fornisce un **sistema di eventi** completo per mantenere aggiornato il grafo con l'elaborazione dati e la logica di business. È possibile connettere risorse di calcolo esterne, ad esempio [Funzioni di Azure](../azure-functions/functions-overview.md), per gestire l'elaborazione dati in modo flessibile e personalizzato.
 
-È anche possibile estrarre informazioni dettagliate dall'ambiente di esecuzione live usando l'**API di query** avanzata di Gemelli digitali di Azure. L'API consente di eseguire query con condizioni di ricerca avanzate, inclusi i valori delle proprietà, le relazioni, le proprietà delle relazioni, le informazioni sul modello e altro ancora. È anche possibile combinare le query, raccogliendo un'ampia gamma di informazioni dettagliate sull'ambiente e rispondendo a domande personalizzate che sono importanti per l'utente.
+È anche possibile estrarre informazioni dettagliate dall'ambiente di esecuzione live usando l' **API di query** avanzata di Gemelli digitali di Azure. L'API consente di eseguire query con condizioni di ricerca avanzate, inclusi i valori delle proprietà, le relazioni, le proprietà delle relazioni, le informazioni sul modello e altro ancora. È anche possibile combinare le query, raccogliendo un'ampia gamma di informazioni dettagliate sull'ambiente e rispondendo a domande personalizzate che sono importanti per l'utente.
 
 ### <a name="input-from-iot-and-business-systems"></a>Input da sistemi IoT e aziendali
 
@@ -64,7 +64,7 @@ A questo scopo è possibile creare un nuovo hub IoT con Gemelli digitali di Azur
 
 ### <a name="output-to-tsi-storage-and-analytics"></a>Output in TSI, archiviazione e analisi
 
-I dati nel modello Gemelli digitali di Azure possono essere instradati ai servizi di Azure downstream per ulteriore analisi o archiviazione. Questa operazione viene fornita tramite **route di eventi**, che usano l'[hub eventi](../event-hubs/event-hubs-about.md), la [griglia di eventi](../event-grid/overview.md) o il [bus di servizio](../service-bus-messaging/service-bus-messaging-overview.md) per gestire i flussi di dati desiderati.
+I dati nel modello Gemelli digitali di Azure possono essere instradati ai servizi di Azure downstream per ulteriore analisi o archiviazione. Questa operazione viene fornita tramite **route di eventi** , che usano l' [hub eventi](../event-hubs/event-hubs-about.md), la [griglia di eventi](../event-grid/overview.md) o il [bus di servizio](../service-bus-messaging/service-bus-messaging-overview.md) per gestire i flussi di dati desiderati.
 
 Alcune operazioni che è possibile eseguire con le route di eventi includono:
 * Archiviazione dei dati di Gemelli digitali di Azure in [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)
@@ -88,20 +88,16 @@ Una soluzione completa che usa Gemelli digitali di Azure può contenere le parti
 
 Il diagramma seguente illustra il punto in cui si trova Gemelli digitali di Azure nel contesto di una soluzione Azure IoT più grande.
 
-:::image type="content" source="media/overview/solution-context.png" alt-text="Screenshot dell'applicazione di esempio Azure Digital Twins explorer, che mostra un grafo dei nodi che rappresentano i gemelli digitali" border="false" lightbox="media/overview/solution-context.png":::
+:::image type="content" source="media/overview/solution-context.png" alt-text="Diagramma che illustra le origini di input, i servizi di output e la comunicazione bidirezionale con le app client e le risorse di calcolo esterne." border="false" lightbox="media/overview/solution-context.png":::
 
-## <a name="service-limits-in-public-preview"></a>Limiti del servizio durante l'anteprima pubblica
+## <a name="service-limits"></a>Limiti del servizio
 
-> [!IMPORTANT]
-> Gemelli digitali di Azure è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere le [*Condizioni supplementari per l'uso delle anteprime di Microsoft Azure*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Per un elenco dei limiti di Gemelli digitali di Azure durante l'anteprima pubblica, vedere [*Riferimento: Limiti del servizio durante l'anteprima pubblica*](reference-service-limits.md).
+Per un elenco dei limiti di Gemelli digitali di Azure, vedere [*Informazioni di riferimento: Limiti del servizio*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si è già lavorato con la versione di anteprima precedente di Gemelli digitali di Azure, scoprire cosa è cambiato:
-* [*Panoramica: Differenze rispetto alla versione precedente*](overview-differences.md)
+Se è già stata usata la prima versione di anteprima di Gemelli digitali di Azure (ottobre 2018), per informazioni su cosa è cambiato, vedere:
+* [*Panoramica: Differenze rispetto alla prima versione*](overview-differences.md)
 
 In alternativa, continuare ad approfondire l'uso di Gemelli digitali di Azure con la prima esercitazione:
 

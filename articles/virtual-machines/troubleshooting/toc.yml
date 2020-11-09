@@ -109,6 +109,8 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: La macchina virtuale non risponde durante l'applicazione di criteri di sicurezza
           href: unresponsive-vm-apply-security-policy.md
+        - name: La macchina virtuale non risponde durante l'attesa di gestione sessioni locali
+          href: vm-unresponsive-wait-local-session-manager.md
         - name: Errore di Windows Boot Manager - Stato dell'hash immagine non valido
           href: windows-boot-error-invalid-image-hash.md
         - name: Errore di arresto di Windows - Informazioni di configurazione di sistema errate
@@ -117,6 +119,8 @@
           href: troubleshoot-windows-stop-error.md
         - name: Errore di arresto di Windows - Processo di sistema terminato
           href: windows-stop-error-system-process-terminated.md
+        - name: Errore di arresto di Windows - Eccezione del thread di sistema non gestita
+          href: windows-stop-error-system-thread-exception-not-handled.md
 - name: Impossibile connettersi alla macchina virtuale
   items:
     - name: RDP

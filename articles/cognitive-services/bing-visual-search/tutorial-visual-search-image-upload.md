@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: scottwhi
 ms.custom: devx-track-js
-ms.openlocfilehash: d5dc762499342f0004073fb6c240c98c4ac2bc09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ecea9dce3509e064d9244a8b725add21747a03e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334566"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102205"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Esercitazione: Caricare immagini nell'API Ricerca visiva Bing
+
+> [!WARNING]
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L'API Ricerca visiva Bing consente di cercare nel Web immagini simili a quelle caricate. Usare questa esercitazione per creare un'applicazione Web in grado di inviare un'immagine all'API e visualizzare le informazioni dettagliate restituite all'interno della pagina Web. Si noti che questa applicazione non è conforme a tutti i [Requisiti per l'uso e la visualizzazione di Bing](../bing-web-search/use-display-requirements.md) per l'uso dell'API.
 

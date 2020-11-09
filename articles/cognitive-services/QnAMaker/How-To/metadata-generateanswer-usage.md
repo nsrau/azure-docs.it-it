@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3a67f16b53c2754e2ac5ae1df467aac7726f358e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85abefc8437936ffaedc4811bdd9bed0be32786f
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321000"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375505"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Ottenere una risposta con l'API e i metadati di GenerateAnswer
 
@@ -46,11 +46,19 @@ Dopo aver pubblicato la Knowledge base, dal portale di [QnA Maker](https://www.q
 
 Per ottenere i dettagli dell'endpoint:
 1. Accedere a [https://www.qnamaker.ai](https://www.qnamaker.ai).
-1. In **Knowledge**base selezionare **Visualizza codice** per la Knowledge base.
+1. In **Knowledge** base selezionare **Visualizza codice** per la Knowledge base.
     ![Screenshot delle Knowledge base](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Ottenere i dettagli dell'endpoint GenerateAnswer.
 
+    # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+
     ![Schermata dei dettagli dell'endpoint](../media/qnamaker-how-to-metadata-usage/view-code.png)
+
+    # <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+
+    ![Screenshot dei dettagli dell'endpoint gestiti](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
+
+    ---
 
 È anche possibile ottenere i dettagli dell'endpoint dalla scheda **Settings** (Impostazioni) della knowledge base.
 
@@ -128,7 +136,7 @@ Il codice JSON precedente ha risposto con una risposta con un punteggio pari al 
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Usare QnA Maker con un bot in C #
 
-Bot Framework fornisce l'accesso alle proprietà del QnA Maker con l' [API getanswer](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
+Bot Framework fornisce l'accesso alle proprietà del QnA Maker con l' [API getanswer](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__&preserve-view=true):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -147,7 +155,7 @@ Il codice JSON precedente ha richiesto solo le risposte al 30% o oltre il Punteg
 
 ## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Usare QnA Maker con un bot in Node.js
 
-Bot Framework fornisce l'accesso alle proprietà del QnA Maker con l' [API getanswer](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
+Bot Framework fornisce l'accesso alle proprietà del QnA Maker con l' [API getanswer](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-&preserve-view=true):
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');

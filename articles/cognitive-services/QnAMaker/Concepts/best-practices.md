@@ -4,13 +4,13 @@ description: Usare queste procedure consigliate per migliorare la knowledge base
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 02/15/2020
-ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 2f87f5c7e43757db476153db93d6ecc5082dde89
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777021"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376758"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 
@@ -116,11 +116,17 @@ Le [domande alternative](../How-To/edit-knowledge-base.md) aumentano la probabil
 I [metadati](../How-To/edit-knowledge-base.md) aggiungono la possibilità che un'applicazione client sappia che non deve rispondere a tutte le risposte, bensì per limitare i risultati di una query utente basata sui tag dei metadati. La risposta della knowledge base può essere diversa in base al tag di metadati, anche se la query è la stessa. Ad esempio, la domanda *"Dove si trova il parcheggio?"* può avere una risposta diversa se la posizione del ramo relativo al ristorante è diverso, ovvero se i metadati sono *Posizione: Seattle* anziché *Posizione: Redmond*.
 
 ### <a name="use-synonyms"></a>Usare sinonimi
-Sebbene esista un supporto per i sinonimi nella lingua inglese, usare le modifiche di parola senza distinzione tra maiuscole e minuscole tramite l' [API Alters](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) per aggiungere sinonimi a parole chiave che accettano forme diverse. I sinonimi vengono aggiunti a livello di servizio QnA Maker e condivisi da tutte le Knowledge base nel servizio.
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+Sebbene esista un supporto per i sinonimi nella lingua inglese, usare le modifiche di parola senza distinzione tra maiuscole e minuscole tramite l' [API Alters](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) per aggiungere sinonimi a parole chiave che accettano forme diverse. I sinonimi vengono aggiunti a livello di servizio QnA Maker e **condivisi da tutte le Knowledge base nel servizio**.
+
+# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+Sebbene esista un supporto per i sinonimi nella lingua inglese, usare le modifiche di parola senza distinzione tra maiuscole e minuscole tramite l' [API Alters](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) per aggiungere sinonimi a parole chiave che accettano forme diverse. I sinonimi in QnA Maker gestiti (anteprima) vengono **aggiunti per Knowledge base**.
 
 |Parola originale|Sinonimi|
 |--|--|
 |acquistare|acquisto<br>NET-Banking<br>servizi bancari NET|
+
+---
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>Usare parole diverse per distinguere le domande
 L'algoritmo di classificazione di QnA Maker, che mette in corrispondenza una query utente con una domanda nella knowledge base, funziona meglio se ogni domanda risponde a esigenze diverse. La ripetizione dello stesso set di parole tra domande riduce la probabilità di scelta della risposta corretta per una determinata query utente che usa tali parole.
@@ -132,7 +138,7 @@ Ad esempio, si potrebbero avere due QnA separate con le domande seguenti:
 |dove si *trova* il parcheggio|
 |dove si trova il *percorso* ATM|
 
-Poiché queste due QnA sono formulate con parole molto simili, questa analogia potrebbe causare punteggi molto simili per molte query utente che hanno formula *"dove si `<x>` trova"*. In alternativa, provare a distinguere chiaramente con le query, ad esempio  *"dove è il parcheggio* " e *"dove si trova l'ATM"*, evitando parole come "location" che potrebbero essere in molte domande nella Knowledge base.
+Poiché queste due QnA sono formulate con parole molto simili, questa analogia potrebbe causare punteggi molto simili per molte query utente che hanno formula *"dove si `<x>` trova"*. In alternativa, provare a distinguere chiaramente con le query, ad esempio  *"dove è il parcheggio* " e *"dove si trova l'ATM"* , evitando parole come "location" che potrebbero essere in molte domande nella Knowledge base.
 
 ## <a name="collaborate"></a>Collaborare
 QnA Maker permette agli utenti di [collaborare](../How-to/collaborate-knowledge-base.md) a una knowledge base. Per accedere alle knowledge base, gli utenti necessitano dell'accesso al gruppo di risorse di QnA Maker in Azure. Alcune organizzazioni potrebbero voler assegnare all'esterno le attività di modifica e manutenzione della knowledge base, mantenendo comunque la possibilità di proteggere l'accesso alle risorse di Azure. Questo modello di approvazione dell'editor di testo può essere ottenuto configurando due [servizi QnA Maker](../How-to/set-up-qnamaker-service-azure.md) identici in diverse sottoscrizioni e se si seleziona uno per il ciclo di test di modifica. Una volta completati i test, il contenuto della knowledge base può essere trasferito con un processo di [importazione-esportazione](../Tutorials/migrate-knowledge-base.md) al servizio QnA Maker del responsabile approvazione che infine pubblicherà la knowledge base e aggiornerà l'endpoint.

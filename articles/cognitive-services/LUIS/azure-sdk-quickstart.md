@@ -8,12 +8,12 @@ ms.subservice: language-understanding
 keywords: Azure, intelligenza artificiale, ia, elaborazione del linguaggio naturale, nlp, LUIS, azure luis, natural language understanding, chatbot di ia, strumento di creazione di chatbot, comprensione del linguaggio naturale
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: c2bc607fb5a5b5b38249453a1d0fce833547191f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e389152292239076f3077e2edfb8d5be52ab815b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327282"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241379"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>Avvio rapido: Librerie client di LUIS (Language Understanding) SDK per creare ed eseguire query sull'app LUIS
 
@@ -21,7 +21,8 @@ Guida di avvio rapido su come creare ed eseguire query su un'app di intelligenza
 
 Language Understanding (LUIS) consente di applicare l'elaborazione del linguaggio naturale (NLP, Natural Language Processing) al testo in linguaggio naturale della conversazione di un utente per prevedere il significato generale ed estrarre informazioni pertinenti e dettagliate.
 
-* La libreria client di **Authoring SDK** consente di creare, modificare, eseguire il training e pubblicare l'app LUIS. * La libreria client di **Prediction Runtime SDK** consente di eseguire una query sull'app pubblicata.
+* La libreria client di **Authoring SDK** consente di creare, modificare, eseguire il training e pubblicare l'app LUIS.
+* La libreria client di **Prediction Runtime SDK** consente di eseguire query sull'app pubblicata.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [LUIS development with C# SDK](./includes/sdk-csharp.md)]

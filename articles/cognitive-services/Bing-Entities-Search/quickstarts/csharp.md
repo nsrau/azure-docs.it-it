@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 99f2197732a332e860af421f46d1049c2388043c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 52efd103bf510e7cca8a1e4a1d682948b498d64c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221231"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084851"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing usando C#
+
+> [!WARNING]
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca entità Bing e visualizzare la risposta JSON. Questa semplice applicazione C# invia una query di ricerca notizie all'API e visualizza la risposta. Il codice sorgente di questa applicazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
 
@@ -38,8 +43,8 @@ Anche se l'applicazione è scritta in C#, l'API è un servizio Web RESTful compa
 
 1. Creare una nuova soluzione di console C# in Visual Studio. 
 1. Aggiungere il pacchetto NuGet [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/).
-    1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** .
-    2. Scegliere **Gestisci pacchetti NuGet** .
+    1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**.
+    2. Scegliere **Gestisci pacchetti NuGet**.
     3. Cercare e selezionare *Newtonsoft.Json* , quindi installare il pacchetto.
 1. Aggiungere quindi gli spazi dei nomi seguenti nel file di codice principale:
     

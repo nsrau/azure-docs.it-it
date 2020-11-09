@@ -618,8 +618,6 @@
                 - name: App Web
                   displayname: java
                   href: app/java-get-started.md
-                - name: App Docker
-                  href: app/docker.md
                 - name: Analisi di log
                   href: app/java-trace-logs.md
                 - name: Metriche di UNIX
@@ -692,12 +690,14 @@
               href: app/kubernetes-codeless.md
             - name: Autonomo - qualsiasi ambiente
               items:
-                - name: Java (anteprima)
+                - name: Java
                   items:
                     - name: Panoramica
                       href: app/java-in-process-agent.md
                     - name: Opzioni di configurazione
                       href: app/java-standalone-config.md
+                    - name: Processori di telemetria
+                      href: app/java-standalone-telemetry-processors.md
                     - name: Configurazione degli argomenti di JVM
                       href: app/java-standalone-arguments.md
             - name: Server locali
@@ -1344,10 +1344,6 @@
           href: insights/azure-web-apps-analytics.md
         - name: Application Insights Connector
           href: platform/app-insights-connector.md
-        - name: Application Insights per il servizio Azure Kubernetes senza codice
-          href: app/kubernetes.md
-        - name: Monitorare applicazioni Docker
-          href: app/docker.md
         - name: Deprecazione del portale OMS
           href: platform/oms-portal-transition.md
         - name: Deprecazione delle metriche del disco

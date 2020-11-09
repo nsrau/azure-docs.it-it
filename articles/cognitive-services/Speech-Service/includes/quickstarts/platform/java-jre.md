@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.custom: devx-track-java
 ms.author: erhopf
-ms.openlocfilehash: 093e5482896e2af8008f20826e30443bdeb9aae9
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 142d4504ab12e7df5cc1e009038554a5b90dff0c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097032"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135526"
 ---
 Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per Java 8 JRE a 64 bit. Se si vuole solo il nome del pacchetto per iniziare autonomamente, Java SDK non è disponibile nel repository centrale di Maven. Se si usa Gradle o un file di dipendenza `pom.xml`, è necessario aggiungere un repository personalizzato che punta a `https://csspeechstorage.blob.core.windows.net/maven/` (vedere di seguito per il nome del pacchetto).
 
@@ -30,7 +30,7 @@ Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/s
 - Il pacchetto Speech SDK per Java è disponibile per i sistemi operativi seguenti:
   - Windows: solo 64 bit
   - Mac: macOS X versione 10.13 o successiva.
-  - Linux: solo 64 bit su Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8
+  - Linux: vedere l'elenco di [distribuzioni Linux e architetture di destinazione supportate](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,19 +39,14 @@ Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/s
 - [Eclipse Java IDE](https://www.eclipse.org/downloads/) (richiede Java già installato)
 - Le piattaforme Linux supportate richiedono l'installazione di alcune librerie (`libssl` per il supporto di Secure Sockets Layer e `libasound2` per il supporto audio). Per i comandi necessari per installare le versioni corrette di queste librerie, identificare la propria distribuzione di seguito.
 
-  - In Ubuntu eseguire i comandi seguenti per installare i pacchetti necessari:
+  - In Ubuntu/Debian eseguire i comandi seguenti per installare i pacchetti necessari:
 
     ```sh
     sudo apt-get update
     sudo apt-get install build-essential libssl1.0.0 libasound2
     ```
 
-  - In Debian 9 eseguire i comandi seguenti per installare i pacchetti necessari:
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.2 libasound2
-    ```
+    Se libssl1.0.0 non è disponibile, installare libssl1.0.x (dove x è maggiore di 0) o libssl1.1.
 
   - In RHEL/CentOS eseguire i comandi seguenti per installare i pacchetti necessari:
 

@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5276f9b8c6dd3bdc305142e5b9452cd9c5d60bce
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985268"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376997"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurare il dashboard dell'applicazione
 
@@ -23,17 +23,17 @@ Il **Dashboard** è la prima pagina visualizzata quando ci si connette a un'appl
 
 ## <a name="add-tiles"></a>Aggiunta di riquadri
 
-La schermata seguente mostra il dashboard in un'applicazione creata dal modello di **applicazione personalizzata** . Per personalizzare il dashboard corrente, selezionare **modifica**per aggiungere un dashboard personale o condiviso personalizzato, quindi selezionare **nuovo**:
+La schermata seguente mostra il dashboard in un'applicazione creata dal modello di **applicazione personalizzata** . Per personalizzare il dashboard corrente, selezionare **modifica** per aggiungere un dashboard personale o condiviso personalizzato, quindi selezionare **nuovo** :
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png" alt-text="Dashboard per le applicazioni basate sul modello di applicazione personalizzata":::
 
-Dopo aver selezionato **modifica** o **nuovo**, il dashboard si trova in modalità di *modifica* . È possibile usare gli strumenti nel pannello **modifica dashboard** per aggiungere riquadri al dashboard e personalizzare e rimuovere i riquadri nel dashboard stesso. Ad esempio, per aggiungere un riquadro di **telemetria** per mostrare la temperatura corrente indicata da uno o più dispositivi:
+Dopo aver selezionato **modifica** o **nuovo** , il dashboard si trova in modalità di *modifica* . È possibile usare gli strumenti nel pannello **modifica dashboard** per aggiungere riquadri al dashboard e personalizzare e rimuovere i riquadri nel dashboard stesso. Ad esempio, per aggiungere un riquadro di **telemetria** per mostrare la temperatura corrente indicata da uno o più dispositivi:
 
 1. Nel pannello **modifica dashboard** selezionare un gruppo di **dispositivi**.
 1. Selezionare uno o più dispositivi nell'elenco a discesa **dispositivi** da visualizzare sul riquadro. Verranno ora visualizzati i dati di telemetria, le proprietà e i comandi disponibili dai dispositivi.
 1. Selezionare **temperatura** nella sezione telemetria, quindi selezionare **Aggiungi riquadro**. Il riquadro ora viene visualizzato nel dashboard in cui è possibile modificare la visualizzazione, ridimensionare il riquadro e configurarlo:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Dashboard per le applicazioni basate sul modello di applicazione personalizzata":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Aggiungere un riquadro di telemetria della temperatura al dashboard":::
 
 Al termine dell'aggiunta e della personalizzazione dei riquadri nel dashboard, selezionare **Salva**.
 
@@ -55,7 +55,7 @@ La tabella seguente descrive i diversi tipi di riquadro che è possibile aggiung
 | ---------------- | ----------- |
 | Markdown         | I riquadri Markdown sono riquadri selezionabili che visualizzano un testo di intestazione e descrizione formattato usando Markdown. L'URL può essere un collegamento relativo a un'altra pagina dell'applicazione o un collegamento assoluto a un sito esterno.|
 | Immagine            | I riquadri immagine visualizzano un'immagine personalizzata e possono essere selezionabili. L'URL può essere un collegamento relativo a un'altra pagina dell'applicazione o un collegamento assoluto a un sito esterno.|
-| Etichetta            | I riquadri etichetta visualizzano testo personalizzato in un dashboard. È possibile scegliere la dimensione del testo. Usare un riquadro etichetta per aggiungere informazioni pertinenti al dashboard, ad esempio descrizioni, dettagli di contatto o informazioni della Guida.|
+| Label            | I riquadri etichetta visualizzano testo personalizzato in un dashboard. È possibile scegliere la dimensione del testo. Usare un riquadro etichetta per aggiungere informazioni pertinenti al dashboard, ad esempio descrizioni, dettagli di contatto o informazioni della Guida.|
 | Conteggio            | I riquadri conteggio visualizzano il numero di dispositivi in un gruppo di dispositivi.|
 | Mappa              | I riquadri mappa visualizzano la posizione di uno o più dispositivi su una mappa. È anche possibile visualizzare fino a 100 punti della cronologia della posizione di un dispositivo. Ad esempio, è possibile visualizzare la route campionata in cui si è verificato un dispositivo nella settimana precedente.|
 | KPI              |  I riquadri KPI visualizzano i valori di telemetria aggregati per uno o più dispositivi in un periodo di tempo. Ad esempio, è possibile usarlo per mostrare la temperatura massima e la pressione raggiunta per uno o più dispositivi nell'ultima ora.|
@@ -71,27 +71,31 @@ Attualmente, è possibile aggiungere fino a 10 dispositivi ai riquadri che suppo
 
 ### <a name="customizing-visualizations"></a>Personalizzazione delle visualizzazioni
 
+Per impostazione predefinita, i grafici a linee mostrano i dati in un intervallo di tempo. L'intervallo di tempo selezionato è suddiviso in bucket di dimensioni pari a 50 e i dati del dispositivo vengono quindi aggregati per bucket per fornire 50 punti dati nell'intervallo di tempo selezionato. Se si desidera visualizzare i dati non elaborati, è possibile modificare la selezione per visualizzare gli ultimi 100 valori. Per modificare l'intervallo di tempo o selezionare visualizzazione dati non elaborati, utilizzare l'elenco a discesa intervallo di visualizzazione nel pannello **Configura grafico** .
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/display-range.png" alt-text="Modificare l'intervallo di visualizzazione di un grafico a linee":::
+
 Per i riquadri che visualizzano i valori di aggregazione, selezionare l'icona dell'ingranaggio accanto al tipo di telemetria nel pannello **Configura grafico** per scegliere l'aggregazione. È possibile scegliere tra media, somma, massimo, minimo e conteggio.
 
 Per i grafici a linee, i grafici a barre e i grafici a torta, è possibile personalizzare il colore dei diversi valori di telemetria. Selezionare l'icona della tavolozza accanto ai dati di telemetria che si desidera personalizzare:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Dashboard per le applicazioni basate sul modello di applicazione personalizzata":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/color-customization.png" alt-text="Modificare il colore di un valore di telemetria":::
 
 Per i riquadri che mostrano le proprietà di stringa o i valori di telemetria, è possibile scegliere come visualizzare il testo. Se, ad esempio, il dispositivo archivia un URL in una proprietà di stringa, è possibile visualizzarlo come collegamento selezionabile. Se l'URL fa riferimento a un'immagine, è possibile eseguire il rendering dell'immagine in un riquadro ultimo valore noto o proprietà. Per modificare la modalità di visualizzazione di una stringa, selezionare l'icona a forma di ingranaggio accanto alla proprietà o al tipo di telemetria:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Dashboard per le applicazioni basate sul modello di applicazione personalizzata":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Modificare il modo in cui una stringa viene visualizzata in un riquadro":::
 
-Per **indicatori KPI**numerici, **ultimo valore noto**e riquadri delle **proprietà** , è possibile usare la formattazione condizionale per personalizzare il colore del riquadro in base al relativo valore corrente. Per aggiungere la formattazione condizionale, selezionare **Configura** nel riquadro, quindi selezionare l'icona **formattazione condizionale** accanto al valore da personalizzare:
+Per **indicatori KPI** numerici, **ultimo valore noto** e riquadri delle **proprietà** , è possibile usare la formattazione condizionale per personalizzare il colore del riquadro in base al relativo valore corrente. Per aggiungere la formattazione condizionale, selezionare **Configura** nel riquadro, quindi selezionare l'icona **formattazione condizionale** accanto al valore da personalizzare:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Dashboard per le applicazioni basate sul modello di applicazione personalizzata":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Screenshot che illustra come trovare l'opzione Configura per un riquadro e quindi l'icona formattazione condizionale":::
 
 Aggiungere le regole di formattazione condizionale:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Dashboard per le applicazioni basate sul modello di applicazione personalizzata":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Screenshot che illustra le regole di formattazione condizionale per il flusso medio. Sono disponibili tre regole: meno 20 è verde, minore di 50 è gialla e tutto il valore di 50 è rosso":::
 
 Lo screenshot seguente mostra l'effetto della regola di formattazione condizionale:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Dashboard per le applicazioni basate sul modello di applicazione personalizzata":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot che mostra il colore di sfondo giallo nel riquadro medio del flusso d'acqua. Il numero sul riquadro è 40,84":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

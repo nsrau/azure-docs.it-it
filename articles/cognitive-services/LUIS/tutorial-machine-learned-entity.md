@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: 01262ee0271849793c4393b1ea8e18c4179ad4e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f85ba0c64db23e156f384fadcc5ca7bf84a58d4
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334728"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130744"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Esercitazione: Estrarre dati strutturati da un'espressione dell'utente con entità basate su Machine Learning in Language Understanding (LUIS)
 
@@ -72,7 +72,7 @@ Per estrarre i dettagli relativi a un ordine di pizza, creare un'entità `Order`
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    Iniziare effettuando la selezione immediatamente prima del testo più a sinistra `pickup` (#1) quindi immediatamente dopo il testo più a destra `anchovies` (#2 - fine del processo di etichettatura). Viene visualizzato un menu a comparsa. Nella casella popup immettere il nome dell'entità `Order` (#3). Quindi selezionare `Order Create new entity` dall'elenco (#4).
+    Fare clic e trascinare il cursore sul testo della prima finalità di esempio. Nel menu visualizzato immettere il nome dell'entità `Order`. Quindi selezionare `Order Create new entity` dall'elenco.
 
     ![Assegnare un'etichetta all'inizio e alla fine del testo per l'ordine completo](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
@@ -173,7 +173,7 @@ Viene creata l'entità basata su machine Learning e le sottoentità dispongono d
 
 1. Selezionare **Intents** (Finalità) nel riquadro di spostamento a sinistra, quindi selezionare la finalità **OrderPizza**.
 
-1. Per aprire l'**Entity Palette** (Tavolozza entità) selezionare il simbolo **@** sulla barra degli strumenti contestuale.
+1. Per aprire l' **Entity Palette** (Tavolozza entità) selezionare il simbolo **@** sulla barra degli strumenti contestuale.
 
 1. Selezionare ogni riga di entità nella tavolozza, quindi usare il cursore della tavolozza per selezionare l'entità in ogni espressione di esempio. Al termine, l'elenco di entità avrà un aspetto simile all'immagine seguente.
 

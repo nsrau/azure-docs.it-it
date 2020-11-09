@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 568cd7b280b8fb65b5f75588a2832631361938dd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 810878956a89b6e7400be99692cf43925d1cd134
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420615"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375914"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Modulo di albero delle decisioni con boosting Two-Class
 
@@ -56,7 +56,7 @@ Questo modulo crea un modello di classificazione non sottoposto a training. Poic
   
 6.  Per il **numero di alberi costruiti** , indicare il numero totale di alberi delle decisioni da creare nell'insieme. Creando più alberi delle decisioni, è possibile ottenere una migliore copertura, ma saranno necessari tempi di training maggiori.
   
-     Questo valore controlla anche il numero di alberi visualizzati durante la visualizzazione del modello sottoposto a training. Se si desidera visualizzare o stampare un singolo albero, impostare il valore su 1. Tuttavia, quando si esegue questa operazione, viene prodotto un solo albero (l'albero con il set di parametri iniziale) e non vengono eseguite altre iterazioni.
+     Se si imposta il valore su 1, viene prodotto un solo albero (l'albero con il set di parametri iniziale) e non vengono eseguite altre iterazioni.
   
 7.  Per il valore di **inizializzazione numerico casuale** , digitare facoltativamente un numero intero non negativo da usare come valore di inizializzazione casuale. La specifica di un valore di inizializzazione garantisce la riproducibilità tra esecuzioni con gli stessi dati e parametri.  
   

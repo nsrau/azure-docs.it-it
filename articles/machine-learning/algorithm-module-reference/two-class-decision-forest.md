@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/03/2020
-ms.openlocfilehash: 9870b5366ac629fe1b10cfde15a58b85c7c6fbc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c303a7640454ba0cb6622b21fd161354266068
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907710"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375928"
 ---
 # <a name="two-class-decision-forest-module"></a>Modulo della foresta delle decisioni Two-Class
 
@@ -51,33 +51,33 @@ Per altre informazioni, vedere [foreste delle decisioni](https://go.microsoft.co
   
 1.  Aggiungere il modulo **Two-Class Decision Forest** alla pipeline in Azure Machine Learning e aprire il riquadro delle **Proprietà** del modulo. 
 
-    Il modulo è reperibile in **Machine Learning**. Espandere **Initialize**e quindi **Classification**.  
+    Il modulo è reperibile in **Machine Learning**. Espandere **Initialize** e quindi **Classification**.  
   
-2.  Per il **metodo di ricampionamento**, scegliere il metodo usato per creare i singoli alberi.  È possibile scegliere tra l' **insaccamento** o la **replica**.  
+2.  Per il **metodo di ricampionamento** , scegliere il metodo usato per creare i singoli alberi.  È possibile scegliere tra l' **insaccamento** o la **replica**.  
   
-    -   **Insaccamento**: l'insaccamento viene chiamato anche *aggregazione bootstrap*. In questo metodo ogni albero viene ampliato in un nuovo esempio, creato eseguendo il campionamento casuale del set di dati originale con sostituzione fino a quando non si dispone di un set di dati di dimensioni originali.  
+    -   **Insaccamento** : l'insaccamento viene chiamato anche *aggregazione bootstrap*. In questo metodo ogni albero viene ampliato in un nuovo esempio, creato eseguendo il campionamento casuale del set di dati originale con sostituzione fino a quando non si dispone di un set di dati di dimensioni originali.  
   
-         Gli output dei modelli vengono combinati *votando*, ovvero una forma di aggregazione. Ogni albero in una foresta delle decisioni di classificazione restituisce un istogramma di frequenza non normalizzato di etichette. L'aggregazione consiste nel sommare questi istogrammi e normalizzare per ottenere le "probabilità" per ciascuna etichetta. In questo modo, gli alberi con attendibilità di stima elevata avranno un peso maggiore nella decisione finale dell'insieme.  
+         Gli output dei modelli vengono combinati *votando* , ovvero una forma di aggregazione. Ogni albero in una foresta delle decisioni di classificazione restituisce un istogramma di frequenza non normalizzato di etichette. L'aggregazione consiste nel sommare questi istogrammi e normalizzare per ottenere le "probabilità" per ciascuna etichetta. In questo modo, gli alberi con attendibilità di stima elevata avranno un peso maggiore nella decisione finale dell'insieme.  
   
          Per ulteriori informazioni, vedere la voce Wikipedia per l'aggregazione bootstrap.  
   
-    -   **Replicate**: nella replica ogni albero viene sottoposto a training esattamente sugli stessi dati di input. La determinazione del predicato Split utilizzato per ogni nodo della struttura ad albero rimane casuale e gli alberi saranno diversi.   
+    -   **Replicate** : nella replica ogni albero viene sottoposto a training esattamente sugli stessi dati di input. La determinazione del predicato Split utilizzato per ogni nodo della struttura ad albero rimane casuale e gli alberi saranno diversi.   
   
 3.  Specificare il modo in cui si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .  
   
-    -   **Singolo parametro**: se si sa come si desidera configurare il modello, è possibile fornire un set di valori specifico come argomenti.
+    -   **Singolo parametro** : se si sa come si desidera configurare il modello, è possibile fornire un set di valori specifico come argomenti.
 
-    -   **Intervallo**di parametri: se non si è certi dei parametri migliori, è possibile trovare i parametri ottimali usando il modulo [Tune Model iperparametri](tune-model-hyperparameters.md) . Viene fornito un intervallo di valori e il trainer scorre più combinazioni di impostazioni per determinare la combinazione di valori che produce il risultato migliore.
+    -   **Intervallo** di parametri: se non si è certi dei parametri migliori, è possibile trovare i parametri ottimali usando il modulo [Tune Model iperparametri](tune-model-hyperparameters.md) . Viene fornito un intervallo di valori e il trainer scorre più combinazioni di impostazioni per determinare la combinazione di valori che produce il risultato migliore.
   
-4.  Per **numero di alberi delle decisioni**, digitare il numero massimo di alberi delle decisioni che è possibile creare nell'insieme. Creando più alberi delle decisioni, è possibile ottenere una migliore copertura, ma aumenta il tempo di training.  
+4.  Per **numero di alberi delle decisioni** , digitare il numero massimo di alberi delle decisioni che è possibile creare nell'insieme. Creando più alberi delle decisioni, è possibile ottenere una migliore copertura, ma aumenta il tempo di training.  
   
     > [!NOTE]
-    >  Questo valore controlla anche il numero di alberi visualizzati durante la visualizzazione del modello sottoposto a training. Se si desidera visualizzare o stampare un singolo albero, è possibile impostare il valore su 1. Tuttavia, è possibile produrre solo un albero (l'albero con il set di parametri iniziale) e non vengono eseguite altre iterazioni.
+    >  Impostando il valore su 1. Tuttavia, è possibile produrre solo un albero (l'albero con il set di parametri iniziale) e non vengono eseguite altre iterazioni.
   
-5.  Per la **profondità massima degli alberi delle decisioni**, digitare un numero per limitare la profondità massima di qualsiasi albero delle decisioni. L'aumento della profondità dell'albero potrebbe aumentare la precisione, con il rischio però di overfitting e di aumento dei tempi di training.
+5.  Per la **profondità massima degli alberi delle decisioni** , digitare un numero per limitare la profondità massima di qualsiasi albero delle decisioni. L'aumento della profondità dell'albero potrebbe aumentare la precisione, con il rischio però di overfitting e di aumento dei tempi di training.
   
   
-7.  Per il **numero minimo di campioni per nodo foglia**, indicare il numero minimo di case necessari per creare qualsiasi nodo terminale (foglia) in un albero.
+7.  Per il **numero minimo di campioni per nodo foglia** , indicare il numero minimo di case necessari per creare qualsiasi nodo terminale (foglia) in un albero.
   
      Aumentando questo valore, aumenta la soglia per la creazione di nuove regole. Ad esempio, con un valore predefinito di 1, anche un singolo caso può determinare la creazione di una nuova regola. Se si aumenta il valore a 5, i dati di training devono contenere almeno cinque casi che soddisfano le stesse condizioni.  
   
@@ -87,9 +87,9 @@ Per altre informazioni, vedere [foreste delle decisioni](https://go.microsoft.co
   
 9. Alleghi un set di dati con etichetta ed Esegui il training del modello:
 
-    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
+    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro** , connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
   
-    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri**, connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
+    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri** , connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

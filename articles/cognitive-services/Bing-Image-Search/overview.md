@@ -12,14 +12,19 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: eb657c16f6f3ff67f4379134f3aa478f10d8ef94
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1cdcf6a7aeee6618177440aaef6f488a31870b49
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85603537"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087843"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Che cos'è l'API Ricerca immagini Bing?
+
+> [!WARNING]
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L'API Ricerca immagini Bing consente di usare le funzionalità di ricerca di immagini di Bing nella propria applicazione. Inviando query di ricerca all'API, è possibile ottenere immagini di alta qualità simili a quelle disponibili in [bing.com/images](https://www.bing.com/images).
 

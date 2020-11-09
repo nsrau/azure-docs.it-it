@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 11/02/2020
 ms.author: aahi
 keywords: text mining, analisi del sentiment, analisi del testo
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 544de4adb1891c3d558a524466a076daefb42aa4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: d58c501af3d90fec1eea43d13fa2383c8e847f18
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647462"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289694"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Informazioni sull'API Analisi del testo
 
@@ -29,7 +29,9 @@ L'API fa parte di [Servizi cognitivi di Azure](https://docs.microsoft.com/azure/
 
 ## <a name="sentiment-analysis"></a>Analisi del sentiment
 
-Usare l'[analisi del sentiment](how-tos/text-analytics-how-to-sentiment-analysis.md) e conoscere l'opinione delle persone su un marchio o su un argomento eseguendo il text mining alla ricerca di indizi su sentiment positivo o negativo. Questa funzionalità dell'API restituisce un punteggio sentiment compreso tra 0 e 1 per ogni documento, dove 1 è il risultato più positivo.
+Usare l'[analisi del sentiment](how-tos/text-analytics-how-to-sentiment-analysis.md) e conoscere l'opinione delle persone su un marchio o su un argomento eseguendo il text mining alla ricerca di indizi su sentiment positivo o negativo. 
+
+La funzionalità prevede etichette per il sentiment, ad esempio "negativo", "neutro" e "positivo", in base al punteggio di attendibilità più alto trovato dal servizio a livello di frase e di documento. Questa funzionalità restituisce inoltre i punteggi di attendibilità compresi tra 0 e 1 per ogni documento e per le frasi al suo interno per il sentiment positivo, neutro e negativo. È anche possibile eseguire il servizio in locale [usando un contenitore](how-tos/text-analytics-how-to-install-containers.md).
 
 A partire dalla versione 3.1 in anteprima, l'opinion mining è una funzionalità di Analisi del sentiment. Nota anche come analisi del sentiment basata su aspetto nell'elaborazione del linguaggio naturale (NLP), questa funzionalità fornisce informazioni più granulari sulle opinioni relative ad aspetti del testo come gli attributi di prodotti o servizi.
 

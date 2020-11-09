@@ -4,19 +4,21 @@ description: Testare la Knowledge Base di QnA Maker è una parte importante di u
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/05/2020
-ms.openlocfilehash: 05ae359182ac3d9c3f4cc17d7675a3f2fefa0bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 21984a03947e4f9f60e705955cb1be3b2df8933c
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776834"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376192"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>Testare la Knowledge base in QnA Maker
 
 Testare la Knowledge Base di QnA Maker è una parte importante di un processo iterativo per migliorare l'accuratezza delle risposte restituite. È possibile testare la Knowledge Base attraverso un'interfaccia di chat avanzata che consente anche di apportare modifiche.
 
 ## <a name="interactively-test-in-qna-maker-portal"></a>Eseguire test in modo interattivo nel portale QnA Maker
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
 
 1. Accedere alla Knowledge Base selezionandone il nome nella pagina **My knowledge bases** (Knowledge Base personali).
 1. Per accedere al pannello a scorrimento Test, selezionare **Test** nel pannello superiore dell'applicazione.
@@ -37,7 +39,7 @@ Per chiudere il pannello Test, selezionare nuovamente il pulsante **Test**. Quan
 
 1.  Con il pannello a scorrimento Test aperto, selezionare **Inspect** (Ispeziona) per visualizzare altri dettagli sulla risposta.
 
-    ![Ispezionare le risposte](../media/qnamaker-how-to-test-kb/inspect.png)
+    ![Ispezionare le risposte](../media/qnamaker-how-to-test-knowledge-bases/inspect.png)
 
 2.  Verrà visualizzato il pannello Inspection (Ispeziona). Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.
 
@@ -45,13 +47,13 @@ Per chiudere il pannello Test, selezionare nuovamente il pulsante **Test**. Quan
 
 Se la risposta con il punteggio più alto non è corretta, selezionare la risposta corretta dall'elenco e selezionare **Save and Train** (Salva ed esegui training).
 
-![Correggere la risposta con il punteggio più alto](../media/qnamaker-how-to-test-kb/choose-answer.png)
+![Correggere la risposta con il punteggio più alto](../media/qnamaker-how-to-test-knowledge-bases/choose-answer.png)
 
 ### <a name="add-alternate-questions"></a>Aggiungere domande alternative
 
-È possibile aggiungere forme alternative di una domanda a una determinata risposta. Digitare le risposte alternative nella casella di testo e premere Invio per aggiungerle. Selezionare **Save and Train** (Salva ed esegui training) per archiviare gli aggiornamenti.
+È possibile aggiungere forme alternative di una domanda a una determinata risposta. Digitare le risposte alternative nella casella di testo e premere INVIO per aggiungerle. Selezionare **Save and Train** (Salva ed esegui training) per archiviare gli aggiornamenti.
 
-![Aggiungere domande alternative](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
+![Aggiungere domande alternative](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question.png)
 
 ### <a name="add-a-new-answer"></a>Aggiungere una nuova risposta
 
@@ -62,13 +64,64 @@ Nella parte inferiore dell'elenco risposte utilizzare la casella di testo per im
 Selezionare **Save and train** (Salva ed esegui training) per salvare questa risposta in modo permanente. Una nuova coppia di domanda/risposta è stata così aggiunta alla Knowledge Base.
 
 > [!NOTE]
-> Tutte le modifiche alla Knowledge Base vengono salvate solo quando si fa clic sul pulsante ** Save and train** (Salva ed esegui training).
+> Tutte le modifiche alla Knowledge Base vengono salvate solo quando si fa clic sul pulsante **Save and train** (Salva ed esegui training).
+
+# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+
+1. Accedere alla Knowledge Base selezionandone il nome nella pagina **My knowledge bases** (Knowledge Base personali).
+1. Per accedere al pannello a scorrimento Test, selezionare **Test** nel pannello superiore dell'applicazione. 
+1. Verrà visualizzata una casella di controllo nella parte superiore della **risposta breve visualizzata** , selezionata per impostazione predefinita. Questa opzione viene usata per abilitare il rilevamento dell'intervallo di risposte basato su MRC nel pannello di test. 
+1. Immettere una query nella casella di testo e premere Invio. 
+1. Per ogni query, se è presente una risposta precisa/risposta breve nel passaggio di risposta, insieme al passaggio di risposta con la corrispondenza più appropriata, presente nella Knowledge base, sarà disponibile anche una breve risposta per la query.
+    ![Riquadro di test abilitato gestito](../media/qnamaker-how-to-test-knowledge-bases/test-pane-with-managed-detail.png)
+1. Se si deseleziona la **visualizzazione della risposta breve** , viene restituito come risposta solo il passaggio della risposta con la corrispondenza più appropriata della Knowledge base.
+
+### <a name="clear-test-panel"></a>Cancellare il pannello Test
+
+Per cancellare tutte le query di test inserite e i relativi risultati dalla console di test, selezionare **Ricomincia** nell'angolo in alto a sinistra del pannello Test.
+
+### <a name="close-test-panel"></a>Chiudere il pannello Test
+
+Per chiudere il pannello Test, selezionare nuovamente il pulsante **Test**. Quando il pannello Test è aperto, non è possibile modificare i contenuti della Knowledge Base.
+
+### <a name="inspect-score"></a>Ispezionare il punteggio
+
+È possibile ispezionare i dettagli dei risultati del test nel pannello Inspect (Ispeziona).
+
+1.  Con il pannello a scorrimento Test aperto, selezionare **Inspect** (Ispeziona) per visualizzare altri dettagli sulla risposta.
+
+    ![Controllare l'anteprima delle risposte](../media/qnamaker-how-to-test-knowledge-bases/inspect-with-managed.png)
+
+2.  Verrà visualizzato il pannello Inspection (Ispeziona). Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.
+3. Il pannello mostra il Punteggio di confidenza del passaggio di risposta insieme al Punteggio di intervallo di risposta rilevato.
+
+### <a name="correct-the-top-scoring-answer"></a>Correggere la risposta con il punteggio più alto
+
+Se la risposta con il punteggio più alto non è corretta, selezionare la risposta corretta dall'elenco e selezionare **Save and Train** (Salva ed esegui training).
+
+![Correggere l'anteprima della risposta con punteggio superiore](../media/qnamaker-how-to-test-knowledge-bases/choose-answer-managed.png)
+
+### <a name="add-alternate-questions"></a>Aggiungere domande alternative
+
+È possibile aggiungere forme alternative di una domanda a una determinata risposta. Digitare le risposte alternative nella casella di testo e premere INVIO per aggiungerle. Selezionare **Save and Train** (Salva ed esegui training) per archiviare gli aggiornamenti.
+
+![Aggiungi anteprima domande alternative](../media/qnamaker-how-to-test-knowledge-bases/add-alternate-question-with-managed.png)
+
+### <a name="add-a-new-answer"></a>Aggiungere una nuova risposta
+
+È possibile aggiungere una nuova risposta se una delle risposte esistenti individuate non è corretta o se la risposta non esiste nella Knowledge Base (non è stata trovata una buona corrispondenza nella Knowledge Base).
+
+Nella parte inferiore dell'elenco risposte utilizzare la casella di testo per immettere una nuova risposta e premere INVIO per aggiungerla.
+
+Selezionare **Save and train** (Salva ed esegui training) per salvare questa risposta in modo permanente. Una nuova coppia di domanda/risposta è stata così aggiunta alla Knowledge Base.
+
+---
 
 ### <a name="test-the-published-knowledge-base"></a>Testare la Knowledge base pubblicata
 
 È possibile testare la versione pubblicata della Knowledge base nel riquadro test. Dopo aver pubblicato la Knowledge base, selezionare la casella **KB pubblicati** e inviare una query per ottenere risultati dalla KB pubblicata.
 
-![Eseguire test su una KB pubblicata](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
+![Eseguire test su una KB pubblicata](../media/qnamaker-how-to-test-knowledge-bases/test-against-published-knowledge-base.png)
 
 ## <a name="batch-test-with-tool"></a>Test batch con strumento
 
@@ -91,7 +144,7 @@ Utilizzare lo strumento di test batch quando si desidera:
 ### <a name="create-a-new-knowledge-base-from-the-multi-turn-sampledocx-file"></a>Creare una nuova knowledge base dal file sample.docx multiturno
 
 1. Selezionare **Create a knowledge base** (Crea una knowledge base) sulla barra degli strumenti.
-1. Ignorare il **passaggio 1**, perché si dovrebbe avere già una risorsa QnA Maker, e procedere con il **passaggio 2** per selezionare le informazioni sulla risorsa esistente:
+1. Ignorare il **passaggio 1** , perché si dovrebbe avere già una risorsa QnA Maker, e procedere con il **passaggio 2** per selezionare le informazioni sulla risorsa esistente:
     * ID di Azure Active Directory
     * Nome della sottoscrizione di Azure
     * Nome del servizio QnA di Azure
@@ -107,7 +160,7 @@ Utilizzare lo strumento di test batch quando si desidera:
     |**+ Add File** (+ Aggiungi file)|Selezionare il file `.docx` scaricato come da prerequisiti.|
     |**Chit-chat**|Selezionare **Professional**|
 
-1. Nel **passaggio 5**, selezionare **Create your KB** (Crea la KB).
+1. Nel **passaggio 5** , selezionare **Create your KB** (Crea la KB).
 
     Al termine del processo di creazione, nel portale viene visualizzata la knowledge base modificabile.
 
@@ -130,11 +183,11 @@ Per usare lo strumento di test batch, creare un file denominato `batch-test-data
 |--|--|--|
 |ID della knowledge Base|L'ID della knowledge base disponibile nella pagina di pubblicazione. Testare più knowledge base contemporaneamente nello stesso servizio usando ID knowledge base diversi in un singolo file.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (stringa di caratteri 36 visualizzata come parte di `POST`) |
 |Domanda|Il testo della domanda che verrebbe immesso da un utente. Massimo 1.000 caratteri.|`How do I sign out?`|
-|Tag dei metadati|facoltativo|`topic:power` usa il formato _chiave:valore_|
+|Tag dei metadati|facoltativo|`topic:power` Usa il `key:value` formato|
 |Parametro Top|facoltativo|`25`|
 |ID della risposta prevista|facoltativo|`13`|
 
-Per questa knowledge base, aggiungere al file tre righe delle sole due colonne obbligatorie. La prima colonna è l'ID della knowledge base e la seconda deve contenere l'elenco di domande seguente:
+Per questa Knowledge base, aggiungere al file tre righe delle sole due colonne obbligatorie. La prima colonna è l'ID della knowledge base e la seconda deve contenere l'elenco di domande seguente:
 
 |Colonna 2 - domande|
 |--|
@@ -144,7 +197,7 @@ Per questa knowledge base, aggiungere al file tre righe delle sole due colonne o
 
 Queste domande rappresentano l'esatta formulazione della knowledge base e devono restituire 100 come punteggio di attendibilità.
 
-Successivamente, aggiungere alcune domande, simili a queste ma non esattamente identiche, in altre tre righe, usando lo stesso ID della knowledge base:
+Successivamente, aggiungere alcune domande, simili a queste domande ma non esattamente le stesse su altre tre righe, usando lo stesso ID Knowledge Base:
 
 |Colonna 2 - domande|
 |--|
@@ -176,7 +229,7 @@ Il test viene completato e genera il file `out.tsv`:
 
 L'ID della knowledge base è stato sostituito con `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` per motivi di sicurezza. Per il test batch, nella colonna viene visualizzato l'ID della propria knowledge base.
 
-L'output del test del punteggio di attendibilità, nella quarta colonna, mostra che le prime tre domande hanno restituito il punteggio 100 come previsto, perché ogni domanda è esattamente identica a come compare nella knowledge base. Le ultime tre domande, con la nuova formulazione, non restituiscono 100 come punteggio di attendibilità. Per aumentare il punteggio per il test e per gli utenti, è necessario aggiungere più domande alternative alla knowledge base.
+L'output del test del Punteggio di confidenza, nella quarta colonna, Mostra le prime tre domande che hanno restituito un punteggio di 100 come previsto perché ogni domanda è esattamente identica a quella visualizzata nella Knowledge base. Le ultime tre domande, con la nuova formulazione della domanda, non restituiscono 100 come Punteggio di confidenza. Per aumentare il punteggio per il test e per gli utenti, è necessario aggiungere più domande alternative alla knowledge base.
 
 ### <a name="testing-with-the-optional-fields"></a>Test con i campi facoltativi
 
@@ -192,7 +245,7 @@ Usare il grafico seguente per informazioni su come trovare i valori dei campi pe
 
 |Numero di colonna|Colonna facoltativa|Posizione dei dati|
 |--|--|--|
-|3|metadata|Esporta la knowledge base esistente per le coppie _chiave:valore_ esistenti.|
+|3|metadata|Esporta la Knowledge Base esistente per le `key:value` coppie esistenti.|
 |4|top|È consigliabile usare il valore predefinito `25`.|
 |5|ID del set di domane e risposte|Esporta la knowledge base esistente per i valori di ID. Si noti inoltre che gli ID sono stati restituiti nel file di output.|
 
@@ -220,12 +273,12 @@ Usare il grafico seguente per informazioni su come trovare i valori dei campi pe
 ### <a name="create-a-second-batch-test"></a>Creare un secondo test batch
 
 Esistono due scenari principali per i test batch:
-* **Elaborare i file di log della chat**: determinare la risposta principale per una domanda in precedenza non vista; la situazione più comune è il caso in cui sia necessario elaborare un file di log di query, ad esempio le domande dell'utente di un chatbot. Creare un test di file batch solo con le colonne necessarie. Il test restituisce la risposta principale per ogni domanda. Questo non significa che tale risposta sia quella corretta. Una volta completato questo test, passare al test di convalida.
-* **Test di convalida**: convalidare la risposta prevista. Per questo test è necessario che siano state convalidate tutte le domande e le risposte previste corrispondenti nel test batch. Questa operazione potrebbe richiedere un processo manuale.
+* **Elaborare i file di log della chat** : determinare la risposta principale per una domanda in precedenza non vista; la situazione più comune è il caso in cui sia necessario elaborare un file di log di query, ad esempio le domande dell'utente di un chatbot. Creare un test di file batch solo con le colonne necessarie. Il test restituisce la risposta principale per ogni domanda. Questo non significa che tale risposta sia quella corretta. Una volta completato questo test, passare al test di convalida.
+* **Test di convalida** : convalidare la risposta prevista. Per questo test è necessario che siano state convalidate tutte le domande e le risposte previste corrispondenti nel test batch. Questa operazione potrebbe richiedere un processo manuale.
 
 La procedura seguente presuppone che lo scenario consista nell'elaborare i log della chat
 
-1. Creare un nuovo file di test batch per includere i dati facoltativi `batch-test-data-2.tsv`. Aggiungere le sei righe del file di input del test batch originale, quindi aggiungere per ogni riga i metadati, la risposta principale e l'ID della coppia di domande e risposte.
+1. Creare un nuovo file di test batch per includere i dati facoltativi `batch-test-data-2.tsv`. Aggiungere le sei righe dal file di input del test batch originale, quindi aggiungere i metadati, la parte superiore e l'ID della coppia QnA per ogni riga.
 
     Per simulare il processo automatizzato di verifica della presenza di nuovo testo nei log della chat rispetto alla knowledge base, impostare i metadati per ogni colonna sullo stesso valore: `topic:power`.
 
@@ -241,7 +294,7 @@ La procedura seguente presuppone che lo scenario consista nell'elaborare i log d
 
 Questo file di output del test può essere analizzato nell'ambito di una pipeline di test continua automatizzata.
 
-L'output specifico di questo test viene interpretato in questo modo: è stata filtrata ogni riga con metadati e per ogni riga che non corrisponde ai metadati della knowledge base viene restituita la risposta predefinita (nessuna corrispondenza trovata nella KB). Per le righe che invece corrispondono, vengono restituiti l'ID e il punteggio delle domande e risposte.
+L'output specifico di questo test viene interpretato in questo modo: è stata filtrata ogni riga con metadati e per ogni riga che non corrisponde ai metadati della knowledge base viene restituita la risposta predefinita (nessuna corrispondenza trovata nella KB). Delle righe che corrispondono, è stato restituito l'ID QnA e il punteggio.
 
 Tutte le righe restituiscono l'etichetta di valore non corretto perché nessuna riga corrisponde all'ID risposta previsto.
 

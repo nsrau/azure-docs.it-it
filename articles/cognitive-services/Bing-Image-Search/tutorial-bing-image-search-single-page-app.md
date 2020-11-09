@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: fe4c40e2c5e2b8992598125c376dc0da516e9736
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a62133737d48a8ebf454b5fab83ef52ef2daad09
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316699"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098434"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Esercitazione: Creare un'app di una pagina con l'API Ricerca immagini Bing
+
+> [!WARNING]
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L'API Ricerca immagini Bing consente di cercare nel Web immagini pertinenti di alta qualità. Usare questa esercitazione per compilare un'applicazione Web composta da una sola pagina in grado di inviare query di ricerca all'API e visualizzare i risultati all'interno della pagina Web. Questa esercitazione è simile all'[esercitazione corrispondente](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) per Ricerca Web Bing.
 
