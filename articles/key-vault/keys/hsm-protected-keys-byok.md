@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 1869ec9b617a7451ec42fa9d092ea3bb5834f9e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe7a8a3df535d05c3c834d3e2fbba5f7df5d6fcd
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585475"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372245"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Importare chiavi con protezione HSM in Key Vault
 
@@ -63,7 +63,8 @@ La tabella seguente elenca i prerequisiti per l'uso di BYOK in Azure Key Vault:
 |Fortanix|Produttore,<br/>modulo di protezione hardware come servizio|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Esportazione di chiavi SDKMS nei provider di servizi cloud per BYOK - Azure Key Vault](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
 |Marvell|Produttore|Moduli di protezione hardware di All LiquidSecurity con<ul><li>Firmware con versione 2.0.4 o successiva</li><li>Firmware con versione 3.2 o successiva</li></ul>|[Strumento BYOK e documentazione di Marvell](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
 |Cryptomathic|ISV (Enterprise Key Management System)|Più marchi e modelli di moduli di protezione hardware, tra cui<ul><li>nCipher</li><li>Thales</li><li>Utimaco</li></ul>Per dettagli, vedere il [sito di Cryptomathic](https://www.cryptomathic.com/azurebyok)|[Strumento BYOK e documentazione di Cryptomathic](https://www.cryptomathic.com/azurebyok)|
-
+|Securosys SA|Produttore, modulo di protezione hardware come servizio|Famiglia di moduli di protezione hardware Primus, Securosys Clouds HSM|[Strumento BYOK e documentazione di Primus](https://www.securosys.com/primus-azure-byok)|
+||||
 
 
 ## <a name="supported-key-types"></a>Tipi di chiave supportati
@@ -119,7 +120,7 @@ Trasferire il file BYOK nel computer connesso.
 > [!NOTE] 
 > L'importazione delle chiavi RSA a 1.024 bit non è supportata. Non è attualmente supportata l'importazione di una chiave a curva ellittica (EC).
 > 
-> **Problema noto**: l'importazione di una chiave di destinazione RSA 4K da moduli di protezione hardware di Luna è supportata solo con firmware 7.4.0 o versioni successive.
+> **Problema noto** : l'importazione di una chiave di destinazione RSA 4K da moduli di protezione hardware di Luna è supportata solo con firmware 7.4.0 o versioni successive.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>Passaggio 4: Trasferire la chiave ad Azure Key Vault
 

@@ -2,14 +2,14 @@
 author: rothja
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 2/14/2020
+ms.date: 11/05/2020
 ms.author: rohink
-ms.openlocfilehash: 0f7187300ec96ce417866c4fb8fa02783c1da63a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7011b92485c56187021c9043ba84bc85e448a98f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86515876"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329580"
 ---
 **Zone DNS pubblico**
 
@@ -33,7 +33,7 @@ ms.locfileid: "86515876"
 | Collegamenti alle reti virtuali per zone DNS privato con registrazione automatica abilitata |100|
 | Numero di zone DNS privato a cui una rete virtuale può collegarsi con la registrazione automatica abilitata |1|
 | Numero di zone DNS privato a cui una rete virtuale può collegarsi |1000|
-| Numero di query DNS che una macchina virtuale può inviare al resolver DNS di Azure al secondo |500 <sup>1</sup> |
+| Numero di query DNS che una macchina virtuale può inviare al resolver DNS di Azure al secondo |1000 <sup>1</sup> |
 | Numero massimo di query DNS in coda (risposta in sospeso) per ogni macchina virtuale |200 <sup>1</sup> |
 
 <sup>1</sup>Questi limiti vengono applicati a ogni singola macchina virtuale e non a livello di rete virtuale. Le query DNS che superano questi limiti vengono eliminate.

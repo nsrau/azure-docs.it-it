@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 11/05/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 95c55f92304ddd3ec2b3d44d4f07fb64ab815c6d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a38c4bb18e16a814b626a6941d626b66311cd8ea
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755433"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329479"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Quali aree sono disponibili?
 
@@ -88,3 +88,7 @@ Una sessione deve essere avviata solo dal portale di Azure. Accedere al portale 
 ### <a name="how-do-i-handle-deployment-failures"></a><a name="udr"></a>Come si gestiscono gli errori di distribuzione?
 
 Esaminare gli eventuali messaggi di errore e, se necessario, [aprire una richiesta di supporto nel portale di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Gli errori di distribuzione possono derivare da [limiti, quote e vincoli della sottoscrizione di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). In particolare, i clienti potrebbero riscontrare un limite sul numero di indirizzi IP pubblici consentiti per ogni sottoscrizione, che causa un errore della distribuzione di Azure Bastion.
+
+### <a name="how-do-i-incorporate-azure-bastion-in-my-dr-plan"></a><a name="dr"></a>Come si incorpora Azure Bastion nel piano di ripristino di emergenza?
+
+Dal momento che Azure Bastion è associato a un'area di Azure e viene distribuito all'interno di reti virtuali o reti virtuali con peering, l'utente è responsabile della distribuzione di Azure Bastion in una rete virtuale del sito di ripristino di emergenza. In caso di errore di un'area di Azure, è necessario eseguire un'operazione di failover per le macchine virtuali e quindi usare l'host di Azure Bastion distribuito nell'area di ripristino di emergenza per connettersi alle macchine virtuali distribuite nell'area di ripristino di emergenza.

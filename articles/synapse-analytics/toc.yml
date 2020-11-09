@@ -50,13 +50,13 @@
   items:
     - name: Avvi rapidi
       items:
-        - name: Creare un'area di lavoro di Synapse con il portale di Azure
+        - name: Creare un'area di lavoro con il portale di Azure
           href: quickstart-create-workspace.md
           displayName: quickstart
-        - name: Creare un'area di lavoro di Synapse con l'interfaccia della riga di comando di Azure
+        - name: Creare un'area di lavoro con l'interfaccia della riga di comando di Azure
           href: quickstart-create-workspace-cli.md
           displayName: quickstart
-        - name: Creare un'area di lavoro di Synapse con Azure PowerShell
+        - name: Creare un'area di lavoro con Azure PowerShell
           href: quickstart-create-workspace-powershell.md
           displayName: quickstart
         - name: Eseguire la distribuzione con un modello
@@ -338,6 +338,12 @@
               displayname: 'workload, management'
     - name: Guide pratiche
       items:
+        - name: Backup e ripristino
+          items:
+            - name: Creare punti di ripristino
+              href: ./backuprestore/sqlpool-create-restore-point.md
+            - name: Ripristinare un pool Synapse SQL
+              href: ./backuprestore/restore-sql-pool.md
         - name: Gestire e monitorare
           items:
             - name: Monitorare la cache Gen2

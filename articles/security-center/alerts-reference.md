@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: memildin
-ms.openlocfilehash: f98927e71a675cc6264c413ba07b3cf689b91560
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3cc64d2721f73da36fdc4fce009cccb5fdfd6b6b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784287"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372694"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Guida di riferimento per gli avvisi di sicurezza
 
@@ -456,6 +456,8 @@ Le finalità della catena di attacco supportata dal Centro sicurezza si basano s
 | **Impatto**              | Gli eventi di impatto tentano principalmente di ridurre direttamente la disponibilità o l'integrità di un sistema, un servizio o una rete, inclusa la manipolazione dei dati per avere ripercussioni su un processo operativo o aziendale. Spesso si riferisce a tecniche quali ransomware, danneggiamento, manipolazione dei dati e così via.                                                                                                                                                                                                                                                                                                     |
 |                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |
 
+> [!NOTE]
+> Per gli avvisi in anteprima: [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sugli avvisi, vedere gli argomenti seguenti:

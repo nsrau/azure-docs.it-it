@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0d5c9c4a0191c6d5effd8f6067cb6602ed239125
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91936211"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329550"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limiti relativi alla rete - Azure Resource Manager
 I limiti seguenti si applicano solo alle risorse di rete gestite tramite **Azure Resource Manager** per area per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
@@ -55,6 +55,7 @@ I limiti seguenti si applicano solo alle risorse di rete gestite tramite **Azure
 | Indirizzi IP pubblici<sup>1</sup> | 10 per Basic. | Contattare il supporto tecnico. |
 | Indirizzi IP pubblici statici<sup>1</sup> | 10 per Basic. | Contattare il supporto tecnico. |
 | Indirizzi IP pubblici standard<sup>1</sup> | 10 | Contattare il supporto tecnico. |
+| [Indirizzi IP pubblici per gruppo di risorse](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | Contattare il supporto tecnico. | 
 | Prefissi per indirizzi IP pubblici | Limiti basati sul numero di indirizzi IP pubblici standard di una sottoscrizione | Contattare il supporto tecnico. |
 | Lunghezza dei prefissi di indirizzi IP pubblici | /28 | Contattare il supporto tecnico. |
 
@@ -106,6 +107,6 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Route definite dall'utente per tabella di route |400 |400 |
 | Indirizzi IP pubblici (dinamici) |500 |500 |
 | Indirizzi IP pubblici riservati. |500 |500 |
-| VIP pubblico per ogni distribuzione |5 |Contattare il supporto tecnico |
-| Indirizzo VIP privato (bilanciamento del carico interno) per distribuzione |1 |1 |
+| IP pubblico per distribuzione |5 |Contattare il supporto tecnico |
+| IP privato (bilanciamento del carico interno) per distribuzione |1 |1 |
 | Elenchi di controllo di accesso (ACL) per endpoint |50 |50 |

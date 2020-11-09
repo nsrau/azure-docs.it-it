@@ -1,20 +1,20 @@
 ---
-title: 'Guida introduttiva: creare un endpoint privato di Azure usando Azure PowerShell'
-description: Usare questa Guida introduttiva per informazioni su come creare un endpoint privato usando Azure PowerShell.
+title: Avvio rapido - Creare un endpoint privato di Azure con Azure PowerShell
+description: Questa guida di avvio rapido illustra come creare un endpoint privato con Azure PowerShell.
 services: private-link
 author: asudbring
 ms.service: private-link
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 11/02/2020
 ms.author: allensu
-ms.openlocfilehash: 147e646738df9d70355f379a9e64a52116e9f16f
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
-ms.translationtype: MT
+ms.openlocfilehash: 7add424c23e430a8ca5059d45acd037fff8836ad
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233594"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368662"
 ---
-# <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Guida introduttiva: creare un endpoint privato usando Azure PowerShell
+# <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Avvio rapido: Creare un endpoint privato con Azure PowerShell
 
 Introduzione al collegamento privato di Azure, che consente di connettersi in modo sicuro a un'app Web di Azure tramite un endpoint privato.
 
@@ -47,7 +47,7 @@ In questa sezione si creeranno una rete virtuale, una subnet e un host bastion.
 
 L'host bastion verrà usato per connettersi in modo sicuro alla macchina virtuale per testare l'endpoint privato.
 
-Creare una rete virtuale e un host Bastion con:
+Creare una rete virtuale e un host bastion con:
 
 * [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
 * [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
@@ -147,14 +147,15 @@ New-AzVM -ResourceGroupName 'CreatePrivateEndpointQS-rg' -Location 'eastus' -VM 
 
 ## <a name="create-private-endpoint"></a>Creare un endpoint privato
 
-In questa sezione verrà creato l'endpoint privato e la connessione utilizzando:
+In questa sezione si creerà l'endpoint privato e la connessione usando:
 
 * [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection)
 * [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)
 
 ```azurepowershell-interactive
-## Place web app into variable. Replace <your-webapp-name> with your server name ##
-$webapp = Get-AzWebApp -ResourceGroupName CreatePrivateEndpointQS-rg -Name <your-webapp-name>
+## Place web app into variable. Replace <webapp-resource-group-name> with the resource group of your webapp. ##
+## Replace <your-webapp-name> with your webapp name ##
+$webapp = Get-AzWebApp -ResourceGroupName <webapp-resource-group-name> -Name <your-webapp-name>
 
 ## Create private endpoint connection. ##
 $parameters1 = @{
@@ -183,7 +184,7 @@ New-AzPrivateEndpoint @parameters2
 ```
 ## <a name="configure-the-private-dns-zone"></a>Configurare la zona DNS privato
 
-In questa sezione verrà creata e configurata la zona DNS privata utilizzando:
+In questa sezione si creerà e si configurerà la zona DNS privata usando:
 
 * [New-AzPrivateDnsZone](/powershell/module/az.privatedns/new-azprivatednszone)
 * [New-AzPrivateDnsVirtualNetworkLink](/powershell/module/az.privatedns/new-azprivatednsvirtualnetworklink)
@@ -259,7 +260,7 @@ In questa sezione si userà la macchina virtuale creata nel passaggio precedente
     Aliases:  mywebapp8675.azurewebsites.net
     ```
 
-    Viene restituito un indirizzo IP privato di **10.0.0.5** per il nome dell'app Web.  Questo indirizzo si trova nella subnet della rete virtuale creata in precedenza.
+    Per il nome dell'app Web viene restituito l'indirizzo IP privato **10.0.0.5**.  Questo indirizzo si trova nella subnet della rete virtuale creata in precedenza.
 
 10. Nella connessione bastion a **myVM** aprire Internet Explorer.
 
@@ -272,7 +273,7 @@ In questa sezione si userà la macchina virtuale creata nel passaggio precedente
 13. Chiudere la connessione a **myVM**.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
-Al termine dell'uso dell'endpoint privato e della VM, usare [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse disponibili:
+Quando non si ha più bisogno dell'endpoint privato e della macchina virtuale, usare [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse che contiene:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name CreatePrivateEndpointQS-rg -Force
