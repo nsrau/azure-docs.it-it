@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Usare Azure Cache for Redis con app .NET Core'
+title: 'Avvio rapido: Usare la cache di Azure per Redis in .NET Core'
 description: Questa guida introduttiva illustra come accedere a Cache Redis di Azure nelle app .NET Core
 author: yegu-ms
 ms.author: yegu
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 12466f64daa699925e4e184536b2d50c5fb89847
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 945d4a3d2bba84bf8f5973fd8dec092c66794c11
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547725"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077082"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Guida introduttiva: Usare Cache Redis di Azure con un'app .NET Core
+# <a name="quickstart-use-azure-cache-for-redis-in-net-core"></a>Avvio rapido: Usare la cache di Azure per Redis in .NET Core
 
 In questa guida di avvio rapido si incorpora Azure Cache for Redis in un'app .NET Core per accedere a una cache sicura e dedicata accessibile da qualsiasi applicazione in Azure. Si usa specificamente il client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) con codice C# in un'app console .NET Core.
 
@@ -29,7 +29,7 @@ In questa guida di avvio rapido si incorpora Azure Cache for Redis in un'app .NE
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Prendere nota del **nome host** e della chiave di accesso **primaria** . Questi valori verranno usati in un secondo momento per costruire il segreto *CacheConnection* .
+Prendere nota del **nome host** e della chiave di accesso **primaria**. Questi valori verranno usati in un secondo momento per costruire il segreto *CacheConnection*.
 
 
 
@@ -41,7 +41,7 @@ Aprire una nuova finestra di comando ed eseguire il comando seguente per creare 
 dotnet new console -o Redistest
 ```
 
-Nella finestra di comando passare alla nuova directory di progetto *Redistest* .
+Nella finestra di comando passare alla nuova directory di progetto *Redistest*.
 
 
 
@@ -49,7 +49,7 @@ Nella finestra di comando passare alla nuova directory di progetto *Redistest* .
 
 In questa sezione verrà aggiunto lo [strumento Secret Manager](/aspnet/core/security/app-secrets) al progetto. Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo al di fuori dell'albero del progetto. Questo approccio contribuisce a impedire la condivisione accidentale dei segreti dell'app all'interno del codice sorgente.
 
-Aprire il file *Redistest.csproj* . Aggiungere un elemento `DotNetCliToolReference` per includere *Microsoft.Extensions.SecretManager.Tools* . Aggiungere anche un elemento `UserSecretsId` come illustrato di seguito e salvare il file.
+Aprire il file *Redistest.csproj*. Aggiungere un elemento `DotNetCliToolReference` per includere *Microsoft.Extensions.SecretManager.Tools*. Aggiungere anche un elemento `UserSecretsId` come illustrato di seguito e salvare il file.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -88,7 +88,7 @@ Aggiungere l'istruzione `using` seguente al file *Program.cs* :
 using Microsoft.Extensions.Configuration;
 ```
 
-Aggiungere i membri seguenti alla classe `Program` in *Program.cs* . Questo codice consente di inizializzare una configurazione per accedere al segreto utente per la stringa di connessione di Cache Redis di Azure.
+Aggiungere i membri seguenti alla classe `Program` in *Program.cs*. Questo codice consente di inizializzare una configurazione per accedere al segreto utente per la stringa di connessione di Cache Redis di Azure.
 
 ```csharp
 private static IConfigurationRoot Configuration { get; set; }
@@ -191,7 +191,7 @@ static void Main(string[] args)
 }
 ```
 
-Salvare *Program.cs* .
+Salvare *Program.cs*.
 
 Cache Redis di Azure ha un numero configurabile di database (16 per impostazione predefinita) che è possibile usare per separare in modo logico i dati all'interno di un'istanza di Cache Redis di Azure. Il codice si connette al database predefinito, DB 0. Per altre informazioni, vedere [Informazioni sui database Redis](cache-development-faq.md#what-are-redis-databases) e [Configurazione predefinita del server Redis](cache-configure.md#default-redis-server-configuration).
 
@@ -293,13 +293,13 @@ In caso contrario, se si è terminato il lavoro con l'applicazione di esempio di
 > L'eliminazione di un gruppo di risorse è irreversibile e comporta l'eliminazione definitiva del gruppo di risorse e di tutte le risorse incluse nel gruppo. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. Se le risorse per questo esempio sono state create all'interno di un gruppo di risorse esistente che contiene anche elementi da mantenere, è possibile eliminare ogni elemento singolarmente dai rispettivi pannelli anziché eliminare il gruppo di risorse.
 >
 
-Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse** .
+Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse**.
 
-Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *TestResources* . Nel gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse** .
+Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *TestResources*. Nel gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse**.
 
 ![Delete](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
 
-Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina** .
+Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina**.
 
 Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 

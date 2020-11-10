@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: ed7cec34b4bca1882d069997d4f89677cda32447
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dd262b942d6ce4e423f524c7381574afd501f466
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88080950"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927550"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniziare a monitorare l'applicazione Web ASP.NET
 
@@ -36,9 +36,9 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 2. Selezionare **Configura Application Insights** dal menu Progetto. Visual Studio aggiunge Application Insights SDK all'applicazione.
 
     > [!IMPORTANT]
-    > Il processo di aggiunta di Application Insights varia in base al tipo di modello ASP.NET. Se si usa il modello **Vuoto** o **App per dispositivi mobili di Azure**, selezionare **Progetto** > **Aggiungi Application Insights Telemetry**. Per tutti gli altri modelli ASP.NET, vedere le istruzioni nel passaggio precedente. 
+    > Il processo di aggiunta di Application Insights varia in base al tipo di modello ASP.NET. Se si usa il modello **Vuoto** o **App per dispositivi mobili di Azure** , selezionare **Progetto** > **Aggiungi Application Insights Telemetry**. Per tutti gli altri modelli ASP.NET, vedere le istruzioni nel passaggio precedente. 
 
-3. Fare clic su **Inizia** (le versioni precedenti di Visual Studio dispongono invece di un pulsante **Inizia gratis**).
+3. Fare clic su **Inizia** (le versioni precedenti di Visual Studio dispongono invece di un pulsante **Inizia gratis** ).
 
     ![Aggiunta di Application Insights a Visual Studio](./media/quick-monitor-portal/add-application-insights-b.png)
 
@@ -62,15 +62,15 @@ Application Insights raccoglie i dati di telemetria per l'applicazione indipende
 
 1. Espandere la cartella **Servizi connessi** (icona a forma di nuvole e spina) in Esplora soluzioni e quindi fare clic con il pulsante destro del mouse su **Application Insights** e fare clic su **Apri portale Application Insights**.  Verranno visualizzate alcune informazioni sull'applicazione e diverse opzioni.
 
-    ![Mappa delle applicazioni](media/quick-monitor-portal/04-overview.png)
+    ![Screenshot che mostra le informazioni relative all'applicazione all'interno del portale di Application Insights.](media/quick-monitor-portal/04-overview.png)
 
 2. Fare clic su **Mappa delle applicazioni** per ottenere un layout visivo delle relazioni di dipendenza tra i componenti dell'applicazione.  Ogni componente mostra indicatori KPI come carico, prestazioni, errori e avvisi.
 
     ![Mappa delle applicazioni](media/quick-monitor-portal/05-appmap.png)
 
-3. Fare clic sull'icona **Analisi app** ![Mappa delle applicazioni](media/quick-monitor-portal/app-viewinlogs-icon.png) **Visualizza in Log (Analisi)** in uno dei componenti dell'applicazione. Verrà aperta la finestra **Log (Analisi)** , che fornisce un linguaggio di query avanzato per l'analisi di tutti i dati raccolti da Application Insights. In questo caso viene generata una query che esegue il rendering del conteggio delle richieste sotto forma di grafico. È possibile scrivere query personalizzate per analizzare altri dati.
+3. Fare clic sull'icona **Analisi app** ![Screenshot dell'icona Analisi app.](media/quick-monitor-portal/app-viewinlogs-icon.png) **Visualizza in Log (Analytics)** in uno dei componenti dell'applicazione. Verrà aperta la finestra **Log (Analisi)** , che fornisce un linguaggio di query avanzato per l'analisi di tutti i dati raccolti da Application Insights. In questo caso viene generata una query che esegue il rendering del conteggio delle richieste sotto forma di grafico. È possibile scrivere query personalizzate per analizzare altri dati.
 
-    ![Analytics](media/quick-monitor-portal/6viewanalytics.png)
+    ![Analisi](media/quick-monitor-portal/6viewanalytics.png)
 
 4. Fare clic su **Live Metrics Stream** a sinistra sotto Analisi. Verranno visualizzate le statistiche in tempo reale sull'applicazione mentre è in esecuzione. Sono incluse informazioni come il numero di richieste in ingresso, la durata di tali richieste e gli eventuali errori che si verificano. È anche possibile esaminare importanti metriche sulle prestazioni, come processore e memoria.
 
@@ -104,7 +104,7 @@ Per altre informazioni, visitare il repository GitHub per ottenere [JavaScript S
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Dopo aver completato i test, è possibile eliminare il gruppo di risorse e le risorse correlate. A tale scopo, seguire questa procedura.
 1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi fare clic su **myResourceGroup**.
-2. Nella pagina del gruppo di risorse fare clic su **Elimina**, digitare **myResourceGroup** nella casella di testo e quindi fare clic su **Elimina**.
+2. Nella pagina del gruppo di risorse fare clic su **Elimina** , digitare **myResourceGroup** nella casella di testo e quindi fare clic su **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo argomento di avvio rapido è stata abilitata un'applicazione per il monitoraggio tramite Azure Application Insights.  Continuare con le esercitazioni per imparare a usare questa soluzione per monitorare le statistiche e rilevare i problemi nell'applicazione.

@@ -4,12 +4,12 @@ description: In questo argomento di avvio rapido viene usata l'interfaccia della
 ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0818dde40a48b4b093ee9c0adc735aba4c883487
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 9955f911f9a92d7b353a8f3d022af7884b5a6aae
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074108"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090155"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Guida introduttiva: Creare un criterio per identificare le risorse non conformi con l'interfaccia della riga di comando di Azure
 
@@ -24,7 +24,7 @@ L'interfaccia della riga di comando di Azure viene usata per creare e gestire le
 
 - Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-- Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo argomento di avvio rapido richiede l'esecuzione dell'interfaccia della riga di comando di Azure versione 2.0.76 o successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+- Questa guida di avvio rapido richiede l'interfaccia della riga di comando di Azure 2.0.76 o versioni successive. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 - Registrare il provider di risorse Azure Policy Insights usando l'interfaccia della riga di comando di Azure. La registrazione del provider di risorse consente di assicurare che la sottoscrizione lo usi. Per registrare un provider di risorse, è necessaria l'autorizzazione per eseguire l'operazione del provider di risorse. Questa operazione è inclusa nei ruoli Collaboratore e Proprietario. Eseguire il comando seguente per registrare il provider di risorse:
 
@@ -50,10 +50,10 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 
 Il comando precedente usa le informazioni seguenti.
 
-- **Name**: nome effettivo dell'assegnazione. Per questo esempio è stato usato il nome _audit-vm-manageddisks_.
-- **DisplayName**: nome visualizzato per l'assegnazione di criteri. In questo caso viene usato _controllare le macchine virtuali senza assegnazione di dischi gestiti_.
-- **Policy**: ID della definizione di criteri in base alla quale si crea l'assegnazione. In questo caso si tratta dell'ID della definizione di criteri _Controllare le macchine virtuali che non usano i dischi gestiti_. Per ottenere l'ID della definizione di criteri, eseguire questo comando: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
-- **Scope**: ambito che determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri. e può variare da una sottoscrizione a gruppi di risorse. Assicurarsi di sostituire &lt;scope&gt; con il nome del gruppo di risorse.
+- **Name** : nome effettivo dell'assegnazione. Per questo esempio è stato usato il nome _audit-vm-manageddisks_.
+- **DisplayName** : nome visualizzato per l'assegnazione di criteri. In questo caso viene usato _controllare le macchine virtuali senza assegnazione di dischi gestiti_.
+- **Policy** : ID della definizione di criteri in base alla quale si crea l'assegnazione. In questo caso si tratta dell'ID della definizione di criteri _Controllare le macchine virtuali che non usano i dischi gestiti_. Per ottenere l'ID della definizione di criteri, eseguire questo comando: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
+- **Scope** : ambito che determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri. e può variare da una sottoscrizione a gruppi di risorse. Assicurarsi di sostituire &lt;scope&gt; con il nome del gruppo di risorse.
 
 ## <a name="identify-non-compliant-resources"></a>Identificare le risorse non conformi
 

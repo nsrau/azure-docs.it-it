@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 24b249d1098788e518f5eda2d1b0d421d4e5e6bb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4a00c1dcf973098895e80d5e3d656efd4a35d0d0
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072391"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147046"
 ---
 # <a name="azure-portal-overview"></a>Panoramica del portale di Azure
 
@@ -42,7 +42,7 @@ Se si sceglie la modalità ancorata, il menu del portale sarà sempre visibile. 
 
 Come nuovo abbonato ai servizi di Azure, la prima cosa che viene visualizzata dopo [aver effettuato l'accesso al portale](https://portal.azure.com) è la **Home page di Azure**. Questa pagina raccoglie le risorse che consentono di ottenere il massimo dalla sottoscrizione di Azure. Sono stati inclusi collegamenti a corsi online gratuiti, documentazione, servizi di base e siti utili per rimanere aggiornati e gestire le modifiche per la propria organizzazione. Per accedere in modo semplice e rapido ai lavori in corso, viene visualizzato anche un elenco delle risorse visitate più di recente. Non è possibile personalizzare questa pagina, ma è possibile scegliere se visualizzare la **Home page di Azure** o il **Dashboard di Azure** come visualizzazione predefinita. La prima volta che si esegue l'accesso, nella parte superiore della pagina è disponibile un prompt in cui è possibile salvare le preferenze.
 
-![Screenshot che mostra il selettore della visualizzazione predefinita](./media/azure-portal-overview/azure-portal-default-view.png)
+![Screenshot che mostra la posizione in cui salvare la preferenza.](./media/azure-portal-overview/azure-portal-default-view.png)
 
 Sia il menu del portale di Azure che la visualizzazione predefinita di Azure possono essere modificati in **Impostazioni del portale**. Se si modifica la selezione, la modifica viene applicata immediatamente.
 

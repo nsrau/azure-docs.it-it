@@ -1,20 +1,20 @@
 ---
-title: Come creare e firmare un criterio di Attestazione di Azure
-description: Informazioni su come creare e firmare un criterio di attestazione.
+title: Come creare un criterio di attestazione di Azure
+description: Informazioni su come creare un criterio di attestazione.
 services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c8ffdcd0615913649e80b20f6873d005f4ad4410
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3e36de62b79788e2efdc3e9abf711924c4fba0c4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675986"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341808"
 ---
-# <a name="how-to-author-and-sign-an-attestation-policy"></a>Come creare e firmare un criterio di attestazione
+# <a name="how-to-author-an-attestation-policy"></a>Come creare un criterio di attestazione
 
 Il criterio di attestazione è un file caricato in Attestazione di Microsoft Azure. Attestazione di Azure offre la flessibilità per caricare un criterio in un formato specifico dell'attestazione. In alternativa, è possibile caricare anche una versione codificata del criterio, in formato JSW (JSON Web Signature). L'amministratore dei criteri è responsabile della scrittura dei criteri di attestazione. Nella maggior parte degli scenari di attestazione, la relying party funge da amministratore dei criteri. Il client che effettua la chiamata di attestazione invia l'evidenza dell'attestazione, che il servizio analizza e converte in attestazioni in ingresso (set di proprietà, valore). Il servizio elabora quindi le attestazioni in base a quanto definito nel criterio e restituisce il risultato calcolato.
 
@@ -44,7 +44,7 @@ Un file di criteri è costituito da tre segmenti, come illustrato sopra:
 
     Attualmente l'unica versione supportata è 1.0.
 
-- **authorizationrules** : una raccolta di regole di attestazione che verrà controllata per prima, per determinare se Attestazione di Azure deve procedere a **issuancerules** . Le regole di attestazione si applicano nell'ordine in cui sono definite.
+- **authorizationrules** : una raccolta di regole di attestazione che verrà controllata per prima, per determinare se Attestazione di Azure deve procedere a **issuancerules**. Le regole di attestazione si applicano nell'ordine in cui sono definite.
 
 - **issuancerules** : una raccolta di regole di attestazione che verranno valutate per aggiungere altre informazioni al risultato dell'attestazione definito nel criterio. Le regole di attestazione si applicano nell'ordine in cui sono definite e sono anche facoltative.
 
@@ -54,7 +54,7 @@ Per altre informazioni, vedere [Attestazioni e regole di attestazione](claim-rul
 
 1. Creare un nuovo file.
 1. Aggiungere la versione al file.
-1. Aggiungere le sezioni per **authorizationrules** e **issuancerules** .
+1. Aggiungere le sezioni per **authorizationrules** e **issuancerules**.
 
   ```
   version=1.0;
@@ -84,9 +84,9 @@ Per altre informazioni, vedere [Attestazioni e regole di attestazione](claim-rul
   };
   ```
 
-  Se il set di attestazioni in ingresso contiene un'attestazione corrispondente al tipo, al valore e all'autorità emittente, l'azione permit() indica al motore dei criteri di elaborare **issuancerules** .
+  Se il set di attestazioni in ingresso contiene un'attestazione corrispondente al tipo, al valore e all'autorità emittente, l'azione permit() indica al motore dei criteri di elaborare **issuancerules**.
   
-5. Aggiungere regole di attestazione a **issuancerules** .
+5. Aggiungere regole di attestazione a **issuancerules**.
 
   ```
   version=1.0;
@@ -134,41 +134,6 @@ Dopo aver creato un file di criteri, per caricare un criterio in formato JWS, se
 3. Caricare il file JWS e convalidare il criterio.
      - Se il file di criteri è privo di errori di sintassi, viene accettato dal servizio.
      - Se il file di criteri contiene errori di sintassi, viene rifiutato dal servizio.
-
-## <a name="signing-the-policy"></a>Firma del criterio
-
-Di seguito è riportato uno script Python di esempio su come eseguire l'operazione di firma del criterio
-
-```python
-from OpenSSL import crypto
-import jwt
-import getpass
-       
-def cert_to_b64(cert):
-              cert_pem = crypto.dump_certificate(crypto.FILETYPE_PEM, cert)
-              cert_pem_str = cert_pem.decode('utf-8')
-              return ''.join(cert_pem_str.split('\n')[1:-2])
-       
-print("Provide the path to the PKCS12 file:")
-pkcs12_path = str(input())
-pkcs12_password = getpass.getpass("\nProvide the password for the PKCS12 file:\n")
-pkcs12_bin = open(pkcs12_path, "rb").read()
-pkcs12 = crypto.load_pkcs12(pkcs12_bin, pkcs12_password.encode('utf8'))
-ca_chain = pkcs12.get_ca_certificates()
-ca_chain_b64 = []
-for chain_cert in ca_chain:
-   ca_chain_b64.append(cert_to_b64(chain_cert))
-   signing_cert_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pkcs12.get_privatekey())
-signing_cert_b64 = cert_to_b64(pkcs12.get_certificate())
-ca_chain_b64.insert(0, signing_cert_b64)
-
-print("Provide the path to the policy text file:")
-policy_path = str(input())
-policy_text = open(policy_path, "r").read()
-encoded = jwt.encode({'text': policy_text }, signing_cert_pkey, algorithm='RS256', headers={'x5c' : ca_chain_b64})
-print("\nAttestation Policy JWS:")
-print(encoded.decode('utf-8'))
-```
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare Attestazione di Azure con PowerShell](quickstart-powershell.md)

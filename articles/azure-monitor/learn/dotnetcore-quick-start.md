@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: a12fe837bfd9606d07c7be71851880d2cebb9d61
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bd45284bfea09935ea48445d816f3b91272f68fc
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89055482"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925850"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniziare a monitorare l'applicazione Web ASP.NET Core
 
@@ -73,7 +73,7 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
 
 5. Selezionare **Debug** > **Avvia senza eseguire debug** (CTRL+F5) per avviare l'app.
 
-    ![Menu della panoramica di Application Insights](./media/dotnetcore-quick-start/3debug.png)
+    ![Screenshot che mostra l'opzione di menu Avvia senza eseguire debug.](./media/dotnetcore-quick-start/3debug.png)
 
 > [!NOTE]
 > Prima che i dati vengano visualizzati nel portale trascorrono 3-5 minuti. Se questa app è un'app di test a basso traffico, occorre ricordare che la maggior parte delle metriche viene acquisita solo in presenza di operazioni o richieste attive.
@@ -88,7 +88,7 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
 
    ![Mappa delle applicazioni](./media/dotnetcore-quick-start/5appmap.png)
 
-3. Fare clic sull'icona per l'**analisi delle app** ![Icona in Mappa delle applicazioni](./media/dotnetcore-quick-start/006.png) **Visualizza in Analisi**. Verrà aperta la finestra **Application Insights - Analisi**, che fornisce un linguaggio di query avanzato per l'analisi di tutti i dati raccolti da Application Insights. In questo caso viene generata una query che esegue il rendering del conteggio delle richieste sotto forma di grafico. È possibile scrivere query personalizzate per analizzare altri dati.
+3. Fare clic sull'icona per l' **analisi delle app** ![Icona in Mappa delle applicazioni](./media/dotnetcore-quick-start/006.png) **Visualizza in Analisi**. Verrà aperta la finestra **Application Insights - Analisi** , che fornisce un linguaggio di query avanzato per l'analisi di tutti i dati raccolti da Application Insights. In questo caso viene generata una query che esegue il rendering del conteggio delle richieste sotto forma di grafico. È possibile scrivere query personalizzate per analizzare altri dati.
 
    ![Grafico di analisi delle richieste di un utente in un periodo di tempo](./media/dotnetcore-quick-start/6analytics.png)
 
@@ -107,7 +107,7 @@ Dopo aver completato i test, è possibile eliminare il gruppo di risorse e le ri
 > Se si è usato un gruppo di risorse esistente, le istruzioni riportate di seguito non sono applicabili e sarà sufficiente eliminare la singola risorsa di Application Insights. Tenere presente che ogni volta che si elimina un gruppo di risorse vengono eliminate tutte le risorse sottostanti appartenenti a tale gruppo.
 
 1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi fare clic su **myResourceGroup**.
-2. Nella pagina del gruppo di risorse fare clic su **Elimina**, digitare **myResourceGroup** nella casella di testo e quindi fare clic su **Elimina**.
+2. Nella pagina del gruppo di risorse fare clic su **Elimina** , digitare **myResourceGroup** nella casella di testo e quindi fare clic su **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

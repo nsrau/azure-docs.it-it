@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Usare Azure Cache for Redis con Node.js'
+title: 'Avvio rapido: Usare la cache di Azure per Redis in Node.js'
 description: Questa guida introduttiva illustra come usare Cache Redis di Azure con Node.js e node_redis.
 author: yegu-ms
 ms.service: cache
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: ce570475617236bb99f1bca7a07dc95e1f3285aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa22cffc1fc38e055c6c2bb504c311c012f31ac2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91330996"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087146"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Guida introduttiva: Usare Azure Cache for Redis con Node.js
+# <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>Avvio rapido: Usare la cache di Azure per Redis in Node.js
 
 In questa guida di avvio rapido si incorpora Azure Cache for Redis in un'app Node.js per accedere a una cache sicura e dedicata accessibile da qualsiasi applicazione in Azure.
 

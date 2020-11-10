@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 866640d90c66dd82e8be61d221bc903907575454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10177dd949ac531027e13cf633b11c16674fd4ab
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91643800"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386604"
 ---
 Durante l'anteprima, NFS presenta le limitazioni seguenti:
 
 - NFS 4,1 supporta attualmente solo le funzionalità obbligatorie della [specifica del protocollo](https://tools.ietf.org/html/rfc5661). Funzionalità facoltative quali le deleghe e il callback di tutti i tipi, gli aggiornamenti e i downgrade dei blocchi e l'autenticazione e la crittografia Kerberos non sono supportate.
 - Se la maggior parte delle richieste è incentrata sui metadati, la latenza sarà peggiore rispetto alle operazioni di lettura/scrittura/aggiornamento.
 - È necessario creare un nuovo account di archiviazione per creare una condivisione NFS.
-- Sono supportate solo le API REST del piano di gestione. Le API REST del piano dati non sono disponibili, il che significa che strumenti come Storage Explorer non funzioneranno con le condivisioni NFS né sarà possibile sfogliare i dati di condivisione NFS nel portale di Azure.
+- Sono supportate solo le API REST del piano di gestione. Le API REST del piano dati non sono disponibili, quindi gli strumenti come Storage Explorer non funzioneranno con le condivisioni NFS né sarà possibile esplorare i dati della condivisione NFS nel portale di Azure.
 - Disponibile solo per il livello Premium.
 - Attualmente disponibile solo con archiviazione con ridondanza locale (con ridondanza locale).
 

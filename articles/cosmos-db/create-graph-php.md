@@ -8,14 +8,15 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: jasonh
-ms.openlocfilehash: e8848ee0a1fe5755316b59432c465b3836a0bab1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f4bf5ebeb3cda8507b79a7021dd506146ecb2a36
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409358"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131310"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Avvio rapido: Creare un database a grafo in Azure Cosmos DB usando PHP e il portale di Azure
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -191,17 +192,17 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
 È ora possibile tornare a Esplora dati e visualizzare i vertici aggiunti al grafo, quindi aggiungere altri punti dati.
 
-1. Fare clic su **Esplora dati**, espandere **sample-graph**, fare clic su **Grafo** e quindi su **Applica filtro**. 
+1. Fare clic su **Esplora dati** , espandere **sample-graph** , fare clic su **Grafo** e quindi su **Applica filtro**. 
 
-   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure":::
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot che mostra la sezione API con la voce Grafo selezionata con l'opzione Applica filtro.":::
 
 2. Nell'elenco **Risultati** verificare i nuovi utenti aggiunti al grafo. Selezionare **ben**. Come si può notare sono connessi a robin. È possibile spostare i vertici intorno mediante trascinamento della selezione, applicare lo zoom mediante lo scorrimento della rotellina del mouse ed espandere le dimensioni del grafo usando la doppia freccia. 
 
-   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure":::
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png" alt-text="Nuovi vertici nel grafo in Esplora dati nel portale di Azure":::
 
 3. Vengono ora aggiunti alcuni nuovi utenti. Fare clic sul pulsante **New Vertex** (Nuovo vertice) per aggiungere dati al grafo.
 
-   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure":::
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Screenshot che mostra il riquadro Nuovo vertice in cui è possibile immettere i valori.":::
 
 4. Immettere un'etichetta di *persona*.
 
@@ -236,17 +237,17 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
     Quando si aggiungono altri dati, è possibile usare i filtri per limitare i risultati visualizzati. Per impostazione predefinita, Esplora dati usa `g.V()` per recuperare tutti i vertici di un grafo. È possibile modificarlo in un'altra [query di grafo](tutorial-query-graph.md), ad esempio `g.V().count()`, per restituire un conteggio di tutti i vertici del grafo in formato JSON. Se è stato modificato il filtro, reimpostarlo su `g.V()` e fare clic su **Applica filtro** per visualizzare di nuovo tutti i risultati.
 
-12. È ora possibile connettere rakesh e ashley. Assicurarsi che il valore **ashley** sia selezionato nell'elenco **Risultati**, quindi fare clic sul pulsante di modifica accanto a **Destinazioni** in basso a destra. Potrebbe essere necessario allargare la finestra per visualizzare l'area **Proprietà**.
+12. È ora possibile connettere rakesh e ashley. Assicurarsi che il valore **ashley** sia selezionato nell'elenco **Risultati** , quindi fare clic sul pulsante di modifica accanto a **Destinazioni** in basso a destra. Potrebbe essere necessario allargare la finestra per visualizzare l'area **Proprietà**.
 
-    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure":::
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Cambiare la destinazione di un vertice in un grafo":::
 
-13. Nella casella **Destinazione** digitare *rakesh* e nella casella **Edge label** (Etichetta arco) digitare *knows*, quindi selezionare la casella di controllo.
+13. Nella casella **Destinazione** digitare *rakesh* e nella casella **Edge label** (Etichetta arco) digitare *knows* , quindi selezionare la casella di controllo.
 
-    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure":::
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png" alt-text="Aggiungere una connessione tra ashley e rakesh in Esplora dati":::
 
 14. Selezionare ora **rakesh** dall'elenco Risultati. Come si può notare ashley e rakesh sono connessi. 
 
-    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure":::
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer.png" alt-text="Due vertici connessi in Esplora dati":::
 
     È stata completata la parte relativa alla creazione delle risorse di questa guida di avvio rapido. È possibile continuare ad aggiungere vertici al grafo, modificare quelli esistenti o modificare le query. Vengono ora esaminate le metriche di Azure Cosmos DB e quindi pulite le risorse. 
 

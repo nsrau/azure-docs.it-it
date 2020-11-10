@@ -9,12 +9,12 @@ ms.custom:
 - mvc
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 41e064d34f9fdb004feb72d7becdb08fe377aec5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1c327fc7fc067948b5022f989e6c86f99573bd1a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91271206"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100185"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Guida introduttiva: Distribuire un'istanza di contenitore in Azure con l'interfaccia della riga di comando di Azure
 
@@ -24,11 +24,11 @@ In questo argomento di avvio rapido viene usata l'interfaccia della riga di coma
 
 ![Visualizzare un'app distribuita in Istanze di Azure Container nel browser][aci-app-browser]
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito][azure-account] prima di iniziare.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Per completare questa guida introduttiva è possibile usare Azure Cloud Shell o un'installazione locale dell'interfaccia della riga di comando di Azure. Se si preferisce l'interfaccia locale, è consigliabile usare la versione 2.0.55 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+- Questa guida di avvio rapido richiede l'interfaccia della riga di comando di Azure versione 2.0.55 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -66,7 +66,7 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Se il valore `ProvisioningState` del contenitore è **Operazione completata**, passare al relativo indirizzo FQDN nel browser. Se viene visualizzata una pagina Web simile all'immagine seguente, congratulazioni! È stata completata la distribuzione di un'applicazione in esecuzione in un contenitore Docker in Azure.
+Se il valore `ProvisioningState` del contenitore è **Operazione completata** , passare al relativo indirizzo FQDN nel browser. Se viene visualizzata una pagina Web simile all'immagine seguente, congratulazioni! È stata completata la distribuzione di un'applicazione in esecuzione in un contenitore Docker in Azure.
 
 ![Visualizzare un'app distribuita in Istanze di Azure Container nel browser][aci-app-browser]
 

@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/25/2020
-ms.openlocfilehash: fa103c39b540c41536e4f231692b4602afe01a3e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/28/2020
+ms.openlocfilehash: 0b777fdef344ce1a60ed00ee46eeaa8cee23b8c0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91361212"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099189"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Guida introduttiva: Creare e gestire definizioni dei flussi di lavoro delle app per la logica con Visual Studio Code
 
@@ -20,7 +20,7 @@ Con [App per la logica di Azure](../logic-apps/logic-apps-overview.md) e Visual 
 
 Anche se è possibile eseguire queste stesse attività nel [portale di Azure](https://portal.azure.com) e in Visual Studio, quando si ha già familiarità con le app per la logica e si vuole lavorare direttamente nel codice, Visual Studio Code permette di iniziare più velocemente. È ad esempio possibile disabilitare, abilitare, eliminare e aggiornare le app per la logica già create. Inoltre, è possibile lavorare con app per la logica e account di integrazione da qualsiasi piattaforma di sviluppo che supporta l'esecuzione di Visual Studio Code, ad esempio Linux, Windows e Mac.
 
-Per questo articolo è possibile creare la stessa app per la logica da questa [guida di avvio rapido](../logic-apps/quickstart-create-first-logic-app-workflow.md), che è maggiormente incentrata sui concetti di base. In Visual Studio Code l'app per la logica è simile a questo esempio:
+Per questo articolo è possibile creare la stessa app per la logica da questa [guida di avvio rapido](../logic-apps/quickstart-create-first-logic-app-workflow.md), che è maggiormente incentrata sui concetti di base. È anche possibile [apprendere come creare l'app di esempio in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md) e [apprendere come creare e gestire le app tramite l'interfaccia della riga di comando di Azure](quickstart-logic-apps-azure-cli.md). In Visual Studio Code l'app per la logica è simile a questo esempio:
 
 ![Esempio di definizione del flusso di lavoro dell'app per la logica](./media/quickstart-create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
 
@@ -58,7 +58,7 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 
    ![Selezionare l'icona di Azure sulla barra degli strumenti di Visual Studio Code](./media/quickstart-create-logic-apps-visual-studio-code/open-extensions-visual-studio-code.png)
 
-1. Nella finestra di Azure, in **App per la logica** selezionare **Accedi ad Azure** . Quando la pagina di accesso di Microsoft lo richiede, accedere con l'account Azure.
+1. Nella finestra di Azure, in **App per la logica** selezionare **Accedi ad Azure**. Quando la pagina di accesso di Microsoft lo richiede, accedere con l'account Azure.
 
    ![Selezionare "Accedi ad Azure"](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-azure-visual-studio-code.png)
 
@@ -70,11 +70,11 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 
       ![Copiare il codice per l'accesso ad Azure](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-prompt-authentication.png)
 
-   1. Per aprire una nuova finestra del browser e passare al sito Web di autenticazione, selezionare **Apri il collegamento** .
+   1. Per aprire una nuova finestra del browser e passare al sito Web di autenticazione, selezionare **Apri il collegamento**.
 
       ![Per confermare, aprire un browser e passare al sito Web di autenticazione](./media/quickstart-create-logic-apps-visual-studio-code/confirm-open-link.png)
 
-   1. Nella pagina **Accesso all'account** immettere il codice di autenticazione e selezionare **Avanti** .
+   1. Nella pagina **Accesso all'account** immettere il codice di autenticazione e selezionare **Avanti**.
 
       ![Immettere il codice di autenticazione per l'accesso ad Azure](./media/quickstart-create-logic-apps-visual-studio-code/authentication-code-azure-sign-in.png)
 
@@ -82,7 +82,7 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 
    Nel riquadro di Azure le sezioni **App per la logica** e **Account di integrazione** mostrano ora le sottoscrizioni di Azure associate all'account. Tuttavia, se non vengono visualizzate le sottoscrizioni previste o se le sezioni mostrano troppe sottoscrizioni, seguire questa procedura:
 
-   1. Spostare il puntatore del mouse sull'etichetta **App per la logica** . Quando viene visualizzata la barra degli strumenti, selezionare **Seleziona sottoscrizioni** (icona filtro).
+   1. Spostare il puntatore del mouse sull'etichetta **App per la logica**. Quando viene visualizzata la barra degli strumenti, selezionare **Seleziona sottoscrizioni** (icona filtro).
 
       ![Trovare o filtrare le sottoscrizioni di Azure](./media/quickstart-create-logic-apps-visual-studio-code/find-or-filter-subscriptions.png)
 
@@ -101,7 +101,7 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 1. Se non è stato effettuato l'accesso all'account e alla sottoscrizione di Azure da Visual Studio Code, seguire la [procedura descritta in precedenza per effettuare l'accesso adesso](#access-azure).
 
-1. In Visual Studio Code, in **App per la logica** aprire il menu di scelta rapida della sottoscrizione e scegliere **Crea app per la logica** .
+1. In Visual Studio Code, in **App per la logica** aprire il menu di scelta rapida della sottoscrizione e scegliere **Crea app per la logica**.
 
    ![Scegliere "Crea app per la logica" dal menu della sottoscrizione](./media/quickstart-create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
 
@@ -194,7 +194,7 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 1. Al termine, salvare il file della definizione del flusso di lavoro dell'app per la logica. (menu File > Salva oppure premere CTrl+S)
 
-1. Quando viene richiesto di caricare l'app per la logica nella sottoscrizione di Azure, selezionare **Carica** .
+1. Quando viene richiesto di caricare l'app per la logica nella sottoscrizione di Azure, selezionare **Carica**.
 
    Questo passaggio consente di pubblicare l'app per la logica nel [portale di Azure](https://portal.azure.com), affinché sia disponibile e in esecuzione in Azure.
 
@@ -230,11 +230,11 @@ In Visual Studio Code se si modifica un'app per la logica pubblicata e si salvan
 
 1. Nella finestra di Azure, in **App per la logica** espandere la sottoscrizione di Azure per visualizzare tutte le app per la logica nella sottoscrizione.
 
-   1. Per disabilitare l'app per la logica desiderata, aprire il menu dell'app per la logica e selezionare **Disabilita** .
+   1. Per disabilitare l'app per la logica desiderata, aprire il menu dell'app per la logica e selezionare **Disabilita**.
 
       ![Disabilitare l'app per la logica](./media/quickstart-create-logic-apps-visual-studio-code/disable-published-logic-app.png)
 
-   1. Quando si è pronti per riattivare l'app per la logica, aprire il menu dell'app per la logica e selezionare **Abilita** .
+   1. Quando si è pronti per riattivare l'app per la logica, aprire il menu dell'app per la logica e selezionare **Abilita**.
 
       ![Abilitare l'app per la logica](./media/quickstart-create-logic-apps-visual-studio-code/enable-published-logic-app.png)
 
@@ -263,7 +263,7 @@ In Visual Studio Code è possibile aprire e modificare la definizione del flusso
 
 1. Al termine, salvare le modifiche. (menu File > Salva oppure premere CTrl+S)
 
-1. Quando viene richiesto di caricare le modifiche e *sovrascrivere* l'app per la logica esistente nel portale di Azure, selezionare **Carica** .
+1. Quando viene richiesto di caricare le modifiche e *sovrascrivere* l'app per la logica esistente nel portale di Azure, selezionare **Carica**.
 
    Questo passaggio consente di pubblicare gli aggiornamenti apportati all'app per la logica nel [portale di Azure](https://portal.azure.com).
 
@@ -278,7 +278,7 @@ In Visual Studio Code è possibile aprire ed esaminare le versioni precedenti de
 
 1. Nella finestra di Azure, in **App per la logica** espandere la sottoscrizione di Azure per visualizzare tutte le app per la logica nella sottoscrizione.
 
-1. Nella sottoscrizione espandere l'app per la logica ed espandere **Versioni** .
+1. Nella sottoscrizione espandere l'app per la logica ed espandere **Versioni**.
 
    L'elenco **Versioni** mostra le versioni precedenti dell'app per la logica, se presenti.
 
@@ -286,7 +286,7 @@ In Visual Studio Code è possibile aprire ed esaminare le versioni precedenti de
 
 1. Per visualizzare una versione precedente, selezionare una delle procedure seguenti:
 
-   * Per visualizzare la definizione JSON, in **Versioni** selezionare il numero di versione per la definizione corrispondente. In alternativa, aprire il menu di scelta rapida della versione e selezionare **Apri nell'editor** .
+   * Per visualizzare la definizione JSON, in **Versioni** selezionare il numero di versione per la definizione corrispondente. In alternativa, aprire il menu di scelta rapida della versione e selezionare **Apri nell'editor**.
 
      Verrà aperto un nuovo file nel computer locale e verrà visualizzata la definizione JSON della versione.
 
@@ -294,11 +294,11 @@ In Visual Studio Code è possibile aprire ed esaminare le versioni precedenti de
 
 1. Per alzare di livello una versione precedente alla versione corrente, seguire questa procedura:
 
-   1. In **Versioni** aprire il menu di scelta rapida della versione precedente e selezionare **Alza di livello** .
+   1. In **Versioni** aprire il menu di scelta rapida della versione precedente e selezionare **Alza di livello**.
 
       ![Alzare di livello una versione precedente](./media/quickstart-create-logic-apps-visual-studio-code/promote-earlier-version.png)
 
-   1. Per continuare dopo la richiesta di conferma di Visual Studio Code, selezionare **Sì** .
+   1. Per continuare dopo la richiesta di conferma di Visual Studio Code, selezionare **Sì**.
 
       ![Confermare l'innalzamento di livello della versione precedente](./media/quickstart-create-logic-apps-visual-studio-code/confirm-promote-version.png)
 

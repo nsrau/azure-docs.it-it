@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 9a804bd40635cd039a2c099f98351b2487c554d3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 64ccc9c91d9ead567035b1f7f35e0a0088b6200b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075536"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124187"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Guida introduttiva: Aggiungere flag di funzionalità a un'app Spring Boot
 
@@ -286,9 +286,9 @@ Usare [Spring Initializr](https://start.spring.io/) per creare un nuovo progetto
 
 1. Aprire una finestra del browser e passare all'URL: `http://localhost:8080/welcome`.
 
-    ![Guida introduttiva: avvio dell'app in locale](./media/quickstarts/spring-boot-feature-flag-local-before.png)
+    ![Screenshot mostra una finestra del browser con un messaggio di benvenuto.](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
-1. Nel portale di Configurazione app selezionare **Gestione funzionalità** e modificare lo stato della chiave **Beta** in **Sì**:
+1. Nel portale di Configurazione app selezionare **Gestione funzionalità** e modificare lo stato della chiave **Beta** in **Sì** :
 
     | Chiave | State |
     |---|---|
@@ -296,7 +296,7 @@ Usare [Spring Initializr](https://start.spring.io/) per creare un nuovo progetto
 
 1. Aggiornare la pagina del browser per visualizzare le nuove impostazioni di configurazione.
 
-    ![Guida introduttiva: avvio dell'app in locale](./media/quickstarts/spring-boot-feature-flag-local-after.png)
+    ![Screenshot mostra una finestra del browser con un messaggio di benvenuto e un collegamento Beta evidenziato.](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

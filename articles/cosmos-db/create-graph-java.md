@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: jasonh
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ad00fcc0c7b871210b29400821808b6729d953f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ae86f918b1ecaf28d5f0118d90ea6c2389674da
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409409"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129695"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Avvio rapido: Creare un database a grafo con Java SDK e l'API Gremlin di Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -167,17 +168,17 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
 È ora possibile tornare a Esplora dati e visualizzare i vertici aggiunti al grafo, quindi aggiungere altri punti dati.
 
-1. Nell'account Azure Cosmos DB nel portale di Azure, selezionare **Esplora dati**, espandere **sample-graph**, selezionare **Grafo** e quindi **Applica filtro**. 
+1. Nell'account Azure Cosmos DB nel portale di Azure, selezionare **Esplora dati** , espandere **sample-graph** , selezionare **Grafo** e quindi **Applica filtro**. 
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure":::
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot che mostra la sezione API con la voce Grafo selezionata con l'opzione Applica filtro.":::
 
 2. Nell'elenco **Risultati** verificare i nuovi utenti aggiunti al grafo. Selezionare **ben**. Come si può notare, l'utente è connesso a robin. È possibile spostare i vertici intorno mediante trascinamento della selezione, applicare lo zoom mediante lo scorrimento della rotellina del mouse ed espandere le dimensioni del grafo usando la doppia freccia. 
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure":::
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png" alt-text="Nuovi vertici nel grafo in Esplora dati nel portale di Azure":::
 
 3. Vengono ora aggiunti alcuni nuovi utenti. Selezionare **Nuovo vertice** per aggiungere dati al grafo.
 
-   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure":::
+   :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Screenshot che mostra il riquadro Nuovo vertice in cui è possibile immettere i valori.":::
 
 4. Nella casella dell'etichetta immettere *person*.
 
@@ -212,17 +213,17 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
     Quando si aggiungono altri dati, è possibile usare i filtri per limitare i risultati visualizzati. Per impostazione predefinita, Esplora dati usa `g.V()` per recuperare tutti i vertici di un grafo. È possibile modificarlo in un'altra [query di grafo](tutorial-query-graph.md), ad esempio `g.V().count()`, per restituire un conteggio di tutti i vertici del grafo in formato JSON. Se è stato modificato il filtro, reimpostarlo su `g.V()` e selezionare **Applica filtro** per visualizzare di nuovo tutti i risultati.
 
-12. È ora possibile connettere rakesh e ashley. Assicurarsi che nell'elenco **Risultati** sia selezionato il valore **ashley** e quindi selezionare :::image type="content" source="./media/create-graph-java/edit-pencil-button.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure"::: accanto a **Destinazioni** in basso a destra. Per visualizzare il pulsante potrebbe essere necessario allargare la finestra.
+12. È ora possibile connettere rakesh e ashley. Assicurarsi che nell'elenco **Risultati** sia selezionato il valore **ashley** e quindi selezionare :::image type="content" source="./media/create-graph-java/edit-pencil-button.png" alt-text="Modificare la destinazione di un vertice in un grafo"::: accanto a **Destinazioni** in basso a destra. Per visualizzare il pulsante potrebbe essere necessario allargare la finestra.
 
-    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure":::
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Cambiare la destinazione di un vertice in un grafo - Azure CosmosDB":::
 
 13. Nella casella **Destinazione** immettere *rakesh* e nella casella **Etichetta arco** immettere *knows* e quindi selezionare la casella di controllo.
 
-    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure":::
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="Aggiungere una connessione in Esplora dati - Azure CosmosDB":::
 
 14. Selezionare ora **rakesh** dall'elenco Risultati. Come si può notare ashley e rakesh sono connessi. 
 
-    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure":::
+    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer.png" alt-text="Due vertici connessi in Esplora dati - Azure CosmosDB":::
 
 È stata completata la parte relativa alla creazione delle risorse di questa esercitazione. È possibile continuare ad aggiungere vertici al grafo, modificare quelli esistenti o modificare le query. Vengono ora esaminate le metriche di Azure Cosmos DB e quindi pulite le risorse. 
 
