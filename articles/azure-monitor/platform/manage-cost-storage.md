@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 6a14ef6f75d5939501c6bd8ca84620a7a5619a54
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 04c532ceb5f40e9a5b7fa5fd5b75f60182f54580
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369064"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427786"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure    
 
@@ -50,11 +50,11 @@ I cluster dedicati di Log Analytics sono raccolte di aree di lavoro in un singol
 
 Il livello di prenotazione della capacità del cluster viene configurato tramite a livello di codice con Azure Resource Manager utilizzando il `Capacity` parametro in `Sku` . La `Capacity` viene specificata in unità di GB e può includere valori di 1000 GB/giorno o più in incrementi di 100 GB al giorno. Questa operazione è descritta in dettaglio nella [chiave gestita dal cliente di monitoraggio di Azure](customer-managed-keys.md#create-cluster). Se il cluster necessita di una prenotazione superiore a 2000 GB/giorno, contattare [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
 
-Sono disponibili due modalità di fatturazione per l'utilizzo in un cluster. Questi possono essere specificati dal `billingType` parametro durante la [configurazione del cluster](customer-managed-keys.md#cmk-management). Le due modalità sono: 
+Sono disponibili due modalità di fatturazione per l'utilizzo in un cluster. Questi possono essere specificati dal `billingType` parametro durante la [configurazione del cluster](customer-managed-keys.md#customer-managed-key-operations). Le due modalità sono: 
 
-1. **Cluster**: in questo caso (impostazione predefinita), la fatturazione per i dati inseriti viene eseguita a livello di cluster. Le quantità di dati inseriti da ogni area di lavoro associata a un cluster vengono aggregate per calcolare la fattura giornaliera per il cluster. Tenere presente che le allocazioni per nodo da [Centro sicurezza di Azure](../../security-center/index.yml) vengono applicate a livello di area di lavoro prima di questa aggregazione di dati aggregati in tutte le aree di lavoro del cluster. 
+1. **Cluster** : in questo caso (impostazione predefinita), la fatturazione per i dati inseriti viene eseguita a livello di cluster. Le quantità di dati inseriti da ogni area di lavoro associata a un cluster vengono aggregate per calcolare la fattura giornaliera per il cluster. Tenere presente che le allocazioni per nodo da [Centro sicurezza di Azure](../../security-center/index.yml) vengono applicate a livello di area di lavoro prima di questa aggregazione di dati aggregati in tutte le aree di lavoro del cluster. 
 
-2. **Aree di lavoro**: i costi di prenotazione della capacità per il cluster sono attribuiti proporzionalmente alle aree di lavoro del cluster, dopo aver tenuto conto delle allocazioni per nodo dal [Centro sicurezza di Azure](../../security-center/index.yml) per ogni area di lavoro. Se il volume totale dei dati inserito in un'area di lavoro per un giorno è inferiore alla prenotazione della capacità, ogni area di lavoro viene fatturata per i dati inseriti in base al tasso di prenotazione della capacità per GB, fatturando una frazione della prenotazione di capacità e la parte inutilizzata della prenotazione di capacità viene fatturata alla risorsa cluster. Se il volume totale dei dati inserito in un'area di lavoro per un giorno è superiore alla prenotazione della capacità, ogni area di lavoro viene fatturata per una frazione della prenotazione di capacità in base alla frazione dei dati inseriti in quel giorno e a ogni area di lavoro per una frazione dei dati inseriti sopra la prenotazione della capacità. Se il volume totale dei dati inserito in un'area di lavoro per un giorno è superiore alla prenotazione di capacità, non viene addebitato alcun valore alla risorsa cluster.
+2. **Aree di lavoro** : i costi di prenotazione della capacità per il cluster sono attribuiti proporzionalmente alle aree di lavoro del cluster, dopo aver tenuto conto delle allocazioni per nodo dal [Centro sicurezza di Azure](../../security-center/index.yml) per ogni area di lavoro. Se il volume totale dei dati inserito in un'area di lavoro per un giorno è inferiore alla prenotazione della capacità, ogni area di lavoro viene fatturata per i dati inseriti in base al tasso di prenotazione della capacità per GB, fatturando una frazione della prenotazione di capacità e la parte inutilizzata della prenotazione di capacità viene fatturata alla risorsa cluster. Se il volume totale dei dati inserito in un'area di lavoro per un giorno è superiore alla prenotazione della capacità, ogni area di lavoro viene fatturata per una frazione della prenotazione di capacità in base alla frazione dei dati inseriti in quel giorno e a ogni area di lavoro per una frazione dei dati inseriti sopra la prenotazione della capacità. Se il volume totale dei dati inserito in un'area di lavoro per un giorno è superiore alla prenotazione di capacità, non viene addebitato alcun valore alla risorsa cluster.
 
 Nelle opzioni di fatturazione del cluster, la conservazione dei dati viene fatturata in base all'area di lavoro. Tenere presente che la fatturazione del cluster viene avviata quando viene creato il cluster, indipendentemente dal fatto che le aree di lavoro siano state associate al cluster. Si noti inoltre che le aree di lavoro associate a un cluster non hanno più un piano tariffario.
 
@@ -98,7 +98,7 @@ Per modificare il piano tariffario di Log Analytics dell'area di lavoro,
 
 ## <a name="legacy-pricing-tiers"></a>Piani tariffari legacy
 
-Le sottoscrizioni che includevano un'area di lavoro Log Analytics o una risorsa Application Insights prima del 2 aprile 2018 o sono collegate a un contratto Enterprise avviato prima del 1° febbraio 2019, continueranno ad avere accesso per usare i piani tariffari legacy: **Gratuito**, **Autonomo (per GB)** e **Per Nodo (OMS)** .  Le aree di lavoro nel piano tariffario gratuito avranno un inserimento dati giornaliero limitato a 500 MB (ad eccezione dei tipi di dati di sicurezza raccolti da [Centro sicurezza di Azure](../../security-center/index.yml)) e la conservazione dei dati è limitata a 7 giorni. Il piano tariffario Gratuito è destinato solo a scopo di valutazione. Le aree di lavoro nei piani tariffari Autonomo o Per nodo prevedono una conservazione configurabile dall'utente da 30 a 730 giorni.
+Le sottoscrizioni che includevano un'area di lavoro Log Analytics o una risorsa Application Insights prima del 2 aprile 2018 o sono collegate a un contratto Enterprise avviato prima del 1° febbraio 2019, continueranno ad avere accesso per usare i piani tariffari legacy: **Gratuito** , **Autonomo (per GB)** e **Per Nodo (OMS)** .  Le aree di lavoro nel piano tariffario gratuito avranno un inserimento dati giornaliero limitato a 500 MB (ad eccezione dei tipi di dati di sicurezza raccolti da [Centro sicurezza di Azure](../../security-center/index.yml)) e la conservazione dei dati è limitata a 7 giorni. Il piano tariffario Gratuito è destinato solo a scopo di valutazione. Le aree di lavoro nei piani tariffari Autonomo o Per nodo prevedono una conservazione configurabile dall'utente da 30 a 730 giorni.
 
 L'utilizzo del piano tariffario autonomo viene fatturato in base al volume di dati inserito. Viene segnalato nel servizio **log Analytics** e il contatore è denominato "data analyzed". 
 
@@ -109,7 +109,7 @@ Il piano tariffario Per nodo viene addebitato per ogni macchina virtuale monitor
 3. Dati inclusi per nodo: questa è la quantità di dati inseriti che è stata analizzata nell'allocazione dei dati aggregati. Questo contatore viene usato anche quando l'area di lavoro è in tutti i piani tariffari per visualizzare la quantità di dati analizzati dal centro sicurezza di Azure.
 
 > [!TIP]
-> Se l'area di lavoro ha accesso al piano tariffario **Per nodo**, ma non si è sicuri se il costo con pagamento in base al consumo sarebbe inferiore, è possibile [usare la query seguente](#evaluating-the-legacy-per-node-pricing-tier) per ottenere facilmente un suggerimento. 
+> Se l'area di lavoro ha accesso al piano tariffario **Per nodo** , ma non si è sicuri se il costo con pagamento in base al consumo sarebbe inferiore, è possibile [usare la query seguente](#evaluating-the-legacy-per-node-pricing-tier) per ottenere facilmente un suggerimento. 
 
 Le aree di lavoro create prima di aprile 2016 possono anche accedere ai piani tariffari **Standard** e **Premium** con una conservazione dei dati fissa rispettivamente di 30 e 365 giorni. Non è possibile creare nuove aree di lavoro nei piani tariffari **Standard** o **Premium** e se un'area di lavoro viene spostata fuori da questi piani, non sarà farla rientrare nuovamente. I contatori di inserimento dei dati per questi livelli legacy sono detti "dati analizzati".
 
@@ -140,7 +140,7 @@ Per impostare la conservazione predefinita per l'area di lavoro,
  
 1. Nell’area di lavoro del portale di Azure, selezionare **Utilizzo e costi stimati** nel riquadro a sinistra.
 2. Nella pagina **Utilizzo e costi stimati** fare clic su **Conservazione dei dati** nella parte superiore della pagina.
-3. Nel riquadro spostare il dispositivo di scorrimento per aumentare o diminuire il numero di giorni e quindi fare clic su **OK**.  Se si usa il livello *gratuito*, non è possibile modificare il periodo di conservazione dei dati ed è necessario eseguire l'aggiornamento al piano a pagamento per controllare questa impostazione.
+3. Nel riquadro spostare il dispositivo di scorrimento per aumentare o diminuire il numero di giorni e quindi fare clic su **OK**.  Se si usa il livello *gratuito* , non è possibile modificare il periodo di conservazione dei dati ed è necessario eseguire l'aggiornamento al piano a pagamento per controllare questa impostazione.
 
     ![Modificare l'impostazione di conservazione dei dati dell'area di lavoro](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
@@ -307,7 +307,7 @@ Il numero di unità nella fattura si trova in unità di nodo * mesi rappresentat
 
 
 > [!TIP]
-> Usare queste query `find` solo se necessario, poiché le analisi tra tipi di dati comportano un [elevato utilizzo di risorse](../log-query/query-optimization.md#query-performance-pane) per l’esecuzione. Se non sono necessari risultati **per computer**, eseguire una query sul tipo di dati Utilizzo (vedere di seguito).
+> Usare queste query `find` solo se necessario, poiché le analisi tra tipi di dati comportano un [elevato utilizzo di risorse](../log-query/query-optimization.md#query-performance-pane) per l’esecuzione. Se non sono necessari risultati **per computer** , eseguire una query sul tipo di dati Utilizzo (vedere di seguito).
 
 ## <a name="understanding-ingested-data-volume"></a>Informazioni sul volume di dati inseriti
 
@@ -389,11 +389,11 @@ find where TimeGenerated > ago(24h) project _IsBillable, Computer
 ```
 
 > [!TIP]
-> Usare queste query `find` solo se necessario, poiché le analisi tra tipi di dati comportano un [elevato utilizzo di risorse](../log-query/query-optimization.md#query-performance-pane) per l’esecuzione. Se non sono necessari risultati **per computer**, eseguire una query sul tipo di dati Utilizzo.
+> Usare queste query `find` solo se necessario, poiché le analisi tra tipi di dati comportano un [elevato utilizzo di risorse](../log-query/query-optimization.md#query-performance-pane) per l’esecuzione. Se non sono necessari risultati **per computer** , eseguire una query sul tipo di dati Utilizzo.
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume di dati per risorse di Azure, gruppo di risorse o sottoscrizione
 
-Per i dati dei nodi ospitati in Azure, è possibile ottenere le **dimensioni** dei dati inseriti __per computer__, quindi usare la [proprietà](./log-standard-columns.md#_resourceid) _ResourceId, che fornisce il percorso completo della risorsa:
+Per i dati dei nodi ospitati in Azure, è possibile ottenere le **dimensioni** dei dati inseriti __per computer__ , quindi usare la [proprietà](./log-standard-columns.md#_resourceid) _ResourceId, che fornisce il percorso completo della risorsa:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -401,7 +401,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
 
-Per i dati dei nodi ospitati in Azure, è possibile ottenere le **dimensioni** dei dati inseriti __per ogni sottoscrizione di Azure__, ottenere l'ID sottoscrizione della `_ResourceId` proprietà come:
+Per i dati dei nodi ospitati in Azure, è possibile ottenere le **dimensioni** dei dati inseriti __per ogni sottoscrizione di Azure__ , ottenere l'ID sottoscrizione della `_ResourceId` proprietà come:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -432,7 +432,7 @@ find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillabl
 > Usare queste query `find` solo se necessario, poiché le analisi tra tipi di dati comportano un [elevato utilizzo di risorse](../log-query/query-optimization.md#query-performance-pane) per l’esecuzione. Se non sono necessari i risultati per sottoscrizione, gruppo di risorse o nome della risorsa, eseguire una query sul tipo di dati di utilizzo.
 
 > [!WARNING]
-> Benché siano ancora inclusi nello schema, alcuni campi del tipo di dati Utilizzo sono stati deprecati e i rispettivi valori non verranno più popolati. Si tratta del campo **Computer** e dei campi correlati all'inserimento, ossia **TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** e **AverageProcessingTimeMs**.
+> Benché siano ancora inclusi nello schema, alcuni campi del tipo di dati Utilizzo sono stati deprecati e i rispettivi valori non verranno più popolati. Si tratta del campo **Computer** e dei campi correlati all'inserimento, ossia **TotalBatches** , **BatchesWithinSla** , **BatchesOutsideSla** , **BatchesCapped** e **AverageProcessingTimeMs**.
 
 
 ### <a name="querying-for-common-data-types"></a>Esecuzione di query per i tipi di dati comuni
@@ -597,7 +597,7 @@ Questa sezione descrive come creare un avviso il volume di dati nelle ultime 24 
 
 Per segnalare se il volume di dati fatturabile inserito nelle ultime 24 ore è superiore a 50 GB, attenersi alla procedura seguente: 
 
-- Per **Definire la condizione dell'avviso**, specificare l'area di lavoro Log Analytics come destinazione della risorsa.
+- Per **Definire la condizione dell'avviso** , specificare l'area di lavoro Log Analytics come destinazione della risorsa.
 - Per **Criteri di avviso** specificare quanto segue:
    - Per **Nome segnale** selezionare **Ricerca log personalizzata**
    - Eseguire una **query di ricerca** in `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Se si desidera un'altra 

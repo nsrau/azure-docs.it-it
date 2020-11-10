@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 54d5fdf1f6bc905482186475302901c46de0d285
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 19d464f0148572f30ecd0c3ab1dcee7bd0315b87
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380127"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427803"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)
 Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure consente di esportare in modo continuativo i dati dalle tabelle selezionate nell'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta. Questo articolo fornisce informazioni dettagliate su questa funzionalità e i passaggi per configurare l'esportazione dei dati nelle aree di lavoro.
@@ -58,7 +58,7 @@ Log Analytics esportazione dei dati dell'area di lavoro Esporta continuamente i 
 ## <a name="data-completeness"></a>Completezza dei dati
 L'esportazione dei dati continuerà a ritentare l'invio dei dati per un massimo di 30 minuti nel caso in cui la destinazione non sia disponibile. Se non è ancora disponibile dopo 30 minuti, i dati verranno rimossi finché la destinazione non sarà disponibile.
 
-## <a name="cost"></a>Costo
+## <a name="cost"></a>Cost
 Non sono attualmente previsti addebiti aggiuntivi per la funzionalità di esportazione dei dati. I prezzi per l'esportazione dei dati verranno annunciati in futuro e un avviso fornito prima dell'avvio della fatturazione. Se si sceglie di continuare a usare l'esportazione dei dati dopo il periodo di preavviso, l'addebito sarà addebitato alla tariffa applicabile.
 
 ## <a name="export-destinations"></a>Esporta destinazioni
@@ -77,8 +77,9 @@ Log Analytics esportazione dei dati può scrivere BLOB di Accodamento in account
 ### <a name="event-hub"></a>Hub eventi
 I dati vengono inviati all'hub eventi in tempo quasi reale mentre raggiunge monitoraggio di Azure. Viene creato un hub eventi per ogni tipo di dati esportato con il nome *am,* seguito dal nome della tabella. Ad esempio, la tabella *SecurityEvent* viene inviata a un hub eventi denominato *am-SecurityEvent*. Se si vuole che i dati esportati raggiungano un hub eventi specifico o se si dispone di una tabella con un nome che supera il limite di 47 caratteri, è possibile specificare il nome dell'hub eventi ed esportare tutti i dati per le tabelle definite.
 
-Il volume dei dati esportati aumenta spesso nel tempo e la scalabilità dell'hub eventi deve essere aumentata per gestire velocità di trasferimento maggiori ed evitare la limitazione degli scenari e la latenza dei dati. È consigliabile usare la funzionalità di aumento automatico degli hub eventi per aumentare automaticamente le prestazioni e aumentare il numero di unità di velocità effettiva e soddisfare le esigenze di utilizzo. Per informazioni dettagliate, vedere [ridimensionare automaticamente le unità di velocità effettiva di hub eventi di Azure](../../event-hubs/event-hubs-auto-inflate.md) .
-
+Considerazioni:
+1. Lo SKU dell'hub eventi ' Basic ' supporta il [limite](https://docs.microsoft.com/azure/event-hubs/event-hubs-quotas#basic-vs-standard-tiers) di dimensioni degli eventi inferiore e alcuni log nell'area di lavoro possono essere superati ed eliminati. È consigliabile usare l'hub eventi "standard" o "dedicato" come destinazione di esportazione.
+2. Il volume dei dati esportati aumenta spesso nel tempo e la scalabilità dell'hub eventi deve essere aumentata per gestire velocità di trasferimento maggiori ed evitare la limitazione degli scenari e la latenza dei dati. È consigliabile usare la funzionalità di aumento automatico degli hub eventi per aumentare automaticamente le prestazioni e aumentare il numero di unità di velocità effettiva e soddisfare le esigenze di utilizzo. Per informazioni dettagliate, vedere [ridimensionare automaticamente le unità di velocità effettiva di hub eventi di Azure](../../event-hubs/event-hubs-auto-inflate.md) .
 
 ## <a name="prerequisites"></a>Prerequisiti
 Di seguito sono riportati i prerequisiti che devono essere completati prima di configurare Log Analytics esportazione dei dati.
@@ -341,7 +342,7 @@ Le tabelle supportate sono attualmente limitate a quelle specificate di seguito.
 | DnsEvents | |
 | : Inventario DNS | |
 | Dynamics365Activity | |
-| Event | Supporto parziale. Alcuni dati di questa tabella vengono inseriti tramite un account di archiviazione. Questi dati non sono attualmente esportati. |
+| Evento | Supporto parziale. Alcuni dati di questa tabella vengono inseriti tramite un account di archiviazione. Questi dati non sono attualmente esportati. |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |

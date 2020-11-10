@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: f2a934702a650ece3d3d50b2eedaa99f65b2eacc
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 3fcf63932db0ad9abe5d99c2e4bf084b0acc750c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93144996"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427872"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurare una connessione VPN da punto a sito a una VNet usando l'autenticazione del certificato di Azure nativo: portale di Azure
 
@@ -35,7 +35,7 @@ Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscriz
 
 * **Nome VNet:** VNet1
 * **Spazio di indirizzi:** 10.1.0.0/16<br>Per questo esempio, viene usato un solo spazio indirizzi. È possibile avere più di uno spazio indirizzi per la rete virtuale.
-* **Nome subnet:** FrontEnd
+* **Nome della subnet:** FrontEnd
 * **Intervallo di indirizzi subnet:** 10.1.0.0/24
 * **Sottoscrizione:** se si hanno più sottoscrizioni, verificare di usare quella corretta.
 * **Gruppo di risorse:** TestRG1
@@ -43,7 +43,7 @@ Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscriz
 * **GatewaySubnet:** 10.1.255.0/27<br>
 * **Nome gateway di rete virtuale:** VNet1GW
 * **Tipo di gateway:** VPN
-* **Tipo VPN:** Basato su Route
+* **Tipo di VPN:** basato su route
 * **Nome indirizzo IP pubblico:** VNet1GWpip
 * **Tipo di connessione:** Da punto a sito
 * **Pool di indirizzi client:** 172.16.201.0/24<br>I client VPN che si connettono alla rete virtuale con questa connessione da punto a sito ricevono un indirizzo IP dal pool di indirizzi client.
@@ -72,11 +72,11 @@ Questo passaggio illustra come creare il gateway di rete virtuale per la rete vi
 
 I certificati vengono usati da Azure per autenticare i client che si connettono a una rete virtuale tramite una connessione VPN da punto a sito. Dopo avere ottenuto un certificato radice, è necessario [caricare](#uploadfile) le informazioni della chiave pubblica in Azure. Il certificato radice viene quindi considerato "attendibile" da Azure per la connessione da punto a sito alla rete virtuale. È anche possibile generare i certificati client dal certificato radice considerato attendibile e quindi installarli in ogni computer client. Il certificato client viene usato per l'autenticazione del client all'avvio di una connessione alla rete virtuale. 
 
-### <a name="1-root-certificate"></a><a name="getcer"></a>1. certificato radice
+### <a name="generate-a-root-certificate"></a><a name="getcer"></a>Generare un certificato radice
 
 [!INCLUDE [root-certificate](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
-### <a name="2-client-certificate"></a><a name="generateclientcert"></a>2. certificato client
+### <a name="generate-client-certificates"></a><a name="generateclientcert"></a>Genera certificati client
 
 [!INCLUDE [generate-client-cert](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
@@ -84,46 +84,46 @@ I certificati vengono usati da Azure per autenticare i client che si connettono 
 
 Il pool di indirizzi client è un intervallo di indirizzi IP privati specificati dall'utente. I client che si connettono dinamicamente tramite VPN da punto a sito ricevono un indirizzo IP da questo intervallo. Usare un intervallo di indirizzi IP privati che non si sovrapponga con la posizione locale da cui viene effettuata la connessione o con la rete virtuale a cui ci si vuole connettere. Se si configurano più protocolli e SSTP è uno dei protocolli, il pool di indirizzi configurato viene suddiviso equamente tra i protocolli configurati.
 
-1. Dopo avere creato il gateway di rete virtuale, andare alla sezione **Impostazioni** della pagina della rete virtuale. Nella sezione **Impostazioni** selezionare **configurazione da punto a sito** . Selezionare **Configura ora** per aprire la pagina di configurazione.
+1. Dopo avere creato il gateway di rete virtuale, andare alla sezione **Impostazioni** della pagina della rete virtuale. In **Impostazioni** selezionare **configurazione da punto a sito**. Selezionare **Configura ora** per aprire la pagina di configurazione.
 
-   ![Pagina Configurazione da punto a sito](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-configure.png "Configura ora da punto a sito")
-2. Nella pagina **configurazione da punto a sito** è possibile configurare diverse impostazioni. Se non viene visualizzato il tipo di tunnel o il tipo di autenticazione in questa pagina, il gateway usa lo SKU Basic. Lo SKU Basic non supporta l'autenticazione IKEv2 o RADIUS. Se si vogliono usare queste impostazioni, è necessario eliminare e ricreare il gateway usando uno SKU del gateway diverso.
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png" alt-text="Pagina configurazione da punto a sito" lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configure-now.png":::
+1. Nella pagina **configurazione da punto a sito** è possibile configurare diverse impostazioni. Se non viene visualizzato il tipo di tunnel o il tipo di autenticazione in questa pagina, il gateway usa lo SKU Basic. Lo SKU Basic non supporta l'autenticazione IKEv2 o RADIUS. Se si vogliono usare queste impostazioni, è necessario eliminare e ricreare il gateway usando uno SKU del gateway diverso.
 
-   [![Pagina configurazione da punto a sito](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/certificate-settings-address.png "specificare il pool di indirizzi")](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/certificate-settings-expanded.png#lightbox)
-3. Nella casella **pool di indirizzi** aggiungere l'intervallo di indirizzi IP privati che si vuole usare. I client VPN ricevono dinamicamente un indirizzo IP dall'intervallo specificato. Il subnet mask minimo è 29 bit per attivo/passivo e 28 bit per la configurazione attiva/attiva.
-4. Passare alla sezione successiva per configurare il tipo di tunnel.
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/address-pool.png" alt-text="Specificare il pool di indirizzi" lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/address-pool.png":::
+1. Nella casella **pool di indirizzi** aggiungere l'intervallo di indirizzi IP privati che si vuole usare. I client VPN ricevono dinamicamente un indirizzo IP dall'intervallo specificato. Il subnet mask minimo è 29 bit per attivo/passivo e 28 bit per la configurazione attiva/attiva.
+1. Passare alla sezione successiva per configurare il tipo di tunnel.
 
 ## <a name="5-configure-tunnel-type"></a><a name="tunneltype"></a>5. configurare il tipo di tunnel
 
-È possibile selezionare il tipo di tunnel. Le opzioni del tunnel sono OpenVPN, SSTP e IKEv2.
+Selezionare il tipo di tunnel. Le opzioni del tunnel sono OpenVPN, SSTP e IKEv2.
 
 * Il client strongSwan in Android e Linux e il client VPN IKEv2 nativo in iOS e OSX useranno solo il tunnel IKEv2 per la connessione.
 * I client Windows tentano prima di IKEv2 e se non si connettono, eseguono il fallback al SSTP.
 * È possibile usare il client OpenVPN per connettersi al tipo di tunnel OpenVPN.
 
-![Tipo di tunnel](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunnel.png "specificare il tipo di tunnel")
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunnel-ike.png" alt-text="Tipo di tunnel":::
 
 ## <a name="6-configure-authentication-type"></a><a name="authenticationtype"></a>6. configurare il tipo di autenticazione
 
-In **tipo di autenticazione** selezionare **certificato di Azure** .
+In **tipo di autenticazione** selezionare **certificato di Azure**.
 
-  ![Tipo di autenticazione](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/authentication-type.png "specificare il tipo di autenticazione")
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/azure-certificate.png" alt-text="Tipo di autenticazione":::
 
 ## <a name="7-upload-the-root-certificate-public-certificate-data"></a><a name="uploadfile"></a>7. caricare i dati del certificato pubblico del certificato radice
 
 È possibile caricare fino a 20 certificati radice attendibili aggiuntivi. Al termine del caricamento dei dati del certificato pubblico, Azure li può usare per autenticare i client che hanno installato un certificato client generato dal certificato radice attendibile. Caricare le informazioni della chiave pubblica del certificato radice in Azure.
 
-1. I certificati vengono aggiunti nella pagina **Configurazione da punto a sito** nella sezione **Certificato radice** .
-2. Verificare di avere esportato il certificato radice come file X.509 con codifica in base 64 (CER). È necessario esportare il certificato in questo formato per poterlo aprire con un editor di testo.
-3. Aprire il certificato con un editor di testo, ad esempio il Blocco note. Durante la copia dei dati del certificato, assicurarsi di copiare il testo come unica riga continua senza ritorni a capo o avanzamenti riga. Potrebbe essere necessario modificare la visualizzazione nell'editor di testo in "Show Symbol/Show all characters" (Mostra simbolo/Mostra tutti i caratteri) per visualizzare i ritorni a capo e gli avanzamenti riga. Copiare solo la sezione seguente come un'unica riga continua:
+1. I certificati vengono aggiunti nella pagina **Configurazione da punto a sito** nella sezione **Certificato radice**.
+1. Verificare di avere esportato il certificato radice come file X.509 con codifica in base 64 (CER). È necessario esportare il certificato in questo formato per poterlo aprire con un editor di testo.
+1. Aprire il certificato con un editor di testo, ad esempio il Blocco note. Durante la copia dei dati del certificato, assicurarsi di copiare il testo come unica riga continua senza ritorni a capo o avanzamenti riga. Potrebbe essere necessario modificare la visualizzazione nell'editor di testo in "Show Symbol/Show all characters" (Mostra simbolo/Mostra tutti i caratteri) per visualizzare i ritorni a capo e gli avanzamenti riga. Copiare solo la sezione seguente come un'unica riga continua:
 
-   ![Dati del certificato](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png "copia dati certificato radice")
-4. Incollare i dati del certificato nel campo **Public Certificate Data** (Dati del certificato pubblico). **Assegnare un nome** al certificato e quindi selezionare **Save (Salva** ). È possibile aggiungere fino a 20 certificati radice attendibili.
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png" alt-text="Dati del certificato" border="false":::
+1. Incollare i dati del certificato nel campo **Public Certificate Data** (Dati del certificato pubblico). **Assegnare un nome** al certificato e quindi selezionare **Save (Salva** ). È possibile aggiungere fino a 20 certificati radice attendibili.
 
-   ![Incollare i dati del certificato](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png "incollare i dati del certificato")
-5. Selezionare **Save (Salva** ) nella parte superiore della pagina per salvare tutte le impostazioni di configurazione.
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png" alt-text="Incollare i dati del certificato" border="false":::
+1. Selezionare **Save (Salva** ) nella parte superiore della pagina per salvare tutte le impostazioni di configurazione.
 
-   ![Salvare la configurazione](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png "Salva configurazione")
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png" alt-text="Salvare la configurazione" border="false":::
 
 ## <a name="8-install-an-exported-client-certificate"></a><a name="installclientcert"></a>8. installare un certificato client esportato
 
@@ -147,17 +147,17 @@ I file di configurazione del client VPN contengono le impostazioni per configura
 
 ### <a name="to-connect-from-a-mac-vpn-client"></a>Per connettersi da un client VPN Mac
 
-Nella finestra di dialogo rete individuare il profilo client che si desidera utilizzare, specificare le impostazioni dall' [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac), quindi selezionare **Connetti** .
+Nella finestra di dialogo rete individuare il profilo client che si desidera utilizzare, specificare le impostazioni dall' [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac), quindi selezionare **Connetti**.
 
 Per istruzioni dettagliate, vedere [Installazione in Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac). Se si riscontrano problemi di connessione, verificare che il gateway di rete virtuale non usi uno SKU Basic. Lo SKU Basic non è supportato per i client Mac.
 
-  ![Connessione Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png "Connessione")
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png" alt-text="Connessione client VPN Mac" border="false":::
 
 ## <a name="to-verify-your-connection"></a><a name="verify"></a>Per verificare la connessione
 
 Queste istruzioni si applicano ai client Windows.
 
-1. Per verificare che la connessione VPN è attiva, aprire un prompt dei comandi con privilegi elevati ed eseguire *ipconfig/all* .
+1. Per verificare che la connessione VPN è attiva, aprire un prompt dei comandi con privilegi elevati ed eseguire *ipconfig/all*.
 2. Visualizzare i risultati. Si noti che l'indirizzo IP ricevuto è uno degli indirizzi compresi nel pool di indirizzi del client VPN da punto a sito specificato al momento della configurazione. I risultati sono simili a questo esempio:
 
    ```
@@ -194,8 +194,8 @@ In Azure è possibile aggiungere fino a 20 file CER di certificato radice truste
 ### <a name="to-remove-a-trusted-root-certificate"></a>Per rimuovere un certificato radice attendibile
 
 1. Per rimuovere un certificato radice attendibile, passare alla pagina **Configurazione da punto a sito** per il gateway di rete virtuale.
-2. Nella sezione **Certificato radice** della pagina individuare il certificato che si vuole rimuovere.
-3. Selezionare i puntini di sospensione accanto al certificato e quindi fare clic su "Rimuovi".
+1. Nella sezione **Certificato radice** della pagina individuare il certificato che si vuole rimuovere.
+1. Selezionare i puntini di sospensione accanto al certificato e quindi fare clic su "Rimuovi".
 
 ## <a name="to-revoke-a-client-certificate"></a><a name="revokeclient"></a>Per revocare un certificato client
 
@@ -208,12 +208,12 @@ La regola generale è quella di usare il certificato radice per gestire l'access
 È possibile revocare un certificato client aggiungendo l'identificazione personale all'elenco di revoche di certificati.
 
 1. Ottenere l'identificazione personale del certificato client. Per ulteriori informazioni, vedere [come recuperare l'identificazione personale di un certificato](https://msdn.microsoft.com/library/ms734695.aspx).
-2. Copiare le informazioni in un editor di testo e rimuovere tutti gli spazi in modo che sia una stringa continua.
-3. Passare al gateway di rete virtuale nella pagina **Configurazione da punto a sito** che è stata usata anche per [caricare un certificato radice attendibile](#uploadfile).
-4. Nella sezione **Certificati revocati** immettere un nome descrittivo per il certificato (non deve corrispondere necessariamente alle credenziali del certificato).
-5. Copiare e incollare la stringa di identificazione personale nel campo **Identificazione personale** .
-6. L'identificazione personale viene convalidata e aggiunta automaticamente all'elenco di revoche. Verrà visualizzato un messaggio che segnala che è in corso l'aggiornamento dell'elenco. 
-7. Dopo aver completato l'aggiornamento, il certificato non può più essere usato per la connessione. Ai client che provano a connettersi con questo certificato verrà visualizzato un messaggio che informa che il certificato non è più valido.
+1. Copiare le informazioni in un editor di testo e rimuovere tutti gli spazi in modo che sia una stringa continua.
+1. Passare al gateway di rete virtuale nella pagina **Configurazione da punto a sito** che è stata usata anche per [caricare un certificato radice attendibile](#uploadfile).
+1. Nella sezione **Certificati revocati** immettere un nome descrittivo per il certificato (non deve corrispondere necessariamente alle credenziali del certificato).
+1. Copiare e incollare la stringa di identificazione personale nel campo **Identificazione personale**.
+1. L'identificazione personale viene convalidata e aggiunta automaticamente all'elenco di revoche. Verrà visualizzato un messaggio che segnala che è in corso l'aggiornamento dell'elenco. 
+1. Dopo aver completato l'aggiornamento, il certificato non può più essere usato per la connessione. Ai client che provano a connettersi con questo certificato verrà visualizzato un messaggio che informa che il certificato non è più valido.
 
 ## <a name="point-to-site-faq"></a><a name="faq"></a>Domande frequenti sulla connettività da punto a sito
 

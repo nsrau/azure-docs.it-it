@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: c34cd8e399a005f5eadb3751fb0575f6ecfc27ed
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 90a5f0f84c72895a8450a42260b07f6dbea15e37
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380879"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94428028"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Connettere Azure agli strumenti ITSM usando IT Service Management Connector
 
@@ -28,6 +28,9 @@ Connettore di Gestione dei servizi IT supporta le connessioni con gli strumenti 
 -   System Center Service Manager
 -   Provance
 -   Cherwell
+
+   >[!NOTE]
+> A partire da 1-Oct-2020, le integrazioni di Cherwell e Provance ITSM con avviso di Azure non verranno più abilitate per i nuovi clienti. Le nuove connessioni ITSM non saranno supportate. Saranno supportate le connessioni ITSM esistenti.
 
 Con Gestione dei servizi IT è possibile:
 
@@ -150,7 +153,8 @@ Usare la procedura seguente per creare elementi di lavoro:
 
    ![Screenshot che mostra la finestra del ticket ITSM.](media/itsmc-overview/itsm-action-configuration.png)
    
-   * Se si seleziona nell'elenco a discesa dell'elemento di lavoro "evento": se si seleziona **Crea elementi di lavoro singoli per ogni voce di log** nella selezione dei pulsanti di opzione, ogni avviso creerà un nuovo elemento di lavoro. Se si seleziona **Crea elementi di lavoro singoli per ogni elemento di configurazione** nella selezione dei pulsanti di opzione, ogni elemento di configurazione avrà un proprio elemento di lavoro. 
+   * Se si seleziona nell'elenco a discesa dell'elemento di lavoro "evento": se si seleziona **Crea elementi di lavoro singoli per ogni voce di log** nella selezione dei pulsanti di opzione, ogni avviso creerà un nuovo elemento di lavoro. Se si seleziona **Crea elementi di lavoro singoli per ogni elemento di configurazione** nella selezione dei pulsanti di opzione, ogni elemento di configurazione avrà un proprio elemento di lavoro.
+   ![Screenshot che mostra la finestra del ticket ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Selezionare **OK**.
 

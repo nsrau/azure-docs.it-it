@@ -4,12 +4,12 @@ description: Opzioni di configurazione per il monitoraggio di Azure Application 
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6edb77ec21b4f82f8398312fdff24aa5ea207771
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b703a708af564b9dafc8c1409333a2cfed6d2653
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381032"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427701"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Opzioni di configurazione per il monitoraggio di Azure Application Insights Java
 
@@ -178,7 +178,7 @@ Consente di configurare le regole che verranno applicate ai dati di telemetria r
 
 Per altre informazioni, vedere la documentazione del [processore di telemetria](./java-standalone-telemetry-processors.md) .
 
-## <a name="autocollected-logging"></a>Registrazione autoraccolta
+## <a name="auto-collected-logging"></a>Registrazione automatica
 
 Log4j, Logback e Java. util. Logging sono instrumentati automaticamente e la registrazione eseguita tramite questi framework di registrazione viene raccolta automaticamente.
 
@@ -213,13 +213,13 @@ Questi sono i `level` valori validi che è possibile specificare nel `applicatio
 | TRACE (o FINEST) | TRACE  | TRACE   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
-## <a name="autocollected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Metriche di micrometrico autocollect (incluse le metriche dell'attuatore Spring boot)
+## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Metriche del micrometro raccolte automaticamente (incluse le metriche dell'attuatore Spring boot)
 
-Se l'applicazione usa il [micrometro](https://micrometer.io), le metriche inviate al registro globale del micrometro vengono raccolte in modo autoraccolto.
+Se l'applicazione usa il [micrometro](https://micrometer.io), le metriche inviate al registro globale del micrometro vengono raccolte automaticamente.
 
-Inoltre, se l'applicazione usa l' [attuatore Spring boot](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), vengono raccolte anche le metriche configurate dall'attuatore Spring boot.
+Inoltre, se l'applicazione usa l' [attuatore Spring boot](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), verranno raccolte automaticamente anche le metriche configurate dall'attuatore Spring boot.
 
-Per disabilitare la raccolta di metriche del micrometro (incluse le metriche dell'attuatore Spring boot):
+Per disabilitare la raccolta automatica di metriche del micrometro (incluse le metriche dell'attuatore Spring boot):
 
 > [!NOTE]
 > Le metriche personalizzate vengono fatturate separatamente e possono generare costi aggiuntivi. Assicurarsi di controllare le informazioni dettagliate [sui prezzi](https://azure.microsoft.com/pricing/details/monitor/). Per disabilitare le metriche dell'attuatore micrometrico e Spring, aggiungere la configurazione seguente al file di configurazione.

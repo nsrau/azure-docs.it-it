@@ -3,12 +3,12 @@ title: Panoramica dell'architettura
 description: Panoramica dell'architettura, dei componenti e dei processi usati dal servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 288b073c20b93bf1802f34f5dcd17b12430bb279
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173272"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427735"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
@@ -22,11 +22,11 @@ Backup di Azure esegue il backup dei dati, lo stato del computer e i carichi di 
 
 È possibile eseguire il backup di computer e dati utilizzando diversi metodi:
 
-- **Backup di computer locali**:
+- **Backup di computer locali** :
   - È possibile eseguire il backup di computer Windows locali direttamente in Azure usando l'agente di Servizi di ripristino di Microsoft Azure di backup di Azure (MARS). I computer Linux non sono supportati.
   - È possibile eseguire il backup di computer locali in un server di backup, ovvero System Center Data Protection Manager (DPM) o server di Backup di Microsoft Azure (MAB). È quindi possibile eseguire il backup del server di backup in un insieme di credenziali di servizi di ripristino in Azure.
 
-- **Eseguire il backup di macchine virtuali di Azure**:
+- **Eseguire il backup di macchine virtuali di Azure** :
   - È possibile eseguire il backup di macchine virtuali di Azure direttamente. Backup di Azure installa un'estensione di backup nell'agente di macchine virtuali di Azure in esecuzione nella macchina virtuale. Questa estensione esegue il backup dell'intera macchina virtuale.
   - È possibile eseguire il backup di cartelle e file specifici nella macchina virtuale di Azure eseguendo l'agente MARS.
   - È possibile eseguire il backup di macchine virtuali di Azure nell'oggetto MAB in esecuzione in Azure ed è quindi possibile eseguire il backup di Mab in un insieme di credenziali di servizi di ripristino.
@@ -35,7 +35,7 @@ Scopri di più sulle funzionalità di [cui puoi eseguire il](backup-overview.md)
 
 ## <a name="where-is-data-backed-up"></a>Dove viene eseguito il backup dei dati?
 
-Backup di Azure archivia i dati sottoposti a backup in un insieme di credenziali: insiemi di credenziali dei servizi di ripristino e insiemi di credenziali di backup. Un insieme di credenziali è un'entità di archiviazione online in Azure usata per conservare i dati, ad esempio copie di backup, punti di ripristino e criteri di backup.
+Backup di Azure archivia i dati sottoposti a backup negli insiemi di credenziali: insiemi di credenziali dei servizi di ripristino e insiemi di credenziali di backup. Un insieme di credenziali è un'entità di archiviazione online in Azure usata per conservare i dati, ad esempio copie di backup, punti di ripristino e criteri di backup.
 
 Gli insiemi di credenziali includono le funzionalità seguenti:
 
@@ -43,9 +43,9 @@ Gli insiemi di credenziali includono le funzionalità seguenti:
 - È possibile monitorare gli elementi di cui è stato eseguito il backup in un insieme di credenziali, incluse le macchine virtuali di Azure e i computer locali.
 - È possibile gestire l'accesso dell'insieme di credenziali con il [controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md).
 - È necessario specificare come vengono replicati i dati nell'insieme di credenziali per la ridondanza:
-  - **Archiviazione con ridondanza locale (con ridondanza locale)**: per evitare errori in un Data Center, è possibile usare con ridondanza locale. L'archiviazione con ridondanza locale replica i dati in un'unità di scala di archiviazione. [Altre informazioni](../storage/common/storage-redundancy.md#locally-redundant-storage)
-  - **Archiviazione con ridondanza geografica**: per proteggersi da interruzioni a livello di area, è possibile usare GRS. Il GRS replica i dati in un'area secondaria. [Altre informazioni](../storage/common/storage-redundancy.md#geo-redundant-storage)
-  - **Archiviazione con ridondanza della zona (ZRS)**: replica i dati nelle [zone di disponibilità](../availability-zones/az-overview.md#availability-zones), garantendo la residenza e la resilienza dei dati nella stessa area. [Altre informazioni](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **Archiviazione con ridondanza locale (con ridondanza locale)** : per evitare errori in un Data Center, è possibile usare con ridondanza locale. L'archiviazione con ridondanza locale replica i dati in un'unità di scala di archiviazione. [Altre informazioni](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **Archiviazione con ridondanza geografica** : per proteggersi da interruzioni a livello di area, è possibile usare GRS. Il GRS replica i dati in un'area secondaria. [Altre informazioni](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **Archiviazione con ridondanza della zona (ZRS)** : replica i dati nelle [zone di disponibilità](../availability-zones/az-overview.md#availability-zones), garantendo la residenza e la resilienza dei dati nella stessa area. [Scopri di più](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Per impostazione predefinita, gli insiemi di credenziali dei servizi di ripristino usano GRS.
 
 Gli insiemi di credenziali dei servizi di ripristino offrono le seguenti funzionalità aggiuntive:
@@ -56,7 +56,7 @@ Gli insiemi di credenziali dei servizi di ripristino offrono le seguenti funzion
 
 Backup di Azure fornisce diversi agenti di backup, a seconda del tipo di computer di cui viene eseguito il backup:
 
-**Agent** | **Dettagli**
+**Agent** | **Informazioni dettagliate**
 --- | ---
 **Agente MARS** | <ul><li>Viene eseguito nei singoli computer Windows Server locali per eseguire il backup di file, cartelle e lo stato del sistema.</li> <li>Viene eseguito in macchine virtuali di Azure per eseguire il backup di file, cartelle e lo stato del sistema.</li> <li>Viene eseguito nei server DPM/MAB per eseguire il backup del disco di archiviazione locale di DPM/MAB in Azure.</li></ul>
 **Estensione per le macchine virtuali di Azure** | Viene eseguito in macchine virtuali di Azure per eseguirne il backup in un insieme di credenziali.
@@ -69,7 +69,7 @@ Nella tabella seguente sono illustrati i diversi tipi di backup e quando vengono
 --- | --- | ---
 **Completo** | Un backup completo contiene l'intera origine dati. Richiede una maggiore larghezza di banda di rete rispetto al backup differenziale o incrementale. | Usato per il backup iniziale.
 **Differenziale** |  Un backup differenziale archivia i blocchi modificati dopo il backup completo iniziale. Usa una quantità minore di spazio di archiviazione e di rete e non mantiene copie ridondanti di dati non modificati.<br/><br/> Inefficiente poiché i blocchi di dati che non sono stati modificati tra i backup successivi vengono trasferiti e archiviati. | Non è usato da Backup di Azure.
-**Incrementale** | Un backup incrementale archivia solo i blocchi di dati modificati rispetto al backup precedente. Efficienza elevata per rete e archiviazione. <br/><br/> Con il backup incrementale, non è necessario integrare i backup completi. | Usato da DPM/MABS per i backup su disco e usato in tutti i backup in Azure. Non usato per il backup SQL Server.
+**Incremental** | Un backup incrementale archivia solo i blocchi di dati modificati rispetto al backup precedente. Efficienza elevata per rete e archiviazione. <br/><br/> Con il backup incrementale, non è necessario integrare i backup completi. | Usato da DPM/MABS per i backup su disco e usato in tutti i backup in Azure. Non usato per il backup SQL Server.
 
 ## <a name="sql-server-backup-types"></a>Tipi di backup di SQL Server
 
@@ -87,7 +87,7 @@ L'utilizzo dell'archiviazione, l'obiettivo del tempo di ripristino (RTO) e l'uti
 
 - L'origine dati A è costituita da 10 blocchi di archiviazione, A1-A10, di cui viene eseguito il backup mensile.
 - I blocchi A2, A3, A4 e A9 cambiano nel primo mese, mentre il blocco A5 cambia il mese successivo.
-- Per i backup differenziali, nel secondo mese viene eseguito il backup dei blocchi modificati A2, A3, A4 e A9. Nel terzo mese, viene eseguito nuovamente il backup di questi stessi blocchi, insieme al blocco A5 modificato. Il backup continua a essere eseguito per i blocchi modificati fino al backup completo successivo.
+- Per i backup differenziali, nel secondo mese sono stati modificati i blocchi a2, a3, A4 e A9. Nel terzo mese, viene eseguito nuovamente il backup di questi stessi blocchi, insieme al blocco A5 modificato. Il backup continua a essere eseguito per i blocchi modificati fino al backup completo successivo.
 - Per i backup incrementali, nel secondo mese i blocchi a2, a3, A4 e A9 sono contrassegnati come modificati e trasferiti. Nel terzo mese, viene contrassegnato e trasferito solo il blocco A5 modificato.
 
 ![Immagine che mostra i confronti dei metodi di backup](./media/backup-architecture/backup-method-comparison.png)
@@ -123,6 +123,12 @@ Backup di dischi deduplicati | | | ![Parziale][yellow]<br/><br/> Solo per i serv
 - La conservazione per i punti di backup "mensili", "annuali" viene definita conservazione a lungo termine (LTR)
 - Quando viene creato un insieme di credenziali, viene creato anche un "DefaultPolicy" e può essere usato per eseguire il backup delle risorse.
 - Tutte le modifiche apportate al periodo di conservazione di un criterio di backup verranno applicate in modo retroattivo a tutti i punti di ripristino precedenti, oltre a quelli nuovi.
+
+### <a name="impact-of-policy-change-on-recovery-points"></a>Effetti della modifica dei criteri nei punti di ripristino
+
+- **La durata della conservazione è aumentata/ridotta:** Quando la durata di conservazione viene modificata, la nuova durata di conservazione viene applicata anche ai punti di ripristino esistenti. Di conseguenza, alcuni dei punti di ripristino verranno eliminati. Se il periodo di memorizzazione viene aumentato, i punti di ripristino esistenti avranno anche un aumento della conservazione.
+- **Modifica da giornaliera a settimanale:** Quando i backup pianificati vengono modificati da giornaliera a settimanale, viene eseguita la pulizia dei punti di ripristino giornalieri esistenti.
+- **Modificato da settimanale a giornaliero:** I backup settimanali esistenti verranno conservati in base al numero di giorni rimanenti in base ai criteri di conservazione correnti.
 
 ### <a name="additional-reference"></a>Ulteriore riferimento
 
@@ -204,7 +210,7 @@ Per altre informazioni sull'archiviazione su disco e sui tipi di dischi disponib
 
 È possibile eseguire il backup di macchine virtuali di Azure usando archiviazione Premium con backup di Azure:
 
-- Durante il processo di backup di macchine virtuali con archiviazione Premium, il servizio di backup crea un percorso di gestione temporanea, denominato *AzureBackup*, nell'account di archiviazione. Le dimensioni del percorso di gestione temporanea equivalgono alla dimensione dello snapshot del punto di ripristino.
+- Durante il processo di backup di macchine virtuali con archiviazione Premium, il servizio di backup crea un percorso di gestione temporanea, denominato *AzureBackup* , nell'account di archiviazione. Le dimensioni del percorso di gestione temporanea equivalgono alla dimensione dello snapshot del punto di ripristino.
 - Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione Premium per il percorso di gestione temporanea. Per altre informazioni, vedere [obiettivi di scalabilità per gli account di archiviazione BLOB di pagine Premium](../storage/blobs/scalability-targets-premium-page-blobs.md). Non modificare il percorso di gestione temporanea.
 - Al termine del processo di backup, il percorso di gestione temporanea viene eliminato.
 - Il prezzo della risorsa di archiviazione usata per il percorso di gestione temporanea è in linea con i [prezzi dell'archiviazione Premium](../virtual-machines/disks-types.md#billing).

@@ -3,12 +3,12 @@ title: Integrare Hub eventi di Azure con il servizio Collegamento privato di Azu
 description: Informazioni su come integrare Hub eventi di Azure con il servizio Collegamento privato di Azure
 ms.date: 08/22/2020
 ms.topic: article
-ms.openlocfilehash: 59167635cfc0d8c1123a47410c87d6b9151f6f62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 996779e103dae2d2d950f447d2ac72667fc9e754
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334243"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427752"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Consentire l'accesso agli spazi dei nomi di hub eventi di Azure tramite endpoint privati 
 Il servizio Collegamento privato di Azure consente di accedere ai servizi di Azure, ad esempio Hub eventi di Azure, Archiviazione di Azure e Azure Cosmos DB, e ai servizi di clienti/partner ospitati in Azure tramite un **endpoint privato** nella rete virtuale.
@@ -17,19 +17,11 @@ Un endpoint privato è un'interfaccia di rete che connette privatamente e in mod
 
 Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure?](../private-link/private-link-overview.md).
 
-> [!IMPORTANT]
+> [!WARNING]
+> L'abilitazione di endpoint privati può impedire ad altri servizi di Azure di interagire con Hub eventi.  Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via. Come eccezione, è possibile consentire l'accesso alle risorse di hub eventi da determinati servizi attendibili anche quando gli endpoint privati sono abilitati. Per un elenco di servizi attendibili, vedere [Servizi attendibili](#trusted-microsoft-services).
+
+>[!NOTE]
 > Questa funzionalità è supportata sia per i livelli **standard** che per quelli **dedicati** . Il livello **Basic** non è supportato.
->
-> L'abilitazione di endpoint privati può impedire ad altri servizi di Azure di interagire con Hub eventi.  Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via. 
-> 
-> Di seguito sono riportati alcuni dei servizi che non possono accedere alle risorse di hub eventi quando sono abilitati gli endpoint privati. Si noti che l'elenco **non** è esaustivo.
->
-> - Route dell'hub IoT di Azure
-> - Azure IoT Device Explorer
-> - Griglia di eventi di Azure
-> - Monitoraggio di Azure (impostazioni di diagnostica)
->
-> Come eccezione, è possibile consentire l'accesso alle risorse di hub eventi da determinati servizi attendibili anche quando gli endpoint privati sono abilitati. Per un elenco di servizi attendibili, vedere [Servizi attendibili](#trusted-microsoft-services).
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Aggiungere un endpoint privato con il portale di Azure
 
@@ -64,17 +56,17 @@ Se si ha già uno spazio dei nomi di Hub eventi, è possibile creare una conness
 1. Selezionare la scheda **Connessioni endpoint privato** nella parte superiore della pagina. 
 1. Selezionare il pulsante **+ Endpoint privato** nella parte superiore della pagina.
 
-    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Scheda reti-opzione reti selezionate":::
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Pagina rete-scheda connessioni endpoint privato-Aggiungi collegamento endpoint privato":::
 7. Nella pagina **Informazioni di base** seguire questa procedura: 
     1. Selezionare la **sottoscrizione di Azure** in cui creare l'endpoint privato. 
     2. Selezionare il **gruppo di risorse** per la risorsa endpoint privato.
     3. Immettere un **nome** per l'endpoint privato. 
-    5. Selezionare un'**area** per l'endpoint privato. L'endpoint privato deve trovarsi nella stessa area della rete virtuale, ma può trovarsi in un'area diversa rispetto alla risorsa collegamento privato a cui si sta effettuando la connessione. 
+    5. Selezionare un' **area** per l'endpoint privato. L'endpoint privato deve trovarsi nella stessa area della rete virtuale, ma può trovarsi in un'area diversa rispetto alla risorsa collegamento privato a cui si sta effettuando la connessione. 
     6. Selezionare **Avanti: Risorsa >** nella parte inferiore della pagina.
 
         ![Creare l'endpoint privato - Pagina Informazioni di base](./media/private-link-service/create-private-endpoint-basics-page.png)
 8. Nella pagina **Risorsa** seguire questa procedura:
-    1. Per il metodo di connessione, se si è selezionato **Connettersi a una risorsa di Azure nella directory**, seguire questa procedura: 
+    1. Per il metodo di connessione, se si è selezionato **Connettersi a una risorsa di Azure nella directory** , seguire questa procedura: 
         1. Selezionare la **sottoscrizione di Azure** in cui si trova lo **spazio dei nomi di Hub eventi**. 
         2. Per **Tipo di risorsa** selezionare **Microsoft.EventHub/namespaces**.
         3. Per **Risorsa** selezionare uno spazio dei nomi di Hub eventi nell'elenco a discesa. 
@@ -82,8 +74,8 @@ Se si ha già uno spazio dei nomi di Hub eventi, è possibile creare una conness
         5. Selezionare **Avanti: Configurazione >** nella parte inferiore della pagina. 
         
             ![Creare l'endpoint privato - Pagina Risorsa](./media/private-link-service/create-private-endpoint-resource-page.png)    
-    2. Se si seleziona **Connettersi a una risorsa di Azure in base all'alias o all'ID risorsa**, seguire questa procedura:
-        1. Immettere l'**ID risorsa** o l'**alias**. Può trattarsi dell'ID risorsa o dell'alias condiviso da un altro utente. Il modo più semplice per ottenere l'ID risorsa è passare allo spazio dei nomi di Hub eventi nel portale di Azure e copiare la parte dell'URI a partire da `/subscriptions/`. Per un esempio, vedere l'immagine seguente. 
+    2. Se si seleziona **Connettersi a una risorsa di Azure in base all'alias o all'ID risorsa** , seguire questa procedura:
+        1. Immettere l' **ID risorsa** o l' **alias**. Può trattarsi dell'ID risorsa o dell'alias condiviso da un altro utente. Il modo più semplice per ottenere l'ID risorsa è passare allo spazio dei nomi di Hub eventi nel portale di Azure e copiare la parte dell'URI a partire da `/subscriptions/`. Per un esempio, vedere l'immagine seguente. 
         2. Per **Sottorisorsa di destinazione** immettere **namespace**. È il tipo della sottorisorsa a cui l'endpoint privato può accedere.
         3. (facoltativo) Immettere un **messaggio di richiesta**. Il proprietario della risorsa visualizza questo messaggio mentre gestisce la connessione endpoint privato.
         4. Selezionare quindi **Avanti: Configurazione >** nella parte inferiore della pagina.
@@ -218,11 +210,11 @@ Sono disponibili quattro stati di provisioning:
 
 ### <a name="approve-a-private-endpoint-connection"></a>Approvare una connessione endpoint privato
 1. Se sono presenti connessioni in sospeso, verrà visualizzata una connessione elencata con **In sospeso** nello stato di provisioning. 
-2. Selezionare l'**endpoint privato** che si vuole approvare
+2. Selezionare l' **endpoint privato** che si vuole approvare
 3. Selezionare il pulsante **Approva**.
 
     ![Approvare un endpoint privato](./media/private-link-service/approve-private-endpoint.png)
-4. Nella pagina **Approva la connessione** aggiungere un commento (facoltativo) e selezionare **Sì**. Se si seleziona **No**, non accade nulla. 
+4. Nella pagina **Approva la connessione** aggiungere un commento (facoltativo) e selezionare **Sì**. Se si seleziona **No** , non accade nulla. 
 5. Si noterà che lo stato della connessione endpoint privato nell'elenco è diventato **Approvata**. 
 
 ### <a name="reject-a-private-endpoint-connection"></a>Rifiutare una connessione endpoint privato
@@ -230,13 +222,13 @@ Sono disponibili quattro stati di provisioning:
 1. Se sono presenti connessioni endpoint privato da rifiutare, sia che si tratti di una richiesta in sospeso o di una connessione esistente, selezionare la connessione e fare clic sul pulsante **Rifiuta**.
 
     ![Rifiuta endpoint privato](./media/private-link-service/private-endpoint-reject-button.png)
-2. Nella pagina **Rifiuta la connessione** immettere un commento (facoltativo) e selezionare **Sì**. Se si seleziona **No**, non accade nulla. 
+2. Nella pagina **Rifiuta la connessione** immettere un commento (facoltativo) e selezionare **Sì**. Se si seleziona **No** , non accade nulla. 
 3. Si noterà che lo stato della connessione endpoint privato nell'elenco è diventato **Rifiutata**. 
 
 ### <a name="remove-a-private-endpoint-connection"></a>Rimuovere una connessione endpoint privato
 
 1. Per rimuovere una connessione endpoint privato, selezionarla nell'elenco e selezionare **Rimuovi** sulla barra degli strumenti.
-2. Nella pagina **Elimina connessione** selezionare **Sì** per confermare l'eliminazione dell'endpoint privato. Se si seleziona **No**, non accade nulla.
+2. Nella pagina **Elimina connessione** selezionare **Sì** per confermare l'eliminazione dell'endpoint privato. Se si seleziona **No** , non accade nulla.
 3. Si noterà che lo stato è diventato **Disconnessa** e che l'endpoint non è più presente nell'elenco.
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Verificare il funzionamento della connessione di collegamento privato
@@ -245,7 +237,7 @@ Sono disponibili quattro stati di provisioning:
 
 Creare prima di tutto una macchina virtuale seguendo la procedura descritta nell'articolo [Creare una macchina virtuale di Windows nel portale di Azure](../virtual-machines/windows/quick-create-portal.md).
 
-Nella scheda **Rete**: 
+Nella scheda **Rete** : 
 
 1. Specificare **Rete virtuale** e **Subnet**. È necessario selezionare la rete virtuale in cui è stato distribuito l'endpoint privato.
 2. Specificare una risorsa **IP pubblico**.
@@ -271,9 +263,9 @@ Aliases:  <event-hubs-namespace-name>.servicebus.windows.net
 
 **Pricing** (Prezzi): per informazioni sui prezzi, vedere [Prezzi di Collegamento privato di Azure](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitazioni**:  Questa funzionalità è disponibile in tutte le aree pubbliche di Azure.
+**Limitazioni** :  Questa funzionalità è disponibile in tutte le aree pubbliche di Azure.
 
-**Numero massimo di endpoint privati per lo spazio dei nomi di Hub eventi**: 120.
+**Numero massimo di endpoint privati per lo spazio dei nomi di Hub eventi** : 120.
 
 Per altre informazioni, vedere [Servizio Collegamento privato di Azure: Limitazioni](../private-link/private-link-service-overview.md#limitations)
 

@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 8d067d30220c76de5617aab2c42365351888d744
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 393fceaa91600ab143912bb3af38c349f29f770a
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780020"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427939"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Introduzione al controllo Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
       > - Se l'account di archiviazione si trova dietro una rete virtuale o un firewall, vedere [Concedere l'accesso da una rete virtuale](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network).
       > - Se si modifica il periodo di conservazione da 0 (conservazione illimitata) a qualsiasi altro valore, tenere presente che la conservazione verrà applicata solo ai log scritti dopo la modifica del valore di conservazione (i log scritti durante il periodo in cui la conservazione è stata impostata su illimitata vengono conservati, anche dopo l'abilitazione della conservazione).
 
-   1. Nell'account di archiviazione passare a **Panoramica** e fare clic su **BLOB** .
+   1. Nell'account di archiviazione passare a **Panoramica** e fare clic su **BLOB**.
 
       ![Widget BLOB di Azure](./media/auditing-configure/1_blobs_widget.png)
 
@@ -50,7 +50,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
       ![Icona per creare un contenitore BLOB](./media/auditing-configure/2_create_container_button.png)
 
-   1. Specificare un **nome** per il contenitore, impostare il **livello di accesso pubblico** su **privato** e quindi fare clic su **OK** .
+   1. Specificare un **nome** per il contenitore, impostare il **livello di accesso pubblico** su **privato** e quindi fare clic su **OK**.
 
       ![Creare una configurazione del contenitore BLOB](./media/auditing-configure/3_create_container_config.png)
 
@@ -61,7 +61,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
    - <a id="blobtsql"></a>Configurare l'archiviazione BLOB per i log di controllo con T-SQL:
 
-     1. Nell'elenco dei contenitori fare clic sul contenitore appena creato e quindi fare clic su **Proprietà del contenitore** .
+     1. Nell'elenco dei contenitori fare clic sul contenitore appena creato e quindi fare clic su **Proprietà del contenitore**.
 
         ![Pulsante delle proprietà del contenitore BLOB](./media/auditing-configure/4_container_properties_button.png)
 
@@ -88,7 +88,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
             > [!NOTE]
             > Rinnovare il token alla scadenza per evitare errori di controllo.
 
-          - Fare clic su **Genera firma di accesso condiviso** .
+          - Fare clic su **Genera firma di accesso condiviso**.
 
             ![Configurazione della firma di accesso condiviso](./media/auditing-configure/7_sas_configure.png)
 
@@ -118,7 +118,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
         GO
         ```
 
-        Continuare [creando una specifica del controllo del server o una specifica del controllo del database](#createspec).
+     1. Continuare [creando una specifica del controllo del server o una specifica del controllo del database](#createspec).
 
    - <a id="blobssms"></a>Configurare l'archiviazione BLOB per i log di controllo usando SQL Server Management Studio 18 (anteprima):
 
@@ -138,7 +138,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
         ![Accedere ad Azure](./media/auditing-configure/12_mi_SSMS_sign_in_to_azure.png)
 
-     1. Selezionare una sottoscrizione, un account di archiviazione e un contenitore BLOB dall'elenco a discesa oppure creare un contenitore personalizzato facendo clic su **Crea** . Al termine, fare clic su **OK** :
+     1. Selezionare una sottoscrizione, un account di archiviazione e un contenitore BLOB dall'elenco a discesa oppure creare un contenitore personalizzato facendo clic su **Crea**. Al termine, fare clic su **OK** :
 
         ![Selezionare la sottoscrizione di Azure, l'account di archiviazione e il contenitore BLOB](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
@@ -169,15 +169,15 @@ I log di controllo da un'istanza gestita possono essere inviati a hub eventi di 
 
 1. Spostarsi nella [portale di Azure](https://portal.azure.com/) all'istanza gestita.
 
-2. Fare clic su **Impostazioni di diagnostica** .
+2. Fare clic su **Impostazioni di diagnostica**.
 
-3. Fare clic su **Attiva diagnostica** . Se la diagnostica è già abilitata, verrà invece visualizzata l' **opzione + Aggiungi diagnostica** .
+3. Fare clic su **Attiva diagnostica**. Se la diagnostica è già abilitata, verrà invece visualizzata l' **opzione + Aggiungi diagnostica** .
 
 4. Selezionare **SQLSecurityAuditEvents** nell'elenco dei log.
 
 5. Selezionare una destinazione per gli eventi di controllo: Hub eventi, log di monitoraggio di Azure o entrambi. Configurare per ogni destinazione i parametri obbligatori (ad esempio Log Analytics dell'area di lavoro).
 
-6. Fare clic su **Salva** .
+6. Fare clic su **Salva**.
 
     ![Configurare le impostazioni di diagnostica](./media/auditing-configure/9_mi_configure_diagnostics.png)
 
@@ -234,15 +234,15 @@ Le differenze principali tra il controllo nei database in Azure SQL Istanza gest
 - Con Istanza gestita SQL di Azure, il controllo funziona a livello di server e archivia `.xel` i file di log nell'archivio BLOB di Azure.
 - In SQL Server, il controllo funziona a livello di server, ma archivia gli eventi nei registri eventi di sistema o di Windows.
 
-Il controllo XEvent nelle istanze gestite supporta le destinazioni di archiviazione BLOB di Azure. I log di file e di Windows **non sono supportati** .
+Il controllo XEvent nelle istanze gestite supporta le destinazioni di archiviazione BLOB di Azure. I log di file e di Windows **non sono supportati**.
 
 Le principali differenze nella sintassi `CREATE AUDIT` per il controllo in Archivio BLOB di Azure sono le seguenti:
 
 - Viene fornita una nuova sintassi `TO URL` che consente di specificare l'URL del contenitore di archiviazione BLOB di Azure in cui `.xel` vengono inseriti i file.
 - Viene fornita una nuova sintassi `TO EXTERNAL MONITOR` per abilitare gli hub eventi e le destinazioni del log di monitoraggio di Azure.
 - La sintassi `TO FILE` **non è supportata** perché SQL istanza gestita di Azure non è in grado di accedere alle condivisioni file di Windows.
-- L'opzione Shutdown **non è supportata** .
-- Un valore di `queue_delay` uguale a 0 **non è supportato** .
+- L'opzione Shutdown **non è supportata**.
+- Un valore di `queue_delay` uguale a 0 **non è supportato**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
