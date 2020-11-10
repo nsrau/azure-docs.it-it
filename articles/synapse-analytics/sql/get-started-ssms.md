@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 166d598528d8fe38e2bc22b76c659326c5e0ba45
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4337d6bb108042a909250b3d87d13ab60357cfec
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288784"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311130"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Connettersi a Synapse SQL con SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.locfileid: "91288784"
 > 
 > 
 
-È possibile usare [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ed eseguire query su Synapse SQL in Azure Synapse Analytics tramite risorse di SQL su richiesta (anteprima) o del pool SQL. 
+È possibile usare [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) per connettersi a Synapse SQL ed eseguire query in Azure Synapse Analytics tramite le risorse pool SQL serverless (anteprima) o pool SQL dedicato. 
 
-### <a name="supported-tools-for-sql-on-demand-preview"></a>Strumenti supportati per SQL su richiesta (anteprima)
+### <a name="supported-tools-for-serverless-sql-pool-preview"></a>Strumenti supportati per il pool SQL serverless (anteprima)
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) è completamente supportato a partire dalla versione 1.18.0. SSMS è parzialmente supportato a partire dalla versione 18.5, è possibile usarlo solo per connettersi ed eseguire query.
 
@@ -40,41 +40,41 @@ ms.locfileid: "91288784"
 Prima di iniziare, verificare di aver soddisfatto i prerequisiti seguenti:  
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* Per il pool SQL è necessario un data warehouse esistente. Per crearne uno, vedere [Creare un pool SQL](../quickstart-create-sql-pool-portal.md). Per SQL su richiesta, è già stato effettuato il provisioning di un'istanza nell'area di lavoro al momento della creazione. 
+* Per il pool SQL dedicato, è necessario un data warehouse esistente. Per crearne uno, vedere [Creare un pool SQL dedicato](../quickstart-create-sql-pool-portal.md). Per il pool SQL serverless, è già stato effettuato il provisioning di uno predefinito nell'area di lavoro al momento della creazione. 
 * Il nome completo dell'istanza di SQL Server. Per trovare questo nome, vedere [Connettersi a Synapse SQL](connect-overview.md).
 
 ## <a name="connect"></a>Connessione
 
-### <a name="sql-pool"></a>Pool SQL
+### <a name="dedicated-sql-pool"></a>Pool SQL dedicato
 
-Per connettersi a Synapse SQL tramite il pool SQL, seguire questa procedura: 
+Per connettersi a Synapse SQL tramite il pool SQL dedicato, seguire questa procedura: 
 
 1. Aprire SQL Server Management Studio (SSMS). 
-1. Nella finestra di dialogo **Connetti al server** compilare i campi e quindi selezionare **Connetti**: 
+1. Nella finestra di dialogo **Connetti al server** compilare i campi e quindi selezionare **Connetti** : 
   
     ![Connettersi al server 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
-   * **Nome server**: Immettere il **nome server** identificato in precedenza.
-   * **Autenticazione**:  scegliere un tipo di autenticazione, ad esempio **Autenticazione di SQL Server** o **Autenticazione integrata di Active Directory**.
-   * **Nome utente** e **Password**: se è stata selezionata l'autenticazione di SQL Server, immettere il nome utente e la password.
+   * **Nome server** : Immettere il **nome server** identificato in precedenza.
+   * **Autenticazione** :  scegliere un tipo di autenticazione, ad esempio **Autenticazione di SQL Server** o **Autenticazione integrata di Active Directory**.
+   * **Nome utente** e **Password** : se è stata selezionata l'autenticazione di SQL Server, immettere il nome utente e la password.
 
 1. Espandere Azure SQL Server in **Esplora oggetti**. È possibile visualizzare i database associati al server, come il database di esempio AdventureWorksDW. Per vedere le tabelle, espandere il database:
    
     ![Esplorare AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
-### <a name="sql-on-demand-preview"></a>SQL su richiesta (anteprima)
+### <a name="serverless-sql-pool-preview"></a>Pool SQL serverless (anteprima)
 
-Per connettersi a Synapse SQL tramite SQL su richiesta, seguire questa procedura: 
+Per connettersi a Synapse SQL tramite il pool SQL serverless, seguire questa procedura: 
 
 1. Aprire SQL Server Management Studio (SSMS).
-1. Nella finestra di dialogo **Connetti al server** compilare i campi e quindi selezionare **Connetti**: 
+1. Nella finestra di dialogo **Connetti al server** compilare i campi e quindi selezionare **Connetti** : 
    
     ![Connettersi al server 2](./media/get-started-ssms/connect-object-explorer1.png)
    
-   * **Nome server**: Immettere il **nome server** identificato in precedenza.
-   * **Autenticazione**: scegliere un tipo di autenticazione, ad esempio **Autenticazione di SQL Server** o **Autenticazione integrata di Active Directory**:
-   * **Nome utente** e **Password**: se è stata selezionata l'autenticazione di SQL Server, immettere il nome utente e la password.
+   * **Nome server** : Immettere il **nome server** identificato in precedenza.
+   * **Autenticazione** : scegliere un tipo di autenticazione, ad esempio **Autenticazione di SQL Server** o **Autenticazione integrata di Active Directory** :
+   * **Nome utente** e **Password** : se è stata selezionata l'autenticazione di SQL Server, immettere il nome utente e la password.
    * Selezionare **Connetti**.
 
 4. Per l'esplorazione, espandere il server SQL Azure. È possibile visualizzare i database associati al server. Espandere *demo* per visualizzare il contenuto nel database di esempio.
@@ -84,7 +84,7 @@ Per connettersi a Synapse SQL tramite SQL su richiesta, seguire questa procedura
 
 ## <a name="run-a-sample-query"></a>Eseguire una query di esempio
 
-### <a name="sql-pool"></a>Pool SQL
+### <a name="dedicated-sql-pool"></a>Pool SQL dedicato
 
 Ora che è stata stabilita una connessione al database, è possibile eseguire una query sui dati.
 
@@ -104,7 +104,7 @@ Ora che è stata stabilita una connessione al database, è possibile eseguire un
    
     ![Risultati della query 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
-### <a name="sql-on-demand"></a>SQL su richiesta
+### <a name="serverless-sql-pool"></a>Pool SQL serverless
 
 Ora che è stata stabilita una connessione al database, è possibile eseguire una query sui dati.
 

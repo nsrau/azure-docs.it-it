@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: ce0858f61ca1fe3b81c3d0c8a3c97954827def80
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4ecd436b548c29c520a7538970d4d703cc8488d2
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950619"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027568"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Abilitare il Centro sicurezza per tutte le sottoscrizioni in un gruppo di gestione
 
@@ -25,20 +25,26 @@ ms.locfileid: "91950619"
 
 Per eseguire l'onboarding di un gruppo di gestione e di tutte le relative sottoscrizioni:
 
-1. Come utente con autorizzazioni **Amministratore della sicurezza**, aprire Criteri di Azure e cercare la definizione **Abilitare Centro sicurezza di Azure nella sottoscrizione**.
+1. Come utente con autorizzazioni **Amministratore della sicurezza** , aprire Criteri di Azure e cercare la definizione **Abilitare Centro sicurezza di Azure nella sottoscrizione**.
 
     :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="Definizione Abilitare Centro sicurezza di Azure nella sottoscrizione di Criteri di Azure":::
 
 1. Selezionare **Assegna** e assicurarsi di impostare l'ambito sul livello del gruppo di gestione.
 
-    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Definizione Abilitare Centro sicurezza di Azure nella sottoscrizione di Criteri di Azure":::
+    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Assegnazione della definizione Abilitare Centro sicurezza di Azure nella sottoscrizione":::
 
     > [!TIP]
     > Non sono previsti parametri obbligatori, ad eccezione dell'ambito.
 
 1. Selezionare **Crea un'attività di correzione** per assicurarsi che verrà eseguito l'onboarding di tutte le sottoscrizioni esistenti per cui il Centro sicurezza non è abilitato.
 
-    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Definizione Abilitare Centro sicurezza di Azure nella sottoscrizione di Criteri di Azure" tutte le sottoscrizioni registrate (indipendentemente dall'attivazione o dalla disattivazione di Azure Defender).
+    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Creazione di un'attività di correzione per la definizione Abilitare Centro sicurezza di Azure nella sottoscrizione di Criteri di Azure":::
+
+1. Dopo l'assegnazione, la definizione:
+
+    1. Rileverà tutte le sottoscrizioni nel gruppo di gestione che non sono ancora registrate nel Centro sicurezza.
+    1. Contrassegnerà tali sottoscrizioni come "non conformi".
+    1. Contrassegnerà come "conformi" tutte le sottoscrizioni registrate (indipendentemente dall'attivazione o dalla disattivazione di Azure Defender).
 
     L'attività di correzione abiliterà quindi, gratuitamente, il Centro sicurezza per le sottoscrizioni non conformi.
 
@@ -49,7 +55,7 @@ Per eseguire l'onboarding di un gruppo di gestione e di tutte le relative sottos
 
 È possibile scegliere di modificare la definizione di Criteri di Azure in diversi modi: 
 
-- **Definire la conformità in modo diverso**: il criterio fornito classifica come "non conformi" tutte le sottoscrizioni nel gruppo di gestione che non sono registrate con il Centro sicurezza. È possibile scegliere di impostarlo su tutte le sottoscrizioni per cui non è attivato Azure Defender.
+- **Definire la conformità in modo diverso** : il criterio fornito classifica come "non conformi" tutte le sottoscrizioni nel gruppo di gestione che non sono registrate con il Centro sicurezza. È possibile scegliere di impostarlo su tutte le sottoscrizioni per cui non è attivato Azure Defender.
 
     La definizione fornita consente di specificare *una* delle impostazioni di 'pricing' seguenti come conforme. Questo significa che una sottoscrizione impostata su 'standard' o 'free' è conforme.
 
@@ -82,7 +88,7 @@ Per eseguire l'onboarding di un gruppo di gestione e di tutte le relative sottos
     },
     ```
 
-- **Definire alcuni piani di Azure Defender da applicare quando si abilita il Centro sicurezza**: il criterio fornito abilita il Centro sicurezza senza i piani facoltativi di Azure Defender. È possibile scegliere di abilitarne uno o entrambi.
+- **Definire alcuni piani di Azure Defender da applicare quando si abilita il Centro sicurezza** : il criterio fornito abilita il Centro sicurezza senza i piani facoltativi di Azure Defender. È possibile scegliere di abilitarne uno o entrambi.
 
     La sezione `deployment` della definizione fornita include un parametro `pricingTier`. Per impostazione predefinita, tale parametro è impostato su `free`, ma può essere modificato. 
 

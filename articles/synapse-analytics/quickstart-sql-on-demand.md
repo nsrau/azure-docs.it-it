@@ -1,6 +1,6 @@
 ---
-title: 'Avvio rapido: Usare SQL su richiesta'
-description: In questa guida di avvio rapido verrà illustrato come è facile eseguire query su diversi tipi di file tramite SQL su richiesta (anteprima).
+title: 'Avvio rapido: Usare i pool SQL serverless'
+description: In questo argomento di avvio rapido verrà illustrato come è facile eseguire query su diversi tipi di file tramite il pool SQL serverless (anteprima).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: fe07192b0077518cdd73092f53342c298034cfa8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2e502a984e71a06eb57b345371d70d659c6a031
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86274170"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321678"
 ---
-# <a name="quickstart-use-sql-on-demand"></a>Avvio rapido: Usare SQL su richiesta
+# <a name="quickstart-use-serverless-sql-pool"></a>Avvio rapido: Usare i pool SQL serverless
 
-Synapse SQL su richiesta (anteprima) è un servizio di query serverless che consente di eseguire le query SQL sui file presenti in Archiviazione di Azure. In questa guida di avvio rapido verrà illustrato come eseguire query su diversi tipi di file tramite SQL su richiesta. In [OPENROWSET](sql/develop-openrowset.md) sono elencati i formati supportati.
+Il pool SQL serverless di Synapse (anteprima) è un servizio di query serverless che consente di eseguire le query SQL sui file presenti in Archiviazione di Azure. Questo argomento di avvio rapido illustra come eseguire query su diversi tipi di file tramite il pool SQL serverless. In [OPENROWSET](sql/develop-openrowset.md) sono elencati i formati supportati.
 
 Questo argomento di Avvio rapido illustra come eseguire query: File CSV, Apache parquet e JSON.
 
@@ -34,8 +34,8 @@ Parametri per questo argomento di avvio rapido:
 
 | Parametro                                 | Descrizione                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Indirizzo dell'endpoint di servizio di SQL su richiesta    | Usato come nome del server                                   |
-| Area dell'endpoint di servizio di SQL su richiesta     | Usata per determinare quale archiviazione si userà negli esempi |
+| indirizzo dell'endpoint di servizio del pool SQL serverless    | Usato come nome del server                                   |
+| area dell'endpoint di servizio del pool SQL serverless     | Usata per determinare quale archiviazione si userà negli esempi |
 | Nome utente e password per l'accesso all'endpoint | Usati per accedere all'endpoint                               |
 | Database usato per creare le viste         | Database usato come punto di partenza negli esempi       |
 
@@ -44,7 +44,7 @@ Parametri per questo argomento di avvio rapido:
 Prima di usare gli esempi:
 
 - Creare un database per le viste (se si vogliono usare le viste)
-- Creare le credenziali che devono essere usate da SQL su richiesta per accedere ai file nell'archiviazione
+- Creare le credenziali che devono essere usate dal pool SQL serverless per accedere ai file nell'archiviazione
 
 ### <a name="create-database"></a>Creazione del database
 
@@ -62,7 +62,7 @@ CREATE DATABASE mydbname
 
 ### <a name="create-data-source"></a>Creare un'origine dati
 
-Per eseguire query con SQL su richiesta, creare l’origine dati che SQL su richiesta può usare per accedere ai file nella risorsa di archiviazione.
+Per eseguire query con il pool SQL serverless, creare un'origine dati che possa essere usata dal pool per accedere ai file nell'archiviazione.
 Eseguire il frammento di codice seguente per creare l’origine dati usata negli esempi di questa sezione:
 
 ```sql
@@ -115,7 +115,7 @@ Per altri esempi, vedere [Eseguire query su file CSV](sql/query-single-csv-file.
 L'esempio seguente mostra le funzionalità di inferenza di schema automatica per l'esecuzione di query sui file Parquet. Restituisce il numero di righe per settembre 2017 senza specificare lo schema.
 
 > [!NOTE]
-> Non è necessario specificare le colonne nella clausola `OPENROWSET WITH` durante la lettura dei file Parquet. In questo caso, SQL su richiesta usa i metadati del file Parquet e associa le colonne in base al nome.
+> Non è necessario specificare le colonne nella clausola `OPENROWSET WITH` durante la lettura dei file Parquet. In questo caso, il pool SQL serverless usa i metadati del file Parquet e associa le colonne in base al nome.
 
 ```sql
 SELECT COUNT_BIG(*)
@@ -153,7 +153,7 @@ I file sono archiviati nella cartella *books* del contenitore *json* e contengon
 
 ### <a name="query-json-files"></a>Eseguire query su file JSON
 
-La query seguente mostra come usare [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare valori scalari (titolo, editore) da un libro intitolato *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+La query seguente mostra come usare [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) per recuperare valori scalari (titolo, editore) da un libro intitolato *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles* :
 
 ```sql
 SELECT

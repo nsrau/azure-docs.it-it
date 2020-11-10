@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: e72d1161f80ad92c1e4cfc7fd2c9fde0d46e77b9
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 97853f0524b794169de3aaaec33cf1b30949d930
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332009"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901554"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -29,19 +29,19 @@ La protezione delle risorse è frutto della collaborazione tra il provider di cl
 
 Centro sicurezza di Azure consente di risolvere le tre problematiche di sicurezza più urgenti:
 
--   **Carichi di lavoro in costante evoluzione**: è un punto di forza e al tempo stesso una delle difficoltà del cloud. Da una parte, gli utenti hanno a disposizione più opzioni. Da un’altra parte, come assicurarsi che i servizi in continua evoluzione che le persone usano e creano siano conformi agli standard di sicurezza e che le persone seguano le procedure consigliate?
+-   **Carichi di lavoro in costante evoluzione** : è un punto di forza e al tempo stesso una delle difficoltà del cloud. Da una parte, gli utenti hanno a disposizione più opzioni. Da un’altra parte, come assicurarsi che i servizi in continua evoluzione che le persone usano e creano siano conformi agli standard di sicurezza e che le persone seguano le procedure consigliate?
 
--   **Attacchi sempre più sofisticati**: ogni volta che si eseguono carichi di lavoro, gli attacchi diventano sempre più sofisticati. È necessario proteggere i carichi di lavoro su cloud pubblico, che sono in realtà carichi di lavoro su Internet che possono rendere più vulnerabili, se non si rispettano le procedure consigliate per la sicurezza.
+-   **Attacchi sempre più sofisticati** : ogni volta che si eseguono carichi di lavoro, gli attacchi diventano sempre più sofisticati. È necessario proteggere i carichi di lavoro su cloud pubblico, che sono in realtà carichi di lavoro su Internet che possono rendere più vulnerabili, se non si rispettano le procedure consigliate per la sicurezza.
 
--   **Le competenze di sicurezza sono scarse**: il numero di avvisi e di sistemi di avviso per la sicurezza superano di gran lunga il numero di amministratori con le conoscenze e l'esperienza necessarie per garantire che gli ambienti siano protetti. Rimanere aggiornati sugli attacchi più recenti è una sfida costante che rende impossibile rimanere fermi quando il mondo della sicurezza si muove in continuazione.
+-   **Le competenze di sicurezza sono scarse** : il numero di avvisi e di sistemi di avviso per la sicurezza superano di gran lunga il numero di amministratori con le conoscenze e l'esperienza necessarie per garantire che gli ambienti siano protetti. Rimanere aggiornati sugli attacchi più recenti è una sfida costante che rende impossibile rimanere fermi quando il mondo della sicurezza si muove in continuazione.
 
 Per garantire la protezione da questi problemi, Centro sicurezza offre gli strumenti necessari per:
 
--   **Migliorare il comportamento di sicurezza**: Centro sicurezza valuta l'ambiente e consente di comprendere lo stato delle risorse e se queste sono sicure.
+-   **Migliorare il comportamento di sicurezza** : Centro sicurezza valuta l'ambiente e consente di comprendere lo stato delle risorse e se queste sono sicure.
 
--   **Proteggiti dalle minacce**: Centro sicurezza valuta i carichi di lavoro e genera raccomandazioni per la prevenzione delle minacce e avvisi di sicurezza.
+-   **Proteggiti dalle minacce** : Centro sicurezza valuta i carichi di lavoro e genera raccomandazioni per la prevenzione delle minacce e avvisi di sicurezza.
 
--   **Protezione più rapida**: In Centro sicurezza, tutto viene eseguito con la velocità del cloud. Poiché è integrato in modo nativo, la distribuzione di Centro sicurezza è facile e consente di utilizzare il provisioning automatico e la protezione dei servizi di Azure.
+-   **Protezione più rapida** : In Centro sicurezza, tutto viene eseguito con la velocità del cloud. Poiché è integrato in modo nativo, la distribuzione di Centro sicurezza è facile e consente di utilizzare il provisioning automatico e la protezione dei servizi di Azure.
 
 > [!NOTE]
 > Questo servizio supporta [Azure Lighthouse](../lighthouse/overview.md), che consente ai provider di servizi di accedere al proprio tenant per gestire le sottoscrizioni e i gruppi di risorse che i clienti hanno delegato. Per gli scenari del Centro sicurezza di Azure, è necessario delegare un'intera sottoscrizione piuttosto che singoli gruppi di risorse.
@@ -68,7 +68,7 @@ Conoscere e verificare che i carichi di lavoro siano protetti è fondamentale. P
 
 Centro sicurezza consente di **identificare sottoscrizioni shadow IT**. Esaminando le sottoscrizioni con l'etichetta **non coperto** nel dashboard, è possibile sapere immediatamente quando vengono create nuove sottoscrizioni e assicurarsi che siano coperte dalle policy e protette da Centro sicurezza di Azure.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Pagina di gestione dei criteri":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Dashboard delle policy di Centro sicurezza":::
 
 ### <a name="continuous-assessments"></a>Valutazioni continue
 
@@ -76,13 +76,13 @@ Centro sicurezza individua continuamente le nuove risorse distribuite tra i cari
 
 Per consentire agli utenti di comprendere l'importanza delle singole raccomandazioni ai fini del comportamento di sicurezza complessivo, Centro sicurezza raggruppa le raccomandazioni in controlli di sicurezza e aggiunge a ogni controllo un valore che indica il **punteggio di sicurezza**. Si tratta di una funzionalità essenziale per **classificare in ordine di priorità gli interventi di sicurezza**.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Pagina di gestione dei criteri":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Punteggio di sicurezza di Centro sicurezza":::
 
 ### <a name="network-map"></a>Mappa di rete
 
 Uno degli strumenti più potenti offerti da Centro sicurezza per il monitoraggio continuo dello stato di sicurezza della rete è la **mappa di rete**. La mappa consente di visualizzare la topologia dei carichi di lavoro, pertanto è possibile controllare che ogni nodo sia configurato correttamente. È possibile visualizzare come sono connessi i nodi per bloccare le connessioni indesiderate che potrebbero potenzialmente agevolare l’attacco alla rete da parte di un utente malintenzionato.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Pagina di gestione dei criteri":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Mappa della rete di Centro sicurezza":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Ottimizzare e migliorare la sicurezza mediante la configurazione di controlli consigliati
@@ -93,7 +93,7 @@ In questo modo, Centro sicurezza consente non solo di impostare policy di sicure
 
 Gli elementi consigliati aiutano a ridurre la superficie di attacco in ognuna delle risorse. La superficie include macchine virtuali di Azure, server non Azure e servizi PaaS di Azure come SQL, account di storage e altro, in cui ciascun tipo di risorsa viene valutato in modo diverso e dispone di standard propri.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Pagina di gestione dei criteri":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Esempio di elemento consigliato di Centro sicurezza":::
 
 ## <a name="protect-against-threats"></a>Protezione dalle minacce
 
@@ -101,11 +101,11 @@ La protezione dalle minacce di Centro sicurezza consente di rilevare ed evitare 
 
 La protezione dalle minacce di Centro sicurezza include un’analisi unificata della catena di attacco che genera automaticamente avvisi nell’ambiente per comprendere meglio la storia completa di una campagna di attacco, da dove è iniziata e che tipo di impatto ha avuto sulle risorse.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Pagina di gestione dei criteri":::
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Avvisi di sicurezza":::
 
-### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integrazione con Microsoft Defender Advanced Threat Protection
+### <a name="integration-with-microsoft-defender-for-endpoint"></a>Integrazione con Microsoft Defender per endpoint
 
-Centro sicurezza include l'integrazione nativa e automatica con Microsoft Defender Advanced Threat Protection. Quindi, senza alcuna configurazione, i computer Windows e Linux completamente integrati con le raccomandazioni e le valutazioni di Centro sicurezza.
+Il Centro sicurezza include l'integrazione nativa e automatica con Microsoft Defender per endpoint. Quindi, senza alcuna configurazione, i computer Windows e Linux completamente integrati con le raccomandazioni e le valutazioni di Centro sicurezza.
 
 Inoltre, Centro sicurezza consente di automatizzare le policy di controllo delle applicazioni in ambienti server. I controlli applicazioni adattivi di Centro sicurezza consentono di inserire le app end-to-end in elenchi di approvazione per i server Windows. Non è necessario creare le regole e verificare le violazioni, viene tutto effettuato automaticamente.
 
@@ -123,7 +123,7 @@ Centro sicurezza include funzionalità che consentono di classificare automatica
 
 ## <a name="get-secure-faster"></a>Protezione più rapida
 
-L’integrazione nativa in Azure (compresi Criteri di Azure e log di Monitoraggio di Azure), combinata con la perfetta integrazione con altre soluzioni di sicurezza Microsoft, ad esempio Microsoft Cloud App Security e Windows Defender Advanced Threat Protection, consente di creare una soluzione di sicurezza completa semplice da caricare e implementare.
+L'integrazione nativa in Azure (compresi Criteri di Azure e log di Monitoraggio di Azure), combinata con la perfetta integrazione con altre soluzioni di sicurezza Microsoft, ad esempio Microsoft Cloud App Security e Microsoft Defender per endpoint, consente di creare una soluzione di sicurezza completa di facile onboarding e implementazione.
 
 Inoltre, è possibile usare la soluzione completa al di fuori di Azure, su carichi di lavoro eseguiti in altri data center su cloud e in locale.
 

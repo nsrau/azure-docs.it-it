@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 59d3a44b1eff544f7214014f2dd31edc92bfc6bc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7b44abbbf2e7592205d5d5c291ce99d381a283f7
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748181"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043286"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-the-latest-apis"></a>Creare sottoscrizioni di Azure a livello di codice con le API più recenti
 
@@ -232,7 +232,7 @@ Si ottiene il valore subscriptionId come parte della risposta dal comando.
 ### <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitazioni dell'API di creazione della sottoscrizione di Azure Enterprise
 
 - Usando l'API è possibile creare solo le sottoscrizioni di Azure Enterprise.
-- È previsto un limite di 2000 sottoscrizioni per account di registrazione. Dopo tale limite, sarà possibile creare altre sottoscrizioni per l'account nel portale di Azure. Per creare più sottoscrizioni tramite l'API, creare un altro account di registrazione.
+- È previsto un limite di 2000 sottoscrizioni per account di registrazione. Dopo tale limite, sarà possibile creare altre sottoscrizioni per l'account nel portale di Azure. Per creare più sottoscrizioni tramite l'API, creare un altro account di registrazione. Le sottoscrizioni annullate, eliminate e trasferite vengono conteggiate ai fini del limite di 2000.
 - Gli utenti che non sono proprietari dell'account, ma che sono stati aggiunti a un account di registrazione tramite Controllo degli accessi in base al ruolo di Azure, non possono creare sottoscrizioni nel portale di Azure.
 - Non è possibile selezionare il tenant in cui creare la sottoscrizione. La sottoscrizione viene sempre creata nel tenant home del proprietario dell'account. Per spostare la sottoscrizione in un tenant diverso, vedere l'articolo su come [modificare il tenant della sottoscrizione](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -281,7 +281,7 @@ La risposta dell'API elenca gli account di fatturazione a cui si può accedere.
 }
 ```
 
-Usare la proprietà `displayName` per identificare l'account di fatturazione per cui si vogliono creare le sottoscrizioni. Assicurarsi che agreementType dell'account sia *MicrosoftCustomerAgreement* . Copiare il valore `name` dell'account.  Per creare ad esempio una sottoscrizione per l'account di fatturazione `Contoso`, copiare `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Incollare il valore da qualche parte per poterlo usare nel passaggio successivo.
+Usare la proprietà `displayName` per identificare l'account di fatturazione per cui si vogliono creare le sottoscrizioni. Assicurarsi che agreementType dell'account sia *MicrosoftCustomerAgreement*. Copiare il valore `name` dell'account.  Per creare ad esempio una sottoscrizione per l'account di fatturazione `Contoso`, copiare `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Incollare il valore da qualche parte per poterlo usare nel passaggio successivo.
 
 <!--
 ### [PowerShell](#tab/azure-powershell-getBillingAccounts)
@@ -553,7 +553,7 @@ La risposta dell'API elenca gli account di fatturazione.
 }
 ```
 
-Usare la proprietà `displayName` per identificare l'account di fatturazione per cui si vogliono creare le sottoscrizioni. Assicurarsi che agreementType dell'account sia *MicrosoftPartnerAgreement* . Copiare il valore `name` per l'account. Per creare ad esempio una sottoscrizione per l'account di fatturazione `Contoso`, copiare `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Incollare il valore da qualche parte per poterlo usare nel passaggio successivo.
+Usare la proprietà `displayName` per identificare l'account di fatturazione per cui si vogliono creare le sottoscrizioni. Assicurarsi che agreementType dell'account sia *MicrosoftPartnerAgreement*. Copiare il valore `name` per l'account. Per creare ad esempio una sottoscrizione per l'account di fatturazione `Contoso`, copiare `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Incollare il valore da qualche parte per poterlo usare nel passaggio successivo.
 
 <!--
 ### [PowerShell](#tab/azure-powershell-getBillingAccounts-MPA)
@@ -838,7 +838,7 @@ La risposta dell'API elenca gli account di fatturazione a cui si può accedere.
 }
 ```
 
-Usare la proprietà `displayName` per identificare l'account di fatturazione per cui si vogliono creare le sottoscrizioni. Assicurarsi che agreementType dell'account sia *MicrosoftCustomerAgreement* . Copiare il valore `name` dell'account. Per creare ad esempio una sottoscrizione per l'account di fatturazione `Contoso`, copiare `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Incollare il valore da qualche parte per poterlo usare nel passaggio successivo.
+Usare la proprietà `displayName` per identificare l'account di fatturazione per cui si vogliono creare le sottoscrizioni. Assicurarsi che agreementType dell'account sia *MicrosoftCustomerAgreement*. Copiare il valore `name` dell'account. Per creare ad esempio una sottoscrizione per l'account di fatturazione `Contoso`, copiare `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Incollare il valore da qualche parte per poterlo usare nel passaggio successivo.
 
 <!--
 ### [PowerShell](#tab/azure-powershell-getBillingAccounts)

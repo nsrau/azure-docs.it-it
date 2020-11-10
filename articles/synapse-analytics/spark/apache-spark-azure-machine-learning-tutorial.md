@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick,
-ms.openlocfilehash: da4cef50610b219689e2271e9f70fd1adb1a235f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 979e360bb920fc3b34a201b1287b50b141bffa9b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540507"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313626"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Esercitazione: Eseguire esperimenti con ML automatizzato di Azure e Apache Spark
 
@@ -29,13 +29,16 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 - Calcolare l'accuratezza del modello
 
 ### <a name="before-you-begin"></a>Prima di iniziare
-- Creare un pool di Apache Spark seguendo le istruzioni di questa [esercitazione](../quickstart-create-apache-spark-pool-studio.md).
+
+- Creare un pool di Apache Spark serverless seguendo questa [guida di avvio rapido](../quickstart-create-apache-spark-pool-studio.md).
 - Completare l'esercitazione sulla [configurazione dell'area di lavoro di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup), se non è già disponibile un'area di lavoro di Azure Machine Learning. 
 
 ### <a name="understand-regression-models"></a>Informazioni sui modelli di regressione
+
 I *modelli di regressione* prevedono valori di output numerici basati su predittori indipendenti. Nella regressione l'obiettivo è di stabilire la relazione tra le variabili indipendenti del predittore stimando il modo in cui una variabile influisce sulle altre.  
 
 ### <a name="regression-analysis-example-on-the-nyc-taxi-data"></a>Esempio di analisi di regressione sui dati dei taxi di New York
+
 In questo esempio si userà Spark per eseguire un'analisi sui dati relativi alle mance offerte per le corse dei taxi di New York. I dati sono disponibili tramite [set di dati aperti di Azure](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). Questo subset del set di dati contiene informazioni sulle corse in taxi, incluse informazioni su ogni corsa, l'ora di partenza e di arrivo, i percorsi, i costi e altri attributi interessanti.
 
 > [!IMPORTANT]
@@ -143,7 +146,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## <a name="convert-a-dataframe-to-an-azure-machine-learning-dataset"></a>Convertire il dataframe in un set di dati di Azure Machine Learning
-Per inviare un esperimento remoto, è necessario convertire il set di dati in un oggetto ```TabularDatset``` di Azure Machine Learning. Un oggetto [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) rappresenta i dati in formato tabulare analizzando i file forniti.
+Per inviare un esperimento remoto, è necessario convertire il set di dati in un oggetto ```TabularDatset``` di Azure Machine Learning. Un oggetto [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) rappresenta i dati in formato tabulare analizzando i file forniti.
 
 Il codice seguente ottiene l'area di lavoro esistente e l'archivio dati predefinito di Azure Machine Learning. Passa quindi l'archivio dati e i percorsi dei file al parametro path per creare un nuovo oggetto ```TabularDataset```. 
 
@@ -165,7 +168,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 
 ![Immagine del set di dati caricato.](./media/apache-spark-machine-learning-aml-notebook/upload-dataset.png)
 
-## <a name="submit-an-auto-ml-experiment"></a>Inviare un esperimento di ML automatizzato
+## <a name="submit-an-automl-experiment"></a>Inviare un esperimento di ML automatizzato
 
 #### <a name="define-training-settings"></a>Definire le impostazioni di training
 

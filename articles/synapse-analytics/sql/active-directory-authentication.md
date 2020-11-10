@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: a3bd565b26d011e6186cc6957769db57f9cd1c9c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7518d6ac8bc0cde515ab8da2f3d9c1496cb93f08
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093413"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311709"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Usare l'autenticazione di Azure Active Directory per l'autenticazione con Synapse SQL
 
@@ -39,7 +39,7 @@ I passaggi di configurazione includono le procedure seguenti per configurare e u
 3. Assegnare un ruolo all'identità di Azure Active Directory creata nell'area di lavoro Synapse (anteprima)
 4. Connettersi a Synapse Studio usando le identità di Azure AD.
 
-## <a name="aad-pass-through-in-azure-synapse-analytics"></a>Pass-through di AAD in Azure Synapse Analytics
+## <a name="azure-ad-pass-through-in-azure-synapse-analytics"></a>Pass-through di Azure AD in Azure Synapse Analytics
 
 Azure Synapse Analytics consente di accedere ai dati del data lake usando l'identità di Azure Active Directory.
 
@@ -49,13 +49,13 @@ La definizione di diritti di accesso per i file e i dati che vengono rispettati 
 
 Il diagramma generale seguente riepiloga l'architettura della soluzione relativa all'uso dell'autenticazione di Azure AD con Synapse SQL. Per supportare la password utente nativa di Azure AD, viene considerata solo la parte cloud e Azure AD o Synapse SQL. Per supportare l'autenticazione federata o l'autenticazione utente/password per le credenziali di Windows, è necessaria la comunicazione con il blocco AD FS. Le frecce indicano i percorsi di comunicazione.
 
-![diagramma di autenticazione di aad](./media/aad-authentication/1-active-directory-authentication-diagram.png)
+![Diagramma di autenticazione di Azure AD](./media/aad-authentication/1-active-directory-authentication-diagram.png)
 
 Il diagramma seguente indica le relazioni federative, di trust e di hosting che consentono a un client di connettersi a un database inviando un token, che viene autenticato da Azure Active Directory e considerato attendibile dal database. Il cliente 1 può rappresentare un'istanza di Azure Active Directory con utenti nativi o con utenti federati. 
 
 Il cliente 1 può rappresentare una Azure Active Directory con utenti nativi o una Azure AD con utenti federati. In questo esempio provengono da un'istanza federata di Azure Active Directory con AD FS sincronizzato con Azure Active Directory. 
 
-È importante comprendere che l'accesso a un database con l'autenticazione di Azure AD richiede che la sottoscrizione di hosting sia associata ad Azure AD. La stessa sottoscrizione deve essere usata per creare l'istanza di SQL Server che ospita il database SQL di Azure o il pool SQL.
+È importante comprendere che l'accesso a un database con l'autenticazione di Azure AD richiede che la sottoscrizione di hosting sia associata ad Azure AD. La stessa sottoscrizione deve essere usata per creare l'istanza di SQL Server che ospita il database SQL di Azure o il pool SQL dedicato.
 
 ![relazione di sottoscrizione](./media/aad-authentication/2-subscription-relationship.png)
 
@@ -109,7 +109,7 @@ L'autenticazione di Azure Active Directory supporta i metodi seguenti per la con
 - Autenticazione universale di Azure Active Directory con MFA
 - Con l'autenticazione del token dell'applicazione
 
-Per le entità server (account di accesso) di Azure AD (**versione di anteprima pubblica**) sono supportati i metodi di autenticazione seguenti:
+Per le entità server (account di accesso) di Azure AD ( **versione di anteprima pubblica** ) sono supportati i metodi di autenticazione seguenti:
 
 - Password di Azure Active Directory
 - Autenticazione integrata di Azure Active Directory
@@ -119,7 +119,7 @@ Per le entità server (account di accesso) di Azure AD (**versione di anteprima 
 
 - Per migliorare la gestibilità, è consigliabile effettuare il provisioning di un gruppo di Azure AD dedicato come amministratore.
 - È possibile configurare un solo amministratore di Azure AD (utente o gruppo) alla volta per ogni pool SQL Synapse.
-  - L'aggiunta di entità server (account di accesso) di Azure AD per SQL su richiesta (anteprima) offre la possibilità di creare più entità server (account di accesso) di Azure AD che possono essere aggiunte al ruolo `sysadmin`.
+  - L'aggiunta di entità server (account di accesso) di Azure AD per Synapse SQL (anteprima) offre la possibilità di creare più entità server (account di accesso) di Azure AD che possono essere aggiunte al ruolo `sysadmin`.
 - Inizialmente solo un amministratore di Azure AD per Synapse SQL può connettersi a Synapse SQL con un account Azure Active Directory. L'amministratore di Active Directory può configurare gli utenti del database di Azure AD successivi.
 - È consigliabile impostare il timeout di connessione su 30 secondi.
 - SQL Server 2016 Management Studio e SQL Server Data Tools per Visual Studio 2015, versione 14.0.60311.1 di aprile 2016 o successiva, supportano l'autenticazione di Azure Active Directory. L'autenticazione di Azure AD è supportata dal **provider di dati .NET Framework per server SQL** a partire da .NET Framework versione 4.6. Pertanto, le versioni più recenti di questi strumenti e applicazioni del livello dati (DAC e BACPAC) possono usare l'autenticazione di Azure AD.

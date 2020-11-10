@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: bca960100ee0c9d7e2a779dc86030fc59949dca5
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: e3503a9eef5c11db35684ca61fb1ee39525a465d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055971"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427599"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurare la replica di oggetti per i BLOB in blocchi
 
@@ -45,14 +45,14 @@ Se si ha accesso a entrambi gli account di archiviazione di origine e di destina
 
 Prima di configurare la replica di oggetti nel portale di Azure, creare i contenitori di origine e di destinazione nei rispettivi account di archiviazione, se non esistono già. Abilitare anche il controllo delle versioni dei BLOB e il feed delle modifiche nell'account di origine e abilitare il controllo delle versioni dei BLOB nell'account di destinazione.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Il portale di Azure crea automaticamente i criteri nell'account di origine dopo la configurazione per l'account di destinazione.
 
 Per creare un criterio di replica nel portale di Azure, seguire questa procedura:
 
 1. Passare all'account di archiviazione di origine nel portale di Azure.
-1. In **servizio BLOB**selezionare **replica oggetti**.
+1. In **servizio BLOB** selezionare **replica oggetti**.
 1. Selezionare **Configura regole di replica**.
 1. Selezionare la sottoscrizione di destinazione e l'account di archiviazione.
 1. Nella sezione **Container pairs** (Coppie di contenitori) selezionare un contenitore di origine nell'account di origine e un contenitore di destinazione nell'account di destinazione. È possibile creare fino a 10 coppie di contenitori per ogni criterio di replica.
@@ -65,19 +65,19 @@ Per creare un criterio di replica nel portale di Azure, seguire questa procedura
 
     L'immagine seguente illustra i filtri che limitano quali BLOB vengono copiati come parte di una regola di replica.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Screenshot che illustra regole di replica nel portale di Azure":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-prefix.png" alt-text="Screenshot che illustra i filtri per una regola di replica":::
 
 1. Per impostazione predefinita, l'ambito di copia è impostato in modo che vengano copiati solo i nuovi oggetti. Per copiare tutti gli oggetti nel contenitore o per copiare oggetti a partire da una data e un'ora personalizzate, selezionare il collegamento **cambia** e configurare l'ambito di copia per la coppia di contenitori.
 
     Nell'immagine seguente viene illustrato un ambito di copia personalizzato che copia gli oggetti da una data e un'ora specificate in avanti.
 
-    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Screenshot che illustra regole di replica nel portale di Azure":::
+    :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Screenshot che illustra un ambito di copia personalizzato per la replica di oggetti":::
 
 1. Selezionare **Salva e applica** per creare i criteri di replica e avviare la replica dei dati.
 
 Dopo aver configurato la replica degli oggetti, nel portale di Azure vengono visualizzati i criteri e le regole di replica, come illustrato nell'immagine seguente.
 
-:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Screenshot che illustra regole di replica nel portale di Azure":::
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Screenshot che illustra i criteri di replica degli oggetti in portale di Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -244,7 +244,7 @@ La tabella seguente riepiloga i valori da usare per l'ID criterio e gli ID regol
 
 | Quando si crea il file JSON per l'account... | Imposta ID criterio e ID regola su questo valore... |
 |-|-|
-| Account di destinazione | Valore *predefinito*della stringa. Archiviazione di Azure creerà l'ID criterio e gli ID regola. |
+| Account di destinazione | Valore *predefinito* della stringa. Archiviazione di Azure creerà l'ID criterio e gli ID regola. |
 | Account di origine | I valori dell'ID criterio e degli ID regola restituiti quando si scaricano i criteri definiti nell'account di destinazione come file JSON. |
 
 Nell'esempio seguente viene definito un criterio di replica nell'account di destinazione con una singola regola che corrisponde al prefisso *b* e viene impostato il tempo di creazione minimo per i BLOB che devono essere replicati. Ricordare di sostituire i valori tra parentesi angolari con valori personalizzati:
@@ -272,7 +272,7 @@ Nell'esempio seguente viene definito un criterio di replica nell'account di dest
 }
 ```
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Per configurare la replica di oggetti nell'account di destinazione con un file JSON nel portale di Azure, attenersi alla procedura seguente:
 
@@ -284,16 +284,16 @@ Per configurare la replica di oggetti nell'account di destinazione con un file J
 1. Selezionare **carica regole di replica**.
 1. Caricare il file JSON. Il portale di Azure Visualizza i criteri e le regole che verranno creati, come illustrato nella figura seguente.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Screenshot che illustra regole di replica nel portale di Azure":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Screenshot che illustra come caricare un file JSON per definire un criterio di replica":::
 
 1. Selezionare **carica** per creare i criteri di replica nell'account di destinazione.
 
 È quindi possibile scaricare un file JSON contenente la definizione dei criteri che è possibile fornire a un altro utente per configurare l'account di origine. Per scaricare questo file JSON, seguire questa procedura:
 
 1. Passare alle impostazioni di **replica degli oggetti** per l'account di destinazione nel portale di Azure.
-1. Selezionare il pulsante **altro** accanto al criterio che si desidera scaricare, quindi selezionare **Scarica regole**, come illustrato nella figura seguente.
+1. Selezionare il pulsante **altro** accanto al criterio che si desidera scaricare, quindi selezionare **Scarica regole** , come illustrato nella figura seguente.
 
-    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Screenshot che illustra regole di replica nel portale di Azure":::
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Screenshot che illustra come scaricare le regole di replica in un file JSON":::
 
 1. Salvare il file JSON nel computer locale per condividerlo con un altro utente per configurare i criteri nell'account di origine.
 
@@ -353,7 +353,7 @@ az storage account or-policy create \
 
 È possibile controllare lo stato di replica di un BLOB nell'account di origine usando l'interfaccia della riga di comando di portale di Azure, PowerShell o Azure. Le proprietà di replica degli oggetti non vengono popolate fino a quando la replica non viene completata o non riesce.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Per controllare lo stato di replica di un BLOB nell'account di origine nella portale di Azure, attenersi alla seguente procedura:
 
@@ -361,7 +361,7 @@ Per controllare lo stato di replica di un BLOB nell'account di origine nella por
 1. Individuare il contenitore che include il BLOB di origine.
 1. Selezionare il BLOB per visualizzarne le proprietà. Se il BLOB è stato replicato correttamente, nella sezione **replica oggetti** si noterà che lo stato è impostato su *completato*. Sono elencati anche l'ID dei criteri di replica e l'ID della regola che governa la replica di oggetti per questo contenitore.
 
-:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Screenshot che illustra regole di replica nel portale di Azure":::
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Screenshot che mostra lo stato della replica per un BLOB nell'account di origine":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -391,6 +391,12 @@ az storage blob show \
 ```
 
 ---
+
+Se lo stato di replica di un BLOB nell'account di origine indica un errore, esaminare le possibili cause seguenti:
+
+- Verificare che i criteri di replica degli oggetti siano configurati nell'account di destinazione.
+- Verificare che il contenitore di destinazione esista ancora.
+- Se il BLOB di origine è stato crittografato con una chiave fornita dal cliente come parte di un'operazione di scrittura, la replica degli oggetti avrà esito negativo. Per altre informazioni sulle chiavi fornite dal cliente, vedere [fornire una chiave di crittografia per una richiesta all'archiviazione BLOB](encryption-customer-provided-keys.md).
 
 ## <a name="remove-a-replication-policy"></a>Rimuovere un criterio di replica
 

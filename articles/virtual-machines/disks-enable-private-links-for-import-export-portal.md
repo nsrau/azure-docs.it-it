@@ -1,6 +1,6 @@
 ---
 title: Portale di Azure - Limitare l'accesso di importazione/esportazione ai dischi gestiti con collegamenti privati
-description: Abilitare collegamenti privati per i dischi gestiti con il portale di Azure (attualmente in anteprima). È così possibile esportare e importare in modo sicuro i dischi all'interno della rete virtuale.
+description: Abilitare collegamenti privati per i dischi gestiti con il portale di Azure. È così possibile esportare e importare in modo sicuro i dischi all'interno della rete virtuale.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
@@ -8,16 +8,16 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 95c4464d1ab8416f609f75f2b59fb85a578ef5b7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1cf6c6516e01774d0345a3f75f6f1c2826451dce
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979054"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289857"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Usare il portale di Azure per limitare l'accesso di importazione/esportazione per i dischi gestiti con collegamenti privati
 
-Il supporto di collegamenti privati per i dischi gestiti, attualmente in anteprima, consente di limitare l'esportazione e l'importazione di dischi gestiti affinché vengano eseguite solo all'interno della rete virtuale di Azure. È possibile generare un URI di firma di accesso condiviso con limiti di tempo per gli snapshot e i dischi gestiti non collegati per esportare i dati in un'altra area per l'espansione a livello di area, il ripristino di emergenza e per leggere i dati per scopi legali. È anche possibile usare l'URI di firma di accesso condiviso per caricare direttamente un disco rigido virtuale in un disco vuoto dall'ambiente locale. Il traffico di rete tra i client nella rete virtuale e i dischi gestiti passa soltanto attraverso la rete virtuale e un collegamento privato sulla rete backbone Microsoft, eliminando l'esposizione alla rete Internet pubblica.
+Il supporto di collegamenti privati per i dischi gestiti consente di limitare l'esportazione e l'importazione di dischi gestiti esclusivamente nei confini della rete virtuale di Azure. È possibile generare un URI di firma di accesso condiviso con limiti di tempo per gli snapshot e i dischi gestiti non collegati per esportare i dati in un'altra area per l'espansione a livello di area, il ripristino di emergenza e per leggere i dati per scopi legali. È anche possibile usare l'URI di firma di accesso condiviso per caricare direttamente un disco rigido virtuale in un disco vuoto dall'ambiente locale. Il traffico di rete tra i client nella rete virtuale e i dischi gestiti passa soltanto attraverso la rete virtuale e un collegamento privato sulla rete backbone Microsoft, eliminando l'esposizione alla rete Internet pubblica.
 
 È possibile creare una risorsa di accesso al disco e collegarla alla rete virtuale nella stessa sottoscrizione creando un endpoint privato. È necessario associare un disco o uno snapshot con un accesso al disco per l'esportazione e l'importazione dei dati tramite i collegamenti privati. Inoltre, è necessario impostare la proprietà NetworkAccessPolicy del disco o dello snapshot su `AllowPrivate`. 
 
@@ -46,7 +46,7 @@ Il supporto di collegamenti privati per i dischi gestiti, attualmente in antepri
 
 Dopo la creazione passare direttamente alla risorsa.
 
-:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Screenshot del pannello di creazione di accesso al disco. Immettere il nome desiderato, selezionare un'area, selezionare un gruppo di risorse e continuare":::
+:::image type="content" source="media/disks-enable-private-links-for-import-export-portal/screenshot-resource-button.png" alt-text="Screenshot del pulsante Vai alla risorsa nel portale":::
 
 ## <a name="create-a-private-endpoint"></a>Creare un endpoint privato
 
@@ -55,13 +55,13 @@ Dopo aver creato una risorsa di accesso al disco, è possibile usarla per gestir
 1. Dalla risorsa di accesso al disco selezionare **Connessioni a endpoint privato**.
 1. Selezionare **+ Endpoint privato**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Screenshot del pannello di creazione di accesso al disco. Immettere il nome desiderato, selezionare un'area, selezionare un gruppo di risorse e continuare":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-main-private-blade.png" alt-text="Screenshot del pannello Panoramica per la risorsa di accesso al disco. Connessioni a endpoint privato è evidenziato.":::
 
 1. Selezionare un gruppo di risorse
 1. Immettere il nome e selezionare la stessa area in cui è stata creata la risorsa di accesso al disco.
 1. Selezionare **Avanti: Risorsa >**
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Screenshot del pannello di creazione di accesso al disco. Immettere il nome desiderato, selezionare un'area, selezionare un gruppo di risorse e continuare":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-first-blade.png" alt-text="Screenshot del flusso di lavoro di creazione dell'endpoint privato, primo pannello. Se non si seleziona l'area appropriata, è possibile che si verifichino problemi in un secondo momento.":::
 
 1. Nel pannello **Risorsa** selezionare **Connettersi a una risorsa di Azure nella directory**.
 1. Per **Tipo di risorsa** selezionare **Microsoft.Compute/diskAccesses**
@@ -69,7 +69,7 @@ Dopo aver creato una risorsa di accesso al disco, è possibile usarla per gestir
 1. Lasciare **Risorsa secondaria di destinazione** impostata su **dischi**
 1. Selezionare **Avanti: Configurazione >** .
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Screenshot del pannello di creazione di accesso al disco. Immettere il nome desiderato, selezionare un'area, selezionare un gruppo di risorse e continuare":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-second-blade.png" alt-text="Screenshot del flusso di lavoro di creazione dell'endpoint privato, secondo pannello. Con tutti i valori evidenziati (Tipo di risorsa, Risorsa, Risorsa secondaria di destinazione)":::
 
 1. Selezionare la rete virtuale a cui si vuole limitare l'esportazione del disco. Le altre reti virtuali non potranno esportare il disco.
 
@@ -79,7 +79,7 @@ Dopo aver creato una risorsa di accesso al disco, è possibile usarla per gestir
 1. Selezionare una subnet appropriata
 1. Selezionare **Rivedi e crea**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Screenshot del pannello di creazione di accesso al disco. Immettere il nome desiderato, selezionare un'area, selezionare un gruppo di risorse e continuare":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-private-endpoint-third-blade.png" alt-text="Screenshot del flusso di lavoro di creazione dell'endpoint privato, terzo pannello. Rete virtuale e Subnet evidenziate.":::
 
 ## <a name="enable-private-endpoint-on-your-disk"></a>Abilitare l'endpoint privato nel disco
 
@@ -88,7 +88,7 @@ Dopo aver creato una risorsa di accesso al disco, è possibile usarla per gestir
 1. Selezionare **Endpoint privato (tramite accesso al disco)** e selezionare l'accesso al disco creato in precedenza.
 1. Selezionare **Salva**.
 
-    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Screenshot del pannello di creazione di accesso al disco. Immettere il nome desiderato, selezionare un'area, selezionare un gruppo di risorse e continuare":::
+    :::image type="content" source="media/disks-enable-private-links-for-import-export-portal/disk-access-managed-disk-networking-blade.png" alt-text="Screenshot del pannello Rete del disco gestito. Evidenziazione della selezione dell'endpoint privato e dell'accesso al disco selezionato. Il salvataggio di queste impostazioni configura il disco per questo accesso.":::
 
 A questo punto è stata completata la configurazione dei collegamenti privati che è possibile usare quando si importa/esporta il disco gestito.
 

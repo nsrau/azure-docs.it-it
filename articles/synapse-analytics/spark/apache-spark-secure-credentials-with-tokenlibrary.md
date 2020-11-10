@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 08/26/2020
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: 90e7297236994650e0820e883c94a98b29c49fb7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1cdb010e34674d52ebe2135ad1591a163a078708
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249417"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324946"
 ---
 # <a name="securing-your-credentials-through-linked-services-with-the-tokenlibrary"></a>Protezione delle credenziali tramite servizi collegati con TokenLibrary
 L'accesso ai dati da origini esterne è uno schema comune. A meno che l'origine dati esterna non consenta l'accesso anonimo, è probabile che sia necessario proteggere la connessione con una credenziale, un segreto o una stringa di connessione.  
@@ -122,5 +122,5 @@ print(accountKey)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Scrivere in un pool SQL](./synapse-spark-sql-pool-import-export.md)
+- [Scrivere nel pool SQL dedicato](./synapse-spark-sql-pool-import-export.md)
 

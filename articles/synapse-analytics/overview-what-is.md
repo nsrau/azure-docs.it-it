@@ -6,33 +6,33 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 09/12/2020
+ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c4338152579170bf809577262992f0db9a1a95ff
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 16e13a18f93da9063a7eb08e3a2df27db9e3090f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90524947"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321698"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Che cos'è Azure Synapse Analytics (anteprima per aree di lavoro)?
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-L'analisi aziendale deve operare su larga scala con qualsiasi tipo di dati, che siano dati non elaborati, perfezionati o altamente curati. Per ottenere questo risultato, le aziende hanno il vincolo di dover combinare tecnologie di Big Data e di data warehousing come Spark e SQL in pipeline di dati complessi in grado di supportare dati inclusi in archivi relazionali e data lake. Soluzioni di questo tipo sono difficili da creare, proteggere e gestire. Questa complessità comporta un ritardo nella disponibilità dei dati analitici richiesti dalle aziende.
+L'analisi aziendale deve operare su larga scala con qualsiasi tipo di dati, che siano dati non elaborati, perfezionati o altamente curati. Per ottenere questo risultato, le aziende devono unire tecnologie di Big Data e di data warehousing in pipeline di dati complesse in grado di elaborare i dati di archivi relazionali e data lake. Questi tipi di soluzioni sono difficili da creare, gestire e proteggere. La loro complessità comporta un ritardo nella disponibilità dei dati analitici di cui le aziende hanno bisogno.
 
-**Azure Synapse** è un servizio di analisi integrato che accelera il tempo necessario per estrarre informazioni dettagliate da data warehouse e sistemi di analisi di Big Data. In pratica raggruppa il meglio delle tecnologie **SQL** usate nel data warehousing aziendale, le tecnologie **Spark** usate per Big Data e le **pipeline** per l'integrazione dei dati e le operazioni ETL/ELT. Synapse dispone di un componente **Studio** basato sul Web per la centralizzazione della gestione, del monitoraggio, della codifica e della sicurezza. Offre una profonda integrazione con altri servizi di Azure, ad esempio **Power BI**, **CosmosDB** e **AzureML**.
+**Azure Synapse** è un servizio di analisi integrato che riduce il tempo necessario per estrarre informazioni dettagliate da data warehouse e sistemi di Big Data. Raggruppa il meglio delle tecnologie **SQL** usate nel data warehousing aziendale, le tecnologie **Spark** usate per i Big Data e le **pipeline** per l'integrazione dei dati e le operazioni ETL/ELT. **Synapse Studio** offre un'esperienza unificata per la gestione, il monitoraggio, la codifica e la sicurezza. È strettamente integrato con altri servizi di Azure, come **Power BI** , **CosmosDB** e **AzureML**.
 
 ## <a name="key-features--benefits"></a>Principali funzionalità e vantaggi
 
 ### <a name="industry-leading-sql"></a>SQL leader di settore
 
-* **Synapse SQL** è un sistema di query distribuito che consente alle aziende di implementare scenari di data warehousing e virtualizzazione dei dati usando esperienze T-SQL standard ben note agli ingegneri dei dati. Espande inoltre le funzionalità di SQL per rispondere ai requisiti di streaming e Machine Learning.
+* **Synapse SQL** è un sistema di query distribuito che consente alle aziende di implementare scenari di data warehousing e virtualizzazione dei dati usando esperienze T-SQL standard e ben note. Espande inoltre le funzionalità di SQL per rispondere ai requisiti di streaming e Machine Learning.
 
-* Synapse SQL offre modelli di risorse **serverless** e **dedicati**, rendendo disponibili opzioni a consumo e su fatturazione in base a specifiche esigenze. Per prestazioni e costi prevedibili, creare pool SQL dedicati per riservare la potenza di elaborazione per i dati archiviati in tabelle SQL. Per i carichi di lavoro non pianificati o con picchi, usare l'endpoint SQL serverless sempre disponibile.
+* Synapse SQL offre modelli di risorse **serverless** e **dedicati** , rendendo disponibili opzioni a consumo e su fatturazione in base a specifiche esigenze. Per prestazioni e costi prevedibili, creare pool SQL dedicati per riservare la potenza di elaborazione per i dati archiviati in tabelle SQL. Per i carichi di lavoro non pianificati o con picchi, usare l'endpoint SQL serverless sempre disponibile.
 * Usare le funzionalità predefinite di **streaming** per trasferire dati da origini cloud in tabelle SQL
-* Integrare l'intelligenza artificiale con SQL, usando modelli di **Machine Learning** per assegnare punteggi ai dati tramite la [funzione T-SQL PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
+* Integrare l'intelligenza artificiale con SQL usando modelli di **Machine Learning** per assegnare punteggi ai dati tramite la [funzione T-SQL PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
 
 ### <a name="industry-standard-apache-spark"></a>Apache Spark standard di settore
 
@@ -79,4 +79,4 @@ Azure Synapse offre alle aziende una singola soluzione per gestire le risorse di
 
 * [Introduzione ad Azure Synapse Analytics](get-started.md)
 * [Creare un'area di lavoro](quickstart-create-workspace.md)
-* [Usare SQL su richiesta](quickstart-sql-on-demand.md)
+* [Usare i pool SQL serverless](quickstart-sql-on-demand.md)

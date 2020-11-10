@@ -9,16 +9,16 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 3c269f07c177d99e46dcc343b80979835b429b68
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0ea46122cffe03ffe2e6a4e07afc6995d88a3acb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369353"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306994"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics"></a>Apache Spark in Azure Synapse Analytics
 
-Apache Spark è un framework di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni analitiche di Big Data. Apache Spark in Azure Synapse Analytics è una delle implementazioni Microsoft di Apache Spark nel cloud. Azure Synapse semplifica la creazione e la configurazione di un pool di Spark (anteprima) in Azure. I pool di Spark in Azure Synapse sono compatibili con Archiviazione di Azure e Azure Data Lake Storage Gen2. È quindi possibile usare i pool di Spark in Azure per elaborare i dati archiviati in Azure.
+Apache Spark è un framework di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni analitiche di Big Data. Apache Spark in Azure Synapse Analytics è una delle implementazioni Microsoft di Apache Spark nel cloud. Azure Synapse semplifica la creazione e la configurazione di un pool di Apache Spark serverless (anteprima) in Azure. I pool di Spark in Azure Synapse sono compatibili con Archiviazione di Azure e Azure Data Lake Storage Gen2. È quindi possibile usare i pool di Spark per elaborare i dati archiviati in Azure.
 
 ![Spark: un framework unificato](./media/apache-spark-overview/spark-overview.png)
 

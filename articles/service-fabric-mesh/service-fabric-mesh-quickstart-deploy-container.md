@@ -5,12 +5,12 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.openlocfilehash: a22356e89dcc3ab465226bad196068d934ff1182
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 0c6bb8ba680612acbd497598b3e56efa5c28244a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91840286"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146246"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Guida introduttiva: Distribuire Hello World in Service Fabric Mesh
 
@@ -41,6 +41,12 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="deploy-the-application"></a>Distribuire l'applicazione
+
+>[!NOTE]
+> A partire dal 2 novembre 2020, i [limiti della frequenza di download si applicano](https://docs.docker.com/docker-hub/download-rate-limit/) a richieste anonime e autenticate inviate a Docker Hub da account con il piano Docker Free vengono imposti in base all'indirizzo IP. 
+> 
+> Questi modelli usano le immagini pubbliche di Docker Hub. Si noti che è possibile che la frequenza sia limitata. Per altre informazioni, vedere [Eseguire l'autenticazione con Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+
 Creare l'applicazione nel gruppo di risorse usando il comando `az mesh deployment create`.  Eseguire questo comando:
 
 ```azurecli-interactive

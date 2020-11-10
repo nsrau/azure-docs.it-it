@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c3c1b61cb4f799b79ca00fc92ffadc2374a61c03
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fb4c7f8ba49cf701ef13cb57ab2b323a94c928cc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132466"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323831"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Connettersi a Synapse SQL con Azure Data Studio (anteprima)
 
@@ -30,11 +30,11 @@ Usare [Azure Data Studio (anteprima)](/sql/azure-data-studio/download-azure-data
 
 ## <a name="connect"></a>Connessione
 
-Per connettersi a Synapse SQL, aprire Azure Data Studio e selezionare **Nuova connessione** .
+Per connettersi a Synapse SQL, aprire Azure Data Studio e selezionare **Nuova connessione**.
 
 ![Aprire Azure Data Studio](./media/get-started-azure-data-studio/1-start.png)
 
-Scegliere **Microsoft SQL Server** per **Tipo di connessione** .
+Scegliere **Microsoft SQL Server** per **Tipo di connessione**.
 
 Per la connessione sono necessari i parametri seguenti:
 
@@ -42,15 +42,15 @@ Per la connessione sono necessari i parametri seguenti:
 * **Database:** Nome database
 
 > [!NOTE]
-> Se si vuole usare **SQL su richiesta (anteprima)** , l'URL dovrebbe essere simile al seguente:
+> Se si preferisce usare il **pool SQL serverless (anteprima)** , l'URL sarà simile al seguente:
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >
-> Se si vuole usare il **pool SQL** , l'URL dovrebbe essere simile al seguente:
+> Se si preferisce usare il **pool SQL dedicato** , l'URL sarà simile al seguente:
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
-Scegliere **Autenticazione di Windows** , **Azure Active Directory** o **Account di accesso SQL** per **Tipo di autenticazione** .
+Scegliere **Autenticazione di Windows** , **Azure Active Directory** o **Account di accesso SQL** per **Tipo di autenticazione**.
 
 Per usare **Account di accesso SQL** come tipo di autenticazione, aggiungere i parametri nome utente/password:
 
@@ -77,7 +77,7 @@ Dopo aver stabilito la connessione, è possibile eseguire possibile eseguire que
 
 ![Nuova query](./media/get-started-azure-data-studio/5-new-query.png)
 
-È ad esempio possibile usare l'istruzione Transact-SQL seguente per [eseguire query su file Parquet](query-parquet-files.md) con SQL su richiesta:
+È ad esempio possibile usare l'istruzione Transact-SQL seguente per [eseguire query su file Parquet](query-parquet-files.md) con il pool SQL serverless:
 
 ```sql
 SELECT COUNT(*)

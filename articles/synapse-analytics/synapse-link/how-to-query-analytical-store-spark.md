@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 07342cb31f1c44273f98a97b018620538f86c17f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e06f0918ce23beded7475f644e7cc6019facacc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287730"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322584"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-in-azure-synapse-link-preview"></a>Interagire con Azure Cosmos DB usando Apache Spark nel collegamento ad Azure Synapse (anteprima)
 
@@ -35,9 +35,9 @@ Prima di acquisire informazioni sulle due opzioni possibili per eseguire query s
 
 La differenza nell'esperienza si verifica se le modifiche ai dati nel contenitore di Azure Cosmos DB devono essere riflesse automaticamente nell'analisi eseguita in Spark. Quando un dataframe Spark viene registrato o viene creata una tabella Spark rispetto all'archivio analitico di un contenitore, i metadati relativi allo snapshot corrente dei dati nell'archivio analitico vengono recuperati in Spark per una distribuzione efficiente dell'analisi successiva. È importante tenere presente che, poiché Spark segue i criteri di valutazione lazy, a meno che non venga richiamata un'azione nel dataframe Spark o venga eseguita una query SparkSQL sulla tabella Spark, i dati effettivi non vengono recuperati dall'archivio analitico del contenitore sottostante.
 
-In caso di **caricamento nel dataframe Spark**, i metadati recuperati vengono memorizzati nella cache per tutta la durata della sessione Spark e quindi le azioni successive richiamate nel dataframe vengono valutate rispetto allo snapshot dell'archivio analitico al momento della creazione del dataframe.
+In caso di **caricamento nel dataframe Spark** , i metadati recuperati vengono memorizzati nella cache per tutta la durata della sessione Spark e quindi le azioni successive richiamate nel dataframe vengono valutate rispetto allo snapshot dell'archivio analitico al momento della creazione del dataframe.
 
-D'altra parte, in aso di **creazione di una tabella Spark**, i metadati dello stato dell'archivio analitico non vengono memorizzati nella cache in Spark e vengono ricaricati a ogni esecuzione della query SparkSQL sulla tabella Spark.
+D'altra parte, in aso di **creazione di una tabella Spark** , i metadati dello stato dell'archivio analitico non vengono memorizzati nella cache in Spark e vengono ricaricati a ogni esecuzione della query SparkSQL sulla tabella Spark.
 
 Pertanto, è possibile scegliere tra il caricamento nel dataframe Spark e la creazione di una tabella Spark a seconda che si desideri che l'analisi Spark venga valutata in base a uno snapshot fisso dell'archivio analitico o allo snapshot più recente dell'archivio analitico.
 
@@ -209,7 +209,7 @@ In questo esempio si apprenderà come fare riferimento alle librerie esterne da 
     ]
 }
 ```
-Se si desidera inviare definizioni di processi Spark in modalità remota a un pool di Synapse Spark, è possibile apprendere come fare riferimento alle librerie esterne seguendo questa [esercitazione ](../spark/apache-spark-job-definitions.md).
+Se si vogliono inviare definizioni di processi Spark in modalità remota a un pool di Apache Spark serverless, è possibile apprendere come fare riferimento alle librerie esterne seguendo questa [esercitazione ](../spark/apache-spark-job-definitions.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

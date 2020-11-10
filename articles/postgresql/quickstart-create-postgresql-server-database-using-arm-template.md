@@ -1,18 +1,18 @@
 ---
 title: 'Avvio rapido: Creare un database di Azure per PostgreSQL - Modello di Resource Manager'
-description: Questo articolo illustra come creare un server singolo di Database di Azure per PostgreSQL usando un modello di Azure Resource Manager.
-author: mgblythe
+description: Questa guida di avvio rapido illustra come creare un server singolo di Database di Azure per PostgreSQL con un modello di Azure Resource Manager.
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: b73bf82b7fba4c7c618dbae81873efabec61051d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9b022f83ed2a4e3a23165cc6bda298a53c008c7c
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90906434"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331642"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare un modello di Resource Manager per creare un database di Azure per PostgreSQL: server singolo
 
@@ -68,32 +68,32 @@ Selezionare il collegamento seguente per distribuire il modello di database di A
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuzione in Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
-Nella pagina **Distribuire Database di Azure per PostgreSQL con la rete virtuale**:
+Nella pagina **Distribuire Database di Azure per PostgreSQL con la rete virtuale** :
 
-1. In **Gruppo di risorse** selezionare **Crea nuovo**, immettere un nome per il nuovo gruppo di risorse e quindi fare clic su **OK**.
+1. In **Gruppo di risorse** selezionare **Crea nuovo** , immettere un nome per il nuovo gruppo di risorse e quindi fare clic su **OK**.
 
 2. Se è stato creato un nuovo gruppo di risorse, selezionare un valore per **Località** per il gruppo di risorse e il nuovo server.
 
-3. Immettere i valori per **Nome server**, **Account di accesso amministratore** e **Password di accesso amministratore**.
+3. Immettere i valori per **Nome server** , **Account di accesso amministratore** e **Password di accesso amministratore**.
 
-    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Distribuzione in Azure":::
+    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Finestra Distribuisci Database di Azure per PostgreSQL con la rete virtuale, modello di avvio rapido di Azure, portale di Azure":::
 
 4. Modificare le altre impostazioni predefinite in base alle esigenze:
 
-    * **Sottoscrizione**: sottoscrizione di Azure da usare per il server.
-    * **Capacità SKU**: capacità di vCore, che può essere *2* (impostazione predefinita), *4*, *8*, *16*, *32*o *64*.
-    * **Nome SKU**: prefisso del livello SKU, famiglia SKU e capacità dello SKU, uniti da caratteri di sottolineatura, ad esempio *B_Gen5_1*, *GP_Gen5_2* (impostazione predefinita) o *MO_Gen5_32*.
-    * **Dimensioni SKU (MB)** : dimensioni di archiviazione in megabyte del database di Azure per il server PostgreSQL (impostazione predefinita *51200*).
-    * **Livello SKU**: livello di distribuzione, ad esempio *Basic*, *Utilizzo generico* (impostazione predefinita) o *Ottimizzato per la memoria*.
-    * **Famiglia SKU**: *Gen4* o *Gen5* (impostazione predefinita), che indica la generazione hardware per la distribuzione del server.
-    * **Versione di Postgresql**: versione del server PostgreSQL da distribuire, ad esempio *9.5*, *9.6*, *10* o *11* (impostazione predefinita).
-    * **Giorni di conservazione backup**: periodo desiderato per la conservazione del backup con ridondanza geografica, in giorni (impostazione predefinita *7*).
-    * **Backup con ridondanza geografica**: *Abilitato* o *Disabilitato* (impostazione predefinita), a seconda dei requisiti per il ripristino di emergenza geografico.
-    * **Nome rete virtuale**: nome della rete virtuale (impostazione predefinita *azure_postgresql_vnet*).
-    * **Nome subnet**: nome della subnet (impostazione predefinita *azure_postgresql_subnet*).
-    * **Nome regola di rete virtuale**:nome della regola di rete virtuale che consente la subnet (impostazione predefinita *AllowSubnet*).
-    * **Prefisso dell'indirizzo della rete virtuale**: prefisso dell'indirizzo della rete virtuale (impostazione predefinita *10.0.0.0/16*).
-    * **Prefisso subnet**: prefisso dell'indirizzo per la subnet (impostazione predefinita *10.0.0.0/16*).
+    * **Sottoscrizione** : sottoscrizione di Azure da usare per il server.
+    * **Capacità SKU** : capacità di vCore, che può essere *2* (impostazione predefinita), *4* , *8* , *16* , *32* o *64*.
+    * **Nome SKU** : prefisso del livello SKU, famiglia SKU e capacità dello SKU, uniti da caratteri di sottolineatura, ad esempio *B_Gen5_1* , *GP_Gen5_2* (impostazione predefinita) o *MO_Gen5_32*.
+    * **Dimensioni SKU (MB)** : dimensioni di archiviazione in megabyte del database di Azure per il server PostgreSQL (impostazione predefinita *51200* ).
+    * **Livello SKU** : livello di distribuzione, ad esempio *Basic* , *Utilizzo generico* (impostazione predefinita) o *Ottimizzato per la memoria*.
+    * **Famiglia SKU** : *Gen4* o *Gen5* (impostazione predefinita), che indica la generazione hardware per la distribuzione del server.
+    * **Versione di Postgresql** : versione del server PostgreSQL da distribuire, ad esempio *9.5* , *9.6* , *10* o *11* (impostazione predefinita).
+    * **Giorni di conservazione backup** : periodo desiderato per la conservazione del backup con ridondanza geografica, in giorni (impostazione predefinita *7* ).
+    * **Backup con ridondanza geografica** : *Abilitato* o *Disabilitato* (impostazione predefinita), a seconda dei requisiti per il ripristino di emergenza geografico.
+    * **Nome rete virtuale** : nome della rete virtuale (impostazione predefinita *azure_postgresql_vnet* ).
+    * **Nome subnet** : nome della subnet (impostazione predefinita *azure_postgresql_subnet* ).
+    * **Nome regola di rete virtuale** :nome della regola di rete virtuale che consente la subnet (impostazione predefinita *AllowSubnet* ).
+    * **Prefisso dell'indirizzo della rete virtuale** : prefisso dell'indirizzo della rete virtuale (impostazione predefinita *10.0.0.0/16* ).
+    * **Prefisso subnet** : prefisso dell'indirizzo per la subnet (impostazione predefinita *10.0.0.0/16* ).
 
 5. Leggere le condizioni, quindi selezionare **Accetto le condizioni riportate sopra**.
 

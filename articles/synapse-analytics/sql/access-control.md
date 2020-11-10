@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 708b8255f6cf7c60e2d2fc7fbd280b477c06a3d6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a0fbcab194b90bbe89948fee1efb604266dbbb0f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503284"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311756"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gestire l'accesso ad aree di lavoro, dati e pipeline
 
@@ -94,21 +94,21 @@ Quando è stato effettuato il provisioning dell'area di lavoro, è stato necessa
 Il controllo di accesso ai dati sottostanti è diviso in tre parti:
 
 - Accesso del piano dati all'account di archiviazione (già configurato in precedenza nel passaggio 2)
-- Accesso del piano dati ai database SQL (sia per i pool SQL che per SQL su richiesta)
-- Creazione di una credenziale per i database di SQL su richiesta sull'account di archiviazione
+- Accesso del piano dati ai database SQL (sia per i pool SQL dedicati che per il pool SQL serverless)
+- Creazione di credenziali per i database del pool SQL serverless sull'account di archiviazione
 
 ## <a name="access-control-to-sql-databases"></a>Controllo di accesso a database SQL
 
 > [!TIP]
 > È necessario eseguire i passaggi seguenti per **ogni** database SQL per concedere all'utente l'accesso a tutti i database SQL tranne che nella sezione [Autorizzazione a livello di server](#server-level-permission) in cui è possibile assegnare un ruolo sysadmin all'utente.
 
-### <a name="sql-on-demand"></a>SQL su richiesta
+### <a name="serverless-sql-pool"></a>Pool SQL serverless
 
 In questa sezione sono disponibili esempi su come concedere all'utente un'autorizzazione per un determinato database o autorizzazioni complete per il server.
 
 #### <a name="database-level-permission"></a>Autorizzazione a livello di database
 
-Per concedere l'accesso a un utente a **singolo** database di SQL su richiesta, seguire la procedura di questo esempio:
+Per concedere a un utente l'accesso a un **singolo** database del pool SQL serverless, seguire la procedura di questo esempio:
 
 1. CREATE LOGIN
 
@@ -140,16 +140,16 @@ Per concedere l'accesso a un utente a **singolo** database di SQL su richiesta, 
 
 #### <a name="server-level-permission"></a>Autorizzazione a livello di server
 
-Per concedere l'accesso a un utente a **tutti** i database SQL su richiesta, seguire la procedura di questo esempio:
+Per concedere a un utente l'accesso completo a **tutti** i database del pool SQL serverless, seguire la procedura di questo esempio:
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
 ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
-### <a name="sql-pools"></a>Pool SQL
+### <a name="dedicated-sql-pool"></a>Pool SQL dedicato
 
-Per concedere l'accesso a un utente a **singolo** database SQL, seguire la procedura di questo esempio:
+Per concedere a un utente l'accesso a un **singolo** database SQL, seguire questa procedura:
 
 1. Creare l'utente nel database eseguendo il comando seguente che fa riferimento al database desiderato nel selettore di contesto (elenco a discesa per selezionare i database):
 
@@ -167,18 +167,18 @@ Per concedere l'accesso a un utente a **singolo** database SQL, seguire la proce
 
 > [!IMPORTANT]
 > *db_datareader* e *db_datawriter* possono funzionare per le autorizzazioni di lettura/scrittura se non si desidera concedere l'autorizzazione *db_owner*.
-> Per consentire a un utente Spark di leggere e scrivere direttamente da Spark in/da un pool SQL, l'autorizzazione *db_owner* è necessaria.
+> Per consentire a un utente Spark di leggere e scrivere direttamente da Spark in/da un pool SQL dedicato, è necessaria l'autorizzazione *db_owner*.
 
-Dopo aver creato gli utenti, verificare che SQL su richiesta possa eseguire query sull'account di archiviazione.
+Dopo aver creato gli utenti, verificare che sia possibile eseguire query sull'account di archiviazione usando il pool SQL serverless.
 
 ## <a name="access-control-to-workspace-pipeline-runs"></a>Controllo di accesso alle esecuzioni di pipeline dell'area di lavoro
 
 ### <a name="workspace-managed-identity"></a>Identità gestita dell'area di lavoro
 
 > [!IMPORTANT]
-> Per eseguire correttamente le pipeline che includono set di dati o attività che fanno riferimento a un pool SQL, l'identità dell'area di lavoro deve essere concessa direttamente al pool SQL.
+> Per eseguire correttamente le pipeline che includono set di dati o attività che fanno riferimento a un pool SQL dedicato, l'identità dell'area di lavoro deve essere concessa direttamente al pool SQL.
 
-Eseguire i comandi seguenti in ogni pool SQL per consentire all'identità gestita dell'area di lavoro di eseguire le pipeline nel database del pool SQL:
+Eseguire i comandi seguenti in ogni pool SQL dedicato per consentire all'identità gestita dell'area di lavoro di eseguire le pipeline nel database del pool SQL:
 
 ```sql
 --Create user in DB

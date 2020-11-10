@@ -1,6 +1,6 @@
 ---
-title: Accedere ai file di archiviazione in SQL su richiesta (anteprima)
-description: Questo articolo descrive come eseguire query sui file di archiviazione con le risorse di SQL su richiesta (anteprima) all'interno di Synapse SQL.
+title: Accedere ai file nell'archiviazione nel pool SQL serverless (anteprima)
+description: Informazioni su come eseguire query sui file nell'archiviazione usando il pool SQL serverless (anteprima) in Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8884f62ba015cc4b33b75a133f21264dac6430e5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 73a5414a979742c4a7df16dcd2a5edda3748abef
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288988"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315936"
 ---
-# <a name="access-external-storage-in-synapse-sql-on-demand"></a>Accedere all'archiviazione esterna in Synapse SQL (su richiesta)
+# <a name="access-external-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Accedere all'archiviazione esterna tramite il pool SQL serverless (anteprima) in Azure Synapse Analytics
 
-Questo documento descrive in che modo gli utenti possono eseguire la lettura dei dati dai file archiviati in Archiviazione di Azure in Synapse SQL (su richiesta). Per accedere alle risorse di archiviazione, sono disponibili le opzioni seguenti:
+Questo documento descrive come leggere i dati dai file archiviati in Archiviazione di Azure nel pool SQL serverless. Per accedere alle risorse di archiviazione, sono disponibili le opzioni seguenti:
 
 - Funzione [OPENROWSET](develop-openrowset.md) che abilita l'esecuzione di query ad hoc sui file in Archiviazione di Azure.
 - [Tabella esterna](develop-tables-external-tables.md) che è una struttura di dati predefinita basata su un set di file esterni.
@@ -27,7 +27,7 @@ L'utente può usare [metodi di autenticazione diversi](develop-storage-files-sto
 
 ## <a name="query-files-using-openrowset"></a>Eseguire query sui file con OPENROWSET
 
-OPENROWSET consente agli utenti di eseguire query sui file esterni nell'archiviazione di Azure se sono autorizzati ad accedere alle risorse di archiviazione. Per eseguire la lettura del contenuto dei file nell'archiviazione di Azure, l'utente connesso all'endpoint Synapse SQL su richiesta dovrà usare la query seguente:
+OPENROWSET consente agli utenti di eseguire query sui file esterni nell'archiviazione di Azure se sono autorizzati ad accedere alle risorse di archiviazione. Per leggere il contenuto dei file in Archiviazione di Azure, l'utente connesso al pool SQL serverless dovrà usare la query seguente:
 
 ```sql
 SELECT * FROM

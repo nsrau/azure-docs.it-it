@@ -3,12 +3,12 @@ title: Monitoraggio di Azure Application Insights Java
 description: Application Performance Monitoring per le applicazioni Java in esecuzione in qualsiasi ambiente senza richiedere la modifica del codice. Traccia distribuita e mappa delle applicazioni.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 2459f80746d95234701319bbb5142c8e540890d3
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: f7cda0f9389f0b628aca82dd6c65acba140e739b
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379770"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426834"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Monitoraggio di Azure per il monitoraggio di applicazioni Java non codificate Application Insights
 
@@ -16,9 +16,9 @@ Il monitoraggio di applicazioni codeless Java è tutta una questione di semplici
 
  L'agente Java funziona in qualsiasi ambiente e consente di monitorare tutte le applicazioni Java. In altre parole, sia che si eseguano app Java in macchine virtuali, in locale, in AKS, in Windows, Linux, l'agente Java 3,0 monitorerà l'app.
 
-L'aggiunta di Application Insights Java SDK all'applicazione non è più necessaria, in quanto l'agente 3,0 raccoglie le richieste, le dipendenze e i registri tutti autonomamente.
+L'aggiunta di Application Insights Java SDK all'applicazione non è più necessaria, in quanto l'agente 3,0 raccoglie automaticamente le richieste, le dipendenze e i registri autonomamente.
 
-È comunque possibile inviare dati di telemetria personalizzati dall'applicazione. L'agente 3,0 lo registrerà e lo correla insieme a tutti i dati di telemetria di raccolta automatica.
+È comunque possibile inviare dati di telemetria personalizzati dall'applicazione. L'agente 3,0 li registrerà e li correla insieme a tutti i dati di telemetria raccolti automaticamente.
 
 L'agente 3,0 supporta Java 8 e versioni successive.
 
@@ -82,7 +82,7 @@ Nel `applicationinsights.json` file è inoltre possibile configurare:
 * campionamento
 * Metriche JMX
 * Dimensioni personalizzate
-* Processori di telemetria
+* Processori di telemetria (anteprima)
 * Registrazione automatica
 * Metriche del micrometro raccolte automaticamente (incluse le metriche dell'attuatore Spring boot)
 * Heartbeat
@@ -91,7 +91,7 @@ Nel `applicationinsights.json` file è inoltre possibile configurare:
 
 Per i dettagli completi, vedere [Opzioni di configurazione](./java-standalone-config.md) .
 
-## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Richieste, dipendenze, log e metriche per la raccolta di dati
+## <a name="auto-collected-requests-dependencies-logs-and-metrics"></a>Richieste, dipendenze, log e metriche raccolte automaticamente
 
 ### <a name="requests"></a>Requests
 
@@ -173,7 +173,7 @@ private static final TelemetryClient telemetryClient = new TelemetryClient();
 
 e usarlo per l'invio di dati di telemetria personalizzati.
 
-### <a name="events"></a>Events
+### <a name="events"></a>Eventi
 
   ```java
 telemetryClient.trackEvent("WinGame");

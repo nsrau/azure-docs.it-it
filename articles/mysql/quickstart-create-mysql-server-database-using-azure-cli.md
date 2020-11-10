@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/15/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 161d1c95507d366ce00f75580a100fd2607675d9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0c43f1ea81bbc29817e6a2509c9967bf3b5782c9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544019"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337286"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Guida introduttiva: Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure
 
@@ -91,7 +91,7 @@ Per connettersi al server, è necessario specificare le informazioni sull'host e
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l' **administratorLogin** .
+Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l' **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -144,5 +144,3 @@ az mysql server delete --resource-group myresourcegroup --name mydemoserver
 
 > [!div class="nextstepaction"]
 >[Creare un'app PHP in Windows con MySQL](../app-service/tutorial-php-mysql-app.md)
->[Creare un'app PHP in Linux con MySQL](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)
->[Creare un'app Spring basata su Java con MySQL](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)

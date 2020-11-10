@@ -7,15 +7,15 @@ ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 10/28/2020
 ms.author: banders
-ms.openlocfilehash: c24af5a9fb1367e00d9a014b1e10f750a38ad30b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e380aa1f4d50e6ced34254ceca9d899022142f6d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270900"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911291"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure
 
@@ -41,7 +41,7 @@ Per la maggior parte delle sottoscrizioni è possibile scaricare la fattura dal 
 
     ![Schermata che mostra l'opzione Fatturazione e utilizzo](./media/download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. Fare clic sul pulsante di download per scaricare una copia della fattura PDF e quindi selezionare **Scarica fattura**. Se l'indicazione è **Non disponibile**, vedere [Perché non viene visualizzata una fattura per l'ultimo periodo di fatturazione?](#noinvoice)
+3. Fare clic sul pulsante di download per scaricare una copia della fattura PDF e quindi selezionare **Scarica fattura**. Se l'indicazione è **Non disponibile** , vedere [Perché non viene visualizzata una fattura per l'ultimo periodo di fatturazione?](#noinvoice)
 
     ![Schermata che mostra i periodi di fatturazione, l'opzione per il download e gli addebiti totali per ogni periodo di fatturazione](./media/download-azure-invoice-daily-usage-date/downloadinvoice.png)
 
@@ -136,9 +136,7 @@ Per visualizzare e scaricare i dati di utilizzo per i clienti con contratto EA, 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Cercare *Gestione dei costi e fatturazione*.
-
-    ![Screenshot che mostra una ricerca nel portale di Azure](./media/download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
-
+1. Se si ha accesso a più account di fatturazione, selezionare l'ambito di fatturazione relativo all'account del contratto Enterprise.
 1. Selezionare **Utilizzo e addebiti**.
 1. Per il mese da scaricare, selezionare **Scarica**.
 
@@ -165,10 +163,6 @@ Per visualizzare e scaricare i dati di utilizzo per un profilo di fatturazione, 
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificare l'accesso a un Contratto del cliente Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
-
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
-
-In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

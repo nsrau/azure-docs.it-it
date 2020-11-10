@@ -1,6 +1,6 @@
 ---
 title: Tabelle di metadati condivisi
-description: Azure Synapse Analytics offre un modello di metadati condivisi che consente di creare una tabella in Apache Spark accessibile dai motori SQL su richiesta (anteprima) e di pool SQL senza duplicare i dati.
+description: Azure Synapse Analytics offre un modello di metadati condivisi per cui la creazione di una tabella nel pool di Apache Spark serverless la renderà accessibile dal pool SQL serverless (anteprima) e dal pool SQL dedicato senza duplicazione dei dati.
 services: sql-data-warehouse
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,30 +10,30 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6b9835cf5de28fbd515a214554f723d99e8e8fe4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f269217908bea4b5e8ef3c0004a9cec9d5d682c7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260732"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314544"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabelle di metadati condivisi di Azure Synapse Analytics
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle basate su Parquet tra i pool di Apache Spark (anteprima) e il motore SQL su richiesta (anteprima).
+Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle basate su Parquet tra i pool di Apache Spark (anteprima) e il pool SQL serverless (anteprima).
 
 Dopo la creazione di un database tramite un processo Spark, è possibile aggiungervi tabelle create con Spark che usano Parquet come formato di archiviazione. Queste tabelle diventeranno immediatamente disponibili per l'esecuzione di query da parte di qualsiasi pool di Spark dell'area di lavoro di Azure Synapse. Possono essere usate anche da qualsiasi processo Spark che disponga delle autorizzazioni necessarie.
 
-Le tabelle Spark create, gestite ed esterne vengono rese disponibili anche come tabelle esterne con lo stesso nome nel database sincronizzato corrispondente in SQL su richiesta. La sezione [Esposizione di una tabella di Spark in SQL](#expose-a-spark-table-in-sql) fornisce informazioni dettagliate sulla sincronizzazione delle tabelle.
+Le tabelle Spark create, gestite ed esterne vengono rese disponibili anche come tabelle esterne con lo stesso nome nel database sincronizzato corrispondente nel pool SQL serverless. La sezione [Esposizione di una tabella di Spark in SQL](#expose-a-spark-table-in-sql) fornisce informazioni dettagliate sulla sincronizzazione delle tabelle.
 
-Poiché le tabelle vengono sincronizzate con SQL su richiesta in modo asincrono, vengono visualizzate con un ritardo.
+Poiché le tabelle vengono sincronizzate con il pool SQL serverless in modo asincrono, vengono visualizzate con un ritardo.
 
 ## <a name="manage-a-spark-created-table"></a>Gestire una tabella creata in Spark
 
-Usare Spark per gestire i database creati in Spark. Ad esempio, eliminare un database tramite un processo del pool di Spark e crearvi tabelle da Spark.
+Usare Spark per gestire i database creati in Spark. Ad esempio, è possibile eliminare un database tramite un processo del pool di Apache Spark serverless creare al suo interno tabelle da Spark.
 
-Se si creano oggetti in un database di questo tipo da SQL su richiesta o si tenta di eliminare il database, l'operazione riesce, ma il database Spark originale non viene modificato.
+Se si creano oggetti in un database del pool SQL serverless o si prova a eliminare un database, l'operazione riesce, ma il database Spark originale rimarrà inalterato.
 
 ## <a name="expose-a-spark-table-in-sql"></a>Esposizione di una tabella Spark in SQL
 
@@ -74,12 +74,12 @@ Le tabelle di Spark forniscono tipi di dati diversi rispetto ai motori Synapse S
 | `decimal`      | `decimal`        |<!-- need precision and scale-->|
 | `timestamp` |    `datetime2`      |<!-- need precision and scale-->|
 | `date`      | `date`           ||
-| `string`    |    `varchar(max)`   | Con regole di confronto SQL `Latin1_General_CP1_CI_AS_UTF8` |
+| `string`    |    `varchar(max)`   | Con regole di confronto SQL `Latin1_General_100_BIN2_UTF8` |
 | `binary`    |    `varbinary(max)` ||
 | `boolean`   |    `bit`            ||
-| `array`     |    `varchar(max)`   | Serializzazione in JSON con regole di confronto `Latin1_General_CP1_CI_AS_UTF8` |
-| `map`       |    `varchar(max)`   | Serializzazione in JSON con regole di confronto `Latin1_General_CP1_CI_AS_UTF8` |
-| `struct`    |    `varchar(max)`   | Serializzazione in JSON con regole di confronto `Latin1_General_CP1_CI_AS_UTF8` |
+| `array`     |    `varchar(max)`   | Serializzazione in JSON con regole di confronto `Latin1_General_100_BIN2_UTF8` |
+| `map`       |    `varchar(max)`   | Serializzazione in JSON con regole di confronto `Latin1_General_100_BIN2_UTF8` |
+| `struct`    |    `varchar(max)`   | Serializzazione in JSON con regole di confronto `Latin1_General_100_BIN2_UTF8` |
 
 <!-- TODO: Add precision and scale to the types mentioned above -->
 
@@ -95,9 +95,9 @@ Per altre informazioni su come impostare le autorizzazioni su cartelle e file, v
 
 ## <a name="examples"></a>Esempi
 
-### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Creare una tabella gestita basata su Parquet in Spark ed eseguire query da SQL su richiesta
+### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-serverless-sql-pool"></a>Creare una tabella gestita basata su Parquet in Spark ed eseguire query dal pool SQL serverless
 
-In questo scenario si ha un database Spark denominato `mytestdb`. Vedere [Creare e connettersi a un database Spark con SQL su richiesta](database.md#create-and-connect-to-spark-database-with-sql-on-demand).
+In questo scenario si ha un database Spark denominato `mytestdb`. Vedere [Creare e connettersi a un database Spark con il pool SQL serverless](database.md#create-and-connect-to-spark-database-with-serverless-sql-pool).
 
 Creare una tabella di Spark gestita con SparkSQL eseguendo il comando seguente:
 
@@ -105,7 +105,7 @@ Creare una tabella di Spark gestita con SparkSQL eseguendo il comando seguente:
     CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
 ```
 
-Questo comando crea la tabella `myParquetTable` nel database `mytestdb`. Dopo una breve attesa, la tabella viene visualizzata in SQL su richiesta. Ad esempio, eseguire l'istruzione seguente da SQL su richiesta.
+Questo comando crea la tabella `myParquetTable` nel database `mytestdb`. Dopo una breve attesa, la tabella viene visualizzata nel pool SQL serverless. Ad esempio, eseguire l'istruzione seguente dal pool SQL serverless.
 
 ```sql
     USE mytestdb;
@@ -140,7 +140,7 @@ var df = spark.CreateDataFrame(data, schema);
 df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myParquetTable");
 ```
 
-Ora è possibile leggere i dati da SQL su richiesta nel modo seguente:
+È ora possibile leggere i dati dal pool SQL serverless come segue:
 
 ```sql
 SELECT * FROM mytestdb.dbo.myParquetTable WHERE name = 'Alice';
@@ -154,7 +154,7 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-### <a name="create-an-external-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Creare un tabella esterna supportata da Parquet in Spark ed eseguire query da SQL su richiesta
+### <a name="create-an-external-table-backed-by-parquet-in-spark-and-query-from-serverless-sql-pool"></a>Creare una tabella esterna basata su Parquet in Spark ed eseguire query dal pool SQL serverless
 
 In questo esempio si crea una tabella Spark esterna sui file di dati in formato Parquet creati nell'esempio precedente per la tabella gestita.
 
@@ -168,7 +168,7 @@ CREATE TABLE mytestdb.myExternalParquetTable
 
 Sostituire il segnaposto `<fs>` con il nome del file system predefinito dell'area di lavoro e il segnaposto `<synapse_ws>` con il nome dell'area di lavoro di Synapse usata per eseguire questo esempio.
 
-L'esempio precedente crea la tabella `myExtneralParquetTable` nel database `mytestdb`. Dopo una breve attesa, la tabella viene visualizzata in SQL su richiesta. Ad esempio, eseguire l'istruzione seguente da SQL su richiesta.
+L'esempio precedente crea la tabella `myExtneralParquetTable` nel database `mytestdb`. Dopo una breve attesa, la tabella viene visualizzata nel pool SQL serverless. Ad esempio, eseguire l'istruzione seguente dal pool SQL serverless.
 
 ```sql
 USE mytestdb;
@@ -177,7 +177,7 @@ SELECT * FROM sys.tables;
 
 Verificare che `myExternalParquetTable` sia incluso nei risultati.
 
-Ora è possibile leggere i dati da SQL su richiesta nel modo seguente:
+È ora possibile leggere i dati dal pool SQL serverless come segue:
 
 ```sql
 SELECT * FROM mytestdb.dbo.myExternalParquetTable WHERE name = 'Alice';

@@ -1,6 +1,6 @@
 ---
-title: Eseguire query sui dati nell'archiviazione con SQL su richiesta (anteprima)
-description: Questo articolo descrive come eseguire query sull'archiviazione di Azure usando la risorsa SQL su richiesta (anteprima) all'interno di Azure Synapse Analytics.
+title: Eseguire query sull'archiviazione con il pool SQL serverless (anteprima)
+description: Questo articolo descrive come eseguire query sull'archiviazione di Azure usando il pool SQL serverless (anteprima) all'interno di Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,27 +9,27 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0ac54eb5d6350cc234eb7036a3a1dc97a4f1b083
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3fd3a94efd6e7870ae3919a011fc24f66b97c559
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288376"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310953"
 ---
-# <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Eseguire query sui file di archiviazione con le risorse di SQL su richiesta (anteprima) all'interno di Synapse SQL
+# <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Eseguire query sui file nell'archiviazione con il pool SQL serverless (anteprima) in Azure Synapse Analytics
 
-SQL su richiesta (anteprima) consente di eseguire query sui dati del data lake. Offre una superficie di attacco per query T-SQL che supporta le query su dati semistrutturati e non strutturati. Per l'esecuzione di query, sono supportati gli aspetti di T-SQL seguenti:
+Il pool SQL serverless (anteprima) consente di eseguire query sui dati nel data lake. Offre una superficie di attacco per query T-SQL che supporta le query su dati semistrutturati e non strutturati. Per l'esecuzione di query, sono supportati gli aspetti di T-SQL seguenti:
 
 - Superficie di attacco [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) completa, inclusa la maggioranza di [funzioni e operatori SQL](overview-features.md).
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)), che crea una [tabella esterna](develop-tables-external-tables.md) e quindi esporta, in parallelo, i risultati di un'istruzione Transact-SQL SELECT in Archiviazione di Azure.
 
-Per altre informazioni sulle funzionalità attualmente supportate e non, vedere l'articolo [Panoramica di SQL su richiesta](on-demand-workspace-overview.md) o gli articoli seguenti:
+Per altre informazioni sulle funzionalità attualmente supportate e non, vedere l'articolo [Panoramica del pool SQL serverless](on-demand-workspace-overview.md) o gli articoli seguenti:
 - [Accedere alle risorse di archiviazione esterne in Synapse SQL (su richiesta)](develop-storage-files-overview.md), che illustra come usare le [tabelle esterne](develop-tables-external-tables.md) e la funzione [OPENROWSET](develop-openrowset.md) per leggere i dati dall'archiviazione.
 - [Controllare l'accesso agli account di archiviazione per SQL su richiesta (anteprima)](develop-storage-files-storage-access-control.md), che illustra come abilitare Synapse SQL per accedere all'archiviazione tramite l'autenticazione di firma di accesso condiviso o l'identità gestita dell'area di lavoro.
 
 ## <a name="overview"></a>Panoramica
 
-Per offrire un'esperienza uniforme per le query sul posto sui dati presenti nei file di Archiviazione di Azure, SQL su richiesta usa la funzione [OPENROWSET](develop-openrowset.md) con funzionalità aggiuntive:
+Per offrire un'esperienza uniforme per le query sul posto sui dati presenti nei file di Archiviazione di Azure, il pool SQL serverless usa la funzione [OPENROWSET](develop-openrowset.md) con funzionalità aggiuntive:
 
 - [Esecuzione di query su più file o cartelle](#query-multiple-files-or-folders)
 - [Formato di file Parquet](#query-parquet-files)
@@ -146,7 +146,7 @@ Il tipo di dati restituito è nvarchar (1024). Per ottenere prestazioni ottimali
 
 ## <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Uso di tipi complessi e strutture di dati annidate o ripetute
 
-Per garantire un'esperienza uniforme con i dati archiviati in tipi di dati annidati o ripetuti, come nei file [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types), in SQL su richiesta sono state aggiunte le estensioni seguenti.
+Per garantire un'esperienza uniforme con i dati archiviati in tipi di dati annidati o ripetuti, come nei file [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types), nel pool SQL serverless sono state aggiunte le estensioni seguenti.
 
 #### <a name="project-nested-or-repeated-data"></a>Proiettare dati annidati o ripetuti
 

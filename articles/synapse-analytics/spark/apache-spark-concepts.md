@@ -1,6 +1,6 @@
 ---
 title: Concetti principali di Apache Spark
-description: Introduzione ad Apache Spark in Azure Synapse Analytics e i diversi concetti correlati.
+description: Introduzione ai concetti principali di Apache Spark in Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: bb5c7e082dc4a35183190f5d2d6a4b305b907f4f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d29fa6454839b0c34830374282b8abb5fa6e4c51
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480480"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313405"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Concetti principali su Apache Spark in Azure Synapse Analytics
 
@@ -24,7 +24,7 @@ Azure Synapse semplifica la creazione e la configurazione delle funzionalità di
 
 ## <a name="spark-pools-preview"></a>Pool di Spark (anteprima)
 
-Un pool di Spark (anteprima) viene creato nel portale di Azure. È la definizione di un pool di Spark che, in caso di creazione di istanze, viene usata per creare un'istanza di Spark che elabora i dati. Quando viene creato, un pool di Spark esiste solo in forma di metadati e non viene utilizzata, eseguita o addebitata alcuna risorsa. Un pool di Spark ha una serie di proprietà che controllano le caratteristiche di un'istanza di Spark. Queste caratteristiche includono, in via esemplificativa, un nome, le dimensioni, il comportamento di scalabilità e la durata (TTL).
+Un pool di Apache Spark serverless (anteprima) viene creato nel portale di Azure. È la definizione di un pool di Spark che, in caso di creazione di istanze, viene usata per creare un'istanza di Spark che elabora i dati. Quando viene creato, un pool di Spark esiste solo in forma di metadati e non viene utilizzata, eseguita o addebitata alcuna risorsa. Un pool di Spark ha una serie di proprietà che controllano le caratteristiche di un'istanza di Spark. Queste caratteristiche includono, in via esemplificativa, un nome, le dimensioni, il comportamento di scalabilità e la durata (TTL).
 
 Poiché la creazione di pool di Spark non comporta costi o utilizzo di risorse, è possibile crearne un numero illimitato con tutte le configurazioni diverse necessarie. Ai pool di Spark possono anche essere applicate autorizzazioni che consentono agli utenti di accedere solo a determinati pool.
 

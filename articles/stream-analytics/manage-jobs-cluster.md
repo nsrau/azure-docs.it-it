@@ -8,14 +8,14 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 6b475e34c01ca26abd3d8ab1d904521de19f941b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 01efb5736d7becf1b46c7c2898c22648b0421dd1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944171"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305815"
 ---
-# <a name="create-and-delete-jobs-in-an-azure-stream-analytics-cluster"></a>Creare ed eliminare processi nel cluster di Analisi di flusso di Azure
+# <a name="add-and-remove-jobs-in-an-azure-stream-analytics-cluster"></a>Aggiungere e rimuovere processi in un cluster di Analisi di flusso di Azure
 
 In un cluster di Analisi di flusso è possibile eseguire più processi di Analisi di flusso di Azure. L'esecuzione di processi in un cluster consiste in due semplici passaggi: aggiungere il processo al cluster e avviarlo. Questo articolo illustra come aggiungere e rimuovere processi da un cluster esistente. Seguire la guida di avvio rapido per [creare un cluster di Analisi di flusso](create-cluster.md) se non ne è già presente uno.
 

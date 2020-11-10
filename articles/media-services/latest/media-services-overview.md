@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: c7bdf3e0300bffaffb7191aea019bed719cdc6fa
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 01ec0c7c0d2d060bbd930a099fe3db54de6cb150
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220619"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308956"
 ---
 # <a name="azure-media-services-v3-overview"></a>Panoramica di Servizi multimediali di Azure v3
 
@@ -59,12 +59,12 @@ Servizi multimediali consente di creare un'ampia gamma di flussi di lavoro multi
 * Usare Servizi multimediali di Azure insieme alle [API Servizi cognitivi di Azure](../../index.yml?pivot=products&panel=ai) per aggiungere sottotitoli e didascalie ai video e soddisfare le esigenze di un pubblico più ampio, ad esempio persone con disabilità uditive o che vogliono leggere il contenuto in una lingua diversa.
 * Abilitare la rete CDN di Azure per ottenere notevole scalabilità e gestire al meglio un carico elevato immediato, ad esempio all'inizio di un evento per il lancio di un prodotto.
 
-## <a name="how-can-i-get-started-with-v3"></a>Come si procede per iniziare a usare v3? 
+## <a name="how-can-i-get-started-with-v3"></a>Come si procede per iniziare a usare v3?
 
 Informazioni su come codificare e creare pacchetti del contenuto, trasmettere video on demand in streaming, trasmettere live e analizzare video con Servizi multimediali v3. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come fornire in modo sicuro flussi su audio o video live e on demand a milioni di utenti.
 
 > [!TIP]
-> Prima di iniziare lo sviluppo, esaminare:<br/>* [Concetti fondamentali](concepts-overview.md) (include concetti importanti come la creazione di pacchetti, la codifica e la protezione)<br/>* [Sviluppo con le API Servizi multimediali v3](media-services-apis-overview.md) (sono incluse informazioni sull'accesso alle API, sulle convenzioni di denominazione e così via)
+> Prima di iniziare lo sviluppo, esaminare: I [concetti fondamentali](concepts-overview.md), che includono aspetti importanti come la creazione di pacchetti, la codifica e la protezione, e l'articolo [Sviluppare con le API di Servizi multimediali v3](media-services-apis-overview.md), che include informazioni sull'accesso alle API, le convenzioni di denominazione e così via.
 
 ### <a name="sdks"></a>SDK
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/26/2020
 ms.author: memildin
-ms.openlocfilehash: ba0c68589f7ea4b32970e3ad81fea5175b998dc7
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 549a95b0b2ffc2b2d2bf5670a961e0454683e33a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629154"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026718"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Modifiche importanti che interesseranno il Centro sicurezza di Azure
 
@@ -42,27 +42,19 @@ Se si cercano le note sulla versione più recenti, vedere [Novità del Centro si
 
 Azure Security Benchmark è il set di linee guida specifiche di Azure create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. [Altre informazioni su Azure Security Benchmark](../security/benchmarks/introduction.md).
 
-Le 29 nuove raccomandazioni seguenti verranno aggiunte al Centro sicurezza per aumentare la copertura del benchmark.
+Le 18 nuove raccomandazioni seguenti verranno aggiunte al Centro sicurezza per aumentare la copertura del benchmark.
 
 Le raccomandazioni in anteprima non contrassegnano una risorsa come non integra e non sono incluse nei calcoli del punteggio di sicurezza. Correggerle non appena possibile, in modo che possano contribuire al punteggio al termine del periodo di anteprima. Per altre informazioni su come rispondere a queste raccomandazioni, vedere [Correzione delle raccomandazioni nel Centro sicurezza di Azure](security-center-remediate-recommendations.md).
 
 - La soluzione Backup di Azure deve essere abilitata per le macchine virtuali
-- La conservazione dei controlli per i server SQL deve essere impostata su almeno 90 giorni
-- I log di diagnostica devono essere abilitati in Servizio app 
 - Il criterio Imponi connessione SSL deve essere abilitato per i server di database MySQL
 - Il criterio Imponi connessione SSL deve essere abilitato per i server di database PostgreSQL
-- L'app per le API deve usare FTPS
-- L'app per le funzioni deve usare FTPS
-- L'app Web deve usare FTPS
 - Il backup con ridondanza geografica deve essere abilitato per i database di Azure per MariaDB
 - Il backup con ridondanza geografica deve essere abilitato per i database di Azure per MySQL
 - Il backup con ridondanza geografica deve essere abilitato per i database di Azure per PostgreSQL
 - Java deve essere aggiornato all'ultima versione per l'app per le API
 - Java deve essere aggiornato all'ultima versione per l'app per le funzioni
 - Java deve essere aggiornato all'ultima versione per l'app Web
-- Nell'app per le API è necessario usare un'identità gestita
-- Nell'app per le funzioni è necessario usare un'identità gestita
-- Nell'app Web è necessario usare un'identità gestita
 - PHP deve essere aggiornato all'ultima versione per l'app per le API
 - PHP deve essere aggiornato all'ultima versione per l'app Web
 - L'endpoint privato deve essere abilitato per i server MariaDB
@@ -71,9 +63,6 @@ Le raccomandazioni in anteprima non contrassegnano una risorsa come non integra 
 - Python deve essere aggiornato all'ultima versione per l'app per le API
 - Python deve essere aggiornato all'ultima versione per l'app per le funzioni
 - Python deve essere aggiornato all'ultima versione per l'app Web
-- TLS deve essere aggiornato all'ultima versione per l'app per le API
-- TLS deve essere aggiornato all'ultima versione per l'app per le funzioni
-- TLS deve essere aggiornato all'ultima versione per l'app Web
 - Le app Web devono richiedere un certificato SSL per tutte le richieste in ingresso
 
 Collegamenti correlati:

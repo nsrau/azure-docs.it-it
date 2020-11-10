@@ -1,6 +1,6 @@
 ---
-title: Copiare i dati di Collegamento a Synapse per Azure Cosmos DB in un pool SQL con Apache Spark
-description: Caricare i dati in un dataframe Spark, curare i dati e caricarli in una tabella del pool SQL
+title: Copiare i dati di Collegamento a Synapse per Azure Cosmos DB in un pool SQL dedicato con Apache Spark
+description: Caricare i dati in un dataframe Spark, curare i dati e caricarli in una tabella del pool SQL dedicato
 services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
@@ -9,35 +9,35 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 409f1ecee5ccf42a0168d500b40337366e07bfc0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 13891f9614e658be39adbb69fed1503a0c66d5e4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287851"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309211"
 ---
-# <a name="copy-data-from-azure-cosmos-db-into-a-sql-pool-using-apache-spark"></a>Copiare dati da Azure Cosmos DB in un pool SQL con Apache Spark
+# <a name="copy-data-from-azure-cosmos-db-into-a-dedicated-sql-pool-using-apache-spark"></a>Copiare dati da Azure Cosmos DB in un pool SQL dedicato con Apache Spark
 
 Collegamento ad Azure Synapse per Azure Cosmos DB consente agli utenti di eseguire analisi quasi in tempo reale su dati operativi in Azure Cosmos DB. Talvolta, tuttavia, è necessario aggregare e arricchire alcuni dati per gli utenti dei data warehouse. Per curare ed esportare i dati di Collegamento a Synapse sono sufficienti poche celle in un notebook.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * [Effettuare il provisioning di un'area di lavoro di Synapse](../quickstart-create-workspace.md) con:
-    * [Pool Spark](../quickstart-create-apache-spark-pool-studio.md)
-    * [Pool SQL](../quickstart-create-sql-pool-studio.md)
+    * [Pool di Apache Spark serverless](../quickstart-create-apache-spark-pool-studio.md)
+    * [Pool SQL dedicato](../quickstart-create-sql-pool-studio.md)
 * [Effettuare il provisioning di un account Cosmos DB con un contenitore HTAP con dati](../../cosmos-db/configure-synapse-link.md)
 * [Connettere il contenitore HTAP di Azure Cosmos DB all'area di lavoro](./how-to-connect-synapse-link-cosmos-db.md)
-* [Avere la configurazione corretta per importare i dati da Spark a un pool SQL](../spark/synapse-spark-sql-pool-import-export.md)
+* [Avere la configurazione corretta per importare i dati da Spark in un pool SQL dedicato](../spark/synapse-spark-sql-pool-import-export.md)
 
 ## <a name="steps"></a>Passaggi
 In questa esercitazione si eseguirà la connessione all'archivio analitico, in modo da evitare qualsiasi impatto sull'archivio transazionale. Non verranno utilizzate unità richiesta. Si eseguiranno i passaggi seguenti:
 1. Leggere il contenitore HTAP di Cosmos DB in un dataframe Spark
 2. Aggregare i risultati in un nuovo dataframe
-3. Inserire i dati in un pool SQL
+3. Inserire i dati in un pool SQL dedicato
 
 [![Passaggi da Spark a SQL 1](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
 
 ## <a name="data"></a>Dati
-Nell'esempio si usa un contenitore HTAP denominato **RetailSales**, che fa parte di un servizio collegato denominato **ConnectedData** e presenta lo schema seguente:
+Nell'esempio si usa un contenitore HTAP denominato **RetailSales** , che fa parte di un servizio collegato denominato **ConnectedData** e presenta lo schema seguente:
 * _rid: string (nullable = true)
 * _ts: long (nullable = true)
 * logQuantity: double (nullable = true)
@@ -50,7 +50,7 @@ Nell'esempio si usa un contenitore HTAP denominato **RetailSales**, che fa parte
 * weekStarting: long (nullable = true)
 * _etag: string (nullable = true)
 
-Si aggregheranno le vendite (*quantity*, *revenue* (price x quantity) per *productCode* e *weekStarting* a scopo di report. Infine si esporteranno i dati in una tabella del pool SQL denominata **dbo.productsales**.
+Si aggregheranno le vendite ( *quantity* , *revenue* (price x quantity) per *productCode* e *weekStarting* a scopo di report. Infine si esporteranno i dati in una tabella del pool SQL dedicato denominata **dbo.productsales**.
 
 ## <a name="configure-a-spark-notebook"></a>Configurare un notebook Spark
 Creare un notebook Spark con Scala (Scala as Spark) come linguaggio principale. Per la sessione si usa l'impostazione predefinita del notebook.
@@ -67,7 +67,7 @@ val df_olap = spark.read.format("cosmos.olap").
 
 ## <a name="aggregate-the-results-in-a-new-dataframe"></a>Aggregare i risultati in un nuovo dataframe
 
-Nella seconda cella si eseguono la trasformazione e le aggregazioni necessarie per il nuovo dataframe prima di caricarlo in un database del pool SQL.
+Nella seconda cella si eseguono la trasformazione e le aggregazioni necessarie per il nuovo dataframe prima di caricarlo in un database del pool SQL dedicato.
 
 ```java
 // Select relevant columns and create revenue
@@ -77,12 +77,12 @@ val df_olap_aggr = df_olap_step1.groupBy("productCode","weekStarting").agg(sum("
     withColumn("AvgPrice",col("Sum_revenue")/col("Sum_quantity"))
 ```
 
-## <a name="load-the-results-into-a-sql-pool"></a>Caricare i risultati in un pool SQL
+## <a name="load-the-results-into-a-dedicated-sql-pool"></a>Caricare i risultati in un pool SQL dedicato
 
-Nella terza cella si caricano i dati in un pool SQL. Verranno creati automaticamente una tabella esterna, un'origine dati esterna e un formato di file esterno temporanei che verranno eliminati al termine del processo.
+Nella terza cella si caricano i dati in un pool SQL dedicato. Verranno creati automaticamente una tabella esterna, un'origine dati esterna e un formato di file esterno temporanei che verranno eliminati al termine del processo.
 
 ```java
-df_olap_aggr.write.sqlanalytics("arnaudpool.dbo.productsales", Constants.INTERNAL)
+df_olap_aggr.write.sqlanalytics("userpool.dbo.productsales", Constants.INTERNAL)
 ```
 
 ## <a name="query-the-results-with-sql"></a>Eseguire query sui risultati con SQL

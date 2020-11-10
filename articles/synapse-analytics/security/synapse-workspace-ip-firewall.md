@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2bac9645fa66cd33c7cda79f16628c1104e27d7d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 00b4f38f4a2a44b88718224db2b2442033816f83
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480548"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313886"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Regole del firewall IP di Azure Synapse Analytics (anteprima)
 
@@ -21,7 +21,7 @@ Questo articolo illustra le regole del firewall IP e spiega come configurarle in
 
 ## <a name="ip-firewall-rules"></a>Regole del firewall IP
 
-Le regole del firewall IP consentono di concedere o negare l'accesso all'area di lavoro di Synapse in base all'indirizzo IP di origine di ogni richiesta. È possibile configurare le regole del firewall IP per l'area di lavoro. Le regole del firewall IP configurate a livello di area di lavoro si applicano a tutti gli endpoint pubblici dell'area di lavoro (pool SQL, SQL su richiesta e di sviluppo).
+Le regole del firewall IP consentono di concedere o negare l'accesso all'area di lavoro di Synapse in base all'indirizzo IP di origine di ogni richiesta. È possibile configurare le regole del firewall IP per l'area di lavoro. Le regole del firewall IP configurate a livello di area di lavoro si applicano a tutti gli endpoint pubblici dell'area di lavoro (pool SQL dedicati, pool SQL serverless e sviluppo).
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>Creare e gestire le regole del firewall IP
 
@@ -37,7 +37,7 @@ Le regole del firewall IP consentono di concedere o negare l'accesso all'area di
 
 ## <a name="connect-to-synapse-from-your-own-network"></a>Connettersi a Synapse dalla propria rete
 
-Per connettersi all'area di lavoro di Synapse, usare Synapse Studio. È anche possibile usare SQL Server Management Studio (SSMS) per connettersi alle risorse SQL (pool SQL e SQL su richiesta) nell'area di lavoro.
+Per connettersi all'area di lavoro di Synapse, usare Synapse Studio. È anche possibile usare SQL Server Management Studio (SSMS) per connettersi alle risorse SQL (pool SQL dedicati e pool SQL serverless) nell'area di lavoro.
 
 Assicurarsi che il firewall nella rete e nel computer locale consenta la comunicazione TCP in uscita attraverso le porte TCP 80, 443 e 1443 per Synapse Studio.
 

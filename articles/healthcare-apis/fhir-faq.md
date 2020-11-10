@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 66ea8692fd3d93b8de9740e145404a8db50ebfdf
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 8f4d16931f09f94af81dd4e0f178ce6e0f990881
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398097"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426205"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Domande frequenti sull'API di Azure per FHIR
 
@@ -29,6 +29,9 @@ Sì, i dati vengono archiviati in database gestiti in Azure. L'API di Azure per 
 ### <a name="what-identity-provider-do-you-support"></a>Quale provider di identità supporta?
 
 Attualmente è supportato Microsoft Azure Active Directory come provider di identità.
+
+### <a name="what-is-the-recovery-point-objective-rpo-for-the-azure-api-for-fhir"></a>Qual è l'obiettivo del punto di ripristino (RPO) per l'API di Azure per FHIR?
+L'API di Azure per FHIR è supportata da Cosmos DB come provider di persistenza. Per questo motivo, il RPO per il servizio è uguale [Cosmos DB (area singola)](https://docs.microsoft.com/azure/cosmos-db/consistency-levels) e è < 240 minuti.
 
 ### <a name="what-fhir-version-do-you-support"></a>Quale versione di FHIR è supportata?
 

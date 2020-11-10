@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/19/2020
+ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: 6b154db25f1f13b60e4110d1b1866308ee952487
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 9ad004f65335d79205cbaddaa190b92a19c327d5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219791"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147284"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Guida introduttiva: Come iscriversi e caricare il primo video
 
@@ -27,8 +27,10 @@ Al momento della creazione di un account di Video Indexer, è possibile sceglier
 
 Per iniziare a eseguire attività di sviluppo con Video Indexer, visitare il sito Web di [Video Indexer](https://www.videoindexer.ai/) e iscriversi.
 
+Quando si inizia a usare Video Indexer, tutti i dati archiviati e i contenuti caricati inattivi vengono crittografati con una chiave gestita da Microsoft.
+
 > [!NOTE]
-> Quando si inizia a usare Video Indexer, tutti i dati archiviati e i contenuti caricati inattivi vengono crittografati con una chiave gestita da Microsoft.
+> Vedere le [modifiche pianificate per l'autenticazione del sito Web Video Indexer](release-notes.md#planned-video-indexer-website-authenticatication-changes).
 
 ## <a name="upload-a-video-using-the-video-indexer-website"></a>Caricare un video usando il sito Web di Video Indexer
 
@@ -49,12 +51,12 @@ Per un elenco dei formati di file che è possibile usare con Video Indexer, vede
 1. Dopo il caricamento del video, Video Indexer avvia l'indicizzazione e l'analisi. Viene visualizzato lo stato di avanzamento. 
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Upload":::
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Stato del caricamento":::
 1. Al termine dell'analisi si riceverà una notifica con un collegamento al video e una breve descrizione del relativo contenuto, ad esempio persone, parole pronunciate e scritte, argomenti ed entità denominate.
 1. In un secondo momento è possibile trovare il video nell'elenco di librerie ed eseguire operazioni diverse, ad esempio ricerca, reindicizzazione, modifica.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Upload":::
+    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Caricamento completato":::
  
 ## <a name="see-also"></a>Vedere anche
 

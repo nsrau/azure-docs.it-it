@@ -1,6 +1,6 @@
 ---
 title: Modello di metadati condivisi
-description: Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle tra i pool di Spark (anteprima), il motore SQL su richiesta (anteprima) e i pool SQL.
+description: Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle tra i pool di Apache Spark serverless (anteprima), il pool SQL serverless (anteprima) e i pool SQL dedicati.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 64c19f3331be8ffda433207da88ebf22c546ee4e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87387337"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324666"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Metadati condivisi di Azure Synapse Analytics
 
-Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle tra i pool di Spark (anteprima) e il motore SQL su richiesta (anteprima).
+Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle tra i pool di Apache Spark serverless (anteprima) e il pool SQL serverless (anteprima).
 
 [!INCLUDE [preview](../includes/note-preview.md)]
 
@@ -32,7 +32,7 @@ Il modello di metadati condivisi supporta il modello di data warehouse moderno n
 
 2. I database creati da Spark e tutte le relative tabelle diventano visibili in una qualsiasi istanza del pool di Spark dell'area di lavoro di Azure Synapse e possono essere usati da qualsiasi processo Spark. Questa funzionalità è soggetta alle [autorizzazioni](#security-model-at-a-glance), poiché tutti i pool di Spark in un'area di lavoro condividono lo stesso archivio di metadati del catalogo sottostante.
 
-3. I database creati da Spark e le relative tabelle basate su Paquet diventano visibili nel motore SQL su richiesta dell'area di lavoro. I [database](database.md) vengono creati automaticamente nei metadati di SQL su richiesta e le [tabelle esterne e gestite](table.md) create da un processo Spark vengono entrambe rese accessibili come tabelle esterne nei metadati di SQL su richiesta nello schema `dbo` del database corrispondente. 
+3. I database creati da Spark e le relative tabelle basate su Parquet diventano visibili nel pool SQL serverless dell'area di lavoro. I [database](database.md) vengono creati automaticamente nei metadati del pool SQL serverless e le [tabelle esterne e gestite](table.md) create da un processo Spark vengono entrambe rese accessibili come tabelle esterne nei metadati del pool SQL serverless nello schema `dbo` del database corrispondente. 
 
 <!--[INSERT PICTURE]-->
 
@@ -52,7 +52,7 @@ Per altre informazioni, vedere [Database condiviso di Azure Synapse Analytics](d
 
 ## <a name="change-maintenance"></a>Modificare la manutenzione
 
-Se un oggetto di metadati viene eliminato o modificato con Spark, le modifiche vengono propagate al motore SQL su richiesta. La sincronizzazione è asincrona e le modifiche vengono applicate al motore SQL con un breve ritardo.
+Se un oggetto di metadati viene eliminato o modificato con Spark, le modifiche vengono propagate al pool SQL serverless. La sincronizzazione è asincrona e le modifiche vengono applicate al motore SQL con un breve ritardo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

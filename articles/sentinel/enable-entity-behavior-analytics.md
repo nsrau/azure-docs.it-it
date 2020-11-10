@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2020
 ms.author: yelevin
-ms.openlocfilehash: b769703f7e7054571a3b65a021c0123d8ae07078
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 140228a65be166bc172e81267c4449b49621e02c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148236"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425780"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Abilitare l'analisi del comportamento dell'utente e dell'entità (offrono dati) in Sentinel di Azure 
 
 > [!IMPORTANT]
 >
-> - La funzionalità offrono dati è ora disponibile a livello **generale** nelle aree geografiche e nelle aree seguenti di Azure Sentinel:
+> - Le funzionalità di offrono dati e delle pagine di entità sono ora disponibili a livello **generale** nelle aree geografiche e aree geografiche di Sentinel di Azure seguenti:
 >    - Geografia Stati Uniti
 >    - Area Europa occidentale
 >    - Geografia dell'Australia
 >
-> - In tutte le altre aree geografiche e aree, questa funzionalità rimane per il tempo disponibile in **anteprima pubblica** e viene fornita senza un contratto di servizio. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> - In tutte le altre aree geografiche e aree, queste funzionalità restano per il periodo di **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali aggiuntive che si applicano alle funzionalità di Azure disponibili in versione beta, in anteprima o non ancora rilasciate a livello generale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -48,13 +48,13 @@ Per abilitare o disabilitare questa funzionalità (questi prerequisiti non sono 
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>Come abilitare l'analisi del comportamento dell'utente e dell'entità
 
-1. Dal menu di navigazione di Azure Sentinel selezionare **comportamento entità** .
+1. Dal menu di navigazione di Azure Sentinel selezionare **comportamento entità**.
 
-1. Sotto l'intestazione **attiva** , impostare l'interruttore **su on** .
+1. Sotto l'intestazione **attiva** , impostare l'interruttore **su on**.
 
 1. Fare clic sul pulsante **Seleziona origini dati** .
 
-1. Nel riquadro di **selezione dell'origine dati** selezionare le caselle di controllo accanto alle origini dati in cui si desidera abilitare offrono dati, quindi selezionare **applica** .
+1. Nel riquadro di **selezione dell'origine dati** selezionare le caselle di controllo accanto alle origini dati in cui si desidera abilitare offrono dati, quindi selezionare **applica**.
 
     > [!NOTE]
     >
@@ -62,7 +62,7 @@ Per abilitare o disabilitare questa funzionalità (questi prerequisiti non sono 
     >
     > Dopo aver abilitato offrono dati, si avrà l'opzione, quando si connettono nuove origini dati, per abilitarle per offrono dati direttamente dal riquadro connettore dati, se sono compatibili con offrono dati.
 
-1. Selezionare **Vai a ricerca entità** . Verrà visualizzato il riquadro ricerca entità, che da ora in poi sarà ciò che viene visualizzato quando si sceglie **comportamento entità** dal menu principale di Azure Sentinel.
+1. Selezionare **Vai a ricerca entità**. Verrà visualizzato il riquadro ricerca entità, che da ora in poi sarà ciò che viene visualizzato quando si sceglie **comportamento entità** dal menu principale di Azure Sentinel.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come abilitare e configurare l'analisi del comportamento dell'utente e dell'entità (offrono dati) in Sentinel di Azure. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:

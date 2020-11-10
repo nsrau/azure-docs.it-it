@@ -4,12 +4,12 @@ ms.topic: include
 ms.date: 11/09/2018
 author: linda33wj
 ms.author: jingwang
-ms.openlocfilehash: c0fcdf1cf69c55f63288138bc7377a78295cb2be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 34848b638ff0c7f7b9d1a2f3e5894339f8310ccc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86544820"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135973"
 ---
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
@@ -17,13 +17,13 @@ La pipeline crea automaticamente la cartella di output nel contenitore BLOB adft
 
 1. Nella pagina del contenitore **adftutorial** del portale di Azure selezionare **Aggiorna** per visualizzare la cartella di output. 
     
-    ![Aggiorna](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
+    ![Screenshot che mostra la pagina del contenitore in cui è possibile aggiornare la pagina.](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
 
 2. Nell'elenco delle cartelle selezionare **output**. 
 
 3. Verificare che **emp.txt** venga copiato nella cartella di output. 
 
-    ![Aggiorna](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
+    ![Screenshot che mostra il contenuto della cartella di output.](media/data-factory-quickstart-verify-output-cleanup/output-file.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

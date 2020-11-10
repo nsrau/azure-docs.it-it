@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 10/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: b454ced085ec3d73f3ca0f761abb6c5de44244ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f52b8d4e56ec854f93940ea77f09c3dff1d362e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594340"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096003"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Cosa sono le verifiche di accesso di Azure AD?
 
@@ -46,11 +46,11 @@ Azure AD consente di collaborare con utenti all'interno dell'organizzazione e co
 
 - **Troppi utenti nei ruoli con privilegi:** è opportuno verificare quanti utenti hanno accesso amministrativo, quanti sono amministratori globali e se sono presenti utenti guest o partner invitati che non sono stati rimossi dopo l'assegnazione a un'attività amministrativa. È possibile ricertificare gli utenti a cui sono assegnati i [ruoli di Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), ad esempio gli amministratori globali, o i [ruoli delle risorse di Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), ad esempio il ruolo Amministratore Accesso utenti, tramite l'esperienza di [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md).
 - **Quando l'automazione non è possibile:** è possibile creare regole per l'appartenenza dinamica ai gruppi di sicurezza o a Gruppi di Microsoft 365, ma cosa succede se i dati delle risorse umane non si trovano in Azure AD o se gli utenti necessitano ancora dell'accesso dopo aver lasciato il gruppo per contribuire a formare i loro sostituti? È possibile creare una verifica per tale gruppo per assicurarsi che gli utenti che necessitano ancora dell'accesso dispongano di accesso continuo.
-- **Quando un gruppo viene usato per un nuovo scopo**: se c'è un gruppo che deve essere sincronizzato con Azure AD o se si prevede di abilitare l'applicazione Salesforce per tutti gli utenti nel gruppo del team di vendita, può essere utile chiedere al proprietario del gruppo di verificare l'appartenenza al gruppo prima che il gruppo venga usato in un ambito di rischio diverso.
-- **Accesso ai dati business critical**: per determinate risorse, può essere necessario chiedere a persone esterne all'IT di disconnettersi regolarmente e di fornire una giustificazione in merito al motivo per cui devono eseguire l'accesso a scopo di controllo.
+- **Quando un gruppo viene usato per un nuovo scopo** : se c'è un gruppo che deve essere sincronizzato con Azure AD o se si prevede di abilitare l'applicazione Salesforce per tutti gli utenti nel gruppo del team di vendita, può essere utile chiedere al proprietario del gruppo di verificare l'appartenenza al gruppo prima che il gruppo venga usato in un ambito di rischio diverso.
+- **Accesso ai dati business critical** : per determinate risorse, può essere necessario chiedere a persone esterne all'IT di disconnettersi regolarmente e di fornire una giustificazione in merito al motivo per cui devono eseguire l'accesso a scopo di controllo.
 - **Per mantenere l'elenco eccezioni dei criteri:** in una situazione ideale, tutti gli utenti seguono gli stessi criteri di accesso per proteggere l'accesso alle risorse dell'organizzazione. Esistono tuttavia casi aziendali che richiedono di introdurre eccezioni. L'amministratore IT può gestire questa attività, evitare problemi di supervisione delle eccezioni dei criteri e fornire ai revisori una prova che queste eccezioni vengono esaminate periodicamente.
 - **Chiedere ai proprietari dei gruppi di confermare che hanno ancora bisogno di guest nei loro gruppi:** l'accesso dei dipendenti potrebbe essere automatizzato con gestione delle identità e degli accessi (IAM) in locale, ma non con utenti guest invitati. Se un gruppo assegna a utenti guest l'accesso a contenuti aziendali sensibili, è responsabilità del proprietario del gruppo confermare che gli utenti abbiano ancora un'esigenza aziendale legittima per tale accesso.
-- **Impostare verifiche periodiche**: è possibile configurare verifiche di accesso periodiche per gli utenti in base a una frequenza specifica, ad esempio settimanale, mensile, trimestrale o annuale, e i revisori riceveranno una notifica all'inizio di ogni verifica. I revisori possono approvare o negare l'accesso con un'interfaccia utente semplice da usare e con l'aiuto di consigli intelligenti.
+- **Impostare verifiche periodiche** : è possibile configurare verifiche di accesso periodiche per gli utenti in base a una frequenza specifica, ad esempio settimanale, mensile, trimestrale o annuale, e i revisori riceveranno una notifica all'inizio di ogni verifica. I revisori possono approvare o negare l'accesso con un'interfaccia utente semplice da usare e con l'aiuto di consigli intelligenti.
 
 >[!NOTE]
 >Se si è pronti per provare le verifiche di accesso, vedere [Creare una verifica di accesso dei gruppi o delle applicazioni](create-access-review.md).
@@ -81,7 +81,7 @@ Per la directory è necessario un numero di licenze di Azure AD Premium P2 pari 
 
 **Non** sono necessarie licenze di Azure AD Premium P2 per gli utenti con ruolo Amministratore globale o Amministratore utenti che configurano le verifiche di accesso o le impostazioni o che applicano le decisioni delle verifiche.
 
-Per ogni licenza di Azure AD Premium P2 a pagamento assegnata a uno degli utenti della propria organizzazione, è possibile usare Azure AD B2B (business-to-business) per invitare fino a cinque utenti guest in base al limite di utenti esterni. Questi utenti guest possono anche usare le funzionalità di Azure AD Premium P2. Per altre informazioni, vedere [Linee guida sulle licenze per la collaborazione di Azure AD B2B](../external-identities/licensing-guidance.md).
+L'accesso di utenti guest di Azure AD segue il modello di fatturazione basato sugli utenti attivi mensili, che sostituisce il modello di fatturazione basato sul rapporto 1:5. Per altre informazioni, vedere i [prezzi delle identità esterne di Azure AD](../external-identities/external-identities-pricing.md).
 
 Per altre informazioni sulle licenze, vedere [Assegnare o rimuovere licenze usando il portale di Azure Active Directory](../fundamentals/license-users-groups.md).
 

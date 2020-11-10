@@ -9,22 +9,22 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 394521156d6192d25c3a4d254ac2c9b94c6231f5
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1a78142ded7be46bdc06c49d6e0a26ef8b266300
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093549"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318394"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consumo di risorse di Synapse SQL
 
 Questo articolo descrive i modelli di consumo di risorse di Synapse SQL (anteprima).
 
-## <a name="sql-on-demand"></a>SQL su richiesta
+## <a name="serverless-sql-pool"></a>Pool SQL serverless
 
-SQL su richiesta è un servizio con pagamento in base a query che non richiede di scegliere le dimensioni corrette. Il sistema si adatta automaticamente in base ai requisiti, evitando la necessità di gestire l'infrastruttura e di selezionare le dimensioni corrette per la soluzione.
+Il pool SQL serverless è un servizio con pagamento in base a query che non richiede di selezionare le dimensioni corrette. Il sistema si adatta automaticamente in base ai requisiti, evitando la necessità di gestire l'infrastruttura e di selezionare le dimensioni corrette per la soluzione.
 
-## <a name="sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Pool SQL - Unità Data Warehouse (DWU) e unità Data Warehouse a elevato utilizzo di calcolo (cDWU)
+## <a name="dedicated-sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Pool SQL dedicato - Unità Data Warehouse (DWU) e unità Data Warehouse a elevato utilizzo di calcolo (cDWU)
 
 Raccomandazioni per la scelta del numero ideale di unità Data Warehouse (DWU) per ottimizzare prezzo e prestazioni e informazioni su come cambiarne il numero.
 
@@ -50,12 +50,12 @@ L'aumento delle DWU:
 
 L'obiettivo del livello di servizio (SLO) è l'impostazione di scalabilità che determina il livello di costi e prestazioni del data warehouse. I livelli di servizio per la seconda generazione sono misurati in unità di calcolo data warehouse (DWU a elevato utilizzo di calcolo), ad esempio DW2000c. I livelli di servizio di prima generazione sono misurati in DWU, ad esempio DW2000.
 
-L'obiettivo del livello di servizio (SLO) è l'impostazione di scalabilità che determina il livello di costi e prestazioni del data warehouse. I livelli di servizio per il pool SQL Gen2 sono misurati in unità Data Warehouse, ad esempio DW2000c.
+L'obiettivo del livello di servizio (SLO) è l'impostazione di scalabilità che determina il livello di costi e prestazioni del data warehouse. I livelli di servizio per il pool SQL dedicato Gen2 sono misurati in Unità Data Warehouse (DWU), ad esempio DW2000c.
 
 > [!NOTE]
 > In Azure Synapse Analytics Gen2 sono state di recente aggiunte altre funzionalità di dimensionamento per supportare livelli di calcolo di 100 DWU a elevato utilizzo di calcolo. I data warehouse esistenti attualmente su Gen1 che richiedono i livelli di calcolo più bassi possono ora eseguire l'aggiornamento a Gen2 nelle aree attualmente disponibili senza costi aggiuntivi.  Se la propria area non è ancora supportata, è comunque possibile eseguire l'aggiornamento a un'area supportata. Per altre informazioni, vedere [Aggiornamento a Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-In T-SQL l'impostazione di SERVICE_OBJECTIVE determina il livello di servizio e il livello di prestazioni per il pool SQL.
+In T-SQL l'impostazione SERVICE_OBJECTIVE determina il livello di servizio e il livello di prestazioni per il pool SQL dedicato.
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -204,7 +204,7 @@ AND       major_resource_id = 'MySQLDW'
 ;
 ```
 
-Questa DMV restituisce informazioni sulle varie operazioni di gestione nel pool SQL, ad esempio l'operazione e il relativo stato, che può essere IN_PROGRESS o COMPLETED.
+Questa DMV restituisce informazioni sulle varie operazioni di gestione nel pool SQL dedicato, ad esempio l'operazione e il relativo stato, che può essere IN_PROGRESS o COMPLETED.
 
 ### <a name="the-scaling-workflow"></a>Flusso di lavoro del ridimensionamento
 

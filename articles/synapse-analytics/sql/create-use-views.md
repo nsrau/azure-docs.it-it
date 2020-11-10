@@ -1,6 +1,6 @@
 ---
-title: Creare e usare viste in SQL su richiesta (anteprima)
-description: Questa sezione illustra come creare e usare viste per il wrapping di query di SQL su richiesta (anteprima). Le viste consentono di riutilizzare tali query. Sono anche necessarie se si vogliono usare strumenti, come Power BI, in combinazione con SQL su richiesta.
+title: Creare e usare viste nel pool SQL serverless (anteprima)
+description: Questa sezione illustra come creare e usare viste per il wrapping delle query del pool SQL serverless (anteprima). Le viste consentono di riutilizzare tali query. Sono anche necessarie se si vogliono usare strumenti, come Power BI, in combinazione con il pool SQL serverless.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: f91611ab3c75a96f13ab84312ca0b2157e69af0d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d578529839afb5393dd013cb10f48c755f08addd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289311"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316242"
 ---
-# <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Creare e usare viste in SQL su richiesta (anteprima) con Azure Synapse Analytics
+# <a name="create-and-use-views-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Creare e usare viste usando il pool SQL serverless (anteprima) in Azure Synapse Analytics
 
-Questa sezione illustra come creare e usare viste per il wrapping di query di SQL su richiesta (anteprima). Le viste consentono di riutilizzare tali query. Sono anche necessarie se si vogliono usare strumenti, come Power BI, in combinazione con SQL su richiesta.
+Questa sezione illustra come creare e usare viste per il wrapping delle query del pool SQL serverless (anteprima). Le viste consentono di riutilizzare tali query. Sono anche necessarie se si vogliono usare strumenti, come Power BI, in combinazione con il pool SQL serverless.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -57,7 +57,7 @@ WITH (
 
 La vista in questo esempio applica la funzione `OPENROWSET` che usa il percorso assoluto dei file sottostanti. Se si dispone di `EXTERNAL DATA SOURCE` con un URL radice della risorsa di archiviazione, è possibile usare `OPENROWSET` con `DATA_SOURCE` e relativo il percorso di file:
 
-```
+```sql
 CREATE VIEW TaxiView
 AS SELECT *, nyc.filepath(1) AS [year], nyc.filepath(2) AS [month]
 FROM

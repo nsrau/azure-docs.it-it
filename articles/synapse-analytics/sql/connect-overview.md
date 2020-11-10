@@ -10,17 +10,17 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bbd82f856213bb36e71625eabc8bce9999ccd53f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 532ada430e7ff2ae76eb0cfbc389792bb0d98209
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289396"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322658"
 ---
 # <a name="connect-to-synapse-sql"></a>Connettersi a Synapse SQL
 Connettersi alla funzionalità Synapse SQL in Azure Synapse Analytics.
 
-## <a name="supported-tools-for-sql-on-demand-preview"></a>Strumenti supportati per SQL su richiesta (anteprima)
+## <a name="supported-tools-for-serverless-sql-pool-preview"></a>Strumenti supportati per il pool SQL serverless (anteprima)
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) è completamente supportato a partire dalla versione 1.18.0. SSMS è parzialmente supportato a partire dalla versione 18.5 ed è possibile usarlo solo per connettersi ed eseguire query.
 
@@ -31,8 +31,8 @@ Connettersi alla funzionalità Synapse SQL in Azure Synapse Analytics.
 
 ## <a name="find-your-server-name"></a>Trovare il nome del server
 
-Il nome del server per il pool SQL nell'esempio seguente è showdemoweu.sql.azuresynapse.net.
-Il nome del server per SQL su richiesta nell'esempio seguente è showdemoweu-ondemand.sql.azuresynapse.net.
+Il nome del pool SQL dedicato nell'esempio seguente è showdemoweu.sql.azuresynapse.net.
+Il nome del server per il pool SQL serverless nell'esempio seguente è showdemoweu-ondemand.sql.azuresynapse.net.
 
 Per trovare il nome completo del server, procedere come segue:
 
@@ -46,9 +46,9 @@ Per trovare il nome completo del server, procedere come segue:
 
 ![Nome completo del server](./media/connect-overview/server-connect-example.png)
 
-## <a name="sql-on-demand"></a>**SQL su richiesta**
+## <a name="serverless-sql-pool"></a>**Pool SQL serverless**
 
-![Nome completo del server SQL su richiesta](./media/connect-overview/server-connect-example-sqlod.png)
+![Pool SQL serverless con nome del server completo](./media/connect-overview/server-connect-example-sqlod.png)
 
 ## <a name="supported-drivers-and-connection-strings"></a>Driver supportati e stringhe di connessione
 Synapse SQL supporta [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396) e [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Per trovare la versione e la documentazione più recenti, selezionare uno dei driver precedenti. Per generare automaticamente la stringa di connessione per il driver in uso dal portale di Azure, selezionare **Mostra stringhe di connessione del database** nell'esempio precedente. Di seguito sono riportati alcuni esempi di come si presenta la stringa di connessione per ogni driver.
@@ -92,7 +92,7 @@ Synapse SQL standardizza alcune impostazioni durante la connessione e la creazio
 
 ## <a name="recommendations"></a>Consigli
 
-Per l'esecuzione di query di **SQL su richiesta**, gli strumenti consigliati sono [Azure Data Studio](get-started-azure-data-studio.md) e Azure Synapse Studio.
+Per eseguire le query del **pool SQL serverless** , gli strumenti consigliati sono [Azure Data Studio](get-started-azure-data-studio.md) e Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per connettersi ed eseguire query con Visual Studio, vedere [Eseguire query con Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Per altre informazioni sulle opzioni di autenticazione, vedere [Autenticazione in Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

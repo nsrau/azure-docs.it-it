@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78ea26adb8299cc13d4677c66a0e06cba901d9dc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 00cb63f63ffb1f2e10a276cfdeee9c5e8e1022de
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977375"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427378"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
 
@@ -76,7 +76,7 @@ L'agente guest di Windows non dispone del supporto per il server proxy per il re
 
 ## <a name="discover-vm-extensions"></a>Individuare le estensioni della macchina virtuale
 
-Sono disponibili molte estensioni diverse delle macchine virtuali da usare con macchine virtuali di Azure. Per visualizzare un elenco completo usare [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). L'esempio seguente elenca tutte le estensioni disponibili nella posizione *WestUS*:
+Sono disponibili molte estensioni diverse delle macchine virtuali da usare con macchine virtuali di Azure. Per visualizzare un elenco completo usare [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). L'esempio seguente elenca tutte le estensioni disponibili nella posizione *WestUS* :
 
 ```powershell
 Get-AzVmImagePublisher -Location "WestUS" | `
@@ -92,7 +92,7 @@ Per eseguire un'estensione in una macchina virtuale esistente, è possibile usar
 
 ### <a name="powershell"></a>PowerShell
 
-Molti comandi di PowerShell vengono utilizzati per l'esecuzione di estensioni singole. Per visualizzare un elenco, usare [Get-Command](/powershell/module/microsoft.powershell.core/get-command) e applicare il filtro *Estensione*:
+Molti comandi di PowerShell vengono utilizzati per l'esecuzione di estensioni singole. Per visualizzare un elenco, usare [Get-Command](/powershell/module/microsoft.powershell.core/get-command) e applicare il filtro *Estensione* :
 
 ```powershell
 Get-Command Set-Az*Extension* -Module Az.Compute
@@ -142,7 +142,7 @@ Il comando `Set-AzVMExtension` può essere utilizzato per avviare qualsiasi este
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Le estensioni macchina virtuale possono essere applicate a una macchina virtuale esistente tramite il portale di Azure. Selezionare la macchina virtuale nel portale, scegliere **Estensioni**, quindi selezionare **Aggiungi**. Scegliere l'estensione desiderata dall'elenco di quelle disponibili e quindi seguire le istruzioni della procedura guidata.
+Le estensioni macchina virtuale possono essere applicate a una macchina virtuale esistente tramite il portale di Azure. Selezionare la macchina virtuale nel portale, scegliere **Estensioni** , quindi selezionare **Aggiungi**. Scegliere l'estensione desiderata dall'elenco di quelle disponibili e quindi seguire le istruzioni della procedura guidata.
 
 L'esempio seguente illustra l'installazione dell'estensione Microsoft Antimalware dal portale di Azure:
 
@@ -286,7 +286,7 @@ Microsoft.Compute     CustomScriptExtension                1.9
 
 #### <a name="agent-updates"></a>Aggiornamenti dell'agente
 
-L'agente guest di Windows contiene solo il *codice Extension Handling*; il *codice Windows Provisioning* è separato. È possibile disinstallare l'agente guest di Windows. Non è possibile disabilitare l'aggiornamento automatico dell'agente guest di Windows.
+L'agente guest di Windows contiene solo il *codice Extension Handling* ; il *codice Windows Provisioning* è separato. È possibile disinstallare l'agente guest di Windows. Non è possibile disabilitare l'aggiornamento automatico dell'agente guest di Windows.
 
 Il *codice di gestione delle estensioni* è responsabile della comunicazione con l'infrastruttura di Azure e della gestione delle operazioni di estensione macchina virtuale, ad esempio installazioni, stato della creazione di report, aggiornamento e rimozione delle singole estensioni. Gli aggiornamenti contengono correzioni per la sicurezza, correzioni di bug e miglioramenti al *codice di gestione delle estensioni*.
 
@@ -294,7 +294,7 @@ Per verificare la versione in esecuzione, vedere [Detecting installed Windows Gu
 
 #### <a name="extension-updates"></a>Aggiornamenti delle estensioni
 
-Quando è disponibile l'aggiornamento di un'estensione, l'agente guest di Windows lo scarica e lo installa. Gli aggiornamenti automatici delle estensioni sono *secondari* oppure *aggiornamenti rapidi*. È possibile accettare o rifiutare esplicitamente gli aggiornamenti *secondari* delle estensioni quando si effettua il provisioning dell'estensione. L'esempio seguente mostra come aggiornare automaticamente le versioni secondarie in un modello di Resource Manager con *autoUpgradeMinorVersion": true,'*:
+Quando è disponibile l'aggiornamento di un'estensione, l'agente guest di Windows lo scarica e lo installa. Gli aggiornamenti automatici delle estensioni sono *secondari* oppure *aggiornamenti rapidi*. È possibile accettare o rifiutare esplicitamente gli aggiornamenti *secondari* delle estensioni quando si effettua il provisioning dell'estensione. L'esempio seguente mostra come aggiornare automaticamente le versioni secondarie in un modello di Resource Manager con *autoUpgradeMinorVersion": true,'* :
 
 ```json
     "properties": {
@@ -322,7 +322,7 @@ Per ottenere le più recenti versioni secondarie delle correzioni di bug, si con
  $vm.Extensions
 ```
 
-L'output di esempio seguente mostra che *autoUpgradeMinorVersion* è impostato su *true*:
+L'output di esempio seguente mostra che *autoUpgradeMinorVersion* è impostato su *true* :
 
 ```powershell
 ForceUpdateTag              :
@@ -336,7 +336,7 @@ AutoUpgradeMinorVersion     : True
 
 Per vedere quando è stato eseguito un aggiornamento dell'estensione, esaminare i log dell'agente nella macchina virtuale in *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-Nell'esempio seguente nella macchina virtuale era installato *Microsoft.Compute.CustomScriptExtension 1.8*. Era disponibile un aggiornamento rapido alla versione *1.9*:
+Nell'esempio seguente nella macchina virtuale era installato *Microsoft.Compute.CustomScriptExtension 1.8*. Era disponibile un aggiornamento rapido alla versione *1.9* :
 
 ```powershell
 [INFO]  Getting plugin locations for plugin 'Microsoft.Compute.CustomScriptExtension'. Current Version: '1.8', Requested Version: '1.9'
@@ -355,7 +355,7 @@ I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le est
 
 1. Per controllare il log dell'agente guest di Windows, esaminare l'attività quando è in corso il provisioning dell'estensione in *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-2. Per altri dettagli, vedere i log di estensione effettivi in *C:\WindowsAzure\Logs\Plugins \<extensionName> *
+2. Per altri dettagli, vedere i log di estensione effettivi in *C:\WindowsAzure\Logs\Plugins \\ <extensionName>*
 
 3. Controllare le sezioni della documentazione sulla risoluzione dei problemi specifica per l'estensione relative a codici di errore, problemi noti e così via.
 
@@ -371,7 +371,7 @@ I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le est
 
 ### <a name="view-extension-status"></a>Visualizzare lo stato dell'estensione
 
-Dopo l'esecuzione di un'estensione della macchina virtuale su una macchina virtuale, usare [Get-AzVM](/powershell/module/az.compute/get-azvm) per restituire lo stato dell'estensione. *Substatuses[0]* indica che il provisioning dell'estensione ha avuto esito positivo, vale a dire che l'estensione è stata distribuita alla macchina virtuale, ma l'esecuzione dell'estensione nella macchina virtuale ha avuto esito negativo (*Substatuses[1]*).
+Dopo l'esecuzione di un'estensione della macchina virtuale su una macchina virtuale, usare [Get-AzVM](/powershell/module/az.compute/get-azvm) per restituire lo stato dell'estensione. *Substatuses[0]* indica che il provisioning dell'estensione ha avuto esito positivo, vale a dire che l'estensione è stata distribuita alla macchina virtuale, ma l'esecuzione dell'estensione nella macchina virtuale ha avuto esito negativo ( *Substatuses[1]* ).
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
@@ -421,7 +421,7 @@ Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "
 4. Scegliere **Disinstalla**.
 
 ## <a name="common-vm-extensions-reference"></a>Riferimento alle estensioni della macchina virtuale comuni
-| Nome estensione | Descrizione | Ulteriori informazioni |
+| Nome estensione | Descrizione | Altre informazioni |
 | --- | --- | --- |
 | Estensione Script personalizzato per Windows |Eseguire script su una macchina virtuale di Azure. |[Estensione Script personalizzato per Windows](custom-script-windows.md) |
 | Estensione DSC per Windows |Estensione PowerShell DSC (Desired State Configuration) |[Estensione DSC per Windows](dsc-overview.md) |

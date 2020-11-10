@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 5194e088ce2bd35208a92c5295457e6c34cd2cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18504f1ed4200889b20c9608c9c0ad2c13c9aaa5
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570325"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425763"
 ---
 # <a name="wildcard-domains"></a>Domini con caratteri jolly
 
@@ -27,7 +27,7 @@ Gli scenari principali migliorati con il supporto per i domini con caratteri jol
 - Se un'applicazione aggiunge un nuovo sottodominio, non è più necessario modificare la configurazione della porta di ingresso di Azure di produzione. In precedenza era necessario aggiungere il sottodominio, associarvi un certificato, allegare un criterio web application firewall (WAF) e quindi aggiungere il dominio a diverse regole di routing.
 
 > [!NOTE]
-> Attualmente, i domini con caratteri jolly sono supportati solo tramite API, PowerShell e l'interfaccia della riga di comando di Azure. Il supporto per l'aggiunta e la gestione di domini con caratteri jolly nell'portale di Azure non è disponibile.
+> Attualmente, l'aggiunta di domini con caratteri jolly tramite DNS di Azure è supportata solo tramite API, PowerShell e l'interfaccia della riga di comando di Azure. Il supporto per l'aggiunta e la gestione di domini con caratteri jolly nell'portale di Azure non è disponibile.
 
 ## <a name="adding-wildcard-domains"></a>Aggiunta di domini con caratteri jolly
 

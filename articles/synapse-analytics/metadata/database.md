@@ -1,6 +1,6 @@
 ---
 title: Database condiviso
-description: Azure Synapse Analytics offre un modello di metadati condivisi che consente di creare una tabella in Apache Spark accessibile dai motori SQL su richiesta (anteprima) e di pool SQL.
+description: Azure Synapse Analytics offre un modello di metadati condivisi per cui la creazione di un database nel pool di Apache Spark serverless lo renderà accessibile dai motori del pool SQL serverless (anteprima) e del pool SQL.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,36 +10,36 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58c1aea944d89872a79d0672a925b1696791c1a8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e17eb44a5f4f4aace9ce9d541b8218b35db0f5d3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260853"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317830"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Database condiviso di Azure Synapse Analytics
 
-Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle tra i pool di Spark (anteprima) e il motore SQL su richiesta (anteprima).
+Azure Synapse Analytics consente ai diversi motori di calcolo delle aree di lavoro di condividere database e tabelle tra i pool di Apache Spark serverless (anteprima) e il motore del pool SQL serverless (anteprima).
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Un database creato con un processo Spark diventerà visibile con lo stesso nome a tutti i pool di Spark (anteprima) correnti e futuri nell'area di lavoro, incluso il motore SQL su richiesta.
+Un database creato con un processo Spark diventerà visibile con lo stesso nome a tutti i pool di Spark (anteprima) correnti e futuri nell'area di lavoro, incluso il motore del pool SQL serverless.
 
-Il database predefinito Spark, denominato `default`, sarà visibile anche nel contesto SQL su richiesta come database denominato `default`.
+Il database predefinito di Spark, denominato `default`, sarà visibile anche nel contesto del pool SQL serverless come database denominato `default`.
 
-Poiché i database vengono sincronizzati con SQL su richiesta in modo asincrono, vengono visualizzati con un ritardo.
+Poiché i database vengono sincronizzati con il pool SQL serverless in modo asincrono, vengono visualizzati con un ritardo.
 
 ## <a name="manage-a-spark-created-database"></a>Gestire un database creato in Spark
 
 Usare Spark per gestire i database creati in Spark. Ad esempio, eliminare un database tramite un processo del pool di Spark e crearvi tabelle da Spark.
 
-Se si creano oggetti in un database creato in Spark usando SQL su richiesta o se si cerca di eliminare il database, l'operazione riesce, ma il database Spark originale non viene modificato.
+Se si creano oggetti in un database creato in Spark usando il pool SQL serverless, o se si prova a eliminare il database, l'operazione riesce, ma il database Spark originale non viene modificato.
 
 ## <a name="how-name-conflicts-are-handled"></a>Come vengono gestiti i conflitti di nome
 
-Se il nome di un database Spark è in conflitto con il nome di un database SQL su richiesta esistente, in SQL su richiesta viene aggiunto un suffisso al database Spark. Il suffisso in SQL su richiesta è `_<workspace name>-ondemand-DefaultSparkConnector`.
+Se il nome di un database di Spark è in conflitto con il nome di un database del pool SQL serverless, nel pool SQL serverless viene aggiunto un suffisso al database di Spark. Il suffisso nel pool SQL serverless è `_<workspace name>-ondemand-DefaultSparkConnector`.
 
-Ad esempio, se viene creato un database Spark denominato `mydb` nell'area di lavoro di Azure Synapse `myws` ed esiste già un database SQL su richiesta con lo stesso nome, è necessario fare riferimento al database Spark in SQL su richiesta usando il nome `mydb_myws-ondemand-DefaultSparkConnector`.
+Ad esempio, se viene creato un database di Spark denominato `mydb` nell'area di lavoro di Azure Synapse `myws` ed esiste già un database del pool SQL serverless con lo stesso nome, è necessario usare il nome `mydb_myws-ondemand-DefaultSparkConnector` per fare riferimento al database di Spark nel pool SQL serverless.
 
 > [!CAUTION]
 > Attenzione: è opportuno non fare affidamento su questo comportamento.
@@ -58,7 +58,7 @@ Se un'entità di sicurezza deve poter creare o eliminare oggetti in un database,
 
 ## <a name="examples"></a>Esempi
 
-### <a name="create-and-connect-to-spark-database-with-sql-on-demand"></a>Creare e connettersi a un database Spark con SQL su richiesta
+### <a name="create-and-connect-to-spark-database-with-serverless-sql-pool"></a>Creare e connettersi a un database di Spark con il pool SQL serverless
 
 Creare prima di tutto un nuovo database Spark denominato `mytestdb` usando un cluster Spark che è già stato creato nell'area di lavoro. A questo scopo è possibile usare, ad esempio, un notebook C# Spark con l'istruzione .NET per Spark seguente:
 
@@ -66,7 +66,7 @@ Creare prima di tutto un nuovo database Spark denominato `mytestdb` usando un cl
 spark.Sql("CREATE DATABASE mytestdb")
 ```
 
-Dopo una breve attesa, il database viene visualizzato in SQL su richiesta. Ad esempio, eseguire l'istruzione seguente da SQL su richiesta.
+Dopo una breve attesa, il database viene visualizzato nel pool SQL serverless. Ad esempio, eseguire l'istruzione seguente dal pool SQL serverless.
 
 ```sql
 SELECT * FROM sys.databases;

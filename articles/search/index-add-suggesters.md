@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ae25c63e9c6e3bf6ad363cde9eb641703562811
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: ed7b61e9e0379462e0dfbcdcc93acfccf470d95f
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360021"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427038"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creare un suggerimento per abilitare il completamento automatico e i risultati suggeriti in una query
 
@@ -26,7 +26,7 @@ La schermata seguente illustra come [creare la prima app in C#](tutorial-csharp-
 
 È possibile utilizzare queste funzionalità separatamente o insieme. Per implementare questi comportamenti in Azure ricerca cognitiva, è disponibile un componente di query e di indice. 
 
-+ Nell'indice aggiungere un componente di suggerimento a un indice. È possibile usare il portale, l' [API REST](/rest/api/searchservice/create-index)o [.NET SDK](/dotnet/api/microsoft.azure.search.models.suggester). Il resto di questo articolo è incentrato sulla creazione di un suggerimento.
++ Nell'indice aggiungere un componente di suggerimento a un indice. È possibile usare il portale, [create index (REST) (/REST/API/SearchService/create-index) o una [Proprietà suggesters](/dotnet/api/azure.search.documents.indexes.models.searchindex.suggesters). Il resto di questo articolo è incentrato sulla creazione di un suggerimento.
 
 + Nella richiesta di query, chiamare una delle [API elencate di seguito](#how-to-use-a-suggester).
 
@@ -107,24 +107,23 @@ Nell'API REST aggiungere i suggerimenti tramite [create index](/rest/api/searchs
 
 ## <a name="create-using-net"></a>Creare con .NET
 
-In C# definire un [oggetto del suggerimento](/dotnet/api/microsoft.azure.search.models.suggester). `Suggesters` è una raccolta ma può assumere solo un elemento. 
+In C# definire un [oggetto SearchSuggester](/dotnet/api/azure.search.documents.indexes.models.searchsuggester). `Suggesters` è una raccolta in un oggetto SearchIndex, ma può assumere solo un elemento. 
 
 ```csharp
-private static void CreateHotelsIndex(SearchServiceClient serviceClient)
+private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 {
-    var definition = new Index()
-    {
-        Name = "hotels-sample-index",
-        Fields = FieldBuilder.BuildForType<Hotel>(),
-        Suggesters = new List<Suggester>() {new Suggester()
-            {
-                Name = "sg",
-                SourceFields = new string[] { "HotelName", "Category" }
-            }}
-    };
+    FieldBuilder fieldBuilder = new FieldBuilder();
+    var searchFields = fieldBuilder.Build(typeof(Hotel));
 
-    serviceClient.Indexes.Create(definition);
+    //var suggester = new SearchSuggester("sg", sourceFields = "HotelName", "Category");
 
+    var definition = new SearchIndex(indexName, searchFields);
+
+    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category"});
+
+    definition.Suggesters.Add(suggester);
+
+    indexClient.CreateOrUpdateIndex(definition);
 }
 ```
 
@@ -134,7 +133,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 |--------------|-----------------|
 |`name`        |Nome dello strumento suggerimenti.|
 |`searchMode`  |La strategia usata per la ricerca di espressioni candidate. L'unica modalità attualmente supportata è `analyzingInfixMatching` , che attualmente corrisponde all'inizio di un termine.|
-|`sourceFields`|Un elenco di uno o più campi che sono l'origine del contenuto per i suggerimenti. I campi devono essere di tipo `Edm.String` e `Collection(Edm.String)` . Se un analizzatore viene specificato nel campo, deve essere un analizzatore denominato da [questo elenco](/dotnet/api/microsoft.azure.search.models.analyzername) (non un analizzatore personalizzato).<p/> Come procedura consigliata, specificare solo i campi che si prestano a una risposta prevista e appropriata, indipendentemente dal fatto che si tratti di una stringa completata in una barra di ricerca o in un elenco a discesa.<p/>Il nome di un hotel è un buon candidato perché ha una precisione. I campi dettagliati come descrizioni e commenti sono troppo densi. Analogamente, i campi ripetitivi, ad esempio categorie e tag, sono meno efficaci. Gli esempi includono "Category" per dimostrare che è possibile includere più campi. |
+|`sourceFields`|Un elenco di uno o più campi che sono l'origine del contenuto per i suggerimenti. I campi devono essere di tipo `Edm.String` e `Collection(Edm.String)` . Se un analizzatore viene specificato nel campo, deve essere un analizzatore denominato da [questo elenco](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (non un analizzatore personalizzato).<p/> Come procedura consigliata, specificare solo i campi che si prestano a una risposta prevista e appropriata, indipendentemente dal fatto che si tratti di una stringa completata in una barra di ricerca o in un elenco a discesa.<p/>Il nome di un hotel è un buon candidato perché ha una precisione. I campi dettagliati come descrizioni e commenti sono troppo densi. Analogamente, i campi ripetitivi, ad esempio categorie e tag, sono meno efficaci. Gli esempi includono "Category" per dimostrare che è possibile includere più campi. |
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -144,8 +143,8 @@ In una query viene utilizzato un suggerimento. Dopo aver creato un suggerimento,
 
 + [API REST suggerimenti](/rest/api/searchservice/suggestions)
 + [API REST di completamento automatico](/rest/api/searchservice/autocomplete)
-+ [Metodo SuggestWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
-+ [Metodo AutocompleteWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
++ [Metodo SuggestAsync](/dotnet/api/azure.search.documents.searchclient.suggestasync)
++ [Metodo AutocompleteAsync](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)
 
 In un'applicazione di ricerca, il codice client deve usare una libreria come il [completamento automatico dell'interfaccia utente jQuery](https://jqueryui.com/autocomplete/) per raccogliere la query parziale e fornire la corrispondenza. Per altre informazioni su questa attività, vedere [aggiungere il completamento automatico o i risultati suggeriti al codice client](search-autocomplete-tutorial.md).
 

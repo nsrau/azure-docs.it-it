@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 47aada0abe2520ba81689ca8fa17787fde847d83
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 2e26028c47e8c96f8c1adabc468ee6f03e3cb19c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360250"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427293"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Trasformazione sink nel flusso di dati di mapping
 
@@ -105,7 +105,7 @@ Per impostazione predefinita, i dati vengono scritti in più sink in un ordine n
 ![Screenshot che mostra l'ordinamento di sink personalizzato.](media/data-flow/custom-sink-ordering.png "Screenshot che mostra l'ordinamento di sink personalizzato.")
 
 > [!NOTE]
-> Quando si utilizzano le [ricerche memorizzate nella cache](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup), assicurarsi che l'ordine dei sink includa i sink memorizzati nella cache impostati su 0.
+> Quando si utilizzano le [ricerche memorizzate nella cache](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup), assicurarsi che l'ordine dei sink includa i sink memorizzati nella cache impostati su 1, il più basso (o primo) nell'ordinamento.
 
 ![Ordinamento di sink personalizzato](media/data-flow/cache-2.png "Ordinamento di sink personalizzato")
 

@@ -2,14 +2,14 @@
 title: Provider di risorse e tipi di risorse
 description: Vengono descritti i provider di risorse che supportano Azure Resource Manager. Vengono descritti gli schemi, le versioni API disponibili e le aree in cui è possibile ospitare le risorse.
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8b1a9e6d539d37fb26d8fb0e3a541415dd574e9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 702836e0dc98b06ccf6e0eeb0d0f373374c4e783
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278871"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426460"
 ---
 # <a name="azure-resource-providers-and-types"></a>Provider e tipi di risorse di Azure
 
@@ -32,7 +32,7 @@ Per un elenco con il mapping dei provider di risorse ai servizi di Azure, vedere
 
 ## <a name="register-resource-provider"></a>Registrare il provider di risorse
 
-Prima di usare un provider di risorse, è necessario registrare il provider di risorse per la sottoscrizione di Azure. Questo passaggio consente di configurare la sottoscrizione per l'uso con il provider di risorse. L'ambito per la registrazione è sempre la sottoscrizione. Per impostazione predefinita, molti provider di risorse vengono registrati automaticamente. Potrebbe essere tuttavia necessario registrare manualmente alcuni provider di risorse.
+Prima di usare un provider di risorse, è necessario che la sottoscrizione di Azure sia registrata per il provider di risorse. La registrazione configura la sottoscrizione per l'uso con il provider di risorse. Alcuni provider di risorse sono registrati per impostazione predefinita. Quando si eseguono determinate azioni, gli altri provider di risorse vengono registrati automaticamente. Ad esempio, quando si crea una risorsa tramite il portale, il provider di risorse viene in genere registrato per l'utente. Per altri scenari, potrebbe essere necessario registrare manualmente un provider di risorse.
 
 Questo articolo illustra come controllare lo stato di registrazione di un provider di risorse e registrarlo in base alle esigenze. È necessario disporre dell'autorizzazione per eseguire l' `/register/action` operazione per il provider di risorse. L'autorizzazione è inclusa nei ruoli collaboratore e proprietario.
 
@@ -83,8 +83,6 @@ Per visualizzare le informazioni relative uno specifico provider di risorse:
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 Per visualizzare tutti i provider di risorse in Azure e lo stato di registrazione di una sottoscrizione, usare il comando seguente:
 
 ```azurepowershell-interactive
@@ -101,6 +99,12 @@ Microsoft.ClassicNetwork         Registered
 Microsoft.ClassicStorage         Registered
 Microsoft.CognitiveServices      Registered
 ...
+```
+
+Per visualizzare tutti i provider di risorse registrati per la sottoscrizione, usare:
+
+```azurepowershell-interactive
+ Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
 ```
 
 Per registrare un provider di risorse, usare:
@@ -190,7 +194,7 @@ West US
 
 Per visualizzare tutti i provider di risorse in Azure e lo stato di registrazione di una sottoscrizione, usare il comando seguente:
 
-```azurecli
+```azurecli-interactive
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
@@ -206,9 +210,15 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
+Per visualizzare tutti i provider di risorse registrati per la sottoscrizione, usare:
+
+```azurecli-interactive
+az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
+```
+
 Per registrare un provider di risorse, usare:
 
-```azurecli
+```azurecli-interactive
 az provider register --namespace Microsoft.Batch
 ```
 
@@ -216,7 +226,7 @@ Che restituisce un messaggio di registrazione in corso.
 
 Per visualizzare informazioni su un provider di risorse specifico, usare il comando seguente:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch
 ```
 
@@ -235,7 +245,7 @@ Che restituisce risultati simili a:
 
 Per visualizzare i tipi di risorse per un provider di risorse, usare il comando seguente:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
@@ -254,7 +264,7 @@ La versione dell'API corrisponde a una versione delle operazioni API REST che ve
 
 Per ottenere le versioni dell'API disponibili per un tipo di risorsa, usare il comando seguente:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
@@ -274,7 +284,7 @@ Gestione risorse è supportato in tutte le aree, ma le risorse distribuite potre
 
 Per ottenere le località supportate per un tipo di risorsa, usare il comando seguente:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 

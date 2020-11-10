@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: bc3da6f0d82adab2d21d4dbd91dee8654145b896
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: ecb4203c822f5b72068e11d0ad4b988d294aab0d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951486"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427055"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurare una chiave gestita dal cliente in Azure Sentinel
 
@@ -28,7 +28,7 @@ Questo articolo fornisce informazioni generali e procedure per la configurazione
 > [!NOTE]
 > - La funzionalità CMK di Azure Sentinel è disponibile solo per **i nuovi clienti**.
 >
-> - L'accesso a questa funzionalità è controllato dalla registrazione delle funzionalità di Azure.È possibile richiedere l'accesso contattando azuresentinelCMK@microsoft.com . Le richieste in sospeso verranno approvate in base alla capacità disponibile.
+> - L'accesso a questa funzionalità è controllato dalla registrazione delle funzionalità di Azure. È possibile richiedere l'accesso contattando azuresentinelCMK@microsoft.com . Le richieste in sospeso verranno approvate in base alla capacità disponibile.
 >
 > - La funzionalità CMK è disponibile solo per i clienti che inviano almeno 1 TB al giorno. Vengono fornite informazioni aggiuntive sui prezzi nel momento in cui si richiede a Microsoft il provisioning di CMK nella sottoscrizione di Azure. Sono disponibili altre informazioni sui [prezzi di Log Analytics](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
@@ -36,14 +36,14 @@ Questo articolo fornisce informazioni generali e procedure per la configurazione
 
 La soluzione di Azure Sentinel usa alcune risorse di archiviazione per la raccolta e le funzionalità dei log, tra cui Log Analytics. Nell'ambito della configurazione della soluzione CMK di Azure Sentinel è necessario configurare anche le impostazioni di CMK nelle risorse di archiviazione correlate. Vengono crittografati anche i dati salvati nelle risorse di archiviazione diverse da Log Analytics.
 
-Sono disponibili altre informazioni su [CMK](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-cmk-overview).
+Sono disponibili altre informazioni su [CMK](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview).
 
 > [!NOTE]
 > Se si abilita CMK in Azure Sentinel, le funzionalità in anteprima pubblica che non supportano CMK non vengono abilitate.
 
 ## <a name="enable-cmk"></a>Abilitare CMK 
 
-Per effettuare il provisioning di CMK, seguire questa procedura: 
+Per effettuare il provisioning di CMK, seguire questa procedura: 
 
 1.  Creare un'istanza di Azure Key Vault e una chiave di archiviazione.
 
@@ -114,7 +114,7 @@ L'unica operazione possibile quando la chiave di crittografia è stata revocata 
 
 Se l'accesso viene ripristinato dopo la revoca, Azure Sentinel ripristina l'accesso ai dati entro un'ora.
 
-Per altre informazioni sul funzionamento di questo metodo in Monitoraggio di Azure, vedere [Revoca della chiave gestita dal cliente](../azure-monitor/platform/customer-managed-keys.md#cmk-kek-revocation) in Monitoraggio di Azure.
+Per altre informazioni sul funzionamento di questo metodo in Monitoraggio di Azure, vedere [Revoca della chiave gestita dal cliente](../azure-monitor/platform/customer-managed-keys.md#key-revocation) in Monitoraggio di Azure.
 
 ## <a name="key-encryption-key-rotation"></a>Rotazione delle chiavi di crittografia della chiave
 
@@ -127,7 +127,7 @@ In Key Vault è possibile eseguire la rotazione delle chiavi creando una nuova v
 
 È possibile disabilitare la versione precedente della chiave dopo 24 ore oppure dopo che i log di controllo di Azure Key Vault smettono di visualizzare le attività che usano la versione precedente.
 
-Se si usa la stessa chiave in Azure Sentinel e in Log Analytics, è necessario eseguire la rotazione delle chiavi e aggiornare in modo esplicito la risorsa cluster in Log Analytics con la nuova versione della chiave di Azure Key Vault. Per altre informazioni, vedere [Rotazione della chiave gestita dal cliente](../azure-monitor/platform/customer-managed-keys.md#cmk-kek-rotation) in Monitoraggio di Azure.
+Se si usa la stessa chiave in Azure Sentinel e in Log Analytics, è necessario eseguire la rotazione delle chiavi e aggiornare in modo esplicito la risorsa cluster in Log Analytics con la nuova versione della chiave di Azure Key Vault. Per altre informazioni, vedere [Rotazione della chiave gestita dal cliente](../azure-monitor/platform/customer-managed-keys.md#key-rotation) in Monitoraggio di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come configurare una chiave gestita dal cliente in Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:

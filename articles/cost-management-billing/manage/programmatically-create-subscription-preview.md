@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c63733a66a2bb4e320a24649dfe82eac259e79ae
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 3ffdeb0add8622e1b9f28f9603dc146b78f742cd
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131106"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043293"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Creare sottoscrizioni di Azure a livello di codice con API in anteprima
 
@@ -212,7 +212,7 @@ Per visualizzare un elenco completo di tutti i parametri, vedere [az account cre
 ### <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitazioni dell'API di creazione della sottoscrizione di Azure Enterprise
 
 - Usando l'API è possibile creare solo le sottoscrizioni di Azure Enterprise.
-- È previsto un limite di 2000 sottoscrizioni per account di registrazione. Dopo tale limite, sarà possibile creare altre sottoscrizioni per l'account nel portale di Azure. Per creare più sottoscrizioni tramite l'API, creare un altro account di registrazione.
+- È previsto un limite di 2000 sottoscrizioni per account di registrazione. Dopo tale limite, sarà possibile creare altre sottoscrizioni per l'account nel portale di Azure. Per creare più sottoscrizioni tramite l'API, creare un altro account di registrazione. Le sottoscrizioni annullate, eliminate e trasferite vengono conteggiate ai fini del limite di 2000.
 - Gli utenti che non sono proprietari dell'account, ma che sono stati aggiunti a un account di registrazione con Controllo degli accessi in base al ruolo di Azure, non possono creare sottoscrizioni nel portale di Azure.
 - Non è possibile selezionare il tenant in cui creare la sottoscrizione. La sottoscrizione viene sempre creata nel tenant home del proprietario dell'account. Per spostare la sottoscrizione in un tenant diverso, vedere l'articolo su come [modificare il tenant della sottoscrizione](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -350,7 +350,7 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
 
 ```
 
-| Nome dell'elemento  | Obbligatorio | Type   | Descrizione                                                                                               |
+| Nome dell'elemento  | Obbligatorio | Tipo   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Sì      | string | Nome visualizzato della sottoscrizione|
 | `billingProfileId`   | Sì      | string | ID del profilo di fatturazione a cui vengono fatturati gli addebiti della sottoscrizione.  |
@@ -519,7 +519,7 @@ POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/c
 }'
 ```
 
-| Nome dell'elemento  | Obbligatorio | Type   | Descrizione                                                                                               |
+| Nome dell'elemento  | Obbligatorio | Tipo   | Descrizione                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Sì      | string | Nome visualizzato della sottoscrizione|
 | `skuId` | Sì      | string | ID SKU del piano di Azure. Usare *0001* per le sottoscrizioni di tipo Piano di Microsoft Azure |

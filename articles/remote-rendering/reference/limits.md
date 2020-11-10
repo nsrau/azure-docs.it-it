@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: b500a3777ee24d6615022dae2571d021bd0d675a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 33f5314c80dc33dbec50dc21a71f4cb507979e12
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201172"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427429"
 ---
 # <a name="limitations"></a>Limitazioni
 
@@ -18,20 +18,21 @@ Diverse funzionalità prevedono delle limitazioni in termini di dimensioni, cont
 
 ## <a name="azure-frontend"></a>Front-end di Azure
 
-* Istanze AzureFrontend totali per processo: 16.
-* Istanze AzureSession totali per AzureFrontend: 16.
+Per l'API front-end (C++ e C#) si applicano le limitazioni seguenti:
+* Totale istanze [AzureFrontend](/dotnet/api/microsoft.azure.remoterendering.azurefrontend) per processo: 16.
+* Totale istanze di [AzureSession](/dotnet/api/microsoft.azure.remoterendering.azuresession) per [AzureFrontend](/dotnet/api/microsoft.azure.remoterendering.azurefrontend): 16.
 
 ## <a name="objects"></a>Oggetti
 
-* Totale oggetti consentiti di un singolo tipo (Entity, CutPlaneComponent e così via): 16.777.215.
+* Totale oggetti consentiti di un singolo tipo ([Entity](../concepts/entities.md), [CutPlaneComponent](../overview/features/cut-planes.md)e così via): 16.777.215.
 * Totale piani di taglio attivi consentiti: 8.
 
 ## <a name="geometry"></a>Geometria
 
-* **Animazione:** Le animazioni sono limitate all'animazione delle singole trasformazioni degli oggetti di gioco. Le animazioni scheletriche con animazioni di skinning o vertici non sono supportate. Le tracce di animazione dal file di asset di origine non vengono mantenute. Al contrario, le animazioni di trasformazione degli oggetti devono essere gestite dal codice client.
+* **Animazione:** Le animazioni sono limitate all'animazione delle singole trasformazioni degli [oggetti di gioco](../concepts/entities.md). Le animazioni scheletriche con animazioni di skinning o vertici non sono supportate. Le tracce di animazione dal file di asset di origine non vengono mantenute. Al contrario, le animazioni di trasformazione degli oggetti devono essere gestite dal codice client.
 * **Shader personalizzati:** La creazione di shader personalizzati non è supportata. È possibile utilizzare solo [materiali colori](../overview/features/color-materials.md) o [materiali di PBR](../overview/features/pbr-materials.md) predefiniti.
 * **Numero massimo di materiali distinti** in un asset: 65.535. Per ulteriori informazioni sulla riduzione del numero di materiali automatico, vedere il capitolo [deduplicazione materiali](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) .
-* **Dimensione massima di una singola trama**: 16.384 x 16.384. Le trame di origine di dimensioni maggiori verranno ridotte in base al processo di conversione.
+* **Dimensione massima di una singola trama** : 16.384 x 16.384. Le trame di origine di dimensioni maggiori verranno ridotte in base al processo di conversione.
 
 ### <a name="overall-number-of-polygons"></a>Numero complessivo di poligoni
 

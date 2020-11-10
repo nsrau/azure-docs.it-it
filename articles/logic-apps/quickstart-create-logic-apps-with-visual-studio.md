@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/07/2020
-ms.openlocfilehash: cdc4dfe23cce7c2f58e4c9b44f2cea46e2337e00
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/27/2020
+ms.openlocfilehash: 1301af3bd17ce44720d77aa1b812b78bbe57ffc9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322445"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101392"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Guida introduttiva: Creare attività, processi e flussi di lavoro automatizzati con App per la logica di Azure - Visual Studio
 
@@ -20,7 +20,7 @@ Con [App per la logica di Azure](../logic-apps/logic-apps-overview.md) e Visual 
 
 Se non si ha familiarità con App per la logica di Azure e si desidera solo comprenderne i concetti di base, vedere l'[argomento di avvio rapido per la creazione di un'app per la logica nel portale di Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md). Progettazione app per la logica funziona in modo analogo nel portale di Azure e in Visual Studio.
 
-In questo argomento di avvio rapido verrà creata con Visual Studio la stessa app per la logica dell'argomento di avvio rapido per il portale di Azure. Questa app per la logica monitora il feed RSS di un sito Web e invia un messaggio di posta elettronica per ogni nuovo elemento presente nel feed. L'app per la logica completa sarà simile a questo flusso di lavoro di alto livello:
+In questo argomento di avvio rapido verrà creata con Visual Studio la stessa app per la logica dell'argomento di avvio rapido per il portale di Azure. Verrà anche descritto come [creare un'app di esempio in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md) e come [creare e gestire app per la logica tramite l'interfaccia della riga di comando di Azure](quickstart-logic-apps-azure-cli.md). Questa app per la logica monitora il feed RSS del sito Web e invia un messaggio di posta elettronica per ogni nuovo elemento di tale feed. L'app per la logica completa sarà simile a questo flusso di lavoro di alto livello:
 
 ![Screenshot che mostra il flusso di lavoro generale di un'app per la logica completata.](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
 
@@ -37,7 +37,7 @@ In questo argomento di avvio rapido verrà creata con Visual Studio la stessa ap
     > [!IMPORTANT]
     > Quando si installa Visual Studio 2019 o 2017, assicurarsi di selezionare il carico di lavoro **Sviluppo di Azure**.
 
-  * [Microsoft Azure SDK per .NET (2.9.1 o versione successiva)](https://azure.microsoft.com/downloads/). Altre informazioni su [Azure SDK per .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  * [Microsoft Azure SDK per .NET (2.9.1 o versione successiva)](https://azure.microsoft.com/downloads/). Altre informazioni su [Azure SDK per .NET](/dotnet/azure/dotnet-tools?tabs=vs).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
@@ -70,7 +70,7 @@ In questo argomento di avvio rapido verrà creata con Visual Studio la stessa ap
 
 ### <a name="visual-studio-2019"></a>Visual Studio 2019
 
-Per usare le sottoscrizioni di Azure per enti pubblici in App per la logica di Azure, è necessario [aggiungere un endpoint di individuazione per Cloud Azure per enti pubblici in Visual Studio](../azure-government/documentation-government-connect-vs.md). *Prima di accedere a Visual Studio con l'account Azure per enti pubblici*, è tuttavia necessario rinominare il file JSON generato dopo l'aggiunta dell'endpoint di individuazione seguendo questa procedura:
+Per usare le sottoscrizioni di Azure per enti pubblici in App per la logica di Azure, è necessario [aggiungere un endpoint di individuazione per Cloud Azure per enti pubblici in Visual Studio](../azure-government/documentation-government-connect-vs.md). *Prima di accedere a Visual Studio con l'account Azure per enti pubblici* , è tuttavia necessario rinominare il file JSON generato dopo l'aggiunta dell'endpoint di individuazione seguendo questa procedura:
 
 1. Chiudere Visual Studio.
 
@@ -145,7 +145,7 @@ Dopo aver creato il progetto Gruppo di risorse di Azure, creare l'app per la log
    | Account utente | Fabrikam <br> sophia-owen@fabrikam.com | Account usato per l'accesso a Visual Studio |
    | **Sottoscrizione** | Pagamento in base al consumo <br> (sophia-owen@fabrikam.com) | Il nome della sottoscrizione di Azure e l'account associato |
    | **Gruppo di risorse** | MiaAppLogica-GR <br> (Stati Uniti occidentali) | Gruppo di risorse di Azure e la posizione per l'archiviazione e la distribuzione delle risorse per l'app per la logica |
-   | **Posizione** | **Uguale a quello del gruppo di risorse** | Percorso specifico e relativo tipo per la distribuzione dell'app per la logica. Il tipo di percorso è un'area di Azure o un [ambiente del servizio di integrazione](connect-virtual-network-vnet-isolated-environment.md) esistente. <p>Per questa Guida introduttiva, impostare il tipo di percorso su **Area** e il percorso su un valore **uguale a quello del gruppo di risorse**. <p>**Nota**: dopo aver creato il progetto del gruppo di risorse, è possibile [modificare il tipo di percorso e il percorso](manage-logic-apps-with-visual-studio.md#change-location), ma un tipo di percorso diverso influisce sull'app per la logica in diversi modi. |
+   | **Posizione** | **Uguale a quello del gruppo di risorse** | Percorso specifico e relativo tipo per la distribuzione dell'app per la logica. Il tipo di percorso è un'area di Azure o un [ambiente del servizio di integrazione](connect-virtual-network-vnet-isolated-environment.md) esistente. <p>Per questa Guida introduttiva, impostare il tipo di percorso su **Area** e il percorso su un valore **uguale a quello del gruppo di risorse**. <p>**Nota** : dopo aver creato il progetto del gruppo di risorse, è possibile [modificare il tipo di percorso e il percorso](manage-logic-apps-with-visual-studio.md#change-location), ma un tipo di percorso diverso influisce sull'app per la logica in diversi modi. |
    ||||
 
 1. Viene visualizzato Progettazione app per la logica, che contiene un video introduttivo e i trigger più usati. Scorrere verso il basso dopo il video e i trigger fino a **Modelli** e selezionare **App per la logica vuota**.
@@ -180,7 +180,7 @@ Prima di poter eseguire e testare l'app per la logica, distribuire l'app in Azur
 
    ![Distribuire l'app per la logica nel gruppo di risorse di Azure](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-deployment.png)
 
-1. Se viene visualizzata la finestra **Modifica parametri**, specificare un nome di risorsa per l'app per la logica. Salvare le impostazioni.
+1. Se viene visualizzata la finestra **Modifica parametri** , specificare un nome di risorsa per l'app per la logica. Salvare le impostazioni.
 
    ![Specificare il nome della distribuzione per l'app per la logica](./media/quickstart-create-logic-apps-with-visual-studio/edit-parameters-deployment.png)
 

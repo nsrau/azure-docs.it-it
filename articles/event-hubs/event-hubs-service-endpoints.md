@@ -3,12 +3,12 @@ title: Endpoint servizio di rete virtuale - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni su come aggiungere un endpoint di servizio Microsoft. EventHub a una rete virtuale.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: cb0d9a9c4d5e2503e68620ec4e6386d8e05d471c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 029338e3835d03b1a66ff6629e872c84113b0ff2
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88185069"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427213"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Consentire l'accesso agli spazi dei nomi di hub eventi di Azure da reti virtuali specifiche 
 
@@ -18,20 +18,11 @@ Una volta configurata per l'associazione ad almeno un endpoint del servizio subn
 
 Il risultato è una relazione privata e isolata tra i carichi di lavoro associati alla subnet e lo spazio dei nomi di Hub eventi corrispondente, nonostante l'indirizzo di rete osservabile dell'endpoint del servizio di messaggistica sia in un intervallo di IP pubblici. Si è verificata un'eccezione a questo comportamento. Per impostazione predefinita, l'abilitazione di un endpoint del servizio Abilita la `denyall` regola nel [firewall IP](event-hubs-ip-filtering.md) associato alla rete virtuale. È possibile aggiungere indirizzi IP specifici nel firewall IP per abilitare l'accesso all'endpoint pubblico dell'hub eventi. 
 
->[!IMPORTANT]
+>[!WARNING]
+> Per impostazione predefinita, l'abilitazione delle reti virtuali per lo spazio dei nomi di hub eventi blocca le richieste in ingresso, a meno che le richieste provengano da un servizio che opera da reti virtuali Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via. Come eccezione, è possibile consentire l'accesso alle risorse di hub eventi da determinati servizi attendibili anche quando le reti virtuali sono abilitate. Per un elenco di servizi attendibili, vedere [Servizi attendibili](#trusted-microsoft-services).
+
+> [!NOTE]
 > Le reti virtuali sono supportate nei livelli **standard** e **dedicato** di Hub eventi. Il livello **Basic** non è supportato.
->
-> L'attivazione delle regole firewall per lo spazio dei nomi di hub eventi blocca le richieste in ingresso per impostazione predefinita, a meno che le richieste provengano da un servizio che opera dalle reti virtuali consentite Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via. 
->
-> Di seguito sono riportati alcuni dei servizi che non possono accedere alle risorse di hub eventi quando le reti virtuali sono abilitate. Si noti che l'elenco **non** è esaustivo.
->
-> - Analisi di flusso di Azure
-> - Route dell'hub IoT di Azure
-> - Azure IoT Device Explorer
-> - Griglia di eventi di Azure
-> - Monitoraggio di Azure (impostazioni di diagnostica)
->
-> Come eccezione, è possibile consentire l'accesso alle risorse di hub eventi da determinati servizi attendibili anche quando le reti virtuali sono abilitate. Per un elenco di servizi attendibili, vedere [Servizi attendibili](#trusted-microsoft-services).
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Scenari di sicurezza avanzati resi possibili dall'integrazione della rete virtuale 
 
@@ -64,14 +55,14 @@ Questa sezione illustra come usare portale di Azure per aggiungere un endpoint d
 
     ![Opzione Firewall - Tutte le reti selezionata](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. Per limitare l'accesso a reti specifiche, selezionare l'opzione **reti selezionate** nella parte superiore della pagina, se non è già selezionata.
-2. Nella sezione **rete virtuale** della pagina selezionare * * + Aggiungi rete virtuale esistente * * *. Selezionare **+ Crea nuova rete virtuale** se si vuole creare una nuova VNet. 
+2. Nella sezione **rete virtuale** della pagina selezionare **+ Aggiungi rete virtuale esistente** _. Selezionare _ *+ Crea nuova rete virtuale* * se si vuole creare un nuovo VNet. 
 
     ![aggiungi rete virtuale esistente](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
 3. Selezionare la rete virtuale dall'elenco di reti virtuali e quindi selezionare la **subnet**. Prima di aggiungere la rete virtuale all'elenco, è necessario abilitare l'endpoint del servizio. Se l'endpoint del servizio non è abilitato, il portale richiederà di abilitarlo.
    
    ![Selezionare una subnet](./media/event-hubs-tutorial-vnet-and-firewalls/select-subnet.png)
 
-4. Dopo che l'endpoint del servizio per la subnet è stato abilitato per **Microsoft. EventHub**, dovrebbe essere visualizzato il messaggio seguente. Selezionare **Aggiungi** nella parte inferiore della pagina per aggiungere la rete. 
+4. Dopo che l'endpoint del servizio per la subnet è stato abilitato per **Microsoft. EventHub** , dovrebbe essere visualizzato il messaggio seguente. Selezionare **Aggiungi** nella parte inferiore della pagina per aggiungere la rete. 
 
     ![seleziona subnet e abilita endpoint](./media/event-hubs-tutorial-vnet-and-firewalls/subnet-service-endpoint-enabled.png)
 
@@ -99,7 +90,7 @@ Parametri del modello:
 
 > [!NOTE]
 > Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
-> Quando si creano regole di rete virtuale o del firewall, occorre modificare ***"defaultAction"***
+> Quando si apportano regole di rete virtuale o di firewall, è necessario modificare **_"DefaultAction"_**
 > 
 > da
 > ```json

@@ -4,15 +4,14 @@ description: Questo articolo fornisce informazioni su come aggiungere un endpoin
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1b62f69bad4484239b3a6c5d6f7ae910fbdef03f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8005a2c43d42908a9ad6ebea10b6a13ef381084c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843380"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427650"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Consentire l'accesso allo spazio dei nomi del bus di servizio di Azure da reti virtuali specifiche
-
 L'integrazione di endpoint del servizio bus di servizio con [rete virtuale (VNet)][vnet-sep] consente di accedere in modo sicuro alle funzionalità di messaggistica da carichi di lavoro come le macchine virtuali associate a reti virtuali, con il percorso del traffico di rete protetto su entrambe le estremità.
 
 Una volta configurato per essere associato ad almeno un endpoint del servizio subnet della rete virtuale, il rispettivo spazio dei nomi del bus di servizio non accetterà più il traffico da qualsiasi luogo, ma reti virtuali autorizzate e, facoltativamente, indirizzi IP Internet specifici. Dal punto di vista della rete virtuale, l'associazione di uno spazio dei nomi del bus di servizio a un endpoint del servizio consente di configurare un tunnel di rete isolato dalla subnet della rete virtuale al servizio di messaggistica.
@@ -20,24 +19,14 @@ Una volta configurato per essere associato ad almeno un endpoint del servizio su
 Il risultato è una relazione privata e isolata tra i carichi di lavoro associati alla subnet e lo spazio dei nomi del bus di servizio corrispondente, nonostante l'indirizzo di rete osservabile dell'endpoint del servizio di messaggistica sia in un intervallo di IP pubblici.
 
 >[!WARNING]
-> L'implementazione dell'integrazione delle reti virtuali può impedire l'interazione da parte di altri servizi Azure con il bus di servizio.
->
-> I servizi Microsoft considerati attendibili non sono supportati quando sono implementate reti virtuali.
->
-> Scenari comuni di Azure che non supportano le reti virtuali (l'elenco **NON** è esaustivo) -
-> - Integrazione con Griglia di eventi di Azure
-> - Route dell'hub IoT di Azure
-> - Azure IoT Device Explorer
+> L'implementazione dell'integrazione delle reti virtuali può impedire l'interazione da parte di altri servizi Azure con il bus di servizio. Come eccezione, è possibile consentire l'accesso alle risorse del bus di servizio da determinati servizi attendibili anche quando gli endpoint di servizio di rete sono abilitati. Per un elenco di servizi attendibili, vedere [Servizi attendibili](#trusted-microsoft-services).
 >
 > I servizi Microsoft seguenti devono essere in una rete virtuale
 > - Servizio app di Azure
 > - Funzioni di Azure
-> - Monitoraggio di Azure (impostazioni di diagnostica)
 
 > [!IMPORTANT]
-> Le reti virtuali sono supportate solo negli spazi dei nomi del bus di servizio di [livello Premium](service-bus-premium-messaging.md).
-> 
-> Quando si usano gli endpoint del servizio VNet con il bus di servizio, è consigliabile non abilitare questi endpoint nelle applicazioni che combinano gli spazi dei nomi del bus di servizio di livello standard e Premium. Poiché il livello standard non supporta reti virtuali. L'endpoint è limitato solo agli spazi dei nomi del livello Premium.
+> Le reti virtuali sono supportate solo negli spazi dei nomi del bus di servizio di [livello Premium](service-bus-premium-messaging.md). Quando si usano gli endpoint del servizio VNet con il bus di servizio, è consigliabile non abilitare questi endpoint nelle applicazioni che combinano gli spazi dei nomi del bus di servizio di livello standard e Premium. Poiché il livello standard non supporta reti virtuali. L'endpoint è limitato solo agli spazi dei nomi del livello Premium.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Scenari di sicurezza avanzati resi possibili dall'integrazione della rete virtuale 
 
@@ -83,7 +72,7 @@ Questa sezione illustra come usare portale di Azure per aggiungere un endpoint d
    
    ![Selezionare una subnet](./media/service-endpoints/select-subnet.png)
 
-4. Dopo che l'endpoint del servizio per la subnet è stato abilitato per **Microsoft. ServiceBus**, dovrebbe essere visualizzato il messaggio seguente. Selezionare **Aggiungi** nella parte inferiore della pagina per aggiungere la rete. 
+4. Dopo che l'endpoint del servizio per la subnet è stato abilitato per **Microsoft. ServiceBus** , dovrebbe essere visualizzato il messaggio seguente. Selezionare **Aggiungi** nella parte inferiore della pagina per aggiungere la rete. 
 
     ![seleziona subnet e abilita endpoint](./media/service-endpoints/subnet-service-endpoint-enabled.png)
 
@@ -96,17 +85,19 @@ Questa sezione illustra come usare portale di Azure per aggiungere un endpoint d
     > [!NOTE]
     > Per istruzioni su come consentire l'accesso da indirizzi o intervalli IP specifici, vedere [consentire l'accesso da indirizzi o intervalli IP specifici](service-bus-ip-filtering.md).
 
+[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+
 ## <a name="use-resource-manager-template"></a>Usare i modelli di Resource Manager
 Il modello di Resource Manager seguente consente di aggiungere una regola di rete virtuale a uno spazio dei nomi esistente del bus di servizio.
 
 Parametri del modello:
 
-* **namespaceName**: spazio dei nomi del bus di servizio.
-* **virtualNetworkingSubnetId**: percorso completo di Resource Manager per la subnet della rete virtuale. Ad esempio, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` per la subnet predefinita di una rete virtuale.
+* **namespaceName** : spazio dei nomi del bus di servizio.
+* **virtualNetworkingSubnetId** : percorso completo di Resource Manager per la subnet della rete virtuale. Ad esempio, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` per la subnet predefinita di una rete virtuale.
 
 > [!NOTE]
 > Sebbene non siano possibili regole di rifiuto, il modello di Azure Resource Manager ha l'azione predefinita impostata su **"Consenti"** , che non limita le connessioni.
-> Quando si creano regole di rete virtuale o del firewall, occorre modificare ***"defaultAction"***
+> Quando si apportano regole di rete virtuale o di firewall, è necessario modificare **_"DefaultAction"_**
 > 
 > da
 > ```json

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 7253e257f9d721c09f2e041c1473a9d81d09a321
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1f15a3b4d8f51ec79fffce09bc006942d08096a6
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094391"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427463"
 ---
-# <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guida alla distribuzione della piattaforma SAP BusinessObjects BI per Linux in Azure
+# <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guida alla distribuzione della piattaforma di business intelligence SAP BusinessObjects per Linux in Azure
 
 Questo articolo descrive la strategia di distribuzione della piattaforma SAP BOBI in Azure per Linux. In questo esempio vengono configurate due macchine virtuali con SSD Premium Managed Disks come directory di installazione. Database di Azure per MySQL viene usato per il database CMS e Azure NetApp Files per il server repository file è condiviso tra entrambi i server. L'applicazione Web Java Tomcat predefinita e l'applicazione della piattaforma BI vengono installate insieme in entrambe le macchine virtuali. Per bilanciare il carico della richiesta dell'utente, viene usato il gateway applicazione con funzionalità di offload TLS/SSL native.
 
@@ -36,7 +36,7 @@ In questo esempio viene usata la versione del prodotto e il layout file system
 - Database di Azure per MySQL (versione: 8.0.15)
 - Connettore API MySQL C-libmysqlclient (versione: 6.1.11)
 
-| File system        | Description                                                                                                               | Dimensioni (GB)             | Proprietario  | Gruppo  | Archiviazione                    |
+| File system        | Descrizione                                                                                                               | Dimensioni (GB)             | Proprietario  | Gruppo  | Archiviazione                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/sap           | Il file system per l'installazione dell'istanza di SAP BOBI, dell'applicazione Web Tomcat predefinita e dei driver di database (se necessario) | Linee guida per il ridimensionamento di SAP | bl1adm | sapsys | Disco Premium gestito-SSD |
 | /usr/sap/frsinput  | La directory di montaggio è per i file condivisi in tutti gli host BOBI che verranno usati come directory del repository del file di input  | Esigenze aziendali         | bl1adm | sapsys | Azure NetApp Files         |
@@ -113,7 +113,7 @@ Quando si sta creando il Azure NetApp Files per il server del repository di file
 
 Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
-**[A]**: il passaggio si applica a tutti gli host
+**[A]** : il passaggio si applica a tutti gli host
 
 ### <a name="format-and-mount-sap-file-system"></a>Formattare e montare file system SAP
 
@@ -274,7 +274,7 @@ Le linee guida sono applicabili solo se si usa il database di Azure per MySQL. P
 
 ### <a name="create-an-azure-database-for-mysql"></a>Creare un database di Azure per MySQL
 
-Accedere a portale di Azure e seguire i passaggi descritti in questa [Guida introduttiva di database di Azure per MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md#create-an-azure-database-for-mysql-server). Pochi punti da notare durante il provisioning di database di Azure per MySQL-
+Accedere a portale di Azure e seguire i passaggi descritti in questa [Guida introduttiva di database di Azure per MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Pochi punti da notare durante il provisioning di database di Azure per MySQL-
 
 1. Selezionare la stessa area per database di Azure per MySQL in cui sono in esecuzione i server applicazioni della piattaforma SAP BI.
 
@@ -395,15 +395,15 @@ Per accedere al database, il server applicazioni SAP BOBI richiede client/driver
 
 Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
-**[A]**: il passaggio si applica a tutti gli host.
+**[A]** : il passaggio si applica a tutti gli host.
 
 1. **[A]** in base alla versione di Linux (SLES o RHEL), è necessario impostare i parametri del kernel e installare le librerie necessarie. Vedere la sezione **requisiti di sistema** nella Guida all'installazione della [piattaforma di Business Intelligence per UNIX](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US).
 
 2. **[A]** verificare che il fuso orario nel computer sia impostato correttamente. Vedere la [sezione requisiti aggiuntivi per UNIX e Linux](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US/46b143336e041014910aba7db0e91070.html) nella Guida all'installazione.
 
-3. **[A] creare un** account utente (**BL1**ADM) e un gruppo (sapsys) in cui è possibile eseguire i processi in background del software. Utilizzare questo account per eseguire l'installazione di ed eseguire il software. L'account non richiede privilegi radice.
+3. **[A] creare un** account utente ( **BL1** ADM) e un gruppo (sapsys) in cui è possibile eseguire i processi in background del software. Utilizzare questo account per eseguire l'installazione di ed eseguire il software. L'account non richiede privilegi radice.
 
-4. **[A]** impostare l'ambiente dell'account utente (**BL1**ADM) per utilizzare le impostazioni locali UTF-8 supportate e assicurarsi che il software della console supporti i set di caratteri UTF-8. Per assicurarsi che il sistema operativo usi le impostazioni locali corrette, impostare le variabili di ambiente LC_ALL e LANG sulle impostazioni locali preferite nell'ambiente utente (**BL1**ADM).
+4. **[A]** impostare l'ambiente dell'account utente ( **BL1** ADM) per utilizzare le impostazioni locali UTF-8 supportate e assicurarsi che il software della console supporti i set di caratteri UTF-8. Per assicurarsi che il sistema operativo usi le impostazioni locali corrette, impostare le variabili di ambiente LC_ALL e LANG sulle impostazioni locali preferite nell'ambiente utente ( **BL1** ADM).
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -413,7 +413,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
    export LC_ALL=en_US.utf8
    ```
 
-5. **[A] configurare l'** account utente (**BL1**ADM).
+5. **[A] configurare l'** account utente ( **BL1** ADM).
 
    ```bash
    # Set ulimit for bl1adm to unlimited
@@ -445,7 +445,7 @@ Per i passaggi in questa sezione vengono usati i prefissi seguenti:
 
 ## <a name="installation"></a>Installazione
 
-Controllare le impostazioni locali per l'account utente **BL1**ADM nel server
+Controllare le impostazioni locali per l'account utente **BL1** ADM nel server
 
 ```bash
 bl1adm@azusbosl1:~> locale
@@ -453,7 +453,7 @@ LANG=en_US.utf8
 LC_ALL=en_US.utf8
 ```
 
-Passare al supporto della piattaforma SAP BusinessObjects BI ed eseguire il comando seguente con l'utente **BL1**ADM-
+Passare al supporto della piattaforma SAP BusinessObjects BI ed eseguire il comando seguente con l'utente **BL1** ADM-
 
 ```bash
 ./setup.sh -InstallDir /usr/sap/BL1
@@ -557,7 +557,7 @@ Come parte del processo di backup, lo snapshot viene effettuato e i dati vengono
 
 #### <a name="backup--restore-for-file-repository-server"></a>Backup & Restore per il server del repository di file
 
-Per **Azure NetApp files**, è possibile creare snapshot su richiesta e pianificare snapshot automatici usando i criteri di snapshot. Le copie snapshot forniscono una copia temporizzata del volume e. Per altre informazioni, vedere [gestire gli snapshot con Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
+Per **Azure NetApp files** , è possibile creare snapshot su richiesta e pianificare snapshot automatici usando i criteri di snapshot. Le copie snapshot forniscono una copia temporizzata del volume e. Per altre informazioni, vedere [gestire gli snapshot con Azure NetApp files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
 
 **File di Azure** backup è integrato con il servizio [backup di Azure](../../../backup/backup-overview.md) nativo, che centralizza la funzione di backup e ripristino insieme al backup delle macchine virtuali e semplifica il lavoro operativo. Per altre informazioni, vedere backup e domande frequenti su [condivisione file di Azure](../../../backup/azure-file-share-backup-overview.md) [-eseguire il backup file di Azure](../../../backup/backup-azure-files-faq.md).
 

@@ -1,5 +1,6 @@
 ---
-title: 'Avvio rapido: Modificare gli account delle app di Microsoft Identity Platform | Azure'
+title: "Avvio rapido: Cambiare i tipi di account supportati da un'applicazione | Azure"
+titleSuffix: Microsoft identity platform
 description: In questa guida di avvio rapido si configura un'applicazione registrata con Microsoft Identity Platform per cambiare chi, o quale account, può accedere all'applicazione.
 services: active-directory
 author: rwike77
@@ -8,71 +9,54 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 10/27/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: d143bde9c22bc726f00b5c209d1b7fbc131905b0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: marsma, aragra, lenalepa, sureshja
+ms.openlocfilehash: 2382eedcc14f683d354b88bf2eb8d53b2af40dbd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258014"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083270"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Guida introduttiva: Modificare gli account supportati da un'applicazione
 
-Quando si registra un'applicazione in Microsoft Identity Platform, potrebbe essere opportuno consentire l'accesso all'applicazione solo agli utenti dell'organizzazione. In alternativa, potrebbe anche essere opportuno che l'applicazione sia accessibile da utenti di organizzazioni esterne oppure sia da utenti di organizzazioni esterne che da utenti non necessariamente parte di un'organizzazione (account personali).
+Quando si registra un'applicazione con Microsoft Identity Platform, si specifica chi o quali tipi di account possono accedervi. Ad esempio, è possibile specificare gli account solo della propria organizzazione, per cui l'app è a *tenant singolo*. Oppure è possibile specificare gli account di qualsiasi organizzazione (inclusa la propria), per cui l'app è *multi-tenant*.
 
-In questa guida introduttiva verrà illustrato come modificare la configurazione dell'applicazione per modificare gli utenti o gli account che possono accedervi.
+Questa guida di avvio rapido illustra come modificare la configurazione dell'applicazione per cambiare chi o quali tipi di account possono accedervi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Completamento di [Avvio rapido: Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md)
 
-## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Accedere al portale di Azure e selezionare l'app
-
-Per poter configurare l'app, seguire prima questa procedura:
-
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
-1. Nel riquadro di spostamento sinistro selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app**.
-1. Trovare e selezionare l'applicazione che si vuole configurare. Dopo la selezione dell'app verrà visualizzata la pagina **Panoramica** o la pagina di registrazione principale dell'applicazione.
-1. Seguire la procedura per [modificare la registrazione dell'applicazione per supportare account diversi](#change-the-application-registration-to-support-different-accounts).
-1. Se si ha un'applicazione a pagina singola, [abilitare la concessione implicita OAuth 2.0](#enable-oauth-20-implicit-grant-for-single-page-applications).
-
 ## <a name="change-the-application-registration-to-support-different-accounts"></a>Modificare la registrazione dell'applicazione per supportare account diversi
 
-Se si scrive un'applicazione che si vuole rendere disponibile a clienti o partner esterni all'organizzazione, è necessario aggiornare la definizione dell'applicazione nel portale di Azure.
+Per specificare un'impostazione diversa per i tipi di account supportati da una registrazione dell'app esistente:
 
-> [!IMPORTANT]
-> Per le applicazioni multi-tenant, Azure AD richiede che l'URI dell'ID applicazione sia univoco a livello globale. L'URI dell'ID App è uno dei modi in cui un'applicazione viene identificata nei messaggi di protocollo. Per un'applicazione a tenant singolo, è sufficiente che l'URI dell'ID app sia univoco all'interno del tenant. Per un'applicazione multi-tenant, è necessario che sia univoco a livello globale in modo da Azure AD possa trovare l'applicazione in tutti i tenant. L'univocità globale viene applicata richiedendo che l'URI dell'ID App abbia un nome host corrispondente a un dominio verificato del tenant di Azure AD. Se il nome del tenant è contoso.onmicrosoft.com, ad esempio, un URI dell'ID app valido sarà `https://contoso.onmicrosoft.com/myapp`. Se il tenant dispone del dominio verificato contoso.com, anche `https://contoso.com/myapp` è un URI di ID app valido. Se l'URI dell'ID App non segue questo modello, l'impostazione di un'applicazione come multi-tenant ha esito negativo.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
+1. Cercare e selezionare **Azure Active Directory**.
+1. In **Gestisci** selezionare **Registrazioni app** , quindi selezionare l'applicazione.
+1. Specificare ora chi può usare l'applicazione, ovvero i *destinatari per l'accesso*.
 
-### <a name="to-change-who-can-access-your-application"></a>Per modificare gli utenti che hanno accesso all'applicazione
-
-1. Nella pagina **Panoramica** dell'app selezionare la sezione **Autenticazione** e modificare il valore selezionato in **Tipi di account supportati**.
-    * Selezionare **Solo gli account in questa directory** se si crea un'applicazione line-of-business. Questa opzione non è disponibile se l'applicazione non è registrata in una directory.
-    * Selezionare **Account in qualsiasi directory organizzativa** se si preferisce includere tutti i clienti aziendali o di istituti di istruzione.
-    * Selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali** per includere il set più ampio possibile di clienti.
+    | Tipi di account supportati | Descrizione |
+    |-------------------------|-------------|
+    | **Account solo in questa directory organizzativa** | Selezionare questa opzione se si intende creare un'applicazione utilizzabile solo da utenti (o guest) nel tenant *personale*.<br><br>Nota anche come applicazione *line-of-business* (LOB), si tratta di un'applicazione a **singolo tenant** in Microsoft Identity Platform. |
+    | **Account in qualsiasi directory organizzativa** | Selezionare questa opzione se si vuole che gli utenti in *qualsiasi* tenant di Azure AD possano usare l'applicazione. Questa opzione è appropriata se, ad esempio, si sta creando un'applicazione SaaS (Software-As-A-Service) che si intende fornire a più organizzazioni.<br><br>È nota come applicazione **multi-tenant** in Microsoft Identity Platform. |
 1. Selezionare **Salva**.
 
-## <a name="enable-oauth-20-implicit-grant-for-single-page-applications"></a>Abilitare la concessione implicita OAuth 2.0 per le applicazioni a pagina singola
+### <a name="why-changing-to-multi-tenant-can-fail"></a>Perché il passaggio al multi-tenant può non riuscire
 
-Le applicazioni a pagina singola (SPA) sono in genere strutturate con un front-end JavaScript eseguito nel browser, che chiama il back-end dell'API Web dell'applicazione per eseguirne la logica di business. Per le applicazioni a singola pagina ospitate in Azure AD, è possibile usare la concessione implicita OAuth 2.0 per autenticare l'utente con Azure AD e ottenere un token da usare per chiamate protette dal client JavaScript dell'applicazione all'API Web di back-end.
+Il passaggio di una registrazione dell'app da singolo a multi-tenant a volte può non riuscire a causa di conflitti di nomi nell'URI dell'ID applicazione. Un esempio di URI dell'ID app è `https://contoso.onmicrosoft.com/myapp`.
 
-Dopo che l'utente ha concesso il consenso, lo stesso protocollo di autenticazione può essere usato per ottenere token per proteggere le chiamate tra il client e altre risorse dell'API Web configurate per l'applicazione. Per altre informazioni sulla concessione implicita di autorizzazioni e per stabilire se sia adatta allo scenario dell'applicazione, vedere le informazioni sul flusso di concessione implicita OAuth 2.0 in Azure AD [v1.0](../azuread-dev/v1-oauth2-implicit-grant-flow.md) e [v2.0](v2-oauth2-implicit-grant-flow.md).
+L'URI dell'ID App è uno dei modi in cui un'applicazione viene identificata nei messaggi di protocollo. Per un'applicazione a tenant singolo, è sufficiente che l'URI dell'ID app sia univoco all'interno del tenant. Per un'applicazione multi-tenant, è necessario che sia univoco a livello globale in modo da Azure AD possa trovare l'app in tutti i tenant. L'univocità globale viene applicata richiedendo che il nome host dell'URI dell'ID app corrisponda a uno dei [domini verificati dell'entità di pubblicazione](howto-configure-publisher-domain.md) del tenant di Azure AD.
 
-Per impostazione predefinita, la concessione implicita OAuth 2.0 è disabilitata per le applicazioni. È possibile abilitare la concessione implicita OAuth 2.0 per l'applicazione seguendo la procedura illustrata di seguito.
+Se ad esempio il nome del tenant è *contoso.onmicrosoft.com* , `https://contoso.onmicrosoft.com/myapp` sarà un URI dell'ID app valido. Se il tenant ha il domini verificato *contoso.com* , un URI dell'ID app valido sarà anche `https://contoso.com/myapp`. Se l'URI dell'ID app non segue il secondo modello, `https://contoso.com/myapp`, la conversione della registrazione dell'app in multi-tenant non riesce.
 
-### <a name="to-enable-oauth-20-implicit-grant"></a>Per abilitare la concessione implicita OAuth 2.0
-
-1. Nel riquadro di spostamento sinistro selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app**.
-1. Trovare e selezionare l'applicazione che si vuole configurare. Dopo la selezione dell'app verrà visualizzata la pagina **Panoramica** o la pagina di registrazione principale dell'applicazione.
-1. Nella pagina **Panoramica** dell'app selezionare la sezione **Autenticazione**.
-1. In **Impostazioni avanzate** individuare la sezione **Concessione implicita**.
-1. Selezionare **Token ID**, **Token di accesso** o entrambe le opzioni.
-1. Selezionare **Salva**.
+Per altre informazioni sulla configurazione di un dominio dell'entità di pubblicazione verificato, vedere [Configurare un dominio verificato](quickstart-modify-supported-accounts.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Linee guida sulla personalizzazione per le applicazioni](howto-add-branding-in-azure-ad-apps.md)
+> [Procedura: Convertire l'app in multi-tenant](howto-convert-app-to-be-multi-tenant.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f99456449e778ff7c1fd3ab096e1afd3562c1e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ab484e8caaffaf57f19f1fcd1e65f4b8e723f86
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88948862"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077898"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Avvio rapido: Richiedere l'accettazione di condizioni per l'utilizzo prima dell'accesso alle app cloud
 
@@ -27,7 +27,7 @@ Prima che gli utenti accedano ad app cloud specifiche all'interno dell'ambiente 
 
 Questa guida di avvio rapido illustra come configurare [criteri di accesso condizionale di Azure AD](./overview.md) che richiedono l'accettazione di condizioni per l'utilizzo per un'app cloud selezionata all'interno dell'ambiente.
 
-![Crea criteri](./media/require-tou/5555.png)
+:::image type="content" source="./media/require-tou/5555.png" alt-text="Screenshot del portale di Azure. È visibile un riquadro che definisce un criterio Require TOU for Isabella." border="false":::
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -35,8 +35,8 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per completare lo scenario in questa guida introduttiva, sono necessari gli elementi seguenti:
 
-- **Accesso a un'edizione Azure AD Premium**: l'accesso condizionale di Azure AD è una funzionalità di Azure AD Premium.
-- **Account di test denominato Isabella Simonsen**: se non si conosce la procedura per creare un account di test, vedere [Aggiungere gli utenti basati su cloud](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+- **Accesso a un'edizione Azure AD Premium** : l'accesso condizionale di Azure AD è una funzionalità di Azure AD Premium.
+- **Account di test denominato Isabella Simonsen** : se non si conosce la procedura per creare un account di test, vedere [Aggiungere gli utenti basati su cloud](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Verificare il proprio accesso
 
@@ -49,7 +49,7 @@ L'obiettivo di questo passaggio è farsi un'idea dell'esperienza di accesso senz
 
 ## <a name="create-your-terms-of-use"></a>Creare le condizioni per l'utilizzo
 
-Questa sezione illustra i passaggi necessari per creare un esempio di condizioni per l'utilizzo. Quando si creano condizioni per l'utilizzo, si seleziona un valore per **Applica con i modelli di criteri di accesso condizionale**. Se si seleziona **Criteri personalizzati**, subito dopo la creazione delle condizioni per l'utilizzo viene visualizzata la finestra di dialogo per la creazione di un nuovo criterio di accesso condizionale.
+Questa sezione illustra i passaggi necessari per creare un esempio di condizioni per l'utilizzo. Quando si creano condizioni per l'utilizzo, si seleziona un valore per **Applica con i modelli di criteri di accesso condizionale**. Se si seleziona **Criteri personalizzati** , subito dopo la creazione delle condizioni per l'utilizzo viene visualizzata la finestra di dialogo per la creazione di un nuovo criterio di accesso condizionale.
 
 **Per creare condizioni per l'utilizzo:**
 
@@ -66,20 +66,20 @@ Questa sezione illustra i passaggi necessari per creare un esempio di condizioni
 
 1. Nella sezione **Gestisci** fare clic su **Condizioni per l'utilizzo**.
 
-   ![Condizioni per l'utilizzo](./media/require-tou/04.png)
+   :::image type="content" source="./media/require-tou/04.png" alt-text="Screenshot della sezione Gestisci della pagina Azure Active Directory. L'elemento Condizioni per l'utilizzo è evidenziato." border="false":::
 
 1. Nel menu in alto fare clic su **Nuove condizioni**.
 
-   ![Condizioni per l'utilizzo](./media/require-tou/05.png)
+   :::image type="content" source="./media/require-tou/05.png" alt-text="Screenshot di un menu della pagina Azure Active Directory. L'elemento Nuove Condizioni per l'utilizzo è evidenziato." border="false":::
 
-1. Nella pagina **Nuove condizioni d'uso**:
+1. Nella pagina **Nuove condizioni d'uso** :
 
-   ![Condizioni per l'utilizzo](./media/require-tou/112.png)
+   :::image type="content" source="./media/require-tou/112.png" alt-text="Screenshot della pagina Nuove Condizioni per l'utilizzo, con il nome, il nome visualizzato, il documento, la lingua, l'accesso condizionale e l'interruttore per espandere le condizioni evidenziati." border="false":::
 
    1. Nella casella di testo **Nome** digitare **My TOU** (Condizioni per l'utilizzo personali).
    1. Nella casella di testo **Nome visualizzato** digitare **My TOU** (Condizioni per l'utilizzo personali).
    1. Caricare il file PDF delle condizioni per l'utilizzo.
-   1. Per **Lingua**, selezionare **Inglese**.
+   1. Per **Lingua** , selezionare **Inglese**.
    1. Per **Richiedi agli utenti di espandere le Condizioni d'uso** selezionare **Attivata**.
    1. Per **Applica con i modelli di criteri di accesso condizionale** selezionare **Criteri personalizzati**.
    1. Fare clic su **Crea**.
@@ -99,7 +99,7 @@ Nei criteri, impostare:
 | App cloud | Gestione di Microsoft Azure |
 | Concedere l'accesso | My TOU (Condizioni per l'utilizzo personali) |
 
-![Crea criteri](./media/require-tou/1234.png)
+:::image type="content" source="./media/require-tou/1234.png" alt-text="Screenshot di un riquadro del portale di Azure che definisce un criterio. Le frecce indicano che il criterio concede l'accesso a My TOU e include un utente e un'app." border="false":::
 
 **Per configurare i criteri di accesso condizionale:**
 
@@ -109,11 +109,11 @@ Nei criteri, impostare:
 
 1. Nella sezione **Assegnazioni** fare clic su **Utenti e gruppi**.
 
-   ![Utenti e gruppi](./media/require-tou/06.png)
+   :::image type="content" source="./media/require-tou/06.png" alt-text="Screenshot della sezione Assegnazioni di un riquadro del portale di Azure che definisce un criterio. L'elemento Utenti e gruppi è visibile, con nessuna selezione effettuata." border="false":::
 
-1. Nella pagina **Utenti e gruppi**:
+1. Nella pagina **Utenti e gruppi** :
 
-   ![Utenti e gruppi](./media/require-tou/24.png)
+   :::image type="content" source="./media/require-tou/24.png" alt-text="Screenshot della scheda Includi della pagina Utenti e gruppi. Le opzioni Seleziona utenti e gruppi e Utenti e gruppi sono selezionate. L'opzione Seleziona è evidenziata." border="false":::
 
    1. Fare clic su **Seleziona utenti e gruppi** e quindi selezionare **Utenti e gruppi**.
    1. Fare clic su **Seleziona**.
@@ -121,9 +121,9 @@ Nei criteri, impostare:
    1. Nella pagina **Utenti e gruppi** fare clic su **Fatto**.
 1. Fare clic su **App cloud**.
 
-   ![App cloud](./media/require-tou/08.png)
+   :::image type="content" source="./media/require-tou/08.png" alt-text="Screenshot della sezione Assegnazioni di un riquadro del portale di Azure che definisce un criterio. L'elemento App cloud è visibile, con nessuna selezione effettuata." border="false":::
 
-1. Nella pagina **App cloud**:
+1. Nella pagina **App cloud** :
 
    ![Selezionare App cloud](./media/require-tou/26.png)
 
@@ -135,7 +135,7 @@ Nei criteri, impostare:
 
    ![Controlli di accesso](./media/require-tou/10.png)
 
-1. Nella pagina **Concedi**:
+1. Nella pagina **Concedi** :
 
    ![Concedi](./media/require-tou/111.png)
 
@@ -152,7 +152,7 @@ Nei criteri, impostare:
 
 Ora che sono stati configurati i criteri di accesso condizionale, è possibile sapere se funzionano come previsto. Come primo passaggio, usare lo strumento per i criteri What If dell'accesso condizionale per simulare un accesso dell'utente di test. La simulazione valuta l'impatto di questo accesso sui criteri e genera un report di simulazione.  
 
-Per inizializzare lo strumento di valutazione dei criteri **What If**, impostare:
+Per inizializzare lo strumento di valutazione dei criteri **What If** , impostare:
 
 - **Isabella Simonsen** come utente
 - **Gestione di Microsoft Azure** come app cloud
@@ -170,13 +170,13 @@ Fare clic su **What If** per creare un report di simulazione che indica:
 
    ![What If](./media/require-tou/14.png)
 
-1. Fare clic su **Utenti**, scegliere **Isabella Simonsen** e quindi fare clic su **Seleziona**.
+1. Fare clic su **Utenti** , scegliere **Isabella Simonsen** e quindi fare clic su **Seleziona**.
 
    ![Utente](./media/require-tou/15.png)
 
 1. Per selezionare un'app cloud:
 
-   ![App cloud](./media/require-tou/16.png)
+   :::image type="content" source="./media/require-tou/16.png" alt-text="Screenshot della sezione App cloud. Il testo indica che è selezionata un'app." border="false":::
 
    1. Fare clic su **App cloud**.
    1. Nella pagina **App cloud** fare clic su **Selezionare le app**.
@@ -191,7 +191,7 @@ Nella sezione precedente si è appreso come valutare un accesso simulato. Oltre 
 
 Per testare i criteri, provare ad accedere al [portale di Azure](https://portal.azure.com) usando l'account di test **Isabella Simonsen**. Verrà visualizzata una finestra di dialogo che richiede di accettare le condizioni per l'utilizzo.
 
-![Condizioni per l'utilizzo](./media/require-tou/57.png)
+:::image type="content" source="./media/require-tou/57.png" alt-text="Screenshot della finestra di dialogo di condizioni per l'utilizzo della soluzione di protezione della sicurezza delle identità, con i pulsanti Rifiuta e Accetta e un pulsante My TOU." border="false":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -200,11 +200,11 @@ Quando non sono più necessari, eliminare l'utente di test e i criteri di access
 - Se non si conosce la procedura per eliminare un utente di Azure AD, vedere [Eliminare gli utenti da Azure Active Directory](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 - Per eliminare i criteri, selezionarli e quindi fare clic su **Elimina** nella barra di accesso rapido.
 
-    ![Autenticazione a più fattori](./media/require-tou/33.png)
+    :::image type="content" source="./media/require-tou/33.png" alt-text="Screenshot che mostra il criterio che richiede MFA per gli utenti del portale di Azure. Il menu di scelta rapida è visibile e l'opzione Elimina è evidenziata." border="false":::
 
 - Per eliminare le condizioni per l'utilizzo, selezionarle e quindi fare clic su **Elimina le condizioni** sulla barra degli strumenti nella parte superiore.
 
-    ![Autenticazione a più fattori](./media/require-tou/29.png)
+    :::image type="content" source="./media/require-tou/29.png" alt-text="Screenshot che mostra parte di una tabella che elenca le condizioni per l'utilizzo dei documenti. Il documento My TOU è visibile. Nel menu è evidenziata l'opzione per eliminare le condizioni." border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
