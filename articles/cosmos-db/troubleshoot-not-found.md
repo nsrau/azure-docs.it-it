@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e2e2797bd01635c4c066a60f379a884e545e5af2
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 782abee06c5ab0f985e8bd90dbbecae18b1dfe02
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409689"
+ms.locfileid: "94442328"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnosticare e risolvere i problemi Azure Cosmos DB eccezioni non trovate
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,7 @@ Correzione della logica dell'applicazione che causa la combinazione non corretta
 Un elemento viene inserito in Azure Cosmos DB con un [carattere non valido](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks) nell'ID elemento.
 
 #### <a name="solution"></a>Soluzione:
-Modificare l'ID impostando un valore diverso che non contiene i caratteri speciali. Se la modifica dell'ID non è un'opzione, è possibile codificare l'ID in base 64 per eseguire l'escape dei caratteri speciali.
+Modificare l'ID impostando un valore diverso che non contiene i caratteri speciali. Se la modifica dell'ID non è un'opzione, è possibile codificare l'ID in base 64 per eseguire l'escape dei caratteri speciali. Base64 può comunque produrre un nome con un carattere non valido '/' che deve essere sostituito.
 
 Gli elementi già inseriti nel contenitore per l'ID possono essere sostituiti usando valori RID anziché riferimenti basati sul nome.
 ```c#
@@ -65,7 +65,7 @@ while (invalidItemsIterator.HasMoreResults)
         // Choose a new ID that doesn't contain special characters.
         // If that isn't possible, then Base64 encode the ID to escape the special characters.
         byte[] plainTextBytes = Encoding.UTF8.GetBytes(itemWithInvalidId["id"].ToString());
-        itemWithInvalidId["id"] = Convert.ToBase64String(plainTextBytes);
+        itemWithInvalidId["id"] = Convert.ToBase64String(plainTextBytes).Replace('/', '!');
 
         // Update the item with the new ID value by using the RID-based container reference.
         JObject item = await containerByRid.ReplaceItemAsync<JObject>(

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/09/2020
-ms.openlocfilehash: 7f62aade114613261a22a818ab47e096eb16084b
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 62621a36955808ec3f2c796681fe660e6e8524bc
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427973"
+ms.locfileid: "94443382"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -27,9 +27,10 @@ Monitoraggio di Azure garantisce che tutti i dati e le query salvate siano critt
 
 La funzionalità della chiave gestita dal cliente viene fornita su cluster Log Analytics dedicati. Consente di proteggere i dati con il controllo dell' [archivio protetto](#customer-lockbox-preview) e fornisce il controllo per revocare l'accesso ai dati in qualsiasi momento. I dati inseriti negli ultimi 14 giorni vengono anche mantenuti nella cache ad accesso frequente (con supporto SSD) per un efficace funzionamento del motore di query. Questi dati rimangono crittografati con le chiavi di Microsoft indipendentemente dalla configurazione della chiave gestita dal cliente, ma il controllo sui dati SSD rispetta la [revoca](#key-revocation)delle chiavi. Si sta lavorando per crittografare i dati SSD con Customer-Managed chiave nella prima metà del 2021.
 
-Per verificare di disporre della capacità necessaria per eseguire il provisioning di un cluster dedicato nella propria area, è necessario che la sottoscrizione sia consentita in anticipo. Usare il contatto Microsoft o la richiesta di supporto per aprire la sottoscrizione prima di iniziare la configurazione della chiave di Customer-Managed.
-
 Il [modello di determinazione dei prezzi per i cluster log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) usa le prenotazioni di capacità a partire da un livello di 1000 GB/giorno.
+
+> [!IMPORTANT]
+> A causa di vincoli temporanei di capacità, è necessario pre-eseguire la registrazione prima di creare un cluster. Usare i contatti in Microsoft o aprire la richiesta di supporto per registrare gli ID delle sottoscrizioni.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Funzionamento della chiave Customer-Managed in monitoraggio di Azure
 
@@ -63,11 +64,11 @@ Sono applicabili le regole seguenti:
 
 ## <a name="customer-managed-key-provisioning-procedure"></a>Procedura di provisioning della chiave Customer-Managed
 
-1. Concessione della sottoscrizione: la funzionalità viene distribuita su cluster Log Analytics dedicati. Per verificare di disporre della capacità necessaria nella propria area, è necessario che la sottoscrizione sia consentita in anticipo. Usare il contatto Microsoft per ottenere la sottoscrizione.
-2. Creazione di Azure Key Vault e archiviazione della chiave
-3. Creazione del cluster
-4. Concessione delle autorizzazioni a Key Vault
-5. Collegamento di aree di lavoro Log Analytics
+1. Registrare la sottoscrizione per consentire la creazione del cluster
+1. Creazione di Azure Key Vault e archiviazione della chiave
+1. Creazione del cluster
+1. Concessione delle autorizzazioni a Key Vault
+1. Collegamento di aree di lavoro Log Analytics
 
 La configurazione della chiave Customer-Managed non è supportata in portale di Azure e il provisioning viene eseguito tramite [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/), l' [interfaccia](https://docs.microsoft.com/cli/azure/monitor/log-analytics) della riga di comando o le richieste [Rest](https://docs.microsoft.com/rest/api/loganalytics/) .
 
@@ -149,7 +150,6 @@ Operazione non riuscita
 
 > [!IMPORTANT]
 > Customer-Managed funzionalità chiave è a livello di area. Le aree di lavoro Azure Key Vault, cluster e Log Analytics collegate devono trovarsi nella stessa area, ma possono trovarsi in sottoscrizioni diverse.
-> Per verificare di disporre della capacità necessaria per eseguire il provisioning di un cluster dedicato nella propria area, è necessario che la sottoscrizione sia consentita in anticipo. Usare il contatto Microsoft o la richiesta di supporto per aprire la sottoscrizione prima di iniziare la configurazione della chiave Customer-Managed. 
 
 ### <a name="storing-encryption-key-kek"></a>Archiviazione della chiave di crittografia (KEK)
 
@@ -200,6 +200,25 @@ az monitor log-analytics cluster update --name "cluster-name" --resource-group "
 
 ```powershell
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
+```
+
+```rst
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name"?api-version=2020-08-01
+Authorization: Bearer <token> 
+Content-type: application/json
+ 
+{
+  "properties": {
+    "keyVaultProperties": {
+      "keyVaultUri": "https://key-vault-name.vault.azure.net",
+      "kyName": "key-name",
+      "keyVersion": "current-version"
+  },
+  "sku": {
+    "name": "CapacityReservation",
+    "capacity": 1000
+  }
+}
 ```
 
 **Response**.
@@ -288,6 +307,11 @@ Quando si porta la propria risorsa di archiviazione (BYOS) e la si collega all'a
 
 Collegare un account di archiviazione per la *query* all'area di lavoro: le query *salvate* vengono salvate nell'account di archiviazione. 
 
+```azurecli
+$storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
+```
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
@@ -314,6 +338,11 @@ Dopo la configurazione, qualsiasi nuova query di *ricerca salvata* verrà salvat
 **Configurare BYOS per le query log-alerts**
 
 Collegare un account di archiviazione per gli *avvisi* all'area di lavoro: le query *log-alerts* vengono salvate nell'account di archiviazione. 
+
+```azurecli
+$storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
+```
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"

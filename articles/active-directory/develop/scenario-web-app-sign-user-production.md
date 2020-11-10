@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 47a45b52ac10a44b6efd54c41b3fec1e61a47a35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f438567851204a1a284955bede1525505712f4b7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82181631"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442379"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>App Web che esegue l'accesso agli utenti: passa alla produzione
 
@@ -24,9 +24,7 @@ Ora che si è appreso come ottenere un token per chiamare le API Web, si apprend
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="next-steps"></a>Passaggi successivi
-
-### <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 > [!NOTE]
 > Quando gli utenti accedono all'applicazione Web per la prima volta, devono fornire il consenso. Tuttavia, in alcune organizzazioni, gli utenti possono visualizzare un messaggio simile al seguente:
@@ -35,28 +33,17 @@ Ora che si è appreso come ottenere un token per chiamare le API Web, si apprend
 >
 > Questo perché l'amministratore tenant ha **disabilitato** la possibilità per gli utenti di fornire il consenso. In tal caso, è necessario contattare gli amministratori tenant in modo che eseguano il consenso dell'amministratore per gli ambiti richiesti dall'applicazione.
 
-### <a name="same-site"></a>Stesso sito
+## <a name="same-site"></a>Stesso sito
 
-Assicurarsi di comprendere i possibili problemi con le nuove versioni del browser Chrome
-
-> [!div class="nextstepaction"]
-> [Come gestire le modifiche ai cookie navigava sullostesso sito nel browser Chrome](howto-handle-samesite-cookie-changes-chrome-browser.md)
+Assicurarsi di comprendere i possibili problemi con le nuove versioni del browser Chrome: [come gestire le modifiche ai cookie navigava sullostesso sito nel browser Chrome](howto-handle-samesite-cookie-changes-chrome-browser.md).
 
 Il pacchetto NuGet Microsoft. Identity. Web gestisce i problemi più comuni di navigava sullostesso sito.
-
-### <a name="scenario-for-calling-web-apis"></a>Scenario per la chiamata di API Web
-
-Dopo che l'app Web ha effettuato l'accesso agli utenti, può chiamare le API Web per conto degli utenti connessi. La chiamata di API Web dall'app Web è l'oggetto dello scenario seguente:
-
-> [!div class="nextstepaction"]
-> [App Web che chiama le API Web](scenario-web-app-call-api-overview.md)
 
 ## <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Approfondimento: esercitazione sull'app Web ASP.NET Core
 
 Altre informazioni su altri modi per accedere agli utenti con questa ASP.NET Core esercitazione: 
 
-> [!div class="nextstepaction"]
-> [Consentire alle app Web di eseguire l'accesso agli utenti e chiamare le API con la piattaforma di identità Microsoft per gli sviluppatori](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 
+[Consentire alle app Web di eseguire l'accesso agli utenti e chiamare le API con la piattaforma di identità Microsoft per gli sviluppatori](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial)
 
 Questa esercitazione progressiva include codice pronto per la produzione per un'app Web, incluso come aggiungere l'accesso con gli account in:
 
@@ -70,5 +57,8 @@ Questa esercitazione progressiva include codice pronto per la produzione per un'
 
 Per altre informazioni sull'app Web Java, vedere questo esempio in GitHub: 
 
-> [!div class="nextstepaction"]
-> [Applicazione Web Java che esegue l'accesso agli utenti con la piattaforma di identità Microsoft e chiama Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)
+[Applicazione Web Java che esegue l'accesso agli utenti con la piattaforma di identità Microsoft e chiama Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Dopo che l'app Web ha effettuato l'accesso agli utenti, può chiamare le API Web per conto degli utenti connessi. La chiamata di API Web dall'app Web è l'oggetto dello scenario seguente: [app Web che chiama le API Web](scenario-web-app-call-api-overview.md).

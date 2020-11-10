@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 993e1a513fae726e00a29c4b9927a0a039572f74
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4a888c3ad771e4a7edbd7110ba584050fe68e810
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365936"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443790"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>API Web che chiama API Web: configurazione del codice
 
@@ -88,7 +88,7 @@ Microsoft. Identity. Web offre diversi modi per descrivere i certificati, sia pe
 
 ## <a name="startupcs"></a>Startup.cs
 
-L'API Web deve acquisire un token per l'API downstream. Per specificarlo, aggiungere la `.EnableTokenAcquisitionToCallDownstreamApi()` riga dopo `.AddMicrosoftIdentityWebApi(Configuration)` . Questa riga espone il `ITokenAcquisition` servizio, che è possibile usare nelle azioni del controller o delle pagine. Tuttavia, come si vedrà nei prossimi due punti elenco, è possibile eseguire ancora più facilmente. È anche necessario scegliere un'implementazione della cache dei token, ad esempio `.AddInMemoryTokenCaches()` in *Startup.cs*:
+L'API Web deve acquisire un token per l'API downstream. Per specificarlo, aggiungere la `.EnableTokenAcquisitionToCallDownstreamApi()` riga dopo `.AddMicrosoftIdentityWebApi(Configuration)` . Questa riga espone il `ITokenAcquisition` servizio, che è possibile usare nelle azioni del controller o delle pagine. Tuttavia, come si vedrà nei prossimi due punti elenco, è possibile eseguire ancora più facilmente. È anche necessario scegliere un'implementazione della cache dei token, ad esempio `.AddInMemoryTokenCaches()` in *Startup.cs* :
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -256,5 +256,4 @@ Per altre informazioni sul protocollo OBO, vedere [Microsoft Identity Platform e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [API Web che chiama le API Web: acquisire un token per l'app](scenario-web-api-call-api-acquire-token.md)
+Passare all'articolo successivo in questo scenario, [acquisire un token per l'app](scenario-web-api-call-api-acquire-token.md).

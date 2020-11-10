@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 638ebf8aefc67584805c1402499ca23fc1febb45
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c9fde904d6befebfcfd87b55bd7b2bf4e4c825f2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217202"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443824"
 ---
 # <a name="single-page-application-app-registration"></a>Applicazione a pagina singola: Registrazione delle app
 
@@ -30,7 +30,7 @@ Sia per le applicazioni basate su MSAL.js 1.0 che per quelle basate su MSAL.js 2
 1. Accedere al [portale di Azure](https://portal.azure.com). Se l'account ha accesso a più tenant, selezionare il filtro **Directory e sottoscrizione** nel menu principale e quindi selezionare il tenant che deve contenere la registrazione dell'app che si sta per creare.
 1. Cercare e selezionare **Azure Active Directory**.
 1. In **Gestisci** selezionare **Registrazioni app**.
-1. Selezionare **Nuova registrazione**, immettere un **Nome** per l'applicazione e scegliere i **Tipi di account supportati** per l'applicazione. **NON** immettere un **URI di reindirizzamento**. Per la descrizione dei diversi tipi di account, vedere [Registrare una nuova applicazione mediante il portale di Azure](quickstart-register-app.md).
+1. Selezionare **Nuova registrazione** , immettere un **Nome** per l'applicazione e scegliere i **Tipi di account supportati** per l'applicazione. **NON** immettere un **URI di reindirizzamento**. Per la descrizione dei diversi tipi di account, vedere [Registrare una nuova applicazione mediante il portale di Azure](quickstart-register-app.md).
 1. Selezionare **Registra** per creare la registrazione dell'app.
 
 Configurare quindi la registrazione dell'app con un **URI di reindirizzamento** per specificare dove la piattaforma delle identità Microsoft deve reindirizzare il client insieme agli eventuali token di sicurezza. Usare la procedura appropriata per la versione di MSAL.js che si sta usando nell'applicazione:
@@ -43,12 +43,12 @@ Configurare quindi la registrazione dell'app con un **URI di reindirizzamento** 
 Seguire questa procedura per aggiungere un URI di reindirizzamento per un'app che usa MSAL.js 2.0 o versione successiva. MSAL. JS 2.0+ supporta il flusso del codice di autorizzazione con PKCE e CORS in risposta alle [restrizioni dei cookie di terze parti del browser](reference-third-party-cookies-spas.md). Il flusso di concessione implicito non è supportato in MSAL.js 2.0+.
 
 1. Nel portale di Azure selezionare la registrazione dell'app creata in precedenza in [Creare la registrazione dell'app](#create-the-app-registration).
-1. In **Gestisci** selezionare **Autenticazione**, quindi selezionare **Aggiungi una piattaforma**.
+1. In **Gestisci** selezionare **Autenticazione** , quindi selezionare **Aggiungi una piattaforma**.
 1. In **Applicazioni Web** selezionare il riquadro **Applicazione a pagina singola**.
 1. In **URI di reindirizzamento** immettere un [URI di reindirizzamento](reply-url.md). **NON** selezionare nessuna delle due caselle di controllo in **Concessione implicita**.
 1. Selezionare **Configura** per completare l'aggiunta dell'URI di reindirizzamento.
 
-A questo punto è stata completata la registrazione dell'applicazione a pagina singola (SPA) ed è stato configurato un URI di reindirizzamento, a cui verrà reindirizzato il client e verranno inviati tutti i token di sicurezza. Se si configura l'URI di reindirizzamento tramite il riquadro **Applicazione a pagina singola** nell'area **Aggiungi una piattaforma**, la registrazione dell'applicazione è configurata in modo da supportare il flusso del codice di autorizzazione con PKCE e CORS.
+A questo punto è stata completata la registrazione dell'applicazione a pagina singola (SPA) ed è stato configurato un URI di reindirizzamento, a cui verrà reindirizzato il client e verranno inviati tutti i token di sicurezza. Se si configura l'URI di reindirizzamento tramite il riquadro **Applicazione a pagina singola** nell'area **Aggiungi una piattaforma** , la registrazione dell'applicazione è configurata in modo da supportare il flusso del codice di autorizzazione con PKCE e CORS.
 
 Seguire l' [esercitazione](tutorial-v2-javascript-auth-code.md) per altre istruzioni.
 
@@ -57,15 +57,15 @@ Seguire l' [esercitazione](tutorial-v2-javascript-auth-code.md) per altre istruz
 Seguire questa procedura per aggiungere un URI di reindirizzamento per un'app a pagina singola che usa MSAL.js 1.3 o versioni precedenti e il flusso di concessione implicita. Le applicazioni che usano MSAL.js 1.3 o versioni precedenti non supportano il flusso del codice di autenticazione.
 
 1. Nel portale di Azure selezionare la registrazione dell'app creata in precedenza in [Creare la registrazione dell'app](#create-the-app-registration).
-1. In **Gestisci** selezionare **Autenticazione**, quindi selezionare **Aggiungi una piattaforma**.
+1. In **Gestisci** selezionare **Autenticazione** , quindi selezionare **Aggiungi una piattaforma**.
 1. In **Applicazioni Web** selezionare il riquadro **Applicazione a pagina singola**.
 1. In **URI di reindirizzamento** immettere un [URI di reindirizzamento](reply-url.md).
-1. Abilitare il **Flusso implicito**:
+1. Abilitare il **Flusso implicito** :
     - Se l'applicazione consente l'accesso agli utenti, selezionare **Token ID**.
     - Se l'applicazione deve anche chiamare un'API Web protetta, selezionare **Token di accesso**. Per altre informazioni su questi tipi di token, vedere [Token ID](id-tokens.md) e [Token di accesso](access-tokens.md).
 1. Selezionare **Configura** per completare l'aggiunta dell'URI di reindirizzamento.
 
-A questo punto è stata completata la registrazione dell'applicazione a pagina singola (SPA) ed è stato configurato un URI di reindirizzamento, a cui verrà reindirizzato il client e verranno inviati tutti i token di sicurezza. Selezionando uno o entrambi i **Token ID** e i **Token di accesso**, è stato abilitato il flusso di concessione implicita.
+A questo punto è stata completata la registrazione dell'applicazione a pagina singola (SPA) ed è stato configurato un URI di reindirizzamento, a cui verrà reindirizzato il client e verranno inviati tutti i token di sicurezza. Selezionando uno o entrambi i **Token ID** e i **Token di accesso** , è stato abilitato il flusso di concessione implicita.
 
 Seguire l' [esercitazione](tutorial-v2-javascript-spa.md) per altre istruzioni.
 
@@ -79,7 +79,4 @@ Quando tutte le applicazioni a pagina singola di produzione rappresentate da una
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Configurare quindi il codice dell'app per l'uso della registrazione dell'app creata nei passaggi precedenti:.
-
-> [!div class="nextstepaction"]
-> [Configurazione del codice dell'app](scenario-spa-app-configuration.md)
+Configurare quindi il codice dell'app per l'uso della registrazione dell'app creata nei passaggi precedenti: [configurazione del codice dell'app](scenario-spa-app-configuration.md).

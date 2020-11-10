@@ -4,19 +4,19 @@ description: Usare questo articolo per risolvere i problemi comuni riscontrati d
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/27/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ed93d24bc06a6622a8ace2b0ab6b44582da001c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98ee865a3ddf6c26ffe9cb77767f3872b42018d8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82783747"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442362"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemi comuni e soluzioni per Azure IoT Edge
 
@@ -75,7 +75,7 @@ Per impostazione predefinita, IoT Edge avvia i moduli nella propria rete di cont
 
 **Opzione 1: impostare il server DNS nelle impostazioni del motore del contenitore**
 
-Specificare il server DNS per l'ambiente nelle impostazioni del motore di contenitori, che verranno applicate a tutti i moduli contenitore avviati dal motore. Creare un file denominato `daemon.json` specificando il server DNS da usare. Ad esempio:
+Specificare il server DNS per l'ambiente nelle impostazioni del motore di contenitori, che verranno applicate a tutti i moduli contenitore avviati dal motore. Creare un file denominato `daemon.json` specificando il server DNS da usare. Esempio:
 
 ```json
 {
@@ -103,7 +103,7 @@ Riavviare il motore di gestione dei contenitori per rendere effettivi gli aggior
 
 **Opzione 2: impostare il server DNS nella distribuzione IoT Edge per modulo**
 
-È possibile impostare il server DNS per *createOptions* di ogni modulo nella distribuzione di IOT Edge. Ad esempio:
+È possibile impostare il server DNS per *createOptions* di ogni modulo nella distribuzione di IOT Edge. Esempio:
 
 ```json
 "createOptions": {
@@ -130,7 +130,7 @@ One or more errors occurred.
 Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allocated\"}\n)
 ```
 
-Oppure
+Or
 
 ```output
 info: edgelet_docker::runtime -- Starting module edgeHub...
@@ -222,7 +222,7 @@ Quando viene visualizzato questo errore, è possibile risolvere il problema conf
    ![Configurare il nome DNS della macchina virtuale](./media/troubleshoot/configure-dns.png)
 
 3. Specificare un valore per **Etichetta del nome DNS** e selezionare **Salva**.
-4. Copiare il nuovo nome DNS, che deve essere nel formato ** \<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com**.
+4. Copiare il nuovo nome DNS, che deve essere nel formato **\<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com**.
 5. All'interno della macchina virtuale, usare il comando seguente per configurare il runtime di IoT Edge con il nome DNS:
 
    * In Linux:
@@ -331,6 +331,25 @@ Se una distribuzione automatica è destinata a un dispositivo, ha la priorità r
 Usare solo un tipo di meccanismo di distribuzione per dispositivo, ovvero una distribuzione automatica o distribuzioni di singoli dispositivi. Se sono presenti più distribuzioni automatiche destinate a un dispositivo, è possibile modificare le descrizioni della priorità o della destinazione per assicurarsi che la correzione venga applicata a un determinato dispositivo. È anche possibile aggiornare i dispositivi gemelli in modo che non corrispondano più alla descrizione di destinazione della distribuzione automatica.
 
 Per altre informazioni, vedere [Informazioni sulle distribuzioni automatiche di IoT Edge per singoli dispositivi o su vasta scala](module-deployment-monitoring.md).
+
+<!-- <1.2> -->
+::: moniker range=">=iotedge-2020-11"
+
+## <a name="iot-edge-behind-a-gateway-cannot-perform-http-requests-and-start-edgeagent-module"></a>IoT Edge dietro un gateway non può eseguire richieste HTTP e avviare il modulo edgeAgent
+
+**Comportamento osservato:**
+
+Il daemon IoT Edge è attivo con un file di configurazione valido, ma non può avviare il modulo edgeAgent. Il comando `iotedge list` restituisce un elenco vuoto. Il report dei log del daemon IoT Edge `Could not perform HTTP request` .
+
+**Causa radice:**
+
+IoT Edge i dispositivi protetti da un gateway ottengono le immagini del modulo dal dispositivo padre IoT Edge specificato nel `parent_hostname` campo del file config. yaml. L' `Could not perform HTTP request` errore indica che il dispositivo figlio non riesce a raggiungere il dispositivo padre tramite http.
+
+**Risoluzione:**
+
+Verificare che il dispositivo IoT Edge padre possa ricevere le richieste in ingresso dal dispositivo IoT Edge figlio. Aprire il traffico di rete sulle porte 443 e 6617 per le richieste provenienti dal dispositivo figlio.
+
+:::moniker-end
 
 ## <a name="next-steps"></a>Passaggi successivi
 

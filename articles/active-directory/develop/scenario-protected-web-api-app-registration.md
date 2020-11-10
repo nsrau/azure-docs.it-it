@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c1fab15cade2ce23e053bc73028e6420692c3d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a38e2384c5f24bc3a72e1ef8e8f7119b2db0f2f
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86518275"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443943"
 ---
 # <a name="protected-web-api-app-registration"></a>API Web protetta: registrazione dell'app
 
@@ -31,7 +31,7 @@ L'endpoint della piattaforma Microsoft Identity può emettere token v 1.0 e toke
 
 La versione del token che l'API può accettare dipende dalla selezione dei **tipi di account supportati** quando si crea la registrazione dell'applicazione API web nel portale di Azure.
 
-- Se il valore dei **tipi di account supportati** è **account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)**, la versione del token accettata deve essere v 2.0.
+- Se il valore dei **tipi di account supportati** è **account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)** , la versione del token accettata deve essere v 2.0.
 - In caso contrario, la versione del token accettata può essere v 1.0.
 
 Dopo aver creato l'applicazione, è possibile determinare o modificare la versione del token accettato attenendosi alla seguente procedura:
@@ -40,7 +40,7 @@ Dopo aver creato l'applicazione, è possibile determinare o modificare la versio
 1. Individuare la proprietà **accessTokenAcceptedVersion** nel manifesto.
 1. Il valore specifica di Azure Active Directory (Azure AD) la versione del token accettata dall'API Web.
     - Se il valore è 2, l'API Web accetta i token v 2.0.
-    - Se il valore è **null**, l'API Web accetta i token v 1.0.
+    - Se il valore è **null** , l'API Web accetta i token v 1.0.
 1. Se è stata modificata la versione del token, selezionare **Salva**.
 
 > [!NOTE]
@@ -64,7 +64,7 @@ Durante la registrazione dell'app, è necessario definire i parametri seguenti:
 - Uno o più ambiti
 - Uno o più ruoli dell'app
 
-Per impostazione predefinita, il portale di registrazione delle applicazioni consiglia di usare l'URI della risorsa `api://{clientId}` . Questo URI è univoco ma non leggibile. Se si modifica l'URI, verificare che il nuovo valore sia univoco. Il portale di registrazione delle applicazioni assicurerà di usare un [dominio di pubblicazione configurato](howto-configure-publisher-domain.md)
+Per impostazione predefinita, il portale di registrazione delle applicazioni consiglia di usare l'URI della risorsa `api://{clientId}` . Questo URI è univoco ma non leggibile. Se si modifica l'URI, verificare che il nuovo valore sia univoco. Il portale di registrazione delle applicazioni assicurerà di usare un [dominio di pubblicazione configurato](howto-configure-publisher-domain.md).
 
 Per le applicazioni client, gli ambiti vengono visualizzati come autorizzazioni *delegate* e i ruoli app vengono visualizzati come *autorizzazioni dell'applicazione* per l'API Web.
 
@@ -132,7 +132,7 @@ L'API Web verifica il ruolo app. Questo ruolo è uno sviluppatore software per e
 Per aggiungere questa maggiore sicurezza:
 
 1. Passare alla pagina di **Panoramica** dell'app per la registrazione dell'app.
-1. **In applicazione gestita in directory locale**selezionare il collegamento con il nome dell'app. L'etichetta per questa selezione potrebbe essere troncata. Ad esempio, è possibile che venga visualizzata l' **applicazione gestita in...**
+1. **In applicazione gestita in directory locale** selezionare il collegamento con il nome dell'app. L'etichetta per questa selezione potrebbe essere troncata. Ad esempio, è possibile che venga visualizzata l' **applicazione gestita in...**
 
    > [!NOTE]
    >
@@ -143,9 +143,9 @@ Per aggiungere questa maggiore sicurezza:
 
    > [!IMPORTANT]
    >
-   > Se si imposta **assegnazione utente obbligatoria?** su **Sì**, Azure ad controlla le assegnazioni di ruolo dell'app di un client quando richiede un token di accesso all'API Web. Se il client non è assegnato ad alcun ruolo app, Azure AD restituirà il messaggio di errore "invalid_client: AADSTS501051: l'applicazione \<application name\> non è assegnata a un ruolo per \<web API\> ".
+   > Se si imposta **assegnazione utente obbligatoria?** su **Sì** , Azure ad controlla le assegnazioni di ruolo dell'app di un client quando richiede un token di accesso all'API Web. Se il client non è assegnato ad alcun ruolo app, Azure AD restituirà il messaggio di errore "invalid_client: AADSTS501051: l'applicazione \<application name\> non è assegnata a un ruolo per \<web API\> ".
    >
-   > Se si mantiene l' **assegnazione utente obbligatoria?** impostare su **No**, Azure ad non verificherà le assegnazioni di ruolo dell'app quando un client richiede un token di accesso per l'API Web. Qualsiasi client daemon, ovvero qualsiasi client che usa il flusso di credenziali client, può ottenere un token di accesso per l'API semplicemente specificandone i destinatari. Qualsiasi applicazione può accedere all'API senza dover richiedere le autorizzazioni.
+   > Se si mantiene l' **assegnazione utente obbligatoria?** impostare su **No** , Azure ad non verificherà le assegnazioni di ruolo dell'app quando un client richiede un token di accesso per l'API Web. Qualsiasi client daemon, ovvero qualsiasi client che usa il flusso di credenziali client, può ottenere un token di accesso per l'API semplicemente specificandone i destinatari. Qualsiasi applicazione può accedere all'API senza dover richiedere le autorizzazioni.
    >
    > Tuttavia, come illustrato nella sezione precedente, l'API Web può sempre verificare che l'applicazione disponga del ruolo corretto, che è autorizzato dall'amministratore del tenant. L'API esegue questa verifica convalidando che il token di accesso disponga di un'attestazione Roles e che il valore di questa attestazione sia corretto. Nell'esempio JSON precedente, il valore è `access_as_application` .
 
@@ -153,5 +153,4 @@ Per aggiungere questa maggiore sicurezza:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Configurazione del codice dell'app](scenario-protected-web-api-app-configuration.md)
+Passare all'articolo successivo in questo scenario, configurazione del [codice dell'app](scenario-protected-web-api-app-configuration.md).

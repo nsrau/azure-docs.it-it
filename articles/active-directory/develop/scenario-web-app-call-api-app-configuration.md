@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c8d68a17b3b991b88e02cf056dcb46da2debfa71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b24b95423adb271b8a4016430e7d2b381c386cd2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403195"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443756"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>App Web che chiama le API Web: Configurazione del codice
 
@@ -99,7 +99,7 @@ Anziché un segreto client, è possibile fornire un certificato client. Il framm
 
 ## <a name="startupcs"></a>Startup.cs
 
-L'app Web deve acquisire un token per l'API downstream. Per specificarlo, aggiungere la `.EnableTokenAcquisitionToCallDownstreamApi()` riga dopo `.AddMicrosoftIdentityWebApi(Configuration)` . Questa riga espone il `ITokenAcquisition` servizio che è possibile usare nelle azioni del controller e della pagina. Tuttavia, come si vedrà nelle due opzioni seguenti, l'operazione può essere eseguita in modo più semplice. È anche necessario scegliere un'implementazione della cache dei token, ad esempio `.AddInMemoryTokenCaches()` in *Startup.cs*:
+L'app Web deve acquisire un token per l'API downstream. Per specificarlo, aggiungere la `.EnableTokenAcquisitionToCallDownstreamApi()` riga dopo `.AddMicrosoftIdentityWebApi(Configuration)` . Questa riga espone il `ITokenAcquisition` servizio che è possibile usare nelle azioni del controller e della pagina. Tuttavia, come si vedrà nelle due opzioni seguenti, l'operazione può essere eseguita in modo più semplice. È anche necessario scegliere un'implementazione della cache dei token, ad esempio `.AddInMemoryTokenCaches()` in *Startup.cs* :
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -519,5 +519,4 @@ def _build_msal_app(cache=None):
 
 A questo punto, quando l'utente esegue l'accesso, viene archiviato un token nella cache dei token. Viene ora descritto come viene usato in altre parti dell'app Web.
 
-> [!div class="nextstepaction"]
-> [Un'app Web che chiama le API Web: rimuovere gli account dalla cache per la disconnessione globale](scenario-web-app-call-api-sign-in.md)
+[Rimuovere gli account dalla cache nella disconnessione globale](scenario-web-app-call-api-sign-in.md)

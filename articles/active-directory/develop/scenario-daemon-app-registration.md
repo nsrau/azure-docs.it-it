@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 508101ad615dd96559b1c68a61be7c08772545db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b77cc93385efb0bbb8a9b87d29de9bad5cd4ceb
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80885481"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443331"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>App daemon che chiama le API Web-registrazione app
 
@@ -35,14 +35,14 @@ Nel caso in cui l'applicazione client riservata usi *solo* il flusso di credenzi
 
 ## <a name="api-permissions---app-permissions-and-admin-consent"></a>Autorizzazioni per le API: autorizzazioni per le app e consenso dell'amministratore
 
-Un'applicazione daemon può richiedere solo le autorizzazioni dell'applicazione per le API (non le autorizzazioni delegate). Nella pagina **autorizzazioni API** per la registrazione dell'applicazione, dopo aver selezionato **Aggiungi un'autorizzazione** e scelto la famiglia di API, scegliere **Autorizzazioni applicazione**, quindi selezionare le autorizzazioni.
+Un'applicazione daemon può richiedere solo le autorizzazioni dell'applicazione per le API (non le autorizzazioni delegate). Nella pagina **autorizzazioni API** per la registrazione dell'applicazione, dopo aver selezionato **Aggiungi un'autorizzazione** e scelto la famiglia di API, scegliere **Autorizzazioni applicazione** , quindi selezionare le autorizzazioni.
 
 ![Autorizzazioni dell'app e consenso dell'amministratore](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
 > [!NOTE]
-> L'API Web che si vuole chiamare deve definire le *autorizzazioni dell'applicazione (ruoli app)*, non le autorizzazioni delegate. Per informazioni dettagliate su come esporre un'API di questo tipo, vedere [API Web protetta: registrazione dell'app-quando l'API Web viene chiamata da un'app daemon](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
+> L'API Web che si vuole chiamare deve definire le *autorizzazioni dell'applicazione (ruoli app)* , non le autorizzazioni delegate. Per informazioni dettagliate su come esporre un'API di questo tipo, vedere [API Web protetta: registrazione dell'app-quando l'API Web viene chiamata da un'app daemon](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
 
-Per le applicazioni daemon è necessario che un amministratore tenant preacconsente all'applicazione che chiama l'API Web. Gli amministratori del tenant forniscono questo consenso nella stessa pagina di **autorizzazione dell'API** selezionando **Concedi al consenso dell'amministratore per l' *organizzazione* **
+Per le applicazioni daemon è necessario che un amministratore tenant preacconsente all'applicazione che chiama l'API Web. Gli amministratori del tenant forniscono questo consenso nella stessa pagina di **autorizzazione dell'API** selezionando **Concedi al consenso dell'amministratore per l' *organizzazione***
 
 Se si è un ISV che compila un'applicazione multi-tenant, è necessario leggere la sezione [distribuzione-caso di app daemon multi-tenant](scenario-daemon-production.md#deployment---multitenant-daemon-apps).
 
@@ -50,5 +50,4 @@ Se si è un ISV che compila un'applicazione multi-tenant, è necessario leggere 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [App daemon-configurazione del codice dell'app](./scenario-daemon-app-configuration.md)
+Passare all'articolo successivo in questo scenario, configurazione del [codice dell'app](./scenario-daemon-app-configuration.md).

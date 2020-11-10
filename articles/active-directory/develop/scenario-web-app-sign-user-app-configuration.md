@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ea0312cd8129fce342f94cfab5701d1773aca309
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad7b0563fd1ca0dbf60403bc6172e7616e278b2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728336"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443654"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>App Web che esegue l'accesso degli utenti: configurazione del codice
 
@@ -245,7 +245,7 @@ Per aggiungere l'autenticazione con la piattaforma di identità Microsoft (in pr
      }).AddMicrosoftIdentityUI();
     ```
 
-3. Nel `Configure` metodo in *Startup.cs*abilitare l'autenticazione con una chiamata a `app.UseAuthentication();`
+3. Nel `Configure` metodo in *Startup.cs* abilitare l'autenticazione con una chiamata a `app.UseAuthentication();`
 
    ```c#
    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -344,22 +344,18 @@ Nell'articolo successivo verrà illustrato come attivare l'accesso e la disconne
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [Accesso e disconnessione](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore)
+Passare all'articolo successivo in questo scenario, effettuare l' [accesso e la disconnessione](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [Accesso e disconnessione](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet)
+Passare all'articolo successivo in questo scenario, effettuare l' [accesso e la disconnessione](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Accesso e disconnessione](./scenario-web-app-sign-user-sign-in.md?tabs=java)
+Passare all'articolo successivo in questo scenario, effettuare l' [accesso e la disconnessione](./scenario-web-app-sign-user-sign-in.md?tabs=java).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Accesso e disconnessione](./scenario-web-app-sign-user-sign-in.md?tabs=python)
+Passare all'articolo successivo in questo scenario, effettuare l' [accesso e la disconnessione](./scenario-web-app-sign-user-sign-in.md?tabs=python).
 
 ---

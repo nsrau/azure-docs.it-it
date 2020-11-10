@@ -11,18 +11,18 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f94a3da96243e30faa90277ce86efec037f54672
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 863d8d87d5de771293199dd60618128b0ac11bba
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89436468"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442600"
 ---
 # <a name="a-web-app-that-calls-web-apis-app-registration"></a>Un'app Web che chiama le API Web: registrazione dell'app
 
 Un'app Web che chiama le API Web ha la stessa registrazione di un'app Web che firma gli utenti in. Quindi, seguire le istruzioni in [un'app Web per l'accesso degli utenti: registrazione dell'app](scenario-web-app-sign-user-app-registration.md).
 
-Tuttavia, poiché l'app Web ora chiama anche API Web, diventa un'applicazione client riservata. Per questo motivo è necessaria una registrazione aggiuntiva. L'app deve condividere le credenziali client o i *segreti*con la piattaforma di identità Microsoft.
+Tuttavia, poiché l'app Web ora chiama anche API Web, diventa un'applicazione client riservata. Per questo motivo è necessaria una registrazione aggiuntiva. L'app deve condividere le credenziali client o i *segreti* con la piattaforma di identità Microsoft.
 
 [!INCLUDE [Registration of client secrets](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
@@ -32,5 +32,4 @@ Le app Web chiamano le API per conto dell'utente che ha eseguito l'accesso. A ta
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [App Web che chiama le API Web: Configurazione del codice](scenario-web-app-call-api-app-configuration.md)
+Passare all'articolo successivo in questo scenario, configurazione del [codice](scenario-web-app-call-api-app-configuration.md).

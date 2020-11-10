@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1e5c8b788f1abbfbd46c4dfe6c7bb9d87adcee86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d737f107e7a9b1476fdf86ac0320931ea137671
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257267"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442906"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API Web protetta: verificare ambiti e ruoli app
 
@@ -47,8 +47,8 @@ Per proteggere un'API Web ASP.NET o ASP.NET Core, è necessario aggiungere l'att
 
 Questa protezione, tuttavia, non è sufficiente. Garantisce solo che ASP.NET e ASP.NET Core convalidino il token. L'API deve verificare che il token usato per chiamare l'API venga richiesto con le attestazioni previste. La verifica è necessaria, in particolare, per queste attestazioni:
 
-- *Ambiti*, se l'API viene chiamata per conto di un utente.
-- *Ruoli app*, se l'API può essere chiamata da un'app daemon.
+- *Ambiti* , se l'API viene chiamata per conto di un utente.
+- *Ruoli app* , se l'API può essere chiamata da un'app daemon.
 
 ## <a name="verify-scopes-in-apis-called-on-behalf-of-users"></a>Verificare gli ambiti nelle API chiamate per conto di utenti
 
@@ -152,5 +152,4 @@ Controllando la condizione inversa, l'API potrà essere chiamata solo dalle app 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Passare in produzione](scenario-protected-web-api-production.md)
+Passare all'articolo successivo in questo scenario, [passare alla produzione](scenario-protected-web-api-production.md).

@@ -11,46 +11,42 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7cadb4784cbf90d283f64e12edc155d4430fab06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38ed7fb2930463e6657422e851a73f2b3b011f35
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257070"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443586"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scenario: App Web per l'accesso degli utenti
 
 Scopri tutto quello che ti serve per creare un'app Web che usa la piattaforma di identità Microsoft per l'accesso degli utenti.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 Se si vuole creare la prima app Web portabile (ASP.NET Core) che accede agli utenti, seguire questa Guida introduttiva:
 
-> [!div class="nextstepaction"]
-> [Guida introduttiva: ASP.NET Core app Web che accede agli utenti](quickstart-v2-aspnet-core-webapp.md)
+[Guida introduttiva: ASP.NET Core app Web che accede agli utenti](quickstart-v2-aspnet-core-webapp.md)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 Per informazioni su come aggiungere l'accesso a un'applicazione Web ASP.NET esistente, provare a eseguire la Guida introduttiva seguente:
 
-> [!div class="nextstepaction"]
-> [Guida introduttiva: app Web ASP.NET che esegue l'accesso degli utenti](quickstart-v2-aspnet-webapp.md)
+[Guida introduttiva: app Web ASP.NET che esegue l'accesso degli utenti](quickstart-v2-aspnet-webapp.md)
 
 # <a name="java"></a>[Java](#tab/java)
 
 Se si è uno sviluppatore Java, provare a eseguire la Guida introduttiva seguente:
 
-> [!div class="nextstepaction"]
-> [Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web Java](quickstart-v2-java-webapp.md)
+[Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web Java](quickstart-v2-java-webapp.md)
 
 # <a name="python"></a>[Python](#tab/python)
 
 Se si sviluppa con Python, provare a eseguire la Guida introduttiva seguente:
 
-> [!div class="nextstepaction"]
-> [Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web Python](quickstart-v2-python-webapp.md)
+[Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web Python](quickstart-v2-python-webapp.md)
 
 ---
 
@@ -81,22 +77,18 @@ Come seconda fase, è possibile abilitare l'applicazione per chiamare le API Web
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [Registrazione delle app](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore)
+Passare all'articolo successivo in questo scenario, registrazione dell' [app](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [Registrazione delle app](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet)
+Passare all'articolo successivo in questo scenario, registrazione dell' [app](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Registrazione delle app](./scenario-web-app-sign-user-app-registration.md?tabs=java)
+Passare all'articolo successivo in questo scenario, registrazione dell' [app](./scenario-web-app-sign-user-app-registration.md?tabs=java).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Registrazione delle app](./scenario-web-app-sign-user-app-registration.md?tabs=python)
+Passare all'articolo successivo in questo scenario, registrazione dell' [app](./scenario-web-app-sign-user-app-registration.md?tabs=python).
 
 ---

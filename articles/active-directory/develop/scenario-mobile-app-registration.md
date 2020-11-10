@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e0f1cc446b6b957b17153dd538922d2b9acd891f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35c1ffb370a158acc91e2378119055337e28580d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442735"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443093"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrare app per dispositivi mobili che chiamano API Web
 
@@ -44,7 +44,7 @@ Per altre informazioni, vedere [scenari e flussi di autenticazione supportati](a
 
 ### <a name="interactive-authentication"></a>Autenticazione interattiva
 
-Quando si compila un'app per dispositivi mobili che usa l'autenticazione interattiva, il passaggio di registrazione più critico è l'URI di reindirizzamento. È possibile impostare l'autenticazione interattiva tramite la [configurazione della piattaforma nel pannello **autenticazione** ](https://aka.ms/MobileAppReg).
+Quando si compila un'app per dispositivi mobili che usa l'autenticazione interattiva, il passaggio di registrazione più critico è l'URI di reindirizzamento. È possibile impostare l'autenticazione interattiva tramite la [configurazione della piattaforma nel pannello **autenticazione**](https://aka.ms/MobileAppReg).
 
 Questa esperienza consente all'app di ottenere Single Sign-On (SSO) tramite Microsoft Authenticator (e Portale aziendale Intune in Android). Supporta inoltre i criteri di gestione dei dispositivi.
 
@@ -62,7 +62,7 @@ Il portale di registrazione delle app offre un'esperienza di anteprima per il ca
 
    ![Scegliere un'applicazione per dispositivi mobili](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-4. Immettere l'ID bundle, quindi selezionare **Register (registra**).
+4. Immettere l'ID bundle, quindi selezionare **Register (registra** ).
 
    ![Immettere l'ID bundle](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
@@ -72,16 +72,16 @@ Quando si completano i passaggi, l'URI di reindirizzamento viene calcolato per l
 
 Se si preferisce configurare manualmente l'URI di reindirizzamento, è possibile farlo tramite il manifesto dell'applicazione. Ecco il formato consigliato per il manifesto:
 
-- **iOS**: `msauth.<BUNDLE_ID>://auth`
+- **iOS** : `msauth.<BUNDLE_ID>://auth`
   - Immettere ad esempio `msauth.com.yourcompany.appName://auth`
-- **Android**: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+- **Android** : `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - È possibile generare l'hash della firma Android usando la chiave di rilascio o la chiave di debug tramite il comando di chiave.
 
 ### <a name="username-password-authentication"></a>Nome utente-autenticazione con password
 
 Se l'app usa solo l'autenticazione con nome utente e password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questo flusso esegue una round trip all'endpoint della versione 2,0 di Microsoft Identity Platform. L'applicazione non verrà richiamata su un URI specifico.
 
-Tuttavia, è necessario identificare l'applicazione come applicazione client pubblica. A tale scopo, iniziare nella sezione **autenticazione** dell'applicazione. Nella sottosezione **Impostazioni avanzate** , nel paragrafo del **tipo di client predefinito** , per l'applicazione question **treat come client pubblico**, selezionare **Sì**.
+Tuttavia, è necessario identificare l'applicazione come applicazione client pubblica. A tale scopo, iniziare nella sezione **autenticazione** dell'applicazione. Nella sottosezione **Impostazioni avanzate** , nel paragrafo del **tipo di client predefinito** , per l'applicazione question **treat come client pubblico** , selezionare **Sì**.
 
 ## <a name="api-permissions"></a>Autorizzazioni delle API
 
@@ -91,5 +91,4 @@ La registrazione statica delle autorizzazioni consente agli amministratori di ap
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Configurazione del codice](scenario-mobile-app-configuration.md)
+Passare all'articolo successivo in questo scenario, configurazione del [codice dell'app](scenario-mobile-app-configuration.md).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b71c78f484eef0fc4d9c34a2f218a177dbffa0a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 787380dbf6f739d4b88f18a836da2146b06024c3
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257512"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443144"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>App desktop che chiama le API Web: registrazione dell'app
 
@@ -48,8 +48,8 @@ Gli URI di Reindirizzamento da usare in un'applicazione desktop dipendono dal fl
 - Se l'app usa solo l'autenticazione integrata di Windows o un nome utente e una password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questi flussi eseguono una round trip all'endpoint della piattaforma Microsoft Identity Platform v 2.0. L'applicazione non verrà richiamata su un URI specifico.
 - Per distinguere [il flusso del codice del dispositivo](scenario-desktop-acquire-token.md#device-code-flow), [l'autenticazione integrata di Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication)e un [nome utente e una password](scenario-desktop-acquire-token.md#username-and-password) da un'applicazione client riservata usando un flusso di credenziali client usato nelle [applicazioni daemon](scenario-daemon-overview.md), nessuna delle quali richiede un URI di reindirizzamento, è necessario configurarlo come applicazione client pubblica. Per ottenere questa configurazione:
 
-    1. Nella [portale di Azure](https://portal.azure.com)selezionare l'app in **registrazioni app**e quindi selezionare **autenticazione**.
-    1. In **Impostazioni avanzate**  >  il**tipo di client predefinito**  >  **considera applicazione come client pubblico**selezionare **Sì**.
+    1. Nella [portale di Azure](https://portal.azure.com)selezionare l'app in **registrazioni app** e quindi selezionare **autenticazione**.
+    1. In **Impostazioni avanzate**  >  il **tipo di client predefinito**  >  **considera applicazione come client pubblico** selezionare **Sì**.
 
         :::image type="content" source="media/scenarios/default-client-type.png" alt-text="Abilitare l'impostazione client pubblica nel riquadro autenticazione in portale di Azure":::
 
@@ -59,5 +59,4 @@ Le applicazioni desktop chiamano le API per l'utente che ha eseguito l'accesso. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [App desktop: configurazione dell'app](scenario-desktop-app-configuration.md)
+Passare all'articolo successivo in questo scenario, configurazione del [codice dell'app](scenario-desktop-app-configuration.md).

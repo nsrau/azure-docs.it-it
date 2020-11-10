@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: b514cce8128dc0b17b5cebf8f2dc42e2c4dd8c8e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: ad8a5a23361e721fd5d8d55d3555f51def94e768
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94336973"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442022"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Esercitazione: creare un ordine di esportazione per Azure Data Box (anteprima)
 
@@ -82,7 +82,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
 6. Specificare i **Dettagli dell'ordine di** **base** . Immettere o selezionare le informazioni seguenti e quindi selezionare **Avanti**.
 
-    |Impostazione  |Valore  |
+    |Impostazione  |valore  |
     |---------|---------|
     |Sottoscrizione     | La sottoscrizione viene popolata automaticamente in base alla selezione precedente.|
     |Resource group | Il gruppo di risorse selezionato in precedenza. |
@@ -102,7 +102,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     |---------|---------|
     |Account di archiviazione     | L'account di archiviazione di Azure da cui si desidera esportare i dati. |
     |Tipo di esportazione     | Specifica il tipo di dati da esportare da **tutti gli oggetti** e **utilizzare il file XML**.<ul><li> **Tutti gli oggetti** : specifica che il processo Esporta tutti i dati a seconda della selezione effettuata per le **Opzioni di trasferimento**.</li><li> **Usa file XML** : specifica un file XML che contiene un set di percorsi e prefissi per i BLOB e/o i file da esportare dall'account di archiviazione. Il file XML deve trovarsi nel contenitore dell'account di archiviazione selezionato e la selezione da condivisioni file non è attualmente supportata. Il file deve essere un file XML non vuoto.</li></ul>        |
-    |Opzioni di trasferimento     |  Specifica le opzioni di trasferimento dati da **Seleziona tutto** , **tutti i BLOB** e **tutti i file**. <ul><li> **Select All** : specifica che tutti i BLOB e i file di Azure vengono esportati. Se si usa un account di archiviazione che supporta solo BLOB (account di archiviazione BLOB), l'opzione **tutti i file** non sarà selezionabile.</li><li> **All Blobs** : specifica che vengono esportati solo i BLOB in blocchi e di pagine.</li><li> **Tutti i file** : specifica che tutti i file vengono esportati, esclusi i BLOB. Il tipo di account di archiviazione in cui si dispone (utilizzo generico V1 e GPv2, archiviazione Premium o archiviazione BLOB) determina i tipi di dati che è possibile esportare. Per altre informazioni, vedere [account di archiviazione supportati per l'esportazione](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
+    |Opzioni di trasferimento     |  Specifica le opzioni di trasferimento dati da **Seleziona tutto** , **tutti i BLOB** e **tutti i file**. <ul><li> **Select All** : specifica che tutti i blob e file di Azure vengono esportati. Se si usa un account di archiviazione che supporta solo BLOB (account di archiviazione BLOB), l'opzione **tutti i file** non sarà selezionabile.</li><li> **All Blobs** : specifica che vengono esportati solo i BLOB in blocchi e di pagine.</li><li> **Tutti i file** : specifica che tutti i file vengono esportati, esclusi i BLOB. Il tipo di account di archiviazione in cui si dispone (utilizzo generico V1 e GPv2, archiviazione Premium o archiviazione BLOB) determina i tipi di dati che è possibile esportare. Per altre informazioni, vedere [account di archiviazione supportati per l'esportazione](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
     |Includi log dettagliato     | Indica se si desidera un file di log dettagliato contenente un elenco di tutti i file che sono stati esportati correttamente.        |
 
     > [!NOTE]
@@ -183,11 +183,11 @@ Se si seleziona **Usa file XML** , è possibile specificare contenitori e BLOB s
 
    ![Visualizza i dettagli del contenitore](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-view-container-details.png)
 
-6. Facendo doppio clic sul contenitore, viene visualizzata la visualizzazione delle proprietà del contenitore. A questo punto si vuole alleghi (o individuare) il file XML che contiene l'elenco di BLOB e/o file di Azure che si vuole esportare. Selezionare **Carica**.
+6. Facendo doppio clic sul contenitore, viene visualizzata la visualizzazione delle proprietà del contenitore. A questo punto si vuole alleghi (o individuare) il file XML che contiene l'elenco di BLOB e/o File di Azure che si vuole esportare. Selezionare **Carica**.
 
    ![Caricare un BLOB nel contenitore](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-blob-to-container.png)
 
-7. Il file XML è stato aggiunto al contenitore. Verranno esportati solo i BLOB e i file di Azure specificati in questo XML.
+7. Il file XML è stato aggiunto al contenitore. Verranno esportati solo i BLOB e File di Azure specificati in questo XML.
 
    ![File XML aggiunto al contenitore](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-added-to-container.png)
 
@@ -227,7 +227,7 @@ Per eliminare un ordine annullato, passare a **Panoramica** e fare clic su **Eli
 
 ## <a name="sample-xml-file"></a>File XML di esempio
 
-Il codice XML seguente mostra un esempio di nomi di BLOB, prefissi BLOB e file di Azure contenuti nel formato XML usato dall'ordine di esportazione quando si seleziona l'opzione **Usa file XML** :
+Nel codice XML seguente viene illustrato un esempio di nomi di BLOB, prefissi di BLOB e File di Azure contenuti nel formato XML utilizzato dall'ordine di esportazione quando si seleziona l'opzione **utilizza file XML** :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

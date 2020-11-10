@@ -13,18 +13,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 70ddc2191cc06a1bede87adc5940e0f7dea63384
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 853ab82ab40cc7ebee1c74feaf6aad87adf39ece
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257538"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443110"
 ---
-# <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: applicazione mobile che chiama le API Web
+# <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: Applicazione per dispositivi mobili che chiama le API Web
 
 Informazioni su come creare un'app per dispositivi mobili che chiama API Web
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 Se non è già stato fatto, creare la prima applicazione completando una guida introduttiva:
 
@@ -40,10 +40,10 @@ Un'esperienza utente personalizzata e trasparente è essenziale per le app per d
 
 Considerazioni per le app per dispositivi mobili:
 
-- L' **esperienza utente è chiave**: consentire agli utenti di visualizzare il valore dell'app prima di richiedere l'accesso. Richiedere solo le autorizzazioni necessarie.
-- **Supportare tutte le configurazioni utente**: molti utenti di business per dispositivi mobili devono rispettare i criteri di accesso condizionale e i criteri di conformità dei dispositivi. Assicurarsi di supportare questi scenari chiave.
-- **Implementare Single Sign-on (SSO)**: usando MSAL e la piattaforma di identità Microsoft, è possibile abilitare Single Sign-on tramite il browser o la Microsoft Authenticator del dispositivo (e portale aziendale Intune in Android).
-- **Implementare la modalità dispositivo condiviso**: consentire l'uso dell'applicazione in scenari di dispositivi condivisi, ad esempio ospedali, produzione, vendite al dettaglio e finanza. [Altre informazioni sul supporto della modalità dispositivo condiviso](msal-shared-devices.md).
+- L' **esperienza utente è chiave** : consentire agli utenti di visualizzare il valore dell'app prima di richiedere l'accesso. Richiedere solo le autorizzazioni necessarie.
+- **Supportare tutte le configurazioni utente** : molti utenti di business per dispositivi mobili devono rispettare i criteri di accesso condizionale e i criteri di conformità dei dispositivi. Assicurarsi di supportare questi scenari chiave.
+- **Implementare Single Sign-on (SSO)** : usando MSAL e la piattaforma di identità Microsoft, è possibile abilitare Single Sign-on tramite il browser o la Microsoft Authenticator del dispositivo (e portale aziendale Intune in Android).
+- **Implementare la modalità dispositivo condiviso** : consentire l'uso dell'applicazione in scenari di dispositivi condivisi, ad esempio ospedali, produzione, vendite al dettaglio e finanza. [Altre informazioni sul supporto della modalità dispositivo condiviso](msal-shared-devices.md).
 
 ## <a name="specifics"></a>Specifiche
 
@@ -59,5 +59,4 @@ Quando si compila un'app per dispositivi mobili nella piattaforma di identità M
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Registrazione delle app](scenario-mobile-app-registration.md)
+Passare all'articolo successivo in questo scenario, registrazione dell' [app](scenario-mobile-app-registration.md).

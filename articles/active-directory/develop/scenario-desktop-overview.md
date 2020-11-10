@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a6cbb574245c7b11d2437693d60fd952becedba3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4effdde131f93ccf430029edc4d87e0627010c8b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257555"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443192"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: App desktop che chiama le API Web
 
 Tutte le informazioni su come per creare un'app desktop che chiama le API Web.
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
 Se non è già stato fatto, creare la prima applicazione completando una guida introduttiva:
 
@@ -61,5 +61,4 @@ Le applicazioni desktop hanno diverse peculiarità. Dipendono principalmente dal
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [App desktop: Registrazione dell'app](scenario-desktop-app-registration.md)
+Passare all'articolo successivo in questo scenario, registrazione dell' [app](scenario-desktop-app-registration.md).

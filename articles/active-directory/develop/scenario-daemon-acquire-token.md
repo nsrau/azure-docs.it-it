@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 13000c5a61dc2c4d49aa395271beddef64d32245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c13b6ed991403e65c4c4d71c964f1f7f4d1ffe7b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119216"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443314"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>App daemon che chiama le API Web-Acquisisci un token
 
@@ -57,7 +57,7 @@ L'ambito usato per le credenziali client deve essere sempre l'ID della risorsa s
 
 > [!IMPORTANT]
 > Quando MSAL richiede un token di accesso per una risorsa che accetta un token di accesso versione 1,0, Azure AD analizza i destinatari desiderati dall'ambito richiesto, prendendo tutti gli elementi prima dell'ultima barra e usandola come identificatore di risorsa.
-> Se, ad esempio, il database SQL di Azure (**https: \/ /database.Windows.NET**), la risorsa si aspetta un pubblico che termina con una barra (per il database SQL di Azure `https://database.windows.net/` ), è necessario richiedere un ambito `https://database.windows.net//.default` . Prendere nota della barra doppia. Vedere anche problema MSAL.NET [#747: la barra finale dell'URL della risorsa viene omessa, causando un errore di autenticazione SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+> Se, ad esempio, il database SQL di Azure ( **https: \/ /database.Windows.NET** ), la risorsa si aspetta un pubblico che termina con una barra (per il database SQL di Azure `https://database.windows.net/` ), è necessario richiedere un ambito `https://database.windows.net//.default` . Prendere nota della barra doppia. Vedere anche problema MSAL.NET [#747: la barra finale dell'URL della risorsa viene omessa, causando un errore di autenticazione SQL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="acquiretokenforclient-api"></a>API AcquireTokenForClient
 
@@ -202,7 +202,7 @@ Per altre informazioni, vedere la documentazione del protocollo: [Microsoft Iden
 
 ## <a name="application-token-cache"></a>Cache del token dell'applicazione
 
-In MSAL.NET `AcquireTokenForClient` utilizza la cache del token dell'applicazione. Tutti gli altri metodi AcquireToken*XX* utilizzano la cache dei token utente. Non chiamare `AcquireTokenSilent` prima di chiamare `AcquireTokenForClient` , perché `AcquireTokenSilent` Usa la cache del token *utente* . `AcquireTokenForClient` Controlla la cache del token *dell'applicazione* e la Aggiorna.
+In MSAL.NET `AcquireTokenForClient` utilizza la cache del token dell'applicazione. Tutti gli altri metodi AcquireToken *XX* utilizzano la cache dei token utente. Non chiamare `AcquireTokenSilent` prima di chiamare `AcquireTokenForClient` , perché `AcquireTokenSilent` Usa la cache del token *utente* . `AcquireTokenForClient` Controlla la cache del token *dell'applicazione* e la Aggiorna.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -233,17 +233,14 @@ Content: {
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [App daemon: chiamata di un'API Web](./scenario-daemon-call-api.md?tabs=dotnet)
+Passare all'articolo successivo in questo scenario, [chiamando un'API Web](./scenario-daemon-call-api.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [App daemon: chiamata di un'API Web](./scenario-daemon-call-api.md?tabs=python)
+Passare all'articolo successivo in questo scenario, [chiamando un'API Web](./scenario-daemon-call-api.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [App daemon: chiamata di un'API Web](./scenario-daemon-call-api.md?tabs=java)
+Passare all'articolo successivo in questo scenario, [chiamando un'API Web](./scenario-daemon-call-api.md?tabs=java).
 
 ---

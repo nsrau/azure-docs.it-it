@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 28bbe1432777e9e15ae625fb9788f9182495bd66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7397f6d02d71a6344953b8210b0349b9ee26360
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87845086"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443552"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>App Web per l'accesso degli utenti: accesso e disconnessione
 
@@ -432,5 +432,4 @@ Per altre informazioni sulla disconnessione, vedere la documentazione del protoc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Passare in produzione](scenario-web-app-sign-user-production.md)
+Passare all'articolo successivo in questo scenario, [passare alla produzione](scenario-web-app-sign-user-production.md).

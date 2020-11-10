@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 181cae525845e7cae5e8f6f178b01ee33999b8b5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9b55c4873c4d7ee430e7d9ce84d2782a37e522ae
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312476"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442141"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando di Azure
 
@@ -177,7 +177,7 @@ Per limitare i dati raccolti da Microsoft nell'area di lavoro, usare il `--hbi-w
 > [!IMPORTANT]
 > Quando si crea un'area di lavoro, è possibile selezionare un elevato effetto aziendale. Questa impostazione non può essere modificata dopo la creazione dell'area di lavoro.
 
-Per ulteriori informazioni sulle chiavi gestite dal cliente e sull'area di lavoro di alto livello di business, vedere [sicurezza aziendale per Azure Machine Learning](concept-enterprise-security.md#encryption-at-rest).
+Per ulteriori informazioni sulle chiavi gestite dal cliente e sull'area di lavoro di alto livello di business, vedere [sicurezza aziendale per Azure Machine Learning](concept-data-encryption.md#encryption-at-rest).
 
 ### <a name="use-existing-resources"></a>Usare le risorse esistenti
 

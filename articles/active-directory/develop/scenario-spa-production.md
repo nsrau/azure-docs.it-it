@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 21ba0193c3f1e19ffc74452aaceee34759c7e606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a51442870fb72e2b3cd93d9f03736d2c679ed06
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88949015"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442821"
 ---
 # <a name="single-page-application-move-to-production"></a>Applicazione a pagina singola: sposta in produzione
 
@@ -36,27 +36,12 @@ Vedere un [esempio di distribuzione](https://github.com/Azure-Samples/ms-identit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Approfondimento dell'esempio di avvio rapido, che illustra il codice per l'accesso degli utenti e ottenere un token di accesso per chiamare l' **API Microsoft Graph** usando **MSAL.js**:
+- Approfondimento dell'esempio di avvio rapido, che illustra il codice per l'accesso degli utenti e ottenere un token di accesso per chiamare l' **API Microsoft Graph** usando **MSAL.js** : [JavaScript Spa tutorial](./tutorial-v2-javascript-spa.md).
 
-> [!div class="nextstepaction"]
-> [Esercitazione su JavaScript SPA](./tutorial-v2-javascript-spa.md)
+- Esempio che illustra come ottenere i token per la propria API Web back-end (ASP.NET Core) usando **MSAL.js** : [Spa con un back-end ASP.NET](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi).
 
-Esempio che illustra come ottenere i token per la propria API Web back-end (ASP.NET Core) utilizzando **MSAL.js**:
+- Esempio che illustra come convalidare i token di accesso per l'API Web back-end (Node.js) usando **Passport-Azure-ad** : [Node.js API Web (Azure ad](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2).
 
-> [!div class="nextstepaction"]
-> [SPA con un back-end ASP.NET](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi)
+- Esempio che illustra come usare **MSAL.js** per l'accesso degli utenti in un'app registrata con **Azure Active Directory B2C** (Azure ad B2C): [Spa con Azure ad B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp).
 
-Esempio che illustra come convalidare i token di accesso per l'API Web back-end (Node.js) usando **Passport-Azure-ad**.
-
-> [!div class="nextstepaction"]
-> [ API Web diNode.js (Azure AD)](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
-
-Esempio che illustra come usare **MSAL.js** per l'accesso degli utenti in un'app registrata con **Azure Active Directory B2C** (Azure ad B2C):
-
-> [!div class="nextstepaction"]
-> [SPA con Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-
-Esempio che illustra come usare **Passport-Azure-ad** per convalidare i token di accesso per le app registrate con **Azure Active Directory B2C** (Azure ad B2C)
-
-> [!div class="nextstepaction"]
-> [ API Web diNode.js (Azure AD B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+- Esempio che illustra come usare **Passport-Azure-ad** per convalidare i token di accesso per le app registrate con **Azure Active Directory B2C** (Azure ad B2C): [Node.js API Web (Azure ad B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).

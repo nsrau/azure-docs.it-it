@@ -9,15 +9,15 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
-ms.author: alsin
-ms.openlocfilehash: c1200121d1c768a3fdddd7749184d7f8b5c98a96
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.author: mathapli
+ms.openlocfilehash: feaa2471f2867257deb06ab32ed5fc0a26a0d37e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413106"
+ms.locfileid: "94443433"
 ---
-# <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Anteprima: Vantaggio Azure Hybrid-come viene applicato per macchine virtuali Linux
+# <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Anteprima pubblica: Vantaggio Azure Hybrid-come viene applicata per macchine virtuali Linux
 
 ## <a name="overview"></a>Panoramica
 
@@ -45,30 +45,26 @@ Le istanze riservate, gli host dedicati e i vantaggi ibridi SQL non sono idonei 
 
 ## <a name="how-to-get-started"></a>Operazioni preliminari
 
-Vantaggio Azure Hybrid è attualmente in fase di anteprima per le macchine virtuali Linux. Una volta ottenuto l'accesso all'anteprima, è possibile abilitare il vantaggio usando il portale di Azure o l'interfaccia della riga di comando di Azure.
+Vantaggio Azure Hybrid è attualmente in fase di anteprima per le macchine virtuali Linux. Una volta ottenuto l'accesso all'anteprima, è possibile abilitare il vantaggio usando l'interfaccia della riga di comando di Azure.
 
-### <a name="preview"></a>Anteprima
+### <a name="public-preview"></a>Anteprima pubblica
 
-In questa fase, è possibile ottenere l'accesso al vantaggio compilando il modulo [qui](https://aka.ms/ahb-linux-form). Una volta compilato il modulo, le sottoscrizioni di Azure verranno abilitate per i vantaggi e si riceverà una conferma da Microsoft entro tre giorni lavorativi.
+Vantaggio Azure Hybrid (per Linux) è ora disponibile in fase di anteprima pubblica. È possibile usare i passaggi seguenti per abilitare il vantaggio per le distribuzioni di Red Hat e SUSE. 
 
 ### <a name="red-hat-customers"></a>Clienti Red Hat
 
-1.    Compila il modulo di richiesta di anteprima sopra
 1.    Eseguire la registrazione con il [programma Red Hat cloud Access](https://aka.ms/rhel-cloud-access)
 1.    Abilitare le sottoscrizioni di Azure per l'accesso al cloud e abilitare le sottoscrizioni contenenti le macchine virtuali con cui si vuole usare il vantaggio
-1.    Applicare il vantaggio alle macchine virtuali esistenti tramite l'portale di Azure o l'interfaccia della riga di comando di Azure
-1.    Facoltativamente, registrare le VM ricevendo il vantaggio con una fonte separata di aggiornamenti (le macchine virtuali a commutazione possono rimanere collegate a [RHUI](../workloads/redhat/redhat-rhui.md) o registrate tramite RHSM)
+1.    Applicare il vantaggio alle macchine virtuali esistenti tramite l'interfaccia della riga di comando di Azure
+1.    Registrare le VM ricevendo il vantaggio con una fonte di aggiornamenti separata
+
 
 ### <a name="suse-customers"></a>Clienti SUSE
 
-1.    Compila il modulo di richiesta di anteprima sopra
 1.    Eseguire la registrazione con il programma di cloud pubblico SUSE
-1.    Applicare il vantaggio alle macchine virtuali esistenti tramite l'portale di Azure o l'interfaccia della riga di comando di Azure
+1.    Applicare il vantaggio alle macchine virtuali esistenti tramite l'interfaccia della riga di comando di Azure
 1.    Registrare le VM ricevendo il vantaggio con una fonte di aggiornamenti separata
 
-### <a name="enable-and-disable-the-benefit-in-the-azure-portal"></a>Abilitare e disabilitare il vantaggio nella portale di Azure
-
-È possibile abilitare il vantaggio sulle macchine virtuali esistenti visitando il pannello **configurazione** e seguendo la procedura. È possibile abilitare il vantaggio nelle nuove VM durante l'esperienza di creazione della macchina virtuale.
 
 ### <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Abilitare e disabilitare il vantaggio nell'interfaccia della riga di comando di Azure
 
@@ -109,12 +105,8 @@ az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ```
 
 ## <a name="check-ahb-status-of-a-vm"></a>Controllare lo stato di vantaggio Azure Hybrid di una macchina virtuale
-È possibile visualizzare lo stato di vantaggio Azure Hybrid di una macchina virtuale in tre modi: archiviazione nel portale, uso dell'interfaccia della riga di comando di Azure o uso del servizio metadati dell'istanza di Azure (Azure IMDS).
+È possibile visualizzare lo stato di vantaggio Azure Hybrid di una macchina virtuale in due modi: usando l'interfaccia della riga di comando di Azure o il servizio metadati dell'istanza di Azure (Azure IMDS).
 
-
-### <a name="portal"></a>Portale
-
-Visualizzare il pannello configurazione e controllare lo stato delle licenze per verificare se vantaggio Azure Hybrid è abilitato per la macchina virtuale.
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -152,9 +144,7 @@ Questa sezione contiene un elenco di problemi comuni che possono essere rilevati
 
 | Errore | Strategia di riduzione del rischio |
 | ----- | ---------- |
-| "La sottoscrizione non è registrata per l'anteprima di Linux Vantaggio Azure Hybrid. Per istruzioni dettagliate, vedere https://aka.ms/ahb-linux " | Compilare il modulo in https://aka.ms/ahb-linux-form per eseguire la registrazione per l'anteprima di Linux del vantaggio Azure Hybrid.
 | "Non è stato possibile completare l'azione perché i nostri record indicano che non è stato abilitato correttamente Red Hat cloud Access nella sottoscrizione di Azure..." | Per usare il vantaggio con le VM RHEL, è necessario prima registrare le sottoscrizioni di Azure con Red Hat cloud Access. Visitare questo collegamento per altre informazioni su come registrare le sottoscrizioni di Azure per Red Hat cloud Access
-|"L'opzione per Vantaggio Azure Hybrid non viene visualizzata nel portale" | Si tratta di un problema noto per le VM RHEL e SLES create da raccolta immagini condivise, snapshot o immagini PAYG acquisite. In questo caso, usare la procedura dell'interfaccia della riga di comando descritta nella sezione "[abilitare e disabilitare il vantaggio nell'interfaccia della riga di comando di Azure](#enable-and-disable-the-benefit-in-the-azure-cli)". Per visualizzare lo stato di vantaggio Azure Hybrid, usare il comando ` az vm get-instance-view -g MyResourceGroup -n MyVm` .|
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per iniziare a usare l'anteprima, compilare il modulo [qui](https://aka.ms/ahb-linux-form).
+* Informazioni su come creare e aggiornare le macchine virtuali e aggiungere i tipi di licenza (RHEL_BYOS, SLES_BYOS) per Vantaggio Azure Hybrid usando l'interfaccia della riga di comando di [Azure qui.](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest&preserve-view=true)

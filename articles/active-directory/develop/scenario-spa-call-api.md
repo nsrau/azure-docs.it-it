@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.openlocfilehash: 5b70b109f43e80fc3ec68f52aef2dba6823033bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b71f66dfcbd33cdecc1a6fea46871ba0cda687d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80882132"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442889"
 ---
 # <a name="single-page-application-call-a-web-api"></a>Applicazione a pagina singola: chiamare un'API Web
 
@@ -26,7 +26,7 @@ ms.locfileid: "80882132"
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Usare il token di accesso acquisito come portatore in una richiesta HTTP per chiamare qualsiasi API Web, ad esempio Microsoft Graph API. Ad esempio:
+Usare il token di accesso acquisito come portatore in una richiesta HTTP per chiamare qualsiasi API Web, ad esempio Microsoft Graph API. Esempio:
 
 ```javascript
     var headers = new Headers();
@@ -52,5 +52,4 @@ Il wrapper angolare MSAL sfrutta l'intercettore HTTP per acquisire automaticamen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Passare in produzione](scenario-spa-production.md)
+Passare all'articolo successivo in questo scenario, [passare alla produzione](scenario-spa-production.md).

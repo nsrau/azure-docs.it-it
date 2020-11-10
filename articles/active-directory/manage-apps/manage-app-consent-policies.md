@@ -12,18 +12,18 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: edcfa19ed93733c4d6b060ebcb5ff179708195aa
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 07637a8be49fb2449c5c92c1a1ea4b2c7ace9a8d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486923"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442260"
 ---
 # <a name="manage-app-consent-policies"></a>Gestire i criteri di consenso delle app
 
 Con Azure AD PowerShell è possibile visualizzare e gestire i criteri di consenso delle app.
 
-Un criterio di consenso dell'app è costituito da uno o più set di condizioni "includes" e da zero o più set di condizioni "excludes". Affinché un evento venga considerato in un criterio di consenso per le app, deve corrispondere almeno a un set *di* condizioni "includes" e non deve *avere* un set di condizioni "excludes".
+Un criterio di consenso dell'app è costituito da uno o più set di condizioni "includes" e da zero o più set di condizioni "excludes". Affinché un evento venga considerato in un criterio di consenso dell'app, deve corrispondere almeno a un set di condizioni "includes" e non deve corrispondere *ad* *alcun* set di condizioni "excludes".
 
 Ogni set di condizioni è costituito da diverse condizioni. Affinché un evento corrisponda a un set di condizioni, è necessario che *tutte* le condizioni nel set di condizioni siano soddisfatte.
 
@@ -133,7 +133,7 @@ La tabella seguente include l'elenco delle condizioni supportate per i criteri d
 | Condizione | Descrizione|
 |:---------------|:----------|
 | PermissionClassification | [Classificazione delle autorizzazioni](configure-permission-classifications.md) per l'autorizzazione che viene concessa o "All" per la corrispondenza con qualsiasi classificazione di autorizzazione (incluse le autorizzazioni non classificate). Il valore predefinito è "All". |
-| PermissionType | Tipo di autorizzazione dell'autorizzazione concessa. Usare "Application" per le autorizzazioni dell'applicazione (ad esempio, i ruoli dell'app) o "delegate" per le autorizzazioni delegate. <br><br>**Nota**: il valore "delegatedUserConsentable" indica le autorizzazioni delegate che non sono state configurate dal server di pubblicazione API per richiedere il consenso dell'amministratore. questo valore può essere usato nei criteri di concessione delle autorizzazioni predefinite, ma non può essere usato nei criteri di concessione delle autorizzazioni personalizzate. Obbligatorio. |
+| PermissionType | Tipo di autorizzazione dell'autorizzazione concessa. Usare "Application" per le autorizzazioni dell'applicazione (ad esempio, i ruoli dell'app) o "delegate" per le autorizzazioni delegate. <br><br>**Nota** : il valore "delegatedUserConsentable" indica le autorizzazioni delegate che non sono state configurate dal server di pubblicazione API per richiedere il consenso dell'amministratore. questo valore può essere usato nei criteri di concessione delle autorizzazioni predefinite, ma non può essere usato nei criteri di concessione delle autorizzazioni personalizzate. Obbligatorio. |
 | ResourceApplication | **AppID** dell'applicazione della risorsa (ad esempio, l'API) per cui viene concessa un'autorizzazione o "any" per la corrispondenza con qualsiasi API o applicazione della risorsa. Il valore predefinito è "any". |
 | Autorizzazioni | Elenco di ID di autorizzazione per le autorizzazioni specifiche con cui trovare una corrispondenza o un elenco con il singolo valore "All" per la corrispondenza con qualsiasi autorizzazione. Il valore predefinito è "All". <ul><li>Gli ID autorizzazione delegati si trovano nella proprietà **OAuth2Permissions** dell'oggetto SERVICEPRINCIPAL dell'API.</li><li>Gli ID delle autorizzazioni dell'applicazione sono reperibili nella proprietà **AppRoles** dell'oggetto SERVICEPRINCIPAL dell'API.</li></ol> |
 | ClientApplicationIds | Elenco di valori **AppID** per le applicazioni client con cui trovare una corrispondenza o un elenco con il singolo valore "All" per la corrispondenza con qualsiasi applicazione client. Il valore predefinito è "All". |
