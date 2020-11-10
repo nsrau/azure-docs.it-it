@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a1aff57c2823b111251c99cb3dbcdea0fd90ad2c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 48078ed06e36a33b10ee2d761a249159d14c6220
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425950"
+ms.locfileid: "94444504"
 ---
 # <a name="blob-versioning"></a>Controllo delle versioni dei BLOB
 
@@ -38,7 +38,7 @@ Una versione acquisisce lo stato di un BLOB in un determinato momento. Quando è
 
 Quando si crea un BLOB con il controllo delle versioni abilitato, il nuovo BLOB è la versione corrente del BLOB (o il BLOB di base). Se successivamente si modifica il BLOB, archiviazione di Azure crea una versione che acquisisce lo stato del BLOB prima della modifica. Il BLOB modificato diventa la nuova versione corrente. Viene creata una nuova versione ogni volta che si modifica il BLOB.
 
-Un BLOB può avere un numero illimitato di versioni. Tuttavia, la presenza di un numero elevato di versioni per BLOB può aumentare la latenza per le operazioni di elenco BLOB. Microsoft consiglia di mantenere meno di 1000 versioni per BLOB. È possibile utilizzare la gestione del ciclo di vita per eliminare automaticamente le versioni precedenti. Per altre informazioni sulla gestione del ciclo di vita, vedere [ottimizzare i costi automatizzando i livelli di accesso all'archivio BLOB di Azure](storage-lifecycle-management-concepts.md).
+La presenza di un numero elevato di versioni per BLOB può aumentare la latenza per le operazioni di elenco BLOB. Microsoft consiglia di mantenere meno di 1000 versioni per BLOB. È possibile utilizzare la gestione del ciclo di vita per eliminare automaticamente le versioni precedenti. Per altre informazioni sulla gestione del ciclo di vita, vedere [ottimizzare i costi automatizzando i livelli di accesso all'archivio BLOB di Azure](storage-lifecycle-management-concepts.md).
 
 Quando si elimina un BLOB con il controllo delle versioni abilitato, archiviazione di Azure crea una versione che acquisisce lo stato del BLOB prima dell'eliminazione. La versione corrente del BLOB viene quindi eliminata, ma le versioni del BLOB vengono mantenute, in modo che possa essere ricreata, se necessario. 
 
@@ -293,7 +293,7 @@ La tabella seguente descrive il comportamento di fatturazione per un BLOB elimin
 | Se l'eliminazione e il controllo delle versioni del BLOB sono entrambi abilitati | Tutte le versioni esistenti alla lunghezza del contenuto completa indipendentemente dal livello. |
 | Se l'eliminazione temporanea BLOB è abilitata ma il controllo delle versioni è disabilitato | Tutti gli snapshot di eliminazione temporanea esistenti alla lunghezza del contenuto completa indipendentemente dal livello. |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Abilitare e gestire il controllo delle versioni dei BLOB](versioning-enable.md)
 - [Creazione di uno snapshot di un BLOB](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

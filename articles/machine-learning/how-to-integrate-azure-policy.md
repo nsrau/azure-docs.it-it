@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: 47a97bb8fbe52d3dde84afd77997b179a5c9248d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 22901c4e8409fc4846c1566a57b2679f4fa92396
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325501"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444561"
 ---
 # <a name="audit-and-manage-azure-machine-learning-using-azure-policy"></a>Controllare e gestire Azure Machine Learning usando criteri di Azure
 
@@ -42,11 +42,11 @@ Da qui è possibile selezionare le definizioni dei criteri per visualizzarle. Du
 
 ## <a name="workspaces-encryption-with-customer-managed-key"></a>Crittografia delle aree di lavoro con chiave gestita dal cliente
 
-Controlla se le aree di lavoro devono essere crittografate con una chiave gestita dal cliente (CMK) o usando una chiave gestita da Microsoft per crittografare le metriche e i metadati. Per altre informazioni sull'uso di CMK, vedere la sezione [Azure Cosmos DB](concept-enterprise-security.md#azure-cosmos-db) dell'articolo sulla sicurezza aziendale.
+Controlla se le aree di lavoro devono essere crittografate con una chiave gestita dal cliente o usando una chiave gestita da Microsoft per crittografare le metriche e i metadati. Per altre informazioni sull'uso della chiave gestita dal cliente, vedere la sezione [Azure Cosmos DB](concept-data-encryption.md#azure-cosmos-db) dell'articolo sulla crittografia dei dati.
 
-Per configurare questo criterio, impostare il parametro Effect su __Audit__ o __Deny__. Se è impostato su __Audit__ , è possibile creare aree di lavoro senza CMK e viene creato un evento di avviso nel log attività.
+Per configurare questo criterio, impostare il parametro Effect su __Audit__ o __Deny__. Se è impostato su __Audit__ , è possibile creare aree di lavoro senza una chiave gestita dal cliente e nel log attività viene creato un evento di avviso.
 
-Se il criterio è impostato su __Nega__ , non è possibile creare un'area di lavoro a meno che non specifichi un CMK. Il tentativo di creare un'area di lavoro senza CMK genera un errore simile a `Resource 'clustername' was disallowed by policy` e crea un errore nel log attività. L'identificatore dei criteri viene restituito anche come parte di questo errore.
+Se il criterio è impostato su __Nega__ , non è possibile creare un'area di lavoro a meno che non specifichi una chiave gestita dal cliente. Il tentativo di creare un'area di lavoro senza una chiave gestita dal cliente genera un errore simile a `Resource 'clustername' was disallowed by policy` e crea un errore nel log attività. L'identificatore dei criteri viene restituito anche come parte di questo errore.
 
 ## <a name="workspaces-should-use-private-link"></a>Le aree di lavoro devono usare un collegamento privato
 

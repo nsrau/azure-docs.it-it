@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c96263b5d40d4f6a4904a6da3d40ad98ac81f030
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f17cdd42c892f6c0d218875cf304846937ba58d7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322307"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444833"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Modalità di funzionamento di Azure Machine Learning: Architettura e concetti
 
@@ -46,6 +46,19 @@ Un'area di lavoro include altre risorse di Azure usate dall'area di lavoro:
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): archivia i segreti usati dalle destinazioni di calcolo e altre informazioni riservate necessarie per l'area di lavoro.
 
 È possibile condividere un'area di lavoro con altri utenti.
+
+### <a name="create-workspace"></a>Creare un'area di lavoro
+
+Il diagramma seguente mostra il flusso di lavoro di creazione dell'area di lavoro.
+
+* L'utente accede ad Azure AD da uno dei client di Azure Machine Learning supportati, quali l'interfaccia della riga di comando di Azure, Python SDK, il portale di Azure, e richiede il token di Azure Resource Manager adeguato.
+* Chiama Azure Resource Manager per creare l'area di lavoro. 
+* Azure Resource Manager contatta il provider di risorse di Azure Machine Learning per eseguire il provisioning dell'area di lavoro.
+* Se non si specificano risorse esistenti, nella sottoscrizione vengono create altre risorse obbligatorie.
+
+È anche possibile eseguire il provisioning di altre destinazioni di calcolo collegate a un'area di lavoro, ad esempio il servizio o le VM Kubernetes di Azure, in base alle esigenze.
+
+[![Flusso di lavoro di creazione di un'area di lavoro](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
 
 ## <a name="computes"></a>Calcola
 
@@ -114,6 +127,10 @@ Per esempio eseguire le configurazioni, vedere [configurare un'esecuzione di tra
 
 Quando si invia un'esecuzione, Azure Machine Learning consente di comprimere la directory che contiene lo script come file ZIP e lo invia alla destinazione di calcolo. Il file ZIP viene quindi estratto e lo script eseguito in questa posizione. Azure Machine Learning archivia inoltre il file ZIP come snapshot come parte del record di esecuzione. Chiunque abbia accesso all'area di lavoro può esplorare un record di esecuzione e scaricare lo snapshot.
 
+Il diagramma seguente mostra il flusso di lavoro dello snapshot del codice.
+
+[![Flusso di lavoro dello snapshot del codice](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
+
 ### <a name="logging"></a>Registrazione
 
 Azure Machine Learning registra automaticamente le metriche di esecuzione standard. Tuttavia, è anche possibile [usare Python SDK per registrare metriche arbitrarie](how-to-track-experiments.md).
@@ -129,6 +146,31 @@ Sono disponibili diversi modi per visualizzare i log: il monitoraggio dello stat
 Quando si avvia un'esecuzione di training in cui la directory di origine è un repository Git locale, le informazioni sul repository vengono archiviate nella cronologia di esecuzione. Funziona con le esecuzioni inviate usando una configurazione di esecuzione dello script o una pipeline ML. Funziona anche per le esecuzioni inviate dall'SDK o dall'interfaccia della riga di comando di Machine Learning.
 
 Per altre informazioni, vedere [Integrazione di Git con Azure Machine Learning](concept-train-model-git-integration.md).
+
+### <a name="training-workflow"></a>Flusso di lavoro di training
+
+Quando si esegue un esperimento per eseguire il training di un modello, si verificano i passaggi seguenti. Sono illustrati nel diagramma del flusso di lavoro di training riportato di seguito:
+
+* Azure Machine Learning viene chiamato con l'ID dello snapshot del codice salvato nella sezione precedente.
+* Azure Machine Learning crea un ID di esecuzione (facoltativo) e un token del servizio Machine Learning, che verrà usato in seguito dalle destinazioni di calcolo come ambiente di calcolo di Machine Learning o delle macchine virtuali per comunicare con il servizio Machine Learning.
+* È possibile scegliere una destinazione di calcolo gestita, ad esempio l'ambiente di calcolo di Machine Learning, o una destinazione di calcolo non gestita, ad esempio le macchine virtuali, per eseguire i processi di training. Ecco illustrati i flussi di dati per entrambi gli scenari:
+   * Macchine virtuali o HDInsight, a cui si accede tramite credenziali SSH in un insieme di credenziali delle chiavi nella sottoscrizione Microsoft. Azure Machine Learning esegue il codice di gestione nella destinazione di calcolo che:
+
+   1. Prepara l'ambiente. Docker è un'opzione per le macchine virtuali e i computer locali. Vedere la procedura seguente relativa all'ambiente di calcolo di Machine Learning per informazioni sull'esecuzione di esperimenti nei contenitori Docker.
+   1. Scarica il codice.
+   1. Configura le variabili di ambiente e imposta le configurazioni.
+   1. Esegue gli script utente, ovvero lo snapshot del codice indicato nella sezione precedente.
+
+   * Ambiente di calcolo di Machine Learning, a cui si accede tramite un'identità gestita dall'area di lavoro.
+Poiché l'ambiente di calcolo di Machine Learning è una destinazione di calcolo gestita, ovvero gestita da Microsoft, viene eseguita nella sottoscrizione Microsoft.
+
+   1. Se necessario, viene avviata la costruzione di Docker remoto.
+   1. Il codice di gestione viene scritto nella condivisione di File di Azure dell'utente.
+   1. Il contenitore viene avviato con un comando iniziale, ovvero il codice di gestione come descritto nel passaggio precedente.
+
+* Al termine dell'esecuzione, è possibile eseguire query sulle esecuzioni e sulle metriche. Nel diagramma di flusso seguente, questo passaggio si verifica quando la destinazione di calcolo di training riscrive le metriche di esecuzione in Azure Machine Learning dalla risorsa di archiviazione nel database di Cosmos DB. I client possono chiamare Azure Machine Learning. Machine Learning effettuerà a sua volta il pull delle metriche dal database di Cosmos DB e le restituirà al client.
+
+[![Flusso di lavoro di training](media/concept-azure-machine-learning-architecture/training-and-metrics.png)](media/concept-azure-machine-learning-architecture/training-and-metrics.png#lightbox)
 
 ## <a name="models"></a>Modelli
 
@@ -178,9 +220,21 @@ Un endpoint è la creazione di un'istanza del modello in un servizio Web che pu�
 
 Quando si distribuisce un modello come servizio Web, l'endpoint può essere distribuito in istanze di contenitore di Azure, servizio Azure Kubernetes o FPGA. Il servizio viene creato dal modello, lo script e i file associati. Questi vengono inseriti in un'immagine del contenitore di base che contiene l'ambiente di esecuzione per il modello. L'immagine presenta un endpoint HTTP con bilanciamento del carico che riceve le richieste di punteggio inviate al servizio Web.
 
-È possibile abilitare la telemetria Application Insights o i dati di telemetria del modello per monitorare il servizio Web. I dati di telemetria sono accessibili solo all'utente.  Viene archiviato nelle istanze di Application Insights e dell'account di archiviazione.
+È possibile abilitare la telemetria Application Insights o i dati di telemetria del modello per monitorare il servizio Web. I dati di telemetria sono accessibili solo all'utente.  Viene archiviato nelle istanze di Application Insights e dell'account di archiviazione. Se è stata abilitata la scalabilità automatica, la distribuzione verrà ridimensionata automaticamente da Azure.
 
-Se è stata abilitata la scalabilità automatica, la distribuzione verrà ridimensionata automaticamente da Azure.
+Il diagramma seguente illustra il flusso di lavoro di inferenza per un modello distribuito come endpoint del servizio Web:
+
+Di seguito sono riportati i dettagli:
+
+* L'utente registra un modello usando un client come Azure Machine Learning SDK.
+* L'utente crea un'immagine usando un modello, un file di punteggio e altre dipendenze del modello.
+* L'immagine Docker viene creata e archiviata in Registro Azure Container.
+* Il servizio Web viene distribuito nella destinazione di calcolo, ovvero in Istanze di Container o nel servizio Azure Kubernetes, usando l'immagine creata nel passaggio precedente.
+* I dettagli della richiesta di punteggio vengono archiviati in Application Insights, che si trova nella sottoscrizione dell'utente.
+* Viene anche effettuato il push della telemetria nella sottoscrizione di Microsoft o Azure.
+
+[![Flusso di lavoro di inferenza](media/concept-azure-machine-learning-architecture/inferencing.png)](media/concept-azure-machine-learning-architecture/inferencing.png#lightbox)
+
 
 Per un esempio di distribuzione di un modello come servizio Web, vedere [Distribuire un modello di classificazione delle immagini in Istanze di Azure Container](tutorial-deploy-models-with-aml.md).
 

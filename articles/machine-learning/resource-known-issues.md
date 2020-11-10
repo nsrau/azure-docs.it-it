@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
-ms.date: 10/02/2020
-ms.openlocfilehash: b49e7ab7f3412177ee9eafad8d1a68525e054421
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.openlocfilehash: 46763bddd0f173ccf73edc54e5f2688d3bf6efc0
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314765"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445392"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemi noti e risoluzione per Azure Machine Learning
 
@@ -61,7 +61,7 @@ In alcuni casi può essere utile fornire le informazioni di diagnostica quando s
      
 * **Non è garantito che il pacchetto di spiegazione venga installato quando si installa azureml-Train-automl-client:** 
    
-   Quando si esegue un'esecuzione remota di AutoML con la spiegazione del modello abilitata, viene visualizzato un messaggio di errore che illustra l'installazione del pacchetto azureml-explain-Model per le spiegazioni del modello. Si tratta di un problema noto. Come soluzione alternativa, attenersi a uno dei passaggi seguenti:
+   Quando si esegue un'esecuzione remota di AutoML con la spiegazione del modello abilitata, viene visualizzato un messaggio di errore che illustra l'installazione del pacchetto azureml-explain-Model per le spiegazioni del modello. Questo è un problema noto Come soluzione alternativa, attenersi a uno dei passaggi seguenti:
   
   1. Installare azureml-explain-Model localmente.
    ```
@@ -183,7 +183,7 @@ In alcuni casi può essere utile fornire le informazioni di diagnostica quando s
   * Chrome (versione più recente)
   * Firefox (versione più recente)
 
-## <a name="set-up-your-environment"></a>Configurare l'ambiente
+## <a name="set-up-your-environment"></a>Configura il tuo ambiente
 
 * **Problemi di creazione di AmlCompute** : esiste una rara possibilità che alcuni utenti che hanno creato l'area di lavoro Azure Machine Learning dal portale di Azure prima della versione GA potrebbero non essere in grado di creare AmlCompute in tale area di lavoro. È possibile generare una richiesta di supporto per il servizio o creare una nuova area di lavoro tramite il portale o l'SDK per sbloccarsi immediatamente.
 
@@ -258,7 +258,20 @@ Limitazioni e problemi noti per i monitoraggi della deriva dei dati:
 
 ## <a name="azure-machine-learning-designer"></a>Finestra di progettazione di Azure Machine Learning
 
-* **Tempo di preparazione calcolo lungo:**
+### <a name="dataset-visualization-in-the-designer"></a>Visualizzazione del set di dati nella finestra di progettazione
+
+Dopo aver registrato un set di dati nella pagina asset **set** di dati o con SDK, è possibile trovarlo nella categoria **set** di dati nell'elenco a sinistra nell'area di disegno della finestra di progettazione.
+
+Tuttavia, quando si trascina il set di dati nell'area di disegno e lo si visualizza, potrebbe non essere possibile visualizzarlo a causa di alcuni dei motivi seguenti:
+
+- Attualmente è possibile visualizzare solo i set di dati tabulari nella finestra di progettazione. Se si registra un set di dati di file all'esterno di progettazione, non è possibile visualizzarlo nell'area di disegno della finestra di progettazione.
+- Il set di dati è archiviato in rete virtuale (VNet). Se si desidera visualizzare, è necessario abilitare l'identità gestita dell'area di lavoro dell'archivio dati.
+    1. Passare all'archivio dati correlato e fare clic su **Aggiorna** credenziali 
+     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Aggiorna"::: credenziali
+    1. Selezionare **Sì** per abilitare l'identità gestita dell'area di lavoro.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Abilita identità gestita dell'area di lavoro":::
+
+### <a name="long-compute-preparation-time"></a>Tempo di preparazione del calcolo lungo
 
 La prima volta che si esegue la connessione a o si crea una destinazione di calcolo, potrebbe essere necessario pochi minuti o ancora più a lungo. 
 
@@ -269,7 +282,7 @@ import time
 time.sleep(600)
 ```
 
-* **Log per gli endpoint in tempo reale:**
+### <a name="log-for-real-time-endpoints"></a>Log per gli endpoint in tempo reale
 
 I log degli endpoint in tempo reale sono dati del cliente. Per la risoluzione dei problemi degli endpoint in tempo reale, è possibile usare il codice seguente per abilitare i log. 
 

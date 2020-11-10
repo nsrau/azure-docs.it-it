@@ -1,30 +1,30 @@
 ---
 title: Installare e usare Esplora risorse di Azure | Microsoft Docs
-description: Installare lo strumento Azure Internet Explorer Explorer e usarlo per interagire con il Plug and Play dispositivi connessi all'hub.
-author: rido-min
-ms.author: rmpablos
-ms.date: 09/23/2020
+description: Installare lo strumento Azure Internet Explorer e usarlo per interagire con le Plug and Play dispositivi connessi all'hub. Sebbene questo articolo sia incentrato sull'uso dei dispositivi Plug and Play, è possibile usare lo strumento con qualsiasi dispositivo connesso all'hub.
+author: dominicbetts
+ms.author: dobett
+ms.date: 11/10/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: bf68bdafbb8b6fde187a2d787bb5464e5ece4cb2
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: contperfq2
+ms.openlocfilehash: 8482ba608ee5fcefb006234b339cd9b711a38020
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019155"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445303"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installare e usare Azure Internet Explorer
 
-Azure Internet Explorer è uno strumento grafico per interagire con e testare i dispositivi Plug and Play. Dopo aver installato lo strumento nel computer locale, è possibile usarlo per connettersi a un hub. È possibile usare lo strumento per visualizzare i dati di telemetria inviati dai dispositivi, usare le proprietà del dispositivo e richiamare i comandi.
+Azure Internet Explorer è uno strumento grafico per l'interazione con i dispositivi e connessi all'hub Internet delle cose. Questo articolo è incentrato sull'uso dello strumento per testare i dispositivi Plug and Play. Dopo aver installato lo strumento nel computer locale, è possibile usarlo per connettersi a un hub. È possibile usare lo strumento per visualizzare i dati di telemetria inviati dai dispositivi, usare le proprietà del dispositivo e richiamare i comandi.
 
 Questo articolo illustra come:
 
 - Installare e configurare lo strumento Azure Internet Explorer.
-- Usare lo strumento per interagire e testare i dispositivi.
+- Usare lo strumento per interagire e testare i dispositivi Plug and Play.
 
-## <a name="prerequisites"></a>Prerequisiti
+Per informazioni più generali sull'uso dello strumento, vedere il [file Leggimi](https://github.com/Azure/azure-iot-explorer/blob/master/README.md)di GitHub.
 
 Per usare lo strumento Azure Internet Explorer, è necessario:
 
@@ -40,13 +40,13 @@ Passare ad [Azure Internet Explorer releases](https://github.com/Azure/azure-iot
 
 ## <a name="use-azure-iot-explorer"></a>Usare Esplora risorse di Azure
 
-Per un dispositivo, è possibile connettere il proprio dispositivo o usare uno dei dispositivi simulati di esempio. Seguire [queste istruzioni](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) per eseguire l'esempio di dispositivo simulato.
+Per un dispositivo, è possibile connettere il proprio dispositivo o usare uno dei dispositivi simulati di esempio. Per alcuni dispositivi simulati di esempio scritti in linguaggi diversi, vedere le guide introduttive sull' [applicazione per la connessione di un esempio plug and Play dispositivo ad hub](quickstart-connect-device-node.md) .
 
 ### <a name="connect-to-your-hub"></a>Connettersi all'hub
 
 La prima volta che si esegue Azure Internet Explorer, viene richiesta la stringa di connessione dell'hub. Dopo aver aggiunto la stringa di connessione, selezionare **Connetti**. È possibile usare le impostazioni dello strumento per passare a un altro hub delle cose aggiornando la stringa di connessione.
 
-La definizione del modello per un dispositivo Plug and Play viene archiviata sia nel repository pubblico, nel dispositivo connesso o in una cartella locale. Per impostazione predefinita, lo strumento Cerca la definizione del modello nel repository pubblico e nel dispositivo connesso. È possibile aggiungere e rimuovere origini oppure configurare la priorità delle origini nelle **Impostazioni**:
+La definizione del modello per un dispositivo Plug and Play viene archiviata sia nel repository pubblico, nel dispositivo connesso o in una cartella locale. Per impostazione predefinita, lo strumento Cerca la definizione del modello nel repository pubblico e nel dispositivo connesso. È possibile aggiungere e rimuovere origini oppure configurare la priorità delle origini nelle **Impostazioni** :
 
 Per aggiungere un'origine:
 
@@ -78,7 +78,7 @@ Nella pagina elenco **dispositivi** selezionare un valore nella colonna **ID dis
 
 ### <a name="device"></a>Dispositivo
 
-Questa sezione include le schede **identità dispositivo**,  **dispositivo gemello**, **telemetria**, **metodo diretto**, **messaggio da cloud a dispositivo**, **identità modulo**  .
+Questa sezione include le schede **identità dispositivo** ,  **dispositivo gemello** , **telemetria** , **metodo diretto** , **messaggio da cloud a dispositivo** , **identità modulo**  .
 
 - È possibile visualizzare e aggiornare le informazioni sull' [identità del dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md) nella scheda **identità dispositivo** .
 - È possibile accedere alle informazioni sul [dispositivo gemello](../iot-hub/iot-hub-devguide-device-twins.md) nella scheda del **dispositivo gemello** .
@@ -89,7 +89,7 @@ Questa sezione include le schede **identità dispositivo**,  **dispositivo gemel
 
 ### <a name="iot-plug-and-play-components"></a>Componenti Plug and Play
 
-Se il dispositivo è connesso all'hub usando un **ID modello**, lo strumento Mostra la scheda **plug and Play componenti** '' in cui è possibile visualizzare l' **ID modello**.
+Se il dispositivo è connesso all'hub usando un **ID modello** , lo strumento Mostra la scheda **componenti plug and Play** , in cui è possibile visualizzare l' **ID modello**.
 
 Se l' **ID del modello** è disponibile in una delle origini configurate, ovvero il repository pubblico o la cartella locale, viene visualizzato l'elenco dei componenti. Selezionando un componente vengono visualizzate le proprietà, i comandi e i dati di telemetria disponibili.
 
@@ -99,7 +99,7 @@ Nella pagina **componente** è possibile visualizzare le proprietà di sola lett
 
 #### <a name="properties"></a>Proprietà
 
-:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="Visualizzare i componenti in Azure IoT Explorer":::
+:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="Visualizzare le proprietà in Azure Internet Explorer":::
 
 È possibile visualizzare le proprietà di sola lettura definite in un'interfaccia nella scheda **Proprietà (sola lettura)** . È possibile aggiornare le proprietà scrivibili definite in un'interfaccia nella scheda **Proprietà (scrivibile)** :
 
@@ -109,7 +109,7 @@ Nella pagina **componente** è possibile visualizzare le proprietà di sola lett
 1. Visualizzare in anteprima il payload da inviare al dispositivo.
 1. Inviare la modifica.
 
-Dopo aver inviato una modifica, è possibile tenere traccia dello stato di aggiornamento: **sincronizzazione**, **esito positivo**o **errore**. Al termine della sincronizzazione, viene visualizzato il nuovo valore della proprietà nella colonna delle **proprietà restituita** . Se si passa ad altre pagine prima del completamento della sincronizzazione, lo strumento continua a notificare il completamento dell'aggiornamento. È anche possibile usare il centro notifiche dello strumento per visualizzare la cronologia delle notifiche.
+Dopo aver inviato una modifica, è possibile tenere traccia dello stato di aggiornamento: **sincronizzazione** , **esito positivo** o **errore**. Al termine della sincronizzazione, viene visualizzato il nuovo valore della proprietà nella colonna delle **proprietà restituita** . Se si passa ad altre pagine prima del completamento della sincronizzazione, lo strumento continua a notificare il completamento dell'aggiornamento. È anche possibile usare il centro notifiche dello strumento per visualizzare la cronologia delle notifiche.
 
 #### <a name="commands"></a>Comandi
 
@@ -126,13 +126,7 @@ Per visualizzare i dati di telemetria per l'interfaccia selezionata, passare all
 
 #### <a name="known-issues"></a>Problemi noti
 
-- Supporto IoT Edge: la versione corrente non Mostra i dispositivi IoT Edge nell'elenco dei dispositivi.
-- Funzionalità del linguaggio DTDL: le funzionalità di Internet Explorer 0.12. x non sono completamente conformi a DTDL V2, le funzionalità non supportate includono:
-  - Ereditarietà dell'interfaccia con `extends`
-  - Mappa in Map (Mappa nidificata)
-  - Tipo matrice
-  - Schemi personalizzati
-  - Tipi semantici personalizzati
+Per un elenco delle funzionalità di Internet delle cose supportate dalla versione più recente dello strumento, vedere [elenco delle funzionalità](https://github.com/Azure/azure-iot-explorer/wiki).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

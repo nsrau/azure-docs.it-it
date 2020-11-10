@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 707b6d0f8a5fa3cff89339b9b0465d96b5369a34
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287611"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445133"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -79,7 +79,7 @@ Per esercitazioni su come eseguire l'autenticazione a Key Vault nelle applicazio
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Gestire chiavi, certificati e segreti
 
-L'accesso a chiavi, segreti e certificati è controllato dal piano dati. Il controllo di accesso al piano dati può essere eseguito usando i criteri di accesso dell'insieme di credenziali locale o RBAC (anteprima).
+L'accesso a chiavi, segreti e certificati è controllato dal piano dati. Il controllo di accesso al piano dati può essere eseguito usando i criteri di accesso dell'insieme di credenziali locale o l'anteprima di Azure.
 
 **API e SDK per chiavi**
 
@@ -104,7 +104,7 @@ L'accesso a chiavi, segreti e certificati è controllato dal piano dati. Il cont
 
 Vedere [librerie client](client-libraries.md) per pacchetti di installazione e codice sorgente.
 
-Per altre informazioni sulla sicurezza del piano dati Key Vault, vedere [criteri di accesso e piano dati Key Vault](./secure-your-key-vault.md#data-plane-and-access-policies) e Key Vault piano dati e controllo degli accessi in base al ruolo [(anteprima)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview)
+Per altre informazioni sulla sicurezza del piano dati Key Vault, vedere [criteri di accesso e piano dati Key Vault](./secure-your-key-vault.md#data-plane-and-access-policies) e Key Vault piano dati e controllo degli accessi in base al ruolo di [Azure (anteprima)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview)
 
 ### <a name="code-examples"></a>Esempi di codice
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8e065651a5527c0ab425614197ce128325454942
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24e3841abc9c397ab307e55405bdcc208815570e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257674"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444164"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>App daemon che chiama API Web-configurazione del codice
 
@@ -352,17 +352,14 @@ ConfidentialClientApplication cca =
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [App daemon-acquisizione di token per l'app](./scenario-daemon-acquire-token.md?tabs=dotnet)
+Passare all'articolo successivo in questo scenario, [acquisire un token per l'app](./scenario-daemon-acquire-token.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [App daemon-acquisizione di token per l'app](./scenario-daemon-acquire-token.md?tabs=python)
+Passare all'articolo successivo in questo scenario, [acquisire un token per l'app](./scenario-daemon-acquire-token.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [App daemon-acquisizione di token per l'app](./scenario-daemon-acquire-token.md?tabs=java)
+Passare all'articolo successivo in questo scenario, [acquisire un token per l'app](./scenario-daemon-acquire-token.md?tabs=java).
 
 ---

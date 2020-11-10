@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 1e8f1d2964f42c480026d13bed59921dd3f07610
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f7f9acd18da57bd83e688249600b8468cc4ebbe5
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286223"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445558"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Nozioni fondamentali sull'autenticazione di Key Vault
 
@@ -45,9 +45,9 @@ Per informazioni su come registrare un utente o un'applicazione in Azure Active 
 * Registrazione di un utente nel [collegamento](../../active-directory/fundamentals/add-users-azure-active-directory.md) Azure Active Directory
 * Registrazione di un'applicazione nel [collegamento](../../active-directory/develop/quickstart-register-app.md) Azure Active Directory
 
-## <a name="assign-your-security-principal-a-role-in-azure-active-directory"></a>Assegnare un ruolo all'entità di sicurezza in Azure Active Directory
+## <a name="assign-your-security-principal-a-role"></a>Assegnare un ruolo all'entità di sicurezza
 
-Azure Active Directory usa il controllo degli accessi in base al ruolo (RBAC) per assegnare le autorizzazioni alle entità di sicurezza. Queste autorizzazioni sono denominate assegnazioni di ruolo.
+È possibile usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per assegnare le autorizzazioni alle entità di sicurezza. Queste autorizzazioni sono denominate assegnazioni di ruolo.
 
 Nel contesto di Key Vault, queste assegnazioni di ruolo determinano il livello di accesso dell'entità di sicurezza al piano di gestione (noto anche come piano di controllo) dell'insieme di credenziali delle chiavi. Queste assegnazioni di ruolo non forniscono direttamente l'accesso ai segreti del piano dati, ma forniscono l'accesso per gestire le proprietà di Key Vault. Ad esempio, un utente o un'applicazione a cui è stato assegnato un **ruolo di lettore** non potrà apportare modifiche alle impostazioni del firewall dell'insieme di credenziali delle chiavi, mentre un utente o un'applicazione assegnata a un **ruolo Collaboratore** può apportare modifiche. Nessuno dei due ruoli avrà accesso diretto per eseguire operazioni su segreti, chiavi e certificati, ad esempio la creazione o il recupero del valore fino a quando non viene assegnato l'accesso al piano dati dell'insieme di credenziali delle chiavi. Questo passaggio viene trattato nel passaggio successivo.
 
@@ -57,7 +57,7 @@ Nel contesto di Key Vault, queste assegnazioni di ruolo determinano il livello d
 >[!NOTE]
 > Quando si assegna un'assegnazione di ruolo a un utente a livello di Azure Active Directory tenant, questo set di autorizzazioni produrrà a tutte le sottoscrizioni, i gruppi di risorse e le risorse nell'ambito dell'assegnazione. Per seguire l'entità dei privilegi minimi, è possibile eseguire questa assegnazione di ruolo in un ambito più granulare. Ad esempio, è possibile assegnare a un utente un ruolo di lettore a livello di sottoscrizione e un ruolo proprietario per un singolo insieme di credenziali delle chiavi. Per eseguire un'assegnazione di ruolo in un ambito più granulare, passare alle impostazioni IAM (Identity Access Management) di una sottoscrizione, un gruppo di risorse o un insieme di credenziali delle chiavi.
 
-* Per ulteriori informazioni sul [collegamento](../../role-based-access-control/built-in-roles.md) Azure Active Directory Roles
+* Per ulteriori informazioni sul [collegamento](../../role-based-access-control/built-in-roles.md) ai ruoli di Azure
 * Per altre informazioni sull'assegnazione o la rimozione di assegnazioni di ruolo, vedere [collegamento](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>Configurare i criteri di accesso dell'insieme di credenziali delle chiavi per l'entità di sicurezza
@@ -91,7 +91,7 @@ L'accesso al piano dati o l'accesso per l'esecuzione di operazioni su chiavi, se
 I criteri di accesso dell'insieme di credenziali delle chiavi consentono a utenti e applicazioni di eseguire operazioni sul piano dati in un insieme di credenziali delle chiavi
 
 > [!NOTE]
-> Questo modello di accesso non è compatibile con RBAC Key Vault (opzione 2) documentato di seguito. È necessario sceglierne una. Quando si fa clic sulla scheda criteri di accesso dell'insieme di credenziali delle chiavi, si avrà la possibilità di effettuare questa selezione.
+> Questo modello di accesso non è compatibile con il controllo degli accessi in base al ruolo di Azure per Key Vault (opzione 2). È necessario sceglierne una. Quando si fa clic sulla scheda criteri di accesso dell'insieme di credenziali delle chiavi, si avrà la possibilità di effettuare questa selezione.
 
 I criteri di accesso classici sono granulari, il che significa che è possibile consentire o negare a ogni singolo utente o applicazione di eseguire singole operazioni all'interno di un insieme di credenziali delle chiavi. Ecco alcuni esempi:
 
@@ -104,25 +104,25 @@ Tuttavia, i criteri di accesso classici non consentono le autorizzazioni a livel
 > [!IMPORTANT]
 > I criteri di accesso di Key Vault classici e le assegnazioni di ruolo Azure Active Directory sono indipendenti l'uno dall'altro. Se si assegna un'entità di sicurezza, un ruolo di "collaboratore" a livello di sottoscrizione non consentirà automaticamente all'entità di sicurezza di eseguire operazioni del piano dati in ogni insieme di credenziali delle chiavi nell'ambito della sottoscrizione. L'entità di sicurezza deve comunque essere concessa o concedere a se stessi le autorizzazioni dei criteri di accesso per eseguire operazioni del piano dati.
 
-### <a name="data-plane-access-option-2--key-vault-rbac-preview"></a>Opzione di accesso al piano dati 2: Key Vault RBAC (anteprima)
+### <a name="data-plane-access-option-2--azure-rbac-for-key-vault-preview"></a>Opzione di accesso al piano dati 2: RBAC di Azure per Key Vault (anteprima)
 
-Un nuovo modo per concedere l'accesso al piano dati dell'insieme di credenziali delle chiavi è tramite il controllo degli accessi in base al ruolo di Key Vault.
+Un nuovo modo per concedere l'accesso al piano dati dell'insieme di credenziali delle chiavi è tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per Key Vault.
 
 > [!NOTE]
 > Questo modello di accesso non è compatibile con i criteri di accesso classici dell'insieme di credenziali delle chiavi indicati in precedenza. È necessario sceglierne una. Quando si fa clic sulla scheda criteri di accesso dell'insieme di credenziali delle chiavi, si avrà la possibilità di effettuare questa selezione.
 
 Key Vault le assegnazioni di ruolo sono un set di assegnazioni di ruolo predefinite di Azure che includono set comuni di autorizzazioni utilizzate per accedere a chiavi, segreti e certificati. Questo modello di autorizzazione Abilita anche funzionalità aggiuntive che non sono disponibili nel modello di criteri di accesso di Key Vault classico.
 
-* Le autorizzazioni RBAC possono essere gestite su larga scala consentendo agli utenti di assegnare questi ruoli a una sottoscrizione, a un gruppo di risorse o a un singolo livello dell'insieme di credenziali delle chiavi. Un utente disporrà delle autorizzazioni del piano dati per tutti gli insiemi di credenziali delle chiavi nell'ambito dell'assegnazione RBAC. In questo modo si elimina la necessità di assegnare le autorizzazioni dei singoli criteri di accesso per utente/applicazione per ogni insieme di credenziali delle chiavi.
+* È possibile gestire le autorizzazioni RBAC di Azure su larga scala consentendo agli utenti di assegnare questi ruoli a una sottoscrizione, a un gruppo di risorse o a un singolo livello dell'insieme di credenziali delle chiavi. Un utente disporrà delle autorizzazioni del piano dati per tutti gli insiemi di credenziali delle chiavi nell'ambito dell'assegnazione RBAC di Azure. In questo modo si elimina la necessità di assegnare le autorizzazioni dei singoli criteri di accesso per utente/applicazione per ogni insieme di credenziali delle chiavi.
 
-* Le autorizzazioni RBAC sono compatibili con Privileged Identity Management o PIM. In questo modo è possibile configurare i controlli di accesso just-in-time per i ruoli con privilegi come amministratore Key Vault. Si tratta di una procedura di sicurezza consigliata che segue il principale dei privilegi minimi eliminando l'accesso permanente agli insiemi di credenziali delle chiavi.
+* Le autorizzazioni RBAC di Azure sono compatibili con Privileged Identity Management o PIM. In questo modo è possibile configurare i controlli di accesso just-in-time per i ruoli con privilegi come amministratore Key Vault. Si tratta di una procedura di sicurezza consigliata che segue il principale dei privilegi minimi eliminando l'accesso permanente agli insiemi di credenziali delle chiavi.
 
-* Le autorizzazioni RBAC sono compatibili con le autorizzazioni granulari per singolo oggetto, quindi è possibile impedire a un utente di eseguire solo operazioni su alcuni oggetti di Key Vault. Questo consente a più applicazioni di condividere un singolo insieme di credenziali delle chiavi, ma di isolare l'accesso tra le applicazioni.
+* Le autorizzazioni controllo degli accessi in base al ruolo di Azure sono compatibili con le autorizzazioni granulari per oggetto, quindi è possibile impedire a un utente di eseguire solo operazioni su alcuni oggetti dell'insieme di credenziali delle chiavi. Questo consente a più applicazioni di condividere un singolo insieme di credenziali delle chiavi, ma di isolare l'accesso tra le applicazioni.
 
-Per ulteriori informazioni su Key Vault RBAC, vedere i documenti seguenti:
+Per ulteriori informazioni sul controllo degli accessi in base al ruolo di Azure per Key Vault, vedere i documenti seguenti:
 
-* [Collegamento](./secure-your-key-vault.md#management-plane-and-azure-rbac) Azure Key Vault RBAC
-* [Collegamento](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) Azure Key Vault ruoli RBAC (anteprima)
+* Controllo RBAC di Azure per il [collegamento](./secure-your-key-vault.md#management-plane-and-azure-rbac) Key Vault
+* [Collegamento](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) RBAC di Azure per i ruoli di Key Vault (anteprima)
 
 ## <a name="configure-key-vault-firewall"></a>Configurare Key Vault firewall
 

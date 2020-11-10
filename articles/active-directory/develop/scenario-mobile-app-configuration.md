@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 43cb891ad63a23353437082f7cb1b1e45f146e5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a18a36b8583f8534b2a2e643e5c155dc7a2d65e2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204219"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444062"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurare un'app per dispositivi mobili che chiama API Web
 
@@ -148,9 +148,9 @@ Per altre informazioni, vedere [considerazioni specifiche di UWP con MSAL.NET](m
 
 In Android e iOS i broker abilitano:
 
-- **Single Sign-on (SSO)**: è possibile usare SSO per i dispositivi registrati con Azure Active Directory (Azure ad). Quando si usa SSO, gli utenti non devono accedere a ogni applicazione.
-- **Identificazione del dispositivo**: questa impostazione Abilita i criteri di accesso condizionale correlati ai dispositivi Azure ad. Il processo di autenticazione usa il certificato del dispositivo creato quando il dispositivo è stato aggiunto all'area di lavoro.
-- **Verifica dell'identificazione dell'applicazione**: quando un'applicazione chiama il broker, passa l'URL di reindirizzamento. Quindi il broker la verifica.
+- **Single Sign-on (SSO)** : è possibile usare SSO per i dispositivi registrati con Azure Active Directory (Azure ad). Quando si usa SSO, gli utenti non devono accedere a ogni applicazione.
+- **Identificazione del dispositivo** : questa impostazione Abilita i criteri di accesso condizionale correlati ai dispositivi Azure ad. Il processo di autenticazione usa il certificato del dispositivo creato quando il dispositivo è stato aggiunto all'area di lavoro.
+- **Verifica dell'identificazione dell'applicazione** : quando un'applicazione chiama il broker, passa l'URL di reindirizzamento. Quindi il broker la verifica.
 
 ### <a name="enable-the-broker-on-xamarin"></a>Abilitare Service Broker in Novell
 
@@ -367,5 +367,4 @@ Per informazioni sull'abilitazione di un broker in Android, vedere [autenticazio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Acquisizione di un token](scenario-mobile-acquire-token.md)
+Passare all'articolo successivo in questo scenario, [acquisendo un token](scenario-mobile-acquire-token.md).

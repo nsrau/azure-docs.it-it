@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 6a3916a41635a1c76bddbb092294f6d362fc6050
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1e6f4e16e3eda8519913a9e2ae14f7cc909bf61
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88924712"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445456"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Abilità AML in una pipeline di arricchimento ricerca cognitiva di Azure
 
@@ -58,9 +58,9 @@ I parametri fanno distinzione tra maiuscole e minuscole. I parametri che si sceg
 
 I parametri delle competenze di AML sono necessari a seconda dell'autenticazione usata dal servizio AML. I servizi AML forniscono tre opzioni di autenticazione:
 
-* [Autenticazione basata su chiavi](../machine-learning/concept-enterprise-security.md#authentication-for-web-service-deployment). Viene fornita una chiave statica per autenticare le richieste di assegnazione dei punteggi dalle competenze di AML
+* [Autenticazione basata su chiavi](../machine-learning/how-to-authenticate-web-service.md#key-based-authentication). Viene fornita una chiave statica per autenticare le richieste di assegnazione dei punteggi dalle competenze di AML
   * Usare i parametri _URI_ e _Key_
-* [Autenticazione basata su token](../machine-learning/concept-enterprise-security.md#authentication). Il servizio AML viene [distribuito usando l'autenticazione basata su token](../machine-learning/how-to-deploy-azure-kubernetes-service.md#authentication-with-tokens). All' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) del servizio ricerca cognitiva di Azure viene concesso il [ruolo lettura](../machine-learning/how-to-assign-roles.md) nell'area di lavoro del servizio AML. La competenza AML usa quindi l'identità gestita del servizio ricerca cognitiva di Azure per l'autenticazione nel servizio AML, senza chiavi statiche obbligatorie.
+* [Autenticazione basata su token](../machine-learning/how-to-authenticate-web-service.md#token-based-authentication). Il servizio AML viene [distribuito usando l'autenticazione basata su token](../machine-learning/how-to-authenticate-web-service.md#token-based-authentication). All' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) del servizio ricerca cognitiva di Azure viene concesso il [ruolo lettura](../machine-learning/how-to-assign-roles.md) nell'area di lavoro del servizio AML. La competenza AML usa quindi l'identità gestita del servizio ricerca cognitiva di Azure per l'autenticazione nel servizio AML, senza chiavi statiche obbligatorie.
   * Usare il parametro _resourceId_ .
   * Se il servizio Azure ricerca cognitiva si trova in un'area diversa dall'area di lavoro AML, usare il parametro _Region_ per impostare l'area in cui è stato distribuito il servizio AML
 * Nessuna autenticazione. Non è necessaria alcuna autenticazione per usare il servizio AML

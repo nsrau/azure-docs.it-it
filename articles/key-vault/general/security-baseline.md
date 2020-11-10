@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 48a822adc34019ca2f6a39aa70211cae7fbf6030
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 1abbabd3c231a70ca473c4b64e9a8c75d2119c89
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289882"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445524"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Baseline di sicurezza di Azure per Key Vault
 
@@ -344,7 +344,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: modificare le password predefinite, ove applicabile
 
-**Linee guida** : non applicabile; Azure Key Vault non ha il concetto di password predefinite perché l'autenticazione viene fornita da Active Directory e protetta con il controllo degli accessi in base al ruolo.
+**Linee guida** : non applicabile; Azure Key Vault non ha il concetto di password predefinite perché l'autenticazione viene fornita da Active Directory e protetta con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 
 
 **Monitoraggio del Centro sicurezza di Azure** : Non applicabile
@@ -445,7 +445,7 @@ Qual è la condizione di posizione in Azure Active Directory l'accesso condizion
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Usare Azure Active Directory
 
-**Linee guida** : usare Azure Active Directory (Azure ad) come sistema di autenticazione e autorizzazione centrale per le risorse di Azure, ad esempio Key Vault. Questo consente il controllo degli accessi in base al ruolo (RBAC) per amministrare le risorse sensibili.
+**Linee guida** : usare Azure Active Directory (Azure ad) come sistema di autenticazione e autorizzazione centrale per le risorse di Azure, ad esempio Key Vault. Questo consente il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per amministrare risorse sensibili.
 
  
 

@@ -9,23 +9,23 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 803dc4d1a7b78df891780eb741cba4e57ab2d5dc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 816941fe0ec3a81c41da56acedcedf2de7febe74
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784423"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445235"
 ---
 # <a name="managed-hsm-access-control"></a>Controllo di accesso per il modulo di protezione hardware gestito
 
 > [!NOTE]
-> Il **provider di risorse** Key Vault supporta due tipi di risorse: insiemi di credenziali e **HSM gestiti** . Il controllo di accesso descritto in questo articolo si applica solo a **HSM gestiti** . Per altre informazioni sul controllo di accesso per il modulo di protezione hardware gestito, vedere [fornire l'accesso alle chiavi Key Vault, ai certificati e ai segreti con il controllo degli accessi in base al ruolo di Azure](../general/rbac-guide.md).
+> Il **provider di risorse** Key Vault supporta due tipi di risorse: insiemi di credenziali e **HSM gestiti**. Il controllo di accesso descritto in questo articolo si applica solo a **HSM gestiti**. Per altre informazioni sul controllo di accesso per il modulo di protezione hardware gestito, vedere [fornire l'accesso alle chiavi Key Vault, ai certificati e ai segreti con il controllo degli accessi in base al ruolo di Azure](../general/rbac-guide.md).
 
 Il modulo di protezione hardware gestito di Azure Key Vault è un servizio cloud che consente di proteggere le chiavi di crittografia. Poiché questi dati sono riservati e importanti per l'azienda, è necessario proteggere i moduli di protezione hardware gestiti consentendo l'accesso solo ad applicazioni e utenti autorizzati. Questo articolo offre una panoramica del modello di controllo di accesso del modulo di protezione hardware gestito. Verranno illustrate l'autenticazione e l'autorizzazione e sarà descritto come proteggere l'accesso ai moduli di protezione hardware gestiti.
 
 ## <a name="access-control-model"></a>Modello di controllo di accesso
 
-L'accesso a un modulo di protezione hardware gestito viene controllato tramite due interfacce, ovvero il **piano di gestione** e il **piano dati** . Il piano di gestione consente di gestire il modulo di protezione hardware. Le operazioni in questo piano includono la creazione e l'eliminazione di HSM gestiti e il recupero delle proprietà HSM gestite. Il piano dati è il punto in cui si lavora con i dati archiviati in un modulo di protezione hardware gestito, ovvero le chiavi di crittografia supportate da HSM. È possibile aggiungere, eliminare, modificare e usare chiavi per eseguire operazioni di crittografia, gestire le assegnazioni di ruolo per controllare l'accesso alle chiavi, creare un backup completo del modulo di protezione hardware, ripristinare il backup completo e gestire il dominio di sicurezza dall'interfaccia del piano dati.
+L'accesso a un modulo di protezione hardware gestito viene controllato tramite due interfacce, ovvero il **piano di gestione** e il **piano dati**. Il piano di gestione consente di gestire il modulo di protezione hardware. Le operazioni in questo piano includono la creazione e l'eliminazione di HSM gestiti e il recupero delle proprietà HSM gestite. Il piano dati è il punto in cui si lavora con i dati archiviati in un modulo di protezione hardware gestito, ovvero le chiavi di crittografia supportate da HSM. È possibile aggiungere, eliminare, modificare e usare chiavi per eseguire operazioni di crittografia, gestire le assegnazioni di ruolo per controllare l'accesso alle chiavi, creare un backup completo del modulo di protezione hardware, ripristinare il backup completo e gestire il dominio di sicurezza dall'interfaccia del piano dati.
 
 Per accedere a un modulo di protezione hardware gestito in entrambi i piani, tutti i chiamanti devono disporre di autenticazione e autorizzazione appropriati. L'autenticazione stabilisce l'identità del chiamante. L'autorizzazione determina le operazioni che il chiamante può eseguire. Un chiamante può essere una delle entità di [sicurezza](../../role-based-access-control/overview.md#security-principal) definite in Azure Active Directory utente, gruppo, entità servizio o identità gestita.
 
@@ -35,7 +35,7 @@ Entrambi i piani utilizzano Azure Active Directory per l'autenticazione. Per l'a
 
 Quando viene creato un modulo HSM gestito, il richiedente fornisce anche un elenco di amministratori del piano dati (sono supportate tutte le [entità di sicurezza](../../role-based-access-control/overview.md#security-principal) ). Solo questi amministratori sono in grado di accedere al piano dati HSM gestito per eseguire operazioni chiave e gestire le assegnazioni di ruolo del piano dati (RBAC locale del modulo di protezione hardware gestito).
 
-Il modello di autorizzazione per entrambi i piani usa la stessa sintassi (RBAC), ma vengono applicati a livelli diversi e le assegnazioni di ruolo usano ambiti diversi. Il controllo degli accessi in base al piano di gestione viene applicato da Azure Resource Manager mentre il controllo degli accessi in base al ruolo viene applicato da un HSM gestito.
+Il modello di autorizzazione per entrambi i piani usa la stessa sintassi, ma vengono applicati a livelli diversi e le assegnazioni di ruolo usano ambiti diversi. Il piano di gestione controllo degli accessi in base al ruolo di Azure viene applicato da Azure Resource Manager mentre il controllo del modulo di protezione hardware gestito dal piano dati viene applicato dal modulo di protezione hardware
 
 > [!IMPORTANT]
 > La concessione dell'accesso al piano di gestione di un'entità di sicurezza a un modulo di protezione hardware gestito non concede loro l'accesso al piano dati per le chiavi di accesso o le assegnazioni di ruolo del piano dati gestito dall'HSM locale. Questo isolamento è progettato per impedire l'espansione accidentale dei privilegi che influiscono sull'accesso alle chiavi archiviate nel modulo di protezione hardware gestito.
@@ -67,16 +67,16 @@ La tabella seguente illustra gli endpoint per il piano dati e di gestione.
 |||||
 ## <a name="management-plane-and-azure-rbac"></a>Piano di gestione e RBAC di Azure
 
-Nel piano di gestione usare il controllo degli accessi in base al ruolo di Azure per autorizzare le operazioni che un chiamante può eseguire. Nel modello RBAC ogni sottoscrizione di Azure ha un'istanza di Azure Active Directory. È possibile concedere l'accesso a utenti, gruppi e applicazioni da questa directory. Viene concesso l'accesso per gestire le risorse della sottoscrizione di Azure che usano il modello di distribuzione Azure Resource Manager. Per concedere l'accesso, usare il [portale di Azure](https://portal.azure.com/), l'[interfaccia della riga di comando di Azure](/cli/azure/install-classic-cli), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST di Azure Resource Manager](/rest/api/authorization/roleassignments).
+Nel piano di gestione usare il controllo degli accessi in base al ruolo di Azure per autorizzare le operazioni che un chiamante può eseguire. Nel modello di controllo degli accessi in base al ruolo di Azure ogni sottoscrizione di Azure ha un'istanza di Azure Active Directory. È possibile concedere l'accesso a utenti, gruppi e applicazioni da questa directory. Viene concesso l'accesso per gestire le risorse della sottoscrizione di Azure che usano il modello di distribuzione Azure Resource Manager. Per concedere l'accesso, usare il [portale di Azure](https://portal.azure.com/), l'[interfaccia della riga di comando di Azure](/cli/azure/install-classic-cli), [Azure PowerShell](/powershell/azureps-cmdlets-docs) o le [API REST di Azure Resource Manager](/rest/api/authorization/roleassignments).
 
-Si crea un insieme di credenziali delle chiavi in un gruppo di risorse e si gestisce l'accesso usando Azure Active Directory. È possibile consentire a utenti o gruppi di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse. È possibile concedere l'accesso a un livello di ambito specifico assegnando i ruoli Controllo degli accessi in base al ruolo appropriati. Per concedere l'accesso a un utente in modo che possa gestire insiemi di credenziali delle chiavi, assegnare all'utente un ruolo `key vault Contributor` predefinito in un ambito specifico. A un ruolo Controllo degli accessi in base al ruolo è possibile assegnare i livelli di ambiti seguenti:
+Si crea un insieme di credenziali delle chiavi in un gruppo di risorse e si gestisce l'accesso usando Azure Active Directory. È possibile consentire a utenti o gruppi di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse. Si concede l'accesso a un livello di ambito specifico assegnando i ruoli di Azure appropriati. Per concedere l'accesso a un utente in modo che possa gestire insiemi di credenziali delle chiavi, assegnare all'utente un ruolo `key vault Contributor` predefinito in un ambito specifico. I livelli di ambito seguenti possono essere assegnati a un ruolo di Azure:
 
-- **Gruppo di gestione** : un ruolo RBAC assegnato a livello di sottoscrizione si applica a tutte le sottoscrizioni del gruppo di gestione.
-- **Sottoscrizione** Un ruolo Controllo degli accessi in base al ruolo assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e a tutte le risorse in tale sottoscrizione.
-- **Gruppo di risorse** : Un ruolo Controllo degli accessi in base al ruolo assegnato a livello di gruppo di risorse si applica a tutte le risorse di tale gruppo.
-- **Risorsa specifica** : Un ruolo Controllo degli accessi in base al ruolo assegnato per una risorsa specifica si applica a tale risorsa. In questo caso, la risorsa è un insieme di credenziali delle chiavi specifico.
+- **Gruppo di gestione** : un ruolo di Azure assegnato a livello di sottoscrizione si applica a tutte le sottoscrizioni del gruppo di gestione.
+- **Sottoscrizione** : un ruolo di Azure assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e le risorse all'interno della sottoscrizione.
+- **Gruppo di risorse** : un ruolo di Azure assegnato a livello di gruppo di risorse si applica a tutte le risorse nel gruppo di risorse.
+- **Risorsa specifica** : un ruolo di Azure assegnato a una risorsa specifica si applica a tale risorsa. In questo caso, la risorsa è un insieme di credenziali delle chiavi specifico.
 
-Ci sono diversi ruoli predefiniti. Se un ruolo predefinito non soddisfa le specifiche esigenze, è possibile definire un ruolo personalizzato. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../../role-based-access-control/built-in-roles.md).
+Ci sono diversi ruoli predefiniti. Se un ruolo predefinito non soddisfa le specifiche esigenze, è possibile definire un ruolo personalizzato. Per altre informazioni, vedere controllo degli accessi [in base al ruolo di Azure: ruoli predefiniti](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="data-plane-and-managed-hsm-local-rbac"></a>RBAC locale del piano dati e del modulo di protezione hardware gestito
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 341d24e73c9e07bb3155535d98a88145643c1692
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 889a70005f1cbabaad525147b4661ea04886138a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201784"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445609"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Usare l'API REST per la conversione di modelli
 
@@ -26,7 +26,7 @@ Vedere l' [elenco delle aree disponibili](../../reference/regions.md) per gli UR
 
 È necessario specificare queste intestazioni per tutte le richieste:
 
-- L'intestazione dell' **autorizzazione** deve avere il valore "Bearer [*token*]", dove [*token*] è un [token di accesso al servizio](../tokens.md).
+- L'intestazione dell' **autorizzazione** deve avere il valore "Bearer [ *token* ]", dove [ *token* ] è un [token di accesso al servizio](../tokens.md).
 
 ### <a name="common-response-headers"></a>Intestazioni di risposta comuni
 
@@ -47,7 +47,7 @@ L'account di rendering remoto di Azure deve avere accesso all'account di archivi
 
 | Endpoint | Metodo |
 |-----------|:-----------|
-| /V1/Accounts/**AccountID**/Conversions/create | POST |
+| /V1/Accounts/ **AccountID** /Conversions/create | POST |
 
 Restituisce l'ID della conversione in corso, di cui è stato eseguito il wrapper in un documento JSON. Il nome del campo è "conversionId".
 
@@ -79,7 +79,7 @@ Se l'account ARR non è collegato all'account di archiviazione, questa interfacc
 
 | Endpoint | Metodo |
 |-----------|:-----------|
-| /V1/Accounts/**AccountID**/Conversions/createWithSharedAccessSignature | POST |
+| /V1/Accounts/ **AccountID** /Conversions/createWithSharedAccessSignature | POST |
 
 Restituisce l'ID della conversione in corso, di cui è stato eseguito il wrapper in un documento JSON. Il nome del campo è `conversionId` .
 
@@ -120,7 +120,7 @@ Lo stato di una conversione in corso avviata con una delle chiamate REST sopra r
 
 | Endpoint | Metodo |
 |-----------|:-----------|
-| /V1/Accounts/**AccountID**/Conversions/**conversionId** | GET |
+| /V1/Accounts/ **AccountID** /Conversions/ **conversionId** | GET |
 
 Restituisce un documento JSON con un campo "status" che può avere i valori seguenti:
 
@@ -130,6 +130,21 @@ Restituisce un documento JSON con un campo "status" che può avere i valori segu
 - Errore
 
 Se lo stato è "errore", sarà presente un ulteriore campo "Error" con un sottocampo "message" contenente le informazioni sull'errore. I log aggiuntivi verranno caricati nel contenitore di output.
+
+## <a name="list-conversions"></a>Conversioni di elenchi
+
+Per ottenere un elenco di tutte le conversioni per un account, usare l'interfaccia:
+
+| Endpoint | Metodo |
+|-----------|:-----------|
+| /V1/Accounts/ **AccountID** /Conversions? skiptoken = **skiptoken** | GET |
+
+| Parametro | Obbligatoria |
+|-----------|:-----------|
+| accountID | Sì |
+| skiptoken | No |
+
+Restituisce un documento JSON che contiene una matrice di conversioni e i relativi dettagli. Questa query restituisce un massimo di 50 conversioni alla volta. Nel caso in cui siano presenti più conversioni da recuperare, la risposta conterrà una proprietà **nextLink** contenente il skipToken su cui è possibile eseguire query per recuperare il set di risultati successivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

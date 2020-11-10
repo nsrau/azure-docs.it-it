@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: a55db6a9db8cc53da15ba6e818db7b78b72cefc9
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: f7b4a22c0473acb7da0708f095c25b4f3f78fe66
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927737"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445592"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium
 Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. Una rete virtuale è una rete privata nel cloud. Quando un'istanza di Cache Redis di Azure viene configurata con una rete virtuale, non è indirizzabile pubblicamente ed è accessibile solo da macchine virtuali e applicazioni all'interno della rete virtuale. Questo articolo descrive come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure.
@@ -28,19 +28,19 @@ La distribuzione di [rete virtuale di Azure (VNet)](https://azure.microsoft.com/
 ## <a name="virtual-network-support"></a>Supporto della rete virtuale
 Il supporto della rete virtuale viene configurato nel pannello **Nuova cache Redis di azure** durante la creazione della cache. 
 
-1. Per creare una cache Premium, accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa** . Si noti che, oltre a creare le cache nella portale di Azure, è anche possibile crearle usando modelli Gestione risorse, PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni sulla creazione di un'istanza di Cache Redis di Azure, vedere [Creare una cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+1. Per creare una cache Premium, accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**. Si noti che, oltre a creare le cache nella portale di Azure, è anche possibile crearle usando modelli Gestione risorse, PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni sulla creazione di un'istanza di Cache Redis di Azure, vedere [Creare una cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Creare una risorsa.":::
    
-2. Nella pagina **Nuovo** selezionare **Database** e quindi **Cache di Azure per Redis** .
+2. Nella pagina **Nuovo** selezionare **Database** e quindi **Cache di Azure per Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Creare una risorsa.":::
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selezionare Cache di Azure per Redis.":::
 
 3. Nella pagina **nuova cache Redis** configurare le impostazioni per la nuova cache Premium.
    
    | Impostazione      | Valore consigliato  | Descrizione |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nome DNS** | Immettere un nome univoco globale. | Il nome della cache deve essere una stringa compresa tra 1 e 63 caratteri contenente solo numeri, lettere o trattini. Il nome deve iniziare e terminare con un numero o una lettera e non può contenere trattini consecutivi. Il *nome host* dell'istanza della cache sarà *\<DNS name>.redis.cache.windows.net* . | 
+   | **Nome DNS** | Immettere un nome univoco globale. | Il nome della cache deve essere una stringa compresa tra 1 e 63 caratteri contenente solo numeri, lettere o trattini. Il nome deve iniziare e terminare con un numero o una lettera e non può contenere trattini consecutivi. Il *nome host* dell'istanza della cache sarà *\<DNS name>.redis.cache.windows.net*. | 
    | **Sottoscrizione** | A discesa e selezionare la sottoscrizione. | Sottoscrizione in cui creare la nuova istanza della cache di Azure per Redis. | 
    | **Gruppo di risorse** | A discesa e selezionare un gruppo di risorse oppure selezionare **Crea nuovo** e immettere un nuovo nome per il gruppo di risorse. | Nome del gruppo di risorse in cui creare la cache e altre risorse. L'inserimento di tutte le risorse di un'app in un unico gruppo di risorse ne semplifica la gestione o l'eliminazione. | 
    | **Posizione** | A discesa e selezionare una località. | Selezionare un'[area](https://azure.microsoft.com/regions/) in prossimità di altri servizi che useranno la cache. |
@@ -76,11 +76,11 @@ Il supporto della rete virtuale viene configurato nel pannello **Nuova cache Red
 
 9. Facoltativamente, nella scheda **Tag** immettere il nome e il valore se si vuole categorizzare la risorsa. 
 
-10. Selezionare **Rivedi e crea** . Si viene reindirizzati alla scheda Rivedi e crea in cui Azure convalida la configurazione.
+10. Selezionare **Rivedi e crea**. Si viene reindirizzati alla scheda Rivedi e crea in cui Azure convalida la configurazione.
 
-11. Quando viene visualizzato il messaggio di convalida verde, selezionare **Crea** .
+11. Quando viene visualizzato il messaggio di convalida verde, selezionare **Crea**.
 
-La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione** , la cache è pronta per l'uso. Dopo aver creato la cache, è possibile visualizzare la configurazione della rete virtuale facendo clic su **Rete virtuale** dal **menu Risorse** .
+La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione** , la cache è pronta per l'uso. Dopo aver creato la cache, è possibile visualizzare la configurazione della rete virtuale facendo clic su **Rete virtuale** dal **menu Risorse**.
 
 ![Rete virtuale][redis-cache-vnet-info]
 
@@ -159,7 +159,7 @@ Vi sono otto requisiti delle porte in ingresso. Le richieste in ingresso in ques
 | 6379, 6380 |In ingresso |TCP |Comunicazione tra client e Redis, bilanciamento del carico di Azure | (Subnet Redis) | (Subnet Redis), rete virtuale, Azure Load Balancer <sup>1</sup> |
 | 8443 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
 | 8500 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure | (Subnet Redis) |Azure Load Balancer |
-| 10221-10231 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis), bilanciamento del carico di Azure |
+| 10221-10231 |In ingresso |TCP |Comunicazione tra client e cluster Redis, comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis), Azure Load Balancer, (subnet client) |
 | 13000-13999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure | (Subnet Redis) |Rete virtuale, Bilanciamento carico di Azure |
 | 15000-15999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure e Geo-Replication | (Subnet Redis) |Rete virtuale, Azure Load Balancer, (subnet peer di replica geografica) |
 | 16001 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure | (Subnet Redis) |Azure Load Balancer |
@@ -171,15 +171,15 @@ Vi sono otto requisiti delle porte in ingresso. Le richieste in ingresso in ques
 
 Esistono requisiti di connettività di rete per Cache Redis di Azure che potrebbero non essere inizialmente soddisfatti in una rete virtuale. Per il corretto funzionamento se usato all'interno di una rete virtuale, Cache Redis di Azure richiede tutti gli elementi seguenti.
 
-* Connettività di rete in uscita per endpoint di archiviazione di Azure in tutto il mondo. Sono inclusi gli endpoint che si trovano nella stessa area dell'istanza di Cache Redis di Azure, nonché gli endpoint di archiviazione che si trovano in **altre** aree di Azure. Gli endpoint di archiviazione di Azure vengono risolti nei seguenti domini DNS: *Table.Core.Windows.NET* , *BLOB.Core.Windows.NET* , *queue.Core.Windows.NET* e *file.Core.Windows.NET* . 
-* Connettività di rete in uscita a *OCSP.DigiCert.com* , *CRL4.DigiCert.com* , *OCSP.msocsp.com* , *mscrl.Microsoft.com* , *crl3.DigiCert.com* , *cacerts.DigiCert.com* , *oneocsp.Microsoft.com* e *CRL.Microsoft.com* . Questa connettività è necessaria per supportare la funzionalità TLS/SSL.
+* Connettività di rete in uscita per endpoint di archiviazione di Azure in tutto il mondo. Sono inclusi gli endpoint che si trovano nella stessa area dell'istanza di Cache Redis di Azure, nonché gli endpoint di archiviazione che si trovano in **altre** aree di Azure. Gli endpoint di archiviazione di Azure vengono risolti nei seguenti domini DNS: *Table.Core.Windows.NET* , *BLOB.Core.Windows.NET* , *queue.Core.Windows.NET* e *file.Core.Windows.NET*. 
+* Connettività di rete in uscita a *OCSP.DigiCert.com* , *CRL4.DigiCert.com* , *OCSP.msocsp.com* , *mscrl.Microsoft.com* , *crl3.DigiCert.com* , *cacerts.DigiCert.com* , *oneocsp.Microsoft.com* e *CRL.Microsoft.com*. Questa connettività è necessaria per supportare la funzionalità TLS/SSL.
 * La configurazione DNS per la rete virtuale deve essere in grado di risolvere tutti gli endpoint e i domini indicati nei punti precedenti. Questi requisiti DNS possono essere soddisfatti garantendo che un'infrastruttura DNS valida venga configurata e mantenuta per la rete virtuale.
-* Connettività di rete in uscita agli endpoint di monitoraggio di Azure seguenti, che vengono risolti nei seguenti domini DNS: *shoebox2-Black.shoebox2.Metrics.nsatc.NET* , *North-prod2.prod2.Metrics.nsatc.NET* , *azglobal-Black.azglobal.Metrics.nsatc.NET* , *shoebox2-Red.shoebox2.Metrics.nsatc.NET* , *East-prod2.prod2.Metrics.nsatc.NET* , *azglobal-Red.azglobal.Metrics.nsatc.NET* .
+* Connettività di rete in uscita agli endpoint di monitoraggio di Azure seguenti, che vengono risolti nei seguenti domini DNS: *shoebox2-Black.shoebox2.Metrics.nsatc.NET* , *North-prod2.prod2.Metrics.nsatc.NET* , *azglobal-Black.azglobal.Metrics.nsatc.NET* , *shoebox2-Red.shoebox2.Metrics.nsatc.NET* , *East-prod2.prod2.Metrics.nsatc.NET* , *azglobal-Red.azglobal.Metrics.nsatc.NET*.
 
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Come è possibile verificare che la cache funzioni in una rete virtuale?
 
 >[!IMPORTANT]
->Quando ci si connette a una cache di Azure per l'istanza di redis ospitata in una VNET, i client della cache devono trovarsi nello stesso VNET o in un VNET con peering VNET abilitato nella stessa area di Azure. La Peering reti virtuali globale non è attualmente supportata. Questo vale anche per le applicazioni di test e per gli strumenti per l'esecuzione di ping di diagnostica. Indipendentemente dalla posizione che ospita l'applicazione client, i gruppi di sicurezza di rete devono essere configurati in modo che il traffico di rete del client sia autorizzato a raggiungere l'istanza di Redis.
+>Quando ci si connette a una cache di Azure per l'istanza di redis ospitata in una VNET, i client della cache devono trovarsi nello stesso VNET o in un VNET con peering VNET abilitato nella stessa area di Azure. La Peering reti virtuali globale non è attualmente supportata. Questo vale anche per le applicazioni di test e per gli strumenti per l'esecuzione di ping di diagnostica. Indipendentemente dalla posizione in cui è ospitata l'applicazione client, i gruppi di sicurezza di rete o altri livelli di rete devono essere configurati in modo che il traffico di rete del client sia autorizzato a raggiungere l'istanza di Redis.
 >
 >
 
@@ -256,7 +256,7 @@ Per motivi di prestazioni, la connessione a un'istanza di Cache Redis di Azure d
 >Le route definite in un UDR **devono** essere sufficientemente specifiche per avere la precedenza su qualsiasi route annunciata dalla configurazione di ExpressRoute. Nell'esempio di seguito viene utilizzato l'intervallo di indirizzi ampio 0.0.0.0/0 e pertanto può essere accidentalmente sottoposto a override dagli annunci di route mediante più intervalli di indirizzi specifici.
 
 >[!WARNING]  
->Cache Redis di Azure non è supportato con le configurazioni di ExpressRoute che **annunciano erroneamente route dal percorso di peering pubblico al percorso di peering privato** . Le configurazioni di ExpressRoute per cui è configurato il peering pubblico riceveranno gli annunci delle route da Microsoft per un elevato numero di intervalli di indirizzi IP di Microsoft Azure. Se questi intervalli di indirizzi vengono annunciati in modo non corretto nel percorso di peering privato, il risultato finale è che tutti i pacchetti di rete in uscita dalla subnet dell'istanza di Cache Redis di Azure verranno erroneamente sottoposti a tunneling forzato verso l'infrastruttura di rete locale del cliente. Questo flusso di rete interromperà Cache Redis di Azure. La soluzione a questo problema consiste nell'interrompere l'annuncio di più route dal percorso di peering pubblico al percorso di peering privato.
+>Cache Redis di Azure non è supportato con le configurazioni di ExpressRoute che **annunciano erroneamente route dal percorso di peering pubblico al percorso di peering privato**. Le configurazioni di ExpressRoute per cui è configurato il peering pubblico riceveranno gli annunci delle route da Microsoft per un elevato numero di intervalli di indirizzi IP di Microsoft Azure. Se questi intervalli di indirizzi vengono annunciati in modo non corretto nel percorso di peering privato, il risultato finale è che tutti i pacchetti di rete in uscita dalla subnet dell'istanza di Cache Redis di Azure verranno erroneamente sottoposti a tunneling forzato verso l'infrastruttura di rete locale del cliente. Questo flusso di rete interromperà Cache Redis di Azure. La soluzione a questo problema consiste nell'interrompere l'annuncio di più route dal percorso di peering pubblico al percorso di peering privato.
 
 
 Le informazioni generali sulle route definite dall'utente sono disponibili in questa [panoramica](../virtual-network/virtual-networks-udr-overview.md).

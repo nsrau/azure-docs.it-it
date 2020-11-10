@@ -11,12 +11,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 1767f149d9935c86281c7b7be3e684aa82a603f9
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 05d810928a71aec0e3314c32051e5f3565413564
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999049"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444606"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuire un modello per Azure Machine Learning istanze di calcolo
 
@@ -44,7 +44,7 @@ Un notebook di esempio che illustra le distribuzioni locali è incluso nell'ista
 
     ![Screenshot del servizio locale in esecuzione nel notebook](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
-1. Il notebook Visualizza l'URL e la porta su cui è in esecuzione il servizio. Ad esempio: `https://localhost:6789`. È anche possibile eseguire la cella che contiene `print('Local service port: {}'.format(local_service.port))` per visualizzare la porta.
+1. Il notebook Visualizza l'URL e la porta su cui è in esecuzione il servizio. Ad esempio, `https://localhost:6789` È anche possibile eseguire la cella che contiene `print('Local service port: {}'.format(local_service.port))` per visualizzare la porta.
 
     ![Screenshot della porta del servizio locale in esecuzione](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
 
@@ -63,7 +63,7 @@ Per inviare dati di esempio al servizio in esecuzione, usare il codice seguente.
 > [!NOTE]
 > Quando si esegue l'autenticazione a una distribuzione nell'istanza di calcolo, l'autenticazione viene eseguita utilizzando Azure Active Directory. La chiamata a `interactive_auth.get_authentication_header()` nel codice di esempio esegue l'autenticazione con AAD e restituisce un'intestazione che può essere usata per eseguire l'autenticazione nel servizio nell'istanza di calcolo. Per altre informazioni, vedere [Configurare l'autenticazione per le risorse e i flussi di lavoro di Azure Machine Learning](how-to-setup-authentication.md#interactive-authentication).
 >
-> Quando si esegue l'autenticazione a una distribuzione in Azure Kubernetes Service o in istanze di contenitore di Azure, viene usato un metodo di autenticazione diverso. Per altre informazioni su, vedere [configurare l'autenticazione per Azure Machine Learning risorse e flussi di lavoro](how-to-setup-authentication.md#web-service-authentication).
+> Quando si esegue l'autenticazione a una distribuzione in Azure Kubernetes Service o in istanze di contenitore di Azure, viene usato un metodo di autenticazione diverso. Per altre informazioni su, vedere [configurare l'autenticazione per i modelli di computer di Azure distribuiti come servizi Web](how-to-authenticate-web-service.md).
 
 ```python
 import requests

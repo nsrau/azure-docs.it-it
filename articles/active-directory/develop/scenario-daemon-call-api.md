@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 576eaf2ad9350651e4400d980e6fedce236dfa57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dfd729a48b7e81028078fd035b3b900f4d7b9bc
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257606"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444116"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>App daemon che chiama le API Web: chiama un'API Web dall'app
 
@@ -69,17 +69,14 @@ Per le app daemon, le API Web chiamate devono essere pre-approvate. Non è dispo
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [App daemon-sposta in produzione](./scenario-daemon-production.md?tabs=dotnet)
+Passare all'articolo successivo in questo scenario, [passare alla produzione](./scenario-daemon-production.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [App daemon-sposta in produzione](./scenario-daemon-production.md?tabs=python)
+Passare all'articolo successivo in questo scenario, [passare alla produzione](./scenario-daemon-production.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [App daemon-sposta in produzione](./scenario-daemon-production.md?tabs=java)
+Passare all'articolo successivo in questo scenario, [passare alla produzione](./scenario-daemon-production.md?tabs=java).
 
 ---

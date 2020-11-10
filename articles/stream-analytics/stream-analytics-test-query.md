@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3fda153d4c48ced17d1a9ba5f060b435b161542e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 524b34c48146dc9e6102ed8d20ff8d1076706ba7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127638"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444963"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testare un processo di analisi di flusso di Azure nel portale
 
@@ -29,7 +29,7 @@ Analisi di flusso di Azure recupera automaticamente gli eventi dagli input di st
 
 3. Nella pagina del processo di Analisi di flusso selezionare **Query** nell'intestazione **Topologia processo** per aprire la finestra dell'editor Query. 
 
-4. Per visualizzare un elenco di eventi in ingresso di esempio, selezionare l'icona input con file. gli eventi di esempio verranno visualizzati automaticamente nell' **Anteprima di input** .
+4. Per visualizzare un elenco di eventi in ingresso di esempio, selezionare l'icona input con file. gli eventi di esempio verranno visualizzati automaticamente nell' **Anteprima di input**.
 
    a. Il tipo di serializzazione per i dati viene rilevato automaticamente se il relativo JSON o CSV. È possibile modificarlo manualmente in JSON, CSV e AVRO cambiando l'opzione nel menu a discesa.
     
@@ -45,11 +45,11 @@ Analisi di flusso di Azure recupera automaticamente gli eventi dagli input di st
 
    ![Input di esempio di analisi di flusso di Azure in formato non elaborato](./media/stream-analytics-test-query/asa-sample-raw.png)
 
-5. Per testare la query con i dati in ingresso, selezionare **Test query** . I risultati vengono visualizzati nella scheda **risultati test** . È anche possibile selezionare **Scarica risultati** per scaricare i risultati.
+5. Per testare la query con i dati in ingresso, selezionare **Test query**. I risultati vengono visualizzati nella scheda **risultati test** . È anche possibile selezionare **Scarica risultati** per scaricare i risultati.
 
    ![Risultati della query di esempio di analisi di flusso di Azure](./media/stream-analytics-test-query/asa-test-query.png)
 
-6. Per testare la query in base a un intervallo di tempo specifico di eventi in ingresso, selezionare **Seleziona intervallo di tempo** .
+6. Per testare la query in base a un intervallo di tempo specifico di eventi in ingresso, selezionare **Seleziona intervallo di tempo**.
    
    ![Intervallo di tempo di analisi di flusso di Azure per gli eventi di esempio in ingresso](./media/stream-analytics-test-query/asa-select-time-range.png)
 
@@ -81,7 +81,7 @@ Invece di usare i dati dinamici, è possibile usare dati di esempio da un file l
 
    ![Screenshot che mostra l'opzione Upload Sample input.](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
-5. Caricare il file locale per testare la query. È possibile caricare solo file con i formati JSON, CSV o AVRO. Selezionare **OK** .
+5. Caricare il file locale per testare la query. È possibile caricare solo file con i formati JSON, CSV o AVRO. Selezionare **OK**.
 
    ![Screenshot mostra la finestra di dialogo Carica dati di esempio in cui è possibile selezionare un file.](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
@@ -111,6 +111,19 @@ Invece di usare i dati dinamici, è possibile usare dati di esempio da un file l
 4.  Le dimensioni del timeout sono pari a un minuto. Pertanto, qualsiasi query con una dimensione della finestra maggiore di un minuto non può recuperare dati.
 
 5.  Machine Learning non è supportato.
+
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+1.  Se viene generato questo errore, si è verificato un problema di connettività di rete durante il recupero dei risultati. Verificare le impostazioni di rete e del firewall. attenersi alla procedura seguente:
+
+  * Per verificare la connessione al servizio, aprire [https://queryruntime.azurestreamanalytics.com/api/home/index](https://queryruntime.azurestreamanalytics.com/api/home/index) in un browser. Se non è possibile aprire questo collegamento, aggiornare le impostazioni del firewall.
+  
+2. Se viene ricevuto questo errore, la dimensione della richiesta è troppo grande. Ridurre le dimensioni dei dati di input e riprovare ". attenersi alla procedura seguente:
+
+  * Ridurre le dimensioni di input: testare la query con un file di esempio di dimensioni inferiori o con un intervallo di tempo inferiore.
+  * Ridurre le dimensioni della query: per testare una selezione di query, selezionare una parte della query, quindi fare clic su **Verifica query selezionata**.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare una soluzione Internet delle cose usando analisi di flusso](./stream-analytics-build-an-iot-solution-using-stream-analytics.md): questa esercitazione illustra come creare una soluzione end-to-end con un generatore di dati che simula il traffico presso un casello.

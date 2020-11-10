@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 67c52728b72f0941ae3c9b39552ca398c12c67a2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 40d70c7bd740d8c72ddb72047a3bae3586e1aa1f
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425145"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445252"
 ---
 # <a name="feature-coverage-for-machines"></a>Copertura delle funzionalità per le macchine virtuali
 
@@ -35,7 +35,7 @@ Le due schede seguenti illustrano le funzionalità del Centro sicurezza di Azure
 |[Avvisi di sicurezza senza file](alerts-reference.md#alerts-windows)|✔|✔|✔|Sì|
 |[Avvisi di sicurezza basati sulla rete](other-threat-protections.md#network-layer)|✔|✔|-|Sì|
 |[Accesso JIT alle macchine virtuali](security-center-just-in-time.md)|✔|-|-|Sì|
-|[Valutazione della vulnerabilità nativa](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Sì|
+|[Valutazione della vulnerabilità nativa](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Sì|
 |[Monitoraggio dell'integrità dei file](security-center-file-integrity-monitoring.md)|✔|✔|✔|Sì|
 |[Controlli delle applicazioni adattivi](security-center-adaptive-application.md)|✔|-|✔|Sì|
 |[Mappa di rete](security-center-network-recommendations.md#network-map)|✔|✔|-|Sì|
@@ -46,7 +46,7 @@ Le due schede seguenti illustrano le funzionalità del Centro sicurezza di Azure
 |Valutazione degli errori di configurazione della sicurezza|✔|✔|✔|Azure: No<br><br>Abilitazione di Arc: Sì|
 |[Valutazione della protezione endpoint](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: No<br><br>Abilitazione di Arc: Sì|
 |Valutazione della crittografia dischi|✔</br>(per gli [scenari supportati](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
-|Valutazione della vulnerabilità di terze parti|✔|-|-|No|
+|Valutazione della vulnerabilità di terze parti|✔|-|✔|No|
 |[Valutazione della sicurezza di rete](security-center-network-recommendations.md)|✔|✔|-|No|
 
 
@@ -59,7 +59,7 @@ Le due schede seguenti illustrano le funzionalità del Centro sicurezza di Azure
 |[Avvisi di sicurezza senza file](alerts-reference.md#alerts-windows)|-|-|-|Sì|
 |[Avvisi di sicurezza basati sulla rete](other-threat-protections.md#network-layer)|✔|✔|-|Sì|
 |[Accesso JIT alle macchine virtuali](security-center-just-in-time.md)|✔|-|-|Sì|
-|[Valutazione della vulnerabilità nativa](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Sì|
+|[Valutazione della vulnerabilità nativa](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|✔|Sì|
 |[Monitoraggio dell'integrità dei file](security-center-file-integrity-monitoring.md)|✔|✔|✔|Sì|
 |[Controlli delle applicazioni adattivi](security-center-adaptive-application.md)|✔|-|✔|Sì|
 |[Mappa di rete](security-center-network-recommendations.md#network-map)|✔|✔|-|Sì|
@@ -70,7 +70,7 @@ Le due schede seguenti illustrano le funzionalità del Centro sicurezza di Azure
 |Valutazione degli errori di configurazione della sicurezza|✔|✔|✔|Azure: No<br><br>Abilitazione di Arc: Sì|
 |[Valutazione della protezione endpoint](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|No|
 |Valutazione della crittografia dischi|✔</br>(per gli [scenari supportati](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
-|Valutazione della vulnerabilità di terze parti|✔|-|-|No|
+|Valutazione della vulnerabilità di terze parti|✔|-|✔|No|
 |[Valutazione della sicurezza di rete](security-center-network-recommendations.md)|✔|✔|-|No|
 
 --- 

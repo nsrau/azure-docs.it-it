@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: ab3f3765a0e988c7e93cca5782b47b3f2d32aef4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2c9d00f1d78d2dea46d4ff4a08433360e00c7b9d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312543"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445626"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Creare e gestire aree di lavoro Azure Machine Learning 
 
@@ -130,7 +130,7 @@ In caso di problemi di accesso alla sottoscrizione, vedere [configurare l'autent
    Nome dell'area di lavoro |Immettere un nome univoco che identifichi l'area di lavoro. In questo esempio si usa **docs-ws**. I nomi devono essere univoci all'interno del gruppo di risorse. Usare un nome facile da ricordare e da distinguere dai nomi delle aree di lavoro create da altri utenti. Il nome dell'area di lavoro non rileva la distinzione tra maiuscole e minuscole.
    Subscription |Selezionare la sottoscrizione di Azure da usare.
    Resource group | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. Per usare un gruppo di risorse esistente, è necessario un ruolo di *collaboratore* o *proprietario* .  Per ulteriori informazioni sull'accesso, vedere [gestire l'accesso a un'area di lavoro Azure Machine Learning](how-to-assign-roles.md).
-   Region | Per creare l'area di lavoro, selezionare l'area di Azure più vicina agli utenti e alle risorse di dati.
+   Area | Per creare l'area di lavoro, selezionare l'area di Azure più vicina agli utenti e alle risorse di dati.
 
     ![Configurare l'area di lavoro](./media/how-to-manage-workspace/create-workspace-form.png)
 
@@ -193,7 +193,7 @@ Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la
 
 Per impostazione predefinita, le metriche e i metadati per l'area di lavoro vengono archiviati in un'istanza di Azure Cosmos DB gestita da Microsoft. Questi dati vengono crittografati tramite chiavi gestite da Microsoft.
 
-Per limitare i dati raccolti da Microsoft nell'area di lavoro, selezionare __area di lavoro a elevato__ uso di business nel portale o impostare `hbi_workspace=true ` in Python. Per altre informazioni su questa impostazione, vedere [crittografia](concept-enterprise-security.md#encryption-at-rest)dei dati inattivi.
+Per limitare i dati raccolti da Microsoft nell'area di lavoro, selezionare __area di lavoro a elevato__ uso di business nel portale o impostare `hbi_workspace=true ` in Python. Per altre informazioni su questa impostazione, vedere [crittografia](concept-data-encryption.md#encryption-at-rest)dei dati inattivi.
 
 > [!IMPORTANT]  
 > Quando si crea un'area di lavoro, è possibile selezionare un elevato effetto aziendale. Questa impostazione non può essere modificata dopo la creazione dell'area di lavoro.   

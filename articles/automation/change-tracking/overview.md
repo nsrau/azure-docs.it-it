@@ -3,14 +3,14 @@ title: Panoramica di Automazione di Azure - Rilevamento modifiche e inventario
 description: Questo articolo descrive la funzionalità di Rilevamento modifiche e inventario, che consente di identificare le modifiche al software e al servizio Microsoft nell'ambiente in uso.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/26/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 39caa60196eca1afb7df1b0acbecddb557796fc3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b5390e4b3dc6d77390c3fca6323cbd52544c638a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130341"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445422"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Panoramica di Rilevamento modifiche e inventario
 
@@ -62,6 +62,16 @@ La funzionalità Rilevamento modifiche e inventario è supportata in tutti i sis
 
 Per informazioni sui requisiti dei client per TLS 1,2, vedere [tls 1,2 Enforcement for Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
+### <a name="python-requirement"></a>Requisito per Python
+
+Rilevamento modifiche e Inventory supportano solo python2. Se il computer usa una distribuzione che non include Python 2 per impostazione predefinita, è necessario installarla. I comandi di esempio seguenti installeranno Python 2 in distribuzioni diverse.
+
+- Red Hat, CentOS, Oracle: `yum install -y python2`
+- Ubuntu, Debian: `apt-get install -y python2`
+- SUSE: `zypper install -y python2`
+
+L'eseguibile di python2 deve avere un alias per *Python*.
+
 ## <a name="network-requirements"></a>Requisiti di rete
 
 Gli indirizzi seguenti sono necessari in modo specifico per Rilevamento modifiche e l'inventario. La comunicazione verso questi indirizzi avviene sulla porta 443.
@@ -73,7 +83,7 @@ Gli indirizzi seguenti sono necessari in modo specifico per Rilevamento modifich
 |*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
 |*.azure-automation.net | *.azure-automation.us|
 
-Quando si creano regole di sicurezza del gruppo di rete o si configura il firewall di Azure per consentire il traffico verso il servizio di automazione e l'area di lavoro Log Analytics, usare il [tag di servizio](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor** . Ciò semplifica la gestione continuativa delle regole di sicurezza di rete. Per connettersi al servizio di automazione dalle macchine virtuali di Azure in modo sicuro e privato, vedere [usare il collegamento privato di Azure](../how-to/private-link-security.md). Per ottenere il tag di servizio e le informazioni sull'intervallo correnti da includere come parte delle configurazioni del firewall locali, vedere [file JSON scaricabili](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Quando si creano regole di sicurezza del gruppo di rete o si configura il firewall di Azure per consentire il traffico verso il servizio di automazione e l'area di lavoro Log Analytics, usare il [tag di servizio](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor**. Ciò semplifica la gestione continuativa delle regole di sicurezza di rete. Per connettersi al servizio di automazione dalle macchine virtuali di Azure in modo sicuro e privato, vedere [usare il collegamento privato di Azure](../how-to/private-link-security.md). Per ottenere il tag di servizio e le informazioni sull'intervallo correnti da includere come parte delle configurazioni del firewall locali, vedere [file JSON scaricabili](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ## <a name="enable-change-tracking-and-inventory"></a>Abilitare il rilevamento delle modifiche e l'inventario
 
@@ -108,16 +118,16 @@ Rilevamento modifiche e Inventory consente il monitoraggio delle modifiche alle 
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Monitora gli script eseguiti all'arresto del sistema.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Monitora le chiavi caricate prima dell'accesso degli utenti nel proprio account di Windows. La chiave viene usata per le applicazioni a 32 bit in esecuzione su computer a 64 bit.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Monitora le modifiche apportate alle impostazioni dell'applicazione.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitora i gestori dei menu di scelta rapida che si collegano direttamente in Esplora risorse e che in genere vengono eseguiti in-process con **explorer.exe** .
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitora i gestori di hook di copia che si collegano direttamente in Esplora risorse e che in genere vengono eseguiti in-process con **explorer.exe** .
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitora i gestori dei menu di scelta rapida che si collegano direttamente in Esplora risorse e che in genere vengono eseguiti in-process con **explorer.exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitora i gestori di hook di copia che si collegano direttamente in Esplora risorse e che in genere vengono eseguiti in-process con **explorer.exe**.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitora la registrazione del gestore della sovrapposizione delle icone.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitora la registrazione del gestore delle immagini sovrapposte alle icone per le applicazioni a 32 bit in esecuzione in computer a 64 bit.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitora i nuovi plug-in dell'oggetto browser helper per Internet Explorer. Usati per accedere al DOM (Document Object Model) della pagina corrente e per controllare la navigazione.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitora i nuovi plug-in dell'oggetto browser helper per Internet Explorer. Usati per accedere al DOM (Document Object Model) della pagina corrente e per controllare la navigazione per le applicazioni a 32 bit in esecuzione su computer a 64 bit.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Internet Explorer\Extensions` | Monitora le nuove estensioni di Internet Explorer, come i menu degli strumenti personalizzati e i pulsanti della barra degli strumenti personalizzata.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Monitora le nuove estensioni di Internet Explorer, come i menu degli strumenti personalizzati e i pulsanti della barra degli strumenti personalizzati per le applicazioni a 32 bit in esecuzione in computer a 64 bit.
-> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora i driver a 32 bit associati con wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc. È simile alla sezione [driver] nel file **system.ini** .
-> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora i driver a 32 bit associati con wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc per le applicazioni a 32 bit in esecuzione in computer a 64 bit. È simile alla sezione [driver] nel file **system.ini** .
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora i driver a 32 bit associati con wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc. È simile alla sezione [driver] nel file **system.ini**.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora i driver a 32 bit associati con wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc per le applicazioni a 32 bit in esecuzione in computer a 64 bit. È simile alla sezione [driver] nel file **system.ini**.
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitora l'elenco delle DLL di sistema note o comunemente usate. Il monitoraggio impedisce agli utenti di sfruttare le autorizzazioni vulnerabili per le directory applicative eliminando le versioni Trojan Horse delle DLL di sistema.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitora l'elenco dei pacchetti che possono ricevere notifiche degli eventi da **winlogon.exe** , il modello di supporto per l'accesso interattivo per Windows.
 
@@ -127,7 +137,7 @@ Rilevamento modifiche e inventario supporta la ricorsione, che consente di speci
 
 - I caratteri jolly sono necessari per il rilevamento di più file.
 
-- È possibile usare i caratteri jolly solo nell'ultimo segmento di un percorso di file, ad esempio, **c:\cartella \\ file** _ o _ */etc/* . conf * *.
+- È possibile usare i caratteri jolly solo nell'ultimo segmento di un percorso di file, ad esempio, **c:\cartella \\ file** _ o _ */etc/*. conf * *.
 
 - Se a una variabile di ambiente è associato ha un percorso non valido, la convalida ha esito positivo, ma il percorso non restituisce errore durante l'esecuzione.
 
@@ -162,7 +172,7 @@ L'uso medio dei dati di Log Analytics per un computer che usa Rilevamento modifi
 
 ### <a name="microsoft-service-data"></a>Dati del servizio Microsoft
 
-La frequenza di raccolta predefinita per i servizi Microsoft è pari a 30 minuti. È possibile configurare la frequenza usando un dispositivo di scorrimento nella scheda **Servizi Microsoft** in **Modifica impostazioni** .
+La frequenza di raccolta predefinita per i servizi Microsoft è pari a 30 minuti. È possibile configurare la frequenza usando un dispositivo di scorrimento nella scheda **Servizi Microsoft** in **Modifica impostazioni**.
 
 ![Dispositivo di scorrimento per i servizi Microsoft](./media/overview/windowservices.png)
 

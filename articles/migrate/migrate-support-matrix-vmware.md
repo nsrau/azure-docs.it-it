@@ -2,13 +2,13 @@
 title: Supporto per la valutazione VMware in Azure Migrate
 description: 'Informazioni sul supporto per la valutazione delle macchine virtuali VMware con lo strumento Azure Migrate: valutazione server.'
 ms.topic: conceptual
-ms.date: 06/08/2020
-ms.openlocfilehash: 8b119b56e7e4c7fac74c57cc5c48fb44f91a7ee6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 11/10/2020
+ms.openlocfilehash: 6e033bdf0f1492d6cbb4c41192cca8206816917d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345432"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444946"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per la valutazione di VMware 
 
@@ -40,7 +40,7 @@ Per eseguire la migrazione di macchine virtuali VMware in Azure, vedere la [matr
 **VMware** | **Dettagli**
 --- | ---
 **VM VMware** | Tutti i sistemi operativi possono essere valutati per la migrazione. 
-**Archiviazione** | Sono supportati i dischi collegati a SCSI, i controller basati su IDE e SATA.
+**Archiviazione** | Sono supportati i dischi collegati ai controller SCSI, IDE e SATA.
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisiti dell'appliance di Azure Migrate
@@ -66,14 +66,14 @@ Oltre a individuare i computer, server assessment può individuare app, ruoli e 
 
 **Supporto** | **Dettagli**
 --- | ---
-**Computer supportati** | L'individuazione delle app è attualmente supportata solo per le macchine virtuali VMware. È possibile individuare le app installate in un massimo di 10000 VM VMware da ogni appliance Azure Migrate.
-**Sistemi operativi** | App-Discovery è supportato per le macchine virtuali che eseguono tutte le versioni di Windows e Linux.
+**Computer supportati** | Attualmente supportato solo per le macchine virtuali VMware. È possibile individuare le app installate in un massimo di 10000 VM VMware, da ogni appliance Azure Migrate.
+**Sistemi operativi** | Supporto per le macchine virtuali che eseguono tutte le versioni di Windows e Linux.
 **Requisiti della macchina virtuale** | Gli strumenti VMware devono essere installati e in esecuzione nelle macchine virtuali in cui si desidera individuare le app. <br/><br/> La versione degli strumenti VMware deve essere successiva alla 10.2.0.<br/><br/> Sulle macchine virtuali deve essere installato PowerShell 2.0 o versioni successive.
-**Individuazione** | L'individuazione di app è senza agente. Essa usa le credenziali guest del computer e accede in remoto ai computer tramite chiamate WMI e SSH.
+**Individuazione** | Le informazioni sulle app installate in una macchina virtuale vengono raccolte dalla server vCenter, usando gli strumenti VMware installati nella macchina virtuale. L'appliance raccoglie le informazioni sull'app dal server vCenter, usando le API di vSphere. L'individuazione di app è senza agente. Nessun elemento viene installato nelle macchine virtuali e l'appliance non si connette direttamente alle macchine virtuali. WMI/SSH deve essere abilitato e disponibile nelle macchine virtuali.
 **vCenter** | Il server vCenter account di sola lettura usato per la valutazione, richiede i privilegi **Virtual Machines** abilitati per  >  **le operazioni Guest** delle macchine virtuali, in modo da interagire con la macchina virtuale per l'individuazione delle applicazioni.
 **Accesso alla macchina virtuale** | App Discovery necessita di un account utente locale nella macchina virtuale per l'individuazione delle applicazioni.<br/><br/> Azure Migrate attualmente supporta l'utilizzo di una credenziale per tutti i server Windows e una credenziale per tutti i server Linux.<br/><br/> Si crea un account utente Guest per macchine virtuali Windows e un account utente regolare/normale (accesso non sudo) per tutte le macchine virtuali Linux.
 **Accesso alla porta** | Il dispositivo di Azure Migrate deve essere in grado di connettersi alla porta TCP 443 negli host ESXi che eseguono macchine virtuali in cui si desidera individuare le app. Il server vCenter restituisce una connessione all'host ESXI, per scaricare il file contenente le informazioni sull'app.
-**Limiti** | Per l'individuazione delle app è possibile individuare fino a 10.000 macchine virtuali in ogni appliance di Azure Migrate.
+
 
 
 ## <a name="dependency-analysis-requirements-agentless"></a>Requisiti di analisi delle dipendenze (senza agenti)
@@ -82,17 +82,15 @@ L'[analisi delle dipendenze](concepts-dependency-visualization.md) consente di i
 
 **Requisito** | **Dettagli**
 --- | --- 
-**Prima della distribuzione** | È necessario disporre di un progetto Azure Migrate con lo strumento Valutazione server aggiunto.<br/><br/>  La visualizzazione delle dipendenze viene distribuita dopo aver configurato un'appliance Azure Migrate per individuare i computer VMware locali.<br/><br/> [Informazioni](create-manage-projects.md) su come creare un progetto per la prima volta.<br/> [Informazioni](how-to-assess.md) su come aggiungere uno strumento di valutazione a un progetto esistente.<br/> [Informazioni](how-to-set-up-appliance-vmware.md) su come configurare l'appliance Azure Migrate per la valutazione di macchine virtuali VMware.
 **Computer supportati** | Attualmente supportato solo per le macchine virtuali VMware.
-**Macchine virtuali di Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bit).<br/>Microsoft Windows Server 2008 (32 bit). Verificare che PowerShell sia installato.
-**Credenziali del server vCenter** | Per la visualizzazione delle dipendenze è necessario un account server vCenter con accesso di sola lettura e privilegi abilitati per Macchine virtuali > Operazioni Guest.
-**Autorizzazioni VM Windows** |  Per l'analisi delle dipendenze, l'appliance Azure Migrate necessita di un account amministratore di dominio o di un account amministratore locale per accedere alle macchine virtuali Windows.
-**Macchine virtuali di Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.<br/> SUSE Linux Enterprise Server 11 e versioni successive
-**Account Linux** | Per l'analisi delle dipendenze, nei computer Linux l'appliance Azure Migrate necessita di un account utente radice<br/><br/> In alternativa, l'account utente deve disporre delle seguenti autorizzazioni per i file /bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE. Configurare queste funzionalità usando i comandi seguenti: <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/netstat
-**Agenti obbligatori** | Non sono necessari agenti nei computer che si vuole analizzare.
-**Strumenti VMware** | Gli strumenti VMware (successivi alla versione 10.2) devono essere installati e in esecuzione in ogni macchina virtuale che si vuole analizzare.
-**PowerShell** | Sulle macchine virtuali Windows deve essere installato PowerShell 2.0 o versione precedente.
-**Accesso alla porta** | Negli host ESXi che eseguono macchine virtuali da analizzare, l'appliance di Azure Migrate deve essere in grado di connettersi alla porta TCP 443.
+**Macchine virtuali di Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bit).<br/>Microsoft Windows Server 2008 (32 bit). 
+**Macchine virtuali di Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.<br/> SUSE Linux Enterprise Server 11 e versioni successive.
+**Requisiti della macchina virtuale** | È necessario che gli strumenti VMware (successivi a 10.2.0) siano installati e in esecuzione nelle macchine virtuali che si desidera analizzare.<br/><br/> Sulle macchine virtuali deve essere installato PowerShell 2.0 o versioni successive.
+**Metodo di individuazione** |  Le informazioni sulle dipendenze tra le macchine virtuali vengono raccolte dalla server vCenter, usando gli strumenti VMware installati nella macchina virtuale. L'appliance raccoglie le informazioni dalla server vCenter, usando le API di vSphere. L'individuazione è senza agente. Nella macchina virtuale non è installato alcun elemento e l'appliance non si connette direttamente alle macchine virtuali. WMI/SSH deve essere abilitato e disponibile nelle macchine virtuali.
+**account vCenter** | L'account di sola lettura utilizzato da Azure Migrate per la valutazione necessita dei privilegi abilitati per **le macchine virtuali > le operazioni Guest**.
+**Autorizzazioni VM Windows** |  Un account (amministratore locale o dominio) con autorizzazioni di amministratore locale per le macchine virtuali.
+**Account Linux** | Account utente radice o un account con queste autorizzazioni per i file/bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.<br/><br/> Configurare queste funzionalità usando i comandi seguenti: <br/><br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/ls<br/><br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/netstat
+**Accesso alla porta** | Il dispositivo di Azure Migrate deve essere in grado di connettersi alla porta TCP 443 negli host ESXI che eseguono le macchine virtuali di cui si desidera individuare le dipendenze. Il server vCenter restituisce una connessione all'host ESXI, per scaricare il file contenente le informazioni sulle dipendenze.
 
 
 ## <a name="dependency-analysis-requirements-agent-based"></a>Requisiti dell'analisi delle dipendenze (basata su agenti)

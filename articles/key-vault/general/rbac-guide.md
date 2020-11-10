@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f3775e73ce8f152fe39bc8170bbeba054f856630
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: be2fa0fa85da7c0f02567580c50968b7418e4cde
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286593"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445184"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornire l'accesso a chiavi Key Vault, certificati e segreti con un controllo degli accessi in base al ruolo di Azure (anteprima)
 
@@ -79,11 +79,11 @@ Per aggiungere assegnazioni di ruolo, è necessario disporre di
 
 1.  Abilitare le autorizzazioni RBAC di Azure per il nuovo insieme di credenziali delle chiavi:
 
-    ![Abilitare le autorizzazioni RBAC-nuovo insieme di credenziali](../media/rbac/image-1.png)
+    ![Abilitare le autorizzazioni RBAC di Azure-nuovo insieme di credenziali](../media/rbac/image-1.png)
 
 2.  Abilitare le autorizzazioni RBAC di Azure per l'insieme di credenziali delle chiavi esistente:
 
-    ![Abilitare le autorizzazioni RBAC-insieme di credenziali esistente](../media/rbac/image-2.png)
+    ![Abilitare le autorizzazioni RBAC di Azure-insieme di credenziali esistente](../media/rbac/image-2.png)
 
 ### <a name="assign-role"></a>Assegnare il ruolo
 

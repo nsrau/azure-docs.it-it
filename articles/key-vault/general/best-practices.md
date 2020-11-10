@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4a522e58677e2c71cb52ad7e04b288622ad62d91
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 3d959cccd4fbce24e36b1ed62bc6bf417af23c82
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287337"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445507"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Procedure consigliate per l'utilizzo di Key Vault
 
@@ -24,7 +24,7 @@ ms.locfileid: "93287337"
 Azure Key Vault è un servizio cloud che protegge le chiavi di crittografia e i segreti, come certificati, stringhe di connessione e password. Poiché questi dati sono riservati e importanti per l'azienda, è necessario proteggere gli insiemi di credenziali delle chiavi consentendo l'accesso solo ad applicazioni e utenti autorizzati. Questo [articolo](secure-your-key-vault.md) fornisce una panoramica del modello di accesso key Vault. Verranno illustrate l'autenticazione e l'autorizzazione e sarà descritto come proteggere l'accesso agli insiemi di credenziali delle chiavi.
 
 I suggerimenti per il controllo dell'accesso all'insieme di credenziali sono i seguenti:
-1. Bloccare l'accesso alla sottoscrizione, al gruppo di risorse e agli insiemi di credenziali delle chiavi (RBAC)
+1. Bloccare l'accesso alla sottoscrizione, al gruppo di risorse e agli insiemi di credenziali delle chiavi (RBAC di Azure)
 2. Creare criteri di accesso per ogni insieme di credenziali
 3. Usare l'entità di accesso con privilegi minimi per concedere l'accesso
 4. Attivare gli endpoint di [servizio](overview-vnet-service-endpoints.md) firewall e VNET

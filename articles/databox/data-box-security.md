@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 00b6fab2aeebeeb0f39e07a0751e02cefd195b28
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: f9330f99a0473aa38da2fcbb8ae0624a37746613
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337345"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444759"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Sicurezza e protezione dei dati di Azure Data Box
 
@@ -63,7 +63,7 @@ Il dispositivo Data Box è protetto dalle funzionalità seguenti:
 I dati in ingresso e in uscita da Data Box sono protetti dalle funzionalità seguenti:
 
 - Crittografia AES a 256 bit dei dati inattivi.
-- Per i dati in movimento è possibile usare i protocolli crittografati. Si consiglia di usare SMB 3,0 con la crittografia per proteggere i dati quando lo si copia dai server dati.
+- Per i dati in movimento è possibile usare i protocolli crittografati. Si consiglia di usare SMB 3,0 con la crittografia per proteggere i dati quando si esegue la copia da tali server.
 - Cancellazione sicura dei dati dal dispositivo dopo il completamento del caricamento dei dati in Azure. La cancellazione dei dati è conforme alle linee guida indicate nell'[Appendice A per le unità disco rigido ATA negli standard NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). L'evento di cancellazione dei dati viene registrato nella [cronologia ordini](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Protezione del servizio Data Box
@@ -86,11 +86,11 @@ Azure Data Box raccoglie e visualizza informazioni personali nei principali casi
 
   - Nome contatto
   - Numero di telefono
-  - Posta elettronica
+  - E-mail
   - Indirizzo
   - City
   - CAP
-  - State
+  - Stato
   - Paese/provincia/area geografica
   - Numero di account del vettore
   - Numero di tracciabilità della spedizione

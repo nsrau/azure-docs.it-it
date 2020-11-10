@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 44afcf6883298eb36cd1219e6d60a8444a487412
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 5054451b181223d3d6deece6812358cfd08b1e30
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423012"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445082"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -742,7 +742,7 @@ Altre informazioni sulle [etichette di segmentazione delle istanze di immagine](
 
 Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     
-| Strumento basato sul Web  |     Description  |
+| Strumento basato sul Web  |     Descrizione  |
 |---|---|
 | Notebook di Azure ML Studio   |     Prima creazione di classi per i file notebook e supporto per tutte le operazioni disponibili in Azure ML Python SDK. | 
 
@@ -1084,7 +1084,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
 
 + **Nuove funzionalità**
   + Set di dati: aggiungere due opzioni `on_error` e in `out_of_range_datetime` `to_pandas_dataframe` modo da avere esito negativo quando i dati presentano valori di errore anziché compilarli `None` .
-  + Area di lavoro: è stato aggiunto il `hbi_workspace` flag per le aree di lavoro con dati sensibili che consentono una maggiore crittografia e Disabilita la diagnostica avanzata nelle aree di lavoro. È stato inoltre aggiunto il supporto per l'uso di chiavi personalizzate per l'istanza di Cosmos DB associata, specificando i `cmk_keyvault` parametri e quando si crea `resource_cmk_uri` un'area di lavoro che crea un'istanza di Cosmos DB nella sottoscrizione durante il provisioning dell'area di lavoro. [Per altre informazioni, leggi qui.](./concept-enterprise-security.md#azure-cosmos-db)
+  + Area di lavoro: è stato aggiunto il `hbi_workspace` flag per le aree di lavoro con dati sensibili che consentono una maggiore crittografia e Disabilita la diagnostica avanzata nelle aree di lavoro. È stato inoltre aggiunto il supporto per l'uso di chiavi personalizzate per l'istanza di Cosmos DB associata, specificando i `cmk_keyvault` parametri e quando si crea `resource_cmk_uri` un'area di lavoro che crea un'istanza di Cosmos DB nella sottoscrizione durante il provisioning dell'area di lavoro. [Per altre informazioni, leggi qui.](./concept-data-encryption.md#azure-cosmos-db)
 
 + **Correzioni di bug e miglioramenti**
   + **azureml-automl-runtime**
@@ -1254,7 +1254,7 @@ Da studio è possibile eseguire il training, il test, la distribuzione e la gest
 
 Accedere ai seguenti strumenti di creazione basati sul Web da studio:
 
-| Strumento basato sul Web | Description | 
+| Strumento basato sul Web | Descrizione | 
 |-|-|-|
 | VM notebook (anteprima) | Workstation basata su cloud completamente gestita | 
 | [Machine Learning automatizzato](tutorial-first-experiment-automated-ml.md) (anteprima) | Nessuna esperienza di codice per l'automazione dello sviluppo di modelli di Machine Learning | 

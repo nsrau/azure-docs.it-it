@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 585f5998eb953c8ed90a47922d76f32897c0f915
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 91a3a0c2ae066fde55892af90a3d666a3c1221a3
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285829"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445490"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteggere l'accesso a un insieme di credenziali delle chiavi
 
@@ -26,7 +26,7 @@ Per altre informazioni sul servizio Key Vault, vedere [Informazioni su Azure Key
 
 L'accesso a un insieme di credenziali delle chiavi è controllato tramite due interfacce: il **piano di gestione** e il **piano dati**. Il piano di gestione consente di gestire l'insieme di credenziali delle chiavi stesso. Le operazioni in questo piano includono la creazione e l'eliminazione di insiemi di credenziali delle chiavi, il recupero delle proprietà dell'insieme di credenziali delle chiavi e l'aggiornamento dei criteri di accesso. Il piano dati consente di lavorare con i dati archiviati in un insieme di credenziali delle chiavi. È possibile aggiungere, eliminare e modificare chiavi, segreti e certificati.
 
-Entrambi i piani utilizzano [Azure Active Directory (Azure ad)](../../active-directory/fundamentals/active-directory-whatis.md) per l'autenticazione. Per l'autorizzazione, il piano di gestione usa il controllo degli accessi in base al ruolo di Azure e il piano dati usa un [criterio di accesso key Vault](./assign-access-policy-portal.md) e il [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) [di Azure per Key Vault operazioni del piano dati (anteprima)](./rbac-guide.md).
+Entrambi i piani utilizzano [Azure Active Directory (Azure ad)](../../active-directory/fundamentals/active-directory-whatis.md) per l'autenticazione. Per l'autorizzazione, il piano di gestione usa il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) e il piano dati usa un [criterio di accesso key Vault](./assign-access-policy-portal.md) e il controllo degli accessi in base al ruolo [di azure per le operazioni di Key Vault](./rbac-guide.md)
 
 Per accedere a un insieme di credenziali delle chiavi in uno dei piani, tutti i chiamanti (utenti o applicazioni) devono disporre di autenticazione e autorizzazione appropriate. L'autenticazione stabilisce l'identità del chiamante. L'autorizzazione determina le operazioni che il chiamante può eseguire. L'autenticazione con Key Vault funziona in combinazione con [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md), che è responsabile dell'autenticazione dell'identità di una determinata **entità di sicurezza**.
 
@@ -58,7 +58,7 @@ Il modello con un singolo meccanismo di autenticazione per entrambi i piani pres
 
 ## <a name="resource-endpoints"></a>Endpoint delle risorse
 
-Le applicazioni accedono ai piani tramite endpoint. I controlli di accesso per i due piani funzionano in maniera indipendente. Per concedere a un'applicazione l'accesso per usare le chiavi in un insieme di credenziali delle chiavi, l'accesso al piano dati viene concesso usando un criterio di accesso Key Vault o il controllo degli accessi in base al ruolo di Azure Per concedere a un utente l'accesso in lettura alle proprietà e ai tag dell'insieme di credenziali delle chiavi, ma non ai dati (chiavi, segreti o certificati), concedere l'accesso al piano di gestione con il controllo degli accessi in base al ruolo.
+Le applicazioni accedono ai piani tramite endpoint. I controlli di accesso per i due piani funzionano in maniera indipendente. Per concedere a un'applicazione l'accesso per usare le chiavi in un insieme di credenziali delle chiavi, l'accesso al piano dati viene concesso usando un criterio di accesso Key Vault o il controllo degli accessi in base al ruolo di Azure Per concedere a un utente l'accesso in lettura a Key Vault proprietà e tag, ma non l'accesso ai dati (chiavi, segreti o certificati), si concede l'accesso al piano di gestione con il controllo degli accessi in base al ruolo
 
 La tabella seguente illustra gli endpoint per il piano dati e di gestione.
 
@@ -111,7 +111,7 @@ Quando un ruolo di Azure viene assegnato a un'entità di sicurezza Azure AD, Azu
 
 I vantaggi principali dell'uso dell'autorizzazione RBAC di Azure sui criteri di accesso dell'insieme di credenziali sono la gestione centralizzata del controllo degli accessi e la relativa integrazione con [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) Privileged Identity Management fornisce l'attivazione del ruolo basata sul tempo e sull'approvazione per attenuare i rischi di autorizzazioni di accesso eccessive, inutili o usate in modo improprio per le risorse di importanza strategica.
 
-Per altre informazioni sul piano dati Key Vault con RBAC, vedere [Key Vault chiavi, certificati e segreti con il controllo degli accessi in base al ruolo di Azure (anteprima)](rbac-guide.md)
+Per altre informazioni sul piano dati Key Vault con il controllo degli accessi in base al ruolo di Azure, vedere [Key Vault chiavi, certificati e segreti con il controllo degli accessi in base al ruolo di Azure (anteprima)](rbac-guide.md)
 
 ## <a name="firewalls-and-virtual-networks"></a>Firewall e reti virtuali
 
@@ -187,7 +187,7 @@ Nella tabella seguente sono riepilogate le autorizzazioni di accesso per i ruoli
 | Team responsabile della sicurezza | [Collaboratore di Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificati: tutte le operazioni <br> Chiavi: tutte le operazioni <br> Segreti: tutte le operazioni | [Amministratore Key Vault (anteprima)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) |
 | Sviluppatori e&nbsp;operatori | Autorizzazione di distribuzione dell'insieme di credenziali delle chiavi<br><br> **Nota** : Questa autorizzazione consente alle macchine virtuali distribuite di recuperare i segreti da un insieme di credenziali delle chiavi. | nessuno | nessuno |
 | Revisori | nessuno | Certificati: elenco <br> Chiavi: list<br>Segreti: list<br><br> **Nota** : Questa autorizzazione consente ai revisori di esaminare gli attributi (tag e date di attivazione e scadenza) per le chiavi e i segreti che non vengono riportati nei log. | [Lettore Key Vault (anteprima)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
-| Account di archiviazione di Azure | nessuno | Chiavi: Get, List, wrapKey, unwrapKey <br> | [Crittografia del servizio di crittografia Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-preview) |
+| Account di archiviazione di Azure | Nessuno | Chiavi: Get, List, wrapKey, unwrapKey <br> | [Crittografia del servizio di crittografia Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-preview) |
 | Applicazione | nessuno | Segreti: Get, List <br> Certificati: Get, List | [Lettore di Key Vault (anteprima)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview), [utente segreto Key Vault (anteprima)](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user-preview) |
 
 Oltre alle autorizzazioni per l'insieme di credenziali delle chiavi, i tre i ruoli dei team devono poter accedere ad altre risorse. Per distribuire le macchine virtuali (o la funzionalità app Web del servizio app Azure), gli sviluppatori e gli operatori necessitano dell'accesso deploy. I revisori necessitano dell'accesso in lettura all'account di archiviazione in cui vengono archiviati i log dell'insieme di credenziali delle chiavi.

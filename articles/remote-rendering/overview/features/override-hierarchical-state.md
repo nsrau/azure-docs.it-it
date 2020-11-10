@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 29c89d8d3d2ae194ff48b762bc686feefdd3a528
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 851a87885ac765c829e8c2be9fd1205e22906ca9
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381003"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445155"
 ---
 # <a name="hierarchical-state-override"></a>Override dello stato gerarchico
 
@@ -39,6 +39,13 @@ Il set fisso di stati di cui è possibile eseguire l'override sono:
 
   > [!IMPORTANT]
   > L'effetto trasparente funziona solo quando viene usata la [modalità di rendering](../../concepts/rendering-modes.md) *TileBasedComposition*.
+
+* **`Shell`** : La geometria viene sottoposta a rendering come una shell trasparente desaturata. Questa modalità consente di dissolvere le parti non importanti di una scena, mantenendo al tempo stesso un senso di forma e posizionamento relativo. Per modificare l'aspetto del rendering della shell, usare lo stato [ShellRenderingSettings](shell-effect.md) . Vedere l'immagine seguente per il modello di auto di cui viene eseguito il rendering della shell, ad eccezione delle molle blu:
+
+  ![Modalità shell utilizzata per la dissolvenza di oggetti specifici](./media/shell.png)
+
+  > [!IMPORTANT]
+  > L'effetto Shell funziona solo quando viene usata la [modalità di rendering](../../concepts/rendering-modes.md) *TileBasedComposition* .
 
 * **`Selected`** : La geometria viene sottoposta a rendering con una [struttura di selezione](outlines.md).
 
@@ -101,7 +108,7 @@ L' `tint color` override è leggermente speciale in quanto è disponibile uno st
 
 Un'istanza di `HierarchicalStateOverrideComponent` non aggiunge molto sovraccarico in fase di esecuzione. Tuttavia, è sempre consigliabile fare in modo che il numero di componenti attivi sia basso. Ad esempio, quando si implementa un sistema di selezione che evidenzia l'oggetto selezionato, è consigliabile eliminare il componente quando l'evidenziazione viene rimossa. Il mantenimento di componenti con funzionalità neutre può aggiungere rapidamente sovraccarico.
 
-Il rendering trasparente aggiunge un carico di lavoro maggiore sulle GPU del server rispetto al rendering standard. Se parti di grandi dimensioni del grafo della scena sono impostate come *see-through* , con molti livelli di geometria visibili, si potrebbe verificare un collo di bottiglia nelle prestazioni. Lo stesso vale per gli oggetti con [strutture di selezione](../../overview/features/outlines.md#performance).
+Il rendering trasparente aggiunge un carico di lavoro maggiore sulle GPU del server rispetto al rendering standard. Se parti di grandi dimensioni del grafo della scena sono impostate come *see-through* , con molti livelli di geometria visibili, si potrebbe verificare un collo di bottiglia nelle prestazioni. Lo stesso valore è valido per gli oggetti con [strutture di selezione](../../overview/features/outlines.md#performance) e per il [rendering della shell](../../overview/features/shell-effect.md#performance) . 
 
 ## <a name="api-documentation"></a>Documentazione dell'API
 

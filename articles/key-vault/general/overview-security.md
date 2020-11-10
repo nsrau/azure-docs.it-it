@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c3dd4e5138741a3c035507358830f3572cf92751
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc08df7390285f9b6e4701bb1ca5c4227b19f1da
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739691"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445031"
 ---
 # <a name="azure-key-vault-security"></a>Sicurezza di Azure Key Vault
 
@@ -25,7 +25,7 @@ Si usa Azure Key Vault per proteggere le chiavi di crittografia e i segreti come
 Quando si crea un insieme di credenziali delle chiavi in una sottoscrizione di Azure, questo viene automaticamente associato al tenant di Azure AD della sottoscrizione. Chiunque cerchi di gestire o recuperare il contenuto da un insieme di credenziali deve essere autenticato da Azure AD.
 
 - L'autenticazione stabilisce l'identità del chiamante.
-- L'autorizzazione determina le operazioni che il chiamante può eseguire. L'autorizzazione in Key Vault usa una combinazione di [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) e criteri di accesso di Azure Key Vault.
+- L'autorizzazione determina le operazioni che il chiamante può eseguire. L'autorizzazione in Key Vault usa una combinazione di [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) e criteri di accesso Azure Key Vault.
 
 ### <a name="access-model-overview"></a>Panoramica del modello di accesso
 
@@ -34,7 +34,7 @@ L'accesso agli insiemi di credenziali avviene tramite due interfacce o piani. Qu
 - Il *piano di gestione* consente di gestire Key Vault ed è l'interfaccia usata per creare ed eliminare gli insiemi di credenziali. È anche possibile leggere le proprietà degli insiemi di credenziali delle chiavi e gestire i criteri di accesso.
 - Il *piano dati* consente di lavorare con i dati archiviati in un insieme di credenziali delle chiavi. È possibile aggiungere, eliminare e modificare chiavi, segreti e certificati.
 
-Per accedere a un insieme di credenziali delle chiavi in uno dei piani, tutti i chiamanti (utenti o applicazioni) devono essere autenticati e autorizzati. Entrambi i piani usano Azure Active Directory (Azure AD) per l'autenticazione. Per l'autorizzazione, il piano di gestione usa il controllo degli accessi in base al ruolo, mentre il piano dati usa i criteri di accesso dell'insieme di credenziali delle chiavi.
+Per accedere a un insieme di credenziali delle chiavi in uno dei piani, tutti i chiamanti (utenti o applicazioni) devono essere autenticati e autorizzati. Entrambi i piani usano Azure Active Directory (Azure AD) per l'autenticazione. Per l'autorizzazione, il piano di gestione usa il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e il piano dati usa un criterio di accesso Key Vault.
 
 Il modello con un singolo meccanismo di autenticazione per entrambi i piani presenta alcuni vantaggi:
 
@@ -46,11 +46,11 @@ Il modello con un singolo meccanismo di autenticazione per entrambi i piani pres
 
 Quando si crea un insieme di credenziali delle chiavi in un gruppo di risorse, si gestisce l'accesso usando Azure AD. È possibile consentire a utenti o gruppi di gestire gli insiemi di credenziali delle chiavi in un gruppo di risorse. È possibile concedere l'accesso a un determinato livello di ambito assegnando i ruoli di Azure appropriati. Per concedere l'accesso a un utente in modo che possa gestire insiemi di credenziali delle chiavi, assegnare all'utente un ruolo `key vault Contributor` predefinito in un ambito specifico. I livelli di ambito seguenti possono essere assegnati a un ruolo di Azure:
 
-- **Sottoscrizione**: un ruolo di Azure assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e le risorse all'interno della sottoscrizione.
-- **Gruppo di risorse**: un ruolo di Azure assegnato a livello di gruppo di risorse si applica a tutte le risorse nel gruppo di risorse.
-- **Risorsa specifica**: un ruolo di Azure assegnato a una risorsa specifica si applica a tale risorsa. In questo caso, la risorsa è un insieme di credenziali delle chiavi specifico.
+- **Sottoscrizione** : un ruolo di Azure assegnato a livello di sottoscrizione si applica a tutti i gruppi di risorse e le risorse all'interno della sottoscrizione.
+- **Gruppo di risorse** : un ruolo di Azure assegnato a livello di gruppo di risorse si applica a tutte le risorse nel gruppo di risorse.
+- **Risorsa specifica** : un ruolo di Azure assegnato a una risorsa specifica si applica a tale risorsa. In questo caso, la risorsa è un insieme di credenziali delle chiavi specifico.
 
-Ci sono diversi ruoli predefiniti. Se un ruolo predefinito non soddisfa le specifiche esigenze, è possibile definire un ruolo personalizzato. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../../role-based-access-control/built-in-roles.md).
+Ci sono diversi ruoli predefiniti. Se un ruolo predefinito non soddisfa le specifiche esigenze, è possibile definire un ruolo personalizzato. Per altre informazioni, vedere controllo degli accessi [in base al ruolo di Azure: ruoli predefiniti](../../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
 > Se un utente ha le autorizzazioni `Contributor` per un piano di gestione di un insieme di credenziali delle chiavi, l'utente può concedere a se stesso l'accesso al piano dati impostando criteri di accesso dell'insieme di credenziali delle chiavi. È necessario controllare attentamente chi ha accesso al ruolo `Contributor` per gli insiemi di credenziali delle chiavi. Assicurarsi che solo gli utenti autorizzati possano accedere e gestire gli insiemi di credenziali delle chiavi, le chiavi, i segreti e i certificati.
@@ -79,7 +79,7 @@ Per altre informazioni sull'indirizzo di rete di Azure Key Vault, vedere [Endpoi
 
 *   Il front-end Key Vault (piano dati) è un server multi-tenant. Questo significa che gli insiemi di credenziali delle chiavi di diversi clienti possono condividere lo stesso indirizzo IP pubblico. Per ottenere l'isolamento, ogni richiesta HTTP viene autenticata e autorizzata indipendentemente da altre richieste.
 *   È possibile identificare le versioni precedenti di TLS per segnalare le vulnerabilità, ma poiché l'indirizzo IP pubblico è condiviso, non è possibile per il team del servizio Key Vault disabilitare le versioni precedenti di TLS per gli insiemi di credenziali delle chiavi singoli a livello di trasporto.
-*   Il protocollo HTTPS consente al client di partecipare alla negoziazione TLS. I **client possono applicare la versione più recente di TLS**e, ogni volta che un client esegue questa operazione, l'intera connessione utilizzerà la protezione del livello corrispondente. Il fatto che Key Vault supporta ancora le versioni precedenti di TLS non compromettere la sicurezza delle connessioni usando versioni di TLS più recenti.
+*   Il protocollo HTTPS consente al client di partecipare alla negoziazione TLS. I **client possono applicare la versione più recente di TLS** e, ogni volta che un client esegue questa operazione, l'intera connessione utilizzerà la protezione del livello corrispondente. Il fatto che Key Vault supporta ancora le versioni precedenti di TLS non compromettere la sicurezza delle connessioni usando versioni di TLS più recenti.
 *   Nonostante le vulnerabilità note nel protocollo TLS, non esiste alcun attacco noto che consentirebbe a un agente malintenzionato di estrarre tutte le informazioni dall'insieme di credenziali delle chiavi quando l'utente malintenzionato inizia una connessione con una versione di TLS con vulnerabilità. L'utente malintenzionato deve comunque eseguire l'autenticazione e l'autorizzazione e, a condizione che i client legittimi si connettano sempre alle versioni recenti di TLS, non è possibile che le credenziali siano state perse da vulnerabilità nelle versioni precedenti di TLS.
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
@@ -91,4 +91,4 @@ Per consigli sulla gestione sicura degli account di archiviazione, vedere la [Gu
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Endpoint servizio di rete virtuale per Azure Key Vault](overview-vnet-service-endpoints.md)
-- [Controllo degli accessi in base al ruolo: ruoli predefiniti](../../role-based-access-control/built-in-roles.md)
+- [Controllo degli accessi in base al ruolo Azure: ruoli predefiniti](../../role-based-access-control/built-in-roles.md)

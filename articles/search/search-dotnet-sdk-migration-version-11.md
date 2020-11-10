@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f6953f145621e11506a009fa59d67a5f40508a13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90fc356929a9ea5713a8d359dfaa83286017b8f8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539572"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445439"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Eseguire l'aggiornamento ad Azure ricerca cognitiva .NET SDK versione 11
 
@@ -49,7 +49,7 @@ Se applicabile, nella tabella seguente viene eseguito il mapping delle librerie 
 |---------------------|------------------------------|------------------------------|
 | Client utilizzato per le query e per popolare un indice. | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) | [SearchClient](/dotnet/api/azure.search.documents.searchclient) |
 | Client usato per indici, analizzatori, mappe sinonimi | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) |
-| Client usato per gli indicizzatori, le origini dati, skillsets | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**nuovo**)](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
+| Client usato per gli indicizzatori, le origini dati, skillsets | [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient ( **nuovo** )](/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
 > [!Important]
 > `SearchIndexClient` esiste in entrambe le versioni, ma supporta elementi diversi. Nella versione 10 `SearchIndexClient` creare indici e altri oggetti. Nella versione 11, `SearchIndexClient` funziona con gli indici esistenti. Per evitare confusione durante l'aggiornamento del codice, tenere presente l'ordine in cui i riferimenti client vengono aggiornati. Per attenuare eventuali problemi di sostituzione delle stringhe, seguire la sequenza [descritta nella procedura di aggiornamento](#UpgradeSteps) .
@@ -75,7 +75,7 @@ Oltre alle differenze dei client (annotate in precedenza e quindi omesse qui), p
 | [Campo](/dotnet/api/microsoft.azure.search.models.field) | [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) |
 | [DataType](/dotnet/api/microsoft.azure.search.models.datatype) | [SearchFieldDataType](/dotnet/api/azure.search.documents.indexes.models.searchfielddatatype) |
 | [ItemError](/dotnet/api/microsoft.azure.search.models.itemerror) | [SearchIndexerError](/dotnet/api/azure.search.documents.indexes.models.searchindexererror) |
-| [Analizzatore](/dotnet/api/microsoft.azure.search.models.analyzer) | [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer) (anche `AnalyzerName` a `LexicalAnalyzerName` ) |
+| [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer) | [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer) (anche `AnalyzerName` a `LexicalAnalyzerName` ) |
 | [AnalyzeRequest](/dotnet/api/microsoft.azure.search.models.analyzerequest) | [AnalyzeTextOptions](/dotnet/api/azure.search.documents.indexes.models.analyzetextoptions) |
 | [StandardAnalyzer](/dotnet/api/microsoft.azure.search.models.standardanalyzer) | [LuceneStandardAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lucenestandardanalyzer) |
 | [StandardTokenizer](/dotnet/api/microsoft.azure.search.models.standardtokenizer) | [LuceneStandardTokenizer](/dotnet/api/azure.search.documents.indexes.models.lucenestandardtokenizer) (anche `StandardTokenizerV2` a `LuceneStandardTokenizerV2` ) |
@@ -169,6 +169,24 @@ I passaggi seguenti consentono di iniziare a eseguire una migrazione del codice 
    ```
 
 1. Aggiungere nuovi riferimenti client per gli oggetti correlati all'indicizzatore. Se si usano gli indicizzatori, le origini dati o skillsets, modificare i riferimenti client in [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). Questo client è una novità della versione 11 e non ha attività precedenti.
+
+1. Rivedere le raccolte. Nel nuovo SDK tutti gli elenchi sono di sola lettura per evitare problemi a valle se l'elenco contiene valori null. La modifica del codice prevede l'aggiunta di elementi a un elenco. Anziché assegnare stringhe a una proprietà Select, ad esempio, è necessario aggiungerle come segue:
+
+   ```csharp
+   var options = new SearchOptions
+    {
+       SearchMode = SearchMode.All,
+       IncludeTotalCount = true
+    };
+
+    // Select fields to return in results.
+    options.Select.Add("HotelName");
+    options.Select.Add("Description");
+    options.Select.Add("Tags");
+    options.Select.Add("Rooms");
+    options.Select.Add("Rating");
+    options.Select.Add("LastRenovationDate");
+   ```
 
 1. Aggiornare i riferimenti client per le query e l'importazione di dati. Le istanze di [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) devono essere modificate in [SearchClient](/dotnet/api/azure.search.documents.searchclient). Per evitare confusione dei nomi, assicurarsi di intercettare tutte le istanze prima di procedere al passaggio successivo.
 
