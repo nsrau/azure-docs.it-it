@@ -173,7 +173,7 @@
           href: sql/resource-consumption-models.md
         - name: Dati elaborati
           href: sql/data-processed.md
-        - name: Procedure consigliate per SQL su richiesta
+        - name: Procedure consigliate per i pool SQL serverless
           href: sql/best-practices-sql-on-demand.md
         - name: Procedure consigliate per i pool SQL dedicati
           href: sql/best-practices-sql-pool.md
