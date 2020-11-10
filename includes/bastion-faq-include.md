@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a38c4bb18e16a814b626a6941d626b66311cd8ea
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 5d14068f6be4717f74e4917d6fccf1082cd0efd3
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "94329479"
+ms.locfileid: "94331759"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Quali aree sono disponibili?
 
-[!INCLUDE [region](bastion-regions-include.md)]
+[!INCLUDE [Azure Bastion region availability](bastion-regions-include.md)]
 
-### <a name="do-i-need-a-public-ip-on-my-virtual-machine"></a><a name="publicip"></a>È necessario un indirizzo IP pubblico nella macchina virtuale?
+### <a name="do-i-need-a-public-ip-on-my-virtual-machine-to-connect-via-azure-bastion"></a><a name="publicip"></a>È necessario un indirizzo IP pubblico nella macchina virtuale per connettersi tramite Azure Bastion?
 
-Quando ci si connette a una macchina virtuale con Azure Bastion, NON è necessario un indirizzo IP pubblico nella macchina virtuale di Azure a cui ci si connette. Il servizio Bastion aprirà la sessione/connessione RDP/SSH con la macchina virtuale tramite l'indirizzo IP privato della macchina virtuale, all'interno della rete virtuale.
+No. Quando ci si connette a una macchina virtuale con Azure Bastion, non è necessario un indirizzo IP pubblico nella macchina virtuale di Azure a cui ci si connette. Il servizio Bastion aprirà la sessione/connessione RDP/SSH con la macchina virtuale tramite l'indirizzo IP privato della macchina virtuale, all'interno della rete virtuale.
 
 ### <a name="is-ipv6-supported"></a>IPv6 è supportato?
 
@@ -29,11 +29,11 @@ IPv6 non è attualmente supportato. Azure Bastion supporta solo IPv4.
 
 ### <a name="do-i-need-an-rdp-or-ssh-client"></a><a name="rdpssh"></a>È necessario un client RDP o SSH?
 
-Non è necessario un client RDP o SSH per accedere alla macchina virtuale di Azure tramite RDP/SSH nel portale di Azure. Usare il [portale di Azure](https://portal.azure.com) per accedere tramite RDP/SSH alla macchina virtuale direttamente nel browser.
+No. Non è necessario un client RDP o SSH per accedere alla macchina virtuale di Azure tramite RDP/SSH nel portale di Azure. Usare il [portale di Azure](https://portal.azure.com) per accedere tramite RDP/SSH alla macchina virtuale direttamente nel browser.
 
 ### <a name="do-i-need-an-agent-running-in-the-azure-virtual-machine"></a><a name="agent"></a>È necessario un agente in esecuzione nella macchina virtuale di Azure?
 
-Non è necessario installare un agente o altro software nel browser o nella macchina virtuale di Azure. Il servizio Bastion è senza agente e non richiede alcun software aggiuntivo per la connettività RDP/SSH.
+No. Non è necessario installare un agente o altro software nel browser o nella macchina virtuale di Azure. Il servizio Bastion è senza agente e non richiede alcun software aggiuntivo per la connettività RDP/SSH.
 
 ### <a name="how-many-concurrent-rdp-and-ssh-sessions-does-each-azure-bastion-support"></a><a name="limits"></a>Quante sessioni RDP e SSH simultanee sono supportate da ogni istanza di Azure Bastion?
 
@@ -70,15 +70,17 @@ Per stabilire una connessione, sono necessari i ruoli seguenti:
 Per altre informazioni vedere la [pagina dei prezzi](https://aka.ms/BastionHostPricing).
 
 ### <a name="does-azure-bastion-require-an-rds-cal-for-administrative-purposes-on-azure-hosted-vms"></a><a name="rdscal"></a>Azure Bastion richiede una licenza CAL di Servizi Desktop remoto per scopi amministrativi nelle macchine virtuali ospitate da Azure?
+
 No, per accedere alle macchine virtuali Windows Server con Azure Bastion, non è richiesta una [licenza CAL di Servizi Desktop remoto](https://www.microsoft.com/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) se viene usato esclusivamente per scopi amministrativi.
 
-### <a name="what-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>Quali layout di tastiera sono supportati durante la sessione remota di Bastion?
+### <a name="which-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>Quali layout di tastiera sono supportati durante la sessione remota di Bastion?
 
 Azure Bastion supporta attualmente il layout di tastiera QWERTY en-us nella macchina virtuale.  Il supporto di altre impostazioni locali per il layout di tastiera è in fase di elaborazione.
 
 ### <a name="is-user-defined-routing-udr-supported-on-an-azure-bastion-subnet"></a><a name="udr"></a>Il routing definito dall'utente è supportato in una subnet Azure Bastion?
 
 No. Il routing definito dall'utente non è supportato in una subnet Azure Bastion.
+
 Per gli scenari che includono Azure Bastion e Firewall di Azure/appliance di rete virtuale nella stessa rete virtuale, non è necessario forzare il traffico da una subnet Azure Bastion a Firewall di Azure, perché la comunicazione tra Azure Bastion e le VM è privata. Per altre informazioni, vedere [Accesso a macchine virtuali protette da Firewall di Azure con Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
 ### <a name="why-do-i-get-your-session-has-expired-error-message-before-the-bastion-session-starts"></a><a name="session"></a>Perché viene visualizzato il messaggio di errore "Sessione utente scaduta" prima dell'avvio della sessione di Bastion?
@@ -87,8 +89,8 @@ Una sessione deve essere avviata solo dal portale di Azure. Accedere al portale 
 
 ### <a name="how-do-i-handle-deployment-failures"></a><a name="udr"></a>Come si gestiscono gli errori di distribuzione?
 
-Esaminare gli eventuali messaggi di errore e, se necessario, [aprire una richiesta di supporto nel portale di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Gli errori di distribuzione possono derivare da [limiti, quote e vincoli della sottoscrizione di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). In particolare, i clienti potrebbero riscontrare un limite sul numero di indirizzi IP pubblici consentiti per ogni sottoscrizione, che causa un errore della distribuzione di Azure Bastion.
+Esaminare gli eventuali messaggi di errore e, se necessario, [aprire una richiesta di supporto nel portale di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Gli errori di distribuzione possono derivare da [limiti, quote e vincoli della sottoscrizione di Azure](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). In particolare, i clienti potrebbero riscontrare un limite sul numero di indirizzi IP pubblici consentiti per ogni sottoscrizione, che causa un errore della distribuzione di Azure Bastion.
 
-### <a name="how-do-i-incorporate-azure-bastion-in-my-dr-plan"></a><a name="dr"></a>Come si incorpora Azure Bastion nel piano di ripristino di emergenza?
+### <a name="how-do-i-incorporate-azure-bastion-in-my-disaster-recovery-plan"></a><a name="dr"></a>Come si incorpora Azure Bastion nel piano di ripristino di emergenza?
 
-Dal momento che Azure Bastion è associato a un'area di Azure e viene distribuito all'interno di reti virtuali o reti virtuali con peering, l'utente è responsabile della distribuzione di Azure Bastion in una rete virtuale del sito di ripristino di emergenza. In caso di errore di un'area di Azure, è necessario eseguire un'operazione di failover per le macchine virtuali e quindi usare l'host di Azure Bastion distribuito nell'area di ripristino di emergenza per connettersi alle macchine virtuali distribuite nell'area di ripristino di emergenza.
+Azure Bastion viene distribuito all'interno di reti virtuali o reti virtuali con peering ed è associato a un'area di Azure. L'utente è responsabile della distribuzione di Azure Bastion in una rete virtuale del sito di ripristino di emergenza. In caso di errore di un'area di Azure, eseguire un'operazione di failover per le macchine virtuali nell'area di ripristino di emergenza. Usare quindi l'host di Azure Bastion distribuito nell'area di ripristino di emergenza per connettersi alle macchine virtuali ora distribuite in tale area.
