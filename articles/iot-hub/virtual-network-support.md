@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 11/09/2020
 ms.author: jlian
-ms.openlocfilehash: cb6e4b2b10b6b44a544416ad5d57808c7ad4d83f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fdc106a1a446f51d309ac4317062c8fd20204bae
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427849"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413395"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Supporto dell'hub IoT per le reti virtuali con collegamento privato e identità gestita
 
@@ -50,13 +50,13 @@ Prima di iniziare, verificare che siano soddisfatti i seguenti prerequisiti:
 
 L'endpoint privato funziona per le API del dispositivo dell'hub Internet (ad esempio, i messaggi da dispositivo a cloud) e le API del servizio, ad esempio la creazione e l'aggiornamento di dispositivi.
 
-1. Nel portale di Azure selezionare **Rete**, **Connessioni a endpoint privato**, quindi fare clic su **+ endpoint privato**.
+1. Nel portale di Azure selezionare **Rete** , **Connessioni a endpoint privato** , quindi fare clic su **+ endpoint privato**.
 
-    :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Screenshot che mostra come aggiungere un endpoint privato per l'hub IoT&quot;:::
+    :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Screenshot che mostra come aggiungere un endpoint privato per l'hub IoT":::
 
 1. Specificare la sottoscrizione, il gruppo di risorse e l'area per la creazione del nuovo endpoint privato. Idealmente, l'endpoint privato deve essere creato nella stessa area dell'hub.
 
-1. Fare clic su **Avanti: Risorsa** e specificare la sottoscrizione per la risorsa dell'hub IoT, selezionare &quot;**Microsoft.Devices/IotHubs**" come tipo di risorsa, il nome dell'hub IoT come **risorsa** e **iotHub** come risorsa secondaria di destinazione.
+1. Fare clic su **Avanti: Risorsa** e specificare la sottoscrizione per la risorsa dell'hub IoT, selezionare " **Microsoft.Devices/IotHubs** " come tipo di risorsa, il nome dell'hub IoT come **risorsa** e **iotHub** come risorsa secondaria di destinazione.
 
 1. Fare clic su **Avanti: Configurazione** e specificare la rete virtuale e la subnet in cui creare l'endpoint privato. Selezionare l'opzione per l'integrazione con la zona DNS privata di Azure, se lo si desidera.
 
@@ -90,13 +90,9 @@ Per consentire ad altri servizi di trovare l'hub IoT come servizio Microsoft att
 
 1. Nel portale dell'hub IoT passare a **Identità**.
 
-1. In **Stato** selezionare **Attiva**, quindi fare clic su **Salva**.
+1. In **Stato** selezionare **Attiva** , quindi fare clic su **Salva**.
 
-    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Screenshot che mostra come aggiungere un endpoint privato per l'hub IoT&quot;:::
-
-1. Specificare la sottoscrizione, il gruppo di risorse e l'area per la creazione del nuovo endpoint privato. Idealmente, l'endpoint privato deve essere creato nella stessa area dell'hub.
-
-1. Fare clic su **Avanti: Risorsa** e specificare la sottoscrizione per la risorsa dell'hub IoT, selezionare &quot;**Microsoft.Devices/IotHubs**":::
+    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Screenshot che mostra come attivare l'identità gestita per l'hub IoT":::
 
 ### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>Assegnare l'identità gestita all'hub Internet in fase di creazione usando il modello ARM
 
@@ -178,7 +174,7 @@ L'hub IoT può eseguire il routing dei messaggi a un account di archiviazione di
 
 1. Nel portale di Azure, passare alla scheda **Controllo di accesso (IAM)** dell'account di archiviazione e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo**.
 
-2. Selezionare **Collaboratore ai dati dei BLOB di archiviazione** ([*non* Collaboratore o Collaboratore Account di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) come **ruolo**, **Utente, gruppo o entità servizio di Azure AD** per il campo **Assegnazione dell'accesso a** e quindi il nome della risorsa dell'hub IoT dall'elenco a discesa. Fare clic sul pulsante **Salva** .
+2. Selezionare **Collaboratore ai dati dei BLOB di archiviazione** ( [*non* Collaboratore o Collaboratore Account di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) come **ruolo** , **Utente, gruppo o entità servizio di Azure AD** per il campo **Assegnazione dell'accesso a** e quindi il nome della risorsa dell'hub IoT dall'elenco a discesa. Fare clic sul pulsante **Salva** .
 
 3. Passare alla scheda **Firewall e reti virtuali** dell'account di archiviazione e abilitare l'opzione per **consentire l'accesso da reti selezionate**. Nell'elenco **Eccezioni** selezionare la casella di controllo **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**. Fare clic sul pulsante **Salva** .
 
@@ -196,7 +192,7 @@ A questo punto, l'endpoint di archiviazione personalizzato è impostato per l'us
 
 1. Nel portale di Azure, passare alla scheda **Controllo di accesso (IAM)** dell'hub eventi e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo**.
 
-2. Selezionare **Mittente dei dati di Hub eventi di Azure** come **ruolo**, **Utente, gruppo o entità servizio di Azure AD** per il campo **Assegna accesso a** e quindi il nome della risorsa dell'hub IoT dall'elenco a discesa. Fare clic sul pulsante **Salva** .
+2. Selezionare **Mittente dei dati di Hub eventi di Azure** come **ruolo** , **Utente, gruppo o entità servizio di Azure AD** per il campo **Assegna accesso a** e quindi il nome della risorsa dell'hub IoT dall'elenco a discesa. Fare clic sul pulsante **Salva** .
 
 3. Passare alla scheda **Firewall e reti virtuali** nell'hub eventi e abilitare l'opzione per **consentire l'accesso da reti selezionate**. Nell'elenco **Eccezioni** selezionare la casella di controllo per **consentire ai servizi Microsoft attendibili di accedere a questo account di archiviazione**. Fare clic sul pulsante **Salva** .
 
@@ -204,7 +200,7 @@ A questo punto, l'endpoint di archiviazione personalizzato è impostato per l'us
 
 5. Passare alla sezione **Endpoint personalizzati** e fare clic su **Aggiungi**. Come tipo di endpoint selezionare **Hub eventi**.
 
-6. Nella pagina visualizzata specificare un nome per l'endpoint, selezionare lo spazio dei nomi e l'istanza dell'hub eventi, quindi fare clic sul pulsante **Crea**.
+6. Nella pagina visualizzata specificare un nome per l'endpoint, selezionare lo spazio dei nomi e l'istanza di hub eventi. Selezionare **Identity-based** come **tipo di autenticazione** , quindi fare clic sul pulsante **Crea** .
 
 A questo punto, l'hub eventi personalizzato è impostato per l'uso dell'identità assegnata dal sistema dell'hub e dispone dell'autorizzazione per accedere alla risorsa dell'hub eventi nonostante le restrizioni del firewall. Ora è possibile usare l'endpoint per impostare una regola di gestione.
 
@@ -214,7 +210,7 @@ A questo punto, l'hub eventi personalizzato è impostato per l'uso dell'identit�
 
 1. Nel portale di Azure, passare alla scheda **Controllo di accesso (IAM)** del bus di servizio e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo**.
 
-2. Selezionare **Mittente dei dati del bus di servizio di Azure** come **ruolo**, **Utente, gruppo o entità servizio di Azure AD** per il campo **Assegna accesso a** e quindi il nome della risorsa dell'hub IoT dall'elenco a discesa. Fare clic sul pulsante **Salva** .
+2. Selezionare **Mittente dei dati del bus di servizio di Azure** come **ruolo** , **Utente, gruppo o entità servizio di Azure AD** per il campo **Assegna accesso a** e quindi il nome della risorsa dell'hub IoT dall'elenco a discesa. Fare clic sul pulsante **Salva** .
 
 3. Passare alla scheda **Firewall e reti virtuali** nel bus di servizio e abilitare l'opzione per **consentire l'accesso da reti selezionate**. Nell'elenco **Eccezioni** selezionare la casella di controllo per **consentire ai servizi Microsoft attendibili di accedere a questo bus di servizio**. Fare clic sul pulsante **Salva** .
 
@@ -222,7 +218,7 @@ A questo punto, l'hub eventi personalizzato è impostato per l'uso dell'identit�
 
 5. Passare alla sezione **Endpoint personalizzati** e fare clic su **Aggiungi**. Come tipo di endpoint selezionare **Coda del bus di servizio** o **Argomento del bus di servizio** (come appropriato).
 
-6. Nella pagina visualizzata specificare un nome per l'endpoint, selezionare lo spazio dei nomi e la coda o l'argomento del bus di servizio (come appropriato). Fare clic sul pulsante **Create** (Crea).
+6. Nella pagina visualizzata specificare un nome per l'endpoint, selezionare lo spazio dei nomi e la coda o l'argomento del bus di servizio (come appropriato). Selezionare **Identity-based** come **tipo di autenticazione** , quindi fare clic sul pulsante **Crea** .
 
 A questo punto, il bus di servizio personalizzato è impostato per l'uso dell'identità assegnata dal sistema dell'hub e dispone dell'autorizzazione per accedere alla risorsa del bus di servizio nonostante le restrizioni del firewall. Ora è possibile usare l'endpoint per impostare una regola di gestione.
 
@@ -234,13 +230,13 @@ La funzionalità di caricamento dei file dell'hub IoT consente ai dispositivi di
 
 1. Nel portale di Azure, passare alla scheda **Controllo di accesso (IAM)** dell'account di archiviazione e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo**.
 
-2. Selezionare **Collaboratore ai dati dei BLOB di archiviazione** ([*non* Collaboratore o Collaboratore Account di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) come **ruolo**, **Utente, gruppo o entità servizio di Azure AD** per il campo **Assegnazione dell'accesso a** e quindi il nome della risorsa dell'hub IoT dall'elenco a discesa. Fare clic sul pulsante **Salva** .
+2. Selezionare **Collaboratore ai dati dei BLOB di archiviazione** ( [*non* Collaboratore o Collaboratore Account di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) come **ruolo** , **Utente, gruppo o entità servizio di Azure AD** per il campo **Assegnazione dell'accesso a** e quindi il nome della risorsa dell'hub IoT dall'elenco a discesa. Fare clic sul pulsante **Salva** .
 
 3. Passare alla scheda **Firewall e reti virtuali** dell'account di archiviazione e abilitare l'opzione per **consentire l'accesso da reti selezionate**. Nell'elenco **Eccezioni** selezionare la casella di controllo **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**. Fare clic sul pulsante **Salva** .
 
 4. Nella pagina delle risorse dell'hub IoT, passare alla scheda **Caricamento file**.
 
-5. Nella pagina visualizzata selezionare il contenitore che si desidera utilizzare nell'archivio BLOB, configurare i valori per i campi **Impostazioni di notifica file**, **Durata TTL della firma di accesso condiviso**, **Durata (TTL) predefinita** e **Numero massimo di distribuzioni** in base alle esigenze. Selezionare **Identity-based** come **tipo di autenticazione** per l'endpoint di archiviazione. Fare clic sul pulsante **Create** (Crea). Se si riceve un errore in questo passaggio, impostare temporaneamente l'account di archiviazione per consentire l'accesso da **tutte le reti**, quindi riprovare. È possibile configurare il firewall nell'account di archiviazione al termine della configurazione del caricamento del file.
+5. Nella pagina visualizzata selezionare il contenitore che si desidera utilizzare nell'archivio BLOB, configurare i valori per i campi **Impostazioni di notifica file** , **Durata TTL della firma di accesso condiviso** , **Durata (TTL) predefinita** e **Numero massimo di distribuzioni** in base alle esigenze. Selezionare **Identity-based** come **tipo di autenticazione** per l'endpoint di archiviazione. Fare clic sul pulsante **Create** (Crea). Se si riceve un errore in questo passaggio, impostare temporaneamente l'account di archiviazione per consentire l'accesso da **tutte le reti** , quindi riprovare. È possibile configurare il firewall nell'account di archiviazione al termine della configurazione del caricamento del file.
 
 A questo punto, l'endpoint di archiviazione per il caricamento dei file è impostato per l'uso dell'identità assegnata dal sistema dell'hub e dispone dell'autorizzazione per accedere alla risorsa di archiviazione nonostante le restrizioni del firewall.
 
@@ -252,7 +248,7 @@ Questa funzionalità richiede la connettività dall'hub IoT all'account di archi
 
 1. Nel portale di Azure, passare alla scheda **Controllo di accesso (IAM)** dell'account di archiviazione e fare clic su **Aggiungi** nella sezione **Aggiungi un'assegnazione di ruolo**.
 
-2. Selezionare **Collaboratore ai dati dei BLOB di archiviazione** ([*non* Collaboratore o Collaboratore Account di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) come **ruolo**, **Utente, gruppo o entità servizio di Azure AD** per il campo **Assegnazione dell'accesso a** e quindi il nome della risorsa dell'hub IoT dall'elenco a discesa. Fare clic sul pulsante **Salva** .
+2. Selezionare **Collaboratore ai dati dei BLOB di archiviazione** ( [*non* Collaboratore o Collaboratore Account di archiviazione](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) come **ruolo** , **Utente, gruppo o entità servizio di Azure AD** per il campo **Assegnazione dell'accesso a** e quindi il nome della risorsa dell'hub IoT dall'elenco a discesa. Fare clic sul pulsante **Salva** .
 
 3. Passare alla scheda **Firewall e reti virtuali** dell'account di archiviazione e abilitare l'opzione per **consentire l'accesso da reti selezionate**. Nell'elenco **Eccezioni** selezionare la casella di controllo **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**. Fare clic sul pulsante **Salva** .
 

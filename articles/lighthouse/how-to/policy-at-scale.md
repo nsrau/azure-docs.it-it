@@ -1,14 +1,14 @@
 ---
 title: Distribuire Criteri di Azure nelle sottoscrizioni delegate su larga scala
 description: Informazioni su come Azure Lighthouse consente di distribuire una definizione dei criteri e un'assegnazione di criteri tra più tenant.
-ms.date: 08/12/2020
+ms.date: 11/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 27d32a68c1a3806e514533efbae581aa97bc6d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5af938c61ad3e42e36360a15c6011b54fa1e823d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167284"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412069"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Distribuire Criteri di Azure nelle sottoscrizioni delegate su larga scala
 
@@ -91,7 +91,11 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> Sebbene sia possibile distribuire i criteri tra più tenant, attualmente non è possibile [visualizzare i dettagli di conformità](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) per le risorse non conformi in questi tenant.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su [Criteri di Azure](../../governance/policy/index.yml).
 - Informazioni sulle [esperienze di gestione tra tenant](../concepts/cross-tenant-management-experience.md).
+- Informazioni su come [distribuire i criteri che possono essere corretti](deploy-policy-remediation.md) in una sottoscrizione delegata.

@@ -8,12 +8,12 @@ ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 442d6638e88462b1dc87e9321dc631fe0a4f3a10
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: a805300ac62d0627c9b06188c9764a6887947afe
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340082"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411287"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-request-timeout-exceptions"></a>Diagnosticare e risolvere i problemi Azure Cosmos DB le eccezioni di timeout richieste Java v4 SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,6 +22,9 @@ Si verifica l'errore HTTP 408 se l'SDK non è riuscito a completare la richiesta
 
 ## <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 L'elenco seguente contiene le cause e le soluzioni note per le eccezioni di timeout della richiesta.
+
+### <a name="existing-issues"></a>Problemi esistenti
+Se le richieste sono bloccate per un periodo di tempo più lungo o si verificano più frequentemente, aggiornare Java v4 SDK alla versione più recente. Nota: si consiglia vivamente di usare la versione 4.7.0 e successive. Per altri dettagli, vedere le [Note sulla versione di Java v4 SDK](sql-api-sdk-java-v4.md) .
 
 ### <a name="high-cpu-utilization"></a>Utilizzo CPU elevato
 Un utilizzo elevato della CPU è il caso più comune. Per una latenza ottimale, l'utilizzo della CPU deve essere approssimativamente del 40%. Usare 10 secondi come intervallo per monitorare l'utilizzo della CPU massimo (non medio). I picchi di CPU sono più comuni con le query tra partizioni in cui è possibile eseguire più connessioni per una singola query.

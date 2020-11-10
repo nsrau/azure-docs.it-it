@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6830bdd38e8e1f1d649673cfdaf48e8c50ba6c3e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372294"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413225"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Creare il controller di dati di Azure Arc
 
@@ -36,7 +36,8 @@ Attualmente, l'elenco supportato dei servizi e delle distribuzioni di Kubernetes
 - Kubernetes upstream e open source in genere distribuito tramite kubeadm
 
 > [!IMPORTANT]
-> * La versione minima supportata di Kubernetes è la v 1.14.
+> * La versione minima supportata di Kubernetes è la v 1.17.
+> * La versione minima supportata di OCP è 4,3.
 > * Vedere i [requisiti di connettività](connectivity.md) per comprendere la connettività necessaria tra l'ambiente e Azure.
 > * Per informazioni dettagliate su come configurare l'archiviazione permanente, vedere la [Guida alla configurazione dell'archiviazione](storage-configuration.md) .
 > * Se si usa il servizio Azure Kubernetes, le dimensioni della VM del nodo di lavoro del cluster devono essere almeno **Standard_D8s_v3** e usare **dischi Premium.** Il cluster non deve essere esteso a più zone di disponibilità. 
@@ -45,7 +46,7 @@ Attualmente, l'elenco supportato dei servizi e delle distribuzioni di Kubernetes
 > [!NOTE]
 > Se si usa Red Hat OpenShift container Platform in Azure, è consigliabile usare la versione più recente disponibile.
 
-A seconda dell'opzione scelta, alcuni strumenti saranno _necessari_, ma è consigliabile [installare tutti gli strumenti client](./install-client-tools.md) prima di iniziare a creare il controller dati di Azure Arc.
+A seconda dell'opzione scelta, alcuni strumenti saranno _necessari_ , ma è consigliabile [installare tutti gli strumenti client](./install-client-tools.md) prima di iniziare a creare il controller dati di Azure Arc.
 
 Indipendentemente dall'opzione scelta, durante il processo di creazione sarà necessario fornire le seguenti informazioni:
 

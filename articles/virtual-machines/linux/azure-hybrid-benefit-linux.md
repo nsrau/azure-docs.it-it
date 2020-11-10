@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: da17122de8db41b6ba9ae9597d52bc3e1d8d0062
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c1200121d1c768a3fdddd7749184d7f8b5c98a96
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962395"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413106"
 ---
 # <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Anteprima: Vantaggio Azure Hybrid-come viene applicato per macchine virtuali Linux
 
@@ -57,7 +57,7 @@ In questa fase, è possibile ottenere l'accesso al vantaggio compilando il modul
 1.    Eseguire la registrazione con il [programma Red Hat cloud Access](https://aka.ms/rhel-cloud-access)
 1.    Abilitare le sottoscrizioni di Azure per l'accesso al cloud e abilitare le sottoscrizioni contenenti le macchine virtuali con cui si vuole usare il vantaggio
 1.    Applicare il vantaggio alle macchine virtuali esistenti tramite l'portale di Azure o l'interfaccia della riga di comando di Azure
-1.    Registrare le VM ricevendo il vantaggio con una fonte di aggiornamenti separata
+1.    Facoltativamente, registrare le VM ricevendo il vantaggio con una fonte separata di aggiornamenti (le macchine virtuali a commutazione possono rimanere collegate a [RHUI](../workloads/redhat/redhat-rhui.md) o registrate tramite RHSM)
 
 ### <a name="suse-customers"></a>Clienti SUSE
 
@@ -147,13 +147,14 @@ R: No. Il tentativo di immettere un tipo di licenza che corrisponde erroneamente
 
 R: la propagazione della registrazione della sottoscrizione di Red Hat cloud Access da Red Hat ad Azure potrebbe richiedere del tempo. Se l'errore viene ancora visualizzato dopo un giorno lavorativo, contattare il supporto tecnico Microsoft.
 
-## <a name="common-errors"></a>Errori comuni
-Questa sezione contiene un elenco degli errori comuni e dei passaggi per la mitigazione.
+## <a name="common-issues"></a>Problemi comuni
+Questa sezione contiene un elenco di problemi comuni che possono essere rilevati e i passaggi per la mitigazione.
 
 | Errore | Strategia di riduzione del rischio |
 | ----- | ---------- |
 | "La sottoscrizione non è registrata per l'anteprima di Linux Vantaggio Azure Hybrid. Per istruzioni dettagliate, vedere https://aka.ms/ahb-linux " | Compilare il modulo in https://aka.ms/ahb-linux-form per eseguire la registrazione per l'anteprima di Linux del vantaggio Azure Hybrid.
 | "Non è stato possibile completare l'azione perché i nostri record indicano che non è stato abilitato correttamente Red Hat cloud Access nella sottoscrizione di Azure..." | Per usare il vantaggio con le VM RHEL, è necessario prima registrare le sottoscrizioni di Azure con Red Hat cloud Access. Visitare questo collegamento per altre informazioni su come registrare le sottoscrizioni di Azure per Red Hat cloud Access
+|"L'opzione per Vantaggio Azure Hybrid non viene visualizzata nel portale" | Si tratta di un problema noto per le VM RHEL e SLES create da raccolta immagini condivise, snapshot o immagini PAYG acquisite. In questo caso, usare la procedura dell'interfaccia della riga di comando descritta nella sezione "[abilitare e disabilitare il vantaggio nell'interfaccia della riga di comando di Azure](#enable-and-disable-the-benefit-in-the-azure-cli)". Per visualizzare lo stato di vantaggio Azure Hybrid, usare il comando ` az vm get-instance-view -g MyResourceGroup -n MyVm` .|
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per iniziare a usare l'anteprima, compilare il modulo [qui](https://aka.ms/ahb-linux-form).

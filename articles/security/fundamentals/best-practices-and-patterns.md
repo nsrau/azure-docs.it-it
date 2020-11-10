@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
-ms.openlocfilehash: 0bf9b4d3aa1926343ad25000a05762a31d49617d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4a3b2afd8b1a5ffdbb1fe0db1c3e345a9c99154
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73889846"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412613"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Procedure consigliate e modelli per la sicurezza di Azure
 
@@ -28,8 +28,8 @@ L'articolo seguente contiene informazioni sulle procedure consigliate per la sic
 
 Le procedure consigliate costituiscono una risorsa per i professionisti IT. Potrebbe trattarsi di designer, architetti, sviluppatori e tester che creano e distribuiscono soluzioni sicure per Azure.
 
-* [Procedure consigliate per la sicurezza dei limiti di Azure](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
-* [Procedure consigliate per la sicurezza del database di Azure](database-best-practices.md)
+* [Procedure consigliate per la sicurezza dei limiti di Azure](./network-best-practices.md#adopt-a-zero-trust-approach)
+* [Procedure consigliate per la sicurezza del database di Azure](../../azure-sql/database/security-best-practice.md)
 * [Procedure consigliate di crittografia e sicurezza dei dati di Azure](data-encryption-best-practices.md)
 * [Procedure consigliate per la sicurezza del controllo di accesso e la gestione delle identità di Azure](identity-management-best-practices.md)
 * [Procedure consigliate per la sicurezza della rete di Azure](network-best-practices.md)
@@ -38,7 +38,7 @@ Le procedure consigliate costituiscono una risorsa per i professionisti IT. Potr
 * [Procedure consigliate per la sicurezza di Azure Service Fabric](service-fabric-best-practices.md)
 * [Procedure consigliate per la sicurezza delle VM di Azure](iaas.md)
 * [Implementazione di un'architettura di rete ibrida sicura in Azure](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
-* [Procedure consigliate per la sicurezza Internet delle cose](iot-best-practices.md)
+* [Procedure consigliate per la sicurezza Internet delle cose](../../iot-fundamentals/iot-security-best-practices.md)
 * [Protezione di database PaaS in Azure](paas-applications-using-sql.md)
 * [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Servizio app di Azure](paas-applications-using-app-services.md)
 * [Protezione delle applicazioni PaaS Web e per dispositivi mobili usando Archiviazione di Azure](paas-applications-using-storage.md)

@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 3a44efac274bf5c5d6cfc6a0f044ee89b479cbe6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 691fbf3be4e39a724a8a290c3ec147a679013cba
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897076"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413089"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di Funzioni di Azure
 
@@ -116,6 +116,9 @@ Quando si esegue un piano Premium, è possibile connettere funzioni trigger non 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
+
+> [!TIP]
+> L'abilitazione dei trigger della rete virtuale può avere un effetto sulle prestazioni dell'applicazione, perché le istanze del piano di servizio app dovranno monitorare i trigger per determinare la scalabilità. Questo effetto è probabilmente molto ridotto.
 
 I trigger della rete virtuale sono supportati nella versione 2.x e versioni successive del runtime di Funzioni. Sono supportati i tipi di trigger non HTTP seguenti.
 

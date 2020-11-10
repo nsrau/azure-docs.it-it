@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 11/09/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: locale, Docker, contenitore
-ms.openlocfilehash: 6f04e40b0b2baa496faf8001684304c5df78ec20
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: f91d96732c872c6f93ee2de4c5c3eba5fe5ffbc4
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496138"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412239"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installare ed eseguire contenitori Docker per le API del servizio riconoscimento vocale 
 
@@ -41,10 +41,10 @@ I contenitori del servizio Voce permettono ai clienti di creare un'architettura 
 
 | Contenitore | Funzionalità | Ultima versione |
 |--|--|--|
-| Riconoscimento vocale | Analizza i sentimenti e trascrive le registrazioni audio continue in tempo reale o batch con risultati intermedi.  | 2.5.0 |
-| Da Riconoscimento vocale personalizzato a testo | Usando un modello personalizzato dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech), le registrazioni audio continue in tempo reale o batch vengono trascritte in testo con risultati intermedi. | 2.5.0 |
-| Sintesi vocale | Converte il testo in sintesi vocale naturale con input di testo normale o linguaggio di markup sintesi vocale (SSML). | 1.7.0 |
-| Sintesi vocale personalizzata | Usando un modello personalizzato dal [portale vocale personalizzato](https://aka.ms/custom-voice-portal), converte il testo in un discorso di suono naturale con input di testo normale o SSML (Speech Synthesis Markup Language). | 1.7.0 |
+| Riconoscimento vocale | Analizza i sentimenti e trascrive le registrazioni audio continue in tempo reale o batch con risultati intermedi.  | 2.6.0 |
+| Da Riconoscimento vocale personalizzato a testo | Usando un modello personalizzato dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech), le registrazioni audio continue in tempo reale o batch vengono trascritte in testo con risultati intermedi. | 2.6.0 |
+| Sintesi vocale | Converte il testo in sintesi vocale naturale con input di testo normale o linguaggio di markup sintesi vocale (SSML). | 1.8.0 |
+| Sintesi vocale personalizzata | Usando un modello personalizzato dal [portale vocale personalizzato](https://aka.ms/custom-voice-portal), converte il testo in un discorso di suono naturale con input di testo normale o SSML (Speech Synthesis Markup Language). | 1.8.0 |
 | Rilevamento lingua vocale | Rilevare la lingua pronunciata nei file audio. | 1.0 |
 | Sintesi vocale neurale | Converte il testo in sintesi vocale naturale usando la tecnologia di rete neurale profonda, consentendo una sintesi vocale più naturale. | 1.2.0 |
 
@@ -58,7 +58,7 @@ I prerequisiti seguenti prima di usare i contenitori di sintesi vocale:
 |--|--|
 | Motore Docker | È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br> |
 | Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base. |
-| Risorsa vocale | Per usare questi contenitori, è necessario avere:<br><br>Una risorsa _vocale_ di Azure per ottenere la chiave API e l'URI dell'endpoint associati. Entrambi i valori sono disponibili nelle pagine relative alla panoramica e alle chiavi del **discorso** del portale di Azure. Sono entrambi necessari per avviare il contenitore.<br><br>**{API_KEY}**: una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}**: endpoint fornito nella pagina **Panoramica** |
+| Risorsa vocale | Per usare questi contenitori, è necessario avere:<br><br>Una risorsa _vocale_ di Azure per ottenere la chiave API e l'URI dell'endpoint associati. Entrambi i valori sono disponibili nelle pagine relative alla panoramica e alle chiavi del **discorso** del portale di Azure. Sono entrambi necessari per avviare il contenitore.<br><br>**{API_KEY}** : una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}** : endpoint fornito nella pagina **Panoramica** |
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -68,7 +68,7 @@ I prerequisiti seguenti prima di usare i contenitori di sintesi vocale:
 
 ### <a name="advanced-vector-extension-support"></a>Supporto Advanced Vector Extension
 
-L'**host** è il computer che esegue il contenitore Docker. L'host *deve supportare* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). È possibile verificare il supporto di AVX2 negli host Linux con il comando seguente:
+L' **host** è il computer che esegue il contenitore Docker. L'host *deve supportare* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). È possibile verificare il supporto di AVX2 negli host Linux con il comando seguente:
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
@@ -80,7 +80,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 La tabella seguente descrive l'allocazione minima e consigliata delle risorse per ogni contenitore vocale.
 
-| Contenitore | Minima | Consigliato |
+| Contenitore | Minima | Implementazione consigliata |
 |-----------|---------|-------------|
 | Riconoscimento vocale | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
 | Da Riconoscimento vocale personalizzato a testo | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
@@ -109,31 +109,31 @@ Le immagini del contenitore per la sintesi vocale sono disponibili nelle Contain
 
 # <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Riconoscimento vocale | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest` |
 
 # <a name="custom-speech-to-text"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Da Riconoscimento vocale personalizzato a testo | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest` |
 
 # <a name="text-to-speech"></a>[Sintesi vocale](#tab/tts)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Sintesi vocale | `mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech:latest` |
 
 # <a name="neural-text-to-speech"></a>[Sintesi vocale neurale](#tab/ntts)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Sintesi vocale neurale | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest` |
 
 # <a name="custom-text-to-speech"></a>[Sintesi vocale personalizzata](#tab/ctts)
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Sintesi vocale personalizzata | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest` |
 
@@ -142,7 +142,7 @@ Le immagini del contenitore per la sintesi vocale sono disponibili nelle Contain
 > [!TIP]
 > Per ottenere i risultati più utili, è consigliabile usare il contenitore di rilevamento del linguaggio vocale con i contenitori di riconoscimento vocale o di testo personalizzato. 
 
-| Contenitore | Repository |
+| Contenitore | Archivio |
 |-----------|------------|
 | Rilevamento lingua vocale | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest` |
 
@@ -156,7 +156,7 @@ Le immagini del contenitore per la sintesi vocale sono disponibili nelle Contain
 
 #### <a name="docker-pull-for-the-speech-to-text-container"></a>Pull di Docker per il contenitore di riconoscimento vocale
 
-Usare il comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore dal registro di anteprima del contenitore.
+Usare il comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore da Microsoft container Registry.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest
@@ -176,7 +176,7 @@ Tutti i tag, ad eccezione di, `latest` sono nel formato seguente e fanno distinz
 Il seguente tag è un esempio del formato:
 
 ```
-2.5.0-amd64-en-us-preview
+2.6.0-amd64-en-us
 ```
 
 Per tutte le impostazioni locali supportate del contenitore di **riconoscimento vocale** , vedere [tag dell'immagine da voce a testo](../containers/container-image-tags.md#speech-to-text).
@@ -185,7 +185,7 @@ Per tutte le impostazioni locali supportate del contenitore di **riconoscimento 
 
 #### <a name="docker-pull-for-the-custom-speech-to-text-container"></a>Pull di Docker per il contenitore da Riconoscimento vocale personalizzato a testo
 
-Usare il comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore dal registro di anteprima del contenitore.
+Usare il comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore da Microsoft container Registry.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest
@@ -198,7 +198,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-spe
 
 #### <a name="docker-pull-for-the-text-to-speech-container"></a>Pull di Docker per il contenitore di sintesi vocale
 
-Usare il comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore dal registro di anteprima del contenitore.
+Usare il comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore da Microsoft container Registry.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech:latest
@@ -218,7 +218,7 @@ Tutti i tag, ad eccezione di, `latest` sono nel formato seguente e fanno distinz
 Il seguente tag è un esempio del formato:
 
 ```
-1.6.0-amd64-en-us-ariarus-preview
+1.8.0-amd64-en-us-ariarus
 ```
 
 Per tutte le impostazioni locali supportate e le voci corrispondenti del contenitore di **sintesi vocale** , vedere [tag di immagine da testo a voce](../containers/container-image-tags.md#text-to-speech).
@@ -230,7 +230,7 @@ Per tutte le impostazioni locali supportate e le voci corrispondenti del conteni
 
 #### <a name="docker-pull-for-the-neural-text-to-speech-container"></a>Pull Docker per il contenitore da testo a voce neurale
 
-Usare il comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore dal registro di anteprima del contenitore.
+Usare il comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore da Microsoft container Registry.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest
@@ -262,7 +262,7 @@ Per tutte le impostazioni locali supportate e le voci corrispondenti del conteni
 
 #### <a name="docker-pull-for-the-custom-text-to-speech-container"></a>Pull Docker per il contenitore di sintesi vocale personalizzato
 
-Usare il comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore dal registro di anteprima del contenitore.
+Usare il comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore da Microsoft container Registry.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest
@@ -275,7 +275,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-tex
 
 #### <a name="docker-pull-for-the-speech-language-detection-container"></a>Pull Docker per il contenitore Rilevamento lingua vocale
 
-Usare il comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore dal registro di anteprima del contenitore.
+Usare il comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore da Microsoft container Registry.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest
@@ -315,6 +315,12 @@ Questo comando:
 
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Analizzare i sentimenti nell'output di sintesi vocale 
+A partire da v 2.6.0 del contenitore riconoscimento vocale, è necessario usare l'endpoint API TextAnalytics 3,0 anziché l'anteprima. Ad esempio:
+* `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
+* `https://localhost:5000/text/analytics/v3.0/sentiment`
+
+> [!NOTE]
+> L' `v3.0` API analisi del testo non è compatibile con le versioni precedenti di analisi del testo `v3.0-preview.1` . Per ottenere il supporto della funzionalità di valutazione più recente, usare `v2.6.0` l'immagine del contenitore di sintesi vocale e analisi del testo `v3.0` .
 
 A partire da v 2.2.0 del contenitore di riconoscimento vocale, è possibile chiamare l' [API analisi del sentimento V3](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) nell'output. Per chiamare l'analisi dei sentimenti, è necessario un endpoint di risorsa API Analisi del testo. Ad esempio: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
@@ -338,6 +344,26 @@ Questo comando:
 
 * Esegue gli stessi passaggi del comando precedente.
 * Archivia un endpoint e una chiave API Analisi del testo per inviare le richieste di analisi dei sentimenti. 
+
+#### <a name="phraselist-v2-on-the-speech-to-text-output"></a>Phraset v2 nell'output di sintesi vocale 
+
+A partire da v 2.6.0 del contenitore di riconoscimento vocale, è possibile ottenere l'output con frasi personalizzate, ovvero l'intera frase o le frasi al centro. Ad esempio, *l'uomo di altezza* nella frase seguente:
+
+* "Si tratta di una frase **l'uomo** che rappresenta un'altra frase".
+
+Per configurare un elenco di frasi, è necessario aggiungere frasi personalizzate quando si effettua la chiamata. Ad esempio:
+
+```python
+    phrase="the tall man"
+    recognizer = speechsdk.SpeechRecognizer(
+        speech_config=dict_speech_config,
+        audio_config=audio_config)
+    phrase_list_grammer = speechsdk.PhraseListGrammar.from_recognizer(recognizer)
+    phrase_list_grammer.addPhrase(phrase)
+
+```
+
+Se sono presenti più frasi da aggiungere, chiamare `.addPhrase()` per ogni frase per aggiungerla all'elenco di frasi. 
 
 
 # <a name="custom-speech-to-text"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
@@ -391,6 +417,46 @@ Questo comando:
 * Scarica il modello in base `ModelId` a (se non è stato trovato nel montaggio del volume).
 * Se il modello personalizzato è stato scaricato in precedenza, `ModelId` viene ignorato.
 * Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
+
+
+#### <a name="base-model-download-on-the-custom-speech-to-text-container"></a>Download del modello di base sul contenitore di riconoscimento vocale personalizzato  
+A partire da v 2.6.0 del contenitore di riconoscimento vocale personalizzato, è possibile ottenere le informazioni sul modello di base disponibili usando l'opzione `BaseModelLocale=<locale>` . Questa opzione consente di ottenere un elenco dei modelli di base disponibili per le impostazioni locali nell'account di fatturazione. Ad esempio:
+
+```bash
+docker run --rm -it \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
+BaseModelLocale={LOCALE} \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+Questo comando:
+
+* Esegue un contenitore da *riconoscimento vocale personalizzato a testo* dall'immagine del contenitore.
+* Controllare e restituire i modelli di base disponibili delle impostazioni locali di destinazione.
+
+L'output fornisce un elenco di modelli di base con le impostazioni locali, l'ID del modello e la data/ora di creazione. È possibile utilizzare l'ID modello per scaricare e utilizzare il modello di base che si preferisce. Ad esempio:
+```
+Checking available base model for en-us
+2020/10/30 21:54:20 [Info] Searching available base models for en-us
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2016-11-04T08:23:42Z, Id: a3d8aab9-6f36-44cd-9904-b37389ce2bfa
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2016-11-04T12:01:02Z, Id: cc7826ac-5355-471d-9bc6-a54673d06e45
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2017-08-17T12:00:00Z, Id: a1f8db59-40ff-4f0e-b011-37629c3a1a53
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2018-04-16T11:55:00Z, Id: c7a69da3-27de-4a4b-ab75-b6716f6321e5
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2018-09-21T15:18:43Z, Id: da494a53-0dad-4158-b15f-8f9daca7a412
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2018-10-19T11:28:54Z, Id: 84ec130b-d047-44bf-a46d-58c1ac292ca7
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2018-11-26T07:59:09Z, Id: ee5c100f-152f-4ae5-9e9d-014af3c01c56
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2018-11-26T09:21:55Z, Id: d04959a6-71da-4913-9997-836793e3c115
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2019-01-11T10:04:19Z, Id: 488e5f23-8bc5-46f8-9ad8-ea9a49a8efda
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2019-02-18T14:37:57Z, Id: 0207b3e6-92a8-4363-8c0e-361114cdd719
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2019-03-03T17:34:10Z, Id: 198d9b79-2950-4609-b6ec-f52254074a05
+2020/10/30 21:54:21 [Fatal] Please run this tool again and assign --modelId '<one above base model id>'. If no model id listed above, it means currently there is no available base model for en-us
+```
+
+#### <a name="custom-pronunciation-on-the-custom-speech-to-text-container"></a>Pronuncia personalizzata sul contenitore di riconoscimento vocale personalizzato 
+A partire da v 2.5.0 del contenitore di riconoscimento vocale personalizzato, è possibile ottenere il risultato della pronuncia personalizzata nell'output. È sufficiente fare in modo che le regole di pronuncia personalizzate siano configurate nel modello personalizzato e montare il modello nel contenitore di riconoscimento vocale personalizzato.
+
 
 # <a name="text-to-speech"></a>[Sintesi vocale](#tab/tts)
 
@@ -683,7 +749,7 @@ Per altre informazioni su queste opzioni, vedere [Configurare i contenitori](spe
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo sono stati appresi concetti e flussi di lavoro per il download, l'installazione e l'esecuzione di contenitori di sintesi vocale. In sintesi:
 

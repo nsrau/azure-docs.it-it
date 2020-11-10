@@ -4,16 +4,16 @@ description: Come usare la nuova esportazione dei dati per esportare i dati di I
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/15/2020
+ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
-ms.openlocfilehash: 2cbdeca41746099643fb06ff5861a39b2e032b33
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b16880f42cab21c1437d9adcbeb9825d77475e0e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126704"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413174"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati
 
@@ -65,7 +65,7 @@ Se non si dispone di uno spazio dei nomi di hub eventi esistente da esportare in
     - Copiare la stringa di connessione primaria o secondaria. Questa stringa di connessione viene utilizzata per configurare una nuova destinazione in IoT Central.
     - In alternativa, è possibile generare una stringa di connessione per l'intero spazio dei nomi di hub eventi:
         1. Passare allo spazio dei nomi di hub eventi nel portale di Azure.
-        2. In **Impostazioni**selezionare **criteri di accesso condiviso**
+        2. In **Impostazioni** selezionare **criteri di accesso condiviso**
         3. Creare una nuova chiave o scegliere una chiave esistente con autorizzazioni di **invio** .
         4. Copiare la stringa di connessione primaria o secondaria.
         
@@ -85,7 +85,7 @@ Se non si dispone di uno spazio dei nomi del bus di servizio esistente in cui es
     - Copiare la stringa di connessione primaria o secondaria. Questa stringa di connessione viene utilizzata per configurare una nuova destinazione in IoT Central.
     - In alternativa, è possibile generare una stringa di connessione per l'intero spazio dei nomi del bus di servizio:
         1. Passare allo spazio dei nomi del bus di servizio nel portale di Azure.
-        2. In **Impostazioni**selezionare **criteri di accesso condiviso**
+        2. In **Impostazioni** selezionare **criteri di accesso condiviso**
         3. Creare una nuova chiave o scegliere una chiave esistente con autorizzazioni di **invio** .
         4. Copiare la stringa di connessione primaria o secondaria.
 
@@ -111,7 +111,7 @@ Se non si ha un account di archiviazione di Azure esistente da esportare, seguir
 È possibile esportare i dati in un endpoint di Webhook HTTP disponibile pubblicamente. È possibile creare un endpoint del webhook di test usando [RequestBin](https://requestbin.net/). RequestBin limita la richiesta quando viene raggiunto il limite di richieste:
 
 1. Aprire [RequestBin](https://requestbin.net/).
-2. Creare un nuovo RequestBin e copiare l'**URL del contenitore**. Questo URL viene usato quando si esegue il test dell'esportazione dei dati.
+2. Creare un nuovo RequestBin e copiare l' **URL del contenitore**. Questo URL viene usato quando si esegue il test dell'esportazione dei dati.
 
 ## <a name="set-up-data-export"></a>Configurare l'esportazione dei dati
 
@@ -135,29 +135,33 @@ Ora che si dispone di una destinazione in cui esportare i dati, configurare l'es
     |  Telemetria | Esporta messaggi di telemetria dai dispositivi quasi in tempo reale. Ogni messaggio esportato contiene il contenuto completo del messaggio originale del dispositivo, normalizzato.   |  [Formato del messaggio di telemetria](#telemetry-format)   |
     | Modifiche delle proprietà | Consente di esportare le modifiche apportate alle proprietà del dispositivo e del cloud in tempo quasi reale. Per le proprietà del dispositivo di sola lettura, le modifiche ai valori segnalati vengono esportate. Per le proprietà di lettura e scrittura, vengono esportati sia i valori segnalati che quelli desiderati. | [Formato del messaggio di modifica delle proprietà](#property-changes-format) |
 
+<a name="DataExportFilters"></a>
 1. Facoltativamente, aggiungere filtri per ridurre la quantità di dati esportati. Sono disponibili diversi tipi di filtro per ogni tipo di esportazione dei dati:
 
     Per filtrare i dati di telemetria, è possibile:
 
     - **Filtrare** il flusso esportato in modo da contenere solo i dati di telemetria dai dispositivi che corrispondono al nome del dispositivo, all'ID del dispositivo e alla condizione di filtro del modello
     - **Filtrare** le funzionalità: se si sceglie un elemento di telemetria nell'elenco a discesa **nome** , il flusso esportato contiene solo dati di telemetria che soddisfano la condizione di filtro. Se si sceglie un elemento della proprietà del dispositivo o del cloud nell'elenco a discesa **nome** , il flusso esportato contiene solo i dati di telemetria dei dispositivi con proprietà che corrispondono alla condizione di filtro.
-    - **Filtro proprietà messaggio**: i dispositivi che usano gli SDK per dispositivi possono inviare *proprietà del messaggio* o *proprietà dell'applicazione* in ogni messaggio di telemetria. Le proprietà sono un contenitore di coppie chiave-valore che contrassegnano il messaggio con identificatori personalizzati. Per creare un filtro di proprietà del messaggio, immettere la chiave della proprietà del messaggio che si sta cercando e specificare una condizione. Vengono esportati solo i messaggi di telemetria con proprietà che corrispondono alla condizione di filtro specificata. Sono supportati gli operatori di confronto di stringhe seguenti: Equals, non uguale a, Contains, non contiene, EXISTS, non esiste. [Altre informazioni sulle proprietà dell'applicazione](../../iot-hub/iot-hub-devguide-messages-construct.md)sono disponibili nella documentazione dell'hub Internet.
+    - **Filtro proprietà messaggio** : i dispositivi che usano gli SDK per dispositivi possono inviare *proprietà del messaggio* o *proprietà dell'applicazione* in ogni messaggio di telemetria. Le proprietà sono un contenitore di coppie chiave-valore che contrassegnano il messaggio con identificatori personalizzati. Per creare un filtro di proprietà del messaggio, immettere la chiave della proprietà del messaggio che si sta cercando e specificare una condizione. Vengono esportati solo i messaggi di telemetria con proprietà che corrispondono alla condizione di filtro specificata. Sono supportati gli operatori di confronto di stringhe seguenti: Equals, non uguale a, Contains, non contiene, EXISTS, non esiste. [Altre informazioni sulle proprietà dell'applicazione](../../iot-hub/iot-hub-devguide-messages-construct.md)sono disponibili nella documentazione dell'hub Internet.
 
     Per filtrare le modifiche alle proprietà, utilizzare un **filtro funzionalità**. Scegliere un elemento proprietà nell'elenco a discesa. Il flusso esportato contiene solo le modifiche alla proprietà selezionata che soddisfano la condizione di filtro.
 
+<a name="DataExportEnrichmnents"></a>
 1. Facoltativamente, arricchire i messaggi esportati con metadati aggiuntivi della coppia chiave-valore. Per i tipi di esportazione dei dati di telemetria e delle modifiche delle proprietà sono disponibili le seguenti funzionalità:
 
-    - **Stringa personalizzata**: aggiunge una stringa statica personalizzata a ogni messaggio. Immettere una chiave qualsiasi e immettere qualsiasi valore stringa.
-    - **Property**: aggiunge la proprietà del dispositivo corrente segnalata o il valore della proprietà cloud a ogni messaggio. Immettere una chiave qualsiasi e scegliere una proprietà del dispositivo o del cloud. Se il messaggio esportato è da un dispositivo che non dispone della proprietà specificata, il messaggio esportato non ottiene l'arricchimento.
+    - **Stringa personalizzata** : aggiunge una stringa statica personalizzata a ogni messaggio. Immettere una chiave qualsiasi e immettere qualsiasi valore stringa.
+    - **Property** : aggiunge la proprietà del dispositivo corrente segnalata o il valore della proprietà cloud a ogni messaggio. Immettere una chiave qualsiasi e scegliere una proprietà del dispositivo o del cloud. Se il messaggio esportato è da un dispositivo che non dispone della proprietà specificata, il messaggio esportato non ottiene l'arricchimento.
 
 1. Aggiungere una nuova destinazione o aggiungere una destinazione già creata. Selezionare il collegamento **crea uno nuovo** e aggiungere le informazioni seguenti:
 
-    - **Nome destinazione**: il nome visualizzato della destinazione in IOT Central.
-    - **Tipo destinazione**: scegliere il tipo di destinazione. Se la destinazione non è già stata configurata, vedere [configurare la destinazione di esportazione](#set-up-export-destination).
+    - **Nome destinazione** : il nome visualizzato della destinazione in IOT Central.
+    - **Tipo destinazione** : scegliere il tipo di destinazione. Se la destinazione non è già stata configurata, vedere [configurare la destinazione di esportazione](#set-up-export-destination).
     - Per hub eventi di Azure, coda o argomento del bus di servizio di Azure, incollare la stringa di connessione per la risorsa e immettere il nome dell'hub eventi, della coda o dell'argomento con distinzione tra maiuscole e minuscole, se necessario.
     - Per archiviazione BLOB di Azure, incollare la stringa di connessione per la risorsa e immettere il nome del contenitore con distinzione tra maiuscole e minuscole, se necessario.
-    - Per webhook incollare l'URL di callback per l'endpoint del webhook.
-    - Selezionare **Crea**.
+    - Per webhook incollare l'URL di callback per l'endpoint del webhook. Facoltativamente, è possibile configurare l'autorizzazione webhook (OAuth 2,0 e token di autorizzazione) e aggiungere intestazioni personalizzate. 
+        - Per OAuth 2,0, è supportato solo il flusso di credenziali client. Quando la destinazione viene salvata, IoT Central comunicherà con il provider OAuth per recuperare un token di autorizzazione. Questo token verrà allegato all'intestazione "Authorization" per ogni messaggio inviato a questa destinazione.
+        - Per il token di autorizzazione, è possibile specificare un valore di token che verrà collegato direttamente all'intestazione "Authorization" per ogni messaggio inviato a questa destinazione.
+    - Selezionare **Create** (Crea).
 
 1. Selezionare **+ destinazione** e scegliere una destinazione dall'elenco a discesa. È possibile aggiungere fino a cinque destinazioni a un'unica esportazione.
 

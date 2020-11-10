@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f2162ee6df551e1bc64741229aec99d5e697fd29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e2144a61d83f6c7dece8f34232031192b51cde8
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91395992"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412698"
 ---
 # <a name="security-control-data-protection"></a>Controllo di sicurezza: protezione dei dati
 
@@ -26,7 +26,7 @@ I suggerimenti sulla protezione dei dati sono incentrati sulla risoluzione dei p
 
 Usare i tag per semplificare il monitoraggio delle risorse di Azure che archiviano o elaborano informazioni riservate.
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../../azure-resource-manager/management/tag-resources.md)
 
 ## <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
@@ -36,11 +36,11 @@ Usare i tag per semplificare il monitoraggio delle risorse di Azure che archivia
 
 Implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). 
 
-- [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](../../governance/management-groups/create-management-group-portal.md)
 
-- [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../../azure-resource-manager/management/tag-resources.md)
 
 ## <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: monitorare e bloccare il trasferimento non autorizzato di informazioni riservate
 
@@ -52,7 +52,7 @@ Sfrutta una soluzione di terze parti da Azure Marketplace sui perimetri di rete 
 
 Per la piattaforma sottostante gestita da Microsoft, tutti i contenuti dei clienti vengono considerati sensibili e protetti dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
 
-- [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Informazioni sulla protezione dei dati dei clienti in Azure](../fundamentals/protection-customer-data.md)
 
 ## <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: crittografare tutte le informazioni riservate in transito
 
@@ -64,7 +64,7 @@ Crittografare tutte le informazioni riservate in transito. Assicurarsi che tutti
 
 Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei dati inattivi e la crittografia in transito, ove applicabile.
 
-- [Informazioni sulla crittografia in transito con Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Informazioni sulla crittografia in transito con Azure](../fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 ## <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: usare uno strumento di individuazione attivo per identificare i dati sensibili
 
@@ -78,21 +78,21 @@ Utilizzare Azure Information Protection per identificare le informazioni riserva
 
 Usare Information Protection SQL di Azure per semplificare la classificazione e l'assegnazione di etichette alle informazioni archiviate nel database SQL di Azure.
 
-- [Come implementare l'individuazione dati SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Come implementare l'individuazione dati SQL di Azure](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-- [Come implementare Azure Information Protection](https://docs.microsoft.com/azure/information-protection/deployment-roadmap)
+- [Come implementare Azure Information Protection](/azure/information-protection/deployment-roadmap)
 
-- [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Informazioni sulla protezione dei dati dei clienti in Azure](../fundamentals/protection-customer-data.md)
 
 ## <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.6 | 14,6 | Customer |
+| 4,6 | 14,6 | Customer |
 
 Usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso ai dati e alle risorse; in caso contrario, usare i metodi di controllo di accesso specifici del servizio.
 
-- [Come configurare RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Come configurare RBAC di Azure](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: usare la prevenzione della perdita dei dati basata su host per applicare il controllo di accesso
 
@@ -104,7 +104,7 @@ Se necessario per la conformità alle risorse di calcolo, implementare uno strum
 
 Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e si impegna per difendersi dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
 
-- [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Informazioni sulla protezione dei dati dei clienti in Azure](../fundamentals/protection-customer-data.md)
 
 ## <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: crittografare le informazioni riservate inattive
 
@@ -114,9 +114,9 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 Usare la crittografia inattiva in tutte le risorse di Azure. Microsoft consiglia di consentire ad Azure di gestire le chiavi di crittografia. Tuttavia, è possibile gestire le proprie chiavi in alcune istanze. 
 
-- [Informazioni sulla crittografia inattiva in Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+- [Informazioni sulla crittografia inattiva in Azure](../fundamentals/encryption-atrest.md)
 
-- [Come configurare le chiavi di crittografia gestite dal cliente](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal)
+- [Come configurare le chiavi di crittografia gestite dal cliente](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
 ## <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: registrare e inviare avvisi per le modifiche alle risorse di Azure critiche
 
@@ -126,7 +126,7 @@ Usare la crittografia inattiva in tutte le risorse di Azure. Microsoft consiglia
 
 Usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle risorse di Azure critiche.
 
-- [Come creare avvisi per gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Come creare avvisi per gli eventi del log attività di Azure](../../azure-monitor/platform/alerts-activity-log.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

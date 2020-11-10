@@ -16,12 +16,12 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9411c22183620f883b4d2819eb3078e49837e578
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ec05c4160c6502904644bf7035bda0bed66cc33
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016079"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413191"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory
 Questo argomento elenca gli attributi sincronizzati tramite il servizio di sincronizzazione Azure AD Connect.  
@@ -373,7 +373,7 @@ In questo caso, iniziare con l'elenco degli attributi in questo argomento e iden
 Questo gruppo è un set di attributi usati come gli attributi minimi necessari per un'applicazione o un carico di lavoro generico. Può essere usato per un carico di lavoro non elencato in un'altra sezione o per un'app non Microsoft. Viene utilizzato in modo esplicito per:
 
 * Yammer (viene usato solo Utente)
-* [Scenari di collaborazione tra organizzazioni Business-to-Business (B2B) ibridi offerti da risorse come SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
+* [Scenari di collaborazione tra organizzazioni Business-to-Business (B2B) ibridi offerti da risorse come SharePoint](/sharepoint/create-b2b-extranet)
 
 Questo gruppo è un set di attributi che possono essere usati se la directory Azure AD non viene usata per supportare Microsoft 365, Dynamics o Intune. Contiene un piccolo set di attributi principali. Si noti che Single Sign-On o il provisioning per alcune applicazioni di terze parti richiede la configurazione della sincronizzazione degli attributi oltre agli attributi descritti qui. I requisiti dell'applicazione sono descritti nell' [esercitazione sull'app Saas](../saas-apps/tutorial-list.md) per ogni applicazione.
 
@@ -420,7 +420,7 @@ Questi attributi per l' **utente** si aggiungono alle altre app selezionate.
 | msDS-KeyCredentialLink |X |Dopo che l'utente si è registrato a Windows Hello for Business. | 
 
 ## <a name="exchange-hybrid-writeback"></a>Writeback della distribuzione ibrida Exchange
-Se si sceglie di abilitare la distribuzione **ibrida di Exchange**, per questi attributi viene eseguito il writeback da Azure AD ad Active Directory locale. A seconda della versione di Exchange in uso, potrebbe essere sincronizzato un numero minore di attributi.
+Se si sceglie di abilitare la distribuzione **ibrida di Exchange** , per questi attributi viene eseguito il writeback da Azure AD ad Active Directory locale. A seconda della versione di Exchange in uso, potrebbe essere sincronizzato un numero minore di attributi.
 
 | Nome attributo (Active Directory locale) | Nome attributo (interfaccia utente di Azure AD Connect) | Utente | Contatto | Gruppo | Commento |
 | --- |:---:|:---:|:---:| --- |---|

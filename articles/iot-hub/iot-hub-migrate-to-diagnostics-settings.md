@@ -1,6 +1,6 @@
 ---
-title: Migrazione dell'hub IoT di Azure alla funzionalità Impostazioni di diagnostica | Microsoft Docs
-description: Come aggiornare l'hub IoT di Azure per l'uso della funzionalità Impostazioni di diagnostica anziché Monitoraggio operazioni per monitorare lo stato delle operazioni nell'hub IoT in tempo reale.
+title: Eseguire la migrazione del monitoraggio delle operazioni dell'hub Azure per i log delle risorse dell'hub Internet in monitoraggio di Azure | Microsoft Docs
+description: Come aggiornare l'hub Azure Internet per usare monitoraggio di Azure anziché il monitoraggio delle operazioni per monitorare lo stato delle operazioni nell'hub Internet in tempo reale.
 author: kgremban
 manager: philmea
 ms.service: iot-hub
@@ -8,43 +8,69 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: 40c90142330b0530f1127beae1624ff27d7eb6ca
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: eb53e7052db6d4de365864184b9bd2e6585b7e2d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541486"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412109"
 ---
-# <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Eseguire la migrazione dell'hub IoT dalla funzionalità Monitoraggio operazioni a Impostazioni di diagnostica
+# <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>Eseguire la migrazione dell'hub Internet delle cose dal monitoraggio delle operazioni ai log delle risorse di monitoraggio
 
-I clienti che usano la funzionalità [Monitoraggio operazioni](iot-hub-operations-monitoring.md) per tenere traccia delle operazioni nell'hub IoT possono eseguire la migrazione di tale flusso di lavoro alla funzionalità [Impostazioni di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md), una funzionalità di Monitoraggio di Azure. La funzionalità Impostazioni di diagnostica fornisce informazioni di diagnostica a livello di risorse per numerosi servizi di Azure.
+I clienti che usano il [monitoraggio delle operazioni](iot-hub-operations-monitoring.md) per tenere traccia dello stato delle operazioni nell'hub Internet possono eseguire la migrazione del flusso di lavoro ai [log delle risorse di monitoraggio di Azure](../azure-monitor/platform/platform-logs-overview.md), una funzionalità di monitoraggio di Azure I log delle risorse forniscono informazioni di diagnostica a livello di risorsa per molti servizi di Azure.
 
-**La funzionalità di monitoraggio delle operazioni dell'hub Internet è deprecata** ed è stata rimossa dal portale. In questo articolo viene descritta la procedura dettagliata per spostare i carichi di lavoro dalla funzionalità Monitoraggio operazioni alla funzionalità Impostazioni di diagnostica. Per altre informazioni sulla sequenza temporale relativa alla funzionalità deprecata, vedere [Monitorare le soluzioni IoT di Azure con Monitoraggio di Azure e Integrità risorse di Azure](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
+**La funzionalità di monitoraggio delle operazioni dell'hub Internet è deprecata** ed è stata rimossa dal portale. Questo articolo illustra i passaggi per spostare i carichi di lavoro dal monitoraggio delle operazioni ai log delle risorse di monitoraggio di Azure. Per altre informazioni sulla sequenza temporale relativa alla funzionalità deprecata, vedere [Monitorare le soluzioni IoT di Azure con Monitoraggio di Azure e Integrità risorse di Azure](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
 
 ## <a name="update-iot-hub"></a>Aggiornare l'hub IoT
 
-Per aggiornare l'hub IoT nel portale di Azure, attivare la funzionalità Impostazioni di diagnostica e quindi disattivare la funzionalità Monitoraggio operazioni.  
+Per aggiornare l'hub Internet delle cose nel portale di Azure, creare prima di tutto un'impostazione di diagnostica, quindi disattivare il monitoraggio delle operazioni.  
 
-[!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
+### <a name="create-a--diagnostic-setting"></a>Creare un'impostazione di diagnostica
+
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'hub IoT.
+
+1. Nel riquadro sinistro, in **monitoraggio** , selezionare **impostazioni di diagnostica**. Quindi selezionare **Aggiungi impostazioni di diagnostica**.
+
+   :::image type="content" source="media/iot-hub-migrate-to-diagnostics-settings/open-diagnostic-settings.png" alt-text="Screenshot che evidenzia l'opzione Impostazioni di diagnostica nella sezione Monitoraggio.":::
+
+1. Nel riquadro **impostazioni di diagnostica** assegnare un nome all'impostazione di diagnostica.
+
+1. In **Dettagli categoria** selezionare le categorie per le operazioni che si desidera monitorare. Per altre informazioni sulle categorie di operazioni disponibili con l'hub Internet, vedere [log delle risorse](monitor-iot-hub-reference.md#resource-logs).
+
+1. In **Dettagli destinazione** scegliere il percorso in cui si desidera inviare i log. È possibile selezionare qualsiasi combinazione di queste destinazioni:
+
+   * Archivia in un account di archiviazione
+   * Streaming in un hub eventi
+   * Inviare ai log di monitoraggio di Azure tramite un'area di lavoro Log Analytics
+
+   Lo screenshot seguente mostra un'impostazione di diagnostica che instrada le operazioni nelle categorie connessioni e telemetria del dispositivo a un'area di lavoro Log Analytics:
+
+   :::image type="content" source="media/iot-hub-migrate-to-diagnostics-settings/add-diagnostic-setting.png" alt-text="Screenshot che mostra un'impostazione di diagnostica completata.":::
+
+1. Selezionare **Salva** per salvare le impostazioni.
+
+Le nuove impostazioni diventano effettive in circa 10 minuti. Successivamente, i log vengono visualizzati nella destinazione configurata. Per altre informazioni sulla configurazione della diagnostica, vedere [raccogliere e utilizzare i dati di log dalle risorse di Azure](/azure/azure-monitor/platform/platform-logs-overview).
+
+Per informazioni più dettagliate su come creare le impostazioni di diagnostica, tra cui con PowerShell e l'interfaccia della riga di comando di Azure, vedere [impostazioni di diagnostica](/azure/azure-monitor/platform/diagnostic-settings) nella documentazione di monitoraggio di Azure.
 
 ### <a name="turn-off-operations-monitoring"></a>Disattivare la funzionalità Monitoraggio operazioni
 
 > [!NOTE]
-> A partire dall'11 marzo 2019, la funzionalità monitoraggio operazioni viene rimossa dall'interfaccia portale di Azure dell'hub Internet. I passaggi seguenti non sono più applicabili. Per eseguire la migrazione, assicurarsi che le categorie corrette siano attivate nelle impostazioni di diagnostica di monitoraggio di Azure.
+> A partire dall'11 marzo 2019, la funzionalità monitoraggio operazioni viene rimossa dall'interfaccia portale di Azure dell'hub Internet. I passaggi seguenti non sono più applicabili. Per eseguire la migrazione, assicurarsi che le categorie corrette siano indirizzate a una destinazione con un'impostazione di diagnostica di monitoraggio di Azure precedente.
 
 Una volta testate le nuove impostazioni di diagnostica nel flusso di lavoro, è possibile disattivare la funzionalità monitoraggio operazioni. 
 
-1. Nel menu dell'hub IoT selezionare **Monitoraggio operazioni** .
+1. Nel menu dell'hub IoT selezionare **Monitoraggio operazioni**.
 
-2. In ciascuna categoria di monitoraggio selezionare **Nessuno** .
+2. In ciascuna categoria di monitoraggio selezionare **Nessuno**.
 
 3. Salvare le modifiche apportate all'impostazione.
 
 ## <a name="update-applications-that-use-operations-monitoring"></a>Aggiornare le applicazioni che usano la funzionalità Monitoraggio operazioni
 
-Gli schemi delle funzionalità Monitoraggio operazioni e Impostazioni di diagnostica variano leggermente. È importante aggiornare subito le applicazioni che usano la funzionalità Monitoraggio operazioni per eseguire il mapping allo schema usato dalla funzionalità Impostazioni di diagnostica. 
+Gli schemi per il monitoraggio delle operazioni e i log delle risorse variano leggermente. È importante aggiornare attualmente le applicazioni che usano il monitoraggio delle operazioni per eseguire il mapping allo schema usato dai log delle risorse.
 
-Inoltre, le impostazioni di diagnostica offrono cinque nuove categorie per il rilevamento. Dopo avere aggiornato le applicazioni per lo schema esistente, aggiungere le nuove categorie:
+Inoltre, il log delle risorse dell'hub Internet offre cinque nuove categorie per il rilevamento. Dopo avere aggiornato le applicazioni per lo schema esistente, aggiungere le nuove categorie:
 
 * Operazioni da cloud a dispositivi gemelli
 * Operazioni da dispositivo gemello a cloud
@@ -60,4 +86,4 @@ Per monitorare gli eventi di connessione e disconnessione del dispositivo nell'a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Monitorare l'hub Internet](monitor-iot-hub.md)
+[Monitorare l'hub IoT](monitor-iot-hub.md)

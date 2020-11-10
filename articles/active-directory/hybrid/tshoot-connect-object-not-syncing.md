@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77895fd81bd37e304d422aea64da0298fc1673ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a0c8a42edad08308095469039c048f8dd8552af
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85356475"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413463"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Risolvere i problemi per la mancata sincronizzazione di un oggetto con Azure Active Directory
 
@@ -81,7 +81,7 @@ La colonna **Status** (Stato) contiene le informazioni più importanti e segnala
 | completato-\*-avvisi |L'esecuzione è stata completata, ma alcuni dati non si trovano nello stato previsto. Se sono presenti errori, questo messaggio è in genere solo un sintomo. Evitare di analizzare gli avvisi fino a quando non sono stati risolti tutti gli errori. |
 | esito positivo |Non sono presenti problemi. |
 
-Quando si seleziona una riga, la parte inferiore della scheda **Operations** (Operazioni) viene aggiornata in base ai dettagli dell'esecuzione corrispondente. All'estrema sinistra di questa area è possibile che sia presente un elenco con voci di tipo **Step #** (Passaggio n.). L'elenco viene visualizzato solo se nella foresta sono presenti più domini e ogni dominio è rappresentato da un passaggio. Il nome di dominio è visibile sotto l'intestazione **Partition**(Partizione). Sotto l'intestazione **Synchronization Statistics** (Statistiche di sincronizzazione) sono presenti altre informazioni sul numero delle modifiche elaborate. Selezionare i collegamenti per ottenere un elenco degli oggetti modificati. Se alcuni oggetti presentano errori, questi verranno visualizzati sotto l'intestazione **Synchronization Errors** (Errori di sincronizzazione).
+Quando si seleziona una riga, la parte inferiore della scheda **Operations** (Operazioni) viene aggiornata in base ai dettagli dell'esecuzione corrispondente. All'estrema sinistra di questa area è possibile che sia presente un elenco con voci di tipo **Step #** (Passaggio n.). L'elenco viene visualizzato solo se nella foresta sono presenti più domini e ogni dominio è rappresentato da un passaggio. Il nome di dominio è visibile sotto l'intestazione **Partition** (Partizione). Sotto l'intestazione **Synchronization Statistics** (Statistiche di sincronizzazione) sono presenti altre informazioni sul numero delle modifiche elaborate. Selezionare i collegamenti per ottenere un elenco degli oggetti modificati. Se alcuni oggetti presentano errori, questi verranno visualizzati sotto l'intestazione **Synchronization Errors** (Errori di sincronizzazione).
 
 ### <a name="errors-on-the-operations-tab"></a>Errori nella scheda Operations (Operazioni)
 In caso di errori, Synchronization Service Manager mostra sia l'oggetto con l'errore sia l'errore stesso sotto forma di collegamenti per la visualizzazione di altre informazioni.
@@ -91,7 +91,7 @@ Per iniziare, selezionare la stringa di errore. Nella figura precedente, la stri
 
 Fare clic con il pulsante destro del mouse nella casella **Call Stack Information** (Informazioni sullo stack delle chiamate), fare clic su **Select All** (Seleziona tutto) e quindi selezionare **Copy** (Copia). Copiare quindi lo stack ed esaminare l'errore nell'editor preferito, ad esempio nel Blocco note.
 
-Se l'errore proviene da **SyncRulesEngine**, le informazioni sullo stack delle chiamate includono come primo elemento un elenco di tutti gli attributi dell'oggetto. Scorrere verso il basso fino all'intestazione **InnerException =>**.  
+Se l'errore proviene da **SyncRulesEngine** , le informazioni sullo stack delle chiamate includono come primo elemento un elenco di tutti gli attributi dell'oggetto. Scorrere verso il basso fino all'intestazione **InnerException =>**.  
 
   ![Screenshot di Synchronization Service Manager con informazioni sull'errore sotto l'intestazione InnerException = >](./media/tshoot-connect-object-not-syncing/errorinnerexception.png)
   
@@ -116,7 +116,7 @@ Se non si trova l'oggetto che si sta cercando, è possibile che sia stato filtra
 
 ![Screenshot di oggetti orfani in una ricerca nello spazio connettore](./media/tshoot-connect-object-not-syncing/cssearchorphan.png) 
  
-Questi oggetti sono stati creati da un altro motore di sincronizzazione o da un motore di sincronizzazione con una diversa configurazione dei filtri. Questi oggetti orfani non vengono più gestiti. Esaminare questo elenco e considerare la possibilità di rimuovere questi oggetti tramite i cmdlet di [Azure AD PowerShell](https://aka.ms/aadposh).
+Questi oggetti sono stati creati da un altro motore di sincronizzazione o da un motore di sincronizzazione con una diversa configurazione dei filtri. Questi oggetti orfani non vengono più gestiti. Esaminare questo elenco e considerare la possibilità di rimuovere questi oggetti tramite i cmdlet di [Azure AD PowerShell](/previous-versions/azure/jj151815(v=azure.100)).
 
 ### <a name="cs-import"></a>Importazione nello spazio connettore
 Quando si apre un oggetto nello spazio connettore, nella parte superiore vengono visualizzate varie schede. La scheda **Import** (Importa) visualizza i dati di gestione temporanea dopo l'importazione.  
@@ -143,7 +143,7 @@ Nella figura precedente, nella colonna **PasswordSync** (Sincronizzazione passwo
 Dalla scheda **Lineage** (Derivazione) è possibile accedere al metaverse selezionando [**Metaverse Object Properties**](#mv-attributes) (Proprietà dell'oggetto metaverse).
 
 ### <a name="preview"></a>Anteprima
-Nell'angolo inferiore sinistro della finestra **Connector Space Object Properties** (Proprietà dell'oggetto spazio connettore) è disponibile il pulsante **Preview** (Anteprima). Selezionare questo pulsante per aprire la pagina **Preview** (Anteprima), in cui è possibile sincronizzare un singolo oggetto. Questa pagina è utile mentre si risolvono problemi relativi alle regole di sincronizzazione personalizzate e si vuole vedere l'effetto di una modifica su un singolo oggetto. È possibile selezionare una sincronizzazione **completa** o una **sincronizzazione Delta**. È anche possibile selezionare **genera anteprima**, che mantiene solo la modifica in memoria. o **Commit Preview** (Esegui commit anteprima), che aggiorna il metaverse e inserisce tutte le modifiche negli spazi connettore di destinazione.  
+Nell'angolo inferiore sinistro della finestra **Connector Space Object Properties** (Proprietà dell'oggetto spazio connettore) è disponibile il pulsante **Preview** (Anteprima). Selezionare questo pulsante per aprire la pagina **Preview** (Anteprima), in cui è possibile sincronizzare un singolo oggetto. Questa pagina è utile mentre si risolvono problemi relativi alle regole di sincronizzazione personalizzate e si vuole vedere l'effetto di una modifica su un singolo oggetto. È possibile selezionare una sincronizzazione **completa** o una **sincronizzazione Delta**. È anche possibile selezionare **genera anteprima** , che mantiene solo la modifica in memoria. o **Commit Preview** (Esegui commit anteprima), che aggiorna il metaverse e inserisce tutte le modifiche negli spazi connettore di destinazione.  
 
 ![Screenshot della pagina di anteprima, con l'opzione Start Preview (Avvia anteprima) selezionata](./media/tshoot-connect-object-not-syncing/preview.png)  
 
@@ -151,18 +151,18 @@ Nell'anteprima è possibile esaminare l'oggetto e individuare la regola applicat
 
 ![Screenshot della pagina di anteprima con la scheda Import Attribute Flow (Importa flusso attributi)](./media/tshoot-connect-object-not-syncing/previewresult.png)
 
-### <a name="log"></a>File di log
-Accanto al pulsante **Preview** (Anteprima) selezionare il pulsante **Log** per aprire la pagina **Log**, in cui sono riportati lo stato e la cronologia di sincronizzazione della password. Per altre informazioni, vedere [Risolvere i problemi di sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
+### <a name="log"></a>Log
+Accanto al pulsante **Preview** (Anteprima) selezionare il pulsante **Log** per aprire la pagina **Log** , in cui sono riportati lo stato e la cronologia di sincronizzazione della password. Per altre informazioni, vedere [Risolvere i problemi di sincronizzazione dell'hash delle password con la sincronizzazione di Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="metaverse-object-properties"></a>Proprietà dell'oggetto Metaverse
 È in genere preferibile avviare la ricerca dallo spazio connettore di origine di Active Directory, Ma è anche possibile avviare la ricerca da metaverse.
 
 ### <a name="searching-for-an-object-in-the-mv"></a>Ricerca di un oggetto nel metaverse
-In Synchronization Service Manager selezionare **Metaverse Search** (Ricerca metaverse), come illustrato nella figura seguente. Creare una query che rilevi l'utente. È possibile cercare gli attributi comuni, ad esempio **accountName** (**sAMAccountName**) e **userPrincipalName**. Per altre informazioni, vedere [Ricerca metaverse di Synchronization Service Managerr](how-to-connect-sync-service-manager-ui-mvsearch.md).
+In Synchronization Service Manager selezionare **Metaverse Search** (Ricerca metaverse), come illustrato nella figura seguente. Creare una query che rilevi l'utente. È possibile cercare gli attributi comuni, ad esempio **accountName** ( **sAMAccountName** ) e **userPrincipalName**. Per altre informazioni, vedere [Ricerca metaverse di Synchronization Service Managerr](how-to-connect-sync-service-manager-ui-mvsearch.md).
 
 ![Screenshot di Synchronization Service Manager con la scheda Metaverse Search (Ricerca metaverse) selezionata](./media/tshoot-connect-object-not-syncing/mvsearch.png)  
 
-Nella finestra **Risultati della ricerca**, fare clic sull'oggetto.
+Nella finestra **Risultati della ricerca** , fare clic sull'oggetto.
 
 Se l'oggetto non è stato trovato, significa che non ha ancora raggiunto il metaverse. Continuare la ricerca dell'oggetto nello [spazio connettore](#connector-space-object-properties) di Active Directory. Se l'oggetto viene trovato nello spazio connettore di Active Directory, potrebbe essersi verificato un errore di sincronizzazione che sta bloccando il passaggio dell'oggetto nel metaverse oppure potrebbe essere applicato un filtro di ambito per la regola di sincronizzazione.
 
@@ -191,8 +191,8 @@ Nella scheda **Attributes** (Attributi) è possibile visualizzare i valori e il 
 ![Screenshot della finestra Metaverse Object Properties (Proprietà dell'oggetto metaverse) con la scheda Attributes (Attributi) selezionata](./media/tshoot-connect-object-not-syncing/mvobject.png)  
 
 Se un oggetto non viene sincronizzato, formulare le domande seguenti in merito agli stati degli attributi nel metaverse:
-- L'attributo **cloudFiltered** è presente e impostato su **True**? In questo caso, è stato filtrato in base ai passaggi descritti in [Filtro basato su attributo](how-to-connect-sync-configure-filtering.md#attribute-based-filtering).
-- L'attributo **sourceAnchor** è presente? Se non lo è, si dispone di una topologia di foresta account-risorse? Se un oggetto viene identificato come cassetta postale collegata (l'attributo **msExchRecipientTypeDetails** ha il valore **2**), l'attributo **sourceAnchor** viene fornito dalla foresta con un account di Active Directory abilitato. Assicurarsi che l'account principale sia stato importato e sincronizzato correttamente. L'account principale deve essere elencato tra i [connettori](#mv-connectors) dell'oggetto.
+- L'attributo **cloudFiltered** è presente e impostato su **True** ? In questo caso, è stato filtrato in base ai passaggi descritti in [Filtro basato su attributo](how-to-connect-sync-configure-filtering.md#attribute-based-filtering).
+- L'attributo **sourceAnchor** è presente? Se non lo è, si dispone di una topologia di foresta account-risorse? Se un oggetto viene identificato come cassetta postale collegata (l'attributo **msExchRecipientTypeDetails** ha il valore **2** ), l'attributo **sourceAnchor** viene fornito dalla foresta con un account di Active Directory abilitato. Assicurarsi che l'account principale sia stato importato e sincronizzato correttamente. L'account principale deve essere elencato tra i [connettori](#mv-connectors) dell'oggetto.
 
 ### <a name="mv-connectors"></a>Connettori del metaverse
 La scheda **Connectors (connettori** ) Mostra tutti gli spazi del connettore con una rappresentazione dell'oggetto. 
@@ -206,7 +206,7 @@ La scheda **Connectors (connettori** ) Mostra tutti gli spazi del connettore con
 
 Se non si ha un connettore in Azure AD, rivedere la sezione [Attributi del metaverse](#mv-attributes) per verificare i criteri per il provisioning in Azure AD.
 
-Dalla scheda **Connectors** (Connettori) è possibile anche passare all'[oggetto nello spazio connettore](#connector-space-object-properties). Selezionare una riga e fare clic su **Proprietà**.
+Dalla scheda **Connectors** (Connettori) è possibile anche passare all' [oggetto nello spazio connettore](#connector-space-object-properties). Selezionare una riga e fare clic su **Proprietà**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sul [servizio di sincronizzazione di Azure AD Connect](how-to-connect-sync-whatis.md).

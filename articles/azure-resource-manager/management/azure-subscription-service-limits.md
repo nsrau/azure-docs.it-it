@@ -3,12 +3,12 @@ title: Limiti e quote della sottoscrizione di Azure
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Questo articolo include informazioni su come aumentare i limiti insieme ai valori massimi.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: f18bd4589ea995696175fa23300432793f0f5974
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: b95c056a8885998c3ca5b5c62cb13049c3a8c66d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950245"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412932"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
@@ -21,7 +21,7 @@ Per altre informazioni sui prezzi di Azure, vedere [Panoramica dei prezzi di Azu
 > [!NOTE]
 > Alcuni servizi hanno limiti regolabili.
 >
-> Quando un servizio non dispone di limiti regolabili, nelle tabelle seguenti viene utilizzato il **limite**di intestazione. In questi casi, il valore predefinito e i limiti massimi sono gli stessi.
+> Quando un servizio non dispone di limiti regolabili, nelle tabelle seguenti viene utilizzato il **limite** di intestazione. In questi casi, il valore predefinito e i limiti massimi sono gli stessi.
 >
 > Quando è possibile modificare il limite, le tabelle includono le intestazioni **limite predefinito** e **limite massimo** . Il limite può essere aumentato oltre il limite predefinito, ma non superiore al limite massimo.
 >
@@ -96,7 +96,7 @@ I piano tariffari determinano la capacità e i limiti del servizio di ricerca. S
 
 * Il servizio multi-tenant **gratuito** , condiviso con altri Sottoscrittori di Azure, è destinato a progetti di valutazione e di sviluppo di piccole dimensioni.
 * **Basic** fornisce risorse di calcolo dedicate per i carichi di lavoro di produzione su scala più ridotta, con un massimo di 3 repliche per i carichi di lavoro di query a disponibilità elevata.
-* **Standard**, che include S1, S2, S3 e S3 High Density, è destinato a carichi di lavoro di produzione di dimensioni maggiori. All'interno del livello standard esistono più livelli, in modo che sia possibile scegliere una configurazione di risorsa più adatta al proprio profilo di carico di lavoro.
+* **Standard** , che include S1, S2, S3 e S3 High Density, è destinato a carichi di lavoro di produzione di dimensioni maggiori. All'interno del livello standard esistono più livelli, in modo che sia possibile scegliere una configurazione di risorsa più adatta al proprio profilo di carico di lavoro.
 
 **Limiti per ogni sottoscrizione**
 
@@ -285,7 +285,11 @@ Per i limiti specifici di servizi multimediali V2 (legacy), vedere [servizi mult
 
 ### <a name="virtual-network-gateway-limits"></a>Limiti del gateway di rete virtuale
 
-[!INCLUDE [virtual-wan-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+[!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+
+### <a name="nat-gateway-limits"></a>Limiti del gateway NAT
+
+[!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
 
 ### <a name="virtual-wan-limits"></a>Limiti WAN virtuali
 

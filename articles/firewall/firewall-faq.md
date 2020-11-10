@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 75435155ba1dad798d301006a30a5d5b6e96226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88611178"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413004"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -40,9 +40,9 @@ Firewall di Azure supporta regole e raccolte di regole. Una raccolta di regole �
 
 Sono disponibili tre tipi di raccolte di regole:
 
-* *Regole di applicazione*: configurare i nomi di dominio completi (FQDN) accessibili da una subnet.
-* *Regole di rete*: configurare le regole che contengono indirizzi di origine, protocolli, porte di destinazione e indirizzi di destinazione.
-* *Regole NAT*: configurare le regole DNAT per consentire le connessioni Internet in ingresso.
+* *Regole di applicazione* : configurare i nomi di dominio completi (FQDN) accessibili da una subnet.
+* *Regole di rete* : configurare le regole che contengono indirizzi di origine, protocolli, porte di destinazione e indirizzi di destinazione.
+* *Regole NAT* : configurare le regole DNAT per consentire le connessioni Internet in ingresso.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Firewall di Azure supporta il filtraggio del traffico in ingresso?
 
@@ -139,11 +139,11 @@ No. Le regole NAT aggiungono in modo implicito una regola di rete corrispondente
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Come funzionano i caratteri jolly in un nome di dominio completo di destinazione di una regola dell'applicazione?
 
-I caratteri jolly attualmente possono essere utilizzati solo sul lato sinistro del nome di dominio completo. Ad esempio, ***. contoso.com** e ***contoso.com**.
+I caratteri jolly attualmente possono essere utilizzati solo sul lato sinistro del nome di dominio completo. Ad esempio, * *_. contoso.com_* e * *_contoso.com_*.
 
-Se si configura * **.contoso.com**, è consentito *anyvalue*.contoso.com, ma non contoso.com (radice del dominio). Se si intende consentire la radice del dominio, è necessario configurarla in modo esplicito come nome di dominio completo di destinazione.
+Se si configura * *_. contoso.com_* , consente *anyvalue*. contoso.com, ma non contoso.com (il vertice del dominio). Se si intende consentire la radice del dominio, è necessario configurarla in modo esplicito come nome di dominio completo di destinazione.
 
-## <a name="what-does-provisioning-state-failed-mean"></a>Cosa significa *Stato di provisioning: non riuscito*?
+## <a name="what-does-provisioning-state-failed-mean"></a>Cosa significa *Stato di provisioning: non riuscito* ?
 
 Ogni volta che viene applicata una modifica alla configurazione, Firewall di Azure tenta di aggiornare tutte le istanze back-end sottostanti. In rari casi, una di tali istanze back-end potrebbe non riuscire ad aggiornarsi con la nuova configurazione e il processo di aggiornamento si interrompe con uno stato di provisioning non riuscito. Firewall di Azure è ancora operativo, ma la configurazione applicata potrebbe trovarsi in uno stato incoerente in cui per alcune istanze la configurazione è quella precedente, mentre per altre il set di regole è aggiornato. In tal caso, provare ad aggiornare la configurazione ancora una volta fino a quando l'operazione non ha esito positivo e il firewall si trova in uno stato di provisioning *Riuscito*.
 
@@ -205,7 +205,7 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Perché un ping TCP e strumenti simili si connettono correttamente a un nome di dominio completo di destinazione anche quando nessuna regola in Firewall di Azure consente il traffico?
 
-Un ping TCP non si connette effettivamente al nome di dominio completo di destinazione. Questo problema si verifica perché il proxy trasparente di Firewall di Azure è in ascolto sulla porta 80/443 per il traffico in uscita. Il ping TCP stabilisce una connessione con il firewall, che quindi elimina il pacchetto e registra la connessione. Questo comportamento non ha alcun effetto sulla sicurezza. Per evitare confusione, tuttavia, verranno esaminate le potenziali modifiche apportate a questo comportamento.
+Un ping TCP non si connette effettivamente al nome di dominio completo di destinazione. Questo problema si verifica perché il proxy trasparente di Firewall di Azure è in ascolto sulla porta 80/443 per il traffico in uscita. Il ping TCP stabilisce una connessione con il firewall, che quindi Elimina il pacchetto. Questo comportamento non ha alcun effetto sulla sicurezza. Per evitare confusione, tuttavia, verranno esaminate le potenziali modifiche apportate a questo comportamento.
 
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Sono previsti limiti per il numero di indirizzi IP supportati da gruppi IP?
 

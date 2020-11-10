@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 3979e5e904eb54db9566eb014f7e455ebaceaff0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 012e155737b9251827c668b3a9cacbbe8d59ae77
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087180"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411355"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Risolvere i problemi di query relativi all'uso di Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -494,3 +494,4 @@ Vedere gli articoli seguenti per informazioni sulla misurazione delle UR per le 
 * [Ottenere le metriche di esecuzione delle query SQL usando .NET SDK](profile-sql-api-query.md)
 * [Ottimizzazione delle prestazioni delle query con Azure Cosmos DB](./sql-api-query-metrics.md)
 * [Suggerimenti sulle prestazioni per .NET SDK](performance-tips.md)
+* [Suggerimenti sulle prestazioni per Java v4 SDK](performance-tips-java-sdk-v4-sql.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a26228b33a7d90df558de2ecdf4686910e606a54
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80811091"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413293"
 ---
 # <a name="azure-network-security-overview"></a>Panoramica della sicurezza di rete di Azure
 
@@ -63,7 +63,7 @@ Azure supporta numerosi tipi di controllo di accesso alla rete, tra cui:
 Qualsiasi distribuzione sicura richiede alcune misure di controllo di accesso alla rete. Lo scopo del controllo di accesso alla rete è di limitare la comunicazione delle macchine virtuali ai sistemi necessari e di bloccare gli altri tentativi di comunicazione.
 
 > [!NOTE]
-> I firewall di archiviazione vengono analizzati nell’articolo[Panoramica sulla sicurezza di archiviazione di Azure](storage-overview.md)
+> I firewall di archiviazione vengono analizzati nell’articolo[Panoramica sulla sicurezza di archiviazione di Azure](../../storage/blobs/security-recommendations.md)
 
 #### <a name="network-security-rules-nsgs"></a>Regole di sicurezza di rete (NSG)
 
@@ -77,11 +77,11 @@ Gli NSG non forniscono ispezione a livello dell'applicazione o controlli di acce
 
 Altre informazioni:
 
-* [Gruppi di sicurezza di rete](../../virtual-network/security-overview.md)
+* [Gruppi di sicurezza di rete](../../virtual-network/network-security-groups-overview.md)
 
 #### <a name="asc-just-in-time-vm-access"></a>Accesso JIT alle macchine virtuali tramite il Centro sicurezza di Azure
 
-Il [Centro sicurezza di Azure](../../security-center/security-center-intro.md) è in grado di gestire i gruppi di sicurezza di rete nelle macchine virtuali e di bloccare l'accesso alla macchina virtuale fino a quando un utente con autorizzazioni del [controllo degli accessi in base al ruolo](/azure/role-based-access-control/overview) appropriate non richiede l'accesso. Quando l'utente è stato autorizzato, il Centro sicurezza di Azure apporta ai gruppi di sicurezza di rete le modifiche necessarie per consentire l'accesso alle porte selezionate per il tempo specificato. Alla scadenza del tempo specificato, i gruppi di sicurezza di rete vengono ripristinati allo stato protetto precedente.
+Il [Centro sicurezza di Azure](../../security-center/security-center-introduction.md) è in grado di gestire i gruppi di sicurezza di rete nelle macchine virtuali e di bloccare l'accesso alla macchina virtuale fino a quando un utente con autorizzazioni del [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) appropriate non richiede l'accesso. Quando l'utente è stato autorizzato, il Centro sicurezza di Azure apporta ai gruppi di sicurezza di rete le modifiche necessarie per consentire l'accesso alle porte selezionate per il tempo specificato. Alla scadenza del tempo specificato, i gruppi di sicurezza di rete vengono ripristinati allo stato protetto precedente.
 
 Altre informazioni:
 
@@ -141,7 +141,7 @@ Firewall di Azure è un servizio di sicurezza di rete gestito basato sul cloud c
 
 Altre informazioni:
 
-* [Panoramica del Firewall di Azure](/azure/firewall/overview)
+* [Panoramica del Firewall di Azure](../../firewall/overview.md)
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Accesso remoto sicuro e connettività cross-premise
 
@@ -202,7 +202,7 @@ Per le distribuzioni si possono usare molte reti virtuali. I motivi sono vari. S
 
 Una soluzione può consistere nel connettere i servizi in una rete virtuale a quelli in un'altra rete virtuale con un "loopback" tramite Internet. La connessione viene avviata in una rete virtuale, passa attraverso Internet e quindi ritorna alla rete virtuale di destinazione. Questa opzione espone la connessione ai problemi di sicurezza che caratterizzano tutte le comunicazioni basate su Internet.
 
-Un'opzione migliore potrebbe essere quella di creare una VPN da sito a sito che connette due reti virtuali. Questo metodo usa lo stesso protocollo in [modalità tunnel IPSec](https://technet.microsoft.com/library/cc786385.aspx) della connessione VPN da sito a sito cross-premise indicata in precedenza.
+Un'opzione migliore potrebbe essere quella di creare una VPN da sito a sito che connette due reti virtuali. Questo metodo usa lo stesso protocollo in [modalità tunnel IPSec](/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) della connessione VPN da sito a sito cross-premise indicata in precedenza.
 
 Il vantaggio che deriva da questo approccio consiste nel fatto che la connessione VPN viene stabilita sull'infrastruttura di rete di Azure, anziché tramite Internet. Questo approccio offre un livello di sicurezza aggiuntivo rispetto alle VPN da sito a sito che si connettono tramite Internet.
 
@@ -237,7 +237,7 @@ Il gateway applicazione di Azure offre il bilanciamento del carico basato su HTT
 
 Altre informazioni:
 
-* [Panoramica del gateway applicazione](/azure/application-gateway/application-gateway-introduction)
+* [Panoramica del gateway applicazione](../../application-gateway/overview.md)
 
 ### <a name="network-level-load-balancing"></a>Bilanciamento del carico a livello di rete
 
@@ -252,8 +252,8 @@ A differenza del bilanciamento del carico basato su HTTP, il bilanciamento del c
 
 Altre informazioni:
 
-* [Bilanciamento del carico con connessione a Internet tra più macchine virtuali o servizi](/azure/load-balancer/load-balancer-internet-overview)
-* [Panoramica del bilanciamento del carico interno](/azure/load-balancer/load-balancer-internal-overview)
+* [Bilanciamento del carico con connessione a Internet tra più macchine virtuali o servizi](../../load-balancer/load-balancer-overview.md)
+* [Panoramica del bilanciamento del carico interno](../../load-balancer/load-balancer-overview.md)
 
 ### <a name="global-load-balancing"></a>Bilanciamento del carico globale
 
@@ -381,7 +381,7 @@ Il servizio Centro sicurezza di Azure aiuta a ottimizzare e a monitorare la sicu
 
 Altre informazioni:
 
-* [Introduzione al Centro sicurezza di Azure](../../security-center/security-center-intro.md)
+* [Introduzione al Centro sicurezza di Azure](../../security-center/security-center-introduction.md)
 
 ### <a name="virtual-network-tap"></a>TAP di rete virtuale
 

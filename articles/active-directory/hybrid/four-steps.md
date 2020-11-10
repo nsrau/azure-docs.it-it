@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 795f5ede382e561ee810e54e1f8897c5d806e8b8
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369778"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412375"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quattro passaggi per una solida base di identità con Azure Active Directory
 
@@ -83,7 +83,7 @@ Nelle aziende moderne i reparti IT spesso non sono consapevoli di tutte le appli
 
 [Microsoft cloud app Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) consente di identificare le app utili più diffuse con gli utenti che potrebbero approvare e aggiungere alla raccolta di applicazioni aziendali in modo che gli utenti possano trarre vantaggio dalle funzionalità quali SSO e accesso condizionale.
 
-<em>"**Cloud app Security** ci aiuta a garantire che gli utenti utilizzino correttamente le nostre applicazioni cloud e Saas, in modo da supportare i criteri di sicurezza di base che consentono di proteggere Accenture".</em> --- [John Blasi, Managing Director, Information Security, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>" **Cloud app Security** ci aiuta a garantire che gli utenti utilizzino correttamente le nostre applicazioni cloud e Saas, in modo da supportare i criteri di sicurezza di base che consentono di proteggere Accenture".</em> --- [John Blasi, Managing Director, Information Security, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 Oltre a rilevare shadow IT, MCAS può anche determinare il livello di rischio delle app, impedire l'accesso non autorizzato ai dati aziendali, possibili perdite di dati e altri rischi per la sicurezza inerenti alle applicazioni.
 
@@ -147,7 +147,7 @@ Analogamente, è possibile usare il [report di gestione delle password self-serv
 
 ### <a name="self-service-app-management"></a>Gestione self-service delle app
 
-Prima che gli utenti possano individuare autonomamente le applicazioni dal pannello di accesso, è necessario abilitare [l'accesso alle applicazioni self-service](../manage-apps/access-panel-manage-self-service-access.md) alle applicazioni per le quali si desidera consentire agli utenti di individuare autonomamente e richiedere l'accesso. L'accesso alle applicazioni self-service è un ottimo modo per consentire agli utenti di individuare autonomamente le applicazioni e, facoltativamente, consentire al gruppo aziendale di approvare l'accesso a tali applicazioni. È possibile consentire al gruppo aziendale di gestire le credenziali assegnate a tali utenti per [Single-Sign delle password sulle applicazioni](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) direttamente dai rispettivi pannelli di accesso.
+Prima che gli utenti possano individuare autonomamente le applicazioni dal pannello di accesso, è necessario abilitare [l'accesso alle applicazioni self-service](../manage-apps/access-panel-manage-self-service-access.md) alle applicazioni per le quali si desidera consentire agli utenti di individuare autonomamente e richiedere l'accesso. L'accesso alle applicazioni self-service è un ottimo modo per consentire agli utenti di individuare autonomamente le applicazioni e, facoltativamente, consentire al gruppo aziendale di approvare l'accesso a tali applicazioni. È possibile consentire al gruppo aziendale di gestire le credenziali assegnate a tali utenti per [Single-Sign delle password sulle applicazioni](../manage-apps/troubleshoot-password-based-sso.md#automatically-capture-sign-in-fields-for-an-app) direttamente dai rispettivi pannelli di accesso.
 
 ### <a name="self-service-group-management"></a>Gestione di gruppi self-service
 
@@ -267,6 +267,6 @@ Si consiglia di stampare l'elenco di controllo seguente per informazioni di rife
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri come aumentare la tua postura sicura usando le funzionalità di Azure Active Directory e questo elenco di controllo in cinque [passaggi, cinque passaggi per la sicurezza dell'infrastruttura di identità](https://aka.ms/securitysteps).
+Scopri come aumentare la tua postura sicura usando le funzionalità di Azure Active Directory e questo elenco di controllo in cinque [passaggi, cinque passaggi per la sicurezza dell'infrastruttura di identità](../../security/fundamentals/steps-secure-identity.md).
 
-Scopri in che modo le funzionalità di identità in Azure AD possono aiutarti ad accelerare la transizione alla gestione governata dal cloud fornendo le soluzioni e le funzionalità che consentono alle organizzazioni di adottare e spostare in modo rapido una maggiore gestione delle identità dai sistemi locali tradizionali al Azure AD, [come Azure ad offre la gestione gestita dal cloud per i carichi di lavoro locali](https://aka.ms/cloudgoverned).
+Scopri in che modo le funzionalità di identità in Azure AD possono aiutarti ad accelerare la transizione alla gestione governata dal cloud fornendo le soluzioni e le funzionalità che consentono alle organizzazioni di adottare e spostare in modo rapido una maggiore gestione delle identità dai sistemi locali tradizionali al Azure AD, [come Azure ad offre la gestione gestita dal cloud per i carichi di lavoro locali](./cloud-governed-management-for-on-premises.md).

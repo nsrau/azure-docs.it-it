@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 958402e61f6dc81a3e6618dbcd4df4c8dd6b9ced
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: eedd19189d1e1ccedd3d505aecf407aca8fca831
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793059"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413361"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Come connettere un esempio Plug and Play Bridge in esecuzione in Linux o Windows all'hub Internet
 
@@ -37,7 +37,7 @@ sudo apt-get update
 sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
 ```
 
-Verificare che la versione di `cmake` sia superiore alla **2.8.12** e che la versione di **GCC** sia superiore alla **4.4.7** .
+Verificare che la versione di `cmake` sia superiore alla **2.8.12** e che la versione di **GCC** sia superiore alla **4.4.7**.
 
 ```sh
 cmake --version
@@ -54,7 +54,7 @@ Per completare questo argomento di avvio rapido in Windows, installare il softwa
 
 ### <a name="azure-iot-explorer"></a>Azure IoT Explorer
 
-Per interagire con il dispositivo di esempio nella seconda parte di questo argomento di avvio rapido, usare lo strumento **Azure IoT Explorer** . [Scaricare e installare la versione di Azure IoT Explorer più recente](./howto-use-iot-explorer.md) per il sistema operativo in uso.
+Per interagire con il dispositivo di esempio nella seconda parte di questo argomento di avvio rapido, usare lo strumento **Azure IoT Explorer**. [Scaricare e installare la versione di Azure IoT Explorer più recente](./howto-use-iot-explorer.md) per il sistema operativo in uso.
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
@@ -79,7 +79,7 @@ Azure Internet Explorer verrà usato nei passaggi successivi per visualizzare il
 
 Quando si Scarica il codice nel passaggio seguente, vengono inclusi i file del modello di esempio nella `pnpbridge/docs/schema` cartella. Per preparare Azure Internet Explorer:
 
-1. Nel computer locale creare una cartella denominata *models* .
+1. Nel computer locale creare una cartella denominata *models*.
 1. Visualizza [EnvironmentalSensor.js](https://aka.ms/iot-pnp-bridge-env-model) e salva il file JSON nella cartella *Models*
 1. Visualizzare [RootBridgeSampleDevice.js](https://aka.ms/iot-pnp-bridge-root-model) e salvare il file JSON nella cartella *Models* .
 
@@ -176,14 +176,14 @@ cd scripts/linux
  Avviare l'esempio Plug and Play Bridge per i sensori ambientali passando alla cartella *pnpbridge* ed eseguendo il comando seguente in un prompt dei comandi:
 
 ```bash
- cd cmake/pnpbridge_x86/src/adaptors/samples/environmental_sensor/
+ cd cmake/pnpbridge_linux/src/adapters/samples/environmental_sensor/
 ./pnpbridge_environmentalsensor
 
 ```
 
 ```cmd
 REM Windows
-cd cmake\pnpbridge_x86\src\adaptors\samples\environmental_sensor
+cd cmake\pnpbridge_x86\src\adapters\samples\environmental_sensor
 Debug\pnpbridge_environmentalsensor.exe
 ```
 

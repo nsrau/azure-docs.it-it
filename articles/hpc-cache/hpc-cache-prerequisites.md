@@ -4,14 +4,14 @@ description: Prerequisiti per l'uso della cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 11/05/2020
 ms.author: v-erkel
-ms.openlocfilehash: 92c8d860925ebde7d20befbaa708e8530cd1a0eb
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: a31aee3f4548d3137fa1241aaa3a0f6171cf6895
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92344016"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412511"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prerequisiti per cache HPC di Azure
 
@@ -59,9 +59,22 @@ La procedura consigliata consiste nel creare una nuova subnet per ogni cache. È
 Per accedere alle risorse all'esterno della rete virtuale, la cache deve essere DNS. A seconda delle risorse usate, potrebbe essere necessario configurare un server DNS personalizzato e configurare l'invio tra il server e i server DNS di Azure:
 
 * Per accedere agli endpoint di archiviazione BLOB di Azure e ad altre risorse interne, è necessario il server DNS basato su Azure.
-* Per accedere all'archiviazione locale, è necessario configurare un server DNS personalizzato in grado di risolvere i nomi host di archiviazione.
+* Per accedere all'archiviazione locale, è necessario configurare un server DNS personalizzato in grado di risolvere i nomi host di archiviazione. È necessario eseguire questa operazione **prima** di creare la cache.
 
 Se è necessario accedere solo all'archiviazione BLOB, è possibile usare il server DNS predefinito fornito da Azure per la cache. Tuttavia, se è necessario accedere ad altre risorse, è necessario creare un server DNS personalizzato e configurarlo per l'invio di eventuali richieste di risoluzione specifiche di Azure al server DNS di Azure.
+
+Per usare un server DNS personalizzato, è necessario eseguire questi passaggi di configurazione prima di creare la cache:
+
+* Creare la rete virtuale in cui viene ospitata la cache HPC di Azure.
+* Creare il server DNS.
+* Aggiungere il server DNS alla rete virtuale della cache.
+
+  Seguire questa procedura per aggiungere il server DNS alla rete virtuale nel portale di Azure:
+
+  1. Aprire la rete virtuale nella portale di Azure.
+  1. Scegliere **server DNS** dal menu **Impostazioni** della barra laterale.
+  1. Selezionare **Personalizzata**
+  1. Immettere l'indirizzo IP del server DNS nel campo.
 
 Un server DNS semplice può anche essere usato per bilanciare il carico delle connessioni client tra tutti i punti di montaggio della cache disponibili.
 
@@ -143,7 +156,7 @@ Altre informazioni sono disponibili in [risolvere i problemi relativi alla confi
 * **Accesso alla directory:** Abilitare il `showmount` comando nel sistema di archiviazione. Cache HPC di Azure usa questo comando per verificare che la configurazione di destinazione di archiviazione punti a un'esportazione valida e anche per assicurarsi che più montaggi non accedano alle stesse sottodirectory (rischio per collisioni di file).
 
   > [!NOTE]
-  > Se il sistema di archiviazione NFS usa il sistema operativo ONTAP 9,2 di NetApp, non **abilitare `showmount` **. Per assistenza, [contattare il servizio Microsoft e il supporto tecnico](hpc-cache-support-ticket.md) .
+  > Se il sistema di archiviazione NFS usa il sistema operativo ONTAP 9,2 di NetApp, non **abilitare `showmount`**. Per assistenza, [contattare il servizio Microsoft e il supporto tecnico](hpc-cache-support-ticket.md) .
 
   Altre informazioni sull'accesso all'elenco delle directory sono disponibili nell' [articolo sulla risoluzione dei problemi](troubleshoot-nas.md#enable-export-listing)di destinazione di archiviazione NFS.
 

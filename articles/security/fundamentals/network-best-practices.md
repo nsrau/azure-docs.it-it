@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 36673533fbbfc913f742a32bd20cde2b238e2143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49c4f7888150446316a04710bc5de5e618cd66eb
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397233"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413310"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Procedure consigliate di Azure per la sicurezza di rete
 Questo articolo illustra un insieme di procedure consigliate di Azure per migliorare la sicurezza della rete, derivate dalla nostra esperienza con la rete di Azure e dalle esperienze di altri clienti.
@@ -49,22 +49,22 @@ Le reti virtuali di Azure sono simili a reti LAN nella rete locale. Una rete vir
 
 Le procedure consigliate per suddividere logicamente le subnet includono:
 
-**Procedura consigliata**: non assegnare regole di assenso con intervalli ampi (ad esempio, da 0.0.0.0 a 255.255.255.255).  
-**Dettagli**: assicurarsi che le procedure di risoluzione dei problemi impediscano o vietino la configurazione di questi tipi di regole. Queste regole di assenso trasmettono un falso senso di sicurezza e vengono spesso trovate e sfruttate dai Red Team.
+**Procedura consigliata** : non assegnare regole di assenso con intervalli ampi (ad esempio, da 0.0.0.0 a 255.255.255.255).  
+**Dettagli** : assicurarsi che le procedure di risoluzione dei problemi impediscano o vietino la configurazione di questi tipi di regole. Queste regole di assenso trasmettono un falso senso di sicurezza e vengono spesso trovate e sfruttate dai Red Team.
 
-**Procedura consigliata**: segmentare lo spazio di indirizzi più ampio in subnet.   
-**Dettagli**: usare i principi di suddivisione in subnet basati su [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) per creare le subnet.
+**Procedura consigliata** : segmentare lo spazio di indirizzi più ampio in subnet.   
+**Dettagli** : usare i principi di suddivisione in subnet basati su [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) per creare le subnet.
 
-**Procedura consigliata**: creare controlli di accesso di rete tra subnet. Il routing tra le subnet viene eseguito automaticamente e non è necessario configurare manualmente le tabelle di routing. Per impostazione predefinita, non sono presenti controlli di accesso di rete tra le subnet create in una rete virtuale di Azure.   
-**Dettagli**: usare un [gruppo di sicurezza di rete](/azure/virtual-network/virtual-networks-nsg) per proteggersi da traffico non richiesto in entrata nelle subnet di Azure. I gruppi di sicurezza di rete sono semplici dispositivi di ispezione dei pacchetti con stato, che usano l'approccio a 5 tuple (indirizzo IP di origine, porta di origine, IP di destinazione, porta di destinazione e protocollo di livello 4) per creare regole allow/deny per il traffico di rete. È possibile consentire o negare il traffico da e verso un singolo indirizzo IP, da e verso più indirizzi IP o da e verso intere subnet.
+**Procedura consigliata** : creare controlli di accesso di rete tra subnet. Il routing tra le subnet viene eseguito automaticamente e non è necessario configurare manualmente le tabelle di routing. Per impostazione predefinita, non sono presenti controlli di accesso di rete tra le subnet create in una rete virtuale di Azure.   
+**Dettagli** : usare un [gruppo di sicurezza di rete](../../virtual-network/virtual-network-vnet-plan-design-arm.md) per proteggersi da traffico non richiesto in entrata nelle subnet di Azure. I gruppi di sicurezza di rete sono semplici dispositivi di ispezione dei pacchetti con stato, che usano l'approccio a 5 tuple (indirizzo IP di origine, porta di origine, IP di destinazione, porta di destinazione e protocollo di livello 4) per creare regole allow/deny per il traffico di rete. È possibile consentire o negare il traffico da e verso un singolo indirizzo IP, da e verso più indirizzi IP o da e verso intere subnet.
 
 L'uso di gruppi di sicurezza di rete per il controllo di accesso di rete tra subnet consente di inserire nelle proprie subnet risorse che appartengono alla stessa area di protezione o allo stesso ruolo.
 
-**Procedura consigliata**: evitare reti virtuali e subnet di piccole dimensioni, per garantire semplicità e flessibilità.   
-**Dettagli**: la maggior parte delle organizzazioni aggiunge più risorse di quelle pianificate inizialmente e la riallocazione degli indirizzi richiede molto lavoro. L'uso di subnet di piccole dimensioni aggiunge un valore di sicurezza limitato e il mapping di un gruppo di sicurezza di rete a ogni subnet comporta un sovraccarico di lavoro. Definire subnet di grandi dimensioni per garantire la flessibilità necessaria per la crescita.
+**Procedura consigliata** : evitare reti virtuali e subnet di piccole dimensioni, per garantire semplicità e flessibilità.   
+**Dettagli** : la maggior parte delle organizzazioni aggiunge più risorse di quelle pianificate inizialmente e la riallocazione degli indirizzi richiede molto lavoro. L'uso di subnet di piccole dimensioni aggiunge un valore di sicurezza limitato e il mapping di un gruppo di sicurezza di rete a ogni subnet comporta un sovraccarico di lavoro. Definire subnet di grandi dimensioni per garantire la flessibilità necessaria per la crescita.
 
-**Procedura consigliata**: semplificare la gestione delle regole del gruppo di sicurezza di rete definendo [gruppi di sicurezza delle applicazioni](https://azure.microsoft.com/blog/applicationsecuritygroups/).  
-**Dettagli**: definire un gruppo di sicurezza delle applicazioni per elenchi di indirizzi IP che si ritiene potrebbero cambiare in futuro o essere usati in molti gruppi di sicurezza di rete. Assicurarsi di assegnare nomi espliciti ai gruppi di sicurezza delle applicazioni, in modo che gli altri utenti possano comprenderne il contenuto e lo scopo.
+**Procedura consigliata** : semplificare la gestione delle regole del gruppo di sicurezza di rete definendo [gruppi di sicurezza delle applicazioni](https://azure.microsoft.com/blog/applicationsecuritygroups/).  
+**Dettagli** : definire un gruppo di sicurezza delle applicazioni per elenchi di indirizzi IP che si ritiene potrebbero cambiare in futuro o essere usati in molti gruppi di sicurezza di rete. Assicurarsi di assegnare nomi espliciti ai gruppi di sicurezza delle applicazioni, in modo che gli altri utenti possano comprenderne il contenuto e lo scopo.
 
 ## <a name="adopt-a-zero-trust-approach"></a>Adottare un approccio Zero Trust
 Le reti basate sul perimetro operano in base al presupposto che tutti i sistemi all'interno di una rete possono essere considerati attendibili. Tuttavia, nelle organizzazioni moderne i dipendenti accedono alle risorse da qualsiasi posizione su una vasta gamma di dispositivi e app, rendendo irrilevanti i controlli di sicurezza perimetrali. I criteri di controllo di accesso che si concentrano solo su chi può accedere a una risorsa non sono sufficienti. Per gestire in modo ottimale l'equilibrio tra sicurezza e produttività, gli amministratori della sicurezza devono anche considerare *come* si accede a una risorsa.
@@ -73,14 +73,14 @@ Le reti devono aggiungere nuove soluzioni alle difese tradizionali, perché poss
 
 Procedure consigliate:
 
-**Procedura consigliata**: offrire l'accesso condizionale alle risorse in base a dispositivo, identità, garanzia, percorso di rete e altro ancora.  
-**Dettagli**: l'[accesso condizionale di Azure AD](../../active-directory/conditional-access/overview.md) consente di applicare i controlli di accesso appropriati implementando decisioni di controllo di accesso automatiche sulla base delle condizioni richieste. Per altre informazioni, vedere [Gestire l'accesso alla gestione di Azure con accesso condizionale](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
+**Procedura consigliata** : offrire l'accesso condizionale alle risorse in base a dispositivo, identità, garanzia, percorso di rete e altro ancora.  
+**Dettagli** : l' [accesso condizionale di Azure AD](../../active-directory/conditional-access/overview.md) consente di applicare i controlli di accesso appropriati implementando decisioni di controllo di accesso automatiche sulla base delle condizioni richieste. Per altre informazioni, vedere [Gestire l'accesso alla gestione di Azure con accesso condizionale](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
 
-**Procedura consigliata**: abilitare l'accesso alla porta solo dopo l'approvazione del flusso di lavoro.  
-**Dettagli**: l'[accesso JIT alle macchine virtuali nel Centro sicurezza di Azure](../../security-center/security-center-just-in-time.md) può essere usato per bloccare il traffico in ingresso alle macchine virtuali di Azure, riducendo l'esposizione agli attacchi e offrendo al tempo stesso un accesso facile per connettersi alle macchine virtuali quando necessario.
+**Procedura consigliata** : abilitare l'accesso alla porta solo dopo l'approvazione del flusso di lavoro.  
+**Dettagli** : l' [accesso JIT alle macchine virtuali nel Centro sicurezza di Azure](../../security-center/security-center-just-in-time.md) può essere usato per bloccare il traffico in ingresso alle macchine virtuali di Azure, riducendo l'esposizione agli attacchi e offrendo al tempo stesso un accesso facile per connettersi alle macchine virtuali quando necessario.
 
-**Procedura consigliata**: concedere autorizzazioni temporanee per l'esecuzione di attività con privilegi, per impedire a utenti non autorizzati o malintenzionati di ottenere l'accesso dopo la scadenza delle autorizzazioni. L'accesso viene concesso solo quando l'utente ne ha necessità.  
-**Dettagli**: usare l'accesso JIT in Azure AD Privileged Identity Management o in una soluzione di terze parti per concedere le autorizzazioni per l'esecuzione di attività con privilegi.
+**Procedura consigliata** : concedere autorizzazioni temporanee per l'esecuzione di attività con privilegi, per impedire a utenti non autorizzati o malintenzionati di ottenere l'accesso dopo la scadenza delle autorizzazioni. L'accesso viene concesso solo quando l'utente ne ha necessità.  
+**Dettagli** : usare l'accesso JIT in Azure AD Privileged Identity Management o in una soluzione di terze parti per concedere le autorizzazioni per l'esecuzione di attività con privilegi.
 
 Zero Trust è la nuova fase nell'evoluzione della sicurezza di rete. Lo stato degli attacchi cibernetici spinge le organizzazioni ad adottare la mentalità "presunta violazione", ma questo approccio non dovrebbe essere limitante. Le reti Zero Trust proteggono i dati e le risorse aziendali, garantendo nel contempo alle organizzazioni la possibilità di creare uno spazio di lavoro moderno tramite tecnologie che consentono ai dipendenti di essere produttivi in qualsiasi momento, ovunque e con qualsiasi modalità.
 
@@ -114,7 +114,7 @@ I dispositivi di sicurezza di rete di Azure possono offrire livelli di sicurezza
 Per trovare i dispositivi di sicurezza di rete virtuale di Azure, visitare [Azure Marketplace](https://azure.microsoft.com/marketplace/) e cercare "sicurezza" e "sicurezza di rete".
 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>Distribuire reti perimetrali per le aree di sicurezza
-Una [rete perimetrale](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) è un segmento di rete fisica o logica che fornisce un ulteriore livello di sicurezza tra le risorse e Internet. I dispositivi specializzati per il controllo di accesso alla rete dislocati al margine di una rete perimetrale lasciano entrare nella rete virtuale solo il traffico desiderato.
+Una [rete perimetrale](/azure/architecture/vdc/networking-virtual-datacenter) è un segmento di rete fisica o logica che fornisce un ulteriore livello di sicurezza tra le risorse e Internet. I dispositivi specializzati per il controllo di accesso alla rete dislocati al margine di una rete perimetrale lasciano entrare nella rete virtuale solo il traffico desiderato.
 
 Le reti perimetrali sono utili perché permettono di concentrare le operazioni di gestione, monitoraggio, registrazione e creazione di report del controllo di accesso alla rete sui dispositivi della rete virtuale di Azure. Una rete perimetrale è lo scenario in cui sono in genere abilitati la prevenzione DDoS (Distributed Denial of Service), i sistemi di rilevamento intrusione/prevenzione intrusioni (IDS/IPS), le regole e i criteri dei firewall, il filtro Web, il software antimalware per la rete e molto altro. I dispositivi di sicurezza di rete sono posizionati tra Internet e la rete virtuale di Azure e hanno un'interfaccia su entrambe le reti.
 
@@ -122,7 +122,7 @@ Questo è un modello di rete perimetrale base, ma esistono molti modelli diversi
 
 In base al concetto Zero Trust indicato in precedenza, è consigliabile usare una rete perimetrale per tutte le implementazioni con sicurezza elevata, per migliorare il livello di sicurezza di rete e il controllo di accesso per le risorse di Azure. È possibile usare Azure o una soluzione di terze parti per garantire un livello di sicurezza aggiuntivo tra gli asset dell'organizzazione e Internet:
 
-- Controlli nativi di Azure. Il [Firewall di Azure](/azure/firewall/overview) e il [web application firewall nel gateway applicazione](../../application-gateway/features.md#web-application-firewall) offrono la sicurezza di base grazie a un firewall con stato come servizio, disponibilità elevata incorporata, scalabilità cloud illimitata, filtro FQDN, supporto per set di regole core OWASP e installazione e configurazione intuitive.
+- Controlli nativi di Azure. Il [Firewall di Azure](../../firewall/overview.md) e il [web application firewall nel gateway applicazione](../../application-gateway/features.md#web-application-firewall) offrono la sicurezza di base grazie a un firewall con stato come servizio, disponibilità elevata incorporata, scalabilità cloud illimitata, filtro FQDN, supporto per set di regole core OWASP e installazione e configurazione intuitive.
 - Offerte di terzi. Cercare in [Azure Marketplace](https://azuremarketplace.microsoft.com/) firewall di nuova generazione (NGFW) e altre offerte di terze parti che includono strumenti di sicurezza noti e livelli di sicurezza di rete notevolmente migliorati. La configurazione può essere più complessa, ma un'offerta di terze parti potrebbe consentire l'uso di funzionalità e set di competenze esistenti.
 
 ## <a name="avoid-exposure-to-the-internet-with-dedicated-wan-links"></a>Evitare l'esposizione a Internet con collegamenti WAN dedicati
@@ -147,30 +147,30 @@ Questa distribuzione del traffico aumenta la disponibilità perché se uno dei s
 
 È consigliabile impiegare il bilanciamento del carico ogni volta possibile e quando adeguato ai servizi. Di seguito sono descritti degli scenari a livello di rete virtuale di Azure e altri a livello globale, con le opzioni di bilanciamento del carico per ognuno.
 
-**Scenario**: è presente un'applicazione che:
+**Scenario** : è presente un'applicazione che:
 
 - Necessita che le richieste provengano dalla stessa sessione utente/client per raggiungere la stessa macchina virtuale back-end. Esempi di queste applicazioni sono i carrelli dei siti di acquisti e i server di posta Web.
 - Accetta solo connessioni protette, pertanto le comunicazioni non crittografate verso il server non rappresentano un'opzione accettabile.
 - Necessita che più richieste HTTP nella stessa connessione TCP con esecuzione prolungata vengano instradate/bilanciate in server back-end diversi.
 
-**Opzione di bilanciamento del carico**: usare il [gateway applicazione di Azure](/azure/application-gateway/application-gateway-introduction), un servizio di bilanciamento del carico correlato al traffico Web HTTP. Il gateway applicazione supporta la crittografia TLS e la [terminazione TLS](/azure/application-gateway/application-gateway-introduction) sul gateway. I server Web possono quindi essere liberati dal sovraccarico prodotto dai processi di crittografia e decrittografia e il traffico può essere trasmesso in formato non crittografato ai server back-end.
+**Opzione di bilanciamento del carico** : usare il [gateway applicazione di Azure](../../application-gateway/overview.md), un servizio di bilanciamento del carico correlato al traffico Web HTTP. Il gateway applicazione supporta la crittografia TLS e la [terminazione TLS](../../application-gateway/overview.md) sul gateway. I server Web possono quindi essere liberati dal sovraccarico prodotto dai processi di crittografia e decrittografia e il traffico può essere trasmesso in formato non crittografato ai server back-end.
 
-**Scenario**: è necessario applicare il bilanciamento del carico alle connessioni in ingresso da Internet tra i server che si trovano in una rete virtuale di Azure. Scenari in cui:
+**Scenario** : è necessario applicare il bilanciamento del carico alle connessioni in ingresso da Internet tra i server che si trovano in una rete virtuale di Azure. Scenari in cui:
 
 - Sono presenti applicazioni senza stato che accettano le richieste in ingresso da Internet.
 - Non sono richieste sessioni permanenti o l'offload TLS. La combinazione di sessioni permanenti e del bilanciamento del carico delle applicazioni è un metodo per ottenere l'affinità dei server.
 
-**Opzione di bilanciamento del carico**: usare il portale di Azure per [creare un servizio di bilanciamento del carico esterno](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) che distribuisca le richieste in ingresso tra più macchine virtuali per offrire un livello superiore di disponibilità.
+**Opzione di bilanciamento del carico** : usare il portale di Azure per [creare un servizio di bilanciamento del carico esterno](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) che distribuisca le richieste in ingresso tra più macchine virtuali per offrire un livello superiore di disponibilità.
 
-**Scenario**: è necessario applicare il bilanciamento del carico alle connessioni provenienti da macchine virtuali che non si trovano su Internet. Nella maggior parte dei casi, le connessioni che sono accettate per il bilanciamento del carico possono essere avviate da dispositivi nella rete virtuale di Azure, quali le istanze SQL Server o i server Web interni.   
-**Opzione di bilanciamento del carico**: usare il portale di Azure per [creare un servizio di bilanciamento del carico interno](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) che distribuisca le richieste in ingresso tra più macchine virtuali per offrire un livello superiore di disponibilità.
+**Scenario** : è necessario applicare il bilanciamento del carico alle connessioni provenienti da macchine virtuali che non si trovano su Internet. Nella maggior parte dei casi, le connessioni che sono accettate per il bilanciamento del carico possono essere avviate da dispositivi nella rete virtuale di Azure, quali le istanze SQL Server o i server Web interni.   
+**Opzione di bilanciamento del carico** : usare il portale di Azure per [creare un servizio di bilanciamento del carico interno](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) che distribuisca le richieste in ingresso tra più macchine virtuali per offrire un livello superiore di disponibilità.
 
-**Scenario**: è necessario il bilanciamento del carico globale perché:
+**Scenario** : è necessario il bilanciamento del carico globale perché:
 
 - Si dispone di una soluzione cloud ampiamente distribuita tra più aree e che richiede il livello massimo di tempo di attività (disponibilità) possibile.
 - Si necessita del massimo livello di tempo di attività possibile per assicurarsi che il servizio sia disponibile anche se un intero data center diventa non disponibile.
 
-**Opzione di bilanciamento del carico**: usare Gestione traffico di Azure. Gestione traffico rende possibile bilanciare il carico delle connessioni ai servizi in base alla posizione dell'utente.
+**Opzione di bilanciamento del carico** : usare Gestione traffico di Azure. Gestione traffico rende possibile bilanciare il carico delle connessioni ai servizi in base alla posizione dell'utente.
 
 Ad esempio, se l'utente effettua una richiesta al servizio dall'Unione europea, la connessione viene indirizzata ai servizi che si trovano in un data center dell'Unione europea. Questa parte bilanciamento del carico globale di Gestione traffico consente di migliorare le prestazioni perché la connessione al data center più vicino è più veloce rispetto alla connessione ai data center più lontani.
 
@@ -181,16 +181,16 @@ L'uso di questi protocolli in Internet può provocare tuttavia un potenziale pro
 
 È consigliabile disabilitare l'accesso diretto RDP e SSH alle macchine virtuali di Azure da Internet. Dopo aver disabilitato l'accesso diretto RDP e SSH da Internet, sono disponibili altre opzioni per accedere a queste macchine virtuali per la gestione remota.
 
-**Scenario**: consentire a un singolo utente di connettersi a una rete virtuale di Azure via Internet.   
-**Opzione**: [VPN da punto a sito](/azure/vpn-gateway/vpn-gateway-point-to-site-create) è un altro termine per indicare una connessione client/server VPN con accesso remoto. Dopo aver stabilito la connessione da punto a sito, l'utente può usare RDP o SSH per connettersi a qualsiasi macchina virtuale presente nella rete virtuale Azure e a cui l'utente si è connesso con VPN da punto a sito. Ciò presuppone che l'utente sia autorizzato a raggiungere tali macchine virtuali.
+**Scenario** : consentire a un singolo utente di connettersi a una rete virtuale di Azure via Internet.   
+**Opzione** : [VPN da punto a sito](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) è un altro termine per indicare una connessione client/server VPN con accesso remoto. Dopo aver stabilito la connessione da punto a sito, l'utente può usare RDP o SSH per connettersi a qualsiasi macchina virtuale presente nella rete virtuale Azure e a cui l'utente si è connesso con VPN da punto a sito. Ciò presuppone che l'utente sia autorizzato a raggiungere tali macchine virtuali.
 
 La VPN da punto a sito è più sicura delle connessioni dirette RDP o SSH perché l'utente deve autenticarsi due volte prima di potersi connettere a una macchina virtuale. In primo luogo, l'utente deve eseguire l'autenticazione, e ottenere l'autorizzazione, per stabilire la connessione VPN da punto a sito. In secondo luogo, l'utente deve eseguire l'autenticazione, e ottenere l'autorizzazione, per stabilire la connessione RDP o SSH.
 
-**Scenario**: consentire agli utenti della rete locale di connettersi alle macchine virtuali nella rete virtuale di Azure.   
-**Opzione**: una [VPN da sito a sito](/azure/vpn-gateway/vpn-gateway-site-to-site-create) connette un'intera rete a un'altra rete via Internet. È possibile usare una VPN da sito a sito per connettere la rete locale a una rete virtuale di Azure. Gli utenti della rete locale si connettono usando il protocollo RDP o SSH tramite la connessione VPN da sito a sito. Non è necessario consentire l'accesso diretto RDP o SSH via Internet.
+**Scenario** : consentire agli utenti della rete locale di connettersi alle macchine virtuali nella rete virtuale di Azure.   
+**Opzione** : una [VPN da sito a sito](../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) connette un'intera rete a un'altra rete via Internet. È possibile usare una VPN da sito a sito per connettere la rete locale a una rete virtuale di Azure. Gli utenti della rete locale si connettono usando il protocollo RDP o SSH tramite la connessione VPN da sito a sito. Non è necessario consentire l'accesso diretto RDP o SSH via Internet.
 
-**Scenario**: usare un collegamento WAN dedicato per fornire funzionalità simili alla VPN da sito a sito.   
-**Opzione**: usare [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/). Offre funzionalità simili a quelle della VPN da sito a sito. Le differenze principali sono le seguenti:
+**Scenario** : usare un collegamento WAN dedicato per fornire funzionalità simili alla VPN da sito a sito.   
+**Opzione** : usare [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/). Offre funzionalità simili a quelle della VPN da sito a sito. Le differenze principali sono le seguenti:
 
 - Il collegamento WAN dedicato non attraversa Internet.
 - I collegamenti WAN dedicati sono in genere più stabili e più efficienti.

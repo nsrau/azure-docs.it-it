@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 10/22/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: dfb92e3f4f02e693ae5e4bba57e5344288c4615a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460666"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413123"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -104,7 +104,6 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 
 [Criteri di Azure](../../governance/policy/index.yml):
 
-- Gli snapshot di conformità mostrano i dettagli per i criteri assegnati nelle sottoscrizioni delegate
 - Creare e modificare le definizioni dei criteri nelle sottoscrizioni delegate
 - Assegnare le definizioni dei criteri definiti dal cliente nelle sottoscrizioni delegate
 - I clienti visualizzano i criteri creati dal provider di servizi insieme ai criteri che hanno creato personalmente
@@ -157,7 +156,7 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 
 Richieste di supporto:
 
-- [Aprire richieste di supporto da **Guida e supporto** ](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) nel portale di Azure per le risorse delegate (selezione del piano di supporto disponibile per l'ambito delegato)
+- [Aprire richieste di supporto da **Guida e supporto**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) nel portale di Azure per le risorse delegate (selezione del piano di supporto disponibile per l'ambito delegato)
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 

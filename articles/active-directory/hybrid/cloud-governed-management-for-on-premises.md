@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed23ffa9971bf4c97b784f230053aed4b1acf0a4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f717e14e5abe62aafffdeef841889ea2458fa8b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369795"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413446"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Come Azure AD offre la gestione gestita dal cloud per i carichi di lavoro locali
 
@@ -39,7 +39,7 @@ In questo documento viene illustrata la strategia di Microsoft per IDaaS ibrido 
 
 ## <a name="the-azure-ad-approach-to-cloud-governed-identity-management"></a>Approccio Azure AD alla gestione delle identità governata dal cloud
 
-Man mano che le organizzazioni passano al cloud, hanno bisogno di garanzie che dispongano di controlli sull'ambiente completo, più sicurezza e visibilità sulle attività, supportate dall'automazione e informazioni dettagliate proattive. "**Gestione cloud governata**" descrive il modo in cui le organizzazioni gestiscono e governano gli utenti, le applicazioni, i gruppi e i dispositivi dal cloud.
+Man mano che le organizzazioni passano al cloud, hanno bisogno di garanzie che dispongano di controlli sull'ambiente completo, più sicurezza e visibilità sulle attività, supportate dall'automazione e informazioni dettagliate proattive. " **Gestione cloud governata** " descrive il modo in cui le organizzazioni gestiscono e governano gli utenti, le applicazioni, i gruppi e i dispositivi dal cloud.
 
 In questo mondo moderno, le organizzazioni devono essere in grado di gestire in modo efficace su larga scala, a causa della proliferazione di applicazioni SaaS e del ruolo crescente di collaborazione e identità esterne. Il nuovo panorama di rischio del cloud significa che un'organizzazione deve essere più reattiva: un attore malintenzionato che compromette un utente cloud potrebbe influire sulle applicazioni cloud e locali.
 
@@ -77,7 +77,7 @@ Per la collaborazione business-to-business è sempre necessario concedere l'acce
 
 Azure AD possibile [creare automaticamente account in Active Directory per gli utenti Guest](../external-identities/hybrid-cloud-to-on-premises.md) , in base alle esigenze, consentendo ai Guest aziendali di accedere alle applicazioni locali ad integrate senza che sia necessaria un'altra password. Le organizzazioni possono configurare i [criteri di autenticazione a più fattori per gli utenti Guest](../external-identities/conditional-access.md), in modo che i controlli dell'autenticazione a più fattori vengano eseguiti durante l'autenticazione del proxy di applicazione. Inoltre, le verifiche di [accesso](../governance/manage-guest-access-with-access-reviews.md) eseguite sugli utenti B2B del cloud si applicano agli utenti locali. Ad esempio, se l'utente cloud viene eliminato con i criteri di gestione del ciclo di vita, viene eliminato anche l'utente locale.
 
-**Gestione delle credenziali per gli account di Active Directory** Azure AD la reimpostazione della password self-service consente agli utenti che hanno dimenticato la password di essere riautenticati e reimpostare le password, con le password modificate [scritte nell'Active Directory locale](../authentication/concept-sspr-writeback.md). Il processo di reimpostazione della password può anche usare i criteri di Active Directory password locali: quando un utente reimposta la password, viene controllato per verificare che soddisfi i criteri di Active Directory locali prima di eseguirne il commit in tale directory. Il [piano di distribuzione](https://aka.ms/deploymentplans/sspr) della reimpostazione della password self-service delinea le procedure consigliate per implementare la reimpostazione della password self-service agli utenti tramite esperienze Web e integrate in Windows.
+**Gestione delle credenziali per gli account di Active Directory** Azure AD la reimpostazione della password self-service consente agli utenti che hanno dimenticato la password di essere riautenticati e reimpostare le password, con le password modificate [scritte nell'Active Directory locale](../authentication/concept-sspr-writeback.md). Il processo di reimpostazione della password può anche usare i criteri di Active Directory password locali: quando un utente reimposta la password, viene controllato per verificare che soddisfi i criteri di Active Directory locali prima di eseguirne il commit in tale directory. Il [piano di distribuzione](../authentication/howto-sspr-deployment.md) della reimpostazione della password self-service delinea le procedure consigliate per implementare la reimpostazione della password self-service agli utenti tramite esperienze Web e integrate in Windows.
 
 ![Architettura Azure AD SSPR](media/cloud-governed-management-for-on-premises/image3.png)
 
@@ -97,7 +97,7 @@ Per avviare la migrazione di applicazioni federate a Azure AD come provider di i
 
 * Il white paper la [migrazione delle applicazioni a Azure Active Directory](https://aka.ms/migrateapps/whitepaper), che presenta i vantaggi della migrazione e descrive come pianificare la migrazione in quattro fasi chiaramente delineate: individuazione, classificazione, migrazione e gestione continua. Verrà illustrato come considerare il processo e suddividere il progetto in parti facili da utilizzare. Nel documento vengono forniti collegamenti a importanti risorse di supporto per l'utente durante il processo.
 
-* La guida alla soluzione [che esegue l'autenticazione dell'applicazione da Active Directory Federation Services a Azure Active Directory](https://aka.ms/migrateapps/adfssolutionguide) Esplora in modo più dettagliato le stesse quattro fasi della pianificazione e dell'esecuzione di un progetto di migrazione di applicazioni. In questa guida si apprenderà come applicare tali fasi allo scopo specifico di trasferire un'applicazione da Active Directory Federation Services (AD FS) a Azure AD.
+* La guida alla soluzione [che esegue l'autenticazione dell'applicazione da Active Directory Federation Services a Azure Active Directory](../manage-apps/migrate-adfs-apps-to-azure.md) Esplora in modo più dettagliato le stesse quattro fasi della pianificazione e dell'esecuzione di un progetto di migrazione di applicazioni. In questa guida si apprenderà come applicare tali fasi allo scopo specifico di trasferire un'applicazione da Active Directory Federation Services (AD FS) a Azure AD.
 
 * Lo [script di preparazione alla migrazione Active Directory Federation Services](https://aka.ms/migrateapps/adfstools) può essere eseguito su server Active Directory Federation Services (ad FS) locali esistenti per determinare la conformità delle applicazioni per la migrazione a Azure ad.
 
@@ -111,7 +111,7 @@ Le organizzazioni possono automatizzare il processo del ciclo di vita dell'acces
 
 ## <a name="future-directions"></a>Direzioni future
 
-Negli ambienti ibridi, la strategia di Microsoft consiste nell'abilitare le distribuzioni in cui il **cloud è il piano di controllo per l'identità**e le directory locali e altri sistemi di identità, ad esempio Active Directory e altre applicazioni locali, rappresentano la destinazione per il provisioning degli utenti con accesso. Questa strategia continuerà a garantire i diritti, le identità e l'accesso in tali applicazioni e carichi di lavoro basati su di essi. A questo stato finale, le organizzazioni saranno in grado di gestire la produttività degli utenti finali interamente dal cloud.
+Negli ambienti ibridi, la strategia di Microsoft consiste nell'abilitare le distribuzioni in cui il **cloud è il piano di controllo per l'identità** e le directory locali e altri sistemi di identità, ad esempio Active Directory e altre applicazioni locali, rappresentano la destinazione per il provisioning degli utenti con accesso. Questa strategia continuerà a garantire i diritti, le identità e l'accesso in tali applicazioni e carichi di lavoro basati su di essi. A questo stato finale, le organizzazioni saranno in grado di gestire la produttività degli utenti finali interamente dal cloud.
 
 ![Architettura di Azure AD](media/cloud-governed-management-for-on-premises/image6.png)
 

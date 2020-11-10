@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: ba9f2b10258f19504e3fd37723eceff7b8c37f6a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7e1deb11eb8ae754198cae5be7ecf7150262a61e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203484"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411389"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Ottimizzare le query di log in monitoraggio di Azure
-Log di monitoraggio di Azure usa [Esplora dati di Azure (ADX)](/azure/data-explorer/) per archiviare i dati di log ed eseguire query per l'analisi di tali dati. Crea, gestisce e gestisce i cluster ADX per l'utente e li ottimizza per il carico di lavoro di analisi dei log. Quando si esegue una query, questa viene ottimizzata e indirizzata al cluster ADX appropriato che archivia i dati dell'area di lavoro. Sia i log di monitoraggio di Azure che Azure Esplora dati usano molti meccanismi di ottimizzazione automatica delle query. Sebbene le ottimizzazioni automatiche forniscano un incremento significativo, in alcuni casi è possibile migliorare notevolmente le prestazioni di esecuzione delle query. Questo articolo illustra le considerazioni sulle prestazioni e alcune tecniche per risolverle.
+Log di monitoraggio di Azure usa [Esplora dati di Azure (ADX)](/azure/data-explorer/) per archiviare i dati di log ed eseguire query per l'analisi di tali dati. Crea, gestisce e gestisce i cluster ADX per l'utente e li ottimizza per il carico di lavoro di analisi dei log. Quando si esegue una query, questa viene ottimizzata e indirizzata al cluster ADX appropriato che archivia i dati dell'area di lavoro. Sia i log di monitoraggio di Azure che Azure Esplora dati usano molti meccanismi di ottimizzazione automatica delle query. Sebbene le ottimizzazioni automatiche offrano un notevole incremento, in alcuni casi è possibile migliorare notevolmente le prestazioni delle query. Questo articolo illustra le considerazioni sulle prestazioni e alcune tecniche per risolverle.
 
 La maggior parte delle tecniche è comune per le query che vengono eseguite direttamente nei log di Azure Esplora dati e di monitoraggio di Azure, anche se sono presenti alcune considerazioni univoche sui log di monitoraggio di Azure illustrate qui. Per altri suggerimenti sull'ottimizzazione di Azure Esplora dati, vedere procedure consigliate per le [query](/azure/kusto/query/best-practices).
 
@@ -131,7 +131,7 @@ SecurityEvent
 
 Mentre alcuni comandi di aggregazione come [Max ()](/azure/kusto/query/max-aggfunction), [Sum ()](/azure/kusto/query/sum-aggfunction), [Count ()](/azure/kusto/query/count-aggfunction)e [AVG ()](/azure/kusto/query/avg-aggfunction) hanno un basso effetto sulla CPU dovuti alla logica, altri sono più complessi e includono euristiche e stime che ne consentono l'esecuzione in modo efficiente. [DCount ()](/azure/kusto/query/dcount-aggfunction) , ad esempio, usa l'algoritmo HyperLogLog per fornire una stima di chiusura per il conteggio distinto di set di dati di grandi dimensioni senza contare effettivamente ogni valore. le funzioni percentile eseguono approssimazioni simili usando l'algoritmo percentile di rango più vicino. Molti dei comandi includono parametri facoltativi per ridurne l'effetto. Ad esempio, la funzione [maket ()](/azure/kusto/query/makeset-aggfunction) dispone di un parametro facoltativo per definire la dimensione massima del set, che influiscono significativamente sulla CPU e sulla memoria.
 
-I comandi di [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) e [Riepilogo](/azure/kusto/query/summarizeoperator) possono causare un utilizzo elevato della CPU durante l'elaborazione di un set di dati di grandi dimensioni. La loro complessità è direttamente correlata al numero di valori possibili, denominati *cardinalità*, delle colonne utilizzate come `by` in riepilogo o come attributi di join. Per la spiegazione e l'ottimizzazione di join e riepilogo, vedere gli articoli della documentazione e i suggerimenti per l'ottimizzazione.
+I comandi di [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) e [Riepilogo](/azure/kusto/query/summarizeoperator) possono causare un utilizzo elevato della CPU durante l'elaborazione di un set di dati di grandi dimensioni. La loro complessità è direttamente correlata al numero di valori possibili, denominati *cardinalità* , delle colonne utilizzate come `by` in riepilogo o come attributi di join. Per la spiegazione e l'ottimizzazione di join e riepilogo, vedere gli articoli della documentazione e i suggerimenti per l'ottimizzazione.
 
 Ad esempio, le query seguenti producono esattamente lo stesso risultato perché **CounterPath** è sempre un mapping uno-a-uno con **counterName** e **nomeoggetto**. Il secondo è più efficiente perché la dimensione di aggregazione è più piccola:
 
