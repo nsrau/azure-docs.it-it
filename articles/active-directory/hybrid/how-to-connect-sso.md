@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7baa851943db3e8c691b50c2cb5446a2adbbccc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5e50b9e5dc683eb30452dbb96d82c9f66de93763
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457992"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408006"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Accesso Single Sign-On facile di Azure Active Directory
 
@@ -36,7 +36,7 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 ![Accesso Single Sign-On facile](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->L'accesso Seamless SSO richiede che il dispositivo dell'utente sia solo **aggiunto al dominio**, ma non viene usato nei dispositivi [aggiunti ad Azure AD](../devices/concept-azure-ad-join.md) o [aggiunti ad Azure AD ibrido](../devices/concept-azure-ad-join-hybrid.md). L'accesso Single Sign-On nei dispositivi aggiunti ad Azure AD, aggiunti ad Azure AD ibrido e registrati con Azure AD funziona in base al [token di aggiornamento primario](../devices/concept-primary-refresh-token.md).
+>L'accesso Seamless SSO richiede che il dispositivo dell'utente sia solo **aggiunto al dominio** , ma non viene usato nei dispositivi [aggiunti ad Azure AD](../devices/concept-azure-ad-join.md) o [aggiunti ad Azure AD ibrido](../devices/concept-azure-ad-join-hybrid.md). L'accesso Single Sign-On nei dispositivi aggiunti ad Azure AD, aggiunti ad Azure AD ibrido e registrati con Azure AD funziona in base al [token di aggiornamento primario](../devices/concept-primary-refresh-token.md).
 
 ## <a name="key-benefits"></a>Vantaggi principali
 
@@ -85,7 +85,7 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [**Guida introduttiva**](how-to-connect-sso-quick-start.md): avvio ed esecuzione di Accesso SSO facile di Azure AD.
-- [**Piano di distribuzione**](https://aka.ms/deploymentplans/sso) - Piano di distribuzione dettagliato.
+- [**Piano di distribuzione**](../manage-apps/plan-sso-deployment.md) - Piano di distribuzione dettagliato.
 - [**Approfondimento tecnico**](how-to-connect-sso-how-it-works.md): informazioni sul funzionamento di questa funzionalità.
 - [**Domande frequenti**](how-to-connect-sso-faq.md): risposte alle domande più frequenti.
 - [**Risoluzione dei problemi**](tshoot-connect-sso.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.

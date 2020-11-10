@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 93c2f847678292a1d38eff540a813b591c255ef0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: dbc426144678f5bd7382b0961bf9bc3f5339b97a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043220"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409808"
 ---
 # <a name="azure-tls-certificate-changes"></a>Modifiche ai certificati TLS di Azure  
 
@@ -22,12 +22,12 @@ Microsoft sta aggiornando i servizi di Azure per l'uso di certificati TLS emessi
 
 ## <a name="when-will-this-change-happen"></a>Quando verrà applicata questa modifica?
 
-- La transizione dei servizi di [Azure Active Directory](/azure/active-directory) (Azure AD) inizia il 7 luglio 2020.
+- La transizione dei servizi di [Azure Active Directory](../../active-directory/index.yml) (Azure AD) inizia il 7 luglio 2020.
 - Tutti gli endpoint TLS/SSL di Azure appena creati contengono certificati aggiornati concatenati alle nuove CA radice.
 - Per gli endpoint di Azure esistenti verrà avviata una transizione in fasi a partire dal 13 agosto 2020.
-- L'[hub IoT di Azure](https://azure.microsoft.com/services/iot-hub) e il [servizio Device Provisioning](/azure/iot-dps/) rimarranno di competenza della CA Baltimore CyberTrust Root, ma le relative CA intermedie cambieranno. [Fare clic qui per i dettagli](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
-- I servizio [Archiviazione di Azure](/azure/storage) rimarrà di competenza della CA Baltimore CyberTrust Root, ma le relative CA intermedie cambieranno. [Fare clic qui per i dettagli](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
-- [Cache di Azure per Redis](/azure/azure-cache-for-redis) rimarrà nell'autorità di certificazione radice Baltimore Cybertrust, ma le autorità di certificazione intermedie cambieranno. [Fare clic qui per i dettagli](../../azure-cache-for-redis/cache-whats-new.md).
+- L'[hub IoT di Azure](https://azure.microsoft.com/services/iot-hub) e il [servizio Device Provisioning](../../iot-dps/index.yml) rimarranno di competenza della CA Baltimore CyberTrust Root, ma le relative CA intermedie cambieranno. [Fare clic qui per i dettagli](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
+- I servizio [Archiviazione di Azure](../../storage/index.yml) rimarrà di competenza della CA Baltimore CyberTrust Root, ma le relative CA intermedie cambieranno. [Fare clic qui per i dettagli](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
+- [Cache di Azure per Redis](../../azure-cache-for-redis/index.yml) rimarrà nell'autorità di certificazione radice Baltimore Cybertrust, ma le autorità di certificazione intermedie cambieranno. [Fare clic qui per i dettagli](../../azure-cache-for-redis/cache-whats-new.md).
 > [!IMPORTANT]
 > Dopo questa modifica, è possibile che i clienti debbano aggiornare le loro applicazioni per evitare problemi di connettività quando provano a connettersi ai servizi di Azure.
 
@@ -58,7 +58,7 @@ Se questa data cambia, si riceverà un avviso sulla nuova data di revoca.
 
 ## <a name="will-this-change-affect-me"></a>Quali sono gli effetti di questa modifica? 
 
-Si prevede che la modifica **non influirà sulla maggior parte dei clienti di Azure non** .  Tuttavia, le applicazioni potrebbero essere interessate se specificano esplicitamente un elenco di CA accettabili. Questa procedura è nota come associazione di certificati.
+Si prevede che la modifica **non influirà sulla maggior parte dei clienti di Azure non**.  Tuttavia, le applicazioni potrebbero essere interessate se specificano esplicitamente un elenco di CA accettabili. Questa procedura è nota come associazione di certificati.
 
 Ecco come rilevare se un'applicazione è interessata:
 

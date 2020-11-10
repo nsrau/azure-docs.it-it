@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f95d7ae38ece2a2ad939d2b3c829aed2c676d0f7
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 7079f0b1060be1a260b41e07b9d9299bab57127f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94354003"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410811"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Crittografia dischi di Azure per macchine virtuali Linux 
 
@@ -75,6 +75,7 @@ Le distribuzioni di server Linux non approvate da Azure non supportano Crittogra
 | RedHat | RHEL 7.2 | 7.2 | RedHat:RHEL:7.2:latest | Disco del sistema operativo e dati (vedere la nota di seguito) |
 | RedHat | RHEL 6.8 | 6.8 | RedHat:RHEL:6.8:latest | Disco dati (vedere la nota di seguito) |
 | RedHat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | Disco dati (vedere la nota di seguito) |
+| OpenLogic | CentOS 7,8 | 7.8 | OpenLogic: CentOS: 7_8: più recente | Disco del sistema operativo e dati |
 | OpenLogic | CentOS 7.7 | 7.7 | OpenLogic:CentOS:7.7:latest | Disco del sistema operativo e dati |
 | OpenLogic | CentOS 7.7 | 7-LVM | OpenLogic:CentOS:7-LVM:latest | Disco del sistema operativo e dati |
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | Disco del sistema operativo e dati |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: d1837d84c97227ba3d8743c3717e2f68dafd6b95
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 7c09a7f6c6a313852fc6212c6190a584ba5f67bd
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911393"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409893"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedisci le voci DNS in sospeso ed evita l'acquisizione di sottodomini
 
@@ -27,7 +27,7 @@ Questo articolo descrive le minacce alla sicurezza comuni di acquisizione dei so
 
 ## <a name="what-is-subdomain-takeover"></a>Che cos'è l'acquisizione di sottodomini?
 
-Le acquisizioni di sottodomini rappresentano una minaccia comune e a gravità elevata per le organizzazioni che creano regolarmente ed eliminano molte risorse. L'acquisizione di un sottodominio può verificarsi quando si dispone di un [record DNS](https://docs.microsoft.com/azure/dns/dns-zones-records#dns-records) che punta a una risorsa di Azure di cui è stato effettuato il provisioning. Tali record DNS sono noti anche come voci "DNS in sospeso". I record CNAME sono particolarmente vulnerabili a questa minaccia. Le acquisizioni di sottodominio consentono agli attori malintenzionati di reindirizzare il traffico destinato al dominio di un'organizzazione a un sito che esegue attività dannose.
+Le acquisizioni di sottodomini rappresentano una minaccia comune e a gravità elevata per le organizzazioni che creano regolarmente ed eliminano molte risorse. L'acquisizione di un sottodominio può verificarsi quando si dispone di un [record DNS](../../dns/dns-zones-records.md#dns-records) che punta a una risorsa di Azure di cui è stato effettuato il provisioning. Tali record DNS sono noti anche come voci "DNS in sospeso". I record CNAME sono particolarmente vulnerabili a questa minaccia. Le acquisizioni di sottodominio consentono agli attori malintenzionati di reindirizzare il traffico destinato al dominio di un'organizzazione a un sito che esegue attività dannose.
 
 Uno scenario comune per l'acquisizione di sottodomini:
 
@@ -86,7 +86,7 @@ Se i CNAME si trovano in altri servizi DNS e puntano a risorse di Azure, fornire
 Lo strumento supporta le risorse di Azure elencate nella tabella seguente. Lo strumento estrae o accetta come input tutti i CNAME del tenant.
 
 
-| Servizio                   | Type                                        | FQDNproperty                               | Esempio                         |
+| Servizio                   | Tipo                                        | FQDNproperty                               | Esempio                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Frontdoor di Azure          | microsoft.network/frontdoors                | Properties. cName                           | `abc.azurefd.net`               |
 | Archiviazione BLOB di Azure        | microsoft.storage/storageaccounts           | Properties. primari. blob           | `abc. blob.core.windows.net`    |

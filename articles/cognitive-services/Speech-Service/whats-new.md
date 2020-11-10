@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 11/06/2020
 ms.author: erhopf
-ms.openlocfilehash: c2b96193204c6938338594054bc3cd4715008313
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87832057e955f8408b369e2f55096a713780e965
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89055312"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410777"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Servizio di riconoscimento vocale: novità di docs
 
@@ -23,9 +23,10 @@ Benvenuto! In questa pagina vengono illustrate le novità di documentazione di s
 
 ### <a name="service-updates"></a>Aggiornamenti del servizio
 
-Per informazioni sugli aggiornamenti per il servizio riconoscimento vocale, l'SDK vocale, i dispositivi vocali SDK o l'interfaccia della riga di comando vocale, vedere:
+Per informazioni sugli aggiornamenti per il servizio riconoscimento vocale, l'SDK di riconoscimento vocale, l'SDK per dispositivi vocali, l'interfaccia della riga di comando vocale o i contenitori di sintesi vocale, vedere:
 * [Note sulla versione di Speech SDK](releasenotes.md).
 * [Note sulla versione dell'SDK per dispositivi vocali](devices-sdk-release-notes.md)
+* [Note sulla versione del contenitore di servizi cognitivi](../containers/container-image-tags.md)
 
 ## <a name="may-2020"></a>Maggio 2020
 
@@ -57,28 +58,28 @@ Questi problemi sono stati aperti a maggio. Questa tabella elenca l'utente che h
 
 Questa tabella viene aggiornata ogni mese e riflette solo i problemi aperti nel mese di maggio.  
 
-|ID|Utente|Descrizione|Aperto|State|Type|
+|ID|Utente|Descrizione|Aperto|Stato|Tipo|
 | :--- | :--- | :--- | :--- | :--- | :--- |
-|[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|Attività eliminata perché manca l'endpoint del bot|2020-05-31|Chiusa|Problema|
+|[56045](https://github.com/MicrosoftDocs/azure-docs/issues/56045)|rhalaly|Attività eliminata perché manca l'endpoint del bot|2020-05-31|Chiuso|Problema|
 |[56038](https://github.com/MicrosoftDocs/azure-docs/issues/56038)|rhalaly|Procedura bot per la pubblicazione errata|2020-05-31|Apri|Problema|
 |[56014](https://github.com/MicrosoftDocs/azure-docs/issues/56014)|mosdav|Aggiungere un documento più chiaro sul formato degli esempi PCM|2020-05-30|Apri|Problema|
-|[55984](https://github.com/MicrosoftDocs/azure-docs/issues/55984)|chschrae|Il titolo non corrisponde alla barra laterale|2020-05-29|Chiusa|Problema|
-|[55857](https://github.com/MicrosoftDocs/azure-docs/issues/55857)|nitinbhatia-dev|Errore dell'interfaccia della riga di comando con il file Wave|2020-05-28|Chiusa|Problema|
+|[55984](https://github.com/MicrosoftDocs/azure-docs/issues/55984)|chschrae|Il titolo non corrisponde alla barra laterale|2020-05-29|Chiuso|Problema|
+|[55857](https://github.com/MicrosoftDocs/azure-docs/issues/55857)|nitinbhatia-dev|Errore dell'interfaccia della riga di comando con il file Wave|2020-05-28|Chiuso|Problema|
 |[55717](https://github.com/MicrosoftDocs/azure-docs/pull/55717)|dargilco|Aggiornare speech-sdk.md|2020-05-27|Apri|Richiesta pull|
-|[55299](https://github.com/MicrosoftDocs/azure-docs/issues/55299)|Tirumala-K|Errore strano con il nome vocale non supportato|2020-05-20|Chiusa|Problema|
+|[55299](https://github.com/MicrosoftDocs/azure-docs/issues/55299)|Tirumala-K|Errore strano con il nome vocale non supportato|2020-05-20|Chiuso|Problema|
 |[55099](https://github.com/MicrosoftDocs/azure-docs/issues/55099)|kmoore-riphaina|La documentazione relativa all'API di sintesi vocale è insufficiente|2020-05-18|Apri|Problema|
-|[55032](https://github.com/MicrosoftDocs/azure-docs/issues/55032)|dubbySwords|Classe Microsoft CognitiveServices Speech SpeechRecognizer, non è in grado di raccogliere un testo risultante|2020-05-18|Chiusa|Problema|
-|[55031](https://github.com/MicrosoftDocs/azure-docs/issues/55031)|dubbySwords|Non chiaro|2020-05-18|Chiusa|Problema|
-|[55027](https://github.com/MicrosoftDocs/azure-docs/issues/55027)|ovishesh|Grafica non visibile con tema scuro|2020-05-17|Chiusa|Problema|
+|[55032](https://github.com/MicrosoftDocs/azure-docs/issues/55032)|dubbySwords|Classe Microsoft CognitiveServices Speech SpeechRecognizer, non è in grado di raccogliere un testo risultante|2020-05-18|Chiuso|Problema|
+|[55031](https://github.com/MicrosoftDocs/azure-docs/issues/55031)|dubbySwords|Non chiaro|2020-05-18|Chiuso|Problema|
+|[55027](https://github.com/MicrosoftDocs/azure-docs/issues/55027)|ovishesh|Grafica non visibile con tema scuro|2020-05-17|Chiuso|Problema|
 |[54919](https://github.com/MicrosoftDocs/azure-docs/issues/54919)|kmoore-riphaina|sezione mancante?|2020-05-15|Apri|Problema|
 |[54743](https://github.com/MicrosoftDocs/azure-docs/issues/54743)|fifteenjoy|Esecuzione di contenitori di servizi vocali non riusciti|2020-05-13|Apri|Problema|
 |[54550](https://github.com/MicrosoftDocs/azure-docs/issues/54550)|Manish-95|Esempio per il file di pronuncia|2020-05-11|Apri|Problema|
 |[54522](https://github.com/MicrosoftDocs/azure-docs/issues/54522)|pjmlp|L'esempio Java non è corretto.|2020-05-10|Apri|Problema|
-|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Impossibile ottenere il Punteggio di pronuncia|2020-05-08|Chiusa|Problema|
-|[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|Modello di file YAML|2020-05-07|Chiusa|Problema|
-|[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|Il codice di esempio C# non richiede l'intervento dell'utente.|2020-05-06|Chiusa|Problema|
-|[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|Aggiornare TTS da v 1.3 a v 1.4|2020-05-05|Chiusa|Richiesta pull|
-|[54111](https://github.com/MicrosoftDocs/azure-docs/pull/54111)|anthonsu|Aggiornare la versione più recente di STT personalizzata a v 2.2.0|2020-05-05|Chiusa|Richiesta pull|
+|[54387](https://github.com/MicrosoftDocs/azure-docs/issues/54387)|ziadhassan7|Impossibile ottenere il Punteggio di pronuncia|2020-05-08|Chiuso|Problema|
+|[54382](https://github.com/MicrosoftDocs/azure-docs/issues/54382)|jgtellez1|Modello di file YAML|2020-05-07|Chiuso|Problema|
+|[54208](https://github.com/MicrosoftDocs/azure-docs/issues/54208)|paparush|Il codice di esempio C# non richiede l'intervento dell'utente.|2020-05-06|Chiuso|Problema|
+|[54132](https://github.com/MicrosoftDocs/azure-docs/pull/54132)|anthonsu|Aggiornare TTS da v 1.3 a v 1.4|2020-05-05|Chiuso|Richiesta pull|
+|[54111](https://github.com/MicrosoftDocs/azure-docs/pull/54111)|anthonsu|Aggiornare la versione più recente di STT personalizzata a v 2.2.0|2020-05-05|Chiuso|Richiesta pull|
 |[53919](https://github.com/MicrosoftDocs/azure-docs/issues/53919)|eyast|I collegamenti ai progetti GitHub sono interrotti|2020-05-03|Apri|Problema|
-|[53892](https://github.com/MicrosoftDocs/azure-docs/issues/53892)|viju2008|Proprietà da definire: tempo massimo di riconoscimento audio per il microfono Android. Arresto del riconoscimento audio dopo 15 secondi|2020-05-02|Chiusa|Problema|
-|[53796](https://github.com/MicrosoftDocs/azure-docs/pull/53796)|singhsaumya|Comandi personalizzati: aggiornamento docs|2020-05-01|Chiusa|Richiesta pull|
+|[53892](https://github.com/MicrosoftDocs/azure-docs/issues/53892)|viju2008|Proprietà da definire: tempo massimo di riconoscimento audio per il microfono Android. Arresto del riconoscimento audio dopo 15 secondi|2020-05-02|Chiuso|Problema|
+|[53796](https://github.com/MicrosoftDocs/azure-docs/pull/53796)|singhsaumya|Comandi personalizzati: aggiornamento docs|2020-05-01|Chiuso|Richiesta pull|

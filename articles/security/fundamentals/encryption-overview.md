@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d839ea042dec2224885f9ba4a0cb6adef5108568
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff023ad98c7ffa269223b5d0b4a1cecc5fde1feb
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458621"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410216"
 ---
 # <a name="azure-encryption-overview"></a>Panoramica della crittografia di Azure
 
@@ -45,15 +45,15 @@ Con la crittografia lato client il provider di servizi cloud non ha accesso alle
 
 I tre modelli di crittografia lato server offrono caratteristiche differenti di gestione delle chiavi che possono essere scelte in base ai requisiti:
 
-- **Chiavi gestite dal servizio**: combinano controllo e comodità con un sovraccarico ridotto.
+- **Chiavi gestite dal servizio** : combinano controllo e comodità con un sovraccarico ridotto.
 
-- **Chiavi gestite dal cliente**: consentono di controllare le chiavi, inclusa la possibilità di usare chiavi personalizzate (BYOK) o di generarne di nuove.
+- **Chiavi gestite dal cliente** : consentono di controllare le chiavi, inclusa la possibilità di usare chiavi personalizzate (BYOK) o di generarne di nuove.
 
-- **Chiavi gestite dal servizio in hardware controllato dal cliente**: consentono di gestire le chiavi presenti nel repository proprietario fuori dal controllo di Microsoft. Questa caratteristica viene definita HYOK (Host Your Own Key). Tuttavia, la configurazione è complessa e la maggior parte dei servizi di Azure non supporta questo modello.
+- **Chiavi gestite dal servizio in hardware controllato dal cliente** : consentono di gestire le chiavi presenti nel repository proprietario fuori dal controllo di Microsoft. Questa caratteristica viene definita HYOK (Host Your Own Key). Tuttavia, la configurazione è complessa e la maggior parte dei servizi di Azure non supporta questo modello.
 
 ### <a name="azure-disk-encryption"></a>Crittografia dischi di Azure
 
-È possibile proteggere le macchine virtuali Linux e Windows usando [Crittografia dischi di Azure](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) che usa la tecnologia [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) e Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) per proteggere sia i dischi del sistema operativo sia i dischi di dati con la crittografia dell'intero volume.
+È possibile proteggere le macchine virtuali Linux e Windows usando [Crittografia dischi di Azure](./azure-disk-encryption-vms-vmss.md) che usa la tecnologia [Windows BitLocker](/previous-versions/windows/it-pro/windows-vista/cc766295(v=ws.10)) e Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) per proteggere sia i dischi del sistema operativo sia i dischi di dati con la crittografia dell'intero volume.
 
 Le chiavi e i segreti di crittografia vengono protetti nella sottoscrizione di [Azure Key Vault](../../key-vault/general/overview.md). È possibile eseguire il backup e il ripristino delle macchine virtuali crittografate con configurazione KEK usando il servizio Backup di Microsoft Azure.
 
@@ -83,13 +83,13 @@ Il [database SQL di Azure](../../azure-sql/database/sql-database-paas-overview.m
 
 #### <a name="transparent-data-encryption"></a>Transparent Data Encryption
 
-Transparent Data [Encryption viene usato](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) per crittografare in tempo reale [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), il [database SQL di Azure](../../azure-sql/database/sql-database-paas-overview.md)e i file di dati di analisi delle sinapsi di [Azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) , usando una chiave di crittografia del database, archiviata nel record di avvio del database per la disponibilità durante il ripristino.
+Transparent Data [Encryption viene usato](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) per crittografare in tempo reale [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), il [database SQL di Azure](../../azure-sql/database/sql-database-paas-overview.md)e i file di dati di analisi delle sinapsi di [Azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) , usando una chiave di crittografia del database, archiviata nel record di avvio del database per la disponibilità durante il ripristino.
 
 La tecnologia TDE protegge i file di dati e di log usando gli algoritmi di crittografia AES e 3DES (Triple Data Encryption Standard). La crittografia del file di database viene eseguita a livello di pagina. Le pagine in un database crittografato vengono crittografate prima di essere scritte sul disco e decrittografate quando vengono lette in memoria. La tecnologia Transparent Data Encryption è ora abilitata per impostazione predefinita nei nuovi database SQL di Azure.
 
 #### <a name="always-encrypted-feature"></a>Funzionalità Always Encrypted
 
-La funzionalità [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) consente di crittografare i dati all'interno delle applicazioni client prima di archiviarli nel database SQL di Azure. Consente inoltre di abilitare la delega dell'amministrazione di database locale a terze parti e mantenere la separazione tra chi possiede e può visualizzare i dati e chi gestisce ma non deve avere accesso ad essi.
+La funzionalità [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) consente di crittografare i dati all'interno delle applicazioni client prima di archiviarli nel database SQL di Azure. Consente inoltre di abilitare la delega dell'amministrazione di database locale a terze parti e mantenere la separazione tra chi possiede e può visualizzare i dati e chi gestisce ma non deve avere accesso ad essi.
 
 #### <a name="cell-level-or-column-level-encryption"></a>Crittografia a livello di cella o a livello di colonna
 
@@ -125,9 +125,9 @@ Microsoft offre ai clienti la possibilità di usare il protocollo [Transport Lay
 
 Quando si interagisce con Archiviazione di Azure tramite il portale di Azure, tutte le transazioni hanno luogo tramite HTTPS. È possibile anche usare l'API REST di archiviazione su HTTPS per interagire con Archiviazione di Azure. È possibile imporre l'uso del protocollo HTTPS quando si chiamano le API REST per accedere a oggetti negli account di archiviazione abilitando l'opzione Trasferimento sicuro obbligatorio per l'account di archiviazione.
 
-Le firme di accesso condiviso ([SAS](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)), che possono essere usate per delegare l'accesso agli oggetti di Archiviazione di Azure, includono la possibilità di specificare che quando si usano firme di accesso condiviso può essere usato solo il protocollo HTTPS. In questo modo si garantisce che chiunque invii collegamenti con token di firma di accesso condiviso usi il protocollo corretto.
+Le firme di accesso condiviso ([SAS](../../storage/common/storage-sas-overview.md)), che possono essere usate per delegare l'accesso agli oggetti di Archiviazione di Azure, includono la possibilità di specificare che quando si usano firme di accesso condiviso può essere usato solo il protocollo HTTPS. In questo modo si garantisce che chiunque invii collegamenti con token di firma di accesso condiviso usi il protocollo corretto.
 
-Il protocollo [SMB 3.0](https://technet.microsoft.com/library/dn551363(v=ws.11).aspx#BKMK_SMBEncryption) usato per accedere alle condivisioni di File di Azure supporta la crittografia ed è disponibile in Windows Server 2012 R2, Windows 8, Windows 8.1 e Windows 10. Consente l'accesso tra più aree e anche al desktop.
+Il protocollo [SMB 3.0](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn551363(v=ws.11)#BKMK_SMBEncryption) usato per accedere alle condivisioni di File di Azure supporta la crittografia ed è disponibile in Windows Server 2012 R2, Windows 8, Windows 8.1 e Windows 10. Consente l'accesso tra più aree e anche al desktop.
 
 La crittografia lato client crittografa i dati prima che vengano inviati ad Archiviazione di Azure, in modo che durante il transito in rete siano crittografati.
 
@@ -143,7 +143,7 @@ I dati in transito verso, da e tra le macchine virtuali che eseguono Windows pos
 
 ### <a name="rdp-sessions"></a>Sessioni RDP
 
-È possibile connettersi e accedere a una macchina virtuale usando [Remote Desktop Protocol (RDP)](https://msdn.microsoft.com/library/aa383015(v=vs.85).aspx) da un computer client Windows o da un Mac con un client RDP installato. I dati in transito sulla rete nelle sessioni RDP possono essere protetti dal protocollo TLS.
+È possibile connettersi e accedere a una macchina virtuale usando [Remote Desktop Protocol (RDP)](/windows/win32/termserv/remote-desktop-protocol) da un computer client Windows o da un Mac con un client RDP installato. I dati in transito sulla rete nelle sessioni RDP possono essere protetti dal protocollo TLS.
 
 È possibile anche usare Desktop remoto per connettersi a una VM Linux di Azure.
 
@@ -163,7 +163,7 @@ La rete VPN da sito a sito usa [IPsec](https://en.wikipedia.org/wiki/IPsec) per 
 
 ### <a name="point-to-site-vpns"></a>VPN da punto a sito
 
-Le VPN da punto a sito consentono ai singoli computer client di accedere a una rete virtuale di Azure. Il protocollo [Secure Socket Tunneling Protocol (SSTP)](https://technet.microsoft.com/library/2007.06.cableguy.aspx) viene usato per creare il tunnel VPN e può attraversare i firewall (il tunnel viene visualizzato come una connessione HTTPS). È possibile usare la CA radice della PKI interna per la connettività da punto a sito.
+Le VPN da punto a sito consentono ai singoli computer client di accedere a una rete virtuale di Azure. Il protocollo [Secure Socket Tunneling Protocol (SSTP)](/previous-versions/technet-magazine/cc162322(v=msdn.10)) viene usato per creare il tunnel VPN e può attraversare i firewall (il tunnel viene visualizzato come una connessione HTTPS). È possibile usare la CA radice della PKI interna per la connettività da punto a sito.
 
 È possibile configurare una connessione VPN da punto a sito a una rete virtuale usando il portale di Azure con l'autenticazione del certificato o PowerShell.
 
@@ -201,9 +201,9 @@ Con Key Vault le organizzazioni non hanno più necessità di eseguire le operazi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica della sicurezza in Azure](get-started-overview.md)
+- [Panoramica della sicurezza in Azure](./overview.md)
 - [Panoramica della sicurezza di rete di Azure](network-overview.md)
-- [Panoramica della sicurezza del database di Azure](database-security-overview.md)
+- [Panoramica della sicurezza del database di Azure](../../azure-sql/database/security-overview.md)
 - [Informazioni generali sulla sicurezza di Macchine virtuali di Azure](virtual-machines-overview.md)
 - [Crittografia dei dati inattivi](encryption-atrest.md)
 - [Procedure consigliate per la sicurezza e la crittografia dei dati](data-encryption-best-practices.md)

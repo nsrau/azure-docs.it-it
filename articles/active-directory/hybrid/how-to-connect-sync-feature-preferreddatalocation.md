@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4c456e7788280b7ca5328342e1cd848ba3a583a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319895"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411134"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Sincronizzazione Azure Active Directory Connect: configurare il percorso dati preferito per le risorse Microsoft 365
 Lo scopo di questo argomento è illustrare come configurare l'attributo per la posizione dei dati preferita in Azure Active Directory (Azure AD) Connect Sync. Quando un utente usa funzionalità multigeo in Microsoft 365, questo attributo viene usato per definire la posizione geografica dei dati Microsoft 365 dell'utente. I termini *area* e *area geografica* vengono usati in modo intercambiabile.
@@ -36,7 +36,7 @@ Impostando l'attributo **preferredDataLocation** è possibile definire l'area ge
 >
 >
 
-Un elenco di tutti i GEOS per Microsoft 365 è disponibile in [dove si trovano i dati?](https://aka.ms/datamaps).
+Un elenco di tutti i GEOS per Microsoft 365 è disponibile in [dove si trovano i dati?](/microsoft-365/enterprise/o365-data-locations).
 
 GEOS in Microsoft 365 disponibile per la funzionalità multigeo:
 
@@ -70,7 +70,7 @@ Azure AD Connect supporta la sincronizzazione dell'attributo **preferredDataLoca
 Per impostazione predefinita, **preferredDataLocation** non è abilitato per la sincronizzazione. Questa funzionalità è destinata alle organizzazioni di grandi dimensioni. Lo schema Active Directory in Windows Server 2019 dispone di un attributo **msDS-preferredDataLocation** da usare a questo scopo. Se lo schema di Active Directory non è stato aggiornato e non è possibile eseguire questa operazione, è necessario identificare un attributo per contenere l'area geografica Microsoft 365 per gli utenti. Si tratta di un attributo diverso per ogni organizzazione.
 
 > [!IMPORTANT]
-> Azure AD consente la configurazione diretta dell'attributo **preferredDataLocation** sugli **oggetti Utente cloud** con Azure AD PowerShell. Per configurare questo attributo sugli **oggetti Utente sincronizzati**, è necessario usare Azure AD Connect.
+> Azure AD consente la configurazione diretta dell'attributo **preferredDataLocation** sugli **oggetti Utente cloud** con Azure AD PowerShell. Per configurare questo attributo sugli **oggetti Utente sincronizzati** , è necessario usare Azure AD Connect.
 
 Prima di abilitare la sincronizzazione:
 
@@ -151,7 +151,7 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
     | Precedenza | *Scegliere un numero compreso tra 1 e 99* | I numeri compresi tra 1 e 99 sono riservati alle regole di sincronizzazione personalizzate. Non scegliere un valore usato da un'altra regola di sincronizzazione. |
 
 5. Lasciare vuoto il **filtro di ambito** per includere tutti gli oggetti. Potrebbe essere necessario perfezionare il filtro di ambito in base alla distribuzione di Azure AD Connect.
-6. Passare alla **scheda trasformazione**e implementare la regola di trasformazione seguente:
+6. Passare alla **scheda trasformazione** e implementare la regola di trasformazione seguente:
 
     | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
@@ -201,7 +201,7 @@ La regola di sincronizzazione in uscita consente il flusso del valore dell'attri
 ## <a name="step-7-run-full-synchronization-cycle"></a>Passaggio 7: eseguire il ciclo di sincronizzazione completa
 In generale, un ciclo di sincronizzazione completo è necessario. Il motivo è che sono stati aggiunti nuovi attributi per gli schemi di Active Directory e Azure AD Connector e sono state introdotte regole di sincronizzazione personalizzate. Verificare le modifiche prima di esportarle in Azure AD. È possibile usare la procedura seguente per controllare le modifiche, eseguendo al contempo manualmente i passaggi che compongono il ciclo di sincronizzazione completo.
 
-1. Eseguire un'**importazione completa** nell'istanza di Active Directory Connector locale:
+1. Eseguire un' **importazione completa** nell'istanza di Active Directory Connector locale:
 
    1. Passare alla scheda **Operazioni** in Synchronization Service Manager.
    2. Fare clic con il pulsante destro del mouse sull'istanza di **Active Directory Connector locale** e scegliere **Esegui**.
@@ -211,9 +211,9 @@ In generale, un ciclo di sincronizzazione completo è necessario. Il motivo è c
       > [!NOTE]
       > È possibile ignorare l'importazione completa in Active Directory Connector locale se l'attributo di origine è già incluso nell'elenco degli attributi importati. In altre parole, non è necessario apportare modifiche durante il passaggio 2 in precedenza in questo articolo.
 
-2. Eseguire un'**importazione completa** in Azure AD Connector:
+2. Eseguire un' **importazione completa** in Azure AD Connector:
 
-   1. Fare clic con il pulsante destro del mouse sul **connettore Azure ad**e scegliere **Esegui**.
+   1. Fare clic con il pulsante destro del mouse sul **connettore Azure ad** e scegliere **Esegui**.
    2. Nella finestra di dialogo selezionare **Importazione completa** e fare clic su **OK**.
    3. Attendere il completamento dell'operazione.
 
@@ -229,7 +229,7 @@ In generale, un ciclo di sincronizzazione completo è necessario. Il motivo è c
 
 5. Verificare le **esportazioni in sospeso** per Azure AD:
 
-   1. Fare clic con il pulsante destro del mouse sul **connettore Azure ad**e scegliere **Cerca spazio connettore**.
+   1. Fare clic con il pulsante destro del mouse sul **connettore Azure ad** e scegliere **Cerca spazio connettore**.
    2. Nella finestra di dialogo **Search Connector Space** (Cerca spazio connettore:
 
         a. Impostare **Ambito** su **Pending Export** (Esportazione in sospeso).<br>
@@ -239,7 +239,7 @@ In generale, un ciclo di sincronizzazione completo è necessario. Il motivo è c
 
 6. Eseguire l' **esportazione** sul **connettore Azure ad**
 
-   1. Fare clic con il pulsante destro del mouse sul **connettore Azure ad**e scegliere **Esegui**.
+   1. Fare clic con il pulsante destro del mouse sul **connettore Azure ad** e scegliere **Esegui**.
    2. Nella finestra di dialogo **Run Connector** (Esegui connettore) selezionare **Esporta** e fare clic su **OK**.
    3. Attendere il completamento dell'operazione.
 
@@ -267,8 +267,8 @@ Supponendo che il tenant sia stato contrassegnato come in grado di usare questa 
 Scopri di più sulle aree geografiche in Microsoft 365:
 
 * [Sessioni su Multi-Geo Capabilities in Ignite](https://aka.ms/MultiGeoIgnite)
-* [Multi-Geo Capabilities in OneDrive](https://aka.ms/OneDriveMultiGeo)
-* [Multi-Geo Capabilities in SharePoint Online](https://aka.ms/SharePointMultiGeo)
+* [Multi-Geo Capabilities in OneDrive](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365)
+* [Multi-Geo Capabilities in SharePoint Online](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365)
 
 Altre informazioni sul modello di configurazione nel motore di sincronizzazione:
 

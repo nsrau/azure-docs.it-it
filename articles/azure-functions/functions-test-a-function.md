@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 8ff70c14310dd81a051ac27c1d6d59bb3d1deb7b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ff64d5c17174f8e1e67111ebca9ccf050deb2f26
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677596"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409655"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie per il test del codice in Funzioni di Azure
 
@@ -37,9 +37,9 @@ Il seguente esempio illustra come creare un'app della funzione C# in Visual Stud
 Per configurare l'ambiente, creare una funzione e testare l'app. I passaggi seguenti consentono di creare le app e le funzioni necessarie per supportare i test:
 
 1. [Creare una nuova app funzioni](./functions-create-first-azure-function.md) e denominarla **Funzioni**
-2. [Creare una funzione HTTP dal modello](./functions-create-first-azure-function.md) e denominarla **MyHttpTrigger** .
-3. [Creare una funzione timer dal modello](./functions-create-scheduled-function.md) e denominarla **MyTimerTrigger** .
-4. [Creare un'app di test xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) nella soluzione e denominarla **Functions. tests** .
+2. [Creare una funzione HTTP dal modello](./functions-create-first-azure-function.md) e denominarla **MyHttpTrigger**.
+3. [Creare una funzione timer dal modello](./functions-create-scheduled-function.md) e denominarla **MyTimerTrigger**.
+4. [Creare un'app di test xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) nella soluzione e denominarla **Functions. tests**.
 5. Usare NuGet per aggiungere un riferimento dall'app di test a [Microsoft. AspNetCore. Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Fare riferimento all'app *funzioni*](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) dall'app *Functions. tests* .
 
@@ -251,17 +251,17 @@ I membri implementati in questa classe sono:
 
 - **Timer_should_log_message** : questo test crea un'istanza di `ListLogger` e la passa a una funzione timer. Una volta eseguita la funzione, il log viene controllato per verificare che sia presente il messaggio previsto.
 
-Se si desidera accedere alle impostazioni dell'applicazione nei test, è possibile utilizzare [System. Environment. GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
+Se si desidera accedere alle impostazioni dell'applicazione nei test, è possibile [inserire](./functions-dotnet-dependency-injection.md) `IConfiguration` nella funzione un'istanza con valori di variabili di ambiente fittizi.
 
 ### <a name="run-tests"></a>Esecuzione dei test
 
-Per eseguire i test, passare al **Explorer di Test** e fare clic su **Esegui tutto** .
+Per eseguire i test, passare al **Explorer di Test** e fare clic su **Esegui tutto**.
 
 ![Test di Funzioni di Azure con C# in Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
 ### <a name="debug-tests"></a>Esecuzione del debug dei test
 
-Per eseguire il debug dei test, impostare un punto di interruzione in un test, passare a **Explorer del Test** e fare clic su **Esegui > Ultima esecuzione del Debug** .
+Per eseguire il debug dei test, impostare un punto di interruzione in un test, passare a **Explorer del Test** e fare clic su **Esegui > Ultima esecuzione del Debug**.
 
 ## <a name="javascript-in-vs-code"></a>JavaScript in Visual Studio Code
 
@@ -315,7 +315,7 @@ module.exports = {
 
 Questo modulo implementa la proprietà `IsPastDue` per realizzare che è come un'istanza del timer fittizia. Le configurazioni del timer come le espressioni NCRONTAB non sono necessarie in questo caso perché il test harness chiama semplicemente la funzione direttamente per testare il risultato.
 
-Successivamente, usare l'estensione delle Funzioni di Visual Studio Code per [creare una nuova funzione HTTP JavaScript](/azure/developer/javascript/tutorial-vscode-serverless-node-01) e denominarla *HttpTrigger* . Dopo aver creato la funzione, aggiungere un nuovo file nella stessa cartella denominata **index.test.js** e aggiungere il codice seguente:
+Successivamente, usare l'estensione delle Funzioni di Visual Studio Code per [creare una nuova funzione HTTP JavaScript](/azure/developer/javascript/tutorial-vscode-serverless-node-01) e denominarla *HttpTrigger*. Dopo aver creato la funzione, aggiungere un nuovo file nella stessa cartella denominata **index.test.js** e aggiungere il codice seguente:
 
 ```javascript
 const httpFunction = require('./index');
@@ -336,7 +336,7 @@ test('Http trigger should return known text', async () => {
 
 La funzione HTTP dal modello restituisce una stringa di "Hello" concatenati con il nome specificato nella stringa di query. Questo test consente di creare un'istanza fittizia di una richiesta e la passa alla funzione HTTP. Il test verifica che il metodo *log* venga chiamato una sola volta e che il testo restituito sia uguale a "Hello Bill".
 
-Successivamente, usare l'estensione delle Funzioni di Visual Studio Code per creare una nuova funzione timer JavaScript e denominarla *TimerTrigger* . Dopo aver creato la funzione, aggiungere un nuovo file nella stessa cartella denominata **index.test.js** e aggiungere il codice seguente:
+Successivamente, usare l'estensione delle Funzioni di Visual Studio Code per creare una nuova funzione timer JavaScript e denominarla *TimerTrigger*. Dopo aver creato la funzione, aggiungere un nuovo file nella stessa cartella denominata **index.test.js** e aggiungere il codice seguente:
 
 ```javascript
 const timerFunction = require('./index');
@@ -379,7 +379,7 @@ Per eseguire il debug dei test, aggiungere la configurazione seguente per il fil
 }
 ```
 
-Successivamente, impostare un punto di interruzione del test e premere **F5** .
+Successivamente, impostare un punto di interruzione del test e premere **F5**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

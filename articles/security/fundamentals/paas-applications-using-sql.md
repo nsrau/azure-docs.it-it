@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: a02b2157209b5f47ac7ffbde4e15f3e7df1c258b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 278812754c636d434bf579c0408832f1e99d3445
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462531"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408074"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Procedure consigliate per la protezione di database PaaS in Azure
 
@@ -40,7 +40,7 @@ Il database SQL di Azure può essere configurato per usare uno dei due tipi di a
 
 - **Autenticazione di Azure Active Directory** usa identità gestite da Azure Active Directory ed è supportata per domini gestiti e integrati. Per usare l'autenticazione di Azure Active Directory, è necessario creare un altro amministratore del server denominato "admin Azure AD," che è autorizzato ad amministrare utenti e gruppi di Azure AD. Questo amministratore può eseguire anche tutte le operazioni eseguite da un normale amministratore del server.
 
-[Azure Active Directory autenticazione](../../active-directory/develop/authentication-scenarios.md) è un meccanismo di connessione al database SQL di Azure e ad Azure sinapsi Analytics usando le identità in Azure Active Directory (ad). Azure AD rappresenta un'alternativa all'autenticazione di SQL Server, anche per evitare la proliferazione di identità utente in più server di database. Con l'autenticazione di Azure AD è possibile gestire centralmente le identità degli utenti del database e di altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti del database da un unico punto e semplifica la gestione delle autorizzazioni.  
+[Azure Active Directory autenticazione](../../active-directory/develop/authentication-vs-authorization.md) è un meccanismo di connessione al database SQL di Azure e ad Azure sinapsi Analytics usando le identità in Azure Active Directory (ad). Azure AD rappresenta un'alternativa all'autenticazione di SQL Server, anche per evitare la proliferazione di identità utente in più server di database. Con l'autenticazione di Azure AD è possibile gestire centralmente le identità degli utenti del database e di altri servizi Microsoft. La gestione centrale degli ID consente di gestire gli utenti del database da un unico punto e semplifica la gestione delle autorizzazioni.  
 
 ### <a name="benefits-of-using-azure-ad-instead-of-sql-authentication"></a>Vantaggi dell'uso di Azure AD al posto dell'autenticazione SQL
 
@@ -50,7 +50,7 @@ Il database SQL di Azure può essere configurato per usare uno dei due tipi di a
 - Usa gli utenti di database indipendente per autenticare le identità a livello di database.
 - Supporta l'autenticazione basata su token per le applicazioni che si connettono al database SQL.
 - Supporta la federazione dei domini con Active Directory Federation Services (AD FS) o l'autenticazione utente/password nativa per un'istanza locale di Azure AD senza la sincronizzazione del dominio.
-- Supporta le connessioni da SQL Server Management Studio che utilizzano l'autenticazione universale di Active Directory, che include l'autenticazione [MFA (Multi-Factor Authentication)](/azure/active-directory/authentication/multi-factor-authentication). L'MFA include funzionalità avanzate di autenticazione con una serie di semplici opzioni di verifica, tra cui: chiamata telefonica, SMS, smart card con pin o notifica tramite app per dispositivi mobili. Per altre informazioni, vedere [autenticazione universale con database SQL e analisi delle sinapsi di Azure](../../azure-sql/database/authentication-mfa-ssms-overview.md).
+- Supporta le connessioni da SQL Server Management Studio che utilizzano l'autenticazione universale di Active Directory, che include l'autenticazione [MFA (Multi-Factor Authentication)](../../active-directory/authentication/concept-mfa-howitworks.md). L'MFA include funzionalità avanzate di autenticazione con una serie di semplici opzioni di verifica, tra cui: chiamata telefonica, SMS, smart card con pin o notifica tramite app per dispositivi mobili. Per altre informazioni, vedere [autenticazione universale con database SQL e analisi delle sinapsi di Azure](../../azure-sql/database/authentication-mfa-ssms-overview.md).
 
 Per altre informazioni sull'autenticazione di Azure AD, vedere:
 

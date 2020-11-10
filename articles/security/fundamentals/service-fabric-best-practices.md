@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b25e65914ce603b4a969eda7fd7c048704e466
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81461651"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410012"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedure consigliate per la sicurezza di Azure Service Fabric
 Distribuire un'applicazione in Azure è veloce, semplice ed economico. Prima di distribuire l'applicazione cloud in produzione, esaminare l'elenco di procedure consigliate essenziali e consigliate per l'implementazione di cluster sicuri nell'applicazione.
@@ -132,7 +132,7 @@ Il certificato deve soddisfare i requisiti seguenti per i certificati SSL/TLS in
 -   Il nome del soggetto del certificato deve corrispondere al nome di dominio usato per accedere al servizio cloud.
 
     - Acquistare un nome di dominio personalizzato da usare per accedere al servizio cloud.
-    - Richiedere un certificato da un'autorità di certificazione con un nome di soggetto corrispondente al nome di dominio personalizzato del servizio. Se ad esempio il nome di dominio personalizzato è __contoso__**.com**, il nome del soggetto del certificato dell'autorità di certificazione deve essere **.contoso.com** o __www__**.contoso.com**.
+    - Richiedere un certificato da un'autorità di certificazione con un nome di soggetto corrispondente al nome di dominio personalizzato del servizio. Se ad esempio il nome di dominio personalizzato è __contoso__**.com** , il nome del soggetto del certificato dell'autorità di certificazione deve essere **.contoso.com** o __www__**.contoso.com**.
 
     >[!NOTE]
     >Non è possibile ottenere un certificato SSL/TLS da un'autorità di certificazione per il dominio __cloudapp__**.NET** .
@@ -178,6 +178,6 @@ Azure Service Fabric supporta due tipi di controllo di accesso per i client che 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Elenco di controllo per la sicurezza di Service Fabric](service-fabric-checklist.md)
+- [Elenco di controllo per la sicurezza di Service Fabric](../../service-fabric/service-fabric-best-practices-security.md)
 - Configurare l'[ambiente di sviluppo](../../service-fabric/service-fabric-get-started.md) di Service Fabric.
 - Informazioni sulle [opzioni di supporto di Service Fabric](../../service-fabric/service-fabric-support.md).

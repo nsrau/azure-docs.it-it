@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ab42acbc07072f48d28b3adb5bc4c65672f257bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde95006865a2aab2da4a5d6d27ccccc14d74d12
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314318"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408923"
 ---
 # <a name="security-control-v2-data-protection"></a>Controllo di sicurezza V2: protezione dei dati
 
@@ -32,11 +32,11 @@ Usare Azure Information Protection (e lo strumento di analisi associato) per inf
 
 - [Contrassegnare le informazioni riservate usando Azure Information Protection](/azure/information-protection/what-is-information-protection) 
 
-- [Come implementare l'individuazione dati SQL di Azure](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Come implementare l'individuazione dati SQL di Azure](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-**Responsabilità**: Condiviso
+**Responsabilità** : Condiviso
 
-**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -60,9 +60,9 @@ Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti 
 
 - [Informazioni sulla protezione dei dati dei clienti in Azure](../fundamentals/protection-customer-data.md)
 
-**Responsabilità**: Condiviso
+**Responsabilità** : Condiviso
 
-**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -86,11 +86,11 @@ Se necessario per la conformità della prevenzione della perdita dei dati (DLP),
 
 - [Abilitare Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md)
 
-- [Abilitare Azure Storage ATP](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
+- [Abilitare Azure Storage ATP](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
-**Responsabilità**: Condiviso
+**Responsabilità** : Condiviso
 
-**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security) 
 
@@ -116,9 +116,9 @@ Per impostazione predefinita, Azure fornisce la crittografia per i dati in trans
 
 - [Crittografia doppia per i dati di Azure in transito](../fundamentals/double-encryption.md#data-in-transit)
 
-**Responsabilità**: Condiviso
+**Responsabilità** : Condiviso
 
-**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -140,15 +140,15 @@ Per impostazione predefinita, Azure fornisce la crittografia per i dati inattivi
 
 - [Informazioni sulla crittografia inattiva in Azure](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services)
 
-- [Come configurare le chiavi di crittografia gestite dal cliente](../../storage/common/storage-encryption-keys-portal.md)
+- [Come configurare le chiavi di crittografia gestite dal cliente](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [Modello di crittografia e tabella di gestione delle chiavi](../fundamentals/encryption-models.md)
 
 - [Crittografia doppia dati inattivi in Azure](../fundamentals/double-encryption.md#data-at-rest)
 
-**Responsabilità**: Condiviso
+**Responsabilità** : Condiviso
 
-**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -157,4 +157,3 @@ Per impostazione predefinita, Azure fornisce la crittografia per i dati inattivi
 - [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Sicurezza dei dati](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

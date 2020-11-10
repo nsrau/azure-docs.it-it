@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 7b92c84234432320aa08017a15fbf8a5a4630eb3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a00dc5beb2bde02f71b40f6eb374502136c37c67
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019733"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410488"
 ---
 # <a name="data-encryption-models"></a>Modelli di crittografia dei dati
 
@@ -91,7 +91,7 @@ Quando si usa la crittografia sul lato server con chiavi gestite dal servizio, l
 
 Per gli scenari in cui il requisito prevede di crittografare i dati inattivi e controllare le chiavi di crittografia, i clienti possono usare la crittografia sul lato server con chiavi gestite dal cliente in Azure Key Vault. Alcuni servizi possono archiviare solo la chiave KEK radice in Azure Key Vault e archiviano la chiave DEK crittografata in un percorso interno più vicino ai dati. In questo scenario, i clienti possono usare le proprie chiavi nell'insieme di credenziali delle chiavi (BYOK, Bring Your Own Key) o generare nuove chiavi e usarle per crittografare le risorse desiderate. Mentre il provider di risorse esegue le operazioni di crittografia e decrittografia, usa la chiave di crittografia della chiave configurata come chiave radice per tutte le operazioni di crittografia.
 
-La perdita di chiavi di crittografia delle chiavi comporta la perdita di dati. Per questo motivo, le chiavi non devono essere eliminate. È necessario eseguire il backup delle chiavi ogni volta che viene creato o ruotato. L' [eliminazione](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) temporanea deve essere abilitata in qualsiasi insieme di credenziali che archivia le chiavi di crittografia della chiave. Anziché eliminare una chiave, impostare Enabled su false o impostare la data di scadenza.
+La perdita di chiavi di crittografia delle chiavi comporta la perdita di dati. Per questo motivo, le chiavi non devono essere eliminate. È necessario eseguire il backup delle chiavi ogni volta che viene creato o ruotato. L' [eliminazione](../../key-vault/general/soft-delete-overview.md) temporanea deve essere abilitata in qualsiasi insieme di credenziali che archivia le chiavi di crittografia della chiave. Anziché eliminare una chiave, impostare Enabled su false o impostare la data di scadenza.
 
 ### <a name="key-access"></a>Accesso alle chiavi
 
@@ -164,7 +164,7 @@ I servizi di Azure che supportano ogni modello di crittografia:
 | Funzioni                        | Sì                | Sì                | -                  |
 | Azure Analysis Services          | Sì                | -                  | -                  |
 | Azure Data Catalog               | Sì                | -                  | -                  |
-| Azure HDInsight                  | Sì                | All                | -                  |
+| Azure HDInsight                  | Sì                | Tutti                | -                  |
 | Application Insights di monitoraggio di Azure | Sì                | Sì                | -                  |
 | Log Analytics di monitoraggio di Azure      | Sì                | Sì                | -                  |
 | Esplora dati di Azure              | Sì                | Sì                | -                  |

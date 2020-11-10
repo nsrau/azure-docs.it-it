@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b26979f424798bacf6b40d43e5ab603844f595c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 99e7a8fcb34c963cfab366f1913508a7ff3f4a51
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360854"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408703"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Controllo di sicurezza V2: registrazione e rilevamento minacce
 
@@ -30,7 +30,7 @@ Usare la funzionalità di rilevamento delle minacce incorporata nel centro sicur
 
 Inoltre, è possibile usare Sentinel di Azure per creare regole di analisi, che cercano minacce corrispondenti a criteri specifici nell'ambiente. Le regole generano eventi imprevisti quando vengono confrontati i criteri, in modo da poter esaminare ogni evento imprevisto. Azure Sentinel può inoltre importare funzionalità di intelligence per le minacce di terze parti per migliorare la funzionalità di rilevamento delle minacce. 
 
-- [Protezione dalle minacce nel Centro sicurezza di Azure](../../security-center/threat-protection.md)
+- [Protezione dalle minacce nel Centro sicurezza di Azure](../../security-center/azure-defender.md)
 
 - [Guida di riferimento agli avvisi di sicurezza del Centro sicurezza di Azure](../../security-center/alerts-reference.md)
 
@@ -44,7 +44,7 @@ Inoltre, è possibile usare Sentinel di Azure per creare regole di analisi, che 
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -73,7 +73,7 @@ Il Centro sicurezza di Azure può anche inviare avvisi su determinate attività 
 
 - [Abilitare Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Protezione dalle minacce nel Centro sicurezza di Azure](../../security-center/threat-protection.md)
+- [Protezione dalle minacce nel Centro sicurezza di Azure](../../security-center/azure-defender.md)
 
 **Responsabilità** : Customer
 
@@ -81,7 +81,7 @@ Il Centro sicurezza di Azure può anche inviare avvisi su determinate attività 
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -115,7 +115,7 @@ Abilitare e raccogliere i log delle risorse del gruppo di sicurezza di rete (NSG
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -141,7 +141,7 @@ Abilitare la registrazione per le risorse di Azure in modo da soddisfare i requi
 
 **Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 Sicurezza dell'infrastruttura e degli endpoint 
 
@@ -201,7 +201,7 @@ In monitoraggio di Azure è possibile impostare il periodo di conservazione dell
 
 - [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
 
 - [Gestione della conformità alla sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -230,4 +230,3 @@ Tutti i log generati dalle risorse in Azure forniscono indicatori temporali con 
 - [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
-

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f75fbf286741fcc122332574332a30ad7fa23644
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 45357092784bd9c8821a81b07ce3c381c4ce7989
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096199"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410505"
 ---
 # <a name="localization-string-ids"></a>ID della stringa di localizzazione
 
@@ -87,6 +87,7 @@ L'esempio seguente localizza il provider di identità Facebook sull'arabo:
 | ID | Valore predefinito |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | La password non è corretta. |
+| **UserMessageIfPasswordExpired**| La password è scaduta.|
 | **UserMessageIfClaimsPrincipalDoesNotExist** | L'account non è stato trovato. |
 | **UserMessageIfOldPasswordUsed** | È stata usata una password non aggiornata. |
 | **DefaultMessage** | Nome utente o password non validi. |
@@ -122,6 +123,7 @@ L'esempio seguente localizza il provider di identità Facebook sull'arabo:
     <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;’'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$</LocalizedString>
     <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid username or password.</LocalizedString>

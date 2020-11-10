@@ -12,22 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/09/2020
 ms.author: b-juche
-ms.openlocfilehash: f4b485e79bfa89fe293c99fc4e84fc8c0729396a
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 1ffbcc24a2ee386be1a8ce50b55375d5bd458df1
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331890"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410097"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configurare la crittografia Kerberos NFSv 4.1 per Azure NetApp Files
 
 Azure NetApp Files supporta la crittografia client NFS in modalità Kerberos (krb5, Krb5i e krb5p) con crittografia AES-256. Questo articolo descrive le configurazioni necessarie per l'uso di un volume NFSv 4.1 con la crittografia Kerberos.
-
-## <a name="considerations"></a>Considerazioni
-
-* I volumi di crittografia Kerberos NFSv 4.1 attualmente non supportano Azure Active Directory Domain Services (AADDS). 
 
 ## <a name="requirements"></a>Requisiti
 

@@ -3,12 +3,12 @@ title: Ridimensionare un cluster Service Fabric
 description: Ridimensionare un cluster Service Fabric in modo che corrisponda alla domanda impostando regole di scalabilità automatica per ogni tipo di nodo o set di scalabilità di macchine virtuali. Aggiungere o rimuovere nodi in un cluster di Service Fabric
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: c9393ca4531dea58859a4fc60509524e9c4a0b7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee04c73b75d6b335e450ff816c51f0a3089b918
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246487"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409961"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Aumentare o ridurre un cluster
 
@@ -54,7 +54,6 @@ Seguire queste istruzioni [per configurare la scalabilità automatica per ogni s
 > [!NOTE]
 > In uno scenario con scalabilità, a meno che il tipo di nodo non disponga di un [livello di durabilità][durability] Gold o Silver, è necessario chiamare il [cmdlet Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) con il nome del nodo appropriato. Per la durabilità Bronze, non è consigliabile eseguire la scalabilità in più di un nodo alla volta.
 > 
-> 
 
 ## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Aggiungere manualmente le VM a un tipo di nodo/set di scalabilità di macchine virtuali
 
@@ -97,6 +96,9 @@ Per un servizio con stato, è necessario un determinato numero di nodi per esser
 ### <a name="remove-the-service-fabric-node"></a>Rimuovere il nodo di Service Fabric
 
 I passaggi per la rimozione manuale dello stato del nodo si applicano solo ai tipi di nodo con un livello di durabilità *bronzo* .  Per il livello di durabilità *Silver* e *Gold* , questi passaggi vengono eseguiti automaticamente dalla piattaforma. Per altre informazioni sulla durabilità, vedere [Pianificazione della capacità dei cluster di Service Fabric][durability].
+
+>[!NOTE]
+> Mantenere un numero minimo di cinque nodi per tutti i set di scalabilità di macchine virtuali con livello di durabilità Gold o Silver abilitato. Se si ridimensiona al di sotto di questa soglia, il cluster immetterà lo stato di errore e sarà necessario pulire manualmente i nodi rimossi.
 
 Per garantire la distribuzione uniforme dei nodi del cluster tra i domini di aggiornamento e di errore e consentirne quindi un utilizzo uniforme, è opportuno rimuovere per primo l'ultimo nodo creato. In altre parole, i nodi devono essere rimossi in ordine inverso rispetto a quello in cui sono stati creati. L'ultimo nodo creato è quello che presenta il valore più elevato per la proprietà `virtual machine scale set InstanceId`. Negli esempi di codice seguenti viene restituito l'ultimo nodo creato.
 
@@ -239,6 +241,9 @@ Per assicurarsi che un nodo venga rimosso quando si rimuove una VM, sono disponi
 
 1. Scegliere un livello di durabilità Gold o Silver per i tipi di nodo del cluster, che offre l'integrazione dell'infrastruttura. In questo modo i nodi vengono rimossi automaticamente dallo stato dei servizi di sistema (FM) quando si esegue la scalabilità.
 Fare riferimento ai [i dettagli sui livelli di durabilità qui](service-fabric-cluster-capacity.md)
+
+> [!NOTE]
+> Mantenere un numero minimo di cinque nodi per tutti i set di scalabilità di macchine virtuali con livello di durabilità Gold o Silver abilitato. Se si ridimensiona al di sotto di questa soglia, il cluster immetterà lo stato di errore e sarà necessario pulire manualmente i nodi rimossi.
 
 2. Una volta che l'istanza di macchina virtuale è stata ridimensionata, è necessario chiamare il [cmdlet Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate).
 

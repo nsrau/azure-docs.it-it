@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: c5525fc43f23ecd1760c5a869d8171aee0e9415d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e74b540610d3b6520f4c8e25ca2df7bf628706f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91395771"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410335"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Panoramica su gestione e monitoraggio della sicurezza di Azure
 Questo articolo fornisce una panoramica dei servizi e delle funzionalità di sicurezza forniti da Azure per facilitare la gestione e il monitoraggio delle macchine virtuali e dei servizi cloud di Azure.
@@ -48,8 +48,8 @@ Altre informazioni:
 
 * [Distribuzione di soluzioni antimalware in macchine virtuali di Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Microsoft Antimalware per Servizi cloud e Macchine virtuali di Azure](antimalware.md)
-* [Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Windows](/azure/virtual-machines/windows/classic/install-trend)
-* [Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Windows](/azure/virtual-machines/windows/classic/install-symantec)
+* [Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Windows](../../virtual-machines/extensions/trend.md)
+* [Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Windows](../../virtual-machines/extensions/symantec.md)
 * [Nuove opzioni antimalware per la protezione di macchine virtuali di Azure](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
@@ -61,7 +61,7 @@ Multi-Factor Authentication permette di proteggere l'accesso ai dati e alle appl
 Altre informazioni:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Informazioni su Azure Multi-Factor Authentication](/azure/active-directory/authentication/multi-factor-authentication)
+* [Informazioni su Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 * [Come funziona Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
@@ -112,7 +112,7 @@ Tramite l'invio di notifiche e la visualizzazione delle correzioni consigliate, 
 
 Altre informazioni:
 
-* [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection)
+* [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 * [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Centro sicurezza
@@ -129,8 +129,8 @@ Il Centro sicurezza di Azure consente di ottimizzare e monitorare la sicurezza d
 
 Altre informazioni:
 
-* [Introduzione al Centro sicurezza di Azure](../../security-center/security-center-intro.md)
-* [Migliorare il punteggio di sicurezza nel Centro sicurezza di Azure](../../security-center/security-center-secure-score.md)
+* [Introduzione al Centro sicurezza di Azure](../../security-center/security-center-introduction.md)
+* [Migliorare il punteggio di sicurezza nel Centro sicurezza di Azure](../../security-center/secure-score-security-controls.md)
 
 ## <a name="intelligent-security-graph"></a>Intelligent Security Graph
 

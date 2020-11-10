@@ -15,25 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: fa23637500755f43bb380a9f20cbe3acc7c3a394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 402fc1b0b436e7e2061cb2e1a922a75c82ac5235
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87925805"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408057"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Archiviazione di Azure
 Questo articolo illustra un insieme di procedure consigliate di sicurezza in Archiviazione di Azure per la protezione delle applicazioni PaaS Web e per applicazioni mobili. Le procedure consigliate si basano sull'esperienza di tecnici e clienti con Azure.
 
 Azure consente di distribuire e usare le risorse di archiviazione in modi che non è facile ottenere in locale. Con archiviazione di Azure è possibile raggiungere livelli elevati di scalabilità e disponibilità con un lavoro richiesto minimo. Non solo Archiviazione di Azure è la base per le macchine virtuali di Azure che eseguono Windows o Linux, ma può supportare anche applicazioni distribuite di grandi dimensioni.
 
-Archiviazione di Azure offre i quattro servizi seguenti: archiviazione BLOB, archiviazione tabelle, archiviazione code e archiviazione file. Per altre informazioni, vedere [Introduzione ad Archiviazione di Microsoft Azure](/azure/storage/common/storage-introduction).
+Archiviazione di Azure offre i quattro servizi seguenti: archiviazione BLOB, archiviazione tabelle, archiviazione code e archiviazione file. Per altre informazioni, vedere [Introduzione ad Archiviazione di Microsoft Azure](../../storage/common/storage-introduction.md).
 
-La [Guida alla sicurezza di Archiviazione di Azure](/azure/storage/common/storage-security-guide) è una fonte eccellente di informazioni dettagliate su Archiviazione di Azure e sulla sicurezza. Questo articolo sulle procedure consigliate fa riferimento a livello generale ad alcuni concetti illustrati nella Guida alla sicurezza con i relativi collegamenti, oltre ad altre fonti per altre informazioni.
+La [Guida alla sicurezza di Archiviazione di Azure](../../storage/blobs/security-recommendations.md) è una fonte eccellente di informazioni dettagliate su Archiviazione di Azure e sulla sicurezza. Questo articolo sulle procedure consigliate fa riferimento a livello generale ad alcuni concetti illustrati nella Guida alla sicurezza con i relativi collegamenti, oltre ad altre fonti per altre informazioni.
 
 In questo articolo vengono illustrate le seguenti procedure consigliate:
 
-- Firme di accesso condiviso
+- Firme di accesso condiviso (SAS)
 - Controllo degli accessi in base al ruolo
 - Crittografia lato client per i dati di valore elevato
 - Crittografia del servizio di archiviazione
@@ -53,10 +53,10 @@ Le chiavi di accesso alle risorse di archiviazione sono segreti ad alta priorit�
 
 La firma di accesso condiviso consente di condividere il contenuto nel modo in cui si vuole condividerlo, senza fornire le chiavi dell'account di archiviazione. L'uso costante di una firma di accesso condiviso rappresenta un metodo sicuro per condividere le risorse di archiviazione senza compromettere le chiavi dell'account di archiviazione.
 
-Per altre informazioni sulle firme di accesso condiviso vedere [Uso delle firme di accesso condiviso](/azure/storage/common/storage-dotnet-shared-access-signature-part-1). 
+Per altre informazioni sulle firme di accesso condiviso vedere [Uso delle firme di accesso condiviso](../../storage/common/storage-sas-overview.md). 
 
 ## <a name="use-role-based-access-control"></a>Usare il controllo degli accessi in base al ruolo
-Un altro modo per gestire l'accesso consiste nell'usare il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](/azure/role-based-access-control/overview). Nel controllo degli accessi in base al ruolo l'aspetto principale è concedere ai dipendenti esattamente le autorizzazioni di cui necessitano, in base ai principi dei privilegi minimi e sapere solo quando è necessario. un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero di autorizzazioni insufficiente ostacola l'efficienza del lavoro dei dipendenti. Il controllo degli accessi in base al ruolo di Azure consente di risolvere questo problema offrendo una gestione granulare degli accessi per Azure. Questo è fondamentale per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati.
+Un altro modo per gestire l'accesso consiste nell'usare il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md). Nel controllo degli accessi in base al ruolo l'aspetto principale è concedere ai dipendenti esattamente le autorizzazioni di cui necessitano, in base ai principi dei privilegi minimi e sapere solo quando è necessario. un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero di autorizzazioni insufficiente ostacola l'efficienza del lavoro dei dipendenti. Il controllo degli accessi in base al ruolo di Azure consente di risolvere questo problema offrendo una gestione granulare degli accessi per Azure. Questo è fondamentale per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati.
 
 È possibile usare i ruoli predefiniti di Azure in Azure per assegnare privilegi agli utenti. Si consiglia di usare Collaboratore Account di archiviazione per gli operatori cloud che devono gestire gli account di archiviazione e il ruolo Collaboratore Account di archiviazione classico per gestire gli account di archiviazione classici. Per gli operatori cloud che hanno necessità di gestire le VM ma non la rete virtuale o l'account di archiviazione a cui sono connesse, è possibile aggiungere il ruolo di Collaboratore Macchina virtuale.
 
@@ -64,19 +64,19 @@ Le organizzazioni che non applicano il controllo di accesso ai dati con funziona
 
 Per altre informazioni sul controllo degli accessi in base al ruolo, vedere:
 
-- [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](/azure/role-based-access-control/role-assignments-portal)
-- [Ruoli predefiniti di Azure](/azure/role-based-access-control/built-in-roles)
-- [Guida alla sicurezza di Archiviazione di Azure](/azure/storage/common/storage-security-guide) 
+- [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md)
+- [Guida alla sicurezza di Archiviazione di Azure](../../storage/blobs/security-recommendations.md) 
 
 ## <a name="use-client-side-encryption-for-high-value-data"></a>Usare la crittografia lato client per i dati di valore elevato
 La crittografia lato client consente di crittografare i dati in transito a livello di codice prima di caricarli in Archiviazione di Azure e decrittografarli a livello di codice quando vengono recuperati. Questo approccio consente la crittografia dei dati in transito, ma anche dei dati inattivi. La crittografia dei dati lato client è il metodo più sicuro, ma richiede modifiche all'applicazione a livello di codice e l'implementazione della gestione delle chiavi.
 
-La crittografia lato client consente anche il controllo esclusivo delle chiavi di crittografia. È possibile generare e gestire chiavi di crittografia personalizzate. Usa una tecnica basata su busta in cui la libreria client di archiviazione di Azure genera una chiave di crittografia del contenuto (CEK) di cui viene eseguito il wrapping (crittografia) usando la chiave di crittografia della chiave (KEK). La chiave di crittografia della chiave è identificata con un identificatore di chiave e può essere costituita da una coppia di chiavi asimmetriche o da una chiave simmetrica. Può essere gestita localmente o archiviata in [Azure Key Vault](/azure/key-vault/key-vault-overview).
+La crittografia lato client consente anche il controllo esclusivo delle chiavi di crittografia. È possibile generare e gestire chiavi di crittografia personalizzate. Usa una tecnica basata su busta in cui la libreria client di archiviazione di Azure genera una chiave di crittografia del contenuto (CEK) di cui viene eseguito il wrapping (crittografia) usando la chiave di crittografia della chiave (KEK). La chiave di crittografia della chiave è identificata con un identificatore di chiave e può essere costituita da una coppia di chiavi asimmetriche o da una chiave simmetrica. Può essere gestita localmente o archiviata in [Azure Key Vault](../../key-vault/general/overview.md).
 
-La crittografia lato client è incorporata nelle librerie client di archiviazione .NET e Java. Vedere [Crittografia lato client e Azure Key Vault per Archiviazione di Microsoft Azure](/azure/storage/common/storage-client-side-encryption) per informazioni sulla crittografia dei dati all'interno di applicazioni client e la generazione e gestione di chiavi di crittografia personalizzate.
+La crittografia lato client è incorporata nelle librerie client di archiviazione .NET e Java. Vedere [Crittografia lato client e Azure Key Vault per Archiviazione di Microsoft Azure](../../storage/common/storage-client-side-encryption.md) per informazioni sulla crittografia dei dati all'interno di applicazioni client e la generazione e gestione di chiavi di crittografia personalizzate.
 
 ## <a name="enable-storage-service-encryption-for-data-at-rest"></a>Attivare la crittografia del servizio di archiviazione di Azure per dati inattivi
-Quando è abilitata la [crittografia del servizio di archiviazione](/azure/storage/common/storage-service-encryption) per archiviazione file, i dati vengono crittografati automaticamente usando l'algoritmo AES-256. Microsoft gestisce interamente la crittografia, la decrittografia e la gestione delle chiavi. Questa funzionalità è disponibile per i tipi di ridondanza archiviazione con ridondanza locale e con ridondanza geografica.
+Quando è abilitata la [crittografia del servizio di archiviazione](../../storage/common/storage-service-encryption.md) per archiviazione file, i dati vengono crittografati automaticamente usando l'algoritmo AES-256. Microsoft gestisce interamente la crittografia, la decrittografia e la gestione delle chiavi. Questa funzionalità è disponibile per i tipi di ridondanza archiviazione con ridondanza locale e con ridondanza geografica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

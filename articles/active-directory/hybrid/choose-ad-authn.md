@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: d5de8da548c2e141eb921aa4f95e82f7199ae1f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e8310d5941916ed3e4a9d7c66af96779be8f939
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602371"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410284"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Scegliere il metodo di autenticazione appropriato per la soluzione ibrida di gestione delle identità di Azure AD
 
@@ -102,7 +102,7 @@ Dettagli relativi alle domande nell'albero delle decisioni:
 * **Considerazioni**. Attualmente, la sincronizzazione dell'hash delle password non applica immediatamente le modifiche apportate allo stato degli account locali. In questo caso, l'utente ha accesso alle applicazioni cloud fino a quando lo stato dell'account utente è sincronizzato con Azure AD. Per superare questa limitazione, le organizzazioni possono eseguire un nuovo ciclo di sincronizzazione dopo gli aggiornamenti in blocco agli stati degli account utente locali effettuati dagli amministratori, come ad esempio la disabilitazione di account.
 
 > [!NOTE]
-> Gli stati Password scaduta e Account bloccato non sono attualmente sincronizzati in Azure AD con Azure AD Connect. Quando si modifica la password di un utente e si imposta il flag di *cambiamento obbligatorio password all'accesso successivo*, l'hash della password non verrà sincronizzato con Azure AD tramite Azure AD Connect fino a quando l'utente non modificherà la password.
+> Gli stati Password scaduta e Account bloccato non sono attualmente sincronizzati in Azure AD con Azure AD Connect. Quando si modifica la password di un utente e si imposta il flag di *cambiamento obbligatorio password all'accesso successivo* , l'hash della password non verrà sincronizzato con Azure AD tramite Azure AD Connect fino a quando l'utente non modificherà la password.
 
 Per la procedura di implementazione, vedere [Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
@@ -221,4 +221,4 @@ Oggigiorno, le minacce sono presenti 24 ore al giorno e provengono da ovunque. L
 
 Ciò è possibile tramite l'[Introduzione](../fundamentals/active-directory-whatis.md) ad Azure Active Directory e la distribuzione di una soluzione di autenticazione appropriata per l'organizzazione.
 
-Se si intende eseguire la migrazione dall'autenticazione federata all'autenticazione cloud, sono disponibili altre informazioni sulla [modifica del metodo di accesso](../../active-directory/hybrid/plan-connect-user-signin.md). Per semplificare la pianificazione e l'implementazione della migrazione, usare tali [piani di distribuzione del progetto](https://aka.ms/deploymentplans) o prendere in considerazione l'uso della nuova funzionalità di [implementazione a fasi](../../active-directory/hybrid/how-to-connect-staged-rollout.md) per eseguire la migrazione degli utenti federati all'uso dell'autenticazione cloud in un approccio graduale.
+Se si intende eseguire la migrazione dall'autenticazione federata all'autenticazione cloud, sono disponibili altre informazioni sulla [modifica del metodo di accesso](../../active-directory/hybrid/plan-connect-user-signin.md). Per semplificare la pianificazione e l'implementazione della migrazione, usare tali [piani di distribuzione del progetto](../fundamentals/active-directory-deployment-plans.md) o prendere in considerazione l'uso della nuova funzionalità di [implementazione a fasi](../../active-directory/hybrid/how-to-connect-staged-rollout.md) per eseguire la migrazione degli utenti federati all'uso dell'autenticazione cloud in un approccio graduale.

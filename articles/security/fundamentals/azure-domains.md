@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/07/2020
 ms.author: memildin
-ms.openlocfilehash: 63b00682af3de8c558a6ef69dd6cb8b9a7d5f2b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 372d03945c194ad4e34bc654f0b2dd5271b02d96
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87433203"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409400"
 ---
 # <a name="reference-list-of-azure-domains-not-comprehensive"></a>Elenco di riferimento di domini di Azure (non completo)
 
@@ -28,25 +28,25 @@ Questa pagina è un elenco parziale dei domini di Azure in uso. Alcuni di essi s
 |Servizio  |Sottodominio  |
 |---------|---------|
 |[Servizio di controllo di accesso di Azure](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/) (ritirato)|*.accesscontrol.windows.net|
-|[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)|*. graph.windows.net/*. onmicrosoft.com|
+|[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|*. graph.windows.net/*. onmicrosoft.com|
 |[Gestione API di Azure](https://azure.microsoft.com/services/api-management/)|*. azure-api.net|
 |[Servizi BizTalk di Azure](https://azure.microsoft.com/pricing/details/biztalk-services/) (ritirati)|*. biztalk.windows.net|
-|[Archivio BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/)|*.blob.core.windows.net|
-|[Servizi cloud di Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) e [macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/)|*.cloudapp.net|
-|[Servizi cloud di Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)|*. cloudapp.azure.com|
+|[Archivio BLOB di Azure](../../storage/blobs/index.yml)|*.blob.core.windows.net|
+|[Servizi cloud di Azure](../../cloud-services/cloud-services-choose-me.md) e [macchine virtuali di Azure](../../virtual-machines/index.yml)|*.cloudapp.net|
+|[Servizi cloud di Azure](../../cloud-services/cloud-services-choose-me.md)|*. cloudapp.azure.com|
 |[Registro Azure Container](https://azure.microsoft.com/services/container-registry/)|*. azurecr.io|
 |Servizio contenitore di Azure (ACS) (deprecato)|*. azurecontainer.io|
 |[Rete per la distribuzione di contenuti (CDN) di Azure](https://azure.microsoft.com/services/cdn/)|*. vo.msecnd.net|
-|[File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)|*.file.core.windows.net|
+|[File di Azure](../../storage/files/storage-files-introduction.md)|*.file.core.windows.net|
 |[Frontdoor di Azure](https://azure.microsoft.com/services/frontdoor/)|*. azurefd.net|
 |Servizi di gestione di Azure|*. management.core.windows.net|
 |[Servizi multimediali di Azure](https://azure.microsoft.com/services/media-services/)|*. origin.mediaservices.windows.net|
 |[App per dispositivi mobili di Azure](https://azure.microsoft.com/services/app-service/mobile/)|*. azure-mobile.net|
 |[Archiviazione code di Azure](https://azure.microsoft.com/services/storage/queues/)|*.queue.core.windows.net|
-|[Bus di servizio di Azure](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview)|*.servicebus.windows.net|
+|[Bus di servizio di Azure](../../service-bus-messaging/service-bus-messaging-overview.md)|*.servicebus.windows.net|
 |[Database SQL di Azure](https://azure.microsoft.com/services/sql-database/)|*.database.windows.net|
 |[Azure stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) e [Azure IOT Edge](https://azure.microsoft.com/services/iot-edge/)|*.azureedge.net|
-|[Archiviazione tabelle di Azure](https://docs.microsoft.com/azure/storage/tables/table-storage-overview)|*.table.core.windows.net|
-|[Gestione traffico di Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)|*. trafficmanager.net|
+|[Archiviazione tabelle di Azure](../../storage/tables/table-storage-overview.md)|*.table.core.windows.net|
+|[Gestione traffico di Azure](../../traffic-manager/traffic-manager-overview.md)|*. trafficmanager.net|
 |Siti Web di Azure|*.azurewebsites.net|
 |[Visual Studio Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/)|, ma non per gli indirizzi|

@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c083b319b11807a88461b2464153821fa2ad0b67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219893859d05eb419bc862484a9083abf8c26db7
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89276185"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409298"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Considerazioni sulle identità ibride per il cloud di Azure per enti pubblici
 
@@ -36,7 +36,7 @@ Le informazioni seguenti descrivono l'implementazione dell'autenticazione pass-t
 Prima di distribuire l'agente di autenticazione pass-through, verificare se esiste un firewall tra i server e Azure AD. Se il firewall o il proxy consentono programmi Domain Name System (DNS) bloccati o sicuri, aggiungere le connessioni seguenti.
 
 > [!NOTE]
-> Le linee guida seguenti si applicano anche all'installazione del [connettore del proxy dell'applicazione di Azure AD](https://aka.ms/whyappproxy) per gli ambienti di Azure per enti pubblici.
+> Le linee guida seguenti si applicano anche all'installazione del [connettore del proxy dell'applicazione di Azure AD](../manage-apps/what-is-application-proxy.md) per gli ambienti di Azure per enti pubblici.
 
 |URL |Uso|
 |-----|-----|

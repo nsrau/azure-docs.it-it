@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
-ms.openlocfilehash: 51fd8b8427dd8214e22fa59e50b26bb9db237946
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.openlocfilehash: 749807349fd83f9639461fd4ddd9ab771d108119
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322048"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410556"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creare flussi di lavoro con o senza stato in Visual Studio Code con l'estensione App per la logica di Azure (Anteprima)
 
@@ -109,8 +109,6 @@ Per questa anteprima pubblica, queste funzionalità non sono disponibili o non s
   Ad eccezione dei trigger specificati in precedenza, i flussi di lavoro con *stato* possono usare trigger e azioni per i [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), che vengono distribuiti in Azure rispetto ai trigger e alle azioni predefiniti che vengono eseguiti in modo nativo con il runtime di app per la logica. Tuttavia, *i flussi di* lavoro senza stato attualmente supportano solo *azioni* per i connettori gestiti, non per i trigger. Sebbene sia possibile abilitare i connettori in Azure per il flusso di lavoro senza stato, la finestra di progettazione non mostra alcun trigger del connettore gestito da selezionare.
 
 * È possibile distribuire il nuovo tipo di risorsa app per la **logica (anteprima)** solo a un [piano di hosting del servizio app o Premium in Azure](#publish-azure) o a un [contenitore Docker](#deploy-docker)e non agli [ambienti del servizio di integrazione (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). I piani di hosting a **consumo** non sono supportati né disponibili per la distribuzione di questo tipo di risorsa.
-
-* Nel portale di Azure non è possibile creare nuove app per la logica con il nuovo tipo di risorsa app per la **logica (anteprima)** . È possibile creare queste app per la logica solo in Visual Studio Code. Tuttavia, dopo aver distribuito app per la logica con questo tipo di risorsa da Visual Studio Code ad Azure, è possibile [aggiungere nuovi flussi di lavoro a tali app](#add-workflows)per la logica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -553,7 +551,7 @@ Per testare l'app per la logica, seguire questa procedura per avviare una sessio
    | Non riuscito | ![Icona per lo stato dell'azione "non riuscito"][failed-icon] | L'azione non è riuscita. |
    | In esecuzione | ![Icona per lo stato dell'azione "in esecuzione"][running-icon] | L'azione è attualmente in esecuzione. |
    | Operazione ignorata | ![Icona per lo stato dell'azione "ignorato"][skipped-icon] | L'azione è stata ignorata perché l'azione immediatamente precedente non è riuscita. Un'azione ha una `runAfter` condizione che richiede che l'azione precedente venga completata correttamente prima di poter eseguire l'azione corrente. |
-   | Operazione riuscita | ![Icona per lo stato dell'azione "succeeded"][succeeded-icon] | L'azione è riuscita. |
+   | Completato | ![Icona per lo stato dell'azione "succeeded"][succeeded-icon] | L'azione è riuscita. |
    | Operazione completata con nuovi tentativi | ![Icona per lo stato dell'azione "riuscito con ripetizione dei tentativi"][succeeded-with-retries-icon] | L'azione è stata completata ma solo dopo uno o più tentativi. Per esaminare la cronologia dei tentativi, nella visualizzazione dei dettagli della cronologia di esecuzione selezionare l'azione in modo che sia possibile visualizzare gli input e gli output. |
    | Timeout | ![Icona per lo stato dell'azione "timeout"][timed-out-icon] | L'azione è stata interrotta a causa del limite di timeout specificato dalle impostazioni di tale azione. |
    | Attesa | ![Icona per lo stato dell'azione "in attesa"][waiting-icon] | Si applica a un'azione webhook che è in attesa di una richiesta in ingresso da un chiamante. |
@@ -774,12 +772,7 @@ In Visual Studio Code, è possibile visualizzare tutte le app per la logica dist
 
 ## <a name="find-and-manage-deployed-logic-apps-in-the-portal"></a>Trovare e gestire app per la logica distribuite nel portale
 
-Nella portale di Azure è possibile visualizzare tutte le app per la logica distribuite nella sottoscrizione di Azure, sia il tipo di **risorsa app per la logica originale che** il tipo di risorsa app per la **logica (anteprima)** . Attualmente, ogni tipo di risorsa è organizzato e gestito come categorie separate in Azure.
-
-> [!NOTE]
-> Per l'anteprima pubblica, è possibile visualizzare solo le risorse dell'app per la logica distribuita **(anteprima)** nel portale di Azure, non creare nuove risorse dell'app per la **logica (anteprima)** . È possibile creare queste app per la logica solo in Visual Studio Code. Tuttavia, è possibile [aggiungere flussi di lavoro](#add-workflows) alle app per la logica distribuite con questo tipo di risorsa.
-
-Per trovare app per la logica con il tipo di risorsa app per la **logica (anteprima)** , seguire questa procedura:
+Nella portale di Azure è possibile visualizzare tutte le app per la logica distribuite nella sottoscrizione di Azure, sia il tipo di **risorsa app per la logica originale che** il tipo di risorsa app per la **logica (anteprima)** . Attualmente, ogni tipo di risorsa è organizzato e gestito come categorie separate in Azure. Per trovare app per la logica con il tipo di risorsa app per la **logica (anteprima)** , seguire questa procedura:
 
 1. Nella casella di ricerca portale di Azure immettere `logic app preview` . Quando viene visualizzato l'elenco dei risultati, in **Servizi** selezionare app per la **logica (anteprima)**.
 

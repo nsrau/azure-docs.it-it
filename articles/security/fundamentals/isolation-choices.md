@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 42582c9474647c4c203bd0cafae0be664398ba41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa2025fa31ac960eb6c61d03bafd582de4f0e55c
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533904"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410578"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 
@@ -86,11 +86,11 @@ Altre funzionalità di Azure Active Directory includono:
 
 - Azure AD abilita SSO nelle applicazioni SaaS, indipendentemente da dove vengono ospitate. Alcune applicazioni sono federate con Azure AD e altre usano SSO basato su password. Le applicazioni federate possono anche supportare il provisioning utenti e l'insieme di credenziali delle [password](https://www.techopedia.com/definition/31415/password-vault).
 
-- L'accesso ai dati in [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) è controllato dall'autenticazione. Ogni account di archiviazione ha una chiave primaria ([chiave dell'account di archiviazione](../../storage/common/storage-create-storage-account.md)) e una chiave privata secondaria (firma di accesso condiviso).
+- L'accesso ai dati in [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) è controllato dall'autenticazione. Ogni account di archiviazione ha una chiave primaria ([chiave dell'account di archiviazione](../../storage/common/storage-account-create.md)) e una chiave privata secondaria (firma di accesso condiviso).
 
-- Azure AD fornisce l'identità come servizio usando la federazione (con [Active Directory Federation Services](../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)), la sincronizzazione e la replica con le directory locali.
+- Azure AD fornisce l'identità come servizio usando la federazione (con [Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)), la sincronizzazione e la replica con le directory locali.
 
-- [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) è il servizio di autenticazione a più fattori che richiede agli utenti di verificare l'accesso usando un'app mobile, una chiamata telefonica o un SMS. Può essere usato con Azure AD per la protezione delle risorse locali con il server Azure Multi-Factor Authentication e anche con applicazioni e directory personalizzate che usano l'SDK.
+- [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) è il servizio di autenticazione a più fattori che richiede agli utenti di verificare l'accesso usando un'app mobile, una chiamata telefonica o un SMS. Può essere usato con Azure AD per la protezione delle risorse locali con il server Azure Multi-Factor Authentication e anche con applicazioni e directory personalizzate che usano l'SDK.
 
 - [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) consente di aggiungere le macchine virtuali di Azure a un dominio di Active Directory senza distribuire controller di dominio. È possibile accedere a queste macchine virtuali con le credenziali di Active Directory aziendali e amministrare le macchine virtuali aggiunte a un dominio usando Criteri di gruppo per applicare le baseline della sicurezza in tutte le macchine virtuali di Azure.
 
@@ -119,7 +119,7 @@ Microsoft Azure offre numerosi servizi di calcolo basati sul cloud che includono
 
 ### <a name="dedicated-hosts"></a>Host dedicati
 
-Oltre agli host di tipo isolato descritti nella sezione precedente, Azure offre anche host dedicati. Host dedicati in Azure è un servizio che fornisce server fisici che possono ospitare una o più macchine virtuali e che sono dedicate a una singola sottoscrizione di Azure. Gli host dedicati forniscono l'isolamento hardware a livello di server fisico. Non verranno inserite altre macchine virtuali negli host. Gli host dedicati vengono distribuiti negli stessi Data Center e condividono la stessa rete e l'infrastruttura di archiviazione sottostante come altri host non isolati. Per altre informazioni, vedere la panoramica dettagliata degli [host dedicati di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts).
+Oltre agli host di tipo isolato descritti nella sezione precedente, Azure offre anche host dedicati. Host dedicati in Azure è un servizio che fornisce server fisici che possono ospitare una o più macchine virtuali e che sono dedicate a una singola sottoscrizione di Azure. Gli host dedicati forniscono l'isolamento hardware a livello di server fisico. Non verranno inserite altre macchine virtuali negli host. Gli host dedicati vengono distribuiti negli stessi Data Center e condividono la stessa rete e l'infrastruttura di archiviazione sottostante come altri host non isolati. Per altre informazioni, vedere la panoramica dettagliata degli [host dedicati di Azure](../../virtual-machines/dedicated-hosts.md).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Isolamento Hyper-V e del sistema operativo radice tra VM radice e VM guest
 
@@ -194,7 +194,7 @@ Il **controllo di accesso in Archiviazione di Azure** ha un modello semplice. Og
 
 ![Isolamento tramite il controllo di accesso per l'archiviazione](./media/isolation-choices/azure-isolation-fig9.png)
 
-L'**accesso ai dati di Archiviazione di Azure, incluse le tabelle**, può essere controllato in un token di [firma di accesso condiviso](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) che concede l'accesso con ambito. La firma di accesso condiviso viene creata tramite un modello di query (URL) firmato con la [chiave dell'account di archiviazione](https://msdn.microsoft.com/library/azure/ee460785.aspx). L'[URL firmato](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) può essere assegnato, ovvero delegato, a un altro processo che può quindi compilare i dettagli della query ed effettuare la richiesta del servizio di archiviazione. Una firma di accesso condiviso consente di concedere l'accesso con scadenza ai client senza rivelare la chiave privata dell'account di archiviazione.
+L' **accesso ai dati di Archiviazione di Azure, incluse le tabelle** , può essere controllato in un token di [firma di accesso condiviso](../../storage/common/storage-sas-overview.md) che concede l'accesso con ambito. La firma di accesso condiviso viene creata tramite un modello di query (URL) firmato con la [chiave dell'account di archiviazione](/previous-versions/azure/reference/ee460785(v=azure.100)). L'[URL firmato](../../storage/common/storage-sas-overview.md) può essere assegnato, ovvero delegato, a un altro processo che può quindi compilare i dettagli della query ed effettuare la richiesta del servizio di archiviazione. Una firma di accesso condiviso consente di concedere l'accesso con scadenza ai client senza rivelare la chiave privata dell'account di archiviazione.
 
 La firma di accesso condiviso consente di concedere a un client autorizzazioni limitate per oggetti nell'account di archiviazione per un periodo di tempo specificato e con un set di autorizzazioni. È possibile concedere queste autorizzazioni limitate senza dover condividere le chiavi di accesso all'account.
 
@@ -225,13 +225,13 @@ Per molte organizzazioni, la [crittografia dei dati](isolation-choices.md) inatt
 
 - [Crittografia del servizio di archiviazione](../../storage/blobs/security-recommendations.md) consente di richiedere che il servizio di archiviazione crittografi automaticamente i dati durante la scrittura in Archiviazione di Azure.
 - La [crittografia lato client](../../storage/blobs/security-recommendations.md) fornisce anche la funzionalità di crittografia dei componenti inattivi.
-- [Crittografia dischi di Azure](../azure-security-disk-encryption-overview.md) consente di crittografare i dischi dati e del sistema operativo usati da una macchina virtuale IaaS.
+- [Crittografia dischi di Azure](./azure-disk-encryption-vms-vmss.md) consente di crittografare i dischi dati e del sistema operativo usati da una macchina virtuale IaaS.
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-[Crittografia dischi di Azure](../azure-security-disk-encryption-overview.md) per le macchine virtuali consente di soddisfare i requisiti di conformità e sicurezza dell'organizzazione, grazie alla possibilità di crittografare i dischi delle macchine virtuali, inclusi i dischi di avvio e di dati, con chiavi e criteri gestiti in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+[Crittografia dischi di Azure](./azure-disk-encryption-vms-vmss.md) per le macchine virtuali consente di soddisfare i requisiti di conformità e sicurezza dell'organizzazione, grazie alla possibilità di crittografare i dischi delle macchine virtuali, inclusi i dischi di avvio e di dati, con chiavi e criteri gestiti in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
-La soluzione Crittografia dischi per Windows è basata su [Crittografia unità BitLocker](https://technet.microsoft.com/library/cc732774.aspx) di Microsoft e la soluzione Linux è basata su [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
+La soluzione Crittografia dischi per Windows è basata su [Crittografia unità BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) di Microsoft e la soluzione Linux è basata su [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
 La soluzione supporta gli scenari seguenti per le macchine virtuali IaaS, se abilitati in Microsoft Azure:
 
@@ -243,7 +243,7 @@ La soluzione supporta gli scenari seguenti per le macchine virtuali IaaS, se abi
 - Abilitazione della crittografia in macchine virtuali IaaS in esecuzione nel sistema operativo client Windows
 - Abilitazione della crittografia su volumi con percorsi di montaggio
 - Abilitazione della crittografia nelle macchine virtuali Linux configurate con striping del disco (RAID) tramite [mdadm](https://en.wikipedia.org/wiki/Mdadm)
-- Abilitazione della crittografia nelle macchine virtuali Linux usando [LVM (Logical Volume Manager)](https://msdn.microsoft.com/library/windows/desktop/bb540532) per i dischi di dati
+- Abilitazione della crittografia nelle macchine virtuali Linux usando [LVM (Logical Volume Manager)](/windows/win32/fileio/about-volume-management) per i dischi di dati
 - Abilitazione della crittografia nelle macchine virtuali Windows configurate usando spazi di archiviazione
 - Sono supportate tutte le aree geografiche pubbliche di Azure
 
@@ -311,7 +311,7 @@ La distribuzione di Azure offre più livelli di isolamento della rete. Il diagra
 
 ![Isolamento della rete](./media/isolation-choices/azure-isolation-fig13.png)
 
-**Isolamento del traffico**: una [rete virtuale](../../virtual-network/virtual-networks-overview.md) è il limite di isolamento del traffico nella piattaforma Azure. Le macchine virtuali (VM) in una rete virtuale non possono comunicare direttamente con le VM in una rete virtuale diversa, anche se entrambe le reti virtuali vengono create dallo stesso cliente. L'isolamento è una proprietà essenziale che assicura che le macchine virtuali e le comunicazioni dei clienti rimangano private entro una rete virtuale.
+**Isolamento del traffico** : una [rete virtuale](../../virtual-network/virtual-networks-overview.md) è il limite di isolamento del traffico nella piattaforma Azure. Le macchine virtuali (VM) in una rete virtuale non possono comunicare direttamente con le VM in una rete virtuale diversa, anche se entrambe le reti virtuali vengono create dallo stesso cliente. L'isolamento è una proprietà essenziale che assicura che le macchine virtuali e le comunicazioni dei clienti rimangano private entro una rete virtuale.
 
 La [subnet](../../virtual-network/virtual-networks-overview.md) offre un livello di isolamento aggiuntivo nella rete virtuale in base a un intervallo di indirizzi IP. È possibile suddividere la rete virtuale in più subnet per una maggiore organizzazione e sicurezza. Le VM e le istanze del ruolo PaaS distribuite nelle subnet (nella stessa o in diverse) in una rete virtuale possono comunicare tra loro senza nessuna configurazione aggiuntiva. È anche possibile configurare un [gruppo di sicurezza di rete (NSG)](../../virtual-network/virtual-networks-overview.md) per consentire o negare il traffico di rete verso un'istanza di macchina virtuale in base alle regole configurate nell'elenco di controllo di accesso (ACL) del gruppo di sicurezza di rete. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze di macchine virtuali in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di macchine virtuali nella subnet.
 

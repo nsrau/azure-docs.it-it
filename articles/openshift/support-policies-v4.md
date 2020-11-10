@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: f496d0f38452fa7cf64bc9eef370bd0b2116cfa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe703b9589dcd49298ac45d5a14032ca7e556bfd
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049962"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408407"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Criteri di supporto di Azure Red Hat OpenShift
 
@@ -30,6 +30,7 @@ Alcune configurazioni per i cluster di Azure Red Hat OpenShift 4 possono influen
 * Tutte le macchine virtuali del cluster devono avere accesso diretto a Internet in uscita, almeno agli endpoint di Azure Resource Manager (ARM) e di registrazione dei servizi (Geneva).  Non è supportata alcuna forma d'uso di proxy HTTPS.
 * Non modificare la configurazione DNS della rete virtuale del cluster. È necessario usare il resolver DNS di Azure predefinito.
 * Non eseguire l'override di alcuno degli oggetti MachineConfig del cluster (ad esempio, la configurazione di kubelet) in alcun modo.
+* Non impostare opzioni di unsupportedConfigOverrides. L'impostazione di queste opzioni impedisce gli aggiornamenti della versione secondaria.
 * Il servizio Azure Red Hat OpenShift accede al cluster tramite il servizio di collegamento privato.  Non rimuovere o modificare l'accesso al servizio.
 * I nodi di calcolo non RHCOS non sono supportati. Ad esempio, non è possibile usare un nodo di calcolo RHEL.
 
