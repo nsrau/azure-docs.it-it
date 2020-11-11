@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 53309023a838f4b256327a37866408f556c81d29
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ac87d5040cd572635d81be51308f48a57ddd38e3
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924157"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335469"
 ---
 ::: zone target="docs"
 
@@ -119,7 +119,7 @@ Eseguire la procedura seguente per configurare il dispositivo usando l'interfacc
 2. Connettersi alla porta MGMT del dispositivo e accedere all'interfaccia utente Web locale del dispositivo all'indirizzo https\://192.168.100.10. Questa operazione potrebbe richiedere fino a 5 minuti dopo l'accensione del dispositivo.
 3. Fare clic su **Dettagli** e quindi su **Continua per la pagina Web**.
 
-   ![Connettersi all'interfaccia utente Web locale](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 
+   ![Connettersi all'interfaccia utente Web locale](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png)
 
 4. Verrà visualizzata una **pagina di accesso** per l'interfaccia utente Web locale. Verificare che il numero di serie del dispositivo corrisponda nell'interfaccia utente del portale e nell'interfaccia utente Web locale. A questo punto il dispositivo è bloccato.
 5. Accedere al [portale di Azure](https://portal.azure.com).

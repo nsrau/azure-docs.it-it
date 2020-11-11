@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: ba14e2c475611ed77661060d6e17ae0bcbf0a6ca
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f0c38e72231fb343cb9b27def520f73d923a70f6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744207"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515711"
 ---
 # <a name="step-3-validate-connectivity"></a>PASSAGGIO 3: convalidare la connettività
 
@@ -29,15 +29,15 @@ Dopo aver distribuito il server d'invio del log (nel passaggio 1) e aver configu
 
 - È necessario disporre di autorizzazioni elevate (sudo) nel computer del server d'accesso.
 
-- È necessario che **python 2,7** sia installato nel computer del server d'accesso.<br>
+- È necessario che **python 2,7** o **3** sia installato nel computer del server d'accesso.<br>
 Usare il `python –version` comando per controllare.
 
-- Potrebbero essere necessari l'ID dell'area di lavoro e la chiave primaria dell'area di lavoro in un determinato punto del processo. È possibile trovarli nella risorsa dell'area di lavoro in **Gestione agenti** .
+- Potrebbero essere necessari l'ID dell'area di lavoro e la chiave primaria dell'area di lavoro in un determinato punto del processo. È possibile trovarli nella risorsa dell'area di lavoro in **Gestione agenti**.
 
 ## <a name="how-to-validate-connectivity"></a>Come convalidare la connettività
 
-1. Dal menu di navigazione di Azure Sentinel aprire **log** . Eseguire una query usando lo schema **CommonSecurityLog** per verificare se si ricevono log dalla soluzione di sicurezza.<br>
-Tenere presente che potrebbero essere necessari circa 20 minuti prima che i log inizino a essere visualizzati in **log Analytics** . 
+1. Dal menu di navigazione di Azure Sentinel aprire **log**. Eseguire una query usando lo schema **CommonSecurityLog** per verificare se si ricevono log dalla soluzione di sicurezza.<br>
+Tenere presente che potrebbero essere necessari circa 20 minuti prima che i log inizino a essere visualizzati in **log Analytics**. 
 
 1. Se non vengono visualizzati risultati dalla query, verificare che gli eventi vengano generati dalla soluzione di sicurezza oppure provare a generarne alcuni e verificare che siano in fase di invio al computer del server d'avanzamento syslog designato. 
 
@@ -47,9 +47,9 @@ Tenere presente che potrebbero essere necessari circa 20 minuti prima che i log 
     sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
     ```
 
-   - È possibile che venga ricevuto un messaggio che indica di eseguire un comando per correggere un problema relativo al **mapping del campo del *computer*** . Per informazioni dettagliate, vedere la [spiegazione nello script di convalida](#mapping-command) .
+   - È possibile che venga ricevuto un messaggio che indica di eseguire un comando per correggere un problema relativo al **mapping del campo del *computer***. Per informazioni dettagliate, vedere la [spiegazione nello script di convalida](#mapping-command) .
 
-    - È possibile che venga ricevuto un messaggio che indica di eseguire un comando per correggere un problema con l' **analisi dei log del firewall Cisco ASA** . Per informazioni dettagliate, vedere la [spiegazione nello script di convalida](#parsing-command) .
+    - È possibile che venga ricevuto un messaggio che indica di eseguire un comando per correggere un problema con l' **analisi dei log del firewall Cisco ASA**. Per informazioni dettagliate, vedere la [spiegazione nello script di convalida](#parsing-command) .
 
 ## <a name="validation-script-explained"></a>Spiegazione dello script di convalida
 

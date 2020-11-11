@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5366da1048e7c6d9612ad8b6b1f1694068bb35fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fe13c418452a7a88dcd97939d6e853039f3fb64
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543028"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517071"
 ---
 # <a name="onboarding-and-installing"></a>Onboarding e installazione
 
@@ -73,7 +73,7 @@ Dopo aver installato l'estensione, le attività di compilazione di sviluppo sicu
 ## <a name="adding-specific-build-tasks-to-your-azure-devops-pipeline"></a>Aggiunta di attività di compilazione specifiche alla pipeline di Azure DevOps
 
 1. Dall'organizzazione DevOps di Azure aprire il progetto team.
-1. Selezionare **Pipelines**le  >  **compilazioni**pipeline.
+1. Selezionare **Pipelines** le  >  **compilazioni** pipeline.
 1. Selezionare la pipeline in cui si desidera aggiungere le attività di compilazione dell'estensione:
    - Nuova pipeline: selezionare **nuovo** e seguire i passaggi descritti in dettaglio per creare una nuova pipeline.
    - Modifica pipeline: selezionare una pipeline esistente e quindi fare clic su **modifica** per iniziare a modificare la pipeline.
@@ -90,7 +90,7 @@ Dopo aver installato l'estensione, le attività di compilazione di sviluppo sicu
 > - Selezionare sempre **continua in errore** per le attività di compilazione di sviluppo sicuro. Anche se si verifica un errore in uno strumento, gli altri possono eseguire. Tra gli strumenti non vi sono interdipendenze.
 > - Le attività di compilazione dell'analisi del codice di sicurezza Microsoft hanno esito negativo solo se lo strumento non viene eseguito correttamente. Ma hanno esito positivo anche se uno strumento identifica i problemi nel codice. Utilizzando l'attività di compilazione post-analisi, è possibile configurare la compilazione in modo che abbia esito negativo quando uno strumento identifica i problemi nel codice.
 > - Alcune attività di compilazione di Azure DevOps non sono supportate quando vengono eseguite tramite una pipeline di rilascio. In particolare, Azure DevOps non supporta le attività che pubblicano elementi all'interno di una pipeline di rilascio.
-> - Per un elenco delle variabili predefinite in Azure DevOps Team Build che è possibile specificare come parametri, vedere le [variabili di compilazione di Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
+> - Per un elenco delle variabili predefinite in Azure DevOps Team Build che è possibile specificare come parametri, vedere le [variabili di compilazione di Azure DevOps](/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

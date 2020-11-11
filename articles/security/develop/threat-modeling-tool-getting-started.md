@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: eb0aff6692a12ca7fb00090c0585e46f37c84ace
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 322f5f6a79bdce23706b2211ccc04ef2451675d0
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913025"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515728"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Guida introduttiva a Threat Modeling Tool
 
 Microsoft Threat Modeling Tool 2018 è stato rilasciato a livello generale nel mese di settembre 2018 come un **[download](https://aka.ms/threatmodelingtool)** gratuito. Il cambiamento nel meccanismo di recapito consente di effettuare il push dei miglioramenti e le correzioni di bug più recenti verso i clienti ogni volta che aprono lo strumento, semplificandone la gestione e l'utilizzo.
 Questo articolo illustra il processo di introduzione all'approccio di modellazione Microsoft SDL e illustra come utilizzare lo strumento per sviluppare eccellenti modelli di rischio come base del processo di protezione.
 
-Questo articolo si basa sulle conoscenze esistenti dell'approccio di modellazione delle minacce SDL. Per una rapida panoramica, vedere **[Threat Modeling Web Applications](https://msdn.microsoft.com/library/ms978516.aspx)** (Modellazione delle minacce per le applicazioni Web) e la versione archiviata dell'articolo **[Uncover Security Flaws Using the STRIDE Approach](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** (Scoprire le falle della sicurezza mediante l'approccio STRIDE) di MSDN pubblicato nel 2006.
+Questo articolo si basa sulle conoscenze esistenti dell'approccio di modellazione delle minacce SDL. Per una rapida panoramica, vedere **[Threat Modeling Web Applications](/previous-versions/msp-n-p/ff648006(v=pandp.10))** (Modellazione delle minacce per le applicazioni Web) e la versione archiviata dell'articolo **[Uncover Security Flaws Using the STRIDE Approach](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** (Scoprire le falle della sicurezza mediante l'approccio STRIDE) di MSDN pubblicato nel 2006.
 
 Per riepilogare rapidamente, l'approccio prevede la creazione di un diagramma, l'identificazione delle minacce, la loro mitigazione e la convalida di ogni mitigazione. Di seguito è riportato un diagramma che illustra questo processo:
 
@@ -80,14 +80,14 @@ Essi stanno completando il processo di sviluppo del loro primo modello di minacc
 > - Sta inviando comandi al nostro server Web: il cerchio
 > - Il server Web sta consultando un database (due linee parallele)
 
-Ciò che Ricardo ha appena mostrato a Cristina è un DFD, abbreviazione di **[diagramma di flusso dei dati](https://en.wikipedia.org/wiki/Data_flow_diagram)** . Threat Modeling Tool consente agli utenti di specificare i limiti di trust, indicati dalle linee rosse tratteggiate, per mostrare dove entità diverse sono sotto controllo. Ad esempio, gli amministratori IT richiedono un sistema Active Directory per scopi di autenticazione, perciò Active Directory è fuori dal loro controllo.
+Ciò che Ricardo ha appena mostrato a Cristina è un DFD, abbreviazione di **[diagramma di flusso dei dati](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Threat Modeling Tool consente agli utenti di specificare i limiti di trust, indicati dalle linee rosse tratteggiate, per mostrare dove entità diverse sono sotto controllo. Ad esempio, gli amministratori IT richiedono un sistema Active Directory per scopi di autenticazione, perciò Active Directory è fuori dal loro controllo.
 
 > Cristina: Mi sembra perfetto. E le minacce?
 > Ricardo: Ti mostro.
 
 ## <a name="analyzing-threats"></a>Analisi delle minacce
 
-Quando fa clic sulla visualizzazione di analisi nel menu di icone (il file con la lente di ingrandimento), compare un elenco delle minacce generate trovare da Threat Modeling Tool in base al modello predefinito che usa l'approccio SDL chiamato **[STRIDE (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))** . L'idea è che il software è soggetto a una serie di minacce prevedibili che si possono trovare usando queste 6 categorie.
+Quando fa clic sulla visualizzazione di analisi nel menu di icone (il file con la lente di ingrandimento), compare un elenco delle minacce generate trovare da Threat Modeling Tool in base al modello predefinito che usa l'approccio SDL chiamato **[STRIDE (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))**. L'idea è che il software è soggetto a una serie di minacce prevedibili che si possono trovare usando queste 6 categorie.
 
 Questo approccio è come proteggere una casa dotando ogni porta e finestra di un meccanismo di blocco prima di aggiungere un sistema di allarme o rincorrere il ladro.
 

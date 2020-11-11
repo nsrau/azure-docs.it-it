@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c7f95b2009521b054958be48e444a129b0a59ed3
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 7ba8a5ded1d83ffdf153724c5e76b27e10bccfcb
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242892"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515762"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per MariaDB tramite l'interfaccia della riga di comando
 
@@ -21,15 +21,15 @@ Un endpoint privato è il blocco predefinito fondamentale per il collegamento pr
 > [!NOTE]
 > La funzionalità di collegamento privato è disponibile solo per i server di database di Azure per MariaDB nei piani tariffari per utilizzo generico o con ottimizzazione per la memoria. Verificare che il server di database sia in uno di questi piani tariffari.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per proseguire con questa guida, si richiedono:
+- È necessario un [database di Azure per il server MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md). 
 
-- Un [database di Azure per il server MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md).
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se si decide di installare e usare l'interfaccia della riga di comando di Azure in locale, per questa guida introduttiva è necessario usare l'interfaccia della riga di comando di Azure versione 2.0.28 o successiva. Per trovare la versione installata, eseguire `az --version`. Per informazioni sull'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+- Questo articolo richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -173,11 +173,11 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 4. In **nuova connessione** immettere o selezionare queste informazioni:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Connection Name (Nome connessione)| Selezionare il nome della connessione scelta.|
     | Nome host | Seleziona *mydemoserver.privatelink.MariaDB.database.Azure.com* |
-    | Nome utente | Immettere username (nome utente) come *username@servername* specificato durante la creazione del server MariaDB. |
+    | Username | Immettere username (nome utente) come *username@servername* specificato durante la creazione del server MariaDB. |
     | Password | Immettere una password specificata durante la creazione del server MariaDB. |
     ||
 

@@ -3,21 +3,102 @@ title: Fatture per la registrazione ad Azure Enterprise
 description: Questo articolo illustra come gestire la fattura della registrazione EA di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: contperfq1
+ms.openlocfilehash: 57ada2ca760ffff2124582c31fdd095d04d4375f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316138"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410969"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fatture per la registrazione ad Azure Enterprise
 
 Questo articolo illustra come gestire la fattura del Contratto Enterprise (EA, Enterprise Agreement) di Azure. La fattura è una rappresentazione del conto. Esaminarla per verificarne la correttezza. È anche consigliabile acquisire familiarità con altre attività che potrebbero essere necessarie per la gestione della fattura.
+
+## <a name="view-usage-summary-and-download-reports"></a>Visualizzare il riepilogo sull'utilizzo e scaricare i report
+
+Gli amministratori aziendali possono visualizzare un riepilogo dei dati di utilizzo, la quota utilizzata di Pagamento anticipato di Azure e gli addebiti associati all'utilizzo aggiuntivo in Azure Enterprise Portal. Gli addebiti vengono presentati a livello di riepilogo in tutti gli account e le sottoscrizioni.
+
+Per visualizzare informazioni dettagliate sull'utilizzo per account specifici, scaricare il report relativo ai dettagli dell'utilizzo:
+
+1. Accedere ad Azure Enterprise Portal.
+1. Selezionare **Report**.
+1. Selezionare la scheda **Scarica utilizzo**.
+1. Nell'elenco dei report selezionare l'opzione **Scarica** associata al report mensile da recuperare.
+
+   > [!NOTE]
+   > Il report relativo ai dettagli dell'utilizzo non include le imposte applicabili.
+   >
+   > Potrebbero verificarsi fino a otto ore di latenza tra l'ora dell'utilizzo e il momento in cui questo viene visualizzato nel report.
+
+Per visualizzare grafici e report di riepilogo sull'utilizzo:
+
+1. Accedere ad Azure Enterprise Portal.
+
+1. Selezionare un pagamento anticipato.
+
+   Per modificare l'intervallo di date per **Riepilogo utilizzo** è possibile spostare l'interruttore da **M** (Mensile) a **C** (Custom, Personalizzato) nell'angolo superiore destro della pagina, quindi immettere date di inizio e fine personalizzate.
+
+   ![Creare e visualizzare il riepilogo dell'utilizzo e scaricare i report in una visualizzazione personalizzata](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+1. Per visualizzare altri dettagli, selezionare un periodo o un mese sul grafico.
+
+   - Il grafico visualizza l'utilizzo mese per mese, con una suddivisione tra utilizzo effettivo, costi aggiuntivi del servizio, addebiti fatturati separatamente e addebiti di Azure Marketplace.
+   - Per il mese selezionato è possibile usare i campi sotto il grafico per applicare filtri in base a reparti, account e sottoscrizioni.
+   - È possibile alternare tra **Charge by Services** (Addebito per servizi ) e **Charge by Hierarchy** (Addebito per gerarchia).
+   - Per visualizzare i dettagli di **Servizio di Azure** , **Addebiti fatturati separatamente** e **Azure Marketplace** espandere le sezioni corrispondenti.
+
+Per informazioni su come visualizzare l'utilizzo, guardare questo video:
+
+> [!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
+
+### <a name="download-csv-reports"></a>Scaricare i report CSV
+
+Gli amministratori dell'organizzazione usano la pagina di download dei report mensili per scaricare i seguenti report come file con estensione csv:
+
+- Saldo e addebito
+- Dettagli utilizzo
+- Addebiti per Azure Marketplace
+- Elenco prezzi
+
+Per scaricare i report:
+
+1. In Azure Enterprise Portal selezionare **Report**.
+2. Selezionare **Scarica utilizzo** nella parte superiore della pagina.
+3. Selezionare **Download** accanto al report del mese.
+
+   > [!NOTE]
+   > Potrebbero verificarsi fino a cinque giorni di latenza tra la data di utilizzo e la data in cui viene visualizzato nei report.
+   >
+   > Gli utenti che scaricano i file CSV con Safari in Excel potrebbero riscontrare errori di formattazione. Per evitare errori, aprire il file in un editor di testo.
+
+![Esempio che mostra la pagina di download dei dati di utilizzo](./media/ea-portal-enrollment-invoices/create-ea-download-csv-reports.png)
+
+Guardare questo video per informazioni su come scaricare le informazioni sull'utilizzo:
+
+> [!VIDEO https://www.youtube.com/embed/eY797htT1qg]
+
+### <a name="advanced-report-download"></a>Download dei report avanzati
+
+È possibile usare il download dei report avanzati per ottenere report relativi a intervalli di date o account specifici. Il file di output è in formato CSV per il supporto di set di record di grandi dimensioni.
+
+1. In Azure Enterprise Portal selezionare **Advanced Report Download** (Download dei report avanzati).
+1. Selezionare un intervallo di date appropriato e gli account appropriati.
+1. Selezionare **Request Usage Data** (Richiedi dati utilizzo).
+1. Fare clic sul pulsante **Aggiorna** fino a quando lo stato del report non diventa **Download**.
+1. Scaricare il report.
+
+### <a name="download-usage-reports-and-billing-information-for-a-prior-enrollment"></a>Scaricare i report sull'utilizzo e le informazioni di fatturazione per una registrazione precedente
+
+È possibile scaricare i report sull'utilizzo e le informazioni di fatturazione per una registrazione precedente dopo che è stato eseguito un trasferimento della registrazione. La creazione di report cronologici è disponibile sia in Azure Enterprise Portal sia nella gestione dei costi.
+
+Azure Enterprise Portal esclude con un filtro la visualizzazione delle registrazioni inattive. Per visualizzare le registrazioni trasferite inattive è necessario deselezionare la casella **Attivo**.  
+
+![Deselezione della casella Attivo per visualizzare le registrazioni inattive](./media/ea-portal-enrollment-invoices/unchecked-active-box.png)
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>Modificare un numero di ordine di acquisto per una fattura per eccedenza futura
 
@@ -61,20 +142,20 @@ L'intervallo di fatturazione dipende dalla modalità scelta per effettuare gli a
 
 La data di ricezione della fattura per eccedenza dipende dalla data di inizio e di impostazione della registrazione:
 
-- **Registrazioni dirette con data di inizio precedente al 1° maggio 2018**:
+- **Registrazioni dirette con data di inizio precedente al 1° maggio 2018** :
   - Se si ha un Contratto Enterprise (EA) diretto, il periodo di fatturazione per i servizi di Azure è annuale e sono esclusi i servizi di Azure Marketplace. Il periodo di fatturazione è basato sulla data di ricorrenza annuale, ovvero la data in cui il contratto è diventato effettivo.
   - Se si supera il 150% della soglia del pagamento anticipato di Azure del contratto Enterprise, si passerà automaticamente a un periodo di fatturazione trimestrale basato sulla data di ricorrenza. Si riceverà anche una fattura per eccedenza dei servizi Azure.
   - Se non si supera il 150% della soglia del pagamento anticipato di Azure, la registrazione manterrà un periodo di fatturazione annuale. La fattura per eccedenza verrà ricevuta alla fine dell'anno di pagamento anticipato.
 
-- **Registrazioni dirette con data di inizio successiva al 1° maggio 2018**:
+- **Registrazioni dirette con data di inizio successiva al 1° maggio 2018** :
   - Le fatture relative all'utilizzo di Azure e agli addebiti fatturati separatamente hanno un periodo di fatturazione mensile.
   - Eventuali addebiti non coperti dal pagamento anticipato di Azure sono dovuti come pagamenti per eccedenze.  
 
-- **Registrazioni indirette con data di inizio precedente al 1° maggio 2018**:
+- **Registrazioni indirette con data di inizio precedente al 1° maggio 2018** :
 
   Se si è un cliente con Contratto Enterprise (EA) indiretto con data di inizio precedente al 1° maggio 2018, verrà impostato un periodo di fatturazione trimestrale. Il partner di canale (CP) emette direttamente la fattura.  
 
-- **Registrazioni indirette con data di inizio successiva al 1° maggio 2018**:
+- **Registrazioni indirette con data di inizio successiva al 1° maggio 2018** :
 
   Il periodo di fatturazione è mensile.  
 
@@ -88,9 +169,9 @@ In caso di eccedenza, vengono fatturati l'utilizzo o le prenotazioni che hanno s
 
 Per ogni voce in fattura verrà visualizzato quanto segue:
 
-- **Importo totale**: gli addebiti totali
-- **Utilizzo del pagamento anticipato**: l'importo del pagamento anticipato usato per coprire gli addebiti
-- **Importo netto**: gli addebiti che superano il pagamento anticipato
+- **Importo totale** : gli addebiti totali
+- **Utilizzo del pagamento anticipato** : l'importo del pagamento anticipato usato per coprire gli addebiti
+- **Importo netto** : gli addebiti che superano il pagamento anticipato
 
 Le imposte applicabili vengono calcolate solo sull'importo netto in eccedenza rispetto al pagamento anticipato.
 
@@ -110,7 +191,7 @@ Durante la transizione alla fattura unica, si riceverà una fattura parziale per
 
 La frequenza di fatturazione di un cliente è annuale, trimestrale o mensile. Il ciclo di fatturazione viene determinato quando il cliente firma il contratto. La fatturazione mensile è l'intervallo di fatturazione più breve.
 
-- Per modificare un periodo di fatturazione da annuale a trimestrale per le registrazioni dirette, è necessaria l'**approvazione** di un amministratore aziendale. Per le registrazioni indirette è necessaria l'approvazione di un amministratore partner. La modifica diventa effettiva alla fine del trimestre di fatturazione corrente.
+- Per modificare un periodo di fatturazione da annuale a trimestrale per le registrazioni dirette, è necessaria l' **approvazione** di un amministratore aziendale. Per le registrazioni indirette è necessaria l'approvazione di un amministratore partner. La modifica diventa effettiva alla fine del trimestre di fatturazione corrente.
 - Per cambiare un periodo di fatturazione da annuale o trimestrale a mensile, è necessaria una **modifica** del contratto.  Qualsiasi modifica al periodo di fatturazione della registrazione esistente richiede l'approvazione di un amministratore aziendale o della persona identificata come "contatto fatturazione".
 - **Inviare** l'approvazione al [supporto di Azure Enterprise Portal](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Selezionare la categoria di problema: **Fatturazione**.
 

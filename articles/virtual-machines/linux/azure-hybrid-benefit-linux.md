@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: feaa2471f2867257deb06ab32ed5fc0a26a0d37e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8437c83faf8dfcec0a21add2006b6cf627447dd1
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443433"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516442"
 ---
 # <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Anteprima pubblica: Vantaggio Azure Hybrid-come viene applicata per macchine virtuali Linux
 
@@ -53,10 +53,12 @@ Vantaggio Azure Hybrid (per Linux) è ora disponibile in fase di anteprima pubbl
 
 ### <a name="red-hat-customers"></a>Clienti Red Hat
 
-1.    Eseguire la registrazione con il [programma Red Hat cloud Access](https://aka.ms/rhel-cloud-access)
-1.    Abilitare le sottoscrizioni di Azure per l'accesso al cloud e abilitare le sottoscrizioni contenenti le macchine virtuali con cui si vuole usare il vantaggio
-1.    Applicare il vantaggio alle macchine virtuali esistenti tramite l'interfaccia della riga di comando di Azure
-1.    Registrare le VM ricevendo il vantaggio con una fonte di aggiornamenti separata
+Vantaggio Azure Hybrid per RHEL è disponibile per i clienti che dispongono di sottoscrizioni RHEL attive/inutilizzate idonee per l'uso in Azure e che hanno abilitato una o più di queste sottoscrizioni per l'uso in Azure con il programma [Red Hat cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) . 
+
+1.  Abilitare una o più sottoscrizioni RHEL idonee per l'uso in Azure usando l' [interfaccia del cliente Red Hat cloud Access](https://access.redhat.com/management/cloud).
+1.  Le sottoscrizioni di Azure fornite durante il processo di abilitazione di Red Hat cloud Access saranno quindi autorizzate a usare la funzionalità Vantaggio Azure Hybrid.
+1.  Applicare la Vantaggio Azure Hybrid a una delle macchine virtuali RHEL PAYG esistenti, nonché a tutte le nuove macchine virtuali RHEL distribuite dalle immagini PAYG di Azure Marketplace.
+1.  Seguire i [passaggi successivi](https://access.redhat.com/articles/5419341) consigliati per la configurazione delle origini aggiornamenti per le macchine virtuali RHEL e per le linee guida sulla conformità delle sottoscrizioni RHEL.
 
 
 ### <a name="suse-customers"></a>Clienti SUSE
@@ -124,7 +126,19 @@ Dall'interno della macchina virtuale, è possibile eseguire una query sui metada
 
 ### <a name="red-hat"></a>Red Hat
 
-Per usare Vantaggio Azure Hybrid per le VM RHEL, è prima necessario essere registrati con il programma Red Hat cloud Access. Questa operazione può essere eseguita tramite il sito Red Hat cloud Access. Dopo aver abilitato il vantaggio nella macchina virtuale, è necessario registrare la VM con la propria origine degli aggiornamenti con Red Hat Subscription Manager o Red Hat satellite. La registrazione per gli aggiornamenti garantirà la permanenza in uno stato supportato.
+I clienti che usano la Vantaggio Azure Hybrid per RHEL accettano le [condizioni legali](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) standard e l' [informativa sulla privacy](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) associate alle offerte RHEL di Azure Marketplace.
+
+I clienti che usano Vantaggio Azure Hybrid per RHEL hanno tre opzioni per la fornitura di patch e aggiornamenti software a tali macchine virtuali:
+
+1.  [Red Hat Update Infrastructure (RHUI)](../workloads/redhat/redhat-rhui.md) (opzione predefinita)
+1.  Server Red Hat satellite
+1.  Gestione delle sottoscrizioni di Red Hat
+
+I clienti che scelgono l'opzione RHUI possono continuare a usare RHUI come origine di aggiornamento principale per le VM RHEL vantaggio Azure Hybrid senza aggiungere sottoscrizioni RHEL a tali macchine virtuali.  I clienti che scelgono l'opzione RHUI sono responsabili per garantire la conformità della sottoscrizione RHEL.
+
+I clienti che scelgono Red Hat satellite server o Red Hat Subscription Manager devono rimuovere la configurazione di RHUI e quindi alleghino una sottoscrizione RHEL abilitata per l'accesso al cloud alle VM vantaggio Azure Hybrid RHEL.  
+
+Altre informazioni sulla conformità della sottoscrizione di Red Hat, gli aggiornamenti software e le origini per le macchine virtuali vantaggio Azure Hybrid RHEL sono disponibili [qui](https://access.redhat.com/articles/5419341).
 
 ### <a name="suse"></a>SUSE
 

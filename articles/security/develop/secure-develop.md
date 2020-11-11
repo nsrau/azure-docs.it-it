@@ -13,15 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 7818ae36c785311466d2fb26ce45dcf50983145d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ca0513f95bc490087f3c84eeecc4ea623f64604
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283487"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517088"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Sviluppare applicazioni sicure in Azure
-In questo articolo vengono presentati i controlli e le attività di sicurezza da prendere in considerazione quando si sviluppano applicazioni per il cloud. Vengono analizzate le domande e i concetti di sicurezza da considerare durante le fasi di implementazione e verifica di Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx). L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per sviluppare un'applicazione più protetta.
+In questo articolo vengono presentati i controlli e le attività di sicurezza da prendere in considerazione quando si sviluppano applicazioni per il cloud. Vengono analizzate le domande e i concetti di sicurezza da considerare durante le fasi di implementazione e verifica di Microsoft [Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)). L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per sviluppare un'applicazione più protetta.
 
 Questo articolo tratta le fasi di SDL seguenti:
 
@@ -34,11 +34,11 @@ Si supponga che l'applicazione verrà usata in modi in cui non era previsto usar
 
 ### <a name="perform-code-reviews"></a>Eseguire revisioni del codice
 
-Prima di archiviare il codice, eseguire [revisioni del codice](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) per aumentare la qualità complessiva del codice e ridurre il rischio di creare bug. È possibile usare [Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) per gestire il processo di revisione del codice.
+Prima di archiviare il codice, eseguire [revisioni del codice](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) per aumentare la qualità complessiva del codice e ridurre il rischio di creare bug. È possibile usare [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) per gestire il processo di revisione del codice.
 
 ### <a name="perform-static-code-analysis"></a>Eseguire l'analisi codice statico
 
-L'[analisi codice statico](https://owasp.org/www-community/controls/Static_Code_Analysis), nota anche come *analisi del codice sorgente* viene in genere eseguita come parte di una revisione del codice. L'analisi codice statico si riferisce comunemente all'esecuzione di strumenti di analisi codice statico per individuare potenziali vulnerabilità nel codice non in esecuzione, usando tecniche come il [controllo dei dati](https://en.wikipedia.org/wiki/Taint_checking) e l'[analisi del flusso di dati](https://en.wikipedia.org/wiki/Data-flow_analysis).
+L' [analisi codice statico](https://owasp.org/www-community/controls/Static_Code_Analysis), nota anche come *analisi del codice sorgente* viene in genere eseguita come parte di una revisione del codice. L'analisi codice statico si riferisce comunemente all'esecuzione di strumenti di analisi codice statico per individuare potenziali vulnerabilità nel codice non in esecuzione, usando tecniche come il [controllo dei dati](https://en.wikipedia.org/wiki/Taint_checking) e l'[analisi del flusso di dati](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 Azure Marketplace offre [strumenti di sviluppo](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) che eseguono l'analisi codice statico e assistono nelle revisioni del codice.
 
@@ -62,7 +62,7 @@ Eseguire questa operazione sul server, non sul lato client o sul server e sul la
 
 ### <a name="verify-your-applications-outputs"></a>Verificare l'output dell'applicazione
 
-Qualsiasi output presentato in modo visivo o all'interno di un documento deve essere sempre codificato e preceduto da un carattere di escape. L'[escape](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), noto anche come *codifica di output*, viene usato per garantire che i dati non attendibili non siano un veicolo per un attacco injection. L'escape, combinato con la convalida dei dati, fornisce difese a più livelli per aumentare la sicurezza del sistema nel suo complesso.
+Qualsiasi output presentato in modo visivo o all'interno di un documento deve essere sempre codificato e preceduto da un carattere di escape. L' [escape](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), noto anche come *codifica di output* , viene usato per garantire che i dati non attendibili non siano un veicolo per un attacco injection. L'escape, combinato con la convalida dei dati, fornisce difese a più livelli per aumentare la sicurezza del sistema nel suo complesso.
 
 L'escape garantisce che tutti gli elementi vengano visualizzati come *output*. L'escape consente inoltre all'interprete di tenere presente che i dati non sono destinati a essere eseguiti e questo impedisce il funzionamento degli attacchi. Si tratta di un'altra tecnica di attacco comune denominata *cross-site scripting* (XSS).
 
@@ -99,7 +99,7 @@ Se l'applicazione deve generare automaticamente le password, assicurarsi che le 
 
 Se l'applicazione consente il [caricamento dei file](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload), tenere in considerazione le precauzioni che è possibile prendere per questa attività rischiosa. Il primo passaggio di molti attacchi è inserire del codice dannoso in un sistema sotto attacco. Il caricamento di un file consente all'utente malintenzionato di portare a termine questa operazione. OWASP offre soluzioni per la convalida di un file, in modo da garantire la sicurezza del file che si sta caricando.
 
-È consigliabile installare una protezione antimalware per identificare e rimuovere virus, spyware e altro software dannoso. È possibile installare [Microsoft Antimalware](../fundamentals/antimalware.md) o una soluzione di protezione degli endpoint di un partner Microsoft, come [Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) e [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection).
+È consigliabile installare una protezione antimalware per identificare e rimuovere virus, spyware e altro software dannoso. È possibile installare [Microsoft Antimalware](../fundamentals/antimalware.md) o una soluzione di protezione degli endpoint di un partner Microsoft, come [Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10) e [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection).
 
 [Microsoft Antimalware](../fundamentals/antimalware.md) include caratteristiche come la protezione in tempo reale, l'analisi pianificata, il monitoraggio e aggiornamento malware, l'aggiornamento delle firme e del motore, il reporting di campioni e la raccolta degli eventi di esclusione. È possibile integrare Microsoft Antimalware e soluzioni partner con [Centro sicurezza di Azure](../../security-center/security-center-partner-integration.md) per facilitare la distribuzione e i rilevamenti predefiniti (avvisi ed eventi imprevisti).
 

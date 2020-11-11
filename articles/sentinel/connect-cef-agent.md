@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 6ab02cc7e60870852666c8c01ccc17a1b1102a62
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2f90a7c954fc8930f69dfee3e7b56b394225405a
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742833"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516738"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Passaggio 1: distribuire il server d'avanzamento log
 
@@ -38,15 +38,15 @@ In questo passaggio verrà designato e configurato il computer Linux che eseguir
 
 - È necessario disporre di autorizzazioni elevate (sudo) nel computer Linux designato.
 
-- È necessario che **python 2,7** sia installato nel computer Linux.<br>Usare il `python -version` comando per controllare.
+- Nel computer Linux è necessario che sia installato **python 2,7** o **3** .<br>Usare il `python -version` comando per controllare.
 
 - Il computer Linux non deve essere connesso ad alcuna area di lavoro di Azure prima di installare l'agente di Log Analytics.
 
-- Potrebbero essere necessari l'ID dell'area di lavoro e la chiave primaria dell'area di lavoro in un determinato punto del processo. È possibile trovarli nella risorsa dell'area di lavoro in **Gestione agenti** .
+- Potrebbero essere necessari l'ID dell'area di lavoro e la chiave primaria dell'area di lavoro in un determinato punto del processo. È possibile trovarli nella risorsa dell'area di lavoro in **Gestione agenti**.
 
 ## <a name="run-the-deployment-script"></a>Eseguire lo script di distribuzione
  
-1. Dal menu di navigazione di Azure Sentinel, fare clic su **connettori dati** . Dall'elenco dei connettori, fare clic sul riquadro **CEF (Common Event Format)** e quindi sul pulsante **Apri pagina connettore** in basso a destra. 
+1. Dal menu di navigazione di Azure Sentinel, fare clic su **connettori dati**. Dall'elenco dei connettori, fare clic sul riquadro **CEF (Common Event Format)** e quindi sul pulsante **Apri pagina connettore** in basso a destra. 
 
 1. In **1,2 installare l'agente di raccolta CEF nel computer Linux** , copiare il collegamento fornito in **eseguire lo script seguente per installare e applicare l'agente di raccolta CEF** oppure dal testo seguente (applicando l'ID dell'area di lavoro e la chiave primaria al posto dei segnaposto):
 

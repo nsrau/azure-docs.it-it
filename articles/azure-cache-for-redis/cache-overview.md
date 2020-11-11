@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 3bea474ae61ba4a0213d880934d9536d6ad71796
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1b8b95ea318dd7a82d9512908838209bc5cc2995
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131633"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349104"
 ---
 # <a name="azure-cache-for-redis"></a>Cache Redis di Azure
 Cache di Azure per Redis offre un archivio dati in memoria basato sul software [Redis](https://redis.io/). Redis migliora in modo significativo le prestazioni e la scalabilità di un'applicazione che usano gli archivi dati back-end. È in grado di elaborare volumi elevati di richieste delle applicazioni mantenendo i dati usati di frequente nella memoria del server che garantisce rapidità di lettura e scrittura. Redis offre una soluzione di archiviazione dati a bassa latenza e velocità effettiva elevata strategica per le applicazioni moderne.
@@ -35,9 +35,6 @@ Cache di Azure per Redis migliora le prestazioni dell'applicazione grazie al sup
 
 Cache di Azure per Redis supporta il software open source Redis versione 4.x e, come anteprima, 6.0. È stato deciso di ignorare Redis 5.0 per offrire l'ultima versione. In precedenza, cache di Azure per Redis manteneva solo una singola versione di Redis. In futuro fornirà un aggiornamento più recente della versione principale e almeno una versione stabile precedente. È possibile [scegliere quale versione](cache-how-to-version.md) è più adatta per l'applicazione.
 
-> [!NOTE]
-> Redis 6.0 è attualmente in fase di anteprima. [Contattare](mailto:azurecache@microsoft.com) Microsoft se si è interessati. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="service-tiers"></a>Livelli di servizio
 Cache Redis di Azure è disponibile nei livelli seguenti:

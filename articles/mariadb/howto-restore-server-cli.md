@@ -8,27 +8,26 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5073cd33d9dada666324e92f3418b2548d9af374
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98782f02c871f676ec3506d0bad45cd8cce079a8
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502563"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516527"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per MariaDB tramite l'interfaccia della riga di comando di Azure
 
 Il backup dei server Database di Azure per MariaDB viene eseguito periodicamente per abilitare le funzionalità di ripristino. L'uso di questa funzionalità consente di ripristinare il server e tutti i suoi database a un momento precedente nel nuovo server.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa guida, è necessario:
+- Sono necessari un [database di Azure per il server e il database di MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
-- Un [Database di Azure per server MariaDB e database](quickstart-create-mariadb-server-database-using-azure-cli.md)
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-> [!IMPORTANT]
-> Questa guida dettagliata richiede l'uso dell'interfaccia della riga di comando di Azure 2.0 o versioni successive. Per verificare la versione, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere `az --version`. Per installare o eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+- Questa guida alle procedure richiede la versione 2,0 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="set-backup-configuration"></a>Impostare la configurazione del backup
 
@@ -70,9 +69,9 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 
 Il comando `az mariadb server restore` richiede i parametri seguenti:
 
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
+| resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | name | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Selezionare un punto nel tempo per il ripristino. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. È possibile usare il proprio fuso orario locale, ad esempio `2018-03-13T05:59:00-08:00`. È anche possibile usare il formato UTC Zulu, ad esempio `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Il nome o l'ID del server di origine da cui eseguire il ripristino. |
@@ -101,7 +100,7 @@ Per eseguire un ripristino geografico del server, al prompt dei comandi dell'int
 az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8
 ```
 
-Questo comando crea un nuovo server denominato *mydemoserver-georestored* negli Stati Uniti orientali che apparterrà a *myresourcegroup*. Si tratta di un server per utilizzo generico di quinta generazione con otto vCore. Il server viene creato dal backup con ridondanza geografica di *mydemoserver*, che si trova anch'esso nel gruppo di risorse *myresourcegroup*.
+Questo comando crea un nuovo server denominato *mydemoserver-georestored* negli Stati Uniti orientali che apparterrà a *myresourcegroup*. Si tratta di un server per utilizzo generico di quinta generazione con otto vCore. Il server viene creato dal backup con ridondanza geografica di *mydemoserver* , che si trova anch'esso nel gruppo di risorse *myresourcegroup*.
 
 Se si vuole creare il nuovo server in un gruppo di risorse diverso dal server esistente, nel parametro `--source-server` è necessario specificare il nome del server come nell'esempio seguente:
 
@@ -112,7 +111,7 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 
 Il comando `az mariadb server georestore` richiede i parametri seguenti:
 
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Nome del gruppo di risorse cui apparterrà il nuovo server.|
 |name | mydemoserver-georestored | Nome del nuovo server. |

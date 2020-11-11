@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 654924d25a567ed6c63405d27444eb6ff96d480d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c46bb2233fe38380dd5ba19804791c7c9f3da91
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603646"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517343"
 ---
 # <a name="add-ipv6-to-an-ipv4-application-in-azure-virtual-network---azure-cli"></a>Aggiungere IPv6 a un'applicazione IPv4 in rete virtuale di Azure-interfaccia della riga di comando di Azure
 
 Questo articolo illustra come aggiungere indirizzi IPv6 a un'applicazione che usa un indirizzo IP pubblico IPv4 in una rete virtuale di Azure per un Load Balancer Standard usando l'interfaccia della riga di comando di Azure. L'aggiornamento sul posto include una rete virtuale e una subnet, un Load Balancer Standard con configurazioni front-end IPv4 + IPV6, VM con NIC con configurazioni IPv4 + IPv6, gruppo di sicurezza di rete e indirizzi IP pubblici.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se si decide di installare e usare l'interfaccia della riga di comando di Azure in locale, per questa guida introduttiva è necessario usare l'interfaccia della riga di comando di Azure versione 2.0.28 o successiva. Per trovare la versione installata, eseguire `az --version`. Per informazioni sull'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che sia stata distribuita una Load Balancer Standard come descritto in [Guida introduttiva: creare un'interfaccia](../load-balancer/quickstart-load-balancer-standard-public-cli.md)della riga di comando Load Balancer standard-Azure.
+- Questo articolo presuppone che sia stata distribuita una Load Balancer Standard come descritto in [Guida introduttiva: creare un'interfaccia](../load-balancer/quickstart-load-balancer-standard-public-cli.md)della riga di comando Load Balancer standard-Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Questo articolo richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-ipv6-addresses"></a>Crea indirizzi IPv6
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 301bc64bee291fa25506e7f435e923be7e244cd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d083607782f96744ecbd7d23976f77ee53fec49d
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267517"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515570"
 ---
 # <a name="scenario-azure-firewall---custom"></a>Scenario: firewall di Azure-personalizzato
 
@@ -28,10 +28,10 @@ Per determinare il numero di tabelle di route necessarie, è possibile creare un
 
 | Da           | Con:      | *Reti virtuali*      | *Rami*    | *Internet*   |
 |---             |---       |---           |---            |---           |
-| **Reti virtuali**      |   &#8594;|     X        |     AzFW      |     AzFW     |
-| **Rami**   |   &#8594;|    AzFW      |       X       |       X      |
+| **Reti virtuali**      |   &#8594;|    Connessione diretta    |     AzFW      |     AzFW     |
+| **Rami**   |   &#8594;|    AzFW      |    Connessione diretta     |    Connessione diretta    |
 
-Nella tabella precedente, una "X" rappresenta la connettività diretta tra due connessioni senza il traffico che attraversa il firewall di Azure nella rete WAN virtuale e "AzFW" indica che il flusso passerà attraverso il firewall di Azure. Poiché nella matrice sono presenti due modelli di connettività distinti, saranno necessarie due tabelle di route che verranno configurate nel modo seguente:
+Nella tabella precedente, una "diretta" rappresenta la connettività diretta tra due connessioni senza il traffico che attraversa il firewall di Azure nella rete WAN virtuale e "AzFW" indica che il flusso passerà attraverso il firewall di Azure. Poiché nella matrice sono presenti due modelli di connettività distinti, saranno necessarie due tabelle di route che verranno configurate nel modo seguente:
 
 * Reti virtuali:
   * Tabella di route associata: **RT_VNet**
