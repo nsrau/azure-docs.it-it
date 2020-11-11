@@ -9,12 +9,12 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 336e708334778e107331f5f393476c4b3dbb98a3
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 996f138a14923319381738e7a55cd7ba4e8c4320
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507485"
+ms.locfileid: "94517768"
 ---
 # <a name="identity-model"></a>Modello di identità
 
@@ -59,3 +59,9 @@ La rotazione delle chiavi di accesso del servizio di comunicazione di Azure prov
 È consigliabile rilasciare i token di accesso nel servizio lato server e non nell'applicazione del client. Il motivo è che l'emissione richiede la chiave di accesso o l'identità gestita. Per motivi di sicurezza, non è consigliabile condividere le chiavi di accesso con l'applicazione del client. L'applicazione client deve usare un endpoint di servizio attendibile in grado di autenticare i client ed emettere un token di accesso per loro conto. Altre informazioni sull'architettura sono disponibili [qui](./client-and-server-architecture.md).
 
 Se si memorizzano nella cache i token di accesso a un archivio di backup, si consiglia di usare la crittografia. Il token di accesso è costituito da dati sensibili e può essere usato per attività dannose se non è protetto. Con il possesso del token di accesso, è possibile inizializzare l'SDK e ottenere l'accesso all'API. L'API accessibile è limitata solo in base agli ambiti, che hanno il token di accesso. È consigliabile rilasciare i token di accesso solo con gli ambiti, che sono obbligatori.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Per un'introduzione alla gestione dei token di accesso, vedere [creare e gestire i token di accesso](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
+* Per un'introduzione all'autenticazione, vedere [eseguire l'autenticazione a servizi di comunicazione di Azure](https://docs.microsoft.com/azure/communication-services/concepts/authentication)
+* Per un'introduzione alla privacy e alla residenza dei dati, vedere [disponibilità delle aree e residenza dei dati](https://docs.microsoft.com/azure/communication-services/concepts/privacy)

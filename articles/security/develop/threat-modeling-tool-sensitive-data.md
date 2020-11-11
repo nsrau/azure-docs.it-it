@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8c3b47659486ef32bdb0a9a26d1b0f39c5bcd7a9
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 0bcbe35fc6d9f104325bec8a3404ad57a6376cf2
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949752"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518125"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Infrastruttura di sicurezza: dati sensibili - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -132,7 +132,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [Procedura: crittografare le sezioni di configurazione in ASP.NET 2.0 usando DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [Specifica di un provider di configurazione protetta](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Uso di Azure Key Vault per proteggere i segreti dell'applicazione](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **Riferimenti**              | [Procedura: crittografare le sezioni di configurazione in ASP.NET 2.0 usando DPAPI](/previous-versions/msp-n-p/ff647398(v=pandp.10)), [Specifica di un provider di configurazione protetta](/previous-versions/68ze1hb2(v=vs.140)), [Uso di Azure Key Vault per proteggere i segreti dell'applicazione](/azure/architecture/multitenant-identity/web-api) |
 | **Passaggi** | I file di configurazione, ad esempio Web.config e appsettings.json, vengono spesso usati per memorizzare informazioni sensibili, inclusi nomi utente, password, stringhe di connessione del database e chiavi di crittografia. Se non si proteggono queste informazioni, l'applicazione è vulnerabile agli utenti malintenzionati che ottengono informazioni sensibili, ad esempio nomi account utente e password, nomi dei database e nomi dei server. In base al tipo di distribuzione (Azure/locale), crittografare le sezioni sensibili dei file config usando DPAPI o servizi come Azure Key Vault. |
 
 ## <a name="explicitly-disable-the-autocomplete-html-attribute-in-sensitive-forms-and-inputs"></a><a id="autocomplete-input"></a>Disabilitare in modo esplicito l'attributo HTML di completamento automatico in input e moduli sensibili
@@ -143,7 +143,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [MSDN: autocomplete attribute](https://msdn.microsoft.com/library/ms533486(VS.85).aspx) (Attributo autocomplete), [Using AutoComplete in HTML Forms](https://msdn.microsoft.com/library/ms533032.aspx) (Uso di AutoComplete nei form HTML), [Vulnerabilità legata alla disinfezione del contenuto HTML](https://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete...again?!](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) (Ancora autocomplete?) |
+| **Riferimenti**              | [MSDN: autocomplete attribute](https://msdn.microsoft.com/library/ms533486(VS.85).aspx) (Attributo autocomplete), [Using AutoComplete in HTML Forms](/previous-versions/windows/internet-explorer/ie-developer/) (Uso di AutoComplete nei form HTML), [Vulnerabilità legata alla disinfezione del contenuto HTML](/security-updates/SecurityBulletins/2010/ms10-071), [Autocomplete...again?!](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) (Ancora autocomplete?) |
 | **Passaggi** | L'attributo autocomplete specifica se la funzionalità di completamento automatico di un modulo debba essere abilitata o disabilitata. Quando il completamento automatico è abilitato, il browser completa automaticamente i valori in base a valori immessi in precedenza dall'utente. Ad esempio, quando si immette un nuovo nome e una password in un modulo, che poi viene inviato, il browser chiede se si vuole salvare la password. Quando il modulo viene visualizzato successivamente, il nome e la password vengono popolati automaticamente o vengono compilati immettendo il nome. Un utente malintenzionato con accesso in locale può ottenere la password non crittografata dalla cache del browser. Il completamento automatico è abilitato per impostazione predefinita e deve essere disabilitato in modo esplicito. |
 
 ### <a name="example"></a>Esempio
@@ -173,7 +173,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | SQL Azure, locale |
 | **Attributes (Attributi)**              | Versione SQL: 12, versione SQL: MSSQL2016 |
-| **Riferimenti**              | [Maschera dati dinamica](https://msdn.microsoft.com/library/mt130841) |
+| **Riferimenti**              | [Maschera dati dinamica](/sql/relational-databases/security/dynamic-data-masking) |
 | **Passaggi** | Lo scopo della maschera dati dinamica consiste nel limitare l'esposizione dei dati sensibili, impedendo la visualizzazione dei dati agli utenti che non dovrebbero averne accesso. La maschera dati dinamica non mira a impedire agli utenti del database di connettersi direttamente al database ed eseguire query complete che espongano parti dei dati sensibili. La maschera dati dinamica è complementare ad altre funzionalità di sicurezza di SQL Server, come il controllo, la crittografia, la sicurezza a livello di riga e così via, ed è consigliabile usarla insieme a tali funzionalità per proteggere meglio i dati sensibili nel database. Si noti che questa funzionalità è supportata unicamente da SQL Server, a partire dalla versione 2016, e dal database SQL di Azure. |
 
 ## <a name="ensure-that-passwords-are-stored-in-salted-hash-format"></a><a id="salted-hash"></a>Assicurarsi che le password vengano archiviate in formato hash con valori salt
@@ -195,7 +195,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | Versione SQL: tutte |
-| **Riferimenti**              | [Crittografia di dati sensibili in SQL Server](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [Procedura: Crittografare una colonna di dati in SQL Server](https://msdn.microsoft.com/library/ms179331), [Crittografare con un certificato](https://msdn.microsoft.com/library/ms188061) |
+| **Riferimenti**              | [Crittografia di dati sensibili in SQL Server](/previous-versions/sql/sql-server-2008-r2/ff848751(v=sql.105)), [Procedura: Crittografare una colonna di dati in SQL Server](/sql/relational-databases/security/encryption/encrypt-a-column-of-data), [Crittografare con un certificato](/sql/t-sql/functions/encryptbycert-transact-sql) |
 | **Passaggi** | I dati sensibili, come i numeri di carte di credito, devono essere crittografati nel database. A tale scopo è possibile usare la crittografia a livello di colonna o una funzione di applicazione tramite funzioni di crittografia. |
 
 ## <a name="ensure-that-database-level-encryption-tde-is-enabled"></a><a id="tde-enabled"></a>Assicurarsi che venga abilitata la crittografia a livello di database (TDE)
@@ -206,7 +206,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [Informazioni su Transparent Data Encryption (TDE) in SQL Server](https://technet.microsoft.com/library/bb934049(v=sql.105).aspx) |
+| **Riferimenti**              | [Informazioni su Transparent Data Encryption (TDE) in SQL Server](/previous-versions/sql/sql-server-2008-r2/bb934049(v=sql.105)) |
 | **Passaggi** | La funzionalità Transparent Data Encryption (TDE) in SQL Server consente di crittografare i dati sensibili in un database e proteggere le chiavi usate per crittografare i dati con un certificato. Questo impedisce l'uso dei dati senza le chiavi. TDE consente di proteggere i dati "non operativi", ovvero i file di dati e di log, e assicura la conformità a numerose leggi, normative e linee guida stabilite in vari settori. |
 
 ## <a name="ensure-that-database-backups-are-encrypted"></a><a id="backup"></a>Assicurarsi che i backup di database vengano crittografati
@@ -217,7 +217,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | SQL Azure, locale |
 | **Attributes (Attributi)**              | Versione SQL: 12, versione SQL: MSSQL2014 |
-| **Riferimenti**              | [Crittografia dei backup del database SQL](https://msdn.microsoft.com/library/dn449489) |
+| **Riferimenti**              | [Crittografia dei backup del database SQL](/sql/relational-databases/backup-restore/backup-encryption) |
 | **Passaggi** | SQL Server permette di crittografare i dati durante la creazione di un backup. Specificando l'algoritmo di crittografia e il componente di crittografia, ad esempio un certificato o una chiave asimmetrica, durante la creazione di un backup, è possibile creare un file di backup crittografato. |
 
 ## <a name="ensure-that-sensitive-data-relevant-to-web-api-is-not-stored-in-browsers-storage"></a><a id="api-browser"></a>Assicurarsi che i dati sensibili relativi all'API Web non vengano memorizzati nell'archivio del browser
@@ -263,7 +263,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Fase SDL**               | Distribuzione |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [Uso di Crittografia dischi di Azure per crittografare i dischi usati dalle macchine virtuali](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) |
+| **Riferimenti**              | [Uso di Crittografia dischi di Azure per crittografare i dischi usati dalle macchine virtuali](../../storage/blobs/security-recommendations.md#data-protection) |
 | **Passaggi** | <p>Crittografia dischi di Azure è una nuova funzionalità attualmente in anteprima. Questa funzionalità consente di crittografare i dischi dati e del sistema operativo usati da una macchina virtuale IaaS. Per Windows, le unità vengono crittografate mediante la tecnologia di crittografia BitLocker standard del settore. Per Linux, i dischi vengono crittografati mediante la tecnologia DM-Crypt, integrata nell'insieme di credenziali delle chiavi per consentire il controllo e la gestione delle chiavi di crittografia del disco. La soluzione Crittografia dischi di Azure supporta i tre scenari di crittografia dei clienti descritti di seguito:</p><ul><li>Abilitare la crittografia in nuove VM IaaS create da file VHD crittografati dal cliente e chiavi di crittografia fornite dal cliente, che vengono archiviate nell'insieme di credenziali delle chiavi di Azure.</li><li>Abilitare la crittografia di nuove VM IaaS create da Azure Marketplace.</li><li>Abilitare la crittografia delle VM IaaS esistenti già in esecuzione in Azure.</li></ul>| 
 
 ## <a name="encrypt-secrets-in-service-fabric-applications"></a><a id="fabric-apps"></a>Crittografare i segreti nelle applicazioni di Service Fabric
@@ -274,7 +274,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | Ambiente: Azure |
-| **Riferimenti**              | [Gestione dei segreti nelle applicazioni di Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-application-secret-management/) |
+| **Riferimenti**              | [Gestione dei segreti nelle applicazioni di Service Fabric](../../service-fabric/service-fabric-application-secret-management.md) |
 | **Passaggi** | I segreti possono essere informazioni riservate, ad esempio le stringhe di connessione di archiviazione, le password o altri valori che non devono essere gestiti in testo normale. Usare Azure Key Vault per gestire le chiavi e i segreti nelle applicazioni di Service Fabric. |
 
 ## <a name="perform-security-modeling-and-use-business-unitsteams-where-required"></a><a id="modeling-teams"></a>Eseguire la modellazione di sicurezza e usare team e unità aziendali quando richiesto
@@ -329,7 +329,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | Tipo di archiviazione: BLOB |
-| **Riferimenti**              | [Crittografia del servizio di archiviazione di Azure per dati inattivi (anteprima)](https://azure.microsoft.com/documentation/articles/storage-service-encryption/) |
+| **Riferimenti**              | [Crittografia del servizio di archiviazione di Azure per dati inattivi (anteprima)](../../storage/common/storage-service-encryption.md) |
 | **Passaggi** | <p>Crittografia del servizio di archiviazione di Azure per dati inattivi consente di proteggere e salvaguardare i dati, in modo da soddisfare i criteri di sicurezza e conformità dell'organizzazione. Questa funzionalità consente ad Archiviazione di Azure di crittografare automaticamente i dati prima della persistenza nella risorsa di archiviazione e di decrittografarli prima del recupero. La crittografia, la decrittografia e la gestione delle chiavi sono completamente trasparenti per gli utenti. SSE viene applicato solo per BLOB in blocchi, BLOB di pagine e BLOB di aggiunta. Altri tipi di dati, tra cui tabelle, code e file, non verranno crittografati.</p><p>Flusso di lavoro di crittografia e decrittografia:</p><ul><li>Il cliente abilita la crittografia sull'account di archiviazione.</li><li>Quando il cliente scrive nuovi dati (PUT Blob, PUT Block, PUT Page e così via) nell'archivio BLOB, ogni operazione di scrittura viene crittografata mediante la crittografia AES a 256 bit, una delle crittografie a blocchi più solide tra quelle disponibili.</li><li>Quando il cliente deve accedere ai dati (GET Blob e così via), i dati vengono decrittografati automaticamente prima della restituzione all'utente.</li><li>Se la crittografia è disabilitata, le nuove operazioni di scrittura non vengono più crittografate e i dati crittografati esistenti rimangono crittografati fino a quando non vengono riscritti dall'utente. Quando la crittografia è abilitata, le operazioni di scrittura nell'archivio BLOB verranno sempre crittografate. Lo stato dei dati non cambia quando l'utente abilita/disabilita la crittografia per l'account di archiviazione.</li><li>Tutte le chiavi di crittografia vengono archiviate, crittografate e gestite da Microsoft.</li></ul><p>Al momento, le chiavi usate per la crittografia sono gestite da Microsoft. Microsoft genera le chiavi in origine e ne gestisce l'archiviazione protetta, nonché la rotazione regolare secondo quanto definito dai criteri interni di Microsoft. In futuro i clienti potranno gestire le relative chiavi di crittografia e verrà fornito un percorso di migrazione dalle chiavi gestite da Microsoft alle chiavi gestite dal cliente.</p>| 
 
 ## <a name="use-client-side-encryption-to-store-sensitive-data-in-azure-storage"></a><a id="client-storage"></a>Usare la crittografia lato client per archiviare dati sensibili in Archiviazione di Azure
@@ -340,7 +340,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [Crittografia lato client e Azure Key Vault per Archiviazione di Microsoft Azure](https://azure.microsoft.com/documentation/articles/storage-client-side-encryption/), [Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite Azure Key Vault](https://azure.microsoft.com/documentation/articles/storage-encrypt-decrypt-blobs-key-vault/), [Storing Data Securely in Azure Blob Storage with Azure Encryption Extensions](https://blogs.msdn.microsoft.com/partnercatalystteam/2015/06/17/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions/) (Archiviazione protetta dei dati nell'archivio BLOB di Azure con le estensioni di crittografia di Azure) |
+| **Riferimenti**              | [Crittografia lato client e Azure Key Vault per Archiviazione di Microsoft Azure](../../storage/common/storage-client-side-encryption.md), [Esercitazione: Crittografare e decrittografare i BLOB in Archiviazione di Microsoft Azure tramite Azure Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md), [Storing Data Securely in Azure Blob Storage with Azure Encryption Extensions](/archive/blogs/partnercatalystteam/storing-data-securely-in-azure-blob-storage-with-azure-encryption-extensions) (Archiviazione protetta dei dati nell'archivio BLOB di Azure con le estensioni di crittografia di Azure) |
 | **Passaggi** | <p>Il pacchetto NuGet della libreria client di archiviazione di Azure per .NET supporta la crittografia dei dati all'interno delle applicazioni client prima del caricamento in Archiviazione di Azure, nonché la decrittografia dei dati durante il download nel client. La libreria supporta anche l'integrazione con l'insieme di credenziali delle chiavi di Azure per la gestione delle chiavi dell'account di archiviazione. Ecco una breve descrizione del funzionamento della crittografia lato client:</p><ul><li>Azure Storage Client SDK genera una chiave di crittografia del contenuto (CEK) che funziona come chiave simmetrica monouso.</li><li>I dati del cliente vengono crittografati con la chiave CEK.</li><li>Viene quindi eseguito il wrapping della chiave CEK mediante la chiave di crittografia della chiave (KEK). La chiave KEK è identificata con un identificatore di chiave e può essere costituita da una coppia di chiavi asimmetriche o da una chiave simmetrica. Può essere gestita localmente o archiviata nell'insieme di credenziali delle chiavi di Azure. Il client di archiviazione non ha mai accesso alla chiave KEK. Richiama solo l'algoritmo di wrapping della chiave fornito dall'insieme di credenziali chiave. Volendo, i clienti possono scegliere di usare provider personalizzati per il wrapping o la rimozione del wrapping delle chiavi.</li><li>I dati crittografati vengono quindi caricati nel servizio Archiviazione di Azure. Per informazioni dettagliate sull'implementazione, vedere i collegamenti riportati nella sezione dei riferimenti.</li></ul>|
 
 ## <a name="encrypt-sensitive-or-pii-data-written-to-phones-local-storage"></a><a id="pii-phones"></a>Crittografare le informazioni personali o i dati sensibili scritti nell'archivio locale del telefono
@@ -351,7 +351,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico, Xamarin  |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [Gestire impostazioni e funzionalità nei dispositivi con i criteri di Microsoft Intune](https://docs.microsoft.com/mem/intune/configuration/), [Keychain Valet](https://components.xamarin.com/view/square.valet) |
+| **Riferimenti**              | [Gestire impostazioni e funzionalità nei dispositivi con i criteri di Microsoft Intune](/mem/intune/configuration/), [Keychain Valet](https://components.xamarin.com/view/square.valet) |
 | **Passaggi** | <p>Se l'applicazione scrive le informazioni sensibili, come le informazioni personali dell'utente, vale a dire messaggi di posta elettronica, numero di telefono, nome, cognome, preferenze e così via, nel file system del dispositivo mobile, le informazioni devono essere crittografate prima della scrittura nel file system locale. Se si tratta di un'applicazione aziendale, valutare la possibilità di pubblicare l'applicazione tramite Microsoft Intune.</p>|
 
 ### <a name="example"></a>Esempio
@@ -431,7 +431,7 @@ Impostare clientCredentialType su Certificate o su Windows.
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico, .NET Framework 3 |
 | **Attributes (Attributi)**              | Modalità di sicurezza: trasporto, modalità di sicurezza: messaggio |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [CoDe Magazine: Fundamentals of WCF Security](https://www.codemag.com/article/0611051) (Concetti fondamentali sulla sicurezza in WCF) |
+| **Riferimenti**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [CoDe Magazine: Fundamentals of WCF Security](https://www.codemag.com/article/0611051) (Concetti fondamentali sulla sicurezza in WCF) |
 | **Passaggi** | Non è stata definita alcuna sicurezza del trasporto o del messaggio. Le applicazioni che trasmettono messaggi senza sicurezza del trasporto o del messaggio non possono garantire l'integrità o la riservatezza dei messaggi. Quando un'associazione di sicurezza di WCF è impostata su None, la sicurezza del trasporto e quella del messaggio sono entrambe disabilitate. |
 
 ### <a name="example"></a>Esempio

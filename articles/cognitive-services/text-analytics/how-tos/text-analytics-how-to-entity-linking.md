@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/16/2020
+ms.date: 11/11/2020
 ms.author: aahi
-ms.openlocfilehash: 0ca0c4eacce88bfb53582f7969ed7acbfd75bb8a
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: cabde27591159b5751435a97a909a5f6f8c3081b
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358712"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518227"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 
@@ -39,7 +39,7 @@ Il riconoscimento delle entità denominate (NER) è la possibilità di identific
 | Metodi per richieste singole e batch                          | X      | X        |
 | Riconoscimento delle entità espanso tra diverse categorie           | X      | X        |
 | Separare gli endpoint per l'invio di entità di collegamento e richieste NER. | X      | X        |
-| Riconoscimento di entità di `PII` informazioni personali () e di integrità ( `PHI` )        |        | X        |
+| Riconoscimento di entità di `PII` informazioni personali () e di integrità ( `PHI` )        |        | x        |
 
 Per informazioni, vedere Supporto per le [lingue](../language-support.md) .
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bac17073650736df9ec48e951290852e082e9417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d3f3ca7b5d4516c2ad5dc9cb19a2eaed0a8a4a8
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87542994"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518278"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Infrastruttura di sicurezza: controllo e registrazione | Soluzioni di riduzione 
 
@@ -131,7 +131,7 @@ ms.locfileid: "87542994"
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [Configurare il controllo accessi](https://msdn.microsoft.com/library/ms175850.aspx) |
+| **Riferimenti**              | [Configurare il controllo accessi](/sql/ssms/configure-login-auditing-sql-server-management-studio) |
 | **Passaggi** | <p>Il controllo degli accessi al server di database deve essere abilitato per rilevare/confermare eventuali attacchi mirati a determinare le password di accesso. È importante acquisire i tentativi di accesso non riusciti. L'acquisizione dei tentativi di accesso riusciti e non offre vantaggi aggiuntivi nelle indagini forensi</p>|
 
 ## <a name="enable-threat-detection-on-azure-sql"></a><a id="threat-detection"></a>Abilitare il rilevamento delle minacce in SQL Azure
@@ -142,7 +142,7 @@ ms.locfileid: "87542994"
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | SQL Azure |
 | **Attributes (Attributi)**              | Versione SQL: 12 |
-| **Riferimenti**              | [Introduzione al rilevamento delle minacce nel database SQL](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
+| **Riferimenti**              | [Introduzione al rilevamento delle minacce nel database SQL](../../azure-sql/database/threat-detection-configure.md)|
 | **Passaggi** |<p>La funzionalità di rilevamento delle minacce individua le attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database. Tale funzionalità offre un nuovo livello di protezione che consente ai clienti di rilevare e di rispondere alle minacce potenziali non appena si verificano, fornendo avvisi di sicurezza sulle attività anomale.</p><p>Gli utenti possono esaminare gli eventi sospetti tramite il servizio di controllo del database SQL di Azure per determinare se sono il risultato di un tentativo di accesso, una violazione o un exploit dei dati nel database.</p><p>Il rilevamento delle minacce consente di affrontare le minacce potenziali al database senza dover essere esperti della sicurezza o gestire sistemi di controllo di sicurezza avanzati.</p>|
 
 ## <a name="use-azure-storage-analytics-to-audit-access-of-azure-storage"></a><a id="analytics"></a>Usare la funzionalità di analisi di Archiviazione di Azure per controllare gli accessi di Archiviazione di Azure
@@ -153,7 +153,7 @@ ms.locfileid: "87542994"
 | **Fase SDL**               | Distribuzione |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D |
-| **Riferimenti**              | [Uso di Analisi archiviazione per monitorare il tipo di autorizzazione](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
+| **Riferimenti**              | [Uso di Analisi archiviazione per monitorare il tipo di autorizzazione](../../storage/blobs/security-recommendations.md#loggingmonitoring) |
 | **Passaggi** | <p>Per ogni account di archiviazione è possibile abilitare la funzionalità di analisi di Archiviazione di Azure per eseguire la registrazione e archiviare i dati di metrica. I log di analisi dell'archiviazione rendono disponibili informazioni importanti, quali il metodo di autenticazione usato dagli utenti per accedere alla risorsa di archiviazione.</p><p>Queste informazioni possono essere molto utili se l'accesso alla risorsa di archiviazione e strettamente protetto. Ad esempio, nell'archivio BLOB è possibile impostare tutti i contenitori su privato e implementare l'uso di un servizio di firma di accesso condiviso per tutte le applicazioni. È quindi possibile controllare i log regolarmente per verificare se l'accesso ai BLOB viene eseguito con chiavi dell'account di archiviazione, cosa che può indicare una violazione della sicurezza, o se i BLOB sono pubblici ma non dovrebbero esserlo.</p>|
 
 ## <a name="implement-sufficient-logging"></a><a id="sufficient-logging"></a>Implementare un livello di registrazione sufficiente
@@ -164,7 +164,7 @@ ms.locfileid: "87542994"
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | .NET Framework |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
+| **Riferimenti**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
 | **Passaggi** | <p>La mancanza di un'audit trail adeguata dopo un attacco può compromettere le indagini forensi. Windows Communication Foundation (WCF) offre la possibilità di registrare i tentativi di autenticazione riusciti e/o non riusciti.</p><p>La registrazione dei tentativi di autenticazione non riusciti può avvisare gli amministratori di potenziali attacchi di forza bruta. Analogamente, la registrazione di eventi di autenticazione riusciti può offrire una utile audit trail in presenza di compromissioni dei account validi. Abilitare la funzionalità di controllo di sicurezza del servizio di WCF |
 
 ### <a name="example"></a>Esempio
@@ -193,7 +193,7 @@ Di seguito è riportato un esempio di configurazione con la funzionalità di con
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | .NET Framework |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
+| **Riferimenti**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
 | **Passaggi** | <p>La soluzione sviluppata è configurata in modo da non generare eccezioni quando non riesce a scrivere in un log di controllo. Se WCF è configurato per non generare un'eccezione quando non è in grado di scrivere un log di controllo, il programma non viene avvisato dell'errore ed è possibile che il controllo degli eventi critici della protezione non avvenga.</p>|
 
 ### <a name="example"></a>Esempio
@@ -242,5 +242,5 @@ Configurare WCF in modo da notificare al programma ogni volta che non riesce a s
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [Introduzione al monitoraggio delle operazioni IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
+| **Riferimenti**              | [Introduzione al monitoraggio delle operazioni IoT Hub](../../iot-hub/iot-hub-operations-monitoring.md) |
 | **Passaggi** | <p>Progettare la raccolta e l'archiviazione dei dati di controllo raccolti tramite il monitoraggio delle operazioni IoT Hub. Abilitare le categorie di monitoraggio seguenti:</p><ul><li>Operazioni relative alle identità dei dispositivi</li><li>Comunicazioni da dispositivo a cloud</li><li>Comunicazioni da cloud a dispositivo</li><li>Connessioni</li><li>Caricamenti di file</li></ul>|

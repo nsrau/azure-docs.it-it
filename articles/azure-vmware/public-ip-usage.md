@@ -3,12 +3,12 @@ title: Come usare la funzionalità IP pubblico nella soluzione VMware di Azure
 description: Questo articolo illustra come usare la funzionalità IP pubblico nella rete WAN virtuale di Azure.
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: 7ff1debe7b52599a2e4f20378f385359325be2f7
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 036ec00077720e9dc3197bf9235bea34b77fb5f4
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504408"
+ms.locfileid: "94517904"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Come usare la funzionalità IP pubblico nella soluzione VMware di Azure
 
@@ -39,14 +39,14 @@ Questo articolo illustra in dettaglio come usare la funzionalità IP pubblico ne
 
 :::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="Diagramma dell'architettura IP pubblico" border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
 
-Il diagramma dell'architettura Mostra un server Web ospitato nell'ambiente della soluzione VMware di Azure e configurato con indirizzi IP privati RFC1918.  Il servizio Web viene reso disponibile a Internet tramite la funzionalità IP pubblico WAN virtuale.  L'IP pubblico è in genere un NAT di destinazione convertito nel firewall di Azure. Con le regole di DNAT, il criterio del firewall converte le richieste di indirizzi IP pubblici in un indirizzo privato (server Web) con una porta.
+Il diagramma dell'architettura Mostra un server Web ospitato nell'ambiente della soluzione VMware di Azure e configurato con indirizzi IP privati RFC1918.  Il servizio Web viene reso disponibile a Internet tramite la funzionalità IP pubblico WAN virtuale.  L'IP pubblico è in genere un NAT di destinazione convertito nel firewall di Azure. Con le regole di DNAT, il criterio firewall converte le richieste di indirizzi IP pubblici in un indirizzo privato (server Web) con una porta.
 
 Le richieste utente hanno raggiunto il firewall su un IP pubblico che, a sua volta, viene convertito in un indirizzo IP privato usando le regole DNAT nel firewall di Azure. Il firewall controlla la tabella NAT e, se la richiesta corrisponde a una voce, trasmette il traffico all'indirizzo e alla porta convertiti nell'ambiente della soluzione VMware di Azure.
 
 Il server Web riceve la richiesta e risponde con le informazioni o la pagina richiesta al firewall, quindi il firewall inoltra le informazioni all'utente nell'indirizzo IP pubblico.
 
 ## <a name="test-case"></a>Test case
-In questo scenario, è necessario pubblicare il server Web IIS su Internet. Usare la funzionalità IP pubblico della soluzione VMware di Azure per pubblicare il sito Web in un indirizzo IP pubblico.  Si configureranno le regole NAT nel firewall e si accederà alla risorsa della soluzione VMware di Azure (VM con il server Web) con l'indirizzo IP pubblico.
+In questo scenario, il server Web IIS verrà pubblicato su Internet. Usare la funzionalità IP pubblico della soluzione VMware di Azure per pubblicare il sito Web in un indirizzo IP pubblico.  Si configureranno anche le regole NAT nel firewall e si accederà alla risorsa della soluzione VMware di Azure (VM con un server Web) con IP pubblico.
 
 ## <a name="deploy-virtual-wan"></a>Distribuire una rete WAN virtuale
 
@@ -66,9 +66,9 @@ In questo scenario, è necessario pubblicare il server Web IIS su Internet. Usar
 
 1. Accettare i valori predefiniti o modificarli, quindi selezionare **Crea**.
 
-   - Gruppo di risorse Wide Area Network virtuale
+   - Gruppo di risorse WAN virtuale
 
-   - Nome Wide Area Network virtuale
+   - Nome WAN virtuale
 
    - Blocco di indirizzi dell'hub virtuale (usando un nuovo intervallo IP non sovrapposto)
 
@@ -142,7 +142,7 @@ Una volta distribuiti tutti i componenti, è possibile visualizzarli nel gruppo 
 
 1. Selezionare un Hub nell'elenco e selezionare **Aggiungi**.
 
-   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Screenshot che Mostra gli hub selezionati che verranno convertiti in hub virtuali Scecured." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
+   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Screenshot che Mostra gli hub selezionati che verranno convertiti in hub virtuali protetti." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
 1. Selezionare **Avanti: Tag**. 
 

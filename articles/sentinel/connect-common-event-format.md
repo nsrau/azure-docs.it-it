@@ -1,6 +1,6 @@
 ---
 title: Connettere i dati CEF ad Anteprima di Azure Sentinel | Microsoft Docs
-description: Connettere una soluzione esterna che invia messaggi CEF (Common Event Format) ad Azure Sentinel usando un computer Linux come server d'accesso.
+description: Connettere una soluzione esterna che invia messaggi CEF (Common Event Format) ad Azure Sentinel, usando un computer Linux come server d'accesso.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: e8d1704b7f6048c14528b784f22d60b01592b54f
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fd08e6cc953f9d8526174fc96dd4e4d1dc9063f5
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347608"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517972"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connettere la soluzione esterna usando il formato di evento comune
 
@@ -27,14 +27,14 @@ Quando si connette una soluzione esterna che invia messaggi CEF, sono disponibil
 
 PASSAGGIO 1: [connettere CEF mediante la distribuzione di un server d'istruzione di un server d'esecuzione (syslog/CEF](connect-cef-agent.md) ) passaggio 2: [eseguire passaggi specifici della soluzione](connect-cef-solution-config.md) passaggio 3: [verificare la connettività](connect-cef-verify.md)
 
-Questo articolo descrive il funzionamento della connessione, fornisce i prerequisiti e fornisce i passaggi per la distribuzione dell'agente nelle soluzioni di sicurezza che inviano messaggi CEF (Common Event Format) su syslog. 
+Questo articolo descrive il funzionamento della connessione, elenca i prerequisiti e illustra i passaggi per la distribuzione di un meccanismo per le soluzioni di sicurezza per l'invio di messaggi CEF (Common Event Format) su syslog. 
 
 > [!NOTE] 
 > I dati vengono archiviati nella posizione geografica dell'area di lavoro in cui viene eseguito Azure Sentinel.
 
 Per effettuare questa connessione, è necessario distribuire un server di server d'avanzamento syslog per supportare la comunicazione tra l'appliance e Azure Sentinel.  Il server è costituito da un computer Linux dedicato (VM o locale) con l'agente di Log Analytics per Linux installato. 
 
-Il diagramma seguente illustra la configurazione in caso di una VM Linux in Azure:
+Il diagramma seguente illustra la configurazione nel caso di una VM Linux in Azure:
 
  ![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
 
@@ -82,7 +82,7 @@ Verificare che il computer soddisfi anche i requisiti seguenti:
   - È necessario disporre di autorizzazioni elevate (sudo) nel computer. 
 
 - Requisiti software
-  - Verificare che Python 2,7 sia in esecuzione nel computer.
+  - Verificare che nel computer sia in esecuzione Python 2,7 o 3.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

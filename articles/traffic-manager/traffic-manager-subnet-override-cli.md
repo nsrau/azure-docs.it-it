@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: c43b85f3c4b8d1b750e9f97e0be812bee683c702
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 984cdfb3e60717f7632ea1fdcd05a4681dd6a1fd
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600807"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517938"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Sostituzione della subnet di gestione traffico con l'interfaccia della riga
 
@@ -34,11 +34,9 @@ Sono disponibili due tipi di profili di routing che supportano le sostituzioni d
 
 Per creare una sostituzione della subnet di gestione traffico, è possibile usare l'interfaccia della riga di comando di Azure per aggiungere le subnet per la sostituzione all'endpoint di gestione traffico.
 
-## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.28 o successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+- Questo articolo richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="update-the-traffic-manager-endpoint-with-subnet-override"></a>Aggiornare l'endpoint di gestione traffico con l'override della subnet.
 Usare l'interfaccia della riga di comando di Azure per aggiornare l'endpoint con [AZ Network Traffic-Manager endpoint Update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
