@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: efba69372f46c9b8a7f2857e37b34ec8c88654a0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1a9d5fe69cd9d853d0bf8ec971f31518bbf47c9a
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546280"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504697"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache di Azure per Redis con collegamento privato di Azure (anteprima pubblica)
 Questo articolo illustra come creare una rete virtuale e una cache di Azure per l'istanza di redis con un endpoint privato usando il portale di Azure. Si apprenderà anche come aggiungere un endpoint privato a una cache di Azure esistente per l'istanza di Redis.
@@ -31,13 +31,13 @@ L'endpoint privato di Azure è un'interfaccia di rete che si connette privatamen
 
 In questa sezione verrà creata una nuova cache di Azure per l'istanza di redis con un endpoint privato.
 
-### <a name="create-a-virtual-network"></a>Crea rete virtuale 
+### <a name="create-a-virtual-network"></a>Creare una rete virtuale 
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa** .
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**.
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Selezionare Crea una risorsa.":::
 
-2. Nella pagina **nuovo** selezionare **rete e quindi** **rete virtuale** .
+2. Nella pagina **nuovo** selezionare **rete e quindi** **rete virtuale**.
 
 3. Selezionare **Aggiungi** per creare una rete virtuale.
 
@@ -56,9 +56,9 @@ In questa sezione verrà creata una nuova cache di Azure per l'istanza di redis 
 
 7. In **nome subnet** fare clic su **predefinito** per modificare le proprietà della subnet.
 
-8. Nel riquadro **modifica subnet** specificare un **nome** per la subnet e l'intervallo di **indirizzi della subnet** . L'intervallo di indirizzi della subnet deve essere in notazione CIDR, ad esempio 192.168.1.0/24. Deve essere incluso nello spazio indirizzi della rete virtuale.
+8. Nel riquadro **modifica subnet** specificare un **nome** per la subnet e l'intervallo di **indirizzi della subnet**. L'intervallo di indirizzi della subnet deve essere in notazione CIDR, ad esempio 192.168.1.0/24. Deve essere incluso nello spazio indirizzi della rete virtuale.
 
-9. Selezionare **Salva** .
+9. Selezionare **Salva**.
 
 10. Selezionare la scheda **Verifica + crea** oppure fare clic sul pulsante **Verifica + crea** .
 
@@ -67,17 +67,17 @@ In questa sezione verrà creata una nuova cache di Azure per l'istanza di redis 
 ### <a name="create-an-azure-cache-for-redis-instance-with-a-private-endpoint"></a>Creare una cache di Azure per l'istanza di redis con un endpoint privato
 Per creare un'istanza della cache, attenersi alla seguente procedura.
 
-1. Tornare alla Home page di portale di Azure o aprire il menu sidebar, quindi selezionare **Crea una risorsa** . 
+1. Tornare alla Home page di portale di Azure o aprire il menu sidebar, quindi selezionare **Crea una risorsa**. 
    
-1. Nella pagina **Nuovo** selezionare **Database** e quindi **Cache di Azure per Redis** .
+1. Nella pagina **Nuovo** selezionare **Database** e quindi **Cache di Azure per Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selezionare Crea una risorsa.":::
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selezionare Cache di Azure per Redis.":::
    
 1. Nella pagina **Nuova cache Redis** configurare le impostazioni per la nuova cache.
    
    | Impostazione      | Valore consigliato  | Descrizione |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Nome DNS** | Immettere un nome univoco globale. | Il nome della cache deve essere una stringa compresa tra 1 e 63 caratteri contenente solo numeri, lettere o trattini. Il nome deve iniziare e terminare con un numero o una lettera e non può contenere trattini consecutivi. Il *nome host* dell'istanza della cache sarà *\<DNS name>.redis.cache.windows.net* . | 
+   | **Nome DNS** | Immettere un nome univoco globale. | Il nome della cache deve essere una stringa compresa tra 1 e 63 caratteri contenente solo numeri, lettere o trattini. Il nome deve iniziare e terminare con un numero o una lettera e non può contenere trattini consecutivi. Il *nome host* dell'istanza della cache sarà *\<DNS name>.redis.cache.windows.net*. | 
    | **Sottoscrizione** | Nell'elenco a discesa selezionare la sottoscrizione. | Sottoscrizione in cui creare la nuova istanza della cache di Azure per Redis. | 
    | **Gruppo di risorse** | Nell'elenco a discesa selezionare un gruppo di risorse oppure scegliere **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse. | Nome del gruppo di risorse in cui creare la cache e altre risorse. L'inserimento di tutte le risorse di un'app in un unico gruppo di risorse ne semplifica la gestione o l'eliminazione. | 
    | **Posizione** | Nell'elenco a discesa selezionare una località. | Selezionare un'[area](https://azure.microsoft.com/regions/) in prossimità di altri servizi che useranno la cache. |
@@ -89,9 +89,9 @@ Per creare un'istanza della cache, attenersi alla seguente procedura.
 
 1. Fare clic sul pulsante **Aggiungi** per creare l'endpoint privato.
 
-    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="Selezionare Crea una risorsa.":::
+    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="In rete aggiungere un endpoint privato.":::
 
-1. Nella pagina **Crea un endpoint privato** configurare le impostazioni per l'endpoint privato con la rete virtuale e la subnet create nell'ultima sezione e selezionare **OK** . 
+1. Nella pagina **Crea un endpoint privato** configurare le impostazioni per l'endpoint privato con la rete virtuale e la subnet create nell'ultima sezione e selezionare **OK**. 
 
 1. Fare clic sul pulsante **Avanti: Avanzate** oppure fare clic sulla scheda **Avanti: Avanzate** nella parte inferiore della pagina.
 
@@ -99,14 +99,13 @@ Per creare un'istanza della cache, attenersi alla seguente procedura.
 
 1. Nella scheda **Avanzate** per l'istanza della cache Premium configurare le impostazioni per la porta non TLS, il clustering e la persistenza dei dati.
 
-
 1. Fare clic sul pulsante **Avanti: Tag** o fare clic sulla scheda **Avanti: Tag** nella parte inferiore della pagina.
 
 1. Facoltativamente, nella scheda **Tag** immettere il nome e il valore se si vuole categorizzare la risorsa. 
 
-1. Selezionare **Rivedi e crea** . Si viene reindirizzati alla scheda Rivedi e crea in cui Azure convalida la configurazione.
+1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla scheda Rivedi e crea in cui Azure convalida la configurazione.
 
-1. Quando viene visualizzato il messaggio di convalida verde, selezionare **Crea** .
+1. Quando viene visualizzato il messaggio di convalida verde, selezionare **Crea**.
 
 La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione** , la cache è pronta per l'uso. 
     
@@ -132,12 +131,12 @@ La creazione della cache richiede un po' di tempo. È possibile monitorare lo st
 
 In questa sezione si aggiungerà un endpoint privato a una cache di Azure esistente per l'istanza di Redis. 
 
-### <a name="create-a-virtual-network"></a>Crea rete virtuale 
+### <a name="create-a-virtual-network"></a>Creare una rete virtuale 
 Per creare una rete virtuale, attenersi alla seguente procedura.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa** .
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**.
 
-2. Nella pagina **nuovo** selezionare **rete e quindi** **rete virtuale** .
+2. Nella pagina **nuovo** selezionare **rete e quindi** **rete virtuale**.
 
 3. Selezionare **Aggiungi** per creare una rete virtuale.
 
@@ -156,9 +155,9 @@ Per creare una rete virtuale, attenersi alla seguente procedura.
 
 7. In **nome subnet** fare clic su **predefinito** per modificare le proprietà della subnet.
 
-8. Nel riquadro **modifica subnet** specificare un **nome** per la subnet e l'intervallo di **indirizzi della subnet** . L'intervallo di indirizzi della subnet deve essere in notazione CIDR, ad esempio 192.168.1.0/24. Deve essere incluso nello spazio indirizzi della rete virtuale.
+8. Nel riquadro **modifica subnet** specificare un **nome** per la subnet e l'intervallo di **indirizzi della subnet**. L'intervallo di indirizzi della subnet deve essere in notazione CIDR, ad esempio 192.168.1.0/24. Deve essere incluso nello spazio indirizzi della rete virtuale.
 
-9. Selezionare **Salva** .
+9. Selezionare **Salva**.
 
 10. Selezionare la scheda **Verifica + crea** oppure fare clic sul pulsante **Verifica + crea** .
 
@@ -170,15 +169,15 @@ Per creare un endpoint privato, attenersi alla seguente procedura.
 
 1. Nella portale di Azure cercare **cache di Azure per Redis** e premere INVIO o selezionarla dai suggerimenti per la ricerca.
 
-    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Selezionare Crea una risorsa.":::
+    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Cercare cache di Azure per Redis.":::
 
 2. Selezionare l'istanza della cache a cui si vuole aggiungere un endpoint privato.
 
-3. Sul lato sinistro della schermata selezionare **(anteprima) endpoint privato** .
+3. Sul lato sinistro della schermata selezionare **(anteprima) endpoint privato**.
 
 4. Fare clic sul pulsante **endpoint privato** per creare l'endpoint privato.
 
-    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Selezionare Crea una risorsa.":::
+    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Aggiungi endpoint privato.":::
 
 5. Nella **pagina Crea un endpoint privato** configurare le impostazioni per l'endpoint privato.
 
@@ -201,11 +200,41 @@ Per creare un endpoint privato, attenersi alla seguente procedura.
 
 11. Facoltativamente, nella scheda **Tag** immettere il nome e il valore se si vuole categorizzare la risorsa.
 
-12. Selezionare **Rivedi e crea** . Si passa alla scheda **Rivedi e crea** in cui Azure convalida la configurazione.
+12. Selezionare **Rivedi e crea**. Si passa alla scheda **Rivedi e crea** in cui Azure convalida la configurazione.
 
-13. Dopo che è stato visualizzato il messaggio di **convalida** verde, selezionare **Crea** .
+13. Dopo che è stato visualizzato il messaggio di **convalida** verde, selezionare **Crea**.
 
+## <a name="faq"></a>Domande frequenti
+
+### <a name="why-cant-i-connect-to-a-private-endpoint"></a>Perché non è possibile connettersi a un endpoint privato?
+Se la cache è già una cache inserita da VNet, non è possibile usare gli endpoint privati con l'istanza della cache. Se l'istanza della cache usa una funzionalità non supportata (elencata di seguito), non sarà possibile connettersi all'istanza di endpoint privato. Inoltre, è necessario creare le istanze della cache dopo il 27 luglio per usare gli endpoint privati.
+
+### <a name="what-features-are-not-supported-with-private-endpoints"></a>Quali funzionalità non sono supportate con gli endpoint privati?
+Replica geografica, regole del firewall, supporto della console del portale, più endpoint per cache in cluster, persistenza per le regole del firewall e ridondanza della zona. 
+
+### <a name="how-can-i-change-my-private-endpoint-to-be-disabled-from-public-network-access"></a>Come è possibile modificare l'endpoint privato per disabilitarlo dall'accesso alla rete pubblica?
+È presente un `publicNetworkAccess` flag che è `Enabled` per impostazione predefinita. Questo flag ha lo scopo di consentire facoltativamente di consentire l'accesso dell'endpoint pubblico e privato alla cache se è impostato su `Enabled` . Se impostato su `Disabled` , consente l'accesso solo agli endpoint privati. È possibile impostare il valore su `Disabled` con la seguente richiesta patch.
+```http
+PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
+{    "properties": {
+       "publicNetworkAccess":"Disabled"
+   }
+}
+```
+
+### <a name="are-network-security-groups-nsg-enabled-for-private-endpoints"></a>I gruppi di sicurezza di rete (NSG) sono abilitati per gli endpoint privati?
+No, sono disabilitati per gli endpoint privati. Tuttavia, se sono presenti altre risorse nella subnet, l'imposizione NSG verrà applicata a tali risorse.
+
+### <a name="how-can-i-connect-to-a-clustered-cache"></a>Come è possibile connettersi a una cache in cluster?
+`publicNetworkAccess` deve essere impostato su `Disabled` e può essere presente una sola connessione all'endpoint privato.
+
+### <a name="since-my-private-endpoint-instance-is-not-in-my-vnet-how-is-it-associated-with-my-vnet"></a>Poiché l'istanza di endpoint privato non è presente nella VNet, in che modo è associata a VNet?
+È collegato solo a VNet. Poiché non si trova nel VNet, non è necessario modificare le regole di NSG per gli endpoint dipendenti.
+
+### <a name="how-can-i-migrate-my-vnet-injected-cache-to-a-private-endpoint-cache"></a>Come è possibile eseguire la migrazione della cache inserita VNet a una cache di endpoint privata?
+È necessario eliminare la cache inserita in VNet e creare una nuova istanza della cache con un endpoint privato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul collegamento privato di Azure, vedere la [documentazione del collegamento privato di Azure](../private-link/private-link-overview.md).
+* Per altre informazioni sul collegamento privato di Azure, vedere la [documentazione del collegamento privato di Azure](../private-link/private-link-overview.md).
+* Per confrontare le varie opzioni di isolamento rete per l'istanza della cache, vedere [la documentazione sulle opzioni di isolamento rete di cache di Azure per Redis](cache-network-isolation.md).

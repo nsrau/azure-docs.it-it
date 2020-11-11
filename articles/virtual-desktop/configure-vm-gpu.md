@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 33b8d3f62ef45c6078f10535c6376f611472f5a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7599a0c7b48bdc371d851ec20282af82e77783bf
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441749"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505309"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configura l'accelerazione GPU (Graphics Processing Unit) per Desktop virtuale Windows
 
@@ -21,9 +21,12 @@ Desktop virtuale Windows supporta il rendering e la codifica con accelerazione G
 
 Per creare una macchina virtuale di Azure ottimizzata per la GPU, aggiungerla al pool di host e configurarla per l'uso dell'accelerazione GPU per il rendering e la codifica, seguire le istruzioni riportate in questo articolo. Questo articolo presuppone che sia già stato configurato un tenant di Desktop virtuale Windows.
 
-## <a name="select-a-gpu-optimized-azure-virtual-machine-size"></a>Selezionare una dimensione della macchina virtuale di Azure ottimizzata per la GPU
+## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>Selezionare le dimensioni di macchina virtuale di Azure ottimizzate per la GPU appropriate
 
-Azure offre una serie di [dimensioni delle macchine virtuali ottimizzate per la GPU](/azure/virtual-machines/windows/sizes-gpu). La scelta corretta per il pool di host dipende da diversi fattori, tra cui i carichi di lavoro di app specifici, la qualità desiderata dell'esperienza utente e i costi. In generale, le GPU più grandi e più idonee offrono un'esperienza utente migliore a una determinata densità utente.
+Selezionare una delle macchine virtuali serie [NV](/azure/virtual-machines/nv-series)di Azure, serie [NVv3](/azure/virtual-machines/nvv3-series)o [NVv4](/azure/virtual-machines/nvv4-series) . Queste soluzioni sono personalizzate per la virtualizzazione di app e desktop e consentono l'accelerazione della GPU per le app e l'interfaccia utente di Windows. La scelta corretta per il pool di host dipende da diversi fattori, tra cui i carichi di lavoro di app specifici, la qualità desiderata dell'esperienza utente e i costi. In generale, le GPU più grandi e più idonee offrono un'esperienza utente migliore a una determinata densità di utenti, mentre le dimensioni delle GPU più piccole e frazionarie consentono un controllo più granulare su costi e qualità.
+
+>[!NOTE]
+>Le macchine virtuali della serie NC, NCv2, NCv3 e NDv2 di Azure non sono in genere appropriate per gli host sessione desktop virtuale di Windows. Queste macchine virtuali sono personalizzate per strumenti di calcolo o di apprendimento automatico specializzati, ad alte prestazioni, come quelli compilati con NVIDIA CUDA. L'accelerazione generale di app e desktop con GPU NVIDIA richiede la gestione delle licenze NVIDIA GRID; Questa operazione viene fornita da Azure per le dimensioni di VM consigliate, ma deve essere disposta separatamente per le macchine virtuali della serie NC/ND.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Creare un pool di host, effettuare il provisioning della macchina virtuale e configurare un gruppo di app
 
@@ -40,7 +43,7 @@ Desktop virtuale Windows supporta il rendering e la codifica con accelerazione G
 
 Per sfruttare i vantaggi offerti dalle funzionalità della GPU delle macchine virtuali serie N di Azure in Desktop virtuale Windows, è necessario installare i driver grafici appropriati. Seguire le istruzioni in [Sistemi operativi e driver supportati](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) per installare i driver dal fornitore di grafica appropriato, manualmente o usando un'estensione della macchina virtuale di Azure.
 
-Per Desktop virtuale Windows sono supportati solo i driver distribuiti da Azure. Inoltre, per le macchine virtuali di Azure con GPU NVIDIA, sono supportati solo [driver NVIDIA GRID](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) per Desktop virtuale Windows.
+Per Desktop virtuale Windows sono supportati solo i driver distribuiti da Azure. Per le macchine virtuali della serie NV di Azure con GPU NVIDIA, solo [i driver NVIDIA Grid](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers)e non i driver NVIDIA Tesla (CUDA) supportano l'accelerazione GPU per app e desktop di uso generale.
 
 Dopo l'installazione, è necessario eseguire il riavvio della macchina virtuale. Per verificare che i driver grafici siano stati installati correttamente, usare i passaggi di verifica nelle istruzioni sopra indicate.
 
@@ -77,7 +80,7 @@ Desktop remoto codifica tutti i grafici sottoposti a rendering dalle app e dai d
 
 Se si usano spesso applicazioni che producono contenuti con frequenza elevata, ad esempio la modellazione 3D, le applicazioni CAD/CAM e video, è possibile scegliere di abilitare una codifica video a schermo intero per una sessione remota. Il profilo video a schermo intero offre una frequenza dei fotogrammi più elevata e un'esperienza utente migliore per tali applicazioni a scapito della larghezza di banda di rete e delle risorse client e host della sessione. È consigliabile usare la codifica dei frame con accelerazione GPU per una codifica video a schermo intero. Configurare Criteri di gruppo per l'host sessione per abilitare la codifica video a schermo intero. Continuando la procedura precedente:
 
-1. Selezionare il criterio **Assegna priorità alla modalità grafica H.264/AVC 444 per le connessioni Desktop remoto** e impostarlo su **Abilitato**, per forzare il codec H.264/AVC 444 nella sessione remota.
+1. Selezionare il criterio **Assegna priorità alla modalità grafica H.264/AVC 444 per le connessioni Desktop remoto** e impostarlo su **Abilitato** , per forzare il codec H.264/AVC 444 nella sessione remota.
 2. Ora che i criteri di gruppo sono stati modificati, forzare un aggiornamento dei criteri di gruppo. Aprire il prompt dei comandi e digitare:
 
     ```cmd

@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 11/10/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ea1df2937c6ae771407e4adf839c9ff0fa9f7f5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a5106e1089e2353d2db884977eb51a4fd2717b99
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218957"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506176"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -26,7 +26,7 @@ Durante il caricamento di video con l'API Video Indexer, sono disponibili le opz
 * inviare il file video come matrice di byte nel corpo della richiesta,
 * usare l'asset di Servizi multimediali di Azure esistente indicando l'[ID asset](../latest/assets-concept.md) (supportato solo negli account a pagamento).
 
-Una volta caricato il video, Video Indexer (facoltativamente) codificare il video, illustrato nell'articolo. Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [collegato alla sottoscrizione di Azure e un account di Servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account multimediale. 
+Una volta caricato il video, Video Indexer (facoltativamente) codificare il video, illustrato nell'articolo. Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [collegato alla sottoscrizione di Azure e un account di Servizi multimediali di Azure](connect-to-azure.md). Si paga per minuti indicizzati. per altre informazioni, vedere [prezzi di servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).
 
 Questo articolo illustra come caricare e indicizzare i video con queste opzioni:
 
@@ -79,8 +79,8 @@ Per un elenco dei formati di file che è possibile usare con Video Indexer, vede
 1. Dopo il caricamento del video, Video Indexer avvia l'indicizzazione e l'analisi.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Upload":::
-1. Al termine dell'analisi di Video Indexer, si riceverà un messaggio di posta elettronica con un collegamento al video e una breve descrizione di ciò che è stato trovato nel video. Ad esempio: persone, argomenti, OCR.
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Stato del caricamento":::
+1. Al termine dell'analisi si riceverà una notifica con un collegamento al video e una breve descrizione del relativo contenuto, Ad esempio: persone, argomenti, OCR.
 
 ## <a name="upload-and-index-with-api"></a><a name="apis"></a>Caricare e indicizzare con l'API
 
@@ -118,7 +118,7 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
         
     - Esempio: https: \/ /test.com/notifyme?projectName=MyProject&ID = 1234abcd&FaceId = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&PersonName = Inigo_Montoya 
 
-##### <a name="notes"></a>Note
+##### <a name="other-considerations"></a>Altre considerazioni
 
 - Video Indexer restituisce tutti i parametri esistenti forniti nell'URL originale.
 - L'URL specificato deve essere codificato.
@@ -140,7 +140,7 @@ Il prezzo dipende dall'opzione di indicizzazione selezionata.
 
 #### <a name="priority"></a>priority
 
-I video vengono indicizzati da Video Indexer in base alle rispettive priorità. Usare il parametro **priority** per specificare la priorità dell'indice. Sono validi i valori seguenti: **Basso**, **Normale** (predefinito) e **Alto**.
+I video vengono indicizzati da Video Indexer in base alle rispettive priorità. Usare il parametro **priority** per specificare la priorità dell'indice. Sono validi i valori seguenti: **Basso** , **Normale** (predefinito) e **Alto**.
 
 Il parametro **priority** è supportato solo per gli account a pagamento.
 
@@ -176,7 +176,7 @@ Dopo aver copiato questo codice nella piattaforma di sviluppo, sarà necessario 
     Per ottenere la chiave API, passare a questo flusso:
 
     * Passare a https://api-portal.videoindexer.ai/
-    * Accesso
+    * Accedi
     * Passa alla **Products**  ->  **Authorization**  ->  **sottoscrizione di autorizzazione** per i prodotti
     * Copiare la **chiave primaria**
 * URL video: URL del file video/audio da indicizzare. L'URL deve puntare a un file multimediale; le pagine HTML non sono supportate. Il file può essere protetto da un token di accesso fornito come parte dell'URI e l'endpoint che gestisce il file deve essere protetto con il protocollo TLS 1.2 o versione successiva. L'URL deve essere codificato.
@@ -359,7 +359,7 @@ public class AccountContractSlim
 
 L'operazione di caricamento può restituire i codici di stato elencati nella tabella seguente.
 
-|Codice di stato|ErrorType (nel corpo della risposta)|Description|
+|Codice di stato|ErrorType (nel corpo della risposta)|Descrizione|
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|Lo stesso video è già in fase di elaborazione nell'account specificato.|
 |400|VIDEO_ALREADY_FAILED|Lo stesso video ha restituito un errore di elaborazione nell'account specificato meno di 2 ore prima. I client API devono attendere almeno 2 ore prima di caricare nuovamente un video.|

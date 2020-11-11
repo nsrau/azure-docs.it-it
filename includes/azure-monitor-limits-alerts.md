@@ -5,15 +5,15 @@ services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: include
-ms.date: 08/11/2020
+ms.date: 10/01/2020
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 332841d4ee4791cb8da1620aa292b05bbde74955
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33d701fe8dc19b3deaa05cf6f10643bdb1059aa1
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88162738"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505741"
 ---
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
@@ -23,7 +23,3 @@ ms.locfileid: "88162738"
 | Avvisi relativi ai log | 512 regole di avviso attive per ogni sottoscrizione. 200 regole di avviso attive per ogni risorsa. | Chiama il supporto |
 | Gruppi di azioni |2\.000 gruppi di azioni per ogni sottoscrizione. | Chiama il supporto |
 | Lunghezza descrizione per regole di avviso e regole di azione| Avvisi di ricerca log: 4096 caratteri<br/>Tutti gli altri: 2048 caratteri | Uguale all'impostazione predefinita |
-| Impostazioni di scalabilità automatica |100 per area per ogni sottoscrizione. | Uguale all'impostazione predefinita |
-| Profili di scalabilità automatica |20 profili per ogni impostazione di scalabilità automatica. | Uguale all'impostazione predefinita |
-
-

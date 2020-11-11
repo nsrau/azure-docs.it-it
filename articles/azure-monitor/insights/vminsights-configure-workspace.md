@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ecfeebb9ce86d717531310c2ad1a33a3d27f4c0a
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9827f79f8407bd04468f1b4456aec9d6a8793a6f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995738"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506295"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurare l'area di lavoro Log Analytics per Monitoraggio di Azure per le macchine virtuali
 Monitoraggio di Azure per le macchine virtuali raccoglie i dati da una o più aree di lavoro Log Analytics in monitoraggio di Azure. Prima di caricare gli agenti, è necessario creare e configurare un'area di lavoro. Questo articolo descrive i requisiti dell'area di lavoro e per configurarlo per Monitoraggio di Azure per le macchine virtuali.
@@ -20,10 +20,10 @@ Monitoraggio di Azure per le macchine virtuali raccoglie i dati da una o più ar
 ## <a name="overview"></a>Panoramica
 Una singola sottoscrizione può usare un numero qualsiasi di aree di lavoro in base alle proprie esigenze. l'unico requisito dell'area di lavoro è che si trova in una posizione supportata e deve essere configurato con la soluzione *VMInsights* .
 
-Una volta configurata l'area di lavoro, è possibile usare una qualsiasi delle opzioni disponibili per installare gli agenti necessari in VM e VMMS e specificare un'area di lavoro per l'invio dei dati. Monitoraggio di Azure per le macchine virtuali raccoglierà i dati da qualsiasi area di lavoro configurata nella propria sottoscrizione.
+Una volta configurata l'area di lavoro, è possibile usare una qualsiasi delle opzioni disponibili per installare gli agenti necessari in VM e VMSS e specificare un'area di lavoro per l'invio dei dati. Monitoraggio di Azure per le macchine virtuali raccoglierà i dati da qualsiasi area di lavoro configurata nella propria sottoscrizione.
 
 > [!NOTE]
-> Quando si abilita Monitoraggio di Azure per le macchine virtuali in una singola macchina virtuale o VMMS usando il portale di Azure, è possibile selezionare un'area di lavoro esistente o crearne una nuova. La soluzione *VMInsights* verrà installata in questa area di lavoro, se non è già presente. È quindi possibile usare questa area di lavoro per altri agenti.
+> Quando si abilita Monitoraggio di Azure per le macchine virtuali in una singola macchina virtuale o VMSS usando il portale di Azure, è possibile selezionare un'area di lavoro esistente o crearne una nuova. La soluzione *VMInsights* verrà installata in questa area di lavoro, se non è già presente. È quindi possibile usare questa area di lavoro per altri agenti.
 
 
 ## <a name="create-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
@@ -89,7 +89,7 @@ Per configurare più aree di lavoro, selezionare la scheda **configurazione area
 [![Configurazione dell'area di lavoro](media/vminsights-enable-at-scale-policy/workspace-configuration.png)](media/vminsights-enable-at-scale-policy/workspace-configuration.png#lightbox)
 
 
-Quando si abilita Monitoraggio di Azure per le macchine virtuali in una singola macchina virtuale o VMMS usando il portale di Azure, è possibile selezionare un'area di lavoro esistente o crearne una nuova. La soluzione *VMInsights* verrà installata in questa area di lavoro, se non è già presente. È quindi possibile usare questa area di lavoro per altri agenti.
+Quando si abilita Monitoraggio di Azure per le macchine virtuali in una singola macchina virtuale o VMSS usando il portale di Azure, è possibile selezionare un'area di lavoro esistente o crearne una nuova. La soluzione *VMInsights* verrà installata in questa area di lavoro, se non è già presente. È quindi possibile usare questa area di lavoro per altri agenti.
 
 [![Abilitare una singola VM nel portale](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png#lightbox)
 

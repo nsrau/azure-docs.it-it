@@ -8,18 +8,24 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: f4949816f516c6a6b60cfda0602f458256370d40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom:
+- mqtt
+- fasttrack-edit
+- iot
+ms.openlocfilehash: e5d1dc345c72d77be6172fb9c3a10eb2f38d186a
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76960529"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506329"
 ---
 # <a name="400027-connectionforcefullyclosedonnewconnection"></a>400027 ConnectionForcefullyClosedOnNewConnection
 
 Questo articolo descrive le cause e le soluzioni per gli errori di **400027 ConnectionForcefullyClosedOnNewConnection** .
 
 ## <a name="symptoms"></a>Sintomi
+
+Il dispositivo viene scollegato con **Communication_Error** come **CONNECTIONSTATUSCHANGEREASON** usando .NET SDK e il tipo di trasporto MQTT.
 
 L'operazione del dispositivo gemello da dispositivo a cloud (ad esempio, le proprietà di lettura o di correzione) o la chiamata diretta al metodo ha esito negativo con il codice di errore **400027**.
 

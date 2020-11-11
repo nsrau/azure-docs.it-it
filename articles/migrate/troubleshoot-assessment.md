@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: d5e8305fb80e6869bf604108aaa0e4d8e36cab8e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4da0f40c25d322953fea968396ef33924877c2e1
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314750"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505224"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Risolvere i problemi relativi alla visualizzazione di valutazioni/dipendenze
 
@@ -26,7 +26,7 @@ Correggere i problemi di conformità della valutazione come indicato di seguito:
 **Problema** | **Correzione**
 --- | ---
 Il tipo di avvio non è supportato | Azure non supporta le VM con un tipo di avvio EFI. È consigliabile convertire il tipo di avvio in BIOS prima di eseguire una migrazione. <br/><br/>È possibile usare Azure Migrate migrazione del server per gestire la migrazione di tali macchine virtuali. Il tipo di avvio della macchina virtuale verrà convertito in BIOS durante la migrazione.
-Sistema operativo Windows supportato in modo condizionale | Il sistema operativo ha superato la data di fine del supporto ed è necessario un contratto di supporto personalizzato (CSA) per il [supporto in Azure](/troubleshoot/azure/virtual-machines/server-software-support). Prendere in considerazione l'aggiornamento prima di eseguire la migrazione ad Azure.
+Sistema operativo Windows supportato in modo condizionale | Il sistema operativo ha superato la data di fine del supporto ed è necessario un contratto di supporto personalizzato (CSA) per il [supporto in Azure](/troubleshoot/azure/virtual-machines/server-software-support). Prendere in considerazione l'aggiornamento prima di eseguire la migrazione ad Azure. [Esaminare]() le informazioni sulla [preparazione dei computer che eseguono Windows Server 2003](prepare-windows-server-2003-migration.md) per la migrazione ad Azure.
 Sistema operativo Windows non supportato | Azure supporta solo le [versioni del sistema operativo Windows selezionate](/troubleshoot/azure/virtual-machines/server-software-support). Provare ad aggiornare il computer prima di eseguire la migrazione ad Azure.
 Sistema operativo Linux con approvazione condizionale | Azure approva solo le [versioni del sistema operativo Linux selezionate](../virtual-machines/linux/endorsed-distros.md). Provare ad aggiornare il computer prima di eseguire la migrazione ad Azure. Per altri dettagli, vedere anche [qui](#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment) .
 Sistema operativo Linux non approvato | Il computer potrebbe essere avviato in Azure, ma Azure non offre alcun supporto per il sistema operativo. Prendere in considerazione l'aggiornamento a una [versione di Linux approvata](../virtual-machines/linux/endorsed-distros.md) prima di eseguire la migrazione ad Azure.
@@ -48,7 +48,7 @@ Non è stato possibile determinare l'idoneità della macchina virtuale a causa d
 Non è stato possibile determinare l'idoneità per uno o più dischi a causa di un errore interno | Provare a creare una nuova valutazione per il gruppo.
 Non è stato possibile determinare l'idoneità per una o più schede di rete a causa di un errore interno | Provare a creare una nuova valutazione per il gruppo.
 Non sono state trovate dimensioni della macchina virtuale per l'istanza riservata di valuta offerta | Il computer contrassegnato come non è adatto perché le dimensioni della macchina virtuale non sono state trovate per la combinazione selezionata di RI, offerta e valuta. Modificare le proprietà di valutazione per scegliere le combinazioni valide e ricalcolare la valutazione. 
-Protocollo Internet predisposto in modo condizionale | Applicabile solo alle valutazioni della soluzione VMware di Azure (AVS). AVS non supporta il fattore di indirizzi Internet IPv6.Se il computer viene rilevato con IPv6, contattare il team AVS per informazioni aggiuntive sulla correzione.
+Protocollo Internet predisposto in modo condizionale | Applicabile solo alle valutazioni della soluzione VMware di Azure (AVS). AVS non supporta il fattore di indirizzi Internet IPv6. Se il computer viene rilevato con IPv6, contattare il team AVS per informazioni aggiuntive sulla correzione.
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Strumento di migrazione suggerito nella valutazione AVS basata sull'importazione contrassegnata come sconosciuta
 
@@ -75,7 +75,7 @@ Per i server fisici, è necessario che siano disponibili le informazioni sulla v
 Azure Migrate server Assessment potrebbe consigliare gli SKU di VM di Azure con più core e memoria rispetto all'allocazione locale corrente in base al tipo di valutazione:
 
 - La raccomandazione SKU della macchina virtuale dipende dalle proprietà di valutazione.
-- Questo problema è influenzato dal tipo di valutazione eseguito in server assessment: *basato sulle prestazioni*o in *locale*.
+- Questo problema è influenzato dal tipo di valutazione eseguito in server assessment: *basato sulle prestazioni* o in *locale*.
 - Per le valutazioni basate sulle prestazioni, valutazione server considera i dati di utilizzo delle macchine virtuali locali (CPU, memoria, disco e utilizzo della rete) per determinare lo SKU di VM di destinazione appropriato per le macchine virtuali locali. Aggiunge inoltre un fattore di comfort nella determinazione dell'utilizzo effettivo.
 - Per il dimensionamento locale, i dati sulle prestazioni non vengono considerati e lo SKU di destinazione è consigliato in base all'allocazione locale.
 
@@ -83,7 +83,7 @@ Per illustrare il modo in cui questo può influire sulle raccomandazioni, si pre
 
 Abbiamo una macchina virtuale locale con quattro core e 8 GB di memoria, con un utilizzo della CPU del 50% e un utilizzo della memoria del 50% e un fattore di comfort specificato di 1,3.
 
--  Se la valutazione è **come in locale**, è consigliabile usare uno SKU di VM di Azure con quattro core e 8 GB di memoria.
+-  Se la valutazione è **come in locale** , è consigliabile usare uno SKU di VM di Azure con quattro core e 8 GB di memoria.
 - Se la valutazione è basata sulle prestazioni, in base all'utilizzo effettivo di CPU e memoria (50% di 4 core * 1,3 = 2,6 core e 50% di 8 GB di memoria * 1,3 = 5,3-GB di memoria), si consiglia lo SKU di VM più economico di quattro core (il numero di core supportato più vicino) e otto GB di memoria (le dimensioni più vicine della memoria)
 - [Altre](concepts-assessment-calculation.md#types-of-assessments) informazioni sul dimensionamento della valutazione.
 
@@ -91,8 +91,8 @@ Abbiamo una macchina virtuale locale con quattro core e 8 GB di memoria, con un 
 
 Azure Migrate server Assessment potrebbe consigliare un disco di dimensioni maggiori in base al tipo di valutazione.
 - Il dimensionamento del disco nella valutazione del server dipende da due proprietà di valutazione: criteri di ridimensionamento e tipo di archiviazione.
-- Se i criteri di ridimensionamento sono **basati sulle prestazioni**e il tipo di archiviazione è impostato su **automatico**, i valori di IOPS e velocità effettiva del disco vengono considerati quando si identifica il tipo di disco di destinazione (HDD standard, SDD standard o Premium). Viene quindi consigliato uno SKU del disco dal tipo di disco e la raccomandazione considera i requisiti di dimensioni del disco locale.
-- Se i criteri di ridimensionamento sono **basati sulle prestazioni**e il tipo di archiviazione è **Premium**, è consigliabile usare uno SKU di dischi Premium in Azure in base ai requisiti di IOPS, velocità effettiva e dimensioni del disco locale. La stessa logica viene usata per eseguire il ridimensionamento del disco quando i criteri di ridimensionamento sono **locali** e il tipo di archiviazione è **HDD standard**, **SDD standard**o **Premium**.
+- Se i criteri di ridimensionamento sono **basati sulle prestazioni** e il tipo di archiviazione è impostato su **automatico** , i valori di IOPS e velocità effettiva del disco vengono considerati quando si identifica il tipo di disco di destinazione (HDD standard, SDD standard o Premium). Viene quindi consigliato uno SKU del disco dal tipo di disco e la raccomandazione considera i requisiti di dimensioni del disco locale.
+- Se i criteri di ridimensionamento sono **basati sulle prestazioni** e il tipo di archiviazione è **Premium** , è consigliabile usare uno SKU di dischi Premium in Azure in base ai requisiti di IOPS, velocità effettiva e dimensioni del disco locale. La stessa logica viene usata per eseguire il ridimensionamento del disco quando i criteri di ridimensionamento sono **locali** e il tipo di archiviazione è **HDD standard** , **SDD standard** o **Premium**.
 
 Ad esempio, se si dispone di un disco locale con 32 GB di memoria, ma le operazioni di i/o di lettura e scrittura aggregate per il disco sono 800 IOPS, server Assessment consiglia un disco Premium (a causa dei requisiti di IOPS più elevati), quindi consiglia uno SKU del disco in grado di supportare le operazioni di i/o al secondo e le dimensioni necessarie. In questo esempio la corrispondenza più vicina sarebbe P15 (256 GB, 1.100 operazioni di I/O al secondo). Anche se le dimensioni richieste dal disco locale sono 32 GB, server Assessment consiglia un disco più grande a causa del requisito di IOPS elevato del disco locale.
 
@@ -165,8 +165,8 @@ Per le macchine virtuali Linux, assicurarsi che i comandi di installazione per M
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
-- **Agente MMS**: esaminare i sistemi operativi [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) supportati.
-- **Dependency Agent**: sistemi operativi [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) supportati.
+- **Agente MMS** : esaminare i sistemi operativi [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) supportati.
+- **Dependency Agent** : sistemi operativi [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) supportati.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualizza le dipendenze per > ora
 
@@ -209,7 +209,7 @@ Raccogliere i log del traffico di rete come segue:
    - In Chrome fare clic con il pulsante destro del mouse e scegliere **Salva come har con contenuto**. Questa azione comprime ed Esporta i log come file con estensione har.
    - In Microsoft Edge o Internet Explorer selezionare l'opzione **Esporta il traffico acquisito** . Questa azione comprime ed esporta il log.
 6. Selezionare la scheda **console** per verificare la presenza di eventuali avvisi o errori. Per salvare il log della console:
-   - In Chrome fare clic con il pulsante destro del mouse in un punto qualsiasi del log della console. Selezionare **Salva con nome**, per esportare e comprimere il log.
+   - In Chrome fare clic con il pulsante destro del mouse in un punto qualsiasi del log della console. Selezionare **Salva con nome** , per esportare e comprimere il log.
    - In Microsoft Edge o Internet Explorer fare clic con il pulsante destro del mouse sugli errori e selezionare **copia tutto**.
 7. Chiudere Strumenti di sviluppo.
 

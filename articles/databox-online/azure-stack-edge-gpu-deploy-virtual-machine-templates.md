@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: eeefbcdc080620c60f7cd49b8f749375e23ddd02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0d02532f39d676772e5ee5d6414b802faffba7c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899704"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505938"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Distribuire macchine virtuali nel dispositivo GPU Azure Stack Edge Pro tramite modelli
 
@@ -149,7 +149,7 @@ In un ambiente tipico, il DNS è configurato in modo che tutti gli account di ar
 
 ### <a name="optional-install-certificates"></a>Opzionale Installare i certificati
 
-Ignorare questo passaggio se si effettuerà la connessione tramite Storage Explorer tramite *http*. Se si usa *https*, è necessario installare i certificati appropriati in Storage Explorer. In questo caso, installare il certificato dell'endpoint BLOB. Per ulteriori informazioni, vedere How to create and upload Certificates in [Manage Certificates](azure-stack-edge-j-series-manage-certificates.md). 
+Ignorare questo passaggio se si effettuerà la connessione tramite Storage Explorer tramite *http*. Se si usa *https* , è necessario installare i certificati appropriati in Storage Explorer. In questo caso, installare il certificato dell'endpoint BLOB. Per ulteriori informazioni, vedere How to create and upload Certificates in [Manage Certificates](azure-stack-edge-j-series-manage-certificates.md). 
 
 ### <a name="create-and-upload-a-vhd"></a>Creare e caricare un disco rigido virtuale
 
@@ -159,7 +159,7 @@ Copiare le immagini del disco da usare nei BLOB di pagine nell'account di archiv
 
 ### <a name="use-storage-explorer-for-upload"></a>USA Storage Explorer per il caricamento
 
-1. Aprire Esplora archivi. Passare a **Edit (modifica** ) e assicurarsi che l'applicazione sia impostata su **target Azure stack API**.
+1. Aprire Storage Explorer. Passare a **Edit (modifica** ) e assicurarsi che l'applicazione sia impostata su **target Azure stack API**.
 
     ![Impostare la destinazione su API Azure Stack](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/set-target-apis-1.png)
 
@@ -189,15 +189,15 @@ Copiare le immagini del disco da usare nei BLOB di pagine nell'account di archiv
 
     ![Connettersi ad archiviazione di Azure 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. Nella pagina **Connetti con nome e chiave**specificare il **nome visualizzato**, il **nome dell'account di archiviazione**e la chiave dell' **account**di archiviazione di Azure. Selezionare **altro** dominio di archiviazione e quindi specificare la `<device name>.<DNS domain>` stringa di connessione. Se non è stato installato un certificato in Storage Explorer, selezionare l'opzione **USA http** . Selezionare **Avanti**.
+6. Nella pagina **Connetti con nome e chiave** specificare il **nome visualizzato** , il **nome dell'account di archiviazione** e la chiave dell' **account** di archiviazione di Azure. Selezionare **altro** dominio di archiviazione e quindi specificare la `<device name>.<DNS domain>` stringa di connessione. Se non è stato installato un certificato in Storage Explorer, selezionare l'opzione **USA http** . Selezionare **Avanti**.
 
     ![Connetti con nome e chiave](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
 7. Esaminare il **Riepilogo della connessione** e selezionare **Connetti**.
 
-8. L'account di archiviazione viene visualizzato nel riquadro sinistro. Selezionare ed espandere l'account di archiviazione. Selezionare **contenitori BLOB**, fare clic con il pulsante destro del mouse e scegliere **Crea contenitore BLOB**. Specificare un nome per il contenitore BLOB.
+8. L'account di archiviazione viene visualizzato nel riquadro sinistro. Selezionare ed espandere l'account di archiviazione. Selezionare **contenitori BLOB** , fare clic con il pulsante destro del mouse e scegliere **Crea contenitore BLOB**. Specificare un nome per il contenitore BLOB.
 
-9. Selezionare il contenitore appena creato e fare clic su **carica > carica file**nel riquadro di destra. 
+9. Selezionare il contenitore appena creato e fare clic su **carica > carica file** nel riquadro di destra. 
 
     ![Carica file VHD 1](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-1.png)
 
@@ -402,7 +402,7 @@ Distribuire il modello `CreateImageAndVnet.json` . Questo modello consente di di
 
 ### <a name="edit-parameters-file-to-create-vm"></a>Modificare il file dei parametri per creare una macchina virtuale
  
-Per creare una macchina virtuale, usare il `CreateVM.parameters.json` file dei parametri. Accetta i parametri seguenti.
+Per creare una macchina virtuale, usare il file di parametri `CreateVM.parameters.json`. Accetta i parametri seguenti.
     
 ```json
 "vmName": {
@@ -441,7 +441,7 @@ Assegnare i parametri appropriati in `CreateVM.parameters.json` per il dispositi
 
 1. Specificare un nome univoco, il nome dell'interfaccia di rete e il nome ipconfig. 
 1. Immettere un nome utente, una password e una dimensione di macchina virtuale supportata.
-1. Assegnare lo stesso nome per **VnetName**, **subnetName**e **ImageName** come specificato nei parametri per `CreateImageAndVnet.parameters.json` . Ad esempio, se sono stati specificati VnetName, subnetName e ImageName come **vnet1**, **Subnet1**e **image1**, conservarli anche per i parametri nel modello.
+1. Assegnare lo stesso nome per **VnetName** , **subnetName** e **ImageName** come specificato nei parametri per `CreateImageAndVnet.parameters.json` . Ad esempio, se sono stati specificati VnetName, subnetName e ImageName come **vnet1** , **Subnet1** e **image1** , conservarli anche per i parametri nel modello.
 1. A questo punto è necessario un indirizzo IP statico da assegnare alla VM che si trova nella rete subnet definita in precedenza. Sostituire **PrivateIPAddress** con questo indirizzo nel file dei parametri. Per fare in modo che la macchina virtuale ottenga un indirizzo IP dal server DCHP locale, lasciare `privateIPAddress` vuoto il valore.  
     
     ```json
@@ -550,7 +550,8 @@ Distribuire il modello di creazione della macchina virtuale `CreateVM.json` . Qu
         
         PS C:\07-30-2020>
     ```   
-È anche possibile eseguire il `New-AzureRmResourceGroupDeployment` comando in modo asincrono con il `–AsJob` parametro. Di seguito è riportato un esempio di output quando il cmdlet viene eseguito in background. È quindi possibile eseguire una query sullo stato del processo creato utilizzando il `Get-Job` cmdlet.
+
+    È anche possibile eseguire il `New-AzureRmResourceGroupDeployment` comando in modo asincrono con il `–AsJob` parametro. Di seguito è riportato un esempio di output quando il cmdlet viene eseguito in background. È quindi possibile eseguire una query sullo stato del processo creato utilizzando il `Get-Job` cmdlet.
 
     ```powershell   
     PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
@@ -568,7 +569,6 @@ Distribuire il modello di creazione della macchina virtuale `CreateVM.json` . Qu
      
     Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
     --     ----            -------------   -----         -----------     --------             -------
-    2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
     ```
 
 7. Controllare se è stato eseguito correttamente il provisioning della macchina virtuale. Eseguire il comando seguente:
@@ -615,7 +615,7 @@ On the client used to access your Azure Stack Edge Pro device, set up a global v
 
 ### On Windows client 
 
-`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
+`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
 
 ### On Linux client
 

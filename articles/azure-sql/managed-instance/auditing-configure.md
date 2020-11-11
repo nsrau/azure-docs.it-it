@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 393fceaa91600ab143912bb3af38c349f29f770a
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 31a1169ca6c2194b8d5564e5d0df50116dd25084
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427939"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505666"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Introduzione al controllo Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -59,7 +59,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
   
 3. Dopo aver creato il contenitore per i log di controllo, è possibile configurarlo come destinazione per i log di controllo in due modi: [usando T-SQL](#blobtsql) o [l'interfaccia utente di SQL Server Management Studio (SSMS)](#blobssms):
 
-   - <a id="blobtsql"></a>Configurare l'archiviazione BLOB per i log di controllo con T-SQL:
+   - <a id="blobtsql"></a>**Configurare l'archiviazione BLOB per i log di controllo con T-SQL:**
 
      1. Nell'elenco dei contenitori fare clic sul contenitore appena creato e quindi fare clic su **Proprietà del contenitore**.
 
@@ -120,7 +120,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
      1. Continuare [creando una specifica del controllo del server o una specifica del controllo del database](#createspec).
 
-   - <a id="blobssms"></a>Configurare l'archiviazione BLOB per i log di controllo usando SQL Server Management Studio 18 (anteprima):
+   - <a id="blobssms"></a>**Configurare l'archiviazione BLOB per i log di controllo usando SQL Server Management Studio 18:**
 
      1. Connettersi all'istanza gestita usando l'interfaccia utente di SQL Server Management Studio.
 
@@ -143,8 +143,8 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
         ![Selezionare la sottoscrizione di Azure, l'account di archiviazione e il contenitore BLOB](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Fare clic su **OK** nella finestra di dialogo **Crea controllo** .
-
-4. <a id="createspec"></a>Dopo aver configurato il contenitore BLOB come destinazione per i log di controllo, creare e abilitare una specifica del controllo del server o una specifica del controllo del database come per SQL Server:
+     
+     1. <a id="createspec"></a>Dopo aver configurato il contenitore BLOB come destinazione per i log di controllo, creare e abilitare una specifica del controllo del server o una specifica del controllo del database come per SQL Server:
 
    - [Guida a T-SQL per la specifica del controllo del server](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Guida di create database audit specification T-SQL](/sql/t-sql/statements/create-database-audit-specification-transact-sql)

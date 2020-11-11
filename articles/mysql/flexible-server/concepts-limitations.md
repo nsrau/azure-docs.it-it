@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 6fff7f22e7d265eb9b15bcec8604eeab692ac1c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a064b2b2d0bad5fc8ded9a59b66d84a361facec9
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650290"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504340"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitazioni nel database di Azure per MySQL-server flessibile (anteprima)
 
@@ -23,9 +23,9 @@ Questo articolo descrive le limitazioni del servizio server flessibile del datab
 ## <a name="server-parameters"></a>Parametri del server
 
 > [!NOTE]
-> Se si cercano valori min/max per parametri del server come `max_connections` e `innodb_buffer_pool_size` , queste informazioni sono state spostate nei concetti relativi ai parametri del server <!-- **[server parameters](./concepts-server-parameters.md)** --> (versione aggiornata).
+> Se si cercano valori min/max per i parametri del server `max_connections` `innodb_buffer_pool_size` , ad esempio e, queste informazioni sono state spostate nell'articolo parametri server dei concetti del [server](./concepts-server-parameters.md) .
 
-Database di Azure per MySQL supporta l'ottimizzazione dei valori dei parametri del server. Valore minimo e massimo di alcuni parametri (ad esempio `max_connections`, `join_buffer_size` , `query_cache_size` ) è determinato dal livello di calcolo e dalle dimensioni di calcolo del server. Vedere Concetti relativi ai parametri del server <!-- [server parameters](./concepts-server-parameters.md)--> Per ulteriori informazioni su questi limiti.
+Database di Azure per MySQL supporta l'ottimizzazione dei valori dei parametri del server. Valore minimo e massimo di alcuni parametri (ad esempio `max_connections`, `join_buffer_size` , `query_cache_size` ) è determinato dal livello di calcolo e dalle dimensioni di calcolo del server. Per ulteriori informazioni su questi limiti, fare riferimento ai [parametri del server](./concepts-server-parameters.md) .
 
 I plug-in per le password, ad esempio "validate_password" e "caching_sha2_password", non sono supportati dal servizio.
 
@@ -67,8 +67,8 @@ Gli elementi seguenti non sono supportati:
 - Questa configurazione può essere impostata solo durante la creazione del server.
 - Non supportato nel livello di calcolo in sequenza.
 
-### <a name="networking"></a>Funzionalità di rete
-- Non è possibile modificare il metodo di connettività dopo la creazione del server. Se il server viene creato con *accesso privato (integrazione VNet)*, non può essere modificato in *accesso pubblico (indirizzi IP consentiti)* dopo la creazione e viceversa
+### <a name="networking"></a>Rete
+- Non è possibile modificare il metodo di connettività dopo la creazione del server. Se il server viene creato con *accesso privato (integrazione VNet)* , non può essere modificato in *accesso pubblico (indirizzi IP consentiti)* dopo la creazione e viceversa
 - TLS/SSL è abilitato per impostazione predefinita e non può essere disabilitato.
 - La versione minima di TLS supportata nel server è TLS 1.2. Per altre informazioni, vedere [connettersi tramite TLS/SSL](./how-to-connect-tls-ssl.md) .
 

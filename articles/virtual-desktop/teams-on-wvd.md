@@ -3,15 +3,15 @@ title: Microsoft teams sul desktop virtuale Windows-Azure
 description: Come usare Microsoft teams sul desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cae40b9aeed4058ab2082a1d1360558c1c656e1d
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 101b3a05591a7815ba28756bb5b07e855b64e769
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131769"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505547"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usare Microsoft teams sul desktop virtuale di Windows
 
@@ -32,7 +32,6 @@ Prima di poter usare Microsoft teams sul desktop virtuale di Windows, è necessa
 - [Preparare la rete](/microsoftteams/prepare-network/) per Microsoft teams.
 - Installare il [client desktop di Windows](connect-windows-7-10.md) in un dispositivo Windows 10 o Windows 10 Internet che soddisfi i requisiti hardware per i team di Microsoft teams [in un computer Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connettersi a una macchina virtuale (VM) di Windows 10 multisessione o Windows 10 Enterprise.
-- [Scaricare](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) e installare l'app desktop per i team nell'host usando l'installazione per computer. L'ottimizzazione dei supporti per Microsoft teams richiede team desktop app 1.3.00.4461 o versione successiva.
 
 ## <a name="install-the-teams-desktop-app"></a>Installare l'app desktop per i team
 
@@ -42,16 +41,17 @@ In questa sezione viene illustrato come installare l'app desktop per i team nell
 
 Per abilitare l'ottimizzazione dei supporti per i team, impostare la seguente chiave del registro di sistema nell'host:
 
-1. Dal menu Start eseguire **Regedit** come amministratore. Passare a **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**.
+1. Dal menu Start eseguire **Regedit** come amministratore. Passare a **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**. Creare la chiave teams se non esiste già.
+
 2. Creare il valore seguente per la chiave teams:
 
-| Nome             | Type   | Dati/valore  |
+| Nome             | Tipo   | Dati/valore  |
 |------------------|--------|-------------|
 | IsWVDEnvironment | DWORD  | 1           |
 
 ### <a name="install-the-teams-websocket-service"></a>Installare il servizio WebSocket Teams
 
-Installare il [servizio WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) più recente nell'immagine della macchina virtuale. Se si verifica un errore di installazione, installare la [versione più recente di Microsoft Visual C++ ridistribuibile](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e riprovare.
+Installare la versione più recente di [Desktop remoto il servizio redirector WebRTC](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) nell'immagine di macchina virtuale. Se si verifica un errore di installazione, installare la [versione più recente di Microsoft Visual C++ ridistribuibile](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e riprovare.
 
 #### <a name="latest-websocket-service-versions"></a>Versioni più recenti del servizio WebSocket
 
@@ -94,7 +94,7 @@ La tabella seguente elenca le versioni più recenti del servizio WebSocket:
 
         In questo modo, i team vengono installati nella cartella Program Files (x86) in un sistema operativo a 32 bit e nella cartella programmi in un sistema operativo a 64 bit. A questo punto, la configurazione dell'immagine dorata è stata completata. L'installazione di team per computer è necessaria per le configurazioni non permanenti.
 
-        Sono disponibili due flag che è possibile impostare quando si installano i team, **ALLUSER = 1** e **ALLUSERS = 1**. È importante comprendere la differenza tra questi parametri. Il parametro **ALLUSER = 1** viene usato solo negli ambienti VDI per specificare un'installazione per computer. Il parametro **ALLUSERS = 1** può essere usato in ambienti non VDI e VDI. Quando si imposta questo parametro, il programma di installazione teams Machine-Wide viene visualizzato in programma e funzionalità nel pannello di controllo, nonché nelle app & funzionalità nelle impostazioni di Windows. Tutti gli utenti con credenziali di amministratore nel computer possono disinstallare i team.
+        Sono disponibili due flag che è possibile impostare quando si installano i team, **ALLUSER = 1** e **ALLUSERS = 1**. È importante comprendere la differenza tra questi parametri. Il parametro **ALLUSER = 1** viene usato solo negli ambienti VDI per specificare un'installazione per computer. Il parametro **ALLUSERS = 1** può essere usato in ambienti non VDI e VDI. Quando si imposta questo parametro, il programma di **installazione teams Machine-Wide** viene visualizzato in programma e funzionalità nel pannello di controllo, nonché nelle app & funzionalità nelle impostazioni di Windows. Tutti gli utenti con credenziali di amministratore nel computer possono disinstallare i team.
 
         > [!NOTE]
         > Gli utenti e gli amministratori non possono disabilitare l'avvio automatico per i team durante l'accesso in questo momento.
@@ -114,14 +114,19 @@ La tabella seguente elenca le versioni più recenti del servizio WebSocket:
 
 Dopo aver installato il servizio WebSocket e l'app desktop teams, attenersi alla procedura seguente per verificare che siano state caricate le ottimizzazioni dei supporti Team:
 
-1. Selezionare l'immagine del profilo utente e quindi fare clic **su informazioni su**.
-2. Selezionare la **versione**.
+1. Chiudere e riavviare l'applicazione teams.
 
-      Se le ottimizzazioni dei supporti sono state caricate, il banner visualizzerà **Wvd media optimized**. Se il banner mostra che i **supporti Wvd non sono connessi**, chiudere l'app teams e riprovare.
+2. Selezionare l'immagine del profilo utente e quindi fare clic **su informazioni su**.
 
-3. Selezionare l'immagine del profilo utente e quindi selezionare **Impostazioni**.
+3. Selezionare la **versione**.
 
-      Se le ottimizzazioni del supporto sono state caricate, i dispositivi audio e le fotocamere disponibili localmente verranno enumerati nel menu dispositivo. Se il menu Mostra **audio remoto**, chiudere l'app teams e riprovare. Se i dispositivi non vengono ancora visualizzati nel menu, verificare le impostazioni di privacy nel PC locale. Verificare che le **Settings**  >  **Privacy**  >  **autorizzazioni** per l'app privacy dell'impostazione **Consenti alle app di accedere al microfono** siano **On**attivate. Disconnettersi dalla sessione remota, quindi riconnettersi e controllare di nuovo i dispositivi audio e video. Per partecipare a chiamate e riunioni con video, è inoltre necessario concedere l'autorizzazione per l'accesso delle app alla fotocamera.
+      Se le ottimizzazioni dei supporti sono state caricate, il banner visualizzerà **Wvd media optimized**. Se il banner mostra che i **supporti Wvd non sono connessi** , chiudere l'app teams e riprovare.
+
+4. Selezionare l'immagine del profilo utente e quindi selezionare **Impostazioni**.
+
+      Se le ottimizzazioni del supporto sono state caricate, i dispositivi audio e le fotocamere disponibili localmente verranno enumerati nel menu dispositivo. Se il menu Mostra **audio remoto** , chiudere l'app teams e riprovare. Se i dispositivi non vengono ancora visualizzati nel menu, verificare le impostazioni di privacy nel PC locale. Verificare che le **Settings**  >  **Privacy**  >  **autorizzazioni** per l'app privacy dell'impostazione **Consenti alle app di accedere al microfono** siano **On** attivate. Disconnettersi dalla sessione remota, quindi riconnettersi e controllare di nuovo i dispositivi audio e video. Per partecipare a chiamate e riunioni con video, è inoltre necessario concedere l'autorizzazione per l'accesso delle app alla fotocamera.
+
+      Se le ottimizzazioni non vengono caricate, disinstallare e reinstallare i team e verificare di nuovo.
 
 ## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
 

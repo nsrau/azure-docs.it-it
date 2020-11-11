@@ -2,16 +2,16 @@
 title: 'Griglia di eventi di Azure: eventi del partner'
 description: Inviare eventi da partner SaaS e PaaS di Griglia di eventi di terze parti direttamente a servizi di Azure con Griglia di eventi di Azure.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 87d1d40b3696229344b0b5c20d06d9d993a514a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102995"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506147"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Eventi del partner in griglia di eventi di Azure (anteprima)
-La funzionalità **eventi partner** consente a un provider SaaS di terze parti di pubblicare gli eventi dai relativi servizi per renderli disponibili agli utenti che possono sottoscrivere tali eventi. Offre un'esperienza di terze parti per le origini eventi di terze parti esponendo un tipo di [argomento](concepts.md#topics) , un **argomento partner** , che i sottoscrittori usano per utilizzare gli eventi. Offre inoltre un modello di pubblicazione-sottoscrizione pulito, separando i problemi e la proprietà delle risorse utilizzate dai Publisher e dai sottoscrittori di eventi.
+La funzionalità **eventi partner** consente a un provider SaaS di terze parti di pubblicare eventi dai servizi in modo che i consumer possano effettuare la sottoscrizione a tali eventi. Questa funzionalità offre un'esperienza iniziale alle origini eventi di terze parti esponendo un tipo di [argomento](concepts.md#topics) , un **argomento del partner**. Per utilizzare gli eventi, i sottoscrittori creano sottoscrizioni a questo argomento. Fornisce inoltre un modello di pubblicazione-sottoscrizione pulito, separando i problemi e la proprietà delle risorse utilizzate dai Publisher e dai sottoscrittori di eventi.
 
 > [!NOTE]
 > Se non si ha familiarità con l'uso di griglia di eventi, vedere [Panoramica](overview.md), [concetti](concepts.md)e [gestori eventi](event-handlers.md).
@@ -75,6 +75,20 @@ Un canale di eventi è una risorsa con mirroring per un argomento del partner. Q
 
 ## <a name="resources-managed-by-subscribers"></a>Risorse gestite dai Sottoscrittori 
 Gli abbonati possono usare gli argomenti dei partner definiti da un editore ed è l'unico tipo di risorsa che vedono e gestiscono. Una volta creato un argomento partner, un utente del Sottoscrittore può creare sottoscrizioni di eventi che definiscono regole di filtro per [destinazioni e gestori eventi](overview.md#event-handlers). Per i sottoscrittori, un argomento partner e le sottoscrizioni di eventi associate forniscono le stesse funzionalità avanzate degli [argomenti personalizzati](custom-topics.md) e delle sottoscrizioni correlate con una differenza rilevante: gli argomenti del partner supportano solo lo [schema degli eventi Cloud 1,0](cloudevents-schema.md), che fornisce un set più completo di funzionalità rispetto ad altri schemi supportati.
+
+Nell'immagine seguente viene illustrato il flusso delle operazioni del piano di controllo.
+
+:::image type="content" source="./media/partner-events-overview/partner-control-plane-flow.png" alt-text="Eventi del partner-flusso del piano di controllo":::
+
+1. Publisher crea una **registrazione partner**. Le registrazioni partner sono globali. Ovvero non sono associate a una determinata area di Azure. Questo passaggio è facoltativo.
+1. Publisher crea uno **spazio dei nomi partner** in un'area specifica.
+1. Quando il Sottoscrittore 1 tenta di creare un argomento del partner, viene creato per primo un **canale di eventi** , il canale di eventi 1, nella sottoscrizione di Azure del server di pubblicazione.
+1. Viene quindi creato un **argomento partner** , argomento partner 1, nella sottoscrizione di Azure del Sottoscrittore. Il Sottoscrittore deve attivare l'argomento partner. 
+1. Il Sottoscrittore 1 crea una sottoscrizione di app per la **logica di Azure** all'argomento del partner 1.
+1. Il Sottoscrittore 1 crea una **sottoscrizione di archiviazione BLOB di Azure** per l'argomento del partner 1. 
+1. Quando il Sottoscrittore 2 tenta di creare un argomento del partner, viene creato un altro **canale di eventi** , il canale di eventi 2, nella sottoscrizione di Azure del server di pubblicazione. 
+1. Quindi, l' **argomento del partner** , argomento del partner 2, viene creato nella sottoscrizione di Azure del secondo sottoscrittore. Il Sottoscrittore deve attivare l'argomento partner. 
+1. Il Sottoscrittore 2 crea una **sottoscrizione di funzioni di Azure** per l'argomento 2 del partner. 
 
 ## <a name="pricing"></a>Prezzi
 Per gli argomenti relativi ai partner viene addebitato il numero di operazioni eseguite quando si usa griglia di eventi. Per ulteriori informazioni su tutti i tipi di operazioni utilizzate come base per la fatturazione e informazioni dettagliate sui prezzi, vedere [prezzi di griglia di eventi](https://azure.microsoft.com/pricing/details/event-grid/).

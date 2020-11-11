@@ -7,18 +7,21 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 29f50b2cf9523b9266de2f73607b0099f32852e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b8aa72c7b77da8fdde9925325587b67411de8d8
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005413"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506414"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurare una regola di limitazione della frequenza del firewall applicazione Web usando Azure PowerShell
 La regola relativa al limite di velocità del firewall applicazione Web di Azure (WAF) per la porta anteriore di Azure controlla il numero di richieste consentite dai client durante una durata di un minuto.
 Questo articolo illustra come configurare una regola di limitazione della velocità WAF che controlla il numero di richieste consentite dai client a un'applicazione Web che contiene */promo* nell'URL usando Azure PowerShell.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+> [!NOTE]
+> I limiti di velocità vengono applicati per ogni indirizzo IP del client. Se si dispone di più client che accedono alla porta anteriore da indirizzi IP diversi, avranno i propri limiti di velocità applicati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare a configurare un criterio di limite di velocità, configurare l'ambiente di PowerShell e creare un profilo di sportello anteriore.
@@ -73,9 +76,7 @@ Impostare un limite di velocità utilizzando [New-AzFrontDoorWafCustomRuleObject
 
 Individuare il nome del gruppo di risorse contenente il profilo Frontdoor usando `Get-AzureRmResourceGroup`. Configurare quindi un criterio di sicurezza con una regola di limitazione della frequenza personalizzata usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) nel gruppo di risorse specificato che contiene il profilo di porta anteriore.
 
-Nell'esempio seguente viene usato il nome del gruppo di risorse *myResourceGroupFD1* , supponendo che sia stato creato il profilo di porta anteriore usando le istruzioni fornite nell'articolo [introduttivo: creare una porta anteriore](../../frontdoor/quickstart-create-front-door.md) .
-
- utilizzando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+Nell'esempio seguente viene usato il nome del gruppo di risorse *myResourceGroupFD1* , supponendo che sia stato creato il profilo della porta anteriore usando le istruzioni fornite nell'articolo [introduttivo: creare un portello anteriore](../../frontdoor/quickstart-create-front-door.md) , usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell-interactive
    $ratePolicy = New-AzFrontDoorWafPolicy `

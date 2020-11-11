@@ -3,12 +3,12 @@ title: Come usare la funzionalità IP pubblico nella soluzione VMware di Azure
 description: Questo articolo illustra come usare la funzionalità IP pubblico nella rete WAN virtuale di Azure.
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: 63475b478a951632c068b168353acf2e0bb7061c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 7ff1debe7b52599a2e4f20378f385359325be2f7
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490390"
+ms.locfileid: "94504408"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Come usare la funzionalità IP pubblico nella soluzione VMware di Azure
 
@@ -39,14 +39,14 @@ Questo articolo illustra in dettaglio come usare la funzionalità IP pubblico ne
 
 :::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="Diagramma dell'architettura IP pubblico" border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
 
-Il diagramma dell'architettura Mostra un server Web del cliente ospitato nell'ambiente della soluzione VMware di Azure e configurato con indirizzi IP privati RFC1918.  Questo servizio Web viene reso disponibile a Internet tramite la funzionalità IP pubblico WAN virtuale.  L'IP pubblico è in genere un NAT di destinazione convertito nel firewall di Azure. Con le regole di DNAT, il criterio firewall converte le richieste di indirizzi IP pubblici in un indirizzo privato (server Web) con una porta.
+Il diagramma dell'architettura Mostra un server Web ospitato nell'ambiente della soluzione VMware di Azure e configurato con indirizzi IP privati RFC1918.  Il servizio Web viene reso disponibile a Internet tramite la funzionalità IP pubblico WAN virtuale.  L'IP pubblico è in genere un NAT di destinazione convertito nel firewall di Azure. Con le regole di DNAT, il criterio del firewall converte le richieste di indirizzi IP pubblici in un indirizzo privato (server Web) con una porta.
 
 Le richieste utente hanno raggiunto il firewall su un IP pubblico che, a sua volta, viene convertito in un indirizzo IP privato usando le regole DNAT nel firewall di Azure. Il firewall controlla la tabella NAT e, se la richiesta corrisponde a una voce, trasmette il traffico all'indirizzo e alla porta convertiti nell'ambiente della soluzione VMware di Azure.
 
 Il server Web riceve la richiesta e risponde con le informazioni o la pagina richiesta al firewall, quindi il firewall inoltra le informazioni all'utente nell'indirizzo IP pubblico.
 
 ## <a name="test-case"></a>Test case
-In questo scenario, è necessario pubblicare il server Web IIS su Internet. Usare la funzionalità IP pubblico della soluzione VMware di Azure per pubblicare il sito Web in un indirizzo IP pubblico.  Si configureranno le regole NAT nel firewall e si accederà alla risorsa della soluzione VMware di Azure (VM con webserver) con IP pubblico.
+In questo scenario, è necessario pubblicare il server Web IIS su Internet. Usare la funzionalità IP pubblico della soluzione VMware di Azure per pubblicare il sito Web in un indirizzo IP pubblico.  Si configureranno le regole NAT nel firewall e si accederà alla risorsa della soluzione VMware di Azure (VM con il server Web) con l'indirizzo IP pubblico.
 
 ## <a name="deploy-virtual-wan"></a>Distribuire una rete WAN virtuale
 

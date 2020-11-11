@@ -3,12 +3,12 @@ title: Riferimento per le impostazioni dell’app per Funzioni di Azure
 description: Documentazione di riferimento per le impostazioni o le variabili di ambiente dell'app Funzioni di Azure.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 3d3def7057eeb022b3e207cbecf06ee3074a91af
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 2b71bee620ab7d5b1ef98b60013d1978f49d127f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043232"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505887"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -48,8 +48,8 @@ Per impostazione predefinita, i [proxy di funzioni](functions-proxies.md) usano 
 
 |Chiave|Valore|Descrizione|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|True|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale non verranno inviate direttamente alla funzione. Al contrario, le richieste vengono indirizzate di nuovo al front-end HTTP per l'app per le funzioni.|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale vengono indirizzate direttamente alla funzione. Si tratta del valore predefinito. |
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale non verranno inviate direttamente alla funzione. Al contrario, le richieste vengono indirizzate di nuovo al front-end HTTP per l'app per le funzioni.|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale vengono indirizzate direttamente alla funzione. Rappresenta il valore predefinito. |
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
@@ -57,7 +57,7 @@ Questa impostazione determina se i caratteri `%2F` vengono decodificati come bar
 
 |Chiave|Valore|Descrizione|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|True|I parametri di route con barre codificate vengono decodificati. |
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|I parametri di route con barre codificate vengono decodificati. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Tutti i parametri di route vengono passati insieme a Unchanged, che è il comportamento predefinito. |
 
 Si consideri, ad esempio, il proxies.jssu file per un'app per le funzioni nel `myfunction.com` dominio.
@@ -103,7 +103,7 @@ Stringa di connessione dell’account di archiviazione facoltativo per l'archivi
 
 |Chiave|Valore di esempio|
 |---|------------|
-|AzureWebJobsDisableHomepage|True|
+|AzureWebJobsDisableHomepage|true|
 
 Quando questa impostazione dell’app viene omessa o impostata su `false`, una pagina simile all'esempio seguente viene visualizzata in risposta all'URL `<functionappname>.azurewebsites.net`.
 
@@ -115,7 +115,7 @@ Quando questa impostazione dell’app viene omessa o impostata su `false`, una p
 
 |Chiave|Valore di esempio|
 |---|------------|
-|AzureWebJobsDotNetReleaseCompilation|True|
+|AzureWebJobsDotNetReleaseCompilation|true|
 
 ## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
 
@@ -135,7 +135,7 @@ Specifica il repository o il provider da utilizzare per l'archiviazione delle ch
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-Il runtime di Funzioni di Azure usa questa stringa di connessione per l'account di archiviazione per tutte le funzioni ad eccezione delle funzioni attivate da HTTP. L'account di archiviazione deve essere un'istanza generica che supporta i BLOB, le code e le tabelle. Vedere [Account di archiviazione](functions-infrastructure-as-code.md#storage-account) e [Requisiti dell'account di archiviazione](storage-considerations.md#storage-account-requirements).
+Il runtime di funzioni di Azure usa questa stringa di connessione dell'account di archiviazione per il normale funzionamento. Alcuni usi di questo account di archiviazione includono i checkpoint di gestione delle chiavi, dei trigger timer e di hub eventi. L'account di archiviazione deve essere un'istanza generica che supporta i BLOB, le code e le tabelle. Vedere [Account di archiviazione](functions-infrastructure-as-code.md#storage-account) e [Requisiti dell'account di archiviazione](storage-considerations.md#storage-account-requirements).
 
 |Chiave|Valore di esempio|
 |---|------------|
@@ -176,7 +176,7 @@ Richiede che [la \_ \_ versione dell'estensione funzioni](functions-app-settings
 
 |Chiave|Valore di esempio|
 |---|------------|
-|Modalità di compatibilità di funzioni \_ v2 \_ \_|True|
+|Modalità di compatibilità di funzioni \_ v2 \_ \_|true|
 
 ## <a name="functions_worker_process_count"></a>\_numero di \_ processi di lavoro di funzioni \_
 
@@ -277,7 +277,7 @@ I valori validi sono un URL che si risolve nel percorso di un file di pacchetto 
 
 Consente di impostare il fuso orario per l'app per le funzioni. 
 
-|Chiave|OS|Valore di esempio|
+|Chiave|Sistema operativo|Valore di esempio|
 |---|--|------------|
 |\_fuso orario sito Web \_|Windows|Ora solare fuso orientale|
 |\_fuso orario sito Web \_|Linux|America/New_York|

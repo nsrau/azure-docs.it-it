@@ -4,12 +4,12 @@ description: Ridimensionamento automatico in Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: e89cf36e59ab26ec220d1125162a841fc10f0e47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd7c1582cdb4b2b1b72d3f969ad08879d208785f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567265"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505838"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Panoramica del ridimensionamento automatico in Microsoft Azure
 Questo articolo descrive il ridimensionamento automatico di Microsoft Azure e come iniziare a usarlo.  
@@ -63,9 +63,9 @@ Per il ridimensionamento automatico vengono usate la terminologia e la struttura
 
   - Un **profilo di scalabilità automatica** è una combinazione di:
 
-    - **impostazione di capacità**, che indica i valori minimo, massimo e predefinito per il numero di istanze.
-    - **set di regole**, ognuna delle quali include un trigger (ora o metrica) e un'azione di scalabilità (verso l'alto o verso il basso).
-    - **ricorrenza**, che indica quando il ridimensionamento automatico renderà effettivo il profilo.
+    - **impostazione di capacità** , che indica i valori minimo, massimo e predefinito per il numero di istanze.
+    - **set di regole** , ognuna delle quali include un trigger (ora o metrica) e un'azione di scalabilità (verso l'alto o verso il basso).
+    - **ricorrenza** , che indica quando il ridimensionamento automatico renderà effettivo il profilo.
 
       È possibile avere più profili per gestire diversi requisiti sovrapposti. È ad esempio possibile avere profili di ridimensionamento automatico per diverse ore del giorno o diversi giorni della settimana.
 
@@ -102,7 +102,7 @@ La scalabilità verticale è invece diversa, perché mantiene lo stesso numero d
 | Macchine virtuali: Classico |[Scaling Classic Virtual Machine Availability Sets (Ridimensionamento di set di disponibilità di macchine virtuale classiche)](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) |
 | Macchine virtuali: set di scalabilità Windows |[Ridimensionamento dei set di scalabilità di macchine virtuali in Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Macchine virtuali: set di scalabilità Linux |[Ridimensionamento dei set di scalabilità di macchine virtuali in Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| Macchine virtuali: esempio di Windows |[Configurazione avanzata del ridimensionamento automatico con modelli di Resource Manager per set di scalabilità di macchine virtuali](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
+| Macchine virtuali: esempio di Windows |[Configurazione avanzata del ridimensionamento automatico con modelli di Resource Manager per set di scalabilità di macchine virtuali](autoscale-virtual-machine-scale-sets.md) |
 | Servizio app di Azure |[Aumentare le prestazioni di un'app nel Servizio app di Azure](../../app-service/manage-scale-up.md)|
 | Servizio Gestione API|[Ridimensionare automaticamente un'istanza di Gestione API di Azure](../../api-management/api-management-howto-autoscale.md)
 | Cluster di Esplora dati di Azure|[Gestire il ridimensionamento dei cluster di Esplora dati di Azure per rispondere al cambiamento della domanda](/azure/data-explorer/manage-cluster-horizontal-scaling)|

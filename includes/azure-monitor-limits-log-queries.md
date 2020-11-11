@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
-ms.openlocfilehash: 83754842eeb4b5d609596045c11451e898960b9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83e046ca97ceee249e707e30f478fad89345f4de
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90064869"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504083"
 ---
 ### <a name="general-query-limits"></a>Limiti per le query generici
 
 | Limite | Descrizione |
 |:---|:---|
 | Linguaggio di query | Monitoraggio di Azure usa lo stesso [linguaggio di query Kusto](/azure/kusto/query/) di Esplora dati di Azure. Vedere [Differenze nel linguaggio di query di log di Monitoraggio di Azure](../articles/azure-monitor/log-query/data-explorer-difference.md) per gli elementi del linguaggio KQL non supportati in Monitoraggio di Azure. |
-| Aree di Azure | Nelle query su log è possibile riscontrare un sovraccarico eccessivo quando i dati si estendono in più aree di Azure nelle aree di lavoro Log Analytics. Per informazioni dettagliate, vedere [Limiti per le query](../articles/azure-monitor/log-query/scope.md#query-limits). |
+| Aree di Azure | Nelle query su log è possibile riscontrare un sovraccarico eccessivo quando i dati si estendono in più aree di Azure nelle aree di lavoro Log Analytics. Per informazioni dettagliate, vedere [Limiti per le query](../articles/azure-monitor/log-query/scope.md#query-scope-limits). |
 | Query su più risorse | Il numero massimo di risorse di Application Insights e di aree di lavoro Log Analytics che è possibile includere in una singola query è limitato a 100.<br>Le query su più risorse non sono supportate Progettazione visualizzazioni.<br>Le query su più risorse negli avvisi dei log sono supportate nella nuova API scheduledQueryRules.<br>Per informazioni dettagliate, vedere [Limiti per le query su più risorse](../articles/azure-monitor/log-query/cross-workspace-query.md#cross-resource-query-limits). |
 
 ### <a name="user-query-throttling"></a>Limitazione delle query utente

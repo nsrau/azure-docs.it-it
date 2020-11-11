@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
-ms.date: 07/22/2020
-ms.openlocfilehash: 265828cc34d73409b91c55be64b087d22f1a11f6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/10/2020
+ms.openlocfilehash: 65ef118fde57a7b72903d502a06644024939923f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789591"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506023"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Confronto tra le funzionalità: database SQL di Azure e Istanza gestita SQL di Azure
 
@@ -40,7 +40,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server e fornisce 
 | --- | --- | --- |
 | [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Sì. Vedere [Archivio certificati](always-encrypted-certificate-store-configure.md) e [Insieme di credenziali delle chiavi](always-encrypted-azure-key-vault-configure.md) | Sì. Vedere [Archivio certificati](always-encrypted-certificate-store-configure.md) e [Insieme di credenziali delle chiavi](always-encrypted-azure-key-vault-configure.md) |
 | [Gruppi di disponibilità AlwaysOn](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | è garantita la [disponibilità del 99,99% 99.995](high-availability-sla.md) per ogni database. Il ripristino di emergenza è trattato in [Panoramica della continuità aziendale del database SQL di Azure](business-continuity-high-availability-disaster-recover-hadr-overview.md) | [99,99. la disponibilità](high-availability-sla.md) è garantita per ogni database e [non può essere gestita dall'utente](../managed-instance/transact-sql-tsql-differences-sql-server.md#availability). Il ripristino di emergenza viene illustrato in [Panoramica della continuità aziendale con il database SQL di Azure](business-continuity-high-availability-disaster-recover-hadr-overview.md). Usare i [gruppi di failover automatico](auto-failover-group-overview.md) per configurare un istanza gestita SQL secondario in un'altra area. Non è possibile usare le istanze SQL Server e il database SQL come database secondari per SQL Istanza gestita. |
-| [Connessione di un database](/sql/relational-databases/databases/attach-a-database) | No | No |
+| [Collegare un database](/sql/relational-databases/databases/attach-a-database) | No | No |
 | [Controllo](/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Sì](auditing-overview.md)| [Sì](../managed-instance/auditing-configure.md), con alcune [differenze](../managed-instance/transact-sql-tsql-differences-sql-server.md#auditing) |
 | [Autenticazione di Azure Active Directory (Azure AD)](authentication-aad-overview.md) | Sì. Azure AD solo agli utenti. | Sì. Inclusione degli account di accesso Azure AD a livello di server. |
 | [Comando BACKUP](/sql/t-sql/statements/backup-transact-sql) | No, solo backup automatici avviati dal sistema, vedere [Backup automatici](automated-backups-overview.md) | Sì, i backup di sola copia avviati dall'utente nell'archiviazione BLOB di Azure (i backup automatici del sistema non possono essere avviati dall'utente). vedere [differenze di backup](../managed-instance/transact-sql-tsql-differences-sql-server.md#backup) |
@@ -63,7 +63,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server e fornisce 
 | [Viste partizionate distribuite](/sql/t-sql/statements/create-view-transact-sql#partitioned-views) | No | Sì |
 | [Transazioni distribuite - MS DTC](/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | No. Vedere [Transazioni elastiche](elastic-transactions-overview.md) |  No. vedere [differenze tra server collegati](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers). Provare a consolidare i database da diverse istanze di SQL Server distribuite in un'unica Istanza gestita SQL durante la migrazione. |
 | [Trigger DML](/sql/relational-databases/triggers/create-dml-triggers) | Supportate per la maggior parte. Vedere le singole istruzioni |  Sì |
-| [Viste a gestione dinamica](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Supportate nella maggior parte dei casi, vedere singole viste a gestione dinamica |  Sì, vedere le [differenze relative a T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
+| [DMV](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Supportate nella maggior parte dei casi, vedere singole viste a gestione dinamica |  Sì, vedere le [differenze relative a T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Notifiche degli eventi](/sql/relational-databases/service-broker/event-notifications) | No. Vedere [Avvisi](alerts-insights-configure-portal.md) | No |
 | [Espressioni](/sql/t-sql/language-elements/expressions-transact-sql) |Sì | Sì |
 | [Eventi estesi (XEvent)](/sql/relational-databases/extended-events/extended-events) | Supportati in alcuni casi. Vedere [Eventi estesi nel database SQL](xevent-db-diff-from-svr.md) | Sì - vedere le [differenze relative agli eventi estesi](../managed-instance/transact-sql-tsql-differences-sql-server.md#extended-events) |
@@ -72,7 +72,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server e fornisce 
 | [FileStream](/sql/relational-databases/blob/filestream-sql-server) | No | [No](../managed-instance/transact-sql-tsql-differences-sql-server.md#filestream-and-filetable) |
 | [Ricerca full-text (FTS)](/sql/relational-databases/search/full-text-search) |  Sì, ma i Word breaker di terze parti non sono supportati | Sì, ma [i Word breaker di terze parti non sono supportati](../managed-instance/transact-sql-tsql-differences-sql-server.md#full-text-semantic-search) |
 | [Funzioni](/sql/t-sql/functions/functions) | Supportate per la maggior parte. Vedere le singole funzioni | Sì, vedere le [differenze relative a stored procedure, funzioni e trigger](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
-| [Ottimizzazione in memoria](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sì, i [livelli Premium e business critical supportano solo](../in-memory-oltp-overview.md) il supporto limitato per gli oggetti In-Memory non permanenti, ad esempio i tipi di tabella | Sì - [solo livello Business Critical](../managed-instance/sql-managed-instance-paas-overview.md) |
+| [Ottimizzazione in memoria](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sì nei [livelli di servizio Premium e business critical](../in-memory-oltp-overview.md).</br> Supporto limitato per gli oggetti OLTP In-Memory non persistenti, ad esempio le variabili di tabella ottimizzata per la memoria nel [livello di servizio con iperscalabilità](service-tier-hyperscale.md).| Sì nel [livello di servizio business critical](../managed-instance/sql-managed-instance-paas-overview.md) |
 | [Elementi del linguaggio](/sql/t-sql/language-elements/language-elements-transact-sql) | Supportati per la maggior parte. Vedere i singoli elementi |  Sì, vedere le [differenze relative a T-SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Server collegati](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No. Vedere [Query elastica](elastic-query-horizontal-partitioning.md) | Sì. Solo per [SQL Server e database SQL](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) senza transazioni distribuite. |
 | [Server collegati](/sql/relational-databases/linked-servers/linked-servers-database-engine) che leggono da file (CSV, Excel)| No. Utilizzare [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) o [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) come alternativa per il formato CSV. | No. Utilizzare [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) o [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) come alternativa per il formato CSV. Rileva queste richieste sull' [elemento feedback di SQL istanza gestita](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
