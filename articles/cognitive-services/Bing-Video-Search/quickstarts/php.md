@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 6bcfb9057739277c1f57b5ebd98b99877f759e9b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8362f5b4d3436e83cbd033fcc3cd088d52122b58
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094099"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379855"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e PHP
 
@@ -36,7 +36,7 @@ Anche se l'applicazione è scritta in PHP, l'API è un servizio Web RESTful comp
 
 ## <a name="running-the-application"></a>Esecuzione dell'applicazione
 
-L'[API Ricerca video Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) restituisce video come risultati dal motore di ricerca Bing.
+L'[API Ricerca video Bing](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) restituisce video come risultati dal motore di ricerca Bing.
 
 1. Abilitare il supporto HTTP sicuro nel file `php.ini` rimuovendo il commento dalla riga `;extension=php_openssl.dll`, come descritto nel codice seguente.
 2. Creare un nuovo progetto PHP nell'ambiente di sviluppo integrato o nell'editor preferito.

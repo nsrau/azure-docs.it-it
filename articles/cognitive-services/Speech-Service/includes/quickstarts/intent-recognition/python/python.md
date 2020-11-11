@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 7572e5c5621b514c375e44ca44ddfc4102f5d714
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 44c4427540e1b94ebcaf00e6875723e0a654e9ef
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87298723"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425228"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -41,14 +41,14 @@ Prima di inizializzare un oggetto `IntentRecognizer`, è necessario creare una c
 Inserire questo codice in `quickstart.py`. Assicurarsi di aggiornare questi valori:
 
 * Sostituire `"YourLanguageUnderstandingSubscriptionKey"` con la chiave di previsione di LUIS.
-* Sostituire `"YourLanguageUnderstandingServiceRegion"` con l'area di LUIS. Usare l'**identificatore di area** corrispondente all'[area](https://aka.ms/speech/sdkregion).
+* Sostituire `"YourLanguageUnderstandingServiceRegion"` con l'area di LUIS. Usare l' **identificatore di area** corrispondente all' [area](../../../../regions.md).
 
 >[!TIP]
 > Per informazioni su come trovare questi valori, vedere [Creare un'app LUIS per il riconoscimento delle finalità](#create-a-luis-app-for-intent-recognition).
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=12)]
 
-Questo esempio crea l'oggetto `SpeechConfig` usando la chiave e l'area di LUIS. Per un elenco completo dei metodi disponibili, vedere [Classe SpeechConfig](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
+Questo esempio crea l'oggetto `SpeechConfig` usando la chiave e l'area di LUIS. Per un elenco completo dei metodi disponibili, vedere [Classe SpeechConfig](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
 
 Per impostazione predefinita, Speech SDK riconoscerà l'uso di en-us per la lingua. Per informazioni sulla scelta della lingua di origine, vedere [Specificare la lingua di origine per il riconoscimento vocale](../../../../how-to-specify-source-language.md).
 

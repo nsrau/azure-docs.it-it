@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/09/2020
 ms.author: v-jawe
-ms.openlocfilehash: 029cb1e59876eb01c609ef8b7ba0412ed35a2a1b
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 8a877e1773431053c5ad7344209076cb868a0ee3
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940745"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94424707"
 ---
 Questa guida di avvio rapido descrive come eseguire la sintesi vocale con il servizio Voce e cURL.
 
@@ -26,7 +26,7 @@ Al prompt dei comandi, eseguire questo comando. Sarà necessario inserire i valo
 - L'area del servizio Voce.
 
 È anche possibile modificare i valori seguenti.
-- Il valore dell'intestazione `X-Microsoft-OutputFormat`, che controlla il formato di output audio. Un elenco di formati di output audio supportati è disponibile nelle [Informazioni di riferimento sull'API REST di sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech#audio-outputs).
+- Il valore dell'intestazione `X-Microsoft-OutputFormat`, che controlla il formato di output audio. Un elenco di formati di output audio supportati è disponibile nelle [Informazioni di riferimento sull'API REST di sintesi vocale](../../../rest-text-to-speech.md#audio-outputs).
 - La voce di output. Per ottenere un elenco di voci disponibili per l'endpoint Voce, vedere la sezione successiva.
 - File di output. In questo esempio la risposta del server viene indirizzata a un file denominato `output.wav`.
 

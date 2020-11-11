@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: b2369e3f941b3d7c86b5c09a11d3e17ade8e99cf
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f3a3d897d5cc5a22340dccf3aeeac8d52158a3a0
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136212"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425443"
 ---
 Una delle principali funzionalità del servizio Voce è la possibilità di riconoscere e trascrivere la voce umana, ovvero di convertire la voce in testo scritto. Questa guida di avvio rapido illustra come usare Speech SDK in app e prodotti per eseguire la conversione della voce in testo scritto di alta qualità.
 
@@ -23,7 +23,7 @@ Questo articolo presuppone che si abbia un account Azure e una sottoscrizione de
 
 ## <a name="install-the-speech-sdk"></a>Installare Speech SDK
 
-Prima di poter eseguire qualsiasi operazione, è necessario installare [Speech SDK per Go](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet%2Cwindows%2Cjre%2Cbrowser&pivots=programming-language-go).
+Prima di poter eseguire qualsiasi operazione, è necessario installare [Speech SDK per Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser).
 
 ## <a name="speech-to-text-from-microphone"></a>Riconoscimento vocale da microfono
 

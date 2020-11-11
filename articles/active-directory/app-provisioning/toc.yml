@@ -12,6 +12,8 @@
   items:
     - name: Creare un endpoint SCIM e configurare il provisioning
       href: use-scim-to-provision-users-and-groups.md
+    - name: Personalizzare i mapping degli attributi
+      href: customize-application-attributes.md
     - name: Esercitazioni sul provisioning specifiche delle app
       href: /azure/active-directory/saas-apps
 - name: Concetti
@@ -30,8 +32,6 @@
   items:
     - name: Configurare il provisioning per un'app della raccolta
       href: configure-automatic-user-provisioning-portal.md
-    - name: Personalizzare i mapping degli attributi
-      href: customize-application-attributes.md
     - name: Includere o escludere utenti e gruppi dall'ambito
       items:
         - name: Definire l'ambito di utenti o gruppi di cui effettuare il provisioning

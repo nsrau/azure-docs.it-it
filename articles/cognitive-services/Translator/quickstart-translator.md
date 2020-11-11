@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: traduttore, servizio traduttore, tradurre testo, eseguire la traslitterazione di testo, rilevamento della lingua
-ms.openlocfilehash: 8250141c2baa92478c5929a300ec7b17b8ed7131
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 68bbb31ae87ebbb84cda752c2f4a7c1bd1116dda
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322513"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369529"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Avvio rapido: Introduzione a Traduttore
 
@@ -105,7 +105,7 @@ Quando si chiama il servizio Traduttore tramite REST, è necessario verificare c
   <th>Descrizione</th>
   <tr>
     <td>Intestazioni di autenticazione</td>
-    <td><em>Intestazione della richiesta obbligatoria</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Intestazione della richiesta obbligatoria se si usa una risorsa di Servizi cognitivi. Facoltativa se si usa una risorsa di Traduttore.</em>.<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
+    <td><em>Intestazione della richiesta obbligatoria</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Intestazione della richiesta obbligatoria se si usa una risorsa di Servizi cognitivi. Facoltativa se si usa una risorsa di Traduttore.</em>.<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>Vedere le <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -123,7 +123,7 @@ Quando si chiama il servizio Traduttore tramite REST, è necessario verificare c
 
 ## <a name="keys-and-endpoints"></a>Keys and endpoints (Chiavi ed endpoint)
 
-Gli esempi in questa pagina usano chiavi ed endpoint hardcoded per semplicità. Al termine, ricordarsi di **rimuovere la chiave dal codice** e **non renderlo mai pubblico**. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Per altre informazioni, vedere l'articolo sulla [sicurezza](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) di Servizi cognitivi.
+Gli esempi in questa pagina usano chiavi ed endpoint hardcoded per semplicità. Al termine, ricordarsi di **rimuovere la chiave dal codice** e **non renderlo mai pubblico**. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Per altre informazioni, vedere l'articolo sulla [sicurezza](../cognitive-services-security.md) di Servizi cognitivi.
 
 ## <a name="translate-text"></a>Traduci testo 
 
@@ -686,7 +686,7 @@ Dopo una chiamata riuscita, si dovrebbe vedere la risposta seguente:
 
 ### <a name="detect-source-language-without-translation"></a>Rilevare la lingua di origine senza traduzione
 
-È possibile usare il servizio Traduttore per rilevare la lingua del testo di origine senza eseguire una traduzione. A questo scopo occorre usare l'endpoint [`/detect`](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect). 
+È possibile usare il servizio Traduttore per rilevare la lingua del testo di origine senza eseguire una traduzione. A questo scopo occorre usare l'endpoint [`/detect`](./reference/v3-0-detect.md). 
 
 # <a name="c"></a>[C#](#tab/csharp)
 

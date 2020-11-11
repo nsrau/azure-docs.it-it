@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2eab79d79a287bc8a92133c6901c420dfaee2fd5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 50db66d54993a4b5ee8afb4756be6b1f4387a1d0
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082046"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369342"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>Informazioni sull'API Ricerca visiva Bing
 
@@ -53,7 +53,7 @@ I risultati di Ricerca visiva Bing includono anche rettangoli di selezione per l
 
 L'API Ricerca visiva Bing è un servizio Web RESTful, facile da chiamare da qualsiasi linguaggio di programmazione in grado di effettuare richieste HTTP e analizzare codice JSON. È possibile usare il servizio mediante l'API REST o l'SDK.
 
-1. Creare un [account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per accedere alle API di Ricerca Bing. Se non si ha una sottoscrizione di Azure, è possibile [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/).
+1. Creare un [account Servizi cognitivi](../cognitive-services-apis-create-account.md) per accedere alle API di Ricerca Bing. Se non si ha una sottoscrizione di Azure, è possibile [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/).
 2. Inviare una richiesta all'API con una query di ricerca valida.
 3. Elaborare la risposta dell'API tramite l'analisi del messaggio JSON restituito.
 
@@ -74,8 +74,8 @@ Per iniziare rapidamente con la prima richiesta, vedere le guide introduttive:
 
 ## <a name="see-also"></a>Vedere anche
 
-* L'argomento di riferimento sulla [Ricerca visiva di immagini](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) contiene definizioni e informazioni sugli endpoint, le intestazioni, le risposte e i parametri di query che è possibile usare per richiedere i risultati della ricerca basata su immagine.
+* L'argomento di riferimento sulla [Ricerca visiva di immagini](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) contiene definizioni e informazioni sugli endpoint, le intestazioni, le risposte e i parametri di query che è possibile usare per richiedere i risultati della ricerca basata su immagine.
 
 * I [requisiti per l'uso e la visualizzazione dell'API di Ricerca Bing](../bing-web-search/use-display-requirements.md) specificano gli usi accettabili dei contenuti e delle informazioni ottenute tramite le API di Ricerca Bing.
 
-* Per esplorare le altre API disponibili, visitare la [pagina dell'hub dell'API Ricerca Bing](../bing-web-search/search-the-web.md).
+* Per esplorare le altre API disponibili, visitare la [pagina dell'hub dell'API Ricerca Bing](../bing-web-search/overview.md).

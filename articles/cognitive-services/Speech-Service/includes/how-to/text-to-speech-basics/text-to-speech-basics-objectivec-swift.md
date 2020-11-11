@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 9/22/2020
 ms.author: v-demjoh
-ms.openlocfilehash: e2551952b2d70199b73ac7972a6a6934aa34dd2a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 213d2a0e6f5c156ee0592a1f1389e1fd6e569b29
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332533"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425561"
 ---
 È possibile eseguire la sintesi vocale del testo usando Speech SDK per Swift e Objective-C.
 
@@ -27,4 +27,4 @@ Gli esempi seguenti presuppongono che si abbia un account Azure e una sottoscriz
 * [Sintesi vocale in Swift in iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios/text-to-speech)
 * [Esempi aggiuntivi per Objective-C in iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios)
 
-Sono disponibili anche [Informazioni di riferimento su Speech SDK per Objective-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+Sono disponibili anche [Informazioni di riferimento su Speech SDK per Objective-C](/objectivec/cognitive-services/speech/).

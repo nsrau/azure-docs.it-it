@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 20eaf6e6a9f0eee15e6ad6a5bd8f23bf8531545c
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 1b0fa12aa00165ad4ddd02d36383b41bdf74f4d8
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376340"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386533"
 ---
 La libreria client di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione Node.js. In questa guida introduttiva si apprenderà come creare un'istanza di un client, inviare una richiesta e stampare la risposta.
 
@@ -107,4 +107,4 @@ Dopo aver terminato di usare questo progetto, rimuovere la chiave di sottoscrizi
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Azure Node SDK reference](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-websearch/) (Informazioni di riferimento su Azure Node SDK)
+* [Azure Node SDK reference](/javascript/api/@azure/cognitiveservices-websearch/) (Informazioni di riferimento su Azure Node SDK)

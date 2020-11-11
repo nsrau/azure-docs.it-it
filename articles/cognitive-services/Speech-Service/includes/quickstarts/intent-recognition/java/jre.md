@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 8bcc3e41f87570822f48a111fe98d1fdaf72679f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 09b537d82ce4e9e44c36df628d120623e69abfaf
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470673"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425023"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -41,14 +41,14 @@ Prima di inizializzare un oggetto `IntentRecognizer`, è necessario creare una c
 Inserire il codice nel blocco try/catch in `main()`. Assicurarsi di aggiornare questi valori:
 
 * Sostituire `"YourLanguageUnderstandingSubscriptionKey"` con la chiave di previsione di LUIS.
-* Sostituire `"YourLanguageUnderstandingServiceRegion"` con l'area di LUIS. Usare l' **identificatore di area** corrispondente all' [area](https://aka.ms/speech/sdkregion).
+* Sostituire `"YourLanguageUnderstandingServiceRegion"` con l'area di LUIS. Usare l' **identificatore di area** corrispondente all' [area](../../../../regions.md).
 
 >[!TIP]
 > Per informazioni su come trovare questi valori, vedere [Creare un'app LUIS per il riconoscimento delle finalità](#create-a-luis-app-for-intent-recognition).
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
 
-Questo esempio usa il metodo `FromSubscription()` per creare `SpeechConfig`. Per un elenco completo dei metodi disponibili, vedere [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true).
+Questo esempio usa il metodo `FromSubscription()` per creare `SpeechConfig`. Per un elenco completo dei metodi disponibili, vedere [Classe SpeechConfig](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-dotnet).
 
 Per impostazione predefinita, Speech SDK riconoscerà l'uso di en-us per la lingua. Per informazioni sulla scelta della lingua di origine, vedere [Specificare la lingua di origine per il riconoscimento vocale](../../../../how-to-specify-source-language.md).
 
@@ -104,7 +104,7 @@ A questo punto il codice dovrà avere questo aspetto:
 
 ## <a name="build-and-run-your-app"></a>Compilare ed eseguire l'app
 
-Premere <kbd>F11</kbd> o selezionare **Esegui** > **Debug** .
+Premere <kbd>F11</kbd> o selezionare **Esegui** > **Debug**.
 I successivi 15 secondi di input vocale dal microfono verranno riconosciuti e registrati nella finestra della console.
 
 ## <a name="next-steps"></a>Passaggi successivi

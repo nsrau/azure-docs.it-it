@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9dbed0de3cf6cc911111825a75430d0c616f4dc4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d391586ade9e9a58344f9b1666802a453770152a
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217594"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386551"
 ---
 La libreria client di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione C#. In questa guida introduttiva si apprenderà come creare un'istanza di un client, inviare una richiesta e stampare la risposta.
 
@@ -36,7 +36,7 @@ Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare
 > [!TIP]
 > Ottenere la versione più recente del codice come soluzione di Visual Studio da [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
 
-Il primo passaggio consiste nel creare un nuovo progetto console. Per assistenza sulla configurazione di un progetto console, vedere [Hello World - Il primo programma (Guida per programmatori C#)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Per usare l'SDK di Ricerca Web Bing nell'applicazione, è necessario installare `Microsoft.Azure.CognitiveServices.Search.WebSearch` tramite Gestione pacchetti NuGet.
+Il primo passaggio consiste nel creare un nuovo progetto console. Per assistenza sulla configurazione di un progetto console, vedere [Hello World - Il primo programma (Guida per programmatori C#)](/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Per usare l'SDK di Ricerca Web Bing nell'applicazione, è necessario installare `Microsoft.Azure.CognitiveServices.Search.WebSearch` tramite Gestione pacchetti NuGet.
 
 Con il [pacchetto SDK di Ricerca Web](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) vengono installati anche i componenti seguenti:
 
@@ -424,4 +424,3 @@ Dopo aver terminato di usare questo progetto, rimuovere la chiave di sottoscrizi
 
 > [!div class="nextstepaction"]
 > [Esempi di SDK Node.js per Servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
-                                    

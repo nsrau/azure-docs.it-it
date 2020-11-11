@@ -471,6 +471,8 @@
               href: flexible-server/concepts-high-availability.md
         - name: Monitoraggio e log
           items:
+            - name: Parametri del server
+              href: flexible-server/concepts-server-parameters.md
             - name: Log query lente
               href: flexible-server/concepts-slow-query-logs.md
             - name: Log di controllo

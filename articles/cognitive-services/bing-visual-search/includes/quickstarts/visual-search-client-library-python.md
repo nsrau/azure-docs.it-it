@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/26/2020
 ms.author: aahi
-ms.openlocfilehash: debc5130824a0f661a3736b8d24d950fc789f2f3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1d7664160f1cef405f791628bad0b4e76e3c50f8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80573105"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371977"
 ---
 Usare questo argomento di avvio rapido per iniziare a ottenere informazioni dettagliate sulle immagini dal servizio Ricerca visiva Bing con la libreria client Python. Anche se Ricerca visiva Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, la libreria client offre un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
 
-[Documentazione di riferimento](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-visualsearch) | [Pacchetto (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-visualsearch/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
+[Documentazione di riferimento](/python/api/azure-cognitiveservices-search-visualsearch/?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-visualsearch) | [Pacchetto (PyPi)](https://pypi.org/project/azure-cognitiveservices-search-visualsearch/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
 
 ## <a name="prerequisites"></a>Prerequisiti
 

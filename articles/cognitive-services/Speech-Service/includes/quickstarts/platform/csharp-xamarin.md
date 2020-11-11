@@ -11,14 +11,14 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d41af4dc9b40c0c814c83ee27a671fabf191103d
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 3f441e2f89d0f85a7a4e2fff5490fed5e2879506
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097117"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425057"
 ---
-Questa guida illustra come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per [Xamarin](https://docs.microsoft.com/xamarin/get-started/what-is-xamarin), una piattaforma open source per la creazione di applicazioni moderne e performanti per iOS, Android e Windows con .NET. Se si vuole solo il nome del pacchetto per iniziare autonomamente, eseguire `Install-Package Microsoft.CognitiveServices.Speech` nella console NuGet.
+Questa guida illustra come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per [Xamarin](/xamarin/get-started/what-is-xamarin), una piattaforma open source per la creazione di applicazioni moderne e performanti per iOS, Android e Windows con .NET. Se si vuole solo il nome del pacchetto per iniziare autonomamente, eseguire `Install-Package Microsoft.CognitiveServices.Speech` nella console NuGet.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 

@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9c0c2673acf12ddf80b77be57acc5af55e7f160c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d1fab57adfb675e8cc4ea604980e6f04a3f4a89f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87298762"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425185"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,14 +46,14 @@ Prima di inizializzare un oggetto `IntentRecognizer`, è necessario creare una c
 Inserire questo codice nel metodo `recognizeIntent()`. Assicurarsi di aggiornare questi valori:
 
 * Sostituire `"YourLanguageUnderstandingSubscriptionKey"` con la chiave di previsione di LUIS.
-* Sostituire `"YourLanguageUnderstandingServiceRegion"` con l'area di LUIS.  Usare l'**identificatore di area** corrispondente all'[area](https://aka.ms/speech/sdkregion).
+* Sostituire `"YourLanguageUnderstandingServiceRegion"` con l'area di LUIS.  Usare l' **identificatore di area** corrispondente all' [area](../../../../regions.md).
 
 >[!TIP]
 > Per informazioni su come trovare questi valori, vedere [Creare un'app LUIS per il riconoscimento delle finalità](#create-a-luis-app-for-intent-recognition).
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=25)]
 
-Questo esempio usa il metodo `FromSubscription()` per creare `SpeechConfig`. Per un elenco completo dei metodi disponibili, vedere [Classe SpeechConfig](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig).
+Questo esempio usa il metodo `FromSubscription()` per creare `SpeechConfig`. Per un elenco completo dei metodi disponibili, vedere [Classe SpeechConfig](/cpp/cognitive-services/speech/speechconfig).
 
 Per impostazione predefinita, Speech SDK riconoscerà l'uso di en-us per la lingua. Per informazioni sulla scelta della lingua di origine, vedere [Specificare la lingua di origine per il riconoscimento vocale](../../../../how-to-specify-source-language.md).
 
@@ -105,9 +105,9 @@ A questo punto il codice dovrà avere questo aspetto:
 
 A questo punto è possibile compilare l'app e testare il riconoscimento vocale con il servizio Voce.
 
-1. **Compilare il codice**: dalla barra dei menu di Visual Studio scegliere **Compila** > **Compila soluzione**.
-2. **Avviare l'app**: dalla barra dei menu scegliere **Debug** > **Avvia debug** o premere <kbd>F5</kbd>.
-3. **Avviare il riconoscimento**: verrà richiesto di pronunciare una frase in inglese. La voce viene inviata al servizio Voce, trascritta come testo e visualizzata nella console.
+1. **Compilare il codice** : dalla barra dei menu di Visual Studio scegliere **Compila** > **Compila soluzione**.
+2. **Avviare l'app** : dalla barra dei menu scegliere **Debug** > **Avvia debug** o premere <kbd>F5</kbd>.
+3. **Avviare il riconoscimento** : verrà richiesto di pronunciare una frase in inglese. La voce viene inviata al servizio Voce, trascritta come testo e visualizzata nella console.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

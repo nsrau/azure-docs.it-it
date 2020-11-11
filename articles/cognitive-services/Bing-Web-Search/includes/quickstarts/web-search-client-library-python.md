@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: bdbd183ba161c96e0ed8e160ce602da2ec30dfb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 13e08d2c273b242a902203abf0879fd11fbdf801
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85940413"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386626"
 ---
 La libreria client di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione Python. In questa guida introduttiva si apprenderà come inviare una richiesta, ricevere una risposta JSON e filtrare e analizzare i risultati.
 
@@ -177,7 +177,7 @@ Ora che è stata creata la prima chiamata all'API Ricerca Web Bing, esaminiamo a
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Limitare il numero di risultati restituiti da Bing
 
-In questo esempio vengono usati i parametri `count` e `offset` per limitare il numero di risultati restituiti tramite il [metodo `search`](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) dell'SDK. Vengono stampati `name` e `url` per il primo risultato.
+In questo esempio vengono usati i parametri `count` e `offset` per limitare il numero di risultati restituiti tramite il [metodo `search`](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) dell'SDK. Vengono stampati `name` e `url` per il primo risultato.
 
 1. Aggiungere il codice seguente al progetto Python:
 
@@ -266,7 +266,7 @@ In questo esempio vengono usati i parametri `response_filter` e `freshness` per 
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Usare i filtri safe search, answer count e promote
 
-In questo esempio vengono usati i parametri `answer_count`, `promote` e `safe_search` per filtrare i risultati della ricerca tramite il [metodo `search`](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) dell'SDK. Vengono visualizzati `name` e `url` per il primo risultato.
+In questo esempio vengono usati i parametri `answer_count`, `promote` e `safe_search` per filtrare i risultati della ricerca tramite il [metodo `search`](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) dell'SDK. Vengono visualizzati `name` e `url` per il primo risultato.
 
 1. Aggiungere il codice seguente al progetto Python:
 
@@ -320,4 +320,4 @@ Dopo aver terminato di usare questo progetto, rimuovere la chiave di sottoscrizi
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Informazioni di riferimento su Azure Python SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch)
+* [Informazioni di riferimento su Azure Python SDK](/python/api/azure-cognitiveservices-search-websearch/?view=azure-python)

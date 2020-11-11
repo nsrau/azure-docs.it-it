@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 7defd169aa0ac02af187717ad258988095854235
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 143d7bf2fae36ae6721f009c79ed9a7fa2386bdd
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084664"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369172"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Node.js
 
@@ -186,4 +186,4 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [Creare un'app Web a pagina singola](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Informazioni sull'API Ricerca entità Bing](../overview.md )
-* [Informazioni di riferimento sull'API Ricerca entità Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Informazioni di riferimento sull'API Ricerca entità Bing](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
