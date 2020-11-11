@@ -8,12 +8,12 @@ ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: b6be3c0f3b7ff8e44bd9dda089c803a27e883383
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 25b6bdcb293379e3206cc6714fae65fe40f6e6c5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783437"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345602"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Guida introduttiva: Libreria client di Archiviazione code di Azure v12 per Java
 
@@ -21,26 +21,26 @@ Iniziare a usare la libreria client di Archiviazione code di Azure versione 12 p
 
 Usare la libreria client di Archiviazione code di Azure v12 per Java per:
 
-* Creare una coda
-* Aggiungere messaggi a una coda
-* Visualizzare in anteprima i messaggi in una coda
-* Aggiornare un messaggio in una coda
-* Ricevere ed eliminare messaggi da una coda
-* Eliminare una coda
+- Creare una coda
+- Aggiungere messaggi a una coda
+- Visualizzare in anteprima i messaggi in una coda
+- Aggiornare un messaggio in una coda
+- Ricevere ed eliminare messaggi da una coda
+- Eliminare una coda
 
 Risorse aggiuntive:
 
-* [Documentazione di riferimento delle API](/java/api/overview/azure/storage-queue-readme)
-* [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
-* [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-* [Esempi](../common/storage-samples-java.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [Documentazione di riferimento delle API](/java/api/overview/azure/storage-queue-readme)
+- [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
+- [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
+- [Esempi](../common/storage-samples-java.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Java Development Kit (JDK)](/java/azure/jdk/) versione 8 o successiva
-* [Apache Maven](https://maven.apache.org/download.cgi)
-* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
-* Account di archiviazione di Azure: [creare un account di archiviazione](../common/storage-account-create.md)
+- [Java Development Kit (JDK)](/java/azure/jdk/) versione 8 o successiva
+- [Apache Maven](https://maven.apache.org/download.cgi)
+- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+- Account di archiviazione di Azure: [creare un account di archiviazione](../common/storage-account-create.md)
 
 ## <a name="setting-up"></a>Configurazione
 
@@ -48,9 +48,9 @@ Questa sezione illustra come preparare un progetto da usare con la libreria clie
 
 ### <a name="create-the-project"></a>Creare il progetto
 
-Creare un'applicazione Java con il nome *queues-quickstart-v12* .
+Creare un'applicazione Java con il nome *queues-quickstart-v12*.
 
-1. Nella finestra di una console (ad esempio cmd, PowerShell o Bash) usare Maven per creare una nuova app console con il nome *queues-quickstart-v12* . Digitare il comando **mvn** seguente per creare un progetto Java "Hello world!" .
+1. Nella finestra di una console (ad esempio cmd, PowerShell o Bash) usare Maven per creare una nuova app console con il nome *queues-quickstart-v12*. Digitare il comando **mvn** seguente per creare un progetto Java "Hello world!" .
 
    ```console
    mvn archetype:generate -DgroupId=com.queues.quickstart \
@@ -151,9 +151,9 @@ public class App
 
 Archiviazione code di Azure è un servizio per l'archiviazione di un numero elevato di messaggi. Un messaggio in coda avere dimensioni fino a 64 KB. Una coda può contenere milioni di messaggi, fino al limite di capacità totale dell'account di archiviazione. Le code vengono in genere usate per creare un backlog di lavoro da elaborare in modo asincrono. Archiviazione code offre tre tipi di risorse:
 
-* L'account di archiviazione
-* Una coda nell'account di archiviazione
-* Messaggi all'interno della coda
+- L'account di archiviazione
+- Una coda nell'account di archiviazione
+- Messaggi all'interno della coda
 
 Il diagramma seguente mostra la relazione tra queste risorse.
 
@@ -161,22 +161,22 @@ Il diagramma seguente mostra la relazione tra queste risorse.
 
 Per interagire con queste risorse, usare le classi Java seguenti:
 
-* [QueueClientBuilder](/java/api/com.azure.storage.queue.queueclientbuilder): la classe `QueueClientBuilder` configura e crea un'istanza di un oggetto `QueueClient`.
-* [QueueServiceClient](/java/api/com.azure.storage.queue.queueserviceclient): la classe `QueueServiceClient` consente di gestire tutte le code nell'account di archiviazione.
-* [QueueClient](/java/api/com.azure.storage.queue.queueclient): la classe `QueueClient` consente di gestire e modificare una singola coda e i relativi messaggi.
-* [QueueMessageItem](/java/api/com.azure.storage.queue.models.queuemessageitem): la classe `QueueMessageItem` rappresenta i singoli oggetti restituiti quando si chiama [receiveMessages](/java/api/com.azure.storage.queue.queueclient.receivemessages) su una coda.
+- [QueueClientBuilder](/java/api/com.azure.storage.queue.queueclientbuilder): la classe `QueueClientBuilder` configura e crea un'istanza di un oggetto `QueueClient`.
+- [QueueServiceClient](/java/api/com.azure.storage.queue.queueserviceclient): la classe `QueueServiceClient` consente di gestire tutte le code nell'account di archiviazione.
+- [QueueClient](/java/api/com.azure.storage.queue.queueclient): la classe `QueueClient` consente di gestire e modificare una singola coda e i relativi messaggi.
+- [QueueMessageItem](/java/api/com.azure.storage.queue.models.queuemessageitem): la classe `QueueMessageItem` rappresenta i singoli oggetti restituiti quando si chiama [receiveMessages](/java/api/com.azure.storage.queue.queueclient.receivemessages) su una coda.
 
 ## <a name="code-examples"></a>Esempi di codice
 
 Questi frammenti di codice di esempio illustrano come eseguire le azioni seguenti con la libreria client di Archiviazione code di Azure per Java:
 
-* [Ottenere la stringa di connessione](#get-the-connection-string)
-* [Creare una coda](#create-a-queue)
-* [Aggiungere messaggi a una coda](#add-messages-to-a-queue)
-* [Visualizzare in anteprima i messaggi in una coda](#peek-at-messages-in-a-queue)
-* [Aggiornare un messaggio in una coda](#update-a-message-in-a-queue)
-* [Ricevere ed eliminare messaggi da una coda](#receive-and-delete-messages-from-a-queue)
-* [Eliminare una coda](#delete-a-queue)
+- [Ottenere la stringa di connessione](#get-the-connection-string)
+- [Creare una coda](#create-a-queue)
+- [Aggiungere messaggi a una coda](#add-messages-to-a-queue)
+- [Visualizzare in anteprima i messaggi in una coda](#peek-at-messages-in-a-queue)
+- [Aggiornare un messaggio in una coda](#update-a-message-in-a-queue)
+- [Ricevere ed eliminare messaggi da una coda](#receive-and-delete-messages-from-a-queue)
+- [Eliminare una coda](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Ottenere la stringa di connessione
 
@@ -202,7 +202,6 @@ Decidere un nome per la nuova coda. Il codice seguente aggiunge un valore GUID a
 
 > [!IMPORTANT]
 > I nomi di coda possono contenere solo lettere minuscole, numeri e segni meno e devono iniziare con una lettera o un numero. Ogni trattino deve essere preceduto e seguito da un carattere diverso da un trattino. Il nome deve inoltre avere una lunghezza compresa fra 3 e 63 caratteri. Per altre informazioni sull'assegnazione di nomi alle code, vedere [Denominazione di code e metadati](/rest/api/storageservices/naming-queues-and-metadata).
-
 
 Creare un'istanza della classe [QueueClient](/java/api/com.azure.storage.queue.queueclient). Chiamare quindi il metodo [create](/java/api/com.azure.storage.queue.queueclient.create) per creare la coda nell'account di archiviazione.
 
@@ -266,7 +265,7 @@ System.out.println("\nUpdating the third message in the queue...");
 // Update a message using the result that
 // was saved when sending the message
 queueClient.updateMessage(result.getMessageId(),
-                          result.getPopReceipt(), 
+                          result.getPopReceipt(),
                           "Third message has been updated",
                           Duration.ofSeconds(1));
 ```
@@ -374,4 +373,4 @@ Per esercitazioni, esempi, guide di avvio rapido e altra documentazione, vedere:
 > [!div class="nextstepaction"]
 > [Azure per sviluppatori cloud Java](/azure/developer/java/)
 
-* Per altre app di esempio su Archiviazione code di Azure, continuare con gli [esempi della libreria client dell'SDK di Archiviazione code di Azure v12 per Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).
+- Per altre app di esempio su Archiviazione code di Azure, continuare con gli [esempi della libreria client dell'SDK di Archiviazione code di Azure v12 per Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).

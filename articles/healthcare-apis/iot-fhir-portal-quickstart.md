@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 09/08/2020
 ms.author: punagpal
-ms.openlocfilehash: 3b6db74d637ac17ef5d09e1d9c5d3dac30ba8ba9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1e3101c8abcaef52c0ae9aaafef36b23aa45b586
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594374"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394510"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Avvio rapido: Distribuire il connettore Azure IoT per FHIR (anteprima) usando il portale di Azure
 
@@ -163,16 +163,16 @@ Conservare questa stringa di connessione, perché sarà necessaria in un passagg
 
 Azure offre una vasta gamma di prodotti IoT per la connessione e la gestione dei dispositivi IoT. È possibile creare una soluzione personalizzata basata su PaaS usando Hub IoT di Azure o iniziare con una piattaforma per app IoT gestita con Azure IoT Central. Per questa esercitazione si userà Azure IoT Central, che include modelli di soluzioni per settori specifici che consentono di iniziare subito a usare il servizio.
 
-Distribuire il [modello di applicazione di monitoraggio pazienti continuo](https://docs.microsoft.com/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring#create-an-application-template). Questo modello include due dispositivi simulati che generano dati in tempo reale che consentono di iniziare a usare il servizio: **Benda intelligente per i segni vitali** e **Ginocchiera intelligente**.
+Distribuire il [modello di applicazione di monitoraggio pazienti continuo](../iot-central/healthcare/tutorial-continuous-patient-monitoring.md#create-an-application-template). Questo modello include due dispositivi simulati che generano dati in tempo reale che consentono di iniziare a usare il servizio: **Benda intelligente per i segni vitali** e **Ginocchiera intelligente**.
 
 > [!NOTE]
-> Ogni volta che i dispositivi reali sono pronti, è possibile usare la stessa applicazione IoT Central per l'[onboarding dei dispositivi](https://docs.microsoft.com/azure/iot-central/core/howto-set-up-template) e sostituire i simulatori di dispositivo. Il flusso dei dati del dispositivo verrà automaticamente indirizzato anche a FHIR. 
+> Ogni volta che i dispositivi reali sono pronti, è possibile usare la stessa applicazione IoT Central per l'[onboarding dei dispositivi](../iot-central/core/howto-set-up-template.md) e sostituire i simulatori di dispositivo. Il flusso dei dati del dispositivo verrà automaticamente indirizzato anche a FHIR. 
 
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Connettere i dati IoT al connettore Azure IoT per FHIR (anteprima)
 > [!WARNING]
 > Il modello Mapping dispositivo fornito in questa guida è destinato all'uso con Esportazione dati (legacy) all'interno di IoT Central.
 
-Una volta distribuita l'applicazione IoT Central, i due dispositivi simulati predefiniti inizieranno a generare dati di telemetria. Per questa esercitazione, verranno inseriti i dati di telemetria dal simulatore *Benda intelligente per i segni vitali* in FHIR tramite il connettore Azure IoT per FHIR. Per esportare i dati IoT nel connettore Azure IoT per FHIR, è opportuno [configurare l'esportazione dati continua in IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-legacy). Nella pagina Esportazione dati continua:
+Una volta distribuita l'applicazione IoT Central, i due dispositivi simulati predefiniti inizieranno a generare dati di telemetria. Per questa esercitazione, verranno inseriti i dati di telemetria dal simulatore *Benda intelligente per i segni vitali* in FHIR tramite il connettore Azure IoT per FHIR. Per esportare i dati IoT nel connettore Azure IoT per FHIR, è opportuno [configurare l'esportazione dati continua in IoT Central](../iot-central/core/howto-export-data-legacy.md). Nella pagina Esportazione dati continua:
 - Selezionare *Hub eventi di Azure* come destinazione dell'esportazione.
 - Selezionare il valore *Usa stringa di connessione* per il campo **Spazio dei nomi di Hub eventi**.
 - Nel campo **Stringa di connessione** specificare la stringa di connessione del connettore Azure IoT per FHIR ottenuta in un passaggio precedente.

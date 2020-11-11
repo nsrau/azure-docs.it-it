@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 646be410cceb214efad19757378c74f086e58578
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8166e2a937b905ae153e6b86cb026ff2be2415a8
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89263067"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360548"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere a Resource Manager
 
@@ -37,6 +37,7 @@ Questa guida introduttiva illustra come accedere all'API di Azure Resource Manag
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Concedere alla macchina virtuale l'accesso a un gruppo di risorse in Gestione risorse
+
 Usando le identità gestite per le risorse di Azure, il codice può ottenere i token di accesso per autenticarsi alle risorse che supportano l'autenticazione di Azure AD.  Azure Resource Manager supporta l'autenticazione di Azure AD.  In primo luogo, è necessario concedere all'identità gestita assegnata dal sistema della macchina virtuale l'accesso a una risorsa di Resource Manager, in questo caso al gruppo di risorse che contiene la macchina virtuale.  
 
 1.  Passare alla scheda **Gruppo di risorse**. 
@@ -53,7 +54,7 @@ Usando le identità gestite per le risorse di Azure, il codice può ottenere i t
 
 In questa sezione è necessario usare **PowerShell**.  Se **PowerShell** non è installato, scaricarlo da [qui](/powershell/azure/). 
 
-1.  Nel portale passare a **Macchine virtuali**, selezionare la macchina virtuale Windows e in **Panoramica** fare clic su **Connetti**. 
+1.  Nel portale passare a **Macchine virtuali** , selezionare la macchina virtuale Windows e in **Panoramica** fare clic su **Connetti**. 
 2.  In **Nome utente** e **Password** immettere i valori specificati al momento della creazione della macchina virtuale Windows. 
 3.  Ora che si è creata una **connessione Desktop remoto** con la macchina virtuale, aprire **PowerShell** nella sessione remota. 
 4.  Usando il cmdlet Invoke-WebRequest, effettuare una richiesta all'endpoint locale dell'identità gestita per le risorse di Azure per ottenere un token di accesso per Azure Resource Manager.

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 1446b501b9d91c94c12c82755d0e31f361f8cd8f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f72d8b332f00b3d298f4d5a1a04937f562647f9e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783420"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347163"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Guida introduttiva: Libreria client di Archiviazione code di Azure v12 per JavaScript
 
@@ -21,26 +21,26 @@ Iniziare a usare la libreria client di Archiviazione code di Azure versione 12 p
 
 Usare la libreria client di Archiviazione code di Azure v12 per JavaScript per:
 
-* Creare una coda
-* Aggiungere messaggi a una coda
-* Visualizzare in anteprima i messaggi in una coda
-* Aggiornare un messaggio in una coda
-* Ricevere messaggi da una coda
-* Eliminare messaggi da una coda
-* Eliminare una coda
+- Creare una coda
+- Aggiungere messaggi a una coda
+- Visualizzare in anteprima i messaggi in una coda
+- Aggiornare un messaggio in una coda
+- Ricevere messaggi da una coda
+- Eliminare messaggi da una coda
+- Eliminare una coda
 
 Risorse aggiuntive:
 
-* [Documentazione di riferimento delle API](/javascript/api/@azure/storage-queue/)
-* [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
-* [Pacchetto (npm)](https://www.npmjs.com/package/@azure/storage-queue)
-* [Esempi](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [Documentazione di riferimento delle API](/javascript/api/@azure/storage-queue/)
+- [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
+- [Pacchetto (npm)](https://www.npmjs.com/package/@azure/storage-queue)
+- [Esempi](../common/storage-samples-javascript.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
-* Account di archiviazione di Azure: [creare un account di archiviazione](../common/storage-account-create.md)
-* Versione aggiornata di [Node.js](https://nodejs.org/en/download/) per il sistema operativo in uso.
+- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
+- Account di archiviazione di Azure: [creare un account di archiviazione](../common/storage-account-create.md)
+- Versione aggiornata di [Node.js](https://nodejs.org/en/download/) per il sistema operativo in uso.
 
 ## <a name="setting-up"></a>Configurazione
 
@@ -48,7 +48,7 @@ Questa sezione illustra come preparare un progetto da usare con la libreria clie
 
 ### <a name="create-the-project"></a>Creare il progetto
 
-Creare un'applicazione Node.js con il nome *queues-quickstart-v12* .
+Creare un'applicazione Node.js con il nome *queues-quickstart-v12*.
 
 1. In una finestra della console, ad esempio cmd, PowerShell o Bash, creare una nuova directory per il progetto.
 
@@ -62,7 +62,7 @@ Creare un'applicazione Node.js con il nome *queues-quickstart-v12* .
     cd queues-quickstart-v12
     ```
 
-1. Creare un nuovo file di testo denominato *package.json* . Questo file definisce il progetto node.js. Salvare il file nella directory *queues-quickstart-v12* . Di seguito è riportato il contenuto del file:
+1. Creare un nuovo file di testo denominato *package.json*. Questo file definisce il progetto node.js. Salvare il file nella directory *queues-quickstart-v12*. Di seguito è riportato il contenuto del file:
 
     ```json
     {
@@ -118,7 +118,7 @@ Dalla directory del progetto:
 
     ```
 
-1. Salvare il nuovo file con il nome *queues-quickstart-v12.js* nella directory *queues-quickstart-v12* .
+1. Salvare il nuovo file con il nome *queues-quickstart-v12.js* nella directory *queues-quickstart-v12*.
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -126,9 +126,9 @@ Dalla directory del progetto:
 
 Archiviazione code di Azure è un servizio per l'archiviazione di un numero elevato di messaggi. Un messaggio in coda avere dimensioni fino a 64 KB. Una coda può contenere milioni di messaggi, fino al limite di capacità totale dell'account di archiviazione. Le code vengono in genere usate per creare un backlog di lavoro da elaborare in modo asincrono. Archiviazione code offre tre tipi di risorse:
 
-* L'account di archiviazione
-* Una coda nell'account di archiviazione
-* Messaggi all'interno della coda
+- L'account di archiviazione
+- Una coda nell'account di archiviazione
+- Messaggi all'interno della coda
 
 Il diagramma seguente mostra la relazione tra queste risorse.
 
@@ -136,22 +136,22 @@ Il diagramma seguente mostra la relazione tra queste risorse.
 
 Per interagire con queste risorse, usare le classi JavaScript seguenti:
 
-* [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient): la classe `QueueServiceClient` consente di gestire tutte le code nell'account di archiviazione.
-* [QueueClient](/javascript/api/@azure/storage-queue/queueclient): la classe `QueueClient` consente di gestire e modificare una singola coda e i relativi messaggi.
-* [QueueMessage](/javascript/api/@azure/storage-queue/queuemessage): la classe `QueueMessage` rappresenta i singoli oggetti restituiti quando si chiama [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) su una coda.
+- [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient): la classe `QueueServiceClient` consente di gestire tutte le code nell'account di archiviazione.
+- [QueueClient](/javascript/api/@azure/storage-queue/queueclient): la classe `QueueClient` consente di gestire e modificare una singola coda e i relativi messaggi.
+- [QueueMessage](/javascript/api/@azure/storage-queue/queuemessage): la classe `QueueMessage` rappresenta i singoli oggetti restituiti quando si chiama [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) su una coda.
 
 ## <a name="code-examples"></a>Esempi di codice
 
 Questi frammenti di codice di esempio illustrano come eseguire le azioni seguenti con la libreria client di Archiviazione code di Azure per JavaScript:
 
-* [Ottenere la stringa di connessione](#get-the-connection-string)
-* [Creare una coda](#create-a-queue)
-* [Aggiungere messaggi a una coda](#add-messages-to-a-queue)
-* [Visualizzare in anteprima i messaggi in una coda](#peek-at-messages-in-a-queue)
-* [Aggiornare un messaggio in una coda](#update-a-message-in-a-queue)
-* [Ricevere messaggi da una coda](#receive-messages-from-a-queue)
-* [Eliminare messaggi da una coda](#delete-messages-from-a-queue)
-* [Eliminare una coda](#delete-a-queue)
+- [Ottenere la stringa di connessione](#get-the-connection-string)
+- [Creare una coda](#create-a-queue)
+- [Aggiungere messaggi a una coda](#add-messages-to-a-queue)
+- [Visualizzare in anteprima i messaggi in una coda](#peek-at-messages-in-a-queue)
+- [Aggiornare un messaggio in una coda](#update-a-message-in-a-queue)
+- [Ricevere messaggi da una coda](#receive-messages-from-a-queue)
+- [Eliminare messaggi da una coda](#delete-messages-from-a-queue)
+- [Eliminare una coda](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Ottenere la stringa di connessione
 
@@ -249,7 +249,7 @@ console.log("Message updated, requestId:", updateMessageResponse.requestId);
 
 ### <a name="receive-messages-from-a-queue"></a>Ricevere messaggi da una coda
 
-Scaricare i messaggi aggiunti precedentemente chiamando il metodo [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-).  Nel campo `numberOfMessages` passare il numero massimo di messaggi da ricevere per questa chiamata.
+Scaricare i messaggi aggiunti precedentemente chiamando il metodo [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-). Nel campo `numberOfMessages` passare il numero massimo di messaggi da ricevere per questa chiamata.
 
 Aggiungere questo codice alla fine della funzione `main`:
 
@@ -356,5 +356,5 @@ Per esercitazioni, esempi, guide di avvio rapido e altra documentazione, vedere:
 > [!div class="nextstepaction"]
 > [Documentazione di Azure per JavaScript](/azure/developer/javascript/)
 
-* Per altre informazioni, vedere la [libreria client di Archiviazione code di Azure per JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
-* Per altre app di esempio su Archiviazione code di Azure, continuare con gli [esempi della libreria client di Archiviazione code di Azure v12 per JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).
+- Per altre informazioni, vedere la [libreria client di Archiviazione code di Azure per JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
+- Per altre app di esempio su Archiviazione code di Azure, continuare con gli [esempi della libreria client di Archiviazione code di Azure v12 per JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).

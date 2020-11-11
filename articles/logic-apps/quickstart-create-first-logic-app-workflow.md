@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 7ec4515d5f1d096cfb83f06c398da4c1254279f6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7433c51b45b0d8459ad1959b29f61660537b8851
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099148"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337458"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>Avvio rapido: Creare il primo flusso di lavoro di App per la logica - Portale di Azure
 
@@ -112,7 +112,7 @@ L'app per la logica è ora attiva, ma non esegue alcuna operazione oltre a contr
 
 ## <a name="add-the-send-email-action"></a>Aggiungere l'azione di "invio messaggio di posta elettronica"
 
-Dopo aver [aggiunto un trigger per l'app per la logica](#add-rss-trigger), è necessario aggiungere un'[azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) per determinare la risposta quando l'app per la logica controlla il feed RSS e viene individuato un nuovo elemento. È anche possibile creare app per la logica con azioni molto più complesse, come illustrato nell'esercitazione per l'[elaborazione di messaggi di posta elettronica con App per la logica, Funzioni di Azure e Archiviazione di Azure](/tutorial-process-email-attachments-workflow.md).
+Dopo aver [aggiunto un trigger per l'app per la logica](#add-rss-trigger), è necessario aggiungere un'[azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) per determinare la risposta quando l'app per la logica controlla il feed RSS e viene individuato un nuovo elemento. È anche possibile creare app per la logica con azioni molto più complesse, come illustrato nell'esercitazione per l'[elaborazione di messaggi di posta elettronica con App per la logica, Funzioni di Azure e Archiviazione di Azure](/azure/logic-apps/tutorial-process-email-attachments-workflow).
 
 > [!NOTE]
 > Questo esempio usa Office 365 Outlook come servizio di posta elettronica. Se si usa un altro servizio di posta elettronica supportato nell'app per la logica, l'interfaccia utente potrebbe avere un aspetto diverso. Tuttavia, i concetti di base per la connessione a un altro servizio di posta elettronica restano invariati.

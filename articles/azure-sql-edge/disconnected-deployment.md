@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: ff14f8a9f236701889aea95911f2a1e381eabf83
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fce098767fffd36376399bbd9396699e3d9fbfd3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944189"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392079"
 ---
 # <a name="deploy-azure-sql-edge-with-docker"></a>Distribuire SQL Edge di Azure con Docker
 
@@ -28,7 +28,7 @@ Questa immagine è costituita da SQL Edge di Azure basato su Ubuntu 18.04. Può 
 - Driver di archiviazione **overlay2** Docker. Si tratta dell'impostazione predefinita per la maggior parte degli utenti. Se non si sta usando questo provider di archiviazione ed è necessario cambiarlo, vedere le istruzioni e gli avvisi nella [documentazione di Docker per la configurazione di overlay2.](https://docs.docker.com/storage/storagedriver/overlayfs-driver/#configure-docker-with-the-overlay-or-overlay2-storage-driver)
 - Almeno 10 GB di spazio su disco.
 - Almeno 1 GB di RAM.
-- [Requisiti hardware per SQL Edge di Azure](https://docs.microsoft.com/azure/azure-sql-edge/features#hardware-support).
+- [Requisiti hardware per SQL Edge di Azure](./features.md#hardware-support).
 
 
 ## <a name="pull-and-run-the-container-image"></a>Effettuare il pull ed eseguire l'immagine del contenitore
@@ -69,8 +69,8 @@ Il comando precedente esegue il pull delle ultime immagini del contenitore di SQ
 
     | Parametro | Descrizione |
     |-----|-----|
-    | **-e "ACCEPT_EULA=Y"** |  Impostare la variabile **ACCEPT_EULA** su qualsiasi valore per confermare l'accettazione delle [condizioni di licenza ](https://go.microsoft.com/fwlink/?linkid=2139274). Impostazione obbligatoria per l'immagine di SQL Edge di Azure. |
-    | **-e "MSSQL_SA_PASSWORD=yourStrong(!)Password"** | Specificare la password complessa composta da almeno 8 caratteri e conforme ai [requisiti per le password di SQL Edge di Azure](https://docs.microsoft.com/sql/relational-databases/security/password-policy). Impostazione obbligatoria per l'immagine di SQL Edge di Azure. |
+    | **-e "ACCEPT_EULA=Y"** |  Impostare la variabile **ACCEPT_EULA** su qualsiasi valore per confermare l'accettazione delle [condizioni di licenza](https://go.microsoft.com/fwlink/?linkid=2139274). Impostazione obbligatoria per l'immagine di SQL Edge di Azure. |
+    | **-e "MSSQL_SA_PASSWORD=yourStrong(!)Password"** | Specificare la password complessa composta da almeno 8 caratteri e conforme ai [requisiti per le password di SQL Edge di Azure](/sql/relational-databases/security/password-policy). Impostazione obbligatoria per l'immagine di SQL Edge di Azure. |
     | **-p 1433:1433** | Eseguire il mapping di una porta TCP nell'ambiente host (primo valore) con una porta TCP nel contenitore (secondo valore). In questo esempio SQL Edge di Azure è in ascolto sulla porta TCP 1433 nel contenitore e questo è esposto alla porta 1433 nell'host. |
     | **--name azuresqledge** | Specificare un nome personalizzato per il contenitore, invece di un nome generato in modo casuale. Se si eseguono più contenitori, non è possibile riutilizzare questo stesso nome. |
     | **-d** | Eseguire il contenitore in background (daemon) |
@@ -83,7 +83,7 @@ Il comando precedente esegue il pull delle ultime immagini del contenitore di SQ
     sudo docker ps -a
    ```
 
-4. Se nella colonna **STATUS** è impostato lo stato**Up**, SQL Edge di Azure è in esecuzione nel contenitore e in ascolto sulla porta specificata nella colonna **PORTS**. Se la colonna **STATUS** del contenitore di SQL Edge di Azure è impostata su **Exited**, vedere la sezione relativa alla risoluzione dei problemi della documentazione di SQL Edge di Azure.
+4. Se nella colonna **STATUS** è impostato lo stato **Up** , SQL Edge di Azure è in esecuzione nel contenitore e in ascolto sulla porta specificata nella colonna **PORTS**. Se la colonna **STATUS** del contenitore di SQL Edge di Azure è impostata su **Exited** , vedere la sezione relativa alla risoluzione dei problemi della documentazione di SQL Edge di Azure.
 
     Anche il parametro `-h` (nome host) è utile, ma non viene usato in questa esercitazione per semplicità. Cambia il nome interno del contenitore sostituendolo con un valore personalizzato. È il nome che viene restituito nella query Transact-SQL seguente:
 
@@ -114,7 +114,7 @@ L'account **SA** è un amministratore di sistema dell'istanza di SQL Edge di Azu
 
 ## <a name="connect-to-azure-sql-edge"></a>Connettersi a SQL Edge di Azure
 
-La procedura seguente usa lo strumento da riga di comando di SQL Edge di Azure, **sqlcmd**, all'interno del contenitore per stabilire la connessione a SQL Edge di Azure.
+La procedura seguente usa lo strumento da riga di comando di SQL Edge di Azure, **sqlcmd** , all'interno del contenitore per stabilire la connessione a SQL Edge di Azure.
 
 > [!NOTE]
 > Lo strumento sqlcmd non è disponibile nella versione ARM64 di contenitori di SQL Edge.
@@ -204,7 +204,7 @@ A questo punto, eseguire una query per restituire i dati dalla tabella `Inventor
 
 ### <a name="exit-the-sqlcmd-command-prompt"></a>Uscire dal prompt dei comandi sqlcmd
 
-1. Per terminare la sessione **sqlcmd**, digitare `QUIT`:
+1. Per terminare la sessione **sqlcmd** , digitare `QUIT`:
 
    ```sql
    QUIT

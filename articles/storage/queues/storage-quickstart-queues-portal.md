@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
-ms.openlocfilehash: 11c6cdff852a0695d4b2071f1d0a60c05dba2410
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0ee3d9c26d6972da9e528660d034432ce696aa45
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88213470"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347200"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Guida introduttiva: Creare una coda e aggiungere un messaggio con il portale di Azure
 
@@ -55,9 +55,9 @@ Dopo l'aggiunta di un messaggio, il portale di Azure mostra un elenco di tutti i
 
 ## <a name="dequeue-a-message"></a>Rimuovere un messaggio dalla coda
 
-È possibile rimuovere un messaggio dalla parte anteriore della coda con il portale di Azure. Quando si rimuove un messaggio dalla coda, il messaggio viene eliminato. 
+È possibile rimuovere un messaggio dalla parte anteriore della coda con il portale di Azure. Quando si rimuove un messaggio dalla coda, il messaggio viene eliminato.
 
-La rimozione dalla coda rimuove sempre il messaggio meno recente presente nella coda. 
+La rimozione dalla coda rimuove sempre il messaggio meno recente presente nella coda.
 
 ![Screenshot che mostra come rimuovere un messaggio dalla coda con il portale](media/storage-quickstart-queues-portal/dequeue-message.png)
 

@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6aa94c58dfb051eadc0059aa556383260a00b10
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0d54e1127207f0593f8d345b266d7db6e92b5c0d
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93134998"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335401"
 ---
 # <a name="what-is-identity-lifecycle-management"></a>Che cos'è la gestione del ciclo di vita delle identità?
 
@@ -70,7 +70,7 @@ Azure AD attualmente prevede le funzionalità seguenti:
 ## <a name="next-steps"></a>Passaggi successivi 
 
 - [Cos'è il provisioning?](what-is-provisioning.md)
-- [Regolamentare l'accesso per gli utenti esterni nella gestione entitlement di Azure AD](/azure/active-directory/governance/entitlement-management-external-users.md)
+- [Regolamentare l'accesso per gli utenti esterni nella gestione entitlement di Azure AD](/azure/active-directory/governance/entitlement-management-external-users)
 - [Che cos'è il provisioning basato su risorse umane?](what-is-hr-driven-provisioning.md)
 - [Che cos'è il provisioning di app?](what-is-app-provisioning.md)
 - [Che cos'è il provisioning tra directory?](what-is-inter-directory-provisioning.md)

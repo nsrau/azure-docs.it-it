@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c02a2658325fdd88ef1052937edc3b84c4545872
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 78f228a5e188bc930a9e7484f4c982ba746331dd
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296838"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357777"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Panoramica di chiavi, segreti e certificati di Azure Key Vault
 
@@ -45,10 +46,10 @@ Segreti|/secrets|Supportato|Non supportato
 Certificati|/certificates|Supportato|Non supportato
 Chiavi dell'account di archiviazione|/storageaccount|Supportato|Non supportato
 |||
-- **Chiavi crittografiche**: supporta più tipi di chiavi e algoritmi e consente l'uso di chiavi protette tramite software e con protezione HSM. Per altre informazioni, vedere [Informazioni sulle chiavi](../keys/about-keys.md).
-- **Segreti**: Offre l'archiviazione sicura di segreti, ad esempio password e stringhe di connessione di database. Per altre informazioni, vedere [Informazioni sui segreti](../secrets/about-secrets.md).
-- **Certificati**: Supporta i certificati, basati su chiavi e segreti, e aggiunge una funzionalità di rinnovo automatico. Per altre informazioni, vedere [Informazioni sui certificati](../certificates/about-certificates.md).
-- **Chiavi dell'account di archiviazione di Azure**: Può gestire le chiavi di un account di archiviazione di Azure per l'utente. Internamente, Key Vault può elencare (sincronizzare) le chiavi con un account di archiviazione di Azure e rigenerare (ruotare) tali chiavi con cadenza periodica. Per altre informazioni, vedere [Gestire le chiavi di accesso dell'account di archiviazione con Key Vault](../secrets/overview-storage-keys.md).
+- **Chiavi crittografiche** : supporta più tipi di chiavi e algoritmi e consente l'uso di chiavi protette tramite software e con protezione HSM. Per altre informazioni, vedere [Informazioni sulle chiavi](../keys/about-keys.md).
+- **Segreti** : Offre l'archiviazione sicura di segreti, ad esempio password e stringhe di connessione di database. Per altre informazioni, vedere [Informazioni sui segreti](../secrets/about-secrets.md).
+- **Certificati** : Supporta i certificati, basati su chiavi e segreti, e aggiunge una funzionalità di rinnovo automatico. Per altre informazioni, vedere [Informazioni sui certificati](../certificates/about-certificates.md).
+- **Chiavi dell'account di archiviazione di Azure** : Può gestire le chiavi di un account di archiviazione di Azure per l'utente. Internamente, Key Vault può elencare (sincronizzare) le chiavi con un account di archiviazione di Azure e rigenerare (ruotare) tali chiavi con cadenza periodica. Per altre informazioni, vedere [Gestire le chiavi di accesso dell'account di archiviazione con Key Vault](../secrets/overview-storage-keys.md).
 
 Per altre informazioni generali su Key Vault, vedere [Informazioni su Azure Key Vault](overview.md). Per altre informazioni sui pool di moduli di protezione hardware gestiti, vedere [Che cos'è il modulo di protezione hardware gestito di Azure Key Vault?](../managed-hsm/overview.md)
 
@@ -57,15 +58,15 @@ Per altre informazioni generali su Key Vault, vedere [Informazioni su Azure Key 
 
 Fare riferimento alle specifiche JOSE per i tipi di dati pertinenti per chiavi, crittografia e firma.  
 
--   **algoritmo**: un algoritmo supportato per un'operazione della chiave, ad esempio, RSA1_5  
--   **valore di testo crittografato**: ottetti di testo cifrati, codificati tramite Base64URL  
--   **valore di digest**: l'output di un algoritmo hash, codificato tramite Base64URL  
--   **key-type**: uno dei tipi di chiave supportati, ad esempio RSA (Rivest-Shamir-Adleman)  
--   **valore di testo non crittografato**: ottetti di testo non crittografato, codificati tramite Base64URL  
--   **valore di firma**: l'output di un algoritmo di firma, codificato tramite Base64URL  
--   **base64URL**: un valore binario Base64URL [RFC4648] codificato  
--   **booleano**: vero o falso  
--   **Identità**: un identità di Azure Active Directory (AAD).  
+-   **algoritmo** : un algoritmo supportato per un'operazione della chiave, ad esempio, RSA1_5  
+-   **valore di testo crittografato** : ottetti di testo cifrati, codificati tramite Base64URL  
+-   **valore di digest** : l'output di un algoritmo hash, codificato tramite Base64URL  
+-   **key-type** : uno dei tipi di chiave supportati, ad esempio RSA (Rivest-Shamir-Adleman)  
+-   **valore di testo non crittografato** : ottetti di testo non crittografato, codificati tramite Base64URL  
+-   **valore di firma** : l'output di un algoritmo di firma, codificato tramite Base64URL  
+-   **base64URL** : un valore binario Base64URL [RFC4648] codificato  
+-   **booleano** : vero o falso  
+-   **Identità** : un identità di Azure Active Directory (AAD).  
 -   **IntDate** : un valore decimale JSON che rappresenta il numero di secondi da 1970-01-01T0:0:0Z UTC fino alla data/ora UTC specificata. Per informazioni dettagliate sui valori data/ora in generale e UTC in particolare, vedere RFC3339.  
 
 ## <a name="objects-identifiers-and-versioning"></a>Oggetti, identificatori e controllo delle versioni
@@ -80,9 +81,9 @@ Per ulteriori informazioni, vedere[ Autenticazione, richieste e risposte](authen
 
 Un identificatore di oggetto ha il seguente formato generale (in base al tipo di contenitore):  
 
-- **Per gli insiemi di credenziali**: `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+- **Per gli insiemi di credenziali** : `https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-- **Per i pool di moduli di protezione hardware gestiti**: `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
+- **Per i pool di moduli di protezione hardware gestiti** : `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
 
 > [!NOTE]
 > Per informazioni sui tipi di oggetti supportati da ogni tipo di contenitore, vedere [Supporto dei tipi di oggetto](#object-types).

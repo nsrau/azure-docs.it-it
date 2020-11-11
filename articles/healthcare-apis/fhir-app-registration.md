@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
-ms.openlocfilehash: 22f31cf3911b5ea24e8798fb226e389071fadd0b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa95dc5cc052fbff6c553de50f4f52dc5df850a5
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87848979"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398114"
 ---
 # <a name="register-the-azure-active-directory-apps-for-azure-api-for-fhir"></a>Registrare le app di Azure Active Directory per l'API di Azure per FHIR
 
@@ -31,9 +31,9 @@ Le **applicazioni della risorsa** sono rappresentazioni in Azure AD di un'API o 
 
 Le *applicazioni client* sono registrazioni dei client che richiederanno i token. Spesso in OAuth 2.0 viene fatta distinzione tra almeno tre tipi diversi di applicazioni:
 
-1. **Client riservati**, noti anche come app Web in Azure AD. I client riservati sono applicazioni che usano il [flusso del codice di autorizzazione](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code) per ottenere un token per conto di un utente connesso che presenta credenziali valide. Sono denominati client riservati perché possono mantenere un segreto e presenteranno questo segreto ad Azure AD durante lo scambio del codice di autenticazione per un token. Poiché i client riservati possono eseguire l'autenticazione usando il segreto client, sono considerati più attendibili rispetto ai client pubblici, possono avere token di durata maggiore e ottenere un token di aggiornamento. Vedere le informazioni dettagliate su come [registrare un client riservato](register-confidential-azure-ad-client-app.md). Si noti che è importante registrare l'URL di risposta a cui il client riceverà il codice di autorizzazione.
+1. **Client riservati** , noti anche come app Web in Azure AD. I client riservati sono applicazioni che usano il [flusso del codice di autorizzazione](../active-directory/azuread-dev/v1-protocols-oauth-code.md) per ottenere un token per conto di un utente connesso che presenta credenziali valide. Sono denominati client riservati perché possono mantenere un segreto e presenteranno questo segreto ad Azure AD durante lo scambio del codice di autenticazione per un token. Poiché i client riservati possono eseguire l'autenticazione usando il segreto client, sono considerati più attendibili rispetto ai client pubblici, possono avere token di durata maggiore e ottenere un token di aggiornamento. Vedere le informazioni dettagliate su come [registrare un client riservato](register-confidential-azure-ad-client-app.md). Si noti che è importante registrare l'URL di risposta a cui il client riceverà il codice di autorizzazione.
 1. **Client pubblici**. Sono i client che non possono mantenere un segreto. In genere si tratta di un'applicazione per dispositivi mobili o di un'applicazione JavaScript a pagina singola, in cui un segreto nel client può essere individuato da un utente. Anche i client pubblici usano il flusso del codice di autorizzazione, ma non sono autorizzati a presentare un segreto quando ottengono un token, i token sono di durata più breve e non ottengono un token di aggiornamento. Vedere le informazioni dettagliate su come [registrare un client pubblico](register-public-azure-ad-client-app.md).
-1. Client del servizio. Questi client ottengono i token per conto di se stessi, non per conto di un utente, usando il [flusso delle credenziali client](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow). Rappresentano in genere applicazioni che accedono al server FHIR in modo non interattivo, ad esempio per un processo di inserimento. Quando si usa un client del servizio, non è necessario avviare il processo di recupero di un token con una chiamata all'endpoint `/authorize`. Un client del servizio può passare direttamente all'endpoint `/token` e presentare l'ID client e il segreto client per ottenere un token. Vedere le informazioni dettagliate su come [registrare un client del servizio](register-service-azure-ad-client-app.md)
+1. Client del servizio. Questi client ottengono i token per conto di se stessi, non per conto di un utente, usando il [flusso delle credenziali client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md). Rappresentano in genere applicazioni che accedono al server FHIR in modo non interattivo, ad esempio per un processo di inserimento. Quando si usa un client del servizio, non è necessario avviare il processo di recupero di un token con una chiamata all'endpoint `/authorize`. Un client del servizio può passare direttamente all'endpoint `/token` e presentare l'ID client e il segreto client per ottenere un token. Vedere le informazioni dettagliate su come [registrare un client del servizio](register-service-azure-ad-client-app.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

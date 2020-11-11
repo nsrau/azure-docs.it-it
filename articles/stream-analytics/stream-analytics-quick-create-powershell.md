@@ -7,12 +7,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b36a71899be43f40ec16c76b5e53c8c3e7fb3552
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2ea92ad2e9c81b568e11ff97d7b6a88eeb4f188e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124527"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346571"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Guida introduttiva: Creare un processo di Analisi di flusso usando Azure PowerShell
 
@@ -28,7 +28,7 @@ Il processo di esempio legge i dati in streaming da un dispositivo hub IoT. I da
 
 * Per questa guida di avvio rapido è richiesto il modulo Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata nel computer locale. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-Az-ps).
 
-* Alcune azioni dell'hub IoT non sono supportate da Azure PowerShell e devono essere completate usando l'interfaccia della riga di comando di Azure versione 2.0.70 o successiva e la relativa estensione IoT. [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) e usare `az extension add --name azure-iot` per installare l'estensione IoT.
+* Alcune azioni dell'hub IoT non sono supportate da Azure PowerShell e devono essere completate usando l'interfaccia della riga di comando di Azure versione 2.0.70 o successiva e la relativa estensione IoT. [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e usare `az extension add --name azure-iot` per installare l'estensione IoT.
 
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
@@ -68,9 +68,9 @@ Prima di definire il processo di Analisi di flusso, preparare i dati configurati
 
 Il blocco di codice dell'interfaccia della riga di comando di Azure riportato di seguito esegue molti comandi per preparare i dati di input richiesti dal processo. Esaminare le sezioni per comprendere il codice.
 
-1. Nella finestra di PowerShell eseguire il comando [az login](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) per accedere all'account di Azure.
+1. Nella finestra di PowerShell eseguire il comando [az login](/cli/azure/authenticate-azure-cli) per accedere all'account di Azure.
 
-    Dopo aver effettuato l'accesso, l'interfaccia della riga di comando di Azure restituisce un elenco delle sottoscrizioni. Copiare la sottoscrizione in uso per questa guida introduttiva ed eseguire il comando [az account set](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) per selezionare tale sottoscrizione. Scegliere la stessa sottoscrizione selezionata nella sezione precedente con PowerShell. Assicurarsi di sostituire `<your subscription name>` con il nome della sottoscrizione.
+    Dopo aver effettuato l'accesso, l'interfaccia della riga di comando di Azure restituisce un elenco delle sottoscrizioni. Copiare la sottoscrizione in uso per questa guida introduttiva ed eseguire il comando [az account set](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription) per selezionare tale sottoscrizione. Scegliere la stessa sottoscrizione selezionata nella sezione precedente con PowerShell. Assicurarsi di sostituire `<your subscription name>` con il nome della sottoscrizione.
 
     ```azurecli
     az login
@@ -84,7 +84,7 @@ Il blocco di codice dell'interfaccia della riga di comando di Azure riportato di
     az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
     ```
 
-    Dopo aver creato l'hub IoT, ottenere la stringa di connessione dell'hub IoT usando il comando [az iot hub show-connection-string](/cli/azure/iot/hub?view=azure-cli-latest). Copiare l'intera stringa di connessione e salvarla per quando si aggiungerà l'hub IoT come input nel processo di Analisi di flusso di Azure.
+    Dopo aver creato l'hub IoT, ottenere la stringa di connessione dell'hub IoT usando il comando [az iot hub show-connection-string](/cli/azure/iot/hub). Copiare l'intera stringa di connessione e salvarla per quando si aggiungerà l'hub IoT come input nel processo di Analisi di flusso di Azure.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"

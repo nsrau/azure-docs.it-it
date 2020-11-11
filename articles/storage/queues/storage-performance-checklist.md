@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3f6e10d3e5b33a07c223a3913bba0b220df2ff64
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6e86950581255bd4e3a78b0b4a3f599a24a3cad0
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787381"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345755"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Elenco di controllo di prestazioni e scalabilità di archiviazione code
 
@@ -60,18 +60,17 @@ Se si sta per raggiungere il numero massimo di account di archiviazione consenti
 
 ### <a name="capacity-and-transaction-targets"></a>Obiettivi di capacità e transazioni
 
-Se l'applicazione sta raggiungendo gli obiettivi di scalabilità per un singolo account di archiviazione, valutare uno dei seguenti approcci:  
+Se l'applicazione sta raggiungendo gli obiettivi di scalabilità per un singolo account di archiviazione, valutare uno dei seguenti approcci:
 
 - Se gli obiettivi di scalabilità per le code non sono sufficienti per l'applicazione, è consigliabile usare più code e distribuire i messaggi fra di esse.
 - Esaminare di nuovo il carico di lavoro che causa il raggiungimento o il superamento dell'obiettivo di scalabilità da parte dell'applicazione. È possibile progettarlo in modo diverso in modo che usi una quantità minore di larghezza di banda o capacità o un minor numero di transazioni?
 - Se l'applicazione deve superare uno degli obiettivi di scalabilità, creare più account di archiviazione e partizionare i dati dell'applicazione tra questi account di archiviazione. Se si usa questo modello, assicurarsi di progettare l'applicazione in modo da aggiungere altri account di archiviazione in futuro per il bilanciamento del carico. Gli stessi account di archiviazione non hanno costi aggiuntivi rispetto a quelli per l'uso, ossia associati ai dati archiviati, alle transazioni effettuate o ai dati trasferiti.
-- Se l'applicazione sta raggiungendo gli obiettivi di larghezza di banda, valutare la compressione dei dati sul lato client per ridurre la larghezza di banda necessaria a inviare i dati ad Archiviazione di Azure.
-    La compressione dei dati, pur consentendo di risparmiare larghezza di banda e migliorare le prestazioni di rete, può avere anche degli effettivi negativi sulle prestazioni. Valutare gli effetti sulle prestazioni dei requisiti di elaborazione aggiuntivi per la compressione e la decompressione dei dati sul lato client. Tenere presente che l'archiviazione dei dati compressi può rendere più difficile la risoluzione dei problemi perché ostacola la visualizzazione dei dati usando gli strumenti standard.
+- Se l'applicazione sta raggiungendo gli obiettivi di larghezza di banda, valutare la compressione dei dati sul lato client per ridurre la larghezza di banda necessaria a inviare i dati ad Archiviazione di Azure. La compressione dei dati, pur consentendo di risparmiare larghezza di banda e migliorare le prestazioni di rete, può avere anche degli effettivi negativi sulle prestazioni. Valutare gli effetti sulle prestazioni dei requisiti di elaborazione aggiuntivi per la compressione e la decompressione dei dati sul lato client. Tenere presente che l'archiviazione dei dati compressi può rendere più difficile la risoluzione dei problemi perché ostacola la visualizzazione dei dati usando gli strumenti standard.
 - Se l'applicazione sta raggiungendo gli obiettivi di scalabilità, assicurarsi di usare un backoff esponenziale per i nuovi tentativi. È consigliabile provare a evitare di raggiungere gli obiettivi di scalabilità implementando i consigli descritti in questo articolo. Tuttavia, l'uso di un backoff esponenziale per i tentativi impedisce all'applicazione di ritentare rapidamente, il che potrebbe peggiorare la limitazione delle richieste. Per altre informazioni, vedere la sezione intitolata [Errori di timeout e server occupato](#timeout-and-server-busy-errors).
 
 ## <a name="networking"></a>Rete
 
-I vincoli fisici della rete dell'applicazione possono avere effetti significativi sulle prestazioni. Le sezioni seguenti descrivono alcune limitazioni che gli utenti possono incontrare.  
+I vincoli fisici della rete dell'applicazione possono avere effetti significativi sulle prestazioni. Le sezioni seguenti descrivono alcune limitazioni che gli utenti possono incontrare.
 
 ### <a name="client-network-capability"></a>Capacità della rete client
 
@@ -83,11 +82,11 @@ Per la larghezza di banda il problema dipende spesso dalle capacità del client.
 
 #### <a name="link-quality"></a>Qualità del collegamento
 
-Come accade in ogni rete, tenere presente che le condizioni di rete che generano errori e perdita di pacchetti riducono la velocità effettiva.  L'uso di WireShark o NetMon può contribuire a diagnosticare il problema.  
+Come accade in ogni rete, tenere presente che le condizioni di rete che generano errori e perdita di pacchetti riducono la velocità effettiva. L'uso di WireShark o NetMon può contribuire a diagnosticare il problema.
 
 ### <a name="location"></a>Location
 
-In qualsiasi ambiente distribuito, il posizionamento del client accanto al server offre le prestazioni migliori. Per accedere all'archiviazione di Azure con la minor latenza possibile, è opportuno posizionare il client nella stessa area di Azure. Ad esempio, se si ha un'app Web di Azure che usa Archiviazione di Azure, posizionare entrambi in un'unica area, ad esempio Stati Uniti occidentali o Asia sudorientale. Il posizionamento delle risorse nella stessa area riduce latenza e costi, in quanto l'utilizzo della larghezza di banda in un'unica area è gratuito.  
+In qualsiasi ambiente distribuito, il posizionamento del client accanto al server offre le prestazioni migliori. Per accedere all'archiviazione di Azure con la minor latenza possibile, è opportuno posizionare il client nella stessa area di Azure. Ad esempio, se si ha un'app Web di Azure che usa Archiviazione di Azure, posizionare entrambi in un'unica area, ad esempio Stati Uniti occidentali o Asia sudorientale. Il posizionamento delle risorse nella stessa area riduce latenza e costi, in quanto l'utilizzo della larghezza di banda in un'unica area è gratuito.
 
 Anche se le applicazioni client hanno accesso ad Archiviazione di Azure ma non sono ospitate in Azure, ad esempio app di dispositivi mobili o servizi aziendali locali, la latenza viene ridotta se si posiziona l'account di archiviazione in un'area vicina a tali client. Se i client sono distribuiti in un'area ampia (ad esempio, alcuni in America del Nord e altri in Europa), è opportuno usare un account di archiviazione per ogni area. Questo approccio è più semplice da implementare se i dati archiviati dall'applicazione sono specifici di singoli utenti e non richiedono la replica tra gli account di archiviazione.
 
@@ -95,17 +94,17 @@ Anche se le applicazioni client hanno accesso ad Archiviazione di Azure ma non s
 
 Si supponga che sia necessario autorizzare il codice, ad esempio JavaScript, che viene eseguito nel Web browser dell'utente o in un'app per telefoni cellulari per accedere ai dati in Archiviazione di Azure. Un approccio consiste nel creare un'applicazione di servizio che funga da proxy. Il dispositivo dell'utente esegue l'autenticazione con il servizio, che a sua volta autorizza l'accesso alle risorse di Archiviazione di Azure. In questo modo si evita di esporre le chiavi dell'account di archiviazione in dispositivi non sicuri. Questo approccio causa tuttavia un sovraccarico significativo dell'applicazione di servizio, perché tutti i dati trasferiti tra il dispositivo dell'utente e Archiviazione di Azure devono passare attraverso l'applicazione di servizio.
 
-È possibile evitare di usare un'applicazione di servizio come proxy per Archiviazione di Azure usando firme di accesso condiviso. Con le firme di accesso condiviso è possibile consentire al dispositivo dell'utente di indirizzare le richieste direttamente ad Archiviazione di Azure usando un token con accesso limitato. Ad esempio, se un utente vuole caricare una foto nell'applicazione, l'applicazione di servizio può generare una firma di accesso condiviso e inviarla al dispositivo dell'utente. Il token di firma di accesso condiviso può concedere l'autorizzazione per scrivere in una risorsa di Archiviazione di Azure per un intervallo di tempo specificato, dopo la scadenza del token di firma di accesso condiviso. Per altre informazioni sulla firma di accesso condiviso, vedere [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso](../common/storage-sas-overview.md).  
+È possibile evitare di usare un'applicazione di servizio come proxy per Archiviazione di Azure usando firme di accesso condiviso. Con le firme di accesso condiviso è possibile consentire al dispositivo dell'utente di indirizzare le richieste direttamente ad Archiviazione di Azure usando un token con accesso limitato. Ad esempio, se un utente vuole caricare una foto nell'applicazione, l'applicazione di servizio può generare una firma di accesso condiviso e inviarla al dispositivo dell'utente. Il token di firma di accesso condiviso può concedere l'autorizzazione per scrivere in una risorsa di Archiviazione di Azure per un intervallo di tempo specificato, dopo la scadenza del token di firma di accesso condiviso. Per altre informazioni sulla firma di accesso condiviso, vedere [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso](../common/storage-sas-overview.md).
 
 Un Web browser non consente in genere codice JavaScript in una pagina ospitata da un sito Web in un dominio per l'esecuzione di determinate operazioni, come operazioni di scrittura, in un altro dominio. Noto come criterio di corrispondenza dell'origine, questo criterio impedisce a uno script dannoso in una pagina di ottenere l'accesso ai dati in un'altra pagina Web. Tuttavia, i criteri di corrispondenza dell'origine possono costituire una limitazione quando si compila una soluzione nel cloud. La condivisione di risorse tra le origini è una funzionalità del browser che consente al dominio di destinazione di comunicare con il browser di cui reputa attendibili le richieste originate nel dominio di origine.
 
-Si supponga, ad esempio, che un'applicazione Web in esecuzione in Azure faccia una richiesta di una risorsa a un account di Archiviazione di Azure. L'applicazione Web è il dominio di origine e l'account di archiviazione è il dominio di destinazione. È possibile configurare la condivisione di risorse tra le origini per qualsiasi servizio di Archiviazione di Azure in modo che comunichi con il Web browser che le richieste provenienti dal dominio di origine siano ritenuti attendibili da Archiviazione di Azure. Per altre informazioni sulla condivisione di risorse tra le origini, vedere [Supporto della condivisione delle risorse tra le origini (CORS) per Archiviazione di Azure](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).  
-  
-Entrambe le tecnologie SAS e CORS possono aiutare a evitare carichi non necessari nell'applicazione Web.  
+Si supponga, ad esempio, che un'applicazione Web in esecuzione in Azure faccia una richiesta di una risorsa a un account di Archiviazione di Azure. L'applicazione Web è il dominio di origine e l'account di archiviazione è il dominio di destinazione. È possibile configurare la condivisione di risorse tra le origini per qualsiasi servizio di Archiviazione di Azure in modo che comunichi con il Web browser che le richieste provenienti dal dominio di origine siano ritenuti attendibili da Archiviazione di Azure. Per altre informazioni sulla condivisione di risorse tra le origini, vedere [Supporto della condivisione delle risorse tra le origini (CORS) per Archiviazione di Azure](/rest/api/storageservices/Cross-Origin-Resource-Sharing--CORS--Support-for-the-Azure-Storage-Services).
+
+Entrambe le tecnologie SAS e CORS possono aiutare a evitare carichi non necessari nell'applicazione Web.
 
 ## <a name="net-configuration"></a>Configurazione .NET
 
-Se si usa .NET Framework, in questa sezione vengono elencate diverse impostazioni di configurazione rapide che è possibile usare per migliorare significativamente le prestazioni.  Se si usano altri linguaggi, controllare se esistono procedure simili per il linguaggio prescelto.  
+Se si usa .NET Framework, in questa sezione vengono elencate diverse impostazioni di configurazione rapide che è possibile usare per migliorare significativamente le prestazioni. Se si usano altri linguaggi, controllare se esistono procedure simili per il linguaggio prescelto.
 
 ### <a name="use-net-core"></a>Usare .NET Core
 
@@ -118,17 +117,17 @@ Per altre informazioni sui miglioramenti delle prestazioni in .NET Core, vedere 
 
 ### <a name="increase-default-connection-limit"></a>Aumento del limite di connessione predefinito
 
-In .NET, il seguente codice aumenta il limite di connessione predefinito (in genere pari a 2 in un ambiente client o 10 in un ambiente server) a 100. Solitamente il valore deve essere impostato basandosi approssimativamente sul numero di thread usato dall'applicazione.  
+In .NET, il seguente codice aumenta il limite di connessione predefinito (in genere pari a 2 in un ambiente client o 10 in un ambiente server) a 100. Solitamente il valore deve essere impostato basandosi approssimativamente sul numero di thread usato dall'applicazione.
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
 ```
 
-Impostare il limite di connessione prima di aprire le connessioni.  
+Impostare il limite di connessione prima di aprire le connessioni.
 
-Per gli altri linguaggi di programmazione, vedere la documentazione specifica per determinare come impostare il limite di connessione.  
+Per gli altri linguaggi di programmazione, vedere la documentazione specifica per determinare come impostare il limite di connessione.
 
-Per altre informazioni, vedere il post del blog [Servizi Web: connessioni simultanee](/archive/blogs/darrenj/web-services-concurrent-connections).  
+Per altre informazioni, vedere il post del blog [Servizi Web: connessioni simultanee](/archive/blogs/darrenj/web-services-concurrent-connections).
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentare il numero minimo di thread
 
@@ -138,11 +137,11 @@ Se si usano chiamate sincrone insieme ad attività asincrone, può essere opport
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-Per altre informazioni, vedere il metodo [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads).  
+Per altre informazioni, vedere il metodo [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads).
 
 ## <a name="unbounded-parallelism"></a>Parallelismo non associato
 
-Sebbene il parallelismo possa essere ideale per le prestazioni, prestare attenzione quando si usa il parallelismo non associato, perché non esiste alcun limite applicato al numero di thread o di richieste parallele. Assicurarsi di limitare le richieste parallele per caricare o scaricare dati, per accedere a più partizioni nello stesso account di archiviazione o per accedere a più elementi nella stessa partizione. Se il parallelismo non è associato, l'applicazione può superare le capacità del dispositivo client o gli obiettivi di scalabilità dell'account di archiviazione producendo latenze più lunghe e limitazioni.  
+Sebbene il parallelismo possa essere ideale per le prestazioni, prestare attenzione quando si usa il parallelismo non associato, perché non esiste alcun limite applicato al numero di thread o di richieste parallele. Assicurarsi di limitare le richieste parallele per caricare o scaricare dati, per accedere a più partizioni nello stesso account di archiviazione o per accedere a più elementi nella stessa partizione. Se il parallelismo non è associato, l'applicazione può superare le capacità del dispositivo client o gli obiettivi di scalabilità dell'account di archiviazione producendo latenze più lunghe e limitazioni.
 
 ## <a name="client-libraries-and-tools"></a>Librerie e strumenti client dell'archiviazione
 
@@ -154,9 +153,9 @@ Archiviazione di Azure restituisce un errore quando il servizio non riesce a ela
 
 ### <a name="timeout-and-server-busy-errors"></a>Errori di timeout e server occupato
 
-Archiviazione di Azure può limitare l'applicazione se raggiunge i limiti di scalabilità. In alcuni casi, Archiviazione di Azure potrebbe non riuscire a gestire una richiesta a causa di una condizione temporanea. In entrambi i casi, il servizio può restituire un errore 503 (Server occupato) o 500 (Timeout). Questi errori possono verificarsi anche se il servizio esegue il ribilanciamento delle partizioni di dati per consentire una maggiore velocità effettiva. L'applicazione client in genere deve ripetere l'operazione che ha causato uno di questi errori. Tuttavia, se Archiviazione di Azure sta limitando l'applicazione perché supera gli obiettivi di scalabilità o non riesce a completare la richiesta per altri motivi, la ripetizione dei tentativi non farebbe che peggiorare il problema. È consigliabile l'uso di criteri di ripetizione del backoff esponenziale, ovvero il comportamento predefinito nelle librerie client. Ad esempio, l'applicazione può riprovare l'operazione dopo 2 secondi, 4 secondi, 10 secondi, 30 secondi, dopo di che non effettua altri tentativi. Piuttosto che peggiorare il problema, in questo modo si riduce notevolmente il carico dell'applicazione sul servizio che potrebbe condurre alla limitazione della larghezza di banda della rete.  
+Archiviazione di Azure può limitare l'applicazione se raggiunge i limiti di scalabilità. In alcuni casi, Archiviazione di Azure potrebbe non riuscire a gestire una richiesta a causa di una condizione temporanea. In entrambi i casi, il servizio può restituire un errore 503 (Server occupato) o 500 (Timeout). Questi errori possono verificarsi anche se il servizio esegue il ribilanciamento delle partizioni di dati per consentire una maggiore velocità effettiva. L'applicazione client in genere deve ripetere l'operazione che ha causato uno di questi errori. Tuttavia, se Archiviazione di Azure sta limitando l'applicazione perché supera gli obiettivi di scalabilità o non riesce a completare la richiesta per altri motivi, la ripetizione dei tentativi non farebbe che peggiorare il problema. È consigliabile l'uso di criteri di ripetizione del backoff esponenziale, ovvero il comportamento predefinito nelle librerie client. Ad esempio, l'applicazione può riprovare l'operazione dopo 2 secondi, 4 secondi, 10 secondi, 30 secondi, dopo di che non effettua altri tentativi. Piuttosto che peggiorare il problema, in questo modo si riduce notevolmente il carico dell'applicazione sul servizio che potrebbe condurre alla limitazione della larghezza di banda della rete.
 
-I nuovi tentativi relativi a errori di connettività possono essere eseguiti immediatamente perché non dipendono dalle limitazioni e sono considerati temporanei.  
+I nuovi tentativi relativi a errori di connettività possono essere eseguiti immediatamente perché non dipendono dalle limitazioni e sono considerati temporanei.
 
 ### <a name="non-retryable-errors"></a>Errori irreversibili
 
@@ -170,17 +169,17 @@ L'algoritmo Nagle viene spesso implementato nelle reti TCP/IP come strumento per
 
 ## <a name="message-size"></a>Dimensioni dei messaggi
 
-Le prestazioni e la scalabilità della coda diminuiscono con l'aumentare delle dimensioni del messaggio. In un messaggio inserire solo le informazioni richieste dal ricevitore.  
+Le prestazioni e la scalabilità della coda diminuiscono con l'aumentare delle dimensioni del messaggio. In un messaggio inserire solo le informazioni richieste dal ricevitore.
 
 ## <a name="batch-retrieval"></a>Recupero in batch
 
-È possibile recuperare fino a 32 messaggi da una coda in una singola operazione. Il recupero in batch può ridurre il numero di round trip dall'applicazione client, particolarmente utile per gli ambienti con latenza elevata, come i dispositivi mobili.  
+È possibile recuperare fino a 32 messaggi da una coda in una singola operazione. Il recupero in batch può ridurre il numero di round trip dall'applicazione client, particolarmente utile per gli ambienti con latenza elevata, come i dispositivi mobili.
 
 ## <a name="queue-polling-interval"></a>Intervallo di polling della coda
 
-La maggior parte delle applicazioni esegue il polling dei messaggi da una coda, che può costituire una delle principali origini di transazioni per l'applicazione. L'intervallo di polling deve essere scelto con attenzione: se si esegue il polling con eccessiva frequenza, l'applicazione potrebbe avvicinarsi all'obiettivo di scalabilità per la coda. Tuttavia, al prezzo di 0,01 USD per 200.000 transazioni (al momento della stesura di questo documento), il costo del polling eseguito da un singolo processore una volta al secondo per un intero mese non supererebbe 15 centesimi. Il costo non è dunque un fattore determinante nella scelta dell'intervallo di polling.  
+La maggior parte delle applicazioni esegue il polling dei messaggi da una coda, che può costituire una delle principali origini di transazioni per l'applicazione. L'intervallo di polling deve essere scelto con attenzione: se si esegue il polling con eccessiva frequenza, l'applicazione potrebbe avvicinarsi all'obiettivo di scalabilità per la coda. Tuttavia, al prezzo di 0,01 USD per 200.000 transazioni (al momento della stesura di questo documento), il costo del polling eseguito da un singolo processore una volta al secondo per un intero mese non supererebbe 15 centesimi. Il costo non è dunque un fattore determinante nella scelta dell'intervallo di polling.
 
-Per informazioni aggiornate sui costi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).  
+Per informazioni aggiornate sui costi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="use-update-message"></a>Usare Aggiornamento del messaggio
 
@@ -188,10 +187,10 @@ Per informazioni aggiornate sui costi, vedere [Prezzi di Archiviazione di Azure]
 
 ## <a name="application-architecture"></a>Architettura dell'applicazione
 
-Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito vengono elencati alcuni modi in cui le code possono essere usate per rendere più scalabile l'applicazione:  
+Usare le code per rendere scalabile l'architettura dell'applicazione. Di seguito vengono elencati alcuni modi in cui le code possono essere usate per rendere più scalabile l'applicazione:
 
 - Le code possono essere usate per creare backlog di lavoro per l'elaborazione e il contenimento dei carichi di lavoro nell'applicazione. Ad esempio, è possibile accodare le richieste degli utenti per eseguire un lavoro che prevede un utilizzo intensivo del processore, ad esempio il ridimensionamento delle immagini caricate.
-- È possibile usare le code per separare i componenti dell'applicazione per eseguirne la scalabilità in modo indipendente. Un front-end Web, ad esempio, può inserire i risultati di un sondaggio degli utenti in una coda per l'analisi e l'archiviazione successive. È possibile aggiungere più istanze del ruolo di lavoro per elaborare i dati della coda come richiesto.  
+- È possibile usare le code per separare i componenti dell'applicazione per eseguirne la scalabilità in modo indipendente. Un front-end Web, ad esempio, può inserire i risultati di un sondaggio degli utenti in una coda per l'analisi e l'archiviazione successive. È possibile aggiungere più istanze del ruolo di lavoro per elaborare i dati della coda come richiesto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

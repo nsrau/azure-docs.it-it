@@ -9,12 +9,12 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 7720238bb7e2ff133935b9af545628f744d828d1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4beb1c31f34ec4e8d26228cfe4f30f5109a1b60c
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88642317"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394544"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Guida introduttiva: Eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft
 
@@ -36,7 +36,7 @@ Configurare l'account di Genomica con le informazioni seguenti, come mostrato ne
  |**Impostazione**          |  **Valore consigliato**  | **Descrizione campo** |
  |:-------------       |:-------------         |:----------            |
  |Subscription         | Nome della sottoscrizione utente|Unità di fatturazione per i servizi di Azure. Per informazioni dettagliate sulla sottoscrizione, vedere [Sottoscrizioni](https://account.azure.com/Subscriptions) |      
- |Resource group       | MyResourceGroup       |  I gruppi di risorse consentono di raggruppare più risorse di Azure (account di archiviazione, account di Genomica e così via) in un singolo gruppo per semplificare la gestione. Per altre informazioni, vedere [Gruppi di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Per informazioni sui nomi di gruppi di risorse validi, vedere [Convenzioni di denominazione](/azure/architecture/best-practices/resource-naming) |
+ |Resource group       | MyResourceGroup       |  I gruppi di risorse consentono di raggruppare più risorse di Azure (account di archiviazione, account di Genomica e così via) in un singolo gruppo per semplificare la gestione. Per altre informazioni, vedere [Gruppi di risorse](../azure-resource-manager/management/overview.md#resource-groups). Per informazioni sui nomi di gruppi di risorse validi, vedere [Convenzioni di denominazione](/azure/architecture/best-practices/resource-naming) |
  |Nome account         | MyGenomicsAccount     |Scegliere un identificatore dell'account univoco. Per informazioni sui nomi validi, vedere [Convenzioni di denominazione](/azure/architecture/best-practices/resource-naming) |
  |Location                   | Stati Uniti occidentali 2                    |    Il servizio è disponibile nelle aree Stati Uniti occidentali 2, Europa occidentale e Asia sud-orientale |
 
@@ -86,7 +86,7 @@ msgen list -f "<full path where you saved the config file>"
 
 ## <a name="create-a-microsoft-azure-storage-account"></a>Creare un account di archiviazione di Microsoft Azure 
 Il servizio Genomica di Microsoft prevede l'archiviazione di input come BLOB in blocchi in un account di archiviazione di Azure. I file di output vengono inoltre scritti come BLOB in blocchi in un contenitore specificato dall'utente in un account di archiviazione di Azure. I file di input e di output possono trovarsi in account di archiviazione diversi.
-Se i dati sono già disponibili in un account di archiviazione di Azure, è necessario solo assicurarsi che si trovino nella stessa posizione dell'account di Genomica. In caso contrario, quando si esegue il servizio Genomica di Microsoft, verranno applicati addebiti per il traffico in uscita. Se non si ha un account di archiviazione di Azure, è necessario crearne uno e caricare i dati. Altre informazioni sugli account di archiviazione di Azure sono disponibili [qui](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account), incluse informazioni sull'account di archiviazione specifico e sui servizi forniti. Per creare un account di archiviazione di Azure, passare a [Crea account di archiviazione](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) nel portale di Azure.  
+Se i dati sono già disponibili in un account di archiviazione di Azure, è necessario solo assicurarsi che si trovino nella stessa posizione dell'account di Genomica. In caso contrario, quando si esegue il servizio Genomica di Microsoft, verranno applicati addebiti per il traffico in uscita. Se non si ha un account di archiviazione di Azure, è necessario crearne uno e caricare i dati. Altre informazioni sugli account di archiviazione di Azure sono disponibili [qui](../storage/common/storage-account-create.md), incluse informazioni sull'account di archiviazione specifico e sui servizi forniti. Per creare un account di archiviazione di Azure, passare a [Crea account di archiviazione](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) nel portale di Azure.  
 
 ![Pagina per la creazione dell'account di archiviazione](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade1.png "Pagina per la creazione dell'account di archiviazione")
 
@@ -98,9 +98,9 @@ Configurare l'account di archiviazione con le informazioni seguenti, come mostra
  |Resource group       | MyResourceGroup       |  È possibile selezionare lo stesso gruppo di risorse dell'account Genomica. Per informazioni sui nomi di gruppi di risorse validi, vedere [Regole di denominazione](/azure/architecture/best-practices/resource-naming) |
  |Nome dell'account di archiviazione         | MyStorageAccount     |Scegliere un identificatore dell'account univoco. Per informazioni sui nomi validi, vedere [Regole di denominazione](/azure/architecture/best-practices/resource-naming) |
  |Location                  | Stati Uniti occidentali 2                  | Usare la stessa località specificata per l'account Genomica per ridurre gli addebiti relativi al traffico in uscita e per ridurre la latenza.  | 
- |Prestazioni                  | Standard                   | Il livello predefinito è Standard. Per informazioni dettagliate sugli account di archiviazione Standard e Premium, vedere [Introduzione ad Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
+ |Prestazioni                  | Standard                   | Il livello predefinito è Standard. Per informazioni dettagliate sugli account di archiviazione Standard e Premium, vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/common/storage-introduction.md)    |
  |Tipo di account       | BlobStorage       |  Un archivio BLOB può risultare da 2 a 5 volte più veloce rispetto all'utilizzo generico per download e caricamenti. |
- |Replica                  | Archiviazione con ridondanza locale                  | L'archiviazione con ridondanza locale replica i dati entro il data center nell'area in cui è stato creato l'account di archiviazione. Per altre informazioni, vedere [Replica di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
+ |Replica                  | Archiviazione con ridondanza locale                  | L'archiviazione con ridondanza locale replica i dati entro il data center nell'area in cui è stato creato l'account di archiviazione. Per altre informazioni, vedere [Replica di Archiviazione di Azure](../storage/common/storage-redundancy.md)    |
  |Livello di accesso                  | Accesso frequente                   | Il livello di accesso frequente indica un accesso più frequente agli oggetti nell'account di archiviazione.    |
 
 Selezionare quindi **Rivedi e crea** per creare l'account di archiviazione. Analogamente alla creazione dell'account Genomica, è possibile selezionare **Notifiche** sulla barra dei menu superiore per monitorare il processo di distribuzione. 
@@ -112,7 +112,7 @@ Il servizio Genomica di Microsoft prevede letture di estremità abbinate (file f
 [https://msgensampledata.blob.core.windows.net/small/chr21_1.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_1.fq.gz)
 [https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz)
 
-Nell'account di archiviazione è necessario creare un contenitore BLOB per i dati di input e un secondo contenitore BLOB per i dati di output.  Caricare i dati di input nel contenitore BLOB di input. È possibile usare diversi strumenti per questa procedura, tra cui [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter) o [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
+Nell'account di archiviazione è necessario creare un contenitore BLOB per i dati di input e un secondo contenitore BLOB per i dati di output.  Caricare i dati di input nel contenitore BLOB di input. È possibile usare diversi strumenti per questa procedura, tra cui [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter) o [AzCopy](../storage/common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json). 
 
 ## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft con il client Python `msgen`
 
@@ -125,7 +125,7 @@ Se si vuole eseguire GATK4, impostare il parametro `process_name` su `gatk4`.
 
 Per impostazione predefinita, il servizio Genomica genera file VCF. Se si vuole ottenere un file gVCF anziché VCF come output (equivalente a `-emitRefConfidence` in GATK 3.x e a `emit-ref-confidence` in GATK 4.x), aggiungere il parametro `emit_ref_confidence` al file *config.txt* e impostarlo su `gvcf`, come illustrato nella figura qui sopra.  Per tornare all'output VCF, rimuoverlo dal file *config.txt* o impostare il parametro `emit_ref_confidence` su `none`. 
 
-`bgzip` è uno strumento che comprime il file VCF o GVCF, mentre `tabix` crea un indice per il file compresso. Per impostazione predefinita, il servizio Genomica esegue `bgzip` seguito da `tabix` nell'output ".g.vcf", ma per impostazione predefinita non esegue questi strumenti per l'output ".vcf". Quando viene eseguito, il servizio produce file con estensione "gz" (output bgzip) e "tbi" (output tabix). L'argomento è un valore booleano, che per impostazione predefinita è impostato su false per l'output ".vcf" e su true per l'output ".g.vcf". Per usarlo nella riga di comando, specificare `-bz` o `--bgzip-output` come `true` (eseguire bgzip e tabix) oppure `false`. Per usare questo argomento nel file *config.txt*, aggiungere `bgzip_output: true` o `bgzip_output: false` al file.
+`bgzip` è uno strumento che comprime il file VCF o GVCF, mentre `tabix` crea un indice per il file compresso. Per impostazione predefinita, il servizio Genomica esegue `bgzip` seguito da `tabix` nell'output ".g.vcf", ma per impostazione predefinita non esegue questi strumenti per l'output ".vcf". Quando viene eseguito, il servizio produce file con estensione "gz" (output bgzip) e "tbi" (output tabix). L'argomento è un valore booleano, che per impostazione predefinita è impostato su false per l'output ".vcf" e su true per l'output ".g.vcf". Per usarlo nella riga di comando, specificare `-bz` o `--bgzip-output` come `true` (eseguire bgzip e tabix) oppure `false`. Per usare questo argomento nel file *config.txt* , aggiungere `bgzip_output: true` o `bgzip_output: false` al file.
 
 ### <a name="submit-your-workflow-to-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Inviare il flusso di lavoro al servizio Genomica di Microsoft con il client Python `msgen`
 
@@ -144,4 +144,4 @@ Al termine del flusso di lavoro, è possibile visualizzare i file di output nell
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono stati caricati dati di input di esempio in Archiviazione di Azure ed è stato inviato un flusso di lavoro al servizio Genomica di Microsoft tramite il client `msgen` Python. Per altre informazioni su altri tipi di file di input che possono essere usati con il servizio Genomica di Microsoft, vedere le pagine seguenti: [paired FASTQ](quickstart-input-pair-FASTQ.md) (FASTQ abbinato)  | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md) (Più FASTQ o BAM) È anche possibile esplorare questa esercitazione con l'[esempio di Azure Notebooks](https://aka.ms/genomicsnotebook) scaricando il file "Genomics Tutorial.ipynb" e usando un lettore di notebook come [Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) per aprire il file ed eseguirlo.
+In questo articolo sono stati caricati dati di input di esempio in Archiviazione di Azure ed è stato inviato un flusso di lavoro al servizio Genomica di Microsoft tramite il client `msgen` Python. Per altre informazioni su altri tipi di file di input che possono essere usati con il servizio Genomica di Microsoft, vedere le pagine seguenti: [paired FASTQ](quickstart-input-pair-FASTQ.md) (FASTQ abbinato)  | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md) (Più FASTQ o BAM) È anche possibile esplorare questa esercitazione con l'[esempio di Azure Notebooks](https://aka.ms/genomicsnotebook) scaricando il file "Genomics Tutorial.ipynb" e usando un lettore di notebook come [Jupyter](../notebooks/tutorial-create-run-jupyter-notebook.md) per aprire il file ed eseguirlo.
