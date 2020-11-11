@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: pafarley
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: e8628d051db7f5066a81171567f6f7e54fb0ab97
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1fd748a0184c1718ac9450aaca3e2db1a185051a
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91262451"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368951"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-management-client-library"></a>Avvio rapido: Creare una risorsa di Servizi cognitivi con la libreria client di gestione di Azure
 
@@ -24,7 +24,7 @@ Seguire questo argomento di avvio rapido per creare e gestire risorse di Servizi
 
 I Servizi cognitivi di Azure sono servizi basati sul cloud con API REST ed SDK delle librerie client che consentono agli sviluppatori di integrare l'intelligenza cognitiva nelle applicazioni senza la necessità di competenze o conoscenze dirette di intelligenza artificiale e data science. I Servizi cognitivi di Azure consentono agli sviluppatori di aggiungere facilmente funzionalità cognitive alle applicazioni con soluzioni cognitive in grado di vedere, ascoltare, parlare, comprendere e persino di iniziare a ragionare.
 
-I singoli servizi di intelligenza artificiale sono rappresentati da [risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) di Azure create nella sottoscrizione di Azure. Dopo aver creato una risorsa, è possibile usare le chiavi e gli endpoint generati per autenticare le applicazioni.
+I singoli servizi di intelligenza artificiale sono rappresentati da [risorse](../azure-resource-manager/management/manage-resources-portal.md) di Azure create nella sottoscrizione di Azure. Dopo aver creato una risorsa, è possibile usare le chiavi e gli endpoint generati per autenticare le applicazioni.
 
 ::: zone pivot="programming-language-csharp"
 

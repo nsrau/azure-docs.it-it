@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
 ms.date: 07/17/2020
-ms.openlocfilehash: 5e3606ac04d5023e28bc2304aba79a8211c58881
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a62c7dc8238b642aeaa59a7b470266378832e26e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87133079"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363885"
 ---
 # <a name="whats-new-in-personalizer"></a>Novità di Personalizza esperienze
 
@@ -31,7 +31,7 @@ Ecco cosa c'è di nuovo nel servizio. Le novità possono includere note sulla ve
 
 ### <a name="may-2020---build-conference"></a>Maggio 2020 - Conferenza Build
 
-Le funzionalità seguenti sono disponibili in **anteprima pubblica**:
+Le funzionalità seguenti sono disponibili in **anteprima pubblica** :
 
  * [Modalità apprendista](concept-apprentice-mode.md) come comportamento di apprendimento.
 
@@ -62,5 +62,5 @@ In occasione della conferenza Build 2019 sono state rilasciate le funzionalità 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Avvio rapido: Creare un ciclo di feedback in C#](csharp-quickstart-commandline-feedback-loop.md)
+* [Avvio rapido: Creare un ciclo di feedback in C#](./quickstart-personalizer-sdk.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Usare la demo interattiva](https://personalizationdemo.azurewebsites.net/)

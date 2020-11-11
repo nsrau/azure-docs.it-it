@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: d88d613b6edfc6b08d08410cdc7cf481d973512d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9ca92bf81acd72260d89404051f941b317ee3e1d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91348219"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363392"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Avvio rapido: Creare una risorsa di Servizi cognitivi con un modello di Resource Manager
 
@@ -45,7 +45,7 @@ Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json":::
 
 Nel modello è definita una risorsa di Azure:
-* [Microsoft.CognitiveServices/accounts](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts): crea una risorsa di Servizi cognitivi.
+* [Microsoft.CognitiveServices/accounts](/azure/templates/microsoft.cognitiveservices/accounts): crea una risorsa di Servizi cognitivi.
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
@@ -60,7 +60,7 @@ Nel modello è definita una risorsa di Azure:
     |valore  |Descrizione  |
     |---------|---------|
     | **Sottoscrizione** | Selezionare una sottoscrizione di Azure. |
-    | **Gruppo di risorse** | Selezionare **Crea nuovo**, immettere un nome univoco per il gruppo di risorse e quindi fare clic su **OK**. |
+    | **Gruppo di risorse** | Selezionare **Crea nuovo** , immettere un nome univoco per il gruppo di risorse e quindi fare clic su **OK**. |
     | **Area** | Scegliere un'area,  ad esempio **Stati Uniti orientali 2** |
     | **Nome del servizio cognitivo** | Sostituire con un nome univoco per la risorsa. Il nome sarà necessario nella sezione successiva quando si convalida la distribuzione. |
     | **Posizione** | Sostituire con l'area usata in precedenza. |
@@ -73,9 +73,9 @@ Nel modello è definita una risorsa di Azure:
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/CLI)
 
 > [!NOTE]
-> `az deployment group` create richiede l'interfaccia della riga di comando di Azure 2.6 o versione successiva. Per visualizzare la versione, digitare `az --version`. Per altre informazioni, vedere la [documentazione](https://docs.microsoft.com/cli/azure/deployment/group).
+> `az deployment group` create richiede l'interfaccia della riga di comando di Azure 2.6 o versione successiva. Per visualizzare la versione, digitare `az --version`. Per altre informazioni, vedere la [documentazione](/cli/azure/deployment/group).
 
-Eseguire lo script seguente usando l'interfaccia della riga di comando di Azure [nel computer locale](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o in un browser con il pulsante **Prova**. Immettere un nome e una località, ad esempio `centralus`, per un nuovo gruppo di risorse in cui verrà distribuita una risorsa di Servizi cognitivi usando il modello di Resource Manager. Prendere nota del nome che si usa. Sarà necessario in seguito per convalidare la distribuzione.
+Eseguire lo script seguente usando l'interfaccia della riga di comando di Azure [nel computer locale](/cli/azure/install-azure-cli?view=azure-cli-latest) o in un browser con il pulsante **Prova**. Immettere un nome e una località, ad esempio `centralus`, per un nuovo gruppo di risorse in cui verrà distribuita una risorsa di Servizi cognitivi usando il modello di Resource Manager. Prendere nota del nome che si usa. Sarà necessario in seguito per convalidare la distribuzione.
 
 
 ```azurecli-interactive
@@ -140,6 +140,6 @@ az group delete --name $resourceGroupName
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Autenticare le richieste a Servizi cognitivi di Azure](authentication.md)
-* [Che cos'è la ricerca cognitiva di Azure?](Welcome.md)
+* [Che cos'è la ricerca cognitiva di Azure?](./what-are-cognitive-services.md)
 * [Supporto del linguaggio naturale](language-support.md)
 * [Supporto di contenitori Docker](cognitive-services-container-support.md)

@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1c7587a4434a84c6934179393baa5ae684f9b1fd
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: cef5aaae58797e38745b3f5164c171581a005562
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116698"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371919"
 ---
 Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è stato progettato per l'inclusività e implementa tecniche comprovate per migliorare la comprensione della lettura per nuovi lettori, studenti di lingue e persone con differenze di apprendimento, come la dislessia. È possibile usare lo strumento di lettura immersiva nelle applicazioni per isolare il testo stimolare l'attenzione, visualizzare immagini per le parole di uso comune, evidenziare parti del discorso, leggere il testo selezionato ad alta voce, tradurre parole e frasi in tempo reale e altro ancora.
 
@@ -42,7 +42,7 @@ Creare un nuovo progetto in Visual Studio usando il modello di applicazione Web 
 
 ### <a name="configure-authentication-values"></a>Configurare i valori di autenticazione
 
-Fare clic con il pulsante destro del mouse sul progetto in _Esplora soluzioni_ e scegliere **Gestisci segreti utente** . Verrà visualizzato un file denominato _secrets.json_ . Il file non viene archiviato nel controllo del codice sorgente. Fare clic [qui](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true) per altre informazioni. Sostituire il contenuto del file _secrets.json_ con il seguente, specificando i valori forniti durante la creazione della risorsa dello strumento di lettura immersiva.
+Fare clic con il pulsante destro del mouse sul progetto in _Esplora soluzioni_ e scegliere **Gestisci segreti utente**. Verrà visualizzato un file denominato _secrets.json_. Il file non viene archiviato nel controllo del codice sorgente. Fare clic [qui](/aspnet/core/security/app-secrets?preserve-view=true&tabs=windows&view=aspnetcore-3.1) per altre informazioni. Sostituire il contenuto del file _secrets.json_ con il seguente, specificando i valori forniti durante la creazione della risorsa dello strumento di lettura immersiva.
 
 ```json
 {
@@ -71,7 +71,7 @@ Aprire _Controllers\HomeController.cs_ e aggiungere il codice seguente dopo le i
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-A questo punto, il controller verrà configurato per ottenere i valori Azure AD da _secrets.json_ . Nella parte superiore della classe _HomeController_ , dopo ```public class HomeController : Controller {```, aggiungere il codice seguente.
+A questo punto, il controller verrà configurato per ottenere i valori Azure AD da _secrets.json_. Nella parte superiore della classe _HomeController_ , dopo ```public class HomeController : Controller {```, aggiungere il codice seguente.
 
 ```csharp
 private readonly string TenantId;     // Azure subscription TenantId
@@ -142,7 +142,7 @@ public async Task<JsonResult> GetTokenAndSubdomain()
 ```
 
 ## <a name="add-sample-content"></a>Aggiungere contenuto di esempio
-Aprire prima di tutto _Views\Shared\Layout.cshtml_ . Aggiungere il codice seguente prima della riga ```</head>```:
+Aprire prima di tutto _Views\Shared\Layout.cshtml_. Aggiungere il codice seguente prima della riga ```</head>```:
 
 ```html
 @RenderSection("Styles", required: false)
@@ -218,7 +218,7 @@ Si noti che tutto il testo ha un attributo **lang** , che ne descrive le lingue.
 
 ## <a name="add-javascript-to-handle-launching-immersive-reader"></a>Aggiungere codice JavaScript per gestire l'avvio dello strumento di lettura immersiva
 
-La libreria dello strumento di lettura immersiva fornisce funzionalità come l'avvio dello strumento e la visualizzazione dei relativi pulsanti. Fare clic [qui](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference) per altre informazioni.
+La libreria dello strumento di lettura immersiva fornisce funzionalità come l'avvio dello strumento e la visualizzazione dei relativi pulsanti. Fare clic [qui](../../reference.md) per altre informazioni.
 
 Aggiungere il codice seguente alla fine di _Views\Home\Index.cshtml_ :
 

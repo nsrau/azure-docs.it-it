@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: f24c9c372ff91db5836a62ac2d08b569434ff253
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 4fbac2c2d77d838ac7fc4f3caaa73983633c3e03
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761580"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366054"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Guida introduttiva: Creare, distribuire e usare un modello personalizzato per la traduzione
 
@@ -22,14 +22,14 @@ Questo articolo contiene istruzioni dettagliate per creare un sistema di traduzi
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
-1. Per accedere al portale [Custom Translator](https://portal.customtranslator.azure.ai) è necessario un [account Microsoft](https://signup.live.com) o un [account di Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (account aziendale ospitato su Azure).
+1. Per accedere al portale [Custom Translator](https://portal.customtranslator.azure.ai) è necessario un [account Microsoft](https://signup.live.com) o un [account di Azure AD](../../../active-directory/fundamentals/active-directory-whatis.md) (account aziendale ospitato su Azure).
 
-2. Una sottoscrizione all'API Traduzione testuale tramite il portale di Azure. Per l'associazione all'area di lavoro in Custom Translator è necessaria la chiave di sottoscrizione dell'API Traduzione testuale. Vedere [come registrarsi all'API Traduzione testuale](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. Una sottoscrizione all'API Traduzione testuale tramite il portale di Azure. Per l'associazione all'area di lavoro in Custom Translator è necessaria la chiave di sottoscrizione dell'API Traduzione testuale. Vedere [come registrarsi all'API Traduzione testuale](../translator-how-to-signup.md).
 
 3. Una volta soddisfatti entrambi i prerequisiti, accedere al portale di [Traduttore personalizzato](https://portal.customtranslator.azure.ai) per creare aree di lavoro e progetti, caricare file, nonché creare e distribuire modelli.
 
 >[!Note]
->Traduttore personalizzato non supporta la creazione di un'area di lavoro per la risorsa API Traduzione testuale creata all'interno della [rete virtuale abilitata](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
+>Traduttore personalizzato non supporta la creazione di un'area di lavoro per la risorsa API Traduzione testuale creata all'interno della [rete virtuale abilitata](../../../api-management/api-management-using-with-vnet.md).
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
 
@@ -92,7 +92,7 @@ Per scambiare un modello distribuito con un altro all'interno di un progetto, fa
 
 ## <a name="use-a-deployed-model"></a>Usare un modello distribuito
 
-I modelli distribuiti sono accessibili tramite l'[API Traduzione testuale V3 di Microsoft specificando il CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Altre informazioni sull'API Traduzione testuale sono disponibili nella pagina Web [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference).
+I modelli distribuiti sono accessibili tramite l'[API Traduzione testuale V3 di Microsoft specificando il CategoryID](../reference/v3-0-translate.md?tabs=curl). Altre informazioni sull'API Traduzione testuale sono disponibili nella pagina Web [Informazioni di riferimento sulle API](../reference/v3-0-reference.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,18 +12,18 @@ ms.date: 11/02/2020
 ms.author: aahi
 keywords: text mining, analisi del sentiment, analisi del testo
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: d58c501af3d90fec1eea43d13fa2383c8e847f18
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 6d10161609abda321ed1be9dfda0acabf2030c9e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289694"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365296"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Informazioni sull'API Analisi del testo
 
 L'API Analisi del testo è un servizio basato su cloud che offre funzionalità di elaborazione del linguaggio naturale per text mining e analisi del testo e include analisi del sentiment, opinion mining, estrazione di frasi chiave, rilevamento della lingua e riconoscimento dell'entità denominata.
 
-L'API fa parte di [Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/), una raccolta di algoritmi di Machine Learning e intelligenza artificiale disponibili nel cloud per i progetti di sviluppo. È possibile usare queste funzionalità con l'[API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) o la [libreria client](quickstarts/text-analytics-sdk.md).
+L'API fa parte di [Servizi cognitivi di Azure](../index.yml), una raccolta di algoritmi di Machine Learning e intelligenza artificiale disponibili nel cloud per i progetti di sviluppo. È possibile usare queste funzionalità con l'[API REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/) o la [libreria client](quickstarts/text-analytics-sdk.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
@@ -73,18 +73,18 @@ I dati non vengono archiviati nell'account. Le operazioni eseguite dall'API Anal
 
 * Programmazione minima richiesta:
     * [Estrarre informazioni in Excel usando Analisi del testo e Power Automate](tutorials/extract-excel-information.md)
-    * [Usare l'API Analisi del testo e Microsoft Flow per identificare il sentiment dei commenti in un gruppo Yammer](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Usare l'API Analisi del testo e Microsoft Flow per identificare il sentiment dei commenti in un gruppo Yammer](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?bc=%252f%252fazure%252fbread%252ftoc.json&toc=%252f%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json)
     * [Integrare Power BI con l'API Analisi del testo per analizzare il feedback del cliente](tutorials/tutorial-power-bi-key-phrases.md)
 * Esperienza di programmazione consigliata:
-    * [Analisi della valutazione sui dati in streaming con Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
-    * [Creare un'app Flask per tradurre testo, analizzare sentiment e sintetizzare la voce](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
+    * [Analisi della valutazione sui dati in streaming con Azure Databricks](/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?bc=%252f%252fazure%252fbread%252ftoc.json&toc=%252f%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json)
+    * [Creare un'app Flask per tradurre testo, analizzare sentiment e sintetizzare la voce](../translator/tutorial-build-flask-app-translation-synthesis.md?bc=%252f%252fazure%252fbread%252ftoc.json&toc=%252f%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json)
 
 
 <a name="supported-languages"></a>
 
 ## <a name="supported-languages"></a>Lingue supportate
 
-Questa sezione è stata spostata in un articolo separato per una migliore rintracciabilità. Per questo contenuto, vedere [Lingue supportate nell'API Analisi del testo](text-analytics-supported-languages.md).
+Questa sezione è stata spostata in un articolo separato per una migliore rintracciabilità. Per questo contenuto, vedere [Lingue supportate nell'API Analisi del testo](./language-support.md).
 
 <a name="data-limits"></a>
 
@@ -94,7 +94,7 @@ Tutti gli endpoint dell'API Analisi del testo accettano dati di testo non elabor
 
 ## <a name="unicode-encoding"></a>Codifica Unicode
 
-L'API Analisi del testo usa la codifica Unicode per la rappresentazione di testo e i calcoli del numero di caratteri. Le richieste possono essere inviate sia in UTF-8 che in UTF-16 senza differenze misurabili nel numero di caratteri. Gli elementi di codice Unicode vengono usati come euristica per la lunghezza dei caratteri e vengono considerati equivalenti ai fini dei limiti di dati dell'analisi del testo. Se si usa [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) per ottenere il numero di caratteri, si usa lo stesso metodo impiegato per misurare le dimensioni dei dati.
+L'API Analisi del testo usa la codifica Unicode per la rappresentazione di testo e i calcoli del numero di caratteri. Le richieste possono essere inviate sia in UTF-8 che in UTF-16 senza differenze misurabili nel numero di caratteri. Gli elementi di codice Unicode vengono usati come euristica per la lunghezza dei caratteri e vengono considerati equivalenti ai fini dei limiti di dati dell'analisi del testo. Se si usa [`StringInfo.LengthInTextElements`](/dotnet/api/system.globalization.stringinfo.lengthintextelements) per ottenere il numero di caratteri, si usa lo stesso metodo impiegato per misurare le dimensioni dei dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -104,6 +104,6 @@ L'API Analisi del testo usa la codifica Unicode per la rappresentazione di testo
 
 + Per informazioni sulle nuove versioni e funzionalità, vedere [Novità dell'API Analisi del testo](whats-new.md).
 
-+ Per approfondire i contenuti di questa [esercitazione sull'analisi del sentiment](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services), usare Azure Databricks.
++ Per approfondire i contenuti di questa [esercitazione sull'analisi del sentiment](/azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services), usare Azure Databricks.
 
 + Per un elenco di post di blog e video su come usare l'API Analisi del testo con altri strumenti e tecnologie, vedere la pagina [Contenuto esterno e della community](text-analytics-resource-external-community.md).

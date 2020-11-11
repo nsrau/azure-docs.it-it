@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-java
-ms.openlocfilehash: b73f5013fdbef34344ece672bacff90db9bac60b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dea46a07a7357be6079c52634be8ea2ff79cc8f3
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89051577"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369121"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Avvio rapido: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Java
 
@@ -94,7 +94,7 @@ Eseguire l'applicazione. Viene restituita una risposta con esito positivo in for
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sulle API REST](https://go.microsoft.com/fwlink/?linkid=2089907)
+> [Informazioni di riferimento sulle API REST](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 
 Per vedere come funziona l'API Riconoscimento input penna in un'app di input penna, esaminare le applicazioni di esempio seguenti in GitHub:

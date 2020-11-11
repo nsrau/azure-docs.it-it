@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizza esperienze, Personalizza esperienze di Azure, Machine Learning
-ms.openlocfilehash: ae17b799c2b222525db53d5bb8e0afdbbcf19975
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: f843e7bfa014ad8391e20efff83a3c21a9de11b9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777242"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363902"
 ---
 # <a name="what-is-personalizer"></a>Informazioni su Personalizza esperienze
 
@@ -29,16 +29,16 @@ Prima di iniziare, è possibile provare [Personalizza esperienze con questa demo
 
 ## <a name="how-does-personalizer-select-the-best-content-item"></a>In che modo Personalizza esperienze seleziona l'elemento di contenuto migliore?
 
-Personalizza esperienze usa l'**apprendimento per rinforzo** per selezionare l'elemento migliore (_azione_) in base al comportamento collettivo e ai punteggi di ricompensa in tutti gli utenti. Le azioni sono gli elementi di contenuto, ad esempio articoli di quotidiani, film specifici o prodotti.
+Personalizza esperienze usa l' **apprendimento per rinforzo** per selezionare l'elemento migliore ( _azione_ ) in base al comportamento collettivo e ai punteggi di ricompensa in tutti gli utenti. Le azioni sono gli elementi di contenuto, ad esempio articoli di quotidiani, film specifici o prodotti.
 
 La chiamata **Rank** acquisisce l'elemento azione, insieme alle relative caratteristiche, e le caratteristiche del contesto per selezionare l'elemento azione principale:
 
-* **Azioni con caratteristiche**: elementi di contenuto con caratteristiche specifiche di ognuno
-* **Caratteristiche del contesto**: caratteristiche degli utenti, del loro contesto o dell'ambiente quando usano l'app
+* **Azioni con caratteristiche** : elementi di contenuto con caratteristiche specifiche di ognuno
+* **Caratteristiche del contesto** : caratteristiche degli utenti, del loro contesto o dell'ambiente quando usano l'app
 
-La chiamata Rank restituisce l'ID dell'elemento di contenuto, ovvero l'__azione__, da mostrare all'utente, nel campo dell'**ID azione ricompensa**.
+La chiamata Rank restituisce l'ID dell'elemento di contenuto, ovvero l' __azione__ , da mostrare all'utente, nel campo dell' **ID azione ricompensa**.
 
-L'__azione__ mostrata all'utente viene scelta con modelli di Machine Learning, che provano a massimizzare la quantità totale di ricompense nel corso del tempo.
+L' __azione__ mostrata all'utente viene scelta con modelli di Machine Learning, che provano a massimizzare la quantità totale di ricompense nel corso del tempo.
 
 ### <a name="sample-scenarios"></a>Scenari di esempio
 
@@ -57,9 +57,9 @@ Personalizza esperienze usa l'apprendimento per rinforzo per selezionare la sing
 
 ## <a name="when-to-use-personalizer"></a>In quali situazioni usare Personalizza esperienze
 
-L'**API** [Classificazione](https://go.microsoft.com/fwlink/?linkid=2092082) di Personalizza esperienze viene chiamata ogni volta che l'applicazione presenta contenuto. Questo scenario è noto come **evento**, contrassegnato con un _ID evento_.
+L' **API** [Classificazione](https://go.microsoft.com/fwlink/?linkid=2092082) di Personalizza esperienze viene chiamata ogni volta che l'applicazione presenta contenuto. Questo scenario è noto come **evento** , contrassegnato con un _ID evento_.
 
-L'[API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) **Premio** di Personalizza esperienze può essere chiamata in tempo reale o ritardata in base ai requisiti dell'infrastruttura. Il punteggio di ricompensa viene determinato in base alle esigenze aziendali. Il valore è compreso tra 0 e 1. Può trattarsi di un valore singolo, ad esempio 1 per positivo e 0 per negativo, o di un numero prodotto da un algoritmo creato considerando gli obiettivi e le metriche aziendali.
+L' [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) **Premio** di Personalizza esperienze può essere chiamata in tempo reale o ritardata in base ai requisiti dell'infrastruttura. Il punteggio di ricompensa viene determinato in base alle esigenze aziendali. Il valore è compreso tra 0 e 1. Può trattarsi di un valore singolo, ad esempio 1 per positivo e 0 per negativo, o di un numero prodotto da un algoritmo creato considerando gli obiettivi e le metriche aziendali.
 
 ## <a name="content-requirements"></a>Requisiti per il contenuto
 
@@ -87,8 +87,8 @@ Poiché Personalizza esperienze usa informazioni collettive quasi in tempo reale
 
 1. Aggiungere Personalizza esperienze all'applicazione, al sito Web o al sistema:
     1. Aggiungere una chiamata **Rank** a Personalizza esperienze nell'applicazione, nel sito Web o nel sistema per determinare il singolo elemento di _contenuto_ migliore prima che il contenuto venga mostrato all'utente.
-    1. Mostrare all'utente il singolo elemento di _contenuto_ migliore, che corrisponde all'_ID azione ricompensa_ restituito.
-    1. Applicare la _logica aziendale_ alle informazioni raccolte sul comportamento passato dell'utente per determinare il punteggio di **ricompensa**, ad esempio:
+    1. Mostrare all'utente il singolo elemento di _contenuto_ migliore, che corrisponde all' _ID azione ricompensa_ restituito.
+    1. Applicare la _logica aziendale_ alle informazioni raccolte sul comportamento passato dell'utente per determinare il punteggio di **ricompensa** , ad esempio:
 
     |Comportamento|Punteggio di ricompensa calcolato|
     |--|--|
@@ -105,7 +105,7 @@ Poiché Personalizza esperienze usa informazioni collettive quasi in tempo reale
 
 Sono disponibili le guide di avvio rapido per C#, JavaScript e Python. Ognuna di esse è progettata per insegnare gli schemi progettuali di base e consentire all'utente di eseguire il codice in meno di 10 minuti. 
 
-* [Avvio rapido: Come usare la libreria client di Personalizza esperienze](sdk-learning-loop.md)
+* [Avvio rapido: Come usare la libreria client di Personalizza esperienze](./quickstart-personalizer-sdk.md)
 
 Una volta acquisita familiarità con il servizio Personalizza esperienze, è provare le esercitazioni e imparare a usare Personalizza esperienze in applicazioni Web, chatbot o notebook di Azure.
 
@@ -115,10 +115,10 @@ Una volta acquisita familiarità con il servizio Personalizza esperienze, è pro
 
 ## <a name="reference"></a>Informazioni di riferimento 
 
-* [Personalizer C#/.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
+* [Personalizer C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
 * [Personalizer Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer)
-* [Personalizer JavaScript SDK](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
-* [Personalizer Python SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
+* [Personalizer JavaScript SDK](/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
+* [Personalizer Python SDK](/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
 * [API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)
 
 ## <a name="next-steps"></a>Passaggi successivi
