@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/18/2020
+ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 325931ea024221bc89df3b2e25f3e7844130f4dc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 53628f5aa0bc5ab5dedde5deb9950c7b13fb4bf6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741072"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490747"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Risolvere i problemi relativi a RBAC di Azure
 
@@ -68,6 +68,7 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+- Se si tenta di rimuovere l'ultima assegnazione di ruolo proprietario per una sottoscrizione, è possibile che venga visualizzato l'errore "Impossibile eliminare l'ultima assegnazione amministratore RBAC". La rimozione dell'ultima assegnazione di ruolo proprietario per una sottoscrizione non è supportata per evitare l'isolamento della sottoscrizione. Se si vuole annullare la sottoscrizione, vedere [annullare la sottoscrizione di Azure](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ## <a name="problems-with-custom-roles"></a>Problemi con i ruoli personalizzati
 
@@ -120,7 +121,7 @@ Se di recente è stato invitato un utente durante la creazione di un'assegnazion
 
 Tuttavia, se questa entità di sicurezza non è un utente invitato recentemente, potrebbe trattarsi di un'entità di sicurezza eliminata. Se si assegna un ruolo a un'entità di sicurezza e successivamente si elimina tale entità di sicurezza senza prima rimuovere l'assegnazione di ruolo, l'entità di sicurezza sarà elencata come **identità non trovata** e un tipo **sconosciuto** .
 
-Se l'assegnazione di ruolo viene elencata utilizzando Azure PowerShell, è possibile che venga visualizzato un oggetto vuoto `DisplayName` e un `ObjectType` valore impostato su **Unknown** . [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) , ad esempio, restituisce un'assegnazione di ruolo simile all'output seguente:
+Se l'assegnazione di ruolo viene elencata utilizzando Azure PowerShell, è possibile che venga visualizzato un oggetto vuoto `DisplayName` e un `ObjectType` valore impostato su **Unknown**. [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) , ad esempio, restituisce un'assegnazione di ruolo simile all'output seguente:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -239,7 +240,7 @@ Se non è possibile accedere a nessuno di questi riquadri, richiedere all'ammini
 
 ## <a name="azure-functions-and-write-access"></a>Funzioni di Azure e accesso in scrittura
 
-Alcune funzionalità di [Funzioni di Azure](../azure-functions/functions-overview.md) richiedono l'accesso in scrittura. Ad esempio, se a un utente viene assegnato il ruolo [lettore](built-in-roles.md#reader) , non sarà in grado di visualizzare le funzioni all'interno di un'app per le funzioni. Sul portale verrà indicato **(Nessun accesso)** .
+Alcune funzionalità di [Funzioni di Azure](../azure-functions/functions-overview.md) richiedono l'accesso in scrittura. Ad esempio, se a un utente viene assegnato il ruolo [lettore](built-in-roles.md#reader) , non sarà in grado di visualizzare le funzioni all'interno di un'app per le funzioni. Sul portale verrà indicato **(Nessun accesso)**.
 
 ![Nessun accesso alle app per le funzioni](./media/troubleshooting/functionapps-noaccess.png)
 

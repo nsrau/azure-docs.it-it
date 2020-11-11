@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26f0006ad2b26757e335ba1819c2b82ba519f8cc
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89376639"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491444"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Trigger di archiviazione code di Azure per funzioni di Azure
 
@@ -19,7 +19,7 @@ Il trigger di archiviazione code esegue una funzione quando i messaggi vengono a
 
 ## <a name="encoding"></a>Codifica
 
-Le funzioni richiedono una stringa codificata *base64*. Le modifiche al tipo di codifica, per preparare i dati come una stringa con codifica *base64*, devono essere implementate nel servizio di chiamata.
+Le funzioni richiedono una stringa codificata *base64*. Le modifiche al tipo di codifica, per preparare i dati come una stringa con codifica *base64* , devono essere implementate nel servizio di chiamata.
 
 ## <a name="example"></a>Esempio
 
@@ -46,7 +46,7 @@ public static class QueueFunctions
 
 L'esempio seguente illustra un'associazione di trigger della coda in un file *function.json* e il codice [script C# (file con estensione csx)](functions-reference-csharp.md) che usa l'associazione. La funzione esegue il polling della coda `myqueue-items` e scrive un log a ogni elaborazione di un elemento della coda.
 
-Ecco il file *function.json*:
+Ecco il file *function.json* :
 
 ```json
 {
@@ -101,7 +101,7 @@ Nella sezione [usage](#usage) è illustrato `myQueueItem`, denominato dalla prop
 
 L'esempio seguente illustra un'associazione di trigger della coda in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione esegue il polling della coda `myqueue-items` e scrive un log a ogni elaborazione di un elemento della coda.
 
-Ecco il file *function.json*:
+Ecco il file *function.json* :
 
 ```json
 {
@@ -163,7 +163,7 @@ Un trigger della coda di archiviazione è definito infunction.jsin cui il *tipo*
 }
 ```
 
-Il codice * _ \_ init_ \_ . py* dichiara un parametro come `func.QueueMessage` , che consente di leggere il messaggio della coda nella funzione.
+Il codice *_\_ init_ \_ . py* dichiara un parametro come `func.QueueMessage` , che consente di leggere il messaggio della coda nella funzione.
 
 ```python
 import logging
@@ -375,7 +375,7 @@ Il trigger della coda fornisce diverse [proprietà di metadati](./functions-bind
 
 ## <a name="poison-messages"></a>Messaggi non elaborabili
 
-Quando una funzione di trigger della coda ha esito negativo, Funzioni di Azure ritenta l'esecuzione fino a cinque volte per un dato messaggio della coda, incluso il primo tentativo. Se tutti i cinque tentativi hanno esito negativo, il runtime di funzioni aggiunge un messaggio a una coda denominata * &lt; nomecodaoriginale>-Poison*. È possibile scrivere una funzione per elaborare i messaggi dalla coda non elaborabile archiviandoli o inviando una notifica della necessità di un intervento manuale.
+Quando una funzione di trigger della coda ha esito negativo, Funzioni di Azure ritenta l'esecuzione fino a cinque volte per un dato messaggio della coda, incluso il primo tentativo. Se tutti i cinque tentativi hanno esito negativo, il runtime di funzioni aggiunge un messaggio a una coda denominata *&lt; nomecodaoriginale>-Poison*. È possibile scrivere una funzione per elaborare i messaggi dalla coda non elaborabile archiviandoli o inviando una notifica della necessità di un intervento manuale.
 
 Per gestire manualmente i messaggi non elaborabili, controllare [dequeueCount](#message-metadata) nel messaggio della coda.
 
@@ -408,7 +408,7 @@ Il file [host.json](functions-host-json.md#queues) contiene le impostazioni che 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Scrivi messaggi di archiviazione BLOB (associazione di output)](./functions-bindings-storage-blob-output.md)
+- [Scrivi messaggi di archiviazione code (associazione di output)](./functions-bindings-storage-queue-output.md)
 
 <!-- LINKS -->
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: cdddbce3e9eb0a5c933ace186607186265197dc4
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f8e0d49c2a35a1e97c79e6d4b8c867a4a8ab88b3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123507"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491523"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informazioni sul monitoraggio dei processi di Analisi di flusso e su come monitorare le query
 
@@ -43,7 +43,7 @@ Verrà visualizzata la finestra mostrata di seguito:
 | Eventi non ordinati    | Numero di eventi non ordinati ricevuti che sono stati eliminati o a cui è stato assegnato un timestamp modificato, in base ai Criteri di ordinamento eventi. Può essere influenzato dalla configurazione dell'impostazione della Finestra di tolleranza elementi non in ordine. |
 | Eventi di output          | Quantità di dati inviata dal processo di Analisi di flusso alla destinazione di output, in termini di numero di eventi. |
 | Errori di runtime         | Numero totale di errori correlati all'elaborazione delle query (esclusi gli errori rilevati durante l'inserimento di eventi o l'output dei risultati) |
-| % utilizzo unità di streaming       | L'utilizzo delle unità di streaming assegnate a un processo dalla scheda Scalabilità del processo. Se questo indicatore raggiunge l'80% o più, esiste una forte probabilità che l'elaborazione di eventi possa essere ritardata o interrotta. |
+| % utilizzo unità di streaming       | Se l'utilizzo delle risorse è costantemente superiore al 80%, il ritardo della filigrana è in aumento e il numero di eventi backlog è in aumento, è consigliabile aumentare le unità di streaming. Un utilizzo elevato indica che il processo sta usando vicino al numero massimo di risorse allocate. |
 | Ritardo limite       | Il ritardo limite massimo in tutte le partizioni di tutti gli output del processo. |
 
 È possibile usare queste metriche per [monitorare le prestazioni del processo di Analisi di flusso](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 

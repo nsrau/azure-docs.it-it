@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: a52f10c7081875113a0ad22bd687776e71d238e2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: ad5e91a6dcdb61e09a64e61a27f12148ec28168e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460802"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490577"
 ---
 # <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Origini dati di Log Analytics Agent in monitoraggio di Azure
 I dati raccolti da monitoraggio di Azure dalle macchine virtuali con l'agente di [log Analytics](log-analytics-agent.md) vengono definiti dalle origini dati configurate nell' [area di lavoro log Analytics](data-platform-logs.md).   Ogni origine dati crea record di un tipo specifico in cui ogni tipo ha un proprio set di proprietà.
@@ -20,6 +20,9 @@ I dati raccolti da monitoraggio di Azure dalle macchine virtuali con l'agente di
 > Questo articolo illustra le origini dati per l' [agente di log Analytics](log-analytics-agent.md) , che è uno degli agenti usati da monitoraggio di Azure. Altri agenti raccolgono dati diversi e sono configurati in modo diverso. Per un elenco degli agenti disponibili e dei dati che è possibile raccogliere, vedere [Panoramica degli agenti di monitoraggio di Azure](agents-overview.md) .
 
 ![Raccolta dati di log](media/agent-data-sources/overview.png)
+
+> [!IMPORTANT]
+> Le origini dati descritte in questo articolo si applicano solo alle macchine virtuali che eseguono l'agente di Log Analytics. 
 
 ## <a name="summary-of-data-sources"></a>Riepilogo delle origini dati
 Nella tabella seguente sono elencate le origini dati di Agent attualmente disponibili con l'agente di Log Analytics.  Ogni origine dati ha un collegamento a un articolo distinto che fornisce informazioni dettagliate.   Sono inoltre disponibili informazioni sul metodo e la frequenza della raccolta. 

@@ -4,15 +4,15 @@ description: Ottenere risposte a domande frequenti su Azure Marketplace e Micros
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: a5c5d7ae4dbf1126d171c78bbd4e353f11402260
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e72acb532a33d0b3751bb8ad5051b1a3df4d7514
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126720"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491478"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Domande comuni sul Marketplace commerciale Microsoft
 
@@ -58,10 +58,10 @@ Per iscriversi come editori del marketplace commerciale, passare al [Centro per 
 
 Il modo in cui i clienti interagiscono con le offerte nel marketplace commerciale dipende da come tali offerte sono state create.
 
-- Per le soluzioni che vengono fornite automaticamente, che siano a pagamento, di tipo Bring Your Own License (BYOL) o gratuite, i clienti visualizzano l'azione *Scarica ora* .
-- Per le offerte che supportano una demo (test drive) viene richiesto al cliente di eseguire il comando *Test Drive* . 
-- Offerte SaaS (software as a Service) che forniscono una versione di valutazione all'esterno del Marketplace commerciale, ad esempio *versione di valutazione gratuita* .
-- Per le inserzioni semplici il cliente può selezionare il pulsante *Desidero essere contattato* .
+- Per le soluzioni che vengono fornite automaticamente, che siano a pagamento, di tipo Bring Your Own License (BYOL) o gratuite, i clienti visualizzano l'azione *Scarica ora*.
+- Per le offerte che supportano una demo (test drive) viene richiesto al cliente di eseguire il comando *Test Drive*. 
+- Offerte SaaS (software as a Service) che forniscono una versione di valutazione all'esterno del Marketplace commerciale, ad esempio *versione di valutazione gratuita*.
+- Per le inserzioni semplici il cliente può selezionare il pulsante *Desidero essere contattato*.
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>In che modo è possibile creare offerte per il marketplace commerciale?
 

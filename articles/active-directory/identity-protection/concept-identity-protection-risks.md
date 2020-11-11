@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 11/09/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87239e361b518a85cf30352374e7a9b5e530928e
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 32d9683012a5900569740080d61ac21b464a5cd4
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042622"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490611"
 ---
 # <a name="what-is-risk"></a>Che cosa sono i rischi?
 
@@ -24,14 +24,14 @@ I rilevamenti dei rischi in Azure AD Identity Protection includono eventuali azi
 
 Identity Protection consente alle organizzazioni di accedere a risorse potenti per visualizzare e rispondere rapidamente a tali azioni sospette. 
 
->**Nota:** Identity Protection genera rilevamenti dei rischi solo quando vengono usate le credenziali corrette. Se in un accesso vengono usate credenziali non corrette, questo non rappresenta il rischio di compromissione delle credenziali.
-
 ![Panoramica della sicurezza che Mostra utenti e accessi a rischio](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
 
+> [!NOTE]
+> Identity Protection genera rilevamenti dei rischi solo quando vengono usate le credenziali corrette. Se in un accesso vengono usate credenziali non corrette, questo non rappresenta il rischio di compromissione delle credenziali.
 
 ## <a name="risk-types-and-detection"></a>Tipi di rischio e rilevamento
 
-Esistono due tipi di **utente** di rischio e di **accesso** e due tipi di rilevamento o calcolo in **tempo reale** e **offline** .
+Esistono due tipi di **utente** di rischio e di **accesso** e due tipi di rilevamento o calcolo in **tempo reale** e **offline**.
 
 I rilevamenti in tempo reale potrebbero non essere visualizzati nella creazione di report da cinque a dieci minuti. I rilevamenti offline potrebbero non essere visualizzati nella creazione di report per due o ventiquattro ore.
 
@@ -77,6 +77,10 @@ Questi rischi possono essere calcolati in tempo reale o calcolati offline usando
 Identity Protection classifica il rischio in tre livelli: basso, medio e alto. 
 
 Microsoft non fornisce dettagli specifici sul modo in cui viene calcolato il rischio, ma ogni livello comporta una maggiore probabilità che l'utente o l'accesso sia compromesso. Ad esempio, un'istanza di proprietà di accesso insolite per un utente potrebbe non essere pericolosa quanto le credenziali perse per un altro utente.
+
+### <a name="password-hash-synchronization"></a>Sincronizzazione dell'hash delle password
+
+I rilevamenti dei rischi, ad esempio le credenziali perse e lo spray per la password, richiedono la presenza di hash delle password per il rilevamento. Per ulteriori informazioni sulla sincronizzazione degli hash delle password, vedere l'articolo [implementare la sincronizzazione dell'hash delle password con Azure ad Connect Sync](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ### <a name="leaked-credentials"></a>Credenziali perse
 

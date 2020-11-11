@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: edd79d08d18e95d27e557a26f0adc36868097bb3
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: f034cd07b481f9d72cb3f753b30e1779bf672ac2
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900269"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491937"
 ---
 # <a name="azure-spring-cloud-faq"></a>Domande frequenti su Azure Spring cloud
 
@@ -73,9 +73,9 @@ Azure Spring Cloud supporta Java 8 e 11. Vedere [le versioni del runtime e del s
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Dove è possibile visualizzare i log e le metriche dell'applicazione Spring cloud?
 
-Le metriche sono disponibili nella scheda di panoramica dell'app e nella scheda [Monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics).
+Le metriche sono disponibili nella scheda di panoramica dell'app e nella scheda [Monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md#metrics-explorer).
 
-Il cloud Spring di Azure supporta l'esportazione di metriche e log applicazioni di Spring cloud in archiviazione di Azure, EventHub e [log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). Il nome della tabella in Log Analytics è *AppPlatformLogsforSpring* . Per informazioni su come abilitarla, vedere [servizi di diagnostica](diagnostic-services.md).
+Il cloud Spring di Azure supporta l'esportazione di metriche e log applicazioni di Spring cloud in archiviazione di Azure, EventHub e [log Analytics](../azure-monitor/platform/data-platform-logs.md). Il nome della tabella in Log Analytics è *AppPlatformLogsforSpring*. Per informazioni su come abilitarla, vedere [servizi di diagnostica](diagnostic-services.md).
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure Spring Cloud supporta la traccia distribuita?
 

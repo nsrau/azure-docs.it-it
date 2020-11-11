@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 0d7839b11e48e3e260f4d6b1323d1831e28222de
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421864"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491648"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
 
@@ -108,6 +108,8 @@ Se si vuole che un volume usi i criteri di snapshot, è necessario [applicare il
 
 Se si vuole che un volume usi un criterio snapshot creato, è necessario applicare il criterio al volume. 
 
+Non è possibile applicare un criterio snapshot a un volume di destinazione nella replica tra aree.  
+
 1.  Andare alla pagina **volumi** , fare clic con il pulsante destro del mouse sul volume a cui si desidera applicare i criteri di snapshot e scegliere **modifica**.
 
     ![Menu di scelta rapida dei volumi](../media/azure-netapp-files/volume-right-cick-menu.png) 
@@ -172,6 +174,8 @@ Se non si vuole [ripristinare l'intero snapshot in un volume](#restore-a-snapsho
 Il volume montato contiene una directory snapshot denominata  `.snapshot` (nei client NFS) o `~snapshot` (nei client SMB) accessibile al client. La directory snapshot contiene sottodirectory corrispondenti agli snapshot del volume. Ogni sottodirectory contiene i file dello snapshot. Se si elimina o sovrascrive accidentalmente un file, è possibile ripristinare il file nella directory padre di lettura/scrittura copiando il file da una sottodirectory snapshot alla directory di lettura/scrittura. 
 
 Se è stata selezionata la casella di controllo Nascondi percorso snapshot al momento della creazione del volume, la directory snapshot viene nascosta. È possibile visualizzare lo stato Nascondi percorso snapshot del volume selezionando il volume. È possibile modificare l'opzione Nascondi percorso snapshot facendo clic su **modifica** nella pagina del volume.  
+
+Per un volume di destinazione nella replica tra aree, Nascondi percorso snapshot è abilitato per impostazione predefinita e l'impostazione non può essere modificata.
 
 ![Modifica opzioni snapshot del volume](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
 

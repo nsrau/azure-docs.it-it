@@ -2,13 +2,13 @@
 title: Pulsante Deploy to Azure per la distribuzione in Azure
 description: Usare il pulsante per distribuire modelli di Azure Resource Manager da un repository GitHub.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 62a0a8b0336d9a7fcf00efb172775b9606bcef98
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/10/2020
+ms.openlocfilehash: 7d002508f6b2402f8cff40fb0369896080ecbbad
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675387"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490900"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usare un pulsante di distribuzione per distribuire i modelli dal repository GitHub
 
@@ -35,7 +35,7 @@ L'immagine viene visualizzata come segue:
 
 ## <a name="create-url-for-deploying-template"></a>Crea URL per la distribuzione del modello
 
-Per creare l'URL per il modello, iniziare con l'URL non elaborato del modello nel repository. Per visualizzare l'URL non elaborato, selezionare **RAW** .
+Per creare l'URL per il modello, iniziare con l'URL non elaborato del modello nel repository. Per visualizzare l'URL non elaborato, selezionare **RAW**.
 
 :::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="Seleziona RAW":::
 
@@ -71,6 +71,14 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 Si dispone dell'URL completo per il collegamento.
 
+Se si usa [git con Azure Repos](/azure/devops/repos/git/) invece di un repository GitHub, è comunque possibile usare il pulsante Distribuisci in Azure. Verificare che il repository sia pubblico. Usare l' [operazione Items](/rest/api/azure/devops/git/items/get) per ottenere il modello. La richiesta deve avere il formato seguente:
+
+```http
+https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
+```
+
+Codificare questo URL della richiesta.
+
 ## <a name="create-deploy-to-azure-button"></a>Pulsante Crea Deploy to Azure
 
 Infine, inserire il collegamento e l'immagine insieme.
@@ -87,6 +95,12 @@ Per HTML, usare:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
   <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
+```
+
+Per git con repository di Azure, il pulsante è nel formato:
+
+```markdown
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%252Freponame%252Fazuredeploy.json%26api-version%3D6.0)
 ```
 
 ## <a name="deploy-the-template"></a>Distribuire il modello

@@ -4,21 +4,21 @@ description: Guida dettagliata e elenchi di controllo di pubblicazione per la pu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/04/2020
-ms.openlocfilehash: 68b11c672d362e7af7dfc01e2679d035d9e1e4c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b500a87613dee094c63e71fc76fb751d72aa049
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484817"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491155"
 ---
 # <a name="offer-publishing-guide-for-microsoft-365-dynamics-365-power-apps-and-power-bi"></a>Guida alla pubblicazione dell'offerta per Microsoft 365, Dynamics 365, Power Apps e Power BI
 
 Microsoft AppSource include offerte che compilano o estendono Microsoft 365, Dynamics 365, Power Apps e Power BI. Ognuno di questi prodotti presenta una documentazione specifica per la Guida all'utente nel processo di pubblicazione. 
 
-AppSource ha pagato, elencare e *ottenere*le offerte di valutazione, con le opzioni di inserzione, *contattami*e *Provalo subito*.
+AppSource ha pagato, elencare e *ottenere* le offerte di valutazione, con le opzioni di inserzione, *contattami* e *Provalo subito*.
 
 ## <a name="product-specific-guides"></a>Guide specifiche del prodotto
 

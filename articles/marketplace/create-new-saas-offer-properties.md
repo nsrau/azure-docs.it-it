@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 4dd592cb1b0037e2e1054bb24d987d4456f15e2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d90c9b9b2c9aa97083e17d5ab7d20fc6b471658
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380977"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492124"
 ---
 # <a name="how-to-configure-your-saas-offer-properties"></a>Come configurare le proprietà dell'offerta SaaS
 
@@ -23,16 +23,16 @@ Nella scheda **Proprietà** è possibile definire le categorie e i settori appli
 
 ## <a name="select-a-category-for-your-offer"></a>Selezionare una categoria per l'offerta
 
-In **categoria**selezionare almeno una delle due categorie per raggruppare l'offerta nelle aree di ricerca del Marketplace appropriate. In base alle categorie selezionate, vengono determinati i negozi online in cui elencare l'offerta, ovvero Azure Marketplace, Microsoft AppSource o entrambi.
+In **categoria** selezionare almeno una delle due categorie per raggruppare l'offerta nelle aree di ricerca del Marketplace appropriate. In base alle categorie selezionate, vengono determinati i negozi online in cui elencare l'offerta, ovvero Azure Marketplace, Microsoft AppSource o entrambi.
 
 ## <a name="select-industries-optional"></a>Seleziona settori (facoltativo)
 
-In **settori**, è possibile selezionare fino a due settori e fino a due sottosettori (detti anche Verticals) per ogni settore. Questi settori vengono usati per visualizzare l'offerta quando i clienti filtrano la ricerca in settori e sottosettori nel negozio online.
+In **settori** , è possibile selezionare fino a due settori e fino a due sottosettori (detti anche Verticals) per ogni settore. Questi settori vengono usati per visualizzare l'offerta quando i clienti filtrano la ricerca in settori e sottosettori nel negozio online.
 
 > [!NOTE]
 > Se l'offerta non è specifica di un settore, lasciare vuota questa sezione.
 
-1. In **Industries**selezionare il collegamento **+ Industries** .
+1. In **Industries** selezionare il collegamento **+ Industries** .
 1. Selezionare un settore dall'elenco **settore** .
 1. Selezionare almeno uno e un massimo di due verticali nell'elenco di **sottosettori** . Usare il tasto CTRL per selezionare più sottosettori.
 1. Per aggiungere un altro settore e verticale, selezionare **+ industrie** , quindi ripetere i passaggi da 1 a 3.
@@ -43,7 +43,7 @@ In **settori**, è possibile selezionare fino a due settori e fino a due sottose
 
 ## <a name="provide-terms-and-conditions"></a>Specificare i termini e le condizioni
 
-In **Legal**specificare i termini e le condizioni per l'offerta. Sono disponibili due opzioni:
+In **Legal** specificare i termini e le condizioni per l'offerta. Sono disponibili due opzioni:
 
 - [Usare il contratto standard con le modifiche facoltative](#use-the-standard-contract)
 - [Usare termini e condizioni personalizzati](#use-your-own-terms-and-conditions)
@@ -73,7 +73,7 @@ Nei **termini dell'emendamento universale per il contratto standard per il Marke
 
 #### <a name="add-one-or-more-custom-amendments"></a>Aggiungere una o più modifiche personalizzate
 
-1. In conformità **alle modifiche personalizzate apportate al contratto standard per il Marketplace commerciale di Microsoft**, selezionare il collegamento **Aggiungi termini di modifica personalizzata (max 10)** .
+1. In conformità **alle modifiche personalizzate apportate al contratto standard per il Marketplace commerciale di Microsoft** , selezionare il collegamento **Aggiungi termini di modifica personalizzata (max 10)** .
 1. Nella casella **condizioni di modifica personalizzate** immettere le condizioni per la modifica.
 1. Nella casella **ID tenant** immettere un ID tenant. Solo i clienti associati agli ID tenant specificati per questi termini personalizzati li visualizzeranno nel flusso di acquisto dell'offerta nel portale di Azure.
    > [!TIP]
@@ -87,12 +87,8 @@ Nei **termini dell'emendamento universale per il contratto standard per il Marke
 
 È possibile scegliere di specificare i termini e le condizioni, anziché il contratto standard. I clienti devono accettare questi termini prima di poter provare l'offerta.
 
-1. In **Legal**, assicurarsi che la casella di controllo **USA contratto standard per il Marketplace commerciale di Microsoft** sia deselezionata.
+1. In **Legal** , assicurarsi che la casella di controllo **USA contratto standard per il Marketplace commerciale di Microsoft** sia deselezionata.
 1. Nella casella **termini e condizioni** immettere fino a 10.000 caratteri di testo.
-
-   > [!NOTE]
-   > Se è necessaria una descrizione più lunga, immettere un singolo indirizzo Web che punti alla posizione in cui si trovano i termini e le condizioni. che verrà visualizzato dai clienti come collegamento attivo.
-
 1. Selezionare **Salva bozza** prima di continuare con la scheda successiva, **elenco offerte**.
 
 ## <a name="next-steps"></a>Passaggi successivi

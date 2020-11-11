@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 2036505dea134a59e7dc0c75a030175b15dac0b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 066e9cf6c63c9f2073ba869e8b40e25bfc993cd8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031943"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491376"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Ambito e intervallo di tempo delle query su log in Log Analytics di Monitoraggio di Azure
 Quando si esegue una [query su log](log-query-overview.md) in [Log Analytics nel portale di Azure](get-started-portal.md), il set di dati valutato dalla query dipende dall'ambito e dall'intervallo di tempo selezionati. Questo articolo descrive l'ambito e l'intervallo di tempo e spiega come impostarli in base alle esigenze. Illustra anche il comportamento dei diversi tipi di ambiti.
@@ -51,9 +51,7 @@ Non è possibile usare i comandi seguenti in una query se l'ambito è una risors
 - [workspace](workspace-expression.md)
  
 
-## <a name="query-limits"></a>Limiti delle query
-La scrittura di dati relativi a una risorsa di Azure in più aree di lavoro Log Analytics può essere soggetta a requisiti aziendali. L'area di lavoro non deve trovarsi nella stessa area della risorsa e una singola area di lavoro può raccogliere dati di risorse in numerose aree.  
-
+## <a name="query-scope-limits"></a>Limiti dell'ambito della query
 L'impostazione dell'ambito su una risorsa o su un set di risorse è una funzionalità particolarmente efficace di Log Analytics perché consente di consolidare automaticamente i dati distribuiti in un'unica query. Questo comportamento può influire significativamente sulle prestazioni, anche se i dati devono essere recuperati da aree di lavoro in più aree di Azure.
 
 Log Analytics consente di evitare il sovraccarico eccessivo generato da query che interessano aree di lavoro in più aree perché restituisce un avviso o un errore quando si usa un determinato numero di aree. La query riceverà un avviso se l'ambito include aree di lavoro in cinque o più aree. Verrà comunque eseguita, ma il completamento richiederà moltissimo tempo.
@@ -66,28 +64,24 @@ L'esecuzione della query verrà bloccata se l'ambito include aree di lavoro in 2
 
 
 ## <a name="time-range"></a>Intervallo di tempo
-L'intervallo di tempo consente di specificare il set di record che vengono valutati per la query in base alla data e all'ora di creazione del record. Questa operazione viene definita da una colonna standard in ogni record nell'area di lavoro o nell'applicazione come specificato nella tabella seguente.
+L'intervallo di tempo consente di specificare il set di record che vengono valutati per la query in base alla data e all'ora di creazione del record. Questa operazione viene definita dalla colonna **TimeGenerated** in ogni record nell'area di lavoro o nell'applicazione come specificato nella tabella seguente. Per un'applicazione di Application Insights classica, la colonna **timestamp** viene utilizzata per l'intervallo di tempo.
 
-| Location | Colonna |
-|:---|:---|
-| Area di lavoro Log Analytics          | TimeGenerated |
-| Applicazione di Application Insights | timestamp     |
 
 Per impostare l'intervallo di tempo, selezionarlo dal controllo di selezione di data e ora nella parte superiore della finestra di Log Analytics.  È possibile selezionare un periodo predefinito oppure selezionare **Personalizzato** per indicare un intervallo di tempo specifico.
 
 ![Controllo di selezione di data e ora](media/scope/time-picker.png)
 
-Se si imposta un filtro nella query che utilizza la colonna ora solare come illustrato nella tabella precedente, il selettore di ora cambia in **imposta in query**e il selettore ora è disabilitato. In questo caso, risulta più efficace inserire il filtro all'inizio della query in modo che qualsiasi operazione di elaborazione successiva venga eseguita solo sui record filtrati.
+Se si imposta un filtro nella query che utilizza la colonna ora solare come illustrato nella tabella precedente, il selettore di ora cambia in **imposta in query** e il selettore ora è disabilitato. In questo caso, risulta più efficace inserire il filtro all'inizio della query in modo che qualsiasi operazione di elaborazione successiva venga eseguita solo sui record filtrati.
 
 ![Query filtrata](media/scope/query-filtered.png)
 
-Se si usa il comando [workspace](workspace-expression.md) o [app](app-expression.md) per recuperare i dati di un'altra applicazione o area di lavoro, il controllo di selezione di data e ora potrebbe comportarsi in modo diverso. Se l'ambito è un'area di lavoro Log Analytics e si usa l' **app**o se l'ambito è un'applicazione Application Insights e si usa l' **area di lavoro**, log Analytics potrebbe non comprendere che la colonna utilizzata nel filtro deve determinare il filtro temporale.
+Se si usa l' [area di lavoro](workspace-expression.md) o il comando [app](app-expression.md) per recuperare dati da un'altra area di lavoro o un'applicazione classica, il selettore temporale può comportarsi in modo Se l'ambito è un'area di lavoro Log Analytics e si usa l' **app** o se l'ambito è un'applicazione di Application Insights classica e si usa l' **area di lavoro** , log Analytics potrebbe non comprendere che la colonna utilizzata nel filtro deve determinare il filtro temporale.
 
 Nell'esempio seguente l'ambito è impostato su un'area di lavoro Log Analytics.  La query usa **workspace** per recuperare i dati di un'altra area di lavoro Log Analytics. Il selettore di ora cambia **in set in query** perché vede un filtro che usa la colonna **TimeGenerated** prevista.
 
 ![Query con workspace](media/scope/query-workspace.png)
 
-Se la query usa l' **app** per recuperare i dati da un'applicazione Application Insights, tuttavia, log Analytics non riconosce la colonna **timestamp** nel filtro e il selettore di tempo rimane invariato. In questo caso vengono applicati entrambi i filtri. Nella query dell'esempio vengono inclusi solo i record creati nelle ultime 24 ore, anche se la clausola **where** è impostata su 7 giorni.
+Se la query usa l' **app** per recuperare i dati da un'applicazione Application Insights classica, tuttavia, log Analytics non riconosce la colonna **timestamp** nel filtro e il selettore di tempo rimane invariato. In questo caso vengono applicati entrambi i filtri. Nella query dell'esempio vengono inclusi solo i record creati nelle ultime 24 ore, anche se la clausola **where** è impostata su 7 giorni.
 
 ![Query con app](media/scope/query-app.png)
 

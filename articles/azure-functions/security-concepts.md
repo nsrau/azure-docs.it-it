@@ -3,12 +3,12 @@ title: Protezione di Funzioni di Azure
 description: Informazioni su come proteggere l'esecuzione del codice funzione in Azure dagli attacchi comuni.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: cd97193fdf6549e667578e36f0be9104e4381d30
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ee54ff8c1efaee00999888891e6de255060aa416
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102307"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491325"
 ---
 # <a name="securing-azure-functions"></a>Protezione di Funzioni di Azure
 
@@ -28,7 +28,7 @@ Il Centro sicurezza si integra con l'app per le funzioni nel portale. Offre grat
 
 ### <a name="log-and-monitor"></a>Log e monitoraggio
 
-Una modalità per rilevare gli attacchi consiste nell'eseguire attività di monitoraggio e registrare i dati di analisi. Funzioni si integra con Application Insights per raccogliere i dati di log, prestazioni ed errori per l'app per le funzioni. Application Insights, oltre a rilevare automaticamente le anomalie nelle prestazioni, include strumenti di analisi avanzati che consentono di diagnosticare i problemi e capire come vengono usate le funzioni. Per altre informazioni, vedere [Monitorare Funzioni di Azure](functions-monitoring.md).
+Un modo per rilevare gli attacchi consiste nell'attività di monitoraggio delle attività e nell'analisi della registrazione. Funzioni si integra con Application Insights per raccogliere i dati di log, prestazioni ed errori per l'app per le funzioni. Application Insights, oltre a rilevare automaticamente le anomalie nelle prestazioni, include strumenti di analisi avanzati che consentono di diagnosticare i problemi e capire come vengono usate le funzioni. Per altre informazioni, vedere [Monitorare Funzioni di Azure](functions-monitoring.md).
 
 Funzioni si integra anche con i log di Monitoraggio di Azure per consentire all'utente di consolidare i log delle app per le funzioni con gli eventi del sistema e semplificare l'analisi. È possibile usare le impostazioni di diagnostica per configurare l'esportazione di streaming dei log e delle metriche della piattaforma per le funzioni nella destinazione scelta, ad esempio un'area di lavoro Log Analytics. Per altre informazioni, vedere [Monitoraggio di Funzioni di Azure con i log di Monitoraggio di Azure](functions-monitor-log-analytics.md). 
 
@@ -76,11 +76,11 @@ Per altre informazioni sulle chiavi di accesso, vedere l'[articolo sull'associaz
 
 Per impostazione predefinita, le chiavi vengono archiviate in un contenitore di archiviazione BLOB nell'account fornito dall' `AzureWebJobsStorage` impostazione. È possibile usare impostazioni specifiche dell'applicazione per eseguire l'override di questo comportamento e archiviare le chiavi in un percorso diverso.
 
-|Location  |Impostazione | Valore | Description  |
+|Location  |Impostazione | Valore | Descrizione  |
 |---------|---------|---------|---------|
 |Account di archiviazione diverso     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Archivia le chiavi nell'archiviazione BLOB di un secondo account di archiviazione, in base all'URL SAS fornito. Le chiavi vengono crittografate prima di essere archiviate usando un segreto univoco per l'app per le funzioni. |
 |File system   | `AzureWebJobsSecretStorageType`   |  `files`       | Le chiavi vengono salvate in modo permanente nella file system, crittografate prima dell'archiviazione usando un segreto univoco per l'app per le funzioni. |
-|Insieme di credenziali chiave di Azure  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | L'insieme di credenziali deve disporre di un criterio di accesso corrispondente all'identità gestita assegnata dal sistema della risorsa di hosting. I criteri di accesso devono concedere all'identità le autorizzazioni segrete seguenti: `Get` ,, `Set` `List` e `Delete` . <br/>Quando viene eseguito in locale, viene usata l'identità dello sviluppatore e le impostazioni devono trovarsi nella [local.settings.jssu file](functions-run-local.md#local-settings-file). | 
+|Azure Key Vault  | `AzureWebJobsSecretStorageType`<br/>`AzureWebJobsSecretStorageKeyVaultName` | `keyvault`<br/>`<VAULT_NAME>` | L'insieme di credenziali deve disporre di un criterio di accesso corrispondente all'identità gestita assegnata dal sistema della risorsa di hosting. I criteri di accesso devono concedere all'identità le autorizzazioni segrete seguenti: `Get` ,, `Set` `List` e `Delete` . <br/>Quando viene eseguito in locale, viene usata l'identità dello sviluppatore e le impostazioni devono trovarsi nella [local.settings.jssu file](functions-run-local.md#local-settings-file). | 
 |Segreti di Kubernetes  |`AzureWebJobsSecretStorageType`<br/>`AzureWebJobsKubernetesSecretName` (facoltativo) | `kubernetes`<br/>`<SECRETS_RESOURCE>` | Supportato solo quando si esegue il runtime di funzioni in Kubernetes. Quando `AzureWebJobsKubernetesSecretName` non è impostato, il repository viene considerato di sola lettura. In questo caso, i valori devono essere generati prima della distribuzione. Il Azure Functions Core Tools genera automaticamente i valori durante la distribuzione in Kubernetes.|
 
 ### <a name="authenticationauthorization"></a>Autenticazione/autorizzazione

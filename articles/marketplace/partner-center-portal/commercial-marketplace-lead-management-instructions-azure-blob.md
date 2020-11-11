@@ -4,15 +4,15 @@ description: Informazioni su come usare BLOB di Azure per configurare i clienti 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 05/01/2020
-ms.openlocfilehash: dea9c0eec275c6a0596636c8625e52b8978bb9a6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: bd2f3d40b1aea1c0133f95e069ebfd527d30bd59
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130545"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491104"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Usare Archiviazione BLOB di Azure per gestire i clienti potenziali del marketplace commerciale
 
@@ -32,7 +32,7 @@ ms.locfileid: "93130545"
 
 3. Nel portale di Azure creare un account di archiviazione seguendo questa procedura.  
     1. Selezionare **+Crea una risorsa** nella barra del menu a sinistra.  Il riquadro (pannello) **Nuovo** verrà visualizzato a destra.
-    2. Selezionare **Archiviazione** nel riquadro **Nuovo** .  Verrà visualizzato l'elenco **In primo piano** a destra.
+    2. Selezionare **Archiviazione** nel riquadro **Nuovo**.  Verrà visualizzato l'elenco **In primo piano** a destra.
     3. Selezionare **Account di archiviazione** per iniziare la creazione dell'account.  Seguire le istruzioni riportate nell'articolo [Creare un account di archiviazione](../../storage/common/storage-account-create.md?tabs=azure-portal).
 
     ![Procedura di creazione di un account di archiviazione di Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
@@ -53,11 +53,11 @@ ms.locfileid: "93130545"
 
     ![Screenshot che mostra la pagina "chiavi di accesso" con la casella di testo "stringa di connessione" evidenziata.](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
-6. Dalla pagina dell'account di archiviazione selezionare **BLOB** .
+6. Dalla pagina dell'account di archiviazione selezionare **BLOB**.
 
    ![Screenshot della pagina dell'account di archiviazione di Azure con i BLOB selezionati](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
-7. Nella pagina BLOB selezionare il pulsante **+ Contenitore** .
+7. Nella pagina BLOB selezionare il pulsante **+ Contenitore**.
 
 8. Digitare un **nome** per il nuovo contenitore. Il nome del contenitore deve essere composto da lettere minuscole, deve iniziare con una lettera o un numero e può contenere solo lettere, numeri e trattino (-). Per altre informazioni sui nomi di contenitori e BLOB, vedere [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Denominazione e riferimento a contenitori, BLOB e metadati).
 
@@ -74,7 +74,7 @@ ms.locfileid: "93130545"
 Quando si è pronti a configurare le informazioni di gestione dei clienti potenziali per l'offerta nel portale di pubblicazione, seguire questa procedura:
 
 1. Andare alla pagina **Configurazione dell'offerta** relativa all'offerta.
-2. Nella sezione **Customer leads** (Clienti potenziali) selezionare **Connetti** .
+2. Nella sezione **Customer leads** (Clienti potenziali) selezionare **Connetti**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Clienti potenziali":::
 
@@ -87,7 +87,7 @@ Quando si è pronti a configurare le informazioni di gestione dei clienti potenz
     * Esempio di nome del contenitore: `marketplaceleadcontainer`
     * Esempio di stringa di connessione dell'account di archiviazione: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![Dettagli connessione](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
-5. Selezionare **Salva** .
+5. Selezionare **Salva**.
 
     > [!NOTE]
     > È necessario completare la configurazione del resto dell'offerta e pubblicarla prima di poter ricevere i clienti potenziali per l'offerta.

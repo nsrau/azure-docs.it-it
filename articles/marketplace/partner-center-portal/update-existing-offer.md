@@ -4,16 +4,16 @@ description: Come apportare aggiornamenti a un'offerta o a un piano commerciale 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 10/27/2020
 ms.custom: contperfq2
-ms.openlocfilehash: 376852c214d503867cd938507760e963b9b75e93
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3d96973d4d1e37ae3fee21eb70e3e32a45867f0c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129984"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491954"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Aggiornare le offerte esistenti nel Marketplace commerciale
 
@@ -25,7 +25,7 @@ Usare questi passaggi per aggiornare un'offerta pubblicata correttamente in ante
 
 1. Selezionare il nome dell'offerta che si desidera aggiornare. Lo stato dell'offerta può essere elencato come **Anteprima** , in **tempo reale** , **pubblicazione in corso** , **bozza** , **attenzione necessaria** o **non disponibile** (se si è scelto in precedenza di interrompere la vendita dell'offerta). Una volta selezionata, viene visualizzata la pagina di **Panoramica dell'offerta** per l'offerta.
 1. Selezionare la pagina offerta che si desidera aggiornare, ad esempio **Proprietà** , **elenco offerte** o **Anteprima** (oppure selezionare **Aggiorna** dalla scheda applicabile nella pagina Panoramica dell' **offerta** ).
-1. Apportare le modifiche e selezionare **Salva bozza** . Ripetere questo processo fino a quando non vengono completate tutte le modifiche.
+1. Apportare le modifiche e selezionare **Salva bozza**. Ripetere questo processo fino a quando non vengono completate tutte le modifiche.
 1. Esaminare le modifiche nella pagina **[Confronta](#compare-changes-to-your-offer)** .
 1. Quando si è pronti per pubblicare l'offerta aggiornata, selezionare **revisione e pubblicazione** da qualsiasi pagina. Viene visualizzata la pagina **revisione e pubblicazione** . In questa pagina verrà visualizzato lo stato di completamento per le sezioni dell'offerta aggiornata: 
     - **Modifiche non pubblicate** : la sezione è stata aggiornata ed è stata completata. Sono stati forniti tutti i dati necessari e non sono stati introdotti errori negli aggiornamenti.
@@ -39,8 +39,8 @@ Usare questi passaggi per aggiornare un'offerta pubblicata correttamente in ante
 
 Completare questi passaggi per aggiungere un nuovo piano a un'offerta che è già stata pubblicata.
 
-1. Con la pagina della **Panoramica** dell'offerta esistente aperta, passare alla pagina **Panoramica del piano** e quindi selezionare **Crea nuovo piano** .
-1. Creare un nuovo piano in base alle [linee guida](../plans-pricing.md) utilizzando il **modello di prezzi dei piani esistenti** .
+1. Con la pagina della **Panoramica** dell'offerta esistente aperta, passare alla pagina **Panoramica del piano** e quindi selezionare **Crea nuovo piano**.
+1. Creare un nuovo piano in base alle [linee guida](../plans-pricing.md) utilizzando il **modello di prezzi dei piani esistenti**.
 1. Selezionare **Salva bozza** dopo aver modificato il nome del piano.
 1. Selezionare **pubblica** quando si è pronti per pubblicare gli aggiornamenti. Viene visualizzata la pagina **[revisione e pubblicazione](../review-publish-offer.md)** in cui è disponibile lo stato di completamento degli aggiornamenti.
 
@@ -48,8 +48,8 @@ Completare questi passaggi per aggiungere un nuovo piano a un'offerta che è gi�
 
 Completare questi passaggi per apportare modifiche a un piano per un'offerta già pubblicata.
 
-1. Con la pagina **Panoramica** dell'offerta aperta, scegliere il piano che si desidera modificare. Se il piano non è accessibile dall'elenco **panoramica piano** , selezionare **Visualizza tutti i piani** .
-1. Selezionare il **nome** del piano, il **modello di determinazione dei prezzi** o la **disponibilità** . *Attualmente i piani sono disponibili solo in inglese (Stati Uniti)* .
+1. Con la pagina **Panoramica** dell'offerta aperta, scegliere il piano che si desidera modificare. Se il piano non è accessibile dall'elenco **panoramica piano** , selezionare **Visualizza tutti i piani**.
+1. Selezionare il **nome** del piano, il **modello di determinazione dei prezzi** o la **disponibilità**. *Attualmente i piani sono disponibili solo in inglese (Stati Uniti)*.
 1. Selezionare **Salva bozza** dopo avere apportato modifiche al nome, alla descrizione o alla disponibilità dei destinatari del piano.
 1. Selezionare **Verifica e pubblica** quando si è pronti per pubblicare gli aggiornamenti. Viene visualizzata la pagina **[revisione e pubblicazione](../review-publish-offer.md)** in cui è disponibile lo stato di completamento degli aggiornamenti.
 1. Selezionare **pubblica** per inviare il piano aggiornato per la pubblicazione. Ti invieremo un messaggio di posta elettronica quando sarà disponibile una versione di anteprima dell'offerta aggiornata che potrai esaminare e approvare.
@@ -58,19 +58,19 @@ Completare questi passaggi per apportare modifiche a un piano per un'offerta gi�
 
 Dopo la pubblicazione di un piano di macchina virtuale, il relativo prezzo non può essere modificato. Per offrire lo stesso piano a un prezzo diverso, è necessario nascondere il piano e crearne uno nuovo con il prezzo aggiornato. Prima di tutto, Nascondi il piano con il prezzo che vuoi modificare:
 
-1. Con la pagina **Panoramica** dell'offerta aperta, scegliere il piano che si desidera modificare. Se il piano non è accessibile dall'elenco **panoramica piano** , selezionare **Visualizza tutti i piani** .
+1. Con la pagina **Panoramica** dell'offerta aperta, scegliere il piano che si desidera modificare. Se il piano non è accessibile dall'elenco **panoramica piano** , selezionare **Visualizza tutti i piani**.
 1. Selezionare la casella di controllo **Nascondi piano** . Salvare la bozza prima di continuare.
 
 Ora che è stato nascosto il piano con il prezzo precedente, creare una copia del piano con il prezzo aggiornato:
 
-1. Nel centro per i partner tornare alla **Panoramica del piano** .
-2. Selezionare **Crea nuovo piano** . Immettere un **ID piano** e un **nome piano** , quindi selezionare **Crea** .
+1. Nel centro per i partner tornare alla **Panoramica del piano**.
+2. Selezionare **Crea nuovo piano**. Immettere un **ID piano** e un **nome piano** , quindi selezionare **Crea**.
 1. Per riutilizzare la configurazione tecnica dal piano nascosto, selezionare la casella di controllo **Riutilizza configurazione tecnica** . Per altre informazioni, vedere [creare piani per un'offerta di macchina virtuale](../azure-vm-create-plans.md) .
     > [!IMPORTANT]
     > Se si seleziona **questo piano riutilizza la configurazione tecnica da un altro piano** , non sarà più possibile smettere di vendere il piano padre in un secondo momento. Non usare questa opzione se si vuole interrompere la vendita del piano padre.
 3. Completare tutte le sezioni necessarie per il nuovo piano, incluso il nuovo prezzo.
-1. Selezionare **Salva bozza** .
-1. Dopo aver completato tutte le sezioni necessarie per il nuovo piano, selezionare **revisione e pubblicazione** . Questa operazione invierà l'offerta per la revisione e la pubblicazione. Per informazioni dettagliate, leggere [la recensione e pubblicare un'offerta nel Marketplace commerciale](../review-publish-offer.md) .
+1. Selezionare **Salva bozza**.
+1. Dopo aver completato tutte le sezioni necessarie per il nuovo piano, selezionare **revisione e pubblicazione**. Questa operazione invierà l'offerta per la revisione e la pubblicazione. Per informazioni dettagliate, leggere [la recensione e pubblicare un'offerta nel Marketplace commerciale](../review-publish-offer.md) .
 
 ## <a name="sync-private-plan-audiences"></a>Sincronizzare i destinatari del piano privato
 
@@ -116,7 +116,7 @@ Ricordarsi di ripubblicare l'offerta dopo avere apportato aggiornamenti per rend
 Se sono presenti modifiche in anteprima che non sono attive, è possibile confrontare le nuove modifiche con l'offerta di anteprima del Marketplace.
 
 1. Selezionare **Confronta** nella barra dei comandi della pagina.
-2. Selezionare l'elenco **a discesa con** e modificare l'offerta dall' **offerta Live** all' **Anteprima** . Se l'offerta non è ancora attiva, non verrà visualizzata l'opzione **offerta in tempo reale** .
+2. Selezionare l'elenco **a discesa con** e modificare l'offerta dall' **offerta Live** all' **Anteprima**. Se l'offerta non è ancora attiva, non verrà visualizzata l'opzione **offerta in tempo reale** .
 3. La pagina **Confronta** fornisce versioni affiancate che mostrano le modifiche.
 
 Ricordarsi di ripubblicare l'offerta dopo avere apportato aggiornamenti per rendere effettive le modifiche.

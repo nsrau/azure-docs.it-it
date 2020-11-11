@@ -1,5 +1,5 @@
 ---
-title: Output di Analisi di flusso di Azure in Database SQL di Azure
+title: Aumentare le prestazioni della velocità effettiva del database SQL di Azure da analisi di flusso di Azure
 description: Maggiori informazioni sull'output dei dati in SQL Azure da Analisi di flusso di Azure e su come ottenere una elevata velocità effettiva di scrittura.
 author: chetanmsft
 ms.author: chetang
@@ -7,14 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 362c16a87e5a24c35b3aa637171b6a3f77aa62a6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: a902cbc8256e249a608a5da8436a1145ddb0d565
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346333"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490934"
 ---
-# <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Output di Analisi di flusso di Azure in Database SQL di Azure
+# <a name="increase-throughput-performance-to-azure-sql-database-from-azure-stream-analytics"></a>Aumentare le prestazioni della velocità effettiva del database SQL di Azure da analisi di flusso di Azure
 
 Questo articolo illustra i suggerimenti per ottenere migliori prestazioni della velocità effettiva di scrittura quando si caricano dati nel database SQL di Azure tramite analisi di flusso di Azure.
 

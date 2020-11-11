@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 0a5c788b4429b5048a1b94fa8adfb2d9367982da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0591825bf187648293d5aabc88597b19ab2436e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033473"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491053"
 ---
 # <a name="deploy-azure-monitor"></a>Distribuire Monitoraggio di Azure
 L'abilitazione di monitoraggio di Azure per monitorare tutte le risorse di Azure è una combinazione di configurazione dei componenti di monitoraggio di Azure e configurazione delle risorse di Azure per generare dati di monitoraggio per la raccolta di monitoraggio di Azure. Questo articolo descrive i diversi passaggi necessari per un'implementazione completa di monitoraggio di Azure con una configurazione comune per monitorare tutte le risorse nella sottoscrizione di Azure. Le descrizioni di base per ogni passaggio sono fornite con collegamenti ad altra documentazione per informazioni dettagliate sui requisiti di configurazione.
@@ -118,7 +118,7 @@ Per informazioni dettagliate sull'installazione e la configurazione di questi ag
 Monitoraggio di Azure monitora le applicazioni personalizzate usando [Application Insights](app/app-insights-overview.md), che è necessario configurare per ogni applicazione che si vuole monitorare. Il processo di configurazione può variare a seconda del tipo di applicazione monitorato e del tipo di monitoraggio che si desidera eseguire. I dati raccolti da Application Insights vengono archiviati nelle metriche di monitoraggio di Azure, nei log di monitoraggio di Azure e nell'archiviazione BLOB di Azure, a seconda della funzionalità. I dati sulle prestazioni vengono archiviati sia nelle metriche di monitoraggio di Azure che nei log di monitoraggio di Azure, senza che sia necessaria alcuna configurazione aggiuntiva.
 
 ### <a name="create-an-application-resource"></a>Creare una risorsa dell'applicazione
-È necessario creare una risorsa in Application Insights per ogni applicazione che si intende monitorare. I dati di log raccolti da Application Insights vengono archiviati nei log di monitoraggio di Azure per un'applicazione basata sull'area di lavoro. I dati di log per le applicazioni classiche vengono archiviati separatamente dall'area di lavoro Log Analytics come descritto in [struttura dei dati](platform/data-platform-logs.md#structure-of-data).
+È necessario creare una risorsa in Application Insights per ogni applicazione che si intende monitorare. I dati di log raccolti da Application Insights vengono archiviati nei log di monitoraggio di Azure per un'applicazione basata sull'area di lavoro. I dati di log per le applicazioni classiche vengono archiviati separatamente dall'area di lavoro Log Analytics come descritto in [struttura dei dati](platform/data-platform-logs.md#data-structure).
 
  Quando si crea l'applicazione, è necessario scegliere se usare il modello classico o quello basato su area di lavoro. Per creare un'applicazione classica, vedere [creare una risorsa Application Insights](app/create-new-resource.md) . Per creare un'applicazione basata su area di lavoro, vedere [risorse Application Insights basate sull'area di lavoro (anteprima)](app/create-workspace-resource.md) .
 

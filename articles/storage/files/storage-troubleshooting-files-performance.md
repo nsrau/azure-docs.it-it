@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 9dfdbbd982503acc063ff88c74dfccde8677eaac
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 4d21bfa69022cbebdcbf80c3bee4aec76bf99c53
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380233"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491121"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Risolvere i problemi relativi alle prestazioni File di Azure
 
@@ -111,7 +111,7 @@ Mancanza di supporto per i lease di directory.
 
 - Se possibile, evitare un handle di apertura/chiusura eccessivo nella stessa directory entro un breve periodo di tempo.
 - Per le macchine virtuali Linux, aumentare il timeout della cache voce di directory specificando **actimeo = \<sec>** come opzione di montaggio. Per impostazione predefinita, si tratta di un secondo, quindi un valore maggiore, ad esempio tre o cinque, potrebbe essere utile.
-- Per le macchine virtuali Linux, aggiornare il kernel a 4,20 o versione successiva.
+- Per le VM RHEL/CentOS, aggiornare il sistema a RHEL/CentOS 8,2. Per altre macchine virtuali Linux, aggiornare il kernel a 5,0 o versione successiva.
 
 ## <a name="low-iops-on-centosrhel"></a>IOPS Bassi su CentOS/RHEL
 
@@ -157,7 +157,7 @@ I carichi di lavoro che si basano sulla creazione di un numero elevato di file n
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-- Nessuno.
+- No.
 
 ## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Rallentamento delle prestazioni da Windows 8.1 o Server 2012 R2
 

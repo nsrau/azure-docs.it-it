@@ -6,12 +6,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-ms.openlocfilehash: 7fa49583c17c198642d4ad6d72a0faa19dcfe659
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bb07e650c99f18cfecbc7b7674e0ca0e5a01dae
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323329"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491461"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Binding di output del servizio SignalR per funzioni di Azure
 
@@ -47,7 +47,7 @@ public static Task SendMessage(
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco i dati di associazione nel file *function.json* :
 
 Function.json di esempio:
 
@@ -82,7 +82,7 @@ public static Task Run(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco i dati di associazione nel file *function.json* :
 
 Function.json di esempio:
 
@@ -109,14 +109,14 @@ module.exports = async function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco i dati di associazione nel file *function.json* :
 
 Function.json di esempio:
 
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -126,9 +126,9 @@ Function.json di esempio:
 Ecco il codice Python:
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         'target': 'newMessage',
         'arguments': [ message ]
     }))
@@ -241,14 +241,14 @@ module.exports = async function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco i dati di associazione nel file *function.json* :
 
 Function.json di esempio:
 
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -258,9 +258,9 @@ Function.json di esempio:
 Ecco il codice Python:
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         #message will only be sent to this user ID
         'userId': 'userId1',
         'target': 'newMessage',
@@ -376,14 +376,14 @@ module.exports = async function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco i dati di associazione nel file *function.json* :
 
 Function.json di esempio:
 
 ```json
 {
   "type": "signalR",
-  "name": "out_message",
+  "name": "outMessage",
   "hubName": "<hub_name>",
   "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
   "direction": "out"
@@ -393,9 +393,9 @@ Function.json di esempio:
 Ecco il codice Python:
 
 ```python
-def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     message = req.get_json()
-    out_message.set(json.dumps({
+    outMessage.set(json.dumps({
         #message will only be sent to this group
         'groupName': 'myGroup',
         'target': 'newMessage',

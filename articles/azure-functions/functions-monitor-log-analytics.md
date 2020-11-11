@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 51c611b2565ae0a5a054a45f0aedcb039351b46b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 582dafba40012e9ff9c59bc09adb1a0831e999f5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208368"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491223"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitoraggio di funzioni di Azure con i log di monitoraggio di Azure
 
@@ -22,23 +22,23 @@ I log di monitoraggio di Azure offrono la possibilità di consolidare i log da d
 Monitoraggio di Azure usa una versione del [linguaggio di query Kusto](/azure/kusto/query/), usato da Esplora dati di Azure e adatto a query semplici nei log, ma che include anche funzionalità avanzate come le aggregazioni, i join e le analisi intelligenti. È possibile apprendere rapidamente il linguaggio di query usando le [numerose lezioni](../azure-monitor/log-query/get-started-queries.md) disponibili.
 
 > [!NOTE]
-> L'integrazione con i log di monitoraggio di Azure è attualmente disponibile in anteprima pubblica per le app per le funzioni in esecuzione in Windows, Premium e piani di hosting dedicati.
+> L'integrazione con i log di monitoraggio di Azure è attualmente disponibile in anteprima pubblica per le app per le funzioni V2 e V3 in esecuzione nei piani di hosting a consumo, Premium e dedicato di Windows.
 
 ## <a name="setting-up"></a>Configurazione
 
-1. Dalla sezione **monitoraggio** dell'app per le funzioni nella [portale di Azure](https://portal.azure.com)selezionare impostazioni di **diagnostica**e quindi selezionare Aggiungi impostazioni di **diagnostica**.
+1. Dalla sezione **monitoraggio** dell'app per le funzioni nella [portale di Azure](https://portal.azure.com)selezionare impostazioni di **diagnostica** e quindi selezionare Aggiungi impostazioni di **diagnostica**.
 
    :::image type="content" source="media/functions-monitor-log-analytics/diagnostic-settings-add.png" alt-text="Selezionare le impostazioni di diagnostica":::
 
-1. Nella pagina **impostazioni di diagnostica** , in **Dettagli categoria** e **log**, scegliere **FunctionAppLogs**.
+1. Nella pagina **impostazioni di diagnostica** , in **Dettagli categoria** e **log** , scegliere **FunctionAppLogs**.
 
    La tabella **FunctionAppLogs** contiene i log desiderati.
 
-1. In **Dettagli destinazione**scegliere **Invia a log Analytics**e quindi selezionare l'area di **lavoro log Analytics**. 
+1. In **Dettagli destinazione** scegliere **Invia a log Analytics** e quindi selezionare l'area di **lavoro log Analytics**. 
 
-1. Immettere un **nome per le impostazioni di diagnostica**e quindi fare clic su **Salva**.
+1. Immettere un **nome per le impostazioni di diagnostica** e quindi fare clic su **Salva**.
 
-   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Selezionare le impostazioni di diagnostica":::
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Aggiungere un'impostazione di diagnostica":::
 
 ## <a name="user-generated-logs"></a>Log generati dall'utente
 
@@ -89,7 +89,7 @@ Per eseguire una query sui log generati:
 
    Funzioni di Azure scrive tutti i log nella tabella **FunctionAppLogs** in **LogManagement**. 
 
-   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Selezionare le impostazioni di diagnostica":::
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Finestra query nell'area di lavoro Log Analytics":::
 
 Ecco alcune query di esempio:
 

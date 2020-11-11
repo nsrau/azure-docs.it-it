@@ -4,15 +4,15 @@ description: Informazioni sulle procedure consigliate per la presentazione go-to
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 07/06/2020
-ms.openlocfilehash: 33198f95ef0309cada6f5f11c809811f23d7f826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ea6a0035a9f9354be5c14699936c6a07dea1150
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708646"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492090"
 ---
 # <a name="offer-listing-best-practices"></a>Procedure consigliate per le inserzioni di offerte
 
@@ -35,16 +35,16 @@ Le categorie e i settori per un negozio online diverso saranno applicabili ai di
 | Archivio online | Categorie <br>per archivio online | Categorie <br>per archivio online | Settori <br> per AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
 | **Tipo di offerta**   |  **Azure Marketplace**  | **AppSource**  |
-| App Azure | X | |
-| Contenitore | X | |
-| Servizi di consulenza | | | X |
+| App Azure | x | |
+| Contenitore | x | |
+| Servizi di consulenza | | | x |
 | Dynamics 365 Customer Engagement & Power Platform | | X | X |
 | Gestione della supply chain & di Dynamics 365 Finance | | X | X | 
 | Dynamics 365 Business Central | | X | X |
-| Moduli IoT Edge | X | |
+| Moduli IoT Edge | x | |
 | Power BI | | X | X |
 | SaaS | X | X | X |
-| Macchina virtuale di Azure |  X |    |
+| Macchina virtuale di Azure |  x |    |
 
 ### <a name="categories"></a>Categorie
 
@@ -74,7 +74,7 @@ Per informazioni dettagliate sul modo in cui le funzionalità di transazione pos
 |  |  |  | X | X |  |  |  | X |
 |  |  |  | X |  | X |  | X<sup>1</sup> | X<sup>1</sup> |
 |  |  |  | X |  |  | X | X<sup>1</sup> | X<sup>1, 2</sup> |
-|  |  | X |  |  |  |  | x<sup>1</sup> | X<sup>1</sup> | 
+|  |  | x |  |  |  |  | x<sup>1</sup> | X<sup>1</sup> | 
 
 1. A seconda della categoria/sottocategoria e della selezione del settore
 2. Le offerte con piani privati verranno pubblicate nel portale di Azure
@@ -130,8 +130,8 @@ Le parole chiave consentono ai clienti di trovare l'offerta durante la ricerca. 
 ## <a name="link-to-your-offer-page-from-your-website"></a>Creare un collegamento alla pagina dell'offerta dal sito Web
 
 Quando si effettua il collegamento dalla notifica di AppSource o Azure Marketplace nel sito all'inserzione nel Marketplace commerciale, è possibile supportare l'analisi avanzata e la creazione di report includendo i parametri di query seguenti alla fine dell'URL:
-* **src**: includere l'origine da cui il traffico viene instradato ad AppSource (ad esempio, sito Web, LinkedIn o Facebook).
-* **mktcmpid**: ID della campagna di marketing, che può contenere fino a 16 caratteri, costituiti da lettere, numeri, caratteri di sottolineatura e trattini (ad esempio, *blogpost_12*).
+* **src** : includere l'origine da cui il traffico viene instradato ad AppSource (ad esempio, sito Web, LinkedIn o Facebook).
+* **mktcmpid** : ID della campagna di marketing, che può contenere fino a 16 caratteri, costituiti da lettere, numeri, caratteri di sottolineatura e trattini (ad esempio, *blogpost_12* ).
 
 L'URL di esempio seguente contiene entrambi i parametri di query precedenti: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 

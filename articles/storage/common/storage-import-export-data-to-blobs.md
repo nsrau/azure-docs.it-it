@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 32187b7aedd43a57ffe77c2f8524c54049ba10ae
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: d23560e8ee387ca8bc9cb4bba4211f6c8272addd
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234121"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490883"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per trasferire dati in Archiviazione BLOB di Azure
 
@@ -34,7 +34,7 @@ Prima di creare un processo di importazione per trasferire dati in Archiviazione
 * Abilitare BitLocker nel sistema Windows. Vedere [How to enable BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/) (Come abilitare BitLocker).
 * [Scaricare la versione più recente di waimportexport versione 1](https://www.microsoft.com/download/details.aspx?id=42659) nel sistema Windows. La versione più recente dello strumento dispone di aggiornamenti della sicurezza per consentire una protezione esterna per la chiave BitLocker e la funzionalità aggiornata della modalità di sblocco.
 
-  * Decomprimere la cartella predefinita `waimportexportv1`. Ad esempio: `C:\WaImportExportV1`.
+  * Decomprimere la cartella predefinita `waimportexportv1`. Ad esempio, `C:\WaImportExportV1`
 * Avere un account FedEx o DHL. Se si vuole usare un vettore diverso da FedEx/DHL, contattare Azure Data Box team operativo all'indirizzo `adbops@microsoft.com` .
   * L'account deve essere valido, deve avere un saldo e deve avere le funzionalità di spedizione di ritorno.
   * Generare un numero di tracciabilità per il processo di esportazione.
@@ -71,7 +71,7 @@ Per preparare le unità, eseguire le operazioni seguenti.
 7. Per preparare il disco, eseguire il comando seguente. **A seconda delle dimensioni dei dati, l'operazione può richiedere da diverse ore a più giorni.**
 
     ```powershell
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
     ```
 
     Viene creato un file journal nella stessa cartella in cui è stato eseguito lo strumento. Vengono creati altri due file, un file *XML* (cartella in cui è stato eseguito lo strumento) e un file *drive-manifest.xml* (cartella in cui si trovano i dati).
@@ -84,7 +84,7 @@ Per preparare le unità, eseguire le operazioni seguenti.
     |/id:     |ID sessione. Usare un numero di sessione univoco per ogni istanza del comando.      |
     |/t:     |Lettera di unità del disco da spedire. Ad esempio, l'unità `D`.         |
     |/bk:     |Chiave di BitLocker per l'unità. La sua password numerica dall'output di `manage-bde -protectors -get D:`      |
-    |/srcdir:     |Lettera di unità del disco da spedire seguita da `:\`. Ad esempio: `D:\`.         |
+    |/srcdir:     |Lettera di unità del disco da spedire seguita da `:\`. Ad esempio, `D:\`         |
     |/dstdir:     |Nome del contenitore di destinazione in Archiviazione di Azure.         |
     |/BlobType     |Questa opzione specifica il tipo di BLOB in cui si vogliono importare i dati. Per i BLOB in blocchi, è `BlockBlob` e per i BLOB di pagine è `PageBlob` .         |
     |/skipwrite:     |Opzione che specifica che non sono presenti nuovi dati da copiare e che è necessario preparare i dati esistenti nel disco.          |
@@ -101,17 +101,17 @@ Per preparare le unità, eseguire le operazioni seguenti.
 Per creare un processo di importazione nel portale di Azure, eseguire le operazioni seguenti.
 
 1. Accedere all'indirizzo https://portal.azure.com/.
-2. Passare a **Tutti i servizi > Archiviazione > Processi di importazione/esportazione** .
+2. Passare a **Tutti i servizi > Archiviazione > Processi di importazione/esportazione**.
 
     ![Passare a Processi di importazione/esportazione](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. Fare clic su **Crea processo di importazione/esportazione** .
+3. Fare clic su **Crea processo di importazione/esportazione**.
 
     ![Fare clic su Crea processo di importazione/esportazione](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
 4. In **Nozioni di base** :
 
-   * Selezionare **Importa in Azure** .
+   * Selezionare **Importa in Azure**.
    * Immettere un nome descrittivo per il processo di importazione. Usare il nome per tenere traccia dello stato dei processi.
        * Il nome può contenere solo lettere minuscole, numeri e segni meno.
        * Il nome deve iniziare con una lettera e non può contenere spazi.

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 524b34c48146dc9e6102ed8d20ff8d1076706ba7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8e08c4c34495b58c105560dba9d818be9ebf5e34
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444963"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490968"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testare un processo di analisi di flusso di Azure nel portale
 
@@ -101,8 +101,8 @@ Invece di usare i dati dinamici, è possibile usare dati di esempio da un file l
 
 1.  Il criterio di ora non è supportato nel test del portale:
 
-   * Non ordinato: verranno ordinati tutti gli eventi in ingresso.
-   * Arrivo in ritardo: non ci sarà un evento di arrivo in ritardo perché analisi di flusso può usare solo i dati esistenti per il test.
+    * Non ordinato: verranno ordinati tutti gli eventi in ingresso.
+    * Arrivo in ritardo: non ci sarà un evento di arrivo in ritardo perché analisi di flusso può usare solo i dati esistenti per il test.
    
 2.  La funzione definita dall'utente C# non è supportata.
 
@@ -112,6 +112,7 @@ Invece di usare i dati dinamici, è possibile usare dati di esempio da un file l
 
 5.  Machine Learning non è supportato.
 
+6. L'API dati di esempio viene limitata dopo cinque richieste in un intervallo di 15 minuti. Al termine della finestra di 15 minuti, è possibile eseguire altre richieste di dati di esempio. Questa limitazione viene applicata a livello di sottoscrizione.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

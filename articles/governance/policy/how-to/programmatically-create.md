@@ -3,12 +3,12 @@ title: Creare criteri a livello di programmazione
 description: Questo articolo illustra la creazione e la gestione a livello di codice dei criteri per Criteri di Azure con l’interfaccia della riga di comando di Azure, Azure PowerShell e l’API REST.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 9b0c2e50536a847555dfa5cc6b9c823cfc1a4cfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bf2b1864331fd785ecdd70be4af79be01f1e5e0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047055"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491801"
 ---
 # <a name="programmatically-create-policies"></a>Creare criteri a livello di programmazione
 
@@ -92,7 +92,7 @@ Il primo passo per una migliore visibilità delle risorse consiste nel creare e 
 
    - Risorsa - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Gruppo di risorse - `/subscriptions/{subId}/resourceGroups/{rgName}`
-   - Sottoscrizione - `/subscriptions/{subId}/`
+   - Sottoscrizione - `/subscriptions/{subId}`
    - Gruppo di gestione - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Per altre informazioni sulla gestione dei criteri delle risorse usando il modulo Gestione risorse PowerShell, vedere [AZ. resources](/powershell/module/az.resources/#policies).

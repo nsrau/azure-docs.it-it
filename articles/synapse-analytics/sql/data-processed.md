@@ -1,6 +1,6 @@
 ---
-title: Dati elaborati tramite un pool SQL senza server
-description: Questo documento descrive il modo in cui viene calcolata la quantità elaborata dai dati quando si esegue una query sui dati in data Lake.
+title: Gestione dei costi per il pool SQL senza server
+description: Questo documento descrive come gestire i costi del pool SQL senza server e come vengono calcolati i dati elaborati durante l'esecuzione di query sui dati in archiviazione di Azure.
 services: synapse analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,14 +9,22 @@ ms.subservice: sql
 ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a108e5fdd30c21cdb7771e3f683dad22773653a4
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 8a26f8ced5e91810f8cadff0a27796dc817e6517
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381202"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491570"
 ---
-# <a name="data-processed-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Dati elaborati usando un pool SQL senza server in Azure sinapsi Analytics
+# <a name="cost-management-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Gestione dei costi per pool SQL senza server in Azure sinapsi Analytics
+
+Questo articolo illustra come è possibile stimare e gestire i costi per il pool SQL senza server in Azure sinapsi Analytics:
+- Stimare la quantità di dati elaborati prima di emettere una query
+- Usare la funzionalità di controllo dei costi per impostare il budget
+
+Comprendere che i costi per il pool SQL senza server in Azure sinapsi Analytics sono solo una parte dei costi mensili nella fattura di Azure. Se si usano altri servizi di Azure, verranno addebitati tutti i servizi e le risorse di Azure usati nella sottoscrizione di Azure, inclusi i servizi di terze parti. Questo articolo illustra come pianificare e gestire i costi per il pool SQL senza server in Azure sinapsi Analytics.
+
+## <a name="data-processed"></a>Dati elaborati
 
 I *dati elaborati* corrispondono alla quantità di dati archiviata temporaneamente dal sistema durante l'esecuzione di una query. I dati elaborati sono costituiti dalle quantità seguenti:
 
@@ -84,6 +92,53 @@ Questa query legge tutte le colonne e trasferisce tutti i dati in un formato non
 Questa query legge i file interi. La dimensione totale dei file nella risorsa di archiviazione per questa tabella è 100 KB. I nodi elaborano i frammenti della tabella e la somma di ogni frammento viene trasferita tra i nodi. La somma finale viene trasferita all'endpoint. 
 
 Questa query elabora leggermente più di 100 KB di dati. La quantità di dati elaborati per questa query viene arrotondata a un massimo di 10 MB, come specificato nella sezione [arrotondamento](#rounding) di questo articolo.
+
+## <a name="cost-control"></a>Controllo dei costi
+
+La funzionalità di controllo dei costi nel pool SQL senza server consente di impostare il budget per la quantità di dati elaborati. È possibile impostare il budget in TB di dati elaborati per un giorno, una settimana e un mese. Allo stesso tempo è possibile impostare uno o più budget. Per configurare il controllo dei costi per il pool SQL senza server, è possibile usare sinapsi Studio o T-SQL.
+
+## <a name="configure-cost-control-for-serverless-sql-pool-in-synapse-studio"></a>Configurare il controllo dei costi per il pool SQL senza server in sinapsi Studio
+ 
+Per configurare il controllo dei costi per il pool SQL senza server in sinapsi studio, passare a Gestisci elemento nel menu a sinistra, che selezionare elemento del pool SQL in pool di analisi. Quando si passa il mouse su un pool SQL senza server, si noterà un'icona per il controllo dei costi. fare clic su questa icona.
+
+![Navigazione del controllo dei costi](./media/data-processed/cost-control-menu.png)
+
+Quando si fa clic sull'icona del controllo dei costi, viene visualizzata una barra laterale:
+
+![Configurazione del controllo dei costi](./media/data-processed/cost-control-sidebar.png)
+
+Per impostare uno o più budget, fare prima clic sul pulsante di opzione Abilita per un budget che si desidera impostare, anziché immettere il valore integer nella casella di testo. L'unità per il valore è TBs. Dopo aver configurato i budget desiderati, fare clic sul pulsante Applica nella parte inferiore della barra laterale. Il budget è ora impostato.
+
+## <a name="configure-cost-control-for-serverless-sql-pool-in-t-sql"></a>Configurare il controllo dei costi per il pool SQL senza server in T-SQL
+
+Per configurare il controllo dei costi per il pool SQL senza server in T-SQL, è necessario eseguire una o più delle stored procedure seguenti.
+
+```sql
+sp_set_data_processed_limit
+    @type = N'daily',
+    @limit_tb = 1
+
+sp_set_data_processed_limit
+    @type= N'weekly',
+    @limit_tb = 2
+
+sp_set_data_processed_limit
+    @type= N'monthly',
+    @limit_tb = 3334
+```
+
+Per visualizzare la configurazione corrente, eseguire l'istruzione T-SQL seguente:
+
+```sql
+SELECT * FROM sys.configurations
+WHERE name like 'Data processed %';
+```
+
+Per visualizzare la quantità di dati elaborati durante il giorno, la settimana o il mese corrente, eseguire l'istruzione T-SQL seguente:
+
+```sql
+SELECT * FROM sys.dm_external_data_processed
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

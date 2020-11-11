@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: e8b13369cb961d4be49f0045805a805fda38a59c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/10/2020
+ms.openlocfilehash: cac14687c6193d58069240529955e69fc680b2e8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319829"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491818"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,9 +43,9 @@ Dopo aver creato un account Azure Cosmos nella propria sottoscrizione, è possib
 
 Un contenitore Cosmos (o un database con velocità effettiva condivisa) deve avere una velocità effettiva minima di 400 UR/sec. Man mano che aumenta la dimensione del contenitore, la velocità effettiva minima supportata dipende anche dai fattori seguenti:
 
-* La velocità effettiva massima di cui è stato effettuato il provisioning per il contenitore. Se, ad esempio, la velocità effettiva viene aumentata a 50.000 UR/sec, la velocità effettiva con provisioning più bassa possibile sarà 500 UR/sec.
-* Archiviazione corrente in GB nel contenitore. Se, ad esempio, il contenitore ha 100 GB di spazio di archiviazione, la velocità effettiva con provisioning più bassa possibile sarà 1000 UR/sec.
-* La velocità effettiva minima in un database con velocità effettiva condivisa dipende dal numero totale di contenitori creati in un database con velocità effettiva condivisa, misurata in 100 UR/sec per ogni contenitore. Se, ad esempio, sono stati creati cinque contenitori all'interno di un database con velocità effettiva condivisa, la velocità effettiva deve essere almeno di 500 UR/sec.
+* La velocità effettiva massima di cui è stato effettuato il provisioning per il contenitore. Se, ad esempio, la velocità effettiva è aumentata a 50.000 UR/sec, la velocità effettiva con provisioning più bassa possibile sarà 500 UR/sec.
+* Archiviazione corrente in GB nel contenitore. Se, ad esempio, il contenitore dispone di 100 GB di spazio di archiviazione, la velocità effettiva con provisioning più bassa possibile sarà 1000 ur/sec. **Nota:** se il contenitore o il database contiene più di 1 TB di dati, è possibile che l'account sia idoneo al [programma "High storage/low throughput"](set-throughput.md#high-storage-low-throughput-program).
+* La velocità effettiva minima in un database con velocità effettiva condivisa dipende dal numero totale di contenitori creati in un database con velocità effettiva condivisa, misurata in 100 UR/sec per ogni contenitore. Se, ad esempio, sono stati creati cinque contenitori all'interno di un database di velocità effettiva condivisa, la velocità effettiva deve essere almeno di 500 UR/sec.
 
 La velocità effettiva corrente e minima di un contenitore o di un database può essere recuperata dal portale di Azure o dagli SDK. Per altre informazioni, vedere [Effettuare il provisioning della velocità effettiva per i contenitori e i database](set-throughput.md). 
 

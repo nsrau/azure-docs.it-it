@@ -4,15 +4,15 @@ description: Spiegazione dei passaggi di configurazione per un test drive ospita
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 11/06/2020
-ms.openlocfilehash: 8bc83958e4aaea5f84654a404e4afbfd60b19b0d
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 0765c05e08dda782c084775fb83b22a52558fa0d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414998"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491614"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Configurazione dettagliata per le unità di test ospitate
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: e322135cfdb7aaff331367e84c603e8344436528
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a086d9fe150766c6b31210f29bf802a75e0ee4ec
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906247"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491733"
 ---
 # <a name="azure-cosmos-db-output-from-azure-stream-analytics"></a>Azure Cosmos DB output di analisi di flusso di Azure
 
@@ -34,12 +34,12 @@ Nella tabella seguente sono descritte le proprietà per la creazione di un outpu
 | Account ID | Nome o URI endpoint dell'account Azure Cosmos DB. |
 | Chiave account | Chiave di accesso condiviso per l'account Azure Cosmos DB. |
 | Database | Nome del database Azure Cosmos DB. |
-| Nome contenitore | Nome del contenitore da usare, che deve esistere in Cosmos DB. Esempio:  <br /><ul><li> _ContenitorePersonale_: deve esistere un contenitore denominato "ContenitorePersonale".</li>|
+| Nome contenitore | Nome del contenitore da usare, che deve esistere in Cosmos DB. Esempio:  <br /><ul><li> _ContenitorePersonale_ : deve esistere un contenitore denominato "ContenitorePersonale".</li>|
 | Document ID |Facoltativa. Il nome del campo negli eventi di output usato per specificare la chiave primaria su cui si basano le operazioni di inserimento o aggiornamento.
 
 ## <a name="partitioning"></a>Partizionamento
 
-La chiave di partizione è basata sulla clausola PARTITION BY nella query. Il numero di writer di output segue il partizionamento dell'input per le [query completamente parallele](stream-analytics-scale-jobs.md). Analisi di flusso converte la chiave di partizione di output Cosmos DB in una stringa. Se, ad esempio, si dispone di una chiave di partizione con un valore pari a 1 di tipo bigint, viene convertita in "1" di tipo String.
+La chiave di partizione è basata sulla clausola PARTITION BY nella query. Il numero di writer di output segue il partizionamento dell'input per le [query completamente parallele](stream-analytics-scale-jobs.md). Analisi di flusso converte la chiave di partizione di output Cosmos DB in una stringa. Se, ad esempio, si dispone di una chiave di partizione con un valore pari a 1 di tipo bigint, viene convertita in "1" di tipo String. Questa conversione viene sempre eseguita indipendentemente dal fatto che la proprietà Partition venga scritta Cosmos DB.
 
 ## <a name="output-batch-size"></a>Dimensione del batch di output
 

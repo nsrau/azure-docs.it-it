@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: 7eb610f741681be89ef44f8288ed47674c1d6440
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: f14ded89ad294abbfaf9861e5f4caf17dd82fb98
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348577"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490713"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure nell'output di archiviazione BLOB di Azure
 
@@ -223,6 +223,10 @@ Quando si configurano i **firewall e le reti virtuali** dell'account di archivia
 3.    Se è stato abilitato, fare clic su **Salva**.
 
    ![Abilitare l'accesso VNET](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
+
+## <a name="remove-managed-identity"></a>Rimuovi identità gestita
+
+L'identità gestita creata per un processo di analisi di flusso viene eliminata solo quando il processo viene eliminato. Non è possibile eliminare l'identità gestita senza eliminare il processo. Se non si vuole più usare l'identità gestita, è possibile modificare il metodo di autenticazione per l'output. L'identità gestita continuerà a esistere fino a quando il processo non verrà eliminato e verrà usato se si decide di usare di nuovo l'autenticazione dell'identità gestita.
 
 ## <a name="limitations"></a>Limitazioni
 Di seguito sono riportate le limitazioni correnti di questa funzionalità:

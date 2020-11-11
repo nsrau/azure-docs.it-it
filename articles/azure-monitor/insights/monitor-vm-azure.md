@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 85c4807d5bf71078e3cfb26bbc27e9eecc10c041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84db7f58c292cf0a9d01cf90da4b847691f601fb
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029462"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491631"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitoraggio delle macchine virtuali di Azure con Monitoraggio di Azure
 Questo articolo descrive come usare Monitoraggio di Azure per raccogliere e analizzare i dati di monitoraggio generati dalle macchine virtuali di Azure e mantenerne l'integrità. Con Monitoraggio di Azure è possibile monitorare la disponibilità e le prestazioni delle macchine virtuali come per qualsiasi [altra risorsa di Azure](monitor-azure-resource.md). Le macchine virtuali sono però diverse rispetto ad altre risorse perché è necessario monitorare anche il sistema operativo guest e i carichi di lavoro in esecuzione in esso. 
@@ -139,7 +139,7 @@ Dopo aver configurato la raccolta dei dati di monitoraggio per una macchina virt
 | Metriche | Aprire [Esplora metriche](../platform/metrics-getting-started.md) con l'ambito impostato sulla macchina virtuale corrente. |
 | Impostazioni di diagnostica | Consente di abilitare e configurare l'[estensione di diagnostica](../platform/diagnostics-extension-overview.md) per la macchina virtuale corrente. |
 | Elementi consigliati di Advisor | Raccomandazioni di [Azure Advisor](../../advisor/index.yml) per la macchina virtuale corrente. |
-| Log | Aprire [Log Analytics](../log-query/log-query-overview.md#what-is-log-analytics) con l'[ambito](../log-query/scope.md) impostato sulla macchina virtuale corrente. |
+| Log | Aprire [Log Analytics](../log-query/log-analytics-overview.md) con l'[ambito](../log-query/scope.md) impostato sulla macchina virtuale corrente. |
 | Monitoraggio connessione | Apre [Monitoraggio connessione di Network Watcher](../../network-watcher/connection-monitor-preview.md) per monitorare le connessioni tra la macchina virtuale corrente e altre macchine virtuali. |
 
 
@@ -170,7 +170,7 @@ Monitoraggio di Azure per le macchine virtuali abilita la raccolta di un set pre
 
 
 > [!NOTE]
-> I dati sulle prestazioni raccolti dall'agente di Log Analytics vengono scritti nella tabella *Perf* mentre Monitoraggio di Azure per le macchine virtuali raccoglie i dati nella tabella *InsightsMetrics*. I dati sono gli stessi, ma le tabelle hanno una struttura diversa. Se le query esistenti si basano sulla tabella *Perf*, sarà necessario riscriverle perché possano usare la tabella *InsightsMetrics*.
+> I dati sulle prestazioni raccolti dall'agente di Log Analytics vengono scritti nella tabella *Perf* mentre Monitoraggio di Azure per le macchine virtuali raccoglie i dati nella tabella *InsightsMetrics*. I dati sono gli stessi, ma le tabelle hanno una struttura diversa. Se le query esistenti si basano sulla tabella *Perf* , sarà necessario riscriverle perché possano usare la tabella *InsightsMetrics*.
 
 
 ## <a name="alerts"></a>Avvisi

@@ -3,12 +3,12 @@ title: Recapito di eventi, identità del servizio gestito e collegamento privato
 description: Questo articolo descrive come abilitare l'identità del servizio gestito per un argomento di Griglia di eventi di Azure e per usarla per inviare eventi alle destinazioni supportate.
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 434a2e36ead0d210b7edf64d104243f6643ac019
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d16310ac61121af0cc9d76664bfeeeb14e1bc243
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460921"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491716"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Recapito di eventi con un'identità gestita
 Questo articolo descrive come abilitare un' [identità del servizio gestito](../active-directory/managed-identities-azure-resources/overview.md) per gli argomenti o i domini di griglia di eventi di Azure. Usare l'identità per inviare eventi a destinazioni supportate, ad esempio code e argomenti del bus di servizio, Hub eventi e account di archiviazione.
@@ -47,7 +47,7 @@ La procedura seguente illustra come abilitare l'identità gestita dal sistema pe
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Cercare gli **argomenti di griglia di eventi** nella barra di ricerca nella parte superiore.
-3. Selezionare l'**argomento** per cui si vuole abilitare l'identità gestita. 
+3. Selezionare l' **argomento** per cui si vuole abilitare l'identità gestita. 
 4. Passare alla scheda **Identità**. 
 5. Attivare l'opzione per **abilitare l'identità** . 
 1. Selezionare **Salva** sulla barra degli strumenti per salvare l'impostazione. 
@@ -91,7 +91,7 @@ Nell'esempio seguente viene aggiunta un'identità gestita relativa a un argoment
 1. Nella sezione **Aggiungi un'assegnazione di ruolo** selezionare **Aggiungi**. 
 1. Nella pagina **Aggiungi un'assegnazione di ruolo** seguire questa procedura:
     1. Selezionare il ruolo. In questo caso: **Mittente dei dati del bus di servizio di Azure**. 
-    1. Selezionare l'**identità** relativa all'argomento o al dominio. 
+    1. Selezionare l' **identità** relativa all'argomento o al dominio. 
     1. Selezionare **Save (Salva** ) per salvare la configurazione.
 
 Per aggiungere un'identità agli altri ruoli specificati nella tabella, sarà necessario seguire una procedura simile. 
@@ -285,7 +285,7 @@ az eventgrid event-subscription create
 ## <a name="private-endpoints"></a>Endpoint privati
 Attualmente non è possibile recapitare gli eventi usando [endpoint privati](../private-link/private-endpoint-overview.md). In altre condizioni, non è previsto alcun supporto se si dispone di requisiti di isolamento di rete rigorosi in cui il traffico degli eventi recapitati non deve lasciare lo spazio IP privato. 
 
-Tuttavia, se i requisiti richiedono un modo sicuro per inviare eventi usando un canale crittografato e un'identità nota del mittente (in questo caso, griglia di eventi) usando lo spazio IP pubblico, è possibile recapitare eventi a hub eventi, bus di servizio o servizio di archiviazione di Azure usando un argomento di griglia di eventi di Azure o un dominio con identità gestita dal sistema configurato come illustrato in questo articolo Quindi, è possibile usare un collegamento privato configurato in funzioni di Azure o il webhook distribuito nella rete virtuale per eseguire il pull degli eventi. Vedere l'esempio: [connettersi agli endpoint privati con funzioni di Azure.](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/)
+Tuttavia, se i requisiti richiedono un modo sicuro per inviare eventi usando un canale crittografato e un'identità nota del mittente (in questo caso, griglia di eventi) usando lo spazio IP pubblico, è possibile recapitare eventi a hub eventi, bus di servizio o servizio di archiviazione di Azure usando un argomento di griglia di eventi di Azure o un dominio con identità gestita dal sistema configurato come illustrato in questo articolo Quindi, è possibile usare un collegamento privato configurato in funzioni di Azure o il webhook distribuito nella rete virtuale per eseguire il pull degli eventi. Vedere l'esempio: [connettersi agli endpoint privati con funzioni di Azure](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
 
 Si noti che in questa configurazione il traffico passa attraverso l'IP pubblico/Internet da griglia di eventi a hub eventi, bus di servizio o archiviazione di Azure, ma il canale può essere crittografato e viene usata un'identità gestita di griglia di eventi. Se si configurano le funzioni di Azure o il webhook distribuito nella rete virtuale per l'uso di hub eventi, bus di servizio o archiviazione di Azure tramite un collegamento privato, la sezione del traffico sarà chiaramente in Azure.
 

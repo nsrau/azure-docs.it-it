@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: c2c199b2366f2708af19c1868cce09e0ba38fc96
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ef03560cff704255d2779a747d124e0b39a1c657
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130256"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491308"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Risolvere i problemi delle query di Analisi di flusso di Azure
 
@@ -25,7 +25,7 @@ Questo articolo descrive i problemi comuni relativi allo sviluppo di query di An
 
 1.  Esaminare gli errori eseguendo un test locale:
 
-    - Nel portale di Azure selezionare **Test** nella scheda **Query** . [Testare la query](stream-analytics-test-query.md) usando i dati di esempio scaricati. Esaminare eventuali errori e provare a risolverli.   
+    - Nel portale di Azure selezionare **Test** nella scheda **Query**. [Testare la query](stream-analytics-test-query.md) usando i dati di esempio scaricati. Esaminare eventuali errori e provare a risolverli.   
     - È anche possibile [testare la query localmente](stream-analytics-live-data-local-testing.md) usando gli strumenti di Analisi di flusso di Azure per Visual Studio o [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
 2.  [Eseguire il debug delle query in locale usando il diagramma dei processi](debug-locally-using-job-diagram-vs-code.md) negli strumenti di analisi di flusso di Azure per Visual Studio Code. Il diagramma del processo mostra i dati che fluiscono dalle origini di input (hub eventi, hub IoT e così via) attraversano più passaggi della query e infine giungono ai sink di output. Ogni passaggio della query è mappato a un set di risultati temporaneo definito nello script usando l'istruzione WITH. Per individuare l'origine del problema, è possibile visualizzare i dati e le metriche in ogni set di risultati intermedio.
@@ -50,6 +50,8 @@ Questo articolo descrive i problemi comuni relativi allo sviluppo di query di An
 ## <a name="resource-utilization-is-high"></a>L'utilizzo delle risorse è elevato
 
 Assicurarsi di sfruttare i vantaggi della parallelizzazione in Analisi di flusso di Azure. È possibile usare il [ridimensionamento con la parallelizzazione delle query](stream-analytics-parallelization.md) dei processi di Analisi di flusso configurando partizioni di input e ottimizzando la definizione delle query di analisi.
+
+Se l'utilizzo delle risorse è costantemente superiore al 80%, il ritardo della filigrana è in aumento e il numero di eventi backlog è in aumento, è consigliabile aumentare le unità di streaming. Un utilizzo elevato indica che il processo sta usando vicino al numero massimo di risorse allocate.
 
 ## <a name="debug-queries-progressively"></a>Eseguire il debug progressivo delle query
 
@@ -103,7 +105,7 @@ Questa volta i dati nell'output vengono formattati e popolati come previsto.
 
 ## <a name="get-help"></a>Ottenere aiuto
 
-Per ulteriore supporto, provare la [Pagina delle domande di Domande e risposte Microsoft per Analisi di flusso di Azure](/answers/topics/azure-stream-analytics.html).
+Per maggiore supporto, provare la [Pagina delle domande di Domande e risposte Microsoft per Analisi di flusso di Azure](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

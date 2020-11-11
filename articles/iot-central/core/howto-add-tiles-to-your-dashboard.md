@@ -1,18 +1,17 @@
 ---
-title: Aggiungere riquadri al dashboard di Azure IoT Central | Microsoft Docs
+title: Configurare il dashboard di Azure IoT Central | Microsoft Docs
 description: Come costruttore, informazioni su come configurare il dashboard dell'applicazione IoT Central di Azure predefinito con i riquadri.
-author: Haley-Rowland
-ms.author: harowl
-ms.date: 05/27/2020
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
-services: iot-central
-ms.openlocfilehash: 5276f9b8c6dd3bdc305142e5b9452cd9c5d60bce
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 2ea2dd18cd5816c7c1406ac201421a2983e431a3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376997"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491999"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurare il dashboard dell'applicazione
 
@@ -29,23 +28,26 @@ La schermata seguente mostra il dashboard in un'applicazione creata dal modello 
 
 Dopo aver selezionato **modifica** o **nuovo** , il dashboard si trova in modalità di *modifica* . È possibile usare gli strumenti nel pannello **modifica dashboard** per aggiungere riquadri al dashboard e personalizzare e rimuovere i riquadri nel dashboard stesso. Ad esempio, per aggiungere un riquadro di **telemetria** per mostrare la temperatura corrente indicata da uno o più dispositivi:
 
-1. Nel pannello **modifica dashboard** selezionare un gruppo di **dispositivi**.
-1. Selezionare uno o più dispositivi nell'elenco a discesa **dispositivi** da visualizzare sul riquadro. Verranno ora visualizzati i dati di telemetria, le proprietà e i comandi disponibili dai dispositivi.
-1. Selezionare **temperatura** nella sezione telemetria, quindi selezionare **Aggiungi riquadro**. Il riquadro ora viene visualizzato nel dashboard in cui è possibile modificare la visualizzazione, ridimensionare il riquadro e configurarlo:
+1. Selezionare un **gruppo** di dispositivi e quindi scegliere i dispositivi nell'elenco a discesa **dispositivi** da visualizzare sul riquadro. Verranno ora visualizzati i dati di telemetria, le proprietà e i comandi disponibili dai dispositivi.
+
+1. Se necessario, usare l'elenco a discesa per selezionare un valore di telemetria da visualizzare nel riquadro. È possibile aggiungere altri elementi al riquadro in un altro selezionando **+ telemetria** , **+ Proprietà** o **+ Proprietà Cloud**.
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Aggiungere un riquadro di telemetria della temperatura al dashboard":::
 
-Al termine dell'aggiunta e della personalizzazione dei riquadri nel dashboard, selezionare **Salva**.
+Dopo aver selezionato tutti i valori da visualizzare nel riquadro, fare clic su **Aggiungi riquadro.** Il riquadro ora viene visualizzato nel dashboard in cui è possibile modificare la visualizzazione, ridimensionarla, spostarla e configurarla.
+
+Al termine dell'aggiunta e della personalizzazione dei riquadri nel dashboard, selezionare **Salva** per salvare le modifiche nel dashboard, che consente di uscire dalla modalità di modifica.
 
 ## <a name="customize-tiles"></a>Personalizzare i riquadri
 
-Per personalizzare un riquadro nel dashboard, è necessario che il dashboard si trovi in modalità di modifica. Le opzioni di personalizzazione disponibili dipendono dal [tipo di riquadro](#tile-types):
+Per modificare un riquadro, è necessario essere in modalità di modifica.  Le opzioni di personalizzazione disponibili dipendono dal [tipo di riquadro](#tile-types):
 
-* L'icona del righello in una sezione consente di modificare la visualizzazione. Le visualizzazioni includono grafici a linee, ultimi valori noti e mappe termiche.
+* L'icona del righello in una sezione consente di modificare la visualizzazione. Le visualizzazioni includono grafici a linee, grafici a barre, grafici a torta, ultimi valori noti, indicatori di prestazioni chiave (o indicatori KPI), Heatmaps e mappe.
 
 * L'icona quadrata consente di ridimensionare il riquadro.
 
 * L'icona a forma di ingranaggio consente di configurare la visualizzazione. Per la visualizzazione di un grafico a linee, ad esempio, è possibile scegliere di visualizzare la legenda e gli assi e scegliere l'intervallo di tempo da tracciare.
+
 
 ## <a name="tile-types"></a>Tipi di riquadro
 
@@ -91,11 +93,16 @@ Per **indicatori KPI** numerici, **ultimo valore noto** e riquadri delle **propr
 
 Aggiungere le regole di formattazione condizionale:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Screenshot che illustra le regole di formattazione condizionale per il flusso medio. Sono disponibili tre regole: meno 20 è verde, minore di 50 è gialla e tutto il valore di 50 è rosso":::
-
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Screenshot che illustra le regole di formattazione condizionale per il flusso medio. Sono presenti tre regole: meno di 20 è verde, minore di 50 è gialla e qualsiasi altro oltre 50 è rosso":::
+   
 Lo screenshot seguente mostra l'effetto della regola di formattazione condizionale:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot che mostra il colore di sfondo giallo nel riquadro medio del flusso d'acqua. Il numero sul riquadro è 40,84":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot che mostra il colore di sfondo rosso nel riquadro medio del flusso d'acqua. Il numero sul riquadro è 50,54":::
+
+### <a name="tile-formatting"></a>formattazione "affiancata"
+Questa funzionalità, disponibile nei riquadri KPI, LKV e proprietà, consente agli utenti di modificare le dimensioni del carattere, scegliere la precisione decimale, abbreviare i valori numerici (ad esempio, formattare 1.700 come 1.7 K) o racchiudere i valori di stringa nei riquadri.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/tile-format.png" alt-text="Formato riquadro":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

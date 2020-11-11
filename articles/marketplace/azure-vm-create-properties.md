@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: cc5702d973150b80188354719333fb7cf22d58b3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 30e5ea4df3de0b8a10c9c1f3b4b27a9e0a19359e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284364"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491206"
 ---
 # <a name="how-to-configure-virtual-machine-offer-properties"></a>Come configurare le proprietà di un'offerta di macchina virtuale
 
@@ -29,7 +29,7 @@ Vedere l'elenco completo di categorie e sottocategorie nell'elenco delle [proced
 
 ## <a name="provide-terms-and-conditions"></a>Specificare i termini e le condizioni
 
-In **Legal**specificare i termini e le condizioni per l'offerta. Sono disponibili due opzioni:
+In **Legal** specificare i termini e le condizioni per l'offerta. Sono disponibili due opzioni:
 
 - [Usare il contratto standard con le modifiche facoltative](#use-the-standard-contract)
 - [Usare termini e condizioni personalizzati](#use-your-own-terms-and-conditions)
@@ -59,7 +59,7 @@ Nei **termini dell'emendamento universale per il contratto standard per il Marke
 
 #### <a name="add-one-or-more-custom-amendments"></a>Aggiungere una o più modifiche personalizzate
 
-1. In conformità **alle modifiche personalizzate apportate al contratto standard per il Marketplace commerciale di Microsoft**, selezionare il collegamento **Aggiungi termini di modifica personalizzata (max 10)** .
+1. In conformità **alle modifiche personalizzate apportate al contratto standard per il Marketplace commerciale di Microsoft** , selezionare il collegamento **Aggiungi termini di modifica personalizzata (max 10)** .
 1. Nella casella **condizioni di modifica personalizzate** immettere le condizioni per la modifica.
 1. Nella casella **ID tenant** immettere un ID tenant. Solo i clienti associati agli ID tenant specificati per questi termini personalizzati li visualizzeranno nel flusso di acquisto dell'offerta nel portale di Azure.
    > [!TIP]
@@ -73,14 +73,10 @@ Nei **termini dell'emendamento universale per il contratto standard per il Marke
 
 È possibile scegliere di specificare i termini e le condizioni, anziché il contratto standard. I clienti devono accettare questi termini prima di poter provare l'offerta.
 
-1. In **Legal**, assicurarsi che la casella di controllo **USA contratto standard per il Marketplace commerciale di Microsoft** sia deselezionata.
+1. In **Legal** , assicurarsi che la casella di controllo **USA contratto standard per il Marketplace commerciale di Microsoft** sia deselezionata.
 1. Nella casella **termini e condizioni** immettere fino a 10.000 caratteri di testo.
-
-   > [!NOTE]
-   > Se è necessaria una descrizione più lunga, immettere un singolo indirizzo Web che punti alla posizione in cui si trovano i termini e le condizioni. che verrà visualizzato dai clienti come collegamento attivo.
-
 1. Selezionare **Salva bozza** prima di continuare con la scheda successiva, **elenco offerte**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Configurare l'elenco di offerte di macchine virtuali](azure-vm-create-listing.md)
+- [Configurare l'inserzione dell'offerta di VM](azure-vm-create-listing.md)
