@@ -36,6 +36,20 @@
       href: quickstart-multi-container.md
 - name: Esercitazioni
   items:
+    - name: App sicura che accede alle risorse di archiviazione e a Microsoft Graph
+      items:
+        - name: Panoramica
+          href: scenario-secure-app-overview.md
+        - name: Configurare l'autenticazione del servizio app
+          href: scenario-secure-app-authentication-app-service.md
+        - name: App sicura che accede alle risorse di archiviazione
+          href: scenario-secure-app-access-storage.md
+        - name: App sicura che accede a Microsoft Graph come utente
+          href: scenario-secure-app-access-microsoft-graph-as-user.md
+        - name: App sicura che accede a Microsoft Graph come app
+          href: scenario-secure-app-access-microsoft-graph-as-app.md
+        - name: Pulire le risorse
+          href: scenario-secure-app-clean-up-resources.md
     - name: App con DB
       items:
         - name: .NET Core con SQL DB

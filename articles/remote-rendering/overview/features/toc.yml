@@ -18,6 +18,8 @@
   href: color-materials.md
 - name: Rendering del contorno
   href: outlines.md
+- name: Rendering della shell
+  href: shell-effect.md
 - name: Rendering a lato singolo
   href: single-sided-rendering.md
 - name: Query spaziali

@@ -111,7 +111,7 @@
       items:
         - name: Visualizzare le metriche in Monitoraggio di Azure
           href: troubleshoot-metrics.md
-        - name: Abilitare la registrazione diagnostica
+        - name: Abilitare ed eseguire query sui log di diagnostica
           href: troubleshoot-diagnostics.md
         - name: Attivare gli avvisi
           href: troubleshoot-alerts.md

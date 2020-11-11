@@ -9,19 +9,19 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0d2d28a525f38aad3f48e439992a23abde0b7718
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2a0202c5259ccebedf03ade217f57b6305b9fa1b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786072"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444929"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Creare la definizione della firma di accesso condiviso e recuperare i token della firma di accesso condiviso nel codice
 
 È possibile gestire l'account di archiviazione con i token di firma di accesso condiviso archiviati nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Concedere l'accesso limitato alle risorse di Archiviazione di Azure tramite la firma di accesso condiviso](../../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
-> Per proteggere l'account di archiviazione è consigliabile usare il [controllo degli accessi in base al ruolo](../../storage/common/storage-auth-aad.md), che offre una maggiore sicurezza e facilità d'uso rispetto all'autorizzazione con chiave condivisa.
+> Per proteggere l'account di archiviazione, è consigliabile usare il [controllo degli accessi in base al ruolo di Azure](../../storage/common/storage-auth-aad.md), che offre una maggiore sicurezza e facilità d'uso rispetto all'autorizzazione con chiave condivisa.
 
 Questo articolo fornisce esempi di codice .NET che crea una definizione di firma di accesso condiviso e recupera i token di firma di accesso condiviso. Vedere l'esempio [ShareLink](/samples/azure/azure-sdk-for-net/share-link/) per i dettagli completi, incluso il client generato per gli account di archiviazione gestiti da Key Vault. Per informazioni su come creare e archiviare token di firma di accesso condiviso, vedere [Gestire le chiavi dell'account di archiviazione con Key Vault e l'interfaccia della riga di comando di Azure](overview-storage-keys.md) o [Gestire le chiavi dell'account di archiviazione con Key Vault e Azure PowerShell](overview-storage-keys-powershell.md).
 

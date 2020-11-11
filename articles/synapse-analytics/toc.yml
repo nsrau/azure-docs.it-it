@@ -171,7 +171,7 @@
           href: sql/overview-features.md
         - name: Modelli di consumo delle risorse
           href: sql/resource-consumption-models.md
-        - name: Dati elaborati
+        - name: Gestione dei costi per i pool SQL serverless
           href: sql/data-processed.md
         - name: Procedure consigliate per i pool SQL serverless
           href: sql/best-practices-sql-on-demand.md
@@ -996,6 +996,8 @@
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: API REST
       href: /rest/api/synapse/
+    - name: Utilità di Microsoft Spark
+      href: ./spark/microsoft-spark-utilities.md
     - name: Esempi
       href: 'https://github.com/Azure-Samples/Synapse'
     - name: Viste di sistema

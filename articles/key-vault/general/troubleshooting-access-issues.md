@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 1437ef8675d0ddc96eb7fc641b3663b66c3ea11b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f9bbf6e9d1d932f7225807613b789821c1462932
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285235"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441852"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Risoluzione dei problemi relativi ai criteri di accesso di Azure Key Vault
 
@@ -53,7 +53,7 @@ L'applicazione necessita anche che sia assegnato almeno un ruolo di gestione del
 
 Attualmente, la ridistribuzione di Key Vault comporta l'eliminazione degli eventuali criteri di accesso in Key Vault, che vengono sostituiti con quelli nel modello di Azure Resource Manager. Non è disponibile alcuna opzione incrementale per i criteri di accesso di Key Vault. Per mantenere i criteri di accesso in Key Vault, è necessario leggere i criteri di accesso esistenti in Key Vault e usarli per popolare il modello di Azure Resource Manager per evitare interruzioni dell'accesso.
 
-Un'altra opzione che può essere utile per questo scenario consiste nell'usare i ruoli Controllo degli accessi in base al ruolo come alternativa ai criteri di accesso. Con il controllo degli accessi in base al ruolo è possibile ridistribuire l'insieme di credenziali delle chiavi senza specificare di nuovo il criterio. Altre informazioni su questa soluzione sono disponibili [qui](./rbac-guide.md).
+Un'altra opzione che può essere utile per questo scenario consiste nell'usare il controllo degli accessi in base al ruolo di Azure e i ruoli come alternativa ai criteri di accesso. Con il controllo degli accessi in base al ruolo di Azure è possibile ridistribuire l'insieme di credenziali delle chiavi senza specificare di nuovo il criterio. Altre informazioni su questa soluzione sono disponibili [qui](./rbac-guide.md).
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Procedure consigliate per la risoluzione dei problemi per i tipi di errore seguenti
 

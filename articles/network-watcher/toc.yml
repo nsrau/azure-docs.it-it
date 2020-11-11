@@ -13,7 +13,7 @@
       href: diagnose-vm-network-traffic-filtering-problem-powershell.md
     - name: Diagnosticare un problema di filtro del traffico di una VM - Interfaccia della riga di comando di Azure
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
-    - name: Configurare i log dei flussi dei gruppi di sicurezza di rete con un modello di Azure Resource Manager
+    - name: Configurare i log dei flussi dei gruppi di sicurezza di rete con il modello di Resource Manager
       displayName: Resource Manager
       href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Esercitazioni
@@ -29,7 +29,7 @@
 - name: Concetti
   items:
     - name: Monitoraggio connessione (anteprima)
-      href: connection-monitor-preview.md
+      href: connection-monitor-overview.md
     - name: Diagnosticare i problemi di filtro del traffico di rete delle VM
       href: network-watcher-ip-flow-verify-overview.md
     - name: Diagnosticare le regole dei gruppi di sicurezza di rete e il filtro del traffico
@@ -61,9 +61,9 @@
     - name: Creare un'istanza di Monitoraggio connessione (anteprima)
       items:
         - name: Uso del portale di Azure
-          href: connection-monitor-preview-create-using-portal.md
+          href: connection-monitor-create-using-portal.md
         - name: Uso di ARMClient
-          href: connection-monitor-preview-create-using-arm-client.md
+          href: connection-monitor-create-using-template.md
         - name: Uso di PowerShell
           href: connection-monitor-create-using-powershell.md
     - name: Eseguire la migrazione a Monitoraggio connessione (anteprima)

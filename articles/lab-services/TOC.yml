@@ -58,6 +58,8 @@
               href: class-type-matlab.md
             - name: CAD SolidWorks
               href: class-type-solidworks.md
+            - name: Project Lead the Way
+              href: class-type-pltw.md
         - name: Usare Azure Lab Services in Teams
           items:
             - name: Panoramica

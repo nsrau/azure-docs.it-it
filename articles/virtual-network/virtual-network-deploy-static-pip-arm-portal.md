@@ -1,5 +1,5 @@
 ---
-title: Creare una VM con un indirizzo IP pubblico statico - Portale di Azure | Documentazione Microsoft
+title: Creare una VM con un indirizzo IP pubblico statico-portale di Azure
 description: Informazioni su come creare una VM con un indirizzo IP pubblico statico mediante il portale di Azure.
 services: virtual-network
 documentationcenter: na
@@ -11,77 +11,91 @@ ms.devlang: ''
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2018
+ms.date: 11/12/2020
 ms.author: allensu
-ms.openlocfilehash: 9e06e4079a5118e0aa9dedb1fca719f0b28e5716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ae0b869b24c4e05c88b936eceb1b9b1db3a9405
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448629"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506312"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Creare una macchina virtuale con un indirizzo IP pubblico statico usando il portale di Azure
 
-È possibile creare una macchina virtuale con un indirizzo IP pubblico statico. Un indirizzo IP pubblico consente di comunicare con una macchina virtuale da Internet. Assegnare un indirizzo IP pubblico statico, anziché un indirizzo dinamico, per assicurarsi che l'indirizzo non cambi mai. Altre informazioni sugli [indirizzi IP pubblici statici](virtual-network-ip-addresses-overview-arm.md#allocation-method). Per modificare da dinamico a statico un indirizzo IP pubblico assegnato a una macchina virtuale esistente o per usare indirizzi IP privati, vedere [Aggiungere, modificare o rimuovere indirizzi IP](virtual-network-network-interface-addresses.md). Gli indirizzi IP pubblici hanno un [costo nominale](https://azure.microsoft.com/pricing/details/ip-addresses)ed esiste un [limite](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) al numero di indirizzi IP pubblici che è possibile usare per ogni sottoscrizione.
+Un indirizzo IP pubblico consente di comunicare con una macchina virtuale da Internet. 
+
+Assegnare un indirizzo IP pubblico statico, anziché un indirizzo dinamico, per assicurarsi che l'indirizzo non cambi mai.   
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di Azure all'indirizzo https://portal.azure.com.
+Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
-1. Selezionare **+ Crea una risorsa** visualizzato nell'angolo in alto a sinistra del portale di Azure.
-2. Selezionare **Calcolo** e quindi **Windows Server 2016 VM** o un altro sistema operativo a scelta.
-3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
+1. Nell'angolo in alto a sinistra del portale selezionare **Crea una risorsa** > **Calcolo** > **Macchina virtuale** oppure cercare **Macchina virtuale** nella casella di ricerca.
+   
+2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base** :
 
-    |Impostazione|Valore|
-    |---|---|
-    |Nome|myVM|
-    |Nome utente| Immettere un nome utente a scelta.|
-    |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Subscription| Selezionare la propria sottoscrizione.|
-    |Resource group| Selezionare **Usa esistente** e selezionare **myResourceGroup**.|
-    |Location| Selezionare **Stati Uniti orientali**.|
+    | Impostazione | Valore                                          |
+    |-----------------------|----------------------------------|
+    | **Dettagli del progetto** |  |
+    | Subscription | Selezionare la sottoscrizione ad Azure |
+    | Gruppo di risorse | Selezionare **Crea nuovo**. </br> In **nome** immettere **myResourceGroup**. </br> Selezionare **OK**. |
+    | **Dettagli istanza** |  |
+    | Nome macchina virtuale | Immettere **myVM** |
+    | Area | Selezionare **Stati Uniti orientali**. |
+    | Opzioni di disponibilità | Selezionare **La ridondanza dell'infrastruttura non è richiesta** |
+    | Immagine | Selezionare **Windows Server 2019 Datacenter - Gen1** |
+    | Istanza Spot di Azure | Selezionare **No** |
+    | Dimensione | Scegliere le dimensioni della macchina virtuale o usare l'impostazione predefinita |
+    | **Account amministratore** |  |
+    | Username | Immettere un nome utente |
+    | Password | Immettere una password |
+    | Conferma password | Reimmettere la password |
 
-4. Selezionare una dimensione per la VM e quindi selezionare **Seleziona**.
-5. In **Impostazioni** selezionare **Indirizzo IP pubblico**.
-6. Immettere *myPublicIpAddress*, selezionare **Statico** e quindi fare clic su **OK**, come illustrato nell'immagine seguente:
+3. Selezionare la scheda **Rete** , oppure selezionare **Avanti: Dischi** , quindi **Avanti: Rete**.
+  
+4. Nella scheda Rete selezionare o immettere:
 
-   ![Selezionare Statico](./media/virtual-network-deploy-static-pip-arm-portal/select-static.png)
+    | Impostazione | Valore |
+    |-|-|
+    | **Interfaccia di rete** |  |
+    | Rete virtuale | Accettare il nome di rete predefinito. |
+    | Subnet | Accettare la configurazione della subnet predefinita. |
+    | IP pubblico | Selezionare **Crea nuovo**. </br> In **Crea indirizzo IP pubblico** immettere **myPublicIP** in nome. </br> Per **SKU** selezionare **standard**. </br> **Assegnazione** selezionare **static**. </br> Selezionare **OK**.  |
+    | Gruppo di sicurezza di rete della scheda di interfaccia di rete | Selezionare **Basic**|
+    | Porte in ingresso pubbliche | Selezionare **Consenti porte selezionate**. |
+    | Selezionare le porte in ingresso | Selezionare **RDP (3389)** |
 
-   Se l'indirizzo IP pubblico deve essere uno SKU standard, in **SKU** selezionare **Standard**. Altre informazioni sugli [SKU di indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#sku). Se la macchina virtuale verrà aggiunta al pool back-end di un Azure Load Balancer pubblico, lo SKU dell'indirizzo IP pubblico della macchina virtuale deve corrispondere allo SKU dell'indirizzo IP pubblico del bilanciamento del carico. Per informazioni dettagliate, vedere [Azure Load Balancer](../load-balancer/skus.md).
-
-6. In **Selezionare le porte in ingresso pubbliche** selezionare una porta o nessuna porta. La porta 3389 è selezionata per consentire l'accesso remoto alla macchina virtuale Windows Server da Internet. Non è consigliabile aprire la porta 3389 da Internet per i carichi di lavoro di produzione.
-
-   ![Selezionare una porta](./media/virtual-network-deploy-static-pip-arm-portal/select-port.png)
-
-7. Accettare le impostazioni predefinite rimanenti e fare clic su **OK**.
-8. Nella pagina **Riepilogo** selezionare **Crea**. La distribuzione della macchina virtuale richiede alcuni minuti.
-9. Al termine della distribuzione della macchina virtuale, immettere *myPublicIpAddress* nella casella di ricerca nella parte superiore del portale. Selezionare **myPublicIpAddress** quando viene visualizzato nei risultati della ricerca.
-10. È possibile visualizzare l'indirizzo IP pubblico assegnato e verificare che l'indirizzo sia assegnato alla macchina virtuale **myVM**, come illustrato nell'immagine seguente:
-
-    ![Screenshot Visualizza il riquadro Public I P address con l'indirizzo i P e il nome denominati. ](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-overview.png)
-
-    Azure ha assegnato un indirizzo IP pubblico tra gli indirizzi usati nell'area in cui la macchina virtuale è stata creata. È possibile scaricare l'elenco degli intervalli (prefissi) per i cloud [Pubblico](https://www.microsoft.com/download/details.aspx?id=56519), [US Government](https://www.microsoft.com/download/details.aspx?id=57063), [Cina](https://www.microsoft.com/download/details.aspx?id=57062) e [Germania](https://www.microsoft.com/download/details.aspx?id=57064) di Azure.
-
-11. Selezionare **Configurazione** per confermare che il valore dell'assegnazione è **Statico**.
-
-    ![Screenshot Visualizza il riquadro Public I P address con l'elemento di configurazione selezionato.](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-configuration.png)
-
-> [!WARNING]
-> Non modificare le impostazioni dell'indirizzo IP all'interno del sistema operativo della macchina virtuale. Il sistema operativo non rileva gli indirizzi IP pubblici di Azure. Anche se è possibile aggiungere al sistema operativo impostazioni relative a indirizzi IP privati, è consigliabile farlo solo se necessario e solo dopo aver letto [Aggiungere un indirizzo IP privato a un sistema operativo](virtual-network-network-interface-addresses.md#private).
+    > [!WARNING]
+    > La porta 3389 è selezionata per consentire l'accesso remoto alla macchina virtuale Windows Server da Internet. Non è consigliabile aprire la porta 3389 a Internet per gestire i carichi di lavoro di produzione. </br> Per un accesso sicuro alle macchine virtuali di Azure, vedere **[che cos'è Azure Bastion?](/azure/bastion/bastion-overview)**
+   
+5. Selezionare **Rivedi e crea**. 
+  
+6. Rivedere le impostazioni e quindi selezionare **Crea**.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non sono più necessari, eliminare il gruppo di risorse e tutte le risorse in esso contenute:
 
-1. Immettere *myResourceGroup* nella casella di **ricerca** nella parte superiore del portale. Selezionare **myResourceGroup** quando viene visualizzato nei risultati della ricerca.
+1. Immettere **myResourceGroup** nella casella di **ricerca** nella parte superiore del portale. Selezionare **myResourceGroup** quando viene visualizzato nei risultati della ricerca.
 2. Selezionare **Elimina gruppo di risorse**.
-3. Immettere *myResourceGroup* in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e selezionare **Elimina**.
+3. Immettere **myResourceGroup** in **DIGITARE IL NOME DEL GRUPPO DI RISORSE** e selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sugli [indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure
-- Altre informazioni su tutte [le impostazioni degli indirizzi IP pubblici](virtual-network-public-ip-address.md#create-a-public-ip-address)
-- Altre informazioni sugli [indirizzi IP privati](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) e sull'assegnazione di un [indirizzo IP privato statico](virtual-network-network-interface-addresses.md#add-ip-addresses) a una macchina virtuale di Azure
-- Altre informazioni sulla creazione di macchine virtuali [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Vedere [aggiungere, modificare o rimuovere indirizzi IP](virtual-network-network-interface-addresses.md):
+
+* Per modificare un indirizzo IP pubblico da dinamico a statico.
+* Usare indirizzi IP privati.
+
+Per gli indirizzi IP pubblici è previsto un [addebito nominale](https://azure.microsoft.com/pricing/details/ip-addresses). È previsto un [limite](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) al numero di indirizzi IP pubblici che è possibile usare per ogni sottoscrizione.
+
+Lo SKU dell'indirizzo IP pubblico della macchina virtuale deve corrispondere allo SKU IP pubblico di Azure Load Balancer quando viene aggiunto a un pool back-end. Per informazioni dettagliate, vedere [Azure Load Balancer](../load-balancer/skus.md).
+
+È possibile scaricare l'elenco degli intervalli (prefissi) per i cloud [Pubblico](https://www.microsoft.com/download/details.aspx?id=56519), [US Government](https://www.microsoft.com/download/details.aspx?id=57063), [Cina](https://www.microsoft.com/download/details.aspx?id=57062) e [Germania](https://www.microsoft.com/download/details.aspx?id=57064) di Azure.
+
+- Altre informazioni sugli [indirizzi IP pubblici statici](virtual-network-ip-addresses-overview-arm.md#allocation-method).
+- Altre informazioni sugli [indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
+- Altre informazioni su tutte le [impostazioni relative agli indirizzi IP pubblici](virtual-network-public-ip-address.md#create-a-public-ip-address).
+- Altre informazioni sugli [indirizzi IP privati](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) e sull'assegnazione di un [indirizzo IP privato statico](virtual-network-network-interface-addresses.md#add-ip-addresses) a una macchina virtuale di Azure.

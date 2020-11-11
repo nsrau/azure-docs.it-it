@@ -100,7 +100,7 @@
   items:
     - name: Risoluzione dei problemi
       items:
-        - name: Ottenere assistenza per gli errori di distribuzione o provisioning
+        - name: Aprire una richiesta di supporto per gli errori di distribuzione
           href: fix-deployment-provisioning-failures.md
     - name: Domande frequenti
       href: faq.md
