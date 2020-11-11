@@ -1,20 +1,20 @@
 ---
-title: Dashboard di utilizzo in Microsoft Commercial Marketplace Analytics, Azure Marketplace e Microsoft AppSource
-description: Informazioni su come accedere alle metriche di fatturazione a consumo e di utilizzo di tutte le offerte di macchine virtuali. Passare al dashboard di utilizzo nel Centro per i partner nel marketplace commerciale.
+title: Dashboard di utilizzo in analisi del Marketplace commerciale | Azure Marketplace
+description: Informazioni su come accedere a tutte le metriche di fatturazione per l'utilizzo e a consumo per le offerte pubblicate in Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 9a1b6197241b93edf778295f196ccc92c45d85d6
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1ae30d97e64dc17086e199c3fcc8188f54e6ab69
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414865"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490118"
 ---
-# <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Dashboard di utilizzo nell'analisi per il marketplace commerciale Microsoft
+# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di utilizzo nell'analisi per il marketplace commerciale
 
 Questo articolo fornisce informazioni sul dashboard Usage (utilizzo) nel centro per i partner. Questo dashboard mostra che tutte le macchine virtuali (VM) offrono utilizzo normalizzato, utilizzo non elaborato e metriche di fatturazione a consumo in tre schede separate: utilizzo normalizzato della VM, utilizzo non elaborato della macchina virtuale e utilizzo della fatturazione a consumo.
 

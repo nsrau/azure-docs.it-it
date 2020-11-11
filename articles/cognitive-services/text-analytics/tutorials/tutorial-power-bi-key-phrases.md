@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 1a76c753cdf22d2c9b8b56893017cdc3cee9c8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d987797c2c25f685a3c9250afeb17cec3ad3cb2e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90527293"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369546"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Esercitazione: Integrare Power BI con il servizio cognitivo Analisi del testo
 
@@ -103,7 +103,7 @@ L'[API Frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/services/Te
 A questo punto è possibile creare la funzione personalizzata che integrerà Power BI e Analisi del testo. La funzione riceve il testo da elaborare come parametro. Converte i dati nel e dal formato JSON necessario e invia la richiesta HTTP all'API Frasi chiave. La funzione analizza quindi la risposta dell'API e restituisce una stringa che contiene un elenco delimitato da virgole delle frasi chiave estratte.
 
 > [!NOTE]
-> Le funzioni personalizzate di Power BI Desktop sono scritte nella [lingua della formula di Power Query M](https://docs.microsoft.com/powerquery-m/power-query-m-reference), in breve semplicemente "M". M è un linguaggio di programmazione funzionale basato su [F#](https://docs.microsoft.com/dotnet/fsharp/). Non è necessario essere un programmatore per completare questa esercitazione. Tutto il codice necessario è riportato sotto.
+> Le funzioni personalizzate di Power BI Desktop sono scritte nella [lingua della formula di Power Query M](/powerquery-m/power-query-m-reference), in breve semplicemente "M". M è un linguaggio di programmazione funzionale basato su [F#](/dotnet/fsharp/). Non è necessario essere un programmatore per completare questa esercitazione. Tutto il codice necessario è riportato sotto.
 
 In Power BI Desktop verificare che sia ancora aperta la finestra 	Editor di query. Se non lo è, selezionare la scheda **Home** sulla barra multifunzione, quindi nel gruppo **Dati esterni** fare clic su **Modifica query**.
 
@@ -160,7 +160,7 @@ Dopo aver chiuso la finestra di dialogo Richiama funzione personalizzata, potreb
 
 ![[banner credenziali]](../media/tutorials/power-bi/credentials-banner.png)
 
-Fare clic su **Modifica credenziali**, assicurarsi che l'opzione `Anonymous` sia selezionata nella finestra di dialogo e quindi fare clic su **Connetti**. 
+Fare clic su **Modifica credenziali** , assicurarsi che l'opzione `Anonymous` sia selezionata nella finestra di dialogo e quindi fare clic su **Connetti**. 
 
 > [!NOTE]
 > Occorre selezionare `Anonymous` in quanto il servizio Analisi del testo autentica l'utente tramite la sua chiave di accesso, in modo che Power BI non debba specificare le credenziali per la richiesta HTTP stessa.
@@ -296,7 +296,7 @@ Altre informazioni sul servizio Analisi del testo,sulla lingua della formula M d
 > [Informazioni di riferimento sull'API Analisi del testo](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0)
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sulla lingua della formula M di Power Query](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
+> [Informazioni di riferimento sulla lingua della formula M di Power Query](/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Documentazione di Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

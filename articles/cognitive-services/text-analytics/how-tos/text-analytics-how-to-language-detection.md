@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 5fa895964c30021452b8ce7b070a8b127d65e972
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a3ef198c79683786a7d6fb36a46cd0c989071c9e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305946"
+ms.locfileid: "93346894"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Esempio: Rilevare la lingua con Analisi del testo
 
@@ -39,30 +39,30 @@ In caso di contenuto espresso in un lingua di uso meno frequente, si può provar
 Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per documento. Ogni raccolta può contenere fino a 1.000 elementi (ID). La raccolta viene inviata nel corpo della richiesta. Di seguito è riportato un esempio del contenuto che può essere inviato per il rilevamento della lingua:
 
 ```json
-    {
-        "documents": [
-            {
-                "id": "1",
-                "text": "This document is in English."
-            },
-            {
-                "id": "2",
-                "text": "Este documento está en inglés."
-            },
-            {
-                "id": "3",
-                "text": "Ce document est en anglais."
-            },
-            {
-                "id": "4",
-                "text": "本文件为英文"
-            },
-            {
-                "id": "5",
-                "text": "Этот документ на английском языке."
-            }
-        ]
-    }
+{
+    "documents": [
+        {
+            "id": "1",
+            "text": "This document is in English."
+        },
+        {
+            "id": "2",
+            "text": "Este documento está en inglés."
+        },
+        {
+            "id": "3",
+            "text": "Ce document est en anglais."
+        },
+        {
+            "id": "4",
+            "text": "本文件为英文"
+        },
+        {
+            "id": "5",
+            "text": "Этот документ на английском языке."
+        }
+    ]
+}
 ```
 
 ## <a name="step-1-structure-the-request"></a>Passaggio 1: Strutturare la richiesta
@@ -99,55 +99,67 @@ Un punteggio positivo pari a 1.0 esprime il massimo livello possibile di attendi
 
 ```json
 {
-    "documents": [
+    "documents":[
         {
-            "id": "1",
-            "detectedLanguage": {
-                "name": "English",
-                "iso6391Name": "en",
-                "confidenceScore": 1.0
+            "detectedLanguage":{
+                "confidenceScore":0.99,
+                "iso6391Name":"en",
+                "name":"English"
             },
-            "warnings": []
+            "id":"1",
+            "warnings":[
+                
+            ]
         },
         {
-            "id": "2",
-            "detectedLanguage": {
-                "name": "Spanish",
-                "iso6391Name": "es",
-                "confidenceScore": 1.0
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"es",
+                "name":"Spanish"
             },
-            "warnings": []
+            "id":"2",
+            "warnings":[
+                
+            ]
         },
         {
-            "id": "3",
-            "detectedLanguage": {
-                "name": "French",
-                "iso6391Name": "fr",
-                "confidenceScore": 1.0
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"fr",
+                "name":"French"
             },
-            "warnings": []
+            "id":"3",
+            "warnings":[
+                
+            ]
         },
         {
-            "id": "4",
-            "detectedLanguage": {
-                "name": "Chinese_Simplified",
-                "iso6391Name": "zh_chs",
-                "confidenceScore": 1.0
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"zh_chs",
+                "name":"Chinese_Simplified"
             },
-            "warnings": []
+            "id":"4",
+            "warnings":[
+                
+            ]
         },
         {
-            "id": "5",
-            "detectedLanguage": {
-                "name": "Russian",
-                "iso6391Name": "ru",
-                "confidenceScore": 1.0
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"ru",
+                "name":"Russian"
             },
-            "warnings": []
+            "id":"5",
+            "warnings":[
+                
+            ]
         }
     ],
-    "errors": [],
-    "modelVersion": "2019-10-01"
+    "errors":[
+        
+    ],
+    "modelVersion":"2020-09-01"
 }
 ```
 
@@ -160,19 +172,19 @@ La parola "Impossible", ad esempio, è comune sia alla lingua inglese che alla l
 **Input**
 
 ```json
-    {
-        "documents": [
-            {
-                "id": "1",
-                "text": "impossible"
-            },
-            {
-                "id": "2",
-                "text": "impossible",
-                "countryHint": "fr"
-            }
-        ]
-    }
+{
+    "documents": [
+        {
+            "id": "1",
+            "text": "impossible"
+        },
+        {
+            "id": "2",
+            "text": "impossible",
+            "countryHint": "fr"
+        }
+    ]
+}
 ```
 
 Il contesto aggiuntivo ora disponibile consente al servizio di ottenere un giudizio migliore: 
@@ -180,46 +192,60 @@ Il contesto aggiuntivo ora disponibile consente al servizio di ottenere un giudi
 **Output**
 
 ```json
-    {
-        "documents": [
-            {
-                "id": "1",
-                "detectedLanguage": [
-                    {
-                        "name": "English",
-                        "iso6391Name": "en",
-                        "confidenceScore": 1
-                    }
-                ]
+{
+    "documents":[
+        {
+            "detectedLanguage":{
+                "confidenceScore":0.62,
+                "iso6391Name":"en",
+                "name":"English"
             },
-            {
-                "id": "2",
-                "detectedLanguage": [
-                    {
-                        "name": "French",
-                        "iso6391Name": "fr",
-                        "confidenceScore": 1
-                    }
-                ]
-            }
-        ],
-        "errors": []
-    }
+            "id":"1",
+            "warnings":[
+                
+            ]
+        },
+        {
+            "detectedLanguage":{
+                "confidenceScore":1.0,
+                "iso6391Name":"fr",
+                "name":"French"
+            },
+            "id":"2",
+            "warnings":[
+                
+            ]
+        }
+    ],
+    "errors":[
+        
+    ],
+    "modelVersion":"2020-09-01"
+}
 ```
 
 Se l'analizzatore non riesce ad analizzare l'input, restituisce `(Unknown)`. Ciò si verifica ad esempio se si invia un blocco di testo costituito esclusivamente da numeri arabi.
 
 ```json
-    {
-        "id": "5",
-        "detectedLanguage": [
-            {
-                "name": "(Unknown)",
-                "iso6391Name": "(Unknown)",
-                "confidenceScore": "NaN"
-            }
-        ]
-    }
+{
+    "documents":[
+        {
+            "detectedLanguage":{
+                "confidenceScore":0.0,
+                "iso6391Name":"(Unknown)",
+                "name":"(Unknown)"
+            },
+            "id":"1",
+            "warnings":[
+                
+            ]
+        }
+    ],
+    "errors":[
+        
+    ],
+    "modelVersion":"2020-09-01"
+}
 ```
 
 ### <a name="mixed-language-content"></a>Contenuto in più lingue
@@ -229,14 +255,14 @@ Se all'interno dello stesso documento è presente contenuto in più lingue, vien
 **Input**
 
 ```json
-    {
-      "documents": [
+{
+    "documents": [
         {
-          "id": "1",
-          "text": "Hello, I would like to take a class at your University. ¿Se ofrecen clases en español? Es mi primera lengua y más fácil para escribir. Que diriez-vous des cours en français?"
+            "id": "1",
+            "text": "Hello, I would like to take a class at your University. ¿Se ofrecen clases en español? Es mi primera lengua y más fácil para escribir. Que diriez-vous des cours en français?"
         }
-      ]
-    }
+    ]
+}
 ```
 
 **Output**
@@ -244,21 +270,25 @@ Se all'interno dello stesso documento è presente contenuto in più lingue, vien
 L'output risultante è costituito dalla lingua prevalente, con un punteggio inferiore a 1 che indica un livello di attendibilità minore.
 
 ```json
-    {
-      "documents": [
+{
+    "documents":[
         {
-          "id": "1",
-          "detectedLanguage": [
-            {
-              "name": "Spanish",
-              "iso6391Name": "es",
-              "confidencescore": 0.94
-            }
-          ]
+            "detectedLanguage":{
+                "confidenceScore":0.94,
+                "iso6391Name":"es",
+                "name":"Spanish"
+            },
+            "id":"1",
+            "warnings":[
+                
+            ]
         }
-      ],
-      "errors": []
-    }
+    ],
+    "errors":[
+        
+    ],
+    "modelVersion":"2020-09-01"
+}
 ```
 
 ## <a name="summary"></a>Summary

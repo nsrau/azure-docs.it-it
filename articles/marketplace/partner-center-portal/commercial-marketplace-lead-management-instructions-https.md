@@ -4,15 +4,15 @@ description: Informazioni su come usare Power Automate e un endpoint HTTPS per g
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: 3cdbe1f3428418f082d53febca950a6a443fe5ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4dabee6a725fd02b7be6dd12c8a032e3d816835
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120370"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489370"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Usare un endpoint HTTPS per gestire i lead del marketplace commerciale
 
@@ -31,7 +31,7 @@ Questo articolo illustra come creare un nuovo flusso in Power Automate per gener
 
     ![Accedere a Flussi personali](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-1. In **+ Nuovo**selezionare **+ Istantaneo - Da modello vuoto**.
+1. In **+ Nuovo** selezionare **+ Istantaneo - Da modello vuoto**.
 
     ![Flussi personali + Flusso automatizzato da modello vuoto](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
@@ -43,7 +43,7 @@ Questo articolo illustra come creare un nuovo flusso in Power Automate per gener
 
     ![Espandere il passaggio del flusso](./media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png)
 
-1. Usare uno dei metodi seguenti per configurare l'opzione **Schema JSON del corpo della richiesta**:
+1. Usare uno dei metodi seguenti per configurare l'opzione **Schema JSON del corpo della richiesta** :
 
     - Copiare lo schema JSON riportato nella casella di testo **Schema JSON del corpo della richiesta**.
     - Selezionare **Usare il payload di esempio per generare lo schema**. Nella casella di testo **Immettere o incollare un payload JSON di esempio** incollare l'esempio di JSON. Selezionare **Fine** per creare lo schema.
@@ -162,15 +162,15 @@ Questo articolo illustra come creare un nuovo flusso in Power Automate per gener
 
 1. Nella finestra **Invia un messaggio di posta elettronica** configurare i campi obbligatori seguenti:
 
-   - **A**: immettere almeno un indirizzo di posta elettronica valido a cui verranno inviati i lead.
-   - **Soggetto**: Power Automate offre la possibilità di aggiungere contenuto dinamico, ad esempio **LeadSource**, come mostrato nella schermata seguente. Per iniziare, immettere un nome di campo. Selezionare quindi l'elenco di selezione di contenuto dinamico nella finestra popup. 
+   - **A** : immettere almeno un indirizzo di posta elettronica valido a cui verranno inviati i lead.
+   - **Soggetto** : Power Automate offre la possibilità di aggiungere contenuto dinamico, ad esempio **LeadSource** , come mostrato nella schermata seguente. Per iniziare, immettere un nome di campo. Selezionare quindi l'elenco di selezione di contenuto dinamico nella finestra popup. 
 
         >[!NOTE] 
         > Quando si aggiungono i nomi dei campi, è aggiungere due punti (:) dopo ogni nome e quindi premere **INVIO** per creare una nuova riga. Una volta aggiunti i nomi dei campi, è possibile aggiungere ogni parametro associato dall'elenco di selezione di contenuto dinamico.
 
         ![Aggiungere un'azione di posta elettronica usando contenuto dinamico](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
 
-   - **Corpo**: dall'elenco di selezione di contenuto dinamico aggiungere le informazioni desiderate nel corpo del messaggio di posta elettronica, ad esempio LastName, FirstName, Email e Company. Una volta configurata, la notifica tramite posta elettronica avrà un aspetto simile a quello dell'esempio della schermata seguente.
+   - **Corpo** : dall'elenco di selezione di contenuto dinamico aggiungere le informazioni desiderate nel corpo del messaggio di posta elettronica, ad esempio LastName, FirstName, Email e Company. Una volta configurata, la notifica tramite posta elettronica avrà un aspetto simile a quello dell'esempio della schermata seguente.
 
 
        ![Esempio di notifica tramite posta elettronica](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)

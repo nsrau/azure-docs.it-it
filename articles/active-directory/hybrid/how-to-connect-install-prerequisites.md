@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f337a66f50338692508ab2e5b4b7d489c735aa20
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: eccc0e71c73fb8bd2a5a50ebd0dda048d34dbea0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420488"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488401"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo articolo descrive i prerequisiti e i requisiti hardware per la connessione Azure Active Directory (Azure AD).
@@ -102,7 +102,7 @@ Per altre informazioni sulla protezione dell'ambiente di Active Directory, veder
 ### <a name="connectivity"></a>Connettività
 * Il server Azure AD Connect necessita della risoluzione DNS per Intranet e Internet. Il server DNS deve essere in grado di risolvere i nomi per gli endpoint locali di Active Directory e per gli endpoint di Azure AD.
 * Se si dispone di firewall sulla Intranet ed è necessario aprire le porte tra i server Azure AD Connect e i controller di dominio, vedere [porte Azure ad Connect](reference-connect-ports.md) per ulteriori informazioni.
-* Se il proxy o il firewall limita gli URL a cui è possibile accedere, gli URL documentati in [URL e intervalli di indirizzi IP di Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) devono essere aperti.
+* Se il proxy o il firewall limita gli URL a cui è possibile accedere, gli URL documentati in [URL e intervalli di indirizzi IP di Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) devono essere aperti. Vedere anche [gli URL di portale di Azure nel firewall o nel server proxy](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud).
   * Se si usa Microsoft Cloud in Germania o nel cloud Microsoft Azure per enti pubblici, vedere Considerazioni sulle [istanze del servizio di sincronizzazione Azure ad Connect](reference-connect-instances.md) per gli URL.
 * Per impostazione predefinita Azure AD Connect (versione 1.1.614.0 e successive) usa TLS 1.2 per crittografare le comunicazioni tra il motore di sincronizzazione e Azure AD. Se TLS 1.2 non è disponibile nel sistema operativo sottostante, Azure AD Connect esegue il fallback in modo incrementale sui protocolli meno recenti (TLS 1.1 e TLS 1.0).
 * Prima della versione 1.1.614.0, per impostazione predefinita, Azure AD Connect usa TLS 1.0 per crittografare le comunicazioni tra il motore di sincronizzazione e Azure AD. Per passare a TLS 1.2 seguire i passaggi descritti in [Abilitare TLS 1.2 per Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
@@ -147,7 +147,7 @@ Facoltativo: usare un account utente di test per verificare la sincronizzazione.
 ### <a name="powershell-and-net-framework"></a>PowerShell e .NET Framework
 Azure AD Connect si basa su Microsoft PowerShell e .NET Framework 4.5.1. Nel server deve essere installata questa versione o una versione successiva. A seconda della versione di Windows Server, eseguire le operazioni seguenti:
 
-* Windows Server 2012 R2
+* R2 per Windows Server 2012
   * Microsoft PowerShell viene installato per impostazione predefinita, Non è richiesta alcuna azione.
   * .NET Framework 4.5.1 e versioni successive sono disponibili tramite Windows Update. Assicurarsi di aver installato gli ultimi aggiornamenti di Windows Server nel pannello di controllo.
 * Windows Server 2012

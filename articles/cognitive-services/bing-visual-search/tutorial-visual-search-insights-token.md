@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: acb32e2fe3dae45cc4a95cea1b9fa4ea01d576c0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f68618c4387bc5105914eccc4e6149650119fd0f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102180"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366078"
 ---
 # <a name="tutorial-find-similar-images-from-previous-searches-using-an-image-insights-token"></a>Esercitazione: Trovare immagini simili da ricerche precedenti con ImageInsightsToken
 
@@ -44,7 +44,7 @@ Il codice sorgente completo per questa esercitazione, con l'aggiunta di annotazi
 
 ## <a name="get-the-imageinsightstoken-from-the-bing-image-search-client-library"></a>Ottenere ImageInsightsToken dalla libreria client di Ricerca immagini Bing
 
-Questa applicazione usa un oggetto `ImageInsightsToken` ottenuto tramite la [libreria client di Ricerca immagini Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart). In una nuova applicazione console C# creare un client per chiamare l'API tramite `ImageSearchClient()`. Usare quindi `SearchAsync()` con la query:
+Questa applicazione usa un oggetto `ImageInsightsToken` ottenuto tramite la [libreria client di Ricerca immagini Bing](../bing-image-search/quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp). In una nuova applicazione console C# creare un client per chiamare l'API tramite `ImageSearchClient()`. Usare quindi `SearchAsync()` con la query:
 
 ```csharp
 var client = new ImageSearchClient(new Microsoft.Azure.CognitiveServices.Search.ImageSearch.ApiKeyServiceClientCredentials(subKey));
@@ -129,7 +129,7 @@ Ottenere l'URL dell'immagine effettiva dai tipi di azione richiede un cast che l
     }
 ```
 
-Per altre informazioni su questi tipi di dati, vedere [Images - Visual Search](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) (Immagini - Ricerca visiva).
+Per altre informazioni su questi tipi di dati, vedere [Images - Visual Search](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch) (Immagini - Ricerca visiva).
 
 ## <a name="returned-urls"></a>URL restituiti
 

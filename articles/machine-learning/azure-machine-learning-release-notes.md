@@ -9,18 +9,62 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 5054451b181223d3d6deece6812358cfd08b1e30
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0afd1f2f8dd06c3c224d64304eec2e18489a7e81
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445082"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489132"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
 In questo articolo vengono fornite informazioni sulle versioni Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
+
+
+## <a name="2020-11-09"></a>2020-11-09
+
+### <a name="azure-machine-learning-sdk-for-python-v1180"></a>SDK di Azure Machine Learning per Python v 1.18.0
++ **Correzioni di bug e miglioramenti**
+  + **azureml-automl-core**
+    +  Gestione migliorata delle serie temporali brevi consentendo la loro riempimento con rumore di Gauss.
+  + **azureml-automl-runtime**
+    + Throw Configexception se una colonna DateTime ha un valore OutOfBoundsDatetime
+    + Gestione migliorata delle serie temporali brevi consentendo la loro riempimento con rumore di Gauss.
+    + Verifica che ogni colonna di testo possa sfruttare la trasformazione char-Gram con l'intervallo di n-grammi in base alla lunghezza delle stringhe nella colonna di testo
+    + Fornire spiegazioni sulle funzionalità non elaborate per la modalità migliore per gli esperimenti di AutoML in esecuzione nel calcolo locale dell'utente
+  + **azureml-core**
+    + Aggiungere il pacchetto: pyjwt per evitare di eseguire il pull delle versioni di rilievo nelle prossime versioni.
+    + La creazione di un esperimento restituirà l'esperimento attivo o dell'ultimo archivio con lo stesso nome specificato se tale esperimento esiste o un nuovo esperimento.
+    + La chiamata di get_experiment in base al nome restituirà l'esperimento attivo o dell'ultimo archivio con il nome specificato.
+    + Gli utenti non possono rinominare un esperimento durante la riattivazione.
+    + Messaggio di errore migliorato per includere potenziali correzioni quando un set di dati viene passato erroneamente a un esperimento, ad esempio ScriptRunConfig. 
+    + Documentazione migliorata per `OutputDatasetConfig.register_on_complete` includere il comportamento di ciò che accade quando il nome esiste già.
+    + Se si specificano i nomi di input e output del set di dati che possono entrare in conflitto con le variabili di ambiente comuni, verrà generato un avviso
+    + Parametro riutilizzabile `grant_workspace_access` durante la registrazione di archivi dati. Impostarla su `True` per accedere ai dati dietro la rete virtuale da Machine Learning Studio.
+      [Scopri di più](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+    + L'API del servizio collegato è stata perfezionata. Anziché fornire l'ID risorsa, sono disponibili 3 parametri distinti sub_id, RG e Name definiti nella configurazione.
+    + Per consentire ai clienti di risolvere automaticamente i problemi di danneggiamento dei token, abilitare la sincronizzazione dei token dell'area di lavoro come metodo pubblico.
+    + Questa modifica consente di utilizzare una stringa vuota come valore per una script_param
+  + **azureml-pipeline-core**
+    + SDK per il supporto del tipo SynapseCompute e SynapseSparkStep. I clienti possono eseguire l'esperimento e l'esecuzione di pipeline nel pool di Spark di sinapsi.
+  + **azureml-pipeline-steps**
+    + SDK per il supporto del tipo SynapseCompute e SynapseSparkStep. I clienti possono eseguire l'esperimento e l'esecuzione di pipeline nel pool di Spark di sinapsi.
+  + **azureml-sinapsi**
+    + Aggiungere sinapsi Magic e SparkMonitor per consentire all'utente di inviare il processo Syanpse e visualizzare lo stato di avanzamento del processo nel notebook.
+  + **azureml-train-automl-client**
+    +  Gestione migliorata delle serie temporali brevi consentendo la loro riempimento con rumore di Gauss.
+  + **azureml-train-automl-runtime**
+    + Throw Configexception se una colonna DateTime ha un valore OutOfBoundsDatetime
+    + È stato aggiunto il supporto per fornire spiegazioni delle funzionalità non elaborate per il modello migliore per gli esperimenti di AutoML in esecuzione nel calcolo locale dell'utente
+    + Gestione migliorata delle serie temporali brevi consentendo la loro riempimento con rumore di Gauss.
+  + **azureml-train-core**
+    + Questa modifica consente di utilizzare una stringa vuota come valore per una script_param
+  + **azureml-Train-restclients-iperguida**
+    + Il file Leggimi è stato modificato per offrire più contesto
+  + **azureml-widgets**
+    + Aggiungere il supporto per le stringhe alla libreria Charts/Parallel-coordinates per il widget.
 
 ## <a name="2020-11-05"></a>2020-11-05
 
@@ -29,6 +73,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
 Il tipo di progetto per la segmentazione dell'istanza di immagine (annotazioni Polygon) nell'etichetta dati è ora disponibile, in modo che gli utenti possano creare e annotare con i poligoni intorno al contorno degli oggetti nelle immagini. Gli utenti potranno assegnare una classe e un poligono a ogni oggetto di interesse all'interno di un'immagine.
 
 Altre informazioni sulle [etichette di segmentazione delle istanze di immagine](how-to-label-images.md).
+
 
 
 ## <a name="2020-10-26"></a>2020-10-26

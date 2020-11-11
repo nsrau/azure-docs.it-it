@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: f3f6e33c7c37089f7a9e87ab61bb00c966d8ccc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffaf66cbb5d9fa0b294f5749a1923684f16c2979
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90881914"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488090"
 ---
 # <a name="azure-functions-output-from-azure-stream-analytics"></a>Output di funzioni di Azure da analisi di flusso di Azure
 
 Funzioni di Azure è un servizio di calcolo senza server che è possibile usare per eseguire codice su richiesta senza dover gestire l'infrastruttura o effettuare il provisioning in modo esplicito. Consente di implementare il codice attivato da eventi generati nei servizi di Azure o di un partner. La possibilità di rispondere ai trigger rende Funzioni di Azure l'output naturale per Analisi di flusso di Azure. Questo adattatore di output consente agli utenti di collegare Analisi di flusso a Funzioni di Azure ed eseguire uno script o una porzione di codice in risposta a diversi eventi.
 
-L'output di Funzioni di Azure da Stream Analytics non è attualmente disponibile nelle aree di Azure Cina 21Vianet e Germania (T-Systems International).
+L'output di funzioni di Azure da analisi di flusso non è disponibile nelle aree Azure Cina 21Vianet e Azure Germania (T-Systems International). Non è inoltre supportata la connessione a funzioni di Azure all'interno di una rete virtuale (VNet) da un processo di analisi di flusso in esecuzione in un cluster multi-tenant.
 
 Analisi di flusso di Azure richiama Funzioni di Azure tramite trigger HTTP. L'adattatore di output di Funzioni di Azure è disponibile con le proprietà configurabili seguenti:
 

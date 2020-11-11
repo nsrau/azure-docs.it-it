@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: d0a16dc639fb3206b480c1091a66686955cbb11d
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 9740506da2c03996db756175551867ed43575a7c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932346"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488180"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
@@ -119,10 +119,10 @@ Per Azure NetApp Files sono valide altre considerazioni relative a AADDS:
 
 Quando si crea una connessione Active Directory, tenere presenti le specifiche seguenti per AADDS:
 
-* È possibile trovare informazioni per **DNS primario**, **DNS secondario** e **Nome di dominio DNS di Active Directory** nel menu AADDS.  
+* È possibile trovare informazioni per **DNS primario** , **DNS secondario** e **Nome di dominio DNS di Active Directory** nel menu AADDS.  
 Per i server DNS, verranno usati due indirizzi IP per la configurazione della connessione Active Directory. 
 * Il **percorso unità organizzativa** è `OU=AADDC Computers`.  
-Questa impostazione viene configurata in **Connessioni Active Directory** in **Account NetApp**:
+Questa impostazione viene configurata in **Connessioni Active Directory** in **Account NetApp** :
 
   ![Percorso unità organizzativa](../media/azure-netapp-files/azure-netapp-files-org-unit-path.png)
 
@@ -131,7 +131,7 @@ Questa impostazione viene configurata in **Connessioni Active Directory** in **A
 
 ## <a name="create-an-active-directory-connection"></a>Creare una connessione Active Directory
 
-1. Dall'account NetApp fare clic su **Connessioni Active Directory**, quindi fare clic su **Aggiungi**.  
+1. Dall'account NetApp fare clic su **Connessioni Active Directory** , quindi fare clic su **Aggiungi**.  
 
     ![Connessioni Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
 
@@ -146,7 +146,7 @@ Questa impostazione viene configurata in **Connessioni Active Directory** in **A
     * **Nome di dominio DNS di Active Directory**  
         Si tratta del nome di dominio di Active Directory Domain Services che si vuole aggiungere.
     * **Nome sito di AD**  
-        Questo è il nome del sito a cui sarà limitata l'individuazione del controller di dominio.
+        Questo è il nome del sito a cui sarà limitata l'individuazione del controller di dominio. Deve corrispondere al nome del sito in Active Directory siti e servizi.
     * **Prefisso del server SMB (account computer)**  
         Questo è il prefisso di denominazione per l'account computer in Active Directory che verrà usato da Azure NetApp Files per la creazione di nuovi account.
 

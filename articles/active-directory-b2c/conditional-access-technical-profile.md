@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f88548b57cee9b5f637247fda1536488382ae2f6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: bc811ab3cab4b79b81b16dd94a2c72225046e35a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042627"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488279"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di accesso condizionale in un Azure Active Directory B2C criteri personalizzati
 
@@ -130,7 +130,7 @@ L'elemento **InputClaimsTransformations** può contenere una raccolta di element
 
 ### <a name="output-claims"></a>Attestazioni di output
 
-Il provider del protocollo di accesso condizionale non restituisce alcun **OutputClaims**, quindi non è necessario specificare le attestazioni di output. È tuttavia possibile includere le attestazioni che non vengono restituite dal provider del protocollo di accesso condizionale finché si imposta l' `DefaultValue` attributo.
+Il provider del protocollo di accesso condizionale non restituisce alcun **OutputClaims** , quindi non è necessario specificare le attestazioni di output. È tuttavia possibile includere le attestazioni che non vengono restituite dal provider del protocollo di accesso condizionale finché si imposta l' `DefaultValue` attributo.
 
 L'elemento **OutputClaimsTransformations** può contenere una raccolta di elementi **OutputClaimsTransformation** che vengono usati per modificare le attestazioni di output o per generarne di nuove.
 
@@ -428,7 +428,7 @@ Aggiungere un percorso utente che usa le nuove attestazioni, come illustrato nel
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
               <Value>CAChallengeIsMfa</Value>
-              <Value>false</Value>
+              <Value>False</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>
@@ -458,7 +458,7 @@ Aggiungere un percorso utente che usa le nuove attestazioni, come illustrato nel
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
               <Value>CAChallengeIsBlock</Value>
-              <Value>true</Value>
+              <Value>True</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>

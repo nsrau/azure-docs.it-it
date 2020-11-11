@@ -4,15 +4,15 @@ description: Informazioni sulla generazione e la ricezione di lead dei clienti p
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 10/01/2020
-ms.openlocfilehash: 5627d6afab22defebeebd3f04695ef95390f1163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d5f2248d94796d5e3ee76301642a95abddebfe4
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653316"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489336"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Lead di clienti tramite l'offerta del marketplace commerciale
 
@@ -50,9 +50,9 @@ Di seguito sono riportati i punti in cui viene generato un lead.
 
 Ogni lead ricevuto durante il processo di acquisizione del cliente presenta dati in campi specifici. Il primo campo da cercare è il campo `LeadSource`, che segue il formato: **Origine-Azione** | **Offerta**.
 
-**Origini**: Il valore di questo campo viene popolato in base al marketplace che ha generato il lead. I valori possibili sono `"AzureMarketplace"`, `"AzurePortal"` e `"AppSource (SPZA)"`.
+**Origini** : Il valore di questo campo viene popolato in base al marketplace che ha generato il lead. I valori possibili sono `"AzureMarketplace"`, `"AzurePortal"` e `"AppSource (SPZA)"`.
 
-**Azioni**: Il valore di questo campo viene popolato in base all'azione svolta dal cliente nel marketplace che ha generato il lead.
+**Azioni** : Il valore di questo campo viene popolato in base all'azione svolta dal cliente nel marketplace che ha generato il lead.
 
 I valori possibili sono:
 
@@ -62,7 +62,7 @@ I valori possibili sono:
 - **"Crea"** : questa azione si trova solo nel portale di Azure e si genera quando un cliente acquista l'offerta dal proprio account.
 - **"StartTestDrive"** : questa azione riguarda solo l'opzione **Test drive** e si genera quando un cliente avvia il test drive.
 
-**Offerte**: nel marketplace commerciale potrebbero esistere più offerte. Il valore di questo campo viene popolato in base all'offerta che ha generato il lead. L'ID editore e l'ID offerta vengono entrambi inviati in questo campo e sono valori specificati al momento della pubblicazione dell'offerta nel marketplace.
+**Offerte** : nel marketplace commerciale potrebbero esistere più offerte. Il valore di questo campo viene popolato in base all'offerta che ha generato il lead. L'ID editore e l'ID offerta vengono entrambi inviati in questo campo e sono valori specificati al momento della pubblicazione dell'offerta nel marketplace.
 
 Negli esempi seguenti vengono illustrati i valori nel formato previsto `publisherid.offerid`: 
 
@@ -89,10 +89,10 @@ Le informazioni sul cliente vengono inviate tramite più campi. L'esempio seguen
 
 Di seguito sono riportati alcuni suggerimenti per guidare i lead nel ciclo di vendita:
 
-- **Processo**: definire un processo di vendita chiaro, con attività cardine, analisi e una chiara proprietà del team.
-- **Qualificazione**: definire i prerequisiti, che indicano se un lead era completo. Assicurarsi che i rappresentanti di vendita o marketing qualifichino i lead con attenzione prima di prenderli in considerazione per il processo di vendita completo.
-- **Completamento**: non dimenticare di seguirli entro 24 ore. Si otterrà il lead nel CRM preferito immediatamente dopo la distribuzione di un test drive da parte del cliente; inviare un messaggio di posta elettronica all'interno di mentre sono ancora a caldo. Richiede la pianificazione di una telefonata per comprendere meglio se il prodotto è una soluzione ottimale per il problema. Si prevede che la transazione tipica richieda numerose chiamate di completamento.
-- **Seguire**: consolidare i lead in modo da raggiungere un margine di profitto superiore. Archiviarli senza bombardarli. Si consiglia di inviare messaggi di posta elettronica almeno alcune volte prima di chiuderli; non abbandonarsi dopo il primo tentativo. Tenere presente che questi clienti hanno partecipato direttamente al prodotto e hanno dedicato tempo a una versione di valutazione gratuita; sono ottime prospettive.
+- **Processo** : definire un processo di vendita chiaro, con attività cardine, analisi e una chiara proprietà del team.
+- **Qualificazione** : definire i prerequisiti, che indicano se un lead era completo. Assicurarsi che i rappresentanti di vendita o marketing qualifichino i lead con attenzione prima di prenderli in considerazione per il processo di vendita completo.
+- **Completamento** : non dimenticare di seguirli entro 24 ore. Si otterrà il lead nel CRM preferito immediatamente dopo la distribuzione di un test drive da parte del cliente; inviare un messaggio di posta elettronica all'interno di mentre sono ancora a caldo. Richiede la pianificazione di una telefonata per comprendere meglio se il prodotto è una soluzione ottimale per il problema. Si prevede che la transazione tipica richieda numerose chiamate di completamento.
+- **Seguire** : consolidare i lead in modo da raggiungere un margine di profitto superiore. Archiviarli senza bombardarli. Si consiglia di inviare messaggi di posta elettronica almeno alcune volte prima di chiuderli; non abbandonarsi dopo il primo tentativo. Tenere presente che questi clienti hanno partecipato direttamente al prodotto e hanno dedicato tempo a una versione di valutazione gratuita; sono ottime prospettive.
 
 Dopo che è stata eseguita la configurazione tecnica, incorporare i lead nella strategia di vendita e marketing e nei processi operativi correnti. L'intento è quello di comprendere meglio il processo complessivo di vendita e di collaborare con l'utente per creare lead di alta qualità e dati sufficienti a garantire il successo dell'utente. Ogni commento su come ottimizzare e migliorare i lead inviati con dati aggiuntivi per contribuire ad avere clienti di successo è apprezzato. Sono graditi [feedback](mailto:AzureMarketOnboard@microsoft.com) e suggerimenti che consentano al team di vendita di sviluppare i lead del marketplace commerciale in modo ottimale.
 

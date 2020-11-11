@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 0dc55f4d77fde48590b1fbf206ed988e8fb9ec0e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098774"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490271"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduzione alla velocità effettiva con provisioning in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -73,7 +73,7 @@ Se il proprio account Azure Cosmos DB contiene già un database con velocità ef
 
 Se i carichi di lavoro comportano l'eliminazione e la ricreazione di tutte le raccolte di un database, è consigliabile eliminare il database vuoto e ricrearne uno nuovo prima di creare le raccolte. L'immagine seguente mostra in che modo una partizione fisica può ospitare una o più partizioni logiche che appartengono a contenitori diversi all'interno di un database:
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partizione fisica che ospita una o più partizioni logiche di un contenitore" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partizione fisica che ospita una o più partizioni logiche che appartengono a contenitori diversi " border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Configurare la velocità effettiva in un database e in un contenitore
 
@@ -82,9 +82,9 @@ Se i carichi di lavoro comportano l'eliminazione e la ricreazione di tutte le ra
 * È possibile creare un database di Azure Cosmos denominato *Z* con una velocità effettiva con provisioning standard (manuale) pari a *"K"* UR. 
 * Creare quindi cinque contenitori denominati *A* , *B* , *C* , *D* ed *E* all'interno del database. Quando si crea il contenitore B, abilitare l'opzione **Provision dedicated throughput for this container** (Effettua il provisioning di velocità effettiva dedicata per questo contenitore) e configurare in modo esplicito *"P"* UR di velocità effettiva con provisioning in questo contenitore. È possibile configurare la velocità effettiva condivisa e dedicata solo quando si creano il database e il contenitore. 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partizione fisica che ospita una o più partizioni logiche di un contenitore":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Impostazione della velocità effettiva a livello di contenitore":::
 
-* La velocità effettiva di *"K"* UR è condivisa tra i quattro contenitori *A* , *C* , *D* ed *E* . La quantità esatta di velocità effettiva disponibile per *A* , *C* , *D* o *E* varia. Non sono previsti contratti di servizio per la velocità effettiva di ogni singolo contenitore.
+* La velocità effettiva di *"K"* UR è condivisa tra i quattro contenitori *A* , *C* , *D* ed *E*. La quantità esatta di velocità effettiva disponibile per *A* , *C* , *D* o *E* varia. Non sono previsti contratti di servizio per la velocità effettiva di ogni singolo contenitore.
 * Il contenitore *B* ha la garanzia di ottenere sempre la velocità effettiva di *"P"* UR ed è supportato da contratti di servizio.
 
 > [!NOTE]
@@ -109,7 +109,7 @@ La risposta di questi metodi contiene anche la [velocità effettiva minima di pr
 Il numero effettivo minimo di ur/sec può variare a seconda della configurazione dell'account. Ma in genere è il massimo:
 
 * 400 UR/sec 
-* Archiviazione corrente in GB * 10 UR/sec
+* Archiviazione corrente in GB * 10 UR/s (a meno che il contenitore o il database non contenga più di 1 TB di dati, vedere il [programma di archiviazione elevata/velocità effettiva ridotta](#high-storage-low-throughput-program))
 * Unità richiesta/sec più alta con provisioning nel database o nel contenitore/100
 * Numero di contenitori * 100 ur/sec (solo database con velocità effettiva condivisa)
 

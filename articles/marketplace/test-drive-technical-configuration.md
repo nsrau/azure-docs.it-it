@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/13/2019
-author: keferna
-ms.author: keferna
-ms.openlocfilehash: bf253c4e3b273bc1500e5abbd4dfc045a7909ffd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+author: trkeya
+ms.author: trkeya
+ms.openlocfilehash: b3f46f934241d924789b97c24cf9b68213d94d63
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125683"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490084"
 ---
 # <a name="test-drive-technical-configuration"></a>Configurazione tecnica del test drive
 
@@ -74,7 +74,7 @@ Per consentire a Microsoft di distribuire il test automaticamente, creare e spec
 
 - **Azure ad ID app** (obbligatorio): immettere l' [id applicazione](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)di Azure Active Directory (ad). Per trovare questo ID, accedere al [portale di Azure](https://portal.azure.com/), selezionare la scheda Active Directory nel menu a sinistra, selezionare **registrazioni app** , quindi cercare il numero di **ID dell'applicazione** elencato (ad esempio `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **Azure ad segreto client App** (obbligatorio): immettere il [segreto client](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)dell'applicazione Azure ad. Per trovare questo valore, accedere al [portale di Azure](https://portal.azure.com/). Selezionare la scheda **Azure Active Directory** nel menu a sinistra, selezionare **registrazioni app** e selezionare l'app test drive. Selezionare quindi **certificati e segreti** , selezionare **nuovo segreto client** , immettere una descrizione, selezionare **mai** in **scadenza** e scegliere **Aggiungi** . Assicurarsi di copiare il valore. Non uscire dalla pagina prima di copiare il valore.
+- **Azure ad segreto client App** (obbligatorio): immettere il [segreto client](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)dell'applicazione Azure ad. Per trovare questo valore, accedere al [portale di Azure](https://portal.azure.com/). Selezionare la scheda **Azure Active Directory** nel menu a sinistra, selezionare **registrazioni app** e selezionare l'app test drive. Selezionare quindi **certificati e segreti** , selezionare **nuovo segreto client** , immettere una descrizione, selezionare **mai** in **scadenza** e scegliere **Aggiungi**. Assicurarsi di copiare il valore. Non uscire dalla pagina prima di copiare il valore.
 
 ## <a name="test-drive-listings"></a>Elenchi di test drive
 
@@ -98,9 +98,4 @@ Se si sta creando il test drive nel centro per i partner, selezionare **Salva bo
 - [Procedure consigliate per test drive](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Panoramica](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)(PDF; assicurarsi che il blocco popup sia disattivato)
 - [Aggiornare un'offerta esistente nel marketplace commerciale](partner-center-portal/update-existing-offer.md)
-
-## <a name="additional-resources"></a>Risorse aggiuntive
-
-## <a name="feedback"></a>Commenti e suggerimenti
-
-Inviare e visualizzare il feedback per [questo prodotto](https://feedback.azure.com/forums/216369-azure-marketplace)
+- [Forum dei commenti e suggerimenti su Azure Marketplace](https://feedback.azure.com/forums/216369-azure-marketplace)

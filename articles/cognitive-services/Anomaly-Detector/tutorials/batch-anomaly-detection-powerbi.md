@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: 887e7432151569eb07e3c9256c7f126e7f884d54
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017625"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368645"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Esercitazione: Visualizzare le anomalie con il rilevamento in batch e Power BI
 
@@ -112,14 +112,14 @@ In Editor avanzato usare il frammento di Power Query M seguente per estrarre le 
  in results
 ```
 
-Richiamare la query nel foglio dati selezionando `Sheet1` sotto **Immettere un parametro**, quindi fare clic su **Richiama**.
+Richiamare la query nel foglio dati selezionando `Sheet1` sotto **Immettere un parametro** , quindi fare clic su **Richiama**.
 
 ![Immagine della funzione Richiama](../media/tutorials/invoke-function-screenshot.png)
 
 ## <a name="data-source-privacy-and-authentication"></a>Privacy e autenticazione dell'origine dati
 
 > [!NOTE]
-> È importante conoscere i criteri dell'organizzazione a livello di privacy e accesso ai dati. Per altre informazioni, vedere [Livelli di privacy di Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-privacy-levels).
+> È importante conoscere i criteri dell'organizzazione a livello di privacy e accesso ai dati. Per altre informazioni, vedere [Livelli di privacy di Power BI Desktop](/power-bi/desktop-privacy-levels).
 
 Quando si prova a eseguire la query si potrebbe ricevere un messaggio di avviso, poiché utilizza un'origine dati esterna.
 
@@ -137,7 +137,7 @@ Quindi fare clic su **Chiudi e applica** nella scheda **Home** della barra multi
 
 ## <a name="visualize-the-anomaly-detector-api-response"></a>Visualizzare la risposta dell'API Rilevamento anomalie
 
-Nella schermata principale di Power BI iniziare a usare le query create in precedenza per visualizzare i dati. Prima di tutto selezionare **Grafico a linee** in **Visualizzazioni**. Quindi aggiungere il timestamp della funzione richiamata all'**Asse** del grafico a linee. Fare clic su di esso con il pulsante destro del mouse e scegliere **Timestamp**.
+Nella schermata principale di Power BI iniziare a usare le query create in precedenza per visualizzare i dati. Prima di tutto selezionare **Grafico a linee** in **Visualizzazioni**. Quindi aggiungere il timestamp della funzione richiamata all' **Asse** del grafico a linee. Fare clic su di esso con il pulsante destro del mouse e scegliere **Timestamp**.
 
 ![Fare clic con il pulsante destro del mouse sul valore Timestamp](../media/tutorials/timestamp-right-click.png)
 
@@ -156,7 +156,7 @@ Dopo aver aggiunto i campi, fare clic sul grafico e ridimensionarlo per mostrare
 
 ### <a name="display-anomaly-data-points"></a>Visualizzare i punti dati delle anomalie
 
-Sul lato destro della finestra di Power BI, sotto il riquadro **CAMPI**, fare clic con il pulsante destro del mouse su **Value** sotto la query **Richiamata funzione** e scegliere **Nuova misura rapida** .
+Sul lato destro della finestra di Power BI, sotto il riquadro **CAMPI** , fare clic con il pulsante destro del mouse su **Value** sotto la query **Richiamata funzione** e scegliere **Nuova misura rapida** .
 
 ![Immagine della nuova schermata di misura rapida](../media/tutorials/new-quick-measure.png)
 

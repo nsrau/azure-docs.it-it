@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 1b750554ec231cddd0403c89a33f2af4349ff188
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b6d9ec0760cc8d95f712cfc7a5478de1a99465ef
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098997"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379872"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Esercitazione: App a pagina singola Ricerca video
 
@@ -47,7 +47,7 @@ L'app dell'esercitazione illustra come:
 
 La pagina dell'esercitazione è autonoma, non usa framework, fogli di stile o file di immagine esterni. Usa solo funzionalità del linguaggio JavaScript ampiamente supportate e funziona con le versioni correnti di tutti i Web browser principali.
 
-Questa esercitazione illustra parti selezionate del codice sorgente. È disponibile il [codice sorgente](tutorial-bing-video-search-single-page-app-source.md) completo. Per eseguire l'esempio, copiare e incollare il codice sorgente in un editor di testo e salvarlo come `bing.html`.
+Questa esercitazione illustra parti selezionate del codice sorgente. È disponibile il [codice sorgente]() completo. Per eseguire l'esempio, copiare e incollare il codice sorgente in un editor di testo e salvarlo come `bing.html`.
 
 ## <a name="app-components"></a>Componenti dell'app
 Come qualsiasi applicazione Web a pagina singola, questa applicazione di esercitazione include tre parti:

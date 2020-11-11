@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: 8ef5d8e049ac4a779d5139945bf1073f38eb434c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0982f89d59f2ef9a282a46a93b98801b9df00a40
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017659"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368713"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Esercitazione: Rilevamento anomalie nei dati di streaming con Azure Databricks
 
@@ -47,7 +47,7 @@ Creare una [sottoscrizione di Azure](https://azure.microsoft.com/free/cognitive-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Uno [spazio dei nomi di Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) e un hub eventi.
+- Uno [spazio dei nomi di Hub eventi di Azure](../../../event-hubs/event-hubs-create.md) e un hub eventi.
 
 - [Stringa di connessione](../../../event-hubs/event-hubs-get-connection-string.md) per l'accesso allo spazio dei nomi di Hub eventi. La stringa di connessione deve avere un formato simile al seguente:
 
@@ -184,8 +184,8 @@ In questa esercitazione si useranno le [API Rilevamento anomalie di Servizi cogn
 
 In questa sezione vengono creati due notebook nell'area di lavoro di Databricks con i nomi seguenti:
 
-- **SendTweetsToEventHub**: notebook producer usato per ottenere tweet da Twitter e trasmetterli a Hub eventi.
-- **AnalyzeTweetsFromEventHub**: notebook consumer usato per leggere tweet da Hub eventi ed eseguire il rilevamento anomalie.
+- **SendTweetsToEventHub** : notebook producer usato per ottenere tweet da Twitter e trasmetterli a Hub eventi.
+- **AnalyzeTweetsFromEventHub** : notebook consumer usato per leggere tweet da Hub eventi ed eseguire il rilevamento anomalie.
 
 1. Nell'area di lavoro di Azure Databricks selezionare **Area di lavoro** nel riquadro sinistro. Nell'elenco a discesa **Workspace** (Area di lavoro) selezionare **Create** (Crea) e quindi **Notebook**.
 

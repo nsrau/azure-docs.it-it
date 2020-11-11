@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9456d663eb1600bf73b1fe253560c2d9f29205ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 45dac4425f4d2f563cbc942f23d81583728139f6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375740"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489455"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Applicare un criterio di denominazione nei gruppi di Microsoft 365 in Azure Active Directory
 
@@ -249,7 +249,6 @@ App per dispositivi mobili Gruppi | I gruppi creati nell'app per dispositivi mob
 Planner | Planner è conforme ai criteri di denominazione. Planner mostra l'anteprima dei criteri di denominazione quando si immette il nome del piano. Se un utente immette una parola bloccata personalizzata, viene visualizzato un messaggio di errore quando si crea il piano.
 Dynamics 365 for Customer Engagement | Dynamics 365 for Customer Engagement è conforme ai criteri di denominazione. Dynamics 365 mostra il nome imposto dai criteri di denominazione quando l'utente digita un nome o un alias del gruppo. Se l'utente immette una parola bloccata personalizzata, viene visualizzato un messaggio di errore contenente la parola bloccata che ne consente la rimozione.
 School Data Sync (SDS) | I gruppi creati tramite SDS sono conformi ai criteri di denominazione, ma i criteri di denominazione non vengono applicati automaticamente. Gli amministratori SDS devono aggiungere prefissi e suffissi ai nomi di classe per cui occorre creare e caricare i gruppi in SDS. In caso contrario, la creazione o la modifica del gruppo avrà esito negativo.
-Outlook Customer Manager (OCM) | Outlook Customer Manager è conforme ai criteri di denominazione, che vengono applicati automaticamente al gruppo creato in Outlook Customer Manager. Se viene rilevata una parola bloccata personalizzata, la creazione del gruppo in OCM viene bloccata e l'utente non può utilizzare l'app OCM.
 App Classroom | I gruppi creati nell'app Classroom sono conformi ai criteri di denominazione, ma tali criteri non vengono applicati automaticamente e l'anteprima dei criteri di denominazione non viene visualizzata agli utenti quando immettono un nome per il gruppo della classe. Gli utenti devono immettere il nome per il gruppo della classi imposto con prefissi e suffissi. In caso contrario, l'operazione di creazione o modifica del gruppo della classe ha esito negativo con errori.
 Power BI | Le aree di lavoro di Power BI sono conformi ai criteri di denominazione.    
 Yammer | Quando un utente connesso a Yammer con il proprio account Azure Active Directory crea un gruppo o modifica il nome di gruppo, quest'ultimo risulterà conforme ai criteri di denominazione. Questo vale sia per Microsoft 365 gruppi connessi che per tutti gli altri gruppi di Yammer.<br>Se è stato creato un gruppo Microsoft 365 Connected prima del criterio di denominazione, il nome del gruppo non seguirà automaticamente i criteri di denominazione. Quando un utente modifica il nome del gruppo, gli sarà richiesto di aggiungere il prefisso e suffisso.

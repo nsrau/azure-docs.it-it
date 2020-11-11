@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 1414f2ce53d1764e788749fc2d225c56f624bcdc
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 6f92c138a02c9dbdc1d22ca04c733cfbee69dcd0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370249"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488520"
 ---
 # <a name="how-to-configure-your-azure-application-offer-properties"></a>Come configurare le proprietà dell'offerta applicazione Azure
 
@@ -76,10 +76,6 @@ Nei **termini dell'emendamento universale per il contratto standard per il Marke
 
 1. In **Legal** , assicurarsi che la casella di controllo **USA contratto standard per il Marketplace commerciale di Microsoft** sia deselezionata.
 1. Nella casella **termini e condizioni** immettere fino a 10.000 caratteri di testo.
-
-   > [!NOTE]
-   > Se è necessaria una descrizione più lunga, immettere un singolo indirizzo Web che punti alla posizione in cui si trovano i termini e le condizioni. che verrà visualizzato dai clienti come collegamento attivo.
-
 1. Selezionare **Salva bozza** prima di continuare con la scheda successiva: elenco offerte.
 
 ## <a name="next-steps"></a>Passaggi successivi

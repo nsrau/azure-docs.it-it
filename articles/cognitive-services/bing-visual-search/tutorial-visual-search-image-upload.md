@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: scottwhi
 ms.custom: devx-track-js
-ms.openlocfilehash: 8ecea9dce3509e064d9244a8b725add21747a03e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0afee57eaaa0708ebde2a2aeaced76f008ebd9f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102205"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366129"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Esercitazione: Caricare immagini nell'API Ricerca visiva Bing
 
@@ -477,7 +477,7 @@ function addDivContent(div, tag, json) {
 
 ## <a name="display-insights-for-different-actions"></a>Visualizzare informazioni dettagliate per azioni diverse
 
-Le funzioni seguenti mostrano informazioni dettagliate per azioni differenti. Le funzioni restituiscono un'immagine o un collegamento selezionabile che indirizza a una pagina Web in cui è possibile ottenere altre informazioni sull'immagine. La pagina è ospitata da Bing.com o è il sito Web originale dell'immagine. L'applicazione non visualizza tutti i dati associati alle informazioni dettagliate. Per visualizzare tutti i campi disponibili per le informazioni dettagliate, vedere l'[argomento di riferimento sulla Ricerca visiva di immagini](https://aka.ms/bingvisualsearchreferencedoc).
+Le funzioni seguenti mostrano informazioni dettagliate per azioni differenti. Le funzioni restituiscono un'immagine o un collegamento selezionabile che indirizza a una pagina Web in cui è possibile ottenere altre informazioni sull'immagine. La pagina è ospitata da Bing.com o è il sito Web originale dell'immagine. L'applicazione non visualizza tutti i dati associati alle informazioni dettagliate. Per visualizzare tutti i campi disponibili per le informazioni dettagliate, vedere l'[argomento di riferimento sulla Ricerca visiva di immagini](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
 
 > [!NOTE]
 > È necessario visualizzar nella pagina solo una quantità minima di informazioni dettagliate. Per altre informazioni, vedere [Requisiti per l'uso e la visualizzazione delle API Ricerca Bing](../bing-web-search/use-display-requirements.md).

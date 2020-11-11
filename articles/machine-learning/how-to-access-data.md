@@ -11,14 +11,14 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: f60d864bd367b5f44869abc9ccac4e4cc266075a
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 7f2c7e99117c338d07abc2ed8760c2be18955d66
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358100"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489302"
 ---
-# <a name="connect-to-storage-services-azure"></a>Connettersi ai servizi di archiviazione Azure
+# <a name="connect-to-storage-services-on-azure"></a>Connettersi ai servizi di archiviazione in Azure
 
 Questo articolo illustra come **connettersi ai servizi di archiviazione in Azure tramite Azure Machine Learning archivi dati**. Gli archivi dati si connettono in modo sicuro al servizio di archiviazione di Azure senza inserire le credenziali di autenticazione e l'integrità dell'origine dati originale a rischio. Le informazioni di connessione vengono archiviate, ad esempio l'ID sottoscrizione e l'autorizzazione token nell' [Key Vault](https://azure.microsoft.com/services/key-vault/) associata all'area di lavoro, in modo da poter accedere in modo sicuro alla risorsa di archiviazione senza che sia necessario codificarli negli script. Per creare e registrare archivi dati, è possibile usare [Azure Machine Learning Python SDK](#python) o [Azure Machine Learning Studio](how-to-connect-data-ui.md) .
 

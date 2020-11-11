@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: bf1dcb34b762c3dcae39316d804b617edbf2302d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 263509ce7d348e51bf4a2a1d7ad83fb5dfdb5e29
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360735"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489438"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Eseguire il training con set di impostazioni in Azure Machine Learning
 
@@ -254,7 +254,8 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 ## <a name="notebook-examples"></a>Esempi di notebook
 
-I [notebook del set di dati](https://aka.ms/dataset-tutorial) dimostrano ed espandono i concetti in questo articolo.
++ I [notebook del set di dati](https://aka.ms/dataset-tutorial) dimostrano ed espandono i concetti in questo articolo.
++ Vedere How to [parametize DataSets nelle pipeline ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

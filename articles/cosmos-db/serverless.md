@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 75d22a5021c7c8ae3a12f25644f2875e0ccf8cdd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: c811a2ea5c06250068e7c0276e4b79e9108d920d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098757"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490356"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB senza server (anteprima)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -50,9 +50,6 @@ Per altre indicazioni su come scegliere l'offerta più adatta ai casi d'uso, ved
 ## <a name="using-serverless-resources"></a>Uso di risorse senza server
 
 Senza server è un nuovo tipo di account Azure Cosmos, il che significa che è necessario scegliere tra la **velocità effettiva con provisioning** e senza **Server** quando si crea un nuovo account. Per iniziare a usare senza server, è necessario creare un nuovo account senza server. Durante la versione di anteprima, l'unico modo supportato per creare un nuovo account senza server consiste nell' [usare la portale di Azure](create-cosmosdb-resources-portal.md). La migrazione degli account esistenti da e verso la modalità senza server non è attualmente supportata.
-
-> [!NOTE]
-> Il server non è attualmente supportato nell'API Azure Cosmos DB Core (SQL).
 
 Qualsiasi contenitore creato in un account senza server è un contenitore senza server. I contenitori senza server espongono le stesse funzionalità dei contenitori creati in modalità di velocità effettiva con provisioning, in modo da leggere, scrivere ed eseguire query sui dati esattamente allo stesso modo. Tuttavia, anche gli account senza server e i contenitori hanno caratteristiche specifiche:
 

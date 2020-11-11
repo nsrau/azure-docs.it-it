@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 010b65a170d05fb0d2cc55e7519fd27df8b751e1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c47a4fbf51b14d9a13237f77c75dbf2839fb5f80
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095442"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381287"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Esercitazione: Creare un'app a singola pagina con l'API Ricerca Web Bing
 
@@ -36,7 +36,7 @@ Questa app di esempio può:
 > * Gestire le chiavi di sottoscrizione
 > * Gestire gli errori
 
-Per usare questa app è necessario un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le API di ricerca Bing.
+Per usare questa app è necessario un [account di Servizi cognitivi di Azure](../cognitive-services-apis-create-account.md) con le API di ricerca Bing.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -86,7 +86,7 @@ Questa esercitazione è incentrata su `scripts.js` e sulla logica necessaria per
 
 ## <a name="query-options"></a>Opzioni di query
 
-Il modulo HTML include opzioni che eseguono il mapping ai parametri di query nell'[API Ricerca Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). La tabella seguente mostra in che modo gli utenti possono filtrare i risultati della ricerca usando l'app di esempio:
+Il modulo HTML include opzioni che eseguono il mapping ai parametri di query nell'[API Ricerca Web Bing v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). La tabella seguente mostra in che modo gli utenti possono filtrare i risultati della ricerca usando l'app di esempio:
 
 | Parametro | Descrizione |
 |-----------|-------------|
@@ -99,7 +99,7 @@ Il modulo HTML include opzioni che eseguono il mapping ai parametri di query nel
 | `offset` | Campo nascosto. Lo scostamento del primo risultato della ricerca nella richiesta, che viene usato per l'impaginazione. Viene reimpostato su `0` con ogni nuova richiesta. |
 
 > [!NOTE]
-> L'API Ricerca Web Bing offre altri parametri di query per affinare i risultati della ricerca. Questo esempio ne usa solo alcuni. Per un elenco completo dei parametri disponibili, vedere [Informazioni di riferimento per l'API Ricerca Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
+> L'API Ricerca Web Bing offre altri parametri di query per affinare i risultati della ricerca. Questo esempio ne usa solo alcuni. Per un elenco completo dei parametri disponibili, vedere [Informazioni di riferimento per l'API Ricerca Web Bing v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
 
 La funzione `bingSearchOptions()` converte queste opzioni nel formato richiesto dall'API di ricerca Bing.
 
@@ -303,7 +303,7 @@ Gli errori vengono gestiti chiamando `renderErrorMessage()`. Se la risposta supe
 
 ## <a name="display-search-results"></a>Visualizzare i risultati della ricerca
 
-I risultati restituiti dall'API Ricerca Web Bing sono soggetti a [requisiti di utilizzo e visualizzazione](useanddisplayrequirements.md). Poiché una risposta può includere vari tipi di risultati, non è sufficiente scorrere la raccolta `WebPages` di primo livello. L'app di esempio usa invece `RankingResponse` per ordinare i risultati secondo un criterio specifico.
+I risultati restituiti dall'API Ricerca Web Bing sono soggetti a [requisiti di utilizzo e visualizzazione](./use-display-requirements.md). Poiché una risposta può includere vari tipi di risultati, non è sufficiente scorrere la raccolta `WebPages` di primo livello. L'app di esempio usa invece `RankingResponse` per ordinare i risultati secondo un criterio specifico.
 
 > [!NOTE]
 > Se si vuole visualizzare un solo tipo di risultato, usare il parametro di query `responseFilter` oppure provare a usare uno degli altri endpoint di Ricerca Bing, come Ricerca immagini Bing.

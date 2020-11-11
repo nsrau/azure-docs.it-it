@@ -5,15 +5,18 @@ author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
-ms.date: 10/20/2020
-ms.openlocfilehash: 9568dfc2cfd678d0ce2dea8475328358906e16d1
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 11/10/2020
+ms.openlocfilehash: 7733a6211363b4f1c9e9006f757b4d152c7af7f5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92525135"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489557"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurare i parametri del server nel database di Azure per MySQL-server flessibile usando il portale di Azure
+
+> [!IMPORTANT] 
+> Il server flessibile di Database di Azure per MySQL è attualmente disponibile in anteprima pubblica.
 
 È possibile gestire la configurazione del server flessibile del database di Azure per MySQL usando i parametri del server. Quando si crea il server, i parametri del server sono configurati con il valore predefinito e consigliato.  
 
@@ -28,13 +31,13 @@ Questo articolo descrive come visualizzare e configurare i parametri del server 
 2. Nella sezione **Impostazioni** fare clic su **parametri del server** per aprire la pagina parametri del server per il server flessibile database di Azure per MySQL.
 [:::image type="content" source="./media/how-to-server-parameters/azure-portal-server-parameters.png" alt-text="Pagina parametri del server portale di Azure":::](./media/how-to-server-parameters/azure-portal-server-parameters.png#lightbox)
 3. Individuare i parametri del server che è necessario modificare. Esaminare la colonna **Descrizione** per ottenere informazioni sulle finalità e sui valori consentiti.
-[:::image type="content" source="./media/how-to-server-parameters/3-toggle-parameter.png" alt-text="Pagina parametri del server portale di Azure":::](./media/how-to-server-parameters/3-toggle-parameter.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/3-toggle-parameter.png" alt-text="Elenco a discesa enumera":::](./media/how-to-server-parameters/3-toggle-parameter.png#lightbox)
 4. Fare clic su  **Salva** per salvare le modifiche.
-[:::image type="content" source="./media/how-to-server-parameters/4-save-parameters.png" alt-text="Pagina parametri del server portale di Azure":::](./media/how-to-server-parameters/4-save-parameters.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/4-save-parameters.png" alt-text="Salvare o annullare le modifiche":::](./media/how-to-server-parameters/4-save-parameters.png#lightbox)
 5. I parametri statici sono quelli che richiedono il riavvio del server. Se si modifica il parametro statico, verrà richiesto di **riavviare ora** o di **riavviarlo in un secondo momento**.
-[:::image type="content" source="./media/how-to-server-parameters/5-save-parameter.png" alt-text="Pagina parametri del server portale di Azure":::](./media/how-to-server-parameters/5-save-parameter.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/5-save-parameter.png" alt-text="Riavvia sul parametro statico Salva":::](./media/how-to-server-parameters/5-save-parameter.png#lightbox)
 6. Se sono stati salvati nuovi valori per i parametri, è possibile ripristinare i valori predefiniti in qualsiasi momento selezionando **Ripristina tutte le impostazioni predefinite**.
-[:::image type="content" source="./media/how-to-server-parameters/6-reset-parameters.png" alt-text="Pagina parametri del server portale di Azure":::](./media/how-to-server-parameters/6-reset-parameters.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/6-reset-parameters.png" alt-text="Reimposta tutte le impostazioni predefinite":::](./media/how-to-server-parameters/6-reset-parameters.png#lightbox)
 
 ## <a name="setting-non-modifiable-server-parameters"></a>Impostazione dei parametri del server non modificabili
 
@@ -76,7 +79,7 @@ SELECT name FROM mysql.time_zone_name;
 
 Il fuso orario a livello globale può essere impostato nella pagina **Parametri del server** nel portale di Azure. L'esempio seguente imposta il fuso orario globale sul valore "US/Pacific".
 
-[:::image type="content" source="./media/how-to-server-parameters/timezone.png" alt-text="Pagina parametri del server portale di Azure":::](./media/how-to-server-parameters/timezone.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/timezone.png" alt-text="Impostare il parametro di fuso orario":::](./media/how-to-server-parameters/timezone.png#lightbox)
 
 ### <a name="setting-the-session-level-time-zone"></a>Impostazione del fuso orario a livello di sessione
 

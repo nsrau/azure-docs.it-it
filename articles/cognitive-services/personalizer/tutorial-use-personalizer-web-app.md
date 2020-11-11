@@ -6,12 +6,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e06d191573219df44631f6ffaee86f895166de57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c004887e3883ae711974b544510dff16a98d4ef9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777259"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363919"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Esercitazione: Usare Personalizza esperienze in un'app Web .NET
 
@@ -155,10 +155,10 @@ private string GetUsersTastePreference()
 ## <a name="how-does-the-web-app-use-personalizer"></a>In che modo l'app Web usa Personalizza esperienze?
 
 L'app Web usa Personalizza esperienze per selezionare l'azione migliore nell'elenco di scelte alimentari. A questo scopo invia le informazioni seguenti con ogni chiamata all'API Classificazione:
-* **Azioni**, con relative caratteristiche, ad esempio `taste` e `spiceLevel`
-* Caratteristiche del **contesto**, ad esempio `time` del giorno, preferenza di `taste` dell'utente e informazioni sull'agente utente del browser
-* **Azioni da escludere**, ad esempio juice
-* **ID evento**, che è diverso per ogni chiamata all'API Classificazione.
+* **Azioni** , con relative caratteristiche, ad esempio `taste` e `spiceLevel`
+* Caratteristiche del **contesto** , ad esempio `time` del giorno, preferenza di `taste` dell'utente e informazioni sull'agente utente del browser
+* **Azioni da escludere** , ad esempio juice
+* **ID evento** , che è diverso per ogni chiamata all'API Classificazione.
 
 ## <a name="personalizer-model-features-in-a-web-app"></a>Caratteristiche del modello di Personalizza esperienze in un'app Web
 
@@ -216,7 +216,7 @@ Installare il software seguente:
 
 * [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1): il server back-end di esempio usa .NET Core
 * [Node.js](https://nodejs.org/): il client/front-end dipende da questa applicazione
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) o l'[interfaccia della riga di comando di .NET Core](https://docs.microsoft.com/dotnet/core/tools/): usare l'ambiente di sviluppo di Visual Studio 2019 o l'interfaccia della riga di comando di .NET Core per compilare ed eseguire l'app
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) o l'[interfaccia della riga di comando di .NET Core](/dotnet/core/tools/): usare l'ambiente di sviluppo di Visual Studio 2019 o l'interfaccia della riga di comando di .NET Core per compilare ed eseguire l'app
 
 ### <a name="set-up-the-sample"></a>Configurare l'esempio
 1. Clonare il repository di esempi di Personalizza esperienze di Azure.
@@ -235,7 +235,7 @@ Installare il software seguente:
 
 1. Nel portale di Azure trovare `Endpoint` e `Key1` o `Key2` (funzionano entrambi) nella scheda **Chiavi ed endpoint**. Corrispondono a `PersonalizerServiceEndpoint` e `PersonalizerApiKey`.
 1. Inserire `PersonalizerServiceEndpoint` in **appsettings.json**.
-1. Configurare `PersonalizerApiKey` come [segreti dell'app](https://docs.microsoft.com/aspnet/core/security/app-secrets) in uno dei modi seguenti:
+1. Configurare `PersonalizerApiKey` come [segreti dell'app](/aspnet/core/security/app-secrets) in uno dei modi seguenti:
 
     * Se si usa l'interfaccia della riga di comando di .NET Core, è possibile usare il comando `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"`.
     * Se si usa Visual Studio, è possibile fare clic con il pulsante destro del mouse sul progetto e scegliere l'opzione di menu **Gestisci segreti utente** per configurare le chiavi di Personalizza esperienze. In questo modo, Visual Studio apre un file `secrets.json` in cui è possibile aggiungere le chiavi come indicato di seguito:
@@ -277,13 +277,13 @@ Tramite un Web browser è possibile inviare una richiesta di classificazione e u
 
 L'app Web di esempio include un server **.NET C#** , che gestisce la raccolta di caratteristiche, oltre all'invio e alla ricezione di chiamate HTTP all'endpoint di Personalizza esperienze.
 
-L'app Web di esempio usa un'**applicazione client front-end Knockout** per acquisire le caratteristiche ed elaborare le azioni dell'interfaccia utente, ad esempio il clic sui pulsanti e l'invio di dati al server .NET.
+L'app Web di esempio usa un' **applicazione client front-end Knockout** per acquisire le caratteristiche ed elaborare le azioni dell'interfaccia utente, ad esempio il clic sui pulsanti e l'invio di dati al server .NET.
 
 Le sezioni seguenti illustrano le parti di server e client con cui lo sviluppatore deve acquisire familiarità per usare Personalizza esperienze.
 
 ## <a name="rank-api-client-application-sends-context-to-server"></a>API Classificazione: l'applicazione client invia il contesto al server
 
-L'applicazione client raccoglie l'_agente utente_ del browser dell'utente.
+L'applicazione client raccoglie l' _agente utente_ del browser dell'utente.
 
 > [!div class="mx-imgBorder"]
 > ![Compilare ed eseguire il progetto HTTPRequestFeaturesExample. Viene visualizzata una finestra del browser con l'applicazione a pagina singola.](./media/tutorial-web-app/user-agent.png)
@@ -566,7 +566,7 @@ Nelle applicazioni future potrebbe essere un testo esatto, un pulsante o una sez
 
 Il [punteggio di ricompensa](concept-rewards.md) dovrà essere pianificato con cautela, proprio come le caratteristiche. Il punteggio di ricompensa è in genere un valore compreso tra 0 e 1. Il valore _può_ essere calcolato parzialmente nell'applicazione client, in base ai comportamenti degli utenti, e parzialmente nel server, in base alla logica di business e agli obiettivi.
 
-Se il server non chiama l'API Ricompensa entro il periodo indicato in **Tempo di attesa per la ricompensa** configurato nel portale di Azure per la risorsa di Personalizza esperienze, per tale evento verrà usato il valore di **Ricompensa predefinita**, anche questo configurato nel portale di Azure.
+Se il server non chiama l'API Ricompensa entro il periodo indicato in **Tempo di attesa per la ricompensa** configurato nel portale di Azure per la risorsa di Personalizza esperienze, per tale evento verrà usato il valore di **Ricompensa predefinita** , anche questo configurato nel portale di Azure.
 
 In questa applicazione di esempio è possibile selezionare un valore per vedere l'effetto della ricompensa sulle selezioni.
 

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9131dbff9b732ecfc7f6edb62b42959abcc17da8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c6b6aea6a3b0856b3db345e20b87d2a12ad055e1
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078680"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380331"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Compilare un client di ricerca app console in C#
 
@@ -228,7 +228,7 @@ Prima di capire come visualizzare i risultati in ordine classificato, esaminare 
 }
 ```
 
-L'oggetto JSON `rankingResponse` ([documentazione](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) descrive l'ordine di visualizzazione appropriato per i risultati di ricerca. Include uno o più dei gruppi seguenti, in ordine di priorità:
+L'oggetto JSON `rankingResponse` ([documentazione](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) descrive l'ordine di visualizzazione appropriato per i risultati di ricerca. Include uno o più dei gruppi seguenti, in ordine di priorità:
 
 - `pole`: i risultati della ricerca da rendere più visibili (visualizzati ad esempio sopra la riga principale e la barra laterale).
 - `mainline`: I risultati della ricerca da visualizzare nella riga principale.

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3bc2d339ade7dade3cf3be6e63e150c77d3c44b4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166931"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366758"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procedura: Rilevare il sentiment con l'API REST Analisi del testo
 
@@ -23,7 +23,7 @@ La funzionalità Analisi del sentiment dell'API Analisi del testo valuta il test
 
 Dopo l'invio di una richiesta di analisi del sentiment, l'API restituisce le etichette del sentiment (ad esempio "negativo", "neutrale" e "positivo") e i punteggi di attendibilità a livello di frase e di documento.
 
-Analisi del sentiment supporta una vasta gamma di linguaggi, mentre altri disponibili in anteprima. Per altre informazioni, vedere [Linguaggi supportati](../text-analytics-supported-languages.md).
+Analisi del sentiment supporta una vasta gamma di linguaggi, mentre altri disponibili in anteprima. Per altre informazioni, vedere [Linguaggi supportati](../language-support.md).
 
 ## <a name="sentiment-analysis-versions-and-features"></a>Versioni e funzionalità di Analisi del sentiment
 
@@ -40,7 +40,7 @@ Analisi del sentiment supporta una vasta gamma di linguaggi, mentre altri dispon
 
 Analisi del sentiment v3 applica le etichette del sentiment al testo, che vengono restituite a livello di frase e documento, con un punteggio di attendibilità per ognuna. 
 
-Le etichette sono *positive*, *negative* e *neutral*. A livello di documento, può anche essere restituita l'etichetta del sentiment *mixed*. Il sentiment del documento è determinato di seguito:
+Le etichette sono *positive* , *negative* e *neutral*. A livello di documento, può anche essere restituita l'etichetta del sentiment *mixed*. Il sentiment del documento è determinato di seguito:
 
 | Valutazione della frase                                                                            | Etichetta di documento restituita |
 |-----------------------------------------------------------------------------------------------|-------------------------|

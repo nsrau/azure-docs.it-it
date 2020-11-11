@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a69ca707577ceddc56ae691d6e5e701458cae28
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 4adf0b8a7c12abed9689b9ac0cc9c5d5c8c3f980
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346602"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488435"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Leggere input in qualsiasi formato tramite deserializzatori personalizzati .NET
 
@@ -249,9 +249,9 @@ Questa funzionalità non è supportata. Se questa capacità è necessaria, è po
 
 Dopo averlo implementato, è possibile condividere il deserializzatore con la community per aiutare altri utenti. Inviare il codice al [repository GitHub di Analisi di flusso di Azure](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
-### <a name="what-are-the-other-limitation-of-using-custom-deserializers-in-stream-analytics"></a>Quali sono le altre limitazioni dell'uso di deserializzatori personalizzati in Analisi di flusso?
+### <a name="what-are-the-other-limitations-of-using-custom-deserializers-in-stream-analytics"></a>Quali sono le altre limitazioni dell'uso di deserializzatori personalizzati in analisi di flusso?
 
-Se l'input è nel formato Protobuf con uno schema contenente il tipo MapField, non è possibile implementare un deserializzatore personalizzato. Microsoft sta lavorando per supportare questo tipo in futuro.
+Se il formato dell'input è protobuf con uno schema che contiene il `MapField` tipo, non sarà possibile implementare un deserializzatore personalizzato. Inoltre, i deserializzatori personalizzati non supportano i dati di esempio o i dati di anteprima. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

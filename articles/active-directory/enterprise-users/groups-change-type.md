@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 381ee08f44ad8fb4dade9b6229f5a5925cf2b6b7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a17143045b368038e24ac40f131325a623fc934d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375524"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489608"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Modificare l'appartenenza a gruppi statica in dinamica in Azure Active Directory
 
@@ -32,11 +32,11 @@ In Azure Active Directory (Azure AD) è possibile modificare l'appartenenza a un
 
 ## <a name="change-the-membership-type-for-a-group"></a>Modificare il tipo di appartenenza per un gruppo
 
-1. Accedere all'interfaccia di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account di amministratore globale o di amministratore dell'organizzazione Azure ad.
+1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con un account amministratore globale, Amministratore utenti o gruppi nell'organizzazione Azure ad.
 2. Selezionare **Gruppi**.
 3. Dall'elenco **Tutti i gruppi** aprire il gruppo che si vuole modificare.
 4. Selezionare **Proprietà**.
-5. Nella pagina **Proprietà** del gruppo selezionare Assegnato (statico), Utente dinamico o Dispositivo dinamico come **Tipo di appartenenza**, a seconda del tipo di appartenenza desiderato. Per l'appartenenza dinamica è possibile usare il generatore di regole per selezionare le opzioni per una regola semplice oppure scrivere manualmente una regola di appartenenza. 
+5. Nella pagina **Proprietà** del gruppo selezionare Assegnato (statico), Utente dinamico o Dispositivo dinamico come **Tipo di appartenenza** , a seconda del tipo di appartenenza desiderato. Per l'appartenenza dinamica è possibile usare il generatore di regole per selezionare le opzioni per una regola semplice oppure scrivere manualmente una regola di appartenenza. 
 
 I passaggi seguenti offrono un esempio della procedura da seguire per modificare da statica a dinamica l'appartenenza per un gruppo di utenti.
 

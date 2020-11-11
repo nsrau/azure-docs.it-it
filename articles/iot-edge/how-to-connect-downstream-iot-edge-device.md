@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 83db314070f4c8857ebaa10b26d0adf51372776f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: d5da6576258d3e33296781bbc262494220140ddc
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447659"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489285"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Connettere un dispositivo di IoT Edge downstream a un gateway di Azure IoT Edge (anteprima)
 
@@ -43,7 +43,7 @@ Tutti i passaggi descritti in questo articolo si basano su quelli di [configurar
 
 * Un hub delle cose standard o gratuito.
 * Almeno due **dispositivi IOT Edge** , uno come dispositivo di livello superiore e uno o più dispositivi di livello inferiore. Se non si dispone di IoT Edge dispositivi disponibili, è possibile [eseguire Azure IOT Edge su macchine virtuali Ubuntu](how-to-install-iot-edge-ubuntuvm.md).
-* Se si usa l'interfaccia della riga di comando di Azure per creare e gestire i dispositivi, fare in modo che l'interfaccia della riga di comando di Azure v 2.3.1 sia installata con l'estensione Azure 0.9.10
+* Se si usa l'interfaccia della riga di comando di Azure per creare e gestire i dispositivi, fare in modo che l'interfaccia della riga di comando di Azure v 2.3.1 sia installata con l'estensione Azure 0.10.6
 
 Questo articolo fornisce le opzioni e i passaggi dettagliati per creare la gerarchia di gateway corretta per lo scenario. Per un'esercitazione guidata, vedere [creare una gerarchia di dispositivi IOT Edge usando i gateway](tutorial-nested-iot-edge.md).
 
@@ -206,7 +206,7 @@ Anche se questa funzionalità è in anteprima pubblica, è necessario configurar
 
 1. Configurare le variabili di ambiente seguenti per il modulo edgeHub:
 
-   | Nome | valore |
+   | Nome | Valore |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
@@ -328,7 +328,7 @@ Il modulo proxy API è stato progettato per essere personalizzato per la gestion
 
 1. Selezionare **Aggiungi** per aggiungere il modulo alla distribuzione.
 1. Selezionare **Avanti: Route** per andare al passaggio successivo.
-1. Per abilitare i messaggi da dispositivo a cloud dai dispositivi downstream per raggiungere l'hub Internet, includere una route che passa tutti i messaggi all'hub Internet. Esempio:
+1. Per abilitare i messaggi da dispositivo a cloud dai dispositivi downstream per raggiungere l'hub Internet, includere una route che passa tutti i messaggi all'hub Internet. Ad esempio:
     1. **Nome** : `Route`
     1. **Valore** : `FROM /messages/* INTO $upstream`
 1. Selezionare **Verifica + crea** per andare al passaggio finale.
@@ -358,7 +358,7 @@ L'agente di IoT Edge è il primo componente di runtime da avviare in qualsiasi d
 
 Quando si accede al file config. YAML in un dispositivo IoT Edge per fornire le informazioni di autenticazione, i certificati e il nome host padre, aggiornare anche l'immagine del contenitore edgeAgent.
 
-Se il dispositivo gateway di primo livello è configurato per gestire le richieste di immagini del contenitore, sostituire `mcr.microsoft.com` con il nome host padre e la porta di ascolto del proxy API. Nel manifesto di distribuzione è possibile usare `$upstream` come collegamento, ma ciò richiede che il modulo edgeHub gestisca il routing e che il modulo non sia stato avviato a questo punto. Esempio:
+Se il dispositivo gateway di primo livello è configurato per gestire le richieste di immagini del contenitore, sostituire `mcr.microsoft.com` con il nome host padre e la porta di ascolto del proxy API. Nel manifesto di distribuzione è possibile usare `$upstream` come collegamento, ma ciò richiede che il modulo edgeHub gestisca il routing e che il modulo non sia stato avviato a questo punto. Ad esempio:
 
 ```yml
 agent:
@@ -435,7 +435,7 @@ Il modulo proxy API è stato progettato per essere personalizzato per la gestion
 
 1. Selezionare **Save (Salva** ) per salvare le modifiche apportate alle impostazioni di Runtime.
 1. Selezionare **Avanti: Route** per andare al passaggio successivo.
-1. Per abilitare i messaggi da dispositivo a cloud dai dispositivi downstream per raggiungere l'hub Internet, includere una route che passa tutti i messaggi a `$upstream` . Il parametro upstream punta al dispositivo padre nel caso di dispositivi di livello inferiore. Esempio:
+1. Per abilitare i messaggi da dispositivo a cloud dai dispositivi downstream per raggiungere l'hub Internet, includere una route che passa tutti i messaggi a `$upstream` . Il parametro upstream punta al dispositivo padre nel caso di dispositivi di livello inferiore. Ad esempio:
     1. **Nome** : `Route`
     1. **Valore** : `FROM /messages/* INTO $upstream`
 1. Selezionare **Verifica + crea** per andare al passaggio finale.

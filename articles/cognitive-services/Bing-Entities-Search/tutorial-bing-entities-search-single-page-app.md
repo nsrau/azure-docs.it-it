@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 7fa09ee40ca646be6ee104c7b2d4428c92934337
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f725a4095103a7dcfc3dcdbdcefdc84d16501632
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084630"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366534"
 ---
 # <a name="tutorial-single-page-web-app"></a>Esercitazione: App Web a singola pagina
 
 > [!WARNING]
-> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
-> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 L'API Ricerca entità Bing consente di cercare informazioni su *entità* e *località* nel Web. È possibile richiedere un tipo di risultato, oppure entrambi, in una determinata query. Di seguito vengono fornite le definizioni di località ed entità.
 
@@ -57,7 +57,7 @@ L'applicazione di esercitazione illustra come:
 
 La pagina dell'esercitazione è autonoma, non usa framework, fogli di stile o file di immagine esterni. Usa solo funzionalità del linguaggio JavaScript ampiamente supportate e funziona con le versioni correnti di tutti i Web browser principali.
 
-Questa esercitazione illustra solo alcune parti del codice sorgente. Il codice sorgente completo è disponibile [in un'altra pagina](tutorial-bing-entities-search-single-page-app-source.md). Copiare e incollare il codice in un editor di testo e salvarlo come `bing.html`.
+Questa esercitazione illustra solo alcune parti del codice sorgente. Il codice sorgente completo è disponibile [in un'altra pagina](). Copiare e incollare il codice in un editor di testo e salvarlo come `bing.html`.
 
 > [!NOTE]
 > Questa esercitazione è essenzialmente simile all'[esercitazione su Ricerca Web Bing in un'app a pagina singola](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), ma gestisce solo i risultati delle ricerche di entità.
@@ -405,7 +405,7 @@ Gli errori vengono gestiti chiamando `renderErrorMessage()` con tutti i dettagli
 
 ## <a name="displaying-search-results"></a>Visualizzazione dei risultati della ricerca
 
-L'API Ricerca entità Bing [richiede di visualizzare i risultati in un ordine specifico](use-display-requirements.md). Poiché l'API può restituire due diversi tipi di risposte, non è sufficiente scorrere la raccolta `Entities` o `Places` di livello superiore nella risposta JSON e visualizzare i risultati. Per ricevere un solo tipo di risultato, usare il parametro di query `responseFilter`.
+L'API Ricerca entità Bing [richiede di visualizzare i risultati in un ordine specifico](../bing-web-search/use-display-requirements.md). Poiché l'API può restituire due diversi tipi di risposte, non è sufficiente scorrere la raccolta `Entities` o `Places` di livello superiore nella risposta JSON e visualizzare i risultati. Per ricevere un solo tipo di risultato, usare il parametro di query `responseFilter`.
 
 Viene invece usata la raccolta `rankingResponse` nei risultati della ricerca per ordinare i risultati per la visualizzazione. Questo oggetto fa riferimento a elementi nelle raccolte `Entitiess` e/o `Places`.
 
