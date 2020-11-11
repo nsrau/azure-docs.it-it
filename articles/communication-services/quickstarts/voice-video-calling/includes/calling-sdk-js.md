@@ -4,18 +4,18 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: eaa7efe761490a639acabd9fd6d91378e1259a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9eca855269597477bc42a319c99c886576d92c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779191"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482603"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Una risorsa di Servizi di comunicazione distribuita. [Creare una risorsa di Servizi di comunicazione](../../create-communication-resource.md).
-- Oggetto `User Access Token` per abilitare il client di chiamata. Per ulteriori informazioni su [come ottenere un `User Access Token` ](../../access-tokens.md)
+- Un `User Access Token` per abilitare il client di chiamata. Per altre informazioni, vedere [come ottenere un `User Access Token`](../../access-tokens.md)
 - Facoltativo: completare la Guida introduttiva per [iniziare ad aggiungere una chiamata all'applicazione](../getting-started-with-calling.md)
 
 ## <a name="setting-up"></a>Configurazione
@@ -147,7 +147,8 @@ Restituisce una stringa che rappresenta lo stato corrente di una chiamata:
 * ' Connected ': la chiamata è connessa
 * ' Trattieni ': la chiamata viene messa in attesa, nessun contenuto multimediale viene propagato tra l'endpoint locale e i partecipanti remoti
 * ' Disconnecting '-stato di transizione prima della chiamata allo stato ' disconnected '
-* ' Disconnected '-stato finale della chiamata
+* ' Disconnected '-stato finale della chiamata.
+   * Se la connessione di rete viene persa, lo stato passa a "Disconnected" dopo circa 2 minuti.
 
 
 * Per individuare il motivo per cui una determinata chiamata è terminata, controllare la `callEndReason` Proprietà.
@@ -233,6 +234,9 @@ const source callClient.getDeviceManager().getCameraList()[1];
 localVideoStream.switchSource(source);
 
 ```
+### <a name="faq"></a>Domande frequenti
+ * In caso di perdita della connettività di rete, lo stato della chiamata viene modificato in "Disconnected"?
+    * Sì, se la connessione di rete viene persa per più di 2 minuti, la chiamata passerà allo stato DISCONNECTED e la chiamata terminerà.
 
 ## <a name="remote-participants-management"></a>Gestione dei partecipanti remoti
 
@@ -270,7 +274,8 @@ Lo stato può essere uno dei
 * ' Connected ': il partecipante è connesso alla chiamata
 * ' Trattieni ': il partecipante è in attesa
 * ' EarlyMedia '-l'annuncio viene riprodotto prima della connessione del partecipante alla chiamata
-* ' Disconnected '-stato finale-partecipante disconnesso dalla chiamata
+* ' Disconnected '-stato finale-partecipante disconnesso dalla chiamata.
+   * Se il partecipante remoto perde la connettività di rete, lo stato del partecipante remoto passa a "Disconnected" dopo circa 2 minuti.
 
 Per informazioni sul motivo per cui il partecipante ha lasciato la chiamata, controllare la `callEndReason` proprietà:
 ```js
@@ -410,7 +415,9 @@ In un secondo momento è possibile aggiornare la modalità di ridimensionamento 
 ```js
 view.updateScalingMode('Crop')
 ```
-
+### <a name="faq"></a>Domande frequenti
+* Se un partecipante remoto perde la connessione di rete, lo stato cambia in ' disconnected '?
+    * Sì, se un partecipante remoto perde la connessione di rete per più di 2 minuti, il relativo stato passerà a Disconnected e verrà rimosso dalla chiamata.
 ## <a name="device-management"></a>Gestione dei dispositivi
 
 `DeviceManager` consente di enumerare i dispositivi locali che possono essere usati in una chiamata per trasmettere i flussi audio/video. Consente inoltre di richiedere all'utente l'autorizzazione per l'accesso al microfono e alla fotocamera mediante l'API del browser nativo.

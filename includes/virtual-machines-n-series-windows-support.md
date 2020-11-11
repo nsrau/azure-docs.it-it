@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: bfb7d1d52549d7fda9547b65a259fe2ce73f8839
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 22d2ddc65616bbeb0c511afa6f60bc12c6ec67ef
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997915"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482601"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemi operativi e driver supportati
 
@@ -34,12 +34,12 @@ I driver NVIDIA Tesla (CUDA) per le macchine virtuali serie NC, NCv2, NCv3, NCas
 
 Microsoft ridistribuisce i programmi di installazione dei driver NVIDIA GRID per le macchine virtuali serie NV e NVv3 utilizzate come workstation virtuali o per le applicazioni virtuali. Installare solo i driver della griglia nelle macchine virtuali serie NV di Azure, solo nei sistemi operativi elencati nella tabella seguente. Questi driver includono la licenza per il software della GPU virtuale GRID in Azure. Non è necessario configurare un server licenze software NVIDIA vGPU.
 
-I driver della griglia ridistribuiti da Azure non funzionano con macchine virtuali serie non NV come le macchine virtuali serie NC, NCv2, NCv3, ND e NDv2.
+I driver della griglia ridistribuiti da Azure non funzionano con macchine virtuali serie non NV come le macchine virtuali serie NC, NCv2, NCv3, ND e NDv2. L'unica eccezione è rappresentata dalla serie di macchine virtuali NCas_T4_V3 in cui i driver della griglia abilitano le funzionalità grafiche simili alla serie NV.
 
 Si noti che l'estensione NVIDIA installerà sempre il driver più recente. Sono disponibili collegamenti alla versione precedente per i clienti che hanno una dipendenza da una versione precedente.
 
 Per Windows Server 2019, Windows Server 2016 e Windows 10 (fino alla build 2004):
-- [Griglia 11 (452,39)](https://go.microsoft.com/fwlink/?linkid=874181) (. exe)
+- [Griglia 11,1 (452,39)](https://go.microsoft.com/fwlink/?linkid=874181) (. exe)
 - [Griglia 11,0 (451,48)](https://download.microsoft.com/download/C/1/4/c147a482-1364-4d12-b9e3-0beda0f00a13/451.48_grid_win10_server2016_server2019_64bit_international.exe) (. exe) 
 
 Per Windows Server 2012 R2: 
