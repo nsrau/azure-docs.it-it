@@ -1,18 +1,18 @@
 ---
 title: 'Esercitazione: Progettare un database di Azure per MariaDB - Portale di Azure'
 description: Questa esercitazione illustra come creare e gestire un database e un server di Database di Azure per MariaDB usando il portale di Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 3e6cac09ff304e02e24b482dc834d8199329c1c0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fe503d0e579e30b0c355d3be3e8d02b2bd7a44a8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424870"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542440"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Esercitazione: Progettare un database di Database di Azure per MariaDB con il portale di Azure
 
@@ -41,39 +41,39 @@ Si crea un server di Database di Azure per MariaDB con un set definito di [risor
 
 1. Selezionare il pulsante **Crea una risorsa** (+) nell'angolo superiore sinistro del portale.
 
-2. Selezionare **Database** > **Database di Azure per MariaDB** . È anche possibile digitare **MariaDB** nella casella di ricerca per trovare il servizio.
+2. Selezionare **Database** > **Database di Azure per MariaDB**. È anche possibile digitare **MariaDB** nella casella di ricerca per trovare il servizio.
 
    ![Passare a MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-mariadb.png)
 
-3. Selezionare il riquadro **Database di Azure per MariaDB** . Immettere o selezionare le informazioni richieste.
+3. Selezionare il riquadro **Database di Azure per MariaDB**. Immettere o selezionare le informazioni richieste.
 
    ![Modulo per la creazione](./media/tutorial-design-database-using-portal/2-create-form.png)
 
     Impostazione | Valore consigliato | Descrizione campo
     ---|---|---
-    Nome server | *Nome server univoco* | Scegliere un nome univoco per identificare il database di Azure per il server MariaDB. Ad esempio, **mydemoserver** . Al nome del server specificato viene aggiunto il nome di dominio *.mariadb.database.azure.com* . Il nome del server può contenere solo lettere minuscole, numeri e il segno meno (-) Deve contenere tra 3 e 63 caratteri.
+    Nome server | *Nome server univoco* | Scegliere un nome univoco per identificare il database di Azure per il server MariaDB. Ad esempio, **mydemoserver**. Al nome del server specificato viene aggiunto il nome di dominio *.mariadb.database.azure.com*. Il nome del server può contenere solo lettere minuscole, numeri e il segno meno (-) Deve contenere tra 3 e 63 caratteri.
     Subscription | *sottoscrizione in uso* | Selezionare la sottoscrizione di Azure da usare per il server. Se si hanno più sottoscrizioni, scegliere quella in cui viene fatturata la risorsa.
     Resource group | **myresourcegroup** | Immettere il nome di un nuovo gruppo di risorse o selezionare un gruppo di risorse esistente.
-    Selezionare l'origine | **Vuoto** | Selezionare **Vuoto** per creare un nuovo server. Se si sta creando un server da un backup geografico di un server di Database di Azure per MariaDB esistente, selezionare **Backup** .
-    Accesso amministratore server | **myadmin** | Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser** , **admin** , **administrator** , **root** , **guest** o **public** .
+    Selezionare l'origine | **Vuoto** | Selezionare **Vuoto** per creare un nuovo server. Se si sta creando un server da un backup geografico di un server di Database di Azure per MariaDB esistente, selezionare **Backup**.
+    Accesso amministratore server | **myadmin** | Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser** , **admin** , **administrator** , **root** , **guest** o **public**.
     Password | *A scelta dell'utente* | Immettere una nuova password per l'account dell'amministratore del server. Deve contenere tra 8 e 128 caratteri. La password deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri (0-9) e caratteri non alfanumerici (!, $, #, % e così via).
     Conferma password | *A scelta dell'utente*| Confermare la password dell'account amministratore.
     Location | *Area più vicina ai propri utenti*| Selezionare la località più vicina agli utenti o alle altre applicazioni Azure.
     Versione | *Ultima versione*| Ultima versione, a meno che non si abbiano requisiti specifici per cui deve esserne usata un'altra.
-    Piano tariffario | Vedere la descrizione. | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Piano tariffario** > **Utilizzo generico** . Mantenere i valori predefiniti per le impostazioni seguenti:<br><ul><li>**Generazione di calcolo** (Generazione 5)</li><li>**vCore** (4 vCore)</li><li>**Archiviazione** (100 GB)</li><li>**Periodo di conservazione backup** (7 giorni)</li></ul><br>Per abilitare l'archiviazione con ridondanza geografica dei backup del server, in **Opzioni di ridondanza per il backup** selezionare **Con ridondanza geografica** . <br><br>Per salvare la selezione del piano tariffario, selezionare **OK** . Lo screenshot successivo mostra queste selezioni.
+    Piano tariffario | Vedere la descrizione. | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Piano tariffario** > **Utilizzo generico**. Mantenere i valori predefiniti per le impostazioni seguenti:<br><ul><li>**Generazione di calcolo** (Generazione 5)</li><li>**vCore** (4 vCore)</li><li>**Archiviazione** (100 GB)</li><li>**Periodo di conservazione backup** (7 giorni)</li></ul><br>Per abilitare l'archiviazione con ridondanza geografica dei backup del server, in **Opzioni di ridondanza per il backup** selezionare **Con ridondanza geografica**. <br><br>Per salvare la selezione del piano tariffario, selezionare **OK**. Lo screenshot successivo mostra queste selezioni.
     
    ![Piano tariffario](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
    > [!TIP]
    > Quando l'opzione per l' **aumento automatico** è abilitata, il server aumenta lo spazio di archiviazione disponibile quando si sta per raggiungere il limite allocato, senza alcun impatto sul carico di lavoro.
 
-4. Fare clic su **Rivedi e crea** . È possibile fare clic sul pulsante **Notifiche** sulla barra degli strumenti per monitorare il processo di distribuzione. La distribuzione può richiedere fino a 20 minuti.
+4. Fare clic su **Rivedi e crea**. È possibile fare clic sul pulsante **Notifiche** sulla barra degli strumenti per monitorare il processo di distribuzione. La distribuzione può richiedere fino a 20 minuti.
 
 ## <a name="configure-the-firewall"></a>Configurare il firewall
 
 Il servizio Database di Azure per MariaDB è protetto da un firewall. Per impostazione predefinita, vengono rifiutate tutte le connessioni al server e ai database all'interno del server. Prima di connettersi per la prima volta a Database di Azure per MariaDB, configurare il firewall per aggiungere l'indirizzo IP della rete pubblica del computer client (o l'intervallo di indirizzi IP).
 
-1. Selezionare il server appena creato e quindi selezionare **Sicurezza delle connessioni** .
+1. Selezionare il server appena creato e quindi selezionare **Sicurezza delle connessioni**.
 
    ![Sicurezza delle connessioni](./media/tutorial-design-database-using-portal/1-Connection-security.png)
 2. È possibile selezionare **Aggiungi indirizzo IP corrente** o configurare le regole del firewall in questa posizione. Ricordarsi di selezionare **Salva** dopo aver creato le regole.
@@ -87,13 +87,13 @@ Il servizio Database di Azure per MariaDB è protetto da un firewall. Per impost
 
 Ottenere i valori di **Nome server** (completo) e **Nome di accesso dell'amministratore server** per il server di Database di Azure per MariaDB dal portale di Azure. Il nome del server completo viene usato per connettersi al server tramite lo strumento da riga di comando mysql.
 
-1. Nel menu a sinistra nel [portale di Azure](https://portal.azure.com/) selezionare **Tutte le risorse** . Immettere il nome del server e cercare il server di Database di Azure per MariaDB. Selezionare il nome del server per visualizzare i dettagli.
+1. Nel menu a sinistra nel [portale di Azure](https://portal.azure.com/) selezionare **Tutte le risorse**. Immettere il nome del server e cercare il server di Database di Azure per MariaDB. Selezionare il nome del server per visualizzare i dettagli.
 
-2. Nella pagina **Panoramica** prendere nota dei valori per **Nome server** e **Nome di accesso dell'amministratore server** . È anche possibile selezionare il pulsante **copia** accanto a ogni campo per copiare il valore negli Appunti.
+2. Nella pagina **Panoramica** prendere nota dei valori per **Nome server** e **Nome di accesso dell'amministratore server**. È anche possibile selezionare il pulsante **copia** accanto a ogni campo per copiare il valore negli Appunti.
 
    ![Proprietà server](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-In questo esempio, il nome del server è **mydemoserver.mariadb.database.azure.com** e il nome di accesso dell'amministratore server è **myadmin\@mydemoserver** .
+In questo esempio, il nome del server è **mydemoserver.mariadb.database.azure.com** e il nome di accesso dell'amministratore server è **myadmin\@mydemoserver**.
 
 ## <a name="connect-to-the-server-by-using-mysql"></a>Connettersi al server usando mysql
 
@@ -166,7 +166,7 @@ SELECT * FROM inventory;
 
 Immaginare di avere eliminato accidentalmente un'importante tabella di database e di non poter ripristinare i dati facilmente. In Database di Azure per MariaDB è possibile ripristinare il server a un punto nel tempo, creando una copia dei database nel nuovo server. È possibile usare questo nuovo server per ripristinare i dati eliminati. La procedura seguente consente di ripristinare il server di esempio a un punto nel tempo precedente all'aggiunta della tabella:
 
-1. Nel portale di Azure individuare il database di Azure per MariaDB. Nella pagina **Panoramica** selezionare **Ripristina** .
+1. Nel portale di Azure individuare il database di Azure per MariaDB. Nella pagina **Panoramica** selezionare **Ripristina**.
 
    ![Ripristinare un database](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
 

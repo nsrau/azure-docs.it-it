@@ -1,17 +1,17 @@
 ---
 title: Gestire server-portale di Azure-database di Azure per MySQL
 description: Informazioni su come gestire un database di Azure per il server MySQL dalla portale di Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a9dba7c85ded7add1a9f1494d88a3f8a1f62f175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e29e823834ec813a8389cea220cffc7633aa7103
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882461"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541454"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Gestire un database di Azure per il server MySQL usando il portale di Azure
 
@@ -33,9 +33,9 @@ Dopo la creazione del server è possibile scalare tra i livelli per utilizzo gen
 
 È possibile eseguire la scalabilità da per utilizzo generico a con ottimizzazione per la memoria e viceversa. La modifica da e verso il livello Basic dopo la creazione del server non è supportata.
 
-1. Selezionare il server nella portale di Azure. Selezionare piano **tariffario**, che si trova nella sezione **Impostazioni** .
+1. Selezionare il server nella portale di Azure. Selezionare piano **tariffario** , che si trova nella sezione **Impostazioni** .
 
-2. Selezionare **per utilizzo generico** o con ottimizzazione per la **memoria**, a seconda di ciò che si sta ridimensionando.
+2. Selezionare **per utilizzo generico** o con ottimizzazione per la **memoria** , a seconda di ciò che si sta ridimensionando.
 
    :::image type="content" source="./media/howto-create-manage-server-portal/change-pricing-tier.png" alt-text="Screenshot dei portale di Azure per scegliere il livello di base, per utilizzo generico o con ottimizzazione per la memoria nel database di Azure per MySQL":::
 
@@ -46,11 +46,11 @@ Dopo la creazione del server è possibile scalare tra i livelli per utilizzo gen
 
 ### <a name="scale-vcores-up-or-down"></a>Ridimensionare vcore
 
-1. Selezionare il server nella portale di Azure. Selezionare piano **tariffario**, che si trova nella sezione **Impostazioni** .
+1. Selezionare il server nella portale di Azure. Selezionare piano **tariffario** , che si trova nella sezione **Impostazioni** .
 
 2. Modificare l'impostazione di **vCore** spostando il dispositivo di scorrimento sul valore desiderato.
 
-    :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Screenshot dei portale di Azure per scegliere il livello di base, per utilizzo generico o con ottimizzazione per la memoria nel database di Azure per MySQL":::
+    :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Screenshot del portale di Azure scegliere l'opzione vCore nel database di Azure per MySQL":::
 
     > [!NOTE]
     > Il ridimensionamento di Vcore causa un riavvio del server.
@@ -59,11 +59,11 @@ Dopo la creazione del server è possibile scalare tra i livelli per utilizzo gen
 
 ### <a name="scale-storage-up"></a>Ridimensionare l'archiviazione
 
-1. Selezionare il server nella portale di Azure. Selezionare piano **tariffario**, che si trova nella sezione **Impostazioni** .
+1. Selezionare il server nella portale di Azure. Selezionare piano **tariffario** , che si trova nella sezione **Impostazioni** .
 
 2. Modificare l'impostazione di **archiviazione** spostando il dispositivo di scorrimento fino al valore desiderato.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Screenshot dei portale di Azure per scegliere il livello di base, per utilizzo generico o con ottimizzazione per la memoria nel database di Azure per MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Screenshot di portale di Azure per scegliere la scalabilità di archiviazione nel database di Azure per MySQL":::
 
    > [!NOTE]
    > Non è possibile ridimensionare l'archiviazione.
@@ -76,11 +76,11 @@ Dopo la creazione del server è possibile scalare tra i livelli per utilizzo gen
 
 1. Selezionare il server nella portale di Azure. Nella finestra **Panoramica** selezionare **Reimposta password**.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Screenshot dei portale di Azure per scegliere il livello di base, per utilizzo generico o con ottimizzazione per la memoria nel database di Azure per MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Screenshot della portale di Azure per reimpostare la password nel database di Azure per MySQL":::
 
 2. Immettere una nuova password e confermarla. Nella casella di testo vengono visualizzati i requisiti di complessità delle password.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Screenshot dei portale di Azure per scegliere il livello di base, per utilizzo generico o con ottimizzazione per la memoria nel database di Azure per MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Screenshot della portale di Azure per reimpostare la password e salvarla nel database di Azure per MySQL":::
 
 3. Selezionare **OK** per salvare la nuova password.
 
@@ -90,11 +90,11 @@ Se non è più necessario, è possibile eliminare il server.
 
 1. Selezionare il server nella portale di Azure. Nella finestra **Panoramica** selezionare **Elimina**.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Screenshot dei portale di Azure per scegliere il livello di base, per utilizzo generico o con ottimizzazione per la memoria nel database di Azure per MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Screenshot della portale di Azure per eliminare il server nel database di Azure per MySQL":::
 
 2. Digitare il nome del server nella casella di input per confermare che si tratta del server che si desidera eliminare.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Screenshot dei portale di Azure per scegliere il livello di base, per utilizzo generico o con ottimizzazione per la memoria nel database di Azure per MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Screenshot dei portale di Azure per confermare l'eliminazione del server nel database di Azure per MySQL":::
 
    > [!NOTE]
    > L'eliminazione di un server è irreversibile.

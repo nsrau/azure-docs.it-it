@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 0afd1f2f8dd06c3c224d64304eec2e18489a7e81
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 54b15d5865b1abb0d624628ed4b5c9892ab04d41
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489132"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542134"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -107,6 +107,16 @@ Altre informazioni sulle [etichette di segmentazione delle istanze di immagine](
   + **azureml-train-automl-client**
     + È stato risolto un problema per cui get_output possibile generare un XGBoostError.
 
+### <a name="azure-machine-learning-studio-notebooks-experience-october-update"></a>Esperienza di Azure Machine Learning Studio notebook (aggiornamento di ottobre)
++ **Nuove funzionalità**
+  + [Supporto completo per la rete virtuale](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+  + [Modalità messa a fuoco](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#focus-mode)
+  + Salva notebook CTRL + S
+  + Numeri di riga
+
++ **Correzioni di bug e miglioramenti**
+  + Miglioramento della velocità e dell'affidabilità del kernel
+  + Aggiornamenti dell'interfaccia utente del widget Jupyter
 
 ## <a name="2020-10-12"></a>2020-10-12
 
@@ -235,7 +245,7 @@ Altre informazioni sulle [etichette di segmentazione delle istanze di immagine](
     + Dipendenze di AutoML aggiornate: `scikit-learn` (ora 0.22.1), `pandas` (ora 0.25.1), `numpy` (ora 1.18.2).
   + **azureml-contrib-automl-DNN-Forecasting**
     + Dipendenze di AutoML aggiornate: `scikit-learn` (ora 0.22.1), `pandas` (ora 0.25.1), `numpy` (ora 1.18.2).
-  + **azureml-contrib-Equity**
+  + **azureml-contrib-fairness**
     + Fornire una breve descrizione per azureml-contrib-equity.
   + **azureml-contrib-pipeline-steps**
     + Aggiunto messaggio che indica che il pacchetto è deprecato e che l'utente deve usare azureml-pipeline-Steps.

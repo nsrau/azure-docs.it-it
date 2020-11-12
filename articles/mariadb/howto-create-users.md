@@ -1,17 +1,17 @@
 ---
 title: Creare utenti-database di Azure per MariaDB
 description: Questo articolo descrive come creare nuovi account utente per interagire con un Database di Azure per il server MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 10/1/2020
-ms.openlocfilehash: 7a3515850027963dcabbf2cef4efd8bf43802cbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 882c8365bda87e97bfbc3bee9bdd320b312b4114
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653061"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542712"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Creare utenti in Database di Azure per MariaDB 
 Questo articolo descrive come creare utenti in Database di Azure per MariaDB.
@@ -19,7 +19,7 @@ Questo articolo descrive come creare utenti in Database di Azure per MariaDB.
 > [!NOTE]
 > Comunicazione senza distorsione
 >
-> Microsoft supporta un ambiente eterogeneo e di inclusione. Questo articolo contiene riferimenti alla parola _slave_. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) riconosce questo aspetto come una parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola che viene visualizzata nel software. Quando il software viene aggiornato per rimuovere la parola, questo articolo verrà aggiornato in modo da essere allineato.
+> Microsoft supporta un ambiente diversificato ed inclusivo. Questo articolo contiene riferimenti alla parola _slave_. La [guida di stile Microsoft per la comunicazione senza pregiudizi](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) la riconosce come parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola usata nel software. Quando il software verrà aggiornato per rimuovere la parola, questo articolo verrà aggiornato di conseguenza.
 >
 
 Quando si è creato il Database di Azure per MariaDB, si sono specificati un nome utente e una password per l'accesso come amministratore del server. Per altre informazioni, è possibile seguire le istruzioni della [Guida introduttiva](quickstart-create-mariadb-server-database-using-azure-portal.md). È possibile trovare il nome utente per l'accesso come amministratore del server nel portale di Azure.
@@ -39,7 +39,7 @@ Dopo aver creato il Database di Azure per il server MariaDB, è possibile usare 
 2. Usare l'account amministratore e la password per connettersi al server di database. Usare lo strumento client preferito, ad esempio MySQL Workbench, mysql.exe, HeidiSQL o altri. 
    Se non si è certi della modalità di connessione, vedere [Usare MySQL Workbench per connettersi ed eseguire query sui dati](./connect-workbench.md).
 
-3. Modificare ed eseguire il codice SQL seguente. Sostituire il valore segnaposto `new_master_user` con il nuovo nome utente. Questa sintassi concede i privilegi indicati su tutti gli schemi di database (*.*) all'utente specificato (new_master_user in questo esempio). 
+3. Modificare ed eseguire il codice SQL seguente. Sostituire il valore segnaposto `new_master_user` con il nuovo nome utente. Questa sintassi concede i privilegi indicati su tutti gli schemi di database ( *.* ) all'utente specificato (new_master_user in questo esempio). 
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';

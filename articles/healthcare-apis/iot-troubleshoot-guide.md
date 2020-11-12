@@ -6,14 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 09/16/2020
+ms.date: 11/09/2020
 ms.author: jasteppe
-ms.openlocfilehash: a843ee15d4e7c67bcf69609067d70f592b9b50d6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 124c3b3667e847a5ee1bb8034ef01088c629d503
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394221"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540944"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del connettore Azure per FHIR (anteprima)
 
@@ -56,7 +56,7 @@ In questa sezione si apprenderà come eseguire il processo di convalida del conn
 
 ## <a name="error-messages-and-fixes-for-azure-iot-connector-for-fhir-preview"></a>Messaggi di errore e correzioni per il connettore Azure per FHIR (anteprima)
 
-|Message|Visualizzato|Condizione|Fix| 
+|Messaggio|Visualizzato|Condizione|Fix| 
 |-------|---------|---------|---|
 |Nome mapping non valido. il nome del mapping deve essere Device o FHIR.|API|Il tipo di mapping specificato non è Device o FHIR.|Usare uno dei due tipi di mapping supportati (ad esempio, Device o FHIR).|
 |Convalida non riuscita. Informazioni obbligatorie mancanti o non valide.|API e portale di Azure|Se si tenta di salvare un mapping di conversione, mancano le informazioni necessarie o l'elemento.|Aggiungere l'elemento o le informazioni sul mapping di conversione mancanti e tentare di salvare di nuovo il mapping di conversione.|
@@ -68,7 +68,7 @@ In questa sezione si apprenderà come eseguire il processo di convalida del conn
 |L'account non esiste.|API|Il tentativo di aggiungere un connettore Azure per FHIR e l'API di Azure per la risorsa FHIR non esiste.|Creare la risorsa API di Azure per FHIR, quindi ripetere l'operazione.|
 |La versione FHIR della risorsa API di Azure per FHIR non è supportata per il connettore Internet.|API|Tentativo di usare un connettore Azure per FHIR con una versione incompatibile della risorsa API di Azure per FHIR.|Creare una nuova risorsa API di Azure per FHIR (versione R4) o usare un'API di Azure esistente per la risorsa FHIR (versione R4).
 
-##  <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Perché il connettore Azure per i dati FHIR (anteprima) non viene visualizzato nell'API di Azure per FHIR?
+## <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Perché il connettore Azure per i dati FHIR (anteprima) non viene visualizzato nell'API di Azure per FHIR?
 
 |Potenziali problemi|Correzioni|
 |----------------|-----|
@@ -82,7 +82,74 @@ In questa sezione si apprenderà come eseguire il processo di convalida del conn
 
 * [Guida introduttiva di riferimento: distribuire il connettore Azure Internet (anteprima) usando portale di Azure](iot-fhir-portal-quickstart.md#create-new-azure-iot-connector-for-fhir-preview) per una descrizione funzionale del connettore Azure per i tipi di risoluzione FHIR (ad esempio, Lookup o create).
 
+## <a name="use-metrics-to-troubleshoot-issues-in-azure-iot-connector-for-fhir-preview"></a>Usare le metriche per la risoluzione dei problemi nel connettore Azure per FHIR (anteprima)
+
+Il connettore Azure per FHIR genera più metriche per fornire informazioni approfondite sul processo del flusso di dati. Una delle metriche supportate è denominata *Total Errors* , che fornisce il conteggio di tutti gli errori che si verificano all'interno di un'istanza del connettore Azure Internet per FHIR.
+
+Ogni errore viene registrato con un numero di proprietà associate. Ogni proprietà fornisce un aspetto diverso dell'errore, che può essere utile per identificare e risolvere i problemi. Questa sezione elenca le proprietà diverse acquisite per ogni errore nella metrica *Totale errori* e i valori possibili per queste proprietà.
+
+> [!NOTE]
+> È possibile passare alla metrica *totale degli errori* per un'istanza del connettore Azure per FHIR (anteprima), come descritto nella [pagina metrica connettore Azure per FHIR (anteprima)](iot-metrics-display.md).
+
+Fare clic sul grafico *totale degli errori* , quindi fare clic sul pulsante *Aggiungi filtro* per sezionare e tagliare la metrica di errore usando una delle proprietà indicate di seguito.
+
+### <a name="the-operation-performed-by-the-azure-iot-connector-for-fhir-preview"></a>Operazione eseguita dal connettore Azure per FHIR (anteprima)
+
+Questa proprietà rappresenta l'operazione eseguita dal connettore Internet quando si è verificato l'errore. Un'operazione rappresenta in genere la fase del flusso di dati durante l'elaborazione di un messaggio del dispositivo. Di seguito è riportato l'elenco dei valori possibili per questa proprietà.
+
+> [!NOTE]
+> Per altre informazioni sulle diverse fasi del flusso di dati nel connettore Azure per FHIR (anteprima), vedere [qui](iot-data-flow.md).
+
+|Fase flusso di dati|Descrizione|
+|---------------|-----------|
+|Configurazione|Operazione specifica per la configurazione dell'istanza del connettore Internet|
+|Normalization|Fase del flusso di dati in cui i dati del dispositivo vengono normalizzati|
+|Raggruppamento|Fase del flusso di dati in cui vengono raggruppati i dati normalizzati|
+|FHIRConversion|Fase del flusso di dati in cui i dati normalizzati raggruppati vengono trasformati in una risorsa FHIR|
+|Sconosciuto|Il tipo di operazione è sconosciuto quando si è verificato un errore|
+
+### <a name="the-severity-of-the-error"></a>Gravità dell'errore
+
+Questa proprietà rappresenta la gravità dell'errore che si è verificato. Di seguito è riportato l'elenco dei valori possibili per questa proprietà.
+
+|Gravità|Descrizione|
+|---------------|-----------|
+|Avviso|Nel processo del flusso di dati è presente un problema di lieve entità, ma l'elaborazione del messaggio del dispositivo non viene arrestata|
+|Errore|Si è verificato un errore durante l'elaborazione di un messaggio specifico del dispositivo e altri messaggi possono continuare a funzionare come previsto.|
+|Critico|È presente un problema a livello di sistema con il connettore Internet e non è previsto alcun messaggio da elaborare|
+
+### <a name="the-type-of-the-error"></a>Tipo di errore.
+
+Questa proprietà indica una categoria per un determinato errore, che essenzialmente rappresenta un raggruppamento logico per un tipo simile di errori. Di seguito è riportato l'elenco di valori possibili per questa proprietà.
+
+|Tipo di errore|Descrizione|
+|----------|-----------|
+|DeviceTemplateError|Errori relativi ai modelli di mapping dei dispositivi|
+|DeviceMessageError|Si sono verificati errori durante l'elaborazione di un messaggio specifico del dispositivo|
+|FHIRTemplateError|Errori correlati ai modelli di mapping di FHIR|
+|FHIRConversionError|Si sono verificati errori durante la trasformazione di un messaggio in una risorsa FHIR|
+|FHIRResourceError|Errori relativi alle risorse esistenti nel server FHIR a cui fa riferimento il connettore Internet|
+|FHIRServerError|Errori che si verificano durante la comunicazione con il server FHIR|
+|GeneralError|Tutti gli altri tipi di errori|
+
+### <a name="the-name-of-the-error"></a>Nome dell'errore.
+
+Questa proprietà fornisce il nome di un errore specifico. Di seguito è riportato l'elenco di tutti i nomi di errore con la relativa descrizione e i tipi di errore associati, la gravità e le fasi del flusso di dati.
+
+|Nome errore|Descrizione|Tipi di errore|Gravità errore|Fasi flusso di dati|
+|----------|-----------|-------------|--------------|------------------|
+|MultipleResourceFoundException|Si è verificato un errore quando più risorse del paziente o del dispositivo sono state trovate nel server FHIR per i rispettivi identificatori presenti nel messaggio del dispositivo|FHIRResourceError|Errore|FHIRConversion|
+|TemplateNotFoundException|Un modello di mapping del dispositivo o FHIR non è configurato con l'istanza del connettore Internet|DeviceTemplateError, FHIRTemplateError|Critico|Normalizzazione, FHIRConversion|
+|CorrelationIdNotDefinedException|L'ID di correlazione non è specificato nel modello di mapping dei dispositivi. CorrelationIdNotDefinedException è un errore condizionale che si verifica solo quando l'osservazione FHIR deve raggruppare le misurazioni del dispositivo usando un ID correlazione, ma non è configurata correttamente|DeviceMessageError|Errore|Normalization|
+|PatientDeviceMismatchException|Questo errore si verifica quando la risorsa dispositivo nel server FHIR dispone di un riferimento a una risorsa paziente, che non corrisponde all'identificatore del paziente presente nel messaggio.|FHIRResourceError|Errore|FHIRConversionError|
+|PatientNotFoundException|Non viene fatto riferimento a nessuna risorsa FHIR del paziente dalla risorsa FHIR del dispositivo associata all'identificatore del dispositivo presente nel messaggio del dispositivo. Si noti che questo errore si verifica solo quando l'istanza del connettore Internet è configurata con il tipo di risoluzione *Lookup*|FHIRConversionError|Errore|FHIRConversion|
+|DeviceNotFoundException|Non esiste alcuna risorsa dispositivo nel server FHIR associato all'identificatore del dispositivo presente nel messaggio del dispositivo|DeviceMessageError|Errore|Normalization|
+|PatientIdentityNotDefinedException|Questo errore si verifica quando l'espressione per analizzare l'identificatore del paziente dal messaggio del dispositivo non è configurata nel modello di mapping dei dispositivi o il paziente identificatore non è presente nel messaggio del dispositivo. Si noti che questo errore si verifica solo quando il tipo di risoluzione del connettore Internet è impostato su *Crea*|DeviceTemplateError|Critico|Normalization|
+|DeviceIdentityNotDefinedException|Questo errore si verifica quando l'espressione per analizzare l'identificatore del dispositivo dal messaggio del dispositivo non è configurata nel modello di mapping del dispositivo o il dispositivo identificatore non è presente nel messaggio del dispositivo|DeviceTemplateError|Critico|Normalization|
+|NotSupportedException|Si è verificato un errore durante la ricezione del messaggio del dispositivo con formato non supportato|DeviceMessageError|Errore|Normalization|
+
 ## <a name="creating-copies-of-the-azure-iot-connector-for-fhir-preview-conversion-mapping-json"></a>Creazione di copie del connettore Azure per la conversione di FHIR (anteprima) JSON
+
 La copia del connettore Azure per i file di mapping di FHIR può essere utile per la modifica e l'archiviazione all'esterno del sito Web portale di Azure.
 
 Le copie dei file di mapping devono essere fornite al supporto tecnico di Azure quando si apre un ticket di supporto per facilitare la risoluzione dei problemi.

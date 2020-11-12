@@ -1,17 +1,17 @@
 ---
 title: Creare database e utenti-database di Azure per MySQL
 description: Questo articolo descrive come creare nuovi account utente per interagire con un database di Azure per il server MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/1/2020
-ms.openlocfilehash: 3e1f24b3ae6133241660751293f52fec63dfbe73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e934ede193d6efb9cc795c6b63cb485b88f792e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766867"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541420"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql"></a>Creare database e utenti in database di Azure per MySQL
 
@@ -22,7 +22,7 @@ Questo articolo descrive come creare utenti in database di Azure per MySQL.
 > [!NOTE]
 > **Comunicazione senza distorsione**
 >
-> Microsoft supporta un ambiente eterogeneo e di inclusione. Questo articolo contiene riferimenti alla parola *slave*. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) riconosce questo aspetto come una parola di esclusione. La parola viene usata in questo articolo per coerenza perché è la parola attualmente visualizzata nel software. Quando il software viene aggiornato per rimuovere la parola, questo articolo verrà aggiornato in modo da essere allineato.
+> Microsoft supporta un ambiente diversificato ed inclusivo. Questo articolo contiene riferimenti alla parola *slave*. La [guida di stile Microsoft per la comunicazione senza pregiudizi](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) la riconosce come parola di esclusione. La parola viene usata in questo articolo per coerenza perché è la parola attualmente visualizzata nel software. Quando il software verrà aggiornato per rimuovere la parola, questo articolo verrà aggiornato di conseguenza.
 >
 
 Al momento della creazione del database di Azure per il server MySQL, sono stati specificati un nome utente e una password di amministratore del server. Per ulteriori informazioni, vedere questa [Guida introduttiva](quickstart-create-mysql-server-database-using-azure-portal.md). È possibile determinare il nome utente dell'amministratore del server nel portale di Azure.
@@ -94,7 +94,7 @@ Dopo aver creato un database di Azure per il server MySQL, è possibile usare il
    
    Se non si è certi della modalità di connessione, vedere [usare MySQL Workbench per connettersi ed eseguire query sui dati](./connect-workbench.md).
 
-3. Modificare ed eseguire il codice SQL seguente. Sostituire il valore del segnaposto `new_master_user` con il nuovo nome utente. Questa sintassi concede i privilegi elencati a tutti gli schemi di database (*.*) all'utente ( `new_master_user` in questo esempio).
+3. Modificare ed eseguire il codice SQL seguente. Sostituire il valore del segnaposto `new_master_user` con il nuovo nome utente. Questa sintassi concede i privilegi elencati a tutti gli schemi di database ( *.* ) all'utente ( `new_master_user` in questo esempio).
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';

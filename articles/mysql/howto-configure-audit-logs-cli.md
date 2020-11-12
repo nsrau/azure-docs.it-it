@@ -1,18 +1,18 @@
 ---
 title: Accedere ai log di controllo-Azure CLI-database di Azure per MySQL
 description: Questo articolo descrive come configurare e accedere ai log di controllo in database di Azure per MySQL dall'interfaccia della riga di comando di Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 568f49565c6e6d8062f8869566cf3879b7c97eaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db7ffabae785a589bacf349356079f6046039f9c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503328"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541998"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-cli"></a>Configurare e accedere ai log di controllo nell'interfaccia della riga di comando di Azure
 
@@ -20,14 +20,13 @@ ms.locfileid: "87503328"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per proseguire con questa guida, si richiedono:
+Per eseguire questa guida dettagliata:
 
-- [Database di Azure per il server MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+- È necessario un [database di Azure per il server MySQL](quickstart-create-mysql-server-database-using-azure-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!IMPORTANT]
-> Questa guida dettagliata richiede l'uso dell'interfaccia della riga di comando di Azure 2.0 o versioni successive. Per verificare la versione, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere `az --version`. Per installare o eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+- Questo articolo richiede la versione 2,0 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="configure-audit-logging"></a>Configurare la registrazione di controllo
 

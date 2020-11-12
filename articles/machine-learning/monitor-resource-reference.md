@@ -1,6 +1,6 @@
 ---
 title: Riferimento ai dati di monitoraggio Azure Machine Learning | Microsoft Docs
-description: Materiale di riferimento importante necessario per il monitoraggio Azure Machine Learning. Informazioni sui dati e sulle risorse raccolti per Azure Machine Learning e disponibili in monitoraggio di Azure. Monitoraggio di Azure raccoglie e Visualizza i dati relativi all'area di lavoro Azure Machine Learning e consente di visualizzare le metriche, impostare gli avvisi e analizzare i dati registrati.
+description: Documentazione di riferimento per il monitoraggio Azure Machine Learning. Informazioni sui dati & risorse raccolte e disponibili in monitoraggio di Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: be8d6ca79a43ddd2bd709390dd476cb9dcfa7b29
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bab74a1db04bb557aa6604fe76c05ba3d087f8c0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323938"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540791"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitoraggio del riferimento ai dati di Azure Machine Learning
 
@@ -24,7 +24,7 @@ Informazioni sui dati e sulle risorse raccolti da monitoraggio di Azure dall'are
 
 Questa sezione elenca tutte le metriche della piattaforma raccolte automaticamente raccolte per Azure Machine Learning. Il provider di risorse per queste metriche è [Microsoft. MachineLearningServices/Workspaces](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces).
 
-**Modello**
+**Modellare**
 
 | Metrica | Unità | Descrizione |
 | ----- | ----- | ----- |
@@ -77,7 +77,7 @@ Per altre informazioni sulle dimensioni della metrica, vedere [metriche multidim
 
 Azure Machine Learning presenta le dimensioni seguenti associate alle metriche.
 
-| Dimension | Descrizione |
+| Dimensione | Descrizione |
 | ---- | ---- |
 | Cluster Name | Nome dell'istanza di calcolo. Disponibile per tutte le metriche delle quote. |
 | Nome della famiglia di macchine virtuali | Nome della famiglia di macchine virtuali usata dal cluster. Disponibile per la percentuale di utilizzo della quota. |
@@ -178,7 +178,7 @@ Gli schemi seguenti sono utilizzati da Azure Machine Learning
 | MinimumNodeCount | Numero minimo di nodi del cluster |
 | MaximumNodeCount | Numero massimo di nodi del cluster |
 | NodeDeallocationOption | Come deallocare il nodo |
-| Editore | Server di pubblicazione del tipo di cluster |
+| Publisher | Server di pubblicazione del tipo di cluster |
 | Offerta | Offerta con cui viene creato il cluster |
 | Sku | SKU del nodo/VM creato nel cluster |
 | Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |
@@ -214,7 +214,7 @@ Gli schemi seguenti sono utilizzati da Azure Machine Learning
 | VmSize | Dimensioni della macchina virtuale del nodo |
 | VmFamilyName | Famiglia di macchine virtuali a cui appartiene il nodo |
 | VmPriority | Priorità del nodo creato/LowPriority dedicato |
-| Editore | Autore dell'immagine della macchina virtuale. Ad esempio, Microsoft-dsvm |
+| Publisher | Autore dell'immagine della macchina virtuale. Ad esempio, Microsoft-dsvm |
 | Offerta | Offerta associata alla creazione della macchina virtuale |
 | Sku | SKU del nodo o della macchina virtuale creata |
 | Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |

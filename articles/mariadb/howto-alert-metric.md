@@ -1,17 +1,17 @@
 ---
 title: Configurare gli avvisi delle metriche-portale di Azure database di Azure per MariaDB
 description: Questo articolo descrive come configurare avvisi per le metriche per Database di Azure per MariaDB e accedere a tali avvisi nel portale di Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: c972bd3b770f42353d285d0c69aacef56d6e04d5
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e108ca3aa346af20b31ff446130014e1250f49c0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426119"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541080"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Usare il portale di Azure per configurare avvisi per le metriche per Database di Azure per MariaDB
 
@@ -48,7 +48,7 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
    
    ![Selezionare una metrica](./media/howto-alert-metric/6-configure-signal-logic.png)
 
-7. Configurare la logica degli avvisi specificando i valori nei campi **Condizione** (ad esempio "Maggiore di"), **Soglia** (ad esempio l'85%), **Aggregazione temporale**, **Periodo** di tempo in cui è necessario soddisfare la regola della metrica prima che venga attivato l'avviso (ad esempio "Over the Last 30 minutes" e **Frequency**.
+7. Configurare la logica degli avvisi specificando i valori nei campi **Condizione** (ad esempio "Maggiore di"), **Soglia** (ad esempio l'85%), **Aggregazione temporale** , **Periodo** di tempo in cui è necessario soddisfare la regola della metrica prima che venga attivato l'avviso (ad esempio "Over the Last 30 minutes" e **Frequency**.
    
    Al termine, selezionare **Chiudi**.
 

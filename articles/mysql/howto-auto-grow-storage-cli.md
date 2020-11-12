@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2e2a2dadfb8bcaedb9a3210ebcab7cce6c30a8a0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bee84c41d95c0220129fbf2133b57e1ad35eebdc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546926"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542049"
 ---
 # <a name="auto-grow-azure-database-for-mysql-storage-using-the-azure-cli"></a>Espandere automaticamente l'archiviazione di database di Azure per MySQL usando l'interfaccia della riga di comando di Azure
 Questo articolo descrive come configurare l'archiviazione di un database di Azure per il server MySQL in modo che cresca senza compromettere il carico di lavoro.
@@ -20,13 +20,14 @@ Questo articolo descrive come configurare l'archiviazione di un database di Azur
 Il server che [raggiunge il limite di archiviazione](./concepts-pricing-tiers.md#reaching-the-storage-limit)è impostato su sola lettura. Se l'opzione di aumento automatico delle dimensioni di archiviazione è abilitata per i server con archiviazione con provisioning inferiore a 100 GB, le dimensioni di archiviazione di cui è stato effettuato il provisioning vengono aumentate di 5 GB non appena lo spazio di archiviazione disponibile è inferiore a 1 GB o 10% dell'archiviazione con provisioning. Per i server con più di 100 GB di spazio di archiviazione di cui è stato effettuato il provisioning, la dimensione di archiviazione con provisioning viene aumentata del 5% quando lo spazio di archiviazione disponibile è inferiore al 5% delle dimensioni di archiviazione con provisioning. Si applicano i limiti di archiviazione massimi come specificato [qui](./concepts-pricing-tiers.md#storage) .
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per completare questa guida, è necessario:
-- Un [database di Azure per il server MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Per completare questa guida pratica:
 
-> [!IMPORTANT]
-> Questa guida dettagliata richiede l'uso dell'interfaccia della riga di comando di Azure 2.0 o versioni successive. Per verificare la versione, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere `az --version`. Per installare o eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+- È necessario un [database di Azure per il server MySQL](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Questo articolo richiede la versione 2,0 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="enable-mysql-server-storage-auto-grow"></a>Abilitare l'aumento automatico delle dimensioni di archiviazione del server MySQL
 

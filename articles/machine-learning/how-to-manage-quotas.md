@@ -1,7 +1,7 @@
 ---
 title: Gestire le risorse e le quote
 titleSuffix: Azure Machine Learning
-description: Informazioni sulle quote sulle risorse per Azure Machine Learning e su come richiedere aumenti di quota.
+description: Informazioni sulle quote e sui limiti delle risorse per Azure Machine Learning e su come richiedere aumenti di quota.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 9bcf6ac9991c1ad070f823c97b5bd0460eff07c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d82cbafbbdeb379c8eb97494ca8d3243f356b7a1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309086"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542117"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gestire e aumentare le quote per le risorse con Azure Machine Learning
 
@@ -98,11 +98,11 @@ La tabella seguente Mostra limiti aggiuntivi che non possono essere superati.
 | Passaggi in una pipeline | 30.000 |
 | Aree di lavoro per gruppo di risorse | 800 |
 
-### <a name="container-instances"></a>Istanze di Container
+### <a name="container-instances"></a>Istanze di contenitore
 
 Per altre informazioni, vedere [limiti delle istanze del contenitore](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits).
 
-### <a name="storage"></a>Archiviazione:
+### <a name="storage"></a>Archiviazione
 Archiviazione di Azure ha un limite di 250 account di archiviazione per area, per sottoscrizione. Questo limite include gli account di archiviazione standard e Premium.
 
 Per aumentare il limite, effettuare una richiesta tramite il [supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Il team di archiviazione di Azure esaminerà il caso e potrà approvare fino a 250 account di archiviazione per un'area.

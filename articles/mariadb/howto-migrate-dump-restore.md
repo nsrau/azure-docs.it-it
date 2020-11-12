@@ -1,17 +1,17 @@
 ---
 title: Eseguire la migrazione con dump e ripristino-database di Azure per MariaDB
 description: Questo articolo illustra due modi comuni per eseguire il backup e il ripristino dei database nel database di Azure per MariaDB usando strumenti come mysqldump, MySQL Workbench e PHPMyAdmin.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 2/27/2020
-ms.openlocfilehash: 674622e6210c3cceda5af3b53bf4ba1851f7179b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c23b027b428ef58ae51a6ba1d2603e94b1eaaf8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118852"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540859"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Eseguire la migrazione del database MariaDB a Database di Azure per MariaDB tramite dump e ripristino
 Questo articolo illustra due modi comuni per eseguire il backup e il ripristino dei database nel database di Azure per MariaDB

@@ -1,7 +1,7 @@
 ---
 title: Configurare un'esecuzione di training
 titleSuffix: Azure Machine Learning
-description: Eseguire il training del modello di apprendimento automatico in diversi ambienti di training (destinazioni di calcolo). Passare da un ambiente di training a un altro è facile. Iniziare a eseguire il training in locale. Se è necessario aumentare le risorse, passare a una destinazione di calcolo basata sul cloud.
+description: Eseguire il training del modello di apprendimento automatico in diversi ambienti di training (destinazioni di calcolo). Passare da un ambiente di training a un altro è facile.
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 8280af20d63da969504cda8ffe875405d4bf0218
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cb10eb0f89ce37bc484c8570995ebaa098c696f1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324719"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541301"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurare e inviare le esecuzioni di training
 

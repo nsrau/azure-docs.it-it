@@ -1,17 +1,17 @@
 ---
 title: Regole del firewall-database di Azure per MySQL
 description: Informazioni sull'uso delle regole del firewall per abilitare le connessioni al database di Azure per il server MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 63b3fd64526f45994919267a2f4ddc730d0b2fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4efd9fd814165755d27de1d269b6319890f7190d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882652"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541607"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Regole di firewall per il server MySQL del database di Azure
 I firewall impediscono qualsiasi accesso al server del database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso al server in base all'indirizzo IP di origine di ogni richiesta.
@@ -43,7 +43,7 @@ Se un indirizzo IP in uscita fisso non è disponibile per il servizio di Azure, 
 > L'opzione **Consenti l'accesso a servizi di Azure** consente di configurare il firewall in modo da consentire tutte le connessioni da Azure, incluse le connessioni dalle sottoscrizioni di altri clienti. Quando si seleziona questa opzione, verificare che l'account di accesso e le autorizzazioni utente limitino l'accesso ai soli utenti autorizzati.
 > 
 
-:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="Esempio del flusso di funzionamento del firewall":::
+:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="Configurare Possibilità di accedere ai servizi di Azure nel portale":::
 
 ### <a name="connecting-from-a-vnet"></a>Connessione da un VNet
 Per connettersi in modo sicuro al database di Azure per il server MySQL da una VNet, è consigliabile usare gli [endpoint del servizio VNet](./concepts-data-access-and-security-vnet.md). 

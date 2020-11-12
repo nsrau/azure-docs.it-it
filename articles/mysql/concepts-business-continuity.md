@@ -1,17 +1,17 @@
 ---
 title: Continuità aziendale-database di Azure per MySQL
 description: Informazioni sulla continuità aziendale (ripristino temporizzato, interruzione del data center, ripristino geografico) quando si usa il servizio database di Azure per MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: b21062256896ebfc9c11b031413538b39620d1e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15fde6e7558c685537d36f45bcc7e3ff341544ff
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613980"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542494"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Comprendere la continuità aziendale nel database di Azure per MySQL
 
@@ -23,7 +23,7 @@ Database di Azure per MySQL offre funzionalità di continuità aziendale che inc
 
 La tabella seguente mette a confronto i valori ERT e RPO per le funzionalità disponibili:
 
-| **Funzionalità** | **Base** | **Utilizzo generico** | **Ottimizzate per la memoria** |
+| **Capacità** | **Base** | **Utilizzo generico** | **Ottimizzate per la memoria** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Ripristino temporizzato dal backup | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione |
 | Ripristino geografico dai backup con replica geografica | Non supportato | ERT < 12 ore<br/>RPO < 1 ora | ERT < 12 ore<br/>RPO < 1 ora |

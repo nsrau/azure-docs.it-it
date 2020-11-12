@@ -2,17 +2,17 @@
 title: Risolvere i problemi di connessione-database di Azure per MySQL
 description: Informazioni su come risolvere i problemi di connessione a database di Azure per MySQL, inclusi errori temporanei che richiedono tentativi, problemi del firewall e interruzioni.
 keywords: connessione mysql,stringa di connessione,problemi di connettività,errore temporaneo,errore di connessione
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: e4afcb8756f64ab9b66044a1bf1304427330e365
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da500087aeb4ad5e2bf516c3d0ce3cceaf8396af
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82100890"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540774"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Risolvere i problemi di connessione a Database di Azure per MySQL
 
@@ -48,7 +48,7 @@ Se l'applicazione continua a non riuscire a connettersi a Database di Azure per 
 
 * Configurazione del firewall del server: assicurarsi che il firewall del server di database di Azure per MySQL sia configurato per consentire le connessioni dal client, inclusi i server proxy e i gateway.
 * Configurazione del firewall client: il firewall del client deve consentire le connessioni al server di database. È necessario consentire gli indirizzi IP e le porte del server, nonché i nomi di applicazioni, ad esempio MySQL, in alcuni firewall.
-* Errore dell'utente: è possibile che i parametri di connessione, ad esempio il nome del server nella stringa di connessione o un suffisso * \@ ServerName* mancante nel nome utente, non siano stati digitati.
+* Errore dell'utente: è possibile che i parametri di connessione, ad esempio il nome del server nella stringa di connessione o un suffisso *\@ ServerName* mancante nel nome utente, non siano stati digitati.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passaggi per risolvere problemi di connettività permanenti
 

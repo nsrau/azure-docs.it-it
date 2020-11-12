@@ -1,17 +1,17 @@
 ---
 title: Configurare la replica dei dati in database di Azure per MySQL
 description: Questo articolo descrive come configurare la replica dei dati in ingresso in Database di Azure per MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 58df34ae6a6ff3304304da192b429ac83c1b55c3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b7f1f16b5182658f42ad6594aace22fb5a1a80fc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544036"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541403"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Come configurare la replica dei dati in ingresso in Database di Azure per MySQL
 
@@ -20,7 +20,7 @@ Questo articolo descrive come configurare [replica dei dati in ingresso](concept
 > [!NOTE]
 > Comunicazione senza distorsione
 >
-> Microsoft supporta un ambiente diversificato ed inclusivo. Questo articolo contiene riferimenti alla parola _slave_ . La [guida di stile Microsoft per la comunicazione senza pregiudizi](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) la riconosce come parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola usata nel software. Quando il software verrà aggiornato per rimuovere la parola, questo articolo verrà aggiornato di conseguenza.
+> Microsoft supporta un ambiente diversificato ed inclusivo. Questo articolo contiene riferimenti alla parola _slave_. La [guida di stile Microsoft per la comunicazione senza pregiudizi](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) la riconosce come parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola usata nel software. Quando il software verrà aggiornato per rimuovere la parola, questo articolo verrà aggiornato di conseguenza.
 >
 
 Per creare una replica nel servizio database di Azure per MySQL, [replica dei dati in ingresso](concepts-data-in-replication.md)  sincronizza i dati da un server MySQL di origine locale, in macchine virtuali (VM) o in servizi di database cloud. La replica dei dati in ingresso si basa sulla replica nativa di MySQL in base alla posizione di file di log binari (binlog). Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL).
@@ -140,11 +140,11 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
 
    Digitare il nome utente nel campo **Login Name** (ID di accesso). 
 
-   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Utenti e privilegi":::
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Sincronizzazione utente":::
  
    Fare clic sul pannello **Administrative Roles** (Ruoli amministrativi) e quindi selezionare **Replication Slave** (Slave di replica) dall'elenco **Global Privileges** (Privilegi globali). Fare quindi clic su **Apply** (Applica) per creare il ruolo di replica.
 
-   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Utenti e privilegi":::
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Slave di replica":::
 
 1. Impostazione del server di origine sulla modalità di sola lettura
 
@@ -164,7 +164,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    ```
    Si otterranno risultati simili ai seguenti. Prendere nota del nome del file binario poiché sarà necessario specificarlo nei passaggi successivi.
 
-   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Utenti e privilegi":::
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Risultati stato master":::
  
 ## <a name="dump-and-restore-source-server"></a>Dump e ripristino del server di origine
 
@@ -206,7 +206,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
        - È consigliabile passare questo parametro sotto forma di variabile. Per altre informazioni, vedere gli esempi seguenti.
 
    > [!NOTE]
-   > Se il server di origine è ospitato in una macchina virtuale di Azure, impostare "Consenti l'accesso ai servizi di Azure" su "ON" per consentire la comunicazione tra i server di origine e di replica. Questa impostazione può essere modificata dalle opzioni di **sicurezza delle connessioni** . Per altre informazioni, vedere l'articolo sulla [gestione delle regole del firewall con il portale](howto-manage-firewall-using-portal.md).
+   > Se il server di origine è ospitato in una macchina virtuale di Azure, impostare "Consenti l'accesso ai servizi di Azure" su "ON" per consentire la comunicazione tra i server di origine e di replica. Questa impostazione può essere modificata dalle opzioni di **sicurezza delle connessioni**. Per altre informazioni, vedere l'articolo sulla [gestione delle regole del firewall con il portale](howto-manage-firewall-using-portal.md).
       
    **esempi**
    

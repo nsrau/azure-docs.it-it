@@ -1,17 +1,17 @@
 ---
 title: Log di controllo-database di Azure per MySQL-server flessibile
 description: Descrive i log di controllo disponibili nel server flessibile database di Azure per MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: e630ccec744c4edf0dc80d374ecc93526f960d44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5aab78ad99b80ff1d7be92bd36847b01dbc0e33b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295990"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542219"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Tenere traccia dell'attività del database con i log di controllo nel database di Azure per MySQL server flessibile
 

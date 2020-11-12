@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ee30e9bba35ad39606fbe201c49e4eed3e656c97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdee5420fa6a50974250c45260a3727755bfcba7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548274"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542593"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Aprire un ticket di supporto per un processo di Importazione/Esportazione
 
@@ -28,18 +28,18 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 
 1. Andare al processo di importazione/esportazione. Passare alla sezione **supporto e risoluzione dei problemi** e quindi selezionare **nuova richiesta di supporto**.
      
-    ![Nozioni di base](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
+    ![Operazioni di base](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
 2. In **Nuova richiesta di supporto** selezionare **Informazioni di base**. In **Informazioni di base** seguire questa procedura:
     
     1. Nell'elenco a discesa **Tipo di problema** selezionare **Tecnico**.
     2. Scegliere la propria **sottoscrizione**.
     3. In **Servizio** selezionare **Servizi personali**. Nell'elenco a discesa selezionare una di queste opzioni: **Storage Account Management** (Gestione degli account di archiviazione), **BLOB** o **File**. 
-        - Se si sceglie **Storage Account Management**(Gestione degli account di archiviazione), selezionare **Risorse** e **Piano di supporto**.
+        - Se si sceglie **Storage Account Management** (Gestione degli account di archiviazione), selezionare **Risorse** e **Piano di supporto**.
             ![Scegliere Gestione degli account di archiviazione](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
-        - Se si sceglie **BLOB**, selezionare **Risorsa**, **Nomi dei contenitori** (facoltativo) e **Piano di supporto**.
+        - Se si sceglie **BLOB** , selezionare **Risorsa** , **Nomi dei contenitori** (facoltativo) e **Piano di supporto**.
             ![Scegliere BLOB](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
-        - Se si sceglie **File**, selezionare **Risorsa**, **Nomi delle condivisioni file** (facoltativo) e **Piano di supporto** ![Scegliere File](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
+        - Se si sceglie **File** , selezionare **Risorsa** , **Nomi delle condivisioni file** (facoltativo) e **Piano di supporto** ![Scegliere File](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)
     4. Selezionare **Avanti**.
 
 3. In **Nuova richiesta di supporto** selezionare **Passaggio 2 - Problema**. In **Problema** seguire questa procedura:
@@ -55,9 +55,9 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 
        ![Problema](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 
-4. In **nuova richiesta di supporto**selezionare **passaggio 3 informazioni di contatto**. In **Informazioni contatto** seguire la procedura seguente:
+4. In **nuova richiesta di supporto** selezionare **passaggio 3 informazioni di contatto**. In **Informazioni contatto** seguire la procedura seguente:
 
-   1. In **Opzioni contatti**, fornire il metodo di contatto preferito (telefono o posta elettronica) e la lingua. Il tempo di risposta viene selezionato automaticamente in base al piano di sottoscrizione.
+   1. In **Opzioni contatti** , fornire il metodo di contatto preferito (telefono o posta elettronica) e la lingua. Il tempo di risposta viene selezionato automaticamente in base al piano di sottoscrizione.
    2. In Informazioni di contatto specificare nome, posta elettronica, contatto facoltativo, paese/area. Selezionare la casella di controllo **Salvare le modifiche apportate al contatto per le richieste di supporto future**.
    3. Selezionare **Crea**.
    
@@ -74,15 +74,15 @@ Dopo la creazione del ticket di supporto, sarà possibile gestire il ciclo di vi
 
 1. Per visualizzare la pagina Guida e supporto, passare a **Sfoglia -> Guida e supporto**.
 
-    ![Gestire le richieste di supporto](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
+    ![Screenshot che mostra la finestra di dialogo della guida.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
 
 2. Verrà visualizzato l'elenco tabulare **Richieste di supporto recenti** in **Guida e supporto**.
 
-    ![Gestire le richieste di supporto](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
+    ![Screenshot Visualizza la pagina Guida e supporto con la richiesta di supporto in uno stato aperto.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
 
 3. Selezionare e fare clic su una richiesta di supporto. È possibile visualizzare lo stato e i dettagli della richiesta. Selezionare **+ nuovo messaggio** se si desidera completare la richiesta.
 
-    ![Gestire le richieste di supporto](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
+    ![Screenshot mostra il nuovo messaggio selezionato per la richiesta.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

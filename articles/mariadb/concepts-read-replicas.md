@@ -1,17 +1,17 @@
 ---
 title: Leggere repliche-database di Azure per MariaDB
 description: 'Informazioni sulle repliche di lettura nel database di Azure per MariaDB: scelta delle aree, creazione di repliche, connessione alle repliche, monitoraggio della replica e arresto della replica.'
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: fcf368c9fbbb185ac3f47faa5705e1933d085c81
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b2dbaa932c01c96582cb038143fa7686707be67d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126454"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541165"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Repliche in lettura in Database di Azure per MariaDB
 
@@ -24,7 +24,7 @@ Per ulteriori informazioni sulla replica GTID, vedere la [documentazione relativ
 > [!NOTE]
 > Comunicazione senza distorsione
 >
-> Microsoft supporta un ambiente eterogeneo e di inclusione. Questo articolo contiene riferimenti alla parola _slave_. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) riconosce questo aspetto come una parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola che viene visualizzata nel software. Quando il software viene aggiornato per rimuovere la parola, questo articolo verrà aggiornato in modo da essere allineato.
+> Microsoft supporta un ambiente diversificato ed inclusivo. Questo articolo contiene riferimenti alla parola _slave_. La [guida di stile Microsoft per la comunicazione senza pregiudizi](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) la riconosce come parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola usata nel software. Quando il software verrà aggiornato per rimuovere la parola, questo articolo verrà aggiornato di conseguenza.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usare una replica in lettura
@@ -113,7 +113,7 @@ Informazioni su come [arrestare la replica in una replica](howto-read-replicas-p
 
 Non esiste un failover automatico tra i server di origine e di replica. 
 
-Poiché la replica è asincrona, esiste un ritardo tra l'origine e la replica. La quantità di ritardo può essere influenzata da diversi fattori, ad esempio la quantità di carico di lavoro in esecuzione nel server di origine e la latenza tra i Data Center. Nella maggior parte dei casi il ritardo della replica è compreso tra pochi secondi e un paio di minuti. È possibile tenere traccia dell'effettivo ritardo di replica usando l' *intervallo di replica*metrica, disponibile per ogni replica. Questa metrica indica il tempo trascorso dall'ultima transazione riprodotta. Si consiglia di identificare il ritardo medio osservando il ritardo della replica in un periodo di tempo. È possibile impostare un avviso per il ritardo di replica, in modo che se non rientra nell'intervallo previsto, è possibile intervenire.
+Poiché la replica è asincrona, esiste un ritardo tra l'origine e la replica. La quantità di ritardo può essere influenzata da diversi fattori, ad esempio la quantità di carico di lavoro in esecuzione nel server di origine e la latenza tra i Data Center. Nella maggior parte dei casi il ritardo della replica è compreso tra pochi secondi e un paio di minuti. È possibile tenere traccia dell'effettivo ritardo di replica usando l' *intervallo di replica* metrica, disponibile per ogni replica. Questa metrica indica il tempo trascorso dall'ultima transazione riprodotta. Si consiglia di identificare il ritardo medio osservando il ritardo della replica in un periodo di tempo. È possibile impostare un avviso per il ritardo di replica, in modo che se non rientra nell'intervallo previsto, è possibile intervenire.
 
 > [!Tip]
 > Se si esegue il failover alla replica, il ritardo nel momento in cui si scollega la replica dall'origine indicherà la quantità di dati persi.

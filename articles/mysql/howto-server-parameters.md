@@ -1,24 +1,24 @@
 ---
 title: Configurare i parametri del server-portale di Azure-database di Azure per MySQL
 description: Questo articolo illustra come configurare i parametri di server MySQL in Database di Azure per MySQL usando il portale di Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/1/2020
-ms.openlocfilehash: c28f0edafd72794a60ef577fc3177e4436157950
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 363be8b34f230b812bc24276e1f3925faf0cdc1c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631478"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540842"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Configurare i parametri del server nel database di Azure per MySQL usando il portale di Azure
 
 Database di Azure per MySQL supporta la configurazione di alcuni parametri di server. Questo articolo illustra come configurare questi parametri usando il portale di Azure. Non tutti i parametri di server possono essere modificati.
 
 >[!Note]
-> I parametri del server possono essere aggiornati globalmente a livello di server, usare l'interfaccia della riga di comando di [Azure](./howto-configure-server-parameters-using-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md)o [portale di Azure](./howto-server-parameters.md).
+> I parametri del server possono essere aggiornati globalmente a livello di server tramite l'[interfaccia della riga di comando di Azure](./howto-configure-server-parameters-using-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md) o il [portale di Azure](./howto-server-parameters.md).
 
 ## <a name="configure-server-parameters"></a>Configurare i parametri del server
 
@@ -26,11 +26,11 @@ Database di Azure per MySQL supporta la configurazione di alcuni parametri di se
 2. Nella sezione **IMPOSTAZIONI** fare clic su **Parametri del server** per aprire la pagina Parametri del server per il server di Database di Azure per MySQL.
 :::image type="content" source="./media/howto-server-parameters/auzre-portal-server-parameters.png" alt-text="Pagina Parametri del server del portale di Azure":::
 3. Individuare eventuali impostazioni da modificare. Esaminare la colonna **Descrizione** per ottenere informazioni sulle finalità e sui valori consentiti.
-:::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="Pagina Parametri del server del portale di Azure":::
+:::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="Elenco a discesa dei parametri di tipo enumerato":::
 4. Fare clic su  **Salva** per salvare le modifiche.
-:::image type="content" source="./media/howto-server-parameters/4-save_parameters.png" alt-text="Pagina Parametri del server del portale di Azure":::
+:::image type="content" source="./media/howto-server-parameters/4-save_parameters.png" alt-text="Salvataggio o rimozione delle modifiche":::
 5. Se sono stati salvati nuovi valori per i parametri, è possibile ripristinare i valori predefiniti in qualsiasi momento selezionando **Ripristina tutte le impostazioni predefinite**.
-:::image type="content" source="./media/howto-server-parameters/5-reset_parameters.png" alt-text="Pagina Parametri del server del portale di Azure":::
+:::image type="content" source="./media/howto-server-parameters/5-reset_parameters.png" alt-text="Ripristino di tutte le impostazioni predefinite":::
 
 ## <a name="setting-parameters-not-listed"></a>Impostazione dei parametri non elencati
 
@@ -72,7 +72,7 @@ SELECT name FROM mysql.time_zone_name;
 
 Il fuso orario a livello globale può essere impostato nella pagina **Parametri del server** nel portale di Azure. L'esempio seguente imposta il fuso orario globale sul valore "US/Pacific".
 
-:::image type="content" source="./media/howto-server-parameters/timezone.png" alt-text="Pagina Parametri del server del portale di Azure":::
+:::image type="content" source="./media/howto-server-parameters/timezone.png" alt-text="Impostare il parametro di fuso orario":::
 
 ### <a name="setting-the-session-level-time-zone"></a>Impostazione del fuso orario a livello di sessione
 

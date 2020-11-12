@@ -1,17 +1,17 @@
 ---
 title: Advanced Threat Protection-portale di Azure-database di Azure per MariaDB
 description: La protezione dalle minacce per il database di Azure per MariaDB rileva le attività anomale del database che indicano potenziali minacce alla sicurezza per il database.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 1b5a16a014892764ee26b524489a82744fe6ca82
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7734feddabb1a4a86e7932da3ef4adc57352637e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425959"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542695"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Advanced Threat Protection per database di Azure per MariaDB
 
@@ -28,10 +28,10 @@ Advanced Threat Protection fa parte dell'offerta Advanced Data Security (Sicurez
 ## <a name="set-up-threat-detection"></a>Impostare il rilevamento delle minacce
 1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com) .
 2. Passare alla pagina di configurazione del database di Azure per il server MariaDB che si vuole proteggere. Nelle impostazioni di sicurezza selezionare **Advanced Threat Protection (anteprima)**.
-3. Nella pagina di configurazione **Advanced Threat Protection (anteprima)**:
+3. Nella pagina di configurazione **Advanced Threat Protection (anteprima)** :
 
    - Abilita Advanced Threat Protection nel server.
-   - In **Impostazioni di Advanced Threat Protection**, nella casella di testo **Invia avvisi a**, viene fornito l'elenco dei messaggi di posta elettronica per ricevere avvisi di sicurezza al rilevamento delle attività anomale del database.
+   - In **Impostazioni di Advanced Threat Protection** , nella casella di testo **Invia avvisi a** , viene fornito l'elenco dei messaggi di posta elettronica per ricevere avvisi di sicurezza al rilevamento delle attività anomale del database.
   
    ![Impostare il rilevamento delle minacce](./media/howto-database-threat-protection-portal/set-up-threat-protection.png)
 
@@ -55,7 +55,7 @@ Si riceverà una notifica tramite posta elettronica al rilevamento di attività 
 
 Rilevamento minacce del database SQL integra i suoi avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/). Un riquadro sul rilevamento minacce live di SQL all'interno dei pannelli del database e di SQL ATP nel portale di Azure tiene traccia dello stato delle minacce attive.
 
-Fare clic su **Avviso rilevamento minacce**per avviare la pagina degli avvisi del Centro sicurezza di Azure e ottenere una panoramica delle minacce SQL attive rilevate nel database.
+Fare clic su **Avviso rilevamento minacce** per avviare la pagina degli avvisi del Centro sicurezza di Azure e ottenere una panoramica delle minacce SQL attive rilevate nel database.
 
    ![Avviso di rilevamento minacce](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
    

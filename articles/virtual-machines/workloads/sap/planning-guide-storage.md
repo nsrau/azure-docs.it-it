@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 819ac1f01cc182c79571de35ec0753f694dc7722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ed99145a2d3860849c4a8117a93a9a0f24d227c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653614"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540927"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipi di Archiviazione di Azure per carichi di lavoro SAP
 Azure dispone di numerosi tipi di archiviazione che variano notevolmente in funzionalità, velocità effettiva, latenza e prezzi. Alcuni tipi di archiviazione non sono o di utilizzo limitato per gli scenari SAP. Mentre alcuni tipi di archiviazione di Azure sono particolarmente adatti o ottimizzati per scenari specifici del carico di lavoro SAP. In particolare per SAP HANA, alcuni tipi di archiviazione di Azure sono stati certificati per l'utilizzo con SAP HANA. In questo documento vengono esaminati i diversi tipi di archiviazione e ne viene descritta la funzionalità e l'usabilità con i carichi di lavoro SAP e i componenti SAP.
@@ -79,9 +79,9 @@ Prima di entrare nei dettagli, verranno presentati il riepilogo e le raccomandaz
 | Volume di log DBMS SAP HANA famiglie di VM M/Mv2 | non supportato | non supportato | consigliato<sup>1</sup> | Consigliato | consigliato<sup>2</sup> | 
 | Volume di dati DBMS SAP HANA famiglie di macchine virtuali Esv3/Edsv4 | non supportato | non supportato | Consigliato | Consigliato | consigliato<sup>2</sup> |
 | Volume di log DBMS SAP HANA famiglie di macchine virtuali Esv3/Edsv4 | non supportato | non supportato | non supportato | Consigliato | consigliato<sup>2</sup> | 
-| Volume di dati DBMS non HANA | non supportato | adatto limitato (non prod) | Consigliato | Consigliato | non supportato |
-| Volume di log DBMS non-HANA M/Mv2 VM famiglie | non supportato | adatto limitato (non prod) | consigliato<sup>1</sup> | Consigliato | non supportato |
-| Volume di log DBMS non-HANA famiglie di VM non M/Mv2 | non supportato | adatto limitato (non prod) | adatto per carichi di lavoro fino a medium | Consigliato | non supportato |
+| Volume di dati DBMS non HANA | Non supportato | adatto limitato (non prod) | Consigliato | Consigliato | Non supportato |
+| Volume di log DBMS non-HANA M/Mv2 VM famiglie | Non supportato | adatto limitato (non prod) | consigliato<sup>1</sup> | Consigliato | Non supportato |
+| Volume di log DBMS non-HANA famiglie di VM non M/Mv2 | Non supportato | adatto limitato (non prod) | adatto per carichi di lavoro fino a medium | Consigliato | Non supportato |
 
 
 <sup>1</sup> con l'uso di [acceleratore di scrittura di Azure](../../how-to-enable-write-accelerator.md) per le famiglie di macchine virtuali M/Mv2 per i volumi di log di log/rollforward <sup>2</sup> con e è necessario/Hana/data e/Hana/log in e 
@@ -146,7 +146,7 @@ La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 | Latenza | da basso a medio | - |
 | SLA IOPS | YES | - |
 | IOPS lineare a capacità | semi lineare tra parentesi quadre  | [Prezzi del disco gestito](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| Numero massimo di IOPS per disco | 20.000 [dipendente dalla dimensione del disco](https://azure.microsoft.com/pricing/details/managed-disks/) | Prendere in considerazione anche i [limiti delle VM](../../sizes.md) |
+| Numero massimo di operazioni di I/O al secondo per disco | 20.000 [dipendente dalla dimensione del disco](https://azure.microsoft.com/pricing/details/managed-disks/) | Prendere in considerazione anche i [limiti delle VM](../../sizes.md) |
 | SLA velocità effettiva | YES | - |
 | Velocità effettiva lineare a capacità | semi lineare tra parentesi quadre | [Prezzi del disco gestito](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Certificazione HANA | YES | [appositamente per SAP HANA](../../how-to-enable-write-accelerator.md) |
@@ -204,7 +204,7 @@ La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 | Latenza | molto bassa | - |
 | SLA IOPS | YES | - |
 | IOPS lineare a capacità | semi lineare tra parentesi quadre  | [Prezzi del disco gestito](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| Numero massimo di IOPS per disco | da 1.200 a 160.000 | dipendente dalla capacità del disco |
+| Numero massimo di operazioni di I/O al secondo per disco | da 1.200 a 160.000 | dipendente dalla capacità del disco |
 | SLA velocità effettiva | YES | - |
 | Velocità effettiva lineare a capacità | semi lineare tra parentesi quadre | [Prezzi del disco gestito](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Certificazione HANA | YES | - |
@@ -273,7 +273,7 @@ Funzionalità incorporate aggiuntive dell'archiviazione e:
 - Clonazione di volumi e da snapshot
 - Ripristinare i volumi da snapshot (ripristino di snap-in)
 
-**Riepilogo**: Azure NetApp files è un'archiviazione a bassa latenza certificata di Hana che consente di distribuire volumi o condivisioni NFS e SMB. Lo spazio di archiviazione è costituito da tre diversi livelli di servizio che forniscono velocità effettiva e IOPS diverse in modo lineare per capacità GiB del volume. Lo spazio di archiviazione e consente di distribuire SAP HANA scenari con scalabilità orizzontale con un nodo standby. Lo spazio di archiviazione è adatto per fornire le condivisioni file necessarie per la directory di trasporto globale/sapmnt o SAP. Lo spazio di archiviazione e è disponibile con la disponibilità delle funzionalità disponibile come funzionalità NetApp nativa.  
+**Riepilogo** : Azure NetApp files è un'archiviazione a bassa latenza certificata di Hana che consente di distribuire volumi o condivisioni NFS e SMB. Lo spazio di archiviazione è costituito da tre diversi livelli di servizio che forniscono velocità effettiva e IOPS diverse in modo lineare per capacità GiB del volume. Lo spazio di archiviazione e consente di distribuire SAP HANA scenari con scalabilità orizzontale con un nodo standby. Lo spazio di archiviazione è adatto per fornire le condivisioni file necessarie per la directory di trasporto globale/sapmnt o SAP. Lo spazio di archiviazione e è disponibile con la disponibilità delle funzionalità disponibile come funzionalità NetApp nativa.  
 
 
 
@@ -291,7 +291,7 @@ Rispetto all'archiviazione HDD standard di Azure, l'archiviazione SSD standard d
 | Resilienza | LRS, GRS | Nessun ZRS disponibile per i dischi |
 | Latenza | high | troppo elevata per la directory del trasporto globale SAP o per i sistemi di produzione |
 | SLA IOPS | NO | - |
-| Numero massimo di IOPS per disco | 500 | Indipendente dalle dimensioni del disco |
+| Numero massimo di operazioni di I/O al secondo per disco | 500 | Indipendente dalle dimensioni del disco |
 | SLA velocità effettiva | NO | - |
 | Certificazione HANA | NO | - |
 | Snapshot del disco possibili | YES | - |
@@ -318,7 +318,7 @@ Archiviazione HDD Standard di Azure è l'unico tipo di archiviazione quando l'in
 | Resilienza | LRS, GRS | Nessun ZRS disponibile per i dischi |
 | Latenza | high | troppo elevata per l'utilizzo di DBMS, la directory di trasporto globale di SAP o sapmnt/saploc |
 | SLA IOPS | NO | - |
-| Numero massimo di IOPS per disco | 500 | Indipendente dalle dimensioni del disco |
+| Numero massimo di operazioni di I/O al secondo per disco | 500 | Indipendente dalle dimensioni del disco |
 | SLA velocità effettiva | NO | - |
 | Certificazione HANA | NO | - |
 | Snapshot del disco possibili | YES | - |
@@ -352,11 +352,10 @@ Quando si ridimensionano le macchine virtuali di Azure nel ciclo di vita di un s
 
 
 ## <a name="striping-or-not-striping"></a>Striping o non striping
-La creazione di un set di striping su più dischi di Azure in un volume più grande consente di accumulare i IOPS e la velocità effettiva dei singoli dischi in un unico volume. Viene usato solo per archiviazione standard di Azure e per archiviazione Premium di Azure. Azure ultra disk, in cui è possibile configurare la velocità effettiva e IOPS indipendentemente dalla capacità di un disco, non richiede l'uso di set di striping. Non è possibile eseguire lo striping di volumi condivisi basati su NFS o SMB. A causa della natura non lineare della velocità effettiva e delle operazioni di i/o al secondo di archiviazione Premium di Azure, è possibile effettuare il provisioning di una capacità ridotta con gli stessi IOPS e velocità effettiva rispetto ai dischi di archiviazione Premium Questo è il metodo per ottenere maggiore velocità effettiva o IOPS a costi ridotti usando archiviazione Premium di Azure. Ad esempio:
+La creazione di un set di striping su più dischi di Azure in un volume più grande consente di accumulare i IOPS e la velocità effettiva dei singoli dischi in un unico volume. Viene usato solo per archiviazione standard di Azure e per archiviazione Premium di Azure. Azure ultra disk, in cui è possibile configurare la velocità effettiva e IOPS indipendentemente dalla capacità di un disco, non richiede l'uso di set di striping. Non è possibile eseguire lo striping di volumi condivisi basati su NFS o SMB. A causa della natura non lineare della velocità effettiva e delle operazioni di i/o al secondo di archiviazione Premium di Azure, è possibile effettuare il provisioning di una capacità ridotta con gli stessi IOPS e velocità effettiva rispetto ai dischi di archiviazione Premium Questo è il metodo per ottenere maggiore velocità effettiva o IOPS a costi ridotti usando archiviazione Premium di Azure. Ad esempio, lo striping tra due dischi di archiviazione Premium P15 consente di ottenere una velocità effettiva: 
 
-- Lo striping tra due dischi di archiviazione Premium P15 ti permette di ottenere una velocità effettiva 
 - 250 MiB/sec. Tale volume avrà una capacità di 512 GiB. Se si vuole avere un singolo disco che fornisce una velocità effettiva di 250 MiB al secondo, è necessario selezionare un disco P40 con capacità di 2 TiB. 
-- In alternativa, è possibile ottenere una velocità effettiva di 400 MiB/sec eseguendo lo striping di quattro dischi di archiviazione Premium P10 con una capacità complessiva di 512 GiB mediante striping. Se si vuole avere un disco singolo con una velocità effettiva di 500 MiB al secondo, è necessario selezionare un disco di archiviazione Premium P60 con 8 TiB. Poiché il costo o l'archiviazione Premium è quasi lineare con la capacità, è possibile percepire il risparmio sui costi tramite lo striping.
+- 400 MiB/sec tramite striping di quattro dischi di archiviazione Premium P10 con una capacità complessiva di 512 GiB mediante striping. Se si vuole avere un disco singolo con una velocità effettiva di 500 MiB al secondo, è necessario selezionare un disco di archiviazione Premium P60 con 8 TiB. Poiché il costo di archiviazione Premium è quasi lineare con la capacità, è possibile percepire il risparmio sui costi tramite lo striping.
 
 È necessario seguire alcune regole sullo striping:
 

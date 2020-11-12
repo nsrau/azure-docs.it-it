@@ -1,18 +1,18 @@
 ---
 title: Configurare SSL-database di Azure per MySQL
 description: Istruzioni per la configurazione di Database di Azure per MySQL e delle applicazioni associate per usare correttamente le connessioni SSL
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 1bedeb752a18d7a0212ede2b34526efb8ea09287
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71e6d024b27ecad09b3339a7b0a8c406c7a3eda1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905827"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541522"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configurare la connettività SSL nell'applicazione per la connessione sicura a Database di Azure per MySQL
 
@@ -61,9 +61,9 @@ mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p -
 
 ### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
-Tramite il portale di Azure passare all'istanza di Database di Azure per il server MySQL e fare clic su **Sicurezza delle connessioni**. Usare l'interruttore per abilitare o disabilitare l'impostazione **Imponi connessione SSL**, quindi fare clic su **Salva**. È consigliabile abilitare sempre l'impostazione **Imponi connessione SSL** per ottenere un livello di sicurezza avanzato.
+Tramite il portale di Azure passare all'istanza di Database di Azure per il server MySQL e fare clic su **Sicurezza delle connessioni**. Usare l'interruttore per abilitare o disabilitare l'impostazione **Imponi connessione SSL** , quindi fare clic su **Salva**. È consigliabile abilitare sempre l'impostazione **Imponi connessione SSL** per ottenere un livello di sicurezza avanzato.
 
-:::image type="content" source="./media/howto-configure-ssl/enable-ssl.png" alt-text="Salvare la configurazione SSL":::
+:::image type="content" source="./media/howto-configure-ssl/enable-ssl.png" alt-text="Screenshot dei portale di Azure per applicare le connessioni SSL nel database di Azure per MySQL":::
 
 ### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 

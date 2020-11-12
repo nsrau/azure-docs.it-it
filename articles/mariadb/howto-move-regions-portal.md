@@ -1,18 +1,18 @@
 ---
 title: Spostare le aree di Azure-portale di Azure database di Azure per MariaDB
 description: Spostare un database di Azure per il server MariaDB da un'area di Azure a un'altra usando una replica di lettura e il portale di Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: 75fabeeb7fa879a0f2843538d34f85e5ccec40e4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f4ce34bc1a1af7b2c0ee57a3297415bd9d033517
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425901"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540825"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>Spostare un database di Azure per il server MariaDB in un'altra area usando il portale di Azure
 

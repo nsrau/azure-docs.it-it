@@ -1,18 +1,18 @@
 ---
 title: Stringhe di connessione-database di Azure per MySQL
 description: Questo documento elenca le stringhe di connessione attualmente supportate per consentire alle applicazioni di connettersi a Database di Azure per MySQL, tra cui ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python e Ruby.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: 635cf55cab74ecdc32c5687eed8282a052ccf7c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40af2660f0052a876ef9310bc2426295ba67558b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331744"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541488"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Come connettere le applicazioni a Database di Azure per MySQL
 Questo argomento elenca i tipi di stringa di connessione supportati da Database di Azure per MySQL, oltre a modelli ed esempi. Nella stringa di connessione possono essere presenti parametri e impostazioni diverse.

@@ -1,17 +1,17 @@
 ---
 title: Backup e ripristino-database di Azure per MySQL
 description: Informazioni su backup automatici e ripristino del server Database di Azure per MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 283befd08c7802a9df6d2fca78465d50cfb2ba7b
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 4438ceaa7bb4e9c29a05de0481acdad571e3bb64
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376817"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542338"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Eseguire il backup e il ripristino in Database di Azure per MySQL
 

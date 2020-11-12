@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 3b407ae18316071d77cc87992a70a4fba857ab64
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0b0e198075455f697c87ad48741a770e6f78b5a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979020"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542151"
 ---
 # <a name="azure-dedicated-hosts"></a>Host dedicati di Azure
 
@@ -84,7 +84,6 @@ Problemi noti e limitazioni quando si usa la selezione host automatica delle mac
 
 - Non sarà possibile applicare i vantaggi di Azure Hybrid per gli host dedicati.
 - Non sarà possibile ridistribuire la macchina virtuale. 
-- Non sarà possibile controllare la manutenzione per gli host dedicati.
 - Non sarà possibile usare macchine virtuali della serie Lsv2, NVasv4, NVsv3, Msv2 o M con host dedicati 
 
 
@@ -120,7 +119,7 @@ Non tutte le impostazioni dell'orchestrazione e delle ottimizzazioni del set di 
 
 L'infrastruttura che supporta le macchine virtuali può essere occasionalmente aggiornata per migliorare l'affidabilità, le prestazioni, la sicurezza e per avviare nuove funzionalità. La piattaforma Azure tenta di ridurre al minimo l'effetto della manutenzione della piattaforma laddove possibile, ma i clienti con carichi di lavoro *sensibili alla manutenzione* non possono tollerare anche pochi secondi che la macchina virtuale debba essere bloccata o disconnessa per la manutenzione.
 
-Il **controllo di manutenzione** offre ai clienti un'opzione che consente di ignorare gli aggiornamenti regolari della piattaforma pianificati sui rispettivi host dedicati, quindi di applicarli al momento desiderato entro una finestra in sequenza di 35 giorni.
+Il **controllo di manutenzione** offre ai clienti un'opzione che consente di ignorare gli aggiornamenti regolari della piattaforma pianificati sui rispettivi host dedicati, quindi di applicarli al momento desiderato entro una finestra in sequenza di 35 giorni. All'interno della finestra di manutenzione, è possibile applicare la manutenzione direttamente a livello di host, in qualsiasi ordine. Al termine della finestra di manutenzione, Microsoft procederà e applicherà la manutenzione in sospeso agli host in un ordine che potrebbe non seguire i domini di errore definiti dall'utente.
 
 Per ulteriori informazioni, vedere [gestione degli aggiornamenti della piattaforma con il controllo di manutenzione](./maintenance-control.md).
 

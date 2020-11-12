@@ -1,26 +1,26 @@
 ---
 title: Configurare i parametri del server-Azure PowerShell-database di Azure per MySQL
 description: Questo articolo descrive come configurare i parametri del servizio in database di Azure per MySQL usando PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 10/1/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3888e83738d8617d6ec1433a3b760a2c518b874c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 973025dfd8c0141ed0884539fe5207cc64ec822c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627211"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541862"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-powershell"></a>Configurare i parametri del server nel database di Azure per MySQL con PowerShell
 
 È possibile elencare, visualizzare e aggiornare i parametri di configurazione per un database di Azure per il server MySQL usando PowerShell. Un subset delle configurazioni del motore viene esposto a livello di server e può essere modificato.
 
 >[!Note]
-> I parametri del server possono essere aggiornati globalmente a livello di server, usare l'interfaccia della riga di comando di [Azure](./howto-configure-server-parameters-using-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md)o [portale di Azure](./howto-server-parameters.md).
+> I parametri del server possono essere aggiornati globalmente a livello di server tramite l'[interfaccia della riga di comando di Azure](./howto-configure-server-parameters-using-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md) o il [portale di Azure](./howto-server-parameters.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

@@ -1,19 +1,19 @@
 ---
 title: 'Esercitazione: Progettare un database di Azure per MariaDB - Interfaccia della riga di comando di Azure'
 description: In questa esercitazione viene illustrato come creare e gestire il database e il server di Database di Azure per MariaDB tramite l'interfaccia della riga di comando di Azure dalla riga di comando.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 205fe47acb6d10b7596c462476b4e9e718a3d813
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1fbc68570fb59be14947755a241ab9b005841e99
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424959"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542508"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Esercitazione: Progettare un'istanza di Database di Azure per MariaDB con l'interfaccia della riga di comando di Azure
 
@@ -85,7 +85,7 @@ Per connettersi al server, è necessario specificare le informazioni sull'host e
 az mariadb server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l' **administratorLogin** .
+Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l' **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",

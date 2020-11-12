@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
-ms.openlocfilehash: faacb78ca7f055bb8e9a469afb894bc30ee87501
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 89c13566c3710e56a4cd737d9aa03c6fb57edc93
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507493"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542729"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Note sulla versione per Microsoft. ApplicationInsights. SnapshotCollector
 
@@ -70,7 +70,7 @@ Snapshot Collector legge e analizza ConnectionString dalla variabile di ambiente
 - _Funzionalità sperimentale_ : piani di raccolta ancoraggio: aggiungere "snapshotOnFirstOccurence". Altre informazioni sono disponibili [qui](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).
 
 ## <a name="133"></a>[1.3.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.3)
-- Correzione di un bug che causava il blocco SnapshotUploader.exe e non il caricamento di snapshot per le app .NET Core.
+- Correzione di un bug che causava la mancata risposta SnapshotUploader.exe e non il caricamento degli snapshot per le app .NET Core.
 
 ## <a name="132"></a>[1.3.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.2)
 - _Funzionalità sperimentale_ : piani di raccolta ancoraggio. Altre informazioni sono disponibili [qui](https://gist.github.com/alexaloni/5b4d069d17de0dabe384ea30e3f21dfe).

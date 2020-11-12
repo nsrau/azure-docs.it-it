@@ -1,7 +1,7 @@
 ---
 title: Creare e gestire un'istanza di calcolo
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare e gestire un'istanza di calcolo nell'area di lavoro Azure Machine Learning. Usare l'istanza di calcolo come ambiente di sviluppo o a scopo di formazione e inferenza per sviluppo/test.
+description: Informazioni su come creare e gestire un'istanza di calcolo Azure Machine Learning. Usare come ambiente di sviluppo o come destinazione di calcolo per finalità di sviluppo e test.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 6e0d80c35a4822ad46973c94b32cf71b129ad1e1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bdae8d77dc5e51cf4a181459ab2e159f31f06e31
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318017"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543103"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creare e gestire un'istanza di calcolo Azure Machine Learning
 
@@ -161,7 +161,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
     instance.restart(wait_for_completion=True, show_output=True)
     ```
 
-* Delete
+* Elimina
 
     ```python
     # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
@@ -196,7 +196,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
 
     Per altre informazioni, vedere [AZ ml computetarget restart computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
 
-* Delete
+* Elimina
 
     ```azurecli-interactive
     az ml computetarget delete -n instance -v

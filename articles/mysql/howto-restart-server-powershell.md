@@ -1,18 +1,18 @@
 ---
 title: Riavviare il server Azure PowerShell-database di Azure per MySQL
 description: Questo articolo descrive come riavviare un database di Azure per il server MySQL usando PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 4/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71d10078a704b2905cf055347f5ed4272ca8ef72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94b3586f13ad1f5bf5f042ef1dc824bd0a5da0d1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502784"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542202"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-powershell"></a>Riavviare il database di Azure per il server MySQL con PowerShell
 
@@ -37,7 +37,7 @@ Se si sceglie di usare PowerShell in locale, connettersi all'account di Azure us
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="restart-the-server"></a>Riavviare il server
+## <a name="restart-the-server"></a>Riavviare il server.
 
 Riavviare il server con il comando seguente:
 

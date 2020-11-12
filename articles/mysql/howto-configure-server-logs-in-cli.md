@@ -1,19 +1,19 @@
 ---
 title: Accedere ai log di query lente-interfaccia della riga di comando di Azure per database di Azure
 description: Questo articolo descrive come accedere ai log di query lente nel database di Azure per MySQL usando l'interfaccia della riga di comando di Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 4/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a662fe9300d78591cc7ae1fcff67f9b3f93ab8c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 945a67f81010a61adf814f6f6f422eba5001b48d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501219"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541573"
 ---
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configurare e accedere ai log di query lente usando l'interfaccia della riga di comando di Azure
 È possibile scaricare i log di query lente di database di Azure per MySQL usando l'interfaccia della riga di comando di Azure.
@@ -26,7 +26,7 @@ Per proseguire con questa guida, si richiedono:
 ## <a name="configure-logging"></a>Configurare la registrazione
 Per configurare il server per l'accesso al log delle query lente di MySQL, seguire questa procedura:
 1. Attivare la registrazione lenta delle query impostando il parametro **Slow \_ query \_ log** su on.
-2. Selezionare la posizione in cui restituire i log usando l' ** \_ output del log**. Per inviare i log ai log di diagnostica di monitoraggio di Azure e di archiviazione locale, selezionare **file**. Per inviare i log solo ai log di monitoraggio di Azure, selezionare **nessuno**
+2. Selezionare la posizione in cui restituire i log usando l' **\_ output del log**. Per inviare i log ai log di diagnostica di monitoraggio di Azure e di archiviazione locale, selezionare **file**. Per inviare i log solo ai log di monitoraggio di Azure, selezionare **nessuno**
 3. Regolare gli altri parametri, ad esempio **long\_query\_time** e **log\_slow\_admin\_statements**.
 
 Per informazioni su come impostare il valore di questi parametri tramite l'interfaccia della riga di comando di Azure, vedere [Personalizzare i parametri di configurazione server usando l'interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md).

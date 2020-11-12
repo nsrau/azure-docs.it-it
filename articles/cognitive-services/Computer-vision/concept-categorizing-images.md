@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 477349f1addf71a30e8ecb179266d8eac5510887
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43359c47b4d2c1b8895938271c74dab03f7731f7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80244751"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541777"
 ---
 # <a name="categorize-images-by-subject-matter"></a>Categorizzare le immagini in base al soggetto
 
@@ -53,7 +53,7 @@ La risposta JSON seguente illustra le informazioni restituite da Visione artific
 
 La tabella seguente illustra una serie di immagini tipiche e la categoria restituita da Visione artificiale per ogni immagine.
 
-| Immagine | Categoria |
+| Immagine | Category |
 |-------|----------|
 | ![Quattro persone che posano insieme come una famiglia](./Images/family_photo.png) | people_group |
 | ![Cucciolo seduto in un prato](./Images/cute_dog.png) | animal_dog |
@@ -62,7 +62,7 @@ La tabella seguente illustra una serie di immagini tipiche e la categoria restit
 
 ## <a name="use-the-api"></a>Usare l'API
 
-La funzionalità di categorizzazione fa parte dell'API [analizza immagine](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Categories` nel parametro di query **visualFeatures** . Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"categories"` sezione.
+La funzionalità di categorizzazione fa parte dell'API [analizza immagine](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) . È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Categories` nel parametro di query **visualFeatures** . Quindi, quando si ottiene la risposta JSON completa, è sufficiente analizzare la stringa per il contenuto della `"categories"` sezione.
 
 * [Guida introduttiva: Visione artificiale .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 * [Guida introduttiva: analizzare un'immagine (API REST)](./quickstarts/csharp-analyze.md)

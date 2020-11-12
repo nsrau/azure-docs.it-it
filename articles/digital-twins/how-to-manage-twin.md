@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 929181f9a4d159892956274a7958b1daa95cbc10
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 9e00e0e5a34eecd6974e8919ce0d0e16f48757f3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360072"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540969"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
@@ -26,6 +26,10 @@ Questo articolo è incentrato sulla gestione di dispositivi gemelli digitali; pe
 ## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-twins"></a>Modalità di gestione di dispositivi gemelli
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-a-digital-twin"></a>Creare un dispositivo gemello digitale
 
@@ -187,6 +191,17 @@ foreach (string prop in twin.Contents.Keys)
 ```
 
 Per altre informazioni sulle classi helper di serializzazione, vedere [*procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md).
+
+## <a name="view-all-digital-twins"></a>Visualizza tutti i dispositivi gemelli digitali
+
+Per visualizzare tutti i dispositivi gemelli digitali nell'istanza, usare una [query](how-to-query-graph.md). È possibile eseguire una query con le [API di query](/rest/api/digital-twins/dataplane/query) o i [comandi dell'interfaccia](how-to-use-cli.md)della riga di comando.
+
+Di seguito è riportato il corpo della query di base che restituirà un elenco di tutti i dispositivi gemelli digitali nell'istanza:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## <a name="update-a-digital-twin"></a>Aggiornare un gemello digitale
 
@@ -360,7 +375,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 Per un esempio di come eliminare tutti i dispositivi gemelli contemporaneamente, scaricare l'app di esempio usata nella [_Tutorial: esplorare le nozioni di base con un'app client di esempio *](tutorial-command-line-app.md). Il file *CommandLoop.cs* esegue questa operazione in una `CommandDeleteAllTwins()` funzione.
 
-## <a name="manage-twins-using-runnable-code-sample"></a>Gestire i dispositivi gemelli usando un esempio di codice eseguibile
+## <a name="runnable-digital-twin-code-sample"></a>Esempio di codice di un gemello digitale eseguibile
 
 È possibile usare l'esempio di codice eseguibile riportato di seguito per creare un dispositivo gemello, aggiornarne i dettagli ed eliminare il dispositivo gemello. 
 
@@ -535,22 +550,6 @@ Ecco l'output della console del programma precedente:
 
 :::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Output della console che mostra che il dispositivo gemello è stato creato, aggiornato ed eliminato" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
-## <a name="manage-twins-with-cli"></a>Gestire i dispositivi gemelli con CLI
-
-I dispositivi gemelli possono essere gestiti anche tramite l'interfaccia della riga di comando di Azure Digital Twins I comandi sono disponibili in [_How: usare l'interfaccia della riga di comando di Azure Digital gemelli *](how-to-use-cli.md).
-
-## <a name="view-all-digital-twins"></a>Visualizza tutti i dispositivi gemelli digitali
-
-Per visualizzare tutti i dispositivi gemelli digitali nell'istanza, usare una [query](how-to-query-graph.md). È possibile eseguire una query con le [API di query](/rest/api/digital-twins/dataplane/query) o i [comandi dell'interfaccia](how-to-use-cli.md)della riga di comando.
-
-Di seguito è riportato il corpo della query di base che restituirà un elenco di tutti i dispositivi gemelli digitali nell'istanza:
-
-```sql
-SELECT *
-FROM DIGITALTWINS
-``` 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere come creare e gestire le relazioni tra i dispositivi gemelli digitali:
-* [*Procedura: gestire il grafo gemello con relazioni*](how-to-manage-graph.md)
+Vedere How to create and Manage relationships between the Digital gemells: _ [ *How-to: Manage The Twin Graph with Relationships*](how-to-manage-graph.md)

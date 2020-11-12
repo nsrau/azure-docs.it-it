@@ -2,13 +2,13 @@
 title: Concetti-gestione API
 description: Informazioni su come gestione API protegge le API in esecuzione in macchine virtuali (VM) della soluzione VMware di Azure
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: f412ee81fc77435f2586a31c1bf6f6bdf22c66e2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 10/27/2020
+ms.openlocfilehash: 958cc52c48d1121a69dca2fc901289ad1ed671cb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670357"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541964"
 ---
 # <a name="api-management-to-publish-and-protect-apis-running-on-azure-vmware-solution-based-vms"></a>Gestione API per pubblicare e proteggere le API in esecuzione in macchine virtuali basate su soluzioni VMware di Azure
 
@@ -59,4 +59,4 @@ In una distribuzione interna le API vengono esposte alla stessa istanza di gesti
 * Il traffico esterno entra in Azure attraverso il gateway applicazione, che usa il livello di protezione esterno per gestione API.
 
 
-:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Distribuzione esterna-gestione API per la soluzione VMware di Azure" lightbox="media/api-management/internal-deployment.png":::
+:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Distribuzione interna-gestione API per la soluzione VMware di Azure" lightbox="media/api-management/internal-deployment.png":::
