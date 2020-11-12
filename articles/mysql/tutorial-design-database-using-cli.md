@@ -1,19 +1,19 @@
 ---
 title: 'Esercitazione: Progettare un server - Interfaccia della riga di comando di Azure - Database di Azure per MySQL'
 description: In questa esercitazione viene illustrato come creare e gestire il database di Azure per il server e il Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure dalla riga di comando.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3e851c47e67ac6e42d81b7688e457c2f9e17725b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 06d8b7cdd6edb6ae3dad27a8a5f50443e3fc8969
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543951"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533600"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Esercitazione: Progettare un'istanza di Database di Azure per MySQL con l'interfaccia della riga di comando di Azure
 
@@ -27,6 +27,8 @@ Il database di Azure per MySQL è un servizio di database relazionale in Microso
 > * Eseguire query sui dati
 > * Aggiornare i dati
 > * Ripristinare i dati
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -85,7 +87,7 @@ Per connettersi al server, è necessario specificare le informazioni sull'host e
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l' **administratorLogin** .
+Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l' **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -174,10 +176,10 @@ Si supponga di aver eliminato accidentalmente questa tabella. Si tratta di un el
 
 Per il ripristino sono necessarie le informazioni seguenti:
 
-- Punto di ripristino: selezionare un punto nel tempo precedente la modifica del server. Il punto deve essere maggiore o equivalente al valore del backup meno recente del database di origine.
-- Server di destinazione: specificare il nome del nuovo server in cui eseguire il ripristino
-- Server di origine: specificare il nome del server da cui eseguire il ripristino
-- Percorso: non è possibile selezionare l'area, per impostazione predefinita è la stessa del server di origine
+- Punto di ripristino: selezionare un punto nel tempo precedente alla modifica del server. Il punto deve essere maggiore o equivalente al valore del backup meno recente del database di origine.
+- Server di destinazione: fornire un nuovo nome del server che si desidera ripristinare.
+- Server di origine: fornire il nome del server che si desidera ripristinare
+- Posizione: non è possibile selezionare l'area, per impostazione predefinita è la stessa del server di origine
 
 ```azurecli-interactive
 az mysql server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver
@@ -196,12 +198,25 @@ Il ripristino di un server in un punto nel tempo crea un nuovo server, ovvero un
 
 Il comando è sincrono e il risultato verrà restituito dopo il ripristino del server. Una volta terminato il ripristino, individuare il nuovo server creato. Verificare che i dati siano stati ripristinati come previsto.
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+Se queste risorse non sono necessarie per un'altra guida introduttiva/esercitazione, è possibile eliminarle eseguendo il comando seguente: 
+
+```azurecli-interactive
+az group delete --name myresourcegroup
+```
+
+Se si vuole eliminare solo il server appena creato, è possibile eseguire il comando [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete).
+
+```azurecli-interactive
+az mysql server delete --resource-group myresourcegroup --name mydemoserver
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 Questa esercitazione illustra come:
 > [!div class="checklist"]
 > * Creare un server Database di Azure per MySQL
 > * Configurare il firewall del server
-> * Usare lo [strumento della riga di comando di MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) per creare un database
+> * Usare lo strumento da riga di comando mysql per creare un database
 > * Caricare dati di esempio
 > * Eseguire query sui dati
 > * Aggiornare i dati

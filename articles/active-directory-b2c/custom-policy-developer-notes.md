@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7788d45a9cc30cb688d33a629fbb6e53f5ca16cb
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e2ebc0033f2d2d55571ba45a38b5e0061716673d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214907"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532478"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Note per gli sviluppatori relative ai criteri personalizzati in Azure Active Directory B2C
 
@@ -108,16 +108,6 @@ Le funzionalità dei criteri personalizzati o di Identity Experience Framework s
 | [Controlli per la visualizzazione](display-controls.md) |  |X  |  |  |
 
 
-### <a name="page-layout-versions"></a>Versioni del layout di pagina
-
-| Funzionalità | Sviluppo | Anteprima | GA | Note |
-| ------- | :-----------: | :-------: | :--: | ----- |
-| [2.0.0](page-layout.md) |  | X |  |  |
-| [1.2.0](page-layout.md) |  | X |  |  |
-| [1.1.0](page-layout.md) |  |  | X |  |
-| [1.0.0](page-layout.md) |  |  | X |  |
-| [Supporto per JavaScript](javascript-samples.md) |  | X |  |  |
-
 ### <a name="app-ief-integration"></a>Integrazione del framework dell'esperienza di gestione delle identità dell'app
 
 | Funzionalità | Sviluppo | Anteprima | GA | Note |
@@ -127,6 +117,7 @@ Le funzionalità dei criteri personalizzati o di Identity Experience Framework s
 | Inserisci JSON nel percorso utente tramite `client_assertion` | X |  |  | Verrà deprecato. |
 | Inserisci JSON nel percorso utente come `id_token_hint` |  | X |  | Approccio di avanzamento per passare JSON. |
 | [Passare il token del provider di identità all'applicazione](idp-pass-through-custom.md) |  | X |  | Ad esempio, da Facebook all'app. |
+
 
 ### <a name="session-management"></a>Gestione delle sessioni
 

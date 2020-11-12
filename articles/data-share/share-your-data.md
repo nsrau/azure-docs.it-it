@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
-ms.openlocfilehash: adc3b4542b6eba0cc0df7d93ac2cabbf7c1c144a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 232f50c05182799c93a636baa2aec8ed93419be8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216590"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489472"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Esercitazione: Condividere dati con Condivisione dati di Azure  
 
@@ -89,7 +89,7 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
     | Nome | *datashareaccount* | Specificare un nome per l'account di condivisione dati. |
     | | |
 
-1. Selezionare **Rivedi e crea**, quindi **Crea** per effettuare il provisioning dell'account di condivisione dati. Il completamento del provisioning di un nuovo account di condivisione dati in genere impiega al massimo 2 minuti. 
+1. Selezionare **Rivedi e crea** , quindi **Crea** per effettuare il provisioning dell'account di condivisione dati. Il completamento del provisioning di un nuovo account di condivisione dati in genere impiega al massimo 2 minuti. 
 
 1. Una volta completata la distribuzione, selezionare **Vai alla risorsa**.
 
@@ -137,8 +137,15 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
 1. Nella scheda Rivedi e crea verificare il contenuto del pacchetto, le impostazioni, i destinatari e le impostazioni di sincronizzazione. Selezionare **Crea**.
 
-La condivisione dati di Azure è stata creata e il suo destinatario è ora pronto ad accettare l'invito. 
+La condivisione dati di Azure è stata creata e il suo destinatario è ora pronto ad accettare l'invito.
+
+## <a name="clean-up-resources"></a>Pulizia delle risorse
+
+Quando la risorsa non è più necessaria, passare alla pagina **Panoramica di Condivisione dati** e selezionare **Elimina** per rimuoverla.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come creare una condivisione dati di Azure e invitare destinatari. Per informazioni su come un consumer di dati può accettare e ricevere una condivisione dati, continuare con l'esercitazione [Accettare e ricevere dati](subscribe-to-data-share.md).
+In questa esercitazione si è appreso come creare una condivisione dati di Azure e invitare destinatari. Per informazioni su come un consumer di dati può accettare e ricevere una condivisione dati, continuare con l'esercitazione Accettare e ricevere dati.
+
+> [!div class="nextstepaction"]
+> [Esercitazione: Accettare e ricevere dati con Condivisione dati di Azure](subscribe-to-data-share.md)

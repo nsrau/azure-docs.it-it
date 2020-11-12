@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: 99dd3da3f9e8434f9c859afd347bd19d10628083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b66a184abce53c31fade19fc9e10ffe4c7ff8415
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938605"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532444"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Gestire l'accesso, l'alimentazione e la modalità di connettività per la GPU Pro Azure Stack Edge
 
@@ -49,12 +49,12 @@ Il flusso di lavoro di reimpostazione non richiede che l'utente ricordi la vecch
 
 1. Nel portale di Azure passare a **Panoramica > Reimposta password amministratore**.
 
-    ![Reimposta password](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Screenshot mostra la password del dispositivo con Reimposta il dispositivo selezionato.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Immettere la nuova password e quindi confermarla. La password specificata deve essere costituita da 8-16 caratteri. La password deve contenere almeno tre di questi caratteri: lettera maiuscola, lettera minuscola, numero e caratteri speciali. Selezionare **Reimposta**.
 
-    ![Reimposta password](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Screenshot mostra la finestra di dialogo Reimposta password del dispositivo.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Gestire l'accesso alle risorse
 
@@ -108,14 +108,14 @@ Oltre alla modalità predefinita con connessione completa, il dispositivo può e
 
     Questa modalità viene in genere usata in caso di rete satellitare a consumo e l'obiettivo consiste nel ridurre al minimo il consumo di larghezza di banda di rete. Può comunque avvenire un uso di rete minimo per le operazioni di monitoraggio del dispositivo.
 
-- **Disconnesso**: in questa modalità il dispositivo è completamente disconnesso dal cloud e le operazioni di caricamento e download nel cloud sono entrambe disabilitate. Il dispositivo può essere gestito solo tramite l'interfaccia utente Web locale.
+- **Disconnesso** : in questa modalità il dispositivo è completamente disconnesso dal cloud e le operazioni di caricamento e download nel cloud sono entrambe disabilitate. Il dispositivo può essere gestito solo tramite l'interfaccia utente Web locale.
 
     Questa modalità viene usata in genere quando si vuole portare offline il dispositivo.
 
 Per modificare la modalità del dispositivo, completare questi passaggi:
 
 1. Nell'interfaccia utente Web locale del dispositivo passare a **Configuration > cloud**.
-2. Nell'elenco a discesa selezionare la modalità in cui si vuole usare il dispositivo. È possibile scegliere tra **completamente connesso**, **parzialmente connesso**e **completamente disconnesso**. Per eseguire il dispositivo in modalità parzialmente disconnessa, attivare **Azure portal management** (Gestione portale di Azure).
+2. Nell'elenco a discesa selezionare la modalità in cui si vuole usare il dispositivo. È possibile scegliere tra **completamente connesso** , **parzialmente connesso** e **completamente disconnesso**. Per eseguire il dispositivo in modalità parzialmente disconnessa, attivare **Azure portal management** (Gestione portale di Azure).
 
  
 ## <a name="manage-power"></a>Gestire l'avvio/arresto

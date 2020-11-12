@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 7dbb7b3fdc15c0a9d502fbe9a0d12d084f9ddf29
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 08c1b415ac075429a9bc89098233fffb8c25b710
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91760394"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369257"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>Ripristino di emergenza del modulo di protezione hardware gestito
 
@@ -48,7 +48,7 @@ Per creare una risorsa del modulo di protezione hardware gestito, è necessario 
 - Località di Azure.
 - Elenco di amministratori iniziali.
 
-L'esempio seguente crea un modulo di protezione hardware denominato **ContosoMHSM** nel gruppo di risorse **ContosoResourceGroup**, nella località **Stati Uniti orientali 2** e con l'**utente connesso corrente** come unico amministratore.
+L'esempio seguente crea un modulo di protezione hardware denominato **ContosoMHSM** nel gruppo di risorse **ContosoResourceGroup** , nella località **Stati Uniti orientali 2** e con l' **utente connesso corrente** come unico amministratore.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
@@ -60,8 +60,8 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 
 L'output di questo comando mostra le proprietà del modulo di protezione hardware gestito creato. Le due proprietà più importanti sono:
 
-* **name**: nell'esempio il nome è ContosoMHSM. Questo nome verrà usato per altri comandi di Key Vault.
-* **hsmUri**: nell'esempio l'URI è 'https://contosohsm.managedhsm.azure.net '. Le applicazioni che usano il modulo di protezione hardware tramite l'API REST devono usare questo URI.
+* **name** : nell'esempio il nome è ContosoMHSM. Questo nome verrà usato per altri comandi di Key Vault.
+* **hsmUri** : nell'esempio l'URI è 'https://contosohsm.managedhsm.azure.net '. Le applicazioni che usano il modulo di protezione hardware tramite l'API REST devono usare questo URI.
 
 L'account Azure ora è autorizzato a eseguire qualsiasi operazione su questo modulo di protezione hardware gestito. Per ora, nessun altro è autorizzato.
 
@@ -86,7 +86,7 @@ Il comando `az keyvault security-domain upload` esegue le operazioni seguenti:
 - Crea un BLOB di caricamento del dominio di sicurezza crittografato con la chiave di scambio del dominio di sicurezza scaricata nel passaggio precedente.
 - Carica il BLOB di caricamento del dominio di sicurezza nel modulo di protezione hardware per completare il ripristino del dominio di sicurezza.
 
-Nell'esempio seguente viene usato il dominio di sicurezza di **ContosoMHSM**, la numero 2 delle chiavi private corrispondenti, caricandolo quindi in **ContosoMHSM2**, che è in attesa di ricevere un dominio di sicurezza. 
+Nell'esempio seguente viene usato il dominio di sicurezza di **ContosoMHSM** , la numero 2 delle chiavi private corrispondenti, caricandolo quindi in **ContosoMHSM2** , che è in attesa di ricevere un dominio di sicurezza. 
 
 ```azurecli-interactive
 az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key
@@ -107,6 +107,7 @@ Nell'esempio seguente verrà usato il comando `az keyvault backup` per il backup
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name ContosoBackup)
+az storage container create --account-name  mhsmdemobackup --name mhsmbackupcontainer  --account-key $skey
 sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name ContosoBackup --permissions crdw --expiry $end --account-key $skey -o tsv)
 az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas
 

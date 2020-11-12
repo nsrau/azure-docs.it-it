@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e42c889277f937a33e72eaf57819385166d6a409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd90be6d93dc5ca399ac87daba0ca44fa7e88ff8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85202315"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532495"
 ---
 # <a name="verification-display-control"></a>Controllo visualizzazione Verifica
 
@@ -30,11 +30,9 @@ Il controllo di visualizzazione verifica è costituito da due passaggi (azioni):
 
     ![Pagina di esempio per l'azione Invia codice](media/display-control-verification/display-control-verification-email-action-01.png)
 
-1. Una volta inviato il codice, l'utente legge il messaggio, immette il codice di verifica nel controllo fornito dal controllo di visualizzazione e seleziona **Verifica codice**. Selezionando **Verifica codice**, viene eseguita l' **azione VerifyCode** per verificare il codice associato all'indirizzo. Se l'utente seleziona **Invia nuovo codice**, la prima azione viene eseguita di nuovo.
+1. Una volta inviato il codice, l'utente legge il messaggio, immette il codice di verifica nel controllo fornito dal controllo di visualizzazione e seleziona **Verifica codice**. Selezionando **Verifica codice** , viene eseguita l' **azione VerifyCode** per verificare il codice associato all'indirizzo. Se l'utente seleziona **Invia nuovo codice** , la prima azione viene eseguita di nuovo.
 
     ![Pagina di esempio per l'azione verifica codice](media/display-control-verification/display-control-verification-email-action-02.png)
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="verificationcontrol-required-elements"></a>Elementi obbligatori VerificationControl
 
@@ -49,7 +47,7 @@ Il controllo di visualizzazione verifica è costituito da due passaggi (azioni):
   - **SendCode** : Invia un codice all'utente. Questa azione contiene in genere due profili tecnici di convalida, per generare un codice e per inviarlo.
   - **VerifyCode** : verifica il codice. Questa azione contiene in genere un singolo profilo tecnico di convalida.
 
-Nell'esempio seguente viene visualizzata una casella di testo di **posta elettronica** nella pagina. Quando l'utente immette il proprio indirizzo di posta elettronica e seleziona **SendCode**, viene attivata l'azione **SendCode** nel back-end Azure ad B2C.
+Nell'esempio seguente viene visualizzata una casella di testo di **posta elettronica** nella pagina. Quando l'utente immette il proprio indirizzo di posta elettronica e seleziona **SendCode** , viene attivata l'azione **SendCode** nel back-end Azure ad B2C.
 
 Quindi, l'utente immette il **verificationCode** e seleziona **VerifyCode** per attivare l'azione **VerifyCode** nel back-end. Se tutte le convalide passano, il **VerificationControl** viene considerato completo e l'utente può continuare con il passaggio successivo.
 

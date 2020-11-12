@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
-ms.openlocfilehash: 26890aaa7bc2d0ea70ff326e36a5767d1d468d5c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cc458f91a9b67ddd54e706575d29b8fc8618a2f7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977545"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534297"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>Installare l'aggiornamento 0.4 nell'array virtuale StorSimple
 
@@ -76,26 +76,26 @@ Usare questo metodo per installare gli aggiornamenti in un dispositivo che esegu
 
 1. Nell'interfaccia utente Web locale passare a **manutenzione**  >  **aggiornamento software**.
    
-    ![aggiornare il dispositivo 1](./media/storsimple-virtual-array-install-update/update1m.png)
+    ![Screenshot mostra l'aggiornamento software selezionato dal menu manutenzione.](./media/storsimple-virtual-array-install-update/update1m.png)
 
-2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Applica**.
+2. In **Percorso del file di aggiornamento** , immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Applica**.
    
-    ![aggiornare il dispositivo 2](./media/storsimple-virtual-array-install-update/update2m.png)
+    ![Screenshot mostra la casella di testo percorso file di aggiornamento nella pagina di aggiornamento software.](./media/storsimple-virtual-array-install-update/update2m.png)
 
 3. Verrà visualizzato un avviso. Dato che si tratta di un dispositivo a nodo singolo, dopo l'applicazione dell'aggiornamento il dispositivo si riavvia con un conseguente periodo di inattività. Fare clic sull'icona del segno di spunta
    
-   ![aggiornare il dispositivo 3](./media/storsimple-virtual-array-install-update/update3m.png)
+   ![Screenshot Visualizza una finestra di dialogo con avviso di tempi di inattività.](./media/storsimple-virtual-array-install-update/update3m.png)
 
 4. L'aggiornamento si avvia. Dopo l'aggiornamento il dispositivo si riavvia in automatico. In questo periodo di tempo l'interfaccia utente locale non è accessibile.
    
-    ![aggiornare il dispositivo 4](./media/storsimple-virtual-array-install-update/update5m.png)
+    ![Screenshot mostra un messaggio di operazione completata per l'aggiornamento.](./media/storsimple-virtual-array-install-update/update5m.png)
 
 5. Al termine del riavvio si viene indirizzati alla pagina **di accesso** . Per verificare che il software del dispositivo sia stato aggiornato, nell'interfaccia utente Web locale passare a **manutenzione**  >  **aggiornamento software**. Dovrebbe essere visualizzata la versione software **10.0.0.0.0.10289.0** per l'aggiornamento 0.4.
    
    > [!NOTE]
-   > Le versioni del software vengono riportate in modo leggermente diverso nell'interfaccia utente Web locale e nel portale di Azure. Ad esempio, l'interfaccia utente Web locale riporta **10.0.0.0.0.10289**, mentre il portale di Azure riporta **10.0.10289.0** per la stessa versione.
+   > Le versioni del software vengono riportate in modo leggermente diverso nell'interfaccia utente Web locale e nel portale di Azure. Ad esempio, l'interfaccia utente Web locale riporta **10.0.0.0.0.10289** , mentre il portale di Azure riporta **10.0.10289.0** per la stessa versione.
    
-    ![aggiornare il dispositivo 5](./media/storsimple-virtual-array-install-update/update6m.png)
+    ![Screenshot mostra la pagina di aggiornamento software con la versione del software corrente.](./media/storsimple-virtual-array-install-update/update6m.png)
 
 ## <a name="use-the-azure-portal"></a>Usare il portale di Azure
 

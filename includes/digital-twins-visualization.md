@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/10/2020
 ms.author: baanders
-ms.openlocfilehash: a07c2684856cfe21001f996bb62ce4ea3297e8c2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 37bccbcd92f627fd45a7f786725afe5b2e475f3c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379791"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533884"
 ---
 ## <a name="visualization"></a>Visualizzazione
 
 Mentre il modo principale per interagire con l'istanza di Azure Digital Twins è tramite le [API e gli SDK](../articles/digital-twins/how-to-use-apis-sdks.md), può essere utile visualizzare una visualizzazione dei gemelli e dei grafici che vengono creati nell'istanza.
 
-[**Azure Digital Twins Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) è un'applicazione di esempio per la visualizzazione e l'uso di dispositivi gemelli digitali di Azure. Seguire le istruzioni fornite con l'esempio per scaricare ed eseguire il codice dell'applicazione. 
+[**Esplora dispositivi digitali gemelli di Azure**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) è un'applicazione di esempio per la visualizzazione e l'uso di dispositivi gemelli digitali di Azure. Seguire le istruzioni fornite con l'esempio per scaricare ed eseguire il codice dell'applicazione. 
 
 Con questo esempio, è possibile visualizzare una rappresentazione visiva dei gemelli digitali e il grafico creato, tra le altre attività di creazione e gestione.
 

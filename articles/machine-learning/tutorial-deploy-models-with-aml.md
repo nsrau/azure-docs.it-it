@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione sulla classificazione di immagini: Distribuire i modelli'
 titleSuffix: Azure Machine Learning
-description: Questa esercitazione, la seconda di una serie in due parti, mostra come usare Azure Machine Learning per distribuire un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python.
+description: Questa esercitazione mostra come usare Azure Machine Learning per distribuire un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: f0d78fc55ca60fa883c742885acf2fa98ede61ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee6529f36c302cba1dc7b5a4b53aaf96ce58e4a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896584"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532784"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Esercitazione: Distribuire un modello di classificazione delle immagini in Istanze di Azure Container
 
@@ -358,6 +358,6 @@ service.delete()
 
 + Informazioni su tutte le [opzioni di distribuzione di Azure Machine Learning](how-to-deploy-and-where.md).
 + Informazioni su come [creare i client per il servizio Web](how-to-consume-web-service.md).
-+  [Eseguire stime su grandi quantità di dati](how-to-use-parallel-run-step.md) in modo asincrono.
++  [Eseguire stime su grandi quantità di dati](./tutorial-pipeline-batch-scoring-classification.md) in modo asincrono.
 + Monitorare i modelli di Azure Machine Learning con [Application Insights](how-to-enable-app-insights.md).
-+ Provare l'esercitazione relativa alla [selezione automatica degli algoritmi](tutorial-auto-train-models.md). 
++ Provare l'esercitazione relativa alla [selezione automatica degli algoritmi](tutorial-auto-train-models.md).

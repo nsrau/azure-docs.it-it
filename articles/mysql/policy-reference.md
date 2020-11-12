@@ -3,16 +3,16 @@ title: Definizioni di criteri predefiniti per Database di Azure per MySQL
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Database di Azure per MySQL. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
 ms.date: 10/20/2020
 ms.topic: reference
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: subject-policy-reference
-ms.openlocfilehash: ec580d4582d1a9066ff1b91cf1fb856355d3156d
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 75a3112875d6d4c610315c02151281a511f72322
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332366"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534433"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-mysql"></a>Definizioni predefinite di Criteri di Azure per Database di Azure per MySQL
 

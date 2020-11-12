@@ -3,20 +3,20 @@ title: Controlli di conformità alle normative di Criteri di Azure per Database 
 description: Elenca i controlli di conformità alle normative di Criteri di Azure per Database di Azure per MariaDB. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
 ms.date: 10/20/2020
 ms.topic: sample
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 0a1078a54205c21ffb748895e33bf35e033434d8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 3d6a7fe1f1e6ba6e553b6bb7a7f7b6d1168312d4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314201"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532665"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-mariadb"></a>Controlli di conformità alle normative di Criteri di Azure per Database di Azure per MariaDB
 
-La [conformità alle normative di Criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) fornisce definizioni di iniziative gestite e create da Microsoft, note come _definizioni predefinite_, per i **domini di conformità** e i **controlli di sicurezza** correlati a diversi standard di conformità. Questa pagina elenca i **domini di conformità** e i **controlli di sicurezza** per Database di Azure per MariaDB. È possibile assegnare singolarmente i criteri predefiniti per un **controllo di sicurezza** in modo da rendere le risorse di Azure conformi allo specifico standard.
+La [conformità alle normative di Criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) fornisce definizioni di iniziative gestite e create da Microsoft, note come _definizioni predefinite_ , per i **domini di conformità** e i **controlli di sicurezza** correlati a diversi standard di conformità. Questa pagina elenca i **domini di conformità** e i **controlli di sicurezza** per Database di Azure per MariaDB. È possibile assegnare singolarmente i criteri predefiniti per un **controllo di sicurezza** in modo da rendere le risorse di Azure conformi allo specifico standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 

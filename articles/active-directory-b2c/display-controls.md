@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 49626d418f90f8b4bc7288a6d2f7d195cd906f7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 950c159ed4d2c57796f33b9505e6931dbec983ba
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961358"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532376"
 ---
 # <a name="display-controls"></a>Controlli per la visualizzazione
 
@@ -27,8 +27,6 @@ Un **controllo display** è un elemento dell'interfaccia utente che dispone di f
 Nell'immagine seguente viene illustrata una pagina di iscrizione autocertificata con due controlli di visualizzazione che convalidano un indirizzo di posta elettronica primario e secondario.
 
 ![Esempio di controllo di visualizzazione visualizzato](media/display-controls/display-control-email.png)
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -78,7 +76,7 @@ Nell'esempio seguente viene prepopolato l'indirizzo di posta elettronica da veri
 
 Ogni tipo di controllo di visualizzazione richiede un set diverso di attestazioni di visualizzazione, [attestazioni di output](#output-claims)e [azioni](#display-control-actions) da eseguire.
 
-Analogamente alle **attestazioni di visualizzazione** definite in un [profilo tecnico autocertificato](self-asserted-technical-profile.md#display-claims), le attestazioni di visualizzazione rappresentano le attestazioni che devono essere raccolte dall'utente all'interno del controllo di visualizzazione. L'elemento **ClaimType** a cui si fa riferimento deve specificare l'elemento **tipo** per un tipo di input utente supportato da Azure ad B2C, ad esempio `TextBox` o `DropdownSingleSelect` . Se per un' **azione**è richiesto un valore di attestazione di visualizzazione, impostare l'attributo **obbligatorio** su `true` per forzare l'utente a fornire un valore per l'attestazione di visualizzazione specifica.
+Analogamente alle **attestazioni di visualizzazione** definite in un [profilo tecnico autocertificato](self-asserted-technical-profile.md#display-claims), le attestazioni di visualizzazione rappresentano le attestazioni che devono essere raccolte dall'utente all'interno del controllo di visualizzazione. L'elemento **ClaimType** a cui si fa riferimento deve specificare l'elemento **tipo** per un tipo di input utente supportato da Azure ad B2C, ad esempio `TextBox` o `DropdownSingleSelect` . Se per un' **azione** è richiesto un valore di attestazione di visualizzazione, impostare l'attributo **obbligatorio** su `true` per forzare l'utente a fornire un valore per l'attestazione di visualizzazione specifica.
 
 Alcune attestazioni di visualizzazione sono necessarie per determinati tipi di controllo di visualizzazione. Ad esempio, **VerificationCode** è obbligatorio per il controllo di visualizzazione di tipo **VerificationControl**. Usare l'attributo **ControlClaimType** per specificare quale DisplayClaim è designato per l'attestazione richiesta. Ad esempio:
 
@@ -96,7 +94,7 @@ Per eseguire il propagazione delle attestazioni di output al passaggio successiv
 
 Le **azioni** di un controllo di visualizzazione sono procedure che si verificano nel Azure ad B2C back-end quando un utente esegue una determinata azione sul lato client (il browser). Ad esempio, le convalide da eseguire quando l'utente seleziona un pulsante nella pagina.
 
-Un'azione definisce un elenco di **profili tecnici di convalida**. Vengono utilizzati per la convalida di alcune o tutte le attestazioni di visualizzazione del controllo di visualizzazione. Il profilo tecnico di convalida convalida l'input dell'utente e può restituire un errore all'utente. È possibile usare **ContinueOnError**, **ContinueOnSuccess**e **precondizioni** nell'azione di controllo dello schermo Analogamente al modo in cui vengono usati nei [profili tecnici di convalida](validation-technical-profile.md) in un profilo tecnico autocertificato.
+Un'azione definisce un elenco di **profili tecnici di convalida**. Vengono utilizzati per la convalida di alcune o tutte le attestazioni di visualizzazione del controllo di visualizzazione. Il profilo tecnico di convalida convalida l'input dell'utente e può restituire un errore all'utente. È possibile usare **ContinueOnError** , **ContinueOnSuccess** e **precondizioni** nell'azione di controllo dello schermo Analogamente al modo in cui vengono usati nei [profili tecnici di convalida](validation-technical-profile.md) in un profilo tecnico autocertificato.
 
 #### <a name="actions"></a>Azioni
 

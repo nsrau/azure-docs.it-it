@@ -8,14 +8,15 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 50a34f2572e5e9feea0b5adc3e12f72451e5728b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 79b58b76954cf15289e85dbf763b7a399897635d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477335"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489880"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Come usare l'archiviazione tabelle di Azure e l'API del servizio tabelle di Azure Cosmos DB con C++
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -94,7 +95,7 @@ Usare il nome dell'account di Azure Cosmos DB per `<your_cosmos_db_account>`. Im
 Per testare l'applicazione nel proprio computer Windows locale, è possibile usare l'emulatore di archiviazione di Azure che viene installato con [Azure SDK](https://azure.microsoft.com/downloads/). L'emulatore di archiviazione è un'utilità che simula i servizi BLOB, tabelle e di accodamento di Azure nel computer di sviluppo locale. L'esempio seguente illustra come dichiarare un campo statico per memorizzare la stringa di connessione per l'emulatore di archiviazione locale:  
 
 ```cpp
-// Define the connection string with Azure storage emulator.
+// Define the connection string with Azure Storage Emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
@@ -501,9 +502,9 @@ else
 
 Per Visual Studio Community Edition, se nel progetto si verificano errori di compilazione a causa dei file di inclusione *storage_account.h* e *table.h* , rimuovere l'opzione del compilatore **/permissive-** :
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Proprietà** .
-1. Nella finestra di dialogo **Pagine delle proprietà** espandere **Proprietà di configurazione** , quindi **C/C++** e infine selezionare **Lingua** .
-1. Impostare **Modalità di conformità** su **No** .
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Proprietà**.
+1. Nella finestra di dialogo **Pagine delle proprietà** espandere **Proprietà di configurazione** , quindi **C/C++** e infine selezionare **Lingua**.
+1. Impostare **Modalità di conformità** su **No**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

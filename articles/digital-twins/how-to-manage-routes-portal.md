@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 21188f473cbd5a6fd2a1ee549f47ad9b0e5b8af3
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 083d868f2d2652be9480227c29dfb289564056d6
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279491"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533787"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (portale)
 
@@ -22,7 +22,7 @@ Nei dispositivi gemelli digitali di Azure è possibile instradare le [notifiche 
 
 Questo articolo illustra il processo di creazione di endpoint e route usando il [portale di Azure](https://portal.azure.com).
 
-È anche possibile gestire endpoint e route con le [API route di eventi](/rest/api/digital-twins/dataplane/eventroutes), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Per una versione di questo articolo che usa questi meccanismi anziché il portale, vedere [*How-to: Manage Endpoints and routes (API e CLI)*](how-to-manage-routes-apis-cli.md).
+In alternativa, è anche possibile gestire endpoint e route con le [API route di eventi](/rest/api/digital-twins/dataplane/eventroutes), gli [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Per una versione di questo articolo che usa questi meccanismi anziché il portale, vedere [*How-to: Manage Endpoints and routes (API e CLI)*](how-to-manage-routes-apis-cli.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

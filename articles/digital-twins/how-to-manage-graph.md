@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 78e0bfb0af494ecae2865fcc42679b8fcce44916
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 73aa6f8f6ee36aeeb41fbc54afe217ac776a4ebc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359579"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533879"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gestire un grafico di gemelli digitali usando relazioni
 
@@ -25,7 +25,13 @@ Questo articolo è incentrato sulla gestione delle relazioni e del grafo nel suo
 ## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
-    
+
+## <a name="ways-to-manage-graph"></a>Modalità di gestione del grafo
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+
+È anche possibile apportare modifiche al grafo usando l'esempio di Esplora risorse di Azure Digital Twins (ADT), che consente di visualizzare i dispositivi gemelli e il grafo e usa l'SDK dietro le quinte. Questo esempio viene descritto in dettaglio nella sezione successiva.
+
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>Creare relazioni
@@ -219,7 +225,8 @@ private static async Task DeleteRelationship(DigitalTwinsClient client, string s
 ```csharp
 await DeleteRelationship(client, srcId, relId);
 ```
-## <a name="create-a-twin-graph"></a>Creare un grafico a gemelli 
+
+## <a name="runnable-twin-graph-sample"></a>Esempio di grafico a gemello eseguibile
 
 Il frammento di codice eseguibile seguente usa le operazioni relative alle relazioni di questo articolo per creare un grafico gemello da gemelli digitali e relazioni.
 
@@ -575,9 +582,6 @@ namespace creating_twin_graph_from_csv
 }
 
 ```
-## <a name="manage-relationships-with-cli"></a>Gestire relazioni con l'interfaccia della riga di comando
-
-I dispositivi gemelli e le relative relazioni possono essere gestiti anche tramite l'interfaccia della riga di comando di Azure Digital Twins È possibile trovare i comandi in [*procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

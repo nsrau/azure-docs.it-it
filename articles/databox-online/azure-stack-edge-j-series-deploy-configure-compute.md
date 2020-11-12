@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 6bea4ee4452675a50ef9144da300c3e15652a81f
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 75428b28095b0e425a1670caffcf960aa6ae58f6
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952166"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504484"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Esercitazione: Trasformare i dati con Azure Stack Edge Pro
 
@@ -90,7 +90,7 @@ Per la distribuzione semplice di questa esercitazione, saranno necessarie due co
 
     3. Nel pannello **Aggiungi condivisione** specificare il nome della condivisione e selezionarne il tipo.
     4. Per montare la condivisione Edge, selezionare la casella di controllo **Usa la condivisione con il calcolo Edge**.
-    5. Selezionare **Account di archiviazione**, **Servizio di archiviazione**, un utente esistente e quindi **Crea**.
+    5. Selezionare **Account di archiviazione** , **Servizio di archiviazione** , un utente esistente e quindi **Crea**.
 
         ![Aggiungere una condivisione Edge](./media/azure-stack-edge-j-series-deploy-configure-compute/add-edge-share-1.png) 
 
@@ -152,19 +152,19 @@ Per verificare che il modulo sia in esecuzione, eseguire queste operazioni:
 
     ![Visualizzare il modulo distribuito](./media/azure-stack-edge-j-series-deploy-configure-compute/add-module-3.png)
  
-1.   In Esplora file connettersi alla condivisione locale Edge e alla condivisione Edge create in precedenza.
+1. In Esplora file connettersi alla condivisione locale Edge e alla condivisione Edge create in precedenza.
 
     ![Verificare la trasformazione dei dati](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
  
-1.   Aggiungere i dati alla condivisione locale.
+1. Aggiungere i dati alla condivisione locale.
 
     ![Verificare la trasformazione dei dati](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
  
-    I dati vengono spostati nella condivisione cloud.
+   I dati vengono spostati nella condivisione cloud.
 
     ![Verificare la trasformazione dei dati](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
 
-    Viene quindi eseguito il push dei dati dalla condivisione cloud all'account di archiviazione. Per visualizzare i dati, è possibile usare Storage Explorer.
+   Viene quindi eseguito il push dei dati dalla condivisione cloud all'account di archiviazione. Per visualizzare i dati, è possibile usare Storage Explorer.
 
     <!--![Verify data transform](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-5.png)-->
  

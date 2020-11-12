@@ -4,12 +4,12 @@ description: Diagnostica e analisi delle prestazioni delle app Web durante il de
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: a3937719fd47ba988cf1e0a93f4c06fcc8112d3e
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: d2de29d897c84496fd44d74d88d58decbc64b7f8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932210"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532903"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Eseguire il debug delle applicazioni con Azure Application Insights in Visual Studio
 In Visual Studio 2015 e versioni successive è possibile analizzare le prestazioni e diagnosticare i problemi nell'app Web ASP.NET sia durante il debug che nell'ambiente di produzione, usando i dati di telemetria di [Azure Application Insights](./app-insights-overview.md).
@@ -53,12 +53,12 @@ I report delle eccezioni vengono visualizzati nella finestra di ricerca. In alcu
 
 Fare clic su un'eccezione per ottenere un'analisi dello stack. Se il codice dell'app è aperto in Visual Studio, è possibile fare clic nell'analisi dello stack per visualizzare la relativa riga del codice.
 
-![Analisi dello stack delle eccezioni](./media/visual-studio/17.png)
+![Screenshot mostra l'oggetto about in una traccia dello stack.](./media/visual-studio/17.png)
 
 ## <a name="view-request-and-exception-summaries-in-the-code"></a>Visualizzare i riepiloghi delle richieste ed eccezioni nel codice
 Nella riga CodeLens sopra ogni metodo del gestore viene visualizzato un conteggio delle richieste e delle eccezioni registrate da Application Insights nelle ultime 24 ore.
 
-![Analisi dello stack delle eccezioni](./media/visual-studio/21.png)
+![Screenshot mostra un'eccezione in una finestra di dialogo di contesto.](./media/visual-studio/21.png)
 
 > [!NOTE] 
 > CodeLens mostra i dati di Application Insights unicamente se l'[app è configurata per l'invio dei dati di telemetria al portale di Application Insights](./asp-net.md).
