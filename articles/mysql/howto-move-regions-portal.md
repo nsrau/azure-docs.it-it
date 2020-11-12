@@ -1,18 +1,18 @@
 ---
 title: Spostare le aree di Azure-portale di Azure database di Azure per MySQL
 description: Spostare un database di Azure per il server MySQL da un'area di Azure a un'altra usando una replica di lettura e il portale di Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
-ms.openlocfilehash: 88f9b82df0ce1fae78f0c9de9c8d7a7b158d151e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 279526d31adf25d1f4cd5a6d9b15519679bd88b9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546331"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540230"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Spostare un database di Azure per il server MySQL in un'altra area usando il portale di Azure
 
@@ -34,9 +34,9 @@ Per completare lo spostamento in un'altra area, è possibile usare una [replica 
 Per creare un server di replica di lettura tra aree nell'area di destinazione usando il portale di Azure, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Selezionare il database di Azure per il server MySQL esistente che si vuole usare come server di origine. Questa azione apre la pagina **Panoramica** .
-1. Selezionare **Replica** nel menu in **IMPOSTAZIONI** .
-1. Selezionare **Aggiungi replica** .
+1. Selezionare il database di Azure per il server MySQL esistente che si vuole usare come server di origine. Questa azione apre la pagina **Panoramica**.
+1. Selezionare **Replica** nel menu in **IMPOSTAZIONI**.
+1. Selezionare **Aggiungi replica**.
 1. Immettere un nome per il server di replica.
 1. Selezionare la posizione per il server di replica. Il percorso predefinito è identico a quello del server di origine. Verificare di aver selezionato il percorso di destinazione in cui si vuole distribuire la replica.
 1. Selezionare **OK** per confermare la creazione della replica. Durante la creazione della replica, i dati vengono copiati dal server di origine alla replica. L'ora di creazione può durare alcuni minuti o più, in proporzione alle dimensioni del server di origine.
@@ -53,19 +53,19 @@ Per creare un server di replica di lettura tra aree nell'area di destinazione us
 Se si arresta la replica nel server di replica, quest'ultima diventa un server autonomo. Per arrestare la replica nella replica dalla portale di Azure, attenersi alla procedura seguente:
 
 1. Dopo aver creato la replica, individuare e selezionare il server di origine del database di Azure per MySQL. 
-1. Selezionare **Replica** nel menu in **IMPOSTAZIONI** .
+1. Selezionare **Replica** nel menu in **IMPOSTAZIONI**.
 1. Selezionare il server di replica.
-1. Selezionare **Arresta replica** .
-1. Confermare che si vuole arrestare la replica facendo clic su **OK** .
+1. Selezionare **Arresta replica**.
+1. Confermare che si vuole arrestare la replica facendo clic su **OK**.
 
 ## <a name="clean-up-source-server"></a>Pulisci server di origine
 
 Potrebbe essere necessario eliminare il database di Azure di origine per il server MySQL. A tale scopo, seguire questa procedura:
 
 1. Dopo aver creato la replica, individuare e selezionare il server di origine del database di Azure per MySQL.
-1. Nella finestra **Panoramica** selezionare **Elimina** .
+1. Nella finestra **Panoramica** selezionare **Elimina**.
 1. Digitare il nome del server di origine per confermare che si desidera eliminare.
-1. Selezionare **Elimina** .
+1. Selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

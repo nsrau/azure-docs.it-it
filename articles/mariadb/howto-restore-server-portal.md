@@ -1,17 +1,17 @@
 ---
 title: Backup e ripristino-portale di Azure-database di Azure per MariaDB
 description: In questo articolo viene descritta la procedura per ripristinare un server nel Database di Azure per MariaDB tramite il portale di Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 6d050a8bd351617a6ab567243c5b1ef8d9f93ded
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a5f2cc4cbf73f5c13533a94f1454022d3538880
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86115911"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539626"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MariaDB tramite il portale di Azure
 
@@ -30,7 +30,7 @@ La scelta tra backup con ridondanza locale o ridondanza geografica si effettua a
 > Dopo aver creato il server, il tipo di ridondanza (locale o geografica) non può essere modificato.
 >
 
-Quando si crea un server nel portale di Azure, la finestra **Piano tariffario** consente di selezionare backup **con ridondanza locale** o **ridondanza geografica** per il server. In questa finestra è anche possibile specificare il **periodo di conservazione dei backup**, ovvero per quanti giorni si vogliono archiviare i backup del server.
+Quando si crea un server nel portale di Azure, la finestra **Piano tariffario** consente di selezionare backup **con ridondanza locale** o **ridondanza geografica** per il server. In questa finestra è anche possibile specificare il **periodo di conservazione dei backup** , ovvero per quanti giorni si vogliono archiviare i backup del server.
 
    ![Piano tariffario: scegliere la ridondanza del backup](./media/howto-restore-server-portal/pricing-tier.png)
 
@@ -64,10 +64,10 @@ La procedura seguente consente di ripristinare il server di esempio a un momento
 3. Compilare il modulo Ripristina con le informazioni obbligatorie:
 
    ![Database di Azure per MariaDB - Informazioni di ripristino](./media/howto-restore-server-portal/3-restore.png)
-   - **Punto di ripristino**: selezionare il punto nel tempo per il ripristino.
-   - **Server di destinazione**: specificare un nome per il nuovo server.
-   - **Percorso**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
-   - **Piano tariffario**: non è possibile modificare questi parametri quando si esegue un ripristino temporizzato. È uguale al server di origine. 
+   - **Punto di ripristino** : selezionare il punto nel tempo per il ripristino.
+   - **Server di destinazione** : specificare un nome per il nuovo server.
+   - **Percorso** : non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
+   - **Piano tariffario** : non è possibile modificare questi parametri quando si esegue un ripristino temporizzato. È uguale al server di origine. 
 
 4. Fare clic su **OK** per ripristinare il server a un momento specifico. 
 
@@ -89,7 +89,7 @@ Se il server è stato configurato per backup con ridondanza geografica, è possi
 
 3. Selezionare **backup** come **origine dati**. Questa azione carica un elenco a discesa che fornisce un elenco di server in cui sono abilitati i backup con ridondanza geografica.
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Passare a database di Azure per MariaDB.":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Selezionare origine dati.":::
     
    > [!NOTE]
    > Quando un server viene creato per la prima volta, potrebbe non essere subito disponibile per il ripristino geografico. Potrebbero essere necessarie alcune ore per popolare i metadati necessari.
@@ -97,21 +97,21 @@ Se il server è stato configurato per backup con ridondanza geografica, è possi
 
 4. Selezionare l'elenco a discesa **backup** .
    
-   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Passare a database di Azure per MariaDB.":::
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Selezionare elenco a discesa backup.":::
 
 5. Selezionare il server di origine da cui eseguire il ripristino.
    
-   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Passare a database di Azure per MariaDB.":::
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Selezionare backup.":::
 
-6. Il server utilizzerà i valori per il numero di **Vcore**, il **periodo di conservazione dei backup**, l'opzione di **ridondanza del backup**, la versione del **motore**e le **credenziali di amministratore**. Selezionare **Continua**. 
+6. Il server utilizzerà i valori per il numero di **Vcore** , il **periodo di conservazione dei backup** , l'opzione di **ridondanza del backup** , la versione del **motore** e le **credenziali di amministratore**. Selezionare **Continua**. 
    
-   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Passare a database di Azure per MariaDB.":::
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Continuare con il backup.":::
 
 7. Compilare il resto del modulo con le proprie preferenze. È possibile selezionare qualsiasi **posizione**.
 
-    Dopo aver selezionato il percorso, è possibile selezionare **Configura server** per aggiornare **la generazione di calcolo** (se disponibile nell'area scelta), il numero di **Vcore**, il **periodo di conservazione dei backup**e l'opzione di **ridondanza del backup**. La modifica del **piano tariffario** (Basic, Utilizzo generico o Con ottimizzazione per la memoria) o delle dimensioni della **risorsa di archiviazione** non è supportata durante il ripristino.
+    Dopo aver selezionato il percorso, è possibile selezionare **Configura server** per aggiornare **la generazione di calcolo** (se disponibile nell'area scelta), il numero di **Vcore** , il **periodo di conservazione dei backup** e l'opzione di **ridondanza del backup**. La modifica del **piano tariffario** (Basic, Utilizzo generico o Con ottimizzazione per la memoria) o delle dimensioni della **risorsa di archiviazione** non è supportata durante il ripristino.
 
-   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Passare a database di Azure per MariaDB."::: 
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Compila modulo."::: 
 
 8. Selezionare **Revisione e creazione** per rivedere le selezioni effettuate. 
 

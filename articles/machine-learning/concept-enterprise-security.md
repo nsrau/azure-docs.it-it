@@ -10,18 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 2234b1507e6e0fdb0b668fc18a7c8533e3ea7cc1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: eaaedc4404419e6028250a994077dd3df20b83d4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441784"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539652"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Sicurezza e governance aziendale per Azure Machine Learning
 
 In questo articolo vengono illustrate le funzionalità di sicurezza disponibili per Azure Machine Learning.
 
-Quando si usa un servizio cloud, è consigliabile limitare l'accesso solo agli utenti che ne hanno bisogno. Per iniziare, è necessario comprendere i modelli di autenticazione e autorizzazione usati dal servizio. È anche possibile limitare l'accesso alla rete o unire in modo sicuro le risorse nella rete locale con il cloud. Anche la crittografia dei dati è fondamentale, sia quando sono inattivi che durante lo spostamento tra i servizi. Potrebbe inoltre essere necessario creare criteri per applicare determinate configurazioni o log quando vengono create configurazioni non conformi. Infine, è necessario poter monitorare il servizio e produrre un log di controllo di tutte le attività.
+Quando si usa un servizio cloud, è consigliabile limitare l'accesso solo agli utenti che ne hanno bisogno. Per iniziare, è necessario comprendere i modelli di autenticazione e autorizzazione usati dal servizio. È anche possibile limitare l'accesso alla rete o unire in modo sicuro le risorse nella rete locale con il cloud. Anche la crittografia dei dati è fondamentale, sia quando sono inattivi che durante lo spostamento tra i servizi. È anche possibile creare criteri per applicare determinate configurazioni o log quando vengono create configurazioni non conformi. Infine, è necessario poter monitorare il servizio e produrre un log di controllo di tutte le attività.
 
 > [!NOTE]
 > Le informazioni contenute in questo articolo sono destinate a Python SDK per Azure Machine Learning versione 1.0.83.1 o successiva.
@@ -123,10 +123,11 @@ Potrebbe anche essere necessario crittografare le [informazioni di diagnostica r
 
 Esistono diversi scenari di monitoraggio con Azure Machine Learning, a seconda del ruolo e degli elementi monitorati.
 
-| Ruolo | Monitoraggio da usare |
-| ---- | ----- |
-| Admin, DevOps, MLOps | [Metriche di monitoraggio di Azure](#azure-monitor), [log attività](#activity-log), [analisi delle vulnerabilità](#vulnerability-scanning) |
-| Data Scientist, MLOps | [Monitoraggio delle esecuzioni](#monitor-runs) |
+| Ruolo | Monitoraggio da usare | Descrizione |
+| ---- | ----- | ----- |
+| Admin, DevOps, MLOps | [Metriche di monitoraggio di Azure](#azure-monitor), [log attività](#activity-log), [analisi delle vulnerabilità](#vulnerability-scanning) | Informazioni sul livello di servizio |
+| Data Scientist, MLOps | [Monitoraggio delle esecuzioni](#monitor-runs) | Informazioni registrate durante l'esecuzione del training |
+| MLOps | [Raccolta dei dati del modello](how-to-enable-data-collection.md), [monitoraggio con Application Insights](how-to-enable-app-insights.md) | Informazioni registrate da modelli distribuiti come servizi Web o moduli IoT Edge|
 
 ### <a name="monitor-runs"></a>Monitoraggio delle esecuzioni
 

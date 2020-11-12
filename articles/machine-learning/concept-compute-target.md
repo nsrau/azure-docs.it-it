@@ -1,7 +1,7 @@
 ---
 title: Che cosa sono le destinazioni di calcolo
 titleSuffix: Azure Machine Learning
-description: Definire il punto in cui si desidera eseguire il training o distribuire il modello con Azure Machine Learning.
+description: Informazioni su come designare una risorsa di calcolo o un ambiente per eseguire il training o la distribuzione del modello con Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 72cdfe2ebe79abb9649ac497a6ecddda8918b951
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2a19183f5ba5b1ea4d50cd5cfba6115f7dede6cd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322273"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540047"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Cosa sono le destinazioni di calcolo in Azure Machine Learning?
 
@@ -100,21 +100,21 @@ Vedere la tabella seguente per altre informazioni sulle restrizioni e sulle seri
 
 | **Serie di macchine virtuali supportate**  | **Restrizioni** |
 |------------|------------|
-| D | Nessuno. |
-| Dv2 | Nessuno. |  
-| Dv3 | Nessuno.|
-| DSv2 | Nessuno. | 
-| DSv3 | Nessuno.|
-| FSv2 | Nessuno. | 
+| D | No. |
+| Dv2 | No. |  
+| Dv3 | No.|
+| DSv2 | No. | 
+| DSv3 | No.|
+| FSv2 | No. | 
 | HBv2 | Richiede l'approvazione. |  
 | Servizio di elaborazione host | Richiede l'approvazione. |  
 | M | Richiede l'approvazione. |
-| NC | Nessuno. |    
+| NC | No. |    
 | NCsv2 | Richiede l'approvazione. |
 | NCsv3 | Richiede l'approvazione. |  
 | NDs | Richiede l'approvazione. |
 | NDv2 | Richiede l'approvazione. |
-| NV | Nessuno. |
+| NV | No. |
 | NVv3 | Richiede l'approvazione. | 
 
 

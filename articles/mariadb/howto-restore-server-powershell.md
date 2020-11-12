@@ -1,19 +1,19 @@
 ---
 title: Backup e ripristino-Azure PowerShell-database di Azure per MariaDB
 description: Informazioni su come eseguire il backup e il ripristino di un server nel database di Azure per MariaDB usando Azure PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 984a5d52dfdd45190cbded5e900d3fcfe2f9ad43
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0207be2c983fd986d5852403e36462d2d7d2cdda
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424509"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539635"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Come eseguire il backup e il ripristino di un server di Database di Azure per MariaDB con PowerShell
 
@@ -41,7 +41,7 @@ Al momento della creazione del server, è possibile scegliere tra la configurazi
 > [!NOTE]
 > Dopo aver creato un server, il tipo di ridondanza, con ridondanza geografica e con ridondanza locale, non può essere modificato.
 
-Durante la creazione di un server tramite il `New-AzMariaDbServer` comando, il parametro **GeoRedundantBackup** decide l'opzione di ridondanza del backup. Se **abilitata**, vengono eseguiti backup con ridondanza geografica. In alternativa, se **disabilitato**, vengono eseguiti backup con ridondanza locale.
+Durante la creazione di un server tramite il `New-AzMariaDbServer` comando, il parametro **GeoRedundantBackup** decide l'opzione di ridondanza del backup. Se **abilitata** , vengono eseguiti backup con ridondanza geografica. In alternativa, se **disabilitato** , vengono eseguiti backup con ridondanza locale.
 
 Il periodo di conservazione dei backup è impostato dal parametro **BackupRetentionDay** .
 
@@ -106,7 +106,7 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
   Restore-AzMariaDbServer -Name mydemoserver-georestored -ResourceGroupName myresourcegroup -Location eastus -Sku GP_Gen5_8 -UseGeoRestore
 ```
 
-Questo esempio crea un nuovo server denominato **mydemoserver-georipristinato** nell'area Stati Uniti orientali che appartiene a **myresourcegroup**. Si tratta di un server per utilizzo generico di quinta generazione con otto vCore. Il server viene creato dal backup con ridondanza geografica di **mydemoserver**, anche nel gruppo di risorse **myresourcegroup**.
+Questo esempio crea un nuovo server denominato **mydemoserver-georipristinato** nell'area Stati Uniti orientali che appartiene a **myresourcegroup**. Si tratta di un server per utilizzo generico di quinta generazione con otto vCore. Il server viene creato dal backup con ridondanza geografica di **mydemoserver** , anche nel gruppo di risorse **myresourcegroup**.
 
 Per creare il nuovo server in un gruppo di risorse diverso dal server esistente, specificare il nome del nuovo gruppo di risorse usando il parametro **ResourceGroupName** , come illustrato nell'esempio seguente:
 
@@ -121,7 +121,7 @@ Il set di parametri **Georestore** del `Restore-AzMariaDbServer` cmdlet richiede
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | Nome del gruppo di risorse a cui appartiene il nuovo server.|
 |Nome | mydemoserver-georestored | Nome del nuovo server. |
-|Località | eastus | Posizione del nuovo server. |
+|Location | eastus | Posizione del nuovo server. |
 |UseGeoRestore | `<SwitchParameter>` | Usare la modalità geografica per il ripristino. |
 
 Quando si crea un nuovo server con il ripristino geografico, esso eredita le stesse dimensioni di archiviazione e il piano tariffario del server di origine, a meno che non venga specificato il parametro **SKU** .

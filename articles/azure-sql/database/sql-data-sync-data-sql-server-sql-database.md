@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: fdeddfb0a09151ea010d4e95a2954200dd9371dc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 01c5d4395eb584631efb9b3b956b9a987e46b0db
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791427"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540621"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Che cos'è sincronizzazione dati SQL per Azure?
 
@@ -46,7 +46,7 @@ Un gruppo di sincronizzazione presenta le proprietà seguenti:
 - Lo **schema di sincronizzazione** descrive i dati da sincronizzare.
 - La **direzione di sincronizzazione** può essere bidirezionale o unidirezionale. Ovvero, la direzione di sincronizzazione può essere *dall'hub al membro* o *dal membro all'hub* oppure entrambe.
 - L' **intervallo di sincronizzazione** descrive la frequenza con cui viene eseguita la sincronizzazione.
-- I **criteri di risoluzione dei conflitti** sono criteri a livello di gruppo e le impostazioni possono essere *Priorità hub* o *Priorità client* .
+- I **criteri di risoluzione dei conflitti** sono criteri a livello di gruppo e le impostazioni possono essere *Priorità hub* o *Priorità client*.
 
 ## <a name="when-to-use"></a>Utilizzo
 
@@ -68,11 +68,11 @@ La sincronizzazione dati non è la soluzione preferita per gli scenari seguenti:
 
 
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 - **Rilevamento delle modifiche ai dati:** sincronizzazione dati tiene traccia delle modifiche tramite trigger di inserimento, aggiornamento ed eliminazione. Le modifiche vengono registrate in una tabella laterale nel database utente. Si noti che BULK INSERT non attiva i trigger per impostazione predefinita. Se FIRE_TRIGGERS non è specificato, non viene eseguito alcun trigger di inserimento. Aggiungere l'opzione FIRE_TRIGGERS in modo che la sincronizzazione dei dati possa tenere traccia di tali inserimenti. 
 - **Sincronizzazione dei dati:** La sincronizzazione dei dati è progettata in un modello hub e spoke. L'hub viene sincronizzato con ogni membro singolarmente. Le modifiche dall'hub vengono scaricate nel membro e le modifiche apportate dal membro vengono caricate nell'hub.
-- **Risoluzione dei conflitti:** sincronizzazione dati offre due opzioni per la risoluzione dei conflitti, ovvero *Priorità hub* o *Priorità client* .
+- **Risoluzione dei conflitti:** sincronizzazione dati offre due opzioni per la risoluzione dei conflitti, ovvero *Priorità hub* o *Priorità client*.
   - Se si seleziona *Priorità hub* , le modifiche nell'hub sovrascrivono sempre le modifiche nel membro.
   - Se si seleziona *Priorità client* , le modifiche nel membro sovrascrivono sempre le modifiche nell'hub. In presenza di più di un membro, il valore finale dipende dal membro sincronizzato per primo.
 
@@ -166,7 +166,7 @@ La sincronizzazione dati non sincronizza le colonne di sola lettura o generate d
 | Tabelle in un gruppo di sincronizzazione                                          | 500                    | Creare più gruppi di sincronizzazione |
 | Colonne in una tabella in un gruppo di sincronizzazione                              | 1000                   |                             |
 | Dimensioni delle righe di dati in una tabella                                        | 24 MB                  |                             |
-| Intervallo di frequenza di sincronizzazione minimo                                 | 5 minuti              |                             |
+| Intervallo di frequenza di sincronizzazione minimo (dall'avvio della sincronizzazione precedente)     | 5 minuti              |                             |
 
 > [!NOTE]
 > Se è presente un unico gruppo di sincronizzazione, questo può contenere fino a 30 endpoint. Se esistono più gruppi di sincronizzazione, il numero totale di endpoint in tutti i gruppi di sincronizzazione non può essere maggiore di 30. Se un database appartiene a più gruppi di sincronizzazione, vale come più endpoint.
@@ -175,7 +175,7 @@ La sincronizzazione dati non sincronizza le colonne di sola lettura o generate d
 
 Quando viene stabilito il gruppo di sincronizzazione, il servizio di sincronizzazione dati deve connettersi al database hub. Quando si stabilisce il gruppo di sincronizzazione, nel server SQL di Azure deve essere presente la configurazione seguente nelle `Firewalls and virtual networks` Impostazioni:
 
- * *Negare l'accesso alla rete pubblica* deve essere impostato su *disattivato* .
+ * *Negare l'accesso alla rete pubblica* deve essere impostato su *disattivato*.
  * *Consentire ai servizi e alle risorse di Azure di accedere a questo server* deve essere impostato su *Sì* oppure è necessario creare regole IP per gli [indirizzi IP utilizzati dal servizio di sincronizzazione dati](network-access-controls-overview.md#data-sync).
 
 Dopo la creazione e il provisioning del gruppo di sincronizzazione, è possibile disabilitare queste impostazioni. L'agente di sincronizzazione si connetterà direttamente al database hub ed è possibile usare le [regole IP del firewall](firewall-configure.md) del server o gli [endpoint privati](private-endpoint-overview.md) per consentire all'agente di accedere al server Hub.
@@ -240,7 +240,7 @@ Il database radice di federazione può essere usato nel servizio di sincronizzaz
 
 ### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>È possibile usare la sincronizzazione dei dati per sincronizzare i dati esportati da Dynamics 365 usando la funzionalità Bring your own database (BYOD)?
 
-La funzionalità Bring your own database di Dynamics 365 consente agli amministratori di esportare le entità di dati dall'applicazione nel proprio database SQL Microsoft Azure. La sincronizzazione dei dati può essere usata per sincronizzare questi dati in altri database se i dati vengono esportati con **push incrementale** (il push completo non è supportato) e **Abilita trigger nel database di destinazione** è impostata su **Sì** .
+La funzionalità Bring your own database di Dynamics 365 consente agli amministratori di esportare le entità di dati dall'applicazione nel proprio database SQL Microsoft Azure. La sincronizzazione dei dati può essere usata per sincronizzare questi dati in altri database se i dati vengono esportati con **push incrementale** (il push completo non è supportato) e **Abilita trigger nel database di destinazione** è impostata su **Sì**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

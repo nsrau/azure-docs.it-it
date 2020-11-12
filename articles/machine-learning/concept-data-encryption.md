@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: de83be26e3cb7105303528e10fb50b7ecc438472
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a133cdb72e304a254305833b9ae6e8a7ebe30ab3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447690"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540009"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Crittografia dei dati con Azure Machine Learning
 
@@ -53,7 +53,7 @@ Per informazioni sulla rigenerazione delle chiavi di accesso, vedere [Rigenerare
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Azure Machine Learning archivia le metriche e i metadati in un'istanza di Azure Cosmos DB. Questa istanza è associata a una sottoscrizione Microsoft gestita da Azure Machine Learning. Tutti i dati archiviati in Azure Cosmos DB vengono crittografati quando inattivi con le chiavi gestite da Microsoft.
+Azure Machine Learning archivia i metadati in un'istanza di Azure Cosmos DB. Questa istanza è associata a una sottoscrizione Microsoft gestita da Azure Machine Learning. Tutti i dati archiviati in Azure Cosmos DB vengono crittografati quando inattivi con le chiavi gestite da Microsoft.
 
 Per usare le chiavi personali, ovvero gestite dal cliente, per crittografare l'istanza di Azure Cosmos DB, è possibile creare un'istanza di Cosmos DB dedicata da usare con l'area di lavoro. Questo approccio è consigliato se si desidera archiviare i dati, ad esempio le informazioni sulla cronologia di esecuzione, all'esterno dell'istanza di Cosmos DB multi-tenant ospitata nella sottoscrizione Microsoft. 
 

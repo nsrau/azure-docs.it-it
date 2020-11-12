@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 2c9d00f1d78d2dea46d4ff4a08433360e00c7b9d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 29c378d40e3a4f92852f433677125a9e8a6d1133
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445626"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540128"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Creare e gestire aree di lavoro Azure Machine Learning 
 
@@ -191,7 +191,7 @@ Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la
 
 ### <a name="advanced"></a>Avanzato
 
-Per impostazione predefinita, le metriche e i metadati per l'area di lavoro vengono archiviati in un'istanza di Azure Cosmos DB gestita da Microsoft. Questi dati vengono crittografati tramite chiavi gestite da Microsoft.
+Per impostazione predefinita, i metadati per l'area di lavoro vengono archiviati in un'istanza di Azure Cosmos DB gestita da Microsoft. Questi dati vengono crittografati tramite chiavi gestite da Microsoft.
 
 Per limitare i dati raccolti da Microsoft nell'area di lavoro, selezionare __area di lavoro a elevato__ uso di business nel portale o impostare `hbi_workspace=true ` in Python. Per altre informazioni su questa impostazione, vedere [crittografia](concept-data-encryption.md#encryption-at-rest)dei dati inattivi.
 
@@ -200,7 +200,7 @@ Per limitare i dati raccolti da Microsoft nell'area di lavoro, selezionare __are
 
 #### <a name="use-your-own-key"></a>Usare la propria chiave
 
-È possibile fornire la propria chiave per la crittografia dei dati. In questo modo viene creata l'istanza Azure Cosmos DB che archivia le metriche e i metadati nella sottoscrizione di Azure.
+È possibile fornire la propria chiave per la crittografia dei dati. In questo modo viene creata l'istanza Azure Cosmos DB che archivia i metadati nella sottoscrizione di Azure.
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
@@ -376,7 +376,7 @@ L'area di lavoro di Azure Machine Learning usa il Registro Azure Container (ACR)
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Esempi di creazione di un'area di lavoro:
 * Usare portale di Azure per [creare un'istanza di calcolo e un'area di lavoro](tutorial-1st-experiment-sdk-setup.md)

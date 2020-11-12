@@ -1,17 +1,17 @@
 ---
 title: Importazione ed esportazione-database di Azure per MySQL
 description: Questo articolo illustra i metodi comuni per importare ed esportare database nel database di Azure per MySQL mediante strumenti come MySQL Workbench.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.openlocfilehash: 1b4959cbf082a589c90034f48d597907c9b7e6cc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: af9f0f65e01a786d478fac0adde6174b8f03b2fd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128930"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537901"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrare il database MySQL mediante l'importazione ed esportazione
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
@@ -33,7 +33,7 @@ Per la connessione, individuare le informazioni di connessione nella pagina **Pa
 
 Aggiungere le informazioni di connessione a MySQL Workbench.
 
-:::image type="content" source="./media/concepts-migrate-import-export/2_setup-new-connection.png" alt-text="Trovare le informazioni di connessione nel portale di Azure":::
+:::image type="content" source="./media/concepts-migrate-import-export/2_setup-new-connection.png" alt-text="Stringa di connessione MySQL Workbench":::
 
 ## <a name="determine-when-to-use-import-and-export-techniques"></a>Determinare quando utilizzare le tecniche di importazione ed esportazione
 
@@ -47,7 +47,7 @@ Usare gli strumenti di MySQL per importare ed esportare database nel database My
 - Quando si esegue la migrazione di dati da origini dati esterne diverse da un database MySQL, creare un file flat e importarli usando [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html).
 
 > [!Important]
-> Sia il server singolo che il server flessibile supportano **solo il motore di archiviazione InnoDB** . Verificare che tutte le tabelle nel database usino il motore di archiviazione InnoDB quando si caricano dati nel database di Azure per MySQL.
+> Sia il server singolo che il server flessibile supportano **solo il motore di archiviazione InnoDB**. Verificare che tutte le tabelle nel database usino il motore di archiviazione InnoDB quando si caricano dati nel database di Azure per MySQL.
 > Se il database di origine usa un altro motore di archiviazione, convertirlo nel motore InnoDB prima di eseguire la migrazione del database. Se ad esempio si possiede un'app Web o WordPress che usa il motore MyISAM, convertire prima le tabelle eseguendo la migrazione dei dati in tabelle InnoDB. Usare la clausola `ENGINE=INNODB` per impostare il motore per la creazione di una tabella e trasferire i dati nella tabella compatibile prima della migrazione.
 
    ```sql
@@ -70,7 +70,7 @@ Esistono due modi per esportare e importare dati in MySQL Workbench, ognuno dest
 > - Per MySQL flexible server è possibile usare solo ' username ' se si usa ' username@servername ' per la connessione, la connessione avrà esito negativo.
 
 ### <a name="table-data-export-and-import-wizards-from-the-object-browsers-context-menu"></a>Procedure guidate di esportazione e importazione dei dati di una tabella tramite il menu di scelta rapida del visualizzatore oggetti
-:::image type="content" source="./media/concepts-migrate-import-export/p1.png" alt-text="Trovare le informazioni di connessione nel portale di Azure":::
+:::image type="content" source="./media/concepts-migrate-import-export/p1.png" alt-text="Procedure guidate di MySQL Workbench nel menu di scelta rapida del visualizzatore oggetti":::
 
 Le procedure guidate per i dati delle tabelle supportano le operazioni di importazione ed esportazione tramite i file CSV e JSON. Includono diverse opzioni di configurazione, ad esempio separatori, selezione colonne e selezione di codifica. È possibile eseguire ogni procedura guidata su server MySQL connessi in modalità remota o locale. L'operazione di importazione include tabelle, colonne e mapping dei tipi.
 
@@ -80,28 +80,36 @@ Le procedure guidate per i dati delle tabelle supportano le operazioni di import
 L'esempio seguente illustra l'esportazione di una tabella in un file CSV:
 1. Fare clic con il pulsante destro del mouse sulla tabella del database da esportare.
 2. Selezionare **Table Data Export Wizard** (Esportazione guidata di tabelle). Selezionare le colonne da esportare, l'offset di riga (se presente) e il conteggio (se presente).
-3. Fare clic su **Avanti** nella pagina **Selezionare i dati da esportare** . Selezionare il percorso del file, il tipo di file CSV o JSON. Selezionare anche separatore di riga, metodo di inclusione delle stringhe e separatore di campo.
+3. Fare clic su **Avanti** nella pagina **Selezionare i dati da esportare**. Selezionare il percorso del file, il tipo di file CSV o JSON. Selezionare anche separatore di riga, metodo di inclusione delle stringhe e separatore di campo.
 4. Fare clic su **Avanti** nella pagina **Select output file location** (Selezionare la posizione del file di output).
-5. Fare clic su **Avanti** nella pagina **Esporta dati** .
+5. Fare clic su **Avanti** nella pagina **Esporta dati**.
 
 #### <a name="table-data-import-wizard"></a>Importazione guidata di tabelle
 L'esempio seguente illustra l'importazione di una tabella da un file CSV:
 1. Fare clic con il pulsante destro del mouse sulla tabella del database da importare.
-2. Individuare e selezionare il file CSV da importare e quindi fare clic su **Avanti** .
-3. Selezionare la tabella di destinazione (nuova o esistente) e selezionare o deselezionare la casella di controllo **Truncate table before import** (Tronca tabella prima dell'importazione). Fare clic su **Avanti** .
-4. Selezionare la codifica e le colonne da importare e quindi fare clic su **Avanti** .
-5. Fare clic su **Avanti** nella pagina **Importa dati** . La procedura guidata importa i dati di conseguenza.
+2. Individuare e selezionare il file CSV da importare e quindi fare clic su **Avanti**.
+3. Selezionare la tabella di destinazione (nuova o esistente) e selezionare o deselezionare la casella di controllo **Truncate table before import** (Tronca tabella prima dell'importazione). Fare clic su **Avanti**.
+4. Selezionare la codifica e le colonne da importare e quindi fare clic su **Avanti**.
+5. Fare clic su **Avanti** nella pagina **Importa dati**. La procedura guidata importa i dati di conseguenza.
 
 ### <a name="sql-data-export-and-import-wizards-from-the-navigator-pane"></a>Esportazione e importazione guidata di dati SQL dal riquadro Strumento di navigazione
-Usare una procedura guidata per esportare o importare SQL generati da MySQL Workbench o tramite il comando mysqldump. Accedere a queste procedure guidate dal riquadro **Strumento di navigazione** oppure selezionando **Server** dal menu principale. Selezionare quindi **Esporta dati** o **Importa dati** .
+Usare una procedura guidata per esportare o importare SQL generati da MySQL Workbench o tramite il comando mysqldump. Accedere a queste procedure guidate dal riquadro **Strumento di navigazione** oppure selezionando **Server** dal menu principale. Selezionare quindi **Esporta dati** o **Importa dati**.
 
 #### <a name="data-export"></a>Esportazione dati
-:::image type="content" source="./media/concepts-migrate-import-export/p2.png" alt-text="Trovare le informazioni di connessione nel portale di Azure" e segnalare gli identificatori con l'apice inverso.
+:::image type="content" source="./media/concepts-migrate-import-export/p2.png" alt-text="Esportazione dati da MySQL Workbench tramite il riquadro Strumento di navigazione":::
+
+È possibile usare la scheda **Esporta dati** per esportare i dati di MySQL.
+1. Selezionare ogni schema da esportare, se si vuole scegliere tabelle/oggetti specifici dello schema da ogni schema e generare l'esportazione. Le opzioni di configurazione includono l'esportazione in una cartella di progetto o in un file SQL autonomo, eventi e routine di dump archiviati o consentono di ignorare i dati della tabella.
+
+   In alternativa, usare **Export a Result Set** (Esporta un set di risultati) per esportare uno specifico set di risultati nell'editor SQL in un altro formato, come ad esempio CSV, JSON, HTML e XML.
+3. Selezionare gli oggetti del database da esportare e configurare le opzioni correlate.
+4. Fare clic su **Aggiorna** per caricare gli oggetti correnti.
+5. Se si preferisce, aprire la scheda **Opzioni avanzate** per definire l'operazione di esportazione. Ad esempio, aggiungere blocchi di tabella, usare istruzioni "replace" anziché "insert" e segnalare gli identificatori con l'apice inverso.
 6. Fare clic su **Avvia esportazione** per avviare il processo di esportazione.
 
 
 #### <a name="data-import"></a>Importazione dati
-:::image type="content" source="./media/concepts-migrate-import-export/p3.png" alt-text="Trovare le informazioni di connessione nel portale di Azure":::
+:::image type="content" source="./media/concepts-migrate-import-export/p3.png" alt-text="Importazione di dati da MySQL Workbench tramite Management Navigator":::
 
 È possibile usare la scheda **Importa dati** per importare o ripristinare i dati esportati tramite l'operazione di esportazione dati o con il comando mysqldump.
 1. Scegliere la cartella di progetto o il file SQL autonomo, scegliere lo schema in cui eseguire l'importazione o scegliere **Nuovo** per definire un nuovo schema.

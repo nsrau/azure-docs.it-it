@@ -1,17 +1,17 @@
 ---
 title: Accedere ai log di query lente-portale di Azure database di Azure per MariaDB
 description: Questo articolo descrive come configurare e accedere ai log di query lente nel database di Azure per MariaDB dalla portale di Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 4/13/2020
-ms.openlocfilehash: a2642ebbad7c8d7a2e092a6e00929e32b72b52d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5ee948daecafc061910f36d2ac95d15338bfb38
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86104980"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539941"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-from-the-azure-portal"></a>Configurare e accedere ai log di query lente del database di Azure per Maria dal portale di Azure
 

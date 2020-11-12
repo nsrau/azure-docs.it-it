@@ -1,17 +1,17 @@
 ---
 title: Eseguire la migrazione tramite dump e ripristino - Database di Azure per MySQL
 description: Questo articolo illustra due modi comuni per eseguire il backup e il ripristino dei database nel database di Azure per MySQL usando strumenti come mysqldump, MySQL Workbench e PHPMyAdmin.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.openlocfilehash: 336021792b7e5340e35a0c59e0f113d4dad9307d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f21587fe6a48d042ed98c126beb2a7dcaa39b7d8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128964"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537918"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Eseguire la migrazione del database MySQL nel database di Azure mediante dump e ripristino
 
@@ -73,7 +73,7 @@ Per la connessione, individuare le informazioni di connessione nella pagina **Pa
 
 Aggiungere le informazioni di connessione in MySQL Workbench.
 
-:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Trovare le informazioni di connessione nel portale di Azure":::
+:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Stringa di connessione MySQL Workbench":::
 
 ## <a name="preparing-the-target-azure-database-for-mysql-server-for-fast-data-loads"></a>Preparazione del database di Azure di destinazione per il server MySQL per i caricamenti rapidi di dati
 Per preparare il database di Azure di destinazione per il server MySQL per caricamenti di dati più veloci, è necessario modificare i parametri del server e la configurazione seguenti.

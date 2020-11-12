@@ -1,17 +1,17 @@
 ---
 title: Configurare log di query lente-portale di Azure-database di Azure per MySQL-server flessibile
 description: Questo articolo descrive come configurare e accedere ai log di query lente nel server flessibile database di Azure per MySQL dalla portale di Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: e2046673cda17c58153ceb12eee31edb83365092
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a61c8e3451d661dae2e5ad56a0d4a947252ec873
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565723"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540064"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurare e accedere ai log di query lente per database di Azure per MySQL-server flessibile usando il portale di Azure
 
@@ -34,13 +34,13 @@ Configurare l'accesso al log di query lente MySQL.
    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/server-parameters.png" alt-text="Pagina parametri server.":::
 
 1. Aggiornare il parametro **slow_query_log** a **on**.
-   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/slow-query-log-enable.png" alt-text="Pagina parametri server.":::
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/slow-query-log-enable.png" alt-text="Attivare i log di query lente.":::
 
 1. Modificare gli altri parametri necessari (ad esempio `long_query_time`, `log_slow_admin_statements`). Per ulteriori parametri, vedere la documentazione relativa ai [log di query lente](./concepts-slow-query-logs.md#configure-slow-query-logging) .  
-   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/long-query-time.png" alt-text="Pagina parametri server.":::
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/long-query-time.png" alt-text="Aggiornare i parametri relativi al log di query lente.":::
 
 1. Selezionare **Salva**. 
-   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-parameters.png" alt-text="Pagina parametri server.":::
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-parameters.png" alt-text="Salvare i parametri del log di query lente.":::
 
 Dalla pagina **parametri server** è possibile tornare all'elenco dei log chiudendo la pagina.
 
@@ -50,17 +50,17 @@ I log di query lente sono integrati con le impostazioni di diagnostica di monito
 
 1. Nella sezione **monitoraggio** della barra laterale selezionare impostazioni di **diagnostica**  >  **Aggiungi impostazioni di diagnostica**.
 
-   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/add-diagnostic-setting.png" alt-text="Pagina parametri server.":::
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/add-diagnostic-setting.png" alt-text="Screenshot delle opzioni delle impostazioni di diagnostica":::
 
 1. Specificare un nome per l'impostazione di diagnostica.
 
 1. Specificare quali destinazioni inviare i log di query lente (account di archiviazione, Hub eventi o area di lavoro Log Analytics).
 
 1. Selezionare **MySqlSlowLogs** come tipo di log.
-    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/configure-diagnostic-setting.png" alt-text="Pagina parametri server.":::
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/configure-diagnostic-setting.png" alt-text="Screenshot delle opzioni di configurazione delle impostazioni di diagnostica":::
 
 1. Dopo aver configurato i sink di dati per inviare tramite pipe i log delle query lente a, selezionare **Salva**.
-    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-diagnostic-setting.png" alt-text="Pagina parametri server.":::
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-diagnostic-setting.png" alt-text="Screenshot delle opzioni di configurazione delle impostazioni di diagnostica con il salvataggio evidenziato":::
 
 1. Per accedere ai log di query lente, esplorarli nei sink di dati configurati. Possono essere necessari fino a 10 minuti per la visualizzazione dei log.
 

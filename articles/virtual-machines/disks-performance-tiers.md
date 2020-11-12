@@ -1,23 +1,23 @@
 ---
 title: Modificare le prestazioni di Azure Managed Disks
-description: Informazioni sui livelli di prestazioni per Managed disks e informazioni su come modificare i livelli di prestazioni per i dischi gestiti esistenti.
+description: Informazioni sui livelli di prestazioni per Managed disks e informazioni su come modificare i livelli di prestazioni per i dischi gestiti esistenti usando il modulo Azure PowerShell o l'interfaccia della riga di comando di Azure.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 11/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4e31af3a66927e0c93caf477a7daf1b86eebf8f5
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 923c5970183bd192ac1a2f20fb775d96dcc06865
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348696"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540638"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Livelli di prestazioni per Managed Disks (anteprima)
 
-Archiviazione su disco di Azure attualmente offre funzionalità di espansione predefinite per offrire prestazioni più elevate per la gestione di traffico imprevisto a breve termine. Le unità SSD Premium offrono la flessibilità necessaria per aumentare le prestazioni del disco senza aumentare le dimensioni effettive del disco. Questa funzionalità consente di soddisfare le esigenze di prestazioni del carico di lavoro e di ridurre i costi. 
+Archiviazione su disco di Azure offre funzionalità di espansione predefinite per offrire prestazioni più elevate per la gestione di traffico imprevisto a breve termine. Le unità SSD Premium offrono la flessibilità necessaria per aumentare le prestazioni del disco senza aumentare le dimensioni effettive del disco. Questa funzionalità consente di soddisfare le esigenze di prestazioni del carico di lavoro e di ridurre i costi. 
 
 > [!NOTE]
 > Questa funzionalità è attualmente in anteprima. 
@@ -58,6 +58,8 @@ Per informazioni sulla fatturazione, vedere [prezzi dei dischi gestiti](https://
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Creare un disco dati vuoto con un livello superiore rispetto al livello di base
 
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
 ```azurecli
 subscriptionId=<yourSubscriptionIDHere>
 resourceGroupName=<yourResourceGroupNameHere>
@@ -83,8 +85,30 @@ image=Canonical:UbuntuServer:18.04-LTS:18.04.202002180
 
 az disk create -n $diskName -g $resourceGroupName -l $region --image-reference $image --sku Premium_LRS --tier $performanceTier
 ```
-     
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$subscriptionId='yourSubscriptionID'
+$resourceGroupName='yourResourceGroupName'
+$diskName='yourDiskName'
+$diskSizeInGiB=4
+$performanceTier='P50'
+$sku='Premium_LRS'
+$region='westcentralus'
+
+Connect-AzAccount
+
+Set-AzContext -Subscription $subscriptionId
+
+$diskConfig = New-AzDiskConfig -SkuName $sku -Location $region -CreateOption Empty -DiskSizeGB $diskSizeInGiB -Tier $performanceTier
+New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+```
+---
+
 ## <a name="update-the-tier-of-a-disk"></a>Aggiornare il livello di un disco
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli
 resourceGroupName=<yourResourceGroupNameHere>
@@ -93,11 +117,36 @@ performanceTier=<yourDesiredPerformanceTier>
 
 az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$resourceGroupName='yourResourceGroupName'
+$diskName='yourDiskName'
+$performanceTier='P1'
+
+$diskUpdateConfig = New-AzDiskUpdateConfig -Tier $performanceTier
+
+Update-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName -DiskUpdate $diskUpdateConfig
+```
+---
+
 ## <a name="show-the-tier-of-a-disk"></a>Mostra il livello di un disco
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 ```azurecli
 az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+$disk = Get-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName
+
+$disk.Tier
+```
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

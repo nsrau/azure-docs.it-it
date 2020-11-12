@@ -5,19 +5,19 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 7/29/2020
+ms.date: 11/11/2020
 ms.author: tisande
-ms.openlocfilehash: 38d37d03c99bd3a39b00276da110ea0ef6bb962e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 35f212ea246e03be02fa082ef1b55dcb7cae1575
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332373"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538649"
 ---
 # <a name="linq-to-sql-translation"></a>Traduzione LINQ in SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Il provider di query di Azure Cosmos DB esegue un mapping ottimale da una query LINQ in una query di Cosmos DB SQL. Se si desidera ottenere la query SQL convertita da LINQ, utilizzare il metodo nell' `ToString()` `IQueryable` oggetto generato. La descrizione seguente presuppone una conoscenza di base di [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
+Il provider di query di Azure Cosmos DB esegue un mapping ottimale da una query LINQ in una query di Cosmos DB SQL. Se si desidera ottenere la query SQL convertita da LINQ, utilizzare il metodo nell' `ToString()` `IQueryable` oggetto generato. La descrizione seguente presuppone una conoscenza di base di [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). Oltre a LINQ, Azure Cosmos DB supporta anche [Entity Framework Core](/ef/core/providers/cosmos/?tabs=dotnet-core-cli) che funziona con l'API SQL.
 
 Il sistema di tipi del provider di query supporta solo i tipi primitivi JSON: numeric, Boolean, String e null.
 
@@ -95,7 +95,7 @@ Il provider LINQ incluso in SQL .NET SDK supporta gli operatori seguenti:
 - **Funzione di estensione della funzione definita dall'utente** : supporta la conversione dal metodo stub `UserDefinedFunctionProvider.Invoke` alla [funzione corrispondente definita dall'utente](sql-query-udfs.md).
 - **Varie** : supporta la conversione di `Coalesce` [operatori](sql-query-operators.md)condizionali e. Può tradurre in `Contains` stringa contiene, ARRAY_CONTAINS o in, a seconda del contesto.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Negli esempi seguenti viene illustrato il modo in cui alcuni degli operatori di query LINQ standard vengono convertiti in query in Azure Cosmos DB.
 

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca42ddbc648f7c342b1cd649c19b77df803257d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfbd5e6f190e0600c31aa17e9b1a75f08e213df4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979805"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537663"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Approva o rifiuta le richieste di accesso in Azure AD gestione dei diritti
 
@@ -61,7 +61,7 @@ Se non si dispone del messaggio di posta elettronica, è possibile trovare le ri
 
 1. Le informazioni fornite dal richiedente saranno nella parte inferiore del pannello.
 
-     ![Portale di Accesso personale - Richiesta di accesso](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
+     ![Screenshot che mostra i dettagli della richiesta](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
 
 1. In base alle informazioni fornite dal richiedente, è possibile approvare o rifiutare la richiesta. Per istruzioni, vedere la procedura in approva o Nega richiesta.
 
@@ -81,7 +81,7 @@ Dopo aver aperto una richiesta di accesso in attesa di approvazione, è possibil
 
 1. Se necessario, immettere un motivo.
 
-    ![Portale di Accesso personale - Richiesta di accesso](./media/entitlement-management-request-approve/my-access-approve-request.png)
+    ![Screenshot mostra la pagina in cui si accetta o si nega la richiesta.](./media/entitlement-management-request-approve/my-access-approve-request.png)
 
 1. Fare clic su **Invia** per inviare la decisione.
 
