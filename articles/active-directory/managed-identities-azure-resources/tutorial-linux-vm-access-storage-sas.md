@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b0bb70b82e8c34c50743bf56069488e2d4c4e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3edc63a1532bb6889fc490e400dbb57e7bce10d0
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968778"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360412"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Esercitazione: Usare un'identità assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite credenziali di firma di accesso condiviso
 
@@ -49,7 +49,7 @@ La firma di accesso condiviso del servizio offre la possibilità di concedere ac
 Se non ne è già disponibile uno, creare un account di archiviazione.  È anche possibile ignorare questo passaggio e concedere l'accesso alle chiavi di un account di archiviazione esistente all'identità gestita assegnata dal sistema della macchina virtuale. 
 
 1. Fare clic sul pulsante **+/Crea nuovo servizio** nell'angolo superiore sinistro del portale di Azure.
-2. Fare clic su **Archiviazione**, quindi **Account di archiviazione**. Viene visualizzato un nuovo pannello "Crea account di archiviazione".
+2. Fare clic su **Archiviazione** , quindi **Account di archiviazione**. Viene visualizzato un nuovo pannello "Crea account di archiviazione".
 3. Immettere un **nome** per l'account di archiviazione, che verrà usato in un secondo momento.  
 4. **Modello di distribuzione** e **Tipologia account** devono essere impostati su "Gestione di risorse" e "Utilizzo generico". 
 5. Verificare che le impostazioni in **Sottoscrizione** e **Gruppo di risorse** corrispondano a quelle specificate al momento della creazione della macchina virtuale nel passaggio precedente.
@@ -68,7 +68,7 @@ Successivamente verrà caricato e scaricato un file per il nuovo account di arch
 
     ![Creare un contenitore di archiviazione](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>Concedere l'accesso per l'uso di una firma di accesso condiviso di archiviazione all'identità gestita assegnata dal sistema della macchina virtuale 
+## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>Concedere l'accesso per l'uso di una firma di accesso condiviso di archiviazione all'identità gestita assegnata dal sistema della macchina virtuale
 
 Archiviazione di Azure non supporta l'autenticazione di Azure AD in modo nativo.  È tuttavia possibile usare l'identità gestita assegnata dal sistema della macchina virtuale per recuperare una firma di accesso condiviso di archiviazione da Resource Manager e quindi usarla per accedere alle risorse di archiviazione.  In questo passaggio si concede l'accesso alla firma di accesso condiviso dell'account di archiviazione all'identità gestita assegnata dal sistema della macchina virtuale.   
 
@@ -88,7 +88,7 @@ Il resto dell'esercitazione prevede che le operazioni vengano svolte dalla macch
 
 Per completare questi passaggi, è necessario disporre di un client SSH. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](/windows/wsl/install-win10). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. Nel portale di Azure passare a **Macchine virtuali**, selezionare la macchina virtuale Linux e quindi nella parte superiore della pagina **Panoramica** fare clic su **Connetti**. Copiare la stringa di connessione alla macchina virtuale. 
+1. Nel portale di Azure passare a **Macchine virtuali** , selezionare la macchina virtuale Linux e quindi nella parte superiore della pagina **Panoramica** fare clic su **Connetti**. Copiare la stringa di connessione alla macchina virtuale. 
 2. Connettersi alla macchina virtuale tramite il client SSH.  
 3. Successivamente, verrà richiesto di immettere la **Password** aggiunta durante la creazione della **macchina virtuale Linux**. A questo punto l'accesso è stato eseguito correttamente.  
 4. Usare CURL per ottenere il token di accesso per Azure Resource Manager.  

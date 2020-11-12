@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto Servizi condivisi ISO 27001
 description: Mapping dei controlli dell'esempio di progetto Servizi condivisi ISO 27001. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 7b13440db5574da84c296e27380739e58e640a67
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: bb1cfbc09e8a6209b9e6d0cb2970dc66ee05ba6d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930119"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420343"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Servizi condivisi ISO 27001
 
@@ -37,8 +37,6 @@ Il [Servizio Valutazione della vulnerabilità di SQL](../../../../azure-sql/data
 Il [Controllo degli accessi in base al ruolo di Azure](../../../../role-based-access-control/overview.md) consente di gestire l'accesso degli utenti alle risorse di Azure. Questo progetto consente di controllare l'accesso alle risorse di Azure assegnando sette definizioni di [Criteri di Azure](../../../policy/overview.md). Questi criteri controllano l'uso dei tipi di risorse e le configurazioni che potrebbero consentire un accesso più permissivo alle risorse.
 Identificando le risorse in violazione di questi criteri, è possibile adottare azioni correttive per restringere l'accesso alla risorse di Azure consentendolo solo agli utenti autorizzati.
 
-- Distribuisci i prerequisiti per controllare le macchine virtuali Linux in cui sono presenti account senza password
-- Distribuisci prerequisiti per controllare le macchine virtuali Linux che consentono connessioni remote da account senza password
 - Mostra i risultati del controllo dalle macchine virtuali Linux in cui sono presenti account senza password
 - Mostra i risultati del controllo dalle macchine virtuali Linux che consentono connessioni remote da account senza password
 - È consigliabile eseguire la migrazione degli account di archiviazione alle nuove risorse di Azure Resource Manager
@@ -65,7 +63,6 @@ Questo progetto assegna tre definizioni di [Criteri di Azure](../../../policy/ov
 - L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di lettura per la sottoscrizione
 - L'autenticazione MFA deve essere abilitata per gli account con autorizzazioni di scrittura per la sottoscrizione
 - Mostra i risultati del controllo dalle macchine virtuali Linux in cui le autorizzazioni per il file passwd non sono impostate su 0644
-- Distribuisci i prerequisiti per controllare le macchine virtuali Linux in cui le autorizzazioni per il file passwd non sono impostate su 0644
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Revisione dei diritti di accesso utente
 
@@ -100,11 +97,6 @@ Questo progetto consente di imporre password complesse assegnando 10 definizioni
 - Mostra i risultati del controllo dalle macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
 - Mostra i risultati del controllo dalle macchine virtuali Windows in cui la lunghezza minima della password non è limitata a 14 caratteri
 - Mostra i risultati del controllo dalle macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui la validità massima della password non è impostata su 70 giorni
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows che non limitano la lunghezza minima della password a 14 caratteri
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 Criteri sull'uso dei controlli crittografici
 
@@ -113,7 +105,6 @@ Questo progetto consente di applicare i criteri sull'uso dei controlli crittogra
 - L'app per le funzioni deve essere accessibile solo tramite HTTPS
 - L'applicazione Web deve essere accessibile solo tramite HTTPS
 - L'app per le API deve essere accessibile solo tramite HTTPS
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows che non archiviano le password usando la crittografia reversibile
 - Mostra i risultati del controllo dalle macchine virtuali Windows che non archiviano le password usando la crittografia reversibile
 - La crittografia del disco deve essere applicata nelle macchine virtuali
 - Le variabili dell'account di automazione devono essere crittografate

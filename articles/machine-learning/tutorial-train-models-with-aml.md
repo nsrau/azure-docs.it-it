@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 40ee7ad74d1a1daaf6df5e76b5e51db52feea304
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 003056ae9d3f236d37ddc10764812c15a3c6c695
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535070"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321292"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Esercitazione: Eseguire il training di modelli di classificazione delle immagini con dati MNIST e scikit-learn 
 
@@ -37,7 +37,7 @@ Nella [seconda parte di questa esercitazione](tutorial-deploy-models-with-aml.md
 Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 >[!NOTE]
-> Il codice di questo articolo è stato testato con [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) versione 1.13.0.
+> Il codice di questo articolo è stato testato con [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) versione 1.13.0.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -159,7 +159,7 @@ Prima di eseguire il training di un modello, è necessario conoscere i dati usat
 
 ### <a name="download-the-mnist-dataset"></a>Scaricare il set di dati MNIST
 
-Usare set di dati aperti di Azure per ottenere i file di dati MNIST non elaborati. [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) include set di dati pubblici curati che è possibile usare per aggiungere caratteristiche specifiche dello scenario alle soluzioni di Machine Learning e realizzare modelli più accurati. Per ogni set di dati è disponibile una classe corrispondente, in questo caso `MNIST`, per recuperare i dati in modi diversi.
+Usare set di dati aperti di Azure per ottenere i file di dati MNIST non elaborati. [Azure Open Datasets](../open-datasets/overview-what-are-open-datasets.md) include set di dati pubblici curati che è possibile usare per aggiungere caratteristiche specifiche dello scenario alle soluzioni di Machine Learning e realizzare modelli più accurati. Per ogni set di dati è disponibile una classe corrispondente, in questo caso `MNIST`, per recuperare i dati in modi diversi.
 
 Questo codice recupera i dati come oggetto `FileDataset`, che è una sottoclasse di `Dataset`. `FileDataset` fa riferimento a uno o più file di qualsiasi formato in archivi dati o di URL pubblici. La classe offre la possibilità di scaricare o montare i file nel contesto di calcolo creando un riferimento alla posizione dell'origine dati. È possibile anche registrare il set di dati nell'area di lavoro in modo da facilitarne il recupero durante il training.
 
@@ -309,7 +309,7 @@ Si noti come lo script ottiene i dati e salva i modelli:
 
 ### <a name="configure-the-training-job"></a>Configurare il processo di training
 
-Creare un oggetto [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) per specificare i dettagli di configurazione del processo di training, tra cui script di training, ambiente da usare e destinazione di calcolo in cui eseguirlo. Configurare ScriptRunConfig specificando:
+Creare un oggetto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) per specificare i dettagli di configurazione del processo di training, tra cui script di training, ambiente da usare e destinazione di calcolo in cui eseguirlo. Configurare ScriptRunConfig specificando:
 
 * La directory contenente gli script. Tutti i file in questa directory vengono caricati nei nodi del cluster per l'esecuzione.
 * La destinazione di calcolo. In questo caso si usa il cluster di calcolo di Azure Machine Learning che è stato creato.
@@ -368,21 +368,21 @@ In totale, la prima esecuzione richiede **circa 10 minuti**. Tuttavia, per le es
 
 Cosa accade durante l'attesa:
 
-- **Creazione di immagini**: Viene creata un'immagine Docker che corrisponde all'ambiente di Python specificato dall'ambiente di Azure ML. L'immagine viene caricata nell'area di lavoro. Per la creazione e il caricamento delle immagini sono necessari **circa cinque minuti**.
+- **Creazione di immagini** : Viene creata un'immagine Docker che corrisponde all'ambiente di Python specificato dall'ambiente di Azure ML. L'immagine viene caricata nell'area di lavoro. Per la creazione e il caricamento delle immagini sono necessari **circa cinque minuti**.
 
   Questa fase viene eseguita una volta per ogni ambiente Python, perché il contenitore viene memorizzato nella cache per le esecuzioni successive. Durante la creazione dell'immagine, i log vengono trasmessi alla cronologia di esecuzione. È possibile monitorare lo stato di avanzamento del processo di creazione dell'immagine usando questi log.
 
-- **Ridimensionamento**: se il cluster remoto richiede più nodi per l'esecuzione rispetto a quelli attualmente disponibili, vengono aggiunti automaticamente altri nodi. Per il ridimensionamento sono in genere necessari **circa cinque minuti**.
+- **Ridimensionamento** : se il cluster remoto richiede più nodi per l'esecuzione rispetto a quelli attualmente disponibili, vengono aggiunti automaticamente altri nodi. Per il ridimensionamento sono in genere necessari **circa cinque minuti**.
 
-- **In esecuzione**: in questa fase, gli script e i file necessari vengono inviati alla destinazione di calcolo. Gli archivi dati vengono montati o copiati. Viene infine eseguito **entry_script**. Durante l'esecuzione del processo, **stdout** e la directory **./logs** vengono trasmessi alla cronologia di esecuzione. È possibile monitorare lo stato di avanzamento dell'esecuzione usando questi log.
+- **In esecuzione** : in questa fase, gli script e i file necessari vengono inviati alla destinazione di calcolo. Gli archivi dati vengono montati o copiati. Viene infine eseguito **entry_script**. Durante l'esecuzione del processo, **stdout** e la directory **./logs** vengono trasmessi alla cronologia di esecuzione. È possibile monitorare lo stato di avanzamento dell'esecuzione usando questi log.
 
-- **Post-elaborazione**: la directory **./outputs** dell'esecuzione viene copiata nella cronologia di esecuzione nell'area di lavoro in modo da rendere accessibili questi risultati.
+- **Post-elaborazione** : la directory **./outputs** dell'esecuzione viene copiata nella cronologia di esecuzione nell'area di lavoro in modo da rendere accessibili questi risultati.
 
 È possibile controllare lo stato di avanzamento di un processo in esecuzione in diversi modi. Questa esercitazione usa un widget di Jupyter e un metodo `wait_for_completion`.
 
 ### <a name="jupyter-widget"></a>Widget di Jupyter
 
-Controllare lo stato dell'esecuzione con un [widget di Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Come per l'invio dell'esecuzione, il widget è asincrono e fornisce aggiornamenti in tempo reale ogni 10-15 secondi finché non viene completato il processo:
+Controllare lo stato dell'esecuzione con un [widget di Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Come per l'invio dell'esecuzione, il widget è asincrono e fornisce aggiornamenti in tempo reale ogni 10-15 secondi finché non viene completato il processo:
 
 ```python
 from azureml.widgets import RunDetails
@@ -393,7 +393,7 @@ Alla fine del training, l'aspetto del widget sarà simile al seguente:
 
 ![Widget del notebook](./media/tutorial-train-models-with-aml/widget.png)
 
-Per cancellare un'esecuzione, seguire [queste istruzioni](https://aka.ms/aml-docs-cancel-run).
+Per cancellare un'esecuzione, seguire [queste istruzioni](./how-to-manage-runs.md).
 
 ### <a name="get-log-results-upon-completion"></a>Ottenere i risultati del log dopo il completamento
 

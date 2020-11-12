@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: dd8de1b56927e158a181df952ce0dbeed140d6b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8891c29e5d8d06df6292d06ec06e5e57fb9880e7
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078657"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422842"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Esercitazione: Distribuire un modello di classificazione delle immagini con training preliminare in Funzioni di Azure con PyTorch
 
@@ -115,12 +115,12 @@ In Funzioni di Azure un progetto di funzione è un contenitore per una o più fu
     func new --name classify --template "HTTP trigger"
     ```
 
-    Questo comando crea una cartella che corrisponde al nome della funzione, ovvero *classify*. In tale cartella sono presenti due file, ovvero *\_\_init\_\_.py*, che contiene il codice della funzione, e *function.json*, che descrive il trigger della funzione e le associazioni di input e output. Per informazioni dettagliate sul contenuto di questi file, vedere [Esaminare il contenuto del file](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#optional-examine-the-file-contents) nella guida di avvio rapido per Python.
+    Questo comando crea una cartella che corrisponde al nome della funzione, ovvero *classify*. In tale cartella sono presenti due file, ovvero *\_\_init\_\_.py* , che contiene il codice della funzione, e *function.json* , che descrive il trigger della funzione e le associazioni di input e output. Per informazioni dettagliate sul contenuto di questi file, vedere [Esaminare il contenuto del file](./create-first-function-cli-python.md#optional-examine-the-file-contents) nella guida di avvio rapido per Python.
 
 
 ## <a name="run-the-function-locally"></a>Eseguire la funzione in locale
 
-1. Avviare la funzione avviando l'host di runtime locale di Funzioni di Azure nella cartella *start*:
+1. Avviare la funzione avviando l'host di runtime locale di Funzioni di Azure nella cartella *start* :
 
     ```
     func start
@@ -185,7 +185,7 @@ L'installazione può richiedere alcuni minuti, durante i quali è possibile proc
 
 ## <a name="update-the-function-to-run-predictions"></a>Aggiornare la funzione per generare previsioni
 
-1. Aprire *classify/\_\_init\_\_.py* in un editor di testo e aggiungere le righe seguenti dopo le istruzioni `import` esistenti per importare la libreria JSON standard e gli helper di *predict*:
+1. Aprire *classify/\_\_init\_\_.py* in un editor di testo e aggiungere le righe seguenti dopo le istruzioni `import` esistenti per importare la libreria JSON standard e gli helper di *predict* :
 
     :::code language="python" source="~/functions-pytorch/end/classify/__init__.py" range="1-6" highlight="5-6":::
 

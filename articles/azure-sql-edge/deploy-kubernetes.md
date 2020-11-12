@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 16ad757fc00439bb390a7e0dea902901c468dd1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31a454c93ad5192f387306a8ec557c4e4d3ae991
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929438"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395292"
 ---
 # <a name="deploy-an-azure-sql-edge-container-in-kubernetes"></a>Distribuire un contenitore di SQL Edge di Azure in Kubernetes
 
@@ -48,7 +48,7 @@ Nel diagramma seguente si è verificato un errore nel nodo che ospita il conteni
 * **Cluster Kubernetes**
    - L'esercitazione richiede un cluster Kubernetes. La procedura usa [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) per gestire il cluster. 
 
-   - Ai fini di questa esercitazione, per distribuire SQL Edge di Azure verrà usato il servizio Azure Kubernetes. Vedere [Distribuire un cluster del servizio Azure Kubernetes (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-deploy-cluster) per creare e connettersi a un cluster Kubernetes a nodo singolo nel servizio Azure Kubernetes con `kubectl`. 
+   - Ai fini di questa esercitazione, per distribuire SQL Edge di Azure verrà usato il servizio Azure Kubernetes. Vedere [Distribuire un cluster del servizio Azure Kubernetes (AKS)](../aks/tutorial-kubernetes-deploy-cluster.md) per creare e connettersi a un cluster Kubernetes a nodo singolo nel servizio Azure Kubernetes con `kubectl`. 
 
    >[!NOTE]
    >Per la protezione da errori del nodo, un cluster Kubernetes richiede più di un nodo.
@@ -108,7 +108,7 @@ Configurare un [volume persistente](https://kubernetes.io/docs/concepts/storage/
          storage: 8Gi
    ```
 
-   Salvare il file (ad esempio, **pvc.yaml**).
+   Salvare il file (ad esempio, **pvc.yaml** ).
 
 2. Creare la richiesta di volume persistente in Kubernetes.
 
@@ -318,8 +318,7 @@ In questa esercitazione si è appreso come distribuire contenitori di SQL Edge d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione a Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+- [Introduzione a Kubernetes](../aks/intro-kubernetes.md)
 - [Machine Learning e intelligenza artificiale con ONNX in SQL Edge](onnx-overview.md).
 - [Creazione di una soluzione IoT end-to-end con SQL Edge usando IoT Edge](tutorial-deploy-azure-resources.md).
 - [Streaming dei dati in SQL Edge di Azure](stream-data.md)
-

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 233af68e4109e53b6bd841f298e9c2728ca5b116
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: baae0f89165e292408150dd419c6de8dc41a320c
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313490"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335537"
 ---
 # <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Esercitazione: Integrare Abstract con Azure Active Directory
 
@@ -78,11 +78,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** l'applicazione è preconfigurata in modalità avviata da **IDP** e gli URL necessari sono già prepopolati con Azure. L'utente deve salvare la configurazione facendo clic sul pulsante **Salva**.
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
 
     Nella casella di testo **URL di accesso** digitare un URL: `https://app.abstract.com/signin`
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
+4. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
@@ -90,7 +90,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 Assicurarsi di recuperare `App Federation Metadata Url` e `Azure AD Identifier` dal portale di Azure, dal momento che saranno necessari per configurare l'accesso Single Sign-On in Abstract.
 
-Queste informazioni sono disponibili nella pagina **Configura l'accesso Single Sign-On con SAML**:
+Queste informazioni sono disponibili nella pagina **Configura l'accesso Single Sign-On con SAML** :
 
 * `App Federation Metadata Url` si trova nella sezione **Certificato di firma SAML**.
 * `Azure AD Identifier` si trova nella sezione **Configura Abstract**.
@@ -103,7 +103,7 @@ Ora è possibile configurare l'accesso Single Sign-On in Abstract:
 
 1. Aprire l'[app Web Abstract](https://app.abstract.com/).
 2. Passare alla pagina **Permissions** (Autorizzazioni) nella barra laterale a sinistra.
-3. Nella sezione **Configure SSO** (Configura accesso SSO) immettere l'**URL dei metadati** e l'**ID entità**.
+3. Nella sezione **Configure SSO** (Configura accesso SSO) immettere l' **URL dei metadati** e l' **ID entità**.
 4. Immettere tutte le eventuali eccezioni manuali. Gli indirizzi di posta elettronica elencati nella sezione delle eccezioni manuali ignoreranno l'accesso SSO e potranno eseguire l'accesso con l'indirizzo di posta elettronica e la password. 
 5. Fare clic su **Salva modifiche**.
 
@@ -114,7 +114,7 @@ Ora è possibile configurare l'accesso Single Sign-On in Abstract:
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -146,7 +146,7 @@ Per testare l'accesso SSO in Abstract:
 
 1. Aprire l'[app Web Abstract](https://app.abstract.com/).
 2. Passare alla pagina **Permissions** (Autorizzazioni) nella barra laterale a sinistra.
-3. Fare clic su **Test with my Account** (Esegui il test con l'account personale). Se il test non viene superato, [contattare il team di supporto](https://www.abstract.com/help/contact/).
+3. Fare clic su **Test with my Account** (Esegui il test con l'account personale). Se il test non viene superato, [contattare il team di supporto](https://help.abstract.com/hc/).
 
 >[!Note]
 >Sarà necessario eseguire l'autenticazione con un account di amministratore dell'organizzazione per accedere alle impostazioni di accesso Single Sign-On in Abstract.

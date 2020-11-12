@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: 33d1be493cba9fd9f01ecdbad10afb5330256aa0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 076adbfd4cecf7dae9ffc490e911fcb7ffce48e6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045347"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394833"
 ---
 # <a name="move-vms-to-another-azure-region"></a>Spostare le VM in un'altra area di Azure
 
@@ -68,7 +68,7 @@ In questa esercitazione verranno illustrate le procedure per:
 - Per le macchine virtuali Linux, seguire le indicazioni fornite dal distributore di Linux per ottenere i certificati radice trusted più recenti e l'elenco di revoche di certificati nella macchina virtuale.
 - Assicurarsi di non usare un proxy di autenticazione per controllare la connettività di rete per le VM da spostare.
 
-- Se la VM che si intende spostare non ha accesso a Internet o usa un proxy firewall per controllare l'accesso in uscita, [controllare i requisiti](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+- Se la VM che si intende spostare non ha accesso a Internet o usa un proxy firewall per controllare l'accesso in uscita, [controllare i requisiti](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 
 - Identificare il layout di rete di origine e tutte le risorse attualmente in uso, tra cui i servizi di bilanciamenti del carico, i gruppi di sicurezza di rete e gli indirizzi IP pubblici.
 
@@ -116,7 +116,7 @@ Site Recovery recupera un elenco delle macchine virtuali associate alla sottoscr
 1. Per questa esercitazione accettare le altre impostazioni predefinite.
 1. Selezionare **Abilita replica**. Questo passaggio avvia un processo per abilitare la replica per la VM.
 
-    ![Abilitare la replica](media/tutorial-migrate-azure-to-azure/settings.png)
+
 
 ## <a name="move"></a>Spostamento
 

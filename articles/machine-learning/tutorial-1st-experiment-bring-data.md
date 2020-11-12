@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 13d43eb788c750a2f24033a6138ebf00ac57fffe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 123e55202de8a33bca88afcfd1f0dc0c7edeae77
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372571"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320092"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Esercitazione: Usare i propri dati (parte 4 di 4)
 
@@ -202,7 +202,7 @@ datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=Tru
 Il valore `target_path` specifica il percorso dell'archivio dati in cui verranno caricati i dati CIFAR10.
 
 >[!TIP] 
-> Anche se si usa Azure Machine Learning per caricare i dati, è possibile usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per caricare file ad hoc. Se è necessario uno strumento di estrazione, trasformazione e caricamento, è possibile usare [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) per inserire i dati in Azure.
+> Anche se si usa Azure Machine Learning per caricare i dati, è possibile usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per caricare file ad hoc. Se è necessario uno strumento di estrazione, trasformazione e caricamento, è possibile usare [Azure Data Factory](../data-factory/introduction.md) per inserire i dati in Azure.
 
 Eseguire il file di Python per caricare i dati. il caricamento dovrebbe richiedere meno di 60 secondi.
 
@@ -271,7 +271,7 @@ Lo script di controllo è simile a quello della [terza parte di questa serie](tu
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      Un [set di dati](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) viene usato per fare riferimento ai dati caricati in archiviazione BLOB di Azure. I set di dati sono un livello di astrazione superiore a quello dei dati e sono progettati per migliorare l'affidabilità e l'attendibilità.
+      Un [set di dati](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) viene usato per fare riferimento ai dati caricati in archiviazione BLOB di Azure. I set di dati sono un livello di astrazione superiore a quello dei dati e sono progettati per migliorare l'affidabilità e l'attendibilità.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -279,7 +279,7 @@ Lo script di controllo è simile a quello della [terza parte di questa serie](tu
       `config = ScriptRunConfig(...)`
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) è stato modificato in modo da includere un elenco di argomenti che verranno passati in `train.py`. L'argomento `dataset.as_named_input('input').as_mount()` indica che la directory specificata verrà _montata_ nella destinazione di calcolo.
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) è stato modificato in modo da includere un elenco di argomenti che verranno passati in `train.py`. L'argomento `dataset.as_named_input('input').as_mount()` indica che la directory specificata verrà _montata_ nella destinazione di calcolo.
    :::column-end:::
 :::row-end:::
 

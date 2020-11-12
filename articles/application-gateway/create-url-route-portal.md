@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 02332e190def7770fa57977461d57766f3dee13a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 407bd5679c6afebf26c2e6b768e0f8513ac39123
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88205582"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397587"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Esercitazione: Creare un gateway applicazione con regole di routing basato su percorsi usando il portale di Azure
 
-È possibile usare il portale di Azure per configurare [regole di routing basato su percorsi URL](application-gateway-url-route-overview.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questa esercitazione si creano pool back-end usando macchine virtuali. Si creano quindi le regole di routing per garantire che il traffico Web raggiunga i server appropriati nei pool.
+È possibile usare il portale di Azure per configurare [regole di routing basato su percorsi URL](./url-route-overview.md) quando si crea un [gateway applicazione](./overview.md). In questa esercitazione si creano pool back-end usando macchine virtuali. Si creano quindi le regole di routing per garantire che il traffico Web raggiunga i server appropriati nei pool.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -45,11 +45,11 @@ In questo esempio vengono create tre macchine virtuali da usare come server back
 2. Selezionare **Windows Server 2016 Datacenter** nell'elenco Più comuni.
 3. Immettere i valori seguenti per la macchina virtuale:
 
-    - **Gruppo di risorse**, selezionare **Crea nuovo** e quindi digitare *myResourceGroupAG*.
-    - **Nome della macchina virtuale**: *myVM1*
-    - **Area**: *(Stati Uniti) Stati Uniti orientali*
-    - **Nome utente**: *azureuser*
-    - **Password**: *Azure123456!*
+    - **Gruppo di risorse** , selezionare **Crea nuovo** e quindi digitare *myResourceGroupAG*.
+    - **Nome della macchina virtuale** : *myVM1*
+    - **Area** : *(Stati Uniti) Stati Uniti orientali*
+    - **Nome utente** : *azureuser*
+    - **Password** : *Azure123456!*
 
 
 4. Selezionare **Next:Disks**.
@@ -66,8 +66,8 @@ In questo esempio vengono create tre macchine virtuali da usare come server back
 
 8. Assicurarsi che in **Interfaccia di rete** sia selezionato il valore **myBackendSubnet** per la subnet e quindi selezionare **Passaggio successivo: Gestione**.
 9. Selezionare **Disattivato** per disabilitare la diagnostica di avvio.
-10. Fare clic su **Rivedi e crea**, esaminare le impostazioni nella pagina di riepilogo e quindi selezionare **Crea**.
-11. Creare altre due macchine virtuali, *myVM2* e *myVM3*, e inserirle nella rete virtuale *MyVNet* e nella subnet *myBackendSubnet*.
+10. Fare clic su **Rivedi e crea** , esaminare le impostazioni nella pagina di riepilogo e quindi selezionare **Crea**.
+11. Creare altre due macchine virtuali, *myVM2* e *myVM3* , e inserirle nella rete virtuale *MyVNet* e nella subnet *myBackendSubnet*.
 
 ### <a name="install-iis"></a>Installare IIS
 
@@ -103,9 +103,9 @@ In questo esempio vengono create tre macchine virtuali da usare come server back
 
 1. Nella scheda **Informazioni di base** immettere questi valori per le impostazioni del gateway applicazione seguenti:
 
-   - **Gruppo di risorse**: selezionare **myResourceGroupAG** come gruppo di risorse.
-   - **Nome del gateway applicazione**: immettere *myAppGateway* come nome del gateway applicazione.
-   - **Area**: selezionare **(Stati Uniti) Stati Uniti orientali**.
+   - **Gruppo di risorse** : selezionare **myResourceGroupAG** come gruppo di risorse.
+   - **Nome del gateway applicazione** : immettere *myAppGateway* come nome del gateway applicazione.
+   - **Area** : selezionare **(Stati Uniti) Stati Uniti orientali**.
 
         ![Creare il nuovo gateway applicazione: Nozioni di base](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
@@ -131,8 +131,8 @@ Il pool back-end viene usato per instradare le richieste ai server back-end che 
 
 2. Nella finestra **Aggiungi un pool back-end** visualizzata immettere i valori seguenti per creare un pool back-end vuoto:
 
-    - **Name**: immettere *myBackendPool* come nome del pool back-end.
-3. In **Destinazioni back-end**, **Tipo di destinazione** selezionare **Macchina virtuale** dall'elenco a discesa.
+    - **Name** : immettere *myBackendPool* come nome del pool back-end.
+3. In **Destinazioni back-end** , **Tipo di destinazione** selezionare **Macchina virtuale** dall'elenco a discesa.
 
 5. In **Destinazione** selezionare l'interfaccia di rete per **myVM1**.
 6. Selezionare **Aggiungi**.
@@ -151,11 +151,11 @@ Nella scheda **Configurazione** verranno connessi il front-end e il pool back-en
 
 3. Una regola di routing richiede un listener. Nella scheda **Listener** nella finestra **Aggiungi una regola di routing** immettere i valori seguenti per il listener:
 
-    - **Nome listener**: immettere *myListener* per il nome del listener.
-    - **IP front-end**: selezionare **Pubblico** per scegliere l'indirizzo IP pubblico creato per il front-end.
-    - **Porta**: Tipo *8080*
+    - **Nome listener** : immettere *myListener* per il nome del listener.
+    - **IP front-end** : selezionare **Pubblico** per scegliere l'indirizzo IP pubblico creato per il front-end.
+    - **Porta** : Tipo *8080*
   
-        Accettare i valori predefiniti per le altre impostazioni nella scheda **Listener**, quindi selezionare la scheda **Destinazioni back-end** per configurare il resto della regola di routing.
+        Accettare i valori predefiniti per le altre impostazioni nella scheda **Listener** , quindi selezionare la scheda **Destinazioni back-end** per configurare il resto della regola di routing.
 
 4. Nella scheda **Destinazioni back-end** selezionare **myBackendPool** per **Destinazione back-end**.
 
@@ -192,13 +192,13 @@ Rivedere le impostazioni nella scheda **Rivedi e crea** e quindi selezionare **C
 
    Il listener sulla porta 8080 instrada questa richiesta al pool back-end predefinito.
 
-3. Cambiare l'URL in *http://&lt;ip-address&gt;:8080/images/test.htm*, sostituendo &lt;ip-address&gt; con il proprio indirizzo IP. Dovrebbe visualizzarsi una schermata simile alla seguente:
+3. Cambiare l'URL in *http://&lt;ip-address&gt;:8080/images/test.htm* , sostituendo &lt;ip-address&gt; con il proprio indirizzo IP. Dovrebbe visualizzarsi una schermata simile alla seguente:
 
     ![Testare l'URL delle immagini nel gateway applicazione](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
    Il listener sulla porta 8080 instrada questa richiesta al pool back-end *Images*.
 
-4. Cambiare l'URL in *http://&lt;ip-address&gt;:8080/video/test.htm*, sostituendo &lt;ip-address&gt; con il proprio indirizzo IP. Dovrebbe visualizzarsi una schermata simile alla seguente:
+4. Cambiare l'URL in *http://&lt;ip-address&gt;:8080/video/test.htm* , sostituendo &lt;ip-address&gt; con il proprio indirizzo IP. Dovrebbe visualizzarsi una schermata simile alla seguente:
 
     ![Testare l'URL video nel gateway applicazione](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
@@ -211,4 +211,4 @@ Quando non sono più necessari, eliminare il gruppo di risorse e tutte le risors
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Abilitare TLS end-to-end nel gateway applicazione di Azure](application-gateway-backend-ssl.md)
+> [Abilitare TLS end-to-end nel gateway applicazione di Azure](./ssl-overview.md)

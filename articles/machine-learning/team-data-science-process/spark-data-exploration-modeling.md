@@ -11,18 +11,18 @@ ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 406092466b7ab5ca729a08f7c703bcb30812901d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7a361319c3fc6c80c6dac80c48fb10155a3ff5b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027512"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314838"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Modellazione ed esplorazione dei dati con Spark
 
 Informazioni su come usare HDInsight Spark per eseguire il training dei modelli di Machine Learning per stimare le tariffe dei taxi con Spark MLlib.
 
-Questo esempio illustra i diversi passaggi del [processo di Data Science per i team](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). Per caricare, esplorare e preparare i dati, viene usato un subset del set di dati relativo alle tariffe e alle corse dei taxi di NYC nel 2013. Usando quindi Spark MLlib, viene eseguito il training dei modelli di classificazione e regressione binari per stimare se verrà lasciata una mancia per la corsa e stimarne l'importo.
+Questo esempio illustra i diversi passaggi del [processo di Data Science per i team](./index.yml). Per caricare, esplorare e preparare i dati, viene usato un subset del set di dati relativo alle tariffe e alle corse dei taxi di NYC nel 2013. Usando quindi Spark MLlib, viene eseguito il training dei modelli di classificazione e regressione binari per stimare se verrà lasciata una mancia per la corsa e stimarne l'importo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -91,7 +91,7 @@ I kernel PySpark forniti con i notebook di Jupyter hanno un contesto preimpostat
 
 Il kernel PySpark offre alcuni “magic” predefiniti, ovvero comandi speciali che è possibile chiamare con %%. Negli esempi di codice seguenti sono usati due comandi di questo tipo.
 
-* **%%local**: specifica che il codice presente nelle righe successive deve essere eseguito localmente. Deve trattarsi di codice Python valido.
+* **%%local** : specifica che il codice presente nelle righe successive deve essere eseguito localmente. Deve trattarsi di codice Python valido.
 * **%%sql -o \<variable name>** : esegue una query Hive su sqlContext. Se viene passato il parametro -o, il risultato della query viene salvato in modo permanente nel contesto Python %%local come frame di dati Pandas.
 
 Per altre informazioni sui kernel per i notebook di Jupyter e i comandi "magic" predefiniti, vedere [Kernel disponibili per i notebook di Jupyter con cluster Apache Spark in HDInsight Linux](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
@@ -340,7 +340,7 @@ taxi_df_train_with_newFeatures.count()
 
 Questa sezione illustra come indicizzare o codificare le funzionalità categoriche per l'inserimento nelle funzioni di modellazione. Per poter usare le funzioni di modellazione e previsione di MLlib, è necessario prima indicizzare o codificare le funzionalità con dati di input categorici. A seconda del modello, è necessario indicizzare o codificare tali funzioni in modi diversi:  
 
-* **Modelli basati su albero**: richiedono la codifica delle categorie come valori numerici (ad esempio, una funzionalità con tre categorie può essere codificata con 0, 1, 2). Questo algoritmo viene fornito dalla funzione [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) di MLlib, che codifica una colonna stringa di etichette in una colonna di indici etichetta ordinati in base alle frequenze di etichetta. Anche se viene usata l'indicizzazione con valori numerici per l'input e la gestione dei dati, è possibile specificare gli algoritmi basati su albero affinché trattino questi elementi in modo appropriato come categorie. 
+* **Modelli basati su albero** : richiedono la codifica delle categorie come valori numerici (ad esempio, una funzionalità con tre categorie può essere codificata con 0, 1, 2). Questo algoritmo viene fornito dalla funzione [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) di MLlib, che codifica una colonna stringa di etichette in una colonna di indici etichetta ordinati in base alle frequenze di etichetta. Anche se viene usata l'indicizzazione con valori numerici per l'input e la gestione dei dati, è possibile specificare gli algoritmi basati su albero affinché trattino questi elementi in modo appropriato come categorie. 
 * I **modelli logistici e di regressione lineare** richiedono la codifica one-hot in cui, ad esempio, una funzionalità con tre categorie può essere espansa in tre colonne delle funzionalità, in cui ogni colonna contiene 0 o 1, a seconda della categoria di un'osservazione. Per eseguire la codifica one-hot in MLlib è disponibile la funzione [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder). Questo codificatore esegue il mapping di una colonna di indici etichetta a una colonna di vettori binari, con al massimo un singolo valore unico. Questa codifica permette di applicare a funzionalità categoriche gli algoritmi che prevedono funzionalità con valori numerici, ad esempio la regressione logistica.
 
 Di seguito è riportato il codice per l'indicizzazione e la codifica delle funzionalità categoriche:
@@ -697,7 +697,7 @@ Tempo impiegato per eseguire questa cella: 57,61 secondi
 
 **Tracciare la curva ROC.**
 
-L'oggetto *predictionAndLabelsDF* viene registrato come tabella, *tmp_results*, nella cella precedente. L'oggetto *tmp_results* può essere usato per eseguire query e restituire i risultati nel frame di dati sqlResults per il tracciamento. Ecco il codice.
+L'oggetto *predictionAndLabelsDF* viene registrato come tabella, *tmp_results* , nella cella precedente. L'oggetto *tmp_results* può essere usato per eseguire query e restituire i risultati nel frame di dati sqlResults per il tracciamento. Ecco il codice.
 
 ```python
 # QUERY RESULTS                              

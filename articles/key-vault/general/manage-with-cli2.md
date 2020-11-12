@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dc60d2b6cef8ad19526c5ec243ae1c43529954a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb7e047d998342125a52af5ea3ae1e88fe88d313
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504535"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289894"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gestire Key Vault tramite l'interfaccia della riga di comando di Azure 
 
@@ -120,7 +120,7 @@ az provider register -n Microsoft.KeyVault
 
 Usare il comando `az keyvault create` per creare un insieme di credenziali delle chiavi. Questo script ha tre parametri obbligatori: un nome del gruppo di risorse, un nome dell'insieme di credenziali delle chiavi e la località geografica.
 
-Per creare un nuovo insieme di credenziali con il nome **ContosoKeyVault**, nel gruppo di risorse **ContosoResourceGroup**, che si trova nella località **Asia orientale**, digitare: 
+Per creare un nuovo insieme di credenziali con il nome **ContosoKeyVault** , nel gruppo di risorse **ContosoResourceGroup** , che si trova nella località **Asia orientale** , digitare: 
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
@@ -128,8 +128,8 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 L'output di questo comando mostra le proprietà dell'insieme di credenziali delle chiavi creato. Le due proprietà più importanti sono:
 
-* **name**: nell'esempio il nome è ContosoKeyVault. Questo nome verrà usato per altri comandi di Key Vault.
-* **vaultUri**: nell'esempio l'URI è https://contosokeyvault.vault.azure.net. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
+* **name** : nell'esempio il nome è ContosoKeyVault. Questo nome verrà usato per altri comandi di Key Vault.
+* **vaultUri** : nell'esempio l'URI è https://contosokeyvault.vault.azure.net. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
 
 L'account Azure ora è autorizzato a eseguire qualsiasi operazione su questo insieme di credenziali delle chiavi. Per ora, nessun altro è autorizzato.
 
@@ -189,12 +189,12 @@ Questo passaggio di solito viene eseguito da uno sviluppatore, su un computer se
 
 Le applicazioni che usano un insieme di credenziali delle chiavi devono eseguire l'autenticazione con un token di Azure Active Directory.  Il proprietario dell'applicazione deve registrarla prima in Azure Active Directory. Al termine della registrazione, il proprietario dell'applicazione ottiene i valori seguenti:
 
-- **ID applicazione**, detto anche ID client AAD o ID app
-- **Chiave di autenticazione**, detta anche segreto condiviso 
+- **ID applicazione** , detto anche ID client AAD o ID app
+- **Chiave di autenticazione** , detta anche segreto condiviso 
 
 L'applicazione deve presentare entrambi questi valori ad Azure Active Directory, per ottenere un token. Il modo in cui un'applicazione viene configurata per ottenere un token dipenderà dall'applicazione. Per l'[applicazione di esempio per l'insieme di credenziali delle chiavi](https://www.microsoft.com/download/details.aspx?id=45343), il proprietario dell'applicazione imposta questi valori nel file app.config.
 
-Per la procedura dettagliata per registrare un'applicazione in Azure Active Directory, vedere gli articoli [Integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/active-directory-integrating-applications.md), [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](../../active-directory/develop/howto-create-service-principal-portal.md) e [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
+Per la procedura dettagliata per registrare un'applicazione in Azure Active Directory, vedere gli articoli [Integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/quickstart-register-app.md), [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](../../active-directory/develop/howto-create-service-principal-portal.md) e [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Per registrare un'applicazione in Azure Active Directory:
 

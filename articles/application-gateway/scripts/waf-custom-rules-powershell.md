@@ -7,16 +7,16 @@ ms.topic: sample
 ms.date: 6/7/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8bf19052c11301412a299c31a2cd73ed2f9ffc7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 312f052671036d8153dd19fcf4e559e825fd8464
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079898"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396992"
 ---
 # <a name="create-web-application-firewall-waf-custom-rules-with-azure-powershell"></a>Creare regole personalizzate di web application firewall (WAF) con Azure PowerShell
 
-Questo script crea un web application firewall del gateway applicazione che usa regole personalizzate. La regola personalizzata blocca il traffico se l'intestazione della richiesta contiene l'*evilbot* User-Agent.
+Questo script crea un web application firewall del gateway applicazione che usa regole personalizzate. La regola personalizzata blocca il traffico se l'intestazione della richiesta contiene l' *evilbot* User-Agent.
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -70,6 +70,6 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulle regole personalizzate di WAF, vedere [Regole personalizzate per il web application firewall](../custom-waf-rules-overview.md)
+- Per altre informazioni sulle regole personalizzate di WAF, vedere [Regole personalizzate per il web application firewall](../../web-application-firewall/ag/custom-waf-rules-overview.md)
 - Per altre informazioni sul modulo Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/).
 - Altri esempi di script di PowerShell per il gateway applicazione sono reperibili nella [documentazione sul gateway applicazione di Azure](../powershell-samples.md).

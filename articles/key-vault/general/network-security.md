@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c375defe5fd8356d64879a65d6f09f40ea30271d
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d1b1c27fe0136220d5a1851af4a5c24102a37da1
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042474"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288631"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurare reti virtuali e firewall di Azure Key Vault
 
@@ -27,13 +27,13 @@ Questa sezione descrive i vari modi in cui è possibile configurare il firewall 
 
 ### <a name="key-vault-firewall-disabled-default"></a>Firewall Key Vault disabilitato (impostazione predefinita)
 
-Per impostazione predefinita, quando si crea un nuovo insieme di credenziali delle chiavi, il firewall di Azure Key Vault è disabilitato. Tutte le applicazioni e i servizi di Azure possono accedere e inviare richieste all'insieme di credenziali delle chiavi. Si noti che questa configurazione non significa che qualsiasi utente sarà in grado di eseguire operazioni nell'insieme di credenziali delle chiavi. L'insieme di credenziali delle chiavi applica comunque restrizioni su segreti, chiavi e certificati archiviati al suo interno richiedendo l'autenticazione di Azure Active Directory e le autorizzazioni dei criteri di accesso. Per capire in maggior dettaglio l'autenticazione dell'insieme di credenziali delle chiavi, vedere il documento di informazioni di base [qui](https://docs.microsoft.com/azure/key-vault/general/authentication-fundamentals).
+Per impostazione predefinita, quando si crea un nuovo insieme di credenziali delle chiavi, il firewall di Azure Key Vault è disabilitato. Tutte le applicazioni e i servizi di Azure possono accedere e inviare richieste all'insieme di credenziali delle chiavi. Si noti che questa configurazione non significa che qualsiasi utente sarà in grado di eseguire operazioni nell'insieme di credenziali delle chiavi. L'insieme di credenziali delle chiavi applica comunque restrizioni su segreti, chiavi e certificati archiviati al suo interno richiedendo l'autenticazione di Azure Active Directory e le autorizzazioni dei criteri di accesso. Per capire in maggior dettaglio l'autenticazione dell'insieme di credenziali delle chiavi, vedere il documento di informazioni di base [qui](./authentication-fundamentals.md).
 
 ### <a name="key-vault-firewall-enabled-trusted-services-only"></a>Firewall di Key Vault abilitato (solo servizi attendibili)
 
 Quando si abilita il firewall di Key Vault, viene offerta l'opzione 'Consentire ai servizi Microsoft attendibili di ignorare il firewall?' L'elenco dei servizi attendibili non copre ogni singolo servizio di Azure. Ad esempio, Azure DevOps non è presente nell'elenco dei servizi attendibili. **Ciò non implica che i servizi non inclusi nell'elenco non siano considerati attendibili o sicuri.** L'elenco di servizi attendibili include i servizi per cui Microsoft controlla tutto il codice eseguito al loro interno. Poiché gli utenti possono scrivere codice personalizzato nei servizi di Azure, ad esempio Azure DevOps, Microsoft non offre la possibilità di creare un'approvazione generale per il servizio. Inoltre, il semplice fatto che un servizio sia incluso nell'elenco di servizi attendibili non significa che sia consentito per tutti gli scenari.
 
-Per determinare se un servizio che si prova a usare è incluso nell'elenco di servizi attendibili, vedere [questo documento](https://docs.microsoft.com/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services).
+Per determinare se un servizio che si prova a usare è incluso nell'elenco di servizi attendibili, vedere [questo documento](./overview-vnet-service-endpoints.md#trusted-services).
 
 ### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Firewall di Key Vault abilitato (indirizzi e intervalli IPv4 - IP statici)
 
@@ -63,7 +63,7 @@ In questo caso, è necessario creare la risorsa all'interno di una rete virtuale
 
 ### <a name="key-vault-firewall-enabled-private-link"></a>Firewall di Key Vault abilitato (collegamento privato)
 
-Per informazioni su come configurare una connessione di collegamento privato nell'insieme di credenziali delle chiavi, vedere il documento [qui](https://docs.microsoft.com/azure/key-vault/general/private-link-service).
+Per informazioni su come configurare una connessione di collegamento privato nell'insieme di credenziali delle chiavi, vedere il documento [qui](./private-link-service.md).
 
 > [!IMPORTANT]
 > Quando le regole del firewall sono operative, gli utenti possono eseguire le operazioni del [piano dati](secure-your-key-vault.md#data-plane-access-control) Key Vault solo se le loro richieste hanno origine da reti virtuali o intervalli di indirizzi IPv4 consentiti. Questo vale anche per l'accesso a Key Vault dal portale di Azure. Benché gli utenti possano accedere a un insieme di credenziali delle chiavi dal portale di Azure, potrebbero non essere in grado di elencare chiavi, segreti o certificati se il computer client in uso non è presente nell'elenco dei computer consentiti. Ciò influisce anche sul selettore dell'insieme di credenziali delle chiavi di altri servizi di Azure. Se le regole del firewall bloccano i computer client, gli utenti potrebbero essere in grado di visualizzare l'elenco degli insiemi di credenziali delle chiavi ma non di elencare le chiavi.
@@ -84,7 +84,7 @@ Di seguito viene illustrato come configurare firewall e reti virtuali di Key Vau
 4. Per aggiungere reti virtuali esistenti ai firewall e alle regole di rete virtuale, selezionare **+ Aggiungi reti virtuali esistenti**.
 5. Nel nuovo pannello che si apre selezionare la sottoscrizione, le reti virtuali e le subnet a cui consentire l'accesso all'insieme di credenziali delle chiavi. Se per le reti virtuali e le subnet selezionate non sono abilitati endpoint di servizio, confermare di voler abilitare gli endpoint di servizio e selezionare **Abilita**. La modifica può richiedere fino a 15 minuti per diventare operativa.
 6. In **Reti IP** aggiungere intervalli di indirizzi IPv4 digitando gli intervalli di indirizzi IPv4 in [notazione CIDR (Classless Inter-domain Routing)](https://tools.ietf.org/html/rfc4632) o i singoli indirizzi IP.
-7. Se si vuole consentire ai servizi Microsoft attendibili di ignorare il firewall di Key Vault, selezionare 'Sì'. Per un elenco completo dei servizi attendibili di Key Vault correnti, vedere il collegamento seguente. [Servizi attendibili di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)
+7. Se si vuole consentire ai servizi Microsoft attendibili di ignorare il firewall di Key Vault, selezionare 'Sì'. Per un elenco completo dei servizi attendibili di Key Vault correnti, vedere il collegamento seguente. [Servizi attendibili di Azure Key Vault](./overview-vnet-service-endpoints.md#trusted-services)
 7. Selezionare **Salva**.
 
 È anche possibile aggiungere nuove reti virtuali e subnet e poi abilitare gli endpoint di servizio per le reti virtuali e le subnet appena create selezionando **+ Aggiungi nuova rete virtuale**. Seguire quindi le istruzioni.
@@ -93,7 +93,7 @@ Di seguito viene illustrato come configurare firewall e reti virtuali di Key Vau
 
 Di seguito viene illustrato come configurare firewall e reti virtuali di Key Vault usando l'interfaccia della riga di comando di Azure
 
-1. [Installare l'interfaccia della riga di comando di Azure ](https://docs.microsoft.com/cli/azure/install-azure-cli) e [accedere](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+1. [Installare l'interfaccia della riga di comando di Azure ](/cli/azure/install-azure-cli) e [accedere](/cli/azure/authenticate-azure-cli).
 
 2. Indicare le regole di rete virtuale disponibili. Se non è stata impostata alcuna regola per questo insieme di credenziali delle chiavi, l'elenco sarà vuoto.
    ```azurecli
@@ -132,7 +132,7 @@ Di seguito viene illustrato come configurare firewall e reti virtuali di Key Vau
 
 Di seguito viene illustrato come configurare firewall e reti virtuali di Key Vault usando PowerShell:
 
-1. Installare la versione più aggiornata di [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) ed [effettuare l'accesso](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Installare la versione più aggiornata di [Azure PowerShell](/powershell/azure/install-az-ps) ed [effettuare l'accesso](/powershell/azure/authenticate-azureps).
 
 2. Indicare le regole di rete virtuale disponibili. Se non è stata impostata alcuna regola per questo insieme di credenziali delle chiavi, l'elenco sarà vuoto.
    ```powershell
@@ -166,9 +166,9 @@ Di seguito viene illustrato come configurare firewall e reti virtuali di Key Vau
    ```
 
 ## <a name="references"></a>Riferimenti
-* Informazioni di riferimento sui modelli di Azure Resource Manager: [Informazioni di riferimento sui modelli di Azure Resource Manager per Azure Key Vault](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/vaults)
-* Comandi dell'interfaccia della riga di comando di Azure: [az keyvault network-rule](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
-* Cmdlet di Azure PowerShell: [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
+* Informazioni di riferimento sui modelli di Azure Resource Manager: [Informazioni di riferimento sui modelli di Azure Resource Manager per Azure Key Vault](/azure/templates/Microsoft.KeyVault/vaults)
+* Comandi dell'interfaccia della riga di comando di Azure: [az keyvault network-rule](/cli/azure/keyvault/network-rule?view=azure-cli-latest)
+* Cmdlet di Azure PowerShell: [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

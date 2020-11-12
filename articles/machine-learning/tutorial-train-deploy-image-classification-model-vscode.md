@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: a13bec5fa557bed1b9ce84836588e6a3e501ddf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98ca0f1e82b81c8aad53938a5475f1ece68c0e33
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906697"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321563"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Eseguire il training e distribuire un modello di classificazione delle immagini TensorFlow usando l'estensione Azure Machine Learning per Visual Studio Code (anteprima)
 
@@ -97,7 +97,7 @@ Per creare una destinazione di calcolo:
     > ![Creare una destinazione di calcolo](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
 
 1. Selezionare **Ambiente di calcolo di Azure Machine Learning (AmlCompute)** . L'ambiente di calcolo di Azure Machine Learning è un'infrastruttura di calcolo gestito che consente all'utente di creare facilmente un ambiente di calcolo a uno o più nodi che può essere usato insieme ad altri utenti nell'area di lavoro.
-1. Scegliere le dimensioni per la macchina virtuale. Selezionare **Standard_F2s_v2** dall'elenco di opzioni. Le dimensioni della macchina virtuale hanno un effetto sulla quantità di tempo necessaria per il training dei modelli. Per altre informazioni sulle dimensioni di macchina virtuale, vedere [Dimensioni delle macchine virtuali Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+1. Scegliere le dimensioni per la macchina virtuale. Selezionare **Standard_F2s_v2** dall'elenco di opzioni. Le dimensioni della macchina virtuale hanno un effetto sulla quantità di tempo necessaria per il training dei modelli. Per altre informazioni sulle dimensioni di macchina virtuale, vedere [Dimensioni delle macchine virtuali Linux in Azure](../virtual-machines/sizes.md).
 1. Assegnare il nome "TeamWkspc-com" al nodo di calcolo e premere **INVIO** per creare la risorsa di calcolo.
 
     In VS Code viene visualizzato un file con un contenuto simile a quello riportato di seguito:
@@ -414,4 +414,3 @@ A questo punto, viene inviata una richiesta ad Azure per distribuire il servizio
 
 * Per una procedura dettagliata su come eseguire il training con Azure Machine Learning all'esterno di Visual Studio Code, vedere [Esercitazione: Eseguire il training di modelli con Azure Machine Learning](tutorial-train-models-with-aml.md).
 * Per una procedura dettagliata su come modificare, eseguire il codice ed eseguire il debug in locale, vedere l'[esercitazione Hello World in Python](https://code.visualstudio.com/docs/Python/Python-tutorial).
-

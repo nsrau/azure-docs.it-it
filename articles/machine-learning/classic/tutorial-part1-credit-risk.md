@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6947c567ee2ffd70fdb3a1dfc17a641f63124ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 946435175ea5cd366103bc1254bae0d9afe0926e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91338419"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325803"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Esercitazione 1: Prevedere il rischio di credito - Azure Machine Learning Studio (versione classica)
 
-**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
@@ -75,7 +75,7 @@ Per sviluppare un modello predittivo per il rischio di credito, sono necessari d
 
 Verrà usato il file denominato **german.data**. Scaricare questo file nel disco rigido locale.  
 
-Il set di dati **german.data** contiene le righe di 20 variabili per 1000 clienti che in passato hanno fatto richiesta di un credito. Queste 20 variabili rappresentano l'insieme di funzionalità del set di dati (*vettore delle funzionalità*) che fornisce le caratteristiche di identificazione di ogni richiedente credito. Una colonna aggiuntiva in ogni riga rappresenta il rischio di credito calcolato del richiedente. In questa colonna 700 richiedenti sono identificati come a basso rischio e 300 ad alto rischio.
+Il set di dati **german.data** contiene le righe di 20 variabili per 1000 clienti che in passato hanno fatto richiesta di un credito. Queste 20 variabili rappresentano l'insieme di funzionalità del set di dati ( *vettore delle funzionalità* ) che fornisce le caratteristiche di identificazione di ogni richiedente credito. Una colonna aggiuntiva in ogni riga rappresenta il rischio di credito calcolato del richiedente. In questa colonna 700 richiedenti sono identificati come a basso rischio e 300 ad alto rischio.
 
 Il sito Web UCI presenta una descrizione degli attributi del vettore delle funzionalità per i dati. Questi dati includono informazioni finanziarie, cronologia del credito, stato di occupazione e dati personali. Per ogni richiedente è stata assegnata una valutazione in formato binario per indicare se è a basso o ad alto rischio. 
 
@@ -119,7 +119,7 @@ Dopo aver convertito i dati in formato CSV è necessario caricarli in Machine Le
 
 1. Aprire la home page di Machine Learning Studio (versione classica) ([https://studio.azureml.net](https://studio.azureml.net)). 
 
-2. Fare clic sul menu ![Menu](./media/tutorial-part1-credit-risk/menu.png) nell'angolo superiore sinistro della finestra, fare clic su **Azure Machine Learning**, selezionare **Studio** ed eseguire l'accesso.
+2. Fare clic sul menu ![Menu](./media/tutorial-part1-credit-risk/menu.png) nell'angolo superiore sinistro della finestra, fare clic su **Azure Machine Learning** , selezionare **Studio** ed eseguire l'accesso.
 
 3. Fare clic su **+NEW** nella parte inferiore della finestra.
 
@@ -154,7 +154,7 @@ Per altre informazioni sull'importazione di altri tipi di dati in un esperimento
 Il passaggio successivo di questa esercitazione consiste nel creare un esperimento in Machine Learning Studio (versione classica) che usi il set di dati che è stato caricato.  
 
 1. In Studio (versione classica) fare clic su **+NEW** (Nuovo) nella parte inferiore della finestra.
-1. Selezionare **EXPERIMENT**e quindi selezionare "Blank Experiment". 
+1. Selezionare **EXPERIMENT** e quindi selezionare "Blank Experiment". 
 
     ![Creare un nuovo esperimento](./media/tutorial-part1-credit-risk/create-new-experiment.png)
 
@@ -179,7 +179,7 @@ Il passaggio successivo di questa esercitazione consiste nel creare un esperimen
 
 È possibile visualizzare le prime 100 righe di dati e alcune informazioni statistiche per l'intero set di dati: fare clic sulla porta di output del set di dati (il circoletto in basso) e selezionare **Visualize** (Visualizza).  
 
-Poiché il file di dati non presentava intestazioni di colonna, Studio (versione classica) ha assegnato intestazioni generiche (Col1, Col2, *e così via*). Anche se per la creazione di un modello non sono indispensabili intestazioni di colonna precise, queste semplificano l'uso dei dati nell'esperimento. Quando il modello verrà pubblicato in un servizio Web, le intestazioni aiuteranno gli utenti del servizio a identificare le varie colonne.  
+Poiché il file di dati non presentava intestazioni di colonna, Studio (versione classica) ha assegnato intestazioni generiche (Col1, Col2, *e così via* ). Anche se per la creazione di un modello non sono indispensabili intestazioni di colonna precise, queste semplificano l'uso dei dati nell'esperimento. Quando il modello verrà pubblicato in un servizio Web, le intestazioni aiuteranno gli utenti del servizio a identificare le varie colonne.  
 
 È possibile aggiungere intestazioni di colonna usando il modulo [Edit Metadata][edit-metadata] (Modifica metadati).
 
@@ -313,6 +313,6 @@ A questo punto si è pronti per il training e la valutazione dei modelli per que
 > [Esercitazione 2 - Eseguire il training e la valutazione dei modelli](tutorial-part2-credit-risk-train.md)
 
 <!-- Module References -->
-[execute-r-script]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script
-[edit-metadata]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/edit-metadata
-[split]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/split-data
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[split]: /azure/machine-learning/studio-module-reference/split-data

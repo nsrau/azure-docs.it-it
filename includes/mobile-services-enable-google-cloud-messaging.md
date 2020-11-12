@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: a7d0a899b4a2ef86153e82a4e3f04e7ec430a1bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b32ff0926aa2b797bdb8dfcbb01cf845080a0ce9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67180739"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376147"
 ---
 1. Passare a [Google Cloud Console](https://console.developers.google.com/cloud-resource-manager)ed eseguire l'accesso con le credenziali dell'account Google. 
 2. Selezionare **Crea progetto** sulla barra degli strumenti. 
@@ -43,7 +43,7 @@ ms.locfileid: "67180739"
     ![Pulsante Create credentials (Crea credenziali)](./media/mobile-services-enable-google-cloud-messaging/create-credentials-button.png)
 11. Nella pagina **Add credentials to your project** (Aggiungi credenziali al progetto) selezionare il collegamento **API key** (Chiave API). 
 
-    ![Pulsante Create credentials (Crea credenziali)](./media/mobile-services-enable-google-cloud-messaging/api-key-button.png)    
+    ![Aggiungere le credenziali](./media/mobile-services-enable-google-cloud-messaging/api-key-button.png)    
 12. Nella pagina **API key** (Chiave API) selezionare **Create/Save** (Crea/Salva). Nell'esempio seguente è selezionata l'opzione **IP addresses** (Indirizzi IP) e si immette **0.0.0.0/0** per gli indirizzi IP consentiti. È consigliabile limitare la chiave API in modo appropriato. 
 
     ![Chiave API - Pulsante Create (Crea)](./media/mobile-services-enable-google-cloud-messaging/api-key-create-button.png)

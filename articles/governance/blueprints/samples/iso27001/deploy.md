@@ -1,14 +1,14 @@
 ---
 title: Distribuire l'esempio di progetto ISO 27001
 description: Procedura di distribuzione per l'esempio di progetto ISO 27001 autonomo, inclusi i dettagli dei parametri dell'artefatto del progetto.
-ms.date: 07/13/2020
+ms.date: 11/02/2020
 ms.topic: sample
-ms.openlocfilehash: 6580c4f8bc66238ad45fe3d969caa7a4b3b4ce82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75403710ecbfb0cc7046804b45c2da042531e98b
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006807"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420285"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>Distribuire l'esempio di progetto ISO 27001
 
@@ -33,8 +33,8 @@ Prima di tutto, implementare l'esempio di progetto creando un nuovo progetto nel
 
 1. Immettere le _informazioni di base_ dell'esempio di progetto:
 
-   - **Nome progetto**: specificare un nome per la copia dell'esempio di progetto ISO 27001.
-   - **Posizione della definizione**: usare i puntini di sospensione e selezionare il gruppo di gestione in cui salvare la copia dell'esempio.
+   - **Nome progetto** : specificare un nome per la copia dell'esempio di progetto ISO 27001.
+   - **Posizione della definizione** : usare i puntini di sospensione e selezionare il gruppo di gestione in cui salvare la copia dell'esempio.
 
 1. Selezionare la scheda _Artefatti_ nella parte superiore della pagina oppure **Avanti: Elementi** nella parte inferiore della pagina.
 
@@ -42,7 +42,7 @@ Prima di tutto, implementare l'esempio di progetto creando un nuovo progetto nel
 
 ## <a name="publish-the-sample-copy"></a>Pubblicare la copia dell'esempio
 
-La copia dell'esempio di progetto è stata creata nell'ambiente. Ma poiché è stata creata in modalità **Bozza**, è necessario **pubblicarla** per poterla assegnare e distribuire. La copia dell'esempio di progetto può essere personalizzata in base all'ambiente e alle esigenze, ma le modifiche potrebbero renderla non conforme allo standard ISO 27001.
+La copia dell'esempio di progetto è stata creata nell'ambiente. Ma poiché è stata creata in modalità **Bozza** , è necessario **pubblicarla** per poterla assegnare e distribuire. La copia dell'esempio di progetto può essere personalizzata in base all'ambiente e alle esigenze, ma le modifiche potrebbero renderla non conforme allo standard ISO 27001.
 
 1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
 
@@ -64,11 +64,11 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
    - Nozioni di base
 
-     - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ognuna usando i parametri immessi.
-     - **Nome dell'assegnazione**: il nome viene prepopolato in base al nome del progetto.
+     - **Sottoscrizioni** : selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ognuna usando i parametri immessi.
+     - **Nome dell'assegnazione** : il nome viene prepopolato in base al nome del progetto.
        Cambiarlo, se necessario, o lasciarlo inalterato.
-     - **Località**: selezionare un'area in cui creare l'identità gestita. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
-     - **Versione della definizione di progetto**: Scegliere una versione **pubblicata** della copia dell'esempio di progetto.
+     - **Località** : selezionare un'area in cui creare l'identità gestita. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
+     - **Versione della definizione di progetto** : Scegliere una versione **pubblicata** della copia dell'esempio di progetto.
 
    - Blocca assegnazione
 
@@ -82,7 +82,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
      I parametri definiti in questa sezione vengono usati da molti artefatti nella definizione del progetto per assicurare coerenza.
 
-     - **Località consentita per risorse e gruppi di risorse**: valore che indica le località consentite per gruppi di risorse e risorse.
+     - **Località consentita per risorse e gruppi di risorse** : valore che indica le località consentite per gruppi di risorse e risorse.
 
    - Parametri dell'elemento
 

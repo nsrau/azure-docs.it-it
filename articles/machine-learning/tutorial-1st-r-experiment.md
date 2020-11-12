@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 5eb392fdfc1ffdb6d7cfee64734cca32c9abcd33
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 0e94288b49cd57b59c126c95ca507477f1c56946
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913280"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321530"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Esercitazione: Usare R per creare un modello di Machine Learning (anteprima)
 
@@ -289,7 +289,7 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## <a name="deploy-as-a-web-service"></a>Distribuire come servizio Web
 
-Con il modello è possibile stimare il rischio di morte in seguito a una collisione. Usare Azure ML per distribuire il modello come servizio di stima. In questa esercitazione si distribuirà il servizio Web in [Istanze di Azure Container](https://docs.microsoft.com/azure/container-instances/) (ACI).
+Con il modello è possibile stimare il rischio di morte in seguito a una collisione. Usare Azure ML per distribuire il modello come servizio di stima. In questa esercitazione si distribuirà il servizio Web in [Istanze di Azure Container](../container-instances/index.yml) (ACI).
 
 ### <a name="register-the-model"></a>Registrare il modello
 

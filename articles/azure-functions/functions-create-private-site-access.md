@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 948e4f74763efd641bc0f089c679cdaf7c2f784e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c87fcf4f56b7092436fa16658a72ead24d9fec2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530069"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423029"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Esercitazione: Stabilire l'accesso privato al sito per Funzioni di Azure
 
@@ -90,7 +90,7 @@ Il primo passaggio di questa esercitazione consiste nel creare una nuova macchin
 1. Selezionare **OK** per creare la rete virtuale.
 1. Nella scheda _Rete_ assicurarsi che per **IP pubblico** sia selezionata l'opzione _Nessuno_.
 1. Scegliere la scheda _Gestione_ e quindi _Crea nuovo_ in **Account di archiviazione di diagnostica** per creare un nuovo account di archiviazione.
-1. Lasciare i valori predefiniti per le sezioni _Identità_, _Arresto automatico_ e _Backup_.
+1. Lasciare i valori predefiniti per le sezioni _Identità_ , _Arresto automatico_ e _Backup_.
 1. Selezionare _Rivedi e crea_. Al termine della convalida selezionare **Crea**. Il processo di creazione della VM richiederà alcuni minuti.
 
 ## <a name="configure-azure-bastion"></a>Configurare Azure Bastion
@@ -145,7 +145,7 @@ Il passaggio successivo consiste nel creare un'app per le funzioni in Azure usan
     | _Area_ | Stati Uniti centro-settentrionali | Scegliere un'[area](https://azure.microsoft.com/regions/) nelle vicinanze o vicino ad altri servizi a cui accedono le funzioni. |
 
     Fare clic sul pulsante **Avanti: Hosting >** .
-1. Nella sezione _Hosting_ selezionare le impostazioni corrette per _Account di archiviazione_, _Sistema operativo_ e _Piano_, come descritto nella tabella seguente.
+1. Nella sezione _Hosting_ selezionare le impostazioni corrette per _Account di archiviazione_ , _Sistema operativo_ e _Piano_ , come descritto nella tabella seguente.
 
     | Impostazione      | Valore consigliato  | Descrizione      |
     | ------------ | ---------------- | ---------------- |
@@ -165,8 +165,8 @@ L'[accesso privato al sito](functions-networking-options.md#private-site-access)
 1. La pagina _Rete_ è il punto di partenza per configurare Frontdoor di Azure, Rete CDN di Azure nonché le restrizioni di accesso.
 1. Selezionare **Configura restrizioni di accesso** per configurare l'accesso privato al sito.
 1. Nella pagina _Restrizioni di accesso_ risulta presente solo la restrizione predefinita. L'impostazione predefinita non prevede alcuna restrizione per l'accesso all'app per le funzioni.  Selezionare **Aggiungi regola** per creare la configurazione di una restrizione per l'accesso privato al sito.
-1. Nel riquadro _Aggiungi restrizione di accesso_ specificare un valore in _Nome_, _Priorità_ e _Descrizione_ per la nuova regola.
-1. Selezionare **Rete virtuale** nella casella a discesa _Tipo_, selezionare la rete virtuale creata in precedenza e quindi selezionare la subnet **Tutorial**. 
+1. Nel riquadro _Aggiungi restrizione di accesso_ specificare un valore in _Nome_ , _Priorità_ e _Descrizione_ per la nuova regola.
+1. Selezionare **Rete virtuale** nella casella a discesa _Tipo_ , selezionare la rete virtuale creata in precedenza e quindi selezionare la subnet **Tutorial**. 
     > [!NOTE]
     > L'abilitazione dell'endpoint servizio potrebbe richiedere alcuni minuti.
 1. Nella pagina _Restrizioni di accesso_ verrà ora visualizzata una nuova restrizione. Il passaggio da _Stato endpoint_ disabilitato a Provisioning abilitato può richiedere alcuni secondi.
@@ -197,7 +197,7 @@ Il passaggio successivo di questa esercitazione consiste nel creare una funzione
     * [Visual Studio Code](./functions-create-first-function-vs-code.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [Riga di comando](./functions-create-first-azure-function-azure-cli.md)
-    * [Maven (Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
+    * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 
 1. Quando si pubblica il progetto Funzioni di Azure, scegliere la risorsa app per le funzioni creata in precedenza in questa esercitazione.
 1. Verificare che la funzione sia stata distribuita.

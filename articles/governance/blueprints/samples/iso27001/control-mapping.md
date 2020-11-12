@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto ISO 27001
 description: Mapping dei controlli dell'esempio di progetto ISO 27001. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 6e72f8ca25939b1cad8b2a5dc5bd3fc5fc286027
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 04e9863cd52c272cf74e2656df207f4ced7b4286
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931955"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420234"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto ISO 27001
 
@@ -65,7 +65,6 @@ Questo progetto assegna tre definizioni di [Criteri di Azure](../../../policy/ov
 - L'autenticazione MFA deve essere abilitata negli account con autorizzazioni di lettura per la sottoscrizione
 - L'autenticazione MFA deve essere abilitata per gli account con autorizzazioni di scrittura per la sottoscrizione
 - Mostra i risultati del controllo dalle macchine virtuali Linux in cui le autorizzazioni per il file passwd non sono impostate su 0644
-- Distribuisci i prerequisiti per controllare le macchine virtuali Linux in cui le autorizzazioni per il file passwd non sono impostate su 0644
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Revisione dei diritti di accesso utente
 
@@ -100,11 +99,6 @@ Questo progetto consente di imporre password complesse assegnando 10 definizioni
 - Mostra i risultati del controllo dalle macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
 - Mostra i risultati del controllo dalle macchine virtuali Windows in cui la lunghezza minima della password non è limitata a 14 caratteri
 - Mostra i risultati del controllo dalle macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui la validità massima della password non è impostata su 70 giorni
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows che non limitano la lunghezza minima della password a 14 caratteri
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 Criteri sull'uso dei controlli crittografici
 
@@ -113,7 +107,6 @@ Questo progetto consente di applicare i criteri sull'uso dei controlli crittogra
 - L'app per le funzioni deve essere accessibile solo tramite HTTPS
 - L'applicazione Web deve essere accessibile solo tramite HTTPS
 - L'app per le API deve essere accessibile solo tramite HTTPS
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows che non archiviano le password usando la crittografia reversibile
 - Mostra i risultati del controllo dalle macchine virtuali Windows che non archiviano le password usando la crittografia reversibile
 - La crittografia del disco deve essere applicata nelle macchine virtuali
 - Le variabili dell'account di automazione devono essere crittografate
