@@ -2,13 +2,13 @@
 title: Nodi e pool in Azure Batch
 description: Informazioni sui nodi di calcolo, sui pool e sul modo in cui vengono usati in un flusso di lavoro di Azure Batch dal punto di vista dello sviluppo.
 ms.topic: conceptual
-ms.date: 10/21/2020
-ms.openlocfilehash: c85c50d0b30e30563390d2ffb05942f199047d67
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 11/10/2020
+ms.openlocfilehash: 77f3a1c954f5591537436c9ee747052b3a642ec4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913807"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537612"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodi e pool in Azure Batch
 
@@ -72,11 +72,11 @@ L' [agente del nodo batch](https://github.com/Azure/Batch/blob/master/changelogs
 
 ### <a name="cloud-services-configuration"></a>Configurazione di Servizi cloud
 
-La **configurazione di Servizi cloud** , specifica che il pool è composto da nodi di Servizi cloud di Azure. Servizi cloud fornisce *solo* nodi di calcolo di Windows.
+La **configurazione di Servizi cloud** , specifica che il pool è composto da nodi di Servizi cloud di Azure. Servizi cloud fornisce solo nodi di calcolo Windows.
 
-I sistemi operativi disponibili per i pool Configurazione servizi cloud sono elencati in [Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK](../cloud-services/cloud-services-guestos-update-matrix.md). Quando si crea un pool contenente nodi di Servizi cloud, è necessario specificare dimensioni dei nodi e *Famiglia del sistema operativo* (che stabilisce quali versioni di .NET sono state installate con il sistema operativo). La distribuzione di Servizi cloud in Azure è più veloce rispetto alle macchine virtuali che eseguono Windows. Se si vuole disporre di pool di nodi di calcolo di Windows, le prestazioni di Servizi cloud in termini di tempo di distribuzione potrebbero essere migliori.
+I sistemi operativi disponibili per i pool di configurazione dei servizi cloud sono elencati nelle [versioni del sistema operativo guest di Azure e nella matrice di compatibilità SDK](../cloud-services/cloud-services-guestos-update-matrix.md)e le dimensioni dei nodi di calcolo disponibili sono elencate in [dimensioni per i servizi cloud](../cloud-services/cloud-services-sizes-specs.md). Quando si crea un pool che contiene nodi di servizi cloud, si specificano le dimensioni del nodo e la rispettiva *famiglia del sistema operativo* (che determina le versioni di .NET installate con il sistema operativo). La distribuzione di Servizi cloud in Azure è più veloce rispetto alle macchine virtuali che eseguono Windows. Se si vuole disporre di pool di nodi di calcolo di Windows, le prestazioni di Servizi cloud in termini di tempo di distribuzione potrebbero essere migliori.
 
-Analogamente ai ruoli di lavoro nei servizi cloud, è possibile specificare una *Versione sistema operativo* . Per altre informazioni sui ruoli di lavoro, vedere la [Panoramica dei Servizi cloud](../cloud-services/cloud-services-choose-me.md). È consigliabile specificare `Latest (*)` per la *Versione sistema operativo* , in modo che i nodi vengano aggiornati automaticamente senza doversi occupare delle nuove versioni rilasciate. Il caso d'uso principale per la selezione di una versione specifica del sistema operativo consiste nell'assicurare la compatibilità delle applicazioni, che permette l'esecuzione del test di compatibilità con le versioni precedenti prima di consentire l'aggiornamento della versione. Dopo la convalida, la *Versione sistema operativo* per il pool può essere aggiornata ed è possibile installare la nuova immagine del sistema operativo. Eventuali attività in esecuzione vengono interrotte e accodate di nuovo.
+Analogamente ai ruoli di lavoro nei servizi cloud, è possibile specificare una *Versione sistema operativo*. Per altre informazioni sui ruoli di lavoro, vedere la [Panoramica dei Servizi cloud](../cloud-services/cloud-services-choose-me.md). È consigliabile specificare `Latest (*)` per la *Versione sistema operativo* , in modo che i nodi vengano aggiornati automaticamente senza doversi occupare delle nuove versioni rilasciate. Il caso d'uso principale per la selezione di una versione specifica del sistema operativo consiste nell'assicurare la compatibilità delle applicazioni, che permette l'esecuzione del test di compatibilità con le versioni precedenti prima di consentire l'aggiornamento della versione. Dopo la convalida, la *Versione sistema operativo* per il pool può essere aggiornata ed è possibile installare la nuova immagine del sistema operativo. Eventuali attività in esecuzione vengono interrotte e accodate di nuovo.
 
 ### <a name="node-agent-skus"></a>SKU dell'agente nodo
 
@@ -127,7 +127,7 @@ Una formula può essere basata sulle metriche seguenti:
 
 - **Metriche temporali** : basate sulle statistiche raccolte ogni cinque minuti nel numero di ore specificato.
 - **Metriche delle risorse** : basate su utilizzo di CPU, larghezza di banda, memoria e numero di nodi.
-- **Metriche delle attività** : basate sullo stato delle attività, ad esempio *Attiva* (in coda), *In esecuzione* o *Completata* .
+- **Metriche delle attività** : basate sullo stato delle attività, ad esempio *Attiva* (in coda), *In esecuzione* o *Completata*.
 
 Quando il ridimensionamento automatico riduce il numero di nodi di calcolo in un pool, è necessario considerare come gestire le attività in esecuzione al momento dell'operazione di riduzione. A questo scopo, il servizio Batch offre un' [*opzione di deallocazione dei nodi*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) che è possibile includere nelle formule. Ad esempio, è possibile specificare che le attività in esecuzione devono essere arrestate immediatamente e quindi riaccodate per l'esecuzione in un altro nodo o che ne deve essere consentita la fine prima della rimozione del nodo dal pool. Si noti che l'impostazione dell'opzione di deallocazione del nodo come `taskcompletion` o `retaineddata` impedisce le operazioni di ridimensionamento del pool fino al completamento di tutte le attività o fino a che tutti i periodi di memorizzazione delle attività siano scaduti, rispettivamente.
 

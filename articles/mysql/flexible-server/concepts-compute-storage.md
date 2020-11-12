@@ -1,17 +1,17 @@
 ---
 title: Opzioni di calcolo e archiviazione-database di Azure per MySQL-server flessibile
 description: Questo articolo descrive le opzioni di calcolo e archiviazione in database di Azure per MySQL-server flessibile.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: 0755ca7e77592a2efd6d8687f9eb19eacc2f0128
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 36f31ee390a6a208b202698ec9bda59b644c9e30
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315166"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534671"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opzioni di calcolo e archiviazione nel database di Azure per MySQL-server flessibile (anteprima)
 
@@ -76,7 +76,7 @@ Per ottenere altri dettagli sulle serie di calcolo disponibili, vedere la docume
 L'archiviazione di cui si esegue il provisioning è la quantità di capacità di archiviazione disponibile per il server flessibile. Lo spazio di archiviazione viene usato per i file di database, i file temporanei, i log delle transazioni e i log del server MySQL. In tutti i livelli di calcolo, lo spazio di archiviazione minimo supportato è 5 GiB e il valore massimo è 16 TiB. Lo spazio di archiviazione viene scalato in incrementi di 1 GiB e può essere ridimensionato dopo la creazione del server.
 
 >[!NOTE]
-> Lo spazio di archiviazione può essere scalato solo, non inattivo.
+> L'archiviazione può essere solo aumentata, non ridotta.
 
 È possibile monitorare il consumo di memoria nell'portale di Azure (con monitoraggio di Azure) usando il limite di archiviazione, la percentuale di archiviazione e le metriche di archiviazione usate. Per informazioni sulle metriche, vedere l' [articolo monitoraggio](./concepts-monitoring.md) . 
 
@@ -132,7 +132,7 @@ Per altre informazioni sul numero massimo di operazioni di i/o al secondo per ca
 
 Il valore massimo di IOPS effettivo dipende dal numero massimo di IOPS disponibili per ogni dimensione di calcolo. Vedere la formula seguente e fare riferimento alla colonna *numero massimo di velocità effettiva del disco non memorizzato nella cache: IOPS/Mbps* nella documentazione della serie [B](../../virtual-machines/sizes-b-series-burstable.md), della serie [Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md)e della [serie Edsv4](../../virtual-machines/edv4-edsv4-series.md) .
 
-**Numero massimo di IOPS effettivi** = minimo (*"velocità effettiva massima del disco non memorizzato nella cache: IOPS/Mbps"* di dimensioni di calcolo, archiviazione con provisioning in GIB * 3)
+**Numero massimo di IOPS effettivi** = minimo ( *"velocità effettiva massima del disco non memorizzato nella cache: IOPS/Mbps"* di dimensioni di calcolo, archiviazione con provisioning in GIB * 3)
 
 È possibile monitorare il consumo di I/O nella portale di Azure (con monitoraggio di Azure) [usando la](./concepts-monitoring.md) metrica di i/O. Se sono necessarie più operazioni di i/o al secondo, è necessario comprendere se si è limitati dalle dimensioni di calcolo o dal provisioning dell'archiviazione. Ridimensionare il provisioning di risorse di calcolo o di archiviazione del server di conseguenza.
 
@@ -153,7 +153,7 @@ La scalabilità dell'archiviazione e la modifica del periodo di conservazione de
 
 ## <a name="pricing"></a>Prezzi
 
-Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/MySQL/). Per visualizzare il costo per la configurazione desiderata, il [portale di Azure](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) Mostra il costo mensile nella scheda **calcolo e archiviazione** in base alle opzioni selezionate. Se non è disponibile una sottoscrizione di Azure, è possibile usare il calcolatore dei prezzi di Azure per ottenere una stima. Nel sito Web del [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/) selezionare **Aggiungi elementi**, espandere la categoria **database** , scegliere **database di Azure per MySQL**e **server flessibile** come tipo di distribuzione per personalizzare le opzioni.
+Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/MySQL/). Per visualizzare il costo per la configurazione desiderata, il [portale di Azure](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) Mostra il costo mensile nella scheda **calcolo e archiviazione** in base alle opzioni selezionate. Se non è disponibile una sottoscrizione di Azure, è possibile usare il calcolatore dei prezzi di Azure per ottenere una stima. Nel sito Web del [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/) selezionare **Aggiungi elementi** , espandere la categoria **database** , scegliere **database di Azure per MySQL** e **server flessibile** come tipo di distribuzione per personalizzare le opzioni.
 
 Per ottimizzare i costi del server, è possibile prendere in considerazione i suggerimenti seguenti:
 

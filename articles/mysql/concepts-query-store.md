@@ -1,17 +1,17 @@
 ---
 title: Query Store - Database di Azure per MySQL
 description: Informazioni sulla funzionalità Query Store di Database di Azure per MySQL che consente di tenere traccia delle prestazioni nel tempo.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 12623dccdc298aaad23ad6779caf33d895c5634a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70e1e5d06ef025801322e15e589d26e31f116fc3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766119"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535079"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitorare le prestazioni di Database di Azure per MySQL con Query Store
 
@@ -104,7 +104,7 @@ Le opzioni seguenti si applicano specificamente alle statistiche di attesa.
 > [!NOTE]
 > Attualmente **query_store_capture_mode** sostituisce questa configurazione, vale a dire che **query_store_capture_mode** e **query_store_wait_sampling_capture_mode** devono essere impostati su TUTTO affinché le statistiche di attesa funzionino. Se **query_store_capture_mode** è disattivato, lo saranno anche le statistiche di attesa, perché usano il parametro performance_schema abilitato e il parametro query_text acquisito da Query Store.
 
-Per ottenere o impostare un valore diverso per un parametro, usare il  [portale di Azure](howto-server-parameters.md)  o l' [interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md) .
+Per ottenere o impostare un diverso valore per un parametro, usare il [portale di Azure](howto-server-parameters.md) o l'[interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="views-and-functions"></a>Viste e funzioni
 

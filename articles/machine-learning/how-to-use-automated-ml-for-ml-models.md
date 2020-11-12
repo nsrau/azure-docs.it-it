@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 0c697e6332b757e1d135a77b70f33a6e32528309
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: aa45bc9f70bf05074391dd14cc5fc774eb77c762
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358899"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536252"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creare, rivedere e distribuire modelli di Machine Learning automatizzato con Azure Machine Learning
 
@@ -163,6 +163,9 @@ Imputa con| Selezionare il valore in cui si desidera imputare i valori mancanti 
 
 Selezionare **Fine** per eseguire l'esperimento. L'esperimento di preparazione del processo può richiedere fino a 10 minuti. Per completare l'esecuzione di ogni pipeline, i processi di training possono richiedere altri 2-3 minuti.
 
+> [!NOTE]
+> Gli algoritmi automatizzati di Machine Learning utilizzano una casualità intrinseca che può causare una lieve variazione in un modello consigliato Punteggio della metrica finale, ad esempio la precisione. Automatizzato ML esegue anche operazioni su dati come la suddivisione del test di training, la suddivisione del training e la convalida incrociata, se necessario. Quindi, se si esegue un esperimento con le stesse impostazioni di configurazione e la metrica primaria più volte, è probabile che si verifichino variazioni in ogni esperimento Punteggio della metrica finale a causa di questi fattori. 
+
 ### <a name="view-experiment-details"></a>Visualizzare i dettagli sull'esperimento
 
 Viene visualizzata la schermata **Dettagli esecuzione** nella scheda **Dettagli**. Questa schermata mostra un riepilogo dell'esecuzione dell'esperimento, inclusa una barra di stato in alto accanto al numero di esecuzione. 
@@ -196,7 +199,7 @@ ML automatizzato semplifica la distribuzione del modello senza scrivere codice:
 
 1. Inserire i dati nel riquadro **Distribuisci modello**.
 
-    Campo| Valore
+    Campo| valore
     ----|----
     Nome| Specificare un nome univoco per la distribuzione.
     Descrizione| Immettere una descrizione per identificare meglio le finalità della distribuzione.

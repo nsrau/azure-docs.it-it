@@ -1,17 +1,17 @@
 ---
 title: Advanced Threat Protection-database di Azure per MariaDB
 description: Advanced Threat Protection individua le attività di database anomale che indicano la presenza di potenziali minacce alla sicurezza nel database.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 2ad35c36e497e4719729c00a90eb8919b75ef0fd
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 018ba33271f8a3a81c3b7109607334b076d8609c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425668"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536194"
 ---
 # <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Database di Azure per MariaDB Advanced Threat Protection
 
@@ -34,11 +34,11 @@ Advanced Threat Protection per database di Azure per MariaDB offre un nuovo live
 
 ## <a name="advanced-threat-protection-alerts"></a>Avvisi di Advanced Threat Protection 
 Advanced Threat Protection per database di Azure per MariaDB rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database e possono attivare gli avvisi seguenti:
-- **Accesso da una posizione insolita**: questo avviso viene generato quando viene apportata una modifica nel modello di accesso al database di Azure per il server MariaDB, in cui un utente ha effettuato l'accesso al database di Azure per il server MariaDB da una posizione geografica insolita. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o la manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).
-- **Accesso da un Data Center insolito di Azure**: questo avviso viene generato quando viene apportata una modifica nel modello di accesso al database di Azure per il server MariaDB, in cui un utente ha effettuato l'accesso al server da un'insolita Data Center di Azure visualizzata in questo server durante il periodo recente. In alcuni casi, l'avviso rileva un'azione legittima (la nuova applicazione in Azure, Power BI). In altri casi, l'avviso rileva un'azione dannosa proveniente da una risorsa o un servizio di Azure (da parte di un ex dipendente o un utente malintenzionato esterno).
-- **Accesso da un'entità di**protezione non familiare: questo avviso viene generato quando viene apportata una modifica nel modello di accesso al database di Azure per il server MariaDB, in cui un utente ha effettuato l'accesso al server usando un principale insolito (database di Azure per l'utente di MariaDB). In alcuni casi, l'avviso rileva un'azione legittima (nuova applicazione o manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).
-- **Accesso da un'applicazione potenzialmente dannosa**: questo avviso viene attivato quando un'applicazione potenzialmente dannosa viene usata per accedere al database. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco mediante strumenti comuni di attacco.
-- **Forza bruta database di Azure per le credenziali MariaDB**: questo avviso viene generato quando si verifica un numero elevato anomalo di accessi non riusciti con credenziali diverse. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco di forza bruta.
+- **Accesso da una posizione insolita** : questo avviso viene generato quando viene apportata una modifica nel modello di accesso al database di Azure per il server MariaDB, in cui un utente ha effettuato l'accesso al database di Azure per il server MariaDB da una posizione geografica insolita. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o la manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).
+- **Accesso da un Data Center insolito di Azure** : questo avviso viene generato quando viene apportata una modifica nel modello di accesso al database di Azure per il server MariaDB, in cui un utente ha effettuato l'accesso al server da un'insolita Data Center di Azure visualizzata in questo server durante il periodo recente. In alcuni casi, l'avviso rileva un'azione legittima (la nuova applicazione in Azure, Power BI). In altri casi, l'avviso rileva un'azione dannosa proveniente da una risorsa o un servizio di Azure (da parte di un ex dipendente o un utente malintenzionato esterno).
+- **Accesso da un'entità di** protezione non familiare: questo avviso viene generato quando viene apportata una modifica nel modello di accesso al database di Azure per il server MariaDB, in cui un utente ha effettuato l'accesso al server usando un principale insolito (database di Azure per l'utente di MariaDB). In alcuni casi, l'avviso rileva un'azione legittima (nuova applicazione o manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa (da parte di un ex dipendente o un utente malintenzionato esterno).
+- **Accesso da un'applicazione potenzialmente dannosa** : questo avviso viene attivato quando un'applicazione potenzialmente dannosa viene usata per accedere al database. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco mediante strumenti comuni di attacco.
+- **Forza bruta database di Azure per le credenziali MariaDB** : questo avviso viene generato quando si verifica un numero elevato anomalo di accessi non riusciti con credenziali diverse. In alcuni casi, l'avviso rileva test di penetrazione in corso. In altri casi, l'avviso rileva un attacco di forza bruta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 9b55c4873c4d7ee430e7d9ce84d2782a37e522ae
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: dc5dcf20b8c4fb1dae971b9bda4ef1a7552ce9d4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442141"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534739"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando di Azure
 
@@ -156,9 +156,12 @@ Per ulteriori informazioni sull'utilizzo di un endpoint privato e di una rete vi
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Area di lavoro della chiave gestita dal cliente e dell'elevata incidenza aziendale
 
-Per impostazione predefinita, le metriche e i metadati per l'area di lavoro vengono archiviati in un'istanza di Azure Cosmos DB gestita da Microsoft. Questi dati vengono crittografati tramite chiavi gestite da Microsoft. 
+Per impostazione predefinita, i metadati per l'area di lavoro vengono archiviati in un'istanza di Azure Cosmos DB gestita da Microsoft. Questi dati vengono crittografati tramite chiavi gestite da Microsoft.
 
-Invece di usare la chiave gestita da Microsoft, è possibile usare la chiave specifica. In questo modo viene creata l'istanza Azure Cosmos DB che archivia le metriche e i metadati nella sottoscrizione di Azure. Usare il `--cmk-keyvault` parametro per specificare il Azure Key Vault che contiene la chiave e `--resource-cmk-uri` per specificare l'URL della chiave all'interno dell'insieme di credenziali.
+> [!NOTE]
+> Azure Cosmos DB __non__ viene usato per archiviare informazioni quali le prestazioni del modello, le informazioni registrate dagli esperimenti o le informazioni registrate dalle distribuzioni del modello. Per altre informazioni sul monitoraggio di questi elementi, vedere la sezione [monitoraggio e registrazione](concept-azure-machine-learning-architecture.md) nell'articolo architettura e concetti.
+
+Invece di usare la chiave gestita da Microsoft, è possibile usare la chiave specifica. In questo modo viene creata l'istanza Azure Cosmos DB che archivia i metadati nella sottoscrizione di Azure. Usare il `--cmk-keyvault` parametro per specificare il Azure Key Vault che contiene la chiave e `--resource-cmk-uri` per specificare l'URL della chiave all'interno dell'insieme di credenziali.
 
 Prima di usare `--cmk-keyvault` i `--resource-cmk-uri` parametri e, è prima necessario eseguire le azioni seguenti:
 

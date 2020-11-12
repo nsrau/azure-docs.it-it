@@ -1,17 +1,17 @@
 ---
 title: Configurare la replica dei dati-nel database di Azure per MariaDB
 description: Questo articolo descrive come configurare Replica dei dati in ingresso nel database di Azure per MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 21a0aaaa9e10a7c3e445145eb178b50b446ba6ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fe7e02cc34dc9c97e540d7b8d96c48ee8d5cfe09
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425997"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535368"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurare Replica dei dati in ingresso nel database di Azure per MariaDB
 
@@ -54,7 +54,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
 
 1. Prima di procedere, esaminare i [requisiti del server master](concepts-data-in-replication.md#requirements) . 
 
-2. Verificare che il server di origine consenta il traffico in ingresso e in uscita sulla porta 3306 e che il server di origine disponga di un **indirizzo IP pubblico**, che il DNS sia accessibile pubblicamente o disponga di un nome di dominio completo (FQDN). 
+2. Verificare che il server di origine consenta il traffico in ingresso e in uscita sulla porta 3306 e che il server di origine disponga di un **indirizzo IP pubblico** , che il DNS sia accessibile pubblicamente o disponga di un nome di dominio completo (FQDN). 
    
    Testare la connettività al server di origine provando a connettersi da uno strumento come la riga di comando MySQL ospitata in un altro computer o dalla [Azure cloud Shell](../cloud-shell/overview.md) disponibile nel portale di Azure.
 
@@ -149,7 +149,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
 
    ![Sincronizzazione utente](./media/howto-data-in-replication/syncuser.png)
  
-   Selezionare il pannello **ruoli amministrativi** , quindi nell'elenco dei **privilegi globali**selezionare **slave di replica**. Selezionare **applica** per creare il ruolo di replica.
+   Selezionare il pannello **ruoli amministrativi** , quindi nell'elenco dei **privilegi globali** selezionare **slave di replica**. Selezionare **applica** per creare il ruolo di replica.
 
    ![Slave di replica](./media/howto-data-in-replication/replicationslave.png)
 

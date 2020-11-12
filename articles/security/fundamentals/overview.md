@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 0d893eb2bf7a57e173d7acb8f15104522edbc3bf
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: db7d9e99de8a4ee67e49f8b7568700fc07b1e2fd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408210"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536532"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza di Azure
 ## <a name="overview"></a>Panoramica
@@ -60,7 +60,7 @@ A seconda del modello di servizio cloud, la responsabilità per le persone incar
 
 Le funzionalità predefinite sono organizzate in sei aree funzionali: operazioni, applicazioni, archiviazione, rete, calcolo e identità. Ulteriori dettagli sulle funzionalità e sulle funzionalità disponibili nella piattaforma Azure in queste sei aree sono fornite tramite le informazioni di riepilogo.
 
-## <a name="operations"></a>Operazioni
+## <a name="operations"></a>Gestione operativa
 Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali per le operazioni di sicurezza e informazioni di riepilogo su tali funzionalità.
 
 ### <a name="security-and-audit-dashboard"></a>Dashboard Sicurezza e controllo
@@ -95,7 +95,7 @@ I log di monitoraggio di Azure possono essere uno strumento utile per analisi fo
 Il [Centro sicurezza](../../security-center/security-center-introduction.md) consente di prevenire, rilevare e rispondere alle minacce con maggiore visibilità e controllo sulla sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
 Inoltre, il Centro sicurezza aiuta a usare le operazioni di sicurezza fornendo un unico dashboard che presenta avvisi e indicazioni su cui è possibile agire immediatamente. Spesso è possibile correggere i problemi con un solo clic nella console del Centro sicurezza.
-## <a name="applications"></a>APPLICAZIONI
+## <a name="applications"></a>Applicazioni
 Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali per la sicurezza delle applicazioni e informazioni di riepilogo su tali funzionalità.
 
 ### <a name="web-application-vulnerability-scanning"></a>Analisi delle vulnerabilità delle applicazioni Web
@@ -221,7 +221,7 @@ Per inviare il traffico di rete tra la rete virtuale di Azure e il sito locale, 
 ### <a name="express-route"></a>Express Route
 Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md) è un collegamento WAN dedicato che consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata dedicata supportata da un provider di connettività.
 
-![Express Route](./media/overview/azure-security-fig1.png)
+![Express Route](./media/overview/azure-security-figure-1.png)
 
 Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, ad esempio Microsoft Azure, Microsoft 365 e CRM online. La connettività può essere stabilita da una rete (IP VPN) any-to-any, da una rete Ethernet punto a punto o da una Cross Connection virtuale tramite un provider di connettività presso una struttura di condivisione del percorso.
 
@@ -231,7 +231,7 @@ Le connessioni ExpressRoute non usano la rete Internet pubblica e possono quindi
 ### <a name="application-gateway"></a>Gateway applicazione
 Il [gateway applicazione di Microsoft Azure](../../application-gateway/overview.md) offre un servizio di [controller per la distribuzione di applicazioni](https://en.wikipedia.org/wiki/Application_delivery_controller) con numerose funzionalità di bilanciamento del carico di livello 7 per l'applicazione.
 
-![Gateway applicazione](./media/overview/azure-security-fig2.png)
+![Gateway applicazione](./media/overview/azure-security-figure-2.png)
 
 Consente di ottimizzare la produttività Web farm eseguendo l'offload della terminazione TLS a elevato utilizzo di CPU al gateway applicazione (noto anche come "offload TLS" o "bridging TLS"). Offre anche altre funzionalità di routing di livello 7, tra cui la distribuzione round robin del traffico in ingresso, l'affinità di sessione basata su cookie, il routing basato su percorso URL e la possibilità di ospitare più siti Web dietro un unico gateway applicazione. Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7.
 
@@ -242,7 +242,7 @@ L'applicazione offre numerose funzionalità di controller per la distribuzione d
 ### <a name="web-application-firewall"></a>Web application firewall
 Web application firewall è una funzionalità del [gateway applicazione di Azure](../../application-gateway/overview.md) che consente di proteggere le applicazioni Web che usano il gateway applicazione per funzioni standard di controller per la distribuzione di applicazioni. Web application firewall protegge infatti le applicazioni dalla maggior parte delle 10 vulnerabilità Web OWASP più diffuse.
 
-![Web application firewall](./media/overview/azure-security-fig1.png)
+![Web application firewall](./media/overview/azure-security-figure-3.png)
 
 -   Protezione dagli attacchi SQL injection
 
@@ -322,7 +322,7 @@ Le patch di aggiornamento offrono la base per trovare e correggere potenziali pr
 ### <a name="security-policy-management-and-reporting"></a>Gestione e reporting dei criteri di sicurezza
 Il [Centro sicurezza](../../security-center/security-center-introduction.md) consente di prevenire, rilevare e rispondere alle minacce e offre un livello maggiore di visibilità e controllo della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri nelle sottoscrizioni di Azure, consente di rilevare minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
-## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
+## <a name="identity-and-access-management"></a>Gestione di identità e accessi
 I controlli di accesso basati sull'identità sono il punto di partenza della protezione di sistemi, applicazioni e dati. Le funzionalità di gestione delle identità e dell'accesso incorporate nei prodotti e nei servizi aziendali Microsoft consentono di proteggere le informazioni personali e dell'organizzazione dall'accesso non autorizzato rendendole al tempo stesso disponibili per gli utenti legittimi ovunque e in qualsiasi momento ne abbiano bisogno.
 
 ### <a name="secure-identity"></a>Proteggere l'identità

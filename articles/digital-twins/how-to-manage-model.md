@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b31e3d44cc66e97506b29b81cef5b8d981d05e39
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: ca56c285baff9982ff465b0d4115d15eadedb8c9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279417"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534756"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
 
@@ -23,6 +23,10 @@ Le operazioni di gestione includono il caricamento, la convalida, il recupero e 
 ## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-models"></a>Modalità di gestione di modelli
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-models"></a>Creare modelli
 
@@ -73,17 +77,7 @@ Seguendo questo metodo, è possibile scegliere di definire i modelli per il repa
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="manage-models-with-apis"></a>Gestire i modelli con le API
-
-Le sezioni seguenti illustrano come completare diverse operazioni di gestione dei modelli usando le [API e gli SDK di Azure Digital gemelli](how-to-use-apis-sdks.md).
-
-> [!NOTE]
-> Gli esempi seguenti non includono la gestione degli errori per brevità. Tuttavia, si consiglia vivamente di eseguire il wrapping delle chiamate al servizio nei blocchi try/catch nei progetti.
-
-> [!TIP] 
-> Tenere presente che tutti i metodi SDK sono disponibili in versioni sincrone e asincrone. Per le chiamate di paging, i metodi asincroni restituiscono `AsyncPageable<T>` mentre le versioni sincrone restituiscono `Pageable<T>` .
-
-### <a name="upload-models"></a>Caricare i modelli
+## <a name="upload-models"></a>Caricare i modelli
 
 Una volta creati i modelli, è possibile caricarli nell'istanza di Azure Digital gemelli.
 
@@ -136,7 +130,7 @@ I file di modello possono contenere più di un singolo modello. In questo caso, 
  
 Al caricamento, i file di modello vengono convalidati dal servizio.
 
-### <a name="retrieve-models"></a>Recuperare i modelli
+## <a name="retrieve-models"></a>Recuperare i modelli
 
 È possibile elencare e recuperare i modelli archiviati nell'istanza di Azure Digital gemelli. 
 
@@ -166,13 +160,13 @@ La `RetrieveModelWithDependencies` chiamata non restituisce solo il modello rich
 
 I modelli non vengono necessariamente restituiti esattamente nel formato del documento in cui sono stati caricati. I dispositivi gemelli digitali di Azure garantiscono solo che il form restituito sarà semanticamente equivalente. 
 
-### <a name="update-models"></a>Modelli di aggiornamento
+## <a name="update-models"></a>Modelli di aggiornamento
 
 Dopo che un modello è stato caricato nell'istanza di Azure Digital gemelli, l'intera interfaccia del modello non è modificabile. Ciò significa che non esiste alcuna "modifica" tradizionale di modelli. I dispositivi gemelli digitali di Azure non consentono inoltre di caricare nuovamente lo stesso modello.
 
 Al contrario, se si desidera apportare modifiche a un modello, ad esempio `displayName` l'aggiornamento o `description` , il modo per eseguire questa operazione consiste nel caricare una **versione più recente** del modello. 
 
-#### <a name="model-versioning"></a>Gestione della versione dei modelli
+### <a name="model-versioning"></a>Gestione della versione dei modelli
 
 Per creare una nuova versione di un modello esistente, iniziare con il DTDL del modello originale. Aggiornare, aggiungere o rimuovere i campi che si desidera modificare.
 
@@ -194,7 +188,7 @@ Caricare quindi la nuova versione del modello nell'istanza di.
 
 Questa versione del modello sarà quindi disponibile nell'istanza da usare per i dispositivi gemelli digitali. Non **sovrascrive le** versioni precedenti del modello, pertanto più versioni del modello coesisteranno nell'istanza fino a quando non vengono [rimosse](#remove-models).
 
-#### <a name="impact-on-twins"></a>Effetti sui dispositivi gemelli
+### <a name="impact-on-twins"></a>Effetti sui dispositivi gemelli
 
 Quando si crea un nuovo dispositivo gemello, poiché la nuova versione del modello e la versione precedente del modello coesisteno, il nuovo dispositivo gemello può usare la nuova versione del modello o la versione precedente.
 
@@ -202,7 +196,7 @@ Questo significa anche che il caricamento di una nuova versione di un modello no
 
 È possibile aggiornare questi dispositivi gemelli esistenti alla nuova versione del modello mediante l'applicazione di patch, come descritto nella sezione [*aggiornare un modello di un dispositivo digitale gemello*](how-to-manage-twin.md#update-a-digital-twins-model) di *How-to: Manage Digital gemells*. All'interno della stessa patch, è necessario aggiornare sia l' **ID del modello** (alla nuova versione) **che tutti i campi che devono essere modificati sul dispositivo gemello per renderlo conforme al nuovo modello**.
 
-### <a name="remove-models"></a>Rimuovi modelli
+## <a name="remove-models"></a>Rimuovi modelli
 
 I modelli possono essere rimossi anche dal servizio, in uno dei due modi seguenti:
 * **Rimozione delle autorizzazioni** : dopo la rimozione delle autorizzazioni di un modello, non è più possibile usarlo per creare nuovi dispositivi gemelli digitali. I gemelli digitali esistenti che usano già questo modello non sono interessati, quindi è comunque possibile aggiornarli con elementi come le modifiche delle proprietà e l'aggiunta o l'eliminazione di relazioni.
@@ -210,7 +204,7 @@ I modelli possono essere rimossi anche dal servizio, in uno dei due modi seguent
 
 Si tratta di funzionalità separate che non influiscano tra loro, anche se possono essere utilizzate insieme per rimuovere gradualmente un modello. 
 
-#### <a name="decommissioning"></a>Rimozione delle autorizzazioni
+### <a name="decommissioning"></a>Rimozione delle autorizzazioni
 
 Ecco il codice per rimuovere le autorizzazioni per un modello:
 
@@ -223,7 +217,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 
 Lo stato di rimozione delle autorizzazioni di un modello è incluso nei `ModelData` record restituiti dalle API per il recupero del modello.
 
-#### <a name="deletion"></a>Eliminazione
+### <a name="deletion"></a>Eliminazione
 
 È possibile eliminare tutti i modelli nell'istanza in una sola volta oppure è possibile eseguire questa operazione su base individuale.
 
@@ -231,7 +225,7 @@ Per un esempio di come eliminare tutti i modelli, scaricare l'app di esempio usa
 
 Il resto di questa sezione suddivide l'eliminazione del modello in modo più dettagliato e Mostra come eseguire questa operazione per un singolo modello.
 
-##### <a name="before-deletion-deletion-requirements"></a>Prima dell'eliminazione: requisiti di eliminazione
+#### <a name="before-deletion-deletion-requirements"></a>Prima dell'eliminazione: requisiti di eliminazione
 
 In genere, i modelli possono essere eliminati in qualsiasi momento.
 
@@ -239,7 +233,7 @@ L'eccezione è costituita dai modelli da cui dipendono altri modelli, sia con un
 
 A tale scopo, è possibile aggiornare il modello dipendente per rimuovere le dipendenze o eliminare completamente il modello dipendente.
 
-##### <a name="during-deletion-deletion-process"></a>Durante l'eliminazione: processo di eliminazione
+#### <a name="during-deletion-deletion-process"></a>Durante l'eliminazione: processo di eliminazione
 
 Anche se un modello soddisfa i requisiti per eliminarlo immediatamente, è consigliabile eseguire prima alcuni passaggi per evitare conseguenze impreviste per i gemelli rimasti. Ecco alcuni passaggi che consentono di gestire il processo:
 1. Prima di tutto, rimuovere le autorizzazioni del modello
@@ -255,7 +249,7 @@ Per eliminare un modello, utilizzare la chiamata seguente:
 await client.DeleteModelAsync(IDToDelete);
 ```
 
-##### <a name="after-deletion-twins-without-models"></a>Dopo l'eliminazione: gemelli senza modelli
+#### <a name="after-deletion-twins-without-models"></a>Dopo l'eliminazione: gemelli senza modelli
 
 Una volta eliminato un modello, tutti i dispositivi gemelli digitali che usavano il modello sono ora considerati senza un modello. Si noti che non è presente alcuna query in grado di fornire un elenco di tutti i dispositivi gemelli in questo stato, sebbene sia comunque *possibile* eseguire una query sui dispositivi gemelli in base al modello eliminato per conoscere i dispositivi gemelli interessati.
 
@@ -274,17 +268,13 @@ Operazioni che **non è possibile eseguire** :
 * Modificare le relazioni in uscita (ad esempio, relazioni *da* questo gemello ad altri gemelli)
 * Modificare le proprietà
 
-##### <a name="after-deletion-re-uploading-a-model"></a>Dopo l'eliminazione: nuovo caricamento di un modello
+#### <a name="after-deletion-re-uploading-a-model"></a>Dopo l'eliminazione: nuovo caricamento di un modello
 
 Dopo l'eliminazione di un modello, è possibile decidere in seguito di caricare un nuovo modello con lo stesso ID di quello eliminato. Ecco cosa accade in questo caso.
 * Dal punto di vista dell'archivio soluzioni, questo equivale al caricamento di un modello completamente nuovo. Il servizio non ricorda quello precedente caricato.   
 * Se sono presenti due gemelli rimanenti nel grafico che fanno riferimento al modello eliminato, non sono più orfani; questo ID modello è nuovamente valido con la nuova definizione. Tuttavia, se la nuova definizione per il modello è diversa dalla definizione del modello eliminata, questi gemelli possono avere proprietà e relazioni che corrispondono alla definizione eliminata e non sono valide con quella nuova.
 
 I dispositivi gemelli digitali di Azure non impediscono questo stato, quindi prestare attenzione a applicare patch ai dispositivi gemelli in modo appropriato per assicurarsi che rimangano validi tramite l'opzione di definizione del modello.
-
-## <a name="manage-models-with-cli"></a>Gestire modelli con l'interfaccia della riga di comando
-
-I modelli possono essere gestiti anche tramite l'interfaccia della riga di comando di Azure Digital gemelli. È possibile trovare i comandi in [*procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

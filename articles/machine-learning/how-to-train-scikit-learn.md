@@ -1,7 +1,7 @@
 ---
 title: Eseguire il training di modelli di apprendimento automatico Scikit-learn
 titleSuffix: Azure Machine Learning
-description: Informazioni su come eseguire gli script di training di Scikit-learn in Azure Machine Learning.
+description: Scopri in che modo Azure Machine Learning ti permette di ridimensionare un processo di formazione Scikit-learn usando risorse di calcolo di cloud elastico.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 91a9957c7a68f1752d7a6b9ea66910ec642b7bd1
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4758e937a0ed105bf136acf7e78f2d44c84e74fb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360905"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536055"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Eseguire il training di modelli Scikit-learn su larga scala con Azure Machine Learning
 

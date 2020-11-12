@@ -1,17 +1,17 @@
 ---
 title: Log di query lente-database di Azure per MySQL
 description: Descrive i log di query lente disponibili nel database di Azure per MySQL e i parametri disponibili per l'abilitazione di diversi livelli di registrazione.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: 1e967c77bc41f0f91674fe55bc622adaf5046f6d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 0b00db8e89afda8682ddedccfec7e5a6147b7125
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359001"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534977"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Log di query lente in Database di Azure per MySQL
 Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.

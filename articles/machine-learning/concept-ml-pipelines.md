@@ -1,5 +1,6 @@
 ---
 title: Che cosa sono le pipeline Azure Machine Learning
+titleSuffix: Azure Machine Learning
 description: Informazioni sulle pipeline di Machine Learning (ML) che consentono di creare, ottimizzare e gestire i flussi di lavoro di machine learning.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/17/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2ebe3976813c00e92f041faf267ef0d8ae98a909
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c29ee87ab177357f4289134bb39353c764a0d75b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323023"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535300"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Che cosa sono le pipeline Azure Machine Learning?
 

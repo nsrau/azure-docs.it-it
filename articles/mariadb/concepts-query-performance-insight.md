@@ -1,17 +1,17 @@
 ---
 title: Informazioni dettagliate prestazioni query-database di Azure per MariaDB
 description: Questo articolo descrive la funzionalità Informazioni dettagliate prestazioni query nel database di Azure per MariaDB
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 88777ee44551ed6abdb7a6c7c909d6bf55db48c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b643ba3305736480e06d7c10d594b2271839038f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79527845"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536333"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Informazioni dettagliate sulle prestazioni delle query nel Database di Azure per MariaDB
 
@@ -47,7 +47,7 @@ Nella pagina del portale del database di Azure per il server MariaDB selezionare
 
 ### <a name="long-running-queries"></a>Query a esecuzione prolungata
 
-La scheda**Query a esecuzione prolungata** mostra le prime 5 query in base alla durata media per esecuzione, aggregate in intervalli di 15 minuti. È possibile visualizzare altre query selezionando **Numero di query** nell'elenco a discesa. I colori del grafico possono cambiare per un ID di query specifico quando si esegue questa operazione.
+La scheda **Query a esecuzione prolungata** mostra le prime 5 query in base alla durata media per esecuzione, aggregate in intervalli di 15 minuti. È possibile visualizzare altre query selezionando **Numero di query** nell'elenco a discesa. I colori del grafico possono cambiare per un ID di query specifico quando si esegue questa operazione.
 
 È possibile fare clic e trascinare nel grafico per limitare l'elenco a un intervallo di tempo specifico. In alternativa, usare le icone di ingrandimento e riduzione per visualizzare rispettivamente un intervallo di tempo superiore o inferiore.
 
@@ -56,7 +56,7 @@ La scheda**Query a esecuzione prolungata** mostra le prime 5 query in base alla 
 ### <a name="wait-statistics"></a>Statistiche di attesa 
 
 > [!NOTE]
-> Le statistiche di attesa sono destinate alla risoluzione dei problemi di prestazioni delle query. È consigliabile attivarle solo a scopo di risoluzione dei problemi. <br>Se viene visualizzato il messaggio di errore nel portale di Azure "*problema riscontrato per ' Microsoft. DBforMariaDB '; non è possibile soddisfare la richiesta. Se il problema persiste o è imprevisto, contattare il supporto tecnico con queste informazioni ".* durante la visualizzazione delle statistiche di attesa, usare un periodo di tempo inferiore.
+> Le statistiche di attesa sono destinate alla risoluzione dei problemi di prestazioni delle query. È consigliabile attivarle solo a scopo di risoluzione dei problemi. <br>Se viene visualizzato il messaggio di errore nel portale di Azure " *problema riscontrato per ' Microsoft. DBforMariaDB '; non è possibile soddisfare la richiesta. Se il problema persiste o è imprevisto, contattare il supporto tecnico con queste informazioni ".* durante la visualizzazione delle statistiche di attesa, usare un periodo di tempo inferiore.
 
 Le statistiche di attesa forniscono una visualizzazione degli eventi di attesa che si verificano durante l'esecuzione di una query specifica. Per altre informazioni sui tipi di evento di attesa, vedere la [documentazione del motore MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 

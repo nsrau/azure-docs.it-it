@@ -1,7 +1,7 @@
 ---
 title: Monitorare e raccogliere dati da endpoint di servizio Web Machine Learning
 titleSuffix: Azure Machine Learning
-description: Monitorare i servizi Web distribuiti con Azure Machine Learning usando applicazione Azure Insights
+description: Informazioni su come raccogliere dati da modelli distribuiti in endpoint di servizio Web in Azure Kubernetes Service (AKS) o istanze di contenitore di Azure (ACI).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 1f02c9b080b87b4fbffcd1870dd139b9d32de0c7
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 5d49a88b89f9e2f4e2c2e6fa8ef18a01c803e3f7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357672"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536592"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorare e raccogliere dati da endpoint servizio Web di ML
 

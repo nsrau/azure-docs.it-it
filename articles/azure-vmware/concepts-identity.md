@@ -2,25 +2,25 @@
 title: 'Concetti: identità e accesso'
 description: Informazioni sui concetti di identità e accesso della soluzione VMware di Azure
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 7127109801d92d2177f6edac3efcaf76ddf217e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/11/2020
+ms.openlocfilehash: e9c0d62968d94e2b018186f67072b6ae7078db02
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674642"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536099"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Concetti di identità della soluzione VMware di Azure
 
-Quando si distribuisce un cloud privato, viene eseguito il provisioning di un server vCenter e di gestione NSX-T. VCenter viene usato per gestire i carichi di lavoro delle macchine virtuali (VM). Si usa NSX-T Manager per estendere la rete privata definita dal software.
+Viene eseguito il provisioning dei cloud privati della soluzione VMware di Azure con un server vCenter e una gestione NSX-T. VCenter viene usato per gestire i carichi di lavoro delle macchine virtuali (VM). Usare la gestione NSX-T per estendere il cloud privato.
 
 La gestione dell'accesso e delle identità usa i privilegi del gruppo CloudAdmin per vCenter e i diritti di amministratore limitati per NSX-T Manager. Garantisce che la piattaforma cloud privata venga aggiornata automaticamente con le funzionalità e le patch più recenti.  Per altre informazioni, vedere l' [articolo Concetti relativi agli aggiornamenti per il cloud privato][concepts-upgrades].
 
 ## <a name="vcenter-access-and-identity"></a>accesso e identità vCenter
 
-I privilegi in vCenter vengono forniti tramite il gruppo CloudAdmin. Il gruppo può essere gestito localmente in vCenter o tramite l'integrazione di vCenter LDAP Single Sign-On con Azure Active Directory. Viene fornita la possibilità di abilitare l'integrazione dopo aver distribuito un cloud privato.
+Il gruppo CloudAdmin fornisce i privilegi in vCenter. Il gruppo viene gestito localmente in vCenter. Un'altra opzione consiste nell'integrazione di vCenter LDAP Single Sign-On con Azure Active Directory. Questa integrazione viene abilitata dopo la distribuzione del cloud privato. 
 
-I privilegi CloudAdmin e CloudGlobalAdmin sono illustrati nella tabella seguente.
+La tabella mostra i privilegi **CloudAdmin** e **CloudGlobalAdmin** .
 
 |  Set di privilegi           | CloudAdmin | CloudGlobalAdmin | Commento |
 | :---                     |    :---:   |       :---:      |   :--:  |
@@ -32,7 +32,7 @@ I privilegi CloudAdmin e CloudGlobalAdmin sono illustrati nella tabella seguente
 |  Archivio dati               | Datastore. AllocateSpace, datastore. browse, Datastore.Config, datastore. DeleteFile, datastore. filemanagement, datastore. UpdateVirtualMachineMetadata     |    --    |   -- |
 |  Agent Manager ESX       |  --  |         --       |  Microsoft esegue tutte le operazioni.  |
 |  Cartella                  |  Un utente CloudAdmin dispone di tutti i privilegi di cartella.     |  --  |  --  |
-|  Global                  |  Global. CancelTask, Global. GlobalTag, Global. Health, Global. LogEvent, Global. ManageCustomFields, Global. ServiceManagers, Global. SetCustomField, Global.SystemTag         |                  |    |
+|  Globale                  |  Global. CancelTask, Global. GlobalTag, Global. Health, Global. LogEvent, Global. ManageCustomFields, Global. ServiceManagers, Global. SetCustomField, Global.SystemTag         |                  |    |
 |  Host                    |  Host. hbr. HbrManagement      |        --          |  Microsoft esegue tutte le altre operazioni host.  |
 |  InventoryService        |  InventoryService. tagging      |        --          |  --  |
 |  Rete                 |  Network.Assign    |                  |  Microsoft esegue tutte le altre operazioni di rete.  |

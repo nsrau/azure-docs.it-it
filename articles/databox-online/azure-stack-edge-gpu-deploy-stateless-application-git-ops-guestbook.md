@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d323504a46cd35525c889a94d2d044193c1471ac
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899559"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535946"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Distribuire un'applicazione PHP Guestbook senza stato con Redis on Arc abilitata per il cluster Kubernetes sulla GPU Pro Azure Stack Edge
 
@@ -79,9 +79,9 @@ Seguire questa procedura per configurare la risorsa di Azure Arc per distribuire
 
 1. Passare a **configurazioni** e selezionare **+ Aggiungi configurazione**.
 
-    ![Vai a configurazioni](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![Screenshot mostra il cluster Kubernetes abilitato per Azure Arc con Aggiungi configurazione selezionata.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
-1. In **Aggiungi configurazione**immettere i valori appropriati per i campi e selezionare **applica**.
+1. In **Aggiungi configurazione** immettere i valori appropriati per i campi e selezionare **applica**.
 
     |Parametro  |Descrizione |
     |---------|---------|
@@ -100,11 +100,11 @@ Seguire questa procedura per configurare la risorsa di Azure Arc per distribuire
 
 1. Viene avviata la distribuzione della configurazione e lo **stato dell'operatore** viene visualizzato come **in sospeso**. 
 
-    ![Vai a configurazioni](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![Screenshot mostra il cluster Kubernetes abilitato per Azure Arc in uno stato in sospeso durante l'aggiornamento.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. La distribuzione richiede alcuni minuti. Al termine della distribuzione, lo **stato dell'operatore** indica **installato**.
 
-    ![Vai a configurazioni](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![Screenshot mostra il cluster Kubernetes abilitato per Azure Arc in uno stato installato.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 
 ## <a name="verify-deployment"></a>Verificare la distribuzione
