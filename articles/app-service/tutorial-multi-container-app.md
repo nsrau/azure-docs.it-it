@@ -4,15 +4,15 @@ description: Informazioni su come creare un'app multicontenitore in Servizio app
 keywords: servizio app di azure, app web, linux, docker, compose, multicontenitore, multi-contenitore, app web per contenitori, più contenitori, contenitore, wordpress, db azure per mysql, database di produzione con contenitori
 author: msangapu-msft
 ms.topic: tutorial
-ms.date: 04/29/2019
+ms.date: 10/31/2020
 ms.author: msangapu
 ms.custom: cli-validate, devx-track-azurecli
-ms.openlocfilehash: 7945c6c6f834de068665e3400440d2be5dd713ff
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f2f1713866eb06b4b514ff988ef3e010491e1efc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743452"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131344"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Esercitazione: Creare un'app multi-contenitore (anteprima) in App Web per contenitori
 
@@ -63,7 +63,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-In Cloud Shell creare un gruppo di risorse con il comando [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *Stati Uniti centro-meridionali* . Per visualizzare tutte le località supportate per il servizio app in Linux nel livello **Standard** , eseguire il comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
+In Cloud Shell creare un gruppo di risorse con il comando [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *Stati Uniti centro-meridionali*. Per visualizzare tutte le località supportate per il servizio app in Linux nel livello **Standard** , eseguire il comando [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -138,7 +138,7 @@ Passare all'app distribuita all'indirizzo `http://<app-name>.azurewebsites.net`.
 
 ![App multi-contenitore di esempio in App Web per contenitori][1]
 
-La creazione di un'app multi-contenitore in App Web per contenitori è stata **completata** . Ora si configurerà l'app per l'uso di Database di Azure per MySQL. Non installare WordPress in questo momento.
+La creazione di un'app multi-contenitore in App Web per contenitori è stata **completata**. Ora si configurerà l'app per l'uso di Database di Azure per MySQL. Non installare WordPress in questo momento.
 
 ## <a name="connect-to-production-database"></a>Connettersi al database di produzione
 
@@ -151,7 +151,7 @@ Creare un server Database di Azure per MySQL con il comando [`az mysql server cr
 Nel comando seguente sostituire il segnaposto _&lt;mysql-server-name>_ con il nome del server MySQL (i caratteri validi sono `a-z`, `0-9` e `-`). Poiché questo nome fa parte del nome host del server MySQL (`<mysql-server-name>.database.windows.net`) è necessario che sia univoco a livello globale.
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
+az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen5_1 --version 5.7
 ```
 
 La creazione del server può richiedere alcuni minuti. Al termine della creazione del server MySQL, Cloud Shell visualizza informazioni simili all'esempio seguente:
@@ -262,14 +262,14 @@ Per Redis (da usare in una sezione successiva) sono state apportate le modifiche
 * [Aggiunge il plug-in WordPress Redis Object Cache 1.3.8.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
 * [Usa l'impostazione app per il nome host Redis nel file wp-config.php di WordPress.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
-Per usare l'immagine personalizzata è necessario aggiornare il file docker-compose-wordpress.yml. In Cloud Shell digitare `nano docker-compose-wordpress.yml` per aprire l'editor di testo Nano. Modificare `image: wordpress` in modo da usare `image: microsoft/multicontainerwordpress`. Il contenitore del database non è più necessario. Rimuovere le sezioni `db`, `environment`, `depends_on` e `volumes` dal file di configurazione. Il file deve essere simile al codice seguente:
+Per usare l'immagine personalizzata è necessario aggiornare il file docker-compose-wordpress.yml. In Cloud Shell digitare `nano docker-compose-wordpress.yml` per aprire l'editor di testo Nano. Modificare `image: wordpress` in modo da usare `image: mcr.microsoft.com/azuredocs/multicontainerwordpress`. Il contenitore del database non è più necessario. Rimuovere le sezioni `db`, `environment`, `depends_on` e `volumes` dal file di configurazione. Il file deve essere simile al codice seguente:
 
 ```yaml
 version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
@@ -345,7 +345,7 @@ version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      volumes:
       - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
      ports:
@@ -401,13 +401,15 @@ version: '3.3'
 
 services:
    wordpress:
-     image: microsoft/multicontainerwordpress
+     image: mcr.microsoft.com/azuredocs/multicontainerwordpress
      ports:
        - "8000:80"
      restart: always
 
    redis:
-     image: redis:3-alpine
+     image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
+     environment: 
+      - ALLOW_EMPTY_PASSWORD=yes
      restart: always
 ```
 
@@ -486,7 +488,7 @@ WordPress si connette al server Redis. Lo **stato** della connessione viene visu
 
 ![WordPress si connette al server Redis. Lo **stato** della connessione viene visualizzato nella stessa pagina.][6]
 
-WordPress è ora **connesso** a Redis. A questo punto, l'app pronta per la produzione usa **Database di Azure per MySQL, l'archiviazione permanente e Redis** . È ora possibile aumentare il numero di istanze per il piano di servizio app.
+WordPress è ora **connesso** a Redis. A questo punto, l'app pronta per la produzione usa **Database di Azure per MySQL, l'archiviazione permanente e Redis**. È ora possibile aumentare il numero di istanze per il piano di servizio app.
 
 ## <a name="find-docker-container-logs"></a>Trovare i log dei contenitori Docker
 

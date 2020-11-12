@@ -10,14 +10,15 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: 3116038939a07084f13db22819726dcbb2622a10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8e2c707566b08219b495e76be7f6f6130d876ab
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292423"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081315"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Aggiungere funzioni CRUD all'app
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Questa esercitazione in più parti illustra come creare una nuova app scritta in Node.js con Express e Angular e quindi connetterla all'[account Cosmos configurato con l'API di Cosmos DB per MongoDB](mongodb-introduction.md). La Parte 6 dell'esercitazione è basata sulla [Parte 5](tutorial-develop-mongodb-nodejs-part5.md) e illustra le attività seguenti:
 
@@ -88,9 +89,11 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
 
 6. Tornare ora al browser Internet e aprire la scheda Network (Rete) degli strumenti di sviluppo premendo F12 per la maggior parte dei computer. Passare a `http://localhost:3000` per controllare le chiamate eseguite in rete.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="routes.js e hero.service.js in Visual Studio Code" e il testo "Hello", quindi fare clic su **Save** (Salva). La scheda Networking (Rete) indica che è stata inviata una richiesta POST per un nuovo elemento hero. 
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png" alt-text="Scheda Networking (Rete) in Chrome che mostra l'attività della rete":::
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="routes.js e hero.service.js in Visual Studio Code":::
+7. Aggiungere un nuovo elemento hero facendo clic sul pulsante **Add New Hero** (Aggiungi nuovo elemento hero). Immettere l'ID "999", il nome "Fred" e il testo "Hello", quindi fare clic su **Save** (Salva). La scheda Networking (Rete) indica che è stata inviata una richiesta POST per un nuovo elemento hero. 
+
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png" alt-text="Scheda Networking (Rete) in Chrome che mostra l'attività della rete per le funzioni Get e Post":::
 
     Tornare ora indietro e aggiungere le funzioni Put e Delete all'app.
 
@@ -175,9 +178,11 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
 
     È ora possibile selezionare l'ID nella scheda Network (Rete) per visualizzare il payload. Il payload mostra che il testo ora è impostato su "Bye".
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="routes.js e hero.service.js in Visual Studio Code" (Elimina) per l'elemento hero denominato "Fred".
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png" alt-text="App Heroes e scheda Networking (Rete) indicante il payload"::: 
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="routes.js e hero.service.js in Visual Studio Code"::: 
+    È anche possibile eliminare uno degli elementi hero nell'interfaccia utente e verificare il tempo necessario per completare l'operazione di eliminazione. Per provare, fare clic sul pulsante "Delete" (Elimina) per l'elemento hero denominato "Fred".
+
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part6/times.png" alt-text="App Heroes e scheda Networking (Rete) indicante il tempo necessario per il completamento delle funzioni"::: 
 
     Se si aggiorna la pagina, la scheda Network (Rete) indica il tempo necessario per ottenere gli elementi hero. Anche se i tempi sono rapidi, molto dipende dalla posizione geografica dei dati e dalla possibilità di eseguirne la replica geografica in un'area vicina agli utenti. Altre informazioni sulla replica geografica saranno disponibili nella prossima esercitazione, che verrà presto rilasciata.
 

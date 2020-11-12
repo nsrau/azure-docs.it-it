@@ -9,14 +9,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: 902980d7c145d5150214b7d4f4433e5da344e30b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb057637ff546356cde6e0ef107fe784fed2e610
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570058"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099879"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Esercitazione: creare un account API Cassandra di Azure Cosmos DB con un'applicazione Java per archiviare dati chiave/valore
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Gli sviluppatori possono avere applicazioni che usano coppie chiave/valore. È possibile usare un account API Cassandra di Azure Cosmos DB per archiviare dati chiave/valore. Questa esercitazione descrive come usare un'applicazione Java per creare un account API Cassandra di Azure Cosmos DB e come aggiungere un database (noto anche come keyspace) e una tabella. L’applicazione Java usa il [driver Java](https://github.com/datastax/java-driver) per creare un database utente, che contiene dettagli come l'ID utente, il nome utente e la città dell'utente.  
 
@@ -44,14 +45,14 @@ Questa esercitazione illustra le attività seguenti:
 
 2. Selezionare **Crea una risorsa** > **Database** > **Azure Cosmos DB**. 
 
-3. Nel riquadro**Nuovo account** immettere le impostazioni per il nuovo account Azure Cosmos. 
+3. Nel riquadro **Nuovo account** immettere le impostazioni per il nuovo account Azure Cosmos. 
 
    |Impostazione   |Valore consigliato  |Descrizione  |
    |---------|---------|---------|
    |ID   |   Immettere un nome univoco    | Immettere un nome univoco per identificare l'account Azure Cosmos. <br/><br/>Dal momento che cassandra.cosmosdb.azure.azure.com viene accodato all'ID specificato per creare il punto di contatto, usare un ID univoco ma facilmente identificabile.         |
-   |API    |  Cassandra   |  L'API determina il tipo di account da creare. <br/> Selezionare **Cassandra** perché in questo articolo si creerà un database con colonne ampie su cui è possibile eseguire query usando la sintassi CQL (Cassandra Query Language).  |
+   |API    |  Cassandra   |  L'API determina il tipo di account da creare. <br/> Selezionare **Cassandra**  perché in questo articolo si creerà un database con colonne ampie su cui è possibile eseguire query usando la sintassi CQL (Cassandra Query Language).  |
    |Subscription    |  Sottoscrizione in uso        |  Selezionare la sottoscrizione di Azure da usare per l'account Azure Cosmos.        |
-   |Gruppo di risorse   | Immettere un nome    |  Selezionare**Crea nuovo** e quindi immettere il nome di un nuovo gruppo di risorse per l'account. Per semplicità si può usare lo stesso nome usato come ID.    |
+   |Gruppo di risorse   | Immettere un nome    |  Selezionare **Crea nuovo** e quindi immettere il nome di un nuovo gruppo di risorse per l'account. Per semplicità si può usare lo stesso nome usato come ID.    |
    |Location    |  Selezionare l'area più vicina agli utenti    |  Selezionare la posizione geografica in cui ospitare l'account Azure Cosmos. Usare la località più vicina agli utenti per offrire loro la massima velocità di accesso ai dati.    |
 
    :::image type="content" source="./media/create-cassandra-api-account-java/create-account.png" alt-text="Creare un account con il portale":::
@@ -66,7 +67,7 @@ Ottenere le informazioni sulla stringa di connessione dal portale di Azure e cop
 
 2. Aprire il riquadro **Stringa di connessione**.  
 
-3. Copiare i valori **PUNTO DI CONTATTO**, **PORTA**, **NOME UTENTE** e **PASSWORD PRIMARIA** da usare nei passaggi successivi.
+3. Copiare i valori **PUNTO DI CONTATTO** , **PORTA** , **NOME UTENTE** e **PASSWORD PRIMARIA** da usare nei passaggi successivi.
 
 ## <a name="create-the-project-and-the-dependencies"></a>Creare il progetto e le dipendenze 
 

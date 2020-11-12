@@ -9,14 +9,15 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-java
-ms.openlocfilehash: 4e9df3343a89097b192c51d3b9f093805afe6b87
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1f3f5a35beeac6c683aeb6db16a417b897755666
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477352"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079768"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Come usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB da Java
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -62,7 +63,7 @@ import com.microsoft.azure.storage.table.TableQuery.*;
 
 ### <a name="add-an-azure-storage-connection-string"></a>Aggiungere una stringa di connessione di archiviazione di Azure
 
-I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, usando il nome dell'account di archiviazione e la chiave di accesso primaria relativa all'account di archiviazione riportata nel [portale di Azure](https://portal.azure.com) per i valori **AccountName** e **AccountKey** . 
+I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, usando il nome dell'account di archiviazione e la chiave di accesso primaria relativa all'account di archiviazione riportata nel [portale di Azure](https://portal.azure.com) per i valori **AccountName** e **AccountKey**. 
 
 In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
 
@@ -76,7 +77,7 @@ public static final String storageConnectionString =
 
 ### <a name="add-an-azure-cosmos-db-table-api-connection-string"></a>Aggiungere una stringa di connessione dell'API Tabelle di Azure Cosmos DB
 
-Un account di Azure Cosmos DB usa una stringa di connessione per archiviare l'endpoint della tabella e le credenziali. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di Azure Cosmos DB nel formato seguente, usando il nome dell'account di Azure Cosmos DB e la chiave di accesso primaria relativa all'account riportata nel [portale di Azure](https://portal.azure.com) per i valori **AccountName** e **AccountKey** . 
+Un account di Azure Cosmos DB usa una stringa di connessione per archiviare l'endpoint della tabella e le credenziali. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di Azure Cosmos DB nel formato seguente, usando il nome dell'account di Azure Cosmos DB e la chiave di accesso primaria relativa all'account riportata nel [portale di Azure](https://portal.azure.com) per i valori **AccountName** e **AccountKey**. 
 
 Questo esempio illustra come dichiarare un campo statico per memorizzare la stringa di connessione di Azure Cosmos DB:
 
@@ -88,7 +89,7 @@ public static final String storageConnectionString =
     "TableEndpoint=https://your_endpoint;" ;
 ```
 
-In un'applicazione in esecuzione in un ruolo di Azure, questa stringa può essere archiviata nel file di configurazione del servizio, *ServiceConfiguration.cscfg* , ed è accessibile con una chiamata al metodo **RoleEnvironment.getConfigurationSettings** . Nell'esempio seguente viene recuperata la stringa di connessione da un elemento **Setting** denominato *StorageConnectionString* nel file di configurazione del servizio:
+In un'applicazione in esecuzione in un ruolo di Azure, questa stringa può essere archiviata nel file di configurazione del servizio, *ServiceConfiguration.cscfg* , ed è accessibile con una chiamata al metodo **RoleEnvironment.getConfigurationSettings**. Nell'esempio seguente viene recuperata la stringa di connessione da un elemento **Setting** denominato *StorageConnectionString* nel file di configurazione del servizio:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -434,7 +435,7 @@ catch (Exception e)
 
 ## <a name="modify-an-entity"></a>Modificare un'entità
 
-Per modificare un'entità, recuperarla dal servizio tabelle, modificare l'oggetto entità e quindi salvare le modifiche nel servizio tabelle con un'operazione di sostituzione o unione. Il codice seguente consente di modificare il numero di telefono di un cliente esistente. Anziché chiamare **TableOperation.insert** come fatto in precedenza per l'inserimento, questo codice chiama **TableOperation.replace** . Il metodo **CloudTable.execute** chiama il servizio tabelle e l'entità viene sostituita a meno che non sia stata modificata da un'altra applicazione da quando è stata recuperata dall'applicazione corrente. Se si verifica questa situazione, viene generata un'eccezione, pertanto è necessario recuperare, modificare e salvare di nuovo l'entità. Questo schema di ripetizione dei tentativi che supporta la concorrenza ottimistica è comune in un sistema di sistema di archiviazione distribuita.
+Per modificare un'entità, recuperarla dal servizio tabelle, modificare l'oggetto entità e quindi salvare le modifiche nel servizio tabelle con un'operazione di sostituzione o unione. Il codice seguente consente di modificare il numero di telefono di un cliente esistente. Anziché chiamare **TableOperation.insert** come fatto in precedenza per l'inserimento, questo codice chiama **TableOperation.replace**. Il metodo **CloudTable.execute** chiama il servizio tabelle e l'entità viene sostituita a meno che non sia stata modificata da un'altra applicazione da quando è stata recuperata dall'applicazione corrente. Se si verifica questa situazione, viene generata un'eccezione, pertanto è necessario recuperare, modificare e salvare di nuovo l'entità. Questo schema di ripetizione dei tentativi che supporta la concorrenza ottimistica è comune in un sistema di sistema di archiviazione distribuita.
 
 ```java
 try

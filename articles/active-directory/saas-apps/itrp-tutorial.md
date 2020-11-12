@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 2dff68f98e2922d5fc7a4fca1e6de8740bc2ae68
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92459680"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Esercitazione: Integrazione di Azure Active Directory con ITRP
@@ -60,7 +60,7 @@ Per configurare l'integrazione di ITRP in Azure AD, è necessario aggiungere ITR
 
     ![Selezionare Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **ITRP** . Selezionare **ITRP** nei risultati della ricerca e quindi selezionare **Aggiungi** .
+4. Nella casella di ricerca immettere **ITRP**. Selezionare **ITRP** nei risultati della ricerca e quindi selezionare **Aggiungi**.
 
      ![Search Results](common/search-new-app.png)
 
@@ -123,11 +123,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con ITRP, seguire questa pr
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-    1. **URL di accesso** .
+    1. **URL di accesso**.
 
-    1. **Identificatore Azure AD** .
+    1. **Identificatore Azure AD**.
 
-    1. **URL di disconnessione** .
+    1. **URL di disconnessione**.
 
 ### <a name="configure-itrp-single-sign-on"></a>Configurare l'accesso Single Sign-On di ITRP
 
@@ -147,7 +147,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ITRP, seguire questa pr
 
     ![Screenshot che mostra la sezione Single Sign-On in cui è possibile aggiungere le informazioni descritte in questo passaggio.](./media/itrp-tutorial/ic775573.png "Sezione Single Sign-On")
 
-    1. Selezionare **Enabled** .
+    1. Selezionare **Enabled**.
 
     1. Nella casella **Remote logout URL** (URL disconnessione remota) incollare il valore di **URL disconnessione** copiato dal portale di Azure.
 
@@ -155,7 +155,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ITRP, seguire questa pr
 
     1. Nella casella **Certificate fingerprint** (Impronta digitale certificato) incollare il valore **Identificazione personale** del certificato copiato dal portale di Azure.
 
-    1. Selezionare **Salva** .
+    1. Selezionare **Salva**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -173,11 +173,11 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    1. Nella casella **Nome** immettere **BrittaSimon** .
+    1. Nella casella **Nome** immettere **BrittaSimon**.
   
     1. Nella casella **Nome utente** immettere **BrittaSimon@\<yourcompanydomain>.\<extension>** . ad esempio BrittaSimon@contoso.com.
 
-    1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
+    1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
     1. Selezionare **Create** (Crea).
 
@@ -185,11 +185,11 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
 In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ITRP.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **ITRP** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **ITRP**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **ITRP** .
+2. Nell'elenco delle applicazioni selezionare **ITRP**.
 
     ![Elenco delle applicazioni](common/all-applications.png)
 
@@ -197,7 +197,7 @@ In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Si
 
     ![Selezionare Utenti e gruppi](common/users-groups-blade.png)
 
-4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Selezionare Aggiungi utente](common/add-assign-user.png)
 
@@ -205,7 +205,7 @@ In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Si
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Fare clic sul pulsante **Seleziona** in basso nella finestra.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna** .
+7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
 
 ### <a name="create-an-itrp-test-user"></a>Creare l'utente di test di ITRP
 
@@ -233,7 +233,7 @@ Per creare un account utente, seguire questa procedura:
 
     1. Immettere il nome e l'indirizzo di posta elettronica di un account Azure AD valido che si vuole aggiungere.
 
-    1. Selezionare **Salva** .
+    1. Selezionare **Salva**.
 
 > [!NOTE]
 > È possibile usare qualsiasi strumento o API di creazione di account utente fornita da ITRP per effettuare il provisioning degli account utente di Azure AD.

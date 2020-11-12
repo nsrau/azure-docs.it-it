@@ -10,14 +10,15 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: a796ae32033dbc09b1f5b888ded9ea5e1f4c457e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3af713d6e120e66a0cde5116f4556bb8caedf55
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523486"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097852"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Creare un'app Node.js Express
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Questa esercitazione in più parti illustra come creare una nuova app scritta in Node.js con Express e Angular e quindi connetterla all'[account Cosmos configurato con l'API di Cosmos DB per MongoDB](mongodb-introduction.md).
 
@@ -81,9 +82,9 @@ Per completare questa esercitazione, sono necessari anche:
 
 ## <a name="build-the-app-using-the-express-framework"></a>Compilare l'app usando il framework Express
 
-1. Nel riquadro **Esplora**  di Visual Studio Code fare clic con il pulsante destro del mouse sulla cartella **src**, scegliere **Nuova cartella** e assegnare alla nuova cartella il nome *server*.
+1. Nel riquadro **Esplora**  di Visual Studio Code fare clic con il pulsante destro del mouse sulla cartella **src** , scegliere **Nuova cartella** e assegnare alla nuova cartella il nome *server*.
 
-2. Nel riquadro **Esplora** fare clic con il pulsante destro del mouse sulla cartella **server**, scegliere **Nuovo file** e specificare *index.js* come nome per il nuovo file.
+2. Nel riquadro **Esplora** fare clic con il pulsante destro del mouse sulla cartella **server** , scegliere **Nuovo file** e specificare *index.js* come nome per il nuovo file.
 
 3. Al prompt dei comandi, usare il comando seguente per installare il parser del corpo, che consente all'app di analizzare i dati JSON passati tramite le API.
 

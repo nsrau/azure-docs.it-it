@@ -9,14 +9,15 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
-ms.openlocfilehash: 43ac175e2c1caa39bfe88a7c1a5f42318db343fb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2d40b70d49b1934c9dd2d911369245b1b2e4f2ff
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477284"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079703"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Come usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB da Node.js
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -57,7 +58,7 @@ Per usare Archiviazione di Azure o Azure Cosmos DB, è necessario disporre di Az
     +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
    ```
 
-3. È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node_modules** . All'interno di questa cartella si trova il pacchetto **azure-storage** , che contiene le librerie necessarie per accedere all'archiviazione.
+3. È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node_modules**. All'interno di questa cartella si trova il pacchetto **azure-storage** , che contiene le librerie necessarie per accedere all'archiviazione.
 
 ### <a name="import-the-package"></a>Importare il pacchetto
 
@@ -268,7 +269,7 @@ Per le operazioni in batch riuscite, `result` contiene le informazioni relative 
 
 ## <a name="retrieve-an-entity-by-key"></a>Recuperare un'entità in base alla chiave
 
-Per restituire un'entità specifica in base a **PartitionKey** e **RowKey** , usare il metodo **retrieveEntity** .
+Per restituire un'entità specifica in base a **PartitionKey** e **RowKey** , usare il metodo **retrieveEntity**.
 
 ```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
@@ -299,7 +300,7 @@ var query = new azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');
 ```
 
-Poiché la clausola **select** non viene usata, vengono restituiti tutti i campi. Per eseguire la query su una tabella, usare **queryEntities** . Nell'esempio seguente viene usata questa query per restituire entità da 'mytable'.
+Poiché la clausola **select** non viene usata, vengono restituiti tutti i campi. Per eseguire la query su una tabella, usare **queryEntities**. Nell'esempio seguente viene usata questa query per restituire entità da 'mytable'.
 
 ```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
@@ -314,7 +315,7 @@ Se la query ha esito positivo, `result.entries` contiene una matrice delle entit
 ### <a name="query-a-subset-of-entity-properties"></a>Eseguire query su un subset di proprietà di entità
 
 Una query su una tabella può recuperare solo alcuni campi da un'entità.
-Questa tecnica permette di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Usare la clausola **select** e passare i nomi dei campi da restituire. La query seguente, ad esempio, restituisce solo i campi **description** e **dueDate** .
+Questa tecnica permette di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Usare la clausola **select** e passare i nomi dei campi da restituire. La query seguente, ad esempio, restituisce solo i campi **description** e **dueDate**.
 
 ```javascript
 var query = new azure.TableQuery()
@@ -357,7 +358,7 @@ tableSvc.deleteTable('mytable', function(error, response){
 });
 ```
 
-Se non si è certi dell'esistenza della tabella, usare **deleteTableIfExists** .
+Se non si è certi dell'esistenza della tabella, usare **deleteTableIfExists**.
 
 ## <a name="use-continuation-tokens"></a>Utilizzare i token di continuazione
 
@@ -455,7 +456,7 @@ var sharedAccessPolicy = {
 };
 ```
 
-L'esempio seguente recupera l'elenco di controllo di accesso corrente per la tabella **hometasks** e quindi aggiunge i nuovi criteri tramite **setTableAcl** . Risultato:
+L'esempio seguente recupera l'elenco di controllo di accesso corrente per la tabella **hometasks** e quindi aggiunge i nuovi criteri tramite **setTableAcl**. Risultato:
 
 ```javascript
 var extend = require('extend');

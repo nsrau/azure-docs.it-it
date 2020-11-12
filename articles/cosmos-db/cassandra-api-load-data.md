@@ -8,14 +8,15 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 2a1e91b4c801b573e566a95950d150a2b3c4788e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad3dfc8c86d22e58377ebfbdb94b2beb004ded56
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91564919"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092467"
 ---
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Esercitazione: Caricare dati di esempio in una tabella di API Cassandra in Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Gli sviluppatori possono avere applicazioni che usano coppie chiave/valore. È possibile usare un account dell'API Cassandra in Azure Cosmos DB per archiviare e gestire i dati chiave/valore. Questa esercitazione illustra come caricare i dati utente di esempio in una tabella in un account di API Cassandra in Azure Cosmos DB usando un'applicazione Java. L'applicazione Java usa il [driver Java](https://github.com/datastax/java-driver) e carica i dati utente, tra cui ID utente, nome utente e città dell'utente. 
 

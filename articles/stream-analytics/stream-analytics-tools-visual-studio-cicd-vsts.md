@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 18ab9a4108d6d9effaa25fe69ce42a18ca4ba0dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e87432ad4437f41e70d988e7e2b3cd82aa3bd82
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903835"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123388"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Esercitazione: Distribuire un processo di Analisi di flusso di Azure con CI/CD usando Azure Pipelines
 Questa esercitazione illustra come configurare l'integrazione continua e la distribuzione continua per un processo di Analisi di flusso di Azure usando Azure Pipelines. 
@@ -35,7 +35,7 @@ Prima di iniziare, verificare di aver eseguito questa procedura:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Installare [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) e i carichi di lavoro **Sviluppo di Azure** o **Elaborazione ed archiviazione dati**.
-* Creare un [progetto di Analisi di flusso in Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
+* Creare un [progetto di Analisi di flusso in Visual Studio](./stream-analytics-quick-create-vs.md).
 * Creare un'organizzazione di [Azure DevOps](https://visualstudio.microsoft.com/team-services/).
 
 ## <a name="configure-nuget-package-dependency"></a>Configurare la dipendenza del pacchetto NuGet
@@ -54,7 +54,7 @@ Aggiungere **packages.config** alla directory del progetto.
 
 Condividere i file di origine dell'applicazione in un progetto in Azure DevOps, in modo da poter generare le compilazioni.  
 
-1. Creare un nuovo repository Git locale per il progetto selezionando **Aggiungi al controllo del codice sorgente**, quindi **Git** nella barra di stato nell'angolo in basso a destra di Visual Studio. 
+1. Creare un nuovo repository Git locale per il progetto selezionando **Aggiungi al controllo del codice sorgente** , quindi **Git** nella barra di stato nell'angolo in basso a destra di Visual Studio. 
 
 2. Nella visualizzazione **Sincronizzazione** in **Team Explorer** selezionare il pulsante **Pubblica repository GIT** in **Esegui push in Azure DevOps Services**.
 
@@ -67,9 +67,9 @@ Condividere i file di origine dell'applicazione in un progetto in Azure DevOps, 
     Con la pubblicazione del repository viene creato un nuovo progetto nell'organizzazione con lo stesso nome del repository locale. Per creare il repository in un progetto esistente, fare clic su **Avanzate** accanto al nome del **repository** e selezionare un progetto. È possibile visualizzare il codice nel browser selezionando **Visualizza nel Web**.
  
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>Configurare la distribuzione continua con Azure DevOps
-Una pipeline di compilazione di Azure Pipelines descrive un flusso di lavoro costituito da istruzioni di compilazione eseguite in sequenza. Altre informazioni sulle [pipeline di compilazione di Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav&preserve-view=true).
+Una pipeline di compilazione di Azure Pipelines descrive un flusso di lavoro costituito da istruzioni di compilazione eseguite in sequenza. Altre informazioni sulle [pipeline di compilazione di Azure Pipelines](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav&view=vsts).
 
-Una pipeline di versione di Azure Pipelines descrive un flusso di lavoro che distribuisce un pacchetto dell'applicazione in un cluster. Se usate insieme, la pipeline di compilazione e la pipeline di versione eseguono l'intero flusso di lavoro, a partire dai file di origine fino alla creazione di un'applicazione in esecuzione nel cluster. Altre informazioni sulle [pipeline di versione](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts&preserve-view=true) di Azure Pipelines.
+Una pipeline di versione di Azure Pipelines descrive un flusso di lavoro che distribuisce un pacchetto dell'applicazione in un cluster. Se usate insieme, la pipeline di compilazione e la pipeline di versione eseguono l'intero flusso di lavoro, a partire dai file di origine fino alla creazione di un'applicazione in esecuzione nel cluster. Altre informazioni sulle [pipeline di versione](/azure/devops/pipelines/release/define-multistage-release-process?preserve-view=true&view=vsts) di Azure Pipelines.
 
 ### <a name="create-a-build-pipeline"></a>Creare una pipeline di compilazione
 Aprire un Web browser e passare al progetto appena creato in [Azure DevOps](https://app.vsaex.visualstudio.com/). 
@@ -158,7 +158,7 @@ Il push delle modifiche in Azure DevOps Services attiva automaticamente una comp
 Quando non sono più necessari, eliminare il gruppo di risorse, il processo di streaming e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming usate dal processo. Se si prevede di usare il processo in futuro, è possibile arrestarlo e riavviarlo in un secondo momento, quando è necessario. Se non si intende continuare a usare il processo, eliminare tutte le risorse create tramite questa esercitazione seguendo questa procedura:
 
 1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi fare clic sul nome della risorsa creata.  
-2. Nella pagina del gruppo di risorse fare clic su **Elimina**, digitare il nome della risorsa da eliminare nella casella di testo e quindi fare clic su **Elimina**.
+2. Nella pagina del gruppo di risorse fare clic su **Elimina** , digitare il nome della risorsa da eliminare nella casella di testo e quindi fare clic su **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,19 +8,20 @@ ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 ms.date: 07/23/2020
-ms.openlocfilehash: 26381d03598485598f0f72242862edd191e9bd30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d059c899e4a64d4d2c1b880b2a1d0f89258f33b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318756"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079632"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Come usare il servizio Tabella di archiviazione di Azure o l'API Tabelle di Azure Cosmos DB da PHP
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-Questo articolo illustra come creare tabelle, archiviare i dati ed eseguire operazioni CRUD sui dati. Scegliere se usare il servizio tabelle di Azure o l'API Tabella di Azure Cosmos DB. Gli esempi sono scritti in PHP e usano la [libreria client PHP per Tabella di archiviazione di Azure][download]. Gli scenari presentati includono operazioni di **creazione ed eliminazione di una tabella**, nonché di **inserimento, eliminazione ed esecuzione di query sulle entità di una tabella**. Per altre informazioni sul servizio tabelle di Azure, vedere la sezione [Passaggi successivi](#next-steps) .
+Questo articolo illustra come creare tabelle, archiviare i dati ed eseguire operazioni CRUD sui dati. Scegliere se usare il servizio tabelle di Azure o l'API Tabella di Azure Cosmos DB. Gli esempi sono scritti in PHP e usano la [libreria client PHP per Tabella di archiviazione di Azure][download]. Gli scenari presentati includono operazioni di **creazione ed eliminazione di una tabella** , nonché di **inserimento, eliminazione ed esecuzione di query sulle entità di una tabella**. Per altre informazioni sul servizio tabelle di Azure, vedere la sezione [Passaggi successivi](#next-steps) .
 
 ## <a name="create-an-azure-service-account"></a>Creare un account del servizio di Azure
 
@@ -258,7 +259,7 @@ echo $entity->getPartitionKey().":".$entity->getRowKey();
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Recuperare tutte le entità di una partizione
 
-Le query di entità vengono create usando i filtri. Per altre informazioni, vedere [Query su tabelle ed entità][filters]. Per recuperare tutte le entità in una partizione usare il filtro "PartitionKey eq *partition_name*". Nell'esempio seguente viene illustrato come recuperare tutte le entità nella partizione `tasksSeattle` passando un filtro al metodo **queryEntities** .
+Le query di entità vengono create usando i filtri. Per altre informazioni, vedere [Query su tabelle ed entità][filters]. Per recuperare tutte le entità in una partizione usare il filtro "PartitionKey eq *partition_name* ". Nell'esempio seguente viene illustrato come recuperare tutte le entità nella partizione `tasksSeattle` passando un filtro al metodo **queryEntities** .
 
 ```php
 require_once 'vendor/autoload.php';
@@ -326,7 +327,7 @@ foreach($entities as $entity){
 
 ## <a name="retrieve-a-subset-of-entity-properties"></a>Recuperare un subset di proprietà di entità
 
-È possibile recuperare un subset di proprietà di entità eseguendo una query. Questa tecnica, denominata *proiezione*, consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Per specificare una proprietà da recuperare, passare il nome della proprietà al metodo **Query->addSelectField**. Per aggiungere altre proprietà, è possibile chiamare questo metodo più volte. Dopo l'esecuzione di **TableRestProxy->queryEntities**, per le entità restituite saranno presenti solo le proprietà selezionate. Se si desidera restituire un subset di entità di tabella, utilizzare un filtro come illustrato nelle query precedenti.
+È possibile recuperare un subset di proprietà di entità eseguendo una query. Questa tecnica, denominata *proiezione* , consente di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Per specificare una proprietà da recuperare, passare il nome della proprietà al metodo **Query->addSelectField**. Per aggiungere altre proprietà, è possibile chiamare questo metodo più volte. Dopo l'esecuzione di **TableRestProxy->queryEntities** , per le entità restituite saranno presenti solo le proprietà selezionate. Se si desidera restituire un subset di entità di tabella, utilizzare un filtro come illustrato nelle query precedenti.
 
 ```php
 require_once 'vendor/autoload.php';

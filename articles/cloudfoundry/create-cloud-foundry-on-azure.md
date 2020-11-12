@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 5d4ac5435281f521c71556123f77d737ee6916e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65d8ade438228d7af71de1fc66639e5b6de2edda
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73161787"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040803"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Creare un cluster Pivotal Cloud Foundry in Azure
 
@@ -36,13 +36,13 @@ Esistono diversi modi per generare una chiave SSH pubblica con Windows, Mac o Li
 ssh-keygen -t rsa -b 2048
 ```
 
-Per altre informazioni, vedere [Uso delle chiavi SSH con Windows in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
+Per altre informazioni, vedere [Uso delle chiavi SSH con Windows in Azure](../virtual-machines/linux/ssh-from-windows.md).
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
 > [!NOTE]
 >
-> Per creare un'entità servizio è necessaria l'autorizzazione di un account proprietario. Inoltre, è possibile scrivere uno script per automatizzare la creazione dell'entità servizio. Ad esempio, usando l'interfaccia della riga di comando di Azure [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest).
+> Per creare un'entità servizio è necessaria l'autorizzazione di un account proprietario. Inoltre, è possibile scrivere uno script per automatizzare la creazione dell'entità servizio. Ad esempio, usando l'interfaccia della riga di comando di Azure [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest).
 
 1. Accedere all'account Azure.
 
@@ -50,7 +50,7 @@ Per altre informazioni, vedere [Uso delle chiavi SSH con Windows in Azure](https
 
     ![Login dell'interfaccia della riga di comando di Azure](media/deploy/az-login-output.png )
  
-    Copiare il valore "id" come l'**ID sottoscrizione** e il valore "tenantId" da usare in seguito.
+    Copiare il valore "id" come l' **ID sottoscrizione** e il valore "tenantId" da usare in seguito.
 
 2. Impostare la sottoscrizione predefinita per questa configurazione.
 
@@ -84,7 +84,7 @@ Per altre informazioni, vedere [Uso delle chiavi SSH con Windows in Azure](https
 
     `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
 
-7. Creare un file .json con il formato seguente. Usare i valori **ID sottoscrizione**, **tenantID**, **clientID** e **clientSecret** copiati in precedenza. Salvare il file.
+7. Creare un file .json con il formato seguente. Usare i valori **ID sottoscrizione** , **tenantID** , **clientID** e **clientSecret** copiati in precedenza. Salvare il file.
 
     ```json
     {
@@ -128,4 +128,3 @@ Immettere i parametri e creare il cluster PCF.
 5. PCF Ops Manager visualizzerà le istanze di Azure distribuite. Ora è possibile distribuire e gestire le applicazioni da qui.
                
     ![Istanza di Azure distribuita in Pivotal](media/deploy/ops-mgr.png )
- 

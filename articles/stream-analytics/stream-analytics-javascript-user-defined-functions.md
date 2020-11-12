@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
 ms.date: 06/16/2020
-ms.openlocfilehash: 7df244ee024b0d67ba678e296b882fbb08c3e16b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aac85fdab157d581285af91c4c818258a5f1790b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317719"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124782"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
  
-L'Analisi di flusso di Azure supporta le funzioni definite dall'utente nel linguaggio JavaScript. Con il vasto set di metodi **String**, **RegExp**, **Math**, **Array** e **Date** offerti da JavaScript, risulta più facile creare trasformazioni di dati complessi con processi di Analisi di flusso.
+L'Analisi di flusso di Azure supporta le funzioni definite dall'utente nel linguaggio JavaScript. Con il vasto set di metodi **String** , **RegExp** , **Math** , **Array** e **Date** offerti da JavaScript, risulta più facile creare trasformazioni di dati complessi con processi di Analisi di flusso.
 
 ## <a name="overview"></a>Panoramica
 
@@ -55,7 +55,7 @@ Per creare una funzione JavaScript definita dall'utente nel processo di Analisi 
 
 ## <a name="test-and-troubleshoot-javascript-udfs"></a>Testare e risolvere i problemi delle funzioni definite dall'utente JavaScript 
 
-È possibile testare ed eseguire il debug della logica delle funzioni definite dall'utente JavaScript in qualsiasi browser. Il debug e il test della logica di queste funzioni definite dall'utente non sono attualmente supportati nel portale di Analisi di flusso. Quando la funzione si comporta come previsto, è possibile aggiungerla al processo di analisi di flusso come indicato in precedenza e quindi richiamarla direttamente dalla query. È possibile testare la logica di query con la funzione definita dall'utente JavaScript usando gli [strumenti di Analisi di flusso di Azure per Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install).
+È possibile testare ed eseguire il debug della logica delle funzioni definite dall'utente JavaScript in qualsiasi browser. Il debug e il test della logica di queste funzioni definite dall'utente non sono attualmente supportati nel portale di Analisi di flusso. Quando la funzione si comporta come previsto, è possibile aggiungerla al processo di analisi di flusso come indicato in precedenza e quindi richiamarla direttamente dalla query. È possibile testare la logica di query con la funzione definita dall'utente JavaScript usando gli [strumenti di Analisi di flusso di Azure per Visual Studio](./stream-analytics-tools-for-visual-studio-install.md).
 
 Gli errori di runtime in JavaScript sono considerati irreversibili ed esposti tramite il log attività. Per recuperare il log, nel portale di Azure passare al processo e selezionare **Log attività**.
 
@@ -188,5 +188,5 @@ FROM
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Funzione definita dall'utente di Machine Learning](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf)
-* [Funzione definita dall'utente in C#](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)
+* [Funzione definita dall'utente di Machine Learning](./machine-learning-udf.md)
+* [Funzione definita dall'utente in C#](./stream-analytics-edge-csharp-udf-methods.md)

@@ -10,14 +10,15 @@ ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 06c309de5054887a64e61d61345190c776835709
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: cdb8612bb04d52df3603aa4520cad4cbacb661da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476587"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074081"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Creare un'app MongoDB con React e Azure Cosmos DB  
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Questa esercitazione video in più parti illustra come creare un'app di verifica hero con un front-end React. L'app usa Node ed Express per il server, si connette al database Cosmos con configurato con l'[API di Azure Cosmos DB per MongoDB](mongodb-introduction.md) e quindi connette il front-end React alla parte server dell'app. L'esercitazione illustra anche come puntare e fare clic per eseguire il ridimensionamento di Cosmos DB nel portale di Azure e come distribuire l'app in Internet in modo che ognuna possa tenere traccia degli elementi hero preferiti. 
 
@@ -91,7 +92,7 @@ Questo video illustra come completare l'app e finire di collegare l'interfaccia 
 Se non si prevede di continuare a usare questa app, seguire questa procedura per eliminare tutte le risorse create da questa esercitazione nel portale di Azure. 
 
 1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi fare clic sul nome della risorsa creata. 
-2. Nella pagina del gruppo di risorse fare clic su **Elimina** , digitare il nome della risorsa da eliminare nella casella di testo e quindi fare clic su **Elimina** .
+2. Nella pagina del gruppo di risorse fare clic su **Elimina** , digitare il nome della risorsa da eliminare nella casella di testo e quindi fare clic su **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

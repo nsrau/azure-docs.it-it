@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 74a4178cc6b9645f3cb22bf3d1c7c0ee942c3f5f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 774c829b3f9c36cef33f8f334825440b92582f4e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485291"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097312"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Esercitazione: Creare un'applicazione Web Java con Azure Cosmos DB e l'API di SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -67,15 +68,15 @@ Per creare l'applicazione JSP:
 
 1. Si inizierà con la creazione di un progetto Java. Avviare Eclipse, quindi fare clic su **File** , **New** (Nuovo) e quindi su **Dynamic Web Project** (Progetto Web dinamico). Se **Dynamic Web Project** (Progetto Web dinamico) non è presente nell'elenco dei progetti disponibili, seguire questa procedura: fare clic su **File** , su **New** (Nuovo) e su **Project** (Progetto), espandere **Web** , fare clic su **Dynamic Web Project** (Progetto Web dinamico), quindi selezionare **Next** (Avanti).
    
-    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="Applicazione Java My ToDo List":::
+    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="Sviluppo di applicazioni Java JSP":::
 
 1. Immettere un nome di progetto nella casella **Project name** (Nome progetto) e dal menu a discesa **Target Runtime** (Runtime di destinazione) selezionare facoltativamente un valore, ad esempio Apache Tomcat v7.0, e quindi fare clic su **Finish** (Fine). Se si seleziona un runtime di destinazione, sarà possibile eseguire il progetto in locale tramite Eclipse.
 
-1. Nella vista Project Explorer di Eclipse espandere il progetto. Fare clic con il pulsante destro del mouse su **WebContent** , scegliere **New** e quindi fare clic su **JSP File** .
+1. Nella vista Project Explorer di Eclipse espandere il progetto. Fare clic con il pulsante destro del mouse su **WebContent** , scegliere **New** e quindi fare clic su **JSP File**.
 
-1. Nella finestra di dialogo **New JSP File** (Nuovo file JSP) assegnare al file il nome **index.jsp** . Mantenere il nome **WebContent** per la cartella padre, come illustrato di seguito, e quindi fare clic su **Next** (Avanti).
+1. Nella finestra di dialogo **New JSP File** (Nuovo file JSP) assegnare al file il nome **index.jsp**. Mantenere il nome **WebContent** per la cartella padre, come illustrato di seguito, e quindi fare clic su **Next** (Avanti).
    
-    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Applicazione Java My ToDo List":::
+    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Esercitazione sull'applicazione Web Java - Creare un nuovo file JSP":::
 
 1. Per le finalità di questa esercitazione, nella finestra di dialogo **Select JSP Template** (Seleziona modello JSP) selezionare **New JSP File (html)** (Nuovo file JSP - html), quindi fare clic su **Finish** (Fine).
 
@@ -87,11 +88,11 @@ Per creare l'applicazione JSP:
    </body>
    ```
 
-1. Salvare il file *index.jsp* .
+1. Salvare il file *index.jsp*.
 
 1. Se nel passaggio 2 è stato impostato un runtime di destinazione, è possibile fare clic su **Project** (Progetto), quindi su **Run** (Esegui) per eseguire l'applicazione JSP in locale:
 
-   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Applicazione Java My ToDo List":::
+   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Esercitazione sull'applicazione Java - Hello World":::
 
 ## <a name="install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Installare Java SDK SQL
 
@@ -121,7 +122,7 @@ Il modo più semplice per inserire Java SDK SQL e le relative dipendenze è tram
    </dependency>
    ```
 
-1. Fare clic su **OK** . Maven installerà SQL Java SDK o salverà il file pom.xml.
+1. Fare clic su **OK**. Maven installerà SQL Java SDK o salverà il file pom.xml.
 
 ## <a name="use-the-azure-cosmos-db-service-in-your-java-application"></a><a id="UseService"></a>Usare il servizio Azure Cosmos DB in un'applicazione Java
 
@@ -129,7 +130,7 @@ Aggiungere ora i modelli, le visualizzazioni e i controller all'applicazione Web
 
 ### <a name="add-a-model"></a>Aggiunta di un modello
 
-Per prima cosa, definire un modello all'interno di un nuovo file *TodoItem.java* . La classe `TodoItem` definisce lo schema di un elemento insieme ai metodi getter e setter:
+Per prima cosa, definire un modello all'interno di un nuovo file *TodoItem.java*. La classe `TodoItem` definisce lo schema di un elemento insieme ai metodi getter e setter:
 
 :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/documentdb/sample/model/TodoItem.java":::
 
@@ -195,7 +196,7 @@ Con Siti Web di Azure la procedura di distribuzione di applicazioni Java è molt
    
    * Nella casella Web project immettere azure-documentdb-java-sample.
    * Nella casella Destination scegliere una destinazione in cui salvare il file WAR.
-   * Fare clic su **Fine** .
+   * Fare clic su **Fine**.
 
 1. A questo punto è sufficiente caricare il file nella directory **webapps** di Siti Web di Azure. Per istruzioni sul caricamento del file, vedere [Distribuire l'applicazione di esempio nelle app Web di Servizio app di Azure](../app-service/quickstart-java.md). Dopo aver caricato il file WAR nella directory webapps, l'ambiente di runtime rileverà che il file è stato aggiunto e lo caricherà automaticamente.
 
@@ -209,7 +210,7 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 
 1. Se Eclipse è aperto, chiuderlo e riavviarlo per caricare Lombok.
 
-1. In Eclipse scegliere **Import** (Importa) dal menu **File** .
+1. In Eclipse scegliere **Import** (Importa) dal menu **File**.
 
 1. Nella finestra **Import** (Importa) fare clic su **Git** , su **Projects from Git** (Progetti da Git) e quindi su **Next** (Avanti).
 
@@ -229,15 +230,15 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 
 1. In **Project Explorer** (Esplora progetti) fare clic con il pulsante destro del mouse su **azure-documentdb-java-sample** , scegliere **Build Path** (Percorso compilazione) e quindi fare clic su **Configure Build Path** (Configura percorso compilazione).
 
-1. Nella schermata **Java Build Path** (Percorso compilazione Java), nel riquadro a destra selezionare la scheda **Libraries** (Librerie) e quindi fare clic su **Add External JARs** (Aggiungi JAR esterni). Passare al percorso del file lombok.jar e fare clic su **Open** (Apri) e quindi su **OK** .
+1. Nella schermata **Java Build Path** (Percorso compilazione Java), nel riquadro a destra selezionare la scheda **Libraries** (Librerie) e quindi fare clic su **Add External JARs** (Aggiungi JAR esterni). Passare al percorso del file lombok.jar e fare clic su **Open** (Apri) e quindi su **OK**.
 
 1. Vedere il passaggio 12 per aprire nuovamente la finestra **Properties** (Proprietà) e quindi nel riquadro a sinistra fare clic su **Targeted Runtimes** (Runtime di destinazione).
 
-1. Nella schermata **Targeted Runtimes** (Runtime di destinazione) fare clic su **New** (Nuovo), selezionare **Apache Tomcat v7.0** e quindi fare clic su **OK** .
+1. Nella schermata **Targeted Runtimes** (Runtime di destinazione) fare clic su **New** (Nuovo), selezionare **Apache Tomcat v7.0** e quindi fare clic su **OK**.
 
 1. Vedere il passaggio 12 per aprire nuovamente la finestra **Properties** (Proprietà) e quindi nel riquadro a sinistra fare clic su **Project Facets** (Facet di progetto).
 
-1. Nella schermata **Project Facets** (Facet di progetto) selezionare **Dynamic Web Module** (Modulo Web dinamico) e **Java** e quindi fare clic su **OK** .
+1. Nella schermata **Project Facets** (Facet di progetto) selezionare **Dynamic Web Module** (Modulo Web dinamico) e **Java** e quindi fare clic su **OK**.
 
 1. Nella scheda **Servers** (Server) nella parte inferiore della schermata fare clic con il pulsante destro del mouse su **Tomcat v7.0 Server at localhost** (Server Tomcat v7.0 in localhost) e quindi fare clic su **Add and Remove** (Aggiungi e rimuovi).
 
