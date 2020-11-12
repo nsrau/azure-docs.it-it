@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 06/08/2020
+ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 14b9d9fe0eb9dfe2f25373c2d87d9b4af15dd0d9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 1a9f468b8e2f9fff20b9b26b8890d485e426b691
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371712"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523837"
 ---
 L'uso dell'integrazione VNet a livello di area consente all'app di accedere a:
 
@@ -42,10 +42,10 @@ Per impostazione predefinita, l'app instrada solo il traffico RFC1918 in VNet. S
 Esistono alcune limitazioni all'uso dell'integrazione di VNet con reti virtuali nella stessa area:
 
 * Non è possibile raggiungere risorse tra connessioni di peering globali.
-* La funzionalità è disponibile solo dalle più recenti app Azure unità di scala del servizio che supportano i piani di servizio app PremiumV2. Si noti che *questo non significa che l'app deve essere eseguita in un piano tariffario PremiumV2* , ma solo che deve essere eseguita in un piano di servizio app in cui è disponibile l'opzione PremiumV2 (che indica che si tratta di un'unità di scala più recente in cui è disponibile anche questa funzionalità di integrazione VNet).
+* La funzionalità è disponibile in tutte le unità di scala del servizio app in Premium v2 e Premium V3. È anche disponibile in standard ma solo da unità di scala del servizio app più recenti. Se si usa un'unità di scala precedente, è possibile usare la funzionalità solo da un piano di servizio App Premium v2. Se si vuole essere certi di poter usare la funzionalità in un piano di servizio app standard, creare l'app in un piano di servizio App Premium V3. Tali piani sono supportati solo nelle unità di scala più recenti. Se lo si desidera, è possibile ridurre le prestazioni.  
 * La subnet di integrazione può essere usata da un solo piano di servizio app.
 * La funzionalità non può essere usata da app del piano isolato che si trovano in un ambiente del servizio app.
-* La funzionalità richiede una subnet inutilizzata a/27 con indirizzi 32 o più grandi in un Azure Resource Manager VNet.
+* Per la funzionalità è necessaria una subnet inutilizzata/28 o superiore in un Azure Resource Manager VNet.
 * L'app e il VNet devono trovarsi nella stessa area.
 * Non è possibile eliminare un VNet con un'app integrata. Rimuovere l'integrazione prima di eliminare il VNet.
 * È possibile eseguire l'integrazione solo con reti virtuali nella stessa sottoscrizione dell'app.
@@ -53,7 +53,21 @@ Esistono alcune limitazioni all'uso dell'integrazione di VNet con reti virtuali 
 * Non è possibile modificare la sottoscrizione di un'app o di un piano mentre è presente un'app che usa l'integrazione VNet a livello di area.
 * L'app non può risolvere gli indirizzi in Zone private di DNS di Azure senza modifiche alla configurazione
 
-Per ogni istanza del piano viene usato un indirizzo. Se si ridimensiona l'app a cinque istanze, vengono usati cinque indirizzi. Poiché le dimensioni della subnet non possono essere modificate dopo l'assegnazione, è necessario usare una subnet sufficientemente grande da contenere la scala che l'app può raggiungere. Le dimensioni consigliate sono le dimensioni consigliate per/26 con indirizzi 64. A/26 con 64 indirizzi di un piano Premium con 30 istanze. Quando si ridimensiona un piano verso l'alto o verso il basso, sono necessari due volte il numero di indirizzi per un breve periodo di tempo.
+L'integrazione di VNet dipende dall'uso di una subnet dedicata.  Quando si esegue il provisioning di una subnet, la subnet di Azure perde 5 IP per dall'inizio. Un indirizzo viene usato dalla subnet di integrazione per ogni istanza del piano. Se si ridimensiona l'app a quattro istanze, vengono usati quattro indirizzi. Il debito di 5 indirizzi dalla dimensione della subnet significa che il numero massimo di indirizzi disponibili per ogni blocco CIDR è il seguente:
+
+- /28 ha 11 indirizzi
+- /27 ha 27 indirizzi
+- /26 ha 59 indirizzi
+
+Se si aumentano o diminuiscono le dimensioni, è necessario il doppio degli indirizzi necessari per un breve periodo di tempo. I limiti di dimensione indicano che le dimensioni effettive supportate per ogni subnet sono, se la subnet è:
+
+- /28, la scala orizzontale massima è 5 istanze
+- /27, la scala orizzontale massima è 13 istanze
+- /26, la scala orizzontale massima è 29 istanze
+
+I limiti indicati sulla scala orizzontale massima presuppongono che sia necessario aumentare o ridurre le dimensioni o lo SKU in un determinato momento. 
+
+Poiché le dimensioni della subnet non possono essere modificate dopo l'assegnazione, usare una subnet sufficientemente grande da contenere la scala che l'app può raggiungere. Per evitare problemi con la capacità della subnet, le dimensioni consigliate sono pari a/26 con 64 indirizzi.  
 
 Se si vuole che le app in un altro piano raggiungano un VNet già connesso da app in un altro piano, selezionare una subnet diversa da quella usata dall'integrazione VNet preesistente.
 
@@ -82,21 +96,15 @@ Le route Border Gateway Protocol (BGP) influiscono anche sul traffico dell'app. 
 
 ### <a name="azure-dns-private-zones"></a>Zone private di DNS di Azure 
 
-Quando l'app si integra con la VNet, USA lo stesso server DNS con cui è configurata la VNet. Per impostazione predefinita, l'app non funzionerà con Zone private di DNS di Azure. Per usare Zone private di DNS di Azure, è necessario aggiungere le impostazioni dell'app seguenti:
-
-1. WEBSITE_DNS_SERVER con valore 168.63.129.16
-1. WEBSITE_VNET_ROUTE_ALL con valore 1
-
-Queste impostazioni invieranno tutte le chiamate in uscita dall'app in VNet. Consente inoltre all'app di usare il servizio DNS di Azure eseguendo una query sulla zona DNS privato a livello di lavoro. Questa funzionalità deve essere usata quando un'app in esecuzione accede a una zona DNS privato.
-
-> [!NOTE]
->Il tentativo di aggiungere un dominio personalizzato a un'app Web con DNS privato zona non è possibile con l'integrazione rete virtuale. La convalida del dominio personalizzato viene eseguita a livello di controller, non a livello di ruolo di lavoro, che impedisce la visualizzazione dei record DNS. Per usare un dominio personalizzato da un'area di DNS privato, è necessario ignorare la convalida usando un gateway applicazione o un ambiente del servizio app ILB.
-
-
+Quando l'app si integra con la VNet, USA lo stesso server DNS con cui è configurata la VNet. È possibile eseguire l'override di questo comportamento nell'app configurando l'impostazione dell'app WEBSITE_DNS_SERVER con l'indirizzo del server DNS desiderato. Se è stato configurato un server DNS personalizzato con il VNet ma si vuole che l'app usi zone private di DNS di Azure, è necessario impostare WEBSITE_DNS_SERVER con il valore 168.63.129.16. 
 
 ### <a name="private-endpoints"></a>Endpoint privati
 
-Se si desidera effettuare chiamate a [endpoint privati][privateendpoints], è necessario integrare con zone private di DNS di Azure o gestire l'endpoint privato nel server DNS usato dall'app. 
+Se si desidera effettuare chiamate a [endpoint privati][privateendpoints], è necessario assicurarsi che le ricerche DNS vengano risolte nell'endpoint privato. Per assicurarsi che le ricerche DNS dall'app puntino agli endpoint privati, è possibile:
+
+* integrazione con Zone private di DNS di Azure. Se il VNet non dispone di un server DNS personalizzato, questo sarà automatico
+* gestire l'endpoint privato nel server DNS usato dall'app. A tale scopo, è necessario individuare l'indirizzo dell'endpoint privato e quindi puntare l'endpoint che si sta provando a raggiungere tale indirizzo con un record A.
+* configurare il server DNS in modo che si inoltri alle zone private di DNS di Azure
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png
