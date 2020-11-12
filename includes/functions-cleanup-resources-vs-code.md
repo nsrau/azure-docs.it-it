@@ -2,25 +2,21 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.author: glenga
-ms.openlocfilehash: 0d83f3a92efe7bddcefdeebb5b6d580caf749206
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: af009a3f04f17d9d7e518d2dd02343a8ed54e342
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91408560"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93424689"
 ---
-1. In Visual Studio Code premere <kbd>F1</kbd> per aprire il riquadro comandi. Nel riquadro comandi cercare e selezionare `Azure Functions: Open in portal`.
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-1. Scegliere l'app per le funzioni e premere <kbd>INVIO</kbd>. La pagina dell'app per le funzioni viene aperta nel portale di Azure.
+Per continuare con il [passaggio successivo](#next-steps) e aggiungere alla funzione un'associazione alla coda di Archiviazione di Azure, sarà necessario mantenere tutte le risorse esistenti per poterle riutilizzare.
 
-1. Nella scheda **Panoramica** selezionare il collegamento accanto a **Gruppo di risorse**.
+In caso contrario, seguire questa procedura per eliminare l'app per le funzioni e le risorse correlate per evitare l'addebito di costi aggiuntivi.
 
-   :::image type="content" source="./media/functions-cleanup-resources-vs-code/functions-app-delete-resource-group.png" alt-text="Selezionare il gruppo di risorse da eliminare dalla pagina dell'app per le funzioni.":::
+[!INCLUDE [functions-cleanup-resources-vs-code-inner.md](functions-cleanup-resources-vs-code-inner.md)]
 
-1. Nella pagina **Gruppo di risorse** esaminare l'elenco delle risorse incluse e verificare che siano quelle da eliminare.
- 
-1. Selezionare **Elimina gruppo di risorse** e seguire le istruzioni.
-
-   L'eliminazione potrebbe richiedere alcuni minuti. Al termine, viene visualizzata una notifica per pochi secondi. È anche possibile selezionare l'icona a forma di campana nella parte superiore della pagina per visualizzare la notifica.
+Per altre informazioni sui costi di Funzioni di Azure, vedere [Stima dei costi del piano a consumo](../articles/azure-functions/functions-consumption-costs.md).

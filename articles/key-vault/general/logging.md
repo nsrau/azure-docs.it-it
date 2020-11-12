@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5423fc27ecc58bcd79b36a845e4b7569f342f712
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: eef4f6b8ee5821e54b5b7709eee7f8dad8749e63
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286698"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488537"
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione di Azure Key Vault
 
@@ -93,12 +93,14 @@ La tabella seguente include un elenco di valori **operationName** con il comando
 | **VaultDelete** |[Eliminare un insieme di credenziali delle chiavi](/rest/api/keyvault/vaults) |
 | **VaultPatch** |[Aggiornare un insieme di credenziali delle chiavi](/rest/api/keyvault/vaults) |
 | **VaultList** |[Elencare tutti gli insiemi di credenziali delle chiavi in un gruppo di risorse](/rest/api/keyvault/vaults) |
+| **VaultPurge** |[Rimuovere definitivamente l'insieme di credenziali eliminato](/rest/api/keyvault/vaults/purgedeleted) |
+| **VaultRecover** |Recuperare l'insieme di credenziali eliminato|
+| **VaultGetDeleted** |[Ottenere l'insieme di credenziali eliminato](/rest/api/keyvault/vaults/getdeleted) |
+| **VaultListDeleted** |[Elencare gli insiemi di credenziali eliminati](/rest/api/keyvault/vaults/listdeleted) |
 | **KeyCreate** |[Creare una chiave](/rest/api/keyvault/createkey) |
 | **KeyGet** |[Ottenere informazioni su una chiave](/rest/api/keyvault/getkey) |
 | **KeyImport** |[Importare una chiave in un insieme di credenziali](/rest/api/keyvault/vaults) |
-| **KeyBackup** |[Eseguire il backup di una chiave](/rest/api/keyvault/backupkey) |
 | **KeyDelete** |[Eliminare una chiave](/rest/api/keyvault/deletekey) |
-| **KeyRestore** |[Ripristinare una chiave](/rest/api/keyvault/restorekey) |
 | **KeySign** |[Firmare con una chiave](/rest/api/keyvault/sign) |
 | **KeyVerify** |[Verificare con una chiave](/rest/api/keyvault/vaults) |
 | **KeyWrap** |[Eseguire il wrapping di una chiave](/rest/api/keyvault/wrapkey) |
@@ -106,14 +108,56 @@ La tabella seguente include un elenco di valori **operationName** con il comando
 | **KeyEncrypt** |[Crittografare con una chiave](/rest/api/keyvault/encrypt) |
 | **KeyDecrypt** |[Decrittografare con una chiave](/rest/api/keyvault/decrypt) |
 | **KeyUpdate** |[Aggiornare una chiave](/rest/api/keyvault/updatekey) |
-| **KeyList** |[Elencare le chiavi in un insieme di credenziali](/rest/api/keyvault/vaults) |
+| **KeyList** |[Elencare le chiavi in un insieme di credenziali](/rest/api/keyvault/getkeys) |
 | **KeyListVersions** |[Elencare le versioni di una chiave](/rest/api/keyvault/getkeyversions) |
+| **KeyPurge** |[Rimuovere definitivamente una chiave](/rest/api/keyvault/purgedeletedkey) |
+| **KeyBackup** |[Eseguire il backup di una chiave](/rest/api/keyvault/backupkey) |
+| **KeyRestore** |[Ripristinare una chiave](/rest/api/keyvault/restorekey) |
+| **KeyRecover** |[Recuperare una chiave](/rest/api/keyvault/recoverdeletedkey) |
+| **KeyGetDeleted** |[Ottenere la chiave eliminata](/rest/api/keyvault/getdeletedkey) |
+| **KeyListDeleted** |[Elencare le chiavi eliminate in un insieme di credenziali](/rest/api/keyvault/getdeletedkeys) |
+| **CertificateGet** |[Ottenere informazioni su un certificato](/rest/api/keyvault/getcertificate) |
+| **CertificateCreate** |[Creare un certificato](/rest/api/keyvault/createcertificate) |
+| **CertificateImport** |[Importare un certificato in un insieme di credenziali](/rest/api/keyvault/importcertificate) |
+| **CertificateUpdate** |[Aggiornare un certificato](/rest/api/keyvault/updatecertificate) |
+| **CertificateList** |[Elencare i certificati in un insieme di credenziali](/rest/api/keyvault/getcertificates) |
+| **CertificateListVersions** |[Elencare le versioni di un certificato](/rest/api/keyvault/getcertificateversions) |
+| **CertificateDelete** |[Eliminare un certificato](/rest/api/keyvault/deletecertificate) |
+| **CertificatePurge** |[Rimuovere definitivamente un certificato](/rest/api/keyvault/purgedeletedcertificate) |
+| **CertificateBackup** |[Eseguire il backup di un certificato](/rest/api/keyvault/backupcertificate) |
+| **CertificateRestore** |[Ripristinare un certificato](/rest/api/keyvault/restorecertificate) |
+| **CertificateRecover** |[Recuperare un certificato](/rest/api/keyvault/recoverdeletedcertificate) |
+| **CertificateGetDeleted** |[Ottenere un certificato eliminato](/rest/api/keyvault/getdeletedcertificate) |
+| **CertificateListDeleted** |[Elencare i certificati eliminati in un insieme di credenziali](/rest/api/keyvault/getdeletedcertificates) |
+| **CertificatePolicyGet** |[Ottenere i criteri dei certificati](/rest/api/keyvault/getcertificatepolicy) |
+| **CertificatePolicyUpdate** |[Aggiornare i criteri dei certificati](/rest/api/keyvault/updatecertificatepolicy) |
+| **CertificatePolicySet** |[Creare criteri dei certificati](/rest/api/keyvault/createcertificate) |
+| **CertificateContactsGet** |[Ottenere i contatti relativi al certificato](/rest/api/keyvault/getcertificatecontacts) |
+| **CertificateContactsSet** |[Impostare i contatti relativi al certificato](/rest/api/keyvault/setcertificatecontacts) |
+| **CertificateContactsDelete** |[Eliminare i contatti relativi al certificato](/rest/api/keyvault/deletecertificatecontacts) |
+| **CertificateIssuerGet** |[Ottenere l'autorità di certificazione](/rest/api/keyvault/getcertificateissuer) |
+| **CertificateIssuerSet** |[Impostare l'autorità di certificazione](/rest/api/keyvault/setcertificateissuer) |
+| **CertificateIssuerUpdate** |[Aggiornare l'autorità di certificazione](/rest/api/keyvault/updatecertificateissuer) |
+| **CertificateIssuerDelete** |[Eliminare l'autorità di certificazione](/rest/api/keyvault/deletecertificateissuer) |
+| **CertificateIssuersList** |[Elencare le autorità di certificazione](/rest/api/keyvault/getcertificateissuers) |
+| **CertificateEnroll** |Registrare un certificato |
+| **CertificateRenew** |Rinnovare un certificato |
+| **CertificatePendingGet** |Recuperare un certificato in sospeso |
+| **CertificatePendingMerge** |Impostare un merge di certificati come in sospeso |
+| **CertificatePendingUpdate** |Impostare un aggiornamento di certificati come in sospeso |
+| **CertificatePendingDelete** |Eliminare un certificato in sospeso |
 | **SecretSet** |[Creare un segreto](/rest/api/keyvault/updatecertificate) |
 | **SecretGet** |[Ottenere un segreto](/rest/api/keyvault/getsecret) |
 | **SecretUpdate** |[Aggiornare un segreto](/rest/api/keyvault/updatesecret) |
 | **SecretDelete** |[Eliminare un segreto](/rest/api/keyvault/deletesecret) |
-| **SecretList** |[Elencare i segreti in un insieme di credenziali](/rest/api/keyvault/vaults) |
+| **SecretList** |[Elencare i segreti in un insieme di credenziali](/rest/api/keyvault/getsecrets) |
 | **SecretListVersions** |[Elencare le versioni di un segreto](/rest/api/keyvault/getsecretversions) |
+| **SecretPurge** |[Rimuovere definitivamente un segreto](/rest/api/keyvault/purgedeletedsecret) |
+| **SecretBackup** |[Eseguire il backup di un segreto](/rest/api/keyvault/backupsecret) |
+| **SecretRestore** |[Ripristinare un segreto](/rest/api/keyvault/restoresecret) |
+| **SecretRecover** |[Recuperare un segreto](/rest/api/keyvault/recoverdeletedsecret) |
+| **SecretGetDeleted** |[Ottenere il segreto eliminato](/rest/api/keyvault/getdeletedsecret) |
+| **SecretListDeleted** |[Elencare i segreti eliminati in un insieme di credenziali](/rest/api/keyvault/getdeletedsecrets) |
 | **VaultAccessPolicyChangedEventGridNotification** | Evento di modifica dei criteri di accesso all'insieme di credenziali pubblicato |
 | **SecretNearExpiryEventGridNotification** |Evento di segreto vicino alla scadenza pubblicato |
 | **SecretExpiredEventGridNotification** |Evento di segreto scaduto pubblicato |
