@@ -10,7 +10,9 @@
           href: what-is-b2b.md
         - name: Informazioni su Azure AD B2C
           href: ../../active-directory-b2c/overview.md
-    - name: Avvi rapidi
+        - name: Novità della documentazione
+          href: whats-new-docs.md
+    - name: Avvii rapidi
       items:
         - name: Aggiungere utenti guest nel portale
           href: b2b-quickstart-add-guest-users-portal.md

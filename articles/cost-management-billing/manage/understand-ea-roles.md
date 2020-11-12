@@ -6,14 +6,15 @@ ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/23/2020
 ms.author: banders
-ms.openlocfilehash: 13b344d3f13993dc7b6acf7bfe9a0ccdea0c866b
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: contperfq1
+ms.openlocfilehash: e712b44f22a8080b14a2cc2532cadf2dd4738b76
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371355"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409201"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Gestione dei ruoli Enterprise di Azure
 
@@ -34,6 +35,86 @@ Il primo amministratore della registrazione configurato durante il provisioning 
 Se ad esempio il tipo di autenticazione iniziale viene impostato su Misto, il contratto Enterprise verrà aggiunto come account Microsoft e il contatto per la fatturazione avrà privilegio di amministratore EA di sola lettura. Se l'amministratore EA non approva l'autorizzazione tramite account Microsoft per un contatto per la fatturazione, l'amministratore EA potrà eliminare l'utente specifico e richiedere al cliente di aggiungere di nuovo l'utente come amministratore di sola lettura con un account aziendale o dell'istituto di istruzione configurato solo a livello di registrazione in EA Portal.
 
 Questi ruoli sono specifici per la gestione del Contratto Enterprise di Azure e si aggiungono ai ruoli predefiniti disponibili in Azure per controllare l'accesso alle risorse. Per altre informazioni, vedere [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
+
+## <a name="azure-enterprise-portal-hierarchy"></a>Gerarchia di Azure Enterprise Portal
+
+La gerarchia di Azure Enterprise Portal è costituita da:
+
+- **Azure Enterprise Portal** : portale di gestione online che consente di gestire i costi dei servizi del Contratto Enterprise di Azure. È possibile:
+
+  - Creare una gerarchia del Contratto Enterprise di Azure con reparti, account e sottoscrizioni.
+  - Riconciliare i costi dei servizi utilizzati, scaricare report di utilizzo e visualizzare i listini prezzi.
+  - Creare chiavi API per la registrazione.
+
+- **Reparti** : facilita la segmentazione dei costi in raggruppamenti logici. Tramite i reparti è possibile impostare un budget o una quota a livello di reparto.
+
+- **Account** : sono le unità organizzative in Azure Enterprise Portal. È possibile usare gli account per gestire le sottoscrizioni e accedere ai report.
+
+- **Sottoscrizioni** : sono le unità più piccole in Azure Enterprise Portal. Si tratta di contenitori per i servizi di Azure gestiti dall'amministratore del servizio.
+
+Il diagramma seguente illustra le semplici gerarchie di Azure EA.
+
+![Diagramma delle semplici gerarchie di Azure EA](./media/understand-ea-roles/ea-hierarchies.png)
+
+## <a name="enterprise-user-roles"></a>Ruoli utente dell'organizzazione
+
+L'iscrizione Enterprise include i seguenti ruoli utente amministrativi:
+
+- Amministratore dell'organizzazione
+- Amministratore del reparto
+- Proprietario dell'account
+- Amministratore del servizio
+- Contatto per le notifiche
+
+I ruoli funzionano in due portali diversi per il completamento delle attività. [Azure Enterprise Portal](https://ea.azure.com) consente di gestire la fatturazione e i costi, mentre il [portale di Azure](https://portal.azure.com) consente di gestire i servizi di Azure.
+
+I ruoli utente sono associati a un account utente. Per convalidarne l'autenticità, è necessario che ogni utente abbia un account Microsoft, dell'istituto di istruzione o aziendale valido. Assicurarsi che ogni account sia associato a un indirizzo di posta elettronica monitorato attivamente. Le notifiche dell'account vengono inviate all'indirizzo di posta elettronica.
+
+Quando si configurano gli utenti, è possibile assegnare più account al ruolo di amministratore dell'organizzazione. Tuttavia il ruolo di proprietario dell'account può essere assegnato a un solo account. È anche possibile assegnare sia il ruolo di amministratore dell'organizzazione sia ruoli di proprietario dell'account a un singolo account.
+
+### <a name="enterprise-administrator"></a>Amministratore dell'organizzazione
+
+Gli utenti con questo ruolo hanno il livello di accesso più elevato. Possono eseguire le operazioni seguenti:
+
+- Gestire account e proprietari di account.
+- Gestire altri amministratori dell'organizzazione.
+- Gestire amministratori di reparto.
+- Gestire i contatti per le notifiche.
+- Visualizzare l'utilizzo in tutti gli account.
+- Visualizzare gli addebiti non fatturati in tutti gli account.
+
+In una registrazione Enterprise è possibile designare più amministratori dell'organizzazione. Agli amministratori dell'organizzazione è possibile concedere l'accesso in sola lettura. Ereditano tutti il ruolo di amministratore del reparto.
+
+### <a name="department-administrator"></a>Amministratore del reparto
+
+Gli utenti con questo ruolo possono:
+
+- Creare e gestire reparti.
+- Creare nuovi proprietari di account.
+- Visualizzare i dettagli d'uso per i reparti che gestiscono.
+- Visualizzare i costi, se dispongono delle autorizzazioni necessarie.
+
+In ogni registrazione Enterprise è possibile designare più amministratori del reparto.
+
+È possibile concedere agli amministratori del reparto l'accesso in sola lettura quando si modifica o si crea un nuovo amministratore del reparto. Impostare l'opzione di sola lettura su **Sì**.
+
+### <a name="account-owner"></a>Proprietario dell'account
+
+Gli utenti con questo ruolo possono:
+
+- Creare e gestire sottoscrizioni.
+- Gestire gli amministratori del servizio.
+- Visualizzare l'utilizzo delle sottoscrizioni.
+
+Ogni account richiede un account Microsoft, dell'istituto di istruzione o aziendale univoco. Per altre informazioni sui ruoli amministrativi di Azure Enterprise Portal, vedere [Informazioni sui ruoli amministrativi per il Contratto Enterprise di Azure](understand-ea-roles.md).
+
+### <a name="service-administrator"></a>Amministratore del servizio
+
+Il ruolo di amministratore del servizio ha le autorizzazioni per gestire i servizi nel portale di Azure e per assegnare utenti al ruolo di coamministratore.
+
+### <a name="notification-contact"></a>Contatto per le notifiche
+
+Il contatto per le notifiche riceve le notifiche sull'utilizzo correlate alla registrazione.
 
 Le sezioni seguenti descrivono i limiti e le funzionalità di ogni ruolo.
 
@@ -69,7 +150,7 @@ Le sezioni seguenti descrivono i limiti e le funzionalità di ogni ruolo.
 
 ## <a name="add-a-new-enterprise-administrator"></a>Aggiungere un nuovo amministratore dell'organizzazione
 
-Gli amministratori dell'organizzazione hanno il maggior numero di privilegi per la gestione di una registrazione EA di Azure. Il primo amministratore EA di Azure è stato creato al momento della configurazione del contratto Enterprise Agreement. Tuttavia, è possibile aggiungere o rimuovere nuovi amministratori in qualsiasi momento. I nuovi amministratori possono essere aggiunti solo dagli amministratori esistenti. Per altre informazioni sull'aggiunta di altri amministratori dell'organizzazione, vedere [Creare un altro amministratore dell'organizzazione](ea-portal-get-started.md#create-another-enterprise-administrator). Per altre informazioni sui ruoli e le attività del profilo di fatturazione, vedere [Ruoli e attività del profilo di fatturazione](understand-mca-roles.md#billing-profile-roles-and-tasks).
+Gli amministratori dell'organizzazione hanno il maggior numero di privilegi per la gestione di una registrazione EA di Azure. Il primo amministratore EA di Azure è stato creato al momento della configurazione del contratto Enterprise Agreement. Tuttavia, è possibile aggiungere o rimuovere nuovi amministratori in qualsiasi momento. I nuovi amministratori possono essere aggiunti solo dagli amministratori esistenti. Per altre informazioni sull'aggiunta di altri amministratori dell'organizzazione, vedere [Creare un altro amministratore dell'organizzazione](ea-portal-administration.md#create-another-enterprise-administrator). Per altre informazioni sui ruoli e le attività del profilo di fatturazione, vedere [Ruoli e attività del profilo di fatturazione](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="update-account-owner-state-from-pending-to-active"></a>Aggiornare lo stato del proprietario dell'account da in sospeso ad attivo
 
@@ -79,7 +160,7 @@ Quando vengono aggiunti nuovi proprietari di account a una registrazione EA di A
 
 Dopo che un amministratore EA di Azure ha creato un reparto, l'amministratore dell'organizzazione di Azure può aggiungere amministratori di reparto e associare ognuno a un reparto. Un amministratore del reparto può creare nuovi account. I nuovi account sono necessari per la creazione di sottoscrizioni EA di Azure.
 
-Per altre informazioni sull'aggiunta di un amministratore di reparto, vedere [Creare un amministratore di reparto EA di Azure](ea-portal-get-started.md#add-a-department-administrator).
+Per altre informazioni sull'aggiunta di un amministratore di reparto, vedere [Creare un amministratore di reparto EA di Azure](ea-portal-administration.md#add-a-department-administrator).
 
 ## <a name="usage-and-costs-access-by-role"></a>Accesso all'utilizzo e ai costi per ruolo
 
@@ -114,12 +195,12 @@ La tabella seguente illustra la relazione tra i ruoli di amministratore del Cont
 |Proprietario dell'account OPPURE Amministratore del reparto|✘ Disabilitato |none|Nessun prezzo|
 |nessuno|Non applicabile |Proprietario|Prezzi al dettaglio|
 
-Si impostano il ruolo di amministratore dell'organizzazione e i criteri di visualizzazione degli addebiti nell'Enterprise Portal. Il ruolo di Azure può essere aggiornato nel portale di Azure. Per altre informazioni, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
+Si impostano il ruolo di amministratore dell'organizzazione e i criteri di visualizzazione degli addebiti nell'Enterprise Portal. Il ruolo di Azure può essere aggiornato nel portale di Azure. Per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Gestire l'accesso alle informazioni di fatturazione per Azure](manage-billing-access.md)
-- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
 - [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md)
