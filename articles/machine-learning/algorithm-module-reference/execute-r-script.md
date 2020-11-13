@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: 3e94172096daf5fd06549f8645d05b874948a917
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 1e71d3883b8dacefa9b501ee3a9a0533d5c7d515
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420819"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592669"
 ---
 # <a name="execute-r-script-module"></a>Modulo Execute R script
 
@@ -121,10 +121,10 @@ Al termine dell'esecuzione della pipeline, è possibile visualizzare l'anteprima
 
 ## <a name="access-to-registered-dataset"></a>Accesso al set di dati registrato
 
-Per [accedere ai set di impostazioni registrati](../how-to-create-register-datasets.md) nell'area di lavoro, è possibile fare riferimento al codice di esempio seguente:
+Per accedere ai [set di impostazioni registrati](../how-to-create-register-datasets.md) nell'area di lavoro, è possibile fare riferimento al codice di esempio seguente:
 
 ```R
-        azureml_main <- function(dataframe1, dataframe2){
+    azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
   run = get_current_run()
   ws = run$experiment$workspace

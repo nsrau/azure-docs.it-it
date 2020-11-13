@@ -1,6 +1,6 @@
 ---
 title: Trasformare i dati usando l'attività hive-Azure
-description: Informazioni su come usare l'attività hive in un data factory di Azure V1 per eseguire query hive su un cluster HDInsight su richiesta o personalizzato.
+description: Informazioni su come usare l'attività hive in Azure Data Factory V1 per eseguire query hive su un cluster HDInsight su richiesta o su richiesta.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 36e0d8a0c0ee5e5202c47acdd74b869181cfaf9e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0271029814071b3a692209d3a2015cfdbe5fa941
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371682"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616774"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Hive in Azure Data Factory 
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
@@ -26,8 +26,8 @@ ms.locfileid: "92371682"
 > * [Attività MapReduce](data-factory-map-reduce.md)
 > * [Attività di streaming di Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Attività Spark](data-factory-spark.md)
-> * [Attività di esecuzione batch Azure Machine Learning Studio (classica)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Attività della risorsa di aggiornamento Azure Machine Learning Studio (classica)](data-factory-azure-ml-update-resource-activity.md)
+> * [Attività di esecuzione batch di Azure Machine Learning Studio (versione classica)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Attività di aggiornamento risorse di Azure Machine Learning Studio (versione classica)](data-factory-azure-ml-update-resource-activity.md)
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
 > * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
 > * [Attività personalizzata .NET](data-factory-use-custom-activities.md)

@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2020
+ms.date: 11/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d65b2db9c69d006476ae1d08a1af3e60efe48930
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 563cd14d0eccdbe6d91ae09029da766dacbceb87
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280553"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616876"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Aggiungere assegnazioni di ruolo di Azure tramite modelli di Azure Resource Manager
 
@@ -209,14 +209,7 @@ az deployment create --location centralus --template-file rbac-test.json --param
 
 ### <a name="resource-scope"></a>Ambito risorsa
 
-Se è necessario aggiungere un'assegnazione di ruolo al livello di una risorsa, il formato dell'assegnazione di ruolo è diverso. Specificare lo spazio dei nomi del provider di risorse e il tipo della risorsa a cui assegnare il ruolo. È anche possibile includere il nome della risorsa nel nome dell'assegnazione di ruolo.
-
-Per il tipo e il nome dell'assegnazione di ruolo, usare il formato seguente:
-
-```json
-"type": "{resource-provider-namespace}/{resource-type}/providers/roleAssignments",
-"name": "{resource-name}/Microsoft.Authorization/{role-assign-GUID}"
-```
+Se è necessario aggiungere un'assegnazione di ruolo al livello di una risorsa, impostare la `scope` proprietà nell'assegnazione di ruolo sul nome della risorsa.
 
 Il modello seguente illustra:
 
@@ -230,7 +223,7 @@ Per usare il modello, è necessario specificare gli input seguenti:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "principalId": {
@@ -248,6 +241,13 @@ Per usare il modello, è necessario specificare gli input seguenti:
             ],
             "metadata": {
                 "description": "Built-in role to assign"
+            }
+        },
+        "roleNameGuid": {
+            "type": "string",
+            "defaultValue": "[newGuid()]",
+            "metadata": {
+                "description": "A new GUID used to identify the role assignment"
             }
         },
         "location": {
@@ -274,9 +274,10 @@ Per usare il modello, è necessario specificare gli input seguenti:
             "properties": {}
         },
         {
-            "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
-            "apiVersion": "2018-09-01-preview",
-            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(variables('storageName'))))]",
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2020-04-01-preview",
+            "name": "[parameters('roleNameGuid')]",
+            "scope": "[concat('Microsoft.Storage/storageAccounts', '/', variables('storageName'))]",
             "dependsOn": [
                 "[variables('storageName')]"
             ],

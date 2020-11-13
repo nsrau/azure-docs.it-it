@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 39257419f179bdce8c94f2ddb3a7cd8f5ac2d34f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c65f28c040b15aaa2ec8f3425209351e4b60486
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077756"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616213"
 ---
 # <a name="custom-vision-encryption-of-data-at-rest"></a>Visione personalizzata la crittografia dei dati inattivi
 
@@ -39,5 +39,5 @@ Le chiavi gestite dal cliente sono attualmente disponibili nelle aree seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per un elenco completo dei servizi che supportano CMK, vedere [chiavi gestite dal cliente per servizi cognitivi](../encryption/cognitive-services-encryption-keys-portal.md)
-* [Che cos'è Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+* [Che cos'è Azure Key Vault](../../key-vault/general/overview.md)?
 * [Modulo di richiesta chiave Customer-Managed di servizi cognitivi](https://aka.ms/cogsvc-cmk)

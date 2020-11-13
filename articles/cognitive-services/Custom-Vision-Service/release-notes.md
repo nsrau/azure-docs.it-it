@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: pafarley
-ms.openlocfilehash: f7259fe486a473f994d7795de5926b86717bb1b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccf742e5ff612816cae1056ef7bf0e64fc9dbb5b
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391707"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616468"
 ---
 # <a name="custom-vision-service-release-notes"></a>Note sulla versione di Servizio visione artificiale personalizzato
 
@@ -41,7 +41,7 @@ ms.locfileid: "85391707"
 
 - Servizio visione artificiale personalizzato è stata immessa la disponibilità generale in Azure.
 - È stata aggiunta una funzionalità di formazione avanzata con un nuovo back-end di machine learning per migliorare le prestazioni, in particolare per i set di impostazioni complessi e la classificazione con granularità fine Grazie alla formazione avanzata, è possibile specificare un budget per il tempo di calcolo per il training e Visione personalizzata consente di identificare in modo sperimentale le impostazioni migliori per la formazione e l'incremento. Per le iterazioni rapide, è possibile continuare a utilizzare il training rapido esistente.
-- Sono state introdotte 3,0 API. È stata annunciata la deprecazione delle API precedenti a 3,0 il 1 ° ottobre 2019. Per esempi su come iniziare, vedere le guide introduttive alla documentazione per [.NET](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/csharp-tutorial), [Python](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/python-tutorial), [node](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/java-tutorial)o [go](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/go-tutorial) .
+- Sono state introdotte 3,0 API. È stata annunciata la deprecazione delle API precedenti a 3,0 il 1 ° ottobre 2019. Per esempi su come iniziare, vedere le guide introduttive alla documentazione per [.NET](./quickstarts/image-classification.md), [Python](./quickstarts/image-classification.md), [node](./quickstarts/image-classification.md), [Java](./quickstarts/image-classification.md)o [go](./quickstarts/image-classification.md) .
 - Sono state sostituite "iterazioni predefinite" con pubblicazione/Annulla pubblicazione nelle API 3,0.
 - Sono state aggiunte nuove destinazioni di esportazione del modello. L'esportazione di Dockerfile è stata aggiornata per supportare ARM per Raspberry Pi 3. Il supporto per l'esportazione è stato aggiunto a [Vision ai Dev Kit.](https://visionaidevkit.com/)..
 - Maggiore limite di tag per progetto a 500 per il livello s0. Aumento del limite delle immagini per progetto a 100.000 per il livello s0.

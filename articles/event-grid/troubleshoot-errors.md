@@ -3,15 +3,20 @@ title: Griglia di eventi di Azure-Guida alla risoluzione dei problemi
 description: Questo articolo fornisce un elenco di codici di errore, messaggi di errore, descrizioni e azioni consigliate.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 1dd464339e7654f8886224ff07cf368b4724ff82
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 79533918ccc6995f459b39f058de9e01091c0958
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041389"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592992"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Risolvere gli errori di griglia di eventi di Azure
-Questa guida alla risoluzione dei problemi fornisce un elenco di codici di errore di griglia di eventi di Azure, i messaggi di errore, le descrizioni e le azioni consigliate da eseguire quando si ricevono questi errori. 
+Questa guida alla risoluzione dei problemi fornisce le informazioni seguenti: 
+
+- Codici di errore di griglia di eventi di Azure
+- messaggi di errore
+- Descrizioni degli errori
+- Azioni consigliate da eseguire quando si ricevono questi errori. 
 
 ## <a name="error-code-400"></a>Codice errore: 400
 | Codice errore | Messaggio di errore | Descrizione | Recommendation |
@@ -24,34 +29,24 @@ Questa guida alla risoluzione dei problemi fornisce un elenco di codici di error
 | Codice errore | Messaggio di errore | Descrizione | Azione consigliata |
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode. Conflict <br/>409 | Un argomento con il nome specificato esiste già. Scegliere un nome di argomento diverso.   | Il nome dell'argomento personalizzato deve essere univoco in una singola area di Azure per garantire una corretta operazione di pubblicazione. Lo stesso nome può essere usato in diverse aree di Azure. | Scegliere un nome diverso per l'argomento. |
-| HttpStatusCode. Conflict <br/> 409 | Il dominio con l'oggetto specificato esiste già. Scegliere un nome di dominio diverso. | Il nome di dominio deve essere univoco in una singola area di Azure per garantire una corretta operazione di pubblicazione. Lo stesso nome può essere usato in diverse aree di Azure. | Scegliere un nome diverso per il dominio. |
+| HttpStatusCode. Conflict <br/> 409 | Il dominio con l'oggetto specificato esiste già. Scegliere un nome di dominio diverso. | Il nome di dominio deve essere univoco in una singola area di Azure per garantire un'operazione di pubblicazione corretta. Lo stesso nome può essere usato in diverse aree di Azure. | Scegliere un nome diverso per il dominio. |
 | HttpStatusCode. Conflict<br/>409 | È stato raggiunto il limite di quota. Per altre informazioni su questi limiti, vedere [limiti di griglia di eventi di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Ogni sottoscrizione di Azure ha un limite al numero di risorse di griglia di eventi di Azure che può usare. Alcune o tutte le quote sono state superate e non è stato possibile creare altre risorse. |    Controllare l'uso delle risorse correnti ed eliminare eventuali non necessarie. Se è ancora necessario aumentare la quota, inviare un messaggio di posta elettronica a [aeg@microsoft.com](mailto:aeg@microsoft.com) con il numero esatto di risorse necessarie. |
 
 ## <a name="error-code-403"></a>Codice errore: 403
 
 | Codice errore | Messaggio di errore | Descrizione | Azione consigliata |
 | ---------- | ------------- | ----------- | ------------------ |
-| HttpStatusCode. Forbidden <br/>403 | La pubblicazione in {topic/Domain} da client {IpAddress} è stata rifiutata a causa delle regole di filtro IpAddress. | L'argomento o il dominio ha regole del firewall IP configurate e l'accesso è limitato solo agli indirizzi IP configurati. | Aggiungere l'indirizzo IP alle regole del firewall IP, vedere [configurare il firewall IP](configure-firewall.md) |
-| HttpStatusCode. Forbidden <br/> 403 | La pubblicazione in {topic/Domain} da parte del client viene rifiutata perché la richiesta proviene dall'endpoint privato e non è stata trovata alcuna connessione all'endpoint privato corrispondente per la risorsa. | Per l'argomento o il dominio sono stati configurati endpoint privati e la richiesta di pubblicazione proviene da un endpoint privato non configurato/approvato. | Configurare un endpoint privato per l'argomento/dominio. [Configurare gli endpoint privati](configure-private-endpoints.md) |
+| HttpStatusCode. Forbidden <br/>403 | La pubblicazione in {topic/Domain} da client {IpAddress} è stata rifiutata a causa di regole di filtro IpAddress. | L'argomento o il dominio ha regole del firewall IP configurate e l'accesso è limitato solo agli indirizzi IP configurati. | Aggiungere l'indirizzo IP alle regole del firewall IP, vedere [configurare il firewall IP](configure-firewall.md) |
+| HttpStatusCode. Forbidden <br/> 403 | La pubblicazione in {topic/Domain} da parte del client viene rifiutata perché la richiesta proviene dall'endpoint privato e non è stata trovata alcuna connessione all'endpoint privato corrispondente per la risorsa. | L'argomento o il dominio ha endpoint privati e la richiesta di pubblicazione proviene da un endpoint privato non configurato o approvato. | Configurare un endpoint privato per l'argomento/dominio. [Configurare gli endpoint privati](configure-private-endpoints.md) |
 
-## <a name="troubleshoot-event-subscription-validation"></a>Risolvere i problemi di convalida della sottoscrizione di eventi
+Controllare anche se il webhook è dietro un gateway applicazione Azure o un Web Application Firewall. In caso contrario, disabilitare le regole del firewall seguenti ed eseguire di nuovo HTTP POST:
 
-Durante la creazione della sottoscrizione di eventi, se viene visualizzato un messaggio di errore come `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation` , significa che si è verificato un errore nell'handshake di convalida. Per risolvere questo errore, verificare gli aspetti seguenti:
+- 920300 (richiesta mancante di un'intestazione Accept)
+- 942430 (argomenti limitati al rilevamento di anomalie dei caratteri SQL (args): numero di caratteri speciali superato (12))
+- 920230 (codifica più URL rilevata)
+- 942130 (attacco SQL injection: rilevato tautologia SQL).
+- 931130 (possibile attacco RFI (Remote File Inclusion) = riferimento all'esterno del dominio/collegamento)
 
-- Eseguire una richiesta HTTP POST all'URL del webhook con un corpo della richiesta [SubscriptionValidationEvent di esempio](webhook-event-delivery.md#validation-details) con il posting o curl o uno strumento simile.
-- Se il webhook sta implementando un meccanismo di handshake di convalida sincrona, verificare che ValidationCode venga restituito come parte della risposta.
-- Se il webhook sta implementando un meccanismo di handshake di convalida asincrono, verificare che il POST HTTP stia restituendo 200 OK.
-- Se il webhook restituisce 403 (accesso negato) nella risposta, controllare se il webhook si trova dietro a un gateway applicazione di Azure o ad un web application firewall. In caso contrario, è necessario disabilitare le regole del firewall ed eseguire di nuovo HTTP POST:
-
-  920300 (Nella richiesta manca un'intestazione Accept, è possibile risolvere il problema)
-
-  942430 (Rilevamento anomalie caratteri SQL con restrizioni (args): n. di caratteri speciali in eccesso (12))
-
-  920230 (Rilevata codifica multipla URL)
-
-  942130 (Attacco SQL injection: rilevata tautologia SQL.)
-
-  931130 (Possibile attacco di tipo Remote File Inclusion (RFI): collegamento/riferimento fuori dominio)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

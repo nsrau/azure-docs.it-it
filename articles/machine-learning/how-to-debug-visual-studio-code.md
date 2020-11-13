@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: e042fd62d99c9fdf88a144c93739bf1f3f08a78c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 12163419ad779acfa116f1dee66284623e2d45fb
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325577"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616111"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Debug interattivo con Visual Studio Code
 
 
 
-Informazioni su come eseguire il debug interattivo di Azure Machine Learning esperimenti, pipeline e distribuzioni usando Visual Studio Code (VS Code) e [depugpy](https://github.com/microsoft/debugpy/).
+Informazioni su come eseguire il debug interattivo di Azure Machine Learning esperimenti, pipeline e distribuzioni usando Visual Studio Code (VS Code) e [debugpy](https://github.com/microsoft/debugpy/).
 
 ## <a name="run-and-debug-experiments-locally"></a>Eseguire ed eseguire il debug di esperimenti localmente
 
@@ -100,7 +100,7 @@ Per altre informazioni sull'uso di una rete virtuale di Azure con Azure Machine 
 > [!TIP]
 > Sebbene sia possibile utilizzare Azure Machine Learning risorse che non si trovano dietro una rete virtuale, è consigliabile utilizzare una rete virtuale.
 
-### <a name="how-it-works"></a>Come funziona
+### <a name="how-it-works"></a>Funzionamento
 
 I passaggi della pipeline di ML eseguono script Python. Questi script vengono modificati per eseguire le azioni seguenti:
 

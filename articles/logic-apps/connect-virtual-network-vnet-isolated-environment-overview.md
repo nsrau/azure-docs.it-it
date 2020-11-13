@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/05/2020
-ms.openlocfilehash: 86d647a79b7babc2780cb0db904e689f3916673f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/12/2020
+ms.openlocfilehash: 19c9ec39d85bfc56b118498aba62c3752d6d771c
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500386"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616927"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accedere alle risorse di Rete virtuale di Azure da App per la logica di Azure usando ambienti del servizio di integrazione (ISE)
 
@@ -33,7 +33,7 @@ L'esecuzione di app per la logica in un'istanza dedicata separata consente di ri
 
 * Accesso diretto alle risorse che si trovano all'interno o alla connessione alla rete virtuale
 
-  Le app per la logica create ed eseguite in ISE possono usare [connettori appositamente progettati per l'esecuzione in ISE](../connectors/apis-list.md#ise-connectors). Se è presente un connettore ISE per un sistema locale o un'origine dati, è possibile connettersi direttamente senza dover usare il [gateway dati locale](../logic-apps/logic-apps-gateway-connection.md). Per ulteriori informazioni, vedere [dedicato rispetto a multi-tenant](#difference) e [accesso ai sistemi locali](#on-premises) più avanti in questo argomento.
+  Le app per la logica create ed eseguite in ISE possono usare [connettori appositamente progettati che vengono eseguiti in ISE](../connectors/apis-list.md#ise-connectors). Se è presente un connettore ISE per un sistema locale o un'origine dati, è possibile connettersi direttamente senza dover usare il [gateway dati locale](../logic-apps/logic-apps-gateway-connection.md). Per ulteriori informazioni, vedere [dedicato rispetto a multi-tenant](#difference) e [accesso ai sistemi locali](#on-premises) più avanti in questo argomento.
 
 * Accesso continuo a risorse esterne o non connesse alla rete virtuale
 
@@ -65,9 +65,9 @@ Quando si creano ed eseguono app per la logica in ISE, si ottengono le stesse es
 
   Con eccezioni rare, se è disponibile un connettore ISE per un sistema locale o un'origine dati, è possibile connettersi direttamente senza usare il [gateway dati locale](../logic-apps/logic-apps-gateway-connection.md). Per ulteriori informazioni, vedere l'articolo relativo all' [accesso ai sistemi locali](#on-premises) più avanti in questo argomento.
 
-* I connettori gestiti che non visualizzano l'etichetta **ISE** continuano a funzionare per le app per la logica all'interno di ISE. Questi connettori *vengono sempre eseguiti nel servizio app per la logica multi-tenant*, non in ISE.
+* I connettori gestiti che non visualizzano l'etichetta **ISE** continuano a funzionare per le app per la logica all'interno di ISE. Questi connettori *vengono sempre eseguiti nel servizio app per la logica multi-tenant* , non in ISE.
 
-* I connettori personalizzati creati al di *fuori di ISE*, che richiedono o meno il [gateway dati locale](../logic-apps/logic-apps-gateway-connection.md), continuano a funzionare per le app per la logica all'interno di ISE. Tuttavia, i connettori personalizzati creati *all'interno di ISE* non funzioneranno con il gateway dati locale. Per altre informazioni, vedere [accesso ai sistemi locali](#on-premises).
+* I connettori personalizzati creati al di *fuori di ISE* , che richiedono o meno il [gateway dati locale](../logic-apps/logic-apps-gateway-connection.md), continuano a funzionare per le app per la logica all'interno di ISE. Tuttavia, i connettori personalizzati creati *all'interno di ISE* non funzioneranno con il gateway dati locale. Per altre informazioni, vedere [accesso ai sistemi locali](#on-premises).
 
 <a name="on-premises"></a>
 
@@ -83,11 +83,11 @@ Le app per la logica eseguite all'interno di un ISE possono accedere direttament
 
 * Un connettore personalizzato
 
-  * I connettori personalizzati creati al di *fuori di ISE*, che richiedono o meno il [gateway dati locale](../logic-apps/logic-apps-gateway-connection.md), continuano a funzionare per le app per la logica all'interno di ISE.
+  * I connettori personalizzati creati al di *fuori di ISE* , che richiedono o meno il [gateway dati locale](../logic-apps/logic-apps-gateway-connection.md), continuano a funzionare per le app per la logica all'interno di ISE.
 
   * I connettori personalizzati creati *all'interno di ISE* non funzionano con il gateway dati locale. Tuttavia, questi connettori possono accedere direttamente a sistemi locali e origini dati che si trovano all'interno o connessi alla rete virtuale che ospita ISE. Quindi, le app per la logica che si trovano all'interno di un ISE non necessitano in genere del gateway dati per accedere a tali risorse.
 
-Per accedere a sistemi locali e origini dati che non dispongono di connettori ISE, si trovano all'esterno della rete virtuale o non sono connessi alla rete virtuale, è comunque necessario usare il gateway dati locale. Le app per la logica all'interno di ISE possono continuare a usare i connettori che non hanno l'etichetta **Core** o **ISE** . Questi connettori vengono eseguiti solo nel servizio app per la logica multi-tenant, anziché in ISE. 
+Per accedere a sistemi locali e origini dati che non dispongono di connettori ISE, si trovano all'esterno della rete virtuale o non sono connessi alla rete virtuale, è comunque necessario usare il gateway dati locale. Le app per la logica all'interno di ISE possono continuare a usare i connettori che non hanno l'etichetta **Core** o **ISE** . Questi connettori vengono eseguiti nel servizio app per la logica multi-tenant, anziché in ISE. 
 
 <a name="ise-level"></a>
 
@@ -117,18 +117,26 @@ Quando si crea ISE, è possibile scegliere di usare endpoint di accesso interni 
 > [!IMPORTANT]
 > È possibile selezionare l'endpoint di accesso solo durante la creazione di ISE e non è possibile modificare questa opzione in un secondo momento.
 
-* **Interno**: gli endpoint privati consentono le chiamate alle app per la logica in ISE, in cui è possibile visualizzare e accedere agli input e agli output dalla cronologia delle esecuzioni delle app per *la logica solo dall'interno della rete virtuale*.
+* **Interno** : gli endpoint privati consentono le chiamate alle app per la logica in ISE, in cui è possibile visualizzare e accedere agli input e agli output dalla cronologia delle esecuzioni delle app per *la logica solo dall'interno della rete virtuale*.
 
   > [!IMPORTANT]
-  > Assicurarsi di disporre della connettività di rete tra gli endpoint privati e il computer da cui si desidera accedere alla cronologia di esecuzione. In caso contrario, quando si prova a visualizzare la cronologia di esecuzione dell'app per la logica, viene visualizzato un errore che indica "errore imprevisto. Non è stato possibile recuperare ".
+  > Se è necessario usare questi trigger basati su webhook, usare endpoint esterni, *non* endpoint interni, quando si crea ISE:
+  > 
+  > * Azure DevOps
+  > * Griglia di eventi di Azure
+  > * Common Data Service
+  > * Office 365
+  > * SAP (versione ISE)
+  > 
+  > Inoltre, assicurarsi di disporre della connettività di rete tra gli endpoint privati e il computer da cui si desidera accedere alla cronologia di esecuzione. In caso contrario, quando si prova a visualizzare la cronologia di esecuzione dell'app per la logica, viene visualizzato un errore che indica "errore imprevisto. Non è stato possibile recuperare ".
   >
   > ![Errore di azione di archiviazione di Azure risultante dall'impossibilità di inviare il traffico attraverso il firewall](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
   >
   > Ad esempio, il computer client può esistere all'interno della rete virtuale di ISE o in una rete virtuale connessa alla rete virtuale di ISE tramite peering o una rete privata virtuale. 
 
-* **External**: gli endpoint pubblici consentono le chiamate alle app per la logica in ISE, in cui è possibile visualizzare e accedere agli input e agli output dalla cronologia delle esecuzioni delle app per *la logica dall'esterno della rete virtuale*. Se si usano i gruppi di sicurezza di rete (gruppi), assicurarsi che siano configurati con regole in ingresso per consentire l'accesso agli input e agli output della cronologia di esecuzione. Per altre informazioni, vedere [abilitare l'accesso per ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+* **External** : gli endpoint pubblici consentono le chiamate alle app per la logica in ISE, in cui è possibile visualizzare e accedere agli input e agli output dalla cronologia delle esecuzioni delle app per *la logica dall'esterno della rete virtuale*. Se si usano i gruppi di sicurezza di rete (gruppi), assicurarsi che siano configurati con regole in ingresso per consentire l'accesso agli input e agli output della cronologia di esecuzione. Per altre informazioni, vedere [abilitare l'accesso per ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 
-Per determinare se ISE usa un endpoint di accesso interno o esterno, nel menu di ISE, in **Impostazioni**, selezionare **Proprietà**e trovare la proprietà **endpoint di accesso** :
+Per determinare se ISE usa un endpoint di accesso interno o esterno, nel menu di ISE, in **Impostazioni** , selezionare **Proprietà** e trovare la proprietà **endpoint di accesso** :
 
 ![Trovare l'endpoint di accesso ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
 

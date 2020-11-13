@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 10/30/2020
-ms.openlocfilehash: 47c484268573334057e6b4dd14bbae849f9ce774
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 6289395b5d508de8da3e5c8c89caebb4b0e9b817
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577222"
+ms.locfileid: "94592431"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Archivi dati supportati in Condivisione dati di Azure
 
@@ -55,7 +55,7 @@ Condivisione dati di Azure supporta la condivisione di file, cartelle e file Sys
 Per informazioni dettagliate, vedere [condividere e ricevere dati dall'archivio BLOB di Azure e Azure Data Lake storage](how-to-share-from-storage.md) .
 
 ## <a name="share-from-a-sql-based-source"></a>Condividi da un'origine basata su SQL
-La condivisione di dati di Azure supporta la condivisione di tabelle o viste dal database SQL di Azure e da Azure sinapsi Analytics (in precedenza Azure SQL DW) e la condivisione di tabelle dal pool SQL di Azure sinapsi Analytics (area di lavoro). I consumer di dati possono scegliere di accettare i dati in Azure Data Lake Storage Gen2 o nell'archiviazione BLOB di Azure come file con estensione CSV o parquet, oltre che nel database SQL di Azure e in Azure sinapsi Analytics come tabelle.
+La condivisione di dati di Azure supporta la condivisione di tabelle e viste dal database SQL di Azure e da Azure sinapsi Analytics (in precedenza Azure SQL DW) e la condivisione di tabelle da Azure sinapsi Analytics (area di lavoro) pool SQL dedicato. La condivisione da Azure sinapsi Analytics (area di lavoro) pool SQL senza server non è attualmente supportata. I consumer di dati possono scegliere di accettare i dati in Azure Data Lake Storage Gen2 o nell'archiviazione BLOB di Azure come file con estensione CSV o parquet, oltre che nel database SQL di Azure e in Azure sinapsi Analytics come tabelle.
 
 Quando si accettano dati in Azure Data Lake Store Gen2 o nell'archiviazione BLOB di Azure, gli snapshot completi sovrascrivono il contenuto del file di destinazione, se già esistente.
 Quando i dati vengono ricevuti nella tabella e se la tabella di destinazione non esiste già, la condivisione di dati di Azure crea la tabella SQL con lo schema di origine. Se una tabella di destinazione esiste già con lo stesso nome, verrà eliminata e sovrascritta con lo snapshot completo più recente. Gli snapshot incrementali non sono attualmente supportati.

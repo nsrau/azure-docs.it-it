@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/15/2020
-ms.openlocfilehash: 205600e488822c5ade4b808c29c66741d28a84a7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 87d6ca8ee69ca49cf52b61e6beddb56721658afa
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575923"
+ms.locfileid: "94593740"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Condividere e ricevere i dati da Database SQL di Azure e Azure Synapse Analytics
 
@@ -19,7 +19,7 @@ ms.locfileid: "94575923"
 
 La condivisione di dati di Azure supporta la condivisione basata su snapshot del database SQL di Azure e di Azure sinapsi Analytics. Questo articolo illustra come condividere e ricevere dati da queste origini.
 
-La condivisione di dati di Azure supporta la condivisione di tabelle o viste dal database SQL di Azure e da Azure sinapsi Analytics (in precedenza Azure SQL DW) e la condivisione di tabelle dal pool SQL di Azure sinapsi Analytics (area di lavoro). I consumer di dati possono scegliere di accettare i dati in Azure Data Lake Storage Gen2 o nell'archiviazione BLOB di Azure come file con estensione CSV o parquet, oltre che nel database SQL di Azure e in Azure sinapsi Analytics come tabelle.
+La condivisione di dati di Azure supporta la condivisione di tabelle e viste dal database SQL di Azure e da Azure sinapsi Analytics (in precedenza Azure SQL DW) e la condivisione di tabelle da Azure sinapsi Analytics (area di lavoro) pool SQL dedicato. La condivisione da Azure sinapsi Analytics (area di lavoro) pool SQL senza server non è attualmente supportata. I consumer di dati possono scegliere di accettare i dati in Azure Data Lake Storage Gen2 o nell'archiviazione BLOB di Azure come file con estensione CSV o parquet, oltre che nel database SQL di Azure e in Azure sinapsi Analytics come tabelle.
 
 Quando si accettano dati in Azure Data Lake Store Gen2 o nell'archiviazione BLOB di Azure, gli snapshot completi sovrascrivono il contenuto del file di destinazione, se già esistente.
 Quando i dati vengono ricevuti nella tabella SQL e se la tabella di destinazione non esiste già, Azure Data Share crea la tabella SQL con lo schema di origine. Se una tabella di destinazione esiste già con lo stesso nome, verrà eliminata e sovrascritta con lo snapshot completo più recente. Gli snapshot incrementali non sono attualmente supportati.
@@ -61,7 +61,7 @@ Di seguito è riportato l'elenco dei prerequisiti per la condivisione dei dati d
 
 #### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>Prerequisiti per la condivisione dal pool SQL di Azure sinapsi Analytics (area di lavoro)
 
-* Un pool SQL di Azure sinapsi Analytics (area di lavoro) con tabelle che si vuole condividere. La condivisione della visualizzazione non è attualmente supportata.
+* Un pool SQL dedicato di analisi delle sinapsi di Azure (area di lavoro) con tabelle che si vuole condividere. La condivisione della visualizzazione non è attualmente supportata. La condivisione da un pool SQL senza server non è attualmente supportata.
 * Autorizzazione per la scrittura nel pool SQL nell'area di lavoro sinapsi, presente in *Microsoft. sinapsi/Workspaces/Sqlpools/Write*. Questa autorizzazione è presente nel ruolo di **collaboratore**.
 * Autorizzazione per l'identità gestita della risorsa di condivisione dati per accedere al pool SQL dell'area di lavoro sinapsi. A tale scopo, seguire questa procedura: 
     1. In portale di Azure passare all'area di lavoro sinapsi. Selezionare amministratore di SQL Active Directory dal pannello di navigazione a sinistra e impostare se stessi come **amministratore Azure Active Directory**.
@@ -132,7 +132,7 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
     ![Aggiungere i set di dati](./media/add-datasets.png "Aggiungere i set di dati")    
 
-1. Selezionare l'area di lavoro di SQL Server o sinapsi, fornire le credenziali, se richiesto, e selezionare **Avanti** per passare all'oggetto che si vuole condividere e selezionare "Aggiungi set di DataSet". 
+1. Selezionare l'area di lavoro di SQL Server o sinapsi, fornire le credenziali, se richiesto, e selezionare **Avanti** per passare all'oggetto che si vuole condividere e selezionare "Aggiungi set di DataSet". È possibile selezionare le tabelle e le viste del database SQL di Azure e di Azure sinapsi Analytics (in precedenza Azure SQL DW) oppure le tabelle del pool SQL dedicato ad analisi sinapsi di Azure (area di lavoro). 
 
     ![Selezionare i set di dati](./media/select-datasets-sql.png "Selezionare i set di dati")    
 
@@ -201,7 +201,7 @@ Se si sceglie di ricevere dati nel database SQL di Azure, Azure sinapsi Analytic
  
 #### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Prerequisiti per la ricezione dei dati nel pool SQL di Azure sinapsi Analytics (area di lavoro)
 
-* Un pool SQL di Azure sinapsi Analytics (area di lavoro).
+* Un pool SQL dedicato di analisi delle sinapsi di Azure (area di lavoro). La ricezione di dati in un pool SQL senza server non è attualmente supportata.
 * Autorizzazione per la scrittura nel pool SQL nell'area di lavoro sinapsi, presente in *Microsoft. sinapsi/Workspaces/Sqlpools/Write*. Questa autorizzazione è presente nel ruolo di **collaboratore**.
 * Autorizzazione per l'identità gestita della risorsa di condivisione dati per accedere al pool SQL dell'area di lavoro sinapsi. A tale scopo, seguire questa procedura: 
     1. In portale di Azure passare all'area di lavoro sinapsi. Selezionare amministratore di SQL Active Directory dal pannello di navigazione a sinistra e impostare se stessi come **amministratore Azure Active Directory**.

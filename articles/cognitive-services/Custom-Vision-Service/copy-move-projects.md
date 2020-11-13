@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: c742240cc82035b2a9af16348eaa9f2a40a32fa3
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 548d936538a909da10796d0377f119826582c420
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900330"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616060"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Copiare e spostare i progetti di Visione personalizzata
 
@@ -30,7 +30,7 @@ Se l'app o l'azienda dipende dall'uso di un progetto di Visione personalizzata, 
 
 - Due risorse Visione personalizzata di Azure. Se non sono disponibili, passare alla portale di Azure e [creare una nuova risorsa di visione personalizzata](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
 - Chiavi di training e URL dell'endpoint delle risorse del Visione personalizzata. È possibile trovare questi valori nella scheda **Panoramica** della risorsa nel portale di Azure.
-- Progetto Visione personalizzata creato. Per istruzioni su come eseguire questa operazione, vedere [compilare un classificatore](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier) .
+- Progetto Visione personalizzata creato. Per istruzioni su come eseguire questa operazione, vedere [compilare un classificatore](./getting-started-build-a-classifier.md) .
 
 ## <a name="process-overview"></a>Panoramica del processo
 

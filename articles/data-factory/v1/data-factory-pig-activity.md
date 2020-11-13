@@ -1,6 +1,6 @@
 ---
 title: Trasformare dati usando l'attività Pig in Azure Data Factory
-description: Informazioni su come usare l'attività Pig in Azure data factory V1 per eseguire script Pig in un cluster HDInsight su richiesta o personalizzato.
+description: Informazioni su come usare l'attività Pig in Azure Data Factory V1 per eseguire script Pig in un cluster HDInsight su richiesta o personalizzato.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 35990312658492e1e41b47096a43748c3a4e653e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c94d66bf98645e12a6c603f2b35d229080717734
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359901"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616859"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Pig in Azure Data Factory
 > [!div class="op_single_selector" title1="Attività di trasformazione"]
@@ -26,8 +26,8 @@ ms.locfileid: "92359901"
 > * [Attività MapReduce](data-factory-map-reduce.md)
 > * [Attività di streaming di Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Attività Spark](data-factory-spark.md)
-> * [Attività di esecuzione batch Azure Machine Learning Studio (classica)](data-factory-azure-ml-batch-execution-activity.md)
-> * [Attività della risorsa di aggiornamento Azure Machine Learning Studio (classica)](data-factory-azure-ml-update-resource-activity.md)
+> * [Attività di esecuzione batch di Azure Machine Learning Studio (versione classica)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Attività di aggiornamento risorse di Azure Machine Learning Studio (versione classica)](data-factory-azure-ml-update-resource-activity.md)
 > * [Attività stored procedure](data-factory-stored-proc-activity.md)
 > * [Attività U-SQL di Data Lake Analytics](data-factory-usql-activity.md)
 > * [Attività personalizzata .NET](data-factory-use-custom-activities.md)
@@ -123,7 +123,7 @@ Per eseguire lo script Pig in una pipeline di Data Factory, eseguire la procedur
 
 1. Creare un servizio collegato per registrare [il proprio cluster di elaborazione di HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) oppure configurare [un cluster di elaborazione di HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Chiameremo questo servizio collegato **HDInsightLinkedService**.
 2. Creare un [servizio collegato](data-factory-azure-blob-connector.md) per configurare la connessione all'archivio BLOB di Azure che ospita i dati. In questo esempio il servizio collegato è denominato **StorageLinkedService**.
-3. Creare [set di dati](data-factory-create-datasets.md) che puntano ai dati di input e output. In questo esempio il set di dati di input è denominato **PigSampleIn**, mentre il set di dati di output è denominato **PigSampleOut**.
+3. Creare [set di dati](data-factory-create-datasets.md) che puntano ai dati di input e output. In questo esempio il set di dati di input è denominato **PigSampleIn** , mentre il set di dati di output è denominato **PigSampleOut**.
 4. Copiare la query Pig in un file di archiviazione BLOB di Azure configurato nel passaggio 2. Se l'archiviazione di Azure che ospita i dati è diversa da quella che ospita il file di query, creare un servizio collegato ad archiviazione di Azure separato. Fare riferimento al servizio collegato nella configurazione dell'attività. Usare **ScriptPath** per specificare il percorso del file di script Pig e **scriptLinkedService**. 
    
    > [!NOTE]
@@ -210,7 +210,7 @@ Per impostare i parametri per lo script Pig, seguire questa procedura:
       }
     }
     ```
-* Nello Script Pig, fare riferimento ai parametri mediante '**$parameterName**' come illustrato nell'esempio seguente:
+* Nello Script Pig, fare riferimento ai parametri mediante ' **$parameterName** ' come illustrato nell'esempio seguente:
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);

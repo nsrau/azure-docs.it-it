@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: ef999d4b452f3f31942e1fb2ddb46efe760acff0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c3cdc0a9fb9fa236fae37a52194f446278a42f72
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342148"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616247"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Come modellare e partizionare i dati in Azure Cosmos DB usando un esempio reale
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,6 +21,8 @@ ms.locfileid: "93342148"
 Questo articolo si basa su diversi concetti Azure Cosmos DB come la [modellazione dei dati](modeling-data.md), il [partizionamento](partitioning-overview.md)e la [velocità effettiva con provisioning](request-units.md) per illustrare come affrontare un esercizio di progettazione dei dati reale.
 
 Se in genere si lavora con i database relazionali, saranno già state implementate abitudini e intuizioni su come progettare un modello di dati. A causa dei vincoli specifici, ma anche grazie ai punti di forza di Azure Cosmos DB, la maggior parte di queste procedure consigliate non produce il risultato auspicato e può condurre a soluzioni meno che ottimali. L'obiettivo di questo articolo è guidare l'utente attraverso il processo completo di un caso di utilizzo reale di modellazione in Azure Cosmos DB, dalla modellazione degli elementi alla condivisione del percorso delle entità e al partizionamento del contenitore.
+
+[Scaricare o visualizzare un codice sorgente generato dalla community](https://github.com/jwidmer/AzureCosmosDbBlogExample) che illustra i concetti di questo articolo. Questo esempio di codice è stato contribuito da un collaboratore della community e Azure Cosmos DB team non supporta la manutenzione.
 
 ## <a name="the-scenario"></a>Scenario
 

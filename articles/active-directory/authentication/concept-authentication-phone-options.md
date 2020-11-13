@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 74be3f4218149f0cdb9f107c8aba0be76d8da27e
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377752"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593077"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Metodi di autenticazione nelle opzioni del telefono Azure Active Directory
 
@@ -32,7 +32,7 @@ Per garantirne il corretto funzionamento, i numeri di telefono devono essere nel
 
 ## <a name="mobile-phone-verification"></a>Verifica tramite telefono cellulare
 
-Per Azure Multi-Factor Authentication o la reimpostazione della password self-service, gli utenti possono scegliere di ricevere un SMS con un codice di verifica da immettere nell'interfaccia di accesso oppure una telefonata in cui si richiedere di immettere il codice PIN definito.
+Per Multi-Factor Authentication di Azure o SSPR, gli utenti possono scegliere di ricevere un SMS con un codice di verifica da immettere nell'interfaccia di accesso o ricevere una telefonata.
 
 Se gli utenti non desiderano che il numero di telefono cellulare sia visibile nella directory, ma vogliono comunque usarlo per la reimpostazione della password, gli amministratori non devono inserirlo nella directory. Gli utenti devono invece popolare il proprio attributo **Telefono per l'autenticazione** tramite la registrazione delle informazioni di sicurezza combinate all'indirizzo [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo). Gli amministratori possono visualizzare queste informazioni nel profilo dell'utente, ma non vengono pubblicate altrove.
 
@@ -46,11 +46,11 @@ Con la verifica tramite SMS durante la reimpostazione della password self-servic
 
 ### <a name="phone-call-verification"></a>Verifica tramite telefonata
 
-Con la verifica tramite telefonata durante la reimpostazione della password self-service o l'uso di Azure Multi-Factor Authentication, viene eseguita una chiamata vocale automatica al numero di telefono registrato dall'utente. Per completare il processo di accesso, all'utente viene richiesto di immettere il numero PIN seguito da # sul tastierino.
+Con la verifica tramite telefonata durante la reimpostazione della password self-service o l'uso di Azure Multi-Factor Authentication, viene eseguita una chiamata vocale automatica al numero di telefono registrato dall'utente. Per completare il processo di accesso, all'utente viene richiesto di premere # sulla tastiera.
 
 ## <a name="office-phone-verification"></a>Verifica tramite telefono dell'ufficio
 
-Con la verifica tramite telefonata durante la reimpostazione della password self-service o l'uso di Azure Multi-Factor Authentication, viene eseguita una chiamata vocale automatica al numero di telefono registrato dall'utente. Per completare il processo di accesso, all'utente viene richiesto di immettere il numero PIN seguito da # sul tastierino.
+Con la verifica tramite telefonata durante la reimpostazione della password self-service o l'uso di Azure Multi-Factor Authentication, viene eseguita una chiamata vocale automatica al numero di telefono registrato dall'utente. Per completare il processo di accesso, all'utente viene richiesto di premere # sulla tastiera.
 
 ## <a name="troubleshooting-phone-options"></a>Risoluzione dei problemi delle opzioni che si servono del telefono
 
@@ -61,7 +61,7 @@ In caso di problemi con l'autenticazione tramite telefono in Azure AD, esaminare
 * Numero di telefono errato o codice internazionale o dell'area errato, oppure confusione tra il numero di telefono personale e il numero di telefono dell'ufficio.
    * Risolvere i problemi relativi all'oggetto utente e ai metodi di autenticazione configurati. Assicurarsi che siano registrati i numeri di telefono corretti.
 * PIN immesso errato.
-   * Verificare che l'utente abbia usato il PIN corretto registrato per il proprio account.
+   * Verificare che l'utente abbia usato il PIN corretto come registrato per il proprio account (solo per gli utenti del server multi-factor authentication).
 * Chiamata inoltrata alla segreteria telefonica.
    * Verificare che il telefono dell'utente sia acceso e che il servizio sia disponibile nella propria area oppure usare un altro metodo.
 * L'utente è bloccato

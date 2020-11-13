@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 3910b6ffcce6c5bc4a8d565071c4b07db9e3ff63
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: dff2488094bd9abde44b8d8a8d7a44d4f79a12e0
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279015"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592686"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guida di riferimento all'uso delle funzioni nelle espressioni per App per la logica di Azure e Power Automate
 
@@ -24,7 +24,7 @@ Per la definizione dei flussi di lavoro in [App per la logica di Azure](../logic
 
 | Attività | Sintassi della funzione | Risultato |
 | ---- | --------------- | ------ |
-| Restituisce una stringa in formato minuscolo. | toLower('<*text*>') <p>Ad esempio toLower('Hello') | "hello" |
+| Restituisce una stringa in formato minuscolo. | toLower('< *text* >') <p>Ad esempio toLower('Hello') | "hello" |
 | Restituisce un identificatore univoco globale (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
@@ -42,10 +42,10 @@ Di seguito sono indicati altri modi generali per l'uso delle funzioni nelle espr
 
 | Attività | Sintassi della funzione in un'espressione |
 | ---- | -------------------------------- |
-| Eseguire operazioni con un elemento passandolo a una funzione. | "\@<*functionName*>(<*item*>)" |
-| 1. Ottenere il valore di *parameterName* usando la funzione `parameters()` annidata. </br>2. Eseguire operazioni con il risultato passando tale valore a *functionName*. | "\@<*functionName*>(parameters('<*parameterName*>'))" |
-| 1. Ottenere il risultato dalla funzione interna annidata *functionName*. </br>2. Passare il risultato alla funzione esterna *functionName2*. | "\@<*functionName2*>(<*functionName*>(<*item*>))" |
-| 1. Ottenere il risultato da *functionName*. </br>2. Dal momento che il risultato è un oggetto con proprietà *propertyName*, ottenere il valore della proprietà. | "\@<*functionName*>(<*item*>).<*propertyName*>" |
+| Eseguire operazioni con un elemento passandolo a una funzione. | "\@<*functionName* >(< *item* >)" |
+| 1. Ottenere il valore di *parameterName* usando la funzione `parameters()` annidata. </br>2. Eseguire operazioni con il risultato passando tale valore a *functionName*. | "\@<*functionName* >(parameters('< *parameterName* >'))" |
+| 1. Ottenere il risultato dalla funzione interna annidata *functionName*. </br>2. Passare il risultato alla funzione esterna *functionName2*. | "\@<*functionName2* >(< *functionName* >(< *item* >))" |
+| 1. Ottenere il risultato da *functionName*. </br>2. Dal momento che il risultato è un oggetto con proprietà *propertyName* , ottenere il valore della proprietà. | "\@<*functionName* >(< *item* >).< *propertyName* >" |
 |||
 
 Ad esempio, la funzione `concat()` può accettare due o più valori di stringa come parametri. Questa funzione combina queste stringhe in un'unica stringa. È possibile passare valori letterali di stringa, ad esempio, "Sophia" e "Owen", in modo da ottenere una stringa combinata, ovvero "SophiaOwen":
@@ -353,7 +353,7 @@ action().outputs.body.<property>
 
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | No | string | Nome della proprietà dell'oggetto azione con il valore desiderato: **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** e **clientTrackingId**. Nel portale di Azure è possibile trovare queste proprietà esaminando i dettagli di una cronologia di esecuzione specifica. Per altre informazioni, vedere [REST API - Workflow Run Actions](/rest/api/logic/workflowrunactions/get) (API REST - Azioni di esecuzione del flusso di lavoro). |
+| <*property*> | No | string | Nome della proprietà dell'oggetto azione con il valore desiderato: **name** , **startTime** , **endTime** , **inputs** , **outputs** , **status** , **code** , **trackingId** e **clientTrackingId**. Nel portale di Azure è possibile trovare queste proprietà esaminando i dettagli di una cronologia di esecuzione specifica. Per altre informazioni, vedere [REST API - Workflow Run Actions](/rest/api/logic/workflowrunactions/get) (API REST - Azioni di esecuzione del flusso di lavoro). |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -494,7 +494,7 @@ actions('<actionName>').outputs.body.<property>
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Sì | string | Nome per l'oggetto azione di cui si vuole ottenere l'output  |
-| <*property*> | No | string | Nome della proprietà dell'oggetto azione con il valore desiderato: **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** e **clientTrackingId**. Nel portale di Azure è possibile trovare queste proprietà esaminando i dettagli di una cronologia di esecuzione specifica. Per altre informazioni, vedere [REST API - Workflow Run Actions](/rest/api/logic/workflowrunactions/get) (API REST - Azioni di esecuzione del flusso di lavoro). |
+| <*property*> | No | string | Nome della proprietà dell'oggetto azione con il valore desiderato: **name** , **startTime** , **endTime** , **inputs** , **outputs** , **status** , **code** , **trackingId** e **clientTrackingId**. Nel portale di Azure è possibile trovare queste proprietà esaminando i dettagli di una cronologia di esecuzione specifica. Per altre informazioni, vedere [REST API - Workflow Run Actions](/rest/api/logic/workflowrunactions/get) (API REST - Azioni di esecuzione del flusso di lavoro). |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -524,7 +524,7 @@ add(<summand_1>, <summand_2>)
 
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*summand_1*>, <*summand_2*> | Sì | Integer, float o misto | Numeri da sommare |
+| <*summand_1* >, < *summand_2*> | Sì | Integer, float o misto | Numeri da sommare |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -824,7 +824,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sì | string | Stringa contenente il timestamp |
 | <*interval*> | Sì | Integer | Numero di unità di tempo specificate da aggiungere |
-| <*timeUnit*> | Sì | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*timeUnit*> | Sì | string | Unità di tempo da usare con *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
@@ -866,7 +866,7 @@ and(<expression1>, <expression2>, ...)
 
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | Sì | Boolean | Espressioni da verificare |
+| <*expression1* >, < *expression2* >, ... | Sì | Boolean | Espressioni da verificare |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -924,7 +924,7 @@ array('<value>')
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| [<*value*>] | Array | Matrice che contiene il singolo input specificato |
+| [< *value* >] | Array | Matrice che contiene il singolo input specificato |
 ||||
 
 *Esempio*
@@ -1145,8 +1145,8 @@ Questi esempi illustrano i diversi tipi di input supportati per `bool()` :
 
 | Valore di input | Type | Valore restituito |
 | ----------- | ---------- | ---------------------- |
-| `bool(1)` | Integer | `true` |
-| `bool(0)` | Integer    | `false` |
+| `bool(1)` | Intero | `true` |
+| `bool(0)` | Intero    | `false` |
 | `bool(-1)` | Integer | `true` |
 | `bool('true')` | string | `true` |
 | `bool('false')` | string | `false` |
@@ -1164,7 +1164,7 @@ coalesce(<object_1>, <object_2>, ...)
 
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*object_1*>, <*object_2*>, ... | Sì | Qualsiasi, è possibile una combinazione di tipi | Uno o più elementi da verificare per determinare se sono Null |
+| <*object_1* >, < *object_2* >, ... | Sì | Qualsiasi, è possibile una combinazione di tipi | Uno o più elementi da verificare per determinare se sono Null |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -1200,7 +1200,7 @@ concat('<text1>', '<text2>', ...)
 
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*text1*>, <*text2*>, ... | Sì | string | Almeno due stringhe da combinare |
+| <*text1* >, < *text2* >, ... | Sì | string | Almeno due stringhe da combinare |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -1404,12 +1404,12 @@ createArray('<object1>', '<object2>', ...)
 
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*object1*>, <*object2*>, ... | Sì | Qualsiasi, ma non sono possibili combinazioni di tipi | Almeno due elementi per creare la matrice |
+| <*object1* >, < *object2* >, ... | Sì | Qualsiasi, ma non sono possibili combinazioni di tipi | Almeno due elementi per creare la matrice |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| [<*object1*>, <*object2*>, ...] | Array | Matrice creata da tutti gli elementi di input |
+| [< *object1* >, < *object2* >, ...] | Array | Matrice creata da tutti gli elementi di input |
 ||||
 
 *Esempio*
@@ -1696,12 +1696,12 @@ div(<dividend>, <divisor>)
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Sì | Integer o float | Numero da dividere per l'oggetto *divisor* |
-| <*divisor*> | Sì | Integer o float | Numero che divide l'oggetto *dividend*, ma che non può essere 0 |
+| <*divisor*> | Sì | Integer o float | Numero che divide l'oggetto *dividend* , ma che non può essere 0 |
 |||||
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer o float | Risultato della divisione del primo numero per il secondo numero. Se il dividendo o il divisore è di tipo float, il risultato è di tipo float. <p><p>**Nota**: per convertire il risultato float in un Integer, provare a [creare e chiamare una funzione di Azure](../logic-apps/logic-apps-azure-functions.md) dall'app per la logica. |
+| <*quotient-result*> | Integer o float | Risultato della divisione del primo numero per il secondo numero. Se il dividendo o il divisore è di tipo float, il risultato è di tipo float. <p><p>**Nota** : per convertire il risultato float in un Integer, provare a [creare e chiamare una funzione di Azure](../logic-apps/logic-apps-azure-functions.md) dall'app per la logica. |
 ||||
 
 *Esempio 1*
@@ -1847,7 +1847,7 @@ equals('<object1>', '<object2>')
 
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*object1*>, <*object2*> | Sì | Vari | Valori, espressioni o oggetti da confrontare |
+| <*object1* >, < *object2*> | Sì | Vari | Valori, espressioni o oggetti da confrontare |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -1984,7 +1984,7 @@ formDataMultiValues('<actionName>', '<key>')
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| [<*array-with-key-values*>] | Array | Matrice con tutti i valori che corrispondono alla chiave specificata |
+| [< *array-with-key-values* >] | Array | Matrice con tutti i valori che corrispondono alla chiave specificata |
 ||||
 
 *Esempio*
@@ -2096,7 +2096,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Sì | Integer | Numero di unità di tempo specificate da aggiungere |
-| <*timeUnit*> | Sì | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*timeUnit*> | Sì | string | Unità di tempo da usare con *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
@@ -2140,7 +2140,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*interval*> | Sì | Integer | Numero di unità di tempo specificate da sottrarre |
-| <*timeUnit*> | Sì | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*timeUnit*> | Sì | string | Unità di tempo da usare con *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
@@ -2612,7 +2612,7 @@ intersection('<collection1>', '<collection2>', ...)
 
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*collection1*>, <*collection2*>, ... | Sì | Array o object, ma non entrambi i tipi | Raccolte da cui ottenere *solo* gli elementi comuni |
+| <*collection1* >, < *collection2* >, ... | Sì | Array o object, ma non entrambi i tipi | Raccolte da cui ottenere *solo* gli elementi comuni |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -2648,7 +2648,7 @@ join([<collection>], '<delimiter>')
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*char1*><*delimiter*><*char2*><*delimiter*>... | string | Stringa risultante creata da tutti gli elementi nella matrice specificata |
+| <*char1*><*delimiter*><*char2*><*delimiter* >... | string | Stringa risultante creata da tutti gli elementi nella matrice specificata |
 ||||
 
 *Esempio*
@@ -2854,7 +2854,7 @@ E vengono restituiti questi risultati:
 ### <a name="listcallbackurl"></a>listCallbackUrl
 
 Restituisce l'"URL di callback" che chiama un trigger o un'azione.
-Questa funzione può essere usata solo con i trigger e le azioni per i tipi di connettore **HttpWebhook** e **ApiConnectionWebhook**, ma non con i tipi **Manual**, **Recurrence**, **HTTP** e **APIConnection**.
+Questa funzione può essere usata solo con i trigger e le azioni per i tipi di connettore **HttpWebhook** e **ApiConnectionWebhook** , ma non con i tipi **Manual** , **Recurrence** , **HTTP** e **APIConnection**.
 
 ```
 listCallbackUrl()
@@ -2884,8 +2884,8 @@ max([<number1>, <number2>, ...])
 
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*number1*>, <*number2*>, ... | Sì | Integer, float o entrambi | Set di numeri da cui si vuole ottenere il valore più alto |
-| [<*number1*>, <*number2*>, ...] | Sì | Matrice - Integer, float o entrambi | Matrice di numeri da cui si vuole ottenere il valore più alto |
+| <*number1* >, < *number2* >, ... | Sì | Integer, float o entrambi | Set di numeri da cui si vuole ottenere il valore più alto |
+| [< *number1* >, < *number2* >, ...] | Sì | Matrice - Integer, float o entrambi | Matrice di numeri da cui si vuole ottenere il valore più alto |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -2917,8 +2917,8 @@ min([<number1>, <number2>, ...])
 
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*number1*>, <*number2*>, ... | Sì | Integer, float o entrambi | Set di numeri da cui si vuole ottenere il valore più basso |
-| [<*number1*>, <*number2*>, ...] | Sì | Matrice - Integer, float o entrambi | Matrice di numeri da cui si vuole ottenere il valore più basso |
+| <*number1* >, < *number2* >, ... | Sì | Integer, float o entrambi | Set di numeri da cui si vuole ottenere il valore più basso |
+| [< *number1* >, < *number2* >, ...] | Sì | Matrice - Integer, float o entrambi | Matrice di numeri da cui si vuole ottenere il valore più basso |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -2951,7 +2951,7 @@ mod(<dividend>, <divisor>)
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
 | <*dividend*> | Sì | Integer o float | Numero da dividere per l'oggetto *divisor* |
-| <*divisor*> | Sì | Integer o float | Numero che divide l'oggetto *dividend*, ma che non può essere 0. |
+| <*divisor*> | Sì | Integer o float | Numero che divide l'oggetto *dividend* , ma che non può essere 0. |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -3087,7 +3087,7 @@ or(<expression1>, <expression2>, ...)
 
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | Sì | Boolean | Espressioni da verificare |
+| <*expression1* >, < *expression2* >, ... | Sì | Boolean | Espressioni da verificare |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -3273,7 +3273,7 @@ range(<startIndex>, <count>)
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| [<*range-result*>] | Array | Matrice di valori interi a partire dall'indice specificato |
+| [< *range-result* >] | Array | Matrice di valori interi a partire dall'indice specificato |
 ||||
 
 *Esempio*
@@ -3646,7 +3646,7 @@ skip([<collection>], <count>)
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| [<*updated-collection*>] | Array | Raccolta aggiornata dopo la rimozione degli elementi specificati |
+| [< *updated-collection* >] | Array | Raccolta aggiornata dopo la rimozione degli elementi specificati |
 ||||
 
 *Esempio*
@@ -3677,7 +3677,7 @@ split('<text>', '<delimiter>')
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| [<*substring1*>,<*substring2*>,...] | Array | Matrice che contiene le sottostringhe della stringa originale, separate da virgole |
+| [< *substring1* >,< *substring2* >,...] | Array | Matrice che contiene le sottostringhe della stringa originale, separate da virgole |
 ||||
 
 *Esempio*
@@ -3925,12 +3925,12 @@ substring('<text>', <startIndex>, <length>)
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Sì | string | Stringa da cui ottenere i caratteri |
 | <*startIndex*> | Sì | Integer | Numero positivo maggiore o uguale a 0 che si desidera usare come posizione iniziale o valore di indice |
-| <*length*> | Sì | Integer | Numero positivo di caratteri da includere nella sottostringa |
+| <*length*> | No | Integer | Numero positivo di caratteri da includere nella sottostringa |
 |||||
 
 > [!NOTE]
 > Assicurarsi che la somma dell'aggiunta dei valori del parametro *startIndex* e *length* sia minore della lunghezza della stringa fornita per il parametro *Text* .
-> In caso contrario, viene visualizzato un errore, a differenza delle funzioni simili in altri linguaggi in cui il risultato è la sottostringa da *startIndex* alla fine della stringa.
+> In caso contrario, viene visualizzato un errore, a differenza delle funzioni simili in altri linguaggi in cui il risultato è la sottostringa da *startIndex* alla fine della stringa. Il parametro *length* è facoltativo e, se non viene specificato, la funzione **substring ()** accetta tutti i caratteri che iniziano da *startIndex* alla fine della stringa.
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
@@ -3962,7 +3962,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Sì | string | Stringa contenente il timestamp |
 | <*interval*> | Sì | Integer | Numero di unità di tempo specificate da sottrarre |
-| <*timeUnit*> | Sì | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*timeUnit*> | Sì | string | Unità di tempo da usare con *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | No | string | [Identificatore di formato singolo](/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 |||||
 
@@ -4010,7 +4010,7 @@ take([<collection>], <count>)
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| <*subset*> o [<*subset*>] | String o array, rispettivamente | Stringa o matrice con il numero specificato di elementi presi dall'inizio della raccolta originale |
+| <*subset* > o [< *subset* >] | String o array, rispettivamente | Stringa o matrice con il numero specificato di elementi presi dall'inizio della raccolta originale |
 ||||
 
 *Esempio*
@@ -4163,7 +4163,7 @@ triggerFormDataMultiValues('<key>')
 
 | Valore restituito | Type | Descrizione |
 | ------------ | ---- | ----------- |
-| [<*array-with-key-values*>] | Array | Matrice con tutti i valori che corrispondono alla chiave specificata |
+| [< *array-with-key-values* >] | Array | Matrice con tutti i valori che corrispondono alla chiave specificata |
 ||||
 
 *Esempio*
@@ -4288,7 +4288,7 @@ union([<collection1>], [<collection2>], ...)
 
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*collection1*>, <*collection2*>, ...  | Sì | Array o object, ma non entrambi i tipi | Raccolte da cui ottenere *tutti* gli elementi |
+| <*collection1* >, < *collection2* >, ...  | Sì | Array o object, ma non entrambi i tipi | Raccolte da cui ottenere *tutti* gli elementi |
 |||||
 
 | Valore restituito | Type | Descrizione |
@@ -4593,7 +4593,7 @@ Restituisce il timestamp corrente.
 utcNow('<format>')
 ```
 
-Facoltativamente, è possibile specificare un formato diverso con il parametro <*format*>.
+Facoltativamente, è possibile specificare un formato diverso con il parametro < *format* >.
 
 
 | Parametro | Obbligatoria | Type | Descrizione |
@@ -4671,7 +4671,7 @@ workflow().<property>
 
 | Parametro | Obbligatoria | Type | Descrizione |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | No | string | Nome della proprietà del flusso di lavoro di cui si vuole ottenere il valore <p>Un oggetto flusso di lavoro ha queste proprietà: **name**, **type**, **id**, **location** e **run**. Il valore della proprietà **run** è anch'esso un oggetto con le proprietà seguenti: **name**, **type** e **id**. |
+| <*property*> | No | string | Nome della proprietà del flusso di lavoro di cui si vuole ottenere il valore <p>Un oggetto flusso di lavoro ha queste proprietà: **name** , **type** , **id** , **location** e **run**. Il valore della proprietà **run** è anch'esso un oggetto con le proprietà seguenti: **name** , **type** e **id**. |
 |||||
 
 *Esempio*
@@ -4760,7 +4760,7 @@ xpath('<xml>', '<xpath>')
 | ------------ | ---- | ----------- |
 | <*xml-node*> | XML | Nodo XML, quando solo un singolo nodo corrisponde all'espressione XPath specificata |
 | <*value*> | Qualsiasi | Valore di un nodo XML, quando solo un singolo valore corrisponde all'espressione XPath specificata |
-| [<*xml-node1*>, <*xml-node2*>, ...] </br>-oppure- </br>[<*value1*>, <*value2*>, ...] | Array | Matrice con tutti i valori o i nodi XML che corrispondono all'espressione XPath specificata |
+| [< *xml-node1* >, < *xml-node2* >, ...] </br>-oppure- </br>[< *value1* >, < *value2* >, ...] | Array | Matrice con tutti i valori o i nodi XML che corrispondono all'espressione XPath specificata |
 ||||
 
 *Esempio 1*

@@ -3,12 +3,12 @@ title: Distribuire Gestione traffico per il bilanciamento dei carichi di lavoro 
 description: Informazioni su come integrare Gestione traffico con la soluzione VMware di Azure (AVS) per bilanciare i carichi di lavoro dell'applicazione tra più endpoint in aree diverse.
 ms.topic: how-to
 ms.date: 08/14/2020
-ms.openlocfilehash: d461cc444c60e1907a34a08c68139446301c133c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 076d9c77d68df3d8acb7b531b3dfbea40fb3cedd
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580150"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593137"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-avs-workloads"></a>Distribuire Gestione traffico per il bilanciamento dei carichi di lavoro di soluzione VMware (AVS) di Azure
 
@@ -30,7 +30,7 @@ Come illustrato nella figura seguente, gestione traffico di Azure fornisce il bi
 
 Connessione attraverso la rete virtuale tra le due aree del cloud privato AVS, Stati Uniti occidentali ed Europa occidentale e un server locale nell'area Stati Uniti orientali, usa un gateway ExpressRoute.   
 
-![Integrazione di gestione traffico con AVS](media/traffic-manager/traffic-manager-topology.png)
+![Diagramma dell'architettura dell'integrazione di gestione traffico con la soluzione VMware di Azure](media/traffic-manager/traffic-manager-topology.png)
  
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -55,15 +55,15 @@ Nei passaggi seguenti viene verificata la corretta configurazione dei gateway ap
     - AVS-GW-EUS (locale)
     - AVS-GW-UEO
 
-    :::image type="content" source="media/traffic-manager/app-gateways-list-1.png" alt-text="Elenco di gateway applicazione." lightbox="media/traffic-manager/app-gateways-list-1.png":::
+    :::image type="content" source="media/traffic-manager/app-gateways-list-1.png" alt-text="Screenshot della pagina del gateway applicazione che mostra l'elenco dei gateway applicazione configurati." lightbox="media/traffic-manager/app-gateways-list-1.png":::
 
 2. Selezionare uno dei gateway applicazione distribuiti in precedenza. Viene visualizzata una finestra che mostra varie informazioni sul gateway applicazione. Selezionare **pool back-end** per verificare la configurazione di uno dei pool back-end.
 
-   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Elenco di gateway applicazione." lightbox="media/traffic-manager/backend-pool-config.png":::
+   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Screenshot della pagina del gateway applicazione che mostra i dettagli del gateway applicazione selezionato." lightbox="media/traffic-manager/backend-pool-config.png":::
  
 3. In questo caso, viene visualizzato un membro del pool back-end della macchina virtuale configurato come server Web con un indirizzo IP di 172.29.1.10.
  
-    :::image type="content" source="media/traffic-manager/backend-pool-ip-address.png" alt-text="Elenco di gateway applicazione.":::
+    :::image type="content" source="media/traffic-manager/backend-pool-ip-address.png" alt-text="Screenshot della pagina Modifica pool back-end con indirizzo IP di destinazione evidenziato.":::
 
     È possibile verificare in modo analogo la configurazione degli altri gateway applicazione e dei membri del pool back-end. 
 
@@ -75,21 +75,21 @@ In questo scenario, un segmento NSX-T viene configurato nell'ambiente AVS in cui
 
 1. Selezionare **segmenti** per visualizzare i segmenti configurati. In questo caso, si noterà che contoso-segment1 è connesso al gateway contoso-T01, un router flessibile di livello 1.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Elenco di gateway applicazione.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Screenshot che mostra i profili dei segmenti in NSX-T Manager.":::    
 
 2. Selezionare **gateway di primo livello** per visualizzare un elenco dei gateway di livello 1 con il numero di segmenti collegati. Selezionare il segmento collegato a Contoso-T01. Viene visualizzata una finestra che mostra l'interfaccia logica configurata nel router Tier-01. Funge da gateway per la macchina virtuale membro del pool back-end connessa al segmento.
 
-   :::image type="content" source="media/traffic-manager/nsx-t-segment-linked-2.png" alt-text="Elenco di gateway applicazione.":::    
+   :::image type="content" source="media/traffic-manager/nsx-t-segment-linked-2.png" alt-text="Screenshot che mostra l'indirizzo del gateway del segmento selezionato.":::    
 
 3. Nel client VM vSphere selezionare la macchina virtuale per visualizzarne i dettagli. Si noti che l'indirizzo IP corrisponde a quanto visto nel passaggio 3 della sezione precedente: 172.29.1.10.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Elenco di gateway applicazione.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Screenshot che mostra i dettagli della VM in VSphere Client.":::    
 
 4. Selezionare la macchina virtuale, quindi fare clic su **azioni > modifica impostazioni** per verificare la connessione al segmento NSX-T.
 
 ## <a name="create-your-traffic-manager-profile"></a>Creare il profilo di gestione traffico
 
-1. Accedere al [Portale di Azure](https://rc.portal.azure.com/#home). In **servizi di Azure > rete**selezionare **profili di gestione traffico**.
+1. Accedere al [Portale di Azure](https://rc.portal.azure.com/#home). In **servizi di Azure > rete** selezionare **profili di gestione traffico**.
 
 2. Selezionare **+ Aggiungi** per creare un nuovo profilo di gestione traffico.
  
@@ -99,29 +99,23 @@ In questo scenario, un segmento NSX-T viene configurato nell'ambiente AVS in cui
 
 1. Selezionare il profilo di gestione traffico nel riquadro dei risultati della ricerca, selezionare **endpoint** e quindi **+ Aggiungi**.
 
-2. Immettere i dettagli richiesti: tipo, nome, nome di dominio completo (FQDN) o IP e peso (in questo scenario viene assegnato un peso di 1 a ogni endpoint). Selezionare **Aggiungi**.
-
-   :::image type="content" source="media/traffic-manager/traffic-manager-profile.png" alt-text="Elenco di gateway applicazione.":::  
- 
-   Verrà creato l'endpoint esterno. Lo stato del monitoraggio deve essere **online**. 
-
-   Ripetere gli stessi passaggi per creare altri due endpoint esterni, uno in un'area diversa e l'altro in locale. Una volta creati, tutti e tre verranno visualizzati nel profilo di gestione traffico e lo stato di tutti e tre dovrebbe essere **online**.
+2. Immettere i dettagli richiesti: tipo, nome, nome di dominio completo (FQDN) o IP e peso (in questo scenario viene assegnato un peso di 1 a ogni endpoint). Selezionare **Aggiungi**. Verrà creato l'endpoint esterno. Lo stato del monitoraggio deve essere **online**. Ripetere gli stessi passaggi per creare altri due endpoint esterni, uno in un'area diversa e l'altro in locale. Una volta creati, tutti e tre verranno visualizzati nel profilo di gestione traffico e lo stato di tutti e tre dovrebbe essere **online**.
 
 3. Selezionare **Panoramica**. Copiare l'URL in **nome DNS**.
 
-   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Elenco di gateway applicazione."::: 
+   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Screenshot che mostra una panoramica dell'endpoint di gestione traffico con il nome DNS evidenziato."::: 
 
 4. Incollare l'URL del nome DNS in un browser. La schermata seguente mostra il traffico indirizzato all'area Europa occidentale.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-west-europe.png" alt-text="Elenco di gateway applicazione."::: 
+   :::image type="content" source="media/traffic-manager/traffic-to-west-europe.png" alt-text="Screenshot della finestra del browser che mostra il traffico indirizzato all'Europa occidentale."::: 
 
 5. Aggiornare il browser. La schermata seguente mostra il traffico che ora indirizza a un altro set di membri del pool back-end nell'area Stati Uniti occidentali.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-west-us.png" alt-text="Elenco di gateway applicazione."::: 
+   :::image type="content" source="media/traffic-manager/traffic-to-west-us.png" alt-text="Screenshot della finestra del browser che mostra il traffico indirizzato agli Stati Uniti occidentali."::: 
 
 6. Aggiornare di nuovo il browser. La schermata seguente mostra il traffico che ora indirizza al set finale di membri del pool back-end in locale.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-on-premises.png" alt-text="Elenco di gateway applicazione.":::
+   :::image type="content" source="media/traffic-manager/traffic-to-on-premises.png" alt-text="Screenshot della finestra del browser che mostra il traffico indirizzato al sito locale.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

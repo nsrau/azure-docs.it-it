@@ -10,12 +10,12 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 2e77d76ddae540a311655eca36c53b23c418f5e3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9abc069c202af425970e46286d88d1c18ece5a20
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744137"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616196"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configurare un'app java per il servizio app Azure
 
@@ -68,11 +68,11 @@ Nel portale di Azure sono disponibili report sulle prestazioni, visualizzazioni 
 
 Per altre informazioni, vedere [Eseguire lo streaming dei log in Cloud Shell](troubleshoot-diagnostic-logs.md#in-cloud-shell).
 
+::: zone pivot="platform-linux"
+
 ### <a name="ssh-console-access"></a>Accesso alla console SSH
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
-
-::: zone pivot="platform-linux"
 
 ### <a name="troubleshooting-tools"></a>Strumenti per la risoluzione dei problemi
 
@@ -235,7 +235,7 @@ Configurare l'autenticazione dell'app nel portale di Azure con l'opzione **Auten
 
 #### <a name="java-se"></a>Java SE
 
-Gli sviluppatori Spring Boot possono usare l'[utilità di avvio Spring Boot per Azure Active Directory](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) per proteggere le applicazioni usando le familiari annotazioni e API di Spring Security. Assicurarsi di aumentare le dimensioni massime dell'intestazione nel file *application.properties* . È consigliabile il valore `16384`.
+Gli sviluppatori Spring Boot possono usare l'[utilità di avvio Spring Boot per Azure Active Directory](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory) per proteggere le applicazioni usando le familiari annotazioni e API di Spring Security. Assicurarsi di aumentare le dimensioni massime dell'intestazione nel file *application.properties*. È consigliabile il valore `16384`.
 
 #### <a name="tomcat"></a>Tomcat
 
@@ -330,10 +330,10 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel Ser
 ::: zone pivot="platform-windows"
 
 1. Creare un account NewRelic in [NewRelic.com](https://newrelic.com/signup)
-2. Scaricare l'agente Java da NewRelic; il nome file sarà simile a *newrelic-java-x.x.x.zip* .
+2. Scaricare l'agente Java da NewRelic; il nome file sarà simile a *newrelic-java-x.x.x.zip*.
 3. Copiare il codice di licenza, che sarà necessario per configurare l'agente in un secondo momento.
-4. [Usare SSH per connettersi all'istanza del Servizio app di Azure](configure-linux-open-ssh-session.md) e creare una nuova directory */home/site/wwwroot/apm* .
-5. Caricare i file dell'agente Java NewRelic decompressi in una directory in */home/site/wwwroot/apm* . I file per l'agente devono trovarsi in */home/site/wwwroot/apm/newrelic* .
+4. [Usare SSH per connettersi all'istanza del Servizio app di Azure](configure-linux-open-ssh-session.md) e creare una nuova directory */home/site/wwwroot/apm*.
+5. Caricare i file dell'agente Java NewRelic decompressi in una directory in */home/site/wwwroot/apm*. I file per l'agente devono trovarsi in */home/site/wwwroot/apm/newrelic*.
 6. Modificare il file YAML in */home/site/wwwroot/apm/newrelic/newrelic.yml* e sostituire il valore della licenza segnaposto con il proprio codice di licenza.
 7. Nel portale di Azure passare all'applicazione nel servizio app e creare una nuova impostazione dell'applicazione.
 
@@ -344,10 +344,10 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel Ser
 ::: zone pivot="platform-linux"
 
 1. Creare un account NewRelic in [NewRelic.com](https://newrelic.com/signup)
-2. Scaricare l'agente Java da NewRelic; il nome file sarà simile a *newrelic-java-x.x.x.zip* .
+2. Scaricare l'agente Java da NewRelic; il nome file sarà simile a *newrelic-java-x.x.x.zip*.
 3. Copiare il codice di licenza, che sarà necessario per configurare l'agente in un secondo momento.
-4. [Usare SSH per connettersi all'istanza del Servizio app di Azure](configure-linux-open-ssh-session.md) e creare una nuova directory */home/site/wwwroot/apm* .
-5. Caricare i file dell'agente Java NewRelic decompressi in una directory in */home/site/wwwroot/apm* . I file per l'agente devono trovarsi in */home/site/wwwroot/apm/newrelic* .
+4. [Usare SSH per connettersi all'istanza del Servizio app di Azure](configure-linux-open-ssh-session.md) e creare una nuova directory */home/site/wwwroot/apm*.
+5. Caricare i file dell'agente Java NewRelic decompressi in una directory in */home/site/wwwroot/apm*. I file per l'agente devono trovarsi in */home/site/wwwroot/apm/newrelic*.
 6. Modificare il file YAML in */home/site/wwwroot/apm/newrelic/newrelic.yml* e sostituire il valore della licenza segnaposto con il proprio codice di licenza.
 7. Nel portale di Azure passare all'applicazione nel servizio app e creare una nuova impostazione dell'applicazione.
    
@@ -364,8 +364,8 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel Ser
 
 1. Creare un account AppDynamics in [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Scaricare l'agente Java dal sito Web di AppDynamics, il nome file sarà simile a *AppServerAgent-x.x.x.xxxxx.zip*
-3. Usare la [console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) per creare una nuova directory */Home/site/wwwroot/APM* .
-4. Caricare i file dell'agente Java decompressi in una directory in */home/site/wwwroot/apm* . I file per l'agente devono trovarsi in */home/site/wwwroot/apm/appdynamics* .
+3. Usare la [console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) per creare una nuova directory */Home/site/wwwroot/APM*.
+4. Caricare i file dell'agente Java decompressi in una directory in */home/site/wwwroot/apm*. I file per l'agente devono trovarsi in */home/site/wwwroot/apm/appdynamics*.
 5. Nel portale di Azure passare all'applicazione nel servizio app e creare una nuova impostazione dell'applicazione.
 
    - Per le app **Java se** , creare una variabile di ambiente denominata `JAVA_OPTS` con il valore in `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` cui `<app-name>` è il nome del servizio app.
@@ -376,8 +376,8 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel Ser
 
 1. Creare un account AppDynamics in [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Scaricare l'agente Java dal sito Web di AppDynamics, il nome file sarà simile a *AppServerAgent-x.x.x.xxxxx.zip*
-3. [Usare SSH per connettersi all'istanza del Servizio app di Azure](configure-linux-open-ssh-session.md) e creare una nuova directory */home/site/wwwroot/apm* .
-4. Caricare i file dell'agente Java decompressi in una directory in */home/site/wwwroot/apm* . I file per l'agente devono trovarsi in */home/site/wwwroot/apm/appdynamics* .
+3. [Usare SSH per connettersi all'istanza del Servizio app di Azure](configure-linux-open-ssh-session.md) e creare una nuova directory */home/site/wwwroot/apm*.
+4. Caricare i file dell'agente Java decompressi in una directory in */home/site/wwwroot/apm*. I file per l'agente devono trovarsi in */home/site/wwwroot/apm/appdynamics*.
 5. Nel portale di Azure passare all'applicazione nel servizio app e creare una nuova impostazione dell'applicazione.
 
    - Per le app **Java se** , creare una variabile di ambiente denominata `JAVA_OPTS` con il valore in `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` cui `<app-name>` è il nome del servizio app.
@@ -392,7 +392,7 @@ Questa sezione illustra come connettere le applicazioni Java distribuite nel Ser
 
 ### <a name="java-se"></a>Java SE
 
-Per connettersi alle origini dati nelle applicazioni Spring Boot, è consigliabile creare stringhe di connessione e inserirle nel file *application.properties* .
+Per connettersi alle origini dati nelle applicazioni Spring Boot, è consigliabile creare stringhe di connessione e inserirle nel file *application.properties*.
 
 1. Nella sezione "Configurazione" della pagina del Servizio app di Azure, impostare un nome per la stringa, incollare la stringa di connessione JDBC nel campo valore e impostare il tipo su "Personalizzato". Facoltativamente, è possibile impostare questa stringa di connessione come impostazione dello slot.
 
@@ -463,7 +463,7 @@ Determinare quindi se l'origine dati deve essere disponibile per un'applicazione
 
 #### <a name="finalize-configuration"></a>Completare la configurazione
 
-Infine, i file jar del driver vengono posizionati nel classpath di Tomcat e il servizio app viene riavviato. Assicurarsi che i file driver JDBC siano disponibili per il caricatore di classe Tomcat inserendoli nella directory */home/tomcat/lib* . Creare questa directory se non esiste già. Per caricare questi file nell'istanza del servizio app, seguire questa procedura:
+Infine, i file jar del driver vengono posizionati nel classpath di Tomcat e il servizio app viene riavviato. Assicurarsi che i file driver JDBC siano disponibili per il caricatore di classe Tomcat inserendoli nella directory */home/tomcat/lib*. Creare questa directory se non esiste già. Per caricare questi file nell'istanza del servizio app, seguire questa procedura:
 
 1. Nel [Cloud Shell](https://shell.azure.com) installare l'estensione webapp:
 
@@ -477,7 +477,7 @@ Infine, i file jar del driver vengono posizionati nel classpath di Tomcat e il s
     az webapp remote-connection create --resource-group <resource-group-name> --name <app-name> --port <port-on-local-machine>
     ```
 
-3. Connettersi alla porta di tunneling locale con il client SFTP e caricare i file nella cartella */home/tomcat/lib* .
+3. Connettersi alla porta di tunneling locale con il client SFTP e caricare i file nella cartella */home/tomcat/lib*.
 
 In alternativa, è possibile usare un client FTP per caricare il driver JDBC. Seguire queste [istruzioni per ottenere le credenziali FTP](deploy-configure-credentials.md).
 
@@ -541,7 +541,7 @@ Determinare quindi se l'origine dati deve essere disponibile per un'applicazione
 
 #### <a name="shared-server-level-resources"></a>Risorse a livello di server condiviso
 
-Se si aggiunge un'origine dati condivisa a livello di server, sarà necessario modificare il file server.xml di Tomcat. Per prima cosa, caricare uno [script di avvio](faq-app-service-linux.md#built-in-images) e impostare il percorso dello script in **Configuration** > **Comando di avvio** . È possibile caricare lo script di avvio usando [FTP](deploy-ftp.md).
+Se si aggiunge un'origine dati condivisa a livello di server, sarà necessario modificare il file server.xml di Tomcat. Per prima cosa, caricare uno [script di avvio](faq-app-service-linux.md#built-in-images) e impostare il percorso dello script in **Configuration** > **Comando di avvio**. È possibile caricare lo script di avvio usando [FTP](deploy-ftp.md).
 
 Lo script di avvio effettuerà una [trasformazione xsl](https://www.w3schools.com/xml/xsl_intro.asp) sul file server.xml e restituirà il file xml risultante a `/usr/local/tomcat/conf/server.xml`. Lo script di avvio deve installare libxslt tramite apk. Il file xsl e lo script di avvio possono essere caricati tramite FTP. Di seguito è riportato uno script di avvio di esempio.
 
@@ -619,7 +619,7 @@ Di seguito è disponibile un esempio di file xsl. Il file xsl di esempio aggiung
 
 Infine, inserire i file driver con estensione jar nel classpath Tomcat e riavviare il Servizio app di Azure.
 
-1. Assicurarsi che i file driver JDBC siano disponibili per il caricatore di classe Tomcat inserendoli nella directory */home/tomcat/lib* . Creare questa directory se non esiste già. Per caricare questi file nell'istanza del servizio app, seguire questa procedura:
+1. Assicurarsi che i file driver JDBC siano disponibili per il caricatore di classe Tomcat inserendoli nella directory */home/tomcat/lib*. Creare questa directory se non esiste già. Per caricare questi file nell'istanza del servizio app, seguire questa procedura:
 
     1. Nel [Cloud Shell](https://shell.azure.com) installare l'estensione webapp:
 
@@ -633,7 +633,7 @@ Infine, inserire i file driver con estensione jar nel classpath Tomcat e riavvia
       az webapp remote-connection create --resource-group <resource-group-name> --name <app-name> --port <port-on-local-machine>
       ```
 
-    3. Connettersi alla porta di tunneling locale con il client SFTP e caricare i file nella cartella */home/tomcat/lib* .
+    3. Connettersi alla porta di tunneling locale con il client SFTP e caricare i file nella cartella */home/tomcat/lib*.
 
     In alternativa, è possibile usare un client FTP per caricare il driver JDBC. Seguire queste [istruzioni per ottenere le credenziali FTP](deploy-configure-credentials.md).
 
@@ -678,7 +678,7 @@ Sono disponibili tre passaggi principali per la [registrazione di un'origine dat
     ```
 
 1. Utilizzando un client FTP di propria scelta, caricare il driver JDBC, `jboss-cli-commands.cli` , `startup_script.sh` e la definizione del modulo in `/site/deployments/tools/` .
-2. Configurare il sito per l'esecuzione all' `startup_script.sh` avvio del contenitore. Nel portale di Azure passare a **configurazione**  >  **Impostazioni generali**  >  **comando di avvio** . Impostare il campo del comando di avvio su `/home/site/deployments/tools/startup_script.sh` . **Salvare** le modifiche.
+2. Configurare il sito per l'esecuzione all' `startup_script.sh` avvio del contenitore. Nel portale di Azure passare a **configurazione**  >  **Impostazioni generali**  >  **comando di avvio**. Impostare il campo del comando di avvio su `/home/site/deployments/tools/startup_script.sh` . **Salvare** le modifiche.
 
 Per verificare che l'origine dati sia stata aggiunta al server JBoss, SSH nella WebApp ed eseguire `$JBOSS_HOME/bin/jboss-cli.sh --connect` . Una volta stabilita la connessione a JBoss `/subsystem=datasources:read-resource` , eseguire per stampare un elenco delle origini dati.
 

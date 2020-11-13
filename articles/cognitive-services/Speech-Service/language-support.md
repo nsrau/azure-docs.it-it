@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: a864717304dacaf6cf4c77c92050827af619ed39
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: cfd28171524ada5f5feea9e18e4b88a291254e88
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736673"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616791"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Linguaggio                          | Impostazioni locali | Personalizzazioni                                   |
+| Linguaggio                          | Impostazioni locali (BCP-47) | Personalizzazioni                                   |
 |-----------------------------------|--------|--------------------------------------------------|
 |Arabo (Bahrein), standard moderno  |`ar-BH` | Modello linguistico                                   |
 |Arabo (Egitto)                     |`ar-EG` | Modello linguistico                                   |
@@ -136,7 +136,7 @@ Le voci neurali possono essere usate per rendere più naturali e coinvolgenti le
 
 Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.md#standard-and-neural-voices).
 
-|Linguaggio  | Impostazioni locali           | Sesso | Nome della voce | Supporto dello stile |
+|Linguaggio  | Impostazioni locali (BCP-47)          | Sesso | Nome della voce | Supporto dello stile |
 |--|--|--|--|--|
 | Arabo (Egitto) | `ar-EG` | Female | `ar-EG-SalmaNeural` | Generale |
 | Arabo (Arabia Saudita) | `ar-SA` | Female | `ar-SA-ZariyahNeural` | Generale |
@@ -219,7 +219,7 @@ Per informazioni su come configurare e modificare le voci neurali, vedere [Speec
 
 Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni locali, che consentono di convertire il testo in contenuto vocale sintetizzato. Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.md#standard-and-neural-voices).
 
-| Linguaggio | Impostazioni locali | Sesso | Nome della voce |
+| Linguaggio | Impostazioni locali (BCP-47) | Sesso | Nome della voce |
 |--|--|--|--|
 | Arabo (arabo)  |  `ar-EG`  |  Female  |  `ar-EG-Hoda`|
 | Arabo (Arabia Saudita)  |  `ar-SA`  |  Male  |  `ar-SA-Naayf`|
@@ -397,9 +397,9 @@ L'API **Traduzione vocale** supporta lingue diverse per la traduzione vocale e c
 
 Vedere la tabella seguente per le lingue supportate per le diverse API di Riconoscimento del parlante. Per altre informazioni su Riconoscimento del parlante, vedere la [panoramica](speaker-recognition-overview.md).
 
-| Linguaggio | Impostazioni locali | Verifica dipendente dal testo | Verifica indipendente dal testo | Identificazione indipendente dal testo |
+| Linguaggio | Impostazioni locali (BCP-47) | Verifica dipendente dal testo | Verifica indipendente dal testo | Identificazione indipendente dal testo |
 |----|----|----|----|----|
-|Inglese (Stati Uniti)  |  en-US  |  sì  |  sì  |  sì |
+|Inglese (Stati Uniti)  |  it-IT  |  sì  |  sì  |  sì |
 |Cinese (mandarino, semplificato) | zh-CN     |     n/d |     sì |     sì|
 |Inglese (Australia)     | en-AU     | n/d     | sì     | sì|
 |Inglese (Canada)     | en-CA     | n/d |     sì |     sì|

@@ -5,14 +5,14 @@ description: Vedere come visualizzare le metriche di Azure Digital gemelli in mo
 author: baanders
 ms.author: baanders
 ms.date: 8/4/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7fde67ab9b9160bb89493748d09e83bd9cfcff34
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 46e053856b05f5a009eb1ae8bc6a7246dfb6167e
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091702"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616689"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Risoluzione dei problemi relativi ai dispositivi gemelli digitali di Azure: metriche
 
@@ -26,20 +26,20 @@ Le metriche sono abilitate per impostazione predefinita. È possibile visualizza
 
 2. Trovare l'istanza di Azure Digital gemelli nella [portale di Azure](https://portal.azure.com) (è possibile aprire la relativa pagina digitando il relativo nome nella barra di ricerca del portale). 
 
-    Dal menu dell'istanza selezionare **metriche** .
+    Dal menu dell'istanza selezionare **metriche**.
    
     :::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot che mostra la pagina delle metriche per i dispositivi gemelli digitali di Azure":::
 
     Questa pagina mostra le metriche per l'istanza di Azure Digital gemelli. È anche possibile creare visualizzazioni personalizzate delle metriche selezionando quelle che si desidera visualizzare nell'elenco.
     
-3. È possibile scegliere di inviare i dati di metrica a un endpoint di hub eventi o a un account di archiviazione di Azure selezionando **impostazioni di diagnostica** dal menu, quindi **Aggiungi impostazione di diagnostica** .
+3. È possibile scegliere di inviare i dati di metrica a un endpoint di hub eventi o a un account di archiviazione di Azure selezionando **impostazioni di diagnostica** dal menu, quindi **Aggiungi impostazione di diagnostica**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot che mostra la pagina delle metriche per i dispositivi gemelli digitali di Azure":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot che mostra la pagina delle impostazioni di diagnostica e il pulsante per aggiungere":::
 
     Per altre informazioni su questo processo, vedere [*risoluzione dei problemi: configurare la diagnostica*](troubleshoot-diagnostics.md).
 
-4. È possibile scegliere di configurare gli avvisi per i dati di metrica selezionando **avvisi** dal menu, quindi **+ nuova regola di avviso** .
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot che mostra la pagina delle metriche per i dispositivi gemelli digitali di Azure":::
+4. È possibile scegliere di configurare gli avvisi per i dati di metrica selezionando **avvisi** dal menu, quindi **+ nuova regola di avviso**.
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot che mostra la pagina e il pulsante avvisi per aggiungere":::
 
     Per ulteriori informazioni su questo processo, vedere [*Troubleshooting: set up Alerts*](troubleshoot-alerts.md).
 
@@ -96,7 +96,7 @@ Metriche che è necessario eseguire con il routing:
 
 Le dimensioni consentono di identificare altri dettagli sulle metriche. Alcune metriche di routing forniscono informazioni per ogni endpoint. Nella tabella seguente sono elencati i valori possibili per queste dimensioni.
 
-| Dimension | Valori |
+| Dimensione | Valori |
 | --- | --- |
 | Authentication | OAuth |
 | Operazione (per le richieste API) | Microsoft. DigitalTwins/DigitalTwins/Delete, <br>Microsoft. DigitalTwins/DigitalTwins/Write, <br>Microsoft. DigitalTwins/DigitalTwins/Read, <br>Microsoft. DigitalTwins/eventroutes/Read, <br>Microsoft. DigitalTwins/eventroutes/Write, <br>Microsoft. DigitalTwins/eventroutes/Delete, <br>Microsoft. DigitalTwins/Models/Read, <br>Microsoft. DigitalTwins/Models/Write, <br>Microsoft. DigitalTwins/Models/Delete, <br>Microsoft. DigitalTwins/query/Action |

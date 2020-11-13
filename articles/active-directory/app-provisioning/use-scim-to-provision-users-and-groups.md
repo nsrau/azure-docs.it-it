@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 158a82b43e573e5d34ec9a44c4a47cd1126de8ed
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0ec70963dd7f464ae4e72c3bf79e06ebfb5238fc
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424593"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616179"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Esercitazione: Creare un endpoint SCIM e configurare il provisioning degli utenti con Azure AD
 
@@ -88,7 +88,8 @@ Lo schema definito sopra verrà rappresentato con il payload JSON riportato di s
      "location":
  "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
    }
- ```
+}   
+```
 
 ### <a name="table-2-default-user-attribute-mapping"></a>Tabella 2: Mapping predefinito degli attributi utente
 È quindi possibile usare la tabella seguente per comprendere come può essere eseguito il mapping degli attributi richiesti dall'applicazione a un attributo in Azure AD e nell'RFC di SCIM. È possibile [personalizzare](customize-application-attributes.md) il mapping degli attributi tra Azure AD e l'endpoint SCIM. Si noti che non è necessario supportare sia utenti che gruppi o tutti gli attributi riportati di seguito. Si tratta di informazioni di riferimento che illustrano come viene in genere eseguito il mapping degli attributi di Azure AD alle proprietà del protocollo SCIM. 
@@ -126,7 +127,7 @@ Lo schema definito sopra verrà rappresentato con il payload JSON riportato di s
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
-Nell'RFC di SCIM sono definiti diversi endpoint. È possibile iniziare con l'endpoint /User e quindi espandersi. L'endpoint/Schemas è utile quando si usano attributi personalizzati o se lo schema viene modificato frequentemente. Consente a un client di recuperare automaticamente lo schema più aggiornato. L'endpoint/Bulk è particolarmente utile quando si supportano gruppi. La tabella seguente descrive i vari endpoint definiti nello standard SCIM. L'endpoint/Schemas è utile quando si usano attributi personalizzati o se lo schema viene modificato frequentemente. Consente a un client di recuperare automaticamente lo schema più aggiornato. L'endpoint/Bulk è particolarmente utile quando si supportano gruppi. La tabella seguente descrive i vari endpoint definiti nello standard SCIM. 
+Nell'RFC di SCIM sono definiti diversi endpoint. È possibile iniziare con l'endpoint /User e quindi espandersi. L'endpoint/Schemas è utile quando si usano attributi personalizzati o se lo schema viene modificato frequentemente. Consente a un client di recuperare automaticamente lo schema più aggiornato. L'endpoint/Bulk è particolarmente utile quando si supportano gruppi. La tabella seguente descrive i vari endpoint definiti nello standard SCIM.
  
 ### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>Tabella 4: Determinare gli endpoint da sviluppare
 |ENDPOINT|DESCRIZIONE|
@@ -759,13 +760,13 @@ Una risorsa di questo tipo, che consente di accelerare le attività di sviluppo,
    > [!Note]
    > Il codice di riferimento è utile per iniziare a creare l'endpoint SCIM e viene fornito "COSÌ COM'È". Sono benvenuti i contributi della community per la compilazione e la gestione del codice.
 
-La soluzione è costituita da due progetti: _Microsoft.SCIM_ e _Microsoft.SCIM.WebHostSample_ .
+La soluzione è costituita da due progetti: _Microsoft.SCIM_ e _Microsoft.SCIM.WebHostSample_.
 
 Il progetto _Microsoft.SCIM_ è la libreria che definisce i componenti del servizio Web conforme alla specifica SCIM. Dichiara l'interfaccia _Microsoft.SCIM.IProvider_ e le richieste vengono convertite in chiamate ai metodi del provider, che saranno programmati per eseguire operazioni su un archivio identità.
 
 ![Dettaglio: conversione di una richiesta in chiamate ai metodi del provider](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
 
-Il progetto _Microsoft.SCIM.WebHostSample_ è un'applicazione Web ASP.NET Core di Visual Studio basata sul modello _Vuoto_ . Questo consente di distribuire il codice di esempio come codice autonomo, ospitato in contenitori o in Internet Information Services. Viene implementata anche l'interfaccia _Microsoft.SCIM.IProvider_ , mantenendo le classi in memoria come archivio identità di esempio.
+Il progetto _Microsoft.SCIM.WebHostSample_ è un'applicazione Web ASP.NET Core di Visual Studio basata sul modello _Vuoto_. Questo consente di distribuire il codice di esempio come codice autonomo, ospitato in contenitori o in Internet Information Services. Viene implementata anche l'interfaccia _Microsoft.SCIM.IProvider_ , mantenendo le classi in memoria come archivio identità di esempio.
 
 ```csharp
     public class Startup
@@ -810,7 +811,7 @@ Le richieste da Azure Active Directory includono un token di connessione OAuth 2
 
 Nel token, l'autorità emittente è identificata da un'attestazione iss, ad esempio `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`. In questo esempio, l'indirizzo di base del valore attestazione, `https://sts.windows.net`, identifica Azure Active Directory come autorità emittente, mentre il segmento dell'indirizzo relativo, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_ , è un identificatore univoco del tenant di Azure Active Directory per cui è stato rilasciato il token.
 
-I destinatari del token saranno l'ID modello di applicazione per l'applicazione nella raccolta. Ogni applicazione registrata in un singolo tenant potrebbe ricevere la stessa attestazione `iss` con le richieste SCIM. L'ID modello di applicazione per tutte le app personalizzate è _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_ . Il token generato dal servizio di provisioning di Azure AD dovrà essere usato solo a scopo di test, non in ambienti di produzione.
+I destinatari del token saranno l'ID modello di applicazione per l'applicazione nella raccolta. Ogni applicazione registrata in un singolo tenant potrebbe ricevere la stessa attestazione `iss` con le richieste SCIM. L'ID modello di applicazione per tutte le app personalizzate è _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. Il token generato dal servizio di provisioning di Azure AD dovrà essere usato solo a scopo di test, non in ambienti di produzione.
 
 Nel codice di esempio, le richieste vengono autenticate usando il pacchetto Microsoft.AspNetCore.Authentication.JwtBearer. Il codice seguente impone l'autenticazione delle richieste per qualsiasi endpoint del servizio con il token di connessione rilasciato da Azure Active Directory per un tenant specificato:
 
@@ -1132,14 +1133,14 @@ Le applicazioni che supportano il profilo SCIM descritto in questo articolo poss
 
 1. Accedere al [portale di Azure Active Directory](https://aad.portal.azure.com). Si noti che è possibile ottenere l'accesso a una versione di valutazione gratuita per Azure Active Directory con licenze P2 iscrivendosi al [programma per sviluppatori](https://developer.microsoft.com/office/dev-program).
 2. Selezionare **Applicazioni aziendali** nel riquadro sinistro. Verrà visualizzato un elenco di tutte le app configurate, incluse le app aggiunte dalla raccolta.
-3. Selezionare **+ Nuova applicazione** > **Tutte** > **Applicazione non nella raccolta** .
+3. Selezionare **+ Nuova applicazione** > **Tutte** > **Applicazione non nella raccolta**.
 4. Immettere un nome per l'applicazione e selezionare **Aggiungi** per creare un oggetto app. La nuova app verrà aggiunta all'elenco delle applicazioni aziendali e verrà visualizzata la schermata di gestione dell'app.
 
    ![Screenshot che mostra la raccolta di applicazioni di Azure AD](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
    *Raccolta di applicazioni di Azure AD*
 
 5. Nella schermata di gestione dell'app selezionare **Provisioning** nel pannello sinistro.
-6. Nel menu **Modalità di provisioning** selezionare **Automatica** .
+6. Nel menu **Modalità di provisioning** selezionare **Automatica**.
 
    ![Esempio: pagina Provisioning di un'app nel portale di Azure](media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)<br/>
    *Configurazione del provisioning nel portale di Azure*
@@ -1159,8 +1160,8 @@ Le applicazioni che supportano il profilo SCIM descritto in questo articolo poss
     > [!NOTE]
     > Facoltativamente, è possibile disattivare la sincronizzazione degli oggetti gruppo disabilitando il mapping relativo ai gruppi.
 
-12. In **Impostazioni** il campo **Ambito** definisce gli utenti e i gruppi che devono essere sincronizzati. Selezionare **Sincronizza solo utenti e gruppi assegnati** (scelta consigliata) per sincronizzare solo gli utenti e i gruppi assegnati nella scheda **Utenti e gruppi** .
-13. Al termine della configurazione, impostare **Stato del provisioning** su **Sì** .
+12. In **Impostazioni** il campo **Ambito** definisce gli utenti e i gruppi che devono essere sincronizzati. Selezionare **Sincronizza solo utenti e gruppi assegnati** (scelta consigliata) per sincronizzare solo gli utenti e i gruppi assegnati nella scheda **Utenti e gruppi**.
+13. Al termine della configurazione, impostare **Stato del provisioning** su **Sì**.
 14. Selezionare **Salva** per avviare il servizio di provisioning di Azure AD.
 15. Se si sceglie di sincronizzare solo gli utenti e i gruppi assegnati (scelta consigliata), assicurarsi di selezionare la scheda **Utenti e gruppi** e di assegnare gli utenti o i gruppi da sincronizzare.
 

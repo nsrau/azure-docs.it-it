@@ -5,14 +5,14 @@ description: Vedere come abilitare la registrazione con le impostazioni di diagn
 author: baanders
 ms.author: baanders
 ms.date: 11/9/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0d775ffa1ce063c01fc6762d77201e5a4caaad87
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d988617fcaf7479c7bb3356e6ef6f87824ed23a7
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411752"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616655"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Risoluzione dei problemi relativi ai dispositivi gemelli digitali di Azure: registrazione diagnostica
 
@@ -77,7 +77,7 @@ Ogni categoria di log è costituita da operazioni di scrittura, lettura, elimina
 | Scrittura | PUT e PATCH |
 | Lettura | GET |
 | Elimina | DELETE |
-| Action | POST |
+| Azione | POST |
 
 Ecco un elenco completo delle operazioni e delle [chiamate API REST di Azure Digital gemelle](/rest/api/azure-digitaltwins/) corrispondenti registrate in ogni categoria. 
 
@@ -112,7 +112,7 @@ Questo schema del registro è coerente per `ADTDigitalTwinsOperation` , `ADTMode
 
 Di seguito sono riportate le descrizioni dei campi e delle proprietà per i log API.
 
-| Nome del campo | Tipo di dati | Descrizione |
+| Nome campo | Tipo di dati | Descrizione |
 |-----|------|-------------|
 | `Time` | Datetime | Data e ora in cui si è verificato l'evento, in formato UTC |
 | `ResourceID` | string | ID di risorsa Azure Resource Manager per la risorsa in cui si è verificata l'evento |
@@ -198,7 +198,7 @@ Di seguito sono riportati i corpi JSON di esempio per questi tipi di log.
 
 Si tratta dello schema per i `ADTEventRoutesOperation` log. Sono inclusi i dettagli relativi alle eccezioni e le operazioni API relative agli endpoint in uscita connessi a un'istanza di dispositivi gemelli digitali di Azure.
 
-|Nome del campo | Tipo di dati | Descrizione |
+|Nome campo | Tipo di dati | Descrizione |
 |-----|------|-------------|
 | `Time` | Datetime | Data e ora in cui si è verificato l'evento, in formato UTC |
 | `ResourceId` | string | ID di risorsa Azure Resource Manager per la risorsa in cui si è verificata l'evento |

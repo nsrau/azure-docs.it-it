@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 5fe1c3e344705b6cde9791f889b22be53a9e8c76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/13/2020
+ms.openlocfilehash: 69d27c102ca059974da87224e44f0ad7aa103fff
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372596"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592635"
 ---
 # <a name="import-data-module"></a>Modulo Import Data
 
@@ -54,15 +54,23 @@ Se i dati di origine cambiano, è possibile aggiornare il set di dati e aggiunge
 
 1. Selezionare il modulo per aprire il riquadro di destra.
 
-1. Selezionare **origine dati**e scegliere il tipo di origine dati. Potrebbe essere HTTP o archivio dati.
+1. Selezionare **origine dati** e scegliere il tipo di origine dati. Potrebbe essere HTTP o archivio dati.
 
     Se si sceglie archivio dati, è possibile selezionare gli archivi dati esistenti che sono già stati registrati nell'area di lavoro di Azure Machine Learning o creare un nuovo archivio dati. Definire quindi il percorso dei dati da importare nell'archivio dati. Per esplorare facilmente il percorso, fare clic su **Sfoglia percorso** ![ screenshot per visualizzare il collegamento Esplora percorso che consente di aprire la finestra di dialogo Selezione percorso.](media/module/import-data-path.png)
+
+    > [!NOTE]
+    > Il modulo **Import Data** è solo per i dati **tabulari** .
+    > Se si desidera importare più file di dati tabulari una sola volta, è necessario specificare le condizioni seguenti. in caso contrario, si verificheranno errori:
+    > 1. Per includere tutti i file di dati nella cartella, è necessario immettere `folder_name/**` il **percorso**.
+    > 2. Tutti i file di dati devono essere codificati in Unicode-8.
+    > 3. Tutti i file di dati devono avere gli stessi nomi di colonna e colonna.
+    > 4. Il risultato dell'importazione di più file di dati consiste nella concatenazione di tutte le righe di più file nell'ordine.
 
 1. Selezionare lo schema di anteprima per filtrare le colonne che si desidera includere. È anche possibile definire impostazioni avanzate come delimitatore nelle opzioni di analisi.
 
     ![importazione-dati-anteprima](media/module/import-data.png)
 
-1. La casella di controllo **Rigenera output**, decide se eseguire il modulo per rigenerare l'output in fase di esecuzione. 
+1. La casella di controllo **Rigenera output** , decide se eseguire il modulo per rigenerare l'output in fase di esecuzione. 
 
     Per impostazione predefinita, è deselezionata, ovvero se il modulo è stato eseguito con gli stessi parametri in precedenza, il sistema riutilizzerà l'output dell'ultima esecuzione per ridurre il tempo di esecuzione. 
 
@@ -79,9 +87,9 @@ Se i dati di origine cambiano, è possibile aggiornare il set di dati e aggiunge
 
 ## <a name="results"></a>Risultati
 
-Al termine dell'importazione, fare clic sul set di dati di output e selezionare **Visualizza** per verificare se i dati sono stati importati correttamente.
+Al termine dell'importazione, fare clic con il pulsante destro del mouse sul set di dati di output e selezionare **Visualizza** per verificare se i dati sono stati importati correttamente.
 
-Se si desidera salvare i dati per riutilizzarli, anziché importare un nuovo set di dati ogni volta che viene eseguita la pipeline, selezionare l'icona **registra set** di dati nella scheda **output** nel riquadro di destra del modulo. Scegliere un nome per il set di dati. Il set di dati salvato conserva i dati al momento del salvataggio, il set di dati non viene aggiornato quando viene rieseguita la pipeline, anche se il set di dati nella pipeline viene modificato. Questa operazione può essere utile per acquisire snapshot dei dati.
+Se si desidera salvare i dati per riutilizzarli, anziché importare un nuovo set di dati ogni volta che viene eseguita la pipeline, selezionare l'icona **registra set** di dati nella scheda **output + log** nel riquadro di destra del modulo. Scegliere un nome per il set di dati. Il set di dati salvato conserva i dati al momento del salvataggio, il set di dati non viene aggiornato quando viene rieseguita la pipeline, anche se il set di dati nella pipeline viene modificato. Questa operazione può essere utile per acquisire snapshot dei dati.
 
 Dopo aver importato i dati, potrebbero essere necessarie alcune preparazioni aggiuntive per la modellazione e l'analisi:
 

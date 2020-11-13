@@ -5,14 +5,14 @@ description: Vedere come abilitare gli avvisi per le metriche di dispositivi gem
 author: baanders
 ms.author: baanders
 ms.date: 7/28/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ae7e85624f5da06603ddc2675787b84203bc987b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 057a1b08095a71e2fca6119f5b63bfdc787eea88
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087210"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616603"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Risoluzione dei problemi di Azure Digital gemelli: avvisi
 
@@ -44,17 +44,17 @@ Per una procedura dettagliata relativa alla compilazione di questi campi, vedere
 
 Di seguito è riportato un estratto del processo di *selezione della condizione* che illustra i tipi di segnali di avviso disponibili per i dispositivi gemelli digitali di Azure. In questa pagina è possibile filtrare il tipo di segnale e selezionare il segnale desiderato da un elenco.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Screenshot che mostra la pagina creare una regola di avviso con le sezioni relative ai dettagli dell'ambito, della condizione, del gruppo di azioni e della regola di avviso":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic.png" alt-text="Screenshot che mostra la prima pagina Configura logica del segnale. È presente un'evidenziazione nella casella tipo di segnale per selezionare le metriche o i log attività e un elenco di metriche sotto che è possibile selezionare":::
 
 Dopo aver selezionato un segnale, verrà richiesto di configurare la logica dell'avviso. È possibile filtrare in una dimensione, impostare un valore soglia per l'avviso e impostare la frequenza dei controlli per la condizione. Di seguito è riportato un esempio di configurazione di un avviso quando la metrica di frequenza media degli errori di routing supera il 5%.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Screenshot che mostra la pagina creare una regola di avviso con le sezioni relative ai dettagli dell'ambito, della condizione, del gruppo di azioni e della regola di avviso":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Screenshot che mostra la seconda pagina Configura logica del segnale. La pagina mostra la cronologia delle metriche, dispone di un'area da filtrare in una dimensione, ad esempio le operazioni di griglia di eventi, e una sezione per la definizione della logica di avviso, ad esempio ' Average ' è maggiore di 5'":::
 
 ### <a name="verify-success"></a>Verificare l'esito positivo
 
 Dopo aver configurato gli avvisi, questi verranno visualizzati nella pagina degli *avvisi* per l'istanza.
  
-:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Screenshot che mostra la pagina creare una regola di avviso con le sezioni relative ai dettagli dell'ambito, della condizione, del gruppo di azioni e della regola di avviso" lightbox="media/troubleshoot-alerts/alerts-post.png":::
+:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Screenshot che mostra la pagina e il pulsante degli avvisi da aggiungere. È stato configurato un avviso" lightbox="media/troubleshoot-alerts/alerts-post.png":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

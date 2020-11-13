@@ -10,22 +10,22 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 096946a1a63c0826381875cd3ce4eaf0129a85df
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d265b6698a87c1c651dff1413cf48dd4984cd606
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146374"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616893"
 ---
 # <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
 
-Visione personalizzata supporta il controllo degli accessi in base al ruolo di Azure, un sistema di autorizzazione per la gestione dei singoli accessi alle risorse di Azure. Usando il controllo degli accessi in base al ruolo di Azure, è possibile assegnare membri del team diversi livelli di autorizzazioni per i progetti Visione personalizzata Per ulteriori informazioni sul controllo degli accessi in base al ruolo di Azure, vedere la [documentazione relativa a RBAC](https://docs.microsoft.com/azure/role-based-access-control/)
+Visione personalizzata supporta il controllo degli accessi in base al ruolo di Azure, un sistema di autorizzazione per la gestione dei singoli accessi alle risorse di Azure. Usando il controllo degli accessi in base al ruolo di Azure, è possibile assegnare membri del team diversi livelli di autorizzazioni per i progetti Visione personalizzata Per ulteriori informazioni sul controllo degli accessi in base al ruolo di Azure, vedere la [documentazione relativa a RBAC](../../role-based-access-control/index.yml)
 
 ## <a name="add-role-assignment-to-custom-vision-resource"></a>Aggiungere un'assegnazione di ruolo alla risorsa Visione personalizzata
 
 Il controllo degli accessi in base al ruolo può essere assegnato a una risorsa Visione personalizzata. Per concedere l'accesso a una risorsa di Azure, è necessario aggiungere un'assegnazione di ruolo.
 1. Nel [portale di Azure](https://ms.portal.azure.com/) selezionare **Tutti i servizi**. 
-1. Selezionare quindi **Servizi cognitivi**e passare alla risorsa di training visione personalizzata specifica.
+1. Selezionare quindi **Servizi cognitivi** e passare alla risorsa di training visione personalizzata specifica.
    > [!NOTE]
    > È anche possibile configurare il controllo degli accessi in base al ruolo di Azure per tutti i gruppi di risorse, le sottoscrizioni A tale scopo, selezionare il livello di ambito desiderato, quindi passare all'elemento desiderato, ad esempio selezionando **gruppi di risorse** e quindi facendo clic sul gruppo di risorse desiderato.
 1. Selezionare **controllo di accesso (IAM)** nel riquadro di spostamento a sinistra.

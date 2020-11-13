@@ -8,19 +8,19 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 10/05/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 168dc342eaf61a9ede632fb429311f6f5c1d4be4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e3d95be52215b03a30dc4b5c7f251357f163b24a
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311565"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616094"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Come usare l'area di lavoro con un server DNS personalizzato
 
-Quando si usa Azure Machine Learning con una rete virtuale, esistono [diversi modi per gestire la risoluzione dei nomi DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Per impostazione predefinita, Azure gestisce automaticamente la risoluzione dei nomi per l'area di lavoro e l'endpoint privato. Tuttavia, __quando si usa un server DNS personalizzato__ , è necessario creare manualmente le voci DNS per l'area di lavoro.
+Quando si usa Azure Machine Learning con una rete virtuale, esistono [diversi modi per gestire la risoluzione dei nomi DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Per impostazione predefinita, Azure gestisce automaticamente la risoluzione dei nomi per l'area di lavoro e l'endpoint privato. Se invece si _Usa un server DNS personalizzato_ _, è necessario creare manualmente le voci DNS per l'area di lavoro.
 
 > [!IMPORTANT]
 > Questo articolo illustra solo come trovare il nome di dominio completo (FQDN) e gli indirizzi IP per queste voci, ma non fornisce informazioni sulla configurazione dei record DNS per questi elementi. Per informazioni su come aggiungere record, consultare la documentazione relativa al software DNS.
@@ -40,13 +40,14 @@ Quando si usa Azure Machine Learning con una rete virtuale, esistono [diversi mo
 L'elenco seguente contiene i nomi di dominio completi (FQDN) usati dall'area di lavoro e dall'endpoint privato:
 
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `<workspace-GUID>.studio.workspace.<region>.api.azureml.ms`
-* `cert-<workspace-GUID>.workspace.<region>.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
 * `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
-* Se si crea un'istanza di calcolo, è necessario aggiungere anche una voce per `<instance-name>.<region>.instances.azureml.ms` con l'indirizzo IP privato dell'endpoint privato dell'area di lavoro. Si noti che l'istanza di calcolo è accessibile solo dall'interno della rete virtuale.
+* Se si crea un'istanza di calcolo, è necessario aggiungere anche una voce per `<instance-name>.<region>.instances.azureml.ms` con l'indirizzo IP privato dell'endpoint privato dell'area di lavoro.
+
+    > [!NOTE]
+    > È possibile accedere alle istanze di calcolo solo dall'interno della rete virtuale.
 
 Per trovare gli indirizzi IP interni per i nomi di dominio completi in VNet, usare uno dei metodi seguenti:
 
@@ -82,8 +83,6 @@ Le informazioni restituite da tutti i metodi sono le stesse. elenco di FQDN e in
 | Nome di dominio completo | Indirizzo IP |
 | ----- | ----- |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
-| `fb7e20a0-8891-458b-b969-55ddb3382f51.studio.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
-| `cert-fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
 
 > [!IMPORTANT]

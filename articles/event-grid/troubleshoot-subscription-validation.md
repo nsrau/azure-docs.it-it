@@ -3,18 +3,30 @@ title: 'Griglia di eventi di Azure: risoluzione dei problemi di convalida della 
 description: Questo articolo illustra come risolvere i problemi di convalida delle sottoscrizioni.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 48844859013507ab684ef8879b7b85dd6b6fe8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 857760182675d5673a3b09495c2faaf7372a4164
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118988"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592941"
 ---
 # <a name="troubleshoot-azure-event-grid-subscription-validations"></a>Risolvere i problemi di convalida delle sottoscrizioni di Griglia di eventi di Azure
-Questo articolo offre informazioni sulla risoluzione dei problemi relativi alla convalida delle sottoscrizioni di eventi. 
+Durante la creazione della sottoscrizione di eventi, se viene visualizzato un messaggio di errore come `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation` , significa che si è verificato un errore nell'handshake di convalida. Per risolvere questo errore, verificare gli aspetti seguenti:
+
+- Eseguire una richiesta HTTP POST all'URL del webhook con un corpo della richiesta [SubscriptionValidationEvent di esempio](webhook-event-delivery.md#validation-details) con il posting o curl o uno strumento simile.
+- Se il webhook sta implementando un meccanismo di handshake di convalida sincrona, verificare che ValidationCode venga restituito come parte della risposta.
+- Se il webhook sta implementando un meccanismo di handshake di convalida asincrono, verificare che sia stato restituito HTTP POST 200 OK.
+- Se il webhook restituisce `403 (Forbidden)` la risposta, controllare se il webhook è dietro un Gateway applicazione Azure o un Web Application Firewall. In caso contrario, è necessario disabilitare le regole del firewall ed eseguire di nuovo HTTP POST:
+    - 920300 (richiesta mancante di un'intestazione Accept)
+    - 942430 (argomenti limitati al rilevamento di anomalie dei caratteri SQL (args): numero di caratteri speciali superato (12))
+    - 920230 (codifica più URL rilevata)
+    - 942130 (attacco SQL injection: rilevato tautologia SQL).
+    - 931130 (possibile attacco RFI (Remote File Inclusion) = riferimento all'esterno del dominio/collegamento)
 
 > [!IMPORTANT]
 > Per informazioni dettagliate sulla convalida degli endpoint per webhook, vedere [Recapito di eventi webhook](webhook-event-delivery.md).
+
+Le sezioni seguenti illustrano come convalidare le sottoscrizioni di un evento usando post e curl.  
 
 ## <a name="validate-event-grid-event-subscription-using-postman"></a>Convalidare la sottoscrizione di eventi di Griglia di eventi con Postman
 Di seguito è riportato un esempio d'uso di Postman per la convalida di una sottoscrizione webhook di un evento di Griglia di eventi: 
@@ -65,14 +77,7 @@ Di seguito è riportato un esempio d'uso di Postman per la convalida di una sott
 
 Usare il metodo **HTTP OPTIONS** per la convalida con eventi cloud. Per altre informazioni sulla convalida di eventi cloud per webhook, vedere [Convalida dell'endpoint con eventi cloud](webhook-event-delivery.md#endpoint-validation-with-event-grid-events).
 
-## <a name="error-code-403"></a>Codice errore: 403
-Se il webhook restituisce 403 (accesso negato) nella risposta, controllare se il webhook si trova dietro a un gateway applicazione di Azure o ad un web application firewall. In tal caso, sarà necessario disabilitare le regole del firewall seguenti e ripetere l'operazione HTTP POST:
-
-  - 920300 (Nella richiesta manca un'intestazione Accept, è possibile risolvere il problema)
-  - 942430 (Rilevamento anomalie caratteri SQL con restrizioni (args): n. di caratteri speciali in eccesso (12))
-  - 920230 (Rilevata codifica multipla URL)
-  - 942130 (Attacco SQL injection: rilevata tautologia SQL.)
-  - 931130 (Possibile attacco di tipo Remote File Inclusion (RFI): collegamento/riferimento fuori dominio)
+## <a name="troubleshoot-event-subscription-validation"></a>Risolvere i problemi di convalida della sottoscrizione di eventi
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, pubblicare il problema nel [Forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-eventgrid) oppure aprire un [ticket di supporto](https://azure.microsoft.com/support/options/). 

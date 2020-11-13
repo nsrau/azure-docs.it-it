@@ -4,14 +4,14 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
 ms.date: 03/10/2020
-ms.author: mathoma
+ms.author: sstein
 ms.reviewer: vanto
-ms.openlocfilehash: ad6e444f9672fbe521e9c6963649d250830154d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15209bc9dae1f10e1158c805ba7903b9f946766f
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84032672"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593949"
 ---
 In questo passaggio verranno creati un [server logico SQL](../database/logical-servers.md) e un [database singolo](../database/single-database-overview.md) che usa i dati di esempio AdventureWorksLT. È possibile creare il database usando i menu e le schermate del portale di Azure, con l'interfaccia della riga di comando di Azure o uno script di PowerShell in Azure Cloud Shell.
 
@@ -33,19 +33,19 @@ Per creare un gruppo di risorse, un server e un database singolo nel portale di 
    ![Creare un database singolo](./media/sql-database-create-single-database/create-single-database.png)
 
 1. Nella scheda **Informazioni di base** del modulo **Crea database SQL** selezionare la **Sottoscrizione** di Azure corretta in **Dettagli del progetto** se non è già selezionata.
-1. In **Gruppo di risorse** selezionare **Crea nuovo**, immettere *myResourceGroup* e quindi fare clic su **OK**.
+1. In **Gruppo di risorse** selezionare **Crea nuovo** , immettere *myResourceGroup* e quindi fare clic su **OK**.
 1. In **Dettagli database** immettere **mySampleDatabase** per *Nome del database*.
-1. Per **server**, selezionare **Crea nuovo** e compilare il modulo **Nuovo server** come indicato di seguito:
-   - **Nome server**: immettere *mysqlserver* e alcuni caratteri per l'univocità.
-   - **Account di accesso amministratore server**: digitare *azureuser*.
-   - **Password**: immettere una password che soddisfi i requisiti e immetterla di nuovo nel campo **Conferma password**.
-   - **Località**: fare clic sull'elenco a discesa e scegliere una località, ad esempio **(Stati Uniti) Stati Uniti orientali**.
+1. Per **server** , selezionare **Crea nuovo** e compilare il modulo **Nuovo server** come indicato di seguito:
+   - **Nome server** : immettere *mysqlserver* e alcuni caratteri per l'univocità.
+   - **Account di accesso amministratore server** : digitare *azureuser*.
+   - **Password** : immettere una password che soddisfi i requisiti e immetterla di nuovo nel campo **Conferma password**.
+   - **Località** : fare clic sull'elenco a discesa e scegliere una località, ad esempio **(Stati Uniti) Stati Uniti orientali**.
 
    Selezionare **OK**.
 
    ![Nuovo server](./media/sql-database-create-single-database/new-server.png)
 
-   Prendere nota dell'account di accesso amministratore del server e della password per poter accedere al server e ai database. Se si dimentica l'account di accesso o la password, è possibile recuperare il nome di accesso o reimpostare la password nella pagina **SQL Server** dopo la creazione del database. Per aprire la pagina **SQL Server**, selezionare il nome del server nella pagina **Panoramica** del database.
+   Prendere nota dell'account di accesso amministratore del server e della password per poter accedere al server e ai database. Se si dimentica l'account di accesso o la password, è possibile recuperare il nome di accesso o reimpostare la password nella pagina **SQL Server** dopo la creazione del database. Per aprire la pagina **SQL Server** , selezionare il nome del server nella pagina **Panoramica** del database.
 
 1. In **Calcolo e archiviazione** selezionare **Configura database** per ripristinare le impostazioni predefinite.
 
@@ -68,7 +68,7 @@ Per creare un gruppo di risorse, un server e un database singolo nel portale di 
   
    Per altre informazioni sulle impostazioni del firewall, vedere [Consentire ai servizi e alle risorse di Azure di accedere a questo server](../database/network-access-controls-overview.md) e [Aggiungere un endpoint privato](../database/private-endpoint-overview.md).
 
-1. Nella scheda **Impostazioni aggiuntive**, nella sezione **Origine dati** selezionare **Esempio** per **Usa dati esistenti**.
+1. Nella scheda **Impostazioni aggiuntive** , nella sezione **Origine dati** selezionare **Esempio** per **Usa dati esistenti**.
 1. Selezionare **Rivedi e crea** nella parte inferiore della pagina.
 
    ![Scheda Impostazioni aggiuntive](./media/sql-database-create-single-database/additional-settings.png)
@@ -149,11 +149,11 @@ Il codice precedente usa i comandi dell'interfaccia della riga di comando di Azu
 
 | Comando | Descrizione |
 |---|---|
-| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | Imposta una sottoscrizione come sottoscrizione attiva corrente. |
+| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | Imposta una sottoscrizione come sottoscrizione attiva corrente. |
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crea un server che ospita database e pool elastici. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Consente di creare una regola del firewall a livello di server. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest) | Crea un database. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest&preserve-view=true) | Crea un database. |
 
 Per altri esempi dell'interfaccia della riga di comando di Azure per il database SQL di Azure, vedere [Esempi dell'interfaccia della riga di comando di Azure](../database/az-cli-script-samples-content-guide.md).
 

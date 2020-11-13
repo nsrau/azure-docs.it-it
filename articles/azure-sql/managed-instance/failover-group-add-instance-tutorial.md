@@ -8,16 +8,16 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sashan, sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: sashan
 ms.date: 08/27/2019
-ms.openlocfilehash: df10e2b674a8e97766ee96a802e614e2bd797b7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d1ce51306e846e2d842bef33bb9782da14019a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617741"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593995"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Esercitazione: Aggiungere Istanza gestita di SQL a un gruppo di failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -69,7 +69,7 @@ Usare il portale di Azure per creare il gruppo di risorse e l'istanza gestita pr
 
     ![Selezionare Istanza gestita di SQL](./media/failover-group-add-instance-tutorial/select-managed-instance.png)
 
-1. Nella scheda **Generale** della pagina **Crea Istanza gestita di database SQL di Azure**:
+1. Nella scheda **Generale** della pagina **Crea Istanza gestita di database SQL di Azure** :
     1. In **Dettagli del progetto** selezionare la **sottoscrizione** dall'elenco a discesa e quindi scegliere **Crea nuovo** per creare il gruppo di risorse. Digitare un nome per il gruppo di risorse, ad esempio `myResourceGroup`. 
     1. In **Dettagli dell'istanza gestita** immettere il nome dell'istanza gestita e l'area in cui si vuole distribuire l'istanza gestita. Lasciare i valore predefiniti per **Calcolo e archiviazione**. 
     1. In **Account amministratore** immettere un account di accesso amministratore, ad esempio `azureuser`, e una password amministratore complessa. 
@@ -161,8 +161,8 @@ Usare PowerShell per creare il gruppo di risorse e l'istanza gestita primaria.
    # Suppress networking breaking changes warning (https://aka.ms/azps-changewarnings
    Set-Item Env:\SuppressAzurePowerShellBreakingChangeWarnings "true"
    
-   # Set the subscription context
-   Set-AzContext -SubscriptionId $subscriptionId 
+   # Set the subscription context
+   Set-AzContext -SubscriptionId $subscriptionId 
    
    # Create the resource group
    Write-host "Creating resource group..."
@@ -415,7 +415,7 @@ Se si usa il portale di Azure per creare l'istanza gestita, sarà necessario cre
 Per verificare l'intervallo di subnet della rete virtuale primaria, seguire questa procedura:
 
 1. Nel [portale di Azure](https://portal.azure.com) passare al gruppo di risorse e selezionare la rete virtuale per l'istanza primaria.  
-2. Selezionare **Subnet** in **Impostazioni** e prendere nota dell'**intervallo di indirizzi**. L'intervallo di indirizzi della subnet della rete virtuale per l'istanza gestita secondaria non può sovrapporsi a questo intervallo. 
+2. Selezionare **Subnet** in **Impostazioni** e prendere nota dell' **intervallo di indirizzi**. L'intervallo di indirizzi della subnet della rete virtuale per l'istanza gestita secondaria non può sovrapporsi a questo intervallo. 
 
 
    ![Subnet primaria](./media/failover-group-add-instance-tutorial/verify-primary-subnet-range.png)
@@ -923,16 +923,16 @@ Connettere i due gateway usando il portale di Azure.
 
 
 1. Selezionare **Crea una risorsa** nel [portale di Azure](https://portal.azure.com).
-1. Digitare `connection` nella casella di ricerca e quindi premere INVIO per avviare la ricerca. Verrà visualizzala la risorsa **Connessione**, pubblicata da Microsoft.
+1. Digitare `connection` nella casella di ricerca e quindi premere INVIO per avviare la ricerca. Verrà visualizzala la risorsa **Connessione** , pubblicata da Microsoft.
 1. Fare clic su **Crea** per creare la connessione. 
 1. Nella pagina **Generale** selezionare i valori seguenti e quindi scegliere **OK**. 
     1. Selezionare `VNet-to-VNet` per **Tipo di connessione**. 
     1. Selezionare la sottoscrizione dall'elenco a discesa. 
     1. Selezionare il gruppo di risorse per Istanza gestita di SQL nell'elenco a discesa. 
     1. Selezionare dall'elenco a discesa la località dell'istanza gestita primaria. 
-1. Nella pagina **Impostazioni** selezionare o immettere i valori seguenti e quindi scegliere **OK**:
-    1. Scegliere il gateway di rete primario per **Primo gateway di rete virtuale**, ad esempio `primaryGateway`.  
-    1. Scegliere il gateway di rete secondario per **Secondo gateway di rete virtuale**, ad esempio `secondaryGateway`. 
+1. Nella pagina **Impostazioni** selezionare o immettere i valori seguenti e quindi scegliere **OK** :
+    1. Scegliere il gateway di rete primario per **Primo gateway di rete virtuale** , ad esempio `primaryGateway`.  
+    1. Scegliere il gateway di rete secondario per **Secondo gateway di rete virtuale** , ad esempio `secondaryGateway`. 
     1. Selezionare la casella di controllo accanto a **Stabilisci connettività bidirezionale**. 
     1. Lasciare il nome predefinito della connessione primaria o rinominarla con un valore di propria scelta. 
     1. Specificare una **chiave condivisa (PSK)** per la connessione, ad esempio `mi1m2psk`. 
@@ -1093,7 +1093,7 @@ Pulire le risorse eliminando prima le istanze gestite, quindi il cluster virtual
 1. Selezionare l'istanza o le istanze gestite, quindi selezionare **Elimina**. Digitare `yes` nella casella di testo per confermare che si vuole eliminare la risorsa, quindi selezionare **Elimina**. L'esecuzione di questa procedura in background può richiedere del tempo e, finché non viene completata, non sarà possibile eliminare il *cluster virtuale* o altre risorse dipendenti. Monitorare l'eliminazione nella scheda **Attività** per verificare che l'istanza gestita sia stata eliminata. 
 1. Una volta eliminata l'istanza gestita, eliminare il *cluster virtuale* selezionandolo nel gruppo di risorse e quindi scegliendo **Elimina**. Digitare `yes` nella casella di testo per confermare che si vuole eliminare la risorsa, quindi selezionare **Elimina**. 
 1. Eliminare eventuali risorse rimanenti. Digitare `yes` nella casella di testo per confermare che si vuole eliminare la risorsa, quindi selezionare **Elimina**. 
-1. Eliminare il gruppo di risorse selezionando **Elimina gruppo di risorse**, digitando il relativo nome, `myResourceGroup`, quindi selezionando **Elimina**. 
+1. Eliminare il gruppo di risorse selezionando **Elimina gruppo di risorse** , digitando il relativo nome, `myResourceGroup`, quindi selezionando **Elimina**. 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

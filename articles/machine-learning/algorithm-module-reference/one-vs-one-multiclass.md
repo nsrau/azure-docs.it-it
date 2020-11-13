@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
-ms.openlocfilehash: 1c08ba51b815386783c3412e9238d2e96da03ff9
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.date: 11/13/2020
+ms.openlocfilehash: 92ef5b372113d0d226335b8ec464a75a5a684bc3
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94377680"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592907"
 ---
 # <a name="one-vs-one-multiclass"></a>Uno-vs-uno multiclasse
 
@@ -31,6 +31,8 @@ Questo modulo implementa il metodo uno-a-uno, in cui viene creato un modello bin
 In sostanza, il modulo crea un insieme di singoli modelli e quindi unisce i risultati, per creare un singolo modello che stima tutte le classi. Qualsiasi classificatore binario può essere utilizzato come base per un modello uno-a-uno.  
 
 Si immagini, ad esempio, di configurare un modello di [macchina a vettori di supporto a due classi](two-class-support-vector-machine.md) e di fornire tale modello come input per il modulo One-vs-One multiCLASS. Il modulo creerà modelli di macchina a vettori di supporto a due classi per tutti i membri della classe di output. Viene quindi applicato il metodo uno-a-uno per combinare i risultati di tutte le classi.  
+
+Il modulo usa OneVsOneClassifier di sklearn ed è possibile ottenere altre informazioni [qui](https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsOneClassifier.html).
 
 ## <a name="how-to-configure-the-one-vs-one-multiclass-classifier"></a>Come configurare il classificatore multiclasse One-vs-One  
 
