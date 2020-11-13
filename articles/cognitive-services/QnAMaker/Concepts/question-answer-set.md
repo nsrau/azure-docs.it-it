@@ -1,16 +1,16 @@
 ---
-title: Knowledge base di progettazione-QnA Maker
+title: Progettazione della Knowledge base-QnA Maker concetti
 description: Informazioni su come progettare una Knowledge base-QnA Maker.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: b2661b61e0422f796813be0908d866028ee128a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c21c82b5fd024598da30f4ac7b1ed01e64561e3b
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776902"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576190"
 ---
 # <a name="question-and-answer-pair-concepts"></a>Concetti delle coppie di domande e risposte
 
@@ -28,8 +28,8 @@ Ogni coppia è rappresentata da un **ID**.
 Le impostazioni **facoltative** per una coppia includono:
 
 * **Forme alternative della domanda** : Questo consente di QnA Maker restituire la risposta corretta per una più ampia gamma di formulazioni di domande
-* **Metadati**: i metadati sono tag associati a una coppia di QnA e sono rappresentati come coppie chiave-valore. I tag di metadati vengono usati per filtrare le coppie di QnA e limitano il set su cui viene eseguita la query corrispondente.
-* **Prompt a più turni**, usati per continuare una conversazione a più turni
+* **Metadati** : i metadati sono tag associati a una coppia di QnA e sono rappresentati come coppie chiave-valore. I tag di metadati vengono usati per filtrare le coppie di QnA e limitano il set su cui viene eseguita la query corrispondente.
+* **Prompt a più turni** , usati per continuare una conversazione a più turni
 
 ![Knowledge base di QnA Maker](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 

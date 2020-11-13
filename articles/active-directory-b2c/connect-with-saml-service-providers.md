@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c59a104796e11b15af805e34f9cd14b2ce8bd075
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 6f7888e978fd4eb19232c156ce65b6e4967d9c5a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628848"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575969"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrare un'applicazione SAML in Azure AD B2C
 
@@ -99,13 +99,13 @@ Se non si ha già un certificato, per questa esercitazione è possibile usarne u
 Successivamente, caricare l'asserzione SAML e il certificato di firma della risposta in Azure AD B2C.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare al tenant di Azure AD B2C.
-1. In **Criteri** selezionare **Identity Experience Framework** e quindi **Chiavi dei criteri** .
-1. Selezionare **Aggiungi** e quindi **Opzioni** > **Carica** .
-1. Immettere un valore per **Nome** , ad esempio *SamlIdpCert* . Verrà automaticamente aggiunto il prefisso *B2C_1A_* al nome della chiave.
+1. In **Criteri** selezionare **Identity Experience Framework** e quindi **Chiavi dei criteri**.
+1. Selezionare **Aggiungi** e quindi **Opzioni** > **Carica**.
+1. Immettere un valore per **Nome** , ad esempio *SamlIdpCert*. Verrà automaticamente aggiunto il prefisso *B2C_1A_* al nome della chiave.
 1. Caricare il certificato usando il controllo di caricamento file.
 1. Immettere la password del certificato.
 1. Selezionare **Create** (Crea).
-1. Verificare che la chiave venga visualizzata come previsto. Ad esempio, *B2C_1A_SamlIdpCert* .
+1. Verificare che la chiave venga visualizzata come previsto. Ad esempio, *B2C_1A_SamlIdpCert*.
 
 ## <a name="2-prepare-your-policy"></a>2. Preparare i criteri
 
@@ -159,7 +159,7 @@ Ora che il tenant può emettere asserzioni SAML, è necessario creare i criteri 
 
 ### <a name="31-create-sign-up-or-sign-in-policy"></a>3.1 Creare i criteri di iscrizione o di accesso
 
-1. Creare una copia del file *SignUpOrSignin.xml* nella directory di lavoro del pacchetto Starter e salvarla con un nuovo nome. Ad esempio, *SignUpOrSigninSAML.xml* . Questo è il file di criteri della relying party.
+1. Creare una copia del file *SignUpOrSignin.xml* nella directory di lavoro del pacchetto Starter e salvarla con un nuovo nome. Ad esempio, *SignUpOrSigninSAML.xml*. Questo è il file di criteri della relying party.
 
 1. Aprire il file *SignUpOrSigninSAML.xml* in un editor a scelta.
 
@@ -176,7 +176,7 @@ Ora che il tenant può emettere asserzioni SAML, è necessario creare i criteri 
     PublicPolicyUri="http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml">
     ```
 
-1. Aggiungere il frammento XML seguente prima dell'elemento `<RelyingParty>`. Questo codice XML sovrascrive il passaggio di orchestrazione numero 7 del percorso utente _SignUpOrSignIn_ . Se il percorso utente è stato avviato da una cartella diversa del pacchetto Starter o è stato personalizzato con l'aggiunta o la rimozione di passaggi di orchestrazione, assicurarsi che il numero nell'elemento `order` sia allineato a quello specificato nel percorso utente per il passaggio dell'autorità emittente del token (ad esempio, nelle altre cartelle del pacchetto Starter si tratta del numero 4 per `LocalAccounts`, del numero 6 per `SocialAccounts` e del numero 9 per `SocialAndLocalAccountsWithMfa`).
+1. Aggiungere il frammento XML seguente prima dell'elemento `<RelyingParty>`. Questo codice XML sovrascrive il passaggio di orchestrazione numero 7 del percorso utente _SignUpOrSignIn_. Se il percorso utente è stato avviato da una cartella diversa del pacchetto Starter o è stato personalizzato con l'aggiunta o la rimozione di passaggi di orchestrazione, assicurarsi che il numero nell'elemento `order` sia allineato a quello specificato nel percorso utente per il passaggio dell'autorità emittente del token (ad esempio, nelle altre cartelle del pacchetto Starter si tratta del numero 4 per `LocalAccounts`, del numero 6 per `SocialAccounts` e del numero 9 per `SocialAndLocalAccountsWithMfa`).
 
     ```xml
     <UserJourneys>
@@ -260,7 +260,7 @@ Il file dei criteri di relying party finale dovrebbe essere simile al codice XML
 
 Salvare le modifiche e caricare il nuovo file dei criteri. Dopo aver caricato entrambi i criteri (i file dell'estensione e della relying party), aprire un Web browser e passare ai metadati dei criteri.
 
-I metadati IDP dei criteri di Azure AD B2C sono informazioni usate nel protocollo SAML per esporre la configurazione di un provider di identità SAML. I metadati definiscono il percorso dei servizi, ad esempio accesso e disconnessione, certificati, metodo di accesso e altro ancora. I metadati dei criteri di Azure AD B2C sono disponibili all'URL seguente. Sostituire `tenant-name` con il nome del tenant di Azure AD B2C e `policy-name` con il nome (ID) dei criteri:
+I metadati IDP dei criteri di Azure AD B2C sono informazioni usate nel protocollo SAML per esporre la configurazione di un provider di identità SAML. I metadati definiscono il percorso dei servizi, ad esempio accesso e disconnessione, certificati, metodo di accesso e altro ancora. I metadati dei criteri di Azure AD B2C sono disponibili all'URL seguente. Sostituire `tenant-name` con il nome del tenant Azure ad B2C e `policy-name` con il nome (ID) del criterio, ad esempio.../B2C_1A_SAML2_signup_signin/samlp/Metadata:
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
@@ -272,12 +272,12 @@ I criteri personalizzati e il tenant di Azure AD B2C sono ora pronti. Successiva
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e quindi la directory contenente il tenant di Azure AD B2C.
-1. Nel menu a sinistra selezionare **Azure AD B2C** . In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C** .
-1. Selezionare **Registrazioni app** e quindi **Nuova registrazione** .
-1. Immettere un **nome** per l'applicazione. Ad esempio, *SAMLApp1* .
+1. Nel menu a sinistra selezionare **Azure AD B2C**. In alternativa, selezionare **Tutti i servizi** e quindi cercare e selezionare **Azure AD B2C**.
+1. Selezionare **Registrazioni app** e quindi **Nuova registrazione**.
+1. Immettere un **nome** per l'applicazione. Ad esempio, *SAMLApp1*.
 1. In **Tipi di account supportati** selezionare **Account solo in questa directory organizzativa**
 1. In **URI di reindirizzamento** selezionare **Web** e quindi immettere `https://localhost`. Questo valore verrà modificato in un secondo momento nel manifesto della registrazione dell'applicazione.
-1. Selezionare **Registra** .
+1. Selezionare **Registra**.
 
 ### <a name="42-update-the-app-manifest"></a>4.2 Aggiornare il manifesto dell'app
 
@@ -296,7 +296,7 @@ Questa proprietà rappresenta l'URL dei metadati del provider di servizi disponi
 
 I metadati sono informazioni usate nel protocollo SAML per esporre la configurazione di un'entità SAML, ad esempio un provider di servizi. I metadati definiscono la posizione dei servizi, come accesso e disconnessione, certificati, metodo di accesso e altro ancora. Azure AD B2C legge i metadati del provider di servizi e agisce di conseguenza. I metadati non sono obbligatori. È anche possibile specificare alcuni attributi, ad esempio l'URI di risposta e l'URI di disconnessione, direttamente nel manifesto dell'app.
 
-Se sono specificate *sia* nell'URL dei metadati SAML che nel manifesto della registrazione dell'applicazione, le proprietà vengono **unite** . Le proprietà specificate nell'URL dei metadati vengono elaborate per prime e hanno la precedenza.
+Se sono specificate *sia* nell'URL dei metadati SAML che nel manifesto della registrazione dell'applicazione, le proprietà vengono **unite**. Le proprietà specificate nell'URL dei metadati vengono elaborate per prime e hanno la precedenza.
 
 Per questa esercitazione, che usa l'applicazione di test SAML, usare il valore seguente per `samlMetadataUrl`:
 
@@ -347,7 +347,7 @@ In genere sono necessari alcuni o tutti gli elementi seguenti:
     1. Passare all'URL dei metadati specificato sopra.
     1. Copiare il valore nell'elemento `<X509Certificate>`.
     1. Incollarlo in un file di testo.
-    1. Salvare il file di testo come file con estensione *cer* .
+    1. Salvare il file di testo come file con estensione *cer*.
 
 ### <a name="51-test-with-the-saml-test-app-optional"></a>5.1 Testare la soluzione con l'app di test SAML (facoltativo)
 

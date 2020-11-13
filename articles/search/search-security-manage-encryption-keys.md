@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: dfea03270dfea3699f7c3508b9f5275a2dd26372
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7f2df005a8d3211ba53aadb16370624c4f530eb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287153"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575867"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati in Azure ricerca cognitiva
 
@@ -66,7 +66,7 @@ A causa della natura della crittografia con chiavi gestite dal cliente, nessuno 
 
 1. Nella pagina **Overview** in **Essentials** abilitare l' **eliminazione** temporanea e l' **eliminazione della protezione**.
 
-### <a name="using-powershell"></a>Uso di PowerShell
+### <a name="using-powershell"></a>Utilizzo di PowerShell
 
 1. Eseguire `Connect-AzAccount` per configurare le credenziali di Azure.
 
@@ -169,9 +169,11 @@ In questo passaggio verrà creato un criterio di accesso in Key Vault. Questo cr
 > [!Important]
 > Il contenuto crittografato in ricerca cognitiva di Azure è configurato per l'uso di una chiave di Azure Key Vault specifica con una **versione** specifica. Se si modifica la chiave o la versione, è necessario aggiornare la mappa degli indici o dei sinonimi per usare il nuovo key\version **prima** di eliminare il key\version. precedente In caso contrario, il rendering dell'indice o della mappa dei sinonimi sarà inutilizzabile e non sarà possibile decrittografare il contenuto quando l'accesso alla chiave viene perso.
 
+<a name="encrypt-content"></a>
+
 ## <a name="5---encrypt-content"></a>5-crittografare il contenuto
 
-Per aggiungere una chiave gestita dal cliente in un indice o in una mappa di sinonimi, usare un'API REST o un SDK per creare un oggetto la cui definizione includa `encryptionKey` .
+Per aggiungere una chiave gestita dal cliente in un indice, un'origine dati, un skillt, un indicizzatore o una mappa di sinonimi, è necessario usare l' [API REST di ricerca](https://docs.microsoft.com/rest/api/searchservice/) o un SDK. Il portale non espone le mappe dei sinonimi o le proprietà di crittografia. Quando si usano gli indici API validi, le origini dati, skillsets, gli indicizzatori e le mappe sinonime supportano una proprietà **encryptionKey** di primo livello.
 
 Questo esempio usa l'API REST con i valori per Azure Key Vault e Azure Active Directory:
 
@@ -192,6 +194,12 @@ Questo esempio usa l'API REST con i valori per Azure Key Vault e Azure Active Di
 > [!Note]
 > Nessuno di questi dettagli dell'insieme di credenziali delle chiavi è considerato segreto e può essere facilmente recuperato passando alla pagina chiave Azure Key Vault pertinente in portale di Azure.
 
+## <a name="example-index-encryption"></a>Esempio: crittografia degli indici
+
+Creare un indice crittografato usando l' [API REST create index Azure ricerca cognitiva](https://docs.microsoft.com/rest/api/searchservice/create-index). Utilizzare la `encryptionKey` proprietà per specificare la chiave di crittografia da utilizzare.
+> [!Note]
+> Nessuno di questi dettagli dell'insieme di credenziali delle chiavi è considerato segreto e può essere facilmente recuperato passando alla pagina chiave Azure Key Vault pertinente in portale di Azure.
+
 ## <a name="rest-examples"></a>Esempi REST
 
 Questa sezione illustra il codice JSON completo per un indice crittografato e una mappa di sinonimi
@@ -202,7 +210,7 @@ Per informazioni dettagliate sulla creazione di un nuovo indice tramite l'API RE
 
 ```json
 {
- "name": "hotels",  
+ "name": "hotels",
  "fields": [
   {"name": "HotelId", "type": "Edm.String", "key": true, "filterable": true},
   {"name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": true, "facetable": false},
@@ -231,19 +239,19 @@ Per informazioni dettagliate sulla creazione di un nuovo indice tramite l'API RE
 
 ### <a name="synonym-map-encryption"></a>Crittografia mappa sinonimi
 
-Per informazioni dettagliate sulla creazione di una nuova mappa dei sinonimi tramite l'API REST, vedere creare una mappa di sinonimi [(API REST)](/rest/api/searchservice/create-synonym-map), in cui l'unica differenza consiste nel specificare i dettagli della chiave di crittografia come parte della definizione della mappa sinonimi: 
+Creare una mappa di sinonimi crittografata usando l' [API REST di creazione della mappa di Azure ricerca cognitiva](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Utilizzare la `encryptionKey` proprietà per specificare la chiave di crittografia da utilizzare.
 
 ```json
-{   
-  "name" : "synonymmap1",  
-  "format" : "solr",  
+{
+  "name" : "synonymmap1",
+  "format" : "solr",
   "synonyms" : "United States, United States of America, USA\n
   Washington, Wash. => WA",
   "encryptionKey": {
     "keyVaultUri": "https://demokeyvault.vault.azure.net",
     "keyVaultKeyName": "myEncryptionKey",
     "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
-    "activeDirectoryAccessCredentials": {
+    "accessCredentials": {
       "applicationId": "00000000-0000-0000-0000-000000000000",
       "applicationSecret": "myApplicationSecret"
     }
@@ -252,6 +260,86 @@ Per informazioni dettagliate sulla creazione di una nuova mappa dei sinonimi tra
 ```
 
 È ora possibile inviare la richiesta di creazione della mappa di sinonimi e iniziare a usarla normalmente.
+
+## <a name="example-data-source-encryption"></a>Esempio: crittografia dell'origine dati
+
+Creare un'origine dati crittografata usando l' [origine dati (API REST di Azure ricerca cognitiva)](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Utilizzare la `encryptionKey` proprietà per specificare la chiave di crittografia da utilizzare.
+
+```json
+{
+  "name" : "datasource1",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.windows.net"
+  },
+  "container" : { "name" : "containername" },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+È ora possibile inviare la richiesta di creazione dell'origine dati e iniziare a usarla normalmente.
+
+## <a name="example-skillset-encryption"></a>Esempio: crittografia di competenze
+
+Creare un oggetto con competenze crittografate usando l' [API REST di Azure ricerca cognitiva](https://docs.microsoft.com/rest/api/searchservice/create-skillset). Utilizzare la `encryptionKey` proprietà per specificare la chiave di crittografia da utilizzare.
+
+```json
+{
+  "name" : "datasource1",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=datasource;AccountKey=accountkey;EndpointSuffix=core.windows.net"
+  },
+  "container" : { "name" : "containername" },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+È ora possibile inviare la richiesta di creazione di competenze e iniziare a usarla normalmente.
+
+## <a name="example-indexer-encryption"></a>Esempio: crittografia dell'indicizzatore
+
+Creare un indicizzatore crittografato usando l' [API REST crea indicizzatore Azure ricerca cognitiva](https://docs.microsoft.com/rest/api/searchservice/create-indexer). Utilizzare la `encryptionKey` proprietà per specificare la chiave di crittografia da utilizzare.
+
+```json
+{
+  "name": "indexer1",
+  "dataSourceName": "datasource1",
+  "skillsetName": "skillset1",
+  "parameters": {
+      "configuration": {
+          "imageAction": "generateNormalizedImages"
+      }
+  },
+  "encryptionKey": {
+    "keyVaultUri": "https://demokeyvault.vault.azure.net",
+    "keyVaultKeyName": "myEncryptionKey",
+    "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+    "accessCredentials": {
+      "applicationId": "00000000-0000-0000-0000-000000000000",
+      "applicationSecret": "myApplicationSecret"
+    }
+  }
+}
+```
+
+È ora possibile inviare la richiesta di creazione dell'indicizzatore e iniziare a usarla normalmente.
 
 >[!Important]
 > Sebbene `encryptionKey` non possa essere aggiunto agli indici di ricerca o ai mapping sinonimi esistenti, può essere aggiornato fornendo valori diversi per uno dei tre dettagli dell'insieme di credenziali delle chiavi (ad esempio, l'aggiornamento della versione della chiave). Quando si passa a una nuova chiave di Key Vault o a una nuova versione della chiave, qualsiasi indice di ricerca o mappa di sinonimi che usa la chiave deve prima essere aggiornato per usare il nuovo key\version **prima** di eliminare il key\version. precedente In caso contrario, il mapping dell'indice o del sinonimo sarà inutilizzabile, in quanto non sarà in grado di decrittografare il contenuto quando l'accesso alla chiave viene perso. Sebbene il ripristino delle autorizzazioni di accesso all'insieme di credenziali delle chiavi in un secondo momento ripristinerà l'accesso al contenuto
@@ -265,7 +353,6 @@ Questo approccio consente di omettere i passaggi per la registrazione dell'appli
 In generale, un'identità gestita consente al servizio di ricerca di eseguire l'autenticazione a Azure Key Vault senza archiviare le credenziali (ApplicationID o ApplicationSecret) nel codice. Il ciclo di vita di questo tipo di identità gestita è associato al ciclo di vita del servizio di ricerca, che può avere una sola identità gestita. Per altre informazioni sul funzionamento delle identità gestite, vedere [che cosa sono le identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 1. Rendere il servizio di ricerca un servizio attendibile.
-
    ![Attivare l'identità gestita assegnata dal sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Attivare l'identità gestita assegnata dal sistema")
 
 1. Quando si configurano i criteri di accesso in Azure Key Vault, scegliere il servizio di ricerca attendibile come principio, anziché l'applicazione registrata AD. Assegnare le stesse autorizzazioni (multiple GETs, WRAP e unwrap) come indicato nel passaggio concedere le autorizzazioni per la chiave di accesso.

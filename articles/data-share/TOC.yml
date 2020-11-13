@@ -8,7 +8,6 @@
     - name: Archivi dati supportati
       href: supported-data-stores.md
 - name: Avvi rapidi
-  expanded: true
   items:
     - name: Condividere i dati - Portale di Azure
       href: share-your-data-portal.md
@@ -16,6 +15,7 @@
       displayName: Resource Manager
       href: share-your-data-arm.md
 - name: Esercitazioni
+  expanded: true
   items:
     - name: Condividere dati
       href: share-your-data.md

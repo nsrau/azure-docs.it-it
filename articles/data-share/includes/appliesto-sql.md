@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 0aae145f27a8afe93418f76e7c1ae1a7fffe375c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 135323d4c9dcaaf01b1697dce30b904c2227c6d1
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90533318"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575906"
 ---
-<Token>**si applica a:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure sinapsi database SQL di Azure :::image type="icon" source="../media/applies-to/yes.png" border="false"::: (in precedenza SQL DW)</Token> 
+<Token>**si applica a:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure sinapsi Analytics del database SQL di Azure :::image type="icon" source="../media/applies-to/yes.png" border="false"::: (in precedenza Azure SQL DW) :::image type="icon" source="../media/applies-to/yes.png" border="false"::: pool SQL di Azure sinapsi Analytics (area di lavoro)</Token> 

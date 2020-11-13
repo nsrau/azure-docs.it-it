@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78165e9c14d4a83dbc20cbccd2f31dc8ac4c79ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53b8d74d6eb35347d6ac5b27d12fa5b5eaed2582
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440860"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566368"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Metriche e log WAN virtuali di Azure
 
@@ -66,7 +66,7 @@ La procedura seguente consente di individuare e visualizzare le metriche:
 
 4. Nella pagina **metrica** è possibile visualizzare le metriche a cui si è interessati.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Screenshot mostra un riquadro V P N da sito a sito con visualizzazione in monitoraggio di Azure selezionato.":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Screenshot che mostra la pagina &quot;metriche&quot; con le categorie evidenziate.":::
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic"></a>Log di diagnostica
 
@@ -93,15 +93,15 @@ La procedura seguente consente di individuare e visualizzare la diagnostica:
 
 1. Nel portale passare alla risorsa WAN virtuale. Nella sezione **Panoramica** della pagina WAN virtuale del portale selezionare **Essentials** per espandere la visualizzazione e ottenere informazioni sul gruppo di risorse. Copiare le informazioni sul gruppo di risorse.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Screenshot mostra un riquadro V P N da sito a sito con visualizzazione in monitoraggio di Azure selezionato.":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Screenshot che mostra la sezione &quot;Overview&quot; con una freccia che punta al pulsante &quot;copy&quot;.":::
 
-2. Nella sezione monitoraggio passare al gruppo di risorse. Selezionare **impostazioni di diagnostica**, quindi immettere le informazioni sulle risorse. Si tratta delle informazioni sulle risorse copiate nel passaggio 2 dalla sezione [visualizzare le metriche del gateway](#metrics-steps) , più indietro in questo articolo.
+2. Nella sezione monitoraggio passare al gruppo di risorse. Selezionare **impostazioni di diagnostica** , quindi immettere le informazioni sulle risorse. Si tratta delle informazioni sulle risorse copiate nel passaggio 2 dalla sezione [visualizzare le metriche del gateway](#metrics-steps) , più indietro in questo articolo.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Screenshot mostra un riquadro V P N da sito a sito con visualizzazione in monitoraggio di Azure selezionato.":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Screenshot che mostra la sezione &quot;monitoraggio&quot; con una freccia che punta all'elenco a discesa &quot;Resource&quot;.":::
 
-3. Nella pagina risultati selezionare **+ Aggiungi impostazione di diagnostica**, quindi selezionare un'opzione. È possibile scegliere di inviare a Log Analytics, trasmettere a un hub eventi o semplicemente archiviarli in un account di archiviazione.
+3. Nella pagina risultati selezionare **+ Aggiungi impostazione di diagnostica** , quindi selezionare un'opzione. È possibile scegliere di inviare a Log Analytics, trasmettere a un hub eventi o semplicemente archiviarli in un account di archiviazione.
 
-   :::image type="content" source="./media/logs-metrics/5.png" alt-text="Screenshot mostra un riquadro V P N da sito a sito con visualizzazione in monitoraggio di Azure selezionato.":::
+   :::image type="content" source="./media/logs-metrics/5.png" alt-text="pagina metrica":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Log Analytics query di esempio
 
@@ -109,7 +109,7 @@ I log si trovano nell' **area di lavoro log Analytics di Azure**. È possibile c
 
 ```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
 
-Sostituire i valori seguenti, dopo **= =**, in base alle esigenze.
+Sostituire i valori seguenti, dopo **= =** , in base alle esigenze.
 
 * "GatewayDiagnosticLog"
 * "IKEDiagnosticLog"
@@ -119,9 +119,9 @@ Sostituire i valori seguenti, dopo **= =**, in base alle esigenze.
 
 ## <a name="activity-logs"></a><a name="activity-logs"></a>Log attività
 
-Le voci del **log attività** vengono raccolte per impostazione predefinita e possono essere visualizzate nel portale di Azure. È possibile usare i log attività di Azure (precedentemente noti come *log operativi* e *log di controllo*) per visualizzare tutte le operazioni inviate alla sottoscrizione di Azure.
+Le voci del **log attività** vengono raccolte per impostazione predefinita e possono essere visualizzate nel portale di Azure. È possibile usare i log attività di Azure (precedentemente noti come *log operativi* e *log di controllo* ) per visualizzare tutte le operazioni inviate alla sottoscrizione di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni su come monitorare log e metriche del Firewall di Azure, vedere [Esercitazione: monitorare i log del Firewall di Azure](../firewall/tutorial-diagnostics.md).
+* Per informazioni su come monitorare log e metriche del Firewall di Azure, vedere [Esercitazione: monitorare i log del Firewall di Azure](../firewall/firewall-diagnostics.md).
 * Per altre informazioni sulle metriche in monitoraggio di Azure, vedere [metriche in monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md).

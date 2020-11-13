@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: dc5dcf20b8c4fb1dae971b9bda4ef1a7552ce9d4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 7de78a52482b2f07cb4e5e036509e0f9e402a3f4
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534739"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576275"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando di Azure
 
@@ -103,7 +103,7 @@ La risposta di questo comando è simile al codice JSON seguente:
 }
 ```
 
-Per altre informazioni sull'uso dei gruppi di risorse, vedere [az group](//cli/azure/group?preserve-view=true&view=azure-cli-latest).
+Per altre informazioni sull'uso dei gruppi di risorse, vedere [az group](/cli/azure/group?preserve-view=true&view=azure-cli-latest).
 
 ### <a name="automatically-create-required-resources"></a>Creare automaticamente le risorse necessarie
 

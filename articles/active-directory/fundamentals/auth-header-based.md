@@ -1,6 +1,6 @@
 ---
 title: Autenticazione basata su intestazione con Azure Active Directory
-description: Indicazioni sull'architettura per ottenere questo modello di autenticazione
+description: Indicazioni sull'architettura per ottenere l'autenticazione basata su intestazione con Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f364e4e14dd1b7c60cb81f06051d9dedd94396a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bb54410fb314376b68d7297a3452f0990762343d
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114453"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577159"
 ---
 # <a name="header-based-authentication-with-azure-active-directory"></a>Autenticazione basata su intestazione con Azure Active Directory
 
@@ -34,17 +34,17 @@ Per gli utenti remoti è necessario Single Sign-On in modo sicuro (SSO) in appli
 
 ## <a name="components-of-system"></a>Componenti del sistema
 
-* **Utente**: accede alle applicazioni legacy gestite dal proxy di applicazione.
+* **Utente** : accede alle applicazioni legacy gestite dal proxy di applicazione.
 
-* **Web browser**: il componente con cui l'utente interagisce per accedere all'URL esterno dell'applicazione.
+* **Web browser** : il componente con cui l'utente interagisce per accedere all'URL esterno dell'applicazione.
 
-* **Azure ad**: autentica l'utente. 
+* **Azure ad** : autentica l'utente. 
 
-* **Servizio proxy di applicazione**: funge da proxy inverso per inviare la richiesta dall'utente all'applicazione locale. Si trova in Azure AD e può anche applicare tutti i criteri di accesso condizionale.
+* **Servizio proxy di applicazione** : funge da proxy inverso per inviare la richiesta dall'utente all'applicazione locale. Si trova in Azure AD e può anche applicare tutti i criteri di accesso condizionale.
 
-* **Connettore del proxy di applicazione**: installato in locale nei server Windows per fornire connettività alle applicazioni. USA solo le connessioni in uscita. Restituisce la risposta a Azure AD.
+* **Connettore del proxy di applicazione** : installato in locale nei server Windows per fornire connettività alle applicazioni. USA solo le connessioni in uscita. Restituisce la risposta a Azure AD.
 
-* **Applicazioni legacy**: applicazioni che ricevono richieste utente dal proxy di applicazione. L'applicazione legacy riceve le intestazioni HTTP necessarie per configurare una sessione e restituire una risposta. 
+* **Applicazioni legacy** : applicazioni che ricevono richieste utente dal proxy di applicazione. L'applicazione legacy riceve le intestazioni HTTP necessarie per configurare una sessione e restituire una risposta. 
 
 ## <a name="implement-header-based-authentication-with-azure-ad"></a>Implementare l'autenticazione basata su intestazione con Azure AD
 

@@ -6,23 +6,23 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.openlocfilehash: c13b71858915ab262ab3e0e99ab8c482d19160ea
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 205600e488822c5ade4b808c29c66741d28a84a7
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318499"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575923"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Condividere e ricevere i dati da Database SQL di Azure e Azure Synapse Analytics
 
 [!INCLUDE[appliesto-sql](includes/appliesto-sql.md)]
 
-La condivisione di dati di Azure supporta la condivisione basata su snapshot del database SQL di Azure e di Azure sinapsi Analytics (in precedenza Azure SQL DW). Questo articolo illustra come condividere e ricevere dati da queste origini.
+La condivisione di dati di Azure supporta la condivisione basata su snapshot del database SQL di Azure e di Azure sinapsi Analytics. Questo articolo illustra come condividere e ricevere dati da queste origini.
 
-La condivisione di dati di Azure supporta la condivisione di tabelle o viste dal database SQL di Azure e da Azure sinapsi Analytics (in precedenza Azure SQL DW). I consumer di dati possono scegliere di accettare i dati in Azure Data Lake Storage Gen2 o nell'archiviazione BLOB di Azure come file con estensione CSV o parquet, oltre che nel database SQL di Azure e in Azure sinapsi Analytics come tabelle.
+La condivisione di dati di Azure supporta la condivisione di tabelle o viste dal database SQL di Azure e da Azure sinapsi Analytics (in precedenza Azure SQL DW) e la condivisione di tabelle dal pool SQL di Azure sinapsi Analytics (area di lavoro). I consumer di dati possono scegliere di accettare i dati in Azure Data Lake Storage Gen2 o nell'archiviazione BLOB di Azure come file con estensione CSV o parquet, oltre che nel database SQL di Azure e in Azure sinapsi Analytics come tabelle.
 
 Quando si accettano dati in Azure Data Lake Store Gen2 o nell'archiviazione BLOB di Azure, gli snapshot completi sovrascrivono il contenuto del file di destinazione, se già esistente.
-Quando i dati vengono ricevuti nella tabella e se la tabella di destinazione non esiste già, la condivisione di dati di Azure crea la tabella SQL con lo schema di origine. Se una tabella di destinazione esiste già con lo stesso nome, verrà eliminata e sovrascritta con lo snapshot completo più recente. Gli snapshot incrementali non sono attualmente supportati.
+Quando i dati vengono ricevuti nella tabella SQL e se la tabella di destinazione non esiste già, Azure Data Share crea la tabella SQL con lo schema di origine. Se una tabella di destinazione esiste già con lo stesso nome, verrà eliminata e sovrascritta con lo snapshot completo più recente. Gli snapshot incrementali non sono attualmente supportati.
 
 ## <a name="share-data"></a>Condividere dati
 
@@ -33,12 +33,15 @@ Quando i dati vengono ricevuti nella tabella e se la tabella di destinazione non
 * Se l'archivio dati di Azure di origine si trova in una sottoscrizione di Azure diversa da quella che verrà usata per creare la risorsa Condivisione dati, registrare il [provider di risorse Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) nella sottoscrizione in cui risiede l'archivio dati di Azure. 
 
 ### <a name="prerequisites-for-sql-source"></a>Prerequisiti per l'origine SQL
-Di seguito è riportato l'elenco dei prerequisiti per la condivisione dei dati dall'origine SQL. È anche possibile seguire la [demo dettagliata](https://youtu.be/hIE-TjJD8Dc) per configurare i prerequisiti.
+Di seguito è riportato l'elenco dei prerequisiti per la condivisione dei dati dall'origine SQL. 
 
-* Un'istanza di Database SQL di Azure o di Azure Synapse Analytics (in precedenza SQL Data Warehouse) con tabelle e visualizzazioni da condividere.
-* Autorizzazione per la scrittura nei database del server SQL, disponibile in *Microsoft.Sql/servers/databases/write*. Questa autorizzazione è presente nel ruolo Collaboratore.
-* Autorizzazione per la condivisione dati che deve accedere al data warehouse. A tale scopo, seguire questa procedura: 
-    1. In portale di Azure passare a SQL Server e impostare se stessi come amministratore Azure Active Directory.
+#### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Prerequisiti per la condivisione da database SQL di Azure o Azure sinapsi Analytics (in precedenza Azure SQL DW)
+È possibile seguire la [demo dettagliata](https://youtu.be/hIE-TjJD8Dc) per configurare i prerequisiti.
+
+* Un database SQL di Azure o Azure sinapsi Analytics (in precedenza Azure SQL DW) con tabelle e viste che si vuole condividere.
+* Autorizzazione per la scrittura nei database del server SQL, disponibile in *Microsoft.Sql/servers/databases/write*. Questa autorizzazione è presente nel ruolo di **collaboratore**.
+* Autorizzazione per l'identità gestita della risorsa di condivisione dati per accedere al database. A tale scopo, seguire questa procedura: 
+    1. In portale di Azure passare a SQL Server e impostare se stessi come **amministratore Azure Active Directory**.
     1. Connettersi al database SQL di Azure/data warehouse usando l' [editor di query](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) o SQL Server Management Studio con l'autenticazione di Azure Active Directory. 
     1. Eseguire lo script seguente per aggiungere l'identità gestita della risorsa di condivisione dati come db_datareader. È necessario connettersi usando Active Directory e non l'autenticazione di SQL Server. 
     
@@ -48,11 +51,32 @@ Di seguito è riportato l'elenco dei prerequisiti per la condivisione dei dati d
         ```                   
        Si noti che *<share_acc_name>* è il nome della risorsa Condivisione dati. Se ancora non si è provveduto a creare una risorsa Condivisione dati, è possibile tornare a questo prerequisito in un secondo momento.  
 
-* Utente di database SQL di Azure con accesso 'db_datareader' per esplorare e selezionare le tabelle e/o le viste da condividere. 
+* Un utente del database SQL di Azure con accesso **"db_datareader"** per spostarsi e selezionare le tabelle e/o le viste che si desidera condividere. 
 
 * SQL Server l'accesso al firewall. A tale scopo, seguire questa procedura: 
-    1. Nel portale di Azure in SQL Server passare a *Firewall e reti virtuali*
+    1. In portale di Azure passare a SQL Server. Selezionare *firewall e reti virtuali* dal percorso di spostamento a sinistra.
     1. Fare clic su **Sì** per *consentire ai servizi e alle risorse di Azure di accedere al server*.
+    1. Fare clic su **+ Aggiungi IP client**. L'indirizzo IP client è soggetto a modifiche. Potrebbe essere necessario ripetere questo processo la volta successiva che si condividono i dati SQL dal portale di Azure. È anche possibile aggiungere un intervallo di indirizzi IP.
+    1. Fare clic su **Salva**. 
+
+#### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>Prerequisiti per la condivisione dal pool SQL di Azure sinapsi Analytics (area di lavoro)
+
+* Un pool SQL di Azure sinapsi Analytics (area di lavoro) con tabelle che si vuole condividere. La condivisione della visualizzazione non è attualmente supportata.
+* Autorizzazione per la scrittura nel pool SQL nell'area di lavoro sinapsi, presente in *Microsoft. sinapsi/Workspaces/Sqlpools/Write*. Questa autorizzazione è presente nel ruolo di **collaboratore**.
+* Autorizzazione per l'identità gestita della risorsa di condivisione dati per accedere al pool SQL dell'area di lavoro sinapsi. A tale scopo, seguire questa procedura: 
+    1. In portale di Azure passare all'area di lavoro sinapsi. Selezionare amministratore di SQL Active Directory dal pannello di navigazione a sinistra e impostare se stessi come **amministratore Azure Active Directory**.
+    1. Aprire sinapsi studio e selezionare *Gestisci* nel percorso di spostamento a sinistra. Selezionare *controllo di accesso* in sicurezza. Assegnare all' **amministratore SQL** o al ruolo di **amministratore dell'area di lavoro** .
+    1. In sinapsi Studio selezionare *sviluppa* nel percorso di spostamento a sinistra. Eseguire lo script seguente nel pool SQL per aggiungere l'identità gestita della risorsa di condivisione dati come db_datareader. 
+    
+        ```sql
+        create user "<share_acct_name>" from external provider;     
+        exec sp_addrolemember db_datareader, "<share_acct_name>"; 
+        ```                   
+       Si noti che *<share_acc_name>* è il nome della risorsa Condivisione dati. Se ancora non si è provveduto a creare una risorsa Condivisione dati, è possibile tornare a questo prerequisito in un secondo momento.  
+
+* Accesso al firewall dell'area di lavoro sinapsi. A tale scopo, seguire questa procedura: 
+    1. In portale di Azure passare all'area di lavoro sinapsi. Selezionare *Firewall* dal percorso di spostamento a sinistra.
+    1. Fare clic **su** per *consentire ai servizi e alle risorse di Azure di accedere a questa area di lavoro*.
     1. Fare clic su **+ Aggiungi IP client**. L'indirizzo IP client è soggetto a modifiche. Potrebbe essere necessario ripetere questo processo la volta successiva che si condividono i dati SQL dal portale di Azure. È anche possibile aggiungere un intervallo di indirizzi IP.
     1. Fare clic su **Salva**. 
 
@@ -108,11 +132,11 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
     ![Aggiungere i set di dati](./media/add-datasets.png "Aggiungere i set di dati")    
 
-1. Selezionare il server SQL, fornire le credenziali e selezionare **Avanti** per passare all'oggetto che si vuole condividere e selezionare "Aggiungi set di impostazioni". 
+1. Selezionare l'area di lavoro di SQL Server o sinapsi, fornire le credenziali, se richiesto, e selezionare **Avanti** per passare all'oggetto che si vuole condividere e selezionare "Aggiungi set di DataSet". 
 
     ![Selezionare i set di dati](./media/select-datasets-sql.png "Selezionare i set di dati")    
 
-1. Nella scheda Destinatari immettere l'indirizzo di posta elettronica del consumer di dati selezionando "+ Aggiungi il destinatario". 
+1. Nella scheda Destinatari immettere l'indirizzo di posta elettronica del consumer di dati selezionando "+ Aggiungi il destinatario". L'indirizzo di posta elettronica deve corrispondere al messaggio di posta elettronica di accesso di Azure del destinatario.
 
     ![Aggiungere i destinatari](./media/add-recipient.png "Aggiungere destinatari") 
 
@@ -145,15 +169,19 @@ Assicurarsi che tutti i prerequisiti siano soddisfatti prima di accettare un inv
 Se si sceglie di ricevere i dati in archiviazione di Azure, di seguito è riportato l'elenco dei prerequisiti.
 
 * Un account di Archiviazione di Azure: se non se ne ha già uno, è possibile creare un [account di Archiviazione di Azure](../storage/common/storage-account-create.md). 
-* Autorizzazione per la scrittura nell'account di archiviazione, disponibile in *Microsoft.Storage/storageAccounts/write*. Questa autorizzazione è presente nel ruolo Collaboratore. 
-* Autorizzazione per aggiungere l'assegnazione di ruolo all'account di archiviazione, disponibile in *Microsoft.Authorization/role assignments/write*. Questa autorizzazione è presente nel ruolo Proprietario.  
+* Autorizzazione per la scrittura nell'account di archiviazione, disponibile in *Microsoft.Storage/storageAccounts/write*. Questa autorizzazione è presente nel ruolo di **collaboratore**. 
+* Autorizzazione per aggiungere l'assegnazione di ruolo dell'identità gestita della risorsa di condivisione dati all'account di archiviazione, presente in *Microsoft. Authorization/Role assegnations/Write*. Questa autorizzazione è presente nel ruolo di **proprietario**.  
 
 ### <a name="prerequisites-for-sql-target"></a>Prerequisiti per la destinazione SQL
-Se si sceglie di ricevere dati nel database SQL di Azure, Azure sinapsi Analytics, di seguito è riportato l'elenco dei prerequisiti. È anche possibile seguire la [demo dettagliata](https://youtu.be/aeGISgK1xro) per configurare i prerequisiti.
+Se si sceglie di ricevere dati nel database SQL di Azure, Azure sinapsi Analytics, di seguito è riportato l'elenco dei prerequisiti. 
 
-* Autorizzazione per la scrittura nei database del server SQL, disponibile in *Microsoft.Sql/servers/databases/write*. Questa autorizzazione è presente nel ruolo Collaboratore. 
-* Autorizzazione per l'identità gestita della risorsa di condivisione dati per l'accesso a Database SQL di Azure o ad Azure Synapse Analytics. A tale scopo, seguire questa procedura: 
-    1. In portale di Azure passare a SQL Server e impostare se stessi come amministratore Azure Active Directory.
+#### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Prerequisiti per la ricezione dei dati nel database SQL di Azure o in Azure sinapsi Analytics (in precedenza Azure SQL DW)
+È possibile seguire la [demo dettagliata](https://youtu.be/aeGISgK1xro) per configurare i prerequisiti.
+
+* Un database SQL di Azure o Azure sinapsi Analytics (in precedenza Azure SQL DW).
+* Autorizzazione per la scrittura nei database del server SQL, disponibile in *Microsoft.Sql/servers/databases/write*. Questa autorizzazione è presente nel ruolo di **collaboratore**. 
+* Autorizzazione per l'identità gestita della risorsa di condivisione dati per accedere al database SQL di Azure o a Azure sinapsi Analytics. A tale scopo, seguire questa procedura: 
+    1. In portale di Azure passare a SQL Server e impostare se stessi come **amministratore Azure Active Directory**.
     1. Connettersi al database SQL di Azure/data warehouse usando l' [editor di query](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) o SQL Server Management Studio con l'autenticazione di Azure Active Directory. 
     1. Eseguire lo script seguente per aggiungere l'identità gestita della condivisione dati come ' db_datareader, db_datawriter, db_ddladmin '. È necessario connettersi usando Active Directory e non l'autenticazione di SQL Server. 
 
@@ -168,6 +196,29 @@ Se si sceglie di ricevere dati nel database SQL di Azure, Azure sinapsi Analytic
 * SQL Server l'accesso al firewall. A tale scopo, seguire questa procedura: 
     1. Nel portale di Azure in SQL Server passare a *Firewall e reti virtuali*
     1. Fare clic su **Sì** per *consentire ai servizi e alle risorse di Azure di accedere al server*.
+    1. Fare clic su **+ Aggiungi IP client**. L'indirizzo IP client è soggetto a modifiche. Potrebbe essere necessario ripetere questo processo la volta successiva che si condividono i dati SQL dal portale di Azure. È anche possibile aggiungere un intervallo di indirizzi IP.
+    1. Fare clic su **Salva**. 
+ 
+#### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Prerequisiti per la ricezione dei dati nel pool SQL di Azure sinapsi Analytics (area di lavoro)
+
+* Un pool SQL di Azure sinapsi Analytics (area di lavoro).
+* Autorizzazione per la scrittura nel pool SQL nell'area di lavoro sinapsi, presente in *Microsoft. sinapsi/Workspaces/Sqlpools/Write*. Questa autorizzazione è presente nel ruolo di **collaboratore**.
+* Autorizzazione per l'identità gestita della risorsa di condivisione dati per accedere al pool SQL dell'area di lavoro sinapsi. A tale scopo, seguire questa procedura: 
+    1. In portale di Azure passare all'area di lavoro sinapsi. Selezionare amministratore di SQL Active Directory dal pannello di navigazione a sinistra e impostare se stessi come **amministratore Azure Active Directory**.
+    1. Aprire sinapsi studio e selezionare *Gestisci* nel percorso di spostamento a sinistra. Selezionare *controllo di accesso* in sicurezza. Assegnare all' **amministratore SQL** o al ruolo di **amministratore dell'area di lavoro** .
+    1. In sinapsi Studio selezionare *sviluppa* nel percorso di spostamento a sinistra. Eseguire lo script seguente nel pool SQL per aggiungere l'identità gestita della risorsa condivisione dati come ' db_datareader, db_datawriter, db_ddladmin '. 
+    
+        ```sql
+        create user "<share_acc_name>" from external provider; 
+        exec sp_addrolemember db_datareader, "<share_acc_name>"; 
+        exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
+        exec sp_addrolemember db_ddladmin, "<share_acc_name>";
+        ```                   
+       Si noti che *<share_acc_name>* è il nome della risorsa Condivisione dati. Se ancora non si è provveduto a creare una risorsa Condivisione dati, è possibile tornare a questo prerequisito in un secondo momento.  
+
+* Accesso al firewall dell'area di lavoro sinapsi. A tale scopo, seguire questa procedura: 
+    1. In portale di Azure passare all'area di lavoro sinapsi. Selezionare *Firewall* dal percorso di spostamento a sinistra.
+    1. Fare clic **su** per *consentire ai servizi e alle risorse di Azure di accedere a questa area di lavoro*.
     1. Fare clic su **+ Aggiungi IP client**. L'indirizzo IP client è soggetto a modifiche. Potrebbe essere necessario ripetere questo processo la volta successiva che si condividono i dati SQL dal portale di Azure. È anche possibile aggiungere un intervallo di indirizzi IP.
     1. Fare clic su **Salva**. 
 
@@ -202,7 +253,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
    ![Opzioni di accettazione](./media/accept-options.png "Opzioni di accettazione") 
 
-   Si verrà reindirizzati alla condivisione ricevuta nell'account Condivisione dati. 
+   In questo modo si passa alla condivisione ricevuta nell'account di condivisione dati. 
 
    Se non si vuole accettare l'invito, selezionare *Reject* (Rifiuta). 
 
@@ -267,7 +318,7 @@ Quando si condividono dati da un'origine SQL, vengono usati i mapping seguenti t
 | testo |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
-| tinyint |Int16 |
+| TINYINT |Int16 |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
@@ -290,7 +341,7 @@ Le prestazioni degli snapshot SQL sono influenzate da diversi fattori. È sempre
 * Percorso degli archivi dati di origine e di destinazione. 
 
 ## <a name="troubleshoot-sql-snapshot-failure"></a>Risolvere gli errori di snapshot SQL
-La causa più comune dell'errore di snapshot è che la condivisione dati non dispone dell'autorizzazione per l'archivio dati di origine o di destinazione. Per concedere l'autorizzazione di condivisione dati all'archivio dati SQL di origine o di destinazione, è necessario eseguire lo script SQL specificato quando ci si connette al database SQL tramite l'autenticazione Azure Active Directory. Per risolvere un errore aggiuntivo di snapshot SQL, vedere [risolvere i problemi relativi agli errori snapshot](data-share-troubleshoot.md#snapshot-failed).
+La causa più comune dell'errore di snapshot è che la condivisione dati non dispone dell'autorizzazione per l'archivio dati di origine o di destinazione. Per concedere l'autorizzazione di condivisione dati al database SQL di Azure di origine o di destinazione o ad Azure sinapsi Analytics (in precedenza Azure SQL DW), è necessario eseguire lo script SQL specificato quando ci si connette al database SQL tramite l'autenticazione Azure Active Directory. Per risolvere un errore aggiuntivo di snapshot SQL, vedere [risolvere i problemi relativi agli errori snapshot](data-share-troubleshoot.md#snapshot-failed).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Si è appreso come condividere e ricevere dati da origini SQL usando il servizio di condivisione dati di Azure. Per ulteriori informazioni sulla condivisione da altre origini dati, continuare con gli [archivi dati supportati](supported-data-stores.md).

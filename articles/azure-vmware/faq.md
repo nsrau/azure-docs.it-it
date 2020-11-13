@@ -2,14 +2,14 @@
 title: Domande frequenti
 description: Fornisce le risposte ad alcune domande comuni sulla soluzione VMware di Azure.
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: 33250b0ba9209f7806346668dac0ef308101e7c2
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 99e9e53693e42f907250331894f55ed0160f9e30
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94487790"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577516"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Domande frequenti sulla soluzione VMware di Azure
 
@@ -229,9 +229,15 @@ Si avranno privilegi di amministratore completi in NSX-T e la possibilità di ge
 
 Per domande generali sui prezzi, vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/azure-vmware) della soluzione VMware di Azure. 
 
+#### <a name="can-azure-vmware-solution-be-purchased-through-a-microsoft-csp"></a>È possibile acquistare una soluzione VMware di Azure tramite un CSP Microsoft?
+
+Sì, i clienti possono distribuire una soluzione VMware di Azure in una sottoscrizione di Azure gestita da un CSP.
+
 #### <a name="who-supports-azure-vmware-solution"></a>Chi supporta la soluzione VMware di Azure?
 
-Microsoft offre supporto per la soluzione VMware di Azure. È possibile inviare una [richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Microsoft offre supporto per la soluzione VMware di Azure. È possibile inviare una [richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+
+Per le sottoscrizioni gestite da CSP, il primo livello di supporto viene fornito dal provider di soluzioni nello stesso modo in cui CSP esegue per altri servizi di Azure.
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Quali account sono necessari per creare un cloud privato della soluzione VMware di Azure?
 
@@ -246,6 +252,10 @@ Microsoft e Red Hat condividono un team di supporto integrato che fornisce un pu
 VMware HCX Enterprise Edition (EE) è disponibile con la soluzione Azure VMware come funzione/servizio in *anteprima*. Mentre la soluzione VMware HCX EE per Azure VMware è in anteprima, si tratta di una funzione/servizio gratuita, soggetta a termini e condizioni del servizio in anteprima. Dopo il passaggio del servizio VMware HCX EE alla disponibilità generale, si riceverà un preavviso di 30 giorni relativo al passaggio alla fatturazione. È possibile disattivare o rifiutare esplicitamente il servizio.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Ricerca per categorie richiedere un aumento della quota host per la soluzione VMware di Azure?
+
+Per le sottoscrizioni gestite da CSP, il cliente deve eseguire la richiesta al partner e il team partner collaborerà con Microsoft per aumentare la quota per la sottoscrizione. 
+
+Per le sottoscrizioni EA, il cliente deve seguire questa procedura.
 
 * È necessario un [Enterprise Agreement di Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
 * Sarà necessario un account Azure in una sottoscrizione di Azure.
@@ -283,9 +293,12 @@ Prima di creare la risorsa della soluzione VMware di Azure, è necessario inviar
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
-   `"
 
-   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
+
+#### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
+
+Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
 
 
 ## Customer communication

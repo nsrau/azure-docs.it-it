@@ -4,14 +4,14 @@ description: Avviso su larga scala con una sola regola di avviso per più serie 
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 10/04/2020
+ms.date: 11/12/2020
 ms.subservice: alerts
-ms.openlocfilehash: 81e09e6d9c6a57339f1d6f1eb5ce4f494555fa19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66987a28acc8a2c9ae71d89ff5760fa508e32963
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704481"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566504"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Monitorare più serie temporali in una singola regola di avviso della metrica
 
@@ -43,7 +43,7 @@ Un esempio di una regola di avviso di questo tipo (con solo le proprietà pertin
 
 
 Per questa regola di avviso, viene monitorata una singola serie temporale della metrica:
--   Percentuale CPU in cui *Resource*=' myVM1' > 70%
+-   Percentuale CPU in cui *Resource* =' myVM1' > 70%
 
 ![Una regola di avviso su una singola serie temporale](media/alerts-metric-multiple-time-series-single-rule/simple-alert-rule.png)
 
@@ -65,8 +65,8 @@ Esempio di una regola di avviso di questo tipo:
 -   Soglia: *70*
 
 Per questa regola di avviso, due serie temporali della metrica vengono monitorate separatamente:
--   Percentuale CPU in cui *Resource*=' myVM1' > 70%
--   Percentuale CPU in cui *Resource*=' myVM2' > 70%
+-   Percentuale CPU in cui *Resource* =' myVM1' > 70%
+-   Percentuale CPU in cui *Resource* =' myVM2' > 70%
 
 ![Una regola di avviso per più risorse](media/alerts-metric-multiple-time-series-single-rule/multi-resource-alert-rule.png)
  
@@ -76,7 +76,7 @@ Si supponga, ad esempio, di aver impostato la regola di avviso sopra per monitor
 -   La *percentuale di CPU* di *myVM1* è maggiore del 70% 
 -   La *percentuale di CPU* di *myVM2* è al 50%
 
-La regola di avviso viene attivata in *myVM1*, ma non in *myVM2*. Questi avvisi attivati sono indipendenti. Possono inoltre risolversi in momenti diversi a seconda del comportamento individuale di ogni macchina virtuale.
+La regola di avviso viene attivata in *myVM1* , ma non in *myVM2*. Questi avvisi attivati sono indipendenti. Possono inoltre risolversi in momenti diversi a seconda del comportamento individuale di ogni macchina virtuale.
 
 Per altre informazioni sulle regole di avviso per più risorse e sui tipi di risorse supportati per questa funzionalità, vedere [monitoraggio su larga scala tramite gli avvisi delle metriche in monitoraggio di Azure](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
 
@@ -101,8 +101,8 @@ Ad esempio:
 
 Per questa regola di avviso, vengono monitorate due serie temporali della metrica:
 
-- Percentuale CPU in cui *Resource*=' myVM1' > 70%
-- Rete in totale dove *Resource*=' myVM1' > 20 MB
+- Percentuale CPU in cui *Resource* =' myVM1' > 70%
+- Rete in totale dove *Resource* =' myVM1' > 20 MB
 
 ![Una regola di avviso di più condizioni](media/alerts-metric-multiple-time-series-single-rule/multi-condition-alert-rule.png)
  
@@ -114,7 +114,7 @@ Tra le condizioni viene usato un operatore ' AND '. La regola di avviso genera u
 
 ## <a name="multiple-dimensions-multi-dimension"></a>Più dimensioni (MULTIDIMENSIONE)
 
-Una singola regola di avviso di metrica può inoltre monitorare più valori di dimensione di una metrica. Le dimensioni di una metrica sono coppie nome-valore che contengono dati aggiuntivi per descrivere il valore della metrica. Ad esempio, la metrica delle **transazioni** di un account di archiviazione ha una dimensione denominata **nome API**, che descrive il nome dell'API chiamato da ogni transazione (ad esempio, GetBlob, DeleteBlob, PutPage). L'uso delle dimensioni è facoltativo, ma consente di filtrare la metrica e di monitorare solo serie temporali specifiche, invece di monitorare la metrica come aggregazione di tutti i valori dimensionali combinati. 
+Una singola regola di avviso di metrica può inoltre monitorare più valori di dimensione di una metrica. Le dimensioni di una metrica sono coppie nome-valore che contengono dati aggiuntivi per descrivere il valore della metrica. Ad esempio, la metrica delle **transazioni** di un account di archiviazione ha una dimensione denominata **nome API** , che descrive il nome dell'API chiamato da ogni transazione (ad esempio, GetBlob, DeleteBlob, PutPage). L'uso delle dimensioni è facoltativo, ma consente di filtrare la metrica e di monitorare solo serie temporali specifiche, invece di monitorare la metrica come aggregazione di tutti i valori dimensionali combinati. 
 
 Ad esempio, è possibile scegliere di generare un avviso quando il numero di transazioni è elevato in tutti i nomi di API (ovvero i dati aggregati) oppure suddividerli in un solo avviso quando il numero di transazioni è elevato per nomi di API specifici. 
 
@@ -129,9 +129,9 @@ Un esempio di una regola di avviso che monitora più dimensioni è:
 
 Per questa regola di avviso, è in corso il monitoraggio di tre serie temporali della metrica:
 
-- Transazioni in cui *Resource*=' myStorage1' e *nome API*=' getblob ' > 70
-- Transazioni in cui *Resource*=' myStorage1' e *nome API*=' DeleteBlob ' > 70
-- Transazioni in cui *Resource*=' myStorage1' e *nome API*=' PutPage ' > 70
+- Transazioni in cui *Resource* =' myStorage1' e *nome API* =' getblob ' > 70
+- Transazioni in cui *Resource* =' myStorage1' e *nome API* =' DeleteBlob ' > 70
+- Transazioni in cui *Resource* =' myStorage1' e *nome API* =' PutPage ' > 70
 
 ![Una regola di avviso MULTIDIMENSIONE con valori di una dimensione](media/alerts-metric-multiple-time-series-single-rule/multi-dimension-1.png)
 
@@ -149,12 +149,12 @@ Esempio di questo tipo di regola di avviso:
 
 Per questa regola di avviso, è in corso il monitoraggio di sei serie temporali metrica:
 
-- Transazioni in cui *Resource*=' myStorage1' e *nome API*=' GetBlob ' e *Authentication*=' SAS ' > 70
-- Transazioni in cui *Resource*=' myStorage1' e *nome API*=' GetBlob ' e *Authentication*=' AccountKey ' > 70
-- Transazioni in cui *Resource*= "myStorage1" e *nome API*= "DeleteBlob" e *Authentication*= "SAS" > 70
-- Transazioni in cui *Resource*= "myStorage1" e *nome API*= "DeleteBlob" e *Authentication*= "accountKey" > 70
-- Transazioni in cui *Resource*= "myStorage1" e *nome API*= "PutPage" e *Authentication*= "SAS" > 70
-- Transazioni in cui *Resource*= "myStorage1" e *nome API*= "PutPage" e *Authentication*= "accountKey" > 70
+- Transazioni in cui *Resource* =' myStorage1' e *nome API* =' GetBlob ' e *Authentication* =' SAS ' > 70
+- Transazioni in cui *Resource* =' myStorage1' e *nome API* =' GetBlob ' e *Authentication* =' AccountKey ' > 70
+- Transazioni in cui *Resource* = "myStorage1" e *nome API* = "DeleteBlob" e *Authentication* = "SAS" > 70
+- Transazioni in cui *Resource* = "myStorage1" e *nome API* = "DeleteBlob" e *Authentication* = "accountKey" > 70
+- Transazioni in cui *Resource* = "myStorage1" e *nome API* = "PutPage" e *Authentication* = "SAS" > 70
+- Transazioni in cui *Resource* = "myStorage1" e *nome API* = "PutPage" e *Authentication* = "accountKey" > 70
 
 ![Una regola di avviso MULTIDIMENSIONE con valori provenienti da più dimensioni](media/alerts-metric-multiple-time-series-single-rule/multi-dimension-2.png)
  
@@ -163,6 +163,7 @@ Per questa regola di avviso, è in corso il monitoraggio di sei serie temporali 
 1.  **Selezione di tutte le dimensioni correnti e future** : è possibile scegliere di monitorare tutti i valori possibili di una dimensione, inclusi i valori futuri. Una regola di avviso di questo tipo verrà ridimensionata automaticamente per monitorare tutti i valori della dimensione senza che sia necessario modificare la regola di avviso ogni volta che un valore di dimensione viene aggiunto o rimosso.
 2.  **Esclusione delle dimensioni** : la selezione dell'operatore ' ≠' (esclusione) per un valore della dimensione equivale alla selezione di tutti gli altri valori di tale dimensione, inclusi i valori futuri.
 3.  **Dimensioni nuove e personalizzate** : i valori delle dimensioni visualizzati nel portale di Azure sono basati sui dati delle metriche raccolti negli ultimi tre giorni. Se il valore della dimensione che si sta cercando non è ancora stato emesso, è possibile aggiungere un valore di dimensione personalizzato.
+4. **Corrispondenza delle dimensioni con un prefisso** : è possibile scegliere di monitorare tutti i valori della dimensione che iniziano con un modello specifico, selezionando l'operatore "inizia con" e immettendo un prefisso personalizzato.
 
 ![Funzionalità avanzate MULTIDIMENSIONE](media/alerts-metric-multiple-time-series-single-rule/advanced-features.png)
 

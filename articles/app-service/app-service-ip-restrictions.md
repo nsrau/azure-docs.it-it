@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e074be91f343e04ba3049aea51f83f7f6364cdb0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e1549dda367105db34272eab8a90c1760dd5bb5c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564039"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576445"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configurare le restrizioni di accesso al servizio app Azure
 
@@ -179,7 +179,7 @@ Oltre a essere in grado di controllare l'accesso all'app, è possibile limitare 
 Le restrizioni di accesso sono disponibili anche per le app per le funzioni con le stesse funzionalità dei piani di servizio app. Quando si abilitano le restrizioni di accesso, si disabilita anche l'editor di codice portale di Azure per gli indirizzi IP non consentiti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Limitazioni di accesso per funzioni di Azure](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)  
+[Limitazioni di accesso per funzioni di Azure](../azure-functions/functions-networking-options.md#inbound-access-restrictions)  
 [Integrazione del gateway applicazione con gli endpoint di servizio](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->

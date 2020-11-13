@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 7a8bdd911db82a07bfcdd1596b7a8203a19a6442
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0e2406cd35fb2d4dd99da4f5139a9f0f80697912
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341958"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566249"
 ---
 # <a name="set-up-web-endpoints"></a>Configurare endpoint Web
 
@@ -58,9 +58,9 @@ Questo articolo illustra come configurare gli endpoint Web in un'applicazione di
 
 ## <a name="call-web-endpoints"></a>Chiamare gli endpoint Web
 
-1. Passare al comando **TurnOnOff**, selezionare **ConfirmationResponse** nella regola di completamento, quindi selezionare **Aggiungi un'azione**.
+1. Passare al comando **TurnOnOff** , selezionare **ConfirmationResponse** nella regola di completamento, quindi selezionare **Aggiungi un'azione**.
 1. In **Nuova azione - Tipo** selezionare **Call web endpoint** (Chiamata a endpoint Web)
-1. In **Modifica azione - Endpoint** selezionare **UpdateDeviceState**, ovvero l'endpoint Web creato.  
+1. In **Modifica azione - Endpoint** selezionare **UpdateDeviceState** , ovvero l'endpoint Web creato.  
 1. In **Configurazione** inserire i valori seguenti: 
    > [!div class="mx-imgBorder"]
    > ![Parametri dell'azione di chiamata a endpoint Web](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
@@ -125,14 +125,14 @@ Tuttavia, nella maggior parte dei casi è preferibile che l'attività venga invi
     1. Copiare il codice JSON seguente in **Activity Content** (Contenuto attività)
    ```json
    {
-     "type": "event",
-     "name": "UpdateDeviceState",
-     "state": "{OnOff}",
-     "device": "{SubjectDevice}"
-   }
+      "type": "event",
+      "name": "UpdateDeviceState",
+      "value": {
+        "state": "{OnOff}",
+        "device": "{SubjectDevice}"
+      }
+    }
    ```
-    > [!div class="mx-imgBorder"]
-    > ![Invia attività in caso di esito positivo](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-activity.png)
    
 Ora l'attività viene inviata al client solo quando la richiesta all'endpoint Web ha esito positivo.
 
@@ -149,7 +149,7 @@ Aggiungere il codice XML seguente a `MainPage.xaml` sopra il blocco `"EnableMicr
 
 ### <a name="sync-device-state"></a>Sincronizzare lo stato del dispositivo 
 
-In `MainPage.xaml.cs` aggiungere il riferimento `using Windows.Web.Http;`. Aggiungere il codice seguente alla classe `MainPage` . Questo metodo invierà una richiesta GET all'endpoint di esempio ed estrarrà lo stato corrente del dispositivo per l'app. Assicurarsi di sostituire `<your_app_name>` con il valore usato nell'**intestazione** nell'endpoint Web di comandi personalizzati
+In `MainPage.xaml.cs` aggiungere il riferimento `using Windows.Web.Http;`. Aggiungere il codice seguente alla classe `MainPage` . Questo metodo invierà una richiesta GET all'endpoint di esempio ed estrarrà lo stato corrente del dispositivo per l'app. Assicurarsi di sostituire `<your_app_name>` con il valore usato nell' **intestazione** nell'endpoint Web di comandi personalizzati
 
 ```C#
 private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs e)
@@ -207,3 +207,4 @@ Se l'app è stata testata con `turn on tv` nella sezione precedente, lo stato de
 
 > [!div class="nextstepaction"]
 > [Esporta l'applicazione comandi personalizzati come abilità remota](./how-to-custom-commands-integrate-remote-skills.md)
+

@@ -1,6 +1,6 @@
 ---
 title: Autenticazione OpenID Connect con Azure Active Directory
-description: Indicazioni sull'architettura per ottenere questo modello di autenticazione
+description: Indicazioni sull'architettura per ottenere l'autenticazione OpenID Connect con Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6f2ad3b5e86eebfc2d6f1f42f8a2ab0520144b5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f38da0dd2dc2adc8049e2b307c861651a55ed700
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114205"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576989"
 ---
 # <a name="openid-connect-authentication-with-azure-active-directory"></a>Autenticazione OpenID Connect con Azure Active Directory
 
@@ -38,13 +38,13 @@ Oltre all'autenticazione, è possibile richiedere il consenso dell'utente. Il co
 
 ## <a name="components-of-system"></a>Componenti del sistema
 
-* **Utente**: richiede un servizio dall'applicazione.
+* **Utente** : richiede un servizio dall'applicazione.
 
-* **Agent attendibile**: il componente con cui l'utente interagisce. Questo agente attendibile è in genere un Web browser.
+* **Agent attendibile** : il componente con cui l'utente interagisce. Questo agente attendibile è in genere un Web browser.
 
-* **Applicazione**: l'applicazione o il server di risorse è il percorso in cui risiedono la risorsa o i dati. Considera attendibile il provider di identità per autenticare e autorizzare l'agente attendibile in modo sicuro. 
+* **Applicazione** : l'applicazione o il server di risorse è il percorso in cui risiedono la risorsa o i dati. Considera attendibile il provider di identità per autenticare e autorizzare l'agente attendibile in modo sicuro. 
 
-* **Azure ad**: il provider OIDC, noto anche come provider di identità, gestisce in modo sicuro qualsiasi operazione eseguita con le informazioni dell'utente, l'accesso e le relazioni di trust tra le entità in un flusso. Autentica l'identità dell'utente, concede e revoca l'accesso alle risorse e rilascia i token. 
+* **Azure ad** : il provider OIDC, noto anche come provider di identità, gestisce in modo sicuro qualsiasi operazione eseguita con le informazioni dell'utente, l'accesso e le relazioni di trust tra le entità in un flusso. Autentica l'identità dell'utente, concede e revoca l'accesso alle risorse e rilascia i token. 
 
 ## <a name="implement-oidc-with-azure-ad"></a>Implementare OIDC con Azure AD
 

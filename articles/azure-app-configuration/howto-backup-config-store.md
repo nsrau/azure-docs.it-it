@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: b48adfdfda4b3e120b2246e67a70000d25c25f3a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737091"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565926"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Eseguire il backup automatico degli archivi di configurazione delle app
 
@@ -37,14 +37,17 @@ La motivazione alla base del backup degli archivi di configurazione delle app co
 
 In questa esercitazione verrà creato un archivio secondario nell' `centralus` area e tutte le altre risorse nell' `westus` area.
 
-## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
 
-- Sottoscrizione di Azure. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/). 
-- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) con il carico di lavoro Sviluppo di Azure.
+## <a name="prerequisites"></a>Prerequisiti 
+
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) con il carico di lavoro sviluppo di Azure.
+
 - [.NET Core SDK](https://dotnet.microsoft.com/download).
-- Versione più recente dell'interfaccia della riga di comando di Azure (2.3.1 o versione successiva). Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si usa l'interfaccia della riga di comando di Azure, è necessario prima accedere usando `az login` . Facoltativamente, è possibile usare Azure Cloud Shell.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Questa esercitazione richiede la versione 2.3.1 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

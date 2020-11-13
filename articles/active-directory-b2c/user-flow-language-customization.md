@@ -1,6 +1,6 @@
 ---
 title: Personalizzazione della lingua in Azure AD B2C
-description: Informazioni sulla personalizzazione dell'esperienza per la lingua nei flussi utente.
+description: Informazioni su come personalizzare l'esperienza del linguaggio nei flussi utente in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,12 +11,12 @@ ms.date: 08/13/2019
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b3bb3648fff6bc893ea07204fad79d2830a1b47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5bfdada12229070568bb9b0556471ea5aab306f
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355094"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575952"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalizzazione della lingua in Azure AD B2C
 
@@ -28,9 +28,9 @@ La personalizzazione della lingua consente di selezionare le lingue in cui è di
 
 Potrebbe non essere necessario un tale livello di controllo sulle lingue visualizzate dal cliente. Se non si specifica un parametro `ui_locales`, l'esperienza del cliente è determinata dalle impostazioni del browser. È comunque possibile controllare le lingue in cui il flusso utente è tradotto aggiungendole come lingue supportate. Se il browser del cliente è impostato su una lingua che non si vuole supportare, viene visualizzata la lingua selezionata come predefinita nelle impostazioni cultura supportate.
 
-* **UI-impostazioni locali lingua specificata**: dopo aver abilitato la personalizzazione della lingua, il flusso utente viene convertito nella lingua specificata qui.
-* **Lingua richiesta dal browser**: se non `ui_locales` è stato specificato alcun parametro, il flusso utente viene convertito nella lingua richiesta dal browser, *se la lingua è supportata*.
-* **Lingua predefinita dei criteri**: se il browser non specifica una lingua o ne specifica una non supportata, il flusso utente viene convertito nella lingua predefinita del flusso utente.
+* **UI-impostazioni locali lingua specificata** : dopo aver abilitato la personalizzazione della lingua, il flusso utente viene convertito nella lingua specificata qui.
+* **Lingua richiesta dal browser** : se non `ui_locales` è stato specificato alcun parametro, il flusso utente viene convertito nella lingua richiesta dal browser, *se la lingua è supportata*.
+* **Lingua predefinita dei criteri** : se il browser non specifica una lingua o ne specifica una non supportata, il flusso utente viene convertito nella lingua predefinita del flusso utente.
 
 > [!NOTE]
 > Se si fa uso di attributi utente personalizzati, è necessario fornire le traduzioni. Per altre informazioni, vedere [Personalizzazione delle stringhe](#customize-your-strings).

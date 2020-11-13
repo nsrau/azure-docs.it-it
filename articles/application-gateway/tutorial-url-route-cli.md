@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4aee41bc0188676ac0bd168474f1842199af9620
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e8fed99fe0b1de52d2e2d0018dfd8867b54b63b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595242"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566521"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Instradare il traffico Web in base all'URL tramite l'interfaccia della riga di comando di Azure
 
@@ -32,11 +32,11 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Se si preferisce, è possibile completare questa procedura usando [Azure PowerShell](tutorial-url-route-powershell.md) oppure il [portale di Azure](create-url-route-portal.md).
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successive. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+ - Questa esercitazione richiede la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Creare risorse di rete
 
-Creare la rete virtuale denominata *myVNet* e la subnet denominata *myAGSubnet* usando il comando `az network vnet create`. Aggiungere quindi una subnet denominata *myBackendSubnet*, necessaria per i server back-end, usando il comando `az network vnet subnet create`. Creare l'indirizzo IP pubblico denominato *myAGPublicIPAddress* usando il comando `az network public-ip create`.
+Creare la rete virtuale denominata *myVNet* e la subnet denominata *myAGSubnet* usando il comando `az network vnet create`. Aggiungere quindi una subnet denominata *myBackendSubnet* , necessaria per i server back-end, usando il comando `az network vnet subnet create`. Creare l'indirizzo IP pubblico denominato *myAGPublicIPAddress* usando il comando `az network public-ip create`.
 
 ```azurecli-interactive
 az network vnet create \
@@ -183,7 +183,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Creare set di scalabilità di macchine virtuali
 
-In questo articolo si creeranno tre set di scalabilità di macchine virtuali che supportano i tre pool back-end creati. È necessario creare tre set di scalabilità denominati *myvmss1*, *myvmss2* e *myvmss3*. Ogni set di scalabilità contiene due istanze di macchina virtuale in cui è necessario installare NGINX.
+In questo articolo si creeranno tre set di scalabilità di macchine virtuali che supportano i tre pool back-end creati. È necessario creare tre set di scalabilità denominati *myvmss1* , *myvmss2* e *myvmss3*. Ogni set di scalabilità contiene due istanze di macchina virtuale in cui è necessario installare NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do

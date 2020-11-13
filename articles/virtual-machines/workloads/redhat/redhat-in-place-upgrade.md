@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 48884e6faa5f26f027c772b44d5f960979a40d1d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: beede74134affeb3ee0d4bdd20d5da3b4c5e6eda
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447728"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566623"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>Red Hat Enterprise Linux gli aggiornamenti sul posto
 
@@ -22,10 +22,12 @@ Questo articolo fornisce istruzioni dettagliate su come eseguire un aggiornament
 > SQL Server sulle offerte di Red Hat Enterprise Linux non supportano l'aggiornamento sul posto in Azure.
 
 ## <a name="what-to-expect-during-the-upgrade"></a>Cosa aspettarsi durante l'aggiornamento
-Il sistema verrà riavviato alcune volte durante l'aggiornamento ed è normale. L'ultimo riavvio aggiornerà la macchina virtuale in RHEL 8 versione secondaria più recente.
+Il sistema verrà riavviato alcune volte durante l'aggiornamento ed è normale. L'ultimo riavvio aggiornerà la macchina virtuale in RHEL 8 versione secondaria più recente. 
+
+Il processo di aggiornamento potrebbe richiedere da 20 minuti a un paio di ore, dipende da diversi fattori, ad esempio le dimensioni della macchina virtuale e il numero di pacchetti installati nel sistema.
 
 ## <a name="preparations-for-the-upgrade"></a>Preparazioni per l'aggiornamento
-Gli aggiornamenti sul posto rappresentano la modalità ufficiale consigliata da Red Hat e Azure per consentire ai clienti di eseguire l'aggiornamento del sistema alla versione principale successiva. Prima di eseguire l'aggiornamento, è necessario tenere in considerazione i concetti seguenti. 
+L'aggiornamento sul posto è la modalità ufficiale consigliata da Red Hat e Azure per consentire ai clienti di aggiornare il sistema alla versione principale successiva. Prima di eseguire l'aggiornamento, è necessario tenere in considerazione i concetti seguenti. 
 
 >[!Important] 
 > Prima di eseguire l'aggiornamento, eseguire uno snapshot dell'immagine.
@@ -39,6 +41,12 @@ Gli aggiornamenti sul posto rappresentano la modalità ufficiale consigliata da 
     ```bash
     leapp preupgrade --no-rhsm
     ```
+* Verificare che la console seriale sia funzionante perché consente il monitoraggio durante il processo di aggiornamento.
+
+* Abilitare l'accesso alla radice SSH in `/etc/ssh/sshd_config`
+    1. Aprire il file `/etc/ssh/sshd_config`.
+    1. Cerca ' #PermitRootLogin sì'
+    1. Rimuovi ' #' per rimuovere il commento
 
 ## <a name="steps-for-performing-the-upgrade"></a>Passaggi per l'esecuzione dell'aggiornamento
 
@@ -46,7 +54,7 @@ Eseguire con attenzione questi passaggi. È consigliabile provare l'aggiornament
 
 1. Eseguire un aggiornamento yum per recuperare i pacchetti client più recenti.
     ```bash
-    yum update
+    yum update -y
     ```
 
 1. Installare Leapp-client-package.
@@ -58,35 +66,66 @@ Eseguire con attenzione questi passaggi. È consigliabile provare l'aggiornament
     1. Scaricare il file.
     1. Estrarre il contenuto e rimuovere il file usando il comando seguente:
     ```bash
-     tar -xzf leapp-data12.tar.gz -C /etc/leapp/files && rm leapp-data12.tar.gz
+    tar -xzf leapp-data12.tar.gz -C /etc/leapp/files && rm leapp-data12.tar.gz
     ```
-    
-
 
 1. Aggiungere il file ' Answers ' per ' Leapp '.
     ```bash
     leapp answer --section remove_pam_pkcs11_module_check.confirm=True --add
-    ```
-    
-1. Abilitare PermitRootLogin in nella/etc/ssh/sshd_config
-    1. Aprire il file nella/etc/ssh/sshd_config
-    1. Cerca ' #PermitRootLogin sì'
-    1. Rimuovi ' #' per rimuovere il commento
-
-
+    ``` 
 
 1. Eseguire l'aggiornamento di ' Leapp '.
     ```bash
     leapp upgrade --no-rhsm
     ```
+1.  Al termine del `leapp upgrade` comando, riavviare manualmente il sistema per completare il processo. Il sistema verrà riavviato un paio di volte in cui non sarà disponibile. Monitorare il processo usando la console seriale.
+
+1.  Verificare che l'aggiornamento sia stato completato correttamente.
+    ```bash
+    uname -a && cat /etc/redhat-release
+    ```
+
+1. Rimuovere l'accesso SSH radice dopo il completamento dell'aggiornamento.
+    1. Aprire il file `/etc/ssh/sshd_config`.
+    1. Cerca ' #PermitRootLogin sì'
+    1. Aggiungi il ' #' al commento
+
 1. Riavviare il servizio sshd per rendere effettive le modifiche
     ```bash
     systemctl restart sshd
     ```
-1. Impostare come commento PermitRootLogin in nella/etc/ssh/sshd_config di nuovo
-    1. Aprire il file nella/etc/ssh/sshd_config
-    1. Cerca ' #PermitRootLogin sì'
-    1. Aggiungi il ' #' al commento
+
+## <a name="common-issues"></a>Problemi comuni
+Di seguito sono riportate alcune delle istanze comuni che il `leapp preupgrade` `leapp upgrade` processo o potrebbe avere esito negativo.
+
+**Errore: non sono state trovate corrispondenze per i modelli di plug-in disabilitati seguenti**
+```plaintext
+STDERR:
+No matches found for the following disabled plugin patterns: subscription-manager
+Warning: Packages marked by Leapp for upgrade not found in repositories metadata: gpg-pubkey
+```
+**Soluzione**\
+Disabilitare il plug-in Subscription-Manager modificando il file `/etc/yum/pluginconf.d/subscription-manager.conf` e modificando abilitato in `enabled=0` .
+
+Questo problema è dovuto al fatto che il plug-in yum di gestione delle sottoscrizioni è abilitato, che non viene usato per le macchine virtuali PAYG.
+
+**Errore: possibili problemi con l'accesso remoto tramite la radice** `leapp preupgrade` Potrebbe non riuscire con l'errore seguente:
+```structured-text
+============================================================
+                     UPGRADE INHIBITED
+============================================================
+
+Upgrade has been inhibited due to the following problems:
+    1. Inhibitor: Possible problems with remote login using root account
+Consult the pre-upgrade report for details and possible remediation.
+
+============================================================
+                     UPGRADE INHIBITED
+============================================================
+```
+**Soluzione**\
+Abilitare l'accesso alla radice in `/etc/sshd_conf` .
+Ciò è dovuto al fatto che non è possibile abilitare l'accesso SSH radice in in base `/etc/sshd_conf` alla sezione "[preparazione per l'aggiornamento](#preparations-for-the-upgrade)". 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Scopri di più sulle [Immagini Red Hat in Azure](./redhat-images.md).

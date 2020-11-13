@@ -1,6 +1,6 @@
 ---
 title: Servizi di Desktop remoto Gateway con Azure Active Directory
-description: Indicazioni sull'architettura per ottenere questo modello di autenticazione
+description: Indicazioni sull'architettura per il raggiungimento dei servizi del Gateway Desktop remoto con Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff099d41970ad4d78d5c6035a60f448f29ab24b1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 57466cccb71444d5711a9221c324a107757c5e82
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114197"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576796"
 ---
 # <a name="remote-desktop-gateway-services"></a>Servizi del Gateway Desktop remoto
 
@@ -32,15 +32,15 @@ Una distribuzione di Servizi Desktop remoto standard (RDS) include diversi [serv
 
 ## <a name="components-of-system"></a>Componenti del sistema
 
-* **Utente**: accede a Servizi Desktop remoto serviti dal proxy di applicazione.
+* **Utente** : accede a Servizi Desktop remoto serviti dal proxy di applicazione.
 
-* **Web browser**: il componente con cui l'utente interagisce per accedere all'URL esterno dell'applicazione.
+* **Web browser** : il componente con cui l'utente interagisce per accedere all'URL esterno dell'applicazione.
 
-* **Azure ad**: autentica l'utente. 
+* **Azure ad** : autentica l'utente. 
 
-* **Servizio proxy di applicazione**: funge da proxy inverso per l'inoltro della richiesta da parte dell'utente a Servizi Desktop remoto. Il proxy di applicazione può inoltre applicare eventuali criteri di accesso condizionale. 
+* **Servizio proxy di applicazione** : funge da proxy inverso per l'inoltro della richiesta da parte dell'utente a Servizi Desktop remoto. Il proxy di applicazione può inoltre applicare eventuali criteri di accesso condizionale. 
 
-* **Servizi Desktop remoto**: funge da piattaforma per le singole applicazioni virtualizzate, garantendo l'accesso protetto da desktop remoto e per dispositivi mobili e offrendo agli utenti finali la possibilità di eseguire le applicazioni e i desktop dal cloud. 
+* **Servizi Desktop remoto** : funge da piattaforma per le singole applicazioni virtualizzate, garantendo l'accesso protetto da desktop remoto e per dispositivi mobili e offrendo agli utenti finali la possibilità di eseguire le applicazioni e i desktop dal cloud. 
 
 ## <a name="implement-remote-desktop-gateway-services-with-azure-ad"></a>Implementare i servizi di Desktop remoto Gateway con Azure AD
 

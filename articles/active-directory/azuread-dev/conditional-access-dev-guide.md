@@ -13,16 +13,19 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1075cce9b9e3bc3267756bba84691788293fa8d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 378dab95d8fb3519bb2fc5c934a760e051a18d29
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116300"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575884"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Linee guida per gli sviluppatori per la funzionalità di accesso condizionale Azure Active Directory
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
+
+> [!NOTE]
+> Per la versione della piattaforma Microsoft Identity di questo articolo, vedere la [Guida per gli sviluppatori per Azure Active Directory l'accesso condizionale](/azure/active-directory/develop/v2-conditional-access-dev-guide).
 
 La funzionalità di accesso condizionale in Azure Active Directory (Azure AD) offre un'opzione per garantire la sicurezza dell'app e proteggere un servizio. L'accesso condizionale consente agli sviluppatori e ai clienti aziendali di proteggere i servizi in molti modi, tra cui:
 
@@ -40,7 +43,7 @@ Si presuppone una conoscenza delle app a [tenant singolo e multi-tenant](../deve
 
 ### <a name="app-types-impacted"></a>Tipi di app interessati
 
-Nella maggior parte dei casi, l'accesso condizionale non modifica il comportamento di un'app né richiede modifiche da parte dello sviluppatore. Solo in alcuni casi, quando un'app richiede in modo indiretto o automatico un token per un servizio, sono necessarie modifiche al codice per gestire le richieste di accesso condizionale. L'operazione può essere semplice quanto l'esecuzione di una richiesta di accesso interattiva.
+Nella maggior parte dei casi, l'accesso condizionale non modifica il comportamento di un'app né richiede modifiche da parte dello sviluppatore.  Solo in alcuni casi, quando un'app richiede in modo indiretto o automatico un token per un servizio, sono necessarie modifiche al codice per gestire le richieste di accesso condizionale.  L'operazione può essere semplice quanto l'esecuzione di una richiesta di accesso interattiva.
 
 In particolare, gli scenari seguenti richiedono che il codice gestisca le richieste di accesso condizionale:
 

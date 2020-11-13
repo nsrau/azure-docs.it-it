@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 11/11/2020
 ms.author: aahi
-ms.openlocfilehash: 348fb301d1a36c8df405c641f7644889417b11ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb9b0da609169288521d21ee6d5e412a786c7549
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91545127"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94574302"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Sicurezza del contenitore dei servizi cognitivi di Azure
 
@@ -33,7 +33,7 @@ Come approccio alternativo e *sicuro* , i consumer di contenitori di servizi cog
 
 ### <a name="container-networking"></a>Rete del contenitore
 
-I contenitori di servizi cognitivi sono necessari per inviare le informazioni di misurazione per scopi di fatturazione. L'unica eccezione è che i contenitori non in *linea* seguono una metodologia di fatturazione diversa. Se non è possibile consentire l'elenco di diversi canali di rete su cui si basano i contenitori di servizi cognitivi, il contenitore non funzionerà.
+I contenitori di servizi cognitivi sono necessari per inviare le informazioni di misurazione per scopi di fatturazione. Se non è possibile consentire l'elenco di diversi canali di rete su cui si basano i contenitori di servizi cognitivi, il contenitore non funzionerà.
 
 #### <a name="allow-list-cognitive-services-domains-and-ports"></a>Consenti elenco di domini e porte di servizi cognitivi
 

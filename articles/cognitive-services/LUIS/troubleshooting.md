@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: 8eb37b993ee5bc3944228cba72be0557b52e3dc6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 17b070fea422268ec12e0ccd3357ae0549a78916
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149266"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566266"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -91,7 +91,7 @@ Si ottengono i codici di stato di errore 403 e 429 quando si superano le transaz
 
 Quando si usano tutte le query di endpoint 1000 gratuite o si supera la quota di transazioni mensili del piano tariffario, si riceve un codice di stato di errore HTTP 403.
 
-Per correggere l'errore, è necessario [modificare il piano tariffario](luis-how-to-azure-subscription.md#change-pricing-tier) a un livello superiore o [creare una nuova risorsa](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [assegnarla all'app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+Per correggere l'errore, è necessario [modificare il piano tariffario](luis-how-to-azure-subscription.md#change-the-pricing-tier) a un livello superiore o [creare una nuova risorsa](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [assegnarla all'app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
 
 Le soluzioni per questo errore includono:
 
@@ -106,7 +106,7 @@ Questo codice di stato viene restituito quando le transazioni al secondo superan
 
 Le soluzioni includono:
 
-* Se non si è al livello più elevato, è possibile [aumentare il piano tariffario](luis-how-to-azure-subscription.md#change-pricing-tier).
+* Se non si è al livello più elevato, è possibile [aumentare il piano tariffario](luis-how-to-azure-subscription.md#change-the-pricing-tier).
 * Se l'utilizzo supera il piano tariffario più elevato, aggiungere altre Language Understanding risorse con un servizio di bilanciamento del carico. Il [contenitore Language Understanding](luis-container-howto.md) con Kubernetes o Docker compose può essere utile per questa operazione.
 * È possibile controllare le richieste dell'applicazione client con i [criteri di ripetizione](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) implementati quando si ottiene questo codice di stato.
 
@@ -268,7 +268,7 @@ La prima cosa da fare è determinare se il problema è correlato a LUIS o avvien
 #### <a name="resolve-issue-in-luis"></a>Risolvere il problema LUIS
 Passare la stessa espressione a LUIS dall'[endpoint LUIS](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). Se si riceve un errore, risolvere il problema in LUIS finché l'errore non viene più restituito. Di seguito sono riportati gli errori più comuni.
 
-* `Out of call volume quota. Quota will be replenished in <time>.` - Questo problema indica che occorre passare da una chiave di creazione a una [chiave endpoint](luis-how-to-azure-subscription.md) oppure è necessario modificare i [livelli di servizio](luis-how-to-azure-subscription.md#change-pricing-tier).
+* `Out of call volume quota. Quota will be replenished in <time>.` - Questo problema indica che occorre passare da una chiave di creazione a una [chiave endpoint](luis-how-to-azure-subscription.md) oppure è necessario modificare i [livelli di servizio](luis-how-to-azure-subscription.md#change-the-pricing-tier).
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Risolvere il problema nel servizio Azure Bot
 
@@ -278,7 +278,7 @@ Se si usa il servizio Azure Bot e il problema è che il **Test in Web Chat** (Te
 1. Aprire l'editor di codice online.
 1. Nella barra di spostamento superiore azzurra selezionare il nome del bot (il secondo elemento a destra).
 1. Nell'elenco a discesa visualizzato selezionare **Open Kudu Console** (Apri console Kudu).
-1. Selezionare **LogFiles**, quindi selezionare **Application** (Applicazione). Esaminare tutti i file di log. Se l'errore non compare nella cartella dell'applicazione, esaminare tutti i file di log in **LogFiles**.
+1. Selezionare **LogFiles** , quindi selezionare **Application** (Applicazione). Esaminare tutti i file di log. Se l'errore non compare nella cartella dell'applicazione, esaminare tutti i file di log in **LogFiles**.
 1. Ricordarsi di ricompilare il progetto se si usa un linguaggio compilato, ad esempio C#.
 
 > [!Tip]

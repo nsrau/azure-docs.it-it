@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: 5873f28fed492f9ef906a9d7c1364d8ae07033a7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 1fbdae2480caef5bf1d190124ca3be6c5b97a2f9
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336062"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576360"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>Creare un disco gestito da una versione dell'immagine
 
@@ -23,7 +23,7 @@ Se necessario, è possibile esportare il sistema operativo o un singolo disco da
 
 ## <a name="cli"></a>CLI
 
-Elencare le versioni delle immagini in una raccolta usando [AZ sig Image-Version list](/cli/azure/sig/image-version.md#az_sig_image_version_list). In questo esempio vengono cercate tutte le versioni di immagini che fanno parte della definizione dell'immagine *myImageDefinition* nella raccolta immagini di *raccolta* immagini.
+Elencare le versioni delle immagini in una raccolta usando [AZ sig Image-Version list](/cli/azure/sig/image-version#az_sig_image_version_list). In questo esempio vengono cercate tutte le versioni di immagini che fanno parte della definizione dell'immagine *myImageDefinition* nella raccolta immagini di *raccolta* immagini.
 
 ```azurecli-interactive
 az sig image-version list \
@@ -33,7 +33,7 @@ az sig image-version list \
    -o table
 ```
 
-Impostare la `source` variabile sull'ID della versione dell'immagine, quindi usare [AZ disk create](/cli/azure/disk.md#az_disk_create) per creare il disco gestito. 
+Impostare la `source` variabile sull'ID della versione dell'immagine, quindi usare [AZ disk create](//cli/azure/disk#az_disk_create) per creare il disco gestito. 
 
 In questo esempio il disco del sistema operativo della versione dell'immagine viene esportato per creare un disco gestito denominato *myManagedOSDisk* , nell'area *eastus* , in un gruppo di risorse denominato *myResourceGroup*. 
 

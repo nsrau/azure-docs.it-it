@@ -1,6 +1,6 @@
 ---
 title: Delega vincolata Kerberos con Azure Active Directory
-description: Indicazioni sull'architettura per ottenere questo modello di autenticazione
+description: Indicazioni sull'architettura per ottenere la delega vincolata Kerberos con Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77f90cd7aa8d972226a8f134eaa7b3abfe7bea66
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 62c8f230ca2b2d0db1170cde9b24f9e4819889bb
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114466"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577125"
 ---
 # <a name="windows-authentication---kerberos-constrained-delegation-with-azure-active-directory"></a>Autenticazione di Windows: delega vincolata Kerberos con Azure Active Directory
 
@@ -36,19 +36,19 @@ Per abilitare l'accesso Single Sign-on alle applicazioni delega vincolata Kerber
 
 ## <a name="components-of-system"></a>Componenti del sistema
 
-* **Utente**: accede all'applicazione legacy gestita dal proxy di applicazione.
+* **Utente** : accede all'applicazione legacy gestita dal proxy di applicazione.
 
-* **Web browser**: il componente con cui l'utente interagisce per accedere all'URL esterno dell'applicazione.
+* **Web browser** : il componente con cui l'utente interagisce per accedere all'URL esterno dell'applicazione.
 
-* **Azure ad**: autentica l'utente. 
+* **Azure ad** : autentica l'utente. 
 
-* **Servizio proxy di applicazione**: funge da proxy inverso per inviare la richiesta dall'utente all'applicazione locale. Si trova in Azure AD. Il proxy di applicazione può inoltre applicare eventuali criteri di accesso condizionale.
+* **Servizio proxy di applicazione** : funge da proxy inverso per inviare la richiesta dall'utente all'applicazione locale. Si trova in Azure AD. Il proxy di applicazione può inoltre applicare eventuali criteri di accesso condizionale.
 
-* **Connettore del proxy di applicazione**: installato in locale nei server Windows per fornire la connettività all'applicazione. Restituisce la risposta a Azure AD. Esegue la negoziazione delega vincolata Kerberos con Active Directory, rappresentando l'utente per ottenere un token Kerberos per l'applicazione.
+* **Connettore del proxy di applicazione** : installato in locale nei server Windows per fornire la connettività all'applicazione. Restituisce la risposta a Azure AD. Esegue la negoziazione delega vincolata Kerberos con Active Directory, rappresentando l'utente per ottenere un token Kerberos per l'applicazione.
 
-* **Active Directory**: Invia il token Kerberos per l'applicazione al connettore del proxy di applicazione.
+* **Active Directory** : Invia il token Kerberos per l'applicazione al connettore del proxy di applicazione.
 
-* **Applicazioni legacy**: applicazioni che ricevono richieste utente dal proxy di applicazione. Le applicazioni legacy restituiscono la risposta al connettore del proxy di applicazione.
+* **Applicazioni legacy** : applicazioni che ricevono richieste utente dal proxy di applicazione. Le applicazioni legacy restituiscono la risposta al connettore del proxy di applicazione.
 
 ## <a name="implement-windows-authentication-kcd-with-azure-ad"></a>Implementare l'autenticazione di Windows (delega vincolata Kerberos) con Azure AD
 

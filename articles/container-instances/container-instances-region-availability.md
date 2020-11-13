@@ -4,12 +4,12 @@ description: Disponibilità delle risorse di calcolo e memoria per il servizio I
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: e4fbf1023863f9f4c46e6bd2266f72ff2f7d7adc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2a833c93c80d932305f47b6e292e5e5df4d0cb95
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395870"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576615"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilità di risorse per Istanze di Azure Container nelle aree di Azure
 
@@ -29,7 +29,7 @@ Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenito
 > [!IMPORTANT]
 > Le risorse massime in un'area sono diverse a seconda della distribuzione. Ad esempio, in una distribuzione di rete virtuale di Azure è possibile che un'area disponga di una quantità di CPU e di memoria massima diversa rispetto a una distribuzione generale. La stessa area può avere anche un set diverso di valori massimi per una distribuzione con risorse GPU. Verificare il tipo di distribuzione prima di controllare le tabelle seguenti per i valori massimi nella propria area.
 
-| Region | Max CPU (CPU max) | Memoria massima (GB) | VNET max CPU | Memoria massima VNET (GB) | Archiviazione (GB) | SKU GPU (anteprima) |
+| Area | Max CPU (CPU max) | Memoria massima (GB) | VNET max CPU | Memoria massima VNET (GB) | Archiviazione (GB) | SKU GPU (anteprima) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
 | Australia orientale | 4 | 16 | 4 | 16 | 50 | N/D |
 | Brasile meridionale | 4 | 16 | 2 | 8 | 50 | N/D |
@@ -55,6 +55,9 @@ Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenito
 
 Le risorse massime seguenti sono disponibili per un gruppo di contenitori distribuito con [risorse GPU](container-instances-gpu.md) (anteprima).
 
+> [!IMPORTANT]
+> Al momento, le distribuzioni con risorse GPU non sono supportate in una distribuzione di rete virtuale di Azure e sono disponibili solo nei gruppi di contenitori Linux.
+
 | SKU GPU | Conteggio GPU | Max CPU (CPU max) | Memoria massima (GB) | Archiviazione (GB) |
 | --- | --- | --- | --- | --- |
 | K80 | 1 | 6 | 56 | 50 |
@@ -68,12 +71,15 @@ Le risorse massime seguenti sono disponibili per un gruppo di contenitori distri
 
 Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenitori con i contenitori di Windows Server [supportati e di anteprima](container-instances-faq.md#what-windows-base-os-images-are-supported) .
 
+> [!IMPORTANT]
+> Attualmente, le distribuzioni con gruppi di contenitori di Windows non sono supportate in una distribuzione di rete virtuale di Azure.
+
 ###  <a name="windows-server-2016"></a>Windows Server 2016
 
 > [!NOTE]
 > Per altre informazioni sugli host 1B, 2B e 3B, vedere [compatibilità delle versioni di host e contenitori](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) .
 
-| Region | CPU max 1B/2B | Memoria massima 1B/2B (GB) |Massimo 3B CPU | Memoria massima 3B (GB) | Archiviazione (GB) |
+| Area | CPU max 1B/2B | Memoria massima 1B/2B (GB) |Massimo 3B CPU | Memoria massima 3B (GB) | Archiviazione (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
 | Australia orientale | 2 | 8 | 2 | 3,5 | 20 |
 | Brasile meridionale | 4 | 16 | 4 | 16 | 20 |
@@ -102,7 +108,7 @@ Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenito
 > [!NOTE]
 > Per altre informazioni sugli host 1B, 2B e 3B, vedere [compatibilità delle versioni di host e contenitori](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) .
 
-| Region | CPU max 1B/2B | Memoria massima 1B/2B (GB) |Massimo 3B CPU | Memoria massima 3B (GB) | Archiviazione (GB) |
+| Area | CPU max 1B/2B | Memoria massima 1B/2B (GB) |Massimo 3B CPU | Memoria massima 3B (GB) | Archiviazione (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
 | Australia orientale | 4 | 16 | 4 | 16 | 20 |
 | Brasile meridionale | 4 | 16 | 4 | 16 | 20 |
