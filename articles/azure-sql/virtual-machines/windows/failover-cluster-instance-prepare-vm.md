@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e5eff13c9ec672937258cf35274d2f5f7bc66f18
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 901c090d26959950d0ffd6a96253bdc36c9331c5
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164245"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556336"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparare le macchine virtuali per un'istanza FCI (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,9 +47,9 @@ Per la funzionalità cluster di failover di è necessario che le macchine virtua
 
 Selezionare con attenzione l'opzione della disponibilità della macchina virtuale corrispondente alla configurazione del cluster desiderata: 
 
- - **Dischi condivisi di Azure**: [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) configurato con dominio di errore e dominio di aggiornamento impostato su 1 e inserito all'interno di un gruppo di [posizionamento di prossimità](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
- - **Condivisioni file Premium**: [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) o [zona di disponibilità](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Le condivisioni file Premium sono l'unica opzione di archiviazione condivisa se si scelgono le zone di disponibilità come configurazione della disponibilità per le macchine virtuali. 
- - **Spazi di archiviazione diretta**: [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
+ - **Dischi condivisi di Azure** : [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) configurato con dominio di errore e dominio di aggiornamento impostato su 1 e inserito all'interno di un gruppo di [posizionamento di prossimità](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
+ - **Condivisioni file Premium** : [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) o [zona di disponibilità](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address). Le condivisioni file Premium sono l'unica opzione di archiviazione condivisa se si scelgono le zone di disponibilità come configurazione della disponibilità per le macchine virtuali. 
+ - **Spazi di archiviazione diretta** : [set di disponibilità](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
 >[!IMPORTANT]
 >Non è possibile impostare o modificare il set di disponibilità dopo aver creato una macchina virtuale.
@@ -71,15 +71,15 @@ Inserire entrambe le macchine virtuali:
 
 ## <a name="uninstall-sql-server"></a>Disinstallare SQL Server
 
-Come parte del processo di creazione dell'istanza FCI, è necessario installare SQL Server come istanza cluster nel cluster di failover. *Se è stata distribuita una macchina virtuale con un'immagine di Azure Marketplace senza SQL Server, è possibile ignorare questo passaggio.* Se è stata distribuita un'immagine con SQL Server preinstallata, è necessario annullare la registrazione della macchina virtuale SQL Server dal provider di risorse VM SQL, quindi disinstallare SQL Server. 
+Come parte del processo di creazione dell'istanza FCI, è necessario installare SQL Server come istanza cluster nel cluster di failover. *Se è stata distribuita una macchina virtuale con un'immagine di Azure Marketplace senza SQL Server, è possibile ignorare questo passaggio.* Se è stata distribuita un'immagine con SQL Server preinstallata, è necessario annullare la registrazione della macchina virtuale SQL Server dall'estensione SQL IaaS Agent, quindi disinstallare SQL Server. 
 
-### <a name="unregister-from-the-sql-vm-resource-provider"></a>Annullare la registrazione dal provider di risorse VM SQL
+### <a name="unregister-from-the-sql-iaas-agent-extension"></a>Annullare la registrazione dall'estensione SQL IaaS Agent
 
-SQL Server le immagini di VM di Azure Marketplace vengono registrate automaticamente con il provider di risorse VM SQL. Prima di disinstallare l'istanza di SQL Server preinstallata, è necessario [annullare la registrazione di ogni macchina virtuale SQL Server dal provider di risorse della macchina virtuale SQL](sql-vm-resource-provider-register.md#unregister-from-rp). 
+SQL Server le immagini di VM da Azure Marketplace vengono registrate automaticamente con l'estensione SQL IaaS Agent. Prima di disinstallare l'istanza di SQL Server preinstallata, è necessario prima [annullare la registrazione di ogni macchina virtuale SQL Server dall'estensione SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension). 
 
 ### <a name="uninstall-sql-server"></a>Disinstallare SQL Server
 
-Dopo aver annullato la registrazione dal provider di risorse, è possibile disinstallare SQL Server. Seguire questa procedura in ogni macchina virtuale: 
+Dopo aver annullato la registrazione dall'estensione, è possibile disinstallare SQL Server. Seguire questa procedura in ogni macchina virtuale: 
 
 1. Connettersi alla macchina virtuale tramite RDP.
 
@@ -107,9 +107,9 @@ In questa tabella vengono illustrate in dettaglio le porte che potrebbero essere
 
    | Scopo | Porta | Note
    | ------ | ------ | ------
-   | SQL Server | TCP 1433 | Porta normale per le istanze predefinite di SQL Server. Se è stata usata un'immagine della raccolta, questa porta è automaticamente aperta. </br> </br> **Utilizzato da**: tutte le configurazioni dell'istanza FCI. |
-   | Probe di integrità | TCP 59999 | Qualsiasi porta TCP aperta. Configurare il [Probe di integrità](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) del servizio di bilanciamento del carico e il cluster per usare questa porta. </br> </br> **Usato da**: FCI con Load Balancer. |
-   | Condivisione file | UDP 445 | Porta utilizzata dal servizio Condivisione file. </br> </br> **Usato da**: FCI con la condivisione file Premium. |
+   | SQL Server | TCP 1433 | Porta normale per le istanze predefinite di SQL Server. Se è stata usata un'immagine della raccolta, questa porta è automaticamente aperta. </br> </br> **Utilizzato da** : tutte le configurazioni dell'istanza FCI. |
+   | Probe di integrità | TCP 59999 | Qualsiasi porta TCP aperta. Configurare il [Probe di integrità](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) del servizio di bilanciamento del carico e il cluster per usare questa porta. </br> </br> **Usato da** : FCI con Load Balancer. |
+   | Condivisione file | UDP 445 | Porta utilizzata dal servizio Condivisione file. </br> </br> **Usato da** : FCI con la condivisione file Premium. |
 
 ## <a name="join-the-domain"></a>Accedere al dominio
 

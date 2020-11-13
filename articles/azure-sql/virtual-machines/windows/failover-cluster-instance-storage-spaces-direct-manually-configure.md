@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 9b90d13d6f4fa5a33bff38aaa66728a5d0f3d70f
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 01f9ee1ad134c14150d16569fd57e658b160784c
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289944"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556319"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Creare un'istanza FCI con Spazi di archiviazione diretta (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -217,7 +217,7 @@ Dopo aver configurato il cluster di failover e tutti i componenti del cluster, i
 
 ## <a name="register-with-the-sql-vm-rp"></a>Eseguire la registrazione con la macchina virtuale SQL RP
 
-Per gestire la macchina virtuale SQL Server dal portale, registrarla con il provider di risorse VM SQL (RP) in [modalità di gestione leggera](sql-vm-resource-provider-register.md#lightweight-management-mode), attualmente l'unica modalità supportata con FCI e SQL Server in macchine virtuali di Azure. 
+Per gestire la macchina virtuale SQL Server dal portale, registrarla con l'estensione SQL IaaS Agent (RP) in [modalità di gestione leggera](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), attualmente l'unica modalità supportata con FCI e SQL Server in macchine virtuali di Azure. 
 
 
 Registrare una macchina virtuale SQL Server in modalità Lightweight con PowerShell:  
@@ -239,7 +239,7 @@ Per instradare il traffico in modo appropriato al nodo primario corrente, config
 
 - Le macchine virtuali di Azure supportano Microsoft Distributed Transaction Coordinator (MSDTC) in Windows Server 2019 con archiviazione su CSVs e un servizio di [bilanciamento del carico standard](../../../load-balancer/load-balancer-overview.md).
 - I dischi che sono stati collegati come dischi formattati NTFS possono essere usati con Spazi di archiviazione diretta solo se l'opzione di idoneità del disco è deselezionata o cancellata quando è in corso l'aggiunta dell'archiviazione al cluster. 
-- È supportata solo la registrazione con il provider di risorse VM SQL in [modalità di gestione semplice](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
+- È supportata solo la registrazione con l'estensione SQL IaaS Agent in [modalità di gestione Lightweight](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

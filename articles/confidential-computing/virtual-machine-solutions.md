@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d5ce3cde8c86d66bec025c778318a192ef60b73
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88245853"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560844"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluzioni nelle macchine virtuali di Azure
 
@@ -29,7 +29,7 @@ Avviare la distribuzione di una macchina virtuale della serie DCsv2 tramite il m
 
 ### <a name="current-available-sizes-and-regions"></a>Dimensioni e aree disponibili correnti
 
-Per ottenere un elenco di tutte le dimensioni delle macchine virtuali di confidential computing disponibili a livello generale nelle aree e zone di disponibilità, eseguire il comando seguente nell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
+Per ottenere un elenco di tutte le dimensioni delle macchine virtuali di confidential computing disponibili a livello generale nelle aree e zone di disponibilità, eseguire il comando seguente nell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
 
 ```azurecli-interactive
 az vm list-skus `
@@ -47,36 +47,36 @@ az vm list-skus `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>Requisiti host dedicati
-La distribuzione di un **Standard_DC8_v2** dimensioni della macchina virtuale nella famiglia di VM DCSv2-Series occuperà l'host completo e non verrà condiviso con altri tenant o sottoscrizioni. Questa famiglia di SKU della macchina virtuale fornisce l'isolamento che può essere necessario per soddisfare i requisiti normativi di conformità e sicurezza che in genere soddisfano con un servizio host dedicato. Quando si sceglie **Standard_DC8_v2** SKU, il server host fisico alloca tutte le risorse hardware disponibili, inclusa la memoria EPC, solo alla macchina virtuale. Si noti che questa funzionalità esiste dalla progettazione dell'infrastruttura e che tutte le funzionalità del **Standard_DC8_v2** saranno supportate. Questa distribuzione non corrisponde al servizio [host dedicato di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) fornito da altre famiglie di macchine virtuali di Azure.
+La distribuzione di un **Standard_DC8_v2** dimensioni della macchina virtuale nella famiglia di VM DCSv2-Series occuperà l'host completo e non verrà condiviso con altri tenant o sottoscrizioni. Questa famiglia di SKU della macchina virtuale fornisce l'isolamento che può essere necessario per soddisfare i requisiti normativi di conformità e sicurezza che in genere soddisfano con un servizio host dedicato. Quando si sceglie **Standard_DC8_v2** SKU, il server host fisico alloca tutte le risorse hardware disponibili, inclusa la memoria EPC, solo alla macchina virtuale. Si noti che questa funzionalità esiste dalla progettazione dell'infrastruttura e che tutte le funzionalità del **Standard_DC8_v2** saranno supportate. Questa distribuzione non corrisponde al servizio [host dedicato di Azure](../virtual-machines/dedicated-hosts.md) fornito da altre famiglie di macchine virtuali di Azure.
 
 
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
 
 Seguire un'esercitazione introduttiva per distribuire una macchina virtuale della serie DCsv2 in meno di 10 minuti. 
 
-- **Sottoscrizione di Azure**: per distribuire un'istanza di macchina virtuale di confidential computing, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto. Se si usa un [account gratuito di Azure](https://azure.microsoft.com/free/), non sarà disponibile una quota per la quantità appropriata di core di calcolo di Azure.
+- **Sottoscrizione di Azure** : per distribuire un'istanza di macchina virtuale di confidential computing, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto. Se si usa un [account gratuito di Azure](https://azure.microsoft.com/free/), non sarà disponibile una quota per la quantità appropriata di core di calcolo di Azure.
 
-- **Prezzi e disponibilità a livello di area**: trovare i prezzi per le macchine virtuali della serie DCsv2 nella [pagina dei prezzi delle macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). Per informazioni sulla disponibilità nelle aree di Azure, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) .
+- **Prezzi e disponibilità a livello di area** : trovare i prezzi per le macchine virtuali della serie DCsv2 nella [pagina dei prezzi delle macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). Per informazioni sulla disponibilità nelle aree di Azure, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) .
 
 
-- **Quota di core**: potrebbe essere necessario aumentare la quota di core nella sottoscrizione di Azure rispetto al valore predefinito. La sottoscrizione può anche limitare il numero di core che è possibile distribuire in alcune famiglie di dimensioni di macchina virtuale, inclusa la serie DCsv2. Per richiedere un aumento della quota, è possibile [aprire una richiesta di assistenza clienti online](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) senza alcun addebito. Si noti che i limiti predefiniti possono variare in base alla categoria della sottoscrizione.
+- **Quota di core** : potrebbe essere necessario aumentare la quota di core nella sottoscrizione di Azure rispetto al valore predefinito. La sottoscrizione può anche limitare il numero di core che è possibile distribuire in alcune famiglie di dimensioni di macchina virtuale, inclusa la serie DCsv2. Per richiedere un aumento della quota, è possibile [aprire una richiesta di assistenza clienti online](../azure-portal/supportability/per-vm-quota-requests.md) senza alcun addebito. Si noti che i limiti predefiniti possono variare in base alla categoria della sottoscrizione.
 
   > [!NOTE]
   > Se si hanno esigenze di capacità su larga scala, contattare il supporto di Azure. Le quote di Azure sono limiti di credito e non garanzie di capacità. A prescindere dalla quota, viene addebitato solo l'uso dei core effettivamente impiegati.
   
-- **Ridimensionamento**: a causa dell'hardware specializzato, è possibile ridimensionare solo le istanze di calcolo riservate nella stessa famiglia di dimensioni. Ad esempio, è possibile ridimensionare una VM della serie DCsv2 solo da una dimensione della serie DCsv2 a un'altra. Il ridimensionamento da una dimensione di calcolo non riservata a una dimensione di calcolo riservata non è supportato.  
+- **Ridimensionamento** : a causa dell'hardware specializzato, è possibile ridimensionare solo le istanze di calcolo riservate nella stessa famiglia di dimensioni. Ad esempio, è possibile ridimensionare una VM della serie DCsv2 solo da una dimensione della serie DCsv2 a un'altra. Il ridimensionamento da una dimensione di calcolo non riservata a una dimensione di calcolo riservata non è supportato.  
 
-- **Immagine**: per fornire il supporto a Intel SGX (Intel Software Guard Extension) per le istanze di confidential computing, è necessario eseguire tutte le distribuzioni su immagini di seconda generazione. Confidential computing di Azure supporta i carichi di lavoro in esecuzione su Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 Gen 2 e Windows Server 2016 Gen 2. Per altre informazioni sugli scenari supportati e non, leggere l'articolo [Supporto per le macchine virtuali di seconda generazione in Azure](../virtual-machines/linux/generation-2.md). 
+- **Immagine** : per fornire il supporto a Intel SGX (Intel Software Guard Extension) per le istanze di confidential computing, è necessario eseguire tutte le distribuzioni su immagini di seconda generazione. Confidential computing di Azure supporta i carichi di lavoro in esecuzione su Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 Gen 2 e Windows Server 2016 Gen 2. Per altre informazioni sugli scenari supportati e non, leggere l'articolo [Supporto per le macchine virtuali di seconda generazione in Azure](../virtual-machines/generation-2.md). 
 
-- **Archiviazione**: i dischi dati della macchina virtuale di confidential computing di Azure e i dischi del sistema operativo temporanei si trovano in dischi NVMe. Le istanze supportano solo dischi SSD Premium e SSD Standard, non Ultra SSD o HDD Standard. Le dimensioni della macchina virtuale **DC8_vs** non supportano gli account di archiviazione Premium. 
+- **Archiviazione** : i dischi dati della macchina virtuale di confidential computing di Azure e i dischi del sistema operativo temporanei si trovano in dischi NVMe. Le istanze supportano solo dischi SSD Premium e SSD Standard, non Ultra SSD o HDD Standard. Le dimensioni della macchina virtuale **DC8_vs** non supportano gli account di archiviazione Premium. 
 
-- **Crittografia del disco**: le istanze di confidential computing non supportano al momento la crittografia del disco. 
+- **Crittografia del disco** : le istanze di confidential computing non supportano al momento la crittografia del disco. 
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Considerazioni sulla disponibilità elevata e sul ripristino di emergenza
 
 Quando si usano le macchine virtuali in Azure, si è responsabili dell'implementazione di una soluzione a disponibilità elevata e con ripristino di emergenza per evitare i tempi di inattività. 
 
-Confidential computing di Azure non supporta al momento la ridondanza della zona tramite zone di disponibilità. Per garantire la massima disponibilità e ridondanza per l'elaborazione riservata, usare i [set di disponibilità](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). A causa delle restrizioni hardware, i set di disponibilità per le istanze di elaborazione riservata possono avere un massimo di 10 domini di aggiornamento. 
+Confidential computing di Azure non supporta al momento la ridondanza della zona tramite zone di disponibilità. Per garantire la massima disponibilità e ridondanza per l'elaborazione riservata, usare i [set di disponibilità](../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). A causa delle restrizioni hardware, i set di disponibilità per le istanze di elaborazione riservata possono avere un massimo di 10 domini di aggiornamento. 
 
 ## <a name="deployment-with-azure-resource-manager-arm-template"></a>Distribuzione con il modello di Azure Resource Manager (ARM)
 
@@ -101,7 +101,7 @@ Specificare una delle dimensioni seguenti nel modello ARM nella risorsa della ma
 
 ### <a name="gen2-os-image"></a>Immagine del sistema operativo Gen2
 
-In **Proprietà**, sarà anche necessario fare riferimento a un'immagine in **storageProfile**. Usare *solo una* delle immagini seguenti per **imageReference**.
+In **Proprietà** , sarà anche necessario fare riferimento a un'immagine in **storageProfile**. Usare *solo una* delle immagini seguenti per **imageReference**.
 
 ```json
       "2019-datacenter-gensecond": {

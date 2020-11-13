@@ -1,6 +1,6 @@
 ---
-title: Crittografia dei dati inattivi di Microsoft Azure | Microsoft Docs
-description: Questo articolo fornisce una panoramica della crittografia dei dati inattivi di Microsoft Azure, con una descrizione delle funzionalità e considerazioni generali.
+title: Crittografia dei dati inattivi di Azure-sicurezza di Azure
+description: Questo articolo fornisce una panoramica della crittografia dei dati inattivi di Azure, delle funzionalità generali e delle considerazioni generali.
 services: security
 documentationcenter: na
 author: msmbaldwin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dafc55656be2d8ef2c0f52d633c7db7eeee83534
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c9a68661a89f53c5aa27bdd046b5bc09a47db400
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412783"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556625"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi in Azure
 
@@ -60,7 +60,7 @@ Come descritto in precedenza, l'obiettivo della crittografia dei dati inattivi �
 
 ![Componenti](./media/encryption-atrest/azure-security-encryption-atrest-fig1.png)
 
-### <a name="azure-key-vault"></a>Insieme di credenziali chiave di Azure
+### <a name="azure-key-vault"></a>Azure Key Vault
 
 La posizione di archiviazione delle chiavi di crittografia e il controllo dell'accesso a queste chiavi è essenziale per un modello di crittografia dei dati inattivi. Le chiavi devono essere estremamente protette ma gestibili dagli utenti specificati e disponibili per servizi specifici. Per i servizi di Azure, la soluzione di archiviazione delle chiavi consigliata è Azure Key Vault, che fornisce un'esperienza di gestione comune per tutti i servizi. Le chiavi sono archiviate e gestite in insiemi di credenziali delle chiavi e l'accesso a un insieme di credenziali delle chiavi può essere assegnato a utenti o servizi. Azure Key Vault supporta la creazione di chiavi da parte dei clienti o l'importazione di chiavi dei clienti per l'uso in scenari con chiavi di crittografia gestite dal cliente.
 
@@ -128,7 +128,7 @@ Tutti i servizi di archiviazione di Azure (archiviazione BLOB, archiviazione cod
 
 Database SQL di Azure attualmente supporta la crittografia dei dati inattivi per gli scenari di crittografia sul lato client e sul lato del servizio gestito da Microsoft.
 
-Il supporto per la crittografia server viene attualmente fornito tramite la funzionalità di SQL denominata Transparent Data Encryption. Quando un cliente di Database SQL di Azure abilita TDE, le chiavi vengono create e gestite automaticamente. La crittografia dei dati inattivi può essere abilitata a livello di database e di server. A partire da giugno 2017, la funzionalità [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) è abilitata per impostazione predefinita nei nuovi database creati. Database SQL di Azure supporta chiavi RSA a 2048 bit gestite dal cliente in Azure Key Vault. Per altre informazioni, vedere [Transparent Data Encryption con supporto BYOK (Bring Your Own Key) per il database SQL di Azure e Azure SQL Data Warehouse](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
+Il supporto per la crittografia server viene attualmente fornito tramite la funzionalità di SQL denominata Transparent Data Encryption. Quando un cliente di Database SQL di Azure abilita TDE, le chiavi vengono create e gestite automaticamente. La crittografia dei dati inattivi può essere abilitata a livello di database e di server. A partire da giugno 2017, la funzionalità [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) è abilitata per impostazione predefinita nei nuovi database creati. Database SQL di Azure supporta chiavi RSA a 2048 bit gestite dal cliente in Azure Key Vault. Per altre informazioni, vedere [Transparent Data Encryption con supporto BYOK (Bring Your Own Key) per il database SQL di Azure e Azure SQL Data Warehouse](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql).
 
 La crittografia lato client dei dati di Database SQL di Azure è supportata tramite la funzionalità [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted usa una chiave creata e archiviata dal client. I clienti possono archiviare la chiave master in un archivio certificati di Windows, in Azure Key Vault o in un modulo di protezione hardware locale. Utilizzando SQL Server Management Studio, gli utenti SQL scelgono la chiave che si desidera utilizzare per crittografare la colonna.
 
@@ -140,3 +140,4 @@ La protezione dei dati dei clienti archiviati nei servizi di Azure è di importa
 
 - Vedere [modelli di crittografia dei dati](encryption-models.md) per ulteriori informazioni sulle chiavi gestite dal servizio e sulle chiavi gestite dal cliente.
 - Informazioni su come Azure usa la [crittografia doppia](double-encryption.md) per attenuare le minacce che derivano dalla crittografia dei dati.
+- Scopri cosa fa Microsoft per garantire l' [integrità e la sicurezza della piattaforma](platform.md) degli host che attraversano le pipeline di compilazione, integrazione, messa in funzione e ripristino di hardware e firmware.

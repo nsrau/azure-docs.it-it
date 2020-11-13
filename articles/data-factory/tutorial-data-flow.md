@@ -7,15 +7,15 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
-ms.openlocfilehash: 0119d134861b54ac14c6fe22b638ab459344c5ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2019
+ms.openlocfilehash: fa516f577254f827a6437697df82010bd9b631ee
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569875"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555911"
 ---
-# <a name="transform-data-using-mapping-data-flows"></a>Trasformare i dati usando il mapping dei flussi di dati
+# <a name="transform-data-using-mapping-data-flows"></a>Trasformare i dati con i flussi di dati per mapping
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -43,7 +43,7 @@ Il file che si sta trasformando in questa esercitazione è MoviesDB.csv, disponi
 In questo passaggio si crea una data factory e si apre l'Data Factory UX per creare una pipeline nell'data factory.
 
 1. Aprire **Microsoft Edge** o **Google Chrome**. Attualmente, Data Factory interfaccia utente è supportata solo nei Web browser Microsoft Edge e Google Chrome.
-2. Nel menu a sinistra selezionare **Crea una risorsa** > **Analisi** > **Data factory**:
+2. Nel menu a sinistra selezionare **Crea una risorsa**  >  **integrazione**  >  **Data Factory** :
 
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -55,9 +55,9 @@ In questo passaggio si crea una data factory e si apre l'Data Factory UX per cre
 4. Selezionare la **sottoscrizione** di Azure in cui creare la data factory.
 5. In **Gruppo di risorse** eseguire una di queste operazioni:
 
-    a. Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa.
+    a. Selezionare **Usa esistente** e scegliere un gruppo di risorse esistente dall'elenco a discesa.
 
-    b. Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse. 
+    b. Selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse. 
          
     Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md). 
 6. In **Versione** selezionare **V2**.
@@ -131,7 +131,7 @@ Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di d
 
     Se si dispone di un cluster di debug attivo, è possibile verificare la logica facendo clic su **Aggiorna** per visualizzare l'output delle espressioni rispetto agli input utilizzati. Esiste più di una risposta giusta su come eseguire questa logica usando il linguaggio delle espressioni del flusso di dati.
 
-    ![Filtra](media/tutorial-data-flow/filter2.png)
+    ![Filtro](media/tutorial-data-flow/filter2.png)
 
     Al termine dell'espressione, fare clic su **Salva e fine** .
 
@@ -147,7 +147,7 @@ Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di d
 1. Passare alla scheda **aggregazioni** . Nella casella di testo a sinistra, denominare la colonna aggregata **AverageComedyRating**. Fare clic sulla casella espressione a destra per immettere l'espressione di aggregazione tramite Generatore di espressioni.
 
     ![Screenshot che mostra l'opzione Year nella scheda aggregazioni in impostazioni di aggregazione.](media/tutorial-data-flow/agg3.png)
-1. Per ottenere la media della **classificazione**di colonna, utilizzare la ```avg()``` funzione di aggregazione. Poiché **rating** è una stringa e ```avg()``` accetta un input numerico, è necessario convertire il valore in un numero tramite la ```toInteger()``` funzione. Questa espressione è simile a quanto segue:
+1. Per ottenere la media della **classificazione** di colonna, utilizzare la ```avg()``` funzione di aggregazione. Poiché **rating** è una stringa e ```avg()``` accetta un input numerico, è necessario convertire il valore in un numero tramite la ```toInteger()``` funzione. Questa espressione è simile a quanto segue:
 
     ```avg(toInteger(Rating))```
 
@@ -160,7 +160,7 @@ Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di d
 1. Successivamente, si desidera aggiungere una trasformazione **sink** in **destinazione**.
 
     ![Screenshot che mostra dove aggiungere una trasformazione di sink in destinazione.](media/tutorial-data-flow/sink1.png)
-1. Assegnare un nome al **sink**di sink. Fare clic su **nuovo** per creare il set di dati del sink.
+1. Assegnare un nome al **sink** di sink. Fare clic su **nuovo** per creare il set di dati del sink.
 
     ![Screenshot che mostra dove è possibile assegnare un nome al sink e creare un nuovo set di dati sink.](media/tutorial-data-flow/sink2.png)
 1. Scegliere **Azure Data Lake storage Gen2**. Fare clic su Continue.

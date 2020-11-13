@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/13/2019
-ms.openlocfilehash: e80ff2c04cf71fa322bb0bf41e8132f595c0644e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 11/12/2020
+ms.openlocfilehash: 04da4d6466d450d04d7008332e32ea3d59cd0252
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372277"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555533"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Spostare un'area di lavoro Log Analytics in una sottoscrizione o in un gruppo di risorse diverso
 
@@ -29,14 +29,14 @@ Le sottoscrizioni di origine e di destinazione dell'area di lavoro devono esiste
 ```
 
 ## <a name="workspace-move-considerations"></a>Considerazioni sullo spostamento dell'area di lavoro
-Le soluzioni gestite installate nell'area di lavoro verranno spostate con l'operazione di spostamento dell'area di lavoro Log Analytics. Gli agenti connessi rimarranno connessi e continueranno a inviare i dati all'area di lavoro dopo lo spostamento. Poiché l'operazione di spostamento richiede che non siano presenti servizi collegati dall'area di lavoro, è necessario rimuovere le soluzioni che si basano su tale collegamento per consentire lo spostamento dell'area di lavoro.
-
-Soluzioni che devono essere rimosse prima di poter scollegare l'account di automazione:
-
-- Gestione degli aggiornamenti
-- Rilevamento modifiche
-- Avviare/arrestare VM durante gli orari di minore attività
-- Centro sicurezza di Azure
+- Le soluzioni gestite installate nell'area di lavoro verranno spostate con l'operazione di spostamento dell'area di lavoro Log Analytics. 
+- Le chiavi dell'area di lavoro vengono rigenerate con lo spostamento dell'area di lavoro (primario e secondario). Se la chiave dell'area di lavoro è Key, aggiornarla con le nuove chiavi generate. 
+- Gli agenti connessi rimarranno connessi e continueranno a inviare i dati all'area di lavoro dopo lo spostamento. 
+- Poiché l'operazione di spostamento richiede che non siano presenti servizi collegati dall'area di lavoro, è necessario rimuovere le soluzioni che si basano su tale collegamento per consentire lo spostamento dell'area di lavoro. Soluzioni che devono essere rimosse prima di poter scollegare l'account di automazione:
+  - Gestione degli aggiornamenti
+  - Rilevamento modifiche
+  - Avviare/arrestare VM durante gli orari di minore attività
+  - Centro sicurezza di Azure
 
 >[!IMPORTANT]
 > **Clienti di Azure Sentinel**

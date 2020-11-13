@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 6/10/2020
-ms.openlocfilehash: 402214da75bffd278e12db94f089d64acd62221e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: f94975b91a332e480a1b570c29f02040a1047f75
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84730145"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555414"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copia i file nuovi e modificati in modo incrementale in base a LastModifiedDate utilizzando lo strumento Copia dati
 
@@ -39,8 +39,8 @@ In questa esercitazione si completeranno le attività seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure**: usare l'archiviazione BLOB per gli archivi dati di origine e sink. Se non si ha un account di archiviazione di Azure, seguire le istruzioni riportate in [creare un account di archiviazione](../storage/common/storage-account-create.md).
+* **Sottoscrizione di Azure** : Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* **Account di archiviazione di Azure** : usare l'archiviazione BLOB per gli archivi dati di origine e sink. Se non si ha un account di archiviazione di Azure, seguire le istruzioni riportate in [creare un account di archiviazione](../storage/common/storage-account-create.md).
 
 ## <a name="create-two-containers-in-blob-storage"></a>Creare due contenitori nell'archivio BLOB
 
@@ -52,7 +52,7 @@ Preparare l'archiviazione BLOB per l'esercitazione completando i seguenti passag
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Nel riquadro a sinistra selezionare **Crea risorsa**. Selezionare **Analytics**  >  **Data Factory**di analisi:
+1. Nel riquadro a sinistra selezionare **Crea risorsa**. Selezionare **Integration**  >  **Data Factory** di integrazione:
 
    ![Selezionare Data Factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -63,8 +63,8 @@ Preparare l'archiviazione BLOB per l'esercitazione completando i seguenti passag
    ![Messaggio di errore nome non disponibile](./media/doc-common-process/name-not-available-error.png)
 
    Se viene visualizzato un messaggio di errore relativo al valore del nome, immettere un nome diverso per la data factory. Ad esempio, usare il nome _**nomeutente**_**ADFTutorialDataFactory**. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
-3. In **sottoscrizione**selezionare la sottoscrizione di Azure in cui verrà creata la nuova data factory.
-4. In **gruppo di risorse**eseguire una di queste operazioni:
+3. In **sottoscrizione** selezionare la sottoscrizione di Azure in cui verrà creata la nuova data factory.
+4. In **gruppo di risorse** eseguire una di queste operazioni:
 
     * Selezionare **Usa esistente** e quindi selezionare un gruppo di risorse esistente nell'elenco.
 
@@ -88,13 +88,13 @@ Preparare l'archiviazione BLOB per l'esercitazione completando i seguenti passag
 
 2. Nella pagina **Proprietà** seguire questa procedura:
 
-    a. In **nome attività**immettere **DeltaCopyFromBlobPipeline**.
+    a. In **nome attività** immettere **DeltaCopyFromBlobPipeline**.
 
-    b. In **cadenza attività o pianificazione attività**selezionare **Esegui regolarmente in base alla pianificazione**.
+    b. In **cadenza attività o pianificazione attività** selezionare **Esegui regolarmente in base alla pianificazione**.
 
-    c. In **tipo di trigger**selezionare **finestra a cascata**.
+    c. In **tipo di trigger** selezionare **finestra a cascata**.
 
-    d. In **ricorrenza**immettere **15 minuto/i**.
+    d. In **ricorrenza** immettere **15 minuto/i**.
 
     e. Selezionare **Avanti**.
 
@@ -106,13 +106,13 @@ Preparare l'archiviazione BLOB per l'esercitazione completando i seguenti passag
 
     a. Selezionare  **Crea nuova connessione** per aggiungere una connessione.
 
-    b. Selezionare **archiviazione BLOB di Azure** dalla raccolta e quindi selezionare **continue (continua**):
+    b. Selezionare **archiviazione BLOB di Azure** dalla raccolta e quindi selezionare **continue (continua** ):
 
     ![Seleziona archiviazione Blog di Azure](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
     c. Nella pagina **nuovo servizio collegato (archiviazione BLOB di Azure)** selezionare l'account di archiviazione dall'elenco **nome account di archiviazione** . Testare la connessione e quindi selezionare **Crea**.
 
-    d. Selezionare il nuovo servizio collegato e quindi fare clic su **Avanti**:
+    d. Selezionare il nuovo servizio collegato e quindi fare clic su **Avanti** :
 
    ![Selezionare il nuovo servizio collegato](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
 
@@ -122,17 +122,17 @@ Preparare l'archiviazione BLOB per l'esercitazione completando i seguenti passag
 
     ![Scegliere il file o la cartella di input](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-input-file-folder.png)
 
-    b. In **comportamento caricamento file**selezionare **caricamento incrementale: LastModifiedDate**.
+    b. In **comportamento caricamento file** selezionare **caricamento incrementale: LastModifiedDate**.
 
-    c. Selezionare **copia binaria** , quindi selezionare **Avanti**:
+    c. Selezionare **copia binaria** , quindi selezionare **Avanti** :
 
      ![Scegliere la pagina file o cartella di input](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
 
-5. Nella pagina **archivio dati di destinazione** selezionare il servizio **AzureBlobStorage** creato. Si tratta dello stesso account di archiviazione dell'archivio dati di origine. Fare quindi clic su **Avanti**.
+5. Nella pagina **archivio dati di destinazione** selezionare il servizio **AzureBlobStorage** creato. Si tratta dello stesso account di archiviazione dell'archivio dati di origine. Selezionare quindi **Avanti**.
 
 6. Nella pagina **Choose the output file or folder** (Scegliere il file o la cartella di output) completare questa procedura:
 
-    a. Cercare e selezionare la cartella di **destinazione** , quindi **scegliere Scegli**:
+    a. Cercare e selezionare la cartella di **destinazione** , quindi **scegliere Scegli** :
 
     ![Scegliere la pagina file o cartella di output](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
 
@@ -164,7 +164,7 @@ Preparare l'archiviazione BLOB per l'esercitazione completando i seguenti passag
 
     ![Creare file1.txt e caricarlo nel contenitore di origine](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
 
-13. Per tornare alla visualizzazione delle **esecuzioni di pipeline** , selezionare **tutte le esecuzioni di pipeline**e attendere che la stessa pipeline venga nuovamente attivata automaticamente.  
+13. Per tornare alla visualizzazione delle **esecuzioni di pipeline** , selezionare **tutte le esecuzioni di pipeline** e attendere che la stessa pipeline venga nuovamente attivata automaticamente.  
 
 14. Al termine della seconda esecuzione della pipeline, attenersi alla stessa procedura descritta in precedenza per esaminare i dettagli dell'esecuzione dell'attività.  
 

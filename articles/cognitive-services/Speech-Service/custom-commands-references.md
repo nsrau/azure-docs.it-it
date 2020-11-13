@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 052418924e73252a780689aea33e84d5bfdbc3f6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 98510132b2341736664dfafa52e9567df95652be
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927652"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561098"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Concetti e definizioni dei comandi personalizzati
 
@@ -49,7 +49,9 @@ Questa casella di controllo indica se l'ambito di questo parametro è condiviso 
 ### <a name="required"></a>Necessario
 Questa casella di controllo indica se un valore per questo parametro è necessario per l'evasione o il completamento del comando. È necessario configurare le risposte per richiedere all'utente di fornire un valore se un parametro è contrassegnato come obbligatorio.
 
-### <a name="type"></a>Tipo
+Si noti che, se è stato configurato un **parametro obbligatorio** per avere un **valore predefinito** , il sistema richiederà comunque esplicitamente il valore del parametro.
+
+### <a name="type"></a>Type
 I comandi personalizzati supportano i tipi di parametro seguenti:
 
 * Datetime
@@ -57,12 +59,12 @@ I comandi personalizzati supportano i tipi di parametro seguenti:
 * Numero
 * string
 
-Tutti questi tipi di parametro supportano la configurazione del valore predefinito, che è possibile configurare dal portale di Azure.
+Tutti questi tipi di parametro ad eccezione di geography, supportano la configurazione del valore predefinito, che è possibile configurare dal portale.
 
 ### <a name="configuration"></a>Configurazione
 Configuration è una proprietà di parametro definita solo per la stringa di tipo. Sono supportati i valori seguenti:
 
-* **Nessuno** .
+* **Nessuno**.
 * **Accetta input completo** : se abilitata, un parametro accetta qualsiasi espressione di input. Questa opzione è utile quando l'utente necessita di un parametro con l'espressione completa. Un esempio è quello degli indirizzi postali.
 * **Accetta valori di input predefiniti da un catalogo esterno** : questo valore viene usato per configurare un parametro che può assumere un'ampia gamma di valori. Un esempio è un catalogo delle vendite. In questo caso, il catalogo è ospitato in un endpoint Web esterno e può essere configurato in modo indipendente.
 * **Accetta valori di input predefiniti da catalogo interno** : questo valore viene usato per configurare un parametro che può assumere alcuni valori. In questo caso, i valori devono essere configurati in speech studio.
@@ -75,7 +77,7 @@ Le convalide sono costrutti applicabili a determinati tipi di parametro che cons
 * Numero
 
 ## <a name="rules-configuration"></a>Configurazione delle regole
-Una regola nei comandi personalizzati è definita da un set di *condizioni* che, quando soddisfatte, eseguono un set di *azioni* . Le regole consentono inoltre di configurare *lo stato di post-esecuzione* e le *aspettative* per la prossima volta.
+Una regola nei comandi personalizzati è definita da un set di *condizioni* che, quando soddisfatte, eseguono un set di *azioni*. Le regole consentono inoltre di configurare *lo stato di post-esecuzione* e le *aspettative* per la prossima volta.
 
 ### <a name="types"></a>Tipi
 I comandi personalizzati supportano le categorie di regole seguenti:

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 6/10/2020
-ms.openlocfilehash: 3a46c2024269affc06d18806aa186fb8b0feaafe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: ae66bb025f2a49a79120fe86e0de7c4a3ccf26ca
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533758"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555380"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Consente di copiare in modo incrementale i nuovi file in base al nome del file partizionato ora utilizzando lo strumento Copia dati
 
@@ -38,8 +38,8 @@ In questa esercitazione si segue questa procedura:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure**: usare l'archiviazione BLOB come archivio dati di _origine_  e _sink_ . Se non si ha un account di archiviazione di Azure, vedere le istruzioni in [creare un account di archiviazione](../storage/common/storage-account-create.md).
+* **Sottoscrizione di Azure** : Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* **Account di archiviazione di Azure** : usare l'archiviazione BLOB come archivio dati di _origine_  e _sink_ . Se non è disponibile un account di archiviazione di Azure, vedere le istruzioni fornite in [Creare un account di archiviazione](../storage/common/storage-account-create.md).
 
 ### <a name="create-two-containers-in-blob-storage"></a>Creare due contenitori nell'archivio BLOB
 
@@ -50,13 +50,13 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
     ![caricamento dei file](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
 
     > [!NOTE]
-    > Modificare il nome della cartella con l'ora UTC.  Ad esempio, se l'ora UTC corrente è 3:38 il 17 marzo 2020, è possibile creare il percorso della cartella come **origine/2020/03/17/03/** dalla regola di **origine/{year}/{month}/{day}/{hour}**/.
+    > Modificare il nome della cartella con l'ora UTC.  Ad esempio, se l'ora UTC corrente è 3:38 il 17 marzo 2020, è possibile creare il percorso della cartella come **origine/2020/03/17/03/** dalla regola di **origine/{year}/{month}/{day}/{hour}** /.
 
 2. Creare un contenitore denominato **Destination**. Per eseguire queste attività è possibile usare vari strumenti, ad esempio [Azure Storage Explorer](https://storageexplorer.com/).
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Nel menu a sinistra selezionare **Crea una risorsa** > **Dati e analisi** > **Data factory**:
+1. Nel menu a sinistra selezionare **Crea una risorsa**  >  **integrazione**  >  **Data Factory** :
 
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -70,9 +70,9 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 3. Selezionare la **sottoscrizione** di Azure in cui creare la nuova data factory.
 4. In **Gruppo di risorse** eseguire una di queste operazioni:
 
-    a. Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa.
+    a. Selezionare **Usa esistente** e scegliere un gruppo di risorse esistente dall'elenco a discesa.
 
-    b. Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse. 
+    b. Selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse. 
          
     Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md).
 
@@ -93,13 +93,13 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
 2. Nella pagina **Proprietà** seguire questa procedura:
 
-    a. In **nome attività**immettere **DeltaCopyFromBlobPipeline**.
+    a. In **nome attività** immettere **DeltaCopyFromBlobPipeline**.
 
-    b. In **cadenza attività o pianificazione attività**selezionare **Esegui regolarmente in base alla pianificazione**.
+    b. In **cadenza attività o pianificazione attività** selezionare **Esegui regolarmente in base alla pianificazione**.
 
-    c. In **tipo di trigger**selezionare **finestra a cascata**.
+    c. In **tipo di trigger** selezionare **finestra a cascata**.
 
-    d. In **ricorrenza**immettere **1 ora**/e.
+    d. In **ricorrenza** immettere **1 ora** /e.
 
     e. Selezionare **Avanti**.
 
@@ -124,20 +124,20 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
 
     ![Screenshot mostra la finestra di dialogo Scegli file o cartella di input.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
 
-    b. In **comportamento caricamento file**selezionare **caricamento incrementale: cartella/nomi file partizionati in base al tempo**.
+    b. In **comportamento caricamento file** selezionare **caricamento incrementale: cartella/nomi file partizionati in base al tempo**.
 
-    c. Scrivere il percorso della cartella dinamica come **origine/{year}/{month}/{day}/{hour}**/e modificare il formato, come illustrato nella schermata seguente. Controllare la **copia binaria** e fare clic su **Avanti**.
+    c. Scrivere il percorso della cartella dinamica come **origine/{year}/{month}/{day}/{hour}** /e modificare il formato, come illustrato nella schermata seguente. Controllare la **copia binaria** e fare clic su **Avanti**.
 
     ![Screenshot mostra la finestra di dialogo Scegli file o cartella di input con una cartella selezionata.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
 
-5. Nella pagina **archivio dati di destinazione** selezionare il **AzureBlobStorage**, che è lo stesso account di archiviazione dell'archivio dell'origine dati, quindi fare clic su **Avanti**.
+5. Nella pagina **archivio dati di destinazione** selezionare il **AzureBlobStorage** , che è lo stesso account di archiviazione dell'archivio dell'origine dati, quindi fare clic su **Avanti**.
 
     ![Pagina dell'archivio dati di destinazione](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/destination-data-store-page-select-linkedservice.png)
 6. Nella pagina **scegliere il file o la cartella di output** seguire questa procedura:
 
     a. Individuare e selezionare la cartella di **destinazione** , quindi fare clic su **Scegli**.
 
-    b. Scrivere il percorso della cartella dinamica come **destinazione/{year}/{month}/{day}/{hour}**/e modificare il formato come segue:
+    b. Scrivere il percorso della cartella dinamica come **destinazione/{year}/{month}/{day}/{hour}** /e modificare il formato come segue:
 
     ![Screenshot mostra la finestra di dialogo scegliere il file o la cartella di output.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/output-file-name.png)
 
@@ -169,7 +169,7 @@ Preparare l'archiviazione BLOB per l'esercitazione eseguendo questi passaggi.
     > [!NOTE]
     > È possibile che si sia consapevoli che è necessario creare un nuovo percorso della cartella. Modificare il nome della cartella con l'ora UTC.  Ad esempio, se l'ora UTC corrente è 4:20 AM il Mar. 17, 2020, è possibile creare il percorso della cartella come **origine/2020/03/17/04/** dalla regola **{year}/{month}/{day}/{hour}/**.
 
-13. Per tornare alla visualizzazione delle **esecuzioni di pipeline** , selezionare **tutte le esecuzioni**di pipeline e attendere che la stessa pipeline venga nuovamente attivata automaticamente dopo un'altra ora.  
+13. Per tornare alla visualizzazione delle **esecuzioni di pipeline** , selezionare **tutte le esecuzioni** di pipeline e attendere che la stessa pipeline venga nuovamente attivata automaticamente dopo un'altra ora.  
 
     ![Screenshot che mostra il collegamento tutte le esecuzioni di pipeline per tornare a tale pagina.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
 

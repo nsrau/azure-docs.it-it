@@ -4,12 +4,12 @@ description: Informazioni sui partner del monitoraggio di Azure e sulle modalit�
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc33e9d8d613b9d0575da069d884e454d9930eac
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460093"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555640"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 
@@ -153,7 +153,7 @@ Il **Bridge per operazioni** con Microfocus monitora automaticamente tutte le ri
 
 Altre informazioni
 - [Panoramica di OB Suite](https://www.microfocus.com/products/operations-bridge-suite/overview)
-- [Download](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
+- [Scaricare](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope è un componente di Operations Bridge suite.
 
 
@@ -253,7 +253,7 @@ Riduci gli eventi imprevisti e MTTR con la piattaforma AIOps adesso per eliminar
 
 ![Logo di SignalFX](./media/partners/signalfx.png)
 
-SignalFx è leader in soluzioni di intelligence operativa in tempo reale per DevOps basate sui dati. Il servizio rileva e raccoglie le metriche da tutti i componenti nel cloud. Sostituisce gli strumenti per punti tradizionali e offre visibilità in tempo reale negli ambienti dinamici odierni. Sfruttando la piattaforma SignalFx ad alta scalabilità, la piattaforma SaaS è ottimizzata per architetture basate su contenitori e microservizi e offre ad aziende di ogni dimensione potenti strumenti di visualizzazione, avvisi proattivi e funzionalità di valutazione collaborative. SignalFx si integra direttamente con monitoraggio di Azure, nonché tramite connettori open source come *Telegraf*, *Statistics*e *collectd* per offrire dashboard, analisi e avvisi più adatti per Azure.
+SignalFx è leader in soluzioni di intelligence operativa in tempo reale per DevOps basate sui dati. Il servizio rileva e raccoglie le metriche da tutti i componenti nel cloud. Sostituisce gli strumenti per punti tradizionali e offre visibilità in tempo reale negli ambienti dinamici odierni. Sfruttando la piattaforma SignalFx ad alta scalabilità, la piattaforma SaaS è ottimizzata per architetture basate su contenitori e microservizi e offre ad aziende di ogni dimensione potenti strumenti di visualizzazione, avvisi proattivi e funzionalità di valutazione collaborative. SignalFx si integra direttamente con monitoraggio di Azure, nonché tramite connettori open source come *Telegraf* , *Statistics* e *collectd* per offrire dashboard, analisi e avvisi più adatti per Azure.
 
 [Documentazione di signalfx](https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure)
 
@@ -301,9 +301,19 @@ Turbonomic offre l'automazione dei carichi di lavoro per cloud ibridi, ottimizza
 
 [Introduzione a Turbonomic](https://turbonomic.com/)
 
+## <a name="bmc-helix"></a>Elica BMC
+
+![Logo BMC Helix](./media/partners/BMCHelix.png)
+
+BMC Helix è una piattaforma SaaS (Enterprise Service) autonoma e operativa. Integrato con l'intelligence di 360 gradi, consente alle aziende di fornire in modo proattivo e divisi l'individuazione, il monitoraggio, il servizio, il monitoraggio e l'aggiornamento, l'ottimizzazione e la distribuzione di esperienze Omni-Channel per l'IT e le linee di business.
+Inoltre, grazie all'integrazione di ITSM e IT Operations Management (ITOM), BMC Helix consente agli utenti IT e aziendali di eliminare i silo IT, prendere decisioni aziendali basate sui dati e offrire esperienze clienti leader del settore.
+I clienti possono distribuire la piattaforma BMC Helix con la distribuzione cloud di propria scelta, ovvero pubblica, privata o ibrida. Inoltre, i clienti hanno la possibilità di scegliere tra soluzioni di intelligenza artificiale/ML per sfruttare i provider leader del settore.
+
+[Altre informazioni su BMC Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Scopri di più su monitoraggio di Azure](../overview.md)
+- [Altre informazioni su Monitoraggio di Azure](../overview.md)
 - [Accedere alle metriche mediante l'API REST](rest-api-walkthrough.md)
 - [Trasmettere come flusso il log attività a un servizio di non proprietario di Microsoft](./activity-log.md#legacy-collection-methods)
 - [Trasmettere i log delle risorse a un servizio non Microsoft](./resource-logs.md#send-to-azure-event-hubs)

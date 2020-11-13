@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 050252718e4796ff20d57be3fdeac98f0cf04fdf
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3e38de191557f0602d1b544c6590018f98405b0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785222"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560792"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Che cos'è Azure web application firewall nel gateway applicazione di Azure?
 
@@ -160,7 +160,7 @@ I log del gateway applicazione sono integrati con [Monitoraggio di Azure](../../
 
 #### <a name="azure-security-center"></a>Centro sicurezza di Azure
 
-Il [Centro sicurezza](../../security-center/security-center-intro.md) aiuta a prevenire, rilevare e rispondere alle minacce. Offre maggiore visibilità e controllo sulla sicurezza delle risorse di Azure. Il gateway applicazione è [integrato con il Centro sicurezza](../../application-gateway/application-gateway-integration-security-center.md). Il Centro sicurezza analizza l'ambiente per rilevare eventuali applicazioni Web non protette e può consigliare a WAF nel gateway applicazione di proteggere queste risorse vulnerabili. I firewall vengono creati direttamente dal Centro sicurezza. Queste istanze di WAF sono integrate con il Centro sicurezza. Inviano avvisi e informazioni sull'integrità al Centro sicurezza a scopo di report.
+Il [Centro sicurezza](../../security-center/security-center-introduction.md) aiuta a prevenire, rilevare e rispondere alle minacce. Offre maggiore visibilità e controllo sulla sicurezza delle risorse di Azure. Il gateway applicazione è [integrato con il Centro sicurezza](../../application-gateway/application-gateway-integration-security-center.md). Il Centro sicurezza analizza l'ambiente per rilevare eventuali applicazioni Web non protette e può consigliare a WAF nel gateway applicazione di proteggere queste risorse vulnerabili. I firewall vengono creati direttamente dal Centro sicurezza. Queste istanze di WAF sono integrate con il Centro sicurezza. Inviano avvisi e informazioni sull'integrità al Centro sicurezza a scopo di report.
 
 ![Finestra di panoramica del Centro sicurezza](../media/ag-overview/figure1.png)
 

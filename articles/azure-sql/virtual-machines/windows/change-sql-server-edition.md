@@ -13,12 +13,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 997e867798922975757a588ef50248f0d09a96e0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 801a9a112615bd6220b5f273b51ed39248ebcd45
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789846"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556472"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Modifica sul posto dell'edizione di SQL Server in una macchina virtuale di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Dopo aver modificato internamente l'edizione di SQL Server nella VM di SQL Serve
 Per eseguire una modifica sul posto dell'edizione di SQL Server, è necessario quanto segue: 
 
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/).
-- Una [VM di SQL Server in Windows](./create-sql-vm-portal.md) registrata con il [provider di risorse per VM SQL](sql-vm-resource-provider-register.md).
+- Una [macchina virtuale SQL Server in Windows](./create-sql-vm-portal.md) registrata con l' [estensione SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md).
 - Configurare i supporti con un' **edizione specifica** di SQL Server. I clienti che usano [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) possono ottenere il supporto di installazione dal [Centro per i contratti multilicenza](https://www.microsoft.com/Licensing/servicecenter/default.aspx). I clienti che non hanno Software Assurance possono usare il supporto di configurazione da un'immagine della VM di SQL Server di Azure Marketplace con un'edizione specifica (in genere si trova in `C:\SQLServerFull`). 
 
 
@@ -46,11 +46,11 @@ Per eseguire una modifica sul posto dell'edizione di SQL Server, è necessario q
 Per aggiornare l'edizione di SQL Server, ottenere i supporti di installazione di SQL Server per un'edizione specifica di SQL Server, quindi eseguire le operazioni seguenti:
 
 1. Aprire Setup.exe dal supporto di installazione di SQL Server. 
-1. Passare a **Manutenzione** e scegliere l'opzione **Aggiornamento edizione** . 
+1. Passare a **Manutenzione** e scegliere l'opzione **Aggiornamento edizione**. 
 
    ![Selezione per l'aggiornamento dell'edizione di SQL Server](./media/change-sql-server-edition/edition-upgrade.png)
 
-1. Selezionare **Avanti** finché non si raggiunge la pagina **Aggiornamento dell'edizione** e quindi selezionare **Aggiornamento** . La finestra di installazione potrebbe non rispondere per alcuni minuti mentre viene applicata la modifica. La pagina **Completato** conferma che l'aggiornamento dell'edizione è terminato. 
+1. Selezionare **Avanti** finché non si raggiunge la pagina **Aggiornamento dell'edizione** e quindi selezionare **Aggiornamento**. La finestra di installazione potrebbe non rispondere per alcuni minuti mentre viene applicata la modifica. La pagina **Completato** conferma che l'aggiornamento dell'edizione è terminato. 
 
 Dopo l'aggiornamento dell'edizione di SQL Server, modificare la proprietà edition della macchina virtuale di SQL Server nel portale di Azure. In questo modo i metadati e la fatturazione associati alla macchina virtuale vengono aggiornati.
 
@@ -75,11 +75,11 @@ Dopo il downgrade dell'edizione di SQL Server, modificare la proprietà edition 
 
 ## <a name="change-edition-in-portal"></a>Modificare l'edizione nel portale 
 
-Dopo aver modificato l'edizione di SQL Server usando il supporto di installazione e aver registrato la VM di SQL Server con il [provider di risorse per VM SQL](sql-vm-resource-provider-register.md), è possibile usare il portale di Azure per modificare la proprietà edition della VM di SQL Server ai fini della fatturazione. A questo scopo, attenersi alla procedura seguente: 
+Dopo aver modificato l'edizione di SQL Server usando il supporto di installazione e aver registrato la macchina virtuale di SQL Server con l' [estensione SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md), è possibile usare la portale di Azure per modificare la proprietà Edition della macchina virtuale SQL Server ai fini della fatturazione. A questo scopo, attenersi alla procedura seguente: 
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 1. Passare alla propria risorsa di macchina virtuale di SQL Server. 
-1. In **Impostazioni** selezionare **Configura** . Selezionare quindi l'edizione di SQL Server dall'elenco a discesa sotto **Edizione** . 
+1. In **Impostazioni** selezionare **Configura**. Selezionare quindi l'edizione di SQL Server dall'elenco a discesa sotto **Edizione**. 
 
    ![Modificare i metadati dell'edizione](./media/change-sql-server-edition/edition-change-in-portal.png)
 
@@ -91,7 +91,7 @@ Dopo aver modificato l'edizione di SQL Server usando il supporto di installazion
 
 - La proprietà edition della VM di SQL Server deve corrispondere all'edizione dell'istanza di SQL Server installata per tutte le macchine virtuali di SQL Server, inclusi i tipi di licenza con pagamento in base al consumo e Bring Your Own License.
 - Se si elimina la risorsa VM di SQL Server, sarà necessario ripristinare l'impostazione dell'edizione hardcoded dell'immagine.
-- La possibilità di modificare l'edizione è una funzionalità del provider di risorse per VM SQL. La distribuzione di un'immagine di Azure Marketplace attraverso il portale di Azure registra automaticamente una macchina virtuale di SQL Server con il provider di risorse. Tuttavia, i clienti che eseguono l'installazione automatica di SQL Server dovranno [registrare manualmente la loro VM di SQL Server](sql-vm-resource-provider-register.md).
+- La possibilità di modificare l'edizione è una funzionalità dell'estensione SQL IaaS Agent. La distribuzione di un'immagine di Azure Marketplace tramite il portale di Azure registra automaticamente una macchina virtuale di SQL Server con l'estensione SQL IaaS Agent. Tuttavia, i clienti che eseguono l'installazione automatica di SQL Server dovranno [registrare manualmente la loro VM di SQL Server](sql-agent-extension-manually-register-single-vm.md).
 - Per aggiungere una VM di SQL Server a un set di disponibilità, è necessario ricrearla. Tutte le VM aggiunte a un set di disponibilità verranno riportate all'edizione predefinita e l'edizione dovrà essere di nuovo modificata.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8119d01ae8e8ed1e809753e433b063a844a2c5c3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ccd998bc2f6e2771ff4dd1bedfa2213af7573102
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790679"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556585"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Backup automatico per macchine virtuali SQL Server 2014 (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -50,7 +50,7 @@ Per usare il backup automatico, tenere in considerazione i seguenti prerequisiti
 **Configurazione del database** :
 
 - I database _utente_ di destinazione devono usare il modello di recupero con la versione completa. I database di sistema non devono necessariamente usare il modello di recupero con registrazione completa. Se tuttavia è necessario effettuare il backup del log per Model o MSDB, deve essere usato il modello di recupero con registrazione completa. Per altre informazioni sull'impatto del modello di recupero con registrazione completa sui backup, vedere [Backup con il modello di recupero con registrazione completa](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105)). 
-- La macchina virtuale SQL Server è stata registrata con il provider di risorse VM SQL in [modalità di gestione completa](sql-vm-resource-provider-register.md#upgrade-to-full). 
+- La macchina virtuale SQL Server è stata registrata con l'estensione SQL IaaS Agent in [modalità di gestione completa](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full). 
 -  Il backup automatico si basa sull' [estensione dell'agente IaaS completa SQL Server](sql-server-iaas-agent-extension-automate-management.md). Di conseguenza, il backup automatico è supportato solo nei database di destinazione dell'istanza predefinita o in una singola istanza denominata. Se non è presente alcuna istanza predefinita e più istanze denominate, l'estensione SQL IaaS ha esito negativo e il backup automatico non funzionerà. 
 
 ## <a name="settings"></a>Impostazioni
@@ -70,7 +70,7 @@ Nella seguente tabella sono descritte le opzioni che possono essere configurate 
 
 Usare il portale di Azure per configurare il backup automatico quando si crea una nuova macchina virtuale di SQL Server 2014 nel modello di distribuzione di Resource Manager.
 
-Nella scheda **Impostazioni SQL Server** scorrere verso il basso fino a **Backup automatico** e selezionare **Abilita** . Nella seguente schermata del portale di Azure vengono mostrate le impostazioni del **Backup automatico di SQL** .
+Nella scheda **Impostazioni SQL Server** scorrere verso il basso fino a **Backup automatico** e selezionare **Abilita**. Nella seguente schermata del portale di Azure vengono mostrate le impostazioni del **Backup automatico di SQL**.
 
 ![Configurazione del backup automatico di SQL nel portale di Azure](./media/automated-backup-sql-2014/azure-sql-arm-autobackup.png)
 
@@ -80,7 +80,7 @@ Nella scheda **Impostazioni SQL Server** scorrere verso il basso fino a **Backup
 
 Per le macchine virtuali di SQL Server esistenti, è possibile abilitare e disabilitare i backup automatici, modificare il periodo di mantenimento dati, specificare l'account di archiviazione e abilitare la crittografia dal portale di Azure. 
 
-Passare alla [risorsa Macchine virtuali SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) per la propria macchina virtuale SQL Server 2014, quindi selezionare **Backup** . 
+Passare alla [risorsa Macchine virtuali SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) per la propria macchina virtuale SQL Server 2014, quindi selezionare **Backup**. 
 
 ![Backup automatico di SQL per le VM esistenti](./media/automated-backup-sql-2014/azure-sql-rm-autobackup-existing-vms.png)
 
@@ -96,12 +96,12 @@ Se si intende abilitare il backup automatico per la prima volta, Azure configura
 È possibile usare PowerShell per configurare Backup automatico. Prima di iniziare, è necessario eseguire queste operazioni:
 
 - [Scaricare e installare la versione di Azure PowerShell più recente](https://aka.ms/webpi-azps).
-- Aprire Windows PowerShell e associarlo al proprio account con il comando **Connect-AzAccount** . 
+- Aprire Windows PowerShell e associarlo al proprio account con il comando **Connect-AzAccount**. 
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 ### <a name="install-the-sql-server-iaas-extension"></a>Installare l'estensione di SQL Server IaaS
-Se è stato eseguito il provisioning di una VM di SQL Server dal portale di Azure, l'estensione di SQL Server IaaS dovrebbe già essere installata. È possibile verificare se l'estensione è già stata installata per la VM eseguendo il comando **Get-AzVM** ed esaminando la proprietà **Extensions** .
+Se è stato eseguito il provisioning di una VM di SQL Server dal portale di Azure, l'estensione di SQL Server IaaS dovrebbe già essere installata. È possibile verificare se l'estensione è già stata installata per la VM eseguendo il comando **Get-AzVM** ed esaminando la proprietà **Extensions**.
 
 ```powershell
 $vmname = "vmname"
@@ -186,9 +186,9 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 Potrebbero essere necessari diversi minuti per installare e configurare l'agente IaaS di SQL Server.
 
 > [!NOTE]
-> Sono presenti altre impostazioni per **New-AzVMSqlServerAutoBackupConfig** che si applicano solo a SQL Server 2016 e Automated Backup v2. SQL Server 2014 non supporta le impostazioni seguenti: **BackupSystemDbs** , **BackupScheduleType** , **FullBackupFrequency** , **FullBackupStartHour** , **FullBackupWindowInHours** e **LogBackupFrequencyInMinutes** . Se si tenta di configurare queste impostazioni in una macchina virtuale di SQL Server 2014, non si verificano errori ma le impostazioni non vengono applicate. Se si desidera usare queste impostazioni in una macchina virtuale di SQL Server 2016, vedere [Backup automatico versione 2 per macchine virtuali SQL Server 2016 di Azure](automated-backup.md).
+> Sono presenti altre impostazioni per **New-AzVMSqlServerAutoBackupConfig** che si applicano solo a SQL Server 2016 e Automated Backup v2. SQL Server 2014 non supporta le impostazioni seguenti: **BackupSystemDbs** , **BackupScheduleType** , **FullBackupFrequency** , **FullBackupStartHour** , **FullBackupWindowInHours** e **LogBackupFrequencyInMinutes**. Se si tenta di configurare queste impostazioni in una macchina virtuale di SQL Server 2014, non si verificano errori ma le impostazioni non vengono applicate. Se si desidera usare queste impostazioni in una macchina virtuale di SQL Server 2016, vedere [Backup automatico versione 2 per macchine virtuali SQL Server 2016 di Azure](automated-backup.md).
 
-Per abilitare la crittografia, modificare lo script precedente in modo da passare il parametro **EnableEncryption** e una password (stringa sicura) per il parametro **CertificatePassword** . Il seguente script abilita le impostazioni del backup automatico nell'esempio precedente e aggiunge la crittografia.
+Per abilitare la crittografia, modificare lo script precedente in modo da passare il parametro **EnableEncryption** e una password (stringa sicura) per il parametro **CertificatePassword**. Il seguente script abilita le impostazioni del backup automatico nell'esempio precedente e aggiunge la crittografia.
 
 ```powershell
 $password = "P@ssw0rd"
@@ -207,7 +207,7 @@ Per confermare l'applicazione delle impostazioni, [verificare la configurazione 
 
 ### <a name="disable-automated-backup"></a>Disabilitare Backup automatico
 
-Per disabilitare Backup automatizzato, eseguire lo stesso script senza il parametro **-Enable** per il comando **New-AzVMSqlServerAutoBackupConfig** . L'assenza del parametro **-Enable** segnala il comando per disabilitare la funzionalità. Come per l'installazione, la disabilitazione del backup automatico può richiedere alcuni minuti.
+Per disabilitare Backup automatizzato, eseguire lo stesso script senza il parametro **-Enable** per il comando **New-AzVMSqlServerAutoBackupConfig**. L'assenza del parametro **-Enable** segnala il comando per disabilitare la funzionalità. Come per l'installazione, la disabilitazione del backup automatico può richiedere alcuni minuti.
 
 ```powershell
 $autobackupconfig = New-AzVMSqlServerAutoBackupConfig -ResourceGroupName $storage_resourcegroupname
@@ -261,11 +261,11 @@ Per monitorare il Backup automatizzato in SQL Server 2014 esistono due opzioni p
 In primo luogo, è possibile eseguire il polling dello stato chiamando [msdb.smart_admin.sp_get_backup_diagnostics](/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Oppure eseguire una query della funzione con valori di tabella [msdb.smart_admin.fn_get_health_status](/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql).
 
 > [!NOTE]
-> Lo schema per il Backup gestito di SQL Server 2014 è **msdb.smart_admin** . In SQL Server 2016 questo è stato modificato in **msdb.managed_backup** e gli argomenti di riferimento usano questo schema più recente. Per SQL Server 2014, invece, è necessario continuare a usare lo schema **smart_admin** per tutti gli oggetti di Backup gestito.
+> Lo schema per il Backup gestito di SQL Server 2014 è **msdb.smart_admin**. In SQL Server 2016 questo è stato modificato in **msdb.managed_backup** e gli argomenti di riferimento usano questo schema più recente. Per SQL Server 2014, invece, è necessario continuare a usare lo schema **smart_admin** per tutti gli oggetti di Backup gestito.
 
 È inoltre possibile sfruttare la funzionalità incorporata di posta elettronica database per le notifiche.
 
-1. Chiamare la stored precedure [msdb.smart_admin.sp_set_parameter](/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) per assegnare un indirizzo di posta elettronica al parametro **SSMBackup2WANotificationEmailIds** . 
+1. Chiamare la stored precedure [msdb.smart_admin.sp_set_parameter](/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) per assegnare un indirizzo di posta elettronica al parametro **SSMBackup2WANotificationEmailIds**. 
 1. Abilitare [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) per inviare i messaggi di posta elettronica dalla macchina virtuale di Azure.
 1. Usare il nome utente e il server SMTP per configurare la posta elettronica database. È possibile configurare la posta elettronica database in SQL Server Management Studio o con i comandi Transact-SQL. Per altre informazioni, vedere [Posta elettronica database](/sql/relational-databases/database-mail/database-mail).
 1. [Configurare SQL Server Agent per usare la posta elettronica database](/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).

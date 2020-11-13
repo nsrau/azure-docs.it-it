@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: eaaedc4404419e6028250a994077dd3df20b83d4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: fb1f1d098970927ba04c840e77ec0a0b8d76ca02
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539652"
+ms.locfileid: "94561319"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Sicurezza e governance aziendale per Azure Machine Learning
 
@@ -105,7 +105,13 @@ Facoltativamente, è possibile configurare le proprie identità gestite per l'us
 
 Per limitare l'accesso fisico alle risorse di Azure Machine Learning, è possibile usare rete virtuale di Azure (VNet). Reti virtuali consentono di creare ambienti di rete parzialmente o completamente isolati dalla rete Internet pubblica. In questo modo si riduce la superficie di attacco per la soluzione, nonché le probabilità di exfiltration di dati.
 
-Per altre informazioni, vedere [Panoramica della privacy e dell'isolamento rete virtuale](how-to-network-security-overview.md).
+Per altre informazioni, vedere i documenti seguenti:
+
+* [Panoramica dell'isolamento e della privacy della rete virtuale](how-to-network-security-overview.md)
+* [Proteggere le risorse dell'area di lavoro](how-to-secure-workspace-vnet.md)
+* [Proteggere l'ambiente di training](how-to-secure-training-vnet.md)
+* [Ambiente di inferenza sicuro](how-to-secure-inferencing-vnet.md)
+* [Usare studio in una rete virtuale protetta](how-to-enable-studio-virtual-network.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 

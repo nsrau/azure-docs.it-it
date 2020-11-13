@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: 249e65b5a9440678015598d9969c0d2ed689c626
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 262e15754ba481ee37b6af9783e5a3bc82d9450c
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285364"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556353"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifiche alla documentazione di SQL Server in Macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 
 | Modifiche | Dettagli |
 | --- | --- |
-| **Registrazione RP automatica** | È ora possibile abilitare la funzionalità di [registrazione automatica](sql-vm-resource-provider-automatic-registration.md) per registrare automaticamente tutte le macchine virtuali SQL Server già distribuite nella sottoscrizione, nonché tutte le VM SQL Server aggiunte in futuro.  | 
+| **Registrazione automatica dell'estensione** | È ora possibile abilitare la funzionalità di [registrazione automatica](sql-agent-extension-automatic-registration-all-vms.md) per registrare automaticamente tutte le macchine virtuali SQL Server già distribuite nella sottoscrizione con l' [estensione SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Questo vale per tutte le macchine virtuali esistenti e registrerà automaticamente anche tutte le macchine virtuali SQL Server aggiunte in futuro.   | 
 
 
 ## <a name="august-2020"></a>Agosto 2020
@@ -49,7 +49,7 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 | Modifiche | Dettagli |
 | --- | --- |
 | **Migrare il log su disco Ultra** | Informazioni su come è possibile [eseguire la migrazione del file di log a un disco Ultra](storage-migrate-to-ultradisk.md) per sfruttare le prestazioni elevate e la bassa latenza. | 
-| **Creare un'AG usando PowerShell** | È ora possibile semplificare la creazione di un gruppo di disponibilità usando [PowerShell](availability-group-az-commandline-configure.md) e l'interfaccia della riga di comando di Azure. | 
+| **Creazione di un gruppo di disponibilità con Azure PowerShell** | È ora possibile semplificare la creazione di un gruppo di disponibilità usando [Azure PowerShell](availability-group-az-commandline-configure.md) e l'interfaccia della riga di comando di Azure. | 
 
 
 ## <a name="june-2020"></a>Giugno 2020
@@ -73,7 +73,7 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 
 | Modifiche | Dettagli |
 | --- | --- |
-| **Supporto di Azure per enti pubblici** | È ora possibile registrare SQL Server macchine virtuali con il provider di risorse VM SQL per le macchine virtuali ospitate nel cloud di [Azure per enti pubblici](https://azure.microsoft.com/global-infrastructure/government/) . | 
+| **Supporto di Azure per enti pubblici** | È ora possibile registrare SQL Server macchine virtuali con l'estensione SQL IaaS Agent per le macchine virtuali ospitate nel cloud di [Azure per enti pubblici](https://azure.microsoft.com/global-infrastructure/government/) . | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2019"></a>2019
@@ -81,22 +81,22 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 |Modifiche | Dettagli |
  --- | --- |
 | **Replica di ripristino di emergenza gratuita in Azure** | È possibile ospitare un'[istanza passiva gratuita](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure) per il ripristino di emergenza in Azure per l'istanza di SQL Server locale se si è aderito al programma [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3). | 
-| **Registrazione in blocco con il provider di risorse** | È ora possibile [registrare in blocco](sql-vm-resource-provider-bulk-register.md) SQL Server macchine virtuali con il provider di risorse. | 
+| **Registrazione dell'estensione IaaS SQL BULK** | È ora possibile [registrare in blocco](sql-agent-extension-manually-register-vms-bulk.md) SQL Server macchine virtuali con l' [estensione SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). | 
 |**Configurazione dell'archiviazione ottimizzata per le prestazioni** | Quando si crea una nuova VM di SQL Server è ora possibile [personalizzare completamente la configurazione di archiviazione](storage-configuration.md#new-vms). |
 |**Condivisione file Premium per FCI** | È ora possibile creare un'istanza del cluster di failover usando una [condivisione file Premium](failover-cluster-instance-premium-file-share-manually-configure.md) anziché il metodo originale di [spazi di archiviazione diretta](failover-cluster-instance-storage-spaces-direct-manually-configure.md). 
 | **Host dedicato di Azure** | È possibile eseguire la macchina virtuale SQL Server nell' [host dedicato di Azure](dedicated-host.md). | 
 | **SQL Server la migrazione di macchine virtuali in un'area diversa** | Usare Azure Site Recovery per la [migrazione della VM di SQL Server da un'area a un'altra](move-sql-vm-different-region.md). |
 |  **Nuove modalità di installazione di SQL IaaS** | È ora possibile installare l'estensione IaaS di SQL Server in [modalità leggera](sql-server-iaas-agent-extension-automate-management.md) per evitare di riavviare il servizio SQL Server.  |
 | **Modifica dell'edizione di SQL Server** | È ora possibile modificare la [proprietà dell'edizione](change-sql-server-edition.md) per la VM di SQL Server. |
-| **Modifiche al provider di risorse VM SQL** | È possibile [registrare la VM di SQL Server con il provider di risorse di macchine virtuali SQL](sql-vm-resource-provider-register.md) usando le nuove modalità di SQL IaaS. Questa funzionalità include le immagini di [Windows Server 2008](sql-server-iaas-agent-extension-automate-management.md#management-modes).|
+| **Modifiche all'estensione SQL IaaS Agent** | È possibile [registrare la macchina virtuale SQL Server con l'estensione SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md) usando le nuove modalità IaaS di SQL. Questa funzionalità include le immagini di [Windows Server 2008](sql-server-iaas-agent-extension-automate-management.md#management-modes).|
 | **Immagini Bring Your Own License tramite il Vantaggio Azure Hybrid** | Per le immagini Bring Your Own License distribuite da Azure Marketplace è ora possibile modificare il [tipo di licenza in pagamento in base al consumo](licensing-model-azure-hybrid-benefit-ahb-change.md#remarks).| 
 | **Nuova SQL Server gestione delle macchine virtuali nel portale di Azure** | È ora possibile gestire le VM di SQL Server nel portale di Azure. Per altre informazioni, vedere [Gestire le VM di SQL Server nel portale di Azure](manage-sql-vm-portal.md).  | 
 | **Supporto esteso per SQL Server 2008 e 2008 R2** | [Estendere il supporto](sql-server-2008-extend-end-of-support.md) per SQL Server 2008 e SQL Server 2008 R2 eseguendo la migrazione *senza modifiche* a una macchina virtuale di Azure. | 
-| **Supportabilità di immagini personalizzate** | È ora possibile installare l' [estensione IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md#installation) per le immagini del sistema operativo e del SQL Server personalizzato, che offre la funzionalità limitata di [licenze flessibili](licensing-model-azure-hybrid-benefit-ahb-change.md). Quando si esegue la registrazione dell'immagine personalizzata con il provider di risorse VM SQL, specificare il tipo di licenza "vantaggio Ahu". In caso contrario, la registrazione non riesce. | 
+| **Supportabilità di immagini personalizzate** | È ora possibile installare l' [estensione IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md#installation) per le immagini del sistema operativo e del SQL Server personalizzato, che offre la funzionalità limitata di [licenze flessibili](licensing-model-azure-hybrid-benefit-ahb-change.md). Quando si esegue la registrazione dell'immagine personalizzata con l'estensione SQL IaaS Agent, specificare il tipo di licenza "vantaggio Ahu". In caso contrario, la registrazione non riesce. | 
 | **Supportabilità di istanze denominate** | È ora possibile usare l'[estensione IaaS di SQL Server](sql-server-iaas-agent-extension-automate-management.md#installation) con un'istanza denominata, se l'istanza predefinita è stata disinstallata correttamente. | 
 | **Miglioramenti del portale** | L'esperienza del portale di Azure per la distribuzione di una VM di SQL Server è stata rinnovata per migliorare l'usabilità. Per altre informazioni, vedere la breve guida di [avvio rapido](sql-vm-create-portal-quickstart.md) e altre indicazioni disponibili nella [guida pratica](create-sql-vm-portal.md) per distribuire una VM di SQL Server.|
-| **Potenziamento del portale** | Ora è possibile cambiare il modello di licenza per una VM di SQL Server passando dal modello con pagamento in base al consumo al modello BYOL (Bring Your Own License) tramite il [portale di Azure](licensing-model-azure-hybrid-benefit-ahb-change.md#vms-already-registered-with-the-resource-provider).|
-| **Semplificazione della distribuzione del gruppo di disponibilità in una VM SQL Server tramite l'interfaccia della riga di comando di Azure** | Distribuire un gruppo di disponibilità in una VM di SQL Server in Azure è ora più facile che mai. È possibile usare l' [interfaccia](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) della riga di comando di Azure per creare il cluster di failover Windows, il servizio di bilanciamento del carico interno e i listener del gruppo di disponibilità dalla riga di comando. Per altre informazioni, vedere [usare l'interfaccia della riga di comando di Azure per configurare un gruppo di disponibilità always on per SQL Server in una macchina virtuale di Azure](./availability-group-az-commandline-configure.md). | 
+| **Potenziamento del portale** | Ora è possibile cambiare il modello di licenza per una VM di SQL Server passando dal modello con pagamento in base al consumo al modello BYOL (Bring Your Own License) tramite il [portale di Azure](licensing-model-azure-hybrid-benefit-ahb-change.md#change-license-model).|
+| **Semplificazione della distribuzione del gruppo di disponibilità in una VM SQL Server tramite l'interfaccia della riga di comando di Azure** | Distribuire un gruppo di disponibilità in una VM di SQL Server in Azure è ora più facile che mai. È possibile usare l' [interfaccia](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) della riga di comando di Azure per creare il cluster di failover Windows, il servizio di bilanciamento del carico interno e i listener del gruppo di disponibilità dalla riga di comando. Per altre informazioni, vedere [usare l'interfaccia della riga di comando di Azure per configurare un gruppo di disponibilità always on per SQL Server in una macchina virtuale di Azure](availability-group-az-cli-configure.md). | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2018"></a>2018 
@@ -105,8 +105,8 @@ Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL 
 | --- | --- |
 |  **Nuovo provider di risorse per un cluster SQL Server** | Un nuovo provider di risorse (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups) definisce i metadati del cluster di failover di Windows. L'aggiunta di una VM di SQL Server a *SqlVirtualMachineGroups* determina l'avvio del servizio Windows Server Failover Cluster (WSFC) e l'aggiunta della VM al cluster.  |
 | **Configurazione automatica della distribuzione di un gruppo di disponibilità con modelli di avvio rapido di Azure** |È ora possibile creare il cluster di failover di Windows, aggiungervi SQL Server macchine virtuali, creare il listener e configurare il servizio di bilanciamento del carico interno usando due modelli di avvio rapido di Azure. Per altre informazioni, vedere [Usare modelli di avvio rapido di Azure per configurare un gruppo di disponibilità Always On per SQL Server in una macchina virtuale di Azure](availability-group-quickstart-template-configure.md). | 
-| **Registrazione automatica nel provider di risorse di macchine virtuali SQL** | SQL Server macchine virtuali distribuite dopo questo mese vengono registrate automaticamente con il nuovo provider di risorse VM SQL. Le VM di SQL Server distribuite prima del mese corrente devono ancora essere registrate manualmente. Per altre informazioni, vedere [Registrare una macchina virtuale di SQL Server in Azure con il provider di risorse di macchine virtuali SQL](sql-vm-resource-provider-register.md).|
-|**Nuovo provider di risorse per VM di SQL** |  Un nuovo provider di risorse (Microsoft.SqlVirtualMachine) consente una migliore gestione delle VM di SQL Server. Per altre informazioni sulla registrazione delle macchine virtuali, vedere [Registrare una macchina virtuale di SQL Server in Azure con il provider di risorse di macchine virtuali SQL](sql-vm-resource-provider-register.md). |
+| **Registrazione automatica all'estensione SQL IaaS Agent** | SQL Server macchine virtuali distribuite dopo questo mese vengono registrate automaticamente con la nuova estensione SQL IaaS Agent. Le VM di SQL Server distribuite prima del mese corrente devono ancora essere registrate manualmente. Per altre informazioni, vedere [registrare una macchina virtuale SQL Server in Azure con l'estensione SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md).|
+|**Nuova estensione SQL IaaS Agent** |  Un nuovo provider di risorse (Microsoft.SqlVirtualMachine) consente una migliore gestione delle VM di SQL Server. Per altre informazioni sulla registrazione delle macchine virtuali, vedere [registrare una macchina virtuale SQL Server in Azure con l'estensione SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md). |
 |**Cambiare il modello di licenza** | Tramite l'interfaccia della riga di comando di Azure o PowerShell è ora possibile passare dal modello con pagamento in base all'utilizzo al modello BYOL (Bring Your Own License) per la VM di SQL Server. Per altre informazioni, vedere [Come cambiare il modello di licenza per una macchina virtuale SQL Server in Azure](licensing-model-azure-hybrid-benefit-ahb-change.md). | 
 | &nbsp; | &nbsp; |
 

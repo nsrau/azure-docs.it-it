@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6bf17f85892691fe930d3d4b1e12846da8f9dc58
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c49f8b2732a1b62760cec69626d56751971e6a44
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789812"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556438"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Come usare Azure PowerShell per eseguire il provisioning di SQL Server in macchine virtuali di Azure
 
@@ -34,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="configure-your-subscription"></a>Configurare la sottoscrizione
 
-1. Aprire PowerShell e accedere all'account Azure eseguendo il comando **Connect-AzAccount** .
+1. Aprire PowerShell e accedere all'account Azure eseguendo il comando **Connect-AzAccount**.
 
    ```powershell
    Connect-AzAccount
@@ -367,12 +367,17 @@ La macchina virtuale viene creata.
 
 ## <a name="install-the-sql-iaas-agent"></a>Installare SQL Iaas Agent
 
-Le macchine virtuali di SQL Server supportano funzionalità di gestione automatica mediante l'[estensione SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Per installare l'agente nella nuova VM e registrarlo con il provider di risorse, eseguire il comando [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) dopo la creazione della macchina virtuale. Specificare il tipo di licenza per la macchina virtuale di SQL Server, scegliendo tra il tipo con pagamento in base al consumo e il tipo Bring Your Own License tramite il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/). Per altre informazioni sulle licenze, vedere [Modello di licenza](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+Le macchine virtuali di SQL Server supportano funzionalità di gestione automatica mediante l'[estensione SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Per registrare il SQL Server con l'estensione, eseguire il comando [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) dopo la creazione della macchina virtuale. Specificare il tipo di licenza per la macchina virtuale di SQL Server, scegliendo tra il tipo con pagamento in base al consumo e il tipo Bring Your Own License tramite il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/). Per altre informazioni sulle licenze, vedere [Modello di licenza](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 
    ```powershell
    New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
    ```
+
+Esistono tre modi per eseguire la registrazione con l'estensione: 
+- [Automaticamente per tutte le macchine virtuali correnti e future in una sottoscrizione](sql-agent-extension-automatic-registration-all-vms.md)
+- [Manualmente per una singola macchina virtuale](sql-agent-extension-manually-register-single-vm.md)
+- [Manualmente per più macchine virtuali in blocco](sql-agent-extension-manually-register-vms-bulk.md)
 
 
 ## <a name="stop-or-remove-a-vm"></a>Arrestare o rimuovere una macchina virtuale
@@ -383,11 +388,11 @@ Se non è necessario che la macchina virtuale sia continuamente in esecuzione, �
 Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-È anche possibile eliminare definitivamente tutte le risorse associate alla macchina virtuale con il comando **Remove-AzResourceGroup** . In questo modo viene eliminata definitivamente anche la macchina virtuale, quindi usare questo comando con cautela.
+È anche possibile eliminare definitivamente tutte le risorse associate alla macchina virtuale con il comando **Remove-AzResourceGroup**. In questo modo viene eliminata definitivamente anche la macchina virtuale, quindi usare questo comando con cautela.
 
 ## <a name="example-script"></a>Script di esempio
 
-Lo script seguente contiene lo script PowerShell completo per l'esercitazione. Si presuppone che sia già stata impostata la sottoscrizione di Azure da usare con i comandi **Connect-AzAccount** e **Select-AzSubscription** .
+Lo script seguente contiene lo script PowerShell completo per l'esercitazione. Si presuppone che sia già stata impostata la sottoscrizione di Azure da usare con i comandi **Connect-AzAccount** e **Select-AzSubscription**.
 
 ```powershell
 # Variables

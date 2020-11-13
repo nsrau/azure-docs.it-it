@@ -1,7 +1,7 @@
 ---
 title: Esegui script Python nella finestra di progettazione
 titleSuffix: Azure Machine Learning
-description: Informazioni su come trasformare i dati nella finestra di progettazione Azure Machine Learning tramite Python.
+description: Informazioni su come usare il modello di script Execute Python in Azure Machine Learning Designer per eseguire operazioni personalizzate scritte in Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer, devx-track-python
-ms.openlocfilehash: 6a393cf2c0787a2bc2111581126cbc261d85f1f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcc28d98efbc82079586de8cfbecd35effc93d6e
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897746"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556234"
 ---
 # <a name="run-python-code-in-azure-machine-learning-designer"></a>Eseguire codice Python in Azure Machine Learning Designer
 
@@ -58,7 +58,7 @@ I moduli di input sono facoltativi perché è possibile generare o importare dat
 
 La finestra di progettazione fornisce uno script iniziale che è possibile modificare per immettere il proprio codice Python. 
 
-In questo esempio vengono usati Pandas per combinare due colonne trovate nel set di dati dell'automobile, **Prezzo** e **Potenza**, in modo da creare una nuova colonna, **Dollari per potenza**. Questo articolo rappresenta quanto si paga per ogni cavallo, una funzionalità potenzialmente utile per decidere se un'automobile ha un buon rapporto qualità/prezzo. 
+In questo esempio vengono usati Pandas per combinare due colonne trovate nel set di dati dell'automobile, **Prezzo** e **Potenza** , in modo da creare una nuova colonna, **Dollari per potenza**. Questo articolo rappresenta quanto si paga per ogni cavallo, una funzionalità potenzialmente utile per decidere se un'automobile ha un buon rapporto qualità/prezzo. 
 
 1. Selezionare il modulo **Execute Python Script**.
 
@@ -83,7 +83,7 @@ In questo esempio vengono usati Pandas per combinare due colonne trovate nel set
     
 1. Inviare la pipeline.
 
-A questo punto, si dispone di un set di dati con la nuova funzionalità **Dollari/Potenza**, potenzialmente utile per il training di un esperto di automobili. Si tratta di un esempio di estrazione della funzionalità e di riduzione della dimensionalità. 
+A questo punto, si dispone di un set di dati con la nuova funzionalità **Dollari/Potenza** , potenzialmente utile per il training di un esperto di automobili. Si tratta di un esempio di estrazione della funzionalità e di riduzione della dimensionalità. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

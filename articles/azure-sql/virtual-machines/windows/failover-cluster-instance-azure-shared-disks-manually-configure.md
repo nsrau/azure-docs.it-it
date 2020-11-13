@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: c78899bff39f37c63c7db0eeb12690ab2a90cac4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: df50583e650d3d44e702c0f7d1596f2a733a4445
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285382"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556387"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Creare un'istanza FCI con i dischi condivisi di Azure (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -197,7 +197,7 @@ Le directory dei dati FCI devono trovarsi nei dischi condivisi di Azure.
 
 ## <a name="register-with-the-sql-vm-rp"></a>Eseguire la registrazione con la macchina virtuale SQL RP
 
-Per gestire la macchina virtuale SQL Server dal portale, registrarla con il provider di risorse VM SQL (RP) in [modalità di gestione leggera](sql-vm-resource-provider-register.md#lightweight-management-mode), attualmente l'unica modalità supportata con FCI e SQL Server in macchine virtuali di Azure. 
+Per gestire la macchina virtuale SQL Server dal portale, registrarla con l'estensione SQL IaaS Agent (RP) in [modalità di gestione leggera](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), attualmente l'unica modalità supportata con FCI e SQL Server in macchine virtuali di Azure. 
 
 
 Registrare una macchina virtuale SQL Server in modalità Lightweight con PowerShell:  
@@ -217,7 +217,7 @@ Per instradare il traffico in modo appropriato al nodo primario corrente, config
 
 ## <a name="limitations"></a>Limitazioni
 
-- È supportata solo la registrazione con il provider di risorse VM SQL in [modalità di gestione semplice](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
+- È supportata solo la registrazione con l'estensione SQL IaaS Agent in [modalità di gestione Lightweight](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

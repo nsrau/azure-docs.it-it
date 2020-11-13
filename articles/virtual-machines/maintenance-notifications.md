@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: 14c7c3deb60c50fe71cf52959e342a3dcf2afc94
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 53cde1178a4faae0fbd11222e4219f70be29145d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151546"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560809"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Gestione delle notifiche di manutenzione pianificata
 
 Azure esegue periodicamente aggiornamenti per migliorare l'affidabilità, le prestazioni e la sicurezza dell'infrastruttura host per le macchine virtuali. Gli aggiornamenti sono considerati modifiche, ad esempio l'applicazione di patch all'ambiente di hosting o l'aggiornamento e la rimozione di componenti hardware. La maggior parte di questi aggiornamenti viene completata senza alcun effetto sulle macchine virtuali ospitate. Ci sono casi tuttavia in cui gli aggiornamenti hanno conseguenze:
 
-- Se la manutenzione non richiede un riavvio, Azure usa la migrazione sul posto per sospendere la VM mentre l'host viene aggiornato. Per questi tipi di operazioni di manutenzione viene applicato un dominio di errore per dominio di errore. L'operazione viene interrotta in caso di ricezione di segnali di integrità di avviso.
+- Se la manutenzione non richiede un riavvio, Azure sospende la macchina virtuale per alcuni secondi mentre l'host viene aggiornato. Per questi tipi di operazioni di manutenzione viene applicato un dominio di errore per dominio di errore. L'operazione viene interrotta in caso di ricezione di segnali di integrità di avviso.
 
 - Se la manutenzione richiede un riavvio, si riceve un avviso che informa per quando è pianificata la manutenzione. Viene fornito un intervallo di tempo di circa 35 giorni, in cui è possibile avviare manualmente la manutenzione, quando funziona.
 
@@ -80,7 +80,7 @@ Per altre informazioni sulla disponibilità elevata, vedere [disponibilità per 
 
 **D: Come si ricevono le notifiche relative alla manutenzione pianificata?**
 
-**R:** Un ciclo di manutenzione pianificata viene avviato impostando una programmazione su una o più aree di Azure. Subito dopo, viene inviata una notifica tramite posta elettronica all'amministratore e ai coamministratori della sottoscrizione (un messaggio di posta elettronica per sottoscrizione). Si possono configurare altri canali e destinatari per questa notifica usando gli avvisi del log attività. Se si distribuisce una macchina virtuale in un'area in cui la manutenzione pianificata è già programmata, non si riceverà la notifica, ma sarà necessario controllare lo stato della manutenzione della VM.
+**R:** Un ciclo di manutenzione pianificata viene avviato impostando una programmazione su una o più aree di Azure. Subito dopo, viene inviata una notifica tramite posta elettronica agli amministratori della sottoscrizione, ai coamministratori, ai proprietari e ai collaboratori (un messaggio di posta elettronica per ogni sottoscrizione). Si possono configurare altri canali e destinatari per questa notifica usando gli avvisi del log attività. Se si distribuisce una macchina virtuale in un'area in cui la manutenzione pianificata è già programmata, non si riceverà la notifica, ma sarà necessario controllare lo stato della manutenzione della VM.
 
 **D: non viene visualizzata alcuna indicazione di manutenzione pianificata nel portale, in PowerShell o nell'interfaccia della riga di comando. Cosa c'è che non va?**
 
@@ -116,7 +116,7 @@ Per altre informazioni sulla disponibilità elevata, vedere [disponibilità per 
 1.  Il ciclo di manutenzione è stato annullato e riavviato con un payload diverso. Potrebbe essere stato rilevato un payload con errori e potrebbe essere stato semplicemente necessario distribuire un payload aggiuntivo.
 2.  È stato *ripristinato il servizio* della VM in un altro nodo a causa di un errore hardware.
 3.  Si è scelto di arrestare (deallocare) e riavviare la VM.
-4.  È attivo l'**arresto automatico** per la VM.
+4.  È attivo l' **arresto automatico** per la VM.
 
 
 

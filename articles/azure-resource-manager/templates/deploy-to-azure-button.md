@@ -3,12 +3,12 @@ title: Pulsante Deploy to Azure per la distribuzione in Azure
 description: Usare il pulsante per distribuire modelli di Azure Resource Manager da un repository GitHub.
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 7d002508f6b2402f8cff40fb0369896080ecbbad
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 25ec5fd7a0c5b356097412ab6f1765cb0886522a
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490900"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555264"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usare un pulsante di distribuzione per distribuire i modelli dal repository GitHub
 
@@ -19,11 +19,15 @@ L'ambito di distribuzione è determinato dallo schema del modello. Per altre inf
 * [gruppi di risorse](deploy-to-resource-group.md)
 * [sottoscrizioni](deploy-to-subscription.md)
 * [gruppi di gestione](deploy-to-management-group.md)
-* [tenant](deploy-to-tenant.md).
+* [tenant](deploy-to-tenant.md)
 
 ## <a name="use-common-image"></a>Usa immagine comune
 
 Per aggiungere il pulsante alla pagina Web o al repository, usare l'immagine seguente:
+
+```markdown
+![Deploy to Azure](https://aka.ms/deploytoazurebutton)
+```
 
 ```html
 <img src="https://aka.ms/deploytoazurebutton"/>
@@ -48,6 +52,7 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
 Convertire quindi l'URL in un valore con codifica URL. È possibile usare un codificatore online o eseguire un comando. L'esempio di PowerShell seguente illustra come codificare un valore in URL.
 
 ```powershell
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 [uri]::EscapeDataString($url)
 ```
 
@@ -70,6 +75,8 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 ```
 
 Si dispone dell'URL completo per il collegamento.
+
+In genere, il modello viene ospitato in un repository pubblico. Se si usa un repository privato, è necessario includere un token per accedere al contenuto non elaborato del modello. Il token generato da GitHub è valido solo per un breve periodo di tempo. È necessario aggiornare spesso il collegamento.
 
 Se si usa [git con Azure Repos](/azure/devops/repos/git/) invece di un repository GitHub, è comunque possibile usare il pulsante Distribuisci in Azure. Verificare che il repository sia pubblico. Usare l' [operazione Items](/rest/api/azure/devops/git/items/get) per ottenere il modello. La richiesta deve avere il formato seguente:
 

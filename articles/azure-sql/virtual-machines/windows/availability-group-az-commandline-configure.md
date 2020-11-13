@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: a85c1326501a362371d3bc961f5c5ae448e8d22e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9129d0cb44aea9b85c5569d4d939c0904c398c07
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790084"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556523"
 ---
 # <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Usare PowerShell o AZ CLI per configurare un gruppo di disponibilità per SQL Server in una macchina virtuale di Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ Per configurare un gruppo di disponibilità di Always On, è necessario che sian
 
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/).
 - Un gruppo di risorse con un controller di dominio. 
-- Una o più macchine virtuali appartenenti a un dominio [in Azure che eseguono SQL Server 2016 (o versione successiva) Enterprise Edition](./create-sql-vm-portal.md) nello *stesso* set di disponibilità o in zone di disponibilità *diverse* [registrate con il provider di risorse della macchina virtuale SQL](sql-vm-resource-provider-register.md).  
+- Una o più macchine virtuali appartenenti a un dominio [in Azure che eseguono SQL Server 2016 (o versione successiva) Enterprise Edition](./create-sql-vm-portal.md) nello *stesso* set di disponibilità o in zone di disponibilità *diverse* [registrate con l'estensione SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md).  
 - La versione più recente di [PowerShell](/powershell/scripting/install/installing-powershell) o dell'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli). 
 - Due indirizzi IP disponibili, non usati da alcuna entità. Uno è per il bilanciamento del carico interno, l'altro è per il listener del gruppo di disponibilità all'interno della stessa subnet del gruppo di disponibilità. Se si usa un servizio di bilanciamento del carico esistente, è necessario un solo indirizzo IP disponibile per il listener del gruppo di disponibilità. 
 
@@ -240,7 +240,7 @@ New-AzLoadBalancer -name sqlILB -ResourceGroupName <resource group name> `
 ---
 
 >[!IMPORTANT]
-> La risorsa IP pubblico per ogni VM di SQL Server deve avere uno SKU Standard per essere compatibile con Load Balancer Standard. Per determinare lo SKU della risorsa IP pubblico della VM, andare a **Gruppo di risorse** , selezionare la risorsa **Indirizzo IP pubblico** per la VM di SQL Server e individuare il valore in **SKU**  nel riquadro **Panoramica** .  
+> La risorsa IP pubblico per ogni VM di SQL Server deve avere uno SKU Standard per essere compatibile con Load Balancer Standard. Per determinare lo SKU della risorsa IP pubblico della VM, andare a **Gruppo di risorse** , selezionare la risorsa **Indirizzo IP pubblico** per la VM di SQL Server e individuare il valore in **SKU**  nel riquadro **Panoramica**.  
 
 ## <a name="create-listener"></a>Creare un listener
 
@@ -249,7 +249,7 @@ Dopo aver creato manualmente il gruppo di disponibilità, è possibile creare il
 L' *ID di risorsa della subnet* è il valore di `/subnets/<subnetname>` accodato all'ID risorsa della risorsa di rete virtuale. Per identificare l'ID risorsa della subnet:
    1. Passare al gruppo di risorse nel [portale di Azure](https://portal.azure.com). 
    1. Selezionare la risorsa di rete virtuale. 
-   1. Selezionare **Proprietà** nel riquadro **Impostazioni** . 
+   1. Selezionare **Proprietà** nel riquadro **Impostazioni**. 
    1. Identificare l'ID risorsa per la rete virtuale e accodarvi `/subnets/<subnetname>` per creare l'ID della risorsa della subnet. Ad esempio:
       - L'ID della risorsa di rete virtuale è: `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
       - Il nome della subnet è: `default`
@@ -423,9 +423,9 @@ Per rimuovere una replica dal gruppo di disponibilità:
 ---
 
 ## <a name="remove-listener"></a>Rimuovere un listener
-Se in un secondo momento è necessario rimuovere il listener del gruppo di disponibilità configurato con l'interfaccia della riga di comando di Azure, è necessario passare dal provider di risorse di VM di SQL. Poiché il listener è stato registrato con il provider di risorse di VM di SQL, eliminarlo semplicemente tramite SQL Server Management Studio non è sufficiente. 
+Se in un secondo momento è necessario rimuovere il listener del gruppo di disponibilità configurato con l'interfaccia della riga di comando di Azure, è necessario usare l'estensione SQL IaaS Agent. Poiché il listener viene registrato tramite l'estensione SQL IaaS Agent, è sufficiente eliminarlo tramite SQL Server Management Studio non è sufficiente. 
 
-Il metodo migliore consiste nell'eliminarlo con il provider di risorse delle VM di SQL, usando il frammento di codice seguente nell'interfaccia della riga di comando di Azure. Questa operazione rimuove i metadati del listener del gruppo di disponibilità dal provider di risorse di macchine virtuali di SQL ed elimina fisicamente il listener dal gruppo di disponibilità. 
+Il metodo migliore consiste nell'eliminarlo tramite l'estensione SQL IaaS Agent usando il frammento di codice seguente nell'interfaccia della riga di comando di Azure. Questa operazione rimuove i metadati del listener del gruppo di disponibilità dall'estensione SQL IaaS Agent. ed elimina fisicamente il listener dal gruppo di disponibilità. 
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -451,7 +451,7 @@ Remove-AzAvailabilityGroupListener -Name <Listener> `
 
 ## <a name="remove-cluster"></a>Rimuovi cluster
 
-Rimuovere tutti i nodi dal cluster per eliminarli definitivamente, quindi rimuovere i metadati del cluster dal provider di risorse della macchina virtuale SQL. A tale scopo, è possibile usare l'interfaccia della riga di comando di Azure o PowerShell. 
+Rimuovere tutti i nodi dal cluster per eliminarli definitivamente, quindi rimuovere i metadati del cluster dall'estensione SQL IaaS Agent. A tale scopo, è possibile usare l'interfaccia della riga di comando di Azure o PowerShell. 
 
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
@@ -468,7 +468,7 @@ az sql vm remove-from-group --name <VM2 name>  --resource-group <resource group 
 
 Se queste sono le uniche macchine virtuali nel cluster, il cluster verrà eliminato definitivamente. Se nel cluster sono presenti altre macchine virtuali separate dalle macchine virtuali SQL Server che sono state rimosse, le altre macchine virtuali non verranno rimosse e il cluster non verrà eliminato definitivamente. 
 
-Rimuovere quindi i metadati del cluster dal provider di risorse VM SQL: 
+Rimuovere quindi i metadati del cluster dall'estensione SQL IaaS Agent: 
 
 ```azurecli-interactive
 # Remove the cluster from the SQL VM RP metadata
@@ -497,7 +497,7 @@ $sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
 
 Se queste sono le uniche macchine virtuali nel cluster, il cluster verrà eliminato definitivamente. Se nel cluster sono presenti altre macchine virtuali separate dalle macchine virtuali SQL Server che sono state rimosse, le altre macchine virtuali non verranno rimosse e il cluster non verrà eliminato definitivamente. 
 
-Rimuovere quindi i metadati del cluster dal provider di risorse VM SQL: 
+Rimuovere quindi i metadati del cluster dall'estensione SQL IaaS Agent: 
 
 ```powershell-interactive
 # Remove the cluster metadata

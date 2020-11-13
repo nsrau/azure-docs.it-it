@@ -13,19 +13,17 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 949ddae903a53957f62b89a01ce477edb92917c1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a97e14bcb68629f5f175a4913146187949af08be
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365911"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561064"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modalità dispositivo condiviso per dispositivi iOS
 
-> [!NOTE]
-> Questa funzionalità è disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> Questa funzionalità [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 I ruoli di lavoro di prima riga, ad esempio i Retail Associates, i membri del team di volo e i worker del servizio Field spesso usano un dispositivo mobile condiviso per eseguire il lavoro Questi dispositivi condivisi possono presentare rischi per la sicurezza se gli utenti condividono le password o i pin, intenzionalmente o meno, per accedere ai dati aziendali e ai clienti sul dispositivo condiviso.
 
@@ -43,7 +41,7 @@ Per creare un'app in modalità dispositivo condivisa, gli sviluppatori e gli amm
 
 1. Gli **amministratori di dispositivi** preparano il dispositivo per la condivisione usando un provider di gestione di dispositivi mobili (MDM) come Microsoft Intune per gestire i dispositivi nell'organizzazione. Il MDM inserisce l'app Microsoft Authenticator nei dispositivi e attiva la modalità "Shared" per ogni dispositivo tramite un aggiornamento del profilo al dispositivo. Questa impostazione della modalità condivisa è la modifica del comportamento delle app supportate nel dispositivo. Questa configurazione dal provider MDM imposta la modalità del dispositivo condiviso per il dispositivo e Abilita il [plug-in Microsoft Enterprise SSO per i dispositivi Apple](apple-sso-plugin.md) , che è necessario per la modalità dispositivo condiviso.
 
-1. [**Obbligatorio durante l'anteprima pubblica**] Un utente con ruolo di [amministratore del dispositivo cloud](../roles/permissions-reference.md#cloud-device-administrator) deve quindi avviare l' [app Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) e aggiungere il dispositivo all'organizzazione.
+1. [ **Obbligatorio durante l'anteprima pubblica** ] Un utente con ruolo di [amministratore del dispositivo cloud](../roles/permissions-reference.md#cloud-device-administrator) deve quindi avviare l' [app Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) e aggiungere il dispositivo all'organizzazione.
 
     Per configurare l'appartenenza dei ruoli aziendali nel portale di Azure: **Azure Active Directory**  >  **ruoli e amministratori**  >  **amministratore del dispositivo cloud**
 
@@ -58,10 +56,10 @@ Il dispositivo deve essere configurato per supportare la modalità dispositivo c
 
 1. Nel portale di configurazione di Intune, indicare al dispositivo di abilitare il [plug-in Microsoft Enterprise SSO per i dispositivi Apple](apple-sso-plugin.md) con la seguente configurazione:
 
-    - **Tipo**: Reindirizzamento
-    - **ID estensione**: com. Microsoft. azureauthenticator. ssoextension
-    - **Team ID**: (questo campo non è necessario per iOS)
-    - **URL**:   
+    - **Tipo** : Reindirizzamento
+    - **ID estensione** : com. Microsoft. azureauthenticator. ssoextension
+    - **Team ID** : (questo campo non è necessario per iOS)
+    - **URL** :   
         - `https://login.microsoftonline.com`
         - `https://login.microsoft.com`
         - `https://sts.windows.net`
@@ -71,7 +69,7 @@ Il dispositivo deve essere configurato per supportare la modalità dispositivo c
         - `https://login.microsoftonline.us`
         - `https://login.usgovcloudapi.net`
         - `https://login-us.microsoftonline.com`
-    - **Dati aggiuntivi da configurare**:
+    - **Dati aggiuntivi da configurare** :
       - Chiave: sharedDeviceMode
       - Tipo: Boolean
       - Valore: true

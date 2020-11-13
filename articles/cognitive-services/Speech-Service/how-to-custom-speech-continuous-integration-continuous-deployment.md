@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 46bdc314e7aa0002937e808d7982f43c8e725d6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357472"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555822"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD per Riconoscimento vocale personalizzato
 
@@ -37,7 +37,7 @@ Lungo il percorso, i flussi di lavoro devono denominare e archiviare dati, test,
 
 ### <a name="ci-workflow-for-testing-data-updates"></a>Flusso di lavoro CI per il test degli aggiornamenti dei dati
 
-Lo scopo principale dei flussi di lavoro di integrazione continua/recapito continuo è quello di compilare un nuovo modello usando i dati di training e di testare tale modello usando i dati di test per stabilire se la [frequenza degli errori di Word](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) (WER) è stata migliorata rispetto al modello con le migliori prestazioni precedente (il "modello di benchmark"). Se il nuovo modello ha prestazioni migliori, diventa il nuovo modello di benchmark rispetto al quale vengono confrontati i modelli futuri.
+Lo scopo principale dei flussi di lavoro di integrazione continua/recapito continuo è quello di compilare un nuovo modello usando i dati di training e di testare tale modello usando i dati di test per stabilire se la [frequenza degli errori di Word](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER) è stata migliorata rispetto al modello con le migliori prestazioni precedente (il "modello di benchmark"). Se il nuovo modello ha prestazioni migliori, diventa il nuovo modello di benchmark rispetto al quale vengono confrontati i modelli futuri.
 
 Il flusso di lavoro CI per il test degli aggiornamenti dei dati deve testare nuovamente il modello di benchmark corrente con i dati di test aggiornati per calcolare il WER modificato. In questo modo, quando il valore di un nuovo modello viene confrontato con il tipo di dati del benchmark, entrambi i modelli sono stati testati con gli stessi dati di test e si sta confrontando come con like.
 
@@ -84,8 +84,8 @@ Il [repository del modello DevOps vocale](https://github.com/Azure-Samples/Speec
 
 - Copiare il repository di modelli nell'account GitHub, quindi creare risorse di Azure e un' [entità servizio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) per i flussi di lavoro di integrazione continua/distribuzione continua di GitHub.
 - Esaminare il "[ciclo interno di sviluppo](https://mitchdenny.com/the-inner-loop/)". Aggiornare i dati di training e di test da un branch di funzionalità, testare le modifiche con un modello di sviluppo temporaneo e generare una richiesta pull per proporre ed esaminare le modifiche.
-- Quando i dati di training vengono aggiornati in una richiesta pull al *database master*, eseguire il training dei modelli con il flusso di lavoro ci azioni github.
-- Eseguire test di accuratezza automatici per stabilire la [frequenza degli errori di Word](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) (WER) del modello. Archiviare i risultati dei test nel BLOB di Azure.
+- Quando i dati di training vengono aggiornati in una richiesta pull al *database master* , eseguire il training dei modelli con il flusso di lavoro ci azioni github.
+- Eseguire test di accuratezza automatici per stabilire la [frequenza degli errori di Word](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER) del modello. Archiviare i risultati dei test nel BLOB di Azure.
 - Eseguire il flusso di lavoro CD per creare un endpoint quando il WER migliora.
 
 ## <a name="next-steps"></a>Passaggi successivi

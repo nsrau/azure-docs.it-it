@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: dbf38c303f024884971e95f7be9d4dfc50d118de
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 954e94063ec91cd2a6d67d154dfd7da553e0935a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127825"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560894"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integrazione del gateway applicazione con gli endpoint di servizio
 Sono disponibili tre varianti di servizio app che richiedono una configurazione leggermente diversa dell'integrazione con applicazione Azure gateway. Le varianti includono il servizio app normale, noto anche come ambiente del servizio app (ASE) multi-tenant, Internal Load Balancer (ILB) e ambiente del servizio app esterno. Questo articolo illustra come configurarlo con il servizio app (multi-tenant) e come discutere le considerazioni su ILB e l'ambiente del servizio app esterno.
@@ -36,7 +36,7 @@ Con portale di Azure, seguire quattro passaggi per eseguire il provisioning e co
 1. Creare un servizio app usando una delle guide introduttive nella documentazione del servizio app, ad esempio [.NET Core avvio rapido](../quickstart-dotnetcore.md)
 2. Creare un gateway applicazione usando la [Guida introduttiva del portale](../../application-gateway/quick-create-portal.md), ma ignorare la sezione Aggiungi destinazioni backend.
 3. Configurare il [servizio app come back-end nel gateway applicazione](../../application-gateway/configure-web-app-portal.md), ma ignorare la sezione limita accesso.
-4. Infine, creare la [restrizione di accesso usando gli endpoint di servizio](../../app-service/app-service-ip-restrictions.md#service-endpoints).
+4. Infine, creare la [restrizione di accesso usando gli endpoint di servizio](../../app-service/app-service-ip-restrictions.md#use-service-endpoints).
 
 È ora possibile accedere al servizio app tramite il gateway applicazione, ma se si tenta di accedere direttamente al servizio app, si dovrebbe ricevere un errore HTTP 403 che indica che il sito Web è stato arrestato.
 

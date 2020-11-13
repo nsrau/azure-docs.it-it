@@ -1,6 +1,6 @@
 ---
 title: Sospendere, riprendere e dimensionare con le API REST
-description: Gestire la potenza di calcolo nel data warehouse Azure Synapse Analytics tramite le API REST.
+description: Gestire la potenza di calcolo per il pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics tramite le API REST.
 services: synapse-analytics
 author: antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 03/29/2019
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bbb8e82710b4c8ca7736b53d427b3880faf2be05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49702051b5399d5079aacc97c00233a23ba8712d
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213279"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556013"
 ---
-# <a name="rest-apis-for-azure-synapse-analytics-data-warehouse"></a>API REST per il data warehouse Azure Synapse Analytics
+# <a name="rest-apis-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>API REST per il pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics
 
-API REST per la gestione del calcolo nel data warehouse Azure Synapse Analytics.
+API REST per la gestione di risorse di calcolo per pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics.
 
 ## <a name="scale-compute"></a>Ridimensionare le risorse di calcolo
 
@@ -64,7 +64,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## <a name="get-maintenance-schedule"></a>Ottenere la pianificazione della manutenzione
 
-Controllare la pianificazione di manutenzione impostata per un data warehouse.
+Controllare la pianificazione di manutenzione impostata per un pool SQL dedicato (in precedenza SQL DW).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -73,7 +73,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## <a name="set-maintenance-schedule"></a>Impostare la pianificazione della manutenzione
 
-Impostare e aggiornare una pianificazione di manutenzione in un data warehouse esistente.
+Per impostare e aggiornare una pianificazione di manutenzione in un pool SQL dedicato esistente (in precedenza SQL DW).
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

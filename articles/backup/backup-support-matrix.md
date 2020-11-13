@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limiti del supporto pe
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: ee37e994c9e72c3d3c98455360dc68746f49d278
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ae2eb97f214204b813564b6373c4e9dc176f483c
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743121"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555437"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per Backup di Azure
 
@@ -25,7 +25,7 @@ Sono disponibili altre matrici di supporto:
 
 ## <a name="vault-support"></a>Supporto degli insiemi di credenziali
 
-Backup di Azure usa gli insiemi di credenziali di Servizi di ripristino per orchestrare e gestire i backup, nonché per archiviare i dati sottoposti a backup.
+Backup di Azure usa insiemi di credenziali dei servizi di ripristino per orchestrare e gestire i backup per i seguenti tipi di carico di lavoro: macchine virtuali di Azure, SQL in macchine virtuali di Azure, SAP HANA in macchine virtuali di Azure, condivisioni file di Azure e carichi di lavoro locali con l'agente di backup di Azure, server di Backup di Azure e System Center DPM. USA anche gli insiemi di credenziali dei servizi di ripristino per archiviare i dati di backup per questi carichi di lavoro.
 
 Nella tabella seguente vengono descritte le funzioni dell'insieme di credenziali di Servizi di ripristino:
 

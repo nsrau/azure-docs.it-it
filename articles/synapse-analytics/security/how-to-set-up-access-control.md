@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 080e56a5b6be8ba68c901509fe87421632144643
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 79a4db1f7d4be88260ea41ce1090007bc66cc7c8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312041"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556030"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteggere l'area di lavoro Synapse (anteprima) 
 
@@ -31,7 +31,7 @@ Per proteggere un'area di lavoro Synapse (anteprima) è necessario seguire uno s
   - Amministratore Apache Spark per Azure Synapse Analytics
 - Controllo di accesso per i dati in Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Controllo di accesso per i database di Synapse SQL e Spark
-- 
+
 ## <a name="steps-to-secure-a-synapse-workspace"></a>Passaggi per proteggere un'area di lavoro Synapse
 
 Per semplificare le istruzioni, in questa documentazione vengono usati nomi standard. Sostituirli con nomi a scelta.
@@ -115,7 +115,7 @@ Gli utenti in ogni ruolo devono completare i passaggi seguenti:
 | --- | --- | --- | --- | --- |
 | 1 | Caricare un file parquet in CNT1 | YES | YES | YES |
 | 2 | Leggere il file parquet usando un pool SQL senza server | YES | NO | YES |
-| 3 | Creare un pool di Apache Spark senza server | SÌ [1] | SÌ [1] | NO  |
+| 3 | Creare un pool di Apache Spark serverless | SÌ [1] | SÌ [1] | NO  |
 | 4 | Leggere il file parquet con un Notebook | YES | YES | NO |
 | 5 | Creare una pipeline dal Notebook e attivare subito l'esecuzione della pipeline | YES | NO | NO |
 | 6 | Creare un pool SQL dedicato ed eseguire uno script SQL, ad esempio &quot; Select 1&quot; | SÌ [1] | NO | SÌ[1] |

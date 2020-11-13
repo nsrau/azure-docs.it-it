@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/09/2020
-ms.openlocfilehash: 8abcbc74506599e7896ad6d41b9444e946172283
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/12/2020
+ms.openlocfilehash: 1489ce74da2ecff5212feb5a1a2e3c9151b73424
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324895"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555584"
 ---
 # <a name="convert-to-image-directory"></a>Convert to Image Directory
 
@@ -47,7 +47,8 @@ Questo articolo descrive come usare il modulo Convert to Image directory per con
     
     ![Set di dati di esempio image](./media/module/image-sample-dataset.png)
 
-    Per l'assegnazione dei punteggi, la cartella del set di dati dell'immagine deve contenere solo immagini non classificate.
+    > [!NOTE]
+    > Per l'inferenza, la cartella del set di dati dell'immagine deve contenere solo immagini non classificate.
 
 1. [Registrare il set di dati dell'immagine come set di dati di file](../how-to-create-register-datasets.md) nell'area di lavoro, poiché l'input di Convert to Image Directory Module deve essere un **set di dati di file**.
 

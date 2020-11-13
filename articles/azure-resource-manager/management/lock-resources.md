@@ -1,15 +1,15 @@
 ---
 title: Bloccare le risorse per impedire modifiche
-description: Impedire agli utenti di aggiornare o eliminare le risorse critiche di Azure applicando un blocco per tutti gli utenti e i ruoli.
+description: Impedire agli utenti di aggiornare o eliminare le risorse di Azure applicando un blocco per tutti gli utenti e i ruoli.
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 57b4fecd0293c714dfd910ae2ad4866397646ce8
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: f1073d8c4a6902ea00a9b4098ef87bc411b3e6c0
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340142"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555669"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloccare le risorse per impedire modifiche impreviste
 
@@ -74,19 +74,91 @@ Per eliminare tutti gli elementi per il servizio, incluso il gruppo di risorse d
 
 ### <a name="arm-template"></a>Modello ARM
 
-Quando si usa un modello di Resource Manager per distribuire un blocco, si usano valori diversi per il nome e il tipo, a seconda dell'ambito del blocco.
+Quando si usa un modello di Azure Resource Manager (modello ARM) per distribuire un blocco, è necessario conoscere l'ambito del blocco e l'ambito della distribuzione. Per applicare un blocco nell'ambito di distribuzione, ad esempio per bloccare un gruppo di risorse o una sottoscrizione, non impostare la proprietà Scope. Quando si blocca una risorsa all'interno dell'ambito di distribuzione, impostare la proprietà Scope.
 
-Quando si applica un blocco a una **risorsa** , usare i formati seguenti:
+Il modello seguente applica un blocco al gruppo di risorse in cui è distribuito. Si noti che non è presente una proprietà Scope sulla risorsa di blocco perché l'ambito del blocco corrisponde all'ambito della distribuzione. Questo modello viene distribuito a livello di gruppo di risorse.
 
-* nome - `{resourceName}/Microsoft.Authorization/{lockName}`
-* tipo - `{resourceProviderNamespace}/{resourceType}/providers/locks`
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {  
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/locks",
+            "apiVersion": "2016-09-01",
+            "name": "rgLock",
+            "properties": {
+                "level": "CanNotDelete",
+                "notes": "Resource Group should not be deleted."
+            }
+        }
+    ]
+}
+```
 
-Quando si applica un blocco a un **gruppo di risorse** o a una **sottoscrizione** , usare i formati seguenti:
+Per creare un gruppo di risorse e bloccarlo, distribuire il modello seguente a livello di sottoscrizione.
 
-* nome - `{lockName}`
-* tipo - `Microsoft.Authorization/locks`
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2019-10-01",
+            "name": "[parameters('rgName')]",
+            "location": "[parameters('rgLocation')]",
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "lockDeployment",
+            "resourceGroup": "[parameters('rgName')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Authorization/locks",
+                            "apiVersion": "2016-09-01",
+                            "name": "rgLock",
+                            "properties": {
+                                "level": "CanNotDelete",
+                                "notes": "Resource group and its resources should not be deleted."
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
 
-L'esempio seguente illustra un modello che crea un piano di servizio app, un sito Web e un blocco sul sito Web. Il tipo di risorsa del blocco corrisponde al tipo di risorsa della risorsa da bloccare e a **/providers/locks**. Il nome del blocco viene creato concatenando il nome della risorsa con **/Microsoft.Authorization/** e il nome del blocco stesso.
+Quando si applica un blocco a una **risorsa** all'interno del gruppo di risorse, aggiungere la proprietà Scope. Impostare l'ambito sul nome della risorsa da bloccare.
+
+L'esempio seguente illustra un modello che crea un piano di servizio app, un sito Web e un blocco sul sito Web. L'ambito del blocco viene impostato sul sito Web.
 
 ```json
 {
@@ -95,6 +167,10 @@ L'esempio seguente illustra un modello che crea un piano di servizio app, un sit
   "parameters": {
     "hostingPlanName": {
       "type": "string"
+    },
+    "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]"
     }
   },
   "variables": {
@@ -103,9 +179,9 @@ L'esempio seguente illustra un modello che crea un piano di servizio app, un sit
   "resources": [
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-06-01",
       "name": "[parameters('hostingPlanName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "sku": {
         "tier": "Free",
         "name": "f1",
@@ -117,9 +193,9 @@ L'esempio seguente illustra un modello che crea un piano di servizio app, un sit
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2019-08-01",
+      "apiVersion": "2020-06-01",
       "name": "[variables('siteName')]",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       ],
@@ -128,9 +204,10 @@ L'esempio seguente illustra un modello che crea un piano di servizio app, un sit
       }
     },
     {
-      "type": "Microsoft.Web/sites/providers/locks",
+      "type": "Microsoft.Authorization/locks",
       "apiVersion": "2016-09-01",
-      "name": "[concat(variables('siteName'), '/Microsoft.Authorization/siteLock')]",
+      "name": "siteLock",
+      "scope": "[concat('Microsoft.Web/sites/', variables('siteName'))]",
       "dependsOn": [
         "[resourceId('Microsoft.Web/sites', variables('siteName'))]"
       ],
@@ -142,8 +219,6 @@ L'esempio seguente illustra un modello che crea un piano di servizio app, un sit
   ]
 }
 ```
-
-Per un esempio di impostazione di un blocco su un gruppo di risorse, vedere [Creare un gruppo di risorse e bloccarlo](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

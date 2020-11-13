@@ -12,12 +12,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 467cbe91f4e516dc6facd2d30c38da1483308b77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b563e8ca93487a123f97f0bbb86624dc3be2db0
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316971"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556289"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Gestire le macchine virtuali di SQL Server in Azure tramite il portale di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,11 +30,11 @@ Nella [portale di Azure](https://portal.azure.com)la risorsa [**macchine virtual
 ## <a name="remarks"></a>Osservazioni
 
 - Si consiglia di usare la risorsa [**macchine virtuali SQL**](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) per visualizzare e gestire le macchine virtuali SQL Server in Azure. Tuttavia, al momento la risorsa **Macchine virtuali SQL** non supporta la gestione delle macchine virtuali di SQL Server in [fine del supporto](sql-server-2008-extend-end-of-support.md). Per gestire le impostazioni per le macchine virtuali di SQL Server in fine del supporto, usare la [scheda Configurazione SQL Server](#access-the-sql-server-configuration-tab) obsoleta. 
-- La risorsa **Macchine virtuali SQL** è disponibile solo per le VM di SQL Server [registrate con il provider di risorse di macchine virtuali di SQL](sql-vm-resource-provider-register.md). 
+- La risorsa **macchine virtuali SQL** è disponibile solo per SQL Server macchine virtuali [registrate con l'estensione SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md). 
 
 
 ## <a name="access-the-sql-virtual-machines-resource"></a>Accedere alla risorsa Macchine virtuali SQL
-Per accedere alla risorsa **Macchine virtuali SQL**, procedere come segue:
+Per accedere alla risorsa **Macchine virtuali SQL** , procedere come segue:
 
 1. Aprire il [portale di Azure](https://portal.azure.com). 
 1. Selezionare **Tutti i servizi**. 
@@ -48,7 +48,7 @@ Per accedere alla risorsa **Macchine virtuali SQL**, procedere come segue:
 
    ![Tutte le macchine virtuali di SQL Server disponibili](./media/manage-sql-vm-portal/all-sql-vms.png)
 
-   Quando si seleziona la macchina virtuale di SQL Server, si apre la risorsa **Macchine virtuali SQL**: 
+   Quando si seleziona la macchina virtuale di SQL Server, si apre la risorsa **Macchine virtuali SQL** : 
 
 
    ![Visualizzare la risorsa macchine virtuali SQL](./media/manage-sql-vm-portal/sql-vm-resource.png)
@@ -57,9 +57,9 @@ Per accedere alla risorsa **Macchine virtuali SQL**, procedere come segue:
 > La risorsa **Macchine virtuali SQL** è destinata a impostazioni di SQL Server dedicate. Selezionare il nome della VM nella casella **Macchina virtuale** per aprire le impostazioni specifiche della VM, ma non esclusive per SQL Server. 
 
 ## <a name="access-the-sql-server-configuration-tab"></a>Accedere alla scheda Configurazione di SQL Server
-La scheda **Configurazione di SQL Server** è ormai obsoleta. Attualmente, è l'unico metodo per gestire le macchine virtuali di SQL in [fine del supporto](sql-server-2008-extend-end-of-support.md) e le macchine che non sono state [registrate provider di risorse di macchine virtuali di SQL](sql-vm-resource-provider-register.md).
+La scheda **Configurazione di SQL Server** è ormai obsoleta. Attualmente, è l'unico metodo per gestire la [fine del supporto](sql-server-2008-extend-end-of-support.md) SQL Server macchine virtuali e SQL Server macchine virtuali che non sono state [registrate con l'estensione SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md).
 
-Per accedere alla scheda obsoleta **Configurazione di SQL Server**, passare alla risorsa **Macchine virtuali**. Eseguire la procedura descritta di seguito:
+Per accedere alla scheda obsoleta **Configurazione di SQL Server** , passare alla risorsa **Macchine virtuali**. Eseguire la procedura descritta di seguito:
 
 1. Aprire il [portale di Azure](https://portal.azure.com). 
 1. Selezionare **Tutti i servizi**. 
