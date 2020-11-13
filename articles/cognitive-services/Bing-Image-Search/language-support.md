@@ -10,19 +10,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: b7037804f1a0984cee2d1756adf80bfe2eec3918
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3057a118117f4f293ec5f90405a4bbd82d7a353d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095528"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592074"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Lingua e regioni supportate dall'API Ricerca immagini Bing
 
 > [!WARNING]
-> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
-> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
-> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L'API Ricerca immagini Bing supporta più di una quarantina di paesi/aree, molti dei quali con più di una lingua. Specificare un paese/un'area con una query serve principalmente per perfezionare i risultati della ricerca in base agli interessi in tale paese/area. I risultati possono anche contenere collegamenti a Bing e questi collegamenti possono localizzare l'esperienza utente di Bing in base al paese/all'area o alla lingua specifica.
 
@@ -120,8 +120,8 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Taiwan|Cinese tradizionale|zh-TW|
 |Turchia|Turco|tr-TR|
 |Regno Unito|Inglese|en-GB|
-|Stati Uniti|Inglese|en-US|
+|Stati Uniti|Inglese|it-IT|
 |Stati Uniti|Spagnolo|es-US|
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sugli endpoint dell'API Ricerca notizie Bing, vedere le [informazioni di riferimento relative all'API Ricerca notizie Bing versione 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+Per altre informazioni sugli endpoint dell'API Ricerca notizie Bing, vedere le [informazioni di riferimento relative all'API Ricerca notizie Bing versione 7](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

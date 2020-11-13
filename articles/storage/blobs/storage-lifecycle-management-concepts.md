@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: a4a338a4d13715ba1ff7cb30c011757d5050ba05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 85577a428f803e31aa33468496d7efca77933835
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100070"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579312"
 ---
 # <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Ottimizzare i costi automatizzando i livelli di accesso all'archivio BLOB di Azure
 
@@ -80,7 +80,7 @@ Esistono due modi per aggiungere un criterio tramite il portale di Azure.
 
 1. Selezionare **BLOB di base** per impostare le condizioni per la regola. Nell'esempio seguente i BLOB vengono spostati nell'archiviazione ad accesso sporadico se non sono stati modificati per 30 giorni.
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Gestione del ciclo di vita aggiungere una pagina Dettagli regola in portale di Azure":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Pagina BLOB di base di gestione del ciclo di vita in portale di Azure":::
 
    L' **ultima opzione accessibile** è disponibile in anteprima nelle aree seguenti:
 
@@ -95,7 +95,7 @@ Esistono due modi per aggiungere un criterio tramite il portale di Azure.
 
 1. Se è stata selezionata l'opzione **limita BLOB con filtri** nella pagina **Dettagli** , selezionare **filtro impostato** per aggiungere un filtro facoltativo. Nell'esempio seguente vengono filtrati i BLOB nel contenitore *mylifecyclecontainer* che iniziano con "log".
 
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Gestione del ciclo di vita aggiungere una pagina Dettagli regola in portale di Azure":::
+   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Pagina set di filtri di gestione del ciclo di vita in portale di Azure":::
 
 1. Selezionare **Aggiungi** per aggiungere il nuovo criterio.
 
@@ -137,7 +137,7 @@ Esistono due modi per aggiungere un criterio tramite il portale di Azure.
    }
    ```
 
-1. Selezionare **Salva** .
+1. Selezionare **Salva**.
 
 1. Per altre informazioni su questo esempio JSON, vedere le sezioni [criteri](#policy) e [regole](#rules) .
 
@@ -215,7 +215,7 @@ Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountN
 
 ---
 
-## <a name="policy"></a>Criteri
+## <a name="policy"></a>Policy
 
 I criteri di gestione del ciclo di vita sono una raccolta di regole in un documento JSON:
 
@@ -332,10 +332,10 @@ La gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazio
 
 | Azione                      | BLOB di base                                  | Snapshot      | Versione
 |-----------------------------|--------------------------------------------|---------------|---------------|
-| tierToCool                  | Supportato per `blockBlob`                  | Supportato     | Supportato     |
-| enableAutoTierToHotFromCool | Supportato per `blockBlob`                  | Non supportate | Non supportate |
-| tierToArchive               | Supportato per `blockBlob`                  | Supportato     | Supportato     |
-| eliminare                      | Supportato per `blockBlob` e `appendBlob` | Supportato     | Supportato     |
+| tierToCool                  | Supportato per `blockBlob`                  | Funzionalità supportata     | Funzionalità supportata     |
+| enableAutoTierToHotFromCool | Supportato per `blockBlob`                  | Non supportato | Non supportato |
+| tierToArchive               | Supportato per `blockBlob`                  | Funzionalità supportata     | Supportato     |
+| eliminare                      | Supportato per `blockBlob` e `appendBlob` | Funzionalità supportata     | Funzionalità supportata     |
 
 >[!NOTE]
 >Se nello stesso BLOB è stata definita più di un'azione, la gestione del ciclo di vita applica al BLOB l'azione meno costosa. Ad esempio, l'azione `delete` è meno costosa dell'azione `tierToArchive`. L'azione `tierToArchive` è meno costosa dell'azione `tierToCool`.
@@ -348,7 +348,7 @@ Le condizioni di esecuzione sono basate sull'età. I BLOB di base usano l'ora de
 | daysAfterCreationGreaterThan       | Valore intero che indica il tempo trascorso in giorni | Condizione per le azioni di versione BLOB e snapshot BLOB                         |
 | daysAfterLastAccessTimeGreaterThan | Valore intero che indica il tempo trascorso in giorni | anteprima Condizione per le azioni BLOB di base quando è abilitata l'ora dell'ultimo accesso |
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 Gli esempi seguenti illustrano come affrontare scenari comuni relativi alle regole dei criteri del ciclo di vita.
 
@@ -439,7 +439,7 @@ Il rilevamento dell'ora dell'ultimo accesso è disponibile per i tipi di account
 
 Se l'account di archiviazione è un account per utilizzo generico V1, usare il portale di Azure per eseguire l'aggiornamento a un account per utilizzo generico V2.
 
-Gli account di archiviazione con uno spazio dei nomi gerarchico abilitato per l'uso con Azure Data Lake Storage Gen2 non sono ancora supportati.
+Sono ora supportati gli account di archiviazione con uno spazio dei nomi gerarchico abilitato per l'uso con Azure Data Lake Storage Gen2.
 
 #### <a name="pricing-and-billing"></a>Prezzi e fatturazione
 

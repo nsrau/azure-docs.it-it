@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: 66da9124a6b46fa34d0a13c8992cd3141b095422
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 85f5beb6188b1f6987934f1c39c579d5a3028a5e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370318"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579488"
 ---
 # <a name="configure-a-managed-application-plan"></a>Configurare un piano di applicazione gestita
 
@@ -138,7 +138,7 @@ Selezionare la modalità di distribuzione **completa** o **incrementale** .
 - In modalità **completa** , una ridistribuzione dell'applicazione da parte del cliente comporterà la rimozione delle risorse nel gruppo di risorse gestite se le risorse non sono definite nel [mainTemplate.js](/azure/azure-resource-manager/managed-applications/publish-service-catalog-app?tabs=azure-powershell#create-the-arm-template.md).
 - In modalità **incrementale** , una ridistribuzione dell'applicazione lascia invariate le risorse esistenti.
 
-Per altre informazioni sulle modalità di distribuzione, vedere [Modalità di distribuzione di Azure Resource Manager](/azure/azure-resource-manager/deployment-modes.md).
+Per altre informazioni sulle modalità di distribuzione, vedere [Modalità di distribuzione di Azure Resource Manager](/azure/azure-resource-manager/deployment-modes).
 
 ### <a name="provide-a-notification-endpoint-url"></a>Fornire un URL dell'endpoint di notifica
 

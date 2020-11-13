@@ -3,12 +3,12 @@ title: 'Errore di risoluzione dei problemi: runtime di Funzioni di Azure non è 
 description: Informazioni su come risolvere il problema di un account di archiviazione non valido.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: 094f4f45be0ae4173af434be178f2eae2b21b6be
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 0b6778a08bf04367f2a0ef10f7cd4fe29a52dd61
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054730"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579012"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Errore di risoluzione dei problemi: "runtime di Funzioni di Azure non è raggiungibile"
 
@@ -76,7 +76,7 @@ Il runtime della funzione potrebbe non essere raggiungibile per uno dei motivi s
 
 * L'app per le funzioni è ospitata in un [ambiente del servizio app con carico bilanciato internamente](../app-service/environment/create-ilb-ase.md) ed è configurato per bloccare il traffico Internet in ingresso.
 
-* L'app per le funzioni ha [restrizioni IP in ingresso](functions-networking-options.md#inbound-ip-restrictions) configurate per bloccare l'accesso a Internet. 
+* L'app per le funzioni ha [restrizioni IP in ingresso](functions-networking-options.md#inbound-access-restrictions) configurate per bloccare l'accesso a Internet. 
 
 Il portale di Azure effettua chiamate dirette all'app in esecuzione per recuperare l'elenco di funzioni e effettua chiamate HTTP all'endpoint Kudu. Le impostazioni a livello di piattaforma nella scheda **funzionalità della piattaforma** sono ancora disponibili.
 

@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 10/15/2020
-ms.openlocfilehash: a323dec66a3077784ff85deadd4f12086648fb3a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e29c640494a18bb3be2125a5b53b4f943521fe6c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220459"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579148"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Risolvere i problemi comuni in Condivisione dati di Azure 
 
@@ -52,11 +52,11 @@ Il problema può dipendere dalle cause seguenti:
 
 "Non è stato possibile aggiungere le autorizzazioni di scrittura per l'account di condivisione dati di Azure a una o più risorse selezionate"
 
-Se durante la creazione di un nuovo set di dati di condivisione o di mapping si riceve uno degli errori precedenti, le autorizzazioni potrebbero essere insufficienti per l'archivio dati di Azure. Vedere [ruoli e requisiti per le](concepts-roles-permissions.md) autorizzazioni necessarie. 
+Se si riceve uno degli errori indicati in precedenza durante la creazione di una nuova condivisione, l'aggiunta di set di dati o il mapping di set di dati, potrebbe essere dovuto a autorizzazioni insufficienti per l'archivio dati di Azure. Vedere [ruoli e requisiti per le](concepts-roles-permissions.md) autorizzazioni necessarie. 
 
-È necessario disporre dell'autorizzazione di scrittura per condividere o ricevere dati da un archivio dati di Azure, che in genere esiste nel ruolo Collaboratore. 
+È necessario disporre dell'autorizzazione di scrittura per condividere o ricevere dati da un archivio dati di Azure, che in genere esiste nel ruolo **collaboratore** . 
 
-Se è la prima volta che si condividono o si ricevono dati dall'archivio dati di Azure, è necessaria anche l'autorizzazione *Microsoft. Authorization/Role Attributes/Write* , che in genere esiste nel ruolo proprietario. Anche se è stata creata la risorsa Archivio dati di Azure, non viene automaticamente creato il proprietario della risorsa. Con l'autorizzazione appropriata, il servizio di condivisione dati di Azure concede automaticamente all'archivio dati l'accesso a identità gestite della risorsa di condivisione dati. Questo processo potrebbe richiedere alcuni minuti per essere applicato. Se si verifica un errore a causa di questo ritardo, riprovare tra qualche minuto.
+Se è la prima volta che si condividono o si ricevono dati dall'archivio dati di Azure, è necessaria anche l'autorizzazione *Microsoft. Authorization/Role Attributes/Write* , che in genere esiste nel ruolo **proprietario** . Anche se è stata creata la risorsa Archivio dati di Azure, non viene automaticamente creato il proprietario della risorsa. Con l'autorizzazione appropriata, il servizio di condivisione dati di Azure concede automaticamente all'archivio dati l'accesso a identità gestite della risorsa di condivisione dati. Questo processo potrebbe richiedere alcuni minuti per essere applicato. Se si verifica un errore a causa di questo ritardo, riprovare tra qualche minuto.
 
 Per la condivisione basata su SQL sono necessarie autorizzazioni aggiuntive. Per un elenco dettagliato dei prerequisiti, vedere [condividere da origini SQL](how-to-share-from-sql.md) .
 
@@ -69,7 +69,7 @@ Lo snapshot potrebbe non riuscire a causa di diversi motivi. È possibile trovar
 
 Per le origini SQL, di seguito sono riportate altre cause degli errori di snapshot. 
 
-* Lo script SQL di origine o di destinazione per concedere l'autorizzazione per la condivisione dati non viene eseguito o viene eseguito utilizzando l'autenticazione SQL anziché l'autenticazione Azure Active Directory.  
+* Non è possibile eseguire lo script SQL di origine o di destinazione per concedere l'autorizzazione per la condivisione di dati. Oppure, per il database SQL di Azure o Azure sinapsi Analytics (in precedenza Azure SQL DW), viene eseguito usando l'autenticazione SQL anziché l'autenticazione Azure Active Directory.  
 * L'archivio dati SQL di origine o di destinazione è sospeso.
 * I tipi di dati SQL non sono supportati dal processo snapshot o dall'archivio dati di destinazione. Per informazioni dettagliate, fare riferimento alla [condivisione da origini SQL](how-to-share-from-sql.md#supported-data-types) .
 * L'archivio dati SQL di origine o di destinazione è bloccato da altri processi. La condivisione di dati di Azure non applica blocchi all'archivio dati SQL di origine e di destinazione. Tuttavia, i blocchi esistenti nell'archivio dati SQL di origine e di destinazione provocheranno un errore di snapshot.

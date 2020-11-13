@@ -1,6 +1,6 @@
 ---
 title: Sincronizzazione LDAP con Azure Active Directory
-description: Indicazioni sull'architettura per il raggiungimento di questo modello di sincronizzazione
+description: Indicazioni sull'architettura per ottenere la sincronizzazione LDAP con Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a14149551c0fb33906ab7d1a00b387026d827911
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e617d7ccc14e65c18eb86877b1c7fb1aeef74cd0
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114173"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578893"
 ---
 # <a name="ldap-synchronization-with-azure-active-directory"></a>Sincronizzazione LDAP con Azure Active Directory
 
@@ -34,21 +34,21 @@ Azure Active Directory (Azure AD) può sostituire la sincronizzazione LDAP con A
 
 ## <a name="components-of-system"></a>Componenti del sistema
 
-* **Utente**: accede a un'applicazione che si basa sull'uso di una directory LDAP v3 per l'ordinamento di utenti e password.
+* **Utente** : accede a un'applicazione che si basa sull'uso di una directory LDAP v3 per l'ordinamento di utenti e password.
 
-* **Web browser**: il componente con cui l'utente interagisce per accedere all'URL esterno dell'applicazione
+* **Web browser** : il componente con cui l'utente interagisce per accedere all'URL esterno dell'applicazione
 
-* **App Web**: applicazione con dipendenze da directory LDAP v3.
+* **App Web** : applicazione con dipendenze da directory LDAP v3.
 
-* **Azure ad**: Azure ad sincronizza le informazioni di identità (utenti, gruppi e password) dalle directory LDAP locali dell'organizzazione tramite Azure ad Connect. 
+* **Azure ad** : Azure ad sincronizza le informazioni di identità (utenti, gruppi e password) dalle directory LDAP locali dell'organizzazione tramite Azure ad Connect. 
 
-* **Azure ad Connect**: è uno strumento per la connessione di infrastrutture di identità locali a Microsoft Azure ad. La procedura guidata e le esperienze guidate consentono di distribuire e configurare i prerequisiti e i componenti necessari per la connessione. 
+* **Azure ad Connect** : è uno strumento per la connessione di infrastrutture di identità locali a Microsoft Azure ad. La procedura guidata e le esperienze guidate consentono di distribuire e configurare i prerequisiti e i componenti necessari per la connessione. 
 
-* **Connettore personalizzato**: un connettore Generic LDAP consente di integrare il servizio di sincronizzazione Azure ad Connect con un server LDAP v3. Si trova in Azure AD Connect.
+* **Connettore personalizzato** : un connettore Generic LDAP consente di integrare il servizio di sincronizzazione Azure ad Connect con un server LDAP v3. Si trova in Azure AD Connect.
 
-* **Active Directory**: Active Directory è un servizio directory incluso nella maggior parte dei sistemi operativi Windows Server. I server che eseguono Active Directory servizi directory sono detti controller di dominio e autenticano e autorizzano tutti gli utenti e i computer in un dominio Windows.
+* **Active Directory** : Active Directory è un servizio directory incluso nella maggior parte dei sistemi operativi Windows Server. I server che eseguono Active Directory servizi directory sono detti controller di dominio e autenticano e autorizzano tutti gli utenti e i computer in un dominio Windows.
 
-* **Server LDAP v3**: directory conforme al protocollo LDAP che archivia utenti e password aziendali usati per l'autenticazione dei servizi directory.
+* **Server LDAP v3** : directory conforme al protocollo LDAP che archivia utenti e password aziendali usati per l'autenticazione dei servizi directory.
 
 ## <a name="implement-ldap-synchronization-with-azure-ad"></a>Implementare la sincronizzazione LDAP con Azure AD
 

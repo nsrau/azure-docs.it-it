@@ -4,12 +4,12 @@ description: Informazioni su come connettersi privatamente a un account Azure Ba
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: f797dbda7888eb8ea9f5c76e3b527fb98d896ee4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 38d92d787a8d01dd3f87e1cdcacd336982c8c910
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669014"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579556"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Usare endpoint privati con account Azure Batch
 
@@ -28,29 +28,34 @@ Questo articolo descrive i passaggi per creare un account batch privato e accede
 
 Usare la procedura seguente per creare un account batch privato usando il portale di Azure:
 
-1. Dal riquadro **Crea una risorsa** scegliere **servizio batch** , quindi selezionare **Crea** .
-2. Immettere la sottoscrizione, il gruppo di risorse, l'area e il nome dell'account batch nella scheda **nozioni di base** , quindi selezionare **Avanti: avanzate** .
-3. Nella scheda **Avanzate** impostare accesso alla **rete pubblica** su **disabilitato** .
-4. In **Impostazioni** selezionare **connessioni endpoint privato** e quindi selezionare **+ endpoint privato** .
+1. Dal riquadro **Crea una risorsa** scegliere **servizio batch** , quindi selezionare **Crea**.
+2. Immettere la sottoscrizione, il gruppo di risorse, l'area e il nome dell'account batch nella scheda **nozioni di base** , quindi selezionare **Avanti: avanzate**.
+3. Nella scheda **Avanzate** impostare accesso alla **rete pubblica** su **disabilitato**.
+4. In **Impostazioni** selezionare **connessioni endpoint privato** e quindi selezionare **+ endpoint privato**.
    :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="Connessioni a endpoint privati":::
-5. Nel riquadro informazioni di **base** immettere o selezionare la sottoscrizione, il gruppo di risorse, il nome della risorsa dell'endpoint privato e i dettagli dell'area, quindi selezionare **Avanti: risorsa** .
-6. Nel riquadro **delle risorse** impostare il **tipo di risorsa** su **Microsoft.Batch/batchAccounts** . Selezionare l'account batch privato a cui si vuole accedere, quindi selezionare **Avanti: configurazione** .
-   :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Connessioni a endpoint privati":::
+5. Nel riquadro informazioni di **base** immettere o selezionare la sottoscrizione, il gruppo di risorse, il nome della risorsa dell'endpoint privato e i dettagli dell'area, quindi selezionare **Avanti: risorsa**.
+6. Nel riquadro **delle risorse** impostare il **tipo di risorsa** su **Microsoft.Batch/batchAccounts**. Selezionare l'account batch privato a cui si vuole accedere, quindi selezionare **Avanti: configurazione**.
+   :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Creare un endpoint privato-riquadro delle risorse":::
 7. Nel riquadro **configurazione** immettere o selezionare queste informazioni:
    - **Rete virtuale** : selezionare la rete virtuale.
    - **Subnet** : selezionare la subnet.
-   - Eseguire l' **integrazione con la zona DNS privata** : selezionare **Sì** . Per connettersi in privato con l'endpoint privato, è necessario un record DNS. È consigliabile integrare l'endpoint privato con una zona DNS privata. È anche possibile usare i propri server DNS o creare record DNS usando i file host delle macchine virtuali.
+   - Eseguire l' **integrazione con la zona DNS privata** : selezionare **Sì**. Per connettersi in privato con l'endpoint privato, è necessario un record DNS. È consigliabile integrare l'endpoint privato con una zona DNS privata. È anche possibile usare i propri server DNS o creare record DNS usando i file host delle macchine virtuali.
    - **Zona DNS privato** : selezionare \<region\> privatelink. batch.azure.com. La zona DNS privata viene determinata automaticamente. Non è possibile modificarla usando il portale di Azure.
 8. Selezionare **Verifica + crea** , quindi attendere che Azure convalidi la configurazione.
-9. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea** .
+9. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea**.
 
-Dopo il provisioning dell'endpoint privato, è possibile accedere all'account batch dalle macchine virtuali nella stessa rete virtuale usando l'endpoint privato. Per visualizzare l'indirizzo IP dal portale di Azure:
+Dopo il provisioning dell'endpoint privato, è possibile accedere all'account batch dalle macchine virtuali nella stessa rete virtuale usando l'endpoint privato.
 
-1. Selezionare **Tutte le risorse** .
+> [!IMPORTANT]
+> L'esecuzione di operazioni al di fuori della rete virtuale in cui viene effettuato il provisioning dell'endpoint privato comporterà un messaggio "autorizzazione" nel portale di Azure.
+
+Per visualizzare l'indirizzo IP dal portale di Azure:
+
+1. Selezionare **Tutte le risorse**.
 2. Cercare l'endpoint privato creato in precedenza.
 3. Selezionare la scheda **Panoramica** per visualizzare le impostazioni DNS e gli indirizzi IP.
 
-:::image type="content" source="media/private-connectivity/access-private.png" alt-text="Connessioni a endpoint privati":::
+:::image type="content" source="media/private-connectivity/access-private.png" alt-text="Impostazioni DNS endpoint privato e indirizzi IP":::
 
 ## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 

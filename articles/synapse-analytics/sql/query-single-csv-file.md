@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7e5a64a75ca6cde4172e49eb77dde42a44c06d5e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b9896b62ab347ec3b4751eb517c00222f00ddb1c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321464"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579403"
 ---
 # <a name="query-csv-files"></a>Eseguire query su file CSV
 
@@ -45,6 +45,11 @@ from openrowset(
 ```
 
 Consente `firstrow` di ignorare la prima riga del file CSV che rappresenta l'intestazione in questo caso. Verificare che sia possibile accedere a questo file. Se il file è protetto con la chiave SAS o l'identità personalizzata, è necessario configurare le [credenziali a livello di server per l'accesso SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+> [!IMPORTANT]
+> Se il file CSV contiene caratteri UTF-8, assicurarsi di utilizzare le regole di confronto del database UTF-8, ad esempio `Latin1_General_100_CI_AS_SC_UTF8` .
+> Mancata corrispondenza tra la codifica del testo nel file e le regole di confronto potrebbero causare errori di conversione imprevisti.
+> È possibile modificare facilmente le regole di confronto predefinite del database corrente usando l'istruzione T-SQL seguente: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Utilizzo dell'origine dati
 
@@ -90,6 +95,12 @@ from openrowset(
 ```
 
 I numeri dopo un tipo di dati nella `WITH` clausola rappresentano l'indice di colonna nel file CSV.
+
+> [!IMPORTANT]
+> Se il file CSV contiene caratteri UTF-8, assicurarsi di explicilty specificando alcune regole di confronto UTF-8, ad esempio `Latin1_General_100_CI_AS_SC_UTF8` per tutte le colonne nella `WITH` clausola o impostare alcune regole di confronto UTF-8 a livello di database.
+> Mancata corrispondenza tra la codifica del testo nel file e le regole di confronto potrebbero causare errori di conversione imprevisti.
+> È possibile modificare facilmente le regole di confronto predefinite del database corrente usando l'istruzione T-SQL seguente: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> È possibile impostare facilmente le regole di confronto sui tipi Colum usando la definizione seguente: `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8 8`
 
 Nelle sezioni seguenti è possibile vedere come eseguire query su diversi tipi di file CSV.
 

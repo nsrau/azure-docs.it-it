@@ -11,12 +11,12 @@ ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 2225ef42d8862935e5cd682a3c11a7ce687babab
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5b05891500ae5fd66e5ec2381066ccd1d26aa7ec
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325566"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578060"
 ---
 # <a name="advanced-entry-script-authoring"></a>Creazione avanzata di script di immissione
 
@@ -28,7 +28,10 @@ Questo articolo presuppone che si abbia già un modello di apprendimento automat
 
 ## <a name="automatically-generate-a-swagger-schema"></a>Si genera automaticamente uno schema di Swagger
 
-Per generare automaticamente uno schema per il servizio Web, fornire un esempio di input e/o output nel costruttore per uno degli oggetti tipo definiti. Il tipo e l'esempio vengono utilizzati per creare automaticamente lo schema. Azure Machine Learning quindi crea una specifica [openapi](https://swagger.io/docs/specification/about/) (spavalderia) per il servizio Web durante la distribuzione.
+Per generare automaticamente uno schema per il servizio Web, fornire un esempio di input e/o output nel costruttore per uno degli oggetti tipo definiti. Il tipo e l'esempio vengono utilizzati per creare automaticamente lo schema. Azure Machine Learning quindi crea una specifica [openapi](https://swagger.io/docs/specification/about/) (spavalderia) per il servizio Web durante la distribuzione. 
+
+> [!WARNING]
+> Non è necessario usare dati sensibili o privati per l'input o l'output di esempio. La pagina di spavalderia per l'inferenza ospitata da AML espone i dati di esempio. 
 
 Questi tipi sono attualmente supportati:
 

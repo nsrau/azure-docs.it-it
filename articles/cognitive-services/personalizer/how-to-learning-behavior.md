@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
-ms.openlocfilehash: 10e98cd2f0ad4793aa43f9bb3316c522b44f1d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57a03b107678f83200b11f408784f6455cbceffd
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303540"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579292"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Configurare il comportamento di apprendimento della personalizzazione
 
@@ -37,13 +37,13 @@ Per aggiungere il Personalizzatore all'applicazione, è necessario chiamare le A
 
 1. Aggiungere la chiamata all' [API Rank](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) dopo il punto nella logica dell'applicazione esistente in cui si determina l'elenco di azioni e le relative funzionalità. La prima azione nell'elenco di azioni deve essere l'azione selezionata dalla logica esistente.
 
-1. Configurare il codice per visualizzare l'azione associata all' **ID dell'azione Reward**della risposta dell'API di rango.
+1. Configurare il codice per visualizzare l'azione associata all' **ID dell'azione Reward** della risposta dell'API di rango.
 
 ### <a name="configure-your-application-to-call-reward-api"></a>Configurare l'applicazione per chiamare l'API Reward
 
 1. Usare la logica di business esistente per calcolare la **ricompensa** dell'azione visualizzata. Il valore deve essere compreso tra 0 e 1. Inviare questo premio a Personalizzator usando l' [API Reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward). Il valore Reward non è previsto immediatamente e può essere ritardato in un periodo di tempo, a seconda della logica di business.
 
-1. Se non si restituisce il premio entro il **tempo di attesa della ricompensa**configurato, verrà usata la ricompensa predefinita.
+1. Se non si restituisce il premio entro il **tempo di attesa della ricompensa** configurato, verrà usata la ricompensa predefinita.
 
 ## <a name="evaluate-apprentice-mode"></a>Valuta modalità Apprentice
 
@@ -52,14 +52,10 @@ Nella portale di Azure, nella pagina **valutazioni** per la risorsa di personali
 > [!div class="mx-imgBorder"]
 > ![Screenshot della revisione della valutazione del comportamento di apprendimento in modalità apprendista in portale di Azure](media/settings/evaluate-apprentice-mode.png)
 
-La modalità apprendista fornisce le **metriche di valutazione**seguenti:
-* **Baseline-ricompensa media**: vantaggi medi dell'impostazione predefinita dell'applicazione (baseline).
-* **Personalizzatore-ricompensa media**: è stata potenzialmente raggiunta la media del personalizzatore dei premi totali.
-* **Percentuale di successo del premio per gli eventi 1000 più recenti**: rapporto tra la linea di base e la ricompensa della personalizzazione, normalizzato rispetto agli eventi 1000 più recenti.
-
-## <a name="evaluate-apprentice-mode-features"></a>Valutare le funzionalità della modalità Apprentice
-
-Valutare le funzionalità usando una [valutazione offline](how-to-offline-evaluation.md).
+La modalità apprendista fornisce le **metriche di valutazione** seguenti:
+* **Baseline-ricompensa media** : vantaggi medi dell'impostazione predefinita dell'applicazione (baseline).
+* **Personalizzatore-ricompensa media** : è stata potenzialmente raggiunta la media del personalizzatore dei premi totali.
+* **Percentuale di successo del premio per gli eventi 1000 più recenti** : rapporto tra la linea di base e la ricompensa della personalizzazione, normalizzato rispetto agli eventi 1000 più recenti.
 
 ## <a name="switch-behavior-to-online-mode"></a>Cambiare il comportamento in modalità online
 

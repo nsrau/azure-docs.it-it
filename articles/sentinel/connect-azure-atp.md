@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 64c1a7155d0cc4e80f97db138a0626d6e9fdc9e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 319e0d29ef297f2a675128d498820a2d5b8ac42e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657817"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579522"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Connettere i dati da Microsoft Defender per l'identità (in precedenza Azure Advanced Threat Protection)
 
@@ -32,7 +32,7 @@ ms.locfileid: "89657817"
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Utente con autorizzazioni di amministratore globale o amministratore della sicurezza
-- È necessario essere un cliente di anteprima di Microsoft Defender per l'identità e abilitare l'integrazione tra Microsoft Defender per identità e Microsoft Cloud App Security. Per ulteriori informazioni, vedere [Microsoft Defender per l'integrazione di identità](https://docs.microsoft.com/cloud-app-security/aatp-integration).
+- È necessario essere un cliente di anteprima di Microsoft Defender per l'identità e abilitare l'integrazione tra Microsoft Defender per identità e Microsoft Cloud App Security. Per ulteriori informazioni, vedere [Microsoft Defender per l'integrazione di identità](https://www.microsoft.com/microsoft-365/identity/advance-threat-protection).
 
 ## <a name="connect-to-microsoft-defender-for-identity"></a>Connettersi a Microsoft Defender per l'identità
 
@@ -40,7 +40,7 @@ Verificare che nella [rete sia abilitata](https://docs.microsoft.com/azure-advan
 Se Microsoft Defender per l'identità è distribuito e inserisce i dati, gli avvisi sospetti possono essere facilmente trasmessi in Sentinel di Azure. Potrebbero essere necessarie fino a 24 ore prima che gli avvisi avviino lo streaming in Sentinel di Azure.
 
 
-1. Per connettere Microsoft Defender per l'identità a Sentinel di Azure, è necessario innanzitutto abilitare l'integrazione tra Microsoft Defender per Identity e Microsoft Cloud App Security. Per informazioni su come eseguire questa operazione, vedere [Microsoft Defender per l'integrazione di identità](https://docs.microsoft.com/cloud-app-security/aatp-integration).
+1. Per connettere Microsoft Defender per l'identità a Sentinel di Azure, è necessario innanzitutto abilitare l'integrazione tra Microsoft Defender per Identity e Microsoft Cloud App Security. Per informazioni su come eseguire questa operazione, vedere [Microsoft Defender per l'integrazione di identità](https://www.microsoft.com/microsoft-365/identity/advance-threat-protection).
 
 1. In Sentinel di Azure selezionare **connettori dati** e quindi fare clic sul riquadro **Microsoft Defender for Identity (anteprima)** .
 

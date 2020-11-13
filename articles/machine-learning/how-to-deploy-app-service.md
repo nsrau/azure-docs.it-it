@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: bea3270821888334ed876bb827dab56b4c206b6a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 491fa39bed9e73a41f5a29a9040df052b6945552
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325246"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578026"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuire un modello di machine learning nel servizio app Azure (anteprima)
 
@@ -75,7 +75,7 @@ Prima di distribuire, è necessario definire gli elementi necessari per eseguire
 Queste entità sono incapsulate in una __configurazione di inferenza__. La configurazione di inferenza fa riferimento allo script di avvio e ad altre dipendenze.
 
 > [!IMPORTANT]
-> Quando si crea una configurazione di inferenza da usare con app Azure Service, è necessario usare un oggetto [Environment](//python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) . Si noti che se si definisce un ambiente personalizzato, è necessario aggiungere azureml-defaults con Version >= 1.0.45 come dipendenza PIP. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web. Nell'esempio seguente viene illustrata la creazione di un oggetto ambiente e il relativo utilizzo con una configurazione di inferenza:
+> Quando si crea una configurazione di inferenza da usare con app Azure Service, è necessario usare un oggetto [Environment](/python/api/azureml-core/azureml.core.environment(class)?preserve-view=true&view=azure-ml-py) . Si noti che se si definisce un ambiente personalizzato, è necessario aggiungere azureml-defaults con Version >= 1.0.45 come dipendenza PIP. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web. Nell'esempio seguente viene illustrata la creazione di un oggetto ambiente e il relativo utilizzo con una configurazione di inferenza:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -101,7 +101,7 @@ Per ulteriori informazioni sulla configurazione dell'inferenza, vedere [distribu
 
 ## <a name="create-the-image"></a>Creare l'immagine
 
-Per creare l'immagine Docker distribuita nel servizio app Azure, usare [Model. Package](//python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-). Il frammento di codice seguente illustra come compilare una nuova immagine dalla configurazione del modello e dell'inferenza:
+Per creare l'immagine Docker distribuita nel servizio app Azure, usare [Model. Package](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py). Il frammento di codice seguente illustra come compilare una nuova immagine dalla configurazione del modello e dell'inferenza:
 
 > [!NOTE]
 > Il frammento di codice presuppone che `model` contenga un modello registrato e che `inference_config` contenga la configurazione per l'ambiente di inferenza. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
@@ -115,7 +115,7 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-Quando `show_output=True` viene visualizzato l'output del processo di compilazione docker. Al termine del processo, l'immagine è stata creata nel Container Registry di Azure per l'area di lavoro. Una volta compilata l'immagine, viene visualizzata la località nel Container Registry di Azure. Il percorso restituito è nel formato `<acrinstance>.azurecr.io/package@sha256:<imagename>` . Ad esempio: `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
+Quando `show_output=True` viene visualizzato l'output del processo di compilazione docker. Al termine del processo, l'immagine è stata creata nel Container Registry di Azure per l'area di lavoro. Una volta compilata l'immagine, viene visualizzata la località nel Container Registry di Azure. Il percorso restituito è nel formato `<acrinstance>.azurecr.io/package@sha256:<imagename>` . Ad esempio, `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`
 
 > [!IMPORTANT]
 > Salvare le informazioni sul percorso, così come vengono usate durante la distribuzione dell'immagine.
@@ -247,7 +247,7 @@ Questo comando restituisce informazioni simili al nome host seguente: `<app-name
 
 ## <a name="use-the-web-app"></a>Usare l'app Web
 
-Il servizio Web che passa le richieste al modello si trova in `{baseurl}/score` . Ad esempio: `https://<app-name>.azurewebsites.net/score`. Il codice Python seguente illustra come inviare dati all'URL e visualizzare la risposta:
+Il servizio Web che passa le richieste al modello si trova in `{baseurl}/score` . Ad esempio, `https://<app-name>.azurewebsites.net/score` Il codice Python seguente illustra come inviare dati all'URL e visualizzare la risposta:
 
 ```python
 import requests

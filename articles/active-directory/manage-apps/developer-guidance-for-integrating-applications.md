@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b24bd190eac9cb6c29ceab6eb597d8d1c48f2ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da1b56e3818d2d9701ecb0252328746dc39bb260
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605091"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578315"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Sviluppare app line-of-business per Azure Active Directory
 Questa guida fornisce una panoramica dello sviluppo di applicazioni line-of-business (LoB) per Azure Active Directory (AD). Il destinatario è Active Directory/Microsoft 365 gli amministratori globali.
@@ -27,7 +27,7 @@ La creazione di applicazioni integrate con Azure AD consente agli utenti dell'or
 
 Registrare l'applicazione per l'uso di Azure Active Directory. Registrando l'applicazione, gli sviluppatori possono usare Azure AD per autenticare gli utenti e richiedere l'accesso a risorse degli utenti come posta elettronica, calendario e documenti.
 
-Qualsiasi membro della directory (non guest) può registrare un'applicazione, operazione nota anche come *creazione di un oggetto applicazione*.
+Qualsiasi membro della directory (non guest) può registrare un'applicazione, operazione nota anche come *creazione di un oggetto applicazione*. Se non si è in grado di registrare un'applicazione, significa che l'amministratore globale della directory ha limitato questa funzionalità e potrebbe essere necessario contattarlo per [ottenere i diritti appropriati](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#assign-built-in-application-admin-roles) per poter registrare l'applicazione. Per altre informazioni su come limitare le autorizzazioni, vedere l'articolo relativo alla [registrazione delle app delegate nell'Azure Active Directory](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#restrict-who-can-create-applications).
 
 La registrazione di un'applicazione consente a qualsiasi utente di eseguire le operazioni seguenti:
 

@@ -1,6 +1,6 @@
 ---
 title: Autenticazione OAUTH 2,0 con Azure Active Directory
-description: Indicazioni sull'architettura per ottenere questo modello di autenticazione
+description: Indicazioni sull'architettura per ottenere l'autenticazione OAUTH 2,0 con Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea22c4e5b363eaa3ecc2a736dfef714666310062
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: daf40a2ced3f753619e9c4723dbe78cd7e51ff21
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114212"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577907"
 ---
 # <a name="oauth-20-authentication-with-azure-active-directory"></a>Autenticazione OAuth 2,0 con Azure Active Directory
 
@@ -34,13 +34,13 @@ Per rich client & scenari di app moderne e accesso all'API Web RESTful.
 
 ## <a name="components-of-system"></a>Componenti del sistema
 
-* **Utente**: richiede un servizio dall'applicazione Web (app). L'utente è in genere il proprietario della risorsa che possiede i dati e ha la possibilità di consentire ai client di accedere ai dati o alla risorsa. 
+* **Utente** : richiede un servizio dall'applicazione Web (app). L'utente è in genere il proprietario della risorsa che possiede i dati e ha la possibilità di consentire ai client di accedere ai dati o alla risorsa. 
 
-* **Web browser**: il Web browser con cui l'utente interagisce è il client OAuth. 
+* **Web browser** : il Web browser con cui l'utente interagisce è il client OAuth. 
 
-* **App Web**: l'app Web o il server di risorse è il percorso in cui risiedono la risorsa o i dati. Considera attendibile il server di autorizzazione per autenticare e autorizzare il client OAuth in modo sicuro. 
+* **App Web** : l'app Web o il server di risorse è il percorso in cui risiedono la risorsa o i dati. Considera attendibile il server di autorizzazione per autenticare e autorizzare il client OAuth in modo sicuro. 
 
-* **Azure ad**: Azure ad è il server di autorizzazione, noto anche come provider di identità (IDP). Gestisce in modo sicuro qualsiasi operazione eseguita con le informazioni dell'utente, l'accesso e la relazione di trust. È responsabile dell'emissione dei token che concedono e revocano l'accesso alle risorse.
+* **Azure ad** : Azure ad è il server di autorizzazione, noto anche come provider di identità (IDP). Gestisce in modo sicuro qualsiasi operazione eseguita con le informazioni dell'utente, l'accesso e la relazione di trust. È responsabile dell'emissione dei token che concedono e revocano l'accesso alle risorse.
 
 ## <a name="implement-oauth-20-with-azure-ad"></a>Implementare OAuth 2,0 con Azure AD
 

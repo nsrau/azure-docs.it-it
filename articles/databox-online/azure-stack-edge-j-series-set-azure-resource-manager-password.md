@@ -1,6 +1,6 @@
 ---
 title: Impostare Azure Resource Manager password sul dispositivo GPU Pro Azure Stack Edge
-description: Viene descritto come connettersi alla Azure Resource Manager in esecuzione sulla GPU di Azure Stack Edge Pro usando Azure PowerShell.
+description: Viene descritto come impostare la password di Azure Resource Manager sulla GPU di Azure Stack Edge Pro usando Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 915146cd17b90272daea4ce57f5243baf1d49cb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904482"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578791"
 ---
 # <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Impostare la password di Azure Resource Manager nel dispositivo GPU Pro Azure Stack Edge
 
@@ -28,7 +28,7 @@ La procedura per impostare la password può variare a seconda che si usi il port
 
 1. Nella portale di Azure passare alla risorsa Azure Stack Edge creata per gestire il dispositivo. Passare a **Calcolo Edge > Inizia subito**.
 
-2. Nel riquadro di destra, dalla barra dei comandi, selezionare **Reimposta la password del ARM Edge**. 
+2. Nella barra dei comandi del riquadro di destra, selezionare **Reimposta password ARM Edge**. 
 
     ![Reimposta password utente EdgeARM 1](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-1.png)
 

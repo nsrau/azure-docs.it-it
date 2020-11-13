@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3559b3724d14be6aade07c4884190afce30c0715
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cc2c40dd0b61f917da86d67188f4b503ca9b9298
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93306863"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579352"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Eseguire query sui file parquet usando un pool SQL senza server (anteprima) in Azure sinapsi Analytics
 
@@ -36,6 +36,11 @@ from openrowset(
 ```
 
 Assicurarsi di accedere a questo file. Se il file è protetto con la chiave SAS o con identità Azure personalizzata, è necessario configurare le [credenziali a livello di server per l'accesso SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+> [!IMPORTANT]
+> Assicurarsi di usare le regole di confronto del database UTF-8 (ad esempio `Latin1_General_100_CI_AS_SC_UTF8` ) perché i valori stringa nei file parquet sono codificati usando la codifica UTF-8.
+> Mancata corrispondenza tra la codifica del testo nel file PARQUET e le regole di confronto potrebbero causare errori di conversione imprevisti.
+> È possibile modificare facilmente le regole di confronto predefinite del database corrente usando l'istruzione T-SQL seguente: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 ### <a name="data-source-usage"></a>Utilizzo dell'origine dati
 
@@ -67,6 +72,12 @@ from openrowset(
         format = 'parquet'
     ) with ( date_rep date, cases int, geo_id varchar(6) ) as rows
 ```
+
+> [!IMPORTANT]
+> Assicurarsi di explicilty specificando alcune regole di confronto UTF-8 (ad esempio `Latin1_General_100_CI_AS_SC_UTF8` ) per tutte le colonne stringa nella `WITH` clausola o impostare alcune regole di confronto UTF-8 a livello di database.
+> La mancata corrispondenza tra la codifica del testo nel file e le regole di confronto delle colonne stringa può causare errori di conversione imprevisti.
+> È possibile modificare facilmente le regole di confronto predefinite del database corrente usando l'istruzione T-SQL seguente: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
+> È possibile impostare facilmente le regole di confronto sui tipi Colum usando la definizione seguente: `geo_id varchar(6) collate Latin1_General_100_CI_AI_SC_UTF8`
 
 Nelle sezioni seguenti è possibile vedere come eseguire query su diversi tipi di file PARQUET.
 

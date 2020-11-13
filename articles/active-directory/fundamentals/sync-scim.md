@@ -1,6 +1,6 @@
 ---
 title: Sincronizzazione SCIM con Azure Active Directory
-description: Indicazioni sull'architettura per il raggiungimento di questo modello di sincronizzazione
+description: Indicazioni sull'architettura per ottenere la sincronizzazione SCIM con Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1dda465dd675e0f5f519f86289df2621be0b9bb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f957070ec94fc4c61089f31fe91261a2f52c4ee4
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367857"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578859"
 ---
 # <a name="scim-synchronization-with-azure-active-directory"></a>Sincronizzazione SCIM con Azure Active Directory
 
@@ -35,13 +35,13 @@ Si desidera eseguire automaticamente il provisioning delle informazioni utente d
 
 ## <a name="components-of-system"></a>Componenti del sistema 
 
-* **Sistema HCM**: applicazioni e tecnologie che consentono processi e procedure di gestione del capitale umano che supportano e automatizzano i processi HR durante tutto il ciclo di vita dei dipendenti. 
+* **Sistema HCM** : applicazioni e tecnologie che consentono processi e procedure di gestione del capitale umano che supportano e automatizzano i processi HR durante tutto il ciclo di vita dei dipendenti. 
 
-* **Servizio di provisioning Azure ad**: usa il protocollo scim 2,0 per il provisioning automatico. Il servizio si connette all'endpoint SCIM per l'applicazione e usa lo schema dell'oggetto utente SCIM e le API REST per automatizzare il provisioning e il deprovisioning di utenti e gruppi.  
+* **Servizio di provisioning Azure ad** : usa il protocollo scim 2,0 per il provisioning automatico. Il servizio si connette all'endpoint SCIM per l'applicazione e usa lo schema dell'oggetto utente SCIM e le API REST per automatizzare il provisioning e il deprovisioning di utenti e gruppi.  
 
-* **Azure ad**: repository utente usato per gestire il ciclo di vita delle identità e i rispettivi diritti. 
+* **Azure ad** : repository utente usato per gestire il ciclo di vita delle identità e i rispettivi diritti. 
 
-* **Sistema di destinazione**: applicazione o sistema con endpoint scim e compatibile con il provisioning di Azure ad per abilitare il provisioning automatico di utenti e gruppi.  
+* **Sistema di destinazione** : applicazione o sistema con endpoint scim e compatibile con il provisioning di Azure ad per abilitare il provisioning automatico di utenti e gruppi.  
 
 ## <a name="implement-scim-with-azure-ad"></a>Implementare SCIM con Azure AD 
 

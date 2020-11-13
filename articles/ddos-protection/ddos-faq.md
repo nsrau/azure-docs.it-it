@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti sugli standard di protezione DDoS di Azure
-description: Informazioni su Protezione DDoS di Azure Standard che, in combinazione con le procedure consigliate per la progettazione di applicazione, offre un meccanismo di difesa dagli attacchi DDoS.
+description: Domande frequenti sullo standard di protezione DDoS di Azure, che consente di fornire una difesa contro gli attacchi DDoS.
 services: virtual-network
 documentationcenter: na
 author: yitoh
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 0873705e105710873be5d024269d40deb1c85e2b
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: ed524642dc53835e686f52b53cfce0c16fb56377
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505428"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579097"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Domande frequenti sugli standard di protezione DDoS di Azure
 

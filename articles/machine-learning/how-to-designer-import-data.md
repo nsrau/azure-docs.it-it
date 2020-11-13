@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 9ce0bb2a30ec4092d0053adf2de711547595c900
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 5569b625b8f0c4ba890c0cd5b1700ca6fe83d968
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554717"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591989"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importare dati in Azure Machine Learning Designer
 
@@ -53,6 +53,8 @@ Se i dati di output del modulo sono in formato tabulare, è necessario scegliere
 ### <a name="use-a-dataset"></a>Uso di un set di dati
 
 I set di strumenti registrati sono disponibili nella tavolozza dei moduli, in **set di impostazioni**. Per usare un set di dati, trascinarlo e rilascialo nelle canvas della pipeline. Quindi, connettere la porta di output del set di dati ad altri moduli nell'area di disegno. 
+
+Se si registra un set di dati del file, il tipo di porta di output del set di dati è **AnyDirectory**. Se si registra un set di dati tabulare, il tipo di porta di output del set di dati, se **DataFrameDirectory**. Si noti che se si connette la porta di output del set di dati ad altri moduli nella finestra di progettazione, è necessario allineare il tipo di porta di set di dati e moduli.
 
 ![Screenshot che mostra la posizione dei set di dati salvati nella tavolozza della finestra di progettazione](media/how-to-designer-import-data/use-datasets-designer.png)
 

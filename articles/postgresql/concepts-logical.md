@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.openlocfilehash: 0e9773e5c08f9d07f76a70bc4f899acf5004d3c2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: cda305ac705b728e0d2e129d7d42d53ea0251d86
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421810"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591530"
 ---
 # <a name="logical-decoding"></a>Decodifica logica
  
@@ -37,7 +37,6 @@ Per configurare il livello di registrazione corretto, usare il parametro di supp
 * **Replica** : più dettagliata di **off**. Questo è il livello minimo di registrazione necessario per il funzionamento delle [repliche di lettura](concepts-read-replicas.md) . Questa impostazione è quella predefinita nella maggior parte dei server.
 * **Logica** : più dettagliata rispetto alla **replica**. Questo è il livello minimo di registrazione per il funzionamento della decodifica logica. Le repliche di lettura funzionano anche con questa impostazione.
 
-Il server deve essere riavviato dopo una modifica di questo parametro. Internamente, questo parametro imposta i parametri Postgres `wal_level` , `max_replication_slots` e `max_wal_senders` .
 
 ### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 

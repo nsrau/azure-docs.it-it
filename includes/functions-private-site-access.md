@@ -4,19 +4,17 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
-ms.openlocfilehash: 5e0cff7bde6e80a776d694820ca7b69dafa7c0d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d66e7f497f85141de172c59b67676e1bb93955e
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83648836"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578815"
 ---
-Per accesso privato s'intende la possibilità di rendere l'app accessibile soltanto da una rete privata, ad esempio da una rete virtuale di Azure.
+L'[endpoint privato di Azure](../articles/private-link/private-endpoint-overview.md) è un'interfaccia di rete che si connette in modo privato e sicuro a un servizio basato sul collegamento privato di Azure.  L'endpoint privato usa un indirizzo IP privato della rete virtuale, portando il servizio nella rete virtuale in modo efficace.
 
-* L'accesso privato è disponibile nei piani [Premium](../articles/azure-functions/functions-premium-plan.md), [A consumo](../articles/azure-functions/functions-scale.md#consumption-plan) e [Servizio app](../articles/azure-functions/functions-scale.md#app-service-plan) quando vengono configurati gli endpoint di servizio.
-    * Gli endpoint di servizio possono essere configurati in base alle singole app in **Funzionalità della piattaforma** > **Rete** > **Configura restrizioni di accesso** > **Aggiungi regola**. È ora possibile selezionare le reti virtuali come tipo di regola.
-    * Per altre informazioni, vedere [Endpoint servizio di rete virtuale](../articles/virtual-network/virtual-network-service-endpoints-overview.md).
-    * Tenere presente che, con gli endpoint di servizio, la funzione ha ancora l'accesso in uscita completo a Internet, anche con l'integrazione della rete virtuale configurata.
-* L'accesso privato è disponibile anche all'interno di un ambiente del servizio app configurato con un servizio di bilanciamento del carico interno. Per altre informazioni, vedere [Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app](../articles/app-service/environment/create-ilb-ase.md).
+È possibile usare l'endpoint privato per le funzioni ospitate nei piani [Premium](../articles/azure-functions/functions-premium-plan.md) e di [servizio app](../articles/azure-functions/functions-scale.md#app-service-plan) .
 
-Per informazioni su come configurare l'accesso privato, vedere [Stabilire l'accesso privato al sito per Funzioni di Azure](../articles/azure-functions/functions-create-private-site-access.md).
+Quando si crea una connessione all'endpoint privato in ingresso per le funzioni, sarà necessario anche un record DNS per risolvere l'indirizzo privato.  Per impostazione predefinita, viene creato un record DNS privato quando si crea un endpoint privato usando il portale di Azure.
+
+Per altre informazioni, vedere [uso di endpoint privati per le app Web](../articles/app-service/networking/private-endpoint.md).

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 61c8127941c54270b938babefaf4eb17627a15f3
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 4cb707896aa7874aa2bf287723e8a53d7d6d974c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94370176"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577788"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Pianificare un'offerta applicazione Azure per il Marketplace commerciale
 
@@ -33,7 +33,7 @@ La progettazione, la creazione e i test delle offerte per applicazioni Azure ric
 
 Esaminare le risorse seguenti durante la pianificazione dell'offerta di applicazione Azure per il Marketplace commerciale.
 
-- [Comprendere modelli di Azure Resource Manager](/azure/azure-resource-manager/templates/template-syntax.md)
+- [Comprendere modelli di Azure Resource Manager](/azure/azure-resource-manager/templates/template-syntax)
 - Argomenti di avvio rapido:
     - [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/)
     - [Guida alle procedure consigliate per i modelli di Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
@@ -145,7 +145,7 @@ Per semplificare la creazione dell'offerta, è possibile preparare alcuni di que
 - **Breve descrizione** : fornire fino a 256 caratteri di testo normale. Questo riepilogo verrà visualizzato nella pagina dei dettagli dell'offerta.
 - **Descrizione** : questa descrizione verrà visualizzata nella panoramica degli elenchi di Azure Marketplace. Si consiglia di includere una proposta di valore, i vantaggi principali, la base di utenti prevista, le associazioni di categoria o di settore, le opportunità di acquisto in-app, le esigenze dei clienti o il dolore che l'offerta indirizza, eventuali divulgazioni richieste e un collegamento per ottenere ulteriori informazioni.
 
-    Questa casella di testo contiene controlli avanzati dell'editor di testo che è possibile usare per rendere più accattivante la descrizione. È anche possibile usare i tag HTML per formattare la descrizione. In questa casella è possibile immettere fino a 3.000 caratteri di testo, inclusi markup HTML e spazi. Per altri suggerimenti, vedere [scrivere una descrizione di app](/windows/uwp/publish/write-a-great-app-description.md) e [tag HTML supportati nelle descrizioni delle offerte del Marketplace commerciale](supported-html-tags.md).
+    Questa casella di testo contiene controlli avanzati dell'editor di testo che è possibile usare per rendere più accattivante la descrizione. È anche possibile usare i tag HTML per formattare la descrizione. In questa casella è possibile immettere fino a 3.000 caratteri di testo, inclusi markup HTML e spazi. Per altri suggerimenti, vedere [scrivere una descrizione di app](/windows/uwp/publish/write-a-great-app-description) e [tag HTML supportati nelle descrizioni delle offerte del Marketplace commerciale](supported-html-tags.md).
 
 - **Parole chiave di ricerca** (facoltativo): fornire fino a tre parole chiave di ricerca che i clienti possono usare per trovare l'offerta nel negozio online. Per ottenere risultati ottimali, usare queste parole chiave anche nella descrizione. Non è necessario includere il **nome** dell'offerta e la **Descrizione**. Tale testo viene automaticamente incluso nella ricerca.
 - **Collegamento all'informativa sulla privacy** : l'URL per l'informativa sulla privacy dell'azienda. È necessario fornire un'informativa sulla privacy valida e avere la responsabilità di garantire che l'applicazione sia conforme alle leggi e alle normative sulla privacy.
@@ -177,7 +177,7 @@ Per semplificare la creazione dell'offerta, è possibile preparare alcuni di que
   - file con estensione png
   - Deve includere una didascalia
 - **Supporti-video** (facoltativo): è possibile aggiungere fino a cinque video con i requisiti seguenti, che dimostrano l'offerta:
-  - Name
+  - Nome
   - URL: deve essere ospitato solo su YouTube o Vimeo.
   - Anteprima: file 1280 x 720. png
 
@@ -197,9 +197,9 @@ Un pubblico di anteprima può accedere all'offerta prima di essere pubblicata Li
 
 Per le applicazioni gestite che generano eventi di misurazione usando le [API del servizio di misurazione del Marketplace](partner-center-portal/marketplace-metering-service-apis.md), è necessario fornire l'identità che il servizio userà per la creazione di eventi di misurazione.
 
-Questa configurazione è obbligatoria se si vuole usare [eventi di utilizzo in batch](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event). Se si vuole inviare un [evento di utilizzo](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event), è anche possibile usare il [servizio metadati dell'istanza](/azure/active-directory/managed-identities-azure-resources/overview.md) per ottenere il [token web JSON (JWT) Bearer token](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token)).
+Questa configurazione è obbligatoria se si vuole usare [eventi di utilizzo in batch](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event). Se si vuole inviare un [evento di utilizzo](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event), è anche possibile usare il [servizio metadati dell'istanza](/azure/active-directory/managed-identities-azure-resources/overview) per ottenere il [token web JSON (JWT) Bearer token](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token)).
 
-- **Azure Active Directory ID tenant** (obbligatorio): all'interno del portale di Azure, è necessario [creare un'app Azure Active Directory (ad)](/azure/active-directory/develop/howto-create-service-principal-portal.md) in modo che sia possibile convalidare la connessione tra i due servizi sia dietro una comunicazione autenticata. Per trovare l' [ID tenant](/azure/active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) per l'app Azure Active Directory (Azure ad), nel pannello [registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) della Azure Active Directory. Nella colonna **nome visualizzato** selezionare l'app. Cercare quindi le **Proprietà** e quindi per l' **ID della directory (tenant)** , ad esempio `50c464d3-4930-494c-963c-1e951d15360e` .
+- **Azure Active Directory ID tenant** (obbligatorio): all'interno del portale di Azure, è necessario [creare un'app Azure Active Directory (ad)](/azure/active-directory/develop/howto-create-service-principal-portal) in modo che sia possibile convalidare la connessione tra i due servizi sia dietro una comunicazione autenticata. Per trovare l' [ID tenant](/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in) per l'app Azure Active Directory (Azure ad), nel pannello [registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) della Azure Active Directory. Nella colonna **nome visualizzato** selezionare l'app. Cercare quindi le **Proprietà** e quindi per l' **ID della directory (tenant)** , ad esempio `50c464d3-4930-494c-963c-1e951d15360e` .
 - **Azure Active Directory ID applicazione** (obbligatorio): sono necessari anche l' [ID applicazione](/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-and-app-id-values-for-signing-in.md) e una chiave di autenticazione. Per trovare l'ID applicazione, passare al pannello [registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in Azure Active Directory. Nella colonna **nome visualizzato** selezionare l'app e quindi cercare l' **ID applicazione (client)** (ad esempio `50c464d3-4930-494c-963c-1e951d15360e` ). Per trovare la chiave di autenticazione, passare a **Impostazioni** e selezionare **Chiavi**. Sarà necessario specificare una descrizione e una durata, quindi verrà fornito un valore numerico.
 
 > [!NOTE]
@@ -209,7 +209,7 @@ Questa configurazione è obbligatoria se si vuole usare [eventi di utilizzo in b
 
 È possibile scegliere di acconsentire ai canali di marketing e vendita supportati da Microsoft. Quando si crea l'offerta nel centro per i partner, si vedranno due schede verso la fine del processo:
 
-- **Rivendere tramite CSP** : usare questa opzione per consentire ai partner di Microsoft Cloud Solution Provider (CSP) di rivendere la soluzione come parte di un'offerta in bundle. Per ulteriori informazioni, vedere il [programma Cloud Solution Provider](/azure/marketplace/cloud-solution-providers.md) .
+- **Rivendere tramite CSP** : usare questa opzione per consentire ai partner di Microsoft Cloud Solution Provider (CSP) di rivendere la soluzione come parte di un'offerta in bundle. Per ulteriori informazioni, vedere il [programma Cloud Solution Provider](/azure/marketplace/cloud-solution-providers) .
 - **Co-selling con Microsoft** : questa opzione consente ai team di vendita Microsoft di prendere in considerazione la soluzione di co-selling IP idonea per valutare le esigenze dei clienti. Per informazioni dettagliate su come preparare l'offerta per la valutazione, vedere [opzione di co-selling nel centro](partner-center-portal/commercial-marketplace-co-sell.md) per i partner. Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [Cloud Solution Provider](cloud-solution-providers.md).
 
 Per altre informazioni, vedere [aumentare le attività del cloud con Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
@@ -224,12 +224,12 @@ Per indicazioni generali sui piani, inclusi i modelli di prezzi e i piani privat
 
 Esistono due tipi di piani per le applicazioni di Azure: il _modello di soluzione_ e l' _applicazione gestita_. Entrambi i tipi di piano supportano l'automazione della distribuzione e della configurazione di una soluzione oltre a una singola macchina virtuale (VM). È possibile automatizzare il processo di fornitura di più risorse, tra cui macchine virtuali, rete e risorse di archiviazione, per offrire soluzioni complesse, ad esempio soluzioni IaaS. Entrambi i tipi di piano possono impiegare molti tipi diversi di risorse di Azure, tra cui, ma non limitati alle macchine virtuali.
 
-- I piani di **modelli di soluzione** sono uno dei modi principali per pubblicare una soluzione nel Marketplace commerciale. I piani di modelli di soluzione non sono transazionali nel Marketplace commerciale, ma possono essere usati per distribuire le offerte di macchine virtuali a pagamento fatturate tramite il Marketplace commerciale. Utilizzare il tipo di piano modello soluzione quando il cliente gestirà la soluzione e le transazioni vengono fatturate in base a un altro piano. Per ulteriori informazioni sulla creazione di modelli di soluzione, vedere [che cos'è Azure Resource Manager?](/azure/azure-resource-manager/resource-group-overview.md)
+- I piani di **modelli di soluzione** sono uno dei modi principali per pubblicare una soluzione nel Marketplace commerciale. I piani di modelli di soluzione non sono transazionali nel Marketplace commerciale, ma possono essere usati per distribuire le offerte di macchine virtuali a pagamento fatturate tramite il Marketplace commerciale. Utilizzare il tipo di piano modello soluzione quando il cliente gestirà la soluzione e le transazioni vengono fatturate in base a un altro piano. Per ulteriori informazioni sulla creazione di modelli di soluzione, vedere [che cos'è Azure Resource Manager?](/azure/azure-resource-manager/resource-group-overview)
 - I piani di **applicazioni gestite** consentono di creare e distribuire in modo semplice applicazioni chiavi in mano completamente gestite per i clienti. Hanno le stesse funzionalità dei piani di modelli di soluzione, con alcune differenze principali:
     - Le risorse vengono distribuite in un gruppo di risorse e sono gestite dall'autore dell'app. Il gruppo di risorse è presente nella sottoscrizione del consumer, ma un'identità nel tenant dell'entità di pubblicazione dell'app ha accesso al gruppo di risorse. 
     - In qualità di editore, è possibile specificare il costo per il supporto continuo della soluzione e le transazioni sono supportate tramite il Marketplace commerciale.
  
-    Usare il tipo di piano di applicazione gestita quando l'utente o il cliente richiede che la soluzione sia gestita da un partner o si distribuirà una soluzione basata sulla sottoscrizione. Per altre informazioni sui vantaggi e sui tipi di applicazioni gestite, vedere [Panoramica delle applicazioni gestite di Azure](/azure/managed-applications/overview.md).
+    Usare il tipo di piano di applicazione gestita quando l'utente o il cliente richiede che la soluzione sia gestita da un partner o si distribuirà una soluzione basata sulla sottoscrizione. Per altre informazioni sui vantaggi e sui tipi di applicazioni gestite, vedere [Panoramica delle applicazioni gestite di Azure](/azure/managed-applications/overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

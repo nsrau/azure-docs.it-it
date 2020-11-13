@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f57d435134bffbb8e7576adffeacb92bf687124
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 087ee796fbd3c0563b8019a062acab9c7ad80bb1
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310301"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579386"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Eseguire query sui dati Azure Cosmos DB con pool SQL senza server nel collegamento sinapsi di Azure (anteprima)
 
@@ -42,7 +42,9 @@ OPENROWSET(
 La stringa di connessione Azure Cosmos DB specifica il nome dell'account di Azure Cosmos DB, il nome del database, la chiave master dell'account del database e un nome di area facoltativo per il `OPENROWSET` funzionamento. 
 
 > [!IMPORTANT]
-> Assicurarsi di usare l'alias dopo `OPENROWSET` . Si è verificato un [problema noto](#known-issues) che causa il problema di connessione all'endpoint SQL senza server della sinapsi se non si specifica l'alias dopo la `OPENROWSET` funzione.
+> Assicurarsi di utilizzare le regole di confronto del database UTF-8 (ad esempio `Latin1_General_100_CI_AS_SC_UTF8` ) perché i valori stringa in Cosmos DB archivio analitico sono codificati come testo UTF-8.
+> Mancata corrispondenza tra la codifica del testo nel file e le regole di confronto potrebbero causare errori di conversione del testo imprevisti.
+> È possibile modificare facilmente le regole di confronto predefinite del database corrente usando l'istruzione T-SQL seguente: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 Il formato della stringa di connessione è il seguente:
 ```sql
@@ -338,8 +340,8 @@ In questo esempio il numero di case viene archiviato come `int32` valori, `int64
 
 ## <a name="known-issues"></a>Problemi noti
 
-- L'alias **deve** essere specificato dopo `OPENROWSET` la funzione (ad esempio, `OPENROWSET (...) AS function_alias` ). L'omissione di alias potrebbe causare un problema di connessione e l'endpoint SQL senza server della sinapsi potrebbe essere temporaneamente non disponibile. Questo problema verrà risolto nel 2020 novembre.
 - L'esperienza di query fornita da un pool SQL senza server per [Azure Cosmos DB lo schema di fedeltà completa](#full-fidelity-schema) è un comportamento temporaneo che verrà modificato in base al feedback dell'anteprima. Non fare affidamento sullo schema che `OPENROWSET` la funzione senza `WITH` clausola fornisce durante l'anteprima pubblica perché l'esperienza di query potrebbe essere allineata con uno schema ben definito in base ai suggerimenti dei clienti. Per fornire commenti e suggerimenti, contattare il [team del prodotto del collegamento sinapsi](mailto:cosmosdbsynapselink@microsoft.com) .
+- Il pool SQL senza server non restituirà un errore in fase di compilazione se le `OPENROSET` regole di confronto della colonna non includono la codifica UTF-8. È possibile modificare facilmente le regole di confronto predefinite per tutte le `OPENROWSET` funzioni in esecuzione nel database corrente usando l'istruzione T-SQL seguente: `alter database current collate Latin1_General_100_CI_AI_SC_UTF8`
 
 Nella tabella seguente sono elencati i possibili errori e le azioni per la risoluzione dei problemi:
 

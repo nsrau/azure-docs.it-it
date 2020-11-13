@@ -1,6 +1,6 @@
 ---
-title: Distribuire le VM sul dispositivo GPU Azure Stack Edge Pro tramite Azure PowerShell
-description: Viene descritto come creare e gestire macchine virtuali (VM) in un dispositivo Azure Stack Edge Pro usando Azure PowerShell.
+title: Distribuire le VM sul dispositivo GPU Azure Stack Edge Pro tramite Azure PowerShell script
+description: Viene descritto come creare e gestire macchine virtuali (VM) in un dispositivo Azure Stack Edge Pro usando uno script di Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 5ed6de28f1e1b0545ebd675c30249e2f2b4747e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd877a91c7c082ce7845394f2636857f33b7940f
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890645"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578757"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Distribuire le VM sul dispositivo GPU Azure Stack Edge Pro tramite Azure PowerShell script
 

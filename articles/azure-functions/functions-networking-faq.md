@@ -4,12 +4,12 @@ description: Risposte ad alcune domande e scenari più comuni per la rete con fu
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: d07484943f8ba85cc8e46737f3ef85b6e25d5187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e8a992aac95b6c2688cb45aa980bf0b01883a53
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538059"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578230"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Domande frequenti sulla rete in funzioni di Azure
 
@@ -31,11 +31,9 @@ Tenere presente che l'editor di portale di Azure richiede l'accesso diretto alla
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Ricerca per categorie limitare l'app per le funzioni a una rete virtuale?
 
-È possibile limitare il traffico in **ingresso** per un'app per le funzioni a una rete virtuale usando gli [endpoint di servizio](./functions-networking-options.md#private-site-access). Questa configurazione consente ancora all'app per le funzioni di effettuare chiamate in uscita a Internet.
+È possibile limitare il traffico in **ingresso** per un'app per le funzioni a una rete virtuale usando gli [endpoint di servizio](./functions-networking-options.md#use-service-endpoints). Questa configurazione consente ancora all'app per le funzioni di effettuare chiamate in uscita a Internet.
 
-L'unico modo per limitare completamente una funzione in modo che tutto il traffico scorra attraverso una rete virtuale consiste nell'usare un ambiente del servizio app con carico bilanciato internamente. Questa opzione consente di distribuire il sito in un'infrastruttura dedicata all'interno di una rete virtuale e di inviare tutti i trigger e il traffico attraverso la rete virtuale. 
-
-Per informazioni dettagliate sull'uso di un ambiente del servizio app, iniziare con l'articolo [creare e usare un servizio di bilanciamento del carico interno con una ambiente del servizio app](../app-service/environment/create-ilb-ase.md).
+Per limitare completamente una funzione in modo che tutto il traffico scorra attraverso una rete virtuale, è possibile usare un [endpoint privato](./functions-networking-options.md#private-endpoint-connections) con l'integrazione della rete virtuale in uscita o un ambiente del servizio app.
 
 ## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>Come è possibile accedere alle risorse in una rete virtuale da un'app per le funzioni?
 
@@ -47,7 +45,7 @@ Con l'integrazione della rete virtuale è possibile accedere alle risorse protet
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Come è possibile attivare una funzione da una risorsa in una rete virtuale?
 
-È possibile consentire la chiamata dei trigger HTTP da una rete virtuale usando gli [endpoint di servizio](./functions-networking-options.md#private-site-access). 
+È possibile consentire la chiamata dei trigger HTTP da una rete virtuale usando gli [endpoint di servizio](./functions-networking-options.md#use-service-endpoints) o le [connessioni a endpoint privati](./functions-networking-options.md#private-endpoint-connections). 
 
 È anche possibile attivare una funzione da tutte le altre risorse in una rete virtuale distribuendo l'app per le funzioni in un piano Premium, in un piano di servizio app o in ambiente del servizio app. Per ulteriori informazioni [, vedere trigger della rete virtuale non http.](./functions-networking-options.md#virtual-network-triggers-non-http)
 

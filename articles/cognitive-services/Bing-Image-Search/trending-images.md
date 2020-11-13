@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 9163868848f2fdbd535a6b601077be570b0b01bf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 20050cb373456296ef573368e6b289ec4b7d946d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076725"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591887"
 ---
 # <a name="get-trending-images-from-the-web"></a>Ottenere immagini di tendenza dal Web
 
 > [!WARNING]
-> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
-> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
-> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Per ottenere le immagini di tendenza più recenti, inviare la richiesta GET seguente:  
 
@@ -44,7 +44,7 @@ L'API delle immagini di tendenza supporta attualmente solo i mercati seguenti:
 - en-AU (inglese, Australia)  
 - zh-CN (cinese, Cina)
 
-La risposta contiene un oggetto [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) che elenca immagini per categoria. Usare la proprietà `title` della categoria per raggruppare le immagini nell'esperienza utente. Le categorie possono cambiare ogni giorno.  
+La risposta contiene un oggetto [TrendingImages](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) che elenca immagini per categoria. Usare la proprietà `title` della categoria per raggruppare le immagini nell'esperienza utente. Le categorie possono cambiare ogni giorno.  
 
 ```json
 {
@@ -93,9 +93,9 @@ La risposta contiene un oggetto [TrendingImages](https://docs.microsoft.com/rest
 }  
 ```  
 
-Ogni riquadro contiene un'immagine e alcune opzioni che consentono di ottenere immagini correlate. Per ottenere le immagini correlate, è possibile usare `text` della query per chiamare l'[API Ricerca immagini](./search-the-web.md) e visualizzare personalmente le immagini correlate. In alternativa, è possibile usare l'URL in `webSearchUrl` per far passare l'utente alla pagina di Bing dei risultati della ricerca di immagini, contenente le immagini correlate.
+Ogni riquadro contiene un'immagine e alcune opzioni che consentono di ottenere immagini correlate. Per ottenere le immagini correlate, è possibile usare `text` della query per chiamare l'[API Ricerca immagini](./overview.md) e visualizzare personalmente le immagini correlate. In alternativa, è possibile usare l'URL in `webSearchUrl` per far passare l'utente alla pagina di Bing dei risultati della ricerca di immagini, contenente le immagini correlate.
 
-Se si chiama l'API Ricerca immagini per ottenere le immagini correlate, impostare il parametro [id](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id) della query sull'ID presente nel campo `id`. L'indicazione dell'ID assicura che la risposta contenga l'immagine (la prima immagine nella risposta) e le relative immagini correlate. Impostare poi il parametro di query [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) sul testo nel campo `text` dell'oggetto `query`.
+Se si chiama l'API Ricerca immagini per ottenere le immagini correlate, impostare il parametro [id](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id) della query sull'ID presente nel campo `id`. L'indicazione dell'ID assicura che la risposta contenga l'immagine (la prima immagine nella risposta) e le relative immagini correlate. Impostare poi il parametro di query [q](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) sul testo nel campo `text` dell'oggetto `query`.
 
 L'esempio seguente illustra come usare l'ID dell'immagine per ottenere immagini correlate al signor Smith nella risposta precedente dell'API delle immagini di tendenza.
 
@@ -106,4 +106,4 @@ X-MSEdge-ClientIP: 999.999.999.999
 X-Search-Location: lat:47.60357;long:-122.3295;re:100  
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
-```  
+```

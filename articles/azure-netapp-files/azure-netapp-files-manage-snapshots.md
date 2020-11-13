@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 11/12/2020
 ms.author: b-juche
-ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: c64bc8bf265a8e3cc3c490827bdbd79661e3528a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491648"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591756"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
 
@@ -144,6 +144,17 @@ Non è possibile applicare un criterio snapshot a un volume di destinazione nell
 
     ![Conferma eliminazione criteri snapshot](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
 
+## <a name="edit-the-hide-snapshot-path-option"></a>Modifica l'opzione Nascondi percorso snapshot
+L'opzione Nascondi percorso snapshot controlla se il percorso dello snapshot di un volume è visibile. Durante la creazione di un volume [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) o [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) , è possibile specificare se il percorso dello snapshot deve essere nascosto. Successivamente, è possibile modificare l'opzione Nascondi percorso snapshot in base alle esigenze.  
+
+> [!NOTE]
+> Per un [volume di destinazione](cross-region-replication-create-peering.md#create-the-data-replication-volume-the-destination-volume) nella replica tra aree, l'opzione Nascondi percorso snapshot è abilitata per impostazione predefinita e l'impostazione non può essere modificata. 
+
+1. Per visualizzare l'impostazione dell'opzione Nascondi percorso snapshot di un volume, selezionare il volume. Il campo **Nascondi percorso snapshot** indica se l'opzione è abilitata.   
+    ![Screenshot che descrive il campo Nascondi percorso snapshot.](../media/azure-netapp-files/hide-snapshot-path-field.png) 
+2. Per modificare l'opzione Nascondi percorso snapshot, fare clic su **modifica** nella pagina volume e modificare l'opzione **Nascondi percorso snapshot** in base alle esigenze.   
+    ![Screenshot che descrive l'opzione modifica snapshot del volume.](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Ripristinare uno snapshot in un nuovo volume
 
 Attualmente, è possibile ripristinare uno snapshot solo in un nuovo volume. 
@@ -173,11 +184,7 @@ Se non si vuole [ripristinare l'intero snapshot in un volume](#restore-a-snapsho
 
 Il volume montato contiene una directory snapshot denominata  `.snapshot` (nei client NFS) o `~snapshot` (nei client SMB) accessibile al client. La directory snapshot contiene sottodirectory corrispondenti agli snapshot del volume. Ogni sottodirectory contiene i file dello snapshot. Se si elimina o sovrascrive accidentalmente un file, è possibile ripristinare il file nella directory padre di lettura/scrittura copiando il file da una sottodirectory snapshot alla directory di lettura/scrittura. 
 
-Se è stata selezionata la casella di controllo Nascondi percorso snapshot al momento della creazione del volume, la directory snapshot viene nascosta. È possibile visualizzare lo stato Nascondi percorso snapshot del volume selezionando il volume. È possibile modificare l'opzione Nascondi percorso snapshot facendo clic su **modifica** nella pagina del volume.  
-
-Per un volume di destinazione nella replica tra aree, Nascondi percorso snapshot è abilitato per impostazione predefinita e l'impostazione non può essere modificata.
-
-![Modifica opzioni snapshot del volume](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+Se la directory snapshot non è visibile, è possibile che sia nascosta perché l'opzione Nascondi percorso snapshot è attualmente abilitata. È possibile [modificare l'opzione Nascondi percorso snapshot](#edit-the-hide-snapshot-path-option) per disabilitarla.  
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Ripristinare un file usando un client NFS Linux 
 

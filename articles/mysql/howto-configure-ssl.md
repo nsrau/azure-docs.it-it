@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 71e6d024b27ecad09b3339a7b0a8c406c7a3eda1
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1c3e5a44e01f3fa43b82644103066f5a03684ad2
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541522"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94591581"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configurare la connettività SSL nell'applicazione per la connessione sicura a Database di Azure per MySQL
 
@@ -23,8 +23,11 @@ Database di Azure per il server MySQL supporta la connessione alle applicazioni 
 Scaricare il certificato necessario per comunicare tramite SSL con il database di Azure per il server MySQL [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) e salvare il file del certificato nell'unità locale. in questa esercitazione viene usato c:\ssl, ad esempio.
 **Per Microsoft Internet Explorer e Microsoft Edge:** dopo aver completato il download, rinominare il certificato in BaltimoreCyberTrustRoot.crt.pem.
 
+>[!NOTE]
+> In base ai commenti e suggerimenti dei clienti abbiamo esteso la deprecazione del certificato radice per la CA radice Baltimore esistente fino al 15 febbraio 2021 (02/15/2021).
+
 > [!IMPORTANT] 
-> Il certificato radice SSL è impostato per scadere a partire dal 26 ottobre 2020 (10/26/2020). Aggiornare l'applicazione per usare il [nuovo certificato](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Per altre informazioni, vedere [aggiornamenti di certificati pianificati](concepts-certificate-rotation.md)
+> Il certificato radice SSL è impostato per scadere a partire dal 15 febbraio 2021 (02/15/2021). Aggiornare l'applicazione per usare il [nuovo certificato](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Per altre informazioni, vedere [aggiornamenti di certificati pianificati](concepts-certificate-rotation.md)
 
 Vedere i collegamenti seguenti per i certificati per i server in cloud sovrani: [Azure per enti pubblici](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure Cina](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)e [Azure Germania](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 

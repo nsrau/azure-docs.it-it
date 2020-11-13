@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 8a84c9979bdfac1165d44d03572567ab1ea7ab1f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: ef7f7ba659d874d4514c45e9391912f3027e2265
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995346"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592057"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -250,7 +250,7 @@ Per configurarlo a livello di codice, aggiungere la `additionalColumns` propriet
 
 Quando si copiano dati in un database SQL/Azure sinapsi Analytics, se la tabella di destinazione non esiste, l'attività di copia supporta la creazione automatica in base ai dati di origine. Mira a aiutarti a iniziare rapidamente a caricare i dati e a valutare il database SQL o l'analisi delle sinapsi di Azure. Dopo l'inserimento dei dati, è possibile esaminare e modificare lo schema della tabella di sink in base alle esigenze.
 
-Questa funzionalità è supportata per la copia di dati da qualsiasi origine nei seguenti archivi dati sink. È possibile trovare l'opzione nell' *interfaccia utente di authoring di ADF* -> opzione *sink attività di copia* -> *tabella* -> *creazione automatica tabella*o `tableOption` Proprietà via nel payload del sink dell'attività di copia.
+Questa funzionalità è supportata per la copia di dati da qualsiasi origine nei seguenti archivi dati sink. È possibile trovare l'opzione nell' *interfaccia utente di authoring di ADF* -> opzione *sink attività di copia* -> *tabella* -> *creazione automatica tabella* o `tableOption` Proprietà via nel payload del sink dell'attività di copia.
 
 - [Database SQL di Azure](connector-azure-sql-database.md)
 - [Istanza gestita di database SQL di Azure](connector-azure-sql-managed-instance.md)
@@ -262,6 +262,13 @@ Questa funzionalità è supportata per la copia di dati da qualsiasi origine nei
 ## <a name="fault-tolerance"></a>Tolleranza di errore
 
 Per impostazione predefinita, l'attività di copia interrompe la copia dei dati e restituisce un errore quando le righe di dati di origine non sono compatibili con le righe di dati del sink. Per fare in modo che la copia abbia esito positivo, è possibile configurare l'attività di copia in modo da ignorare e registrare le righe incompatibili e copiare solo i dati compatibili. Per informazioni dettagliate, vedere [tolleranza di errore dell'attività di copia](copy-activity-fault-tolerance.md) .
+
+## <a name="data-consistency-verification"></a>Verifica della coerenza dei dati
+
+Quando si spostano i dati dall'archivio di origine a quello di destinazione, l'attività di copia di Azure Data Factory offre un'opzione che consente di eseguire ulteriori verifiche di coerenza dei dati per garantire che i dati non vengano copiati solo dall'archivio di origine all'archivio di destinazione, ma anche che siano coerenti tra l'archivio di origine e quello di destinazione. Una volta che durante lo spostamento dei dati sono stati rilevati file incoerenti, è possibile interrompere l'attività di copia o continuare a copiare il resto abilitando l'impostazione di tolleranza di errore per ignorare i file non coerenti. È possibile ottenere i nomi di file ignorati abilitando l'impostazione del log sessione nell'attività di copia. Per informazioni dettagliate, vedere [Verifica della coerenza dei dati nell'attività di copia](copy-activity-data-consistency.md) .
+
+## <a name="session-log"></a>Log sessione
+È possibile registrare i nomi dei file copiati, in modo da garantire che i dati non vengano copiati solo dall'archivio di origine all'archivio di destinazione, ma anche coerenti tra l'archivio di origine e quello di destinazione esaminando i log della sessione dell'attività di copia. Per informazioni dettagliate, vedere [log di sessione nell'attività di copia](copy-activity-log.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere le guide rapide, le esercitazioni e gli esempi seguenti:
