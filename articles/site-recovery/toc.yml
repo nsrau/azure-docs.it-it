@@ -48,6 +48,22 @@
           href: tutorial-dr-drill-azure.md
         - name: Failover in Azure
           href: vmware-azure-tutorial-failover-failback.md
+    - name: Ripristino di emergenza della soluzione Azure VMware in Azure
+      items:
+        - name: Preparare Azure
+          href: avs-tutorial-prepare-azure.md
+        - name: Preparare la soluzione Azure VMware
+          href: avs-tutorial-prepare-avs.md
+        - name: Configurare la replica
+          href: avs-tutorial-replication.md
+        - name: Eseguire una verifica del ripristino di emergenza
+          href: avs-tutorial-dr-drill-azure.md
+        - name: Failover in Azure
+          href: avs-tutorial-failover.md
+        - name: Riproteggere le VM
+          href: avs-tutorial-reprotect.md
+        - name: Effettuare il failback da Azure
+          href: avs-tutorial-failback.md
     - name: Ripristino di emergenza di VM Hyper-V in Azure
       items:
         - name: Preparare Azure

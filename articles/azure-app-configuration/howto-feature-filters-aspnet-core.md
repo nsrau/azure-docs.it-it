@@ -1,30 +1,31 @@
 ---
-title: Usare i filtri delle funzionalità per abilitare una funzionalità per un subset di utenti
+title: Usare i filtri funzionalità per abilitare i flag delle funzionalità condizionali
 titleSuffix: Azure App Configuration
-description: Informazioni su come usare i filtri delle funzionalità per abilitare una funzionalità per un subset di utenti
+description: Informazioni su come usare i filtri funzionalità per abilitare i flag delle funzionalità condizionali
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 author: lisaguthrie
 ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 5b2eb942581f6e4163012b0f767d04c02689bb7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af8df66e02dc9316311f36dec60374a7c4e649b8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206770"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554746"
 ---
-# <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Usare i filtri delle funzionalità per abilitare una funzionalità per un subset di utenti
+# <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>Usare i filtri funzionalità per abilitare i flag delle funzionalità condizionali
 
 I flag funzionalità consentono di attivare o disattivare la funzionalità nell'applicazione. Un flag di funzionalità semplice può essere acceso o disattivato. L'applicazione si comporta sempre allo stesso modo. Ad esempio, è possibile implementare una nuova funzionalità dietro un flag funzionalità. Quando il flag funzionalità è abilitato, tutti gli utenti visualizzano la nuova funzionalità. La disabilitazione del flag funzionalità consente di nascondere la nuova funzionalità.
 
 Al contrario, un _flag della funzionalità condizionale_ consente l'abilitazione o la disabilitazione dinamica del flag funzionalità. L'applicazione può comportarsi in modo diverso, a seconda dei criteri del flag funzionalità. Si supponga di voler visualizzare la nuova funzionalità per un piccolo subset di utenti. Un flag di funzionalità condizionale consente di abilitare il flag funzionalità per alcuni utenti e di disabilitarlo per altri utenti. I _filtri delle funzionalità_ determinano lo stato del flag di funzionalità ogni volta che viene valutato.
 
-La `Microsoft.FeatureManagement` libreria include due filtri funzionalità:
+La `Microsoft.FeatureManagement` libreria include tre filtri funzionalità:
 
 - `PercentageFilter` Abilita il flag di funzionalità in base a una percentuale.
 - `TimeWindowFilter` Abilita il flag di funzionalità durante un intervallo di tempo specificato.
+- `TargetingFilter` Abilita il flag funzionalità per gli utenti e i gruppi specificati.
 
 È anche possibile creare un filtro funzionalità personalizzato che implementi l' [interfaccia Microsoft. FeatureManagement. IFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturefilter).
 
@@ -84,9 +85,9 @@ Per alcuni filtri funzionalità sono disponibili impostazioni aggiuntive. Ad ese
 Per visualizzare gli effetti di questo flag di funzionalità, avviare l'applicazione e fare clic sul pulsante **Aggiorna** nel browser più volte. Si noterà che l'elemento *beta* viene visualizzato sulla barra degli strumenti circa il 50% del tempo. Il resto del tempo è nascosto perché `PercentageFilter` Disattiva la funzionalità *beta* per un subset di richieste. Il video seguente mostra questo comportamento in azione.
 
 > [!div class="mx-imgBorder"]
-> ![PercentageFilter in azione](./media/feature-flags-percentagefilter.gif)
+> ![TargetingFilter in azione](./media/feature-flags-percentagefilter.gif)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Panoramica della gestione delle funzionalità](./concept-feature-management.md)
+> [Abilitare l'implementazione temporanea delle funzionalità per destinatari specifici](./howto-targetingfilter-aspnet-core.md)

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: ce3174516d8046df53b5290bcfeea03756937129
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 26ac1714330bba06c01d33b47105f04c600c7729
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201529"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555108"
 ---
 # <a name="color-materials"></a>Materiali a colori
 
@@ -22,7 +22,7 @@ I materiali colori sono più efficienti per il rendering rispetto ai [materiali 
 
 Queste proprietà sono comuni a tutti i materiali:
 
-* **albedoColor:** Questo colore viene moltiplicato con altri colori, ad esempio *albedoMap* o * :::no-loc text="vertex"::: colori*. Se la *trasparenza* è abilitata su un materiale, il canale alfa viene usato per modificare l'opacità, con un `1` significato completamente opaco e un `0` significato completamente trasparente. Il valore predefinito è bianco.
+* **albedoColor:** Questo colore viene moltiplicato con altri colori, ad esempio *albedoMap* o *:::no-loc text="vertex"::: colori*. Se la *trasparenza* è abilitata su un materiale, il canale alfa viene usato per modificare l'opacità, con un `1` significato completamente opaco e un `0` significato completamente trasparente. Il valore predefinito è bianco.
 
   > [!NOTE]
   > Poiché i materiali dei colori non riflettono l'ambiente, un materiale colorato completamente trasparente diventa invisibile. Questa operazione è diversa per i [materiali PBR](pbr-materials.md).
@@ -38,6 +38,12 @@ Queste proprietà sono comuni a tutti i materiali:
 * **isDoubleSided:** Se la doppia facciata è impostata su true, il rendering dei triangoli con questo materiale viene eseguito anche se la fotocamera esamina i visi posteriori. Per impostazione predefinita, questa opzione è disabilitata. Vedere anche [ :::no-loc text="Single-sided"::: rendering](single-sided-rendering.md).
 
 * **TransparencyWritesDepth:** Se il flag TransparencyWritesDepth è impostato sul materiale e il materiale è trasparente, gli oggetti che usano questo materiale contribuiranno anche al buffer di profondità finale. Vedere la proprietà Color Material *transparencyMode* nella sezione successiva. L'abilitazione di questa funzionalità è consigliata se il caso d'uso necessita di una riproiezione più plausibile della [fase ritardata](late-stage-reprojection.md) di scene completamente trasparenti. Per le scene miste/trasparenti miste, questa impostazione può presentare un comportamento di riproiezione non plausibile o elementi di riproiezione. Per questo motivo, l'impostazione predefinita e consigliata per il caso d'uso generale è disabilitare questo flag. I valori di profondità scritti sono ricavati dal livello di profondità per pixel dell'oggetto più vicino alla fotocamera.
+
+* **FresnelEffect:** Questo flag di materiale Abilita l' [effetto Fresnel](../../overview/features/fresnel-effect.md) aggiuntivo sul rispettivo materiale. L'aspetto dell'effetto è disciplinato dagli altri parametri Fresnel illustrati nell'esempio seguente. 
+
+* **FresnelEffectColor:** Colore Fresnel usato per questo materiale. Importante solo quando il bit dell'effetto Fresnel è stato impostato su questo materiale (vedere sopra). Questa proprietà controlla il colore di base dello splendore Fresnel (vedere [effetto Fresnel](../../overview/features/fresnel-effect.md) per una spiegazione completa). Attualmente solo i valori del canale RGB sono importanti e il valore alfa verrà ignorato.
+
+* **FresnelEffectExponent:** Esponente Fresnel utilizzato per questo materiale. Importante solo quando il bit dell'effetto Fresnel è stato impostato su questo materiale (vedere sopra). Questa proprietà controlla la diffusione del luccichio di Fresnel. Il valore minimo 0,01 causa una distribuzione nell'intero oggetto. Il valore massimo 10,0 limita lo splendore solo ai bordi più abbellibili visibili.
 
 ## <a name="color-material-properties"></a>Proprietà del materiale colori
 

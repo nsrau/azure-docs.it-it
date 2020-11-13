@@ -1,7 +1,7 @@
 ---
 title: Usare Studio per distribuire i modelli con training nella finestra di progettazione
 titleSuffix: Azure Machine Learning
-description: Usare Azure Machine Learning Studio per distribuire i modelli sottoposti a training nella finestra di progettazione.
+description: Usare Azure Machine Learning Studio per distribuire modelli di apprendimento automatico senza scrivere una sola riga di codice.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 10/29/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy, studio
-ms.openlocfilehash: 0d98d5103e26eb0b4ee0d31b95f1d07cdaa396ae
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 23c6417741d0753fcdaaf30c89c8f51348cc5dc5
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927584"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554683"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Usare Studio per distribuire i modelli con training nella finestra di progettazione
 
@@ -56,7 +56,7 @@ Al termine della pipeline di training, registrare il modello sottoposto a traini
 
     ![Screenshot del riquadro destro del modulo Train Model](./media/how-to-deploy-model-designer/train-model-right-pane.png)
 
-1. Immettere un nome per il modello e quindi selezionare **Salva** .
+1. Immettere un nome per il modello e quindi selezionare **Salva**.
 
 Dopo aver registrato il modello, è possibile trovarlo nella pagina dei **modelli** asset in studio.
     
@@ -73,7 +73,7 @@ Per distribuire un modello in Azure Machine Learning Studio sono necessari i fil
 
 È possibile scaricare questi due file nel riquadro destro del modulo **Train Model** :
 
-1. Selezionare il modulo **Train Model** .
+1. Selezionare il modulo **Train Model**.
 1. Nella scheda **output + logs** selezionare la cartella `trained_model_outputs` .
 1. Scaricare il `conda_env.yaml` file e il `score.py` file.
 
@@ -104,8 +104,8 @@ Dopo aver scaricato i file necessari, si è pronti per distribuire il modello.
 
     - Immettere un nome per l'endpoint.
     - Selezionare per distribuire il modello nel [servizio Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md) o nell' [istanza di contenitore di Azure](how-to-deploy-azure-container-instance.md).
-    - Caricare `score.py` per il **file di script di immissione** .
-    - Caricare `conda_env.yml` per il **file delle dipendenze conda** . 
+    - Caricare `score.py` per il **file di script di immissione**.
+    - Caricare `conda_env.yml` per il **file delle dipendenze conda**. 
 
     >[!TIP]
     > In impostazione **avanzata** è possibile impostare la capacità della CPU/memoria e altri parametri per la distribuzione. Queste impostazioni sono importanti per determinati modelli, ad esempio i modelli PyTorch, che consumano una notevole quantità di memi (circa 4 GB).
@@ -300,7 +300,7 @@ score_params = dict(
 
 * [Eseguire il training di un modello nella finestra di progettazione](tutorial-designer-automobile-price-train-score.md)
 * [Distribuire modelli con Azure Machine Learning SDK](how-to-deploy-and-where.md)
-* [Risolvere i problemi relativi a una distribuzione non riuscita](how-to-troubleshoot-deployment.md)
+* [Risolvere una distribuzione non riuscita](how-to-troubleshoot-deployment.md)
 * [Distribuire nel servizio Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md)
 * [Creazione di applicazioni client per l'utilizzo di servizi Web](how-to-consume-web-service.md)
 * [Aggiornare un servizio Web](how-to-deploy-update-web-service.md)

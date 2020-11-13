@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: 10599b47d55a0b4ea1eb79cda3c31a2479efb7c0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ffb07220267a2c192b4aad2405185c80bd9abbc0
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755489"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523801"
 ---
 È possibile collegare diversi dischi dati a una macchina virtuale di Azure. In base agli obiettivi di scalabilità e prestazioni per i dischi dati di una macchina virtuale, è possibile determinare il numero e il tipo di disco necessari per soddisfare i requisiti di prestazioni e capacità.
 
@@ -31,7 +31,7 @@ La tabella seguente illustra i limiti predefiniti e massimi del numero di risors
 
 **Per gli account di archiviazione Standard:** un account di archiviazione Standard con una frequenza totale massima di richieste di 20.000 operazioni di I/O al secondo. Il numero totale di operazioni di I/O al secondo in tutti i dischi della macchina virtuale in un account di archiviazione Standard non può superare questo limite.
   
-    You can roughly calculate the number of highly utilized disks supported by a single Standard storage account based on the request rate limit. For example, for a Basic tier VM, the maximum number of highly utilized disks is about 66, which is 20,000/300 IOPS per disk. The maximum number of highly utilized disks for a Standard tier VM is about 40, which is 20,000/500 IOPS per disk. 
+È possibile calcolare approssimativamente il numero di dischi a utilizzo elevato supportato da un singolo account di archiviazione Standard in base al limite della frequenza di richieste. Per una macchina virtuale di livello Basic, ad esempio, il numero massimo di dischi a utilizzo elevato è pari a circa 66, ovvero 20.000/300 operazioni di I/O al secondo per disco. Il numero massimo di dischi a utilizzo elevato per una macchina virtuale di livello Standard è pari a circa 40, ovvero 20.000/500 operazioni di I/O al secondo per disco. 
 
 **Per gli account di archiviazione Premium:** un account di archiviazione Premium ha una velocità effettiva totale massima di 50 Gbps. La velocità effettiva totale in tutti i dischi della macchina virtuale non deve superare questo limite.
 

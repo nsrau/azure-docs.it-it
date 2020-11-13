@@ -13,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fbfc4619e8af86a89b82f32ff3bc9a39c92b355a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1c1dd2ba5eb6ee61a0f8cf151649441cbc783166
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784865"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553529"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Estendere il supporto per SQL Server 2008 e SQL Server 2008 R2 con Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -45,9 +45,9 @@ Nelle immagini distribuite con Azure Marketplace è preinstallata l'estensione S
 ## <a name="licensing"></a>Gestione delle licenze
 Le distribuzioni con pagamento in base al consumo di SQL Server 2008 R2 possono essere convertite in [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-Per convertire una licenza basata su Software Assurance in licenza con pagamento in base al consumo, i clienti devono registrarsi con il [provider di risorse](sql-vm-resource-provider-register.md) per VM SQL. Al termine della registrazione, il tipo di licenza SQL sarà interscambiabile tra Vantaggio Azure Hybrid e pagamento in base al consumo.
+Per convertire una licenza basata su Software Assurance (SA) con pagamento in base al consumo, i clienti devono registrarsi con l' [estensione SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md). Al termine della registrazione, il tipo di licenza SQL sarà interscambiabile tra Vantaggio Azure Hybrid e pagamento in base al consumo.
 
-Le istanze di SQL Server 2008 o SQL Server 2008 R2 installate automaticamente in una macchina virtuale di Azure possono eseguire la registrazione con il provider di risorse per VM SQL e convertire il tipo di licenza in pagamento in base al consumo.
+Le istanze di SQL Server 2008 o SQL Server 2008 R2 autoinstallate in una macchina virtuale di Azure possono eseguire la registrazione con l'estensione SQL IaaS Agent e convertire il tipo di licenza in con pagamento in base al consumo.
 
 ## <a name="migration"></a>Migrazione
 È possibile eseguire la migrazione di istanze di SQL Server EOS a una macchina virtuale di Azure con metodi di backup o ripristino manuali. Questo è il metodo di migrazione più comune da locale a una macchina virtuale di Azure.
@@ -71,7 +71,8 @@ Le soluzioni di ripristino di emergenza per la versione EOS di SQL Server in una
 - **Azure Site Recovery** : è possibile replicare la macchina virtuale tra zone e aree usando la replica di Azure Site Recovery. SQL Server richiede snapshot coerenti con l'app per garantire il ripristino in caso di emergenza. Azure Site Recovery offre un RPO minimo di 1 ora e un RTO di 2 ore (più il tempo di ripristino di SQL Server) per il ripristino di emergenza di SQL Server EOS.
 
 ## <a name="security-patching"></a>Patch di sicurezza
-Gli aggiornamenti della sicurezza estesi per le macchine virtuali di SQL Server vengono distribuiti attraverso i canali Microsoft Update dopo che la VM di SQL Server viene registrata con il [provider di risorse](sql-vm-resource-provider-register.md) per VM SQL. Le patch possono essere scaricate manualmente o automaticamente.
+
+Gli aggiornamenti della sicurezza estesi per le macchine virtuali SQL Server vengono distribuiti tramite i canali Microsoft Update dopo che la VM SQL Server è stata registrata con l' [estensione SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md). Le patch possono essere scaricate manualmente o automaticamente.
 
 *Automated patching* è abilitata per impostazione predefinita. Questa opzione consente ad Azure di applicare automaticamente le patch a SQL Server e al sistema operativo. È possibile specificare un giorno della settimana, l'ora e la durata di una finestra di manutenzione se è installata l'estensione SQL Server IaaS. Durante la finestra di manutenzione Azure esegue l'applicazione delle patch. La pianificazione dell'ora, la finestra di manutenzione usa le impostazioni locali della macchina virtuale. Per altre informazioni, vedere [Applicazione automatica delle patch per SQL Server in macchine virtuali di Azure (Resource Manager)](automated-patching.md).
 

@@ -76,6 +76,8 @@
       href: concepts/pricing.md
     - name: Privacy
       href: concepts/privacy.md
+    - name: Modello di identità
+      href: concepts/identity-model.md
     - name: Authentication
       href: concepts/authentication.md
     - name: Gestione degli eventi

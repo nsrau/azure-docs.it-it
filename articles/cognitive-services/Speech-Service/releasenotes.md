@@ -11,14 +11,28 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 01c9cbe0438ee0efeece4c7e6b17e9607db4c4cc
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 2586b3aab9d1fb8e7ae12aea540df19ff6c37556
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356689"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553659"
 ---
 # <a name="speech-service-release-notes"></a>Note sulla versione del Servizio di riconoscimento vocale
+
+## <a name="text-to-speech-2020-october-release"></a>Sintesi vocale 2020-versione di ottobre
+
+**Nuove funzionalità**
+- Jenny supporta un nuovo `newscast` stile. Vedere [How to use the Speaking Styles in SSML](speech-synthesis-markup.md#adjust-speaking-styles).
+- **Voci neurali aggiornate a HiFiNet vocoder con maggiore fedeltà audio e velocità di sintesi più rapida**. Si tratta di vantaggi per i clienti il cui scenario si basa sull'audio Hi-Fi o sulle interazioni lunghe, tra cui il doppiaggio video, i libri audio o materiali di formazione online. [Scopri di più sulla storia e ascolta gli esempi di Voice nel Blog della community tecnica](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
+- ** &  [Studio per la creazione di contenuto audio](https://speech.microsoft.com/audiocontentcreation) vocale personalizzato localizzato a 17 impostazioni locali [Custom Voice](https://speech.microsoft.com/customvoice)**. Gli utenti possono passare facilmente l'interfaccia utente a una lingua locale per un'esperienza più intuitiva.   
+- **Creazione di contenuto audio** : aggiunto controllo del grado di stile per XiaoxiaoNeural; Perfezionata la funzionalità di interruzione personalizzata per includere interruzioni incrementali di 50 ms. 
+
+**Miglioramenti alla qualità della voce TTS generale**
+- Accuratezza della pronuncia a livello di parola migliorata `pl-PL` (riduzione della frequenza degli errori: 51%) e `fi-FI` (riduzione della frequenza degli errori: 58%)
+- `ja-JP`Lettura di una singola parola migliorata per lo scenario del dizionario. Errore di pronuncia ridotto del 80%.
+- `zh-CN-XiaoxiaoNeural`: Miglioramento della qualità della voce di valutazione/CustomerService, telegiornale/stile allegro/arrabbiato.
+- `zh-CN`: Migliore Pronuncia di Erhua e tono chiaro e spazio raffinato prosodia, che migliora notevolmente l'intelligibilità. 
 
 ## <a name="speech-sdk-1140-2020-october-release"></a>Speech SDK 1.14.0:2020-versione di ottobre
 
@@ -78,6 +92,18 @@ SPX è l'interfaccia della riga di comando per usare il servizio riconoscimento 
 - `spx * --http header A=B` : supporta le intestazioni personalizzate (aggiunte per Office per l'autenticazione personalizzata). 
 - `spx help` : testo migliorato e colore del testo con segno di inverso (blu).
 
+## <a name="text-to-speech-2020-september-release"></a>Sintesi vocale 2020-versione di settembre
+
+### <a name="new-features"></a>Nuove funzionalità
+
+* **TTS neurale** 
+    * **Esteso per supportare 18 nuove lingue/impostazioni locali.** Sono bulgaro, ceco, tedesco (Austria), tedesco (Svizzera), greco, inglese (Irlanda), francese (Svizzera), ebraico, croato, ungherese, Indonesiano, Malese, rumeno, slovacco, sloveno, Tamil, telugu e vietnamita. 
+    * **Sono state rilasciate 14 nuove voci per arricchire le varie lingue esistenti.** Vedere il [linguaggio completo e l'elenco delle voci](language-support.md#neural-voices).
+    * **Nuovi stili di pronuncia per `en-US` e `zh-CN` Voices.** Jenny, la nuova voce in inglese (Stati Uniti), supporta gli stili chatbot, Customer Service e Assistant. con il nostro zh-CN Voice, XiaoXiao, sono disponibili 10 nuovi stili di lingua. Inoltre, la XiaoXiao Neural Voice supporta l' `StyleDegree` ottimizzazione. Vedere [How to use the Speaking Styles in SSML](speech-synthesis-markup.md#adjust-speaking-styles).
+
+* **Contenitori: contenitore TTS neurale rilasciato in anteprima pubblica con 16 voci disponibili in 14 lingue.** Altre informazioni su [come distribuire i contenitori di sintesi vocale per neurale TTS](speech-container-howto.md)  
+
+Leggi l' [annuncio completo degli aggiornamenti TTS per ignite 2020](https://techcommunity.microsoft.com/t5/azure-ai/ignite-2020-neural-tts-updates-new-language-support-more-voices/ba-p/1698544) 
 
 ## <a name="text-to-speech-2020-august-release"></a>Sintesi vocale 2020-versione di agosto
 

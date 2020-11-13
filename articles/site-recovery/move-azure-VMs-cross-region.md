@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: 11767e7369648ad2f4dec4480fbad0f6218446fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ae930240872c00c8dbb45857e4e77d82766eadf
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89425416"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398063"
 ---
 # <a name="move-azure-vms-to-another-azure-region"></a>Spostare le VM di Azure in un'altra area di Azure
 
@@ -53,7 +53,7 @@ Può essere opportuno spostare macchine virtuali dell'infrastruttura di Azure co
     - Per le macchine virtuali Windows, installare gli aggiornamenti di Windows più recenti in modo che nella macchina virtuale siano presenti tutti i certificati radice trusted. In un ambiente non connesso, seguire i processi di aggiornamento di Windows e di aggiornamento dei certificati standard per l'organizzazione.
     - Per le macchine virtuali Linux, seguire le indicazioni fornite dal distributore di Linux per ottenere i certificati radice trusted più recenti e l'elenco di revoche di certificati.
 2. Assicurarsi di non usare un proxy di autenticazione per controllare la connettività di rete per le macchine virtuali che si prevede di spostare.
-3. Se la macchina virtuale che si vuole spostare non ha accesso a Internet o usa un proxy firewall per controllare l'accesso in uscita, controllare i [requisiti](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+3. Se la macchina virtuale che si vuole spostare non ha accesso a Internet o usa un proxy firewall per controllare l'accesso in uscita, controllare i [requisiti](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 4. Documentare il layout di rete di origine e tutte le risorse attualmente in uso, tra cui i servizi di bilanciamento del carico, i gruppi di sicurezza di rete e gli indirizzi IP pubblici, per la verifica.
 
 ## <a name="prepare-the-target-region"></a>Preparare l'area di destinazione
@@ -100,7 +100,6 @@ Site Recovery recupera un elenco delle macchine virtuali associate alla sottoscr
 4. Scegliere di usare le risorse di destinazione predefinite o quelle create nella fase preliminare.
 5. Selezionare **Abilita replica** per avviare il processo.
 
-   ![Abilitare la replica](media/tutorial-migrate-azure-to-azure/settings.png)
 
  
 
@@ -110,9 +109,9 @@ Site Recovery recupera un elenco delle macchine virtuali associate alla sottoscr
 1. Passare all'insieme di credenziali. In **Impostazioni** > **Elementi replicati** selezionare la macchina virtuale da spostare nell'area di destinazione. Selezionare quindi **Failover di test**.
 2. In **Failover di test** selezionare un punto di ripristino da usare per il failover:
 
-   - **Elaborato più recente**: viene eseguito il failover della macchina virtuale al punto di recupero più recente elaborato dal servizio Site Recovery. Viene visualizzato il timestamp. Poiché non viene impiegato tempo per l'elaborazione dei dati, questa opzione offre un valore RTO (Recovery Time Objective) basso.
-   - **Coerente con l'app più recente**: questa opzione esegue il failover di tutte le macchine virtuali nel punto di recupero coerente con l'app più recente. Viene visualizzato il timestamp.
-   - **Custom**: selezionare qualsiasi punto di recupero.
+   - **Elaborato più recente** : viene eseguito il failover della macchina virtuale al punto di recupero più recente elaborato dal servizio Site Recovery. Viene visualizzato il timestamp. Poiché non viene impiegato tempo per l'elaborazione dei dati, questa opzione offre un valore RTO (Recovery Time Objective) basso.
+   - **Coerente con l'app più recente** : questa opzione esegue il failover di tutte le macchine virtuali nel punto di recupero coerente con l'app più recente. Viene visualizzato il timestamp.
+   - **Personalizzazione** : selezionare qualsiasi punto di ripristino.
 
 3. Selezionare la rete virtuale di Azure di destinazione in cui si vogliono spostare le VM di Azure per testare la configurazione.
 
@@ -125,7 +124,7 @@ Site Recovery recupera un elenco delle macchine virtuali associate alla sottoscr
 
 ## <a name="perform-the-move-and-confirm"></a>Eseguire lo spostamento e confermare
 
-1. Passare all'insieme di credenziali e in **Impostazioni** > **Elementi replicati**, selezionare la macchina virtuale e quindi **Failover**.
+1. Passare all'insieme di credenziali e in **Impostazioni** > **Elementi replicati** , selezionare la macchina virtuale e quindi **Failover**.
 1. Per **Failover** selezionare **Più recente**. 
 2. Selezionare **Arrestare la macchina prima di iniziare il failover**. Prima di attivare il failover, Site Recovery prova ad arrestare la macchina virtuale di origine, ma il failover continua anche se l'arresto ha esito negativo. Nella pagina **Processi** è possibile seguire lo stato del failover.
 3. Al termine del processo, controllare che la macchina virtuale si trovi nell'area di Azure di destinazione come previsto.

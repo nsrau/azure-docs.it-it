@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8485f3474da18e052bc0eab6c053be084ef884a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a9c8fce87b48b47f4bf82e5fd25fda12a25758
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82192417"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553506"
 ---
 # <a name="operating-system-upgrade"></a>Aggiornamento del sistema operativo
 Questo documento descrive i dettagli sugli aggiornamenti del sistema operativo nelle istanze HANA Large.
@@ -29,7 +29,7 @@ Questo documento descrive i dettagli sugli aggiornamenti del sistema operativo n
 Durante il provisioning unità HLI, il team operativo Microsoft installa il sistema operativo.
 È necessario mantenere il sistema operativo nel tempo (ad esempio applicando patch, eseguendo ottimizzazioni, applicando aggiornamenti e così via) nell'unità HLI.
 
-Prima di apportare modifiche importanti al sistema operativo (ad esempio, aggiornare SP1 a SP2), è necessario contattare il team operativo Microsoft aprendo un ticket di supporto per consultarlo.
+Prima di apportare modifiche importanti al sistema operativo (ad esempio, eseguire l'aggiornamento da SP1 a SP2), contattare il team operativo Microsoft aprendo un ticket di supporto per consultarlo.
 
 Includi nel ticket:
 
@@ -38,11 +38,9 @@ Includi nel ticket:
 * Il livello di patch che si prevede di applicare.
 * La data in cui si prevede di effettuare la modifica. 
 
-È consigliabile aprire il ticket almeno una settimana prima della data di aggiornamento desiderata per permettere al team di Microsoft Operations di verificare se è necessario un aggiornamento del firmware nel pannello del server.
-
+Si consiglia di aprire questo ticket almeno una settimana prima dell'aggiornamento auspicabile, in modo da consentire a opration team di conoscere la versione del firmware desiderata.
 
 Per la matrice di supporto delle diverse versioni di SAP HANA con le varie versioni di Linux, vedere la [nota SAP 2235581](https://launchpad.support.sap.com/#/notes/2235581).
-
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -55,16 +53,17 @@ Ecco alcuni problemi comuni noti che possono presentarsi durante l'aggiornamento
 La configurazione del sistema operativo può derivare dalle impostazioni consigliate nel tempo a causa dell'applicazione di patch, degli aggiornamenti del sistema e delle modifiche apportate dai clienti. Microsoft identifica inoltre gli aggiornamenti necessari per i sistemi esistenti per assicurarsi che siano configurati in modo ottimale per ottenere prestazioni ottimali e resilienza. Le istruzioni seguenti illustrano le raccomandazioni che riguardano le prestazioni di rete, la stabilità del sistema e le prestazioni ottimali di HANA.
 
 ### <a name="compatible-enicfnic-driver-versions"></a>Versioni del driver eNIC/fNIC compatibili
-  Per garantire una corretta stabilità del sistema e delle prestazioni di rete, è consigliabile assicurarsi che sia installata la versione appropriata specifica del sistema operativo dei driver eNIC e fNIC, come illustrato nella tabella di compatibilità riportata di seguito. I server vengono distribuiti ai clienti con versioni compatibili. Si noti che in alcuni casi, durante l'applicazione di patch del sistema operativo/kernel, è possibile eseguire il rollback dei driver alle versioni predefinite del driver. Assicurarsi che la versione del driver appropriata esegua le operazioni di applicazione di patch del sistema operativo/kernel.
+  Per ottenere le prestazioni di rete e la stabilità del sistema appropriate, è consigliabile assicurarsi che sia installata la versione appropriata specifica del sistema operativo dei driver eNIC e fNIC, come illustrato nella tabella di compatibilità riportata di seguito. I server vengono distribuiti ai clienti con versioni compatibili. In alcuni casi, durante l'applicazione di patch del sistema operativo/kernel, è possibile eseguire il rollback dei driver alle versioni predefinite del driver. Verificare che la versione del driver appropriata esegua le operazioni di applicazione di patch al sistema operativo/kernel.
        
       
   |  Fornitore del sistema operativo    |  Versione del pacchetto del sistema operativo     |  Versione del firmware  |  Driver eNIC |  Driver fNIC | 
   |---------------|-------------------------|--------------------|--------------|--------------|
   |   SuSE        |  SLES 12 SP2            |   3.1.3 h           |  2.3.0.40    |   1.6.0.34   |
   |   SuSE        |  SLES 12 SP3            |   3.1.3 h           |  2.3.0.44    |   1.6.0.36   |
-  |   SuSE        |  SLES 12 SP4            |   3.2.3 i           |  2.3.0.47    |   2.0.0.54   |
+  |   SuSE        |  SLES 12 SP4            |   3.2.3 i           |  4.0.0.6     |   2.0.0.60   |
   |   SuSE        |  SLES 12 SP2            |   3.2.3 i           |  2.3.0.45    |   1.6.0.37   |
-  |   SuSE        |  SLES 12 SP3            |   3.2.3 i           |  2.3.0.45    |   1.6.0.37   |
+  |   SuSE        |  SLES 12 SP3            |   3.2.3 i           |  2.3.0.43    |   1.6.0.36   |
+  |   SuSE        |  SLES 12 SP5            |   3.2.3 i           |  4.0.0.8     |   2.0.0.60   |
   |   Red Hat     |  RHEL 7.2               |   3.1.3 h           |  2.3.0.39    |   1.6.0.34   |
  
 
@@ -88,6 +87,15 @@ rpm -ivh <enic/fnic.rpm>
 modinfo enic
 modinfo fnic
 ```
+
+#### <a name="steps-for-enicfnic-drivers-installation-during-os-upgrade"></a>Passaggi per l'installazione dei driver eNIC/fNIC durante l'aggiornamento del sistema operativo
+
+* Aggiornare la versione del sistema operativo
+* Rimuovere i pacchetti RPM precedenti
+* Installare driver eNIC/fNIC compatibili in base alla versione del sistema operativo installata
+* Riavviare il sistema
+* Dopo il riavvio, controllare la versione di eNIC/fNIC
+
 
 ### <a name="suse-hlis-grub-update-failure"></a>Errore di aggiornamento di SuSE HLIs GRUB
 Le istanze large di SAP in Azure HANA (Type I) possono trovarsi in uno stato non avviabile dopo l'aggiornamento. La procedura seguente corregge questo problema.
@@ -117,7 +125,6 @@ blacklist edac_core
 ```
 È necessario riavviare il sistema per apportare modifiche. Eseguire `lsmod` il comando e verificare che il modulo non sia presente nell'output.
 
-
 ### <a name="kernel-parameters"></a>Parametri del kernel
    Verificare che siano state applicate le impostazioni corrette per `transparent_hugepage` , `numa_balancing` , `processor.max_cstate` `ignore_ce` e `intel_idle.max_cstate` .
 
@@ -126,7 +133,6 @@ blacklist edac_core
 * transparent_hugepage = mai
 * numa_balancing = Disabilita
 * MCE = ignore_ce
-
 
 #### <a name="execution-steps"></a>Passaggi di esecuzione
 

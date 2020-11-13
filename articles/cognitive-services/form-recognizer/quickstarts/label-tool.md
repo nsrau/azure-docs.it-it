@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: elaborazione di documenti
-ms.openlocfilehash: 287315440199c4dc3ded1298532167d37d89a877
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5df8ced885768308369599d94c5734fa0620c507
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976148"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360871"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni
 
@@ -32,11 +32,19 @@ Per completare questo argomento di avvio rapido è necessario disporre di quanto
 * Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="creare una risorsa di Riconoscimento modulo"  target="_blank">creare una risorsa di Riconoscimento modulo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
     * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Riconoscimento modulo. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
     * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
-* Un set di almeno sei moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello e testare un modulo. È possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) (scaricare ed estrarre il file *sample_data.zip*) per questa guida di avvio rapido. Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure con livello di prestazioni Standard.
+* Un set di almeno sei moduli dello stesso tipo. Questi dati verranno usati per eseguire il training del modello e testare un modulo. È possibile usare un [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) (scaricare ed estrarre il file *sample_data.zip* ) per questa guida di avvio rapido. Caricare i file di training nella radice di un contenitore di archiviazione BLOB in un account di archiviazione di Azure con livello di prestazioni Standard.
 
 ## <a name="create-a-form-recognizer-resource"></a>Creare una risorsa di riconoscimento modulo
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
+
+## <a name="try-it-out"></a>Provare questa operazione
+
+Per provare lo strumento di etichettatura campioni di Riconoscimento modulo online, visitare il sito Web [FOTT](https://fott-preview.azurewebsites.net/).
+
+> [!div class="nextstepaction"]
+> [Strumento di etichettatura campioni di Riconoscimento modulo](https://fott-preview.azurewebsites.net/)
+
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurare lo strumento di etichettatura campioni
 
@@ -120,9 +128,9 @@ Per creare una nuova connessione, fare clic sull'icona **Nuove connessioni** (sp
 
 Compilare i campi con i valori seguenti:
 
-* **Nome visualizzato**: il nome visualizzato della connessione.
-* **Descrizione**: la descrizione del progetto.
-* **URL di firma di accesso condiviso**: l'URL di firma di accesso condiviso del contenitore di archiviazione BLOB di Azure. Per recuperare l'URL SAS, aprire Microsoft Azure Storage Explorer, fare clic con il pulsante destro del mouse sul contenitore e scegliere **Ottieni firma di accesso condiviso**. Impostare la scadenza su un'ora successiva a quella in cui verrà terminato l'uso del servizio. Assicurarsi che le autorizzazioni **Lettura**, **Scrittura**, **Eliminazione** ed **Elenco** siano selezionate e fare clic su **Crea**. A questo punto, copiare il valore dalla sezione **URL**. Dovrebbe essere in questo formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **Nome visualizzato** : il nome visualizzato della connessione.
+* **Descrizione** : la descrizione del progetto.
+* **URL di firma di accesso condiviso** : l'URL di firma di accesso condiviso del contenitore di archiviazione BLOB di Azure. Per recuperare l'URL SAS, aprire Microsoft Azure Storage Explorer, fare clic con il pulsante destro del mouse sul contenitore e scegliere **Ottieni firma di accesso condiviso**. Impostare la scadenza su un'ora successiva a quella in cui verrà terminato l'uso del servizio. Assicurarsi che le autorizzazioni **Lettura** , **Scrittura** , **Eliminazione** ed **Elenco** siano selezionate e fare clic su **Crea**. A questo punto, copiare il valore dalla sezione **URL**. Dovrebbe essere in questo formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Impostazioni di connessione dello strumento di etichettatura campioni.":::
 
@@ -131,15 +139,15 @@ Compilare i campi con i valori seguenti:
 
 Nello strumento di etichettatura campioni vengono archiviate le configurazioni e le impostazioni dei progetti. Creare un nuovo progetto e compilare i campi con i valori seguenti:
 
-* **Nome visualizzato**: il nome visualizzato del progetto
-* **Token di sicurezza**: alcuni progetti possono includere valori sensibili, ad esempio chiavi di API o altri segreti condivisi. Ogni progetto genererà un token di sicurezza che è possibile usare per crittografare/decrittografare le impostazioni di progetti sensibili. Per trovare i token di sicurezza in Impostazioni applicazione, fare clic sull'icona dell'ingranaggio nella parte inferiore della barra di spostamento sinistra.
-* **Connessione protetta**: la connessione ad archiviazione BLOB di Azure creata nel passaggio precedente che si vuole usare per questo progetto.
+* **Nome visualizzato** : il nome visualizzato del progetto
+* **Token di sicurezza** : alcuni progetti possono includere valori sensibili, ad esempio chiavi di API o altri segreti condivisi. Ogni progetto genererà un token di sicurezza che è possibile usare per crittografare/decrittografare le impostazioni di progetti sensibili. Per trovare i token di sicurezza in Impostazioni applicazione, fare clic sull'icona dell'ingranaggio nella parte inferiore della barra di spostamento sinistra.
+* **Connessione protetta** : la connessione ad archiviazione BLOB di Azure creata nel passaggio precedente che si vuole usare per questo progetto.
 * **Percorso cartella** (facoltativo): se i moduli di origine si trovano in una cartella del contenitore BLOB, specificare qui il relativo nome
-* **URI del servizio Riconoscimento modulo**: l'URL dell'endpoint di Riconoscimento modulo.
-* **Chiave API**: la chiave di sottoscrizione di Riconoscimento modulo.
+* **URI del servizio Riconoscimento modulo** : l'URL dell'endpoint di Riconoscimento modulo.
+* **Chiave API** : la chiave di sottoscrizione di Riconoscimento modulo.
 * **Descrizione** (facoltativo): la descrizione del progetto
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="Impostazioni di connessione dello strumento di etichettatura campioni.":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Pagina di nuovo progetto nello strumento di etichettatura campioni.":::
 
 ## <a name="label-your-forms"></a>Etichettare i moduli
 
@@ -155,7 +163,7 @@ Fare clic su **Run OCR on all files** (Esegui OCR su tutti i file) nel riquadro 
 
 Indicherà anche quali tabelle sono state estratte automaticamente. Fare clic sull'icona della tabella o della griglia sul lato sinistro del documento per visualizzare la tabella estratta. In questa guida di avvio rapido il contenuto della tabella, poiché è stato estratto automaticamente, non verrà etichettato, ma ci si baserà sull'estrazione automatica.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Impostazioni di connessione dello strumento di etichettatura campioni.":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Visualizzazione della tabella nello strumento di etichettatura campioni.":::
 
 ### <a name="apply-labels-to-text"></a>Applicare le etichette al testo
 
@@ -201,7 +209,7 @@ Creare quindi i tag (etichette) e applicarli agli elementi di testo che dovranno
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Impostazioni di connessione dello strumento di etichettatura campioni.":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Finestra dell'editor principale dello strumento di etichettatura campioni.":::
 
 
 Seguire i passaggi precedenti per etichettare almeno cinque moduli.
@@ -251,12 +259,12 @@ Sono attualmente supportati i tipi di valore e le varianti seguenti:
 
 Fare clic sull'icona del training nel riquadro sinistro per aprire la pagina corrispondente. Quindi fare clic sul pulsante **Train** per iniziare il training del modello. Al termine del processo di training, verranno visualizzate le informazioni seguenti:
 
-* **ID modello**: l'ID del modello creato e sottoposto a training. Ogni chiamata al training crea un nuovo modello con un proprio ID. Copiare questa stringa in un posto sicuro, perché sarà necessaria per eseguire le chiamate di previsione tramite l'[API REST](./curl-train-extract.md) o la [libreria client](./client-library.md).
+* **ID modello** : l'ID del modello creato e sottoposto a training. Ogni chiamata al training crea un nuovo modello con un proprio ID. Copiare questa stringa in un posto sicuro, perché sarà necessaria per eseguire le chiamate di previsione tramite l'[API REST](./curl-train-extract.md) o la [libreria client](./client-library.md).
 * **Average Accuracy** (Accuratezza media): l'accuratezza media del modello. È possibile migliorare l'accuratezza del modello etichettando altri moduli ed eseguendo di nuovo il training per creare un nuovo modello. Per iniziare, è consigliabile etichettare cinque moduli ed aggiungerne altri se necessario.
 * L'elenco dei tag e l'accuratezza stimata per ognuno.
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Impostazioni di connessione dello strumento di etichettatura campioni.":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Visualizzazione del training.":::
 
 Al termine del training, esaminare il valore di **Average Accuracy** (Accuratezza media). Se è basso, è necessario aggiungere altri documenti di input e ripetere i passaggi precedenti. I documenti già etichettati rimarranno nell'indice del progetto.
 
@@ -275,7 +283,7 @@ Con lo strumento di composizione modelli è possibile comporre fino a 100 modell
 
 Per comporre modelli nello strumento di etichettatura campioni, fare clic sull'icona a forma di freccia di unione dello strumento di composizione modelli a sinistra. A sinistra selezionare i modelli da comporre insieme. I modelli contrassegnati con l'icona della freccia sono già composti. Fare clic sul pulsante "Componi". Nella finestra popup assegnare un nome al nuovo modello composto e fare clic su "Componi". Al termine dell'operazione, il nuovo modello composto dovrebbe essere visualizzato nell'elenco. 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Impostazioni di connessione dello strumento di etichettatura campioni.":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Visualizzazione dell'esperienza utente di composizione modelli.":::
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Trasformare i dati nella finestra di progettazione
 titleSuffix: Azure Machine Learning
-description: Informazioni su come trasformare i dati nella finestra di progettazione Azure Machine Learning per creare set di dati personalizzati.
+description: Informazioni su come importare e trasformare i dati in Azure Machine Learning Designer per creare set di dati personalizzati.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: f08d0f1be166630d9cf4b0b9236d78228fd78aae
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: be2921f88ad2ecf88c555daf8385f1bd6733e836
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312812"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554016"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Trasformare i dati in Azure Machine Learning Designer
 

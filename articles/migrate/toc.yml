@@ -68,7 +68,7 @@
           href: tutorial-migrate-gcp-virtual-machines.md
 - name: Concetti
   items:
-    - name: Creare un piano di migrazione con Azure Migrate
+    - name: Creare un piano di migrazione
       href: concepts-migration-planning.md
     - name: Matrici di supporto
       items:

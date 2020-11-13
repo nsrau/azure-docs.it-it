@@ -1,7 +1,7 @@
 ---
 title: Ripetere il training dei modelli utilizzando Azure Machine Learning Designer
 titleSuffix: Azure Machine Learning
-description: Informazioni su come ripetere il training dei modelli con le pipeline pubblicate in Azure Machine Learning Designer.
+description: Informazioni su come ripetere il training dei modelli di Machine Learning con le pipeline pubblicate in Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d43bea855d9ac3dc34b8e72adcd9577e5933e52c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8ef4d9f768d6fdcf976c9317d1abec3d4533824
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905685"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554802"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer"></a>Ripetere il training dei modelli con Azure Machine Learning Designer
 
