@@ -7,32 +7,33 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/06/2020
 ms.author: victorh
-ms.openlocfilehash: ad0ac040b510783656617ddbf2063cd94c80aae7
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 197d48a2f5368111ec194a18f86aedf5ad78e1b2
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380947"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565620"
 ---
 # <a name="azure-firewall-dns-settings"></a>Impostazioni DNS del firewall di Azure
 
-È possibile configurare un server DNS personalizzato e abilitare il proxy DNS per il firewall di Azure. È possibile configurare queste impostazioni quando si distribuisce il firewall o in un secondo momento dalla pagina **impostazioni DNS** .
+È possibile configurare un server DNS personalizzato e abilitare il proxy DNS per il firewall di Azure. Configurare queste impostazioni durante la distribuzione del firewall o configurarle in un secondo momento dalla pagina **impostazioni DNS** .
 
 ## <a name="dns-servers"></a>Server DNS
 
-Un server DNS gestisce e risolve i nomi di dominio in indirizzi IP. Per impostazione predefinita, il firewall di Azure usa DNS di Azure per la risoluzione dei nomi. L'impostazione del **server DNS** consente di configurare i server DNS per la risoluzione dei nomi del firewall di Azure. È possibile configurare uno o più server.
+Un server DNS gestisce e risolve i nomi di dominio in indirizzi IP. Per impostazione predefinita, il firewall di Azure usa DNS di Azure per la risoluzione dei nomi. L'impostazione del **server DNS** consente di configurare i server DNS per la risoluzione dei nomi del firewall di Azure. È possibile configurare un singolo server o più server.
 
 > [!NOTE]
-> Per i firewall di Azure gestiti con Azure Firewall Manager le impostazioni DNS sono configurate nei criteri del firewall di Azure associati.
+> Per le istanze del firewall di Azure gestite tramite gestione firewall di Azure, le impostazioni DNS sono configurate nei criteri del firewall di Azure associati.
 
 ### <a name="configure-custom-dns-servers---azure-portal"></a>Configurare server DNS personalizzati-portale di Azure
 
 1. In **Impostazioni** del firewall di Azure selezionare **impostazioni DNS**.
 2. In **server DNS** è possibile digitare o aggiungere i server DNS esistenti precedentemente specificati nella rete virtuale.
 3. Selezionare **Salva**.
-4. Il firewall ora indirizza il traffico DNS ai server DNS specificati per la risoluzione dei nomi.
 
-:::image type="content" source="media/dns-settings/dns-servers.png" alt-text="Server DNS":::
+Il firewall ora indirizza il traffico DNS ai server DNS specificati per la risoluzione dei nomi.
+
+:::image type="content" source="media/dns-settings/dns-servers.png" alt-text="Screenshot che mostra le impostazioni per i server D N S.":::
 
 ### <a name="configure-custom-dns-servers---azure-cli"></a>Configurare server DNS personalizzati-interfaccia della riga di comando di Azure
 
@@ -46,7 +47,7 @@ az network firewall update \
 ```
 
 > [!IMPORTANT]
-> Il comando `az network firewall` richiede l'installazione dell'estensione dell'interfaccia della riga `azure-firewall` di comando di Azure. Può essere installato tramite il comando `az extension add --name azure-firewall` . 
+> Il comando `az network firewall` richiede l'installazione dell'estensione dell'interfaccia della riga `azure-firewall` di comando di Azure. È possibile installarlo utilizzando il comando `az extension add --name azure-firewall` . 
 
 ### <a name="configure-custom-dns-servers---azure-powershell"></a>Configurare server DNS personalizzati-Azure PowerShell
 
@@ -62,15 +63,15 @@ $azFw | Set-AzFirewall
 
 ## <a name="dns-proxy"></a>Proxy DNS
 
-È possibile configurare il firewall di Azure in modo che funga da proxy DNS. Un proxy DNS funge da intermediario per le richieste DNS dalle macchine virtuali client a un server DNS. Se si configura un server DNS personalizzato, è necessario abilitare il proxy DNS per evitare la mancata corrispondenza della risoluzione DNS e abilitare il filtro FQDN nelle regole di rete.
+È possibile configurare il firewall di Azure in modo che funga da proxy DNS. Un proxy DNS è un intermediario per le richieste DNS dalle macchine virtuali client a un server DNS. Se si configura un server DNS personalizzato, abilitare il proxy DNS per evitare una mancata corrispondenza della risoluzione DNS e abilitare il filtro FQDN (nome di dominio completo) nelle regole di rete.
 
-Se non si Abilita il proxy DNS, le richieste DNS dal client possono andare a un server DNS in un momento diverso o restituire una risposta diversa rispetto a quella del firewall. Il proxy DNS inserisce il firewall di Azure nel percorso delle richieste del client per evitare l'incoerenza.
+Se non si Abilita il proxy DNS, le richieste DNS dal client possono passare a un server DNS in un momento diverso o restituire una risposta diversa rispetto a quella del firewall. Il proxy DNS inserisce il firewall di Azure nel percorso delle richieste del client per evitare l'incoerenza.
 
-Quando il firewall di Azure è un proxy DNS, si verificano due tipi di funzioni di memorizzazione nella cache:
+Quando il firewall di Azure è un proxy DNS, sono possibili due tipi di funzioni di memorizzazione nella cache:
 
-- Cache positiva: la risoluzione DNS ha esito positivo. Il firewall usa il TTL (time-to-Live) del pacchetto o dell'oggetto. 
+- **Cache positiva** : la risoluzione DNS è riuscita. Il firewall usa la durata (TTL, time to Live) del pacchetto o dell'oggetto. 
 
-- Cache negativa: la risoluzione DNS non restituisce alcuna risposta o nessuna soluzione. Il firewall memorizza nella cache queste informazioni per un'ora.
+- **Cache negativa** : la risoluzione DNS non restituisce alcuna risposta o nessuna soluzione. Il firewall memorizza nella cache queste informazioni per un'ora.
 
 Il proxy DNS archivia tutti gli indirizzi IP risolti da FQDN nelle regole di rete. Come procedura consigliata, usare i nomi di dominio completi che vengono risolti in un unico indirizzo IP.  
 
@@ -79,7 +80,7 @@ Il proxy DNS archivia tutti gli indirizzi IP risolti da FQDN nelle regole di ret
 Per la configurazione del proxy DNS sono necessari tre passaggi:
 1. Abilitare il proxy DNS nelle impostazioni DNS del firewall di Azure.
 2. Facoltativamente, configurare il server DNS personalizzato o usare il valore predefinito specificato.
-3. Infine, è necessario configurare l'indirizzo IP privato del firewall di Azure come indirizzo DNS personalizzato nelle impostazioni del server DNS della rete virtuale. Ciò garantisce che il traffico DNS venga indirizzato al firewall di Azure.
+3. Configurare l'indirizzo IP privato del firewall di Azure come indirizzo DNS personalizzato nelle impostazioni del server DNS della rete virtuale. Questa impostazione garantisce che il traffico DNS venga indirizzato al firewall di Azure.
 
 #### <a name="configure-dns-proxy---azure-portal"></a>Configurare il proxy DNS-portale di Azure
 
@@ -87,30 +88,30 @@ Per configurare il proxy DNS, è necessario configurare l'impostazione dei serve
 
 ##### <a name="configure-virtual-network-dns-servers"></a>Configurare i server DNS della rete virtuale 
 
-1. Selezionare la rete virtuale in cui il traffico DNS verrà instradato attraverso il firewall di Azure.
+1. Selezionare la rete virtuale in cui il traffico DNS verrà instradato tramite l'istanza del firewall di Azure.
 2. In **Impostazioni** selezionare **Server DNS**.
-3. Selezionare **personalizzata** in **server DNS**.
+3. In **Server DNS** selezionare **Personalizzato**.
 4. Immettere l'indirizzo IP privato del firewall.
 5. Selezionare **Salva**.
-6. Riavviare le macchine virtuali connesse alla rete virtuale in modo che vengano loro assegnate le nuove impostazioni del server DNS. Le VM continuano a usare le impostazioni DNS correnti finché non vengono riavviate.
+6. Riavviare le VM connesse alla rete virtuale in modo che siano assegnate le nuove impostazioni del server DNS. Le macchine virtuali continuano a usare le impostazioni DNS correnti fino a quando non vengono riavviate.
 
 ##### <a name="enable-dns-proxy"></a>Abilita proxy DNS
 
-1. Selezionare il firewall di Azure.
+1. Selezionare l'istanza del firewall di Azure.
 2. In **Impostazioni** selezionare **impostazioni DNS**.
-3. Per impostazione predefinita, il **proxy DNS** è disabilitato. Se abilitata, il firewall è in ascolto sulla porta 53 e invia le richieste DNS ai server DNS configurati.
+3. Per impostazione predefinita, il **proxy DNS** è disabilitato. Quando questa impostazione è abilitata, il firewall è in ascolto sulla porta 53 e invia le richieste DNS ai server DNS configurati.
 4. Esaminare la configurazione dei **server DNS** per assicurarsi che le impostazioni siano appropriate per l'ambiente in uso.
 5. Selezionare **Salva**.
 
-:::image type="content" source="media/dns-settings/dns-proxy.png" alt-text="Proxy DNS":::
+:::image type="content" source="media/dns-settings/dns-proxy.png" alt-text="Screenshot che mostra le impostazioni per il proxy D N S.":::
 
 #### <a name="configure-dns-proxy---azure-cli"></a>Configurare il proxy DNS-interfaccia della riga di comando di Azure
 
-È possibile usare l'interfaccia della riga di comando di Azure per configurare le impostazioni proxy DNS nel firewall di Azure e aggiornare le reti virtuali per l'uso del firewall di Azure come server DNS.
+È possibile usare l'interfaccia della riga di comando di Azure per configurare le impostazioni del proxy DNS nel firewall di Azure. È anche possibile usarlo per aggiornare le reti virtuali per l'uso del firewall di Azure come server DNS.
 
 ##### <a name="configure-virtual-network-dns-servers"></a>Configurare i server DNS della rete virtuale
 
-Questo esempio Mostra come configurare VNet per l'uso del firewall di Azure come server DNS.
+Nell'esempio seguente la rete virtuale viene configurata per l'uso del firewall di Azure come server DNS.
  
 ```azurecli-interactive
 az network vnet update \
@@ -121,7 +122,7 @@ az network vnet update \
 
 ##### <a name="enable-dns-proxy"></a>Abilita proxy DNS
 
-Questo esempio Mostra come abilitare la funzionalità proxy DNS nel firewall di Azure.
+Nell'esempio seguente viene abilitata la funzionalità proxy DNS nel firewall di Azure.
 
 ```azurecli-interactive
 az network firewall update \
@@ -132,11 +133,11 @@ az network firewall update \
 
 #### <a name="configure-dns-proxy---azure-powershell"></a>Configurare il proxy DNS-Azure PowerShell
 
-È possibile usare Azure PowerShell per configurare le impostazioni del proxy DNS nel firewall di Azure e aggiornare le reti virtuali per l'uso del firewall di Azure come server DNS.
+È possibile usare Azure PowerShell per configurare le impostazioni del proxy DNS nel firewall di Azure. È anche possibile usarlo per aggiornare le reti virtuali per l'uso del firewall di Azure come server DNS.
 
 ##### <a name="configure-virtual-network-dns-servers"></a>Configurare i server DNS della rete virtuale
 
- Questo esempio Mostra come configurare VNet per l'uso del firewall di Azure come server DNS.
+Nell'esempio seguente la rete virtuale viene configurata per l'uso del firewall di Azure come server DNS.
 
 ```azurepowershell
 $dnsServers = @("<firewall-private-IP>")
@@ -148,7 +149,7 @@ $VNet | Set-AzVirtualNetwork
 
 ##### <a name="enable-dns-proxy"></a>Abilita proxy DNS
 
-Questo esempio Mostra come abilitare la funzionalità proxy DNS nel firewall di Azure.
+Nell'esempio seguente viene abilitata la funzionalità proxy DNS nel firewall di Azure.
 
 ```azurepowershell
 $azFw = Get-AzFirewall -Name "fwName" -ResourceGroupName "fwRG"

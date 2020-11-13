@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: b385d6dfb5beba481ad92403d69f5d0988f3bce3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 86db8c88fae7a5fd1ec4828d8936c6cb8172a61c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786429"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564566"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Procedure consigliate per la configurazione del cluster (SQL Server nelle macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,6 +30,10 @@ Questo articolo fornisce le procedure consigliate per la configurazione del clus
 ## <a name="networking"></a>Rete
 
 Usare una singola scheda di interfaccia di rete per server (nodo cluster) e una singola subnet. La rete di Azure dispone di ridondanza fisica, che rende le schede di rete e le subnet aggiuntive non necessarie in un cluster guest di macchine virtuali di Azure. Il report di convalida del cluster informa che i nodi sono raggiungibili solo in una singola rete. È possibile ignorare questo avviso nei cluster di failover guest della macchina virtuale di Azure.
+
+### <a name="tuning-failover-cluster-network-thresholds"></a>Ottimizzazione delle soglie di rete del cluster di failover
+
+Quando si eseguono nodi del cluster di failover Windows in macchine virtuali di Azure con SQL Server AlwaysOn, è consigliabile modificare l'impostazione del cluster in uno stato di monitoraggio più rilassato.  In questo modo il cluster risulta molto più stabile e affidabile.  Per informazioni dettagliate, vedere [IaaS con SQL AlwaysOn-ottimizzazione delle soglie di rete del cluster di failover](/windows-server/troubleshoot/iaas-sql-failover-cluser).
 
 ## <a name="quorum"></a>Quorum
 

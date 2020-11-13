@@ -4,12 +4,12 @@ description: Informazioni sullo schema di avviso comune, perché è consigliabil
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: bb182f88a896be436e3981ff4e361010ee2655f6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: aa619976c8fa03b925d66e884ad03fc4e385693e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108831"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565603"
 ---
 # <a name="common-alert-schema"></a>Schema di avviso comune
 
@@ -19,9 +19,9 @@ Questo articolo descrive lo schema di avviso comune, i vantaggi derivanti dall'u
 
 Lo schema di avviso comune standardizza attualmente l'esperienza di utilizzo per le notifiche di avviso in Azure. Storicamente, i tre tipi di avviso attualmente disponibili in Azure (metrica, log e log attività) hanno modelli di posta elettronica, schemi webhook e così via. Con lo schema di avviso comune è ora possibile ricevere notifiche di avviso con uno schema coerente.
 
-Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa origine**, che vengono descritte nello schema comune nelle seguenti sezioni:
-* **Essentials**: un set di **campi standardizzati**, comune in tutti i tipi di avviso, che descrivono la **risorsa** in cui si trova l'avviso insieme a metadati di avviso comuni aggiuntivi, ad esempio gravità o descrizione. 
-* **Contesto**dell'avviso: un set di campi che descrivono la relativa **origine**, con campi che variano **in base al tipo di avviso**. Ad esempio, un avviso di metrica avrebbe campi come il nome della metrica e il valore della metrica nel contesto dell'avviso, mentre un avviso del log attività avrebbe informazioni sull'evento che ha generato l'avviso. 
+Tutte le istanze di avviso descrivono **la risorsa interessata** e **la relativa origine** , che vengono descritte nello schema comune nelle seguenti sezioni:
+* **Essentials** : un set di **campi standardizzati** , comune in tutti i tipi di avviso, che descrivono la **risorsa** in cui si trova l'avviso insieme a metadati di avviso comuni aggiuntivi, ad esempio gravità o descrizione. 
+* **Contesto** dell'avviso: un set di campi che descrivono la relativa **origine** , con campi che variano **in base al tipo di avviso**. Ad esempio, un avviso di metrica avrebbe campi come il nome della metrica e il valore della metrica nel contesto dell'avviso, mentre un avviso del log attività avrebbe informazioni sull'evento che ha generato l'avviso. 
 
 Gli scenari di integrazione tipici dei clienti implicano il routing dell'istanza di avviso al team interessato in base ad alcuni pivot, ad esempio il gruppo di risorse, dopo il quale il team responsabile inizia a lavorare su di esso. Con lo schema di avviso comune è possibile avere una logica di routing standardizzata tra i tipi di avviso sfruttando i campi essenziali, lasciando i campi di contesto così come sono i team interessati a esaminare ulteriormente.
 
@@ -33,8 +33,8 @@ Lo schema di avviso comune si manifesterà principalmente nelle notifiche di avv
 
 | Azione | Miglioramenti|
 |:---|:---|
-| SMS | Un modello SMS coerente per tutti i tipi di avviso. |
-| E-mail | Un modello di posta elettronica coerente e dettagliato, che consente di diagnosticare facilmente i problemi a colpo d'occhio. I collegamenti profondi incorporati all'istanza di avviso nel portale e la risorsa interessata assicurano che sia possibile passare rapidamente al processo di correzione. |
+| sms | Un modello SMS coerente per tutti i tipi di avviso. |
+| Posta elettronica | Un modello di posta elettronica coerente e dettagliato, che consente di diagnosticare facilmente i problemi a colpo d'occhio. I collegamenti profondi incorporati all'istanza di avviso nel portale e la risorsa interessata assicurano che sia possibile passare rapidamente al processo di correzione. |
 | Webhook/app per la logica/funzione di Azure/Runbook di automazione | Struttura JSON coerente per tutti i tipi di avviso, che consente di creare facilmente integrazioni tra i diversi tipi di avviso. |
 
 Il nuovo schema consentirà inoltre un'esperienza di utilizzo più approfondita degli avvisi sia nel portale di Azure che nel app per dispositivi mobili di Azure nel futuro immediato. 

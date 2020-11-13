@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 4b8aa72c7b77da8fdde9925325587b67411de8d8
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 23b893bad591af5f1e923b68e8d30453f859792b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506414"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563478"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurare una regola di limitazione della frequenza del firewall applicazione Web usando Azure PowerShell
 La regola relativa al limite di velocità del firewall applicazione Web di Azure (WAF) per la porta anteriore di Azure controlla il numero di richieste consentite dai client durante una durata di un minuto.
@@ -26,9 +26,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare a configurare un criterio di limite di velocità, configurare l'ambiente di PowerShell e creare un profilo di sportello anteriore.
 ### <a name="set-up-your-powershell-environment"></a>Configurare l'ambiente PowerShell
-Azure PowerShell offre un set di cmdlet che usano il modello [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) per la gestione delle risorse di Azure. 
+Azure PowerShell offre un set di cmdlet che usano il modello [Azure Resource Manager](../../azure-resource-manager/management/overview.md) per la gestione delle risorse di Azure. 
 
-È possibile installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) nel computer locale e usarlo in qualsiasi sessione di PowerShell. Seguire le istruzioni nella pagina per accedere con le credenziali di Azure e installare il modulo AZ PowerShell.
+È possibile installare [Azure PowerShell](/powershell/azure/) nel computer locale e usarlo in qualsiasi sessione di PowerShell. Seguire le istruzioni nella pagina per accedere con le credenziali di Azure e installare il modulo AZ PowerShell.
 
 #### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Connettersi ad Azure con una finestra di dialogo interattiva per l'accesso
 ```
@@ -105,6 +105,4 @@ Nell'esempio seguente viene usato il nome del gruppo di risorse *myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [sportello anteriore](../../frontdoor/front-door-overview.md). 
-
-
+- Altre informazioni su [sportello anteriore](../../frontdoor/front-door-overview.md).

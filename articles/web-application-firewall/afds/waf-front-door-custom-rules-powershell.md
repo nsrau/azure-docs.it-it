@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: victorh
-ms.openlocfilehash: 40f0195ced375da09891eb577bd81f36b2f37cba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a0e262db9f5c37189a589eefc451a88dd5ea8c6
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005549"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563410"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configurare un criterio di Web Application Firewall usando Azure PowerShell
 
@@ -27,9 +27,9 @@ Prima di iniziare a configurare un criterio di limite di velocità, configurare 
 
 ### <a name="set-up-your-powershell-environment"></a>Configurare l'ambiente PowerShell
 
-Azure PowerShell offre un set di cmdlet che usano il modello [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) per la gestione delle risorse di Azure. 
+Azure PowerShell offre un set di cmdlet che usano il modello [Azure Resource Manager](../../azure-resource-manager/management/overview.md) per la gestione delle risorse di Azure. 
 
-È possibile installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) nel computer locale e usarlo in qualsiasi sessione di PowerShell. Seguire le istruzioni nella pagina per accedere con le credenziali di Azure e installare il modulo AZ PowerShell.
+È possibile installare [Azure PowerShell](/powershell/azure/) nel computer locale e usarlo in qualsiasi sessione di PowerShell. Seguire le istruzioni nella pagina per accedere con le credenziali di Azure e installare il modulo AZ PowerShell.
 
 #### <a name="sign-in-to-azure"></a>Accedere ad Azure
 

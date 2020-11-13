@@ -3,12 +3,12 @@ title: Ripristinare le condivisioni file di Azure con l'interfaccia della riga d
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per ripristinare le condivisioni file di Azure di backup nell'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.openlocfilehash: be744fdb79f442eaf0ef632952d9c0b9e709d908
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a025de7bfb9db037b2008d69be7782feabb482f3
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325012"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562322"
 ---
 # <a name="restore-azure-file-shares-with-the-azure-cli"></a>Ripristinare le condivisioni file di Azure con l'interfaccia della riga di comando
 
@@ -23,20 +23,20 @@ Alla fine di questo articolo si apprenderà come eseguire le operazioni seguenti
 >[!NOTE]
 > Backup di Azure supporta ora il ripristino di più file o cartelle nel percorso originale o in un percorso alternativo usando l'interfaccia della riga di comando di Azure. Per ulteriori informazioni, fare riferimento alla sezione [ripristinare più file o cartelle in un percorso originale o alternativo](#restore-multiple-files-or-folders-to-original-or-alternate-location) di questo documento.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Per installare e usare l'interfaccia della riga di comando in locale, è necessario eseguire l'interfaccia della riga di comando di Azure 2.0.18 o versioni successive Per determinare la versione dell'interfaccia della riga di comando, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che sia già presente una condivisione file di Azure di cui è stato eseguito il backup da backup di Azure. Se non si ha un file, vedere [eseguire il backup delle condivisioni file di Azure con l'interfaccia della](backup-afs-cli.md) riga di comando per configurare il backup per la condivisione file. Per questo articolo, è possibile usare le risorse seguenti:
 
-| Condivisione file  | Account di archiviazione | Region | Dettagli                                                      |
-| ----------- | --------------- | ------ | ------------------------------------------------------------ |
-| *risorsa*  | *afsaccount*      | EastUS | Backup di origine originale con backup di Azure                 |
-| *azurefiles1* | *afaccount1*      | EastUS | Origine di destinazione utilizzata per il ripristino del percorso alternativo |
+| Condivisione file | Account di archiviazione | Area | Dettagli |
+|---|---|---|---|
+| *risorsa* | *afsaccount* | EastUS | Backup di origine originale con backup di Azure |
+| *azurefiles1* | *afaccount1* | EastUS | Origine di destinazione utilizzata per il ripristino del percorso alternativo |
 
 È possibile usare una struttura simile per le condivisioni file per provare i diversi tipi di ripristini illustrati in questo articolo.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+ - Questa esercitazione richiede la versione 2.0.18 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="fetch-recovery-points-for-the-azure-file-share"></a>Recuperare i punti di ripristino per la condivisione file di Azure
 
@@ -50,8 +50,8 @@ az backup recoverypoint list --vault-name azurefilesvault --resource-group azure
 
 È anche possibile eseguire il cmdlet precedente usando il nome descrittivo per il contenitore e l'elemento fornendo i seguenti due parametri aggiuntivi:
 
-* **--Backup-Management-Type**: *AzureStorage*
-* **--tipo di carico di lavoro**: *azurefileshare*
+* **--Backup-Management-Type** : *AzureStorage*
+* **--tipo di carico di lavoro** : *azurefileshare*
 
 ```azurecli-interactive
 az backup recoverypoint list --vault-name azurefilesvault --resource-group azurefiles --container-name afsaccount --backup-management-type azurestorage --item-name azurefiles --workload-type azurefileshare --out table
@@ -75,8 +75,8 @@ L'attributo **Name** nell'output corrisponde al nome del punto di ripristino che
 
 Definire i parametri seguenti per eseguire le operazioni di ripristino:
 
-* **--Container-Name**: nome dell'account di archiviazione che ospita la condivisione file originale di cui è stato eseguito il backup. Per recuperare il nome o il nome descrittivo del contenitore, usare il comando [AZ backup container list](/cli/azure/backup/container#az-backup-container-list) .
-* **--Item-Name**: nome della condivisione file originale di cui è stato eseguito il backup che si desidera utilizzare per l'operazione di ripristino. Per recuperare il nome o il nome descrittivo dell'elemento di cui è stato eseguito il backup, usare il comando [AZ backup Item List](/cli/azure/backup/item#az-backup-item-list) .
+* **--Container-Name** : nome dell'account di archiviazione che ospita la condivisione file originale di cui è stato eseguito il backup. Per recuperare il nome o il nome descrittivo del contenitore, usare il comando [AZ backup container list](/cli/azure/backup/container#az-backup-container-list) .
+* **--Item-Name** : nome della condivisione file originale di cui è stato eseguito il backup che si desidera utilizzare per l'operazione di ripristino. Per recuperare il nome o il nome descrittivo dell'elemento di cui è stato eseguito il backup, usare il comando [AZ backup Item List](/cli/azure/backup/item#az-backup-item-list) .
 
 ### <a name="restore-a-full-share-to-the-original-location"></a>Ripristinare una condivisione completa nel percorso originale
 
@@ -100,10 +100,10 @@ L'attributo **Name** nell'output corrisponde al nome del processo creato dal ser
 
 È possibile usare questa opzione per ripristinare una condivisione file in un percorso alternativo e mantengono la condivisione file originale così come è. Specificare i seguenti parametri per il ripristino del percorso alternativo:
 
-* **--target-storage-account**: l'account di archiviazione in cui viene ripristinato il contenuto di cui è stato eseguito il backup. L'account di archiviazione di destinazione deve trovarsi nella stessa posizione dell'insieme di credenziali.
-* **--target-file-share**: la condivisione file all'interno dell'account di archiviazione di destinazione in cui viene ripristinato il contenuto di cui è stato eseguito il backup.
-* **--target-folder**: cartella nella condivisione file in cui vengono ripristinati i dati. Se il contenuto sottoposto a backup deve essere ripristinato in una cartella radice, fornire i valori della cartella di destinazione come stringa vuota.
-* **--Resolve-conflict**: istruzione se si verifica un conflitto con i dati ripristinati. Accetta **Overwrite** o **skip**.
+* **--target-storage-account** : l'account di archiviazione in cui viene ripristinato il contenuto di cui è stato eseguito il backup. L'account di archiviazione di destinazione deve trovarsi nella stessa posizione dell'insieme di credenziali.
+* **--target-file-share** : la condivisione file all'interno dell'account di archiviazione di destinazione in cui viene ripristinato il contenuto di cui è stato eseguito il backup.
+* **--target-folder** : cartella nella condivisione file in cui vengono ripristinati i dati. Se il contenuto sottoposto a backup deve essere ripristinato in una cartella radice, fornire i valori della cartella di destinazione come stringa vuota.
+* **--Resolve-conflict** : istruzione se si verifica un conflitto con i dati ripristinati. Accetta **Overwrite** o **skip**.
 
 Nell'esempio seguente viene usato il comando [AZ backup restore-azurefileshare](/cli/azure/backup/restore#az-backup-restore-restore-azurefileshare) con la modalità di ripristino come *AlternateLocation* per ripristinare la condivisione file *risorsa* nell'account di archiviazione *afsaccount* nella condivisione file *azurefiles1* nell'account di archiviazione *afaccount1* .
 
@@ -125,14 +125,14 @@ L'attributo **Name** nell'output corrisponde al nome del processo creato dal ser
 
 Definire i parametri seguenti per eseguire le operazioni di ripristino:
 
-* **--Container-Name**: nome dell'account di archiviazione che ospita la condivisione file originale di cui è stato eseguito il backup. Per recuperare il nome o il nome descrittivo del contenitore, usare il comando [AZ backup container list](/cli/azure/backup/container#az-backup-container-list) .
-* **--Item-Name**: nome della condivisione file originale di cui è stato eseguito il backup che si desidera utilizzare per l'operazione di ripristino. Per recuperare il nome o il nome descrittivo dell'elemento di cui è stato eseguito il backup, usare il comando [AZ backup Item List](/cli/azure/backup/item#az-backup-item-list) .
+* **--Container-Name** : nome dell'account di archiviazione che ospita la condivisione file originale di cui è stato eseguito il backup. Per recuperare il nome o il nome descrittivo del contenitore, usare il comando [AZ backup container list](/cli/azure/backup/container#az-backup-container-list) .
+* **--Item-Name** : nome della condivisione file originale di cui è stato eseguito il backup che si desidera utilizzare per l'operazione di ripristino. Per recuperare il nome o il nome descrittivo dell'elemento di cui è stato eseguito il backup, usare il comando [AZ backup Item List](/cli/azure/backup/item#az-backup-item-list) .
 
 Specificare i seguenti parametri per gli elementi che si desidera ripristinare:
 
-* **Percorsofileorigine**: percorso assoluto del file, da ripristinare all'interno della condivisione file, sotto forma di stringa. Questo percorso è lo stesso percorso usato nei comandi [AZ Storage file download](/cli/azure/storage/file#az-storage-file-download) o [AZ Storage file Show](/cli/azure/storage/file#az-storage-file-show) cli.
-* **SourceFileType**: scegliere se selezionare una directory o un file. Accetta la **directory** o il **file**.
-* **ResolveConflict**: istruzione se si verifica un conflitto con i dati ripristinati. Accetta **Overwrite** o **skip**.
+* **Percorsofileorigine** : percorso assoluto del file, da ripristinare all'interno della condivisione file, sotto forma di stringa. Questo percorso è lo stesso percorso usato nei comandi [AZ Storage file download](/cli/azure/storage/file#az-storage-file-download) o [AZ Storage file Show](/cli/azure/storage/file#az-storage-file-show) cli.
+* **SourceFileType** : scegliere se selezionare una directory o un file. Accetta la **directory** o il **file**.
+* **ResolveConflict** : istruzione se si verifica un conflitto con i dati ripristinati. Accetta **Overwrite** o **skip**.
 
 ### <a name="restore-individual-files-or-folders-to-the-original-location"></a>Ripristinare singoli file o cartelle nel percorso originale
 
@@ -156,9 +156,9 @@ L'attributo **Name** nell'output corrisponde al nome del processo creato dal ser
 
 Per ripristinare file o cartelle specifiche in un percorso alternativo, usare il cmdlet [AZ backup restore-risorsa](/cli/azure/backup/restore#az-backup-restore-restore-azurefiles) con la modalità di ripristino impostata su *AlternateLocation* e specificare i parametri relativi alla destinazione seguenti:
 
-* **--target-storage-account**: l'account di archiviazione in cui viene ripristinato il contenuto di cui è stato eseguito il backup. L'account di archiviazione di destinazione deve trovarsi nella stessa posizione dell'insieme di credenziali.
-* **--target-file-share**: la condivisione file all'interno dell'account di archiviazione di destinazione in cui viene ripristinato il contenuto di cui è stato eseguito il backup.
-* **--target-folder**: cartella nella condivisione file in cui vengono ripristinati i dati. Se il contenuto di cui è stato eseguito il backup deve essere ripristinato in una cartella radice, assegnare il valore della cartella di destinazione come stringa vuota.
+* **--target-storage-account** : l'account di archiviazione in cui viene ripristinato il contenuto di cui è stato eseguito il backup. L'account di archiviazione di destinazione deve trovarsi nella stessa posizione dell'insieme di credenziali.
+* **--target-file-share** : la condivisione file all'interno dell'account di archiviazione di destinazione in cui viene ripristinato il contenuto di cui è stato eseguito il backup.
+* **--target-folder** : cartella nella condivisione file in cui vengono ripristinati i dati. Se il contenuto di cui è stato eseguito il backup deve essere ripristinato in una cartella radice, assegnare il valore della cartella di destinazione come stringa vuota.
 
 Nell'esempio seguente viene ripristinato il file di *RestoreTest.txt* originariamente presente nella condivisione file *risorsa* in un percorso alternativo: la cartella *RestoreData* nella condivisione file *azurefiles1* ospitata nell'account di archiviazione *afaccount1* .
 

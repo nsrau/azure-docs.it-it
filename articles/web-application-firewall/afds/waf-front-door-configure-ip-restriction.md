@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
-ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f260bfc7b097931cc1a978e790c1d9dd966703ac
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005617"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563512"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configurare una regola di restrizione IP con un Web Application Firewall per lo sportello anteriore di Azure
 
@@ -30,7 +30,7 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
 
 ### <a name="create-a-waf-policy"></a>Creare un criterio WAF
 
-1. Nella portale di Azure selezionare **Crea una risorsa**, digitare  **Web Application Firewall** nella casella di ricerca e quindi selezionare **Web Application Firewall (WAF)**.
+1. Nella portale di Azure selezionare **Crea una risorsa** , digitare  **Web Application Firewall** nella casella di ricerca e quindi selezionare **Web Application Firewall (WAF)**.
 2. Selezionare **Crea**.
 3. Nella pagina **Crea un criterio WAF** usare i valori seguenti per completare la scheda **nozioni di base** :
    
@@ -44,7 +44,7 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
 
    Selezionare **Avanti: impostazioni dei criteri**
 
-1. Nella scheda **Impostazioni criteri** selezionare **prevenzione**. Per il **corpo della risposta del blocco**, digitare *che è stato bloccato.* quindi, è possibile osservare che la regola personalizzata è attiva.
+1. Nella scheda **Impostazioni criteri** selezionare **prevenzione**. Per il **corpo della risposta del blocco** , digitare *che è stato bloccato.* quindi, è possibile osservare che la regola personalizzata è attiva.
 2. Selezionare **Avanti: regole gestite**.
 3. Selezionare **Avanti: regole personalizzate**.
 4. Selezionare **Aggiungi regola personalizzata**.
@@ -54,7 +54,7 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
    |---------|---------|
    |Nome regola personalizzata     |FdWafCustRule|
    |Stato     |Attivato|
-   |Tipo regola     |Corrispondente|
+   |Tipo regola     |Corrispondenza|
    |Priorità    |100|
    |Tipo di corrispondenza     |Indirizzo IP|
    |Variabile corrispondente|IndirizzoRemoto|
@@ -66,8 +66,8 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
 
    Selezionare **Aggiungi**.
 6. Selezionare **Avanti: associazione**.
-7. Selezionare **Aggiungi host**front-end.
-8. Per **host**front-end selezionare l'host front-end e selezionare **Aggiungi**.
+7. Selezionare **Aggiungi host** front-end.
+8. Per **host** front-end selezionare l'host front-end e selezionare **Aggiungi**.
 9. Selezionare **Rivedi e crea**.
 10. Dopo aver superato la convalida dei criteri, selezionare **Crea**.
 
@@ -76,7 +76,7 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
 1. Al termine della distribuzione del criterio WAF, passare al nome host front-end.
 2. Verrà visualizzato il messaggio di blocco personalizzato.
 
-   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Regola personalizzata":::
+   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Test regola WAF":::
 
    > [!NOTE]
    > Un indirizzo IP privato è stato intenzionalmente usato nella regola personalizzata per garantire che la regola venga attivata. In una distribuzione effettiva creare regole di *autorizzazione* e di *negazione* usando indirizzi IP per una situazione specifica.
@@ -109,7 +109,7 @@ Usare il comando [AZ Network front-door WAF-Policy Custom-Rule create](/cli/azur
 
 Negli esempi seguenti:
 -  Sostituire *IPAllowPolicyExampleCLI* con il criterio univoco creato in precedenza.
--  Sostituire *IP-address-range-1*, *IP-address-range-2* con il proprio intervallo.
+-  Sostituire *IP-address-range-1* , *IP-address-range-2* con il proprio intervallo.
 
 Per prima cosa, creare una regola IP allow per i criteri creati nel passaggio precedente. 
 > [!NOTE]
@@ -166,9 +166,9 @@ In questo esempio, il criterio WAF viene applicato a **FrontendEndpoints [0]**. 
 Prima di iniziare a configurare un criterio di restrizione IP, configurare l'ambiente di PowerShell e creare un profilo di sportello anteriore di Azure.
 
 #### <a name="set-up-your-powershell-environment"></a>Configurare l'ambiente PowerShell
-Azure PowerShell fornisce un set di cmdlet che usano il modello di [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) per la gestione delle risorse di Azure.
+Azure PowerShell fornisce un set di cmdlet che usano il modello di [Azure Resource Manager](../../azure-resource-manager/management/overview.md) per la gestione delle risorse di Azure.
 
-È possibile installare [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) nel computer locale e usarlo in qualsiasi sessione di PowerShell. Seguire le istruzioni nella pagina per accedere a PowerShell usando le credenziali di Azure e quindi installare il modulo AZ.
+È possibile installare [Azure PowerShell](/powershell/azure/) nel computer locale e usarlo in qualsiasi sessione di PowerShell. Seguire le istruzioni nella pagina per accedere a PowerShell usando le credenziali di Azure e quindi installare il modulo AZ.
 
 1. Connettersi ad Azure usando il comando seguente e quindi usare una finestra di dialogo interattiva per accedere.
     ```
@@ -190,7 +190,7 @@ Creare un profilo di porta anteriore di Azure seguendo le istruzioni descritte n
 
 ### <a name="define-an-ip-match-condition"></a>Definire una condizione di corrispondenza IP
 Usare il comando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) per definire una condizione di corrispondenza IP.
-Nell'esempio seguente sostituire *IP-address-range-1*, *IP-address-range-2* con il proprio intervallo.    
+Nell'esempio seguente sostituire *IP-address-range-1* , *IP-address-range-2* con il proprio intervallo.    
 ```powershell
 $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable  RemoteAddr `
@@ -225,7 +225,7 @@ Trovare il nome del gruppo di risorse che contiene il profilo di porta anteriore
 
 ### <a name="link-a-waf-policy-to-an-azure-front-door-front-end-host"></a>Collegare un criterio WAF a un host front-end di Azure front-end
 
-Collegare un oggetto Criteri WAF a un host front-end esistente e aggiornare le proprietà della porta anteriore di Azure. Per prima cosa, recuperare l'oggetto front door di Azure usando [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor). Impostare quindi la proprietà **WebApplicationFirewallPolicyLink** sull'ID risorsa di *$IPAllowPolicyExamplePS*, creato nel passaggio precedente, usando il comando [set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) .
+Collegare un oggetto Criteri WAF a un host front-end esistente e aggiornare le proprietà della porta anteriore di Azure. Per prima cosa, recuperare l'oggetto front door di Azure usando [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor). Impostare quindi la proprietà **WebApplicationFirewallPolicyLink** sull'ID risorsa di *$IPAllowPolicyExamplePS* , creato nel passaggio precedente, usando il comando [set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) .
 
 ```azurepowershell
   $FrontDoorObjectExample = Get-AzFrontDoor `

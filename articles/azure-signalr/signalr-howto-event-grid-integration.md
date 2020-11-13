@@ -7,22 +7,22 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: chenyl
-ms.openlocfilehash: 04059ac1feae04cb6fa8b09f7b7077b7e11bac4c
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 84b83c1dd541418c446a89a6f51be668cb41e54e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170373"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562645"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Come inviare eventi dal Servizio Azure SignalR a Griglia di eventi
 
 Griglia di eventi di Azure è un servizio di routing di eventi completamente gestito che fornisce un consumo di eventi uniformi usando un modello di pubblicazione secondaria. In questa guida si userà l'interfaccia della riga di comando di Azure per creare un servizio Azure SignalR, sottoscrivere gli eventi di connessione e quindi distribuire un'applicazione Web di esempio per ricevere gli eventi. Infine, è possibile connettere e disconnettere e visualizzare il payload dell'evento nell'applicazione di esempio.
 
-Se non si possiede una sottoscrizione di Azure, creare un [account gratuito][azure-account] prima di iniziare.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-I comandi dell'interfaccia della riga di comando di Azure in questo articolo sono formattati per la shell **Bash**. Se si usa una shell diversa, ad esempio PowerShell o il prompt dei comandi, può essere necessario modificare di conseguenza i caratteri di continuazione di riga o le righe di assegnazione di variabile. Questo articolo usa le variabili per ridurre al minimo la quantità di modifiche necessarie per i comandi.
+ - I comandi dell'interfaccia della riga di comando di Azure in questo articolo sono formattati per la shell **Bash**. Se si usa una shell diversa, ad esempio PowerShell o il prompt dei comandi, può essere necessario modificare di conseguenza i caratteri di continuazione di riga o le righe di assegnazione di variabile. Questo articolo usa le variabili per ridurre al minimo la quantità di modifiche necessarie per i comandi.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7c6640b6634a017819735b9d0f7b906f8dc91d0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075427"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565875"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Distribuire e configurare il firewall di Azure con l'interfaccia della riga di comando
 
@@ -27,9 +27,9 @@ Il traffico di rete è sottoposto alle regole del firewall configurate quando si
 
 Per questo articolo, si crea un VNet singolo semplificato con tre subnet per semplificare la distribuzione. Per le distribuzioni di produzione è consigliabile un [modello hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), in cui il firewall si trova nella propria rete virtuale. I server del carico di lavoro si trovano nelle reti virtuali associate all'interno della stessa area con una o più subnet.
 
-* **AzureFirewallSubnet**: in questa subnet si trova il firewall.
-* **Workload-SN**: in questa subnet si trova il server del carico di lavoro. Il traffico di rete di questa subnet passa attraverso il firewall.
-* **Jump-SN**: in questa subnet si trova il jump server. Il jump server ha un indirizzo IP pubblico a cui è possibile connettersi con Desktop remoto. Da qui è quindi possibile connettersi al server del carico di lavoro (tramite un'altra istanza di Desktop remoto).
+* **AzureFirewallSubnet** : in questa subnet si trova il firewall.
+* **Workload-SN** : in questa subnet si trova il server del carico di lavoro. Il traffico di rete di questa subnet passa attraverso il firewall.
+* **Jump-SN** : in questa subnet si trova il jump server. Il jump server ha un indirizzo IP pubblico a cui è possibile connettersi con Desktop remoto. Da qui è quindi possibile connettersi al server del carico di lavoro (tramite un'altra istanza di Desktop remoto).
 
 ![Infrastruttura di rete dell'esercitazione](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
@@ -44,22 +44,11 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Se si preferisce, è possibile completare questa procedura usando il [portale di Azure](tutorial-firewall-deploy-portal.md) o [Azure PowerShell](deploy-ps.md).
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
-
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Per trovare la versione, eseguire **AZ--Version**. Per informazioni sull'installazione o sull'aggiornamento, vedere [Installare l'interfaccia da riga di comando di Azure]( /cli/azure/install-azure-cli).
-
-Installare l'estensione del firewall di Azure:
-
-```azurecli-interactive
-az extension add -n azure-firewall
-```
-
+- Questo articolo richiede la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="set-up-the-network"></a>Configurare la rete
 
@@ -264,7 +253,7 @@ A questo punto testare il firewall per verificare che funzioni come previsto.
 
 1. Connettere una sessione di Desktop remoto alla macchina virtuale **Srv-Jump** e accedere. Da qui, aprire una connessione Desktop remoto all'indirizzo IP privato **SRV-lavoro** ed effettuare l'accesso.
 
-3. In **SRV-work**aprire una finestra di PowerShell ed eseguire i comandi seguenti:
+3. In **SRV-work** aprire una finestra di PowerShell ed eseguire i comandi seguenti:
 
    ```
    nslookup www.google.com

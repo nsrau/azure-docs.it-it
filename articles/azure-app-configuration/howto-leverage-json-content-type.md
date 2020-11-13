@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: 725beb50e55852e35ee4434539ff158f082059df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee262c0eb2431085e71d8ee0035bcdab9833d1cf
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88122039"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565773"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Usare Content-Type per archiviare i valori della chiave JSON nella configurazione dell'app
 
@@ -25,9 +25,9 @@ I dati vengono archiviati nella configurazione dell'app come valori chiave, in c
 ## <a name="overview"></a>Panoramica
 
 Nella configurazione dell'app, è possibile usare il tipo di supporto JSON come Content-Type dei valori chiave per usufruire dei vantaggi, ad esempio:
-- **Gestione dei dati più semplice**: la gestione dei valori di chiave, come le matrici, diventerà molto più semplice nella portale di Azure.
-- **Esportazione avanzata dei dati**: i tipi primitivi, le matrici e gli oggetti JSON verranno conservati durante l'esportazione dei dati.
-- **Supporto nativo con il provider di configurazione dell'app**: i valori chiave con tipo di contenuto JSON funzioneranno correttamente quando vengono usati dalle librerie del provider di configurazione delle app nelle applicazioni.
+- **Gestione dei dati più semplice** : la gestione dei valori di chiave, come le matrici, diventerà molto più semplice nella portale di Azure.
+- **Esportazione avanzata dei dati** : i tipi primitivi, le matrici e gli oggetti JSON verranno conservati durante l'esportazione dei dati.
+- **Supporto nativo con il provider di configurazione dell'app** : i valori chiave con tipo di contenuto JSON funzioneranno correttamente quando vengono usati dalle librerie del provider di configurazione delle app nelle applicazioni.
 
 #### <a name="valid-json-content-type"></a>Tipo di contenuto JSON valido
 
@@ -53,7 +53,7 @@ Di seguito sono riportati alcuni esempi di valori JSON validi:
 - {"ObjectSetting": {"targeting": {"default": true, "Level": "Information"}}}
 
 > [!NOTE]
-> Nella parte restante di questo articolo, qualsiasi valore chiave nella configurazione dell'app con un tipo di contenuto JSON valido e un valore JSON valido verrà definito **chiave-valore**JSON. 
+> Nella parte restante di questo articolo, qualsiasi valore chiave nella configurazione dell'app con un tipo di contenuto JSON valido e un valore JSON valido verrà definito **chiave-valore** JSON. 
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
@@ -63,13 +63,11 @@ In questa esercitazione si apprenderà come:
 > * Utilizzare i valori di chiave JSON nelle applicazioni.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/).
-- Versione più recente dell'interfaccia della riga di comando di Azure (2.10.0 o versione successiva). Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si usa l'interfaccia della riga di comando di Azure, è necessario prima accedere usando `az login` . È anche possibile usare Azure Cloud Shell.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- Questa esercitazione richiede la versione 2.10.0 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-an-app-configuration-store"></a>Creare un archivio di Configurazione app
 

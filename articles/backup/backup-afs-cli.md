@@ -3,14 +3,14 @@ title: Backup di condivisioni file di Azure con l'interfaccia della riga di coma
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per eseguire il backup di condivisioni file di Azure nell'insieme di credenziali
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 12d258a3242530745cc8ce31afae18f622323488
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34eea8daa6a0a8920c842178664055838b06a78a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293289"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565892"
 ---
-# <a name="back-up-azure-file-shares-with-cli"></a>Eseguire il backup delle condivisioni file di Azure con CLI
+# <a name="back-up-azure-file-shares-with-azure-cli"></a>Backup di condivisioni file di Azure con l'interfaccia della riga di comando
 
 L'interfaccia della riga di comando di Azure offre un'esperienza da riga di comando per la gestione delle risorse di Azure. Si tratta di uno strumento straordinario per creare un'automazione personalizzata per l'uso delle risorse di Azure. Questo articolo illustra come eseguire il backup delle condivisioni file di Azure con l'interfaccia della riga di comando di Azure È anche possibile eseguire questa procedura con [Azure PowerShell](./backup-azure-afs-automation.md) o nel [portale di Azure](backup-afs.md).
 
@@ -20,9 +20,9 @@ Al termine di questa esercitazione si apprenderà come eseguire le operazioni se
 * Abilitare il backup per le condivisioni file di Azure
 * Attivare un backup su richiesta per le condivisioni file
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Per installare e usare l'interfaccia della riga di comando in locale, è necessario eseguire l'interfaccia della riga di comando di Azure 2.0.18 o versioni successive Per trovare la versione dell'interfaccia della riga di comando, `run az --version` . Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+ - Questa esercitazione richiede la versione 2.0.18 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 

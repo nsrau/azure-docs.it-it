@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2c266d31a3aacc5bc97434de2246bfb1285a1ee
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462429"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565705"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Procedura: eseguire un'applicazione con Fortanix enclave Manager 
 
@@ -60,31 +60,31 @@ Questa esercitazione illustra come convertire l'immagine dell'applicazione in un
 
 6. In questa esercitazione si userà il registro Docker di Fortanix per l'applicazione di esempio. Inserire i dettagli dalle informazioni riportate di seguito. Usare il registro Docker privato per salvare l'immagine di output. 
  
-    - **Nome applicazione**: server applicazioni Python
-    - **Descrizione**: server Python Flask
-    - **Nome dell'immagine di input**: fortanix/Python-Flask
-    - **Nome dell'immagine di output**: fortanx-private/Python-Flask-SGX
-    - **ISVPRODID**: 1
-    - **ISVSVM**: 1
-    - **Dimensioni memoria**: 1 GB
-    - **Conteggio thread**: 128
+    - **Nome applicazione** : server applicazioni Python
+    - **Descrizione** : server Python Flask
+    - **Nome dell'immagine di input** : fortanix/Python-Flask
+    - **Nome dell'immagine di output** : fortanx-private/Python-Flask-SGX
+    - **ISVPRODID** : 1
+    - **ISVSVM** : 1
+    - **Dimensioni memoria** : 1 GB
+    - **Conteggio thread** : 128
 
-    *Facoltativo*: eseguire l'applicazione.
-    - **Hub Docker**: [https://hub.docker.com/u/fortanix](https://hub.docker.com/u/fortanix)
-    - **App**: fortanix/Python-Flask
+    *Facoltativo* : eseguire l'applicazione.
+    - **Hub Docker** : [https://hub.docker.com/u/fortanix](https://hub.docker.com/u/fortanix)
+    - **App** : fortanix/Python-Flask
 
         Eseguire il comando seguente:
          ```bash
             sudo docker run fortanix/python-flask
          ```
 
-1. Aggiungere un certificato. Immettere le informazioni usando i dettagli seguenti e quindi selezionare **Avanti**:
-    - **Dominio**: MyApp. Domain. Dom
-    - **Tipo**: certificato emesso da enclave Manager 
-    - **Percorso della chiave**:/appkey.pem
-    - **Tipo di chiave**: RSA
-    - **Percorso certificato**:/appcert.pem
-    - **Dimensioni chiave RSA**: 2048 bit
+1. Aggiungere un certificato. Immettere le informazioni usando i dettagli seguenti e quindi selezionare **Avanti** :
+    - **Dominio** : MyApp. Domain. Dom
+    - **Tipo** : certificato emesso da enclave Manager 
+    - **Percorso della chiave** :/appkey.pem
+    - **Tipo di chiave** : RSA
+    - **Percorso certificato** :/appcert.pem
+    - **Dimensioni chiave RSA** : 2048 bit
     
 
 ## <a name="create-an-image"></a>Creare un'immagine
@@ -115,12 +115,12 @@ La creazione di un agente del nodo Fortanix distribuirà una macchina virtuale, 
 1. Passare ad [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) e accedere con le credenziali di Azure.
 1. Nella barra di ricerca digitare **Fortanix Confidential computing node Agent**. Selezionare l'app visualizzata nella casella di ricerca denominata **Fortanix Confidential computing node Agent** per passare all'Home page dell'offerta. 
      ![Cerca nel Marketplace](media/how-to-fortanix-enclave-manager/search-fortanix-marketplace.png)
-1. Selezionare **Get it Now (Ottieni ora**), inserire le informazioni, se necessario, e selezionare **continue (continua**). Si verrà reindirizzati al portale di Azure. 
+1. Selezionare **Get it Now (Ottieni ora** ), inserire le informazioni, se necessario, e selezionare **continue (continua** ). Si verrà reindirizzati al portale di Azure. 
 1. Selezionare **Crea** per accedere alla pagina di distribuzione di Fortanix Confidential computing node Agent.
 1. In questa pagina si immetteranno le informazioni per distribuire una macchina virtuale. In particolare, questa VM è un DCsv2-Series macchina virtuale abilitata per Intel SGX da Azure con il software dell'agente del nodo Fortanix installato. L'agente node consentirà all'immagine convertita di essere eseguita in modo sicuro sui nodi Intel SGX in Azure.  Selezionare la **sottoscrizione** e il **gruppo di risorse** in cui si vuole distribuire la macchina virtuale e le risorse associate. 
  
     > [!NOTE]
-    > Esistono vincoli per la distribuzione di DCsv2-Series macchine virtuali in Azure. Potrebbe essere necessario richiedere una quota per i core aggiuntivi. Per altre informazioni, vedere [soluzioni di elaborazione riservate nelle VM di Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) . 
+    > Esistono vincoli per la distribuzione di DCsv2-Series macchine virtuali in Azure. Potrebbe essere necessario richiedere una quota per i core aggiuntivi. Per altre informazioni, vedere [soluzioni di elaborazione riservate nelle VM di Azure](./virtual-machine-solutions.md) . 
 
 1. Selezionare un'area disponibile.
 1. Immettere un nome per la macchina virtuale nel campo **nome nodo** . 
@@ -166,7 +166,7 @@ Selezionare il gruppo di risorse per la macchina virtuale, quindi fare clic su *
 
 Per eliminare l'account di Fortanix enclave Manager creato, passare alla [pagina accounts](https://em.fortanix.com/accounts) (gestione enclave). Passare il puntatore del mouse sull'account che si desidera eliminare. Selezionare i punti neri verticali nell'angolo superiore destro e selezionare **Elimina account**.
 
-  ![Elimina](media/how-to-fortanix-enclave-manager/delete-account.png)
+  ![eliminare](media/how-to-fortanix-enclave-manager/delete-account.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -174,4 +174,4 @@ In questa Guida introduttiva sono stati usati gli strumenti Fortanix per convert
 
 Per altre informazioni sulle offerte di informatica riservate di Azure, vedere [Panoramica di Azure Confidential computing](overview.md)
 
- Informazioni su come completare attività simili con altre offerte di terze parti in Azure, ad esempio [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) e [Scone](https://sconedocs.github.io).  
+ Informazioni su come completare attività simili con altre offerte di terze parti in Azure, ad esempio [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) e [Scone](https://sconedocs.github.io).

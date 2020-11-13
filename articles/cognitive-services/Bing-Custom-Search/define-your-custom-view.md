@@ -10,21 +10,21 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 52819caeb833eb475c8ea2c476ef5ba27681a50c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e8747b822916ba2c9ef7b45cc3cbbaa88d16dcb1
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367557"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565790"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurare un'esperienza API Ricerca personalizzata Bing
 
 > [!WARNING]
-> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
-> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
-> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
-Un'istanza di Ricerca personalizzata consente di personalizzare l'esperienza di ricerca in modo da includere il contenuto solo dai siti Web a cui sono interessati gli utenti. Anziché eseguire una ricerca in tutto il Web, Bing esegue la ricerca solo nelle sezioni Web desiderate. Per creare una visualizzazione personalizzata del Web, usare il [portale](https://customsearch.ai) di Ricerca personalizzata Bing.
+Un'istanza di Ricerca personalizzata consente di personalizzare l'esperienza di ricerca in modo da includere il contenuto solo dai siti Web a cui sono interessati gli utenti. Anziché eseguire una ricerca in tutto il Web, Bing esegue la ricerca solo nelle sezioni Web desiderate. Per creare una visualizzazione personalizzata del Web, usare il [portale](https://www.customsearch.ai) di Ricerca personalizzata Bing.
 
 Il portale consente di creare un'istanza di ricerca che specifica le sezioni Web: domini, pagine secondarie e pagine Web in cui si vuole eseguire la ricerca con Bing e le sezioni in cui non si vuole eseguire la ricerca. Il portale è inoltre in grado di suggerire il contenuto che l'utente potrebbe volere includere.
 

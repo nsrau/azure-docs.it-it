@@ -11,23 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: 55db5cf62e2e4ba2844a47ad405afa88349dc8fd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e7c66518cd62ef1debd8ceb1c38ba93101c8395d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634913"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565654"
 ---
-#  <a name="data-consistency-verification-in-copy-activity-preview"></a>Verifica della coerenza dei dati nell'attività di copia (anteprima)
+#  <a name="data-consistency-verification-in-copy-activity"></a>Verifica della coerenza dei dati nell'attività di copia
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Quando si spostano i dati dall'archivio di origine a quello di destinazione, l'attività di copia di Azure Data Factory offre un'opzione che consente di eseguire ulteriori verifiche di coerenza dei dati per garantire che i dati non vengano copiati solo dall'archivio di origine all'archivio di destinazione, ma anche che siano coerenti tra l'archivio di origine e quello di destinazione. Una volta che durante lo spostamento dei dati sono stati rilevati file incoerenti, è possibile interrompere l'attività di copia o continuare a copiare il resto abilitando l'impostazione di tolleranza di errore per ignorare i file non coerenti. È possibile ottenere i nomi di file ignorati abilitando l'impostazione del log sessione nell'attività di copia. 
-
-> [!IMPORTANT]
-> Questa funzionalità è attualmente in anteprima con le limitazioni seguenti a cui stiamo lavorando attivamente:
->- Quando si abilita l'impostazione del log di sessione nell'attività di copia per registrare i file incoerenti ignorati, la completezza del file di log non può essere garantita al 100% se l'attività di copia non è riuscita.
->- Il log di sessione contiene solo file incoerenti, in cui i file copiati correttamente non vengono registrati fino a questo momento.
+Quando si spostano i dati dall'archivio di origine a quello di destinazione, l'attività di copia di Azure Data Factory offre un'opzione che consente di eseguire ulteriori verifiche di coerenza dei dati per garantire che i dati non vengano copiati solo dall'archivio di origine all'archivio di destinazione, ma anche che siano coerenti tra l'archivio di origine e quello di destinazione. Una volta che durante lo spostamento dei dati sono stati rilevati file incoerenti, è possibile interrompere l'attività di copia o continuare a copiare il resto abilitando l'impostazione di tolleranza di errore per ignorare i file non coerenti. È possibile ottenere i nomi di file ignorati abilitando l'impostazione del log sessione nell'attività di copia. Per ulteriori informazioni, è possibile fare riferimento al [log di sessione nell'attività di copia](copy-activity-log.md) .
 
 ## <a name="supported-data-stores-and-scenarios"></a>Archivi dati e scenari supportati
 
@@ -60,13 +55,19 @@ Nell'esempio seguente viene fornita una definizione JSON per abilitare la verifi
     "skipErrorFile": { 
         "dataInconsistency": true 
     }, 
-    "logStorageSettings": { 
-        "linkedServiceName": { 
-            "referenceName": "ADLSGen2_storage", 
-            "type": "LinkedServiceReference" 
-        }, 
-        "path": "/sessionlog/" 
-} 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+                "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            }
+        }
+    }
 } 
 ```
 
@@ -74,7 +75,7 @@ Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | -------- 
 validateDataConsistency | Se si imposta true per questa proprietà, durante la copia dei file binari, l'attività di copia verificherà le dimensioni del file, lastModifiedDate e il checksum MD5 per ogni file binario copiato dall'archivio di origine nell'archivio di destinazione per assicurare la coerenza dei dati tra l'archivio di origine e quello di destinazione. Quando si copiano dati tabulari, l'attività di copia controllerà il conteggio totale delle righe dopo il completamento del processo per garantire che il numero totale di righe lette dall'origine corrisponda al numero di righe copiate nella destinazione e al numero di righe non compatibili ignorate. Si ricorda che le prestazioni di copia saranno influenzate dall'abilitazione di questa opzione.  | True<br/>False (impostazione predefinita) | No
 dataInconsistency | Una delle coppie chiave-valore all'interno del contenitore delle proprietà skipErrorFile per determinare se si desidera ignorare i file incoerenti. <br/> -True: si vuole copiare il resto ignorando i file incoerenti.<br/> -False: si desidera interrompere l'attività di copia dopo che è stato trovato un file incoerente.<br/>Tenere presente che questa proprietà è valida solo quando si copiano file binari e si imposta validateDataConsistency su true.  | True<br/>False (impostazione predefinita) | No
-logStorageSettings | Gruppo di proprietà che è possibile specificare per consentire al log sessione di registrare i file ignorati. | | No
+logSettings | Gruppo di proprietà che è possibile specificare per consentire al log sessione di registrare i file ignorati. | | No
 linkedServiceName | Servizio collegato di [Archiviazione BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) per archiviare i file di log della sessione. | Nomi di un servizio collegato di tipo `AzureBlobStorage` o `AzureBlobFS` che fa riferimento all'istanza da usare per archiviare i file di log. | No
 path | Percorso dei file di log. | Specificare il percorso desiderato per archiviare i file di log. Se non si specifica un percorso, il servizio crea automaticamente un contenitore. | No
 
@@ -95,7 +96,7 @@ Quando l'attività di copia viene eseguita completamente, è possibile visualizz
             "filesWritten": 1, 
             "filesSkipped": 2, 
             "throughput": 297,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 

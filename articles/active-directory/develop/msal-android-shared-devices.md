@@ -13,19 +13,17 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: c1bf6b33176bf7942fbd76fa86ecd61b4f24e154
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fc32b4f583aea2fa9a34ab8b235f3f99fe4def9d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366004"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562169"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modalità dispositivo condiviso per dispositivi Android
 
-> [!NOTE]
-> Questa funzionalità è disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> Questa funzionalità [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 I ruoli di lavoro di prima riga, ad esempio i Retail Associates, i membri del team di volo e i lavoratori dei servizi Field spesso usano un dispositivo mobile condiviso per svolgere il proprio lavoro Questo diventa problematico quando iniziano a condividere le password o i numeri PIN per accedere ai dati aziendali e ai clienti sul dispositivo condiviso.
 
@@ -36,7 +34,7 @@ La modalità dispositivo condiviso fornisce anche la gestione di Microsoft Ident
 Per creare un'app in modalità dispositivo condivisa, gli sviluppatori e gli amministratori di dispositivi cloud interagiscono tra loro:
 
 - Gli sviluppatori scrivono un'app con un solo account (le app con più account non sono supportate in modalità dispositivo condiviso), aggiungono `"shared_device_mode_supported": true` alla configurazione dell'app e scrivono il codice per gestire elementi come la disconnessione dei dispositivi condivisi.
-- Gli amministratori di dispositivi preparano la condivisione del dispositivo mediante l'installazione dell'app Authenticator e l'impostazione del dispositivo sulla modalità condivisa tramite l'app Authenticator. Solo gli utenti che appartengono al ruolo di [amministratore del dispositivo cloud](../roles/permissions-reference.md#cloud-device-administrator-permissions) possono impostare un dispositivo in modalità condivisa usando l' [app Authenticator](../user-help/user-help-auth-app-overview.md). È possibile configurare l'appartenenza dei ruoli aziendali nel portale di Azure tramite: **Azure Active Directory**  >  **ruoli e amministratori**del  >  **dispositivo cloud amministratore**.
+- Gli amministratori di dispositivi preparano la condivisione del dispositivo mediante l'installazione dell'app Authenticator e l'impostazione del dispositivo sulla modalità condivisa tramite l'app Authenticator. Solo gli utenti che appartengono al ruolo di [amministratore del dispositivo cloud](../roles/permissions-reference.md#cloud-device-administrator-permissions) possono impostare un dispositivo in modalità condivisa usando l' [app Authenticator](../user-help/user-help-auth-app-overview.md). È possibile configurare l'appartenenza dei ruoli aziendali nel portale di Azure tramite: **Azure Active Directory**  >  **ruoli e amministratori** del  >  **dispositivo cloud amministratore**.
 
  Questo articolo è incentrato principalmente sugli elementi da considerare per gli sviluppatori.
 

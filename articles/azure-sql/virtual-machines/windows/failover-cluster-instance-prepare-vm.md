@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 901c090d26959950d0ffd6a96253bdc36c9331c5
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: a9289fad6f7ae1030628bedcf1a62cacc0b1e23a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556336"
+ms.locfileid: "94564481"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparare le macchine virtuali per un'istanza FCI (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,6 +58,8 @@ Selezionare con attenzione l'opzione della disponibilità della macchina virtual
 
 Una volta configurata la disponibilità della macchina virtuale, si è pronti per creare le macchine virtuali. È possibile scegliere di usare un'immagine di Azure Marketplace in cui o non è già installato SQL Server. Tuttavia, se si sceglie un'immagine per SQL Server nelle macchine virtuali di Azure, sarà necessario disinstallare SQL Server dalla macchina virtuale prima di configurare l'istanza del cluster di failover. 
 
+### <a name="considerations"></a>Considerazioni
+In un cluster di failover guest di macchine virtuali IaaS di Azure è consigliabile usare una sola scheda di rete per ogni server (nodo del cluster) e una sola subnet. La ridondanza fisica della rete di Azure rende superfluo l'uso di altre schede di rete e subnet in un cluster guest di macchine virtuali IaaS di Azure. Anche se il report di convalida del cluster avviserà che i nodi sono raggiungibili solo in una rete, tale avviso potrà essere tranquillamente ignorato per i cluster di failover guest delle macchine virtuali IaaS di Azure.
 
 Inserire entrambe le macchine virtuali:
 

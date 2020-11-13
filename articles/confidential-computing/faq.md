@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: cf90ff5b94eb03f76dffc8b64dd4d92a44ac20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9df3d9771029e6d72e9d0092a129cddc27be6cd7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848909"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564107"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Domande frequenti su Confidential computing di Azure
 
@@ -32,14 +32,14 @@ Ecco alcuni modi in cui è possibile distribuire una macchina virtuale DCsv2:
 
 **Le immagini del sistema operativo funzionano tutte con Confidential computing di Azure?**
 
-No. Le macchine virtuali possono essere distribuite solo in computer operativi di generazione 2 con Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter e Windows Server 2016 Datacenter. Altre informazioni sulle macchine virtuali di generazione 2 in [Linux](../virtual-machines/linux/generation-2.md) e [Windows](../virtual-machines/windows/generation-2.md)
+No. Le macchine virtuali possono essere distribuite solo in computer operativi di generazione 2 con Ubuntu Server 18.04, Ubuntu Server 16.04, Windows Server 2019 Datacenter e Windows Server 2016 Datacenter. Altre informazioni sulle macchine virtuali di generazione 2 in [Linux](../virtual-machines/generation-2.md) e [Windows](../virtual-machines/generation-2.md)
 
 **Le macchine virtuali DCsv2 sono disabilitate nel portale e non è possibile selezionarne una**
 
 Nella finestra informativa accanto alla macchina virtuale sono disponibili diverse azioni da eseguire:
-   -    **UnsupportedGeneration**: Modificare la generazione dell'immagine della macchina virtuale in "Gen2".
-   -    **NotAvailableForSubscription**: L'area non è ancora disponibile per la sottoscrizione. Selezionare un'area disponibile.
-   -    **InsufficientQuota**: [Creare una richiesta di supporto per aumentare la quota](../azure-portal/supportability/per-vm-quota-requests.md). Le sottoscrizioni della versione di prova gratuita non prevedono alcuna quota per le macchine virtuali di confidential computing. 
+   -    **UnsupportedGeneration** : Modificare la generazione dell'immagine della macchina virtuale in "Gen2".
+   -    **NotAvailableForSubscription** : L'area non è ancora disponibile per la sottoscrizione. Selezionare un'area disponibile.
+   -    **InsufficientQuota** : [Creare una richiesta di supporto per aumentare la quota](../azure-portal/supportability/per-vm-quota-requests.md). Le sottoscrizioni della versione di prova gratuita non prevedono alcuna quota per le macchine virtuali di confidential computing. 
 
 **Le macchine virtuali DCsv2 non vengono visualizzate quando si tenta di cercarle nel selettore delle dimensioni del portale**
 

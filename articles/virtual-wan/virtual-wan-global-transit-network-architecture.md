@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: e3a0eaeebbc0659b217051c6e98d67803896f2e1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 59e60dadda7c0de37cfabadbc36ca53bc3c2b336
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102324"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563733"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architettura di rete di transito globale e rete WAN virtuale
 
@@ -127,7 +127,7 @@ Questo flag è visibile quando l'utente modifica una connessione di rete virtual
 
 Gli hub WAN virtuali di Azure interconnettono tutti gli endpoint di rete attraverso la rete ibrida e potenzialmente visualizzano tutto il traffico di rete di transito. Gli hub WAN virtuali possono essere convertiti in hub virtuali protetti distribuendo il firewall di Azure all'interno degli hub VWAN per abilitare la sicurezza basata sul cloud, l'accesso e il controllo dei criteri. L'orchestrazione di firewall di Azure negli hub WAN virtuali può essere eseguita da gestione firewall di Azure.
 
-[Azure Firewall Manager](https://go.microsoft.com/fwlink/?linkid=2107683) offre le funzionalità per gestire e ridimensionare la sicurezza per le reti di transito globali. Azure Firewall Manager offre la possibilità di gestire in modo centralizzato il routing, la gestione dei criteri globali, i servizi di sicurezza Internet avanzati tramite terze parti insieme al firewall di Azure.
+[Azure Firewall Manager](../firewall-manager/index.yml) offre le funzionalità per gestire e ridimensionare la sicurezza per le reti di transito globali. Azure Firewall Manager offre la possibilità di gestire in modo centralizzato il routing, la gestione dei criteri globali, i servizi di sicurezza Internet avanzati tramite terze parti insieme al firewall di Azure.
 
 ![hub virtuale protetto con il firewall di Azure](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
@@ -177,4 +177,4 @@ Creare una connessione usando la rete WAN virtuale e distribuire il firewall di 
 
 * [Connessioni da sito a sito tramite la rete WAN virtuale](virtual-wan-site-to-site-portal.md)
 * [Connessioni ExpressRoute tramite la rete WAN virtuale](virtual-wan-expressroute-portal.md)
-* [Gestione firewall di Azure per la distribuzione di FW di Azure in VWAN](https://go.microsoft.com/fwlink/?linkid=2107683)
+* [Gestione firewall di Azure per la distribuzione di FW di Azure in VWAN](../firewall-manager/index.yml)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: sausin
-ms.openlocfilehash: 6ab3e1e063409832de839da26eba80efd8b3f4d5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8c7cb1e9f39b1de7897da29467a607953b42bb24
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92344819"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565739"
 ---
 # <a name="export-custom-commands-application-as-a-remote-skill"></a>Esporta l'applicazione comandi personalizzati come abilità remota
 
@@ -64,7 +64,7 @@ In qualità di autore, potrebbe essere necessario controllare quali frasi di **e
     > [!div class="mx-imgBorder"]
     > ![Modificare un comando abilitato per Skill](media/custom-commands/skill-edit-enabled-command.png)
 
-1. Quindi, nelle frasi di esempio che si desidera omettere, **fare clic con il pulsante destro del mouse**su  >  **Disattiva frase di esempio**.
+1. Quindi, nelle frasi di esempio che si desidera omettere, **fare clic con il pulsante destro del mouse** su  >  **Disattiva frase di esempio**.
     > [!div class="mx-imgBorder"]
     > ![Disabilitare esempi](media/custom-commands/skill-disable-example-sentences.png)
 
@@ -88,4 +88,4 @@ In qualità di autore, potrebbe essere necessario controllare quali frasi di **e
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Abilitare un processo CI/CD per l'applicazione di comandi personalizzati](./how-to-custom-commands-deploy-cicd.md)
+> [Aggiornare un comando dal client](./how-to-custom-commands-update-command-from-client.md)

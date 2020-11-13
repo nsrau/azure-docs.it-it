@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 7c1bfa618ea0ddddd7666698bc4fffa3ced5079d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7d07dda7741aa075b8d853a8d06d3d3218ca901a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323079"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563818"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo di Azure Machine Learning?
 
@@ -110,7 +110,7 @@ Nell'area di lavoro in Azure Machine Learning Studio selezionare **Calcolo** , q
 
 * [Creare un'istanza di calcolo](#create). 
 * Aggiornare la scheda istanze di calcolo.
-* Avviare, arrestare e riavviare un'istanza di calcolo.  Si paga per l'istanza ogni volta che viene eseguito. Arrestare l'istanza di calcolo quando non viene usata per ridurre i costi. L'arresto di un'istanza di calcolo la dealloca. e quindi riavviarla quando è necessario.
+* Avviare, arrestare e riavviare un'istanza di calcolo.  Si paga per l'istanza ogni volta che viene eseguito. Arrestare l'istanza di calcolo quando non viene usata per ridurre i costi. L'arresto di un'istanza di calcolo la dealloca. e quindi riavviarla quando è necessario. Si noti che l'arresto dell'istanza di calcolo interrompe la fatturazione per le ore di calcolo, ma vengono comunque addebitati i costi per il disco, l'indirizzo IP pubblico e il servizio di bilanciamento del carico standard.
 * Eliminare un'istanza di calcolo.
 * Filtrare l'elenco delle istanze di calcolo in modo da visualizzare solo quelle create.
 
