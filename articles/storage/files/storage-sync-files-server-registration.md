@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c457dacd947c7af8a6be94205ed135ce04a49a06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 194b0f2ff94197fe11c189e97dbc65c9d0367932
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85509507"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630584"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gestire i server registrati con Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
@@ -20,7 +20,7 @@ Sincronizzazione file di Azure consente di centralizzare le condivisioni file de
 L'articolo seguente illustra come registrare e gestire un server con un servizio di sincronizzazione archiviazione. Per informazioni sulla distribuzione di Sincronizzazione file di Azure end-to-end, vedere [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Eseguire/annullare la registrazione di un server nel servizio di sincronizzazione archiviazione
-La registrazione di un server in Sincronizzazione file di Azure stabilisce una relazione di trust tra Windows Server e Azure. Questa relazione può quindi essere usata per creare nel server *endpoint server* che rappresentano le cartelle specifiche che dovranno essere sincronizzate con una condivisione file di Azure (denominata anche *endpoint cloud*). 
+La registrazione di un server in Sincronizzazione file di Azure stabilisce una relazione di trust tra Windows Server e Azure. Questa relazione può quindi essere usata per creare nel server *endpoint server* che rappresentano le cartelle specifiche che dovranno essere sincronizzate con una condivisione file di Azure (denominata anche *endpoint cloud* ). 
 
 ### <a name="prerequisites"></a>Prerequisiti
 Per registrare un server in un servizio di sincronizzazione archiviazione, è prima necessario preparare il server con i prerequisiti necessari:
@@ -32,7 +32,7 @@ Per registrare un server in un servizio di sincronizzazione archiviazione, è pr
     
     ![Interfaccia utente di Server Manager con Configurazione sicurezza avanzata IE evidenziata](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
-* Verificare che il modulo di Azure PowerShell sia installato nel server. Se il server è un membro di un cluster di failover, ogni nodo del cluster richiederà il modulo Az. Altre informazioni su come installare il modulo Az sono contenute nell'articolo [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* Verificare che il modulo di Azure PowerShell sia installato nel server. Se il server è un membro di un cluster di failover, ogni nodo del cluster richiederà il modulo Az. Altre informazioni su come installare il modulo Az sono contenute nell'articolo [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
 
     > [!Note]  
     > Si consiglia di usare la versione più recente del modulo Az di PowerShell per registrare un server o annullare la registrazione. Se il pacchetto Az è stato installato in precedenza in questo server e la versione di PowerShell nel server è 5.* o successiva, è possibile usare il cmdlet `Update-Module` per aggiornare il pacchetto. 
@@ -180,7 +180,7 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ```
 
 ### <a name="use-windows-server-storage-qos"></a>Usare QoS di archiviazione di Windows Server 
-Quando il servizio Sincronizzazione file di Azure è ospitato in una macchina virtuale eseguita in un host di virtualizzazione Windows Server, è possibile usare QoS (Quality of Service) di archiviazione per regolamentare l'utilizzo di I/O di archiviazione. I criteri QoS di archiviazione possono essere impostati come massimo o limite (come il limite StorageSyncNetwork applicato sopra) oppure come minimo o prenotazione. Impostando un minimo anziché un massimo, Sincronizzazione file di Azure potrà potenziare l'uso della larghezza di banda di archiviazione disponibile se non viene usata da altri carichi di lavoro. Per altre informazioni, vedere [QoS di archiviazione](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview).
+Quando il servizio Sincronizzazione file di Azure è ospitato in una macchina virtuale eseguita in un host di virtualizzazione Windows Server, è possibile usare QoS (Quality of Service) di archiviazione per regolamentare l'utilizzo di I/O di archiviazione. I criteri QoS di archiviazione possono essere impostati come massimo o limite (come il limite StorageSyncNetwork applicato sopra) oppure come minimo o prenotazione. Impostando un minimo anziché un massimo, Sincronizzazione file di Azure potrà potenziare l'uso della larghezza di banda di archiviazione disponibile se non viene usata da altri carichi di lavoro. Per altre informazioni, vedere [QoS di archiviazione](/windows-server/storage/storage-qos/storage-qos-overview).
 
 ## <a name="see-also"></a>Vedere anche
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)

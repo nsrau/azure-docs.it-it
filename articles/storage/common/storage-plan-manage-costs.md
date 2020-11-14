@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 11/13/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: c809a1ae525fb7fab6dceebb3241e229e8a0284e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a30fe70943c5329b36cbe10b75d47cc0ee3827fc
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781839"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630414"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Pianificare e gestire i costi per l'archiviazione BLOB di Azure
 
@@ -39,6 +39,9 @@ Usa il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/cal
    Quando si modifica il valore dell'elenco a discesa tipo, vengono modificate anche altre opzioni visualizzate in questo foglio di **testo** . Usare i collegamenti nella sezione **altre informazioni** per ottenere altre informazioni sulle opzioni di ogni opzione e sul modo in cui queste opzioni influiscono sul prezzo delle operazioni correlate all'archiviazione. 
 
 4. Modificare le opzioni rimanenti per visualizzarne gli effetti sulla stima.
+
+   > [!NOTE]
+   > È possibile pagare gli addebiti per l'archiviazione BLOB di Azure con il credito dell'impegno monetario di Azure Enterprise Agreement. Tuttavia, non è possibile usare il credito dell'impegno monetario per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
 
 ## <a name="optimize-costs"></a>Ottimizzare i costi
 
@@ -87,11 +90,11 @@ Per visualizzare i costi di archiviazione di Azure nell'analisi dei costi:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Aprire la finestra **Gestione costi e fatturazione** , selezionare **Gestione costi** dal menu e quindi selezionare **analisi dei costi** . È quindi possibile modificare l'ambito per una sottoscrizione specifica dall'elenco a discesa **ambito** .
+2. Aprire la finestra **Gestione costi e fatturazione** , selezionare **Gestione costi** dal menu e quindi selezionare **analisi dei costi**. È quindi possibile modificare l'ambito per una sottoscrizione specifica dall'elenco a discesa **ambito** .
 
    ![Screenshot che illustra l'ambito](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
-4. Per visualizzare solo i costi per archiviazione di Azure, selezionare **Aggiungi filtro** , quindi selezionare **nome servizio** . Quindi, scegliere **archiviazione** dall'elenco. 
+4. Per visualizzare solo i costi per archiviazione di Azure, selezionare **Aggiungi filtro** , quindi selezionare **nome servizio**. Quindi, scegliere **archiviazione** dall'elenco. 
 
    Ecco un esempio che mostra i costi solo per archiviazione di Azure:
 
@@ -99,11 +102,15 @@ Per visualizzare i costi di archiviazione di Azure nell'analisi dei costi:
 
 Nell'esempio precedente viene visualizzato il costo corrente per il servizio. Vengono visualizzati anche i costi in base alle aree di Azure (località) e al gruppo di risorse. È anche possibile aggiungere altri filtri (ad esempio, un filtro per visualizzare i costi per gli account di archiviazione specifici).
 
+## <a name="export-cost-data"></a>Esportare i dati relativi ai costi
+
+È anche possibile [esportare i dati sui costi](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) in un account di archiviazione. Questa operazione è utile quando sono necessari o altri utenti per eseguire ulteriori analisi dei dati per i costi. Ad esempio, i team finanziari possono analizzare i dati usando Excel o Power BI. È possibile esportare i costi in base a una pianificazione giornaliera, settimanale o mensile e impostare un intervallo di date personalizzato. L'esportazione dei dati sui costi è la modalità consigliata per recuperare i set di dati di costo.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulla gestione dei costi con l' [analisi dei costi](../../cost-management-billing/costs/quick-acm-cost-analysis.md).
-
-Per altre informazioni su come funziona il prezzo con archiviazione di Azure, vedere gli articoli seguenti:
-
-- [Panoramica dei prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/)
-- [Ottimizzare i costi per l'archiviazione BLOB con capacità riservata](../blobs/storage-blob-reserved-capacity.md)
+- Scopri di più su come funziona il prezzo con archiviazione di Azure. Vedere [Panoramica dei prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+- [Ottimizzare i costi per l'archiviazione BLOB con capacità riservata](../blobs/storage-blob-reserved-capacity.md).
+- Informazioni [su come ottimizzare l'investimento nel cloud con gestione costi di Azure](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Altre informazioni sulla gestione dei costi con l' [analisi dei costi](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Informazioni su come [evitare costi imprevisti](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Segui il corso di apprendimento guidato per [Gestione costi](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) .

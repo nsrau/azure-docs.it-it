@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 02/04/2019
+ms.date: 11/13/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: a50554c73958400f1f16348d3b8fb2bac88ac61b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e9811710971b411aaaed64ec0072dcf7b6b116d3
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340278"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630057"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Risoluzione dei problemi relativi a Synapse SQL in Azure Synapse Analytics
 
@@ -39,6 +39,12 @@ Questo articolo illustra la risoluzione dei problemi comuni in Synapse SQL.
 | In Esplora oggetti di Visual Studio mancano utenti di Azure AD           | Questo è un problema noto  Come soluzione alternativa è possibile visualizzare gli utenti in [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Per altre informazioni sull'uso di Azure Active Directory con un pool SQL dedicato, vedere [autenticazione in sinapsi di Azure](sql-data-warehouse-authentication.md) . |
 | L'esecuzione manuale di script, l'uso della creazione guidata script o la connessione tramite SSMS sono lenti, si bloccano o generano errori | Assicurarsi che gli utenti siano stati creati nel database master. In opzioni di scripting verificare anche che l'edizione del motore sia impostata come "Microsoft Azure sinapsi Analytics Edition" e che il tipo di motore sia "database SQL di Microsoft Azure". |
 | Errore della generazione di script in SSMS                               | La generazione di uno script per il pool SQL dedicato non riesce se l'opzione "genera script per oggetti dipendenti" è impostata su "true". Per risolvere il problema, gli utenti devono passare manualmente a **Strumenti -> Opzioni -> Esplora oggetti di SQL Server -> Genera script per oggetti dipendenti e impostare l'opzione su false** |
+
+## <a name="data-ingestion-and-preparation"></a>Inserimento e preparazione dei dati
+
+| Problema                                                        | Risoluzione                                                   |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| L'esportazione di stringhe vuote tramite CETAS comporterà valori NULL nei file parquet e ORC. Si noti che se si esportano stringhe vuote da colonne con vincoli NOT NULL, CETAS comporterà la reiezione dei record e l'esportazione potrà potenzialmente avere esito negativo. | Rimuovere le stringhe vuote o la colonna che causa il danneggiamento nell'istruzione SELECT del CETAS. |
 
 ## <a name="performance"></a>Prestazioni
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b291bd45b4003dd2241f40c810ed9d78af9f8bc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76d97e3312c1df51193d8a881f3ee07fcd155d75
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267789"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629360"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Considerazioni di rete per Sincronizzazione file di Azure
 È possibile connettersi a una condivisione file di Azure in due modi:
@@ -55,7 +55,7 @@ Sincronizzazione file di Azure richiede gli intervalli di indirizzi IP per i ser
 | Azure Resource Manager | Azure Resource Manager è l'interfaccia di gestione per Azure. Tutte le chiamate di gestione, incluse le attività di registrazione e sincronizzazione ricorrente del server di Sincronizzazione file di Azure, vengono effettuate tramite Azure Resource Manager. | `AzureResourceManager` |
 | Azure Active Directory | Azure Active Directory, o Azure AD, contiene le entità utente necessarie per autorizzare la registrazione server per un servizio di sincronizzazione archiviazione, oltre alle entità servizio necessarie per autorizzare l'accesso di Sincronizzazione file di Azure alle risorse cloud. | `AzureActiveDirectory` |
 
-Se si usa Sincronizzazione file di Azure all'interno di Azure, anche in un'area diversa, è possibile usare il nome del tag di servizio direttamente nel gruppo di sicurezza di rete per consentire il traffico verso tale servizio. Per altre informazioni, vedere [Gruppi di sicurezza di rete](../../virtual-network/security-overview.md). 
+Se si usa Sincronizzazione file di Azure all'interno di Azure, anche in un'area diversa, è possibile usare il nome del tag di servizio direttamente nel gruppo di sicurezza di rete per consentire il traffico verso tale servizio. Per altre informazioni, vedere [Gruppi di sicurezza di rete](../../virtual-network/network-security-groups-overview.md). 
 
 Se si usa Sincronizzazione file di Azure in locale, è possibile usare l'API dei tag di servizio per ottenere gli specifici intervalli di indirizzi IP per l'elenco di elementi consentiti del firewall. Per recuperare queste informazioni, sono disponibili due metodi:
 
@@ -65,9 +65,9 @@ Se si usa Sincronizzazione file di Azure in locale, è possibile usare l'API dei
     - [Azure per la Cina](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Germania](https://www.microsoft.com/download/details.aspx?id=57064)
 - L'API di individuazione di tag di servizio (anteprima) consente il recupero a livello di codice dell'elenco corrente di tag di servizio. Nella versione di anteprima questa API potrebbe restituire informazioni meno aggiornate di quelle restituite dai documenti JSON pubblicati nell'Area download Microsoft. È possibile usare la superficie dell'API in base alle preferenze di automazione:
-    - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [REST API](/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [Interfaccia della riga di comando di Azure](/cli/azure/network#az-network-list-service-tags)
 
 Per altre informazioni su come usare l'API dei tag di servizio per recuperare gli indirizzi dei servizi, vedere [Elenco di elementi consentiti per gli indirizzi IP di Sincronizzazione file di Azure](storage-sync-files-firewall-and-proxy.md#allow-list-for-azure-file-sync-ip-addresses).
 

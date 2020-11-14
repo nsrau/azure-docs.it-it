@@ -8,16 +8,16 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 5149024f8621754451520e0ae249ed61f0b07f99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 961ba457136d20fbb63ae3315fe8143cffb56be2
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568472"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629309"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolli di condivisione file di Azure
 
-File di Azure offre due protocolli per la connessione e il montaggio delle condivisioni file di Azure. Protocollo [SMB (Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) ) e [protocollo NFS (Network File System](https://en.wikipedia.org/wiki/Network_File_System) ) (anteprima). File di Azure attualmente non supporta l'accesso a più protocolli, una condivisione può essere solo una condivisione NFS o una condivisione SMB. Per questo motivo, è consigliabile determinare il protocollo più adatto alle proprie esigenze prima di creare condivisioni file di Azure.
+File di Azure offre due protocolli per la connessione e il montaggio delle condivisioni file di Azure. Protocollo [SMB (Server Message Block](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) ) e [protocollo NFS (Network File System](https://en.wikipedia.org/wiki/Network_File_System) ) (anteprima). File di Azure attualmente non supporta l'accesso a più protocolli, una condivisione può essere solo una condivisione NFS o una condivisione SMB. Per questo motivo, è consigliabile determinare il protocollo più adatto alle proprie esigenze prima di creare condivisioni file di Azure.
 
 ## <a name="differences-at-a-glance"></a>Differenze a colpo d'occhio
 
@@ -31,11 +31,11 @@ File di Azure offre due protocolli per la connessione e il montaggio delle condi
 |Autorizzazioni     |Autorizzazioni di tipo UNIX         |Autorizzazioni di tipo NTFS         |
 |Semantica del file System     |Conforme a POSIX         |Non conforme a POSIX         |
 |Maiuscole/minuscole     |Fa distinzione tra maiuscole e minuscole.         |Senza distinzione maiuscole/minuscole         |
-|Supporto per collegamenti reali     |Supportato         |Non supportato         |
-|Supporto di collegamenti simbolici     |Supportato         |Non supportato         |
-|Eliminazione o modifica di file aperti     |Supportato         |Non supportato         |
-|Blocco     |Gestione blocco di rete consultivo per l'intervallo di byte         |Supportato         |
-|Elenco sicuro IP pubblico | Non supportato | Supportato|
+|Supporto per collegamenti reali     |Funzionalità supportata         |Non supportato         |
+|Supporto di collegamenti simbolici     |Funzionalità supportata         |Non supportato         |
+|Eliminazione o modifica di file aperti     |Funzionalità supportata         |Non supportato         |
+|Blocco     |Gestione blocco di rete consultivo per l'intervallo di byte         |Funzionalità supportata         |
+|Elenco sicuro IP pubblico | Non supportato | Funzionalità supportata|
 |Interoperabilità del protocollo| Non supportato | Filerest|
 
 ## <a name="nfs-shares-preview"></a>Condivisioni NFS (anteprima)
@@ -64,7 +64,7 @@ Tutti i dati File di Azure vengono crittografati a riposo. Per la crittografia i
 - [Un endpoint privato](storage-files-networking-overview.md#private-endpoints)
 - [Gateway VPN di Azure](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
     - [VPN da punto a sito (P2S)](../../vpn-gateway/point-to-site-about.md)
-    - [Da sito a sito](https://docs.microsoft.com/azure/vpn-gateway/design#s2smulti)
+    - [Da sito a sito](../../vpn-gateway/design.md#s2smulti)
 - [ExpressRoute](../../expressroute/expressroute-introduction.md)
 - [Un endpoint pubblico con restrizioni](storage-files-networking-overview.md#storage-account-firewall-settings)
 

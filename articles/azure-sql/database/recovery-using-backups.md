@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
-ms.date: 09/26/2019
-ms.openlocfilehash: 334495eeef410c42fb45445c400a86ff1b777061
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/13/2020
+ms.openlocfilehash: 415c9fdcbf0e8bfecaa48b8199702d4159bc32d9
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790339"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629190"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Ripristino usando i backup automatici del database: database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -74,7 +74,7 @@ In genere si ripristina un database a un punto precedente per scopi di ripristin
 
   Se si desidera che il database ripristinato sia una sostituzione per il database originale, è necessario specificare le dimensioni di calcolo e il livello di servizio del database originale. È quindi possibile rinominare il database originale e assegnare al database ripristinato il nome originale usando il comando [ALTER database](/sql/t-sql/statements/alter-database-azure-sql-database) in T-SQL.
 
-- **Ripristino dei dati**
+- **Recupero dati**
 
   Se si prevede di recuperare dati dal database ripristinato in caso di errore di un utente o di un'applicazione, è necessario scrivere ed eseguire uno script di ripristino dei dati che estrae i dati dal database ripristinato e si applica al database originale. Anche se il completamento dell'operazione di ripristino può richiedere molto tempo, il database in fase di ripristino è visibile nell'elenco dei database per tutto il processo. Se si elimina il database durante il ripristino, l'operazione di ripristino verrà annullata e non verrà addebitato alcun addebito per il database che non ha completato il ripristino.
   
@@ -108,15 +108,18 @@ Per ripristinare un database di istanza gestita a un punto nel tempo tramite il 
 
 È possibile ripristinare i database eliminati dal portale di Azure dalla risorsa server o istanza gestita.
 
+> [!TIP]
+> Potrebbero essere necessari alcuni minuti prima che i database eliminati di recente vengano visualizzati nella pagina **database eliminati** in portale di Azure o quando si visualizzano i database eliminati [a livello di codice](#programmatic-recovery-using-automated-backups).
+
 #### <a name="sql-database"></a>Database SQL
 
-Per ripristinare un database eliminato al momento dell'eliminazione utilizzando il portale di Azure, aprire la pagina Panoramica Server e selezionare **database eliminati** . Selezionare un database eliminato che si desidera ripristinare e digitare il nome del nuovo database che verrà creato con i dati ripristinati dal backup.
+Per ripristinare un database eliminato al momento dell'eliminazione utilizzando il portale di Azure, aprire la pagina Panoramica Server e selezionare **database eliminati**. Selezionare un database eliminato che si desidera ripristinare e digitare il nome del nuovo database che verrà creato con i dati ripristinati dal backup.
 
   ![Screenshot del ripristino del database eliminato](./media/recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
 #### <a name="sql-managed-instance"></a>Istanza gestita di SQL
 
-Per ripristinare un database gestito utilizzando il portale di Azure, aprire la pagina Panoramica istanza gestita e selezionare **database eliminati** . Selezionare un database eliminato che si desidera ripristinare e digitare il nome del nuovo database che verrà creato con i dati ripristinati dal backup.
+Per ripristinare un database gestito utilizzando il portale di Azure, aprire la pagina Panoramica istanza gestita e selezionare **database eliminati**. Selezionare un database eliminato che si desidera ripristinare e digitare il nome del nuovo database che verrà creato con i dati ripristinati dal backup.
 
   ![Screenshot del ripristino eliminato di Azure SQL Istanza gestita database](./media/recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -154,9 +157,9 @@ Dal portale di Azure si crea un nuovo database istanza singola o gestita e si se
 
 Per eseguire il ripristino geografico di un database singolo dal portale di Azure nell'area e nel server di propria scelta, seguire questa procedura:
 
-1. Dal **Dashboard** selezionare **Aggiungi**  >  **Crea database SQL** . Nella scheda informazioni di **base** immettere le informazioni necessarie.
-2. Seleziona **Impostazioni aggiuntive** .
-3. Per **Usa dati esistenti** , selezionare **backup** .
+1. Dal **Dashboard** selezionare **Aggiungi**  >  **Crea database SQL**. Nella scheda informazioni di **base** immettere le informazioni necessarie.
+2. Seleziona **Impostazioni aggiuntive**.
+3. Per **Usa dati esistenti** , selezionare **backup**.
 4. Per il **backup** , selezionare un backup dall'elenco dei backup disponibili per il ripristino geografico.
 
     ![Screenshot delle opzioni create database SQL](./media/recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
@@ -165,11 +168,11 @@ Completare il processo di creazione di un nuovo database dal backup. Quando si c
 
 #### <a name="sql-managed-instance"></a>Istanza gestita di SQL
 
-Per ripristinare il ripristino geografico di un database di istanza gestita dal portale di Azure a un'istanza gestita esistente in un'area di propria scelta, selezionare un'istanza gestita in cui si desidera ripristinare un database. A tale scopo, seguire questa procedura:
+Per ripristinare il ripristino geografico di un database di istanza gestita dal portale di Azure a un'istanza gestita esistente in un'area di propria scelta, selezionare un'istanza gestita in cui si desidera ripristinare un database. Seguire questa procedura:
 
-1. Selezionare **nuovo database** .
+1. Selezionare **nuovo database**.
 2. Digitare un nome di database desiderato.
-3. In **Usa dati esistenti** selezionare **backup** .
+3. In **Usa dati esistenti** selezionare **backup**.
 4. Selezionare un backup dall'elenco dei backup disponibili per il ripristino geografico.
 
     ![Screenshot delle nuove opzioni di database](./media/recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)

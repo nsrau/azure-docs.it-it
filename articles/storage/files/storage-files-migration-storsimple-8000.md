@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 128e4d0a421fc9ad4251f24f2cb37a217eeb1e31
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 046cca4e683a8f14893bf48ac8601b138a7c28a7
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322208"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630278"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migrazione a Sincronizzazione file di Azure
 
@@ -45,7 +45,7 @@ Le migrazioni a condivisioni file di Azure da volumi StorSimple tramite processi
 
 Le condivisioni file di Azure aprono un mondo completamente nuovo per la strutturazione della distribuzione dei servizi file. Una condivisione file di Azure è semplicemente una condivisione SMB nel cloud che può essere configurata per consentire agli utenti di accedere direttamente al protocollo SMB con la nota autenticazione Kerberos e le autorizzazioni NTFS esistenti (ACL di file e cartelle) che funzionano in modo nativo. Altre informazioni sull' [accesso basato sulle identità alle condivisioni file di Azure](storage-files-active-directory-overview.md).
 
-È [sincronizzazione file di Azure](https://aka.ms/AFS)un'alternativa all'accesso diretto. Sincronizzazione file di Azure è un analogo diretto per la capacità di StorSimple di memorizzare nella cache i file usati di frequente in locale.
+È [sincronizzazione file di Azure](./storage-sync-files-planning.md)un'alternativa all'accesso diretto. Sincronizzazione file di Azure è un analogo diretto per la capacità di StorSimple di memorizzare nella cache i file usati di frequente in locale.
 
 Sincronizzazione file di Azure è un servizio cloud Microsoft basato su due componenti principali:
 
@@ -56,7 +56,7 @@ Le condivisioni file di Azure mantengono importanti aspetti di fedeltà dei file
 
 Questo articolo è incentrato sulla procedura di migrazione. Per ulteriori informazioni sulle Sincronizzazione file di Azure prima della migrazione, vedere gli articoli seguenti:
 
-* [Panoramica di Sincronizzazione file di Azure](https://aka.ms/AFS "Panoramica")
+* [Panoramica di Sincronizzazione file di Azure](./storage-sync-files-planning.md "Panoramica")
 * [Guida alla distribuzione di Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
 
 ### <a name="storsimple-service-data-encryption-key"></a>Chiave di crittografia dei dati del servizio StorSimple
@@ -133,7 +133,7 @@ Questa sezione illustra le considerazioni relative alla distribuzione dei divers
 
 Probabilmente sarà necessario distribuire diversi account di archiviazione di Azure. Ognuno di essi conterrà un numero inferiore di condivisioni file di Azure, in base al piano di distribuzione, completato nella sezione precedente di questo articolo. Passare alla portale di Azure per [distribuire gli account di archiviazione pianificati](../common/storage-account-create.md#create-a-storage-account). Considerare l'opportunità di rispettare le seguenti impostazioni di base per qualsiasi nuovo account di archiviazione.
 
-#### <a name="subscription"></a>Subscription
+#### <a name="subscription"></a>Sottoscrizione
 
 È possibile usare la stessa sottoscrizione usata per la distribuzione di StorSimple o un altro. L'unica limitazione è che la sottoscrizione deve trovarsi nello stesso tenant Azure Active Directory della sottoscrizione StorSimple. Prima di avviare una migrazione, provare a trasferire la sottoscrizione StorSimple al tenant corretto. È possibile spostare solo l'intera sottoscrizione. Le singole risorse StorSimple non possono essere spostate in un tenant o in una sottoscrizione diversa.
 
@@ -141,11 +141,11 @@ Probabilmente sarà necessario distribuire diversi account di archiviazione di A
 
 I gruppi di risorse sono in aiuto con l'organizzazione delle risorse e le autorizzazioni di gestione amministratore. Scopri di più sui [gruppi di risorse in Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
-#### <a name="storage-account-name"></a>Nome dell'account di archiviazione
+#### <a name="storage-account-name"></a>Nome account di archiviazione
 
 Il nome dell'account di archiviazione diventerà parte di un URL e avrà alcune limitazioni relative ai caratteri. Nella convenzione di denominazione, tenere presente che i nomi degli account di archiviazione devono essere univoci in tutto il mondo, consentire solo lettere minuscole e numeri, richiedere da 3 a 24 caratteri e non consentire caratteri speciali come trattini o caratteri di sottolineatura. Per altre informazioni, vedere [regole di denominazione delle risorse di archiviazione di Azure](../../azure-resource-manager/management/resource-name-rules.md#microsoftstorage).
 
-#### <a name="location"></a>Location
+#### <a name="location"></a>Località
 
 Il percorso o l'area di Azure di un account di archiviazione è molto importante. Se si usa Sincronizzazione file di Azure, tutti gli account di archiviazione devono trovarsi nella stessa area della risorsa del servizio di sincronizzazione archiviazione. L'area di Azure scelta deve essere vicina o centrale ai server e agli utenti locali. Dopo che la risorsa è stata distribuita, non è possibile modificarne l'area.
 
@@ -244,7 +244,7 @@ Questa sezione descrive come configurare un processo di migrazione e mappare att
         ![Processo di migrazione serie StorSimple 8000.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "Screenshot del nuovo modulo per la creazione di processi per un processo del servizio di trasformazione dei dati.")
     :::column-end:::
     :::column:::
-        **Nome definizione processo**</br>Questo nome indicherà il set di file che si sta muovendo. Assegnare un nome simile alla condivisione file di Azure è una procedura consigliata. </br></br>**Località in cui viene eseguito il processo**</br>Quando si seleziona un'area, è necessario selezionare la stessa area dell'account di archiviazione StorSimple o, se non è disponibile, un'area vicina. </br></br><h3>Origine</h3>**Sottoscrizione di origine**</br>Selezionare la sottoscrizione in cui archiviare la risorsa StorSimple Device Manager. </br></br>**Risorsa StorSimple**</br>Selezionare la StorSimple Device Manager il dispositivo è registrato con. </br></br>**Chiave di crittografia dei dati del servizio**</br>Controllare questa [sezione precedente in questo articolo](#storsimple-service-data-encryption-key) nel caso in cui non sia possibile individuare la chiave nei record. </br></br>**Dispositivo**</br>Selezionare il dispositivo StorSimple che include il volume in cui si vuole eseguire la migrazione. </br></br>**Volume**</br>Selezionare il volume di origine. In un secondo momento si decide se si vuole eseguire la migrazione dell'intero volume o delle sottodirectory nella condivisione file di Azure di destinazione. </br></br><h3>Destinazione</h3>Selezionare la sottoscrizione, l'account di archiviazione e la condivisione file di Azure come destinazione del processo di migrazione.
+        **Nome definizione processo**</br>Questo nome indicherà il set di file che si sta muovendo. Assegnare un nome simile alla condivisione file di Azure è una procedura consigliata. </br></br>**Località in cui viene eseguito il processo**</br>Quando si seleziona un'area, è necessario selezionare la stessa area dell'account di archiviazione StorSimple o, se non è disponibile, un'area vicina. </br></br><h3>Source (Sorgente)</h3>**Sottoscrizione di origine**</br>Selezionare la sottoscrizione in cui archiviare la risorsa StorSimple Device Manager. </br></br>**Risorsa StorSimple**</br>Selezionare la StorSimple Device Manager il dispositivo è registrato con. </br></br>**Chiave di crittografia dei dati del servizio**</br>Controllare questa [sezione precedente in questo articolo](#storsimple-service-data-encryption-key) nel caso in cui non sia possibile individuare la chiave nei record. </br></br>**Dispositivo**</br>Selezionare il dispositivo StorSimple che include il volume in cui si vuole eseguire la migrazione. </br></br>**Volume**</br>Selezionare il volume di origine. In un secondo momento si decide se si vuole eseguire la migrazione dell'intero volume o delle sottodirectory nella condivisione file di Azure di destinazione. </br></br><h3>Destinazione</h3>Selezionare la sottoscrizione, l'account di archiviazione e la condivisione file di Azure come destinazione del processo di migrazione.
     :::column-end:::
 :::row-end:::
 
@@ -273,7 +273,7 @@ Un mapping è espresso da sinistra a destra: [percorso \Source] \> [percorso \ta
 | **\>**                     | [Source] e l'operatore [target-mapping].     |
 |**\|** o RETURN (nuova riga) | Separatore di due istruzioni per il mapping di cartelle. </br>In alternativa, è possibile omettere questo carattere e premere **invio** per ottenere l'espressione di mapping successiva sulla propria riga.        |
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 Sposta il contenuto dei *dati utente* della cartella nella radice della condivisione file di destinazione:
 ``` console
 \User data > \
@@ -385,7 +385,7 @@ Per questo processo, è necessario che l'istanza di Windows Server locale regist
 * [Come configurare una VPN P2S Windows](storage-files-configure-p2s-vpn-windows.md)
 * [Come configurare una VPN P2S Linux](storage-files-configure-p2s-vpn-linux.md)
 * [Come configurare l'invio DNS](storage-files-networking-dns.md)
-* [Configurare DFS-N](https://aka.ms/AzureFiles/Namespaces)
+* [Configurare DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview)
    :::column-end:::
 :::row-end:::
 
@@ -535,7 +535,7 @@ Se si utilizza Sincronizzazione file di Azure, è probabile che sia necessario c
 
 Se si dispone di una distribuzione DFS-N, è possibile puntare la DFN-Namespaces ai nuovi percorsi delle cartelle del server. Se non si ha una distribuzione di DFS-N e l'appliance 8100 o 8600 è stata eseguita localmente con un'istanza di Windows Server, è possibile disconnettere il server dal dominio. Quindi aggiungere il dominio alla nuova istanza di Windows Server abilitata per Sincronizzazione file di Azure. Durante questo processo, assegnare al server lo stesso nome del server e i nomi di condivisione del server precedente in modo che rimanga trasparente per gli utenti, i criteri di gruppo e gli script.
 
-Ulteriori informazioni su [DFS-N](https://aka.ms/AzureFiles/Namespaces).
+Ulteriori informazioni su [DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview).
 
 ## <a name="deprovision"></a>Effettuare il deprovisioning
 
@@ -561,7 +561,7 @@ La migrazione è stata completata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Acquisire familiarità con [sincronizzazione file di Azure: aka.ms/AFS](https://aka.ms/AFS).
+* Acquisire familiarità con [sincronizzazione file di Azure: aka.ms/AFS](./storage-sync-files-planning.md).
 * Comprendere la flessibilità dei criteri di suddivisione in [livelli nel cloud](storage-sync-cloud-tiering.md) .
 * [Abilitare backup di Azure](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) nelle condivisioni file di Azure per pianificare gli snapshot e definire pianificazioni di conservazione dei backup.
 * Se nella portale di Azure che alcuni file non sono sincronizzati in modo permanente, consultare la [Guida alla risoluzione dei](storage-sync-files-troubleshoot.md) problemi per risolvere questi problemi.

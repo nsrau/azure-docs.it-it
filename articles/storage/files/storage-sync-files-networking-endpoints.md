@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 747d03b228d41066cfc834b4a9c044b16c767622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 026f4f36986fa5fcfad4dac5186e9dc0b0997d72
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329364"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629411"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configurazione degli endpoint di rete di Sincronizzazione file di Azure
 File di Azure e Sincronizzazione file di Azure prevedono due tipi principali di endpoint per l'accesso alle condivisioni file di Azure: 
@@ -33,15 +33,15 @@ Questo articolo presuppone quanto segue:
 - Che sia già stato creato un servizio di sincronizzazione archiviazione e registrato il file server di Windows. Per informazioni su come distribuire Sincronizzazione file di Azure, vedere [Distribuzione di Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
 
 Inoltre:
-- Se si intende usare Azure PowerShell, [installare l'ultima versione](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Se si intende usare l'interfaccia della riga di comando di Azure, [installare l'ultima versione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Se si intende usare Azure PowerShell, [installare l'ultima versione](/powershell/azure/install-az-ps).
+- Se si intende usare l'interfaccia della riga di comando di Azure, [installare l'ultima versione](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-the-private-endpoints"></a>Creare gli endpoint privati
 Quando si crea un endpoint privato per una risorsa di Azure, vengono distribuite le risorse seguenti:
 
-- **Endpoint privato**: una risorsa di Azure che rappresenta l'endpoint privato per l'account di archiviazione o il servizio di sincronizzazione archiviazione. È possibile considerarlo come una risorsa che connette la risorsa di Azure e un'interfaccia di rete.
-- **Interfaccia di rete**: l'interfaccia di rete che gestisce un indirizzo IP privato all'interno della rete virtuale/subnet specificata. Si tratta esattamente della stessa risorsa che viene distribuita quando si distribuisce una macchina virtuale, ma, invece di essere assegnata a una VM, appartiene all'endpoint privato.
-- **Zona DNS privato**: se non è stato ancora distribuito un endpoint privato per questa rete virtuale, verrà distribuita una nuova zona DNS privato. In questa zona DNS verrà anche creato un record A DNS per la risorsa di Azure. Se in questa rete virtuale è già stato distribuito un endpoint privato, nella zona DNS esistente verrà aggiunto un nuovo record A per la risorsa di Azure. La distribuzione di una zona DNS è facoltativa, ma è altamente consigliata per semplificare la gestione DNS necessaria.
+- **Endpoint privato** : una risorsa di Azure che rappresenta l'endpoint privato per l'account di archiviazione o il servizio di sincronizzazione archiviazione. È possibile considerarlo come una risorsa che connette la risorsa di Azure e un'interfaccia di rete.
+- **Interfaccia di rete** : l'interfaccia di rete che gestisce un indirizzo IP privato all'interno della rete virtuale/subnet specificata. Si tratta esattamente della stessa risorsa che viene distribuita quando si distribuisce una macchina virtuale, ma, invece di essere assegnata a una VM, appartiene all'endpoint privato.
+- **Zona DNS privato** : se non è stato ancora distribuito un endpoint privato per questa rete virtuale, verrà distribuita una nuova zona DNS privato. In questa zona DNS verrà anche creato un record A DNS per la risorsa di Azure. Se in questa rete virtuale è già stato distribuito un endpoint privato, nella zona DNS esistente verrà aggiunto un nuovo record A per la risorsa di Azure. La distribuzione di una zona DNS è facoltativa, ma è altamente consigliata per semplificare la gestione DNS necessaria.
 
 > [!Note]  
 > Questo articolo usa i suffissi DNS per le aree pubbliche di Azure, `core.windows.net` per gli account di archiviazione e `afs.azure.net` per i servizi di sincronizzazione archiviazione. Questa indicazione si applica anche ai cloud sovrani di Azure, ad esempio il cloud di Azure per il governo degli Stati Uniti. È sufficiente sostituire i suffissi appropriati per l'ambiente in uso.

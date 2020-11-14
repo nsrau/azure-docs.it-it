@@ -8,12 +8,12 @@ ms.date: 09/19/2017
 ms.custom: devx-track-java
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2c80d741ca1cf0b4d66bc18488af8ef1da44fd14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 977777aff4aa32bf6876e1d573970d71ec71584e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462599"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629768"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Sviluppare per File di Azure con Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -29,7 +29,7 @@ Questa esercitazione illustra le nozioni di base per l'uso di Java per sviluppar
 * Caricare, scaricare ed eliminare un file
 
 > [!Note]  
-> Poiché File di Azure è accessibile tramite SMB, è possibile scrivere semplici applicazioni che accedono alla condivisione file di Azure usando le classi I/O standard di Java. Questo articolo illustra come scrivere applicazioni che usano l'SDK Java di Archiviazione di Azure, che usa l'[API REST di File di Azure](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) per comunicare con File di Azure.
+> Poiché File di Azure è accessibile tramite SMB, è possibile scrivere semplici applicazioni che accedono alla condivisione file di Azure usando le classi I/O standard di Java. Questo articolo illustra come scrivere applicazioni che usano l'SDK Java di Archiviazione di Azure, che usa l'[API REST di File di Azure](/rest/api/storageservices/file-service-rest-api) per comunicare con File di Azure.
 
 ## <a name="create-a-java-application"></a>Creare un'applicazione Java
 Per compilare gli esempi, sarà necessario Java Development Kit (JDK) e [Azure Storage SDK per Java](https://github.com/Azure/azure-storage-java). È inoltre necessario aver creato un account di archiviazione di Azure.
@@ -60,7 +60,7 @@ public static final String storageConnectionString =
 > 
 
 ## <a name="connecting-to-an-azure-storage-account"></a>Connessione a un account di archiviazione di Azure
-Per connettersi all'account di archiviazione, è necessario usare l'oggetto **CloudStorageAccount**, passando una stringa di connessione al relativo metodo **parse**.
+Per connettersi all'account di archiviazione, è necessario usare l'oggetto **CloudStorageAccount** , passando una stringa di connessione al relativo metodo **parse**.
 
 ```java
 // Use the CloudStorageAccount object to connect to your storage account
@@ -229,7 +229,7 @@ Per ulteriori informazioni su altre API di archiviazione di Azure, seguire i col
 * [Azure Storage SDK per Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage SDK per Android](https://github.com/azure/azure-storage-android)
 * [Riferimento all'SDK del client di archiviazione di Azure](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
-* [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog del team di Archiviazione di Azure](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
-* [Trasferire dati con l'utilità della riga di comando AzCopy](../common/storage-use-azcopy.md)
+* [API REST dei servizi di archiviazione di Azure](/rest/api/storageservices/)
+* [Blog del team di Archiviazione di Azure](/archive/blogs/windowsazurestorage/)
+* [Trasferire dati con l'utilità della riga di comando AzCopy](../common/storage-use-azcopy-v10.md)
 * [Risoluzione dei problemi di File di Azure - Windows](storage-troubleshoot-windows-file-connection-problems.md)

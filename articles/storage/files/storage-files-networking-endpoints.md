@@ -8,12 +8,12 @@ ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b494e7f7f99394c7337d663ea9a9c7e1f74dacf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 880eeb87d8727d65b2aaecdad8b0ed9ccaacea7a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612830"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629853"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Configurazione degli endpoint di rete di File di Azure
 
@@ -31,7 +31,7 @@ Prima di seguire questa guida pratica, è consigliabile leggere [Considerazioni 
 
 - In questo articolo si presuppone che sia già stata creata una sottoscrizione di Azure. Se non si ha già una sottoscrizione, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 - Questo articolo presuppone che sia già stata creata una condivisione file di Azure in un account di archiviazione a cui si vuole connettersi dall'ambiente locale. Per informazioni su come creare una condivisione file di Azure, vedere [Creare una condivisione file di Azure](storage-how-to-create-file-share.md).
-- Se si intende usare Azure PowerShell, [installare l'ultima versione](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Se si intende usare Azure PowerShell, [installare l'ultima versione](/powershell/azure/install-az-ps).
 - Se si intende usare l'interfaccia della riga di comando di Azure, [installare l'ultima versione](/cli/azure/install-azure-cli).
 
 ## <a name="endpoint-configurations"></a>Configurazioni degli endpoint
@@ -45,9 +45,9 @@ Prima di seguire questa guida pratica, è consigliabile leggere [Considerazioni 
 
 La creazione di un endpoint privato per l'account di archiviazione comporterà la distribuzione delle risorse di Azure seguenti:
 
-- **Endpoint privato**: una risorsa di Azure che rappresenta l'endpoint privato dell'account di archiviazione. È possibile considerarlo come una risorsa che connette un account di archiviazione e un'interfaccia di rete.
-- **Interfaccia di rete**: l'interfaccia di rete che gestisce un indirizzo IP privato all'interno della rete virtuale/subnet specificata. Si tratta esattamente della stessa risorsa che viene distribuita quando si distribuisce una macchina virtuale, ma, invece di essere assegnata a una VM, appartiene all'endpoint privato.
-- **Zona DNS privato**: se non è stato ancora distribuito un endpoint privato per questa rete virtuale, verrà distribuita una nuova zona DNS privato. In questa zona DNS verrà inoltre creato un record A DNS. Se in questa rete virtuale è già stato distribuito un endpoint privato, nella zona DNS esistente verrà aggiunto un nuovo record A per l'account di archiviazione. La distribuzione di una zona DNS è facoltativa, ma è consigliata e diventa obbligatoria se le condivisioni file di Azure vengono montate con un'entità servizio di AD oppure se si usa l'API FileREST.
+- **Endpoint privato** : una risorsa di Azure che rappresenta l'endpoint privato dell'account di archiviazione. È possibile considerarlo come una risorsa che connette un account di archiviazione e un'interfaccia di rete.
+- **Interfaccia di rete** : l'interfaccia di rete che gestisce un indirizzo IP privato all'interno della rete virtuale/subnet specificata. Si tratta esattamente della stessa risorsa che viene distribuita quando si distribuisce una macchina virtuale, ma, invece di essere assegnata a una VM, appartiene all'endpoint privato.
+- **Zona DNS privato** : se non è stato ancora distribuito un endpoint privato per questa rete virtuale, verrà distribuita una nuova zona DNS privato. In questa zona DNS verrà inoltre creato un record A DNS. Se in questa rete virtuale è già stato distribuito un endpoint privato, nella zona DNS esistente verrà aggiunto un nuovo record A per l'account di archiviazione. La distribuzione di una zona DNS è facoltativa, ma è consigliata e diventa obbligatoria se le condivisioni file di Azure vengono montate con un'entità servizio di AD oppure se si usa l'API FileREST.
 
 > [!Note]  
 > Questo articolo usa il suffisso DNS dell'account di archiviazione per le aree pubbliche di Azure, `core.windows.net`. Questo commento si applica anche ai cloud sovrani di Azure, ad esempio il cloud di Azure per il governo degli Stati Uniti e il cloud di Azure Cina. È sufficiente sostituire i suffissi appropriati per l'ambiente in uso. 

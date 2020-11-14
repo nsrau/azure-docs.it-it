@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 5a57b13cdb8c7c1144815543e03b970de32b4369
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 14fd5378f37ebfc20b2d7084c08f15ea8f7a00b2
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394255"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630533"
 ---
 # <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Esportare le metriche del connettore Azure IoT per FHIR (anteprima) tramite impostazioni di diagnostica
 
-In questo articolo si apprenderà come esportare il connettore Azure per i log delle metriche FHIR *. La funzionalità che Abilita la registrazione delle metriche è rappresentata dalle [**impostazioni di diagnostica**](../azure-monitor/platform/diagnostic-settings.md) nella portale di Azure. 
+Questo articolo illustra come esportare un connettore Azure per le risorse di interoperabilità sanitaria veloce (FHIR&#174;) * log di metrica. La funzionalità che Abilita la registrazione delle metriche è rappresentata dalle [**impostazioni di diagnostica**](../azure-monitor/platform/diagnostic-settings.md) nella portale di Azure. 
 
 > [!TIP]
 > Per configurare la registrazione di controllo, seguire le istruzioni riportate nella pagina relativa all' [Abilitazione della registrazione diagnostica nell'API di Azure per FHIR e nel connettore Azure per FHIR](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir) .
@@ -60,6 +60,4 @@ Vedere le domande frequenti sul connettore Azure per FHIR.
 >[!div class="nextstepaction"]
 >[Connettore Azure per le domande frequenti su FHIR](fhir-faq.md)
 
-*Nel portale di Azure si fa riferimento al Connettore Azure IoT per FHIR come Connettore IoT (anteprima).
-
-FHIR è il marchio registrato di HL7, usato con l'autorizzazione di HL7.
+* Nel portale di Azure, il connettore Azure Internet per FHIR viene indicato come connettore Internet (anteprima). FHIR è un marchio registrato di HL7 e viene usato con l'autorizzazione di HL7.

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d9cf7b3cf996e41f90e3a40a6ee08d0fd51c8457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78c7953ef6432d37542a7a8b06f226a07f2b701f
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85510335"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630482"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200 migrazione a Sincronizzazione file di Azure
 
@@ -32,7 +32,7 @@ Sincronizzazione file di Azure è un servizio cloud Microsoft basato su due comp
 
 Questo articolo è incentrato sulla procedura di migrazione. Se prima della migrazione si desidera ottenere altre informazioni su Sincronizzazione file di Azure, è consigliabile usare gli articoli seguenti:
 
-* [Sincronizzazione file di Azure-Panoramica](https://aka.ms/AFS "Panoramica")
+* [Sincronizzazione file di Azure-Panoramica](./storage-sync-files-planning.md "Panoramica")
 * [Guida alla distribuzione di Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
 
 ## <a name="migration-goals"></a>Obiettivi della migrazione
@@ -155,7 +155,7 @@ Sfondo:
       /MIR
    :::column-end:::
    :::column span="1":::
-      Consente a di eseguire questo comando RoboCopy più volte, in sequenza nella stessa destinazione/destinazione. Identifica gli elementi che sono stati copiati in precedenza e li omette. Verranno elaborate solo le modifiche, le aggiunte e le "*eliminazioni*", che si sono verificate dall'ultima esecuzione. Se il comando non è stato eseguito in precedenza, non viene omesso nulla. Si tratta di un'ottima opzione per le posizioni di origine che vengono ancora utilizzate e modificate attivamente.
+      Consente a di eseguire questo comando RoboCopy più volte, in sequenza nella stessa destinazione/destinazione. Identifica gli elementi che sono stati copiati in precedenza e li omette. Verranno elaborate solo le modifiche, le aggiunte e le " *eliminazioni* ", che si sono verificate dall'ultima esecuzione. Se il comando non è stato eseguito in precedenza, non viene omesso nulla. Si tratta di un'ottima opzione per le posizioni di origine che vengono ancora utilizzate e modificate attivamente.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -210,13 +210,13 @@ Creare una condivisione nella cartella di Windows Server ed eventualmente modifi
 È possibile provare a eseguire alcune di queste copie in parallelo. Si consiglia di elaborare l'ambito di una condivisione file di Azure alla volta.
 
 > [!WARNING]
-> Dopo aver spostato tutti i dati da StorSimple a Windows Server e aver completato la migrazione: tornare a ***tutti***  i gruppi di sincronizzazione nell'portale di Azure e modificare il valore percentuale spazio disponibile del volume del cloud in modo che sia più adatto per l'utilizzo della cache, ad indicare il 20%. 
+> Dopo aver spostato tutti i dati da StorSimple a Windows Server e dopo aver completato la migrazione, è possibile tornare a * **tutti** i gruppi di sincronizzazione nella portale di Azure e modificare il valore percentuale spazio disponibile del volume nel cloud in modo che sia più adatto per l'utilizzo della cache, ad indicare il 20%. 
 
 I criteri di spazio libero del volume di suddivisione in livelli nel cloud agiscono a livello di volume con potenzialmente più endpoint server sincronizzati. Se si dimentica di regolare lo spazio libero su un solo endpoint server, la sincronizzazione continuerà ad applicare la regola più restrittiva e tenterà di mantenere il 99% di spazio libero su disco, rendendo la cache locale non funziona come previsto. A meno che non si tratti dell'obiettivo di avere solo lo spazio dei nomi per un volume che contiene solo i dati di archiviazione a cui si accede raramente.
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
-Il problema più probabile in cui è possibile eseguire è che il comando RoboCopy ha esito negativo con *"volume full"* sul lato server di Windows. In tal caso, la velocità di download è probabilmente migliore rispetto alla velocità di caricamento. La suddivisione in livelli nel cloud funziona una volta ogni ora per l'evacuazione del contenuto dal disco locale di Windows Server, sincronizzato.
+Il problema più probabile in cui è possibile eseguire è che il comando RoboCopy ha esito negativo con _ "volume full" * sul lato Windows Server. In tal caso, la velocità di download è probabilmente migliore rispetto alla velocità di caricamento. La suddivisione in livelli nel cloud funziona una volta ogni ora per l'evacuazione del contenuto dal disco locale di Windows Server, sincronizzato.
 
 Consentire la sincronizzazione dello stato di avanzamento e la suddivisione in livelli nel cloud liberare spazio su disco. È possibile osservare che in Esplora file in Windows Server.
 
@@ -233,6 +233,6 @@ Contenuto della migrazione:
 
 Contenuto Sincronizzazione file di Azure:
 
-* [Panoramica di AFS](https://aka.ms/AFS)
+* [Panoramica di AFS](./storage-sync-files-planning.md)
 * [Guida alla distribuzione di AFS](storage-files-deployment-guide.md)
 * [Risoluzione dei problemi di AFS](storage-sync-files-troubleshoot.md)

@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 11/09/2020
+ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 124c3b3667e847a5ee1bb8034ef01088c629d503
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 403b6656a47f56508682dcda2438a85d513fbfb1
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540944"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630499"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del connettore Azure per FHIR (anteprima)
 
-Questo articolo illustra la procedura per la risoluzione dei problemi relativi al connettore comune di Azure per i messaggi di errore e le condizioni di FHIR *.  
+Questo articolo illustra la procedura per la risoluzione dei problemi relativi al connettore comune Azure per le risorse di interoperabilità sanitaria (FHIR&#174;) * messaggi di errore e condizioni.  
 
 Si apprenderà anche come creare copie del connettore Azure per i mapping della conversione FHIR JSON (ad esempio, Device e FHIR).  
 
@@ -191,6 +191,4 @@ Vedere le domande frequenti sul connettore Azure per FHIR.
 >[!div class="nextstepaction"]
 >[Connettore Azure per le domande frequenti su FHIR](fhir-faq.md)
 
-*Nel portale di Azure si fa riferimento al Connettore Azure IoT per FHIR come Connettore IoT (anteprima).
-
-FHIR è il marchio registrato di HL7, usato con l'autorizzazione di HL7.
+* Nel portale di Azure, il connettore Azure Internet per FHIR viene indicato come connettore Internet (anteprima). FHIR è un marchio registrato di HL7 e viene usato con l'autorizzazione di HL7.

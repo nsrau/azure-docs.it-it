@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 685373203da14a6aa83c608d90d6416ab2b30ae4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74422318718e318a00d7bd7ebaf8e4093ef75aa6
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515307"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629275"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Configurare una VPN da punto a sito in Linux per l'uso con File di Azure
 È possibile usare una connessione VPN da punto a sito per montare le condivisioni file di Azure su SMB dall'esterno di Azure, senza aprire la porta 445. Una connessione VPN da punto a sito è una connessione VPN tra Azure e un singolo client. Per usare una connessione VPN da punto a sito con File di Azure, è necessario configurarla per ogni client da connettere. Se è necessario connettere molti client alle condivisioni file di Azure dalla rete locale, è possibile usare una connessione VPN da sito a sito invece di una da punto a sito per ogni client. Per altre informazioni, vedere [Configurare una VPN da sito a sito per l'uso con File di Azure](storage-files-configure-s2s-vpn.md).
@@ -22,7 +22,7 @@ Per una descrizione completa delle opzioni di rete disponibili per File di Azure
 Questo articolo illustra i passaggi per configurare una VPN da punto a sito in Linux per montare le condivisioni file di Azure direttamente in locale. Se si vuole instradare il traffico di Sincronizzazione file di Azure tramite una VPN, vedere come [configurare le impostazioni di proxy e firewall di Sincronizzazione file di Azure](storage-sync-files-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-- La versione più recente dell'interfaccia della riga di comando di Azure. Per altre informazioni su come installare l'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure PowerShell](https://docs.microsoft.com/cli/azure/install-azure-cli) e selezionare il sistema operativo in uso. Se si preferisce, è anche possibile usare il modulo Azure PowerShell in Linux, ma le istruzioni seguenti vengono presentate per l'interfaccia della riga di comando di Azure.
+- La versione più recente dell'interfaccia della riga di comando di Azure. Per altre informazioni su come installare l'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure PowerShell](/cli/azure/install-azure-cli) e selezionare il sistema operativo in uso. Se si preferisce, è anche possibile usare il modulo Azure PowerShell in Linux, ma le istruzioni seguenti vengono presentate per l'interfaccia della riga di comando di Azure.
 
 - Una condivisione file di Azure che si vuole montare in locale. Le condivisioni file di Azure vengono distribuite all'interno degli account di archiviazione, ovvero costrutti di gestione che rappresentano un pool di archiviazione condiviso in cui è possibile distribuire più condivisione file, oltra ad altre risorse come contenitori BLOB o code. Per altre informazioni su come distribuire condivisioni file di Azure e account di archiviazione, vedere [Creare una condivisione file di Azure](storage-how-to-create-file-share.md).
 

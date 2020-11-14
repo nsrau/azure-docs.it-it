@@ -1,7 +1,7 @@
 ---
 title: Debug & risolvere i problemi delle pipeline ML
 titleSuffix: Azure Machine Learning
-description: Eseguire il debug delle pipeline di Azure Machine Learning in Python. Informazioni sui problemi più comuni per lo sviluppo di pipeline e suggerimenti per semplificare il debug degli script prima e durante l'esecuzione remota.
+description: Eseguire il debug delle pipeline di Azure Machine Learning in Python. Informazioni sui problemi e sui suggerimenti comuni per facilitare il debug degli script prima e durante l'esecuzione remota.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python, contperfq2
-ms.openlocfilehash: 80bc5034e6e192c1b493a65e61b94ae1b785a430
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 13897f9881a8f505f0053443a218cf744d8edf8b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325605"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630108"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Eseguire il debug e risolvere i problemi delle pipeline di Machine Learning
 

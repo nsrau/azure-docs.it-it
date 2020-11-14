@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 4d89fb4bcedb58aa156e75aaefc87479797dcd37
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 3e6490babb5a4e68c1ecd931251ea4eb99d6c3f5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577973"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630142"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Risolvere i problemi di prestazioni delle condivisioni file di Azure
 
@@ -22,7 +22,7 @@ Questo articolo elenca alcuni problemi comuni relativi alle condivisioni file di
 
 ### <a name="cause-1-share-was-throttled"></a>Motivo 1: la condivisione è stata limitata
 
-Le richieste vengono limitate quando si raggiungono i limiti di operazioni di I/O al secondo (IOPS), in ingresso o in uscita per una condivisione file. Per informazioni sui limiti per le condivisioni file standard e Premium, vedere destinazioni per la [condivisione file e la scalabilità di file](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets).
+Le richieste vengono limitate quando si raggiungono i limiti di operazioni di I/O al secondo (IOPS), in ingresso o in uscita per una condivisione file. Per informazioni sui limiti per le condivisioni file standard e Premium, vedere destinazioni per la [condivisione file e la scalabilità di file](./storage-files-scale-targets.md#file-share-and-file-scale-targets).
 
 Per verificare se la condivisione è limitata, è possibile accedere alle metriche di Azure e usarle nel portale.
 
@@ -45,8 +45,8 @@ Per verificare se la condivisione è limitata, è possibile accedere alle metric
 
 ### <a name="solution"></a>Soluzione
 
-- Se si usa una condivisione file standard, abilitare [condivisioni file di grandi dimensioni](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal) nell'account di archiviazione. Le condivisioni file di grandi dimensioni supportano fino a 10.000 IOPS per condivisione.
-- Se si usa una condivisione file Premium, aumentare le dimensioni della condivisione file di cui è stato effettuato il provisioning per aumentare il limite di IOPS. Per ulteriori informazioni, vedere la sezione "informazioni sul provisioning per le condivisioni file Premium" nella [Guida alla pianificazione del file di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares).
+- Se si usa una condivisione file standard, abilitare [condivisioni file di grandi dimensioni](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) nell'account di archiviazione. Le condivisioni file di grandi dimensioni supportano fino a 10.000 IOPS per condivisione.
+- Se si usa una condivisione file Premium, aumentare le dimensioni della condivisione file di cui è stato effettuato il provisioning per aumentare il limite di IOPS. Per ulteriori informazioni, vedere la sezione "informazioni sul provisioning per le condivisioni file Premium" nella [Guida alla pianificazione del file di Azure](./storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
 
 ### <a name="cause-2-metadata-or-namespace-heavy-workload"></a>Motivo 2: carico di lavoro elevato di metadati o spazio dei nomi
 

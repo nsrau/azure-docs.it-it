@@ -8,12 +8,12 @@ ms.date: 05/29/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 6c611d65c30cceba5fd6ff409ef71b906cd8674c
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 5acb8e347046780c84f0aa324b997abb5e2aa840
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330309"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629224"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Abilitare e creare condivisioni file di grandi dimensioni
 
@@ -22,8 +22,8 @@ Quando si abilitano condivisioni file di grandi dimensioni nell'account di archi
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-- Se si intende usare l'interfaccia della riga di comando di Azure, [installare l'ultima versione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-- Se si intende usare il modulo Azure PowerShell, [installare la versione più recente](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.6.0).
+- Se si intende usare l'interfaccia della riga di comando di Azure, [installare l'ultima versione](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- Se si intende usare il modulo Azure PowerShell, [installare la versione più recente](/powershell/azure/install-az-ps?view=azps-4.6.0).
 
 ## <a name="restrictions"></a>Restrizioni
 
@@ -65,7 +65,7 @@ L'abilitazione di condivisioni file di grandi dimensioni in un account è un pro
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Installare prima [di tutto la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) in modo da poter abilitare condivisioni file di grandi dimensioni.
+Installare prima [di tutto la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) in modo da poter abilitare condivisioni file di grandi dimensioni.
 
 Per creare un account di archiviazione con condivisioni file di grandi dimensioni abilitata, usare il comando seguente. Sostituire `<yourStorageAccountName>` , `<yourResourceGroup>` e `<yourDesiredRegion>` con le informazioni.
 
@@ -76,7 +76,7 @@ az storage account create --name <yourStorageAccountName> -g <yourResourceGroup>
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Installare prima [di tutto la versione più recente di PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0) in modo da poter abilitare le condivisioni file di grandi dimensioni.
+Installare prima [di tutto la versione più recente di PowerShell](/powershell/azure/install-az-ps?view=azps-3.0.0) in modo da poter abilitare le condivisioni file di grandi dimensioni.
 
 Per creare un account di archiviazione con condivisioni file di grandi dimensioni abilitata, usare il comando seguente. Sostituire `<yourStorageAccountName>` , `<yourResourceGroup>` e `<yourDesiredRegion>` con le informazioni.
 

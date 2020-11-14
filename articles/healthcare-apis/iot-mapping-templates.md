@@ -8,15 +8,15 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 1702c17555d1d3c39a83fa16ca790d6f8f2b3344
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 63484361a6d5a331fd9dc646c53627918ce8b246
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394238"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630550"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modelli di mapping del connettore Azure IoT per FHIR (anteprima)
-Questo articolo illustra come configurare il connettore Azure per FHIR * usando i modelli di mapping.
+Questo articolo illustra come configurare il connettore Azure per le risorse di interoperabilità sanitaria veloci (FHIR&#174;) * usando i modelli di mapping.
 
 Il connettore Azure per FHIR richiede due tipi di modelli di mapping basati su JSON. Il primo tipo, ovvero il **mapping dei dispositivi** , è responsabile del mapping dei payload del dispositivo inviati all' `devicedata` endpoint dell'hub eventi di Azure. Estrae i tipi, gli identificatori di dispositivo, la data e l'ora di misurazione e i valori di misurazione. Il secondo tipo, **FHIR mapping** , controlla il mapping per la risorsa FHIR. Consente la configurazione della lunghezza del periodo di osservazione, il tipo di dati FHIR usato per archiviare i valori e i codici terminologici. 
 
@@ -77,7 +77,7 @@ Il JsonPathContentTemplate consente la corrispondenza e l'estrazione di valori d
 |**Valori []. ValueExpression**|Espressione del percorso JSON per estrarre il valore richiesto.|`$.heartRate`
 |**Valori []. Obbligatorio**|Richiede la presenza del valore nel payload.  Se non viene trovato, una misura non verrà generata e verrà generata un'eccezione InvalidOperationException.|`true`
 
-##### <a name="examples"></a>Esempi
+##### <a name="examples"></a>Esempio
 ---
 **Frequenza cardiaca**
 
@@ -257,7 +257,7 @@ IotJsonPathContentTemplate è simile a JsonPathContentTemplate, ad eccezione di 
 Quando si usa questo modello, il presupposto è che i messaggi valutati siano stati inviati usando gli [SDK per dispositivi dell'hub Azure](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks). Quando si usano questi SDK, l'identità del dispositivo (presupponendo che l'identificatore del dispositivo dall'hub Azure per le risorse di Azure sia registrato come identificatore per una risorsa del dispositivo nel server FHIR di destinazione) e che il timestamp del messaggio sia noto. Se si usano gli SDK per dispositivi dell'hub Azure, ma si usano proprietà personalizzate nel corpo del messaggio per l'identità del dispositivo o il timestamp di misurazione, è comunque possibile usare JsonPathContentTemplate.
 
 *Nota: quando si usa IotJsonPathContentTemplate, TypeMatchExpression deve essere risolto nell'intero messaggio come JToken. Vedere gli esempi seguenti.* 
-##### <a name="examples"></a>Esempi
+##### <a name="examples"></a>Esempio
 ---
 **Frequenza cardiaca**
 
@@ -362,7 +362,7 @@ Rappresenta il tipo di dati FHIR di [SampledData](http://hl7.org/fhir/datatypes.
 |**DefaultPeriod**|Periodo predefinito in millisecondi da utilizzare. 
 |**Unità**|Unità da impostare sull'origine del SampledData. 
 
-#### <a name="quantity"></a>Quantità
+#### <a name="quantity"></a>Quantity
 Rappresenta il tipo di dati FHIR della [quantità](http://hl7.org/fhir/datatypes.html#Quantity) . Se nel raggruppamento è presente più di un valore, viene utilizzato solo il primo valore. Quando arriva un nuovo valore che esegue il mapping alla stessa osservazione, sovrascriverà il valore precedente.
 
 | Proprietà | Descrizione 
@@ -382,7 +382,7 @@ Rappresenta il tipo di dati FHIR di [CodeableConcept](http://hl7.org/fhir/dataty
 |**Codici []. Sistema**|Sistema per la [codifica](http://hl7.org/fhir/datatypes-definitions.html#coding).
 |**Codici []. Visualizzare**|Visualizzazione per la [codifica](http://hl7.org/fhir/datatypes-definitions.html#coding).
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 **Frequenza cardiaca-SampledData**
 ```json
 {
@@ -567,6 +567,4 @@ Vedere le domande frequenti sul connettore Azure per FHIR (anteprima).
 >[!div class="nextstepaction"]
 >[Connettore Azure per le domande frequenti su FHIR](fhir-faq.md)
 
-*Nel portale di Azure si fa riferimento al Connettore Azure IoT per FHIR come Connettore IoT (anteprima).
-
-FHIR è il marchio registrato di HL7, usato con l'autorizzazione di HL7.
+* Nel portale di Azure, il connettore Azure Internet per FHIR viene indicato come connettore Internet (anteprima). FHIR è un marchio registrato di HL7 e viene usato con l'autorizzazione di HL7.

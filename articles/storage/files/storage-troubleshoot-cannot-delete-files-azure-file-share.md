@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: files
 services: storage
 tags: ''
-ms.openlocfilehash: 1c50f54491e0284005c4b762b0c4b35a8460f5ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4f10745d90ccd83e7251af40d3e92a230f2fcd
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85511979"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629683"
 ---
 # <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Condivisione file di Azure: impossibile eliminare i file dalla condivisione file di Azure
 
@@ -34,7 +34,7 @@ Non c'è abbastanza disponibilità per elaborare il comando
 
 ## <a name="cause"></a>Causa
 
-L'errore 1816 si verifica quando si raggiunge il limite massimo di handle aperti simultanei consentiti per un file, nel computer in cui viene montata la condivisione file. Per altre informazioni, vedere [elenco di controllo delle prestazioni e della scalabilità di archiviazione di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist).
+L'errore 1816 si verifica quando si raggiunge il limite massimo di handle aperti simultanei consentiti per un file, nel computer in cui viene montata la condivisione file. Per altre informazioni, vedere [elenco di controllo delle prestazioni e della scalabilità di archiviazione di Azure](../blobs/storage-performance-checklist.md).
 
 ## <a name="resolution"></a>Soluzione
 
@@ -44,7 +44,7 @@ Ridurre il numero di handle aperti simultanei chiudendo alcuni handle.
 
 ### <a name="install-the-latest-azure-powershell-module"></a>Installare il modulo Azure PowerShell più recente
 
-* [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps)
 
 ### <a name="connect-to-azure"></a>Connettersi ad Azure:
 

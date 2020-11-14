@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4b5ce48cf15c890fbdb3dfd90d9d0ab922a2f4b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9abe306668a4b20e42e45c498bf85b540dfaaee5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320269"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630193"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Configurazione dell'inoltro DNS per File di Azure
 File di Azure consente di creare endpoint privati per gli account di archiviazione contenenti condivisioni file. Oltre che per molte applicazioni diverse, gli endpoint privati sono particolarmente utili per connettersi alle condivisioni file di Azure dalla rete locale tramite una connessione VPN o ExpressRoute con peering privato. 
@@ -32,7 +32,7 @@ Ogni account di archiviazione è associato a un nome di dominio completo (FQDN).
 
 Per impostazione predefinita, `storageaccount.file.core.windows.net` viene risolto nell'indirizzo IP dell'endpoint pubblico. L'endpoint pubblico per un account di archiviazione è ospitato in un cluster di archiviazione di Azure che ne ospita molti altri. Quando si crea un endpoint privato, una zona DNS privato viene collegata alla rete virtuale a cui è stata aggiunta, con il mapping di un record CNAME `storageaccount.file.core.windows.net` a una voce di record A per l'indirizzo IP privato dell'endpoint privato dell'account di archiviazione. In questo modo è possibile usare il nome FQDN `storageaccount.file.core.windows.net` nella rete virtuale e risolverlo nell'indirizzo IP dell'endpoint privato.
 
-Poiché l'obiettivo finale è l'accesso alle condivisioni file di Azure ospitate nell'account di archiviazione dall'ambiente locale tramite un tunnel di rete, ad esempio una connessione VPN o ExpressRoute, è necessario configurare i server DNS locali per l'inoltro al servizio DNS privato di Azure delle richieste effettuate al servizio File di Azure. A tale scopo, è necessario configurare l'*inoltro condizionale* di `*.core.windows.net` (o del suffisso dell'endpoint di archiviazione appropriato per i cloud nazionali del governo degli Stati Uniti, della Germania o della Cina) a un server DNS ospitato nella rete virtuale di Azure. Questo server DNS inoltrerà quindi in modo ricorsivo la richiesta al servizio DNS privato di Azure che risolverà il nome di dominio completo dell'account di archiviazione nell'indirizzo IP privato appropriato.
+Poiché l'obiettivo finale è l'accesso alle condivisioni file di Azure ospitate nell'account di archiviazione dall'ambiente locale tramite un tunnel di rete, ad esempio una connessione VPN o ExpressRoute, è necessario configurare i server DNS locali per l'inoltro al servizio DNS privato di Azure delle richieste effettuate al servizio File di Azure. A tale scopo, è necessario configurare l' *inoltro condizionale* di `*.core.windows.net` (o del suffisso dell'endpoint di archiviazione appropriato per i cloud nazionali del governo degli Stati Uniti, della Germania o della Cina) a un server DNS ospitato nella rete virtuale di Azure. Questo server DNS inoltrerà quindi in modo ricorsivo la richiesta al servizio DNS privato di Azure che risolverà il nome di dominio completo dell'account di archiviazione nell'indirizzo IP privato appropriato.
 
 Per la configurazione dell'inoltro DNS per File di Azure sarà necessario eseguire una macchina virtuale in cui ospitare un server DNS per l'inoltro delle richieste. Tuttavia, si tratta di un passaggio da completare una sola volta per tutte le condivisioni file di Azure ospitate nella rete virtuale. Inoltre, questo non è un requisito esclusivo per File di Azure. Tutti i servizi di Azure che supportano gli endpoint privati a cui si vuole accedere dall'ambiente locale possono usare l'inoltro DNS che verrà configurato in questa guida: archiviazione BLOB di Azure, SQL Azure, Cosmos DB e così via. 
 
@@ -43,7 +43,7 @@ Prima di configurare l'inoltro DNS a File di Azure, è necessario aver completat
 
 - Un account di archiviazione contenente una condivisione file di Azure da montare. Per informazioni su come creare un account di archiviazione e una condivisione file di Azure, vedere [Creare una condivisione file di Azure](storage-how-to-create-file-share.md).
 - Un endpoint privato per l'account di archiviazione. Per informazioni su come creare un endpoint privato per File di Azure, vedere [Creare un endpoint privato](storage-files-networking-endpoints.md#create-a-private-endpoint).
-- L'[ultima versione](https://docs.microsoft.com/powershell/azure/install-az-ps) del modulo Azure PowerShell.
+- L'[ultima versione](/powershell/azure/install-az-ps) del modulo Azure PowerShell.
 
 > [!Important]  
 > Questa guida presuppone che si usi il server DNS all'interno di Windows Server nell'ambiente locale. Tutti i passaggi descritti in questa guida possono essere eseguiti con qualsiasi server DNS, non solo con il server DNS di Windows.

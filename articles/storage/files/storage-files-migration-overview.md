@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: e3ecf29be94074f51ead3173f997154df6dfa88f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 995ae176a8eec58f8dc9522e6fac6fd78170014d
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785613"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628918"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Eseguire la migrazione a condivisioni file di Azure
 
@@ -134,7 +134,7 @@ In questa sezione vengono descritti gli strumenti che consentono di pianificare 
 
 #### <a name="robocopy-from-microsoft-corporation"></a>RoboCopy da Microsoft Corporation
 
-RoboCopy è uno degli strumenti più applicabili alle migrazioni di file. È incluso in Windows. La documentazione principale di [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) è una risorsa utile per le numerose opzioni di questo strumento.
+RoboCopy è uno degli strumenti più applicabili alle migrazioni di file. È incluso in Windows. La documentazione principale di [Robocopy](/windows-server/administration/windows-commands/robocopy) è una risorsa utile per le numerose opzioni di questo strumento.
 
 #### <a name="treesize-from-jam-software-gmbh"></a>TreeSize di JAM Software GmbH
 

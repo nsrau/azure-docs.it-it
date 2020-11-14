@@ -7,21 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 6f043a1cb870d003e371d2f20d0e1f6614c9201e
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: ac210adbc29075f27739b08dcf83eeedbeea3ed5
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628984"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630363"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Crittografia IPSec in transito per Azure HDInsight
 
 Questo articolo illustra l'implementazione della crittografia in transito per la comunicazione tra i nodi del cluster HDInsight di Azure.
 
-> [!Note]
-> La crittografia in transito è attualmente abilitata per le aree geografiche seguenti: Stati Uniti orientali, Stati Uniti centro-meridionali e Uniti occidentali.
-
-## <a name="background"></a>Background
+## <a name="background"></a>Sfondo
 
 Azure HDInsight offre un'ampia gamma di funzionalità di sicurezza per la protezione dei dati aziendali. Queste soluzioni sono raggruppate in base ai pilastri di sicurezza perimetrale, autenticazione, autorizzazione, controllo, crittografia e conformità. La crittografia può essere applicata ai dati inattivi e in transito.
 
@@ -42,7 +39,7 @@ Per creare un nuovo cluster con la crittografia in transito abilitata usando il 
 
 1. Nella scheda **sicurezza e rete** selezionare la casella **di controllo Abilita crittografia in transito** .
 
-    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Scheda Crea cluster-sicurezza e rete.":::
+    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Crea cluster: Abilita la crittografia in transito.":::
 
 ### <a name="create-a-cluster-with-encryption-in-transit-enabled-through-the-azure-cli"></a>Creare un cluster con la crittografia in transito abilitata tramite l'interfaccia della riga di comando di Azure
 

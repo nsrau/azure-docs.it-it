@@ -1,22 +1,22 @@
 ---
 title: Chiamare le app per la logica con Funzioni di Azure
-description: Creare funzioni di Azure che chiamano o attivano app per la logica ascoltando il bus di servizio di Azure
+description: Chiamare o attivare app per la logica usando funzioni di Azure e il bus di servizio di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fcf7f1a27633c978c10f541d0a341225fbcb126d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f761d85ebfd0ac16f182941c5b5c29636066bf
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013776"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629734"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Chiamare o attivare app per la logica usando funzioni di Azure e il bus di servizio di Azure
 
-È possibile usare [funzioni di Azure](../azure-functions/functions-overview.md) per attivare un'app per la logica quando è necessario distribuire un'attività o un listener con esecuzione prolungata. Ad esempio, è possibile creare una funzione di Azure che rimane in ascolto in una coda del [bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md) e genera immediatamente un'app per la logica come trigger di push.
+È possibile usare [funzioni di Azure](../azure-functions/functions-overview.md) per attivare un'app per la logica quando è necessario distribuire un'attività o un listener con esecuzione prolungata. Ad esempio, è possibile creare una funzione che rimane in ascolto in una coda del [bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md) e genera immediatamente un'app per la logica come trigger di push.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -24,7 +24,7 @@ ms.locfileid: "89013776"
 
 * Uno spazio dei nomi del bus di servizio di Azure. Se non si dispone di uno spazio dei nomi, [creare prima lo spazio dei nomi](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* App per le funzioni di Azure, un contenitore per funzioni di Azure. Se non si dispone di un'app per [le funzioni, creare prima l'app per le funzioni](../azure-functions/functions-create-first-azure-function.md)e assicurarsi di selezionare .NET come stack di Runtime.
+* Un'app per le funzioni, che è un contenitore per le funzioni. Se non si dispone di un'app per [le funzioni, creare prima l'app per le funzioni](../azure-functions/functions-create-first-azure-function.md)e assicurarsi di selezionare .NET come stack di Runtime.
 
 * Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -42,7 +42,7 @@ Per questo scenario, è presente una funzione che esegue ogni app per la logica 
 
    Con il trigger request è possibile immettere facoltativamente uno schema JSON da usare con il messaggio della coda. Gli schemi JSON consentono alla finestra di progettazione di app per la logica di comprendere la struttura per i dati di input e di semplificare l'uso di output nel flusso di lavoro.
 
-1. Per specificare uno schema, immetterlo nella casella **Schema JSON del corpo della richiesta**, ad esempio:
+1. Per specificare uno schema, immetterlo nella casella **Schema JSON del corpo della richiesta** , ad esempio:
 
    ![Specificare lo schema JSON](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger-schema.png)
 
@@ -50,7 +50,7 @@ Per questo scenario, è presente una funzione che esegue ogni app per la logica 
 
    1. Nel trigger di richiesta selezionare **Usare il payload di esempio per generare lo schema**.
 
-   1. In **immettere o incollare un payload JSON di esempio**, immettere il payload di esempio e quindi **fare**clic su fine.
+   1. In **immettere o incollare un payload JSON di esempio** , immettere il payload di esempio e quindi **fare** clic su fine.
 
       ![Immettere il payload di esempio](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
 
@@ -94,7 +94,7 @@ Per questo scenario, è presente una funzione che esegue ogni app per la logica 
 
    ![URL di callback generato per il trigger](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
 
-## <a name="create-azure-function"></a>Creare la funzione di Azure
+## <a name="create-a-function"></a>Creare una funzione
 
 A questo punto creare la funzione che agisce come trigger e rimane in ascolto sulla coda.
 

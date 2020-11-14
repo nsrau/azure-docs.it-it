@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 17b2ab53c0154a29f9084f9dd999a53bcf477b72
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b684123068889e422080605fb9c50ef9aed0cb76
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075127"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630159"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Risolvere i problemi di File di Azure in Windows (SMB)
 
@@ -30,14 +30,14 @@ Quando si tenta di montare una condivisione file, è possibile che si riceva l'e
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: canale di comunicazione non crittografato
 
-Per motivi di sicurezza, le connessioni alle condivisioni file di Azure vengono bloccate se il canale di comunicazione non è crittografato e il tentativo di connessione non viene effettuato dallo stesso data center in cui si trovano tali condivisioni. Le connessioni non crittografate all'interno dello stesso data center possono essere bloccate se l'impostazione [Trasferimento sicuro obbligatorio](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) è abilitata nell'account di archiviazione. Un canale di comunicazione crittografato è disponibile solo se il sistema operativo del client dell'utente supporta la crittografia SMB.
+Per motivi di sicurezza, le connessioni alle condivisioni file di Azure vengono bloccate se il canale di comunicazione non è crittografato e il tentativo di connessione non viene effettuato dallo stesso data center in cui si trovano tali condivisioni. Le connessioni non crittografate all'interno dello stesso data center possono essere bloccate se l'impostazione [Trasferimento sicuro obbligatorio](../common/storage-require-secure-transfer.md) è abilitata nell'account di archiviazione. Un canale di comunicazione crittografato è disponibile solo se il sistema operativo del client dell'utente supporta la crittografia SMB.
 
 Windows 8, Windows Server 2012 e le versioni successive di ciascuno dei due sistemi operativi negoziano richieste comprendenti SMB 3.0, che supporta la crittografia.
 
 ### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
 
 1. Eseguire la connessione da un client che supporta la crittografia SMB (Windows 8, Windows Server 2012 o versioni successive) o da una macchina virtuale nello stesso data center dell'account di archiviazione di Azure usato per la condivisione file di Azure.
-2. Verificare che l'impostazione [trasferimento sicuro richiesto](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) sia disabilitata nell'account di archiviazione se il client non supporta la crittografia SMB.
+2. Verificare che l'impostazione [trasferimento sicuro richiesto](../common/storage-require-secure-transfer.md) sia disabilitata nell'account di archiviazione se il client non supporta la crittografia SMB.
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Causa 2: la rete virtuale o le regole del firewall sono abilitate nell'account di archiviazione 
 
@@ -45,7 +45,7 @@ Se nell'account di archiviazione sono configurate regole di rete virtuale o del 
 
 ### <a name="solution-for-cause-2"></a>Soluzione per la causa 2
 
-Verificare che le regole di rete virtuale e di firewall siano configurate correttamente nell'account di archiviazione. Per verificare se le regole di rete virtuale o del firewall sono la causa del problema, modificare temporaneamente le impostazioni dell'account di archiviazione per **consentire l'accesso da tutte le reti** . Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Verificare che le regole di rete virtuale e di firewall siano configurate correttamente nell'account di archiviazione. Per verificare se le regole di rete virtuale o del firewall sono la causa del problema, modificare temporaneamente le impostazioni dell'account di archiviazione per **consentire l'accesso da tutte le reti**. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](../common/storage-network-security.md).
 
 ### <a name="cause-3-share-level-permissions-are-incorrect-when-using-identity-based-authentication"></a>Motivo 3: le autorizzazioni a livello di condivisione non sono corrette quando si usa l'autenticazione basata su identità
 
@@ -55,10 +55,10 @@ Se gli utenti accedono alla condivisione file di Azure usando l'autenticazione A
 
 Verificare che le autorizzazioni siano configurate correttamente:
 
-- **Active Directory (ad)** vedere [assegnare autorizzazioni a livello di condivisione a un'identità](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
+- **Active Directory (ad)** vedere [assegnare autorizzazioni a livello di condivisione a un'identità](./storage-files-identity-ad-ds-assign-permissions.md).
 
     Le assegnazioni delle autorizzazioni a livello di condivisione sono supportate per i gruppi e gli utenti che sono stati sincronizzati dal Active Directory (AD) al Azure Active Directory (Azure AD) utilizzando Azure AD Connect.  Verificare che i gruppi e gli utenti a cui vengono assegnate le autorizzazioni a livello di condivisione non siano gruppi "solo cloud" non supportati.
-- **Azure Active Directory Domain Services (Azure AD DS)** vedere [assegnare le autorizzazioni di accesso a un'identità](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
+- **Azure Active Directory Domain Services (Azure AD DS)** vedere [assegnare le autorizzazioni di accesso a un'identità](./storage-files-identity-auth-active-directory-domain-service-enable.md?tabs=azure-portal#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Errore 53, Errore 67 o Errore 87 quando si prova a montare o smontare una condivisione file di Azure
@@ -111,7 +111,7 @@ TcpTestSucceeded : True
 ### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
 
 #### <a name="solution-1---use-azure-file-sync"></a>Soluzione 1: usare Sincronizzazione file di Azure
-Sincronizzazione file di Azure possibile trasformare l'istanza locale di Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Sincronizzazione file di Azure usa la porta 443 e pertanto può essere usato come soluzione alternativa per accedere a File di Azure dai client in cui la porta 445 bloccata. [Informazioni su come configurare sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
+Sincronizzazione file di Azure possibile trasformare l'istanza locale di Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Sincronizzazione file di Azure usa la porta 443 e pertanto può essere usato come soluzione alternativa per accedere a File di Azure dai client in cui la porta 445 bloccata. [Informazioni su come configurare sincronizzazione file di Azure](./storage-sync-files-extend-servers.md).
 
 #### <a name="solution-2---use-vpn"></a>Soluzione 2: usare VPN
 Impostando una VPN per l'account di archiviazione specifico, il traffico passerà attraverso un tunnel sicuro anziché tramite Internet. Seguire le [istruzioni per configurare la VPN](storage-files-configure-p2s-vpn-windows.md) per accedere a File di Azure da Windows.
@@ -120,7 +120,7 @@ Impostando una VPN per l'account di archiviazione specifico, il traffico passer�
 Collaborare con il reparto IT o l'ISP per aprire la porta 445 in uscita per gli [intervalli IP di Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Soluzione 4: usare strumenti basati sull'API REST come Storage Explorer/PowerShell
-File di Azure supporta anche REST oltre a SMB. L'accesso a REST viene eseguito sulla porta 443, ovvero su TCP standard. Sono diversi gli strumenti scritti con l'API REST che consentono un'esperienza avanzata dell'interfaccia utente. [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) è uno di essi. [Scaricare e installare Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) e connettersi alla condivisione file supportata da File di Azure. È anche possibile usare [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) che è anche l'API REST dell'utente.
+File di Azure supporta anche REST oltre a SMB. L'accesso a REST viene eseguito sulla porta 443, ovvero su TCP standard. Sono diversi gli strumenti scritti con l'API REST che consentono un'esperienza avanzata dell'interfaccia utente. [Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) è uno di essi. [Scaricare e installare Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) e connettersi alla condivisione file supportata da File di Azure. È anche possibile usare [PowerShell](./storage-how-to-use-files-powershell.md) che è anche l'API REST dell'utente.
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Motivo 2: NTLMv1 è abilitato
 
@@ -130,7 +130,7 @@ Per determinare se questa è la causa dell'errore, assicurarsi che la sottochiav
 
 **HKLM\SYSTEM\CurrentControlSet\Control\Lsa &gt; LmCompatibilityLevel**
 
-Per altre informazioni, vedere l'argomento [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) su TechNet.
+Per altre informazioni, vedere l'argomento [LmCompatibilityLevel](/previous-versions/windows/it-pro/windows-2000-server/cc960646(v=technet.10)) su TechNet.
 
 ### <a name="solution-for-cause-2"></a>Soluzione per la causa 2
 
@@ -143,18 +143,18 @@ Ripristinare **LmCompatibilityLevel** sul valore predefinito 3 nella sottochiave
 
 ### <a name="cause"></a>Causa
 
-L'errore 1816 si verifica quando si raggiunge il limite massimo di handle aperti simultanei consentiti per un file o una directory nella condivisione file di Azure. Per altre informazioni, vedere [Obiettivi di scalabilità per File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets).
+L'errore 1816 si verifica quando si raggiunge il limite massimo di handle aperti simultanei consentiti per un file o una directory nella condivisione file di Azure. Per altre informazioni, vedere [Obiettivi di scalabilità per File di Azure](./storage-files-scale-targets.md#azure-files-scale-targets).
 
 ### <a name="solution"></a>Soluzione
 
-Chiudere alcuni degli handle aperti simultaneamente per ridurne il numero e quindi riprovare. Per ulteriori informazioni, vedere [elenco di controllo delle prestazioni e della scalabilità archiviazione di Microsoft Azure](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Chiudere alcuni degli handle aperti simultaneamente per ridurne il numero e quindi riprovare. Per ulteriori informazioni, vedere [elenco di controllo delle prestazioni e della scalabilità archiviazione di Microsoft Azure](../blobs/storage-performance-checklist.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).
 
-Per visualizzare gli handle aperti per una condivisione file, una directory o un file, usare il cmdlet di PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) .  
+Per visualizzare gli handle aperti per una condivisione file, una directory o un file, usare il cmdlet di PowerShell [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) .  
 
-Per chiudere gli handle aperti per una condivisione file, una directory o un file, usare il cmdlet di PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) .
+Per chiudere gli handle aperti per una condivisione file, una directory o un file, usare il cmdlet di PowerShell [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) .
 
 > [!Note]  
-> I cmdlet Get-AzStorageFileHandle e Close-AzStorageFileHandle sono inclusi nel modulo AZ PowerShell versione 2,4 o successiva. Per installare la versione più recente del modulo AZ PowerShell, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> I cmdlet Get-AzStorageFileHandle e Close-AzStorageFileHandle sono inclusi nel modulo AZ PowerShell versione 2,4 o successiva. Per installare la versione più recente del modulo AZ PowerShell, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 <a id="noaaccessfailureportal"></a>
 ## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Errore di "nessun accesso" quando si tenta di accedere o eliminare una condivisione file di Azure  
@@ -167,13 +167,13 @@ Codice errore: 403
 
 ### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
 
-Verificare che le regole di rete virtuale e di firewall siano configurate correttamente nell'account di archiviazione. Per verificare se le regole di rete virtuale o del firewall sono la causa del problema, modificare temporaneamente le impostazioni dell'account di archiviazione per **consentire l'accesso da tutte le reti** . Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Verificare che le regole di rete virtuale e di firewall siano configurate correttamente nell'account di archiviazione. Per verificare se le regole di rete virtuale o del firewall sono la causa del problema, modificare temporaneamente le impostazioni dell'account di archiviazione per **consentire l'accesso da tutte le reti**. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](../common/storage-network-security.md).
 
 ### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>Causa 2: l'account utente non ha accesso all'account di archiviazione
 
 ### <a name="solution-for-cause-2"></a>Soluzione per la causa 2
 
-Passare all'account di archiviazione in cui si trova la condivisione file di Azure, fare clic su **Controllo di accesso (IAM)** e verificare che l'account utente abbia accesso all'account di archiviazione. Per altre informazioni, vedere [come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Passare all'account di archiviazione in cui si trova la condivisione file di Azure, fare clic su **Controllo di accesso (IAM)** e verificare che l'account utente abbia accesso all'account di archiviazione. Per altre informazioni, vedere [come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../blobs/security-recommendations.md#data-protection).
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Impossibile eliminare un file o una directory in una condivisione file di Azure
@@ -199,15 +199,15 @@ Sebbene gli handle di file e i lease richiedano uno scopo importante, a volte gl
 La risoluzione di questo problema dipende dal fatto che questo sia causato da un lease o da un handle di file orfano. 
 
 ### <a name="cause-1"></a>Causa 1
-Un handle di file impedisce la modifica o l'eliminazione di un file o di una directory. È possibile usare il cmdlet di PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) per visualizzare gli handle aperti. 
+Un handle di file impedisce la modifica o l'eliminazione di un file o di una directory. È possibile usare il cmdlet di PowerShell [Get-AzStorageFileHandle](/powershell/module/az.storage/get-azstoragefilehandle) per visualizzare gli handle aperti. 
 
 Se tutti i client SMB hanno chiuso i rispettivi handle aperti su un file o una directory e il problema continua a verificarsi, è possibile forzare la chiusura di un handle di file.
 
 ### <a name="solution-1"></a>Soluzione 1
-Per forzare la chiusura di un handle di file, usare il cmdlet di PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) . 
+Per forzare la chiusura di un handle di file, usare il cmdlet di PowerShell [Close-AzStorageFileHandle](/powershell/module/az.storage/close-azstoragefilehandle) . 
 
 > [!Note]  
-> I cmdlet Get-AzStorageFileHandle e Close-AzStorageFileHandle sono inclusi nel modulo AZ PowerShell versione 2,4 o successiva. Per installare la versione più recente del modulo AZ PowerShell, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+> I cmdlet Get-AzStorageFileHandle e Close-AzStorageFileHandle sono inclusi nel modulo AZ PowerShell versione 2,4 o successiva. Per installare la versione più recente del modulo AZ PowerShell, vedere [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="cause-2"></a>Causa 2
 Un lease di file impedisce la modifica o l'eliminazione di un file. È possibile verificare se un file ha un lease di file con il seguente PowerShell, sostituendo `<resource-group>` ,, `<storage-account>` `<file-share>` e `<path-to-file>` con i valori appropriati per l'ambiente:
@@ -262,8 +262,8 @@ Si potrebbe verificare un rallentamento delle prestazioni quando si prova a tras
 - In assenza di un requisito minimo specifico per la dimensione di I/O, è consigliabile usare 1 MiB per assicurare prestazioni ottimali.
 -   Se si conosce la dimensione finale del file che si vuole estendere con operazioni di scrittura e il software non ha problemi di compatibilità se la parte finale del file non ancora scritta contiene zeri, impostare le dimensioni del file in fase preliminare anziché lasciare che ogni operazione di scrittura venga considerata un'estensione.
 -   Usare il metodo di copia corretto:
-    -   Usare [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per i trasferimenti tra due condivisioni file.
-    -   Usare [Robocopy](/azure/storage/files/storage-files-deployment-guide#robocopy) tra condivisioni file in un computer locale.
+    -   Usare [AzCopy](../common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json) per i trasferimenti tra due condivisioni file.
+    -   Usare [Robocopy](./storage-files-deployment-guide.md#robocopy) tra condivisioni file in un computer locale.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Considerazioni per Windows 8.1 o Windows Server 2012 R2
 
@@ -290,7 +290,7 @@ Se si esegue il mapping di una condivisione di file di Azure come amministratore
 Per impostazione predefinita, Esplora file di Windows non viene eseguito come amministratore. Se si esegue net use da un prompt dei comandi amministrativo, il mapping dell'unità di rete viene eseguito come amministratore. Poiché le unità mappate sono incentrate sull'utente, l'account utente usato per la connessione non ne consente la visualizzazione se tali unità sono state montate con un account utente diverso.
 
 ### <a name="solution"></a>Soluzione
-Montare la condivisione da una riga di comando senza privilegi di amministratore. In alternativa, è possibile seguire [questo argomento TechNet](https://technet.microsoft.com/library/ee844140.aspx) per configurare il valore del registro di sistema **EnableLinkedConnections** .
+Montare la condivisione da una riga di comando senza privilegi di amministratore. In alternativa, è possibile seguire [questo argomento TechNet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee844140(v=ws.10)) per configurare il valore del registro di sistema **EnableLinkedConnections** .
 
 <a id="netuse"></a>
 ## <a name="net-use-command-fails-if-the-storage-account-contains-a-forward-slash"></a>Il comando net use non viene eseguito se l'account di archiviazione contiene una barra
@@ -346,7 +346,7 @@ Questo problema può verificarsi se si usa EFS (Encrypting File System). I file 
 ### <a name="workaround"></a>Soluzione alternativa
 Per copiare un file tramite rete, è necessario prima decrittografarlo. Utilizzare una delle seguenti modalità:
 
-- Usare il comando **copy /d** . Questo consente di salvare i file crittografati come file decrittografati nella destinazione.
+- Usare il comando **copy /d**. Questo consente di salvare i file crittografati come file decrittografati nella destinazione.
 - Impostare la chiave del Registro di sistema seguente:
   - Percorso = HKLM\Software\Policies\Microsoft\Windows\System
   - Tipo valore = DWORD
@@ -376,20 +376,20 @@ Per risolvere questo problema, modificare il valore del Registro di sistema **Di
 
 ### <a name="cause"></a>Causa
 
-L'errore AadDsTenantNotFound si verifica quando si tenta di [abilitare l'autenticazione Azure Active Directory Domain Services (Azure AD DS) in file di Azure](storage-files-identity-auth-active-directory-domain-service-enable.md) in un account di archiviazione in cui [Azure ad servizio del dominio (Azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) non viene creato nel tenant Azure ad della sottoscrizione associata.  
+L'errore AadDsTenantNotFound si verifica quando si tenta di [abilitare l'autenticazione Azure Active Directory Domain Services (Azure AD DS) in file di Azure](storage-files-identity-auth-active-directory-domain-service-enable.md) in un account di archiviazione in cui [Azure ad servizio del dominio (Azure AD DS)](../../active-directory-domain-services/overview.md) non viene creato nel tenant Azure ad della sottoscrizione associata.  
 
 ### <a name="solution"></a>Soluzione
 
-Abilitare Azure AD DS nel tenant Azure AD della sottoscrizione in cui è distribuito l'account di archiviazione. Per creare un dominio gestito, è necessario disporre dei privilegi di amministratore del tenant Azure AD. Se non si è l'amministratore del tenant di Azure AD, contattare l'amministratore e seguire le istruzioni dettagliate per [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+Abilitare Azure AD DS nel tenant Azure AD della sottoscrizione in cui è distribuito l'account di archiviazione. Per creare un dominio gestito, è necessario disporre dei privilegi di amministratore del tenant Azure AD. Se non si è l'amministratore del tenant di Azure AD, contattare l'amministratore e seguire le istruzioni dettagliate per [creare e configurare un dominio gestito Azure Active Directory Domain Services](../../active-directory-domain-services/tutorial-create-instance.md).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 ## <a name="unable-to-mount-azure-files-with-ad-credentials"></a>Non è possibile montare File di Azure con le credenziali di Active Directory 
 
 ### <a name="self-diagnostics-steps"></a>Passaggi di diagnostica automatica
-Prima di tutto, assicurarsi di aver seguito tutti e quattro i passaggi per [abilitare l'autenticazione file di Azure ad](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
+Prima di tutto, assicurarsi di aver seguito tutti e quattro i passaggi per [abilitare l'autenticazione file di Azure ad](./storage-files-identity-auth-active-directory-enable.md).
 
-Secondo, provare [a montare la condivisione file di Azure con la chiave dell'account di archiviazione](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Se non è stato possibile eseguire il montaggio, scaricare [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) per convalidare l'ambiente in cui viene eseguito il client, rilevare la configurazione del client incompatibile che potrebbe causare un errore di accesso per file di Azure, fornire indicazioni dettagliate sulla correzione automatica e raccogliere le tracce di diagnostica.
+Secondo, provare [a montare la condivisione file di Azure con la chiave dell'account di archiviazione](./storage-how-to-use-files-windows.md). Se non è stato possibile eseguire il montaggio, scaricare [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) per convalidare l'ambiente in cui viene eseguito il client, rilevare la configurazione del client incompatibile che potrebbe causare un errore di accesso per file di Azure, fornire indicazioni dettagliate sulla correzione automatica e raccogliere le tracce di diagnostica.
 
 In terzo luogo, è possibile eseguire il cmdlet Debug-AzStorageAccountAuth per eseguire un set di controlli di base sulla configurazione di Active Directory con l'utente di Active Directory connesso. Questo cmdlet è supportato nella [versione AzFilesHybrid v 0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases). È necessario eseguire questo cmdlet con un utente di AD che disponga dell'autorizzazione di proprietario per l'account di archiviazione di destinazione.  
 ```PowerShell
@@ -399,13 +399,13 @@ $StorageAccountName = "<storage-account-name-here>"
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
 Il cmdlet esegue questi controlli in sequenza e fornisce indicazioni sugli errori:
-1. CheckADObjectPasswordIsCorrect: assicurarsi che la password configurata nell'identità di Active Directory che rappresenta l'account di archiviazione corrisponda a quella della chiave kerb1 o kerb2 dell'account di archiviazione. Se la password non è corretta, è possibile eseguire [Update-AzStorageAccountADObjectPassword](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-update-password) per reimpostare la password. 
+1. CheckADObjectPasswordIsCorrect: assicurarsi che la password configurata nell'identità di Active Directory che rappresenta l'account di archiviazione corrisponda a quella della chiave kerb1 o kerb2 dell'account di archiviazione. Se la password non è corretta, è possibile eseguire [Update-AzStorageAccountADObjectPassword](./storage-files-identity-ad-ds-update-password.md) per reimpostare la password. 
 2. CheckADObject: verificare che nel Active Directory sia presente un oggetto che rappresenta l'account di archiviazione e abbia il nome SPN corretto (nome dell'entità servizio). Se il nome SPN non è configurato correttamente, eseguire il cmdlet Set-AD restituito nel cmdlet debug per configurare il nome SPN.
-3. CheckDomainJoined: verificare che il computer client sia aggiunto a un dominio di Active Directory. Se il computer non è aggiunto a un dominio ad, fare riferimento a questo [articolo](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) per l'istruzione di aggiunta al dominio.
+3. CheckDomainJoined: verificare che il computer client sia aggiunto a un dominio di Active Directory. Se il computer non è aggiunto a un dominio ad, fare riferimento a questo [articolo](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain#:~:text=To%20join%20a%20computer%20to%20a%20domain&text=Navigate%20to%20System%20and%20Security,join%2C%20and%20then%20click%20OK) per l'istruzione di aggiunta al dominio.
 4. CheckPort445Connectivity: verificare che la porta 445 sia aperta per la connessione SMB. Se la porta richiesta non è aperta, consultare lo strumento per la risoluzione dei problemi [AzFileDiagnostics.ps1](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) per problemi di connettività con file di Azure.
 5. CheckSidHasAadUser: verificare che l'utente di Active Directory connesso venga sincronizzato con Azure AD. Se si vuole cercare se un utente di Active Directory specifico viene sincronizzato con Azure AD, è possibile specificare il nome utente e il dominio nei parametri di input. 
 6. CheckGetKerberosTicket: tentativo di ottenere un ticket Kerberos per connettersi all'account di archiviazione. Se non è disponibile un token Kerberos valido, eseguire il cmdlet klist Get CIFS/storage-account-name. file. Core. Windows. NET ed esaminare il codice di errore per la radice, causando l'errore di recupero del ticket.
-7. CheckStorageAccountDomainJoined: verificare se l'autenticazione di Active Directory è stata abilitata e le proprietà di Active Directory dell'account sono popolate. In caso contrario, fare riferimento all' [istruzione seguente](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable) per abilitare l'autenticazione di servizi di dominio Active directory su file di Azure. 
+7. CheckStorageAccountDomainJoined: verificare se l'autenticazione di Active Directory è stata abilitata e le proprietà di Active Directory dell'account sono popolate. In caso contrario, fare riferimento all' [istruzione seguente](./storage-files-identity-ad-ds-enable.md) per abilitare l'autenticazione di servizi di dominio Active directory su file di Azure. 
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Impossibile configurare le autorizzazioni a livello di directory/file (ACL di Windows) con Esplora file di Windows
 
@@ -417,7 +417,7 @@ Quando si tenta di configurare gli ACL di Windows con Esplora file in una condiv
 
 ### <a name="solution"></a>Soluzione
 
-È consigliabile usare [lo strumento icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) per configurare le autorizzazioni a livello di directory/file come soluzione alternativa. 
+È consigliabile usare [lo strumento icacls](/windows-server/administration/windows-commands/icacls) per configurare le autorizzazioni a livello di directory/file come soluzione alternativa. 
 
 ## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>Errori durante l'esecuzione di Join-AzStorageAccountForAuth cmdlet
 
@@ -431,7 +431,7 @@ Probabilmente questo errore viene attivato da un errore di sintassi nel comando 
 
 ## <a name="azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption"></a>File di Azure il supporto dell'autenticazione AD DS locale per la crittografia Kerberos AES 256
 
-È stato introdotto il supporto per la crittografia Kerberos AES 256 per File di Azure l'autenticazione di servizi di dominio Active Directory locale con [AzFilesHybrid Module v 0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Se è stata abilitata l'autenticazione di servizi di dominio Active Directory con una versione del modulo inferiore a v 0.2.2, sarà necessario scaricare il modulo AzFilesHybrid più recente (v 0.2.2 +) ed eseguire PowerShell di seguito. Se l'autenticazione di servizi di dominio Active Directory non è ancora stata abilitata nell'account di archiviazione, è possibile seguire questa [Guida](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) per l'abilitazione. 
+È stato introdotto il supporto per la crittografia Kerberos AES 256 per File di Azure l'autenticazione di servizi di dominio Active Directory locale con [AzFilesHybrid Module v 0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Se è stata abilitata l'autenticazione di servizi di dominio Active Directory con una versione del modulo inferiore a v 0.2.2, sarà necessario scaricare il modulo AzFilesHybrid più recente (v 0.2.2 +) ed eseguire PowerShell di seguito. Se l'autenticazione di servizi di dominio Active Directory non è ancora stata abilitata nell'account di archiviazione, è possibile seguire questa [Guida](./storage-files-identity-ad-ds-enable.md#option-one-recommended-use-azfileshybrid-powershell-module) per l'abilitazione. 
 
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"

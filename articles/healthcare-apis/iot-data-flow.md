@@ -6,18 +6,18 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 3cae648e3c2bddbafec555621d97575a007cfeb4
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 310be095af10f5ed5860c4f627caa0373be55835
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394867"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629666"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Flusso di dati del connettore Azure IoT per FHIR (anteprima)
 
-Questo articolo fornisce una panoramica del flusso di dati nel connettore Azure per FHIR *. Verranno fornite informazioni sulle diverse fasi di elaborazione dei dati nel connettore Azure per FHIR che trasformano i dati dei dispositivi in risorse di [osservazione](https://www.hl7.org/fhir/observation.html) basate su FHIR.
+Questo articolo fornisce una panoramica del flusso di dati nel connettore Azure per le risorse di interoperabilità sanitaria veloci (FHIR&#174;) *. Verranno fornite informazioni sulle diverse fasi di elaborazione dei dati nel connettore Azure per FHIR che trasformano i dati dei dispositivi in risorse di [osservazione](https://www.hl7.org/fhir/observation.html) basate su FHIR.
 
 ![Flusso di dati del connettore Azure IoT per FHIR](media/concepts-iot-data-flow/iot-connector-data-flow.png)
 
@@ -44,7 +44,7 @@ Il raggruppamento delle identità e dei tipi di misurazione del dispositivo Abil
 > [!NOTE]
 > Il valore del periodo di tempo è impostato su 15 minuti e non può essere configurato per l'anteprima.
 
-## <a name="transform"></a>Trasformare
+## <a name="transform"></a>Trasformazione
 Nella fase Transform i messaggi normalizzati raggruppati vengono elaborati tramite i modelli di mapping di FHIR. I messaggi che corrispondono a un tipo di modello vengono trasformati in risorse di osservazione basate su FHIR, come specificato tramite il mapping.
 
 A questo punto, la risorsa del [dispositivo](https://www.hl7.org/fhir/device.html) , insieme alla risorsa del [paziente](https://www.hl7.org/fhir/patient.html) associata, viene recuperata anche dal server FHIR usando l'identificatore del dispositivo presente nel messaggio. Queste risorse vengono aggiunte come riferimento alla risorsa di osservazione da creare.
@@ -64,6 +64,4 @@ Fare clic sotto il passaggio successivo per informazioni su come creare modelli 
 >[!div class="nextstepaction"]
 >[Modelli di mapping del connettore Azure IoT per FHIR](iot-mapping-templates.md)
 
-*Nel portale di Azure si fa riferimento al Connettore Azure IoT per FHIR come Connettore IoT (anteprima).
-
-FHIR è il marchio registrato di HL7, usato con l'autorizzazione di HL7.
+* Nel portale di Azure, il connettore Azure Internet per FHIR viene indicato come connettore Internet (anteprima). FHIR è un marchio registrato di HL7 e viene usato con l'autorizzazione di HL7. 
