@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: b4009f3c132c76f6632d6bb706649befa746001f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a0ea9a0871dd57088473999b28553258ff210038
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972527"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628765"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opzioni di disponibilità per le macchine virtuali in Azure
 
@@ -55,7 +55,7 @@ I set di scalabilità di macchine virtuali semplificano la progettazione per la 
 
 
 ## <a name="availability-sets"></a>Set di disponibilità
-Un set di disponibilità è un raggruppamento logico di macchine virtuali in un data center che consente ad Azure di comprendere come è compilata l'applicazione per garantirne la ridondanza e la disponibilità. È consigliabile creare due o più macchine virtuali in un set di disponibilità, per garantire un'elevata disponibilità dell'applicazione e raggiungere il [99,95% di disponibilità previsto dal contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Non è previsto alcun costo per il set di disponibilità, si paga solo per ogni istanza di macchina virtuale creata. Quando una sola macchina virtuale usa le [unità SSD Premium di Azure](./disks-types.md#premium-ssd), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure.
+Un set di disponibilità è un raggruppamento logico di macchine virtuali che permette ad Azure di comprendere come è compilata l'applicazione per garantirne la ridondanza e la disponibilità. È consigliabile creare due o più macchine virtuali in un set di disponibilità, per garantire un'elevata disponibilità dell'applicazione e raggiungere il [99,95% di disponibilità previsto dal contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Non è previsto alcun costo per il set di disponibilità, si paga solo per ogni istanza di macchina virtuale creata. Quando una sola macchina virtuale usa le [unità SSD Premium di Azure](./disks-types.md#premium-ssd), per gli eventi di manutenzione non pianificati viene applicato il Contratto di servizio di Azure.
 
 In un set di disponibilità, le macchine virtuali vengono distribuite automaticamente in questi domini di errore. Questo approccio consente di limitare l'impatto di eventuali guasti dell'hardware fisico, interruzioni di rete o interruzioni dell'alimentazione.
 

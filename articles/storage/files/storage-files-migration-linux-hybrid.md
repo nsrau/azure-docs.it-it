@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 202f7fd065641f9921df5237fb83e7900819c8f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46bcfd48d8fdfb228670b87df166c1ad8de61e52
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563506"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626351"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Eseguire la migrazione da Linux a una distribuzione cloud ibrida con Sincronizzazione file di Azure
 
@@ -219,6 +219,6 @@ Per la risoluzione dei problemi Sincronizzazione file di Azure, vedere il colleg
 
 Sono disponibili altre informazioni sulle condivisioni file di Azure e Sincronizzazione file di Azure. Gli articoli seguenti contengono opzioni avanzate, procedure consigliate e guida alla risoluzione dei problemi. Questi articoli sono collegati alla [documentazione di condivisione file di Azure](storage-files-introduction.md) nel modo appropriato.
 
-* [Panoramica di Sincronizzazione file di Azure](https://aka.ms/AFS)
+* [Panoramica di Sincronizzazione file di Azure](./storage-sync-files-planning.md)
 * [Guida alla distribuzione di Sincronizzazione file di Azure](storage-files-deployment-guide.md)
 * [Risoluzione dei problemi di Sincronizzazione file di Azure](storage-sync-files-troubleshoot.md)

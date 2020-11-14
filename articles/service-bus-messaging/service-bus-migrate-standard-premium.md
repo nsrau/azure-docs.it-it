@@ -4,10 +4,10 @@ description: Guida per consentire la migrazione degli spazi dei nomi standard de
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "85340744"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Eseguire la migrazione degli spazi dei nomi standard del bus di servizio di Azure esistenti al livello Premium
@@ -21,7 +21,7 @@ Questo articolo descrive come eseguire la migrazione di spazi dei nomi di livell
 
 Alcuni punti da considerare:
 
-- Questa migrazione è concepita per essere eseguita, pertanto le applicazioni mittente e ricevitore esistenti **non richiedono alcuna modifica al codice o alla configurazione** . La stringa di connessione esistente punterà automaticamente al nuovo spazio dei nomi Premium.
+- Questa migrazione è concepita per essere eseguita, pertanto le applicazioni mittente e ricevitore esistenti **non richiedono alcuna modifica al codice o alla configurazione**. La stringa di connessione esistente punterà automaticamente al nuovo spazio dei nomi Premium.
 - Lo **premium** spazio dei nomi Premium **non** deve contenere entità perché la migrazione abbia esito positivo.
 - Tutte le **entità** nello spazio dei nomi standard vengono **copiate** nello spazio dei nomi Premium durante il processo di migrazione.
 - La migrazione supporta **1.000 entità per ogni unità di messaggistica** nel livello Premium. Per identificare il numero di unità di messaggistica necessarie, iniziare con il numero di entità disponibili nello spazio dei nomi standard corrente.
@@ -89,14 +89,14 @@ Per eseguire la migrazione dello spazio dei nomi standard del bus di servizio a 
 
 La migrazione tramite il portale di Azure ha lo stesso flusso logico della migrazione mediante i comandi. Attenersi alla seguente procedura per eseguire la migrazione tramite il portale di Azure.
 
-1. Nel menu di **spostamento** nel riquadro sinistro selezionare **migrazione a Premium** . Fare clic sul pulsante **Get Started (inizia** ) per passare alla pagina successiva.
+1. Nel menu di **spostamento** nel riquadro sinistro selezionare **migrazione a Premium**. Fare clic sul pulsante **Get Started (inizia** ) per passare alla pagina successiva.
     ![Pagina di destinazione della migrazione][]
 
-1. Completare l' **installazione** .
+1. Completare l' **installazione**.
    ![Spazio dei nomi di installazione][]
    1. Creare e assegnare lo spazio dei nomi premium per la migrazione dello spazio dei nomi standard esistente a.
         ![Spazio dei nomi setup-crea spazio dei nomi Premium][]
-   1. Scegliere un **nome post-migrazione** . Questo nome verrà usato per accedere allo spazio dei nomi standard al termine della migrazione.
+   1. Scegliere un **nome post-migrazione**. Questo nome verrà usato per accedere allo spazio dei nomi standard al termine della migrazione.
         ![Imposta spazio dei nomi-Seleziona post migrazione][]
    1. Selezionare **' avanti '** per continuare.
 1. Sincronizzare le entità tra gli spazi dei nomi standard e Premium.

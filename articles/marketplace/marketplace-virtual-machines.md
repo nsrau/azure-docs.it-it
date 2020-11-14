@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 433875e52e77a8992197b47fe0424cd0b7e9f50c
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129593"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628289"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Come pianificare un'offerta di macchina virtuale
 
@@ -100,7 +100,7 @@ Nell'esempio seguente viene illustrata un'offerta di macchina virtuale in Azure 
 
 È possibile limitare l'individuazione e la distribuzione della macchina virtuale a un set specifico di clienti pubblicando l'immagine e i prezzi come piano privato. I piani privati hanno la possibilità di creare offerte esclusive per i clienti più vicini e offrire software e termini personalizzati. Tali condizioni personalizzate consentono di porre in evidenza numerosi scenari, con offerte contenenti condizioni e prezzi particolari, nonché l'accesso anticipato a versioni software limitate. I piani privati consentono di fornire prezzi o prodotti specifici a un set limitato di clienti.
 
-Per altre informazioni, vedere [piani e prezzi per offerte per Marketplace commerciali](plans-pricing.md) e [offerte private in Azure Marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).
+Per ulteriori informazioni, vedere [piani e prezzi per offerte per Marketplace commerciali](plans-pricing.md) e [offerte private nel Marketplace commerciale Microsoft](private-offers.md).
 
 ## <a name="test-drives"></a>Test drive
 

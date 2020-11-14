@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 7be326e0f01ed6a00244c0f5b9ed6a960b2b6e0b
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "86171857"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilità nelle funzionalità di connettività back-end di Azure: dettagli della configurazione di test
@@ -23,17 +23,17 @@ In questo articolo sono illustrati i dettagli dell'[installazione test][Setup]. 
 
 ## <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Connettività della rete virtuale spoke tramite il peering reti virtuali
 
-La figura seguente mostra i dettagli del peering reti virtuali di Azure per una rete virtuale spoke. Per informazioni su come configurare il peering tra due reti virtuali, vedere [Gestire il peering reti virtuali][VNet-Config]. Se si vuole impostare la rete virtuale spoke in modo che usi i gateway connessi alla rete virtuale dell'hub, selezionare **Usa gateway remoti** .
+La figura seguente mostra i dettagli del peering reti virtuali di Azure per una rete virtuale spoke. Per informazioni su come configurare il peering tra due reti virtuali, vedere [Gestire il peering reti virtuali][VNet-Config]. Se si vuole impostare la rete virtuale spoke in modo che usi i gateway connessi alla rete virtuale dell'hub, selezionare **Usa gateway remoti**.
 
 [![1]][1]
 
-La figura seguente illustra i dettagli del peering reti virtuali per la rete virtuale dell'hub. Se si vuole che l'hub VNet consenta al VNet spoke di usare i gateway dell'hub, selezionare **Consenti transito gateway** .
+La figura seguente illustra i dettagli del peering reti virtuali per la rete virtuale dell'hub. Se si vuole che l'hub VNet consenta al VNet spoke di usare i gateway dell'hub, selezionare **Consenti transito gateway**.
 
 [![2]][2]
 
 ## <a name="branch-vnet-connectivity-by-using-a-site-to-site-vpn"></a>Connettività delle reti virtuali delle filiali tramite VPN da sito a sito
 
-Configurare la connettività VPN da sito a sito tra le reti virtuali dell'hub e delle filiali usando gateway VPN nel gateway VPN di Azure. Per impostazione predefinita, i gateway VPN e i gateway Azure ExpressRoute usano un valore di numero ASN (Autonomous System Number, numero sistema autonomo) **65515** . È possibile modificare il valore ASN nel gateway VPN. Nell'installazione test il valore ASN del gateway VPN della rete virtuale della filiale viene modificato in **65516** per supportare il routing eBGP tra l'hub e le reti virtuali delle filiali.
+Configurare la connettività VPN da sito a sito tra le reti virtuali dell'hub e delle filiali usando gateway VPN nel gateway VPN di Azure. Per impostazione predefinita, i gateway VPN e i gateway Azure ExpressRoute usano un valore di numero ASN (Autonomous System Number, numero sistema autonomo) **65515**. È possibile modificare il valore ASN nel gateway VPN. Nell'installazione test il valore ASN del gateway VPN della rete virtuale della filiale viene modificato in **65516** per supportare il routing eBGP tra l'hub e le reti virtuali delle filiali.
 
 
 [![3]][3]

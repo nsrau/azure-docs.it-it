@@ -4,15 +4,15 @@ description: Questo articolo illustra come distribuire e configurare il firewall
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 08/28/2020
+ms.date: 11/12/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: c720d7c261421ade9dfce01f0b116123dcab1e55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62640aa02c76c13b2c49b2e33aea742f6b8a09e4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89071704"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628350"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Distribuire e configurare il firewall di Azure con Azure PowerShell
 
@@ -27,11 +27,11 @@ Il traffico di rete è sottoposto alle regole del firewall configurate quando si
 
 Per questo articolo, si crea un VNet singolo semplificato con tre subnet per semplificare la distribuzione. Per le distribuzioni di produzione è consigliabile un [modello hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), in cui il firewall si trova nella propria rete virtuale. I server del carico di lavoro si trovano nelle reti virtuali associate all'interno della stessa area con una o più subnet.
 
-* **AzureFirewallSubnet**: in questa subnet si trova il firewall.
-* **Workload-SN**: in questa subnet si trova il server del carico di lavoro. Il traffico di rete di questa subnet passa attraverso il firewall.
-* **Jump-SN**: in questa subnet si trova il jump server. Il jump server ha un indirizzo IP pubblico a cui è possibile connettersi con Desktop remoto. Da qui è quindi possibile connettersi al server del carico di lavoro (tramite un'altra istanza di Desktop remoto).
+* **AzureFirewallSubnet** : in questa subnet si trova il firewall.
+* **Workload-SN** : in questa subnet si trova il server del carico di lavoro. Il traffico di rete di questa subnet passa attraverso il firewall.
+* **AzureBastionSubnet** : la subnet usata per Azure Bastion, che viene usata per la connessione al server del carico di lavoro. Per altre informazioni su Azure Bastion, vedere [che cos'è Azure Bastion?](../bastion/bastion-overview.md)
 
-![Infrastruttura di rete dell'esercitazione](media/tutorial-firewall-rules-portal/Tutorial_network.png)
+![Infrastruttura di rete dell'esercitazione](media/deploy-ps/tutorial-network.png)
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -63,56 +63,55 @@ Il gruppo di risorse contiene tutte le risorse per la distribuzione.
 New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 ```
 
-### <a name="create-a-vnet"></a>Creare una rete virtuale
+### <a name="create-a-virtual-network-and-azure-bastion-host"></a>Creare una rete virtuale e un host di Azure Bastion
 
-Questa rete virtuale presenta tre subnet:
+Questa rete virtuale ha quattro subnet:
 
 > [!NOTE]
 > La dimensione della subnet AzureFirewallSubnet è /26. Per altre informazioni sulle dimensioni delle subnet, vedere le [domande frequenti su Firewall di Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 ```azurepowershell
+$Bastionsub = New-AzVirtualNetworkSubnetConfig -Name AzureBastionSubnet -AddressPrefix 10.0.0.0/27
 $FWsub = New-AzVirtualNetworkSubnetConfig -Name AzureFirewallSubnet -AddressPrefix 10.0.1.0/26
 $Worksub = New-AzVirtualNetworkSubnetConfig -Name Workload-SN -AddressPrefix 10.0.2.0/24
-$Jumpsub = New-AzVirtualNetworkSubnetConfig -Name Jump-SN -AddressPrefix 10.0.3.0/24
 ```
 A questo punto, creare la rete virtuale:
 
 ```azurepowershell
 $testVnet = New-AzVirtualNetwork -Name Test-FW-VN -ResourceGroupName Test-FW-RG `
--Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $FWsub, $Worksub, $Jumpsub
+-Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $Bastionsub, $FWsub, $Worksub
 ```
-
-### <a name="create-virtual-machines"></a>Creare macchine virtuali
-
-Creare ora le macchine virtuali per il jump server e il server del carico di lavoro e posizionarle nelle subnet appropriate.
-Quando richiesto, digitare il nome utente e la password per la macchina virtuale.
-
-Creare la macchina virtuale Srv-Jump.
+### <a name="create-public-ip-address-for-azure-bastion-host"></a>Creare un indirizzo IP pubblico per l'host Azure Bastion
 
 ```azurepowershell
-New-AzVm `
-    -ResourceGroupName Test-FW-RG `
-    -Name "Srv-Jump" `
-    -Location "East US" `
-    -VirtualNetworkName Test-FW-VN `
-    -SubnetName Jump-SN `
-    -OpenPorts 3389 `
-    -Size "Standard_DS2"
+$publicip = New-AzPublicIpAddress -ResourceGroupName Test-FW-RG -Location "East US" `
+   -Name Bastion-pip -AllocationMethod static -Sku standard
 ```
 
-Creare una macchina virtuale del carico di lavoro senza indirizzo IP pubblico.
+### <a name="create-azure-bastion-host"></a>Creare l'host Azure Bastion
+
+```azurepowershell
+New-AzBastion -ResourceGroupName Test-FW-RG -Name Bastion-01 -PublicIpAddress $publicip -VirtualNetwork $testVnet
+```
+### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
+
+A questo punto, creare la macchina virtuale del carico di lavoro e posizionarla nella subnet appropriata.
+Quando richiesto, digitare il nome utente e la password per la macchina virtuale.
+
+
+Creare una macchina virtuale del carico di lavoro.
 Quando richiesto, digitare il nome utente e la password per la macchina virtuale.
 
 ```azurepowershell
 #Create the NIC
-$NIC = New-AzNetworkInterface -Name Srv-work -ResourceGroupName Test-FW-RG `
- -Location "East US" -Subnetid $testVnet.Subnets[1].Id 
+$wsn = Get-AzVirtualNetworkSubnetConfig -Name  Workload-SN -VirtualNetwork $testvnet
+$NIC01 = New-AzNetworkInterface -Name Srv-Work -ResourceGroupName Test-FW-RG -Location "East us" -Subnet $wsn
 
 #Define the virtual machine
 $VirtualMachine = New-AzVMConfig -VMName Srv-Work -VMSize "Standard_DS2"
 $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName Srv-Work -ProvisionVMAgent -EnableAutoUpdate
-$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC.Id
-$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' -Skus '2016-Datacenter' -Version latest
+$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC01.Id
+$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName 'MicrosoftWindowsServer' -Offer 'WindowsServer' -Skus '2019-Datacenter' -Version latest
 
 #Create the virtual machine
 New-AzVM -ResourceGroupName Test-FW-RG -Location "East US" -VM $VirtualMachine -Verbose
@@ -127,7 +126,7 @@ A questo punto, distribuire il firewall nella rete virtuale.
 $FWpip = New-AzPublicIpAddress -Name "fw-pip" -ResourceGroupName Test-FW-RG `
   -Location "East US" -AllocationMethod Static -Sku Standard
 # Create the firewall
-$Azfw = New-AzFirewall -Name Test-FW01 -ResourceGroupName Test-FW-RG -Location "East US" -VirtualNetworkName Test-FW-VN -PublicIpName fw-pip
+$Azfw = New-AzFirewall -Name Test-FW01 -ResourceGroupName Test-FW-RG -Location "East US" -VirtualNetwork $testVnet -PublicIpAddress $FWpip
 
 #Save the firewall private IP address for future use
 
@@ -205,24 +204,20 @@ Set-AzFirewall -AzureFirewall $Azfw
 A scopo di test in questa procedura, configurare gli indirizzi DNS primario e secondario del server. Questo non è un requisito generale di Firewall di Azure.
 
 ```azurepowershell
-$NIC.DnsSettings.DnsServers.Add("209.244.0.3")
-$NIC.DnsSettings.DnsServers.Add("209.244.0.4")
-$NIC | Set-AzNetworkInterface
+$NIC01.DnsSettings.DnsServers.Add("209.244.0.3")
+$NIC01.DnsSettings.DnsServers.Add("209.244.0.4")
+$NIC01 | Set-AzNetworkInterface
 ```
 
 ## <a name="test-the-firewall"></a>Testare il firewall
 
 A questo punto testare il firewall per verificare che funzioni come previsto.
 
-1. Prendere nota dell'indirizzo IP privato per la macchina virtuale **SRV-work** :
+1. Connettersi alla macchina virtuale **SRV-work** usando Bastion ed eseguire l'accesso. 
 
-   ```
-   $NIC.IpConfigurations.PrivateIpAddress
-   ```
+   :::image type="content" source="media/deploy-ps/bastion.png" alt-text="Connettersi usando Bastion.":::
 
-1. Connettere una sessione di Desktop remoto alla macchina virtuale **Srv-Jump** e accedere. Da qui, aprire una connessione Desktop remoto all'indirizzo IP privato **SRV-lavoro** ed effettuare l'accesso.
-
-3. In **SRV-work**aprire una finestra di PowerShell ed eseguire i comandi seguenti:
+3. In **SRV-work** aprire una finestra di PowerShell ed eseguire i comandi seguenti:
 
    ```
    nslookup www.google.com

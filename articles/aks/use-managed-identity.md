@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/17/2020
 ms.author: thomasge
-ms.openlocfilehash: 20e255958cbd90aaddf060e42d7627c1e1ebec88
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f8cb98ea36fdad9a67eca26c6fbea7ede1f811a
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371461"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94627881"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usare identità gestite in Azure Kubernetes Service
 
@@ -27,7 +27,6 @@ Le *identità gestite* sono essenzialmente un wrapper per le entità servizio e 
 ## <a name="limitations"></a>Limitazioni
 
 * I cluster AKS con identità gestite possono essere abilitati solo durante la creazione del cluster.
-* Non è possibile eseguire la migrazione dei cluster AKS esistenti alle identità gestite.
 * Durante le operazioni di **aggiornamento** del cluster, l'identità gestita è temporaneamente non disponibile.
 * Lo spostamento/migrazione dei tenant di cluster abilitati per identità gestite non è supportato.
 * Se il cluster ha `aad-pod-identity` abilitato, i pod di identità gestita del nodo modificano i iptables dei nodi per intercettare le chiamate all'endpoint dei metadati dell'istanza di Azure. Questa configurazione significa che tutte le richieste effettuate all'endpoint dei metadati vengono intercettate da NMI anche se il Pod non lo usa `aad-pod-identity` . AzurePodIdentityException CRD può essere configurato per informare `aad-pod-identity` che qualsiasi richiesta all'endpoint di metadati originata da un pod che corrisponde alle etichette definite in CRD deve essere inoltrata senza alcuna elaborazione in NMI. I pod di sistema con `kubernetes.azure.com/managedby: aks` etichetta nello spazio dei nomi _Kube-System_ devono essere esclusi in `aad-pod-identity` tramite la configurazione di AzurePodIdentityException CRD. Per altre informazioni, vedere [disabilitare AAD-Pod-Identity per un pod o un'applicazione specifica](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
@@ -37,7 +36,7 @@ Le *identità gestite* sono essenzialmente un wrapper per le entità servizio e 
 
 AKS usa diverse identità gestite per i servizi e i componenti aggiuntivi predefiniti.
 
-| Identità                       | Name    | Caso d'uso | Autorizzazioni predefinite | Porta la tua identità
+| Identità                       | Nome    | Caso d'uso | Autorizzazioni predefinite | Porta la tua identità
 |----------------------------|-----------|----------|
 | Piano di controllo | non visibile | Usato da AKS per le risorse di rete gestite, inclusi i bilanciamenti del carico in ingresso e gli indirizzi IP pubblici gestiti da AKS | Ruolo Collaboratore per il gruppo di risorse nodo | Anteprima
 | Kubelet | Nome del cluster AKS-agentpool | Autenticazione con Container Registry di Azure (ACR) | NA (per kubernetes v 1.15 +) | Attualmente non supportato
@@ -106,6 +105,23 @@ Ottenere infine le credenziali per accedere al cluster:
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
+## <a name="update-an-existing-service-principal-based-aks-cluster-to-managed-identities"></a>Aggiornare un cluster AKS basato su un'entità servizio esistente a identità gestite
+
+È ora possibile aggiornare un cluster AKS con identità gestite usando i comandi dell'interfaccia della riga di comando seguenti.
+
+Aggiornare innanzitutto l'identità assegnata dal sistema:
+
+```azurecli-interactive
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity
+```
+
+Aggiornare quindi l'identità assegnata dall'utente:
+
+```azurecli-interactive
+az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
+```
+> [!NOTE]
+> Una volta che l'assegnazione del sistema o le identità assegnate dall'utente sono state aggiornate a identità gestite, eseguire un `az nodepool upgrade --node-image-only` nei nodi per completare l'aggiornamento dell'identità gestita.
 
 ## <a name="bring-your-own-control-plane-mi-preview"></a>Usa il tuo piano di controllo (anteprima)
 Un'identità del piano di controllo personalizzato consente di concedere l'accesso all'identità esistente prima della creazione del cluster. Questo consente scenari come l'uso di un VNET personalizzato o outboundType di UDR con un'identità gestita.

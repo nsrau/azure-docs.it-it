@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/13/2020
 ms.author: jlian
-ms.openlocfilehash: 08ecb766a1a9bd7ff75bf97647be811577212eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9dd66fe9d71f0a857e4b0821190bceb5d6d4680
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006041"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628799"
 ---
 # <a name="tls-support-in-iot-hub"></a>Supporto TLS nell'hub IoT
 
@@ -107,4 +107,4 @@ Usare i collegamenti seguenti per configurare TLS 1.2 e le crittografie consenti
 
 ## <a name="device-authentication"></a>Autenticazione del dispositivo
 
-Al termine di un handshake TLS riuscito, l'hub Internet può autenticare un dispositivo usando una chiave simmetrica o un certificato X. 509. Per l'autenticazione basata su certificati, può trattarsi di qualsiasi certificato X. 509, incluso ECC. L'hub Internet per la convalida del certificato viene convalidato in base all'identificazione personale o all'autorità di certificazione (CA) fornita. L'hub Internet delle cose non supporta ancora l'autenticazione reciproca basata su X. 509 (mTLS). Per altre informazioni, vedere [certificati X. 509 supportati](iot-hub-devguide-security.md#supported-x509-certificates).
+Al termine di un handshake TLS riuscito, l'hub Internet può autenticare un dispositivo usando una chiave simmetrica o un certificato X. 509. Per l'autenticazione basata su certificati, può trattarsi di qualsiasi certificato X. 509, incluso ECC. L'hub Internet per la convalida del certificato viene convalidato in base all'identificazione personale o all'autorità di certificazione (CA) fornita. Per altre informazioni, vedere [certificati X. 509 supportati](iot-hub-devguide-security.md#supported-x509-certificates).

@@ -3,14 +3,14 @@ title: Informazioni di riferimento per sviluppatori JavaScript per funzioni di A
 description: Informazioni su come sviluppare funzioni con JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 11/11/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5b9ffdec83fb613b7df0b5a3227ca66c55e54fe9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 9b920dc8a31967c9d8e1f05a6101fdfcc7a1304e
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422553"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628833"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -508,12 +508,20 @@ La tabella seguente mostra le versioni correnti di Node.js supportate per ogni v
 | Versione di Funzioni | Versione del nodo (Windows) | Versione del nodo (Linux) |
 |---|---| --- |
 | 1.x | 6.11.2 (bloccata dal runtime) | n/d |
-| 2.x  | ~ 8<br/>~ 10 (scelta consigliata)<br/>~ 12<sup>*</sup> | ~ 8 (scelta consigliata)<br/>~ 10  |
-| 3.x | ~ 10<br/>~ 12 (scelta consigliata)  | ~ 10<br/>~ 12 (scelta consigliata) |
+| 2.x  | `~8`<br/>`~10` consigliabile<br/>`~12` | `node|8`<br/>`node|10` consigliabile  |
+| 3.x | `~10`<br/>`~12` consigliabile<br/>`~14` (anteprima)  | `node|10`<br/>`node|12` consigliabile<br/>`node|14` (anteprima) |
 
-<sup>*</sup>Il nodo ~ 12 è attualmente consentito nella versione 2. x del runtime di funzioni. Tuttavia, per ottenere prestazioni ottimali, è consigliabile usare funzioni runtime versione 3. x con node ~ 12. 
+È possibile visualizzare la versione corrente usata dal runtime eseguendo la registrazione `process.version` da qualsiasi funzione.
 
-È possibile visualizzare la versione corrente usata dal runtime controllando l'impostazione dell'app seguente o stampando `process.version` da qualsiasi funzione. Specificare come destinazione la versione in Azure impostando l' [impostazione dell'app](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION su una versione LTS supportata, ad esempio `~10` .
+### <a name="setting-the-node-version"></a>Impostazione della versione del nodo
+
+Per le app per le funzioni di Windows, destinare la versione in Azure impostando l' `WEBSITE_NODE_DEFAULT_VERSION` [impostazione dell'app](functions-how-to-use-azure-function-app-settings.md#settings) su una versione LTS supportata, ad esempio `~12` .
+
+Per le app per le funzioni Linux eseguire il comando dell'interfaccia della riga di comando di Azure seguente per aggiornare la versione del nodo.
+
+```bash
+az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+```
 
 ## <a name="dependency-management"></a>Gestione delle dipendenze
 Per poter usare librerie della community nel codice JavaScript, come mostrato nell'esempio seguente, è necessario assicurarsi che tutte le dipendenze siano installate nell'app per le funzioni in Azure.

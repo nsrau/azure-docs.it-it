@@ -1,19 +1,19 @@
 ---
-title: Creare un account Marketplace commerciale nel centro per i partner
+title: Creare un account Marketplace commerciale nel centro per i partner di Azure Marketplace
 description: Informazioni su come creare un account di Microsoft Commercial Marketplace nel centro per i partner.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/02/2020
 author: parthpandyaMSFT
 ms.author: parthp
 ms.custom: contperfq2
-ms.openlocfilehash: deb64d1c8268268061a8121151c00ccb55902274
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e15937797077e3fa46a12e726a3ce690c3979cbd
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130460"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628782"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Creare un account Marketplace commerciale nel centro per i partner
 
@@ -60,14 +60,14 @@ Il profilo di pubblicazione include il nome della società e l'ID MPN. Se non è
 
 1. Creare un ID editore. L'ID dell'editore identifica in modo univoco la società e le offerte in Azure Marketplace e AppSource.
 
-1. Dopo aver confermato le informazioni sul profilo di pubblicazione, accettare i termini e le condizioni, quindi creare l'account del centro per i partner selezionando **accetta e continua** .
+1. Dopo aver confermato le informazioni sul profilo di pubblicazione, accettare i termini e le condizioni, quindi creare l'account del centro per i partner selezionando **accetta e continua**.
 
     > [!IMPORTANT]
     > Per accettare queste condizioni, è necessario essere autorizzati a agire per conto dell'azienda.
 
-    Al termine della registrazione, verrà usata la pagina panoramica sul Marketplace commerciale. L'account Marketplace commerciale viene visualizzato nel riquadro sinistro. 
-    
-1. Per verificare che l'account Marketplace commerciale sia elencato come registrato, selezionare **Impostazioni**  >  **partner impostazioni**  >  **programmi** .
+    Al termine della registrazione, verrà usata la pagina panoramica sul Marketplace commerciale. L'account Marketplace commerciale viene visualizzato nel riquadro sinistro.
+
+1. Per verificare che l'account Marketplace commerciale sia elencato come registrato, selezionare **Impostazioni** (icona a forma di ingranaggio) nell'angolo superiore destro > programmi per **le impostazioni dello sviluppatore**  >  **Programs**.
 
 A questo punto è stato creato un account Marketplace commerciale nel centro per i partner. Continuare ad [aggiungere nuovi editori al Marketplace commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -91,19 +91,19 @@ Quando si usa l'account Microsoft Partner Network, il dominio dell'account di po
 > Per accedere a Microsoft Partner Network è necessario disporre di un **account amministratore** o di un ruolo di **amministratore globale** .
 
 1. Accedere al centro per i [partner](https://partner.microsoft.com/dashboard/) con l'account Microsoft Partner Network.
-1. Selezionare **Impostazioni**  >  **partner impostazioni**  >  **programmi**  >  **per iniziare** .
+1. Selezionare **Impostazioni**  >  **Developer Settings**  >  **Programs** per  >  **iniziare**.
 
    Microsoft Partner Network rileva la sottoscrizione e visualizza il riquadro del **profilo di pubblicazione** .
-   
+
 1. Immettere il nome e l'ID MPN della società.
 1. Leggere i termini e le condizioni del [Contratto Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560), quindi selezionare **accetta e continua** per completare la registrazione.
 
     > [!IMPORTANT]
     > Per accettare queste condizioni, è necessario essere autorizzati a agire per conto dell'azienda.
 
-    Al termine della registrazione, verrà usata la pagina panoramica sul Marketplace commerciale. L'account Marketplace commerciale viene visualizzato nel riquadro sinistro. 
-    
-1. Per verificare che l'account Marketplace commerciale sia elencato come registrato, selezionare **Impostazioni**  >  **partner impostazioni**  >  **programmi** .
+    Al termine della registrazione, verrà usata la pagina panoramica sul Marketplace commerciale. L'account Marketplace commerciale viene visualizzato nel riquadro sinistro.
+
+1. Per verificare che l'account Marketplace commerciale sia elencato come registrato, selezionare **Impostazioni**  >  **Impostazioni sviluppatore**  >  **programmi**.
 
 A questo punto è stato creato un account Marketplace commerciale nel centro per i partner. Continuare ad [aggiungere nuovi editori al Marketplace commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -112,9 +112,9 @@ A questo punto è stato creato un account Marketplace commerciale nel centro per
 >[!NOTE]
 >Per eseguire la registrazione per il Marketplace commerciale con lo stesso account con cui è stato effettuato l'accesso, è necessario aver eseguito la registrazione in Partner Center con un account aziendale. Se è stata eseguita la registrazione con un singolo account, la registrazione del Marketplace commerciale verrà visualizzata con un nuovo account.
 >
->Gli account singoli sono destinati agli sviluppatori che lavorano autonomamente. Gli account aziendali sono destinati a organizzazioni e aziende. Gli account aziendali consentono di inviare app con funzionalità aggiuntive. 
+>Gli account singoli sono destinati agli sviluppatori che lavorano autonomamente. Gli account aziendali sono destinati a organizzazioni e aziende. Gli account aziendali consentono di inviare app con funzionalità aggiuntive.
 >
-> Per verificare che l'utente sia autorizzato a configurare l'account per l'azienda, è necessaria una verifica aggiuntiva degli account aziendali dopo la registrazione. Questa verifica può richiedere da alcuni giorni a un paio di settimane e spesso include una telefonata all'azienda. Entrambi i tipi di account consentono di inviare app, componenti aggiuntivi e servizi. Per ulteriori informazioni, vedere [tipi di account, località e tariffe](/windows/uwp/publish/account-types-locations-and-fees).
+> Per verificare che l'utente sia autorizzato a configurare l'account per l'azienda, è necessaria una verifica aggiuntiva degli account aziendali dopo la registrazione. Questa verifica può richiedere da alcuni giorni a un paio di settimane e spesso include una telefonata all'azienda. Entrambi i tipi di account consentono di inviare app, componenti aggiuntivi e servizi. Per ulteriori informazioni, vedere [tipi di account, località e tariffe](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
 
 Quando si esegue la registrazione per il programma commerciale Marketplace con lo stesso account del programma per sviluppatori, è possibile visualizzare tutte le registrazioni dei programmi esistenti nel riquadro sinistro del centro per i partner.
 
@@ -126,9 +126,9 @@ Quando si esegue la registrazione per il programma commerciale Marketplace con l
     >[!Important]
     > Per accettare queste condizioni, è necessario essere autorizzati a agire per conto dell'azienda.
 
-    Al termine della registrazione, verrà usata la pagina panoramica sul Marketplace commerciale. L'account Marketplace commerciale viene visualizzato nel riquadro sinistro. 
-    
-1. Per verificare che l'account Marketplace commerciale sia elencato come registrato, selezionare **Impostazioni**  >  **partner impostazioni**  >  **programmi** .
+    Al termine della registrazione, verrà usata la pagina panoramica sul Marketplace commerciale. L'account Marketplace commerciale viene visualizzato nel riquadro sinistro.
+
+1. Per verificare che l'account Marketplace commerciale sia elencato come registrato, selezionare **Impostazioni**  >  **Impostazioni sviluppatore**  >  **programmi**.
 
 A questo punto è stato creato un account Marketplace commerciale nel centro per i partner. Per informazioni sull'aggiunta di editori, continuare ad [aggiungere nuovi editori al Marketplace commerciale](#add-new-publishers-to-the-commercial-marketplace-program).
 
@@ -142,10 +142,10 @@ Il contratto di pubblicazione e le informazioni sul profilo della società passa
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Aggiungere nuovi editori al programma commerciale Marketplace
 
-Un'organizzazione può avere più editori associati a un account Marketplace commerciale. Un utente esistente può aggiungere altri server di pubblicazione dopo aver eseguito l'accesso al centro per i partner selezionando **Impostazioni account**  >  **autori**  >  **Aggiungi server** di pubblicazione.
+Un'organizzazione può avere più editori associati a un account Marketplace commerciale. Un utente esistente può aggiungere altri server di pubblicazione dopo aver eseguito l'accesso al centro per i partner selezionando **Impostazioni**  >  **Developer Settings**  >  **Publisher**  >  **Aggiungi server di pubblicazione**.
 
 >[!NOTE]
->Prima di aggiungere un nuovo server di pubblicazione, rivedere l'elenco dei server di pubblicazione esistenti accedendo al centro per i partner e selezionando **Impostazioni account** di  >  **pubblicazione** .
+>Prima di aggiungere un nuovo server di pubblicazione, rivedere l'elenco dei server di pubblicazione esistenti accedendo al centro per i partner e selezionando **Impostazioni account** di  >  **pubblicazione**.
 
 Per aggiungere un nuovo server di pubblicazione, gli utenti aggiuntivi dello stesso tenant Azure Active Directory possono usare i passaggi seguenti.
 

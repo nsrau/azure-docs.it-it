@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: cherylmc
 ms.openlocfilehash: 92d39b0d39511571701fd092f641cb8ca3ae42c7
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92890149"
 ---
 # <a name="add-additional-s2s-connections-to-a-vnet-azure-portal"></a>Aggiungere altre connessioni S2S a una VNet: portale di Azure
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Portale di Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (classic)](vpn-gateway-multi-site.md) (PowerShell (classico))
 >
 
@@ -41,24 +41,24 @@ Verificare quanto segue:
 
 1. Da un browser, passare al [portale di Azure](https://portal.azure.com) e, se necessario, accedere con l'account Azure.
 1. Selezionare **tutte le risorse** e individuare il **gateway di rete virtuale** dall'elenco di risorse e selezionarlo.
-1. Nella pagina **gateway di rete virtuale** selezionare **connessioni** .
+1. Nella pagina **gateway di rete virtuale** selezionare **connessioni**.
 
    :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connections.png" alt-text="Connessioni gateway VPN":::
-1. Nella pagina **connessioni** selezionare **+ Aggiungi** .
+1. Nella pagina **connessioni** selezionare **+ Aggiungi**.
 1. Verrà visualizzata la pagina **Aggiungi connessione** .
 
-   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/add-connection.png" alt-text="Connessioni gateway VPN":::
+   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/add-connection.png" alt-text="Pagina Aggiungi connessione":::
 1. Nella pagina **Aggiungi connessione** compilare i campi seguenti:
 
    * **Nome** : nome del sito a cui si sta creando la connessione.
-   * **Tipo di connessione:** Selezionare **da sito a sito (IPSec)** .
+   * **Tipo di connessione:** Selezionare **da sito a sito (IPSec)**.
 
 ## <a name="add-a-local-network-gateway"></a><a name="local"></a>Aggiungere un gateway di rete locale
 
 1. Per il campo **gateway di rete locale** selezionare **_Scegli un gateway di rete locale_*_. Verrà visualizzata la pagina _ scegliere il gateway di* rete locale** .
 1. Selezionare **+ Crea nuovo** per aprire la pagina **Crea gateway di rete locale** .
 
-   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/create-local-network-gateway.png" alt-text="Connessioni gateway VPN":::
+   :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/create-local-network-gateway.png" alt-text="Pagina Crea gateway di rete locale":::
 1. Nella pagina **Crea un gateway di rete locale** compilare i campi seguenti:
 
    * **Nome** : nome da assegnare alla risorsa gateway di rete locale.

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 11/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74be3f4218149f0cdb9f107c8aba0be76d8da27e
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 65c8baa101df5e24780e5e68b5a21b86985608a6
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593077"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628119"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Metodi di autenticazione nelle opzioni del telefono Azure Active Directory
 
@@ -56,6 +56,8 @@ Con la verifica tramite telefonata durante la reimpostazione della password self
 
 In caso di problemi con l'autenticazione tramite telefono in Azure AD, esaminare la procedura per la risoluzione dei problemi seguente:
 
+* "Hai raggiunto il limite per le chiamate di verifica" o "Hai raggiunto il limite per i codici di verifica del testo" durante l'accesso
+   * Usare l'app servizio Microsoft Authenticator o il codice di verifica per completare l'autenticazione o riprovare più tardi.
 * ID del chiamante bloccato su un solo dispositivo.
    * Esaminare i numeri bloccati configurati sul dispositivo.
 * Numero di telefono errato o codice internazionale o dell'area errato, oppure confusione tra il numero di telefono personale e il numero di telefono dell'ufficio.

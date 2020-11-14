@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 957e827e621d07ed9b5533a1607f955f05985d9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c271107b85e4903153c29b58aadadd37fb051b76
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004783"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626742"
 ---
 # <a name="use-azure-files-with-linux"></a>Usare File di Azure con Linux
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate nelle distribuzioni Linux usando il [client del kernel SMB](https://wiki.samba.org/index.php/LinuxCIFS). Questo articolo illustra due modi per montare una condivisione file di Azure: su richiesta con il comando `mount` e all'avvio creando una voce in `/etc/fstab`.
@@ -53,7 +53,7 @@ uname -r
     sudo dnf install cifs-utils
     ```
 
-    Nelle versioni precedenti di **Red Hat Enterprise Linux** e **CentOS**usare `yum` Gestione pacchetti:
+    Nelle versioni precedenti di **Red Hat Enterprise Linux** e **CentOS** usare `yum` Gestione pacchetti:
 
     ```bash
     sudo yum install cifs-utils 
@@ -67,9 +67,9 @@ uname -r
 
     In altre distribuzioni usare l'utilità di gestione pacchetti appropriata o [compilare il codice sorgente](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **La versione più recente dell'interfaccia della riga di comando di Azure.** Per altre informazioni su come installare l'interfaccia della riga di comando di Azure, vedere [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) riga di comando di Azure e selezionare il sistema operativo. Se si preferisce usare il modulo Azure PowerShell in PowerShell 6 +, è possibile, tuttavia, le istruzioni riportate di seguito vengono presentate per l'interfaccia della riga di comando di Azure.
+* **La versione più recente dell'interfaccia della riga di comando di Azure.** Per altre informazioni su come installare l'interfaccia della riga di comando di Azure, vedere [installare l'interfaccia della](/cli/azure/install-azure-cli?view=azure-cli-latest) riga di comando di Azure e selezionare il sistema operativo. Se si preferisce usare il modulo Azure PowerShell in PowerShell 6 +, è possibile, tuttavia, le istruzioni riportate di seguito vengono presentate per l'interfaccia della riga di comando di Azure.
 
-* **Assicurarsi che la porta 445 sia aperta**: SMB comunica tramite la porta TCP 445. Verificare che il firewall non blocchi le porte TCP 445 dal computer client.  Sostituire `<your-resource-group>` e `<your-storage-account>` quindi eseguire lo script seguente:
+* **Assicurarsi che la porta 445 sia aperta** : SMB comunica tramite la porta TCP 445. Verificare che il firewall non blocchi le porte TCP 445 dal computer client.  Sostituire `<your-resource-group>` e `<your-storage-account>` quindi eseguire lo script seguente:
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
@@ -99,7 +99,7 @@ Per usare una condivisione file di Azure con la distribuzione Linux, è necessar
 Se lo si desidera, è possibile montare la stessa condivisione file di Azure in più punti di montaggio.
 
 ### <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Montare la condivisione file di Azure su richiesta con `mount`
-1. **Creare una cartella per il punto di montaggio**: sostituire `<your-resource-group>` , `<your-storage-account>` e `<your-file-share>` con le informazioni appropriate per l'ambiente:
+1. **Creare una cartella per il punto di montaggio** : sostituire `<your-resource-group>` , `<your-storage-account>` e `<your-file-share>` con le informazioni appropriate per l'ambiente:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -135,7 +135,7 @@ Se lo si desidera, è possibile montare la stessa condivisione file di Azure in 
 Dopo che la condivisione file di Azure è stata completata, è possibile usare `sudo umount $mntPath` per smontare la condivisione.
 
 ### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Creare un punto di montaggio permanente per la condivisione file di Azure con `/etc/fstab`
-1. **Creare una cartella per il punto di montaggio**: è possibile creare una cartella per un punto di montaggio in un punto qualsiasi dell'file System, ma è la convenzione comune per crearla in/mnt. Ad esempio, il comando seguente crea una nuova directory, sostituisce `<your-resource-group>` , `<your-storage-account>` e `<your-file-share>` con le informazioni appropriate per l'ambiente:
+1. **Creare una cartella per il punto di montaggio** : è possibile creare una cartella per un punto di montaggio in un punto qualsiasi dell'file System, ma è la convenzione comune per crearla in/mnt. Ad esempio, il comando seguente crea una nuova directory, sostituisce `<your-resource-group>` , `<your-storage-account>` e `<your-file-share>` con le informazioni appropriate per l'ambiente:
 
     ```bash
     resourceGroupName="<your-resource-group>"
@@ -174,7 +174,7 @@ Dopo che la condivisione file di Azure è stata completata, è possibile usare `
     sudo chmod 600 $smbCredentialFile
     ```
 
-1. **Usare il comando seguente per aggiungere la riga seguente a `/etc/fstab` **: nell'esempio riportato di seguito, le autorizzazioni per file e cartella di Linux locale sono predefinite 0755, ovvero la lettura, la scrittura e l'esecuzione del proprietario (in base al proprietario Linux del file/directory), la lettura e l'esecuzione per gli utenti nel gruppo proprietario e la lettura e l'esecuzione per altri utenti nel sistema. È possibile utilizzare le `uid` `gid` Opzioni di montaggio e per impostare l'ID utente e l'ID gruppo per il montaggio. È anche possibile usare `dir_mode` e `file_mode` per impostare le autorizzazioni personalizzate nel modo desiderato. Per ulteriori informazioni su come impostare le autorizzazioni, vedere [notazione numerica UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) in Wikipedia.
+1. **Usare il comando seguente per aggiungere la riga seguente a `/etc/fstab`** : nell'esempio riportato di seguito, le autorizzazioni per file e cartella di Linux locale sono predefinite 0755, ovvero la lettura, la scrittura e l'esecuzione del proprietario (in base al proprietario Linux del file/directory), la lettura e l'esecuzione per gli utenti nel gruppo proprietario e la lettura e l'esecuzione per altri utenti nel sistema. È possibile utilizzare le `uid` `gid` Opzioni di montaggio e per impostare l'ID utente e l'ID gruppo per il montaggio. È anche possibile usare `dir_mode` e `file_mode` per impostare le autorizzazioni personalizzate nel modo desiderato. Per ulteriori informazioni su come impostare le autorizzazioni, vedere [notazione numerica UNIX](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) in Wikipedia.
 
     ```bash
     # This command assumes you have logged in with az login
@@ -211,7 +211,7 @@ Dopo che la condivisione file di Azure è stata completata, è possibile usare `
     ```bash
     sudo dnf install autofs
     ```
-    Nelle versioni precedenti di **Red Hat Enterprise Linux** e **CentOS**usare `yum` Gestione pacchetti:
+    Nelle versioni precedenti di **Red Hat Enterprise Linux** e **CentOS** usare `yum` Gestione pacchetti:
     ```bash
     sudo yum install autofs 
     ```
@@ -219,7 +219,7 @@ Dopo che la condivisione file di Azure è stata completata, è possibile usare `
     ```bash
     sudo zypper install autofs
     ```
-2. **Creare un punto di montaggio per le condivisioni**:
+2. **Creare un punto di montaggio per le condivisioni** :
    ```bash
     sudo mkdir /fileshares
     ```
@@ -326,5 +326,5 @@ cat /sys/module/cifs/parameters/disable_legacy_dialects
 Per altre informazioni su File di Azure, vedere i collegamenti seguenti:
 
 * [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
-* [Domande frequenti](../storage-files-faq.md)
+* [Domande frequenti](./storage-files-faq.md)
 * [Risoluzione dei problemi](storage-troubleshoot-linux-file-connection-problems.md)

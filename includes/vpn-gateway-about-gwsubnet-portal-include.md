@@ -9,10 +9,10 @@ ms.date: 09/24/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 92a6fef3305891b47c4dc2e0f0432e1079df5a69
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "71266533"
 ---
 Il gateway di rete virtuale usa una subnet specifica denominata subnet del gateway. La subnet del gateway è inclusa nell'intervallo di indirizzi IP della rete virtuale specificato durante la configurazione della rete virtuale. Contiene gli indirizzi IP usati dai servizi e dalle risorse del gateway di rete virtuale. 

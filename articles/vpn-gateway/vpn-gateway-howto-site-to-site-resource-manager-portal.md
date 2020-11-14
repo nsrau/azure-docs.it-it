@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: b8c12048283cb8cc4220cb325762b272cde4a68f
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92541316"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Creare una connessione da sito a sito nel portale di Azure
@@ -20,7 +20,7 @@ ms.locfileid: "92541316"
 Questo articolo illustra come usare il portale di Azure per creare una connessione gateway VPN da sito a sito dalla rete locale alla rete virtuale. I passaggi di questo articolo sono applicabili al modello di distribuzione Resource Manager. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -47,8 +47,8 @@ Creare una rete virtuale (VNet) usando i valori seguenti:
 * **Nome:** VNet1
 * **Area:** (Stati Uniti) Stati Uniti orientali
 * **Spazio indirizzi IPv4:** 10.1.0.0/16
-* **Nome subnet:** FrontEnd
-* **Spazio indirizzi subnet:** 10.1.0.0/24
+* **Nome della subnet:** FrontEnd
+* **Spazio indirizzi della subnet:** 10.1.0.0/24
 
 [!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
 
@@ -67,17 +67,17 @@ Questo passaggio illustra come creare il gateway di rete virtuale per la rete vi
 Creare un gateway VPN usando i valori seguenti:
 
 * **Nome:** VNet1GW
-* **Area geografica:** Stati Uniti orientali
+* **Area:** Stati Uniti orientali
 * **Tipo di gateway:** VPN
-* **Tipo VPN:** Basato su Route
+* **Tipo di VPN:** basato su route
 * **SKU:** VpnGw1
 * **Generazione:** Generation1
 * **Rete virtuale:** VNet1
 * **Intervallo di indirizzi subnet del gateway:** 10.1.255.0/27
-* **Indirizzo IP pubblico:** Crea nuovo
+* **Indirizzo IP pubblico:** Creare un nuovo gruppo di risorse
 * **Nome indirizzo IP pubblico:** VNet1GWpip
-* **Abilitare la modalità Active-Active:** Disabilitato
-* **Configurare BGP:** Disabilitato
+* **Abilita modalità attiva-attiva:** Disabled
+* **Configura BGP:** Disabled
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 

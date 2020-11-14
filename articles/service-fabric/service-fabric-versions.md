@@ -3,12 +3,12 @@ title: Versioni cluster supportate in Azure Service Fabric
 description: Informazioni sulle versioni del cluster in Azure Service Fabric, incluso un collegamento alle versioni più recenti dal Blog del team di Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 4569b31f990687fb9658d2bf251045e27ecf91a2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d6469ada7fcb46c732cc7fbe081059ef41d89a40
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480957"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94626776"
 ---
 # <a name="supported-service-fabric-versions"></a>Versioni di Service Fabric supportate
 
@@ -50,7 +50,10 @@ Nella tabella seguente sono elencate le versioni di Service Fabric e le date di 
 | 7.1.456.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 marzo 2021 |
 | 7.1.458.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 marzo 2021 |
 | 7.1.459.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 marzo 2021 |
+| 7.1.503.* | 7.0.466.* |Minore o uguale alla versione 4,1 |31 marzo 2021 |
 | 7.2.413.* | 7.0.470.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
+| 7.2.432.* | 7.0.470.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
+| 7.2.433.* | 7.0.470.* |Minore o uguale alla versione 4,2 |Versione corrente, quindi nessuna data di fine |
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
@@ -58,7 +61,7 @@ Nella tabella seguente sono elencati i sistemi operativi supportati per le versi
 
 | Sistema operativo | Versione Service Fabric supportata più recente |
 | --- | --- |
-| R2 per Windows Server 2012 | Tutte le versioni |
+| Windows Server 2012 R2 | Tutte le versioni |
 | Windows Server 2016 | Tutte le versioni |
 | Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |
@@ -126,5 +129,8 @@ Nella tabella seguente sono elencati i nomi delle versioni di Service Fabric e i
 | 7,1 CU3 | 7.1.456.9590 | 7.1.452.1 |
 | 7,1 CU5 | 7.1.458.9590 | 7.1.454.1 |
 | 7,1 CU6 | 7.1.459.9590 | 7.1.455.1 |
+| 7,1 CU8 | 7.1.503.9590 | ND |
 | 7,2 RTO | 7.2.413.9590 | ND |
+| 7,2 CU2 | 7.2.432.9590 | 7.2.431.1 |
+| 7,2 CU3 | 7.2.433.9590 | ND |
 

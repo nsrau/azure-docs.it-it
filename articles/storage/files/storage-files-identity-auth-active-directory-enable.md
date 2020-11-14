@@ -7,16 +7,16 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: bb408c762c33e4d146a2f0ef36f32e525b3859bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dc6433170144635ad05033d110f448cf314179b
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758269"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628850"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Panoramica-autenticazione Active Directory Domain Services locale su SMB per le condivisioni file di Azure
 
-[File di Azure](storage-files-introduction.md)   supporta l'autenticazione basata su identità su Server Message Block (SMB) tramite due tipi di servizi del dominio: Active Directory Domain Services locale (AD DS) e Azure Active Directory Domain Services (Azure AD DS). Si consiglia di esaminare la [sezione come funziona](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) per selezionare il servizio del dominio appropriato per l'autenticazione. Il programma di installazione varia a seconda del servizio del dominio scelto. Queste serie di articoli sono incentrati sull'abilitazione e la configurazione di servizi di dominio Active Directory locali per l'autenticazione con condivisioni file di Azure.
+[File di Azure](storage-files-introduction.md)   supporta l'autenticazione basata su identità su Server Message Block (SMB) tramite due tipi di servizi del dominio: Active Directory Domain Services locale (AD DS) e Azure Active Directory Domain Services (Azure AD DS). Si consiglia di esaminare la [sezione come funziona](./storage-files-active-directory-overview.md#how-it-works) per selezionare il servizio del dominio appropriato per l'autenticazione. Il programma di installazione varia a seconda del servizio del dominio scelto. Queste serie di articoli sono incentrati sull'abilitazione e la configurazione di servizi di dominio Active Directory locali per l'autenticazione con condivisioni file di Azure.
 
 Se non si ha familiarità con le condivisioni file di Azure, è consigliabile leggere la [Guida alla pianificazione](storage-files-planning.md) prima di leggere la serie di articoli riportata di seguito.
 
@@ -24,7 +24,7 @@ Se non si ha familiarità con le condivisioni file di Azure, è consigliabile le
 
 - Le identità di servizi di dominio Active Directory usate per File di Azure autenticazione di servizi di dominio Active Directory locale devono essere sincronizzate con Azure AD. La sincronizzazione dell'hash delle password è facoltativa. 
 - Supporta le condivisioni file di Azure gestite da Sincronizzazione file di Azure.
-- Supporta l'autenticazione Kerberos con Active Directory con crittografia RC4-HMAC e [AES 256](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). La crittografia Kerberos AES 128 non è ancora supportata.
+- Supporta l'autenticazione Kerberos con Active Directory con crittografia RC4-HMAC e [AES 256](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). La crittografia Kerberos AES 128 non è ancora supportata.
 - Supporta Single Sign-On esperienza.
 - Supportato solo nei client che eseguono versioni del sistema operativo più recenti di Windows 7 o Windows Server 2008 R2.
 - Supportato solo per la foresta di Active Directory in cui è registrato l'account di archiviazione. Per impostazione predefinita, è possibile accedere solo alle condivisioni file di Azure con le credenziali di servizi di dominio Active Directory di una singola foresta. Se è necessario accedere alla condivisione file di Azure da una foresta diversa, verificare che sia configurato il trust tra foreste appropriato. per informazioni dettagliate, vedere le [domande frequenti](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) .
@@ -42,11 +42,11 @@ Quando si abilita Active Directory Domain Services per le condivisioni file di A
 
 Prima di abilitare l'autenticazione di servizi di dominio Active Directory per le condivisioni file di Azure, assicurarsi di aver completato i prerequisiti seguenti: 
 
-- Selezionare o creare l' [ambiente di servizi di dominio Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) e [sincronizzarlo con Azure ad](../../active-directory/hybrid/how-to-connect-install-roadmap.md) Azure ad Connect. 
+- Selezionare o creare l' [ambiente di servizi di dominio Active Directory](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) e [sincronizzarlo con Azure ad](../../active-directory/hybrid/how-to-connect-install-roadmap.md) Azure ad Connect. 
 
     È possibile abilitare la funzionalità in un ambiente AD DS locale nuovo o esistente. Le identità usate per l'accesso devono essere sincronizzate con Azure AD. Il tenant Azure AD e la condivisione file a cui si accede devono essere associati alla stessa sottoscrizione.
 
-- Aggiungere un dominio a un computer locale o una macchina virtuale di Azure in servizi di dominio Active Directory locale. Per informazioni su come aggiungere un dominio, vedere [aggiungere un computer a un dominio](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
+- Aggiungere un dominio a un computer locale o una macchina virtuale di Azure in servizi di dominio Active Directory locale. Per informazioni su come aggiungere un dominio, vedere [aggiungere un computer a un dominio](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
 
     Se il computer non è aggiunto a un dominio di servizi di dominio Active Directory, potrebbe essere comunque possibile utilizzare le credenziali di Active Directory per l'autenticazione se il computer ha una visione del controller di dominio di Active Directory.
 
@@ -55,7 +55,7 @@ Prima di abilitare l'autenticazione di servizi di dominio Active Directory per l
     Verificare che l'account di archiviazione che contiene le condivisioni file non sia già configurato per l'autenticazione Azure AD DS. Se per l'account di archiviazione è abilitata l'autenticazione File di Azure Azure AD DS, è necessario disabilitarla prima di cambiare per usare servizi di dominio Active Directory locale. Ciò implica che gli ACL esistenti configurati nell'ambiente Azure AD DS dovranno essere riconfigurati per l'imposizione delle autorizzazioni appropriate.
 
 
-    Se si verificano problemi durante la connessione a File di Azure, vedere [lo strumento per la risoluzione dei problemi pubblicato per file di Azure errori di montaggio in Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Vengono inoltre fornite [indicazioni](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) per aggirare gli scenari in cui la porta 445 è bloccata. 
+    Se si verificano problemi durante la connessione a File di Azure, vedere [lo strumento per la risoluzione dei problemi pubblicato per file di Azure errori di montaggio in Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). Vengono inoltre fornite [indicazioni](./storage-files-faq.md#on-premises-access) per aggirare gli scenari in cui la porta 445 è bloccata. 
 
 
 - Eseguire qualsiasi configurazione di rete pertinente prima di abilitare e configurare l'autenticazione di servizi di dominio Active Directory per le condivisioni file di Azure. Per ulteriori informazioni, vedere [file di Azure considerazioni sulla rete](storage-files-networking-overview.md) .
@@ -66,7 +66,7 @@ File di Azure autenticazione con servizi di dominio Active Directory è disponib
 
 ## <a name="overview"></a>Panoramica
 
-Se si prevede di abilitare tutte le configurazioni di rete nella condivisione file, è consigliabile leggere l'articolo [considerazioni sulla rete](https://docs.microsoft.com/azure/storage/files/storage-files-networking-overview) e completare la configurazione correlata prima di abilitare l'autenticazione di servizi di dominio Active Directory.
+Se si prevede di abilitare tutte le configurazioni di rete nella condivisione file, è consigliabile leggere l'articolo [considerazioni sulla rete](./storage-files-networking-overview.md) e completare la configurazione correlata prima di abilitare l'autenticazione di servizi di dominio Active Directory.
 
 L'abilitazione dell'autenticazione di servizi di dominio Active Directory per le condivisioni file di Azure consente di autenticare le condivisioni file di Azure con le credenziali di servizi di dominio Active Directory locali. Inoltre, consente di gestire meglio le autorizzazioni per consentire un controllo di accesso granulare. Questa operazione richiede la sincronizzazione delle identità da servizi di dominio Active Directory locali a Azure AD con AD Connect. È possibile controllare l'accesso a livello di condivisione con le identità sincronizzate con Azure AD durante la gestione dell'accesso a livello di file/condivisione con le credenziali di servizi di dominio Active Directory locali.
 
@@ -86,7 +86,7 @@ Il diagramma seguente illustra il flusso di lavoro end-to-end per l'abilitazione
 
 ![Diagramma del flusso di lavoro file AD](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
 
-Le identità usate per accedere alle condivisioni file di Azure devono essere sincronizzate con Azure AD per applicare le autorizzazioni per i file a livello di condivisione tramite il modello di [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) . Gli [elenchi DACL di tipo Windows](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) su file/directory trasferiti da file server esistenti verranno conservati e applicati. Questa soluzione offre una facile integrazione con l'ambiente di servizi di dominio Active Directory aziendale. Quando si sostituiscono file server locali con condivisioni file di Azure, gli utenti esistenti possono accedere alle condivisioni file di Azure dai client correnti con un'esperienza Single Sign-On, senza alcuna modifica alle credenziali in uso.  
+Le identità usate per accedere alle condivisioni file di Azure devono essere sincronizzate con Azure AD per applicare le autorizzazioni per i file a livello di condivisione tramite il modello di [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) . Gli [elenchi DACL di tipo Windows](/previous-versions/technet-magazine/cc161041(v=msdn.10)) su file/directory trasferiti da file server esistenti verranno conservati e applicati. Questa soluzione offre una facile integrazione con l'ambiente di servizi di dominio Active Directory aziendale. Quando si sostituiscono file server locali con condivisioni file di Azure, gli utenti esistenti possono accedere alle condivisioni file di Azure dai client correnti con un'esperienza Single Sign-On, senza alcuna modifica alle credenziali in uso.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

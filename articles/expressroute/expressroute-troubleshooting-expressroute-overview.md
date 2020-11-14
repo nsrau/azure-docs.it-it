@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 11/14/2020
 ms.locfileid: "92204640"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifica della connettività di ExpressRoute
@@ -85,7 +85,7 @@ Nel portale di Azure aprire il pannello del circuito ExpressRoute. Nella sezione
 
 Nelle informazioni di base di ExpressRoute *Stato circuito* indica lo stato del circuito sul lato Microsoft. *Stato provider* indica se si tratta di un circuito con *Provisioning eseguito/Senza provisioning* sul lato del provider dei servizi. 
 
-Per consentire il funzionamento di un circuito ExpressRoute, *Stato circuito* deve essere impostato su *Abilitato* e *Stato provider* su *Provisioning eseguito* .
+Per consentire il funzionamento di un circuito ExpressRoute, *Stato circuito* deve essere impostato su *Abilitato* e *Stato provider* su *Provisioning eseguito*.
 
 > [!NOTE]
 > Dopo aver configurato un circuito ExpressRoute, se lo stato del *circuito* è inattivo, contattare [supporto tecnico Microsoft][Support]. D'altra parte, se lo stato del *provider* viene raggiunto senza provisioning, contattare il provider di servizi.
