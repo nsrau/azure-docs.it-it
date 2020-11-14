@@ -45,7 +45,7 @@
     - name: 13 - Monitorare le VM
       href: tutorial-monitor.md
     - name: 14 - Gestire la sicurezza delle VM
-      href: tutorial-azure-security.md
+      href: ../tutorial-azure-security.md
     - name: 15a - Compilare con Jenkins
       href: /azure/developer/jenkins/pipeline-with-github-and-docker
     - name: 15b - Integrare Jenkins con Azure DevOps
@@ -687,7 +687,15 @@
         - name: Sincronizzazione dell'ora
           href: time-sync.md
         - name: Assegnare un tag a una VM
-          href: tag.md
+          items:
+            - name: CLI
+              href: ../tag-cli.md
+            - name: Portale
+              href: ../tag-portal.md
+            - name: PowerShell
+              href: ../tag-powershell.md
+            - name: Modello
+              href: ../tag-template.md
         - name: Eseguire script in una macchina virtuale
           href: run-scripts-in-vm.md
           items:
@@ -951,7 +959,7 @@
           href: /azure/architecture/topics/high-performance-computing/
         - name: IBM Db2 pureScale
           items:
-            - name: Architecture
+            - name: Architettura
               href: ibm-db2-purescale-azure.md
             - name: Distribuzione
               href: deploy-ibm-db2-purescale-azure.md

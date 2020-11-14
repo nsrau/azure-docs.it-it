@@ -36,6 +36,10 @@
       href: front-door-quickstart-template-samples.md
 - name: Concetti
   items:
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
     - name: Back-end e pool back-end
       href: front-door-backend-pool.md
     - name: Memorizzazione nella cache con Frontdoor
