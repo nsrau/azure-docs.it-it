@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: 4bad3227e08c0fbe0d280967e45bbef9d477e1b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d4b968d0d5e091d72cf718d58b11ade68ddf8c6
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569136"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637089"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Correzione delle raccomandazioni nel Centro sicurezza di Azure
 
@@ -38,9 +38,16 @@ Dopo aver esaminato tutte le raccomandazioni, decidere quale risolvere prima di 
 
 ## <a name="quick-fix-remediation"></a>Correzione rapida<a name="one-click"></a>
 
-La correzione rapida consente di correggere rapidamente una raccomandazione su più risorse. È disponibile solo per raccomandazioni specifiche. La correzione rapida semplifica la correzione e consente di aumentare rapidamente il Punteggio sicuro, migliorando la sicurezza dell'ambiente.
+La correzione rapida semplifica la correzione e consente di aumentare rapidamente il Punteggio sicuro, migliorando la sicurezza dell'ambiente.
 
-Per implementare il monitoraggio e l'aggiornamento della correzione rapida:
+La correzione rapida consente di correggere rapidamente una raccomandazione su più risorse. 
+
+> [!TIP]
+> La correzione rapida è disponibile solo per raccomandazioni specifiche. Per trovare le raccomandazioni con l'opzione correzione rapida, usare il filtro dedicato nella parte superiore dell'elenco di raccomandazioni:
+> 
+> :::image type="content" source="media/security-center-remediate-recommendations/quick-fix-filter.png" alt-text="Usare i filtri sopra l'elenco di indicazioni per trovare raccomandazioni con l'opzione correzione rapida":::
+
+Per implementare una correzione rapida per la correzione:
 
 1. Dall'elenco di raccomandazioni con la **correzione rapida.** etichetta, fare clic sull'indicazione.
 
@@ -56,7 +63,7 @@ Per implementare il monitoraggio e l'aggiornamento della correzione rapida:
     ![Correzione rapida](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
 
     > [!NOTE]
-    > Le implicazioni sono elencate nella casella grigio della finestra Correggi **risorse** che viene visualizzata dopo aver **fatto clic su**Correggi. Elencano le modifiche che si verificano quando si procede con la correzione rapida.
+    > Le implicazioni sono elencate nella casella grigio della finestra Correggi **risorse** che viene visualizzata dopo aver **fatto clic su** Correggi. Elencano le modifiche che si verificano quando si procede con la correzione rapida.
 
 1. Inserire i parametri rilevanti, se necessario, e approvare la correzione.
 

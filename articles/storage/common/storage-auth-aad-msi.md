@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 16ac28e46e9231918f433c0e9eb077cb0d8cf230
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 21b563bf383dce486de86bc51913feac7863d8e1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791172"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635161"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizzare l'accesso ai dati BLOB e di Accodamento con le identità gestite per le risorse di Azure
 
@@ -94,7 +94,7 @@ Il `az ad sp create-for-rbac` comando restituisce un elenco di proprietà dell'e
 
 La libreria client di identità di Azure legge i valori da tre variabili di ambiente in fase di esecuzione per autenticare l'entità servizio. Nella tabella seguente viene descritto il valore da impostare per ogni variabile di ambiente.
 
-|Variabile di ambiente|valore
+|Variabile di ambiente|Valore
 |-|-
 |`AZURE_CLIENT_ID`|ID app per l'entità servizio
 |`AZURE_TENANT_ID`|ID tenant Azure AD dell'entità servizio
@@ -165,4 +165,4 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 - [Gestire i diritti di accesso ai dati di archiviazione con RBAC di Azure](./storage-auth-aad-rbac-portal.md).
 - [Usare Azure ad con le applicazioni di archiviazione](storage-auth-aad-app.md).
-- [Eseguire comandi di PowerShell con Azure AD credenziali per accedere ai dati BLOB](../blobs/authorize-active-directory-powershell.md)
+- [Eseguire comandi di PowerShell con Azure AD credenziali per accedere ai dati BLOB](../blobs/authorize-data-operations-powershell.md)

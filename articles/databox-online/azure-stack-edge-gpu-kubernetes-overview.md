@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 089476980ff3e8b2d3b72cb2d229934cf7850c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f67a36ac4ccb27d7b955158b7e4a9cf4f5185d0
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899257"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636919"
 ---
 # <a name="kubernetes-on-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes sul dispositivo GPU Pro Azure Stack Edge
 
@@ -67,7 +67,7 @@ Quando le nuove versioni di Kubernetes diventano disponibili, è possibile aggio
 
 ## <a name="access-monitoring"></a>Accesso, monitoraggio
 
-Il cluster Kubernetes nel dispositivo Azure Stack Edge Pro consente il controllo degli accessi in base al ruolo (RBAC). Per altre informazioni, vedere [controllo degli accessi in base al ruolo per il cluster Kubernetes nel dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-kubernetes-rbac.md).
+Il cluster Kubernetes nel dispositivo Azure Stack Edge Pro consente il controllo degli accessi in base al ruolo Kubernetes (Kubernetes RBAC). Per altre informazioni, vedere [controllo degli accessi in base al ruolo Kubernetes sul dispositivo GPU Pro Azure stack Edge](azure-stack-edge-gpu-kubernetes-rbac.md).
 
 È anche possibile monitorare l'integrità del cluster e delle risorse tramite il dashboard di Kubernetes. Sono disponibili anche i log del contenitore. Per altre informazioni, vedere [usare il dashboard di Kubernetes per monitorare l'integrità del cluster Kubernetes sul dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
 

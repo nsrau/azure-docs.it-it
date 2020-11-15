@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fccbb84647ae9e47afc7bb36eeca97bb41a0d1d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73318d1ee14894f5d22f7c4d2e61418e3b1038c1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604071"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636878"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -37,7 +37,12 @@ Download| [Scaricare Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=6
 >[!NOTE]
 >Il rilascio di una nuova versione di Azure AD Connect è un processo che richiede diversi passaggi di controllo della qualità per garantire la funzionalità operativa del servizio e, durante questo processo, il numero di una nuova versione e lo stato della versione verranno aggiornati in modo da riflettere lo stato più recente.
 Durante questo processo, il numero della versione verrà visualizzato con una "X" nella posizione del numero di versione secondario, come in "1.3.X.0", che indica che le note sulla versione di questo documento sono valide per tutte le versioni che iniziano con "1.3". Non appena è stato completato il processo di rilascio, il numero di versione di rilascio verrà aggiornato alla versione rilasciata più di recente e lo stato della versione verrà aggiornato a "Rilasciato per il download e l'aggiornamento automatico".
-Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornamento automatico. Lo stato della versione indicherà se una versione sarà disponibile per l'aggiornamento automatico o solo per il download. Se l'aggiornamento automatico è stato abilitato nel server di Azure AD Connect, tale server eseguirà automaticamente l'aggiornamento per la versione più recente di Azure AD Connect, rilasciata per l'aggiornamento automatico. Si noti che non tutte le configurazioni di Azure AD Connect sono idonee per l'aggiornamento automatico. Seguire questo collegamento per altre informazioni sull'[aggiornamento automatico](how-to-connect-install-automatic-upgrade.md)
+Non tutte le versioni di Azure AD Connect saranno disponibili per l'aggiornamento automatico. Lo stato della versione indicherà se una versione sarà disponibile per l'aggiornamento automatico o solo per il download. Se l'aggiornamento automatico è stato abilitato nel server di Azure AD Connect, tale server eseguirà automaticamente l'aggiornamento per la versione più recente di Azure AD Connect, rilasciata per l'aggiornamento automatico. Si noti che non tutte le configurazioni di Azure AD Connect sono idonee per l'aggiornamento automatico. 
+
+Per chiarire l'uso dell'aggiornamento automatico, il suo scopo è quello di eseguire il push di tutti gli aggiornamenti importanti e correzioni critiche. Questa non è necessariamente la versione più recente perché non tutte le versioni richiedono o includono una correzione per un problema di sicurezza critico (solo un esempio di molti). Un problema analogo a quello che verrebbe risolto con una nuova versione fornita tramite l'aggiornamento automatico. Se non si verificano problemi di questo tipo, non è stato eseguito il push degli aggiornamenti tramite l'aggiornamento automatico e, in generale, se si usa la versione di aggiornamento automatico più recente, si dovrebbe essere corretti.
+Tuttavia, se si desiderano tutte le funzionalità e gli aggiornamenti più recenti, il modo migliore per verificare se è presente questa pagina e installarli in base alle esigenze. 
+
+Seguire questo collegamento per altre informazioni sull'[aggiornamento automatico](how-to-connect-install-automatic-upgrade.md)
 
 >[!IMPORTANT]
 > A partire dal 1° novembre 2020, verrà avviata l'implementazione di un processo di deprecazione, in base al quale le versioni di Azure AD Connect rilasciate più di 18 mesi prima saranno deprecate. Da quel momento inizieremo questo processo deprecando tutte le versioni di Azure AD Connect con la versione 1.3.20.0 (rilasciata il 24/4/2019) e versioni precedenti e procederemo alla valutazione della deprecazione delle versioni precedenti di Azure AD Connect ogni volta che viene rilasciata una nuova versione.

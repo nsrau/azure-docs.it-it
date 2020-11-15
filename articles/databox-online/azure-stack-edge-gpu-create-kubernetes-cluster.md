@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: cb783e5da7364f38944ce31ce49a6a6529658fe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f6d2b126cd9a0acbbbdb8d17ce7345bbf17b556
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903216"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635909"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Connettersi a un cluster Kubernetes e gestirlo tramite kubectl nel dispositivo GPU Pro Azure Stack Edge
 
@@ -44,7 +44,7 @@ Dopo aver creato il cluster Kubernetes, è possibile accedere a questo cluster p
 [!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 
-## <a name="configure-cluster-access-via-rbac"></a>Configurare l'accesso al cluster tramite RBAC
+## <a name="configure-cluster-access-via-kubernetes-rbac"></a>Configurare l'accesso al cluster tramite Kubernetes RBAC
 
 Dopo aver creato il cluster Kubernetes, è possibile usare *kubectl* tramite cmdline per accedere al cluster. 
 
@@ -125,7 +125,7 @@ In questo approccio vengono creati uno spazio dei nomi e un utente. Quindi si as
     Ad esempio, se il nodo master Kubernetes esegue v 1.15.2, installare v 1.15.2 nel client.
 
     > [!IMPORTANT]
-    > Scaricare un client in cui non è presente più di una versione secondaria dal master. La versione del client, ma può condurre il master fino a una versione secondaria. Ad esempio, un Master v 1.3 dovrebbe funzionare con i nodi v 1.1, v 1.2 e v 1.3 e dovrebbe funzionare con i client v 1.2, v 1.3 e v 1.4. Per altre informazioni sulla versione del client Kubernetes, vedere [criteri di supporto per versione e sfasamento](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew)della versione di Kubernetes. Per ulteriori informazioni sulla versione del server Kubernetes in Azure Stack Edge Pro, vedere la pagina relativa alla versione del server Kubernetes.<!-- insert link-->
+    > Scaricare un client che abbia al massimo una versione in meno rispetto al master. La versione del client, ma può condurre il master fino a una versione secondaria. Ad esempio, un Master v 1.3 dovrebbe funzionare con i nodi v 1.1, v 1.2 e v 1.3 e dovrebbe funzionare con i client v 1.2, v 1.3 e v 1.4. Per altre informazioni sulla versione del client Kubernetes, vedere [criteri di supporto per versione e sfasamento](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew)della versione di Kubernetes. Per ulteriori informazioni sulla versione del server Kubernetes in Azure Stack Edge Pro, vedere la pagina relativa alla versione del server Kubernetes.<!-- insert link-->
     > In alcuni casi, `kubectl` è preinstallato nel sistema se si esegue Docker per Windows o altri strumenti. È importante scaricare la versione specifica di `kubectl` come indicato in questa sezione per usare questo cluster kubernetes. 
 
     L'installazione richiede alcuni minuti.

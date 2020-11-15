@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 6b082801a89450e34056be8be88a96fe26b7eeec
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: bed76a6f3a17332f9a1e411ff1d4efb52703f3e1
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578820"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636470"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di Funzioni di Azure
 
@@ -97,8 +97,8 @@ Quando si crea un'app per le funzioni, è necessario creare o collegare un accou
 1. Creare o configurare un account di archiviazione diverso.  Si tratta dell'account di archiviazione protetto con gli endpoint di servizio e della connessione alla funzione.
 1. [Creare una condivisione file](../storage/files/storage-how-to-create-file-share.md#create-file-share) nell'account di archiviazione protetto.
 1. Abilitare gli endpoint servizio o l'endpoint privato per l'account di archiviazione.  
-    * Assicurarsi di abilitare la subnet dedicata alle app per le funzioni se si usa un endpoint del servizio.
-    * Assicurarsi di creare un record DNS e configurare l'app in modo che [funzioni con gli endpoint dell'endpoint privato](#azure-dns-private-zones) se si usa un endpoint privato.  L'account di archiviazione richiede un endpoint privato per le `file` `blob` sottorisorse e.  Se si usano determinate funzionalità come Durable Functions, sarà necessario `queue` e `table` accessibili anche tramite una connessione all'endpoint privato.
+    * Se si usano connessioni a endpoint privati, per l'account di archiviazione è necessario un endpoint privato per le `file` `blob` sottorisorse e.  Se si usano determinate funzionalità come Durable Functions, sarà necessario `queue` e `table` accessibili anche tramite una connessione all'endpoint privato.
+    * Se si usano gli endpoint del servizio, abilitare la subnet dedicata alle app per le funzioni per gli account di archiviazione.
 1. Opzionale Copiare il contenuto del file e del BLOB dall'account di archiviazione dell'app per le funzioni nell'account di archiviazione e nella condivisione file protetti.
 1. Copiare la stringa di connessione per questo account di archiviazione.
 1. Aggiornare le **impostazioni dell'applicazione** in **configurazione** per l'app per le funzioni come riportato di seguito:
@@ -106,6 +106,9 @@ Quando si crea un'app per le funzioni, è necessario creare o collegare un accou
     - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` alla stringa di connessione per l'account di archiviazione protetto.
     - `WEBSITE_CONTENTSHARE` al nome della condivisione file creata nell'account di archiviazione protetto.
     - Creare una nuova impostazione con il nome `WEBSITE_CONTENTOVERVNET` e il valore di `1` .
+    - Se l'account di archiviazione usa connessioni a endpoint privati, verificare o aggiungere le impostazioni seguenti
+        - `WEBSITE_VNET_ROUTE_ALL` con un valore di `1` .
+        - `WEBSITE_DNS_SERVER` con un valore di `168.63.129.16` 
 1. Salvare le impostazioni dell'applicazione.  
 
 L'app per le funzioni verrà riavviata e verrà ora connessa a un account di archiviazione protetto.

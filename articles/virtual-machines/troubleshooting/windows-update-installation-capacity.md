@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 596303223554589ef26938486ccfd2281ccd46f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83a1820eb931fa075681da7a9661b304059cd2a
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999106"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635706"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Risolvere i problemi di avvio del sistema operativo: capacità per l'installazione di Windows Update
 
@@ -62,8 +62,6 @@ Per risolvere il problema:
 
 1. Controllare se il disco è pieno. Se le dimensioni del disco sono inferiori a 1 TB, espanderle fino a un massimo di 1 TB [usando PowerShell](../windows/expand-os-disk.md).
 1. Se il disco è già 1 TB, sarà necessario eseguire una pulizia del disco.
-   1. Scollegare il disco dati [dalla macchina virtuale rotta](../windows/detach-disk.md).
-   1. Collegare il disco dati [a una macchina virtuale funzionante](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
    1. Usare lo [strumento di pulitura disco](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) per liberare spazio.
 1. Una volta completate le operazioni di ridimensionamento e pulitura, deframmentare l'unità usando il comando seguente:
 
@@ -75,12 +73,12 @@ A seconda del livello di frammentazione, la deframmentazione potrebbe richiedere
 
 ### <a name="enable-the-serial-console-and-memory-dump-collection"></a>Abilitare la console seriale e la raccolta di dump della memoria
 
-**Consigliato**: Prima di ricreare la macchina virtuale, abilitare la console seriale e la raccolta di dump della memoria eseguendo lo script seguente:
+**Consigliato** : Prima di ricreare la macchina virtuale, abilitare la console seriale e la raccolta di dump della memoria eseguendo lo script seguente:
 
 1. Aprire una sessione del prompt dei comandi con privilegi elevati come amministratore.
 1. Eseguire i comandi seguenti:
 
-   **Abilitare la console seriale**:
+   **Abilitare la console seriale** :
    
    ```
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
@@ -99,7 +97,7 @@ A seconda del livello di frammentazione, la deframmentazione potrebbe richiedere
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM 
    ```
    
-   **Abilitare su ControlSet001**:
+   **Abilitare su ControlSet001** :
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -107,7 +105,7 @@ A seconda del livello di frammentazione, la deframmentazione potrebbe richiedere
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
    ```
    
-   **Abilitare su ControlSet002**:
+   **Abilitare su ControlSet002** :
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -115,7 +113,7 @@ A seconda del livello di frammentazione, la deframmentazione potrebbe richiedere
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
    ```
    
-   **Scaricare disco del sistema operativo non funzionante**:
+   **Scaricare disco del sistema operativo non funzionante** :
 
    ```
    REG UNLOAD HKLM\BROKENSYSTEM

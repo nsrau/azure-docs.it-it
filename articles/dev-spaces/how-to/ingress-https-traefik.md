@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: Informazioni su come configurare Azure Dev Spaces per l'uso di un controller di ingresso traefik personalizzato e configurare HTTPS usando il controller di ingresso
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: fb45c310d306813dc10b667db6ce36048eccf217
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2dcb549078f1f0f5f7168960864d564fd0c169fc
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746125"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636827"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Usare un controller di ingresso traefik personalizzato e configurare HTTPS
 
@@ -53,7 +53,7 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 Creare uno spazio dei nomi Kubernetes per il controller di ingresso traefik e installarlo usando `helm` .
 
 > [!NOTE]
-> Se nel cluster AKS non è abilitato il controllo degli accessi in base al ruolo, rimuovere il parametro *--set RBAC. Enabled = true* .
+> Se nel cluster AKS non è abilitato il controllo degli accessi in base al ruolo Kubernetes, rimuovere il parametro *--set RBAC. Enabled = true* .
 
 ```console
 kubectl create ns traefik
@@ -102,8 +102,8 @@ cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
 Aprire [values. YAML][values-yaml] ed effettuare gli aggiornamenti seguenti:
-* Sostituire tutte le istanze di *<REPLACE_ME_WITH_HOST_SUFFIX>* con *traefik. MY_CUSTOM_DOMAIN* utilizzo del dominio per *MY_CUSTOM_DOMAIN* . 
-* Sostituire *kubernetes.io/ingress.Class: traefik-azds # dev Spaces-specifico* con *kubernetes.io/ingress.Class: traefik # in ingresso personalizzato* . 
+* Sostituire tutte le istanze di *<REPLACE_ME_WITH_HOST_SUFFIX>* con *traefik. MY_CUSTOM_DOMAIN* utilizzo del dominio per *MY_CUSTOM_DOMAIN*. 
+* Sostituire *kubernetes.io/ingress.Class: traefik-azds # dev Spaces-specifico* con *kubernetes.io/ingress.Class: traefik # in ingresso personalizzato*. 
 
 Di seguito è riportato un esempio di un `values.yaml` file aggiornato:
 
@@ -212,7 +212,7 @@ spec:
 ```
 
 > [!NOTE]
-> Per i test, è disponibile anche un [server di gestione temporanea][letsencrypt-staging-issuer] che è possibile usare per la *ClusterIssuer* .
+> Per i test, è disponibile anche un [server di gestione temporanea][letsencrypt-staging-issuer] che è possibile usare per la *ClusterIssuer*.
 
 Usare `kubectl` per applicare `letsencrypt-clusterissuer.yaml` .
 
@@ -223,7 +223,7 @@ kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 Rimuovere i *traefik* *ClusterRole* e *ClusterRoleBinding* precedenti, quindi aggiornare traefik per usare HTTPS usando `helm` .
 
 > [!NOTE]
-> Se nel cluster AKS non è abilitato il controllo degli accessi in base al ruolo, rimuovere il parametro *--set RBAC. Enabled = true* .
+> Se nel cluster AKS non è abilitato il controllo degli accessi in base al ruolo Kubernetes, rimuovere il parametro *--set RBAC. Enabled = true* .
 
 ```console
 kubectl delete ClusterRole traefik
@@ -262,7 +262,7 @@ az network dns record-set a remove-record \
     --ipv4-address PREVIOUS_EXTERNAL_IP
 ```
 
-L'esempio precedente aggiorna il record *a* nella zona DNS *MY_CUSTOM_DOMAIN* per usare *PREVIOUS_EXTERNAL_IP* .
+L'esempio precedente aggiorna il record *a* nella zona DNS *MY_CUSTOM_DOMAIN* per usare *PREVIOUS_EXTERNAL_IP*.
 
 Aggiornare [values. YAML][values-yaml] per includere i dettagli relativi all'uso di *Cert-Manager* e HTTPS. Di seguito è riportato un esempio di un `values.yaml` file aggiornato:
 
@@ -312,7 +312,7 @@ Si noti inoltre che la pagina viene caricata, ma il browser mostra alcuni errori
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
 ```
 
-Per correggere l'errore, aggiornare [BikeSharingWeb/azds. YAML][azds-yaml] per usare *traefik* per *kubernetes.io/ingress.Class* e il dominio personalizzato per *$ (hostSuffix)* . Ad esempio:
+Per correggere l'errore, aggiornare [BikeSharingWeb/azds. YAML][azds-yaml] per usare *traefik* per *kubernetes.io/ingress.Class* e il dominio personalizzato per *$ (hostSuffix)*. Ad esempio:
 
 ```yaml
 ...

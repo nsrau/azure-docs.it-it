@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 7128a11ae9d5c9844353404309f8ad40cba53972
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9d03496634c5d30d30b23a76b5b47b1e810af288
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787585"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635399"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorizzare l'accesso a BLOB e code usando Azure Active Directory
 
@@ -75,15 +75,15 @@ L'accesso ai dati di BLOB o di accodamento tramite l'portale di Azure, PowerShel
 
 Il portale di Azure può usare l'account Azure AD o le chiavi di accesso dell'account per accedere ai dati BLOB e di Accodamento in un account di archiviazione di Azure. Quale schema di autorizzazione Usa il portale di Azure dipende dai ruoli di Azure assegnati all'utente.
 
-Quando si tenta di accedere ai dati di BLOB o di Accodamento, il portale di Azure controlla prima di tutto se è stato assegnato un ruolo di Azure con **Microsoft. storage/storageAccounts/listkeys/Action** . Se è stato assegnato un ruolo con questa azione, il portale di Azure usa la chiave dell'account per accedere ai dati BLOB e di accodamento tramite l'autorizzazione della chiave condivisa. Se a questa azione non è stato assegnato un ruolo, il portale di Azure tenta di accedere ai dati usando l'account Azure AD.
+Quando si tenta di accedere ai dati di BLOB o di Accodamento, il portale di Azure controlla prima di tutto se è stato assegnato un ruolo di Azure con **Microsoft. storage/storageAccounts/listkeys/Action**. Se è stato assegnato un ruolo con questa azione, il portale di Azure usa la chiave dell'account per accedere ai dati BLOB e di accodamento tramite l'autorizzazione della chiave condivisa. Se a questa azione non è stato assegnato un ruolo, il portale di Azure tenta di accedere ai dati usando l'account Azure AD.
 
 Per accedere ai dati BLOB o della coda dalla portale di Azure usando l'account Azure AD, è necessario disporre delle autorizzazioni per accedere ai dati BLOB e di Accodamento e sono necessarie anche le autorizzazioni per spostarsi tra le risorse dell'account di archiviazione nel portale di Azure. I ruoli predefiniti forniti dall'archiviazione di Azure concedono l'accesso alle risorse BLOB e di Accodamento, ma non concedono le autorizzazioni per le risorse dell'account di archiviazione. Per questo motivo, l'accesso al portale richiede anche l'assegnazione di un ruolo Azure Resource Manager, ad esempio il ruolo [Reader](../../role-based-access-control/built-in-roles.md#reader) , limitato al livello dell'account di archiviazione o superiore. Il ruolo **Reader** concede le autorizzazioni più limitate, ma è accettabile anche un altro Azure Resource Manager ruolo che concede l'accesso alle risorse di gestione degli account di archiviazione. Per altre informazioni su come assegnare le autorizzazioni agli utenti per l'accesso ai dati nel portale di Azure con un account di Azure AD, vedere [usare la portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati di BLOB e di Accodamento](storage-auth-aad-rbac-portal.md).
 
-Il portale di Azure indica quale schema di autorizzazione è in uso quando si passa a un contenitore o a una coda. Per ulteriori informazioni sull'accesso ai dati nel portale, vedere [scegliere come autorizzare l'accesso ai dati BLOB nel portale di Azure](../blobs/authorize-blob-access-portal.md) e [scegliere come autorizzare l'accesso ai dati della coda nel portale di Azure](../queues/authorize-queue-access-portal.md).
+Il portale di Azure indica quale schema di autorizzazione è in uso quando si passa a un contenitore o a una coda. Per ulteriori informazioni sull'accesso ai dati nel portale, vedere [scegliere come autorizzare l'accesso ai dati BLOB nel portale di Azure](../blobs/authorize-data-operations-portal.md) e [scegliere come autorizzare l'accesso ai dati della coda nel portale di Azure](../queues/authorize-data-operations-portal.md).
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>Accesso ai dati da PowerShell o dall'interfaccia della riga di comando
 
-L'interfaccia della riga di comando di Azure e PowerShell supportano l'accesso con le credenziali Azure AD. Dopo l'accesso, la sessione viene eseguita con tali credenziali. Per altre informazioni, vedere [eseguire l'interfaccia della riga di comando di Azure o i comandi di PowerShell con Azure ad credenziali per accedere ai dati BLOB o della coda](../blobs/authorize-active-directory-powershell.md).
+L'interfaccia della riga di comando di Azure e PowerShell supportano l'accesso con le credenziali Azure AD. Dopo l'accesso, la sessione viene eseguita con tali credenziali. Per altre informazioni, vedere [eseguire l'interfaccia della riga di comando di Azure o i comandi di PowerShell con Azure ad credenziali per accedere ai dati BLOB o della coda](../blobs/authorize-data-operations-powershell.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

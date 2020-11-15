@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 7679c613c4804f7df315918ee5d6946c07eb8b4f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 49a89228afd3b46f38afafb8ff16bc63a40dd35b
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787738"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635212"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedisci l'autorizzazione della chiave condivisa per un account di archiviazione di Azure (anteprima)
 
@@ -47,12 +47,12 @@ Per tenere traccia del modo in cui vengono autorizzate le richieste a un account
 
 Seguire questa procedura per creare una metrica per tenere traccia delle richieste effettuate con la chiave condivisa o la firma di accesso condiviso:
 
-1. Passare all'account di archiviazione nel portale di Azure. Nella sezione **monitoraggio** selezionare **metriche** .
-1. Selezionare **Aggiungi metrica** . Nella finestra di dialogo **metrica** specificare i valori seguenti:
+1. Passare all'account di archiviazione nel portale di Azure. Nella sezione **monitoraggio** selezionare **metriche**.
+1. Selezionare **Aggiungi metrica**. Nella finestra di dialogo **metrica** specificare i valori seguenti:
     1. Lasciare il campo **ambito** impostato sul nome dell'account di archiviazione.
-    1. Impostare lo **spazio dei nomi della metrica** su *account* . Questa metrica segnalerà tutte le richieste nell'account di archiviazione.
-    1. Impostare il campo **metrica** su *transazioni* .
-    1. Impostare il campo di **aggregazione** su *Sum* .
+    1. Impostare lo **spazio dei nomi della metrica** su *account*. Questa metrica segnalerà tutte le richieste nell'account di archiviazione.
+    1. Impostare il campo **metrica** su *transazioni*.
+    1. Impostare il campo di **aggregazione** su *Sum*.
 
     La nuova metrica visualizzerà la somma del numero di transazioni rispetto all'account di archiviazione in un determinato intervallo di tempo. La metrica risultante viene visualizzata come illustrato nell'immagine seguente:
 
@@ -60,14 +60,14 @@ Seguire questa procedura per creare una metrica per tenere traccia delle richies
 
 1. Selezionare quindi il pulsante **Aggiungi filtro** per creare un filtro sulla metrica per il tipo di autorizzazione.
 1. Nella finestra di dialogo **filtro** specificare i valori seguenti:
-    1. Impostare il valore della **Proprietà** su *Authentication* .
+    1. Impostare il valore della **Proprietà** su *Authentication*.
     1. Impostare il campo **operatore** sul segno di uguale (=).
     1. Nel campo **valori** selezionare *chiave account* *e firma di* accesso condiviso.
 1. Nell'angolo in alto a destra selezionare l'intervallo di tempo per il quale si desidera visualizzare la metrica. È anche possibile indicare la granularità dell'aggregazione delle richieste, specificando gli intervalli da 1 minuto a 1 mese. Ad esempio, impostare l' **intervallo di tempo** su 30 giorni e la **granularità dell'ora** su 1 giorno per visualizzare le richieste aggregate per giorno negli ultimi 30 giorni.
 
 Dopo aver configurato la metrica, le richieste all'account di archiviazione inizieranno a essere visualizzate nel grafico. Nell'immagine seguente vengono illustrate le richieste autorizzate con chiave condivisa o effettuate con un token SAS. Le richieste vengono aggregate ogni giorno negli ultimi 30 giorni.
 
-:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Screenshot che illustra come configurare la metrica per le transazioni Sum effettuate con la chiave condivisa o con la firma di accesso condiviso":::
+:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Screenshot che mostra le richieste aggregate autorizzate con la chiave condivisa":::
 
 È anche possibile configurare una regola di avviso per ricevere una notifica quando viene effettuato un determinato numero di richieste autorizzate con chiave condivisa per l'account di archiviazione. Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md).
 
@@ -86,14 +86,14 @@ Per registrare i dati di archiviazione di Azure con monitoraggio di Azure e anal
 1. Registrare l' [Anteprima di registrazione di archiviazione di Azure in monitoraggio di Azure](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
 1. Creare una nuova area di lavoro Log Analytics nella sottoscrizione che contiene l'account di archiviazione di Azure oppure usare un'area di lavoro Log Analytics esistente. Dopo aver configurato la registrazione per l'account di archiviazione, i log saranno disponibili nell'area di lavoro Log Analytics. Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../azure-monitor/learn/quick-create-workspace.md).
 1. Passare all'account di archiviazione nel portale di Azure.
-1. Nella sezione monitoraggio selezionare impostazioni di **diagnostica (anteprima)** .
+1. Nella sezione monitoraggio selezionare impostazioni di **diagnostica (anteprima)**.
 1. Selezionare il servizio di archiviazione di Azure per cui si vogliono registrare le richieste. Ad esempio, scegliere **BLOB** per registrare le richieste nell'archivio BLOB.
-1. Selezionare **Aggiungi impostazioni di diagnostica** .
+1. Selezionare **Aggiungi impostazioni di diagnostica**.
 1. Consente di specificare un nome per l'impostazione di diagnostica.
 1. In **Dettagli categoria** , nella sezione **log** , scegliere **StorageRead** , **StorageWrite** e **StorageDelete** per registrare tutte le richieste di dati al servizio selezionato.
-1. In **Dettagli destinazione** selezionare **Invia a log Analytics** . Selezionare la sottoscrizione e l'area di lavoro Log Analytics creata in precedenza, come illustrato nella figura seguente.
+1. In **Dettagli destinazione** selezionare **Invia a log Analytics**. Selezionare la sottoscrizione e l'area di lavoro Log Analytics creata in precedenza, come illustrato nella figura seguente.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot che illustra come configurare la metrica per le transazioni Sum effettuate con la chiave condivisa o con la firma di accesso condiviso":::
+    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot che illustra come creare un'impostazione di diagnostica per la registrazione delle richieste":::
 
 È possibile creare un'impostazione di diagnostica per ogni tipo di risorsa di archiviazione di Azure nell'account di archiviazione.
 
@@ -118,9 +118,9 @@ StorageBlobLogs
 
 Dopo aver analizzato l'autorizzazione delle richieste per l'account di archiviazione, è possibile intervenire per impedire l'accesso tramite chiave condivisa. Prima di tutto, è necessario aggiornare tutte le applicazioni che usano l'autorizzazione della chiave condivisa per usare invece Azure AD. È possibile monitorare i log e le metriche come descritto in [rilevare il tipo di autorizzazione usato dalle applicazioni client](#detect-the-type-of-authorization-used-by-client-applications) per tenere traccia della transizione. Per altre informazioni sull'uso di Azure AD con i dati di BLOB e di Accodamento, vedere [autorizzare l'accesso a BLOB e code usando Azure Active Directory](storage-auth-aad.md).
 
-Quando si è certi che è possibile rifiutare in modo sicuro le richieste autorizzate con la chiave condivisa, è possibile impostare la proprietà **AllowSharedKeyAccess** per l'account di archiviazione su **false** .
+Quando si è certi che è possibile rifiutare in modo sicuro le richieste autorizzate con la chiave condivisa, è possibile impostare la proprietà **AllowSharedKeyAccess** per l'account di archiviazione su **false**.
 
-Per impostazione predefinita, la proprietà **AllowSharedKeyAccess** non viene impostata e non restituisce alcun valore finché non viene impostata in modo esplicito. L'account di archiviazione consente le richieste che sono autorizzate con la chiave condivisa quando il valore della proprietà è **null** o quando è **true** .
+Per impostazione predefinita, la proprietà **AllowSharedKeyAccess** non viene impostata e non restituisce alcun valore finché non viene impostata in modo esplicito. L'account di archiviazione consente le richieste che sono autorizzate con la chiave condivisa quando il valore della proprietà è **null** o quando è **true**.
 
 > [!WARNING]
 > Se un client sta attualmente accedendo ai dati nell'account di archiviazione con chiave condivisa, Microsoft consiglia di eseguire la migrazione di tali client a Azure AD prima di impedire l'accesso con chiave condivisa all'account di archiviazione.
@@ -130,10 +130,10 @@ Per impostazione predefinita, la proprietà **AllowSharedKeyAccess** non viene i
 Per non consentire l'autorizzazione della chiave condivisa per un account di archiviazione nel portale di Azure, attenersi alla procedura seguente:
 
 1. Passare all'account di archiviazione nel portale di Azure.
-1. Individuare l'impostazione di **configurazione** in **Impostazioni** .
-1. Impostare **Consenti accesso chiave condivisa** su **disabilitato** .
+1. Individuare l'impostazione di **configurazione** in **Impostazioni**.
+1. Impostare **Consenti accesso chiave condivisa** su **disabilitato**.
 
-    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot che illustra come configurare la metrica per le transazioni Sum effettuate con la chiave condivisa o con la firma di accesso condiviso":::
+    :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Screenshot che illustra come impedire l'accesso con chiave condivisa per l'account":::
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -195,7 +195,7 @@ resources
 
 ## <a name="understand-how-disallowing-shared-key-affects-sas-tokens"></a>Informazioni su come la disabilitazione della chiave condivisa influisca sui token SAS
 
-Quando la chiave condivisa non è consentita per l'account di archiviazione, archiviazione di Azure gestisce i token SAS in base al tipo di firma di accesso condiviso e al servizio di destinazione della richiesta. La tabella seguente illustra come viene autorizzato ogni tipo di firma di accesso condiviso e come archiviazione di Azure gestirà tale firma di accesso condiviso quando la proprietà **AllowSharedKeyAccess** per l'account di archiviazione è **false** .
+Quando la chiave condivisa non è consentita per l'account di archiviazione, archiviazione di Azure gestisce i token SAS in base al tipo di firma di accesso condiviso e al servizio di destinazione della richiesta. La tabella seguente illustra come viene autorizzato ogni tipo di firma di accesso condiviso e come archiviazione di Azure gestirà tale firma di accesso condiviso quando la proprietà **AllowSharedKeyAccess** per l'account di archiviazione è **false**.
 
 | Tipo di firma di accesso condiviso | Tipo di autorizzazione | Comportamento quando AllowSharedKeyAccess è false |
 |-|-|-|
@@ -213,12 +213,12 @@ Alcuni strumenti di Azure offrono la possibilità di usare Azure AD autorizzazio
 
 | Strumento di Azure | Azure AD autorizzazione per archiviazione di Azure |
 |-|-|
-| Portale di Azure | Supportata. Per informazioni sull'autorizzazione con l'account Azure AD dall'portale di Azure, vedere [scegliere come autorizzare l'accesso ai dati BLOB nel portale di Azure](../blobs/authorize-blob-access-portal.md). |
+| Portale di Azure | Supportata. Per informazioni sull'autorizzazione con l'account Azure AD dall'portale di Azure, vedere [scegliere come autorizzare l'accesso ai dati BLOB nel portale di Azure](../blobs/authorize-data-operations-portal.md). |
 | AzCopy | Supportato per l'archiviazione BLOB. Per informazioni su come autorizzare le operazioni di AzCopy, vedere [scegliere come fornire le credenziali di autorizzazione](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) nella documentazione di AzCopy. |
 | Azure Storage Explorer | Supportato solo per l'archiviazione BLOB e Azure Data Lake Storage Gen2. Azure AD l'accesso all'archiviazione code non è supportato. Assicurarsi di selezionare il tenant Azure AD corretto. Per ulteriori informazioni, vedere [Introduzione a Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
-| Azure PowerShell | Supportata. Per informazioni su come autorizzare i comandi di PowerShell per operazioni BLOB o di Accodamento con Azure AD, vedere [eseguire comandi di PowerShell con Azure ad credenziali per accedere ai dati BLOB](../blobs/authorize-active-directory-powershell.md) o [eseguire comandi di PowerShell con Azure ad credenziali per accedere ai dati della coda](../queues/authorize-active-directory-powershell.md). |
+| Azure PowerShell | Supportata. Per informazioni su come autorizzare i comandi di PowerShell per operazioni BLOB o di Accodamento con Azure AD, vedere [eseguire comandi di PowerShell con Azure ad credenziali per accedere ai dati BLOB](../blobs/authorize-data-operations-powershell.md) o [eseguire comandi di PowerShell con Azure ad credenziali per accedere ai dati della coda](../queues/authorize-data-operations-powershell.md). |
 | Interfaccia della riga di comando di Azure | Supportata. Per informazioni su come autorizzare i comandi dell'interfaccia della riga di comando di Azure con Azure AD per l'accesso ai dati BLOB e di Accodamento, vedere [eseguire comandi dell'interfaccia della riga di comando di Azure con Azure ad credenziali per accedere ai dati BLOB](authorize-data-operations-cli.md) |
-| Hub IoT Azure | Supportata. Per altre informazioni, vedere [supporto dell'hub Internet per le reti virtuali](../../iot-hub/virtual-network-support.md). |
+| Hub IoT di Azure | Supportata. Per altre informazioni, vedere [supporto dell'hub Internet per le reti virtuali](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell è una shell integrata nel portale di Azure. Azure Cloud Shell ospita file per la persistenza in una condivisione file di Azure in un account di archiviazione. Questi file diventeranno inaccessibili se l'autorizzazione della chiave condivisa non è consentita per l'account di archiviazione. Per altre informazioni, vedere [connettere l'archiviazione dei file di Microsoft Azure](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Per eseguire i comandi in Azure Cloud Shell per gestire gli account di archiviazione per cui non è consentito l'accesso con chiave condivisa, verificare prima di tutto che siano state concesse le autorizzazioni necessarie per questi account tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md). |
 
 ## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
@@ -236,8 +236,8 @@ Nell'anteprima sono incluse le limitazioni descritte nelle sezioni riportate di 
 
 Le metriche e la registrazione di Azure in monitoraggio di Azure non distinguono tra i diversi tipi di firme di accesso condiviso nell'anteprima. Il filtro **SAS** in Azure Esplora metriche e il campo **SAS** nella registrazione di archiviazione di Azure in Azure monitorano entrambe le richieste di report autorizzate con qualsiasi tipo di firma di accesso condiviso. Tuttavia, i diversi tipi di firme di accesso condiviso sono autorizzati in modo diverso e si comportano in modo diverso quando l'accesso alla chiave condivisa non è consentito:
 
-- Un token di firma di accesso condiviso del servizio o un token di firma di accesso condiviso dell'account è autorizzato con chiave condivisa e non sarà consentito per una richiesta all'archiviazione BLOB quando la proprietà **AllowSharedKeyAccess** è impostata su **false** .
-- Una firma di accesso condiviso di delega utente è autorizzata con Azure AD e sarà consentita su una richiesta di archiviazione BLOB quando la proprietà **AllowSharedKeyAccess** è impostata su **false** .
+- Un token di firma di accesso condiviso del servizio o un token di firma di accesso condiviso dell'account è autorizzato con chiave condivisa e non sarà consentito per una richiesta all'archiviazione BLOB quando la proprietà **AllowSharedKeyAccess** è impostata su **false**.
+- Una firma di accesso condiviso di delega utente è autorizzata con Azure AD e sarà consentita su una richiesta di archiviazione BLOB quando la proprietà **AllowSharedKeyAccess** è impostata su **false**.
 
 Quando si valuta il traffico verso l'account di archiviazione, tenere presente che le metriche e i log come descritto in [rilevare il tipo di autorizzazione usato dalle applicazioni client](#detect-the-type-of-authorization-used-by-client-applications) possono includere le richieste effettuate con una firma di accesso condiviso dell'utente. Per altre informazioni sul modo in cui archiviazione di Azure risponde a una firma di accesso condiviso quando la proprietà **AllowSharedKeyAccess** è impostata su **false** , vedere [informazioni sulla disabilitazione della chiave condivisa sui token SAS](#understand-how-disallowing-shared-key-affects-sas-tokens).
 

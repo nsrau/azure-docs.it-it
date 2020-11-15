@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 414ae3b2adb60b9442a69e3ebcc8b13b29c67cb7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 51cb79e942b9d92876bd4d0e2cc27bb5ee0337bf
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070504"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94634872"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un Load Balancer Standard pubblico in Azure Kubernetes Service (AKS)
 
-Il Azure Load Balancer è una versione L4 del modello OSI (Open Systems Interconnection) che supporta gli scenari in ingresso e in uscita. Distribuisce i flussi in ingresso che arrivano al front-end del servizio di bilanciamento del carico alle istanze del pool back-end.
+Il Azure Load Balancer si trova in L4 del modello OSI (Open Systems Interconnection) che supporta gli scenari in ingresso e in uscita. Distribuisce i flussi in ingresso che arrivano al front-end del servizio di bilanciamento del carico alle istanze del pool back-end.
 
 Un Load Balancer **pubblico** quando integrato con AKS serve a due scopi:
 
@@ -31,7 +31,7 @@ Questo documento illustra l'integrazione con il servizio di bilanciamento del ca
 
 Azure Load Balancer è disponibile in due SKU: *Basic* e *Standard*. Per impostazione predefinita, lo SKU *standard* viene usato quando si crea un cluster AKS. Usare lo SKU *standard* per avere accesso alle funzionalità aggiunte, ad esempio un pool back-end più ampio, [**più pool di nodi**](use-multiple-node-pools.md)e [**zone di disponibilità**](availability-zones.md). Si tratta della SKU Load Balancer consigliata per AKS.
 
-Per altre informazioni sugli SKU *Basic* e *Standard*, vedere [Confronto tra SKU di Azure Load Balancer][azure-lb-comparison].
+Per altre informazioni sugli SKU *Basic* e *Standard* , vedere [Confronto tra SKU di Azure Load Balancer][azure-lb-comparison].
 
 Questo articolo presuppone che sia presente un cluster AKS con lo SKU *Standard* Azure Load Balancer e illustra come usare e configurare alcune funzionalità e funzionalità del servizio di bilanciamento del carico. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
@@ -93,13 +93,13 @@ Azure Load Balancer offre connettività in uscita da una rete virtuale oltre all
 
 Come tutte le regole di Load Balancer, le regole in uscita seguono la stessa sintassi familiare delle regole di bilanciamento del carico e delle regole NAT in ingresso:
 
-***Indirizzi IP e parametri front-end + pool back-end***
+***indirizzi IP e parametri front-end + pool back-end** _
 
 Una regola in uscita configura NAT in uscita per tutte le macchine virtuali identificate dal pool back-end da convertire in front-end. E i parametri offrono ulteriore controllo dettagliato sull'algoritmo NAT in uscita.
 
 Anche se una regola in uscita può essere usata con un singolo indirizzo IP pubblico, le regole in uscita semplificano l'impegno di configurazione per la scalabilità di NAT in uscita. È possibile usare più indirizzi IP per gestire scenari su larga scala e le regole in uscita per risolvere i problemi dei modelli soggetti a esaurimento delle porte SNAT. Ogni indirizzo IP aggiuntivo fornito da un front-end fornisce porte temporanee 64K per Load Balancer da usare come porte SNAT. 
 
-Quando si usa un servizio di bilanciamento del carico con SKU *standard* con indirizzi IP pubblici in uscita gestiti, che vengono creati per impostazione predefinita, è possibile ridimensionare il numero di indirizzi IP pubblici in uscita gestiti usando il **`load-balancer-managed-ip-count`** parametro.
+Quando si usa un servizio di bilanciamento del carico _Standard * SKU con indirizzi IP pubblici in uscita gestiti, che vengono creati per impostazione predefinita, è possibile ridimensionare il numero di indirizzi IP pubblici in uscita gestiti usando il **`load-balancer-managed-ip-count`** parametro.
 
 Per aggiornare un cluster esistente, eseguire il comando seguente. Questo parametro può essere impostato anche in fase di creazione del cluster, per avere più indirizzi IP pubblici in uscita gestiti.
 
@@ -266,7 +266,7 @@ Se si prevede di avere numerose connessioni di breve durata e non ci sono connes
  
 *Indirizzi IP in uscita* \* 64.000 \> *macchine virtuali del nodo* \* *desiredAllocatedOutboundPorts*.
  
-Se, ad esempio, si dispone di 3 *macchine virtuali del nodo* e di 50.000 *desiredAllocatedOutboundPorts*, è necessario disporre di almeno 3 *indirizzi IP in uscita*. Si consiglia di incorporare una capacità IP in uscita aggiuntiva oltre quella necessaria. Inoltre, è necessario tenere presente il ridimensionamento automatico del cluster e la possibilità di aggiornamenti del pool di nodi quando si calcola la capacità IP in uscita. Per il ridimensionamento automatico del cluster, esaminare il numero di nodi corrente e il numero massimo di nodi e usare il valore più elevato. Per l'aggiornamento, tenere conto di una macchina virtuale del nodo aggiuntiva per ogni pool di nodi che consente l'aggiornamento.
+Se, ad esempio, si dispone di 3 *macchine virtuali del nodo* e di 50.000 *desiredAllocatedOutboundPorts* , è necessario disporre di almeno 3 *indirizzi IP in uscita*. Si consiglia di incorporare una capacità IP in uscita aggiuntiva oltre quella necessaria. Inoltre, è necessario tenere presente il ridimensionamento automatico del cluster e la possibilità di aggiornamenti del pool di nodi quando si calcola la capacità IP in uscita. Per il ridimensionamento automatico del cluster, esaminare il numero di nodi corrente e il numero massimo di nodi e usare il valore più elevato. Per l'aggiornamento, tenere conto di una macchina virtuale del nodo aggiuntiva per ogni pool di nodi che consente l'aggiornamento.
 
 - Quando si imposta *IdleTimeoutInMinutes* su un valore diverso da quello predefinito di 30 minuti, considerare per quanto tempo i carichi di lavoro necessiteranno di una connessione in uscita. Tenere presente anche che il valore di timeout predefinito per un'istanza di bilanciamento del carico con SKU *Standard* usata al di fuori del servizio Azure Kubernetes è di 4 minuti. Un valore di *IdleTimeoutInMinutes* che riflette in modo più accurato il carico di lavoro del servizio Azure Kubernetes specifico può contribuire a ridurre l'esaurimento SNAT causato dal collegamento di connessioni non più utilizzate.
 
@@ -317,7 +317,7 @@ spec:
 
 Di seguito è riportato un elenco di annotazioni supportate per i servizi Kubernetes con tipo `LoadBalancer` . queste annotazioni si applicano solo ai flussi in **ingresso** :
 
-| Annotazione | valore | Descrizione
+| Annotazione | Valore | Descrizione
 | ----------------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------ 
 | `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` o `false`                     | Consente di specificare se il servizio di bilanciamento del carico deve essere interno. Il valore predefinito è Public se non impostato.
 | `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Nome della subnet                    | Specificare la subnet a cui deve essere associato il servizio di bilanciamento del carico interno. Il valore predefinito è la subnet configurata nel file di configurazione cloud se non è impostata.
@@ -365,9 +365,9 @@ Per altre considerazioni su come eseguire la migrazione dei cluster, vedere la [
 
 ## <a name="limitations"></a>Limitazioni
 
-Quando si creano e si gestiscono cluster del servizio Azure Kubernetes che supportano un'istanza di bilanciamento del carico con SKU *Standard*, si applicano le limitazioni seguenti:
+Quando si creano e si gestiscono cluster del servizio Azure Kubernetes che supportano un'istanza di bilanciamento del carico con SKU *Standard* , si applicano le limitazioni seguenti:
 
-* È necessario almeno un indirizzo IP pubblico o un prefisso dell'indirizzo IP per consentire il traffico in uscita dal cluster del servizio Azure Kubernetes. L'IP pubblico o il prefisso IP è necessario anche per mantenere la connettività tra il piano di controllo e i nodi dell'agente e per mantenere la compatibilità con le versioni precedenti di AKS. Per specificare gli indirizzi IP pubblici o i prefissi degli indirizzi IP con un servizio di bilanciamento del carico con SKU *Standard*, sono disponibili le opzioni seguenti:
+* È necessario almeno un indirizzo IP pubblico o un prefisso dell'indirizzo IP per consentire il traffico in uscita dal cluster del servizio Azure Kubernetes. L'IP pubblico o il prefisso IP è necessario anche per mantenere la connettività tra il piano di controllo e i nodi dell'agente e per mantenere la compatibilità con le versioni precedenti di AKS. Per specificare gli indirizzi IP pubblici o i prefissi degli indirizzi IP con un servizio di bilanciamento del carico con SKU *Standard* , sono disponibili le opzioni seguenti:
     * Specificare gli indirizzi IP pubblici personalizzati.
     * Specificare i prefissi degli indirizzi IP pubblici personalizzati.
     * Specificare un numero massimo di 100 per consentire al cluster del servizio Azure Kubernetes di creare una certa quantità di indirizzi IP pubblici dello SKU *Standard* nello stesso gruppo di risorse creato dal cluster del servizio Azure Kubernetes, che in genere viene denominato con *MC_* all'inizio. Il servizio Azure Kubernetes assegna l'indirizzo IP pubblico all'istanza di bilanciamento del carico con SKU *Standard*. Per impostazione predefinita, un indirizzo IP pubblico verrà creato automaticamente nello stesso gruppo di risorse del cluster del servizio Azure Kubernetes, se non è specificato alcun indirizzo IP pubblico, prefisso di indirizzo IP pubblico o numero di indirizzi IP. È necessario anche consentire gli indirizzi pubblici ed evitare di creare criteri di Azure che vietino la creazione di IP.

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: d5958ea947f6b786e9fbc6c44ab914ea895d6e08
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 691a2e56230d312416aed3d68bffd361f1d63558
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096802"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637116"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Utilizzare i dati con Azure Cosmos Explorer 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -28,19 +28,19 @@ Azure Cosmos DB Explorer è un'interfaccia autonoma basata sul Web che consente 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/). 
 
-2. In **Tutte le risorse** individuare e accedere all'account di Azure Cosmos DB, selezionare Chiavi e copiare il valore del campo **Stringa di connessione primaria** .  
+2. In **Tutte le risorse** individuare e accedere all'account di Azure Cosmos DB, selezionare Chiavi e copiare il valore del campo **Stringa di connessione primaria**.  
 
-3. Passare a https://cosmos.azure.com/, incollare la stringa di connessione e quindi selezionare **Connetti** . Se si usa la stringa di connessione, è possibile accedere ad Azure Cosmos DB Explorer senza alcun limite di tempo.  
+3. Passare a https://cosmos.azure.com/, incollare la stringa di connessione e quindi selezionare **Connetti**. Se si usa la stringa di connessione, è possibile accedere ad Azure Cosmos DB Explorer senza alcun limite di tempo.  
 
    Se si vuole concedere ad altri utenti l'accesso temporaneo all'account di Azure Cosmos DB, è possibile usare gli URL di accesso in lettura e in lettura/scrittura. 
 
-4. Aprire il pannello **Esplora dati** e selezionare **Apri a schermo intero** . Nella finestra di dialogo popup è possibile visualizzare due URL di accesso, ovvero **Lettura-Scrittura** e **Lettura** . Tali URL consentono di condividere temporaneamente l'account Azure Cosmos DB con altri utenti. L'accesso all'account scade dopo 24 ore. Al termine di questo intervallo è possibile riconnettersi usando un nuovo URL di accesso o la stringa di connessione. 
+4. Aprire il pannello **Esplora dati** e selezionare **Apri a schermo intero**. Nella finestra di dialogo popup è possibile visualizzare due URL di accesso, ovvero **Lettura-Scrittura** e **Lettura**. Tali URL consentono di condividere temporaneamente l'account Azure Cosmos DB con altri utenti. L'accesso all'account scade dopo 24 ore. Al termine di questo intervallo è possibile riconnettersi usando un nuovo URL di accesso o la stringa di connessione. 
 
    **Lettura-Scrittura** : quando si condivide l'URL di lettura/scrittura con altri utenti, questi ultimi possono visualizzare e modificare database, raccolte, query e altre risorse associati all'account specifico.
 
    **Lettura** : quando si condivide l'URL di sola lettura con altri utenti, è possibile visualizzare database, raccolte, query e altre risorse associati all'account specifico. Se ad esempio si vogliono condividere i risultati di una query con i colleghi del team che non dispongono dell'accesso al portale di Azure o all'account di Azure Cosmos DB, è possibile fornire loro questo URL.
 
-   Scegliere il tipo di accesso da usare per aprire l'account e quindi fare clic su **Apri** . Dopo aver aperto l'interfaccia di esplorazione dei dati, l'esperienza è analoga a quella della scheda Esplora dati nel portale di Azure.
+   Scegliere il tipo di accesso da usare per aprire l'account e quindi fare clic su **Apri**. Dopo aver aperto l'interfaccia di esplorazione dei dati, l'esperienza è analoga a quella della scheda Esplora dati nel portale di Azure.
 
    :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Apri Esplora Azure Cosmos DB":::
 
@@ -50,7 +50,7 @@ L'opzione **Apri a schermo intero** che consente di condividere l'accesso tempor
 
 Attualmente, la visualizzazione di documenti che contengono un UUID non è supportata in Esplora dati. Ciò non influisce sul caricamento delle raccolte, visualizzando solo i singoli documenti o le query che includono tali documenti. Per visualizzare e gestire questi documenti, gli utenti devono continuare a usare lo strumento originariamente usato per creare i documenti.
 
-I clienti che ricevono errori HTTP-401 possono essere dovuti a autorizzazioni RBAC insufficienti per l'account Azure del cliente, in particolare se l'account ha un ruolo di controllo degli accessi in base al ruolo personalizzato. Qualsiasi ruolo personalizzato deve disporre `Microsoft.DocumentDB/databaseAccounts/listKeys/*` di un'azione da utilizzare Esplora dati se l'accesso viene effettuato utilizzando le credenziali Azure Active Directory.
+I clienti che ricevono errori HTTP-401 possono essere dovuti a autorizzazioni RBAC di Azure insufficienti per l'account Azure del cliente, in particolare se l'account ha un ruolo personalizzato. Qualsiasi ruolo personalizzato deve disporre `Microsoft.DocumentDB/databaseAccounts/listKeys/*` di un'azione da utilizzare Esplora dati se l'accesso viene effettuato utilizzando le credenziali Azure Active Directory.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

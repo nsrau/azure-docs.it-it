@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Trovare le risposte ad alcune domande comuni su Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
-ms.openlocfilehash: 9870ba52424f6f59cc908e4d70bf1560f7d69165
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a25ebd88d022ff278b3e3d9cc9cbf4d8b9b670cd
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970300"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636096"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Domande frequenti su Azure Dev Spaces
 
@@ -72,9 +72,9 @@ Sì, è possibile usare Azure Dev Spaces nei cluster AKS con gli [intervalli di 
 
 Sì, è possibile usare Azure Dev Spaces nei cluster AKS con [traffico in uscita limitato per i nodi del cluster][aks-restrict-egress-traffic] abilitati dopo che sono stati consentiti i nomi di dominio completi corretti. Altre informazioni sull'uso di un cluster AKS con traffico in uscita limitato per i nodi del cluster abilitato con Azure Dev Spaces sono disponibili [qui](configure-networking.md#ingress-and-egress-network-traffic-requirements).
 
-## <a name="can-i-use-azure-dev-spaces-on-rbac-enabled-aks-clusters"></a>È possibile usare Azure Dev Spaces nei cluster AKS abilitati per RBAC?
+## <a name="can-i-use-azure-dev-spaces-on-kubernetes-rbac-enabled-aks-clusters"></a>È possibile usare Azure Dev Spaces nei cluster AKS abilitati per RBAC Kubernetes?
 
-Sì, è possibile usare Azure Dev Spaces nei cluster AKS con o senza RBAC abilitato.
+Sì, è possibile usare Azure Dev Spaces nei cluster AKS con o senza il controllo degli accessi in base al ruolo Kubernetes (Kubernetes RBAC) abilitato.
 
 ## <a name="what-happens-when-i-enable-ingress-for-project-in-visual-studio"></a>Cosa accade quando si Abilita l'ingresso per il progetto in Visual Studio?
 
