@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2020
+ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 2ea9fdcb11bd88755c0972fa166d1d94068ce60e
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341839"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638815"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Domande frequenti sulla raccolta dati, gli agenti e le aree di lavoro
 
@@ -91,7 +91,7 @@ La località dell'area di lavoro predefinita dipende dall'area di Azure:
 Per un elenco completo delle applicazioni e dei servizi monitorati dall'agente, vedere [elementi monitorati da monitoraggio di Azure](../azure-monitor/monitor-reference.md#azure-services).
 
 > [!IMPORTANT]
-> Si noti che per alcuni servizi, ad esempio Azure firewall, se è stata abilitata la registrazione e si è scelta una risorsa loquace da registrare, ad esempio impostando il log su *verbose*, è possibile che si verifichino effetti significativi sulle esigenze di archiviazione dell'area di lavoro log Analytics. 
+> Si noti che per alcuni servizi, ad esempio Azure firewall, se è stata abilitata la registrazione e si è scelta una risorsa loquace da registrare, ad esempio impostando il log su *verbose* , è possibile che si verifichino effetti significativi sulle esigenze di archiviazione dell'area di lavoro log Analytics. 
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>È possibile eliminare le aree di lavoro predefinite create dal Centro sicurezza?
@@ -109,14 +109,19 @@ Per il ripristino, rimuovere l'agente di Log Analytics dalle macchine virtuali c
 
 Per selezionare l'area di lavoro Log Analytics esistente:
 
-1. In **Security policy – Data Collection** (Criteri di sicurezza - Raccolta dati) selezionare **Use another workspace** (Usare un'altra area di lavoro).
+1. Scegliere **Prezzi e impostazioni** dal menu del Centro sicurezza.
+1. Selezionare la sottoscrizione pertinente.
+1. Aprire la pagina di **provisioning automatico** , s
+1. Per l'agente di Log Analytics selezionare **modifica configurazione**. 
 
-    ![Usare un'altra area di lavoro][4]
+    :::image type="content" source="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="Configurazione dell'agente Log Analytics da usare quando si usa la distribuzione automatica" lightbox="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png":::
 
-1. Nel menu a discesa selezionare un'area di lavoro dove archiviare i dati raccolti.
+1. Selezionare **Connetti macchine virtuali di Azure a un'area di lavoro diversa** e scegliere l'area di lavoro esistente.
 
-    > [!NOTE]
-    > Nel menu a discesa vengono visualizzate solo le aree di lavoro a cui si ha accesso e che si trovano nella sottoscrizione di Azure.
+    :::image type="content" source="./media/security-center-enable-data-collection/choose-workspace.png" alt-text="Selezione di un'area di lavoro non predefinita per l'agente di Log Analytics per la segnalazione" lightbox="./media/security-center-enable-data-collection/choose-workspace.png":::
+
+    > [!TIP]
+    > L'elenco include solo le aree di lavoro a cui si ha accesso e che si trovano nella sottoscrizione di Azure.
 
 1. Selezionare **Salva**. Verrà chiesto se si vogliono riconfigurare le macchine virtuali monitorate.
 
@@ -124,9 +129,8 @@ Per selezionare l'area di lavoro Log Analytics esistente:
     - Selezionare **Sì** se si desidera che le nuove impostazioni dell'area di lavoro si **applichino a tutte le macchine virtuali**. In aggiunta, ogni macchina virtuale connessa a un'area di lavoro creata dal Centro sicurezza viene ricollegata alla nuova area di lavoro di destinazione.
 
     > [!NOTE]
-    > Se si seleziona **Sì**, non eliminare aree di lavoro create dal Centro sicurezza finché tutte le macchine virtuali non vengono ricollegate alla nuova area di lavoro di destinazione. Questa operazione non riesce se un'area di lavoro viene eliminata troppo presto.
+    > Se si seleziona **Sì** , non eliminare aree di lavoro create dal Centro sicurezza finché tutte le macchine virtuali non vengono ricollegate alla nuova area di lavoro di destinazione. Questa operazione non riesce se un'area di lavoro viene eliminata troppo presto.
 
-    - Selezionare **Annulla** per annullare l'operazione.
 
 ## <a name="what-if-the-log-analytics-agent-was-already-installed-as-an-extension-on-the-vm"></a>Cosa accade se l'agente di Log Analytics è già stato installato come estensione nella macchina virtuale?<a name="mmaextensioninstalled"></a>
 
@@ -164,12 +168,17 @@ Se si rimuove l'estensione Microsoft Monitoring, il Centro sicurezza non potrà 
 
 È possibile disattivare il provisioning automatico per le sottoscrizioni nei criteri di sicurezza, ma questa opzione non è consigliata. La disattivazione del provisioning automatico limita le raccomandazioni e gli avvisi del Centro sicurezza. Per disabilitare il provisioning automatico:
 
-1. Se per la sottoscrizione è abilitata la funzionalità Azure Defender, aprire i criteri di sicurezza per la sottoscrizione e selezionare **Azure Defender off**.
+1. Scegliere **Prezzi e impostazioni** dal menu del Centro sicurezza.
+1. Selezionare la sottoscrizione pertinente.
+1. Se è abilitata la sottoscrizione di Azure Defender, aprire i **piani di Azure Defender** e selezionare **Azure Defender off**.
 
     :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Abilitare o disabilitare Azure Defender":::
 
-1. Disattivare quindi il provisioning automatico selezionando **Disattivato** nella pagina **Criteri di sicurezza - Raccolta dati**.
-   ![Raccolta di dati][2]
+1. Nella pagina **provisioning automatico** selezionare penna e disattivare provisioning automatico nella pagina  **criteri di sicurezza-raccolta dati** .
+
+    :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Abilitare la distribuzione automatica per l'agente di Log Analytics":::
+
+1. Selezionare **Salva**.
 
 
 ## <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>È consigliabile rifiutare esplicitamente l'installazione automatica dell'agente e la creazione automatica dell'area di lavoro?
@@ -232,18 +241,16 @@ Il provisioning automatico è fortemente consigliato per ottenere gli avvisi di 
 
 Se è stata abilitata, ma ora si vuole disabilitarla:
 
-1. Dal [portale di Azure aprire il](https://portal.azure.com) **Centro sicurezza** e selezionare **criteri di sicurezza**.
+1. Dal [portale di Azure aprire il](https://portal.azure.com) **Centro sicurezza** e selezionare **prezzi e impostazioni**.
 
 1. Selezionare la sottoscrizione in cui si vuole disabilitare il provisioning automatico.
 
-    **Criteri di sicurezza:** viene visualizzata la raccolta dati.
-
-1. In **Auto provisioning**, (Provisioning automatico) selezionare **Off**.
+1. In **provisioning automatico** disattivare l'interruttore per l'agente di log Analytics.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>Come si abilita la raccolta dati?
 
-È possibile abilitare la raccolta dei dati per la sottoscrizione nei criteri di sicurezza. Per abilitare la raccolta di dati. [Accedere al portale di Azure](https://portal.azure.com), selezionare **Sfoglia**, quindi **Centro sicurezza** e infine **Criteri di sicurezza**. Selezionare la sottoscrizione per cui si desidera abilitare il provisioning automatico. Quando si seleziona una sottoscrizione, si apre **Criteri di sicurezza - Raccolta dati**. In **Auto provisioning**, (Provisioning automatico) selezionare **On**.
+È possibile abilitare la raccolta dei dati per la sottoscrizione nei criteri di sicurezza. Per abilitare la raccolta di dati. [Accedere al portale di Azure](https://portal.azure.com), selezionare **Sfoglia** , quindi **Centro sicurezza** e infine **Criteri di sicurezza**. Selezionare la sottoscrizione per cui si desidera abilitare il provisioning automatico. Quando si seleziona una sottoscrizione, si apre **Criteri di sicurezza - Raccolta dati**. In **Auto provisioning** , (Provisioning automatico) selezionare **On**.
 
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>Cosa accade quando si abilita la raccolta dati?

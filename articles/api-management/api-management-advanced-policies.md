@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 01d50f6228d63801f62ae933a8367f842d89ef97
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 46bcdac41497eea91b5af0c512a7118e33d5d7c3
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071371"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638904"
 ---
 # <a name="api-management-advanced-policies"></a>Criteri avanzati di gestione API
 
@@ -63,7 +63,7 @@ Il criterio `choose` si applica alle istruzioni del criterio incluse in base al 
 
 Il criterio del flusso di controllo deve contenere almeno un elemento `<when/>`. L'elemento `<otherwise/>` è facoltativo. Le condizioni negli elementi `<when/>` vengono valutate in ordine di visualizzazione all'interno del criterio. Si applicano le istruzioni del criterio incluse all'interno del primo elemento `<when/>` con attributo di condizione uguale a `true`. I criteri inclusi all'interno dell'elemento `<otherwise/>`, se presente, vengono applicati se tutti gli attributi di condizione dell'elemento `<when/>` sono `false`.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="example"></a><a name="ChooseExample"></a>Esempio
 
@@ -156,10 +156,10 @@ Il criterio `forward-request` inoltra la richiesta in ingresso al servizio back-
 ### <a name="policy-statement"></a>Istruzione del criterio
 
 ```xml
-<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
+<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" buffer-response="true | false" fail-on-error-status-code="false | true"/>
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="example"></a>Esempio
 
@@ -255,6 +255,7 @@ Questo criterio a livello di operazione non inoltra le richieste al servizio bac
 | timeout="integer"                             | Quantità di tempo in secondi di attesa per la restituzione delle intestazioni di risposta HTTP da parte del servizio back-end prima che venga generato un errore di timeout. Il valore minimo è 0 secondi. I valori maggiori di 240 secondi potrebbero non essere rispettati perché l'infrastruttura di rete sottostante può rilasciare le connessioni inattive dopo questo periodo di tempo. | No       | nessuno    |
 | follow-redirects = "false &#124; true"          | Specifica se i reindirizzamenti dal servizio back-end sono seguiti dal gateway o restituiti al chiamante.                                                                                                                                                                                                    | No       | false   |
 | buffer-request-body = "false &#124; true"       | Se impostata su "true", la richiesta viene memorizzata nel buffer e verrà riutilizzata al [nuovo tentativo](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | No       | false   |
+| buffer-Response = "false &#124; true" | Influiscono sull'elaborazione di risposte in blocchi. Se impostato su "false", ogni blocco ricevuto dal back-end viene immediatamente restituito al chiamante. Se è impostato su "true", i blocchi vengono memorizzati nel buffer (8KB, a meno che non venga rilevata la fine del flusso) e restituiti al chiamante. | No | true |
 | Fail-on-Error-Status-Code = "false &#124; true" | Quando è impostato su true [, la sezione On-Error](api-management-error-handling-policies.md) per i codici di risposta nell'intervallo compreso tra 400 e 599 inclusi.                                                                                                                                                                      | No       | false   |
 
 ### <a name="usage"></a>Utilizzo
@@ -276,7 +277,7 @@ Il criterio `limit-concurrency` impedisce ai criteri racchiusi di eseguire un nu
 </limit-concurrency>
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="example"></a>Esempio
 
@@ -380,7 +381,7 @@ Il criterio `mock-response`, come implica il nome, viene usato per restituire AP
 
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 ```xml
 <!-- Returns 200 OK status code. Content is based on an example or schema, if provided for this
@@ -470,8 +471,8 @@ Nella richiesta di esempio seguente l'inoltro viene ripetuto fino a dieci volte 
 
 > [!NOTE]
 > Se è specificato solo `interval`, vengono eseguiti tentativi a intervallo **fisso**.
-> Se vengono specificati solo `interval` e `delta`, viene usato un algoritmo di ripetizione a intervalli **lineari**, in cui il tempo di attesa tra i tentativi viene calcolato secondo la formula seguente: `interval + (count - 1)*delta`.
-> Se vengono specificati `interval`, `max-interval` e `delta`, viene applicato un algoritmo di ripetizione a intervalli **esponenziali**, in cui il tempo di attesa tra i tentativi cresce in modo esponenziale dal valore `interval` al valore `max-interval`, secondo la formula seguente: `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
+> Se vengono specificati solo `interval` e `delta`, viene usato un algoritmo di ripetizione a intervalli **lineari** , in cui il tempo di attesa tra i tentativi viene calcolato secondo la formula seguente: `interval + (count - 1)*delta`.
+> Se vengono specificati `interval`, `max-interval` e `delta`, viene applicato un algoritmo di ripetizione a intervalli **esponenziali** , in cui il tempo di attesa tra i tentativi cresce in modo esponenziale dal valore `interval` al valore `max-interval`, secondo la formula seguente: `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
 ### <a name="usage"></a>Utilizzo
 
@@ -867,7 +868,7 @@ L'esempio seguente illustra un criterio di impostazione della variabile nella se
 | Attributo | Descrizione                                                              | Obbligatoria |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | Nome della variabile.                                                | Sì      |
-| Valore     | Valore della variabile. Può essere un'espressione o un valore letterale. | Sì      |
+| value     | Valore della variabile. Può essere un'espressione o un valore letterale. | Sì      |
 
 ### <a name="usage"></a>Utilizzo
 
@@ -955,7 +956,7 @@ Il `trace` criterio aggiunge una traccia personalizzata nell'output di controllo
 | source    | Valore letterale della stringa significativo per il visualizzatore di tracce e che specifica l'origine del messaggio.                                   | Sì      | N/D     |
 | severity  | Specifica il livello di gravità della traccia. I valori consentiti sono `verbose` , `information` , `error` (dal più basso al più alto). | No       | Dettagliato |
 | name      | Nome della proprietà.                                                                                                     | Sì      | N/D     |
-| Valore     | Valore della proprietà.                                                                                                    | Sì      | N/D     |
+| value     | Valore della proprietà.                                                                                                    | Sì      | N/D     |
 
 ### <a name="usage"></a>Utilizzo
 

@@ -11,17 +11,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: e939e3e6eb686894094c77f62ed815d0ebb5a24f
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 4db42d8fa8c676b20b236577ce6646b909df7c3a
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358440"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638887"
 ---
 # <a name="api-management-caching-policies"></a>Criteri di memorizzazione nella cache in Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](./api-management-policies.md).
+
+> [!IMPORTANT]
+> La cache predefinita è volatile ed è condivisa da tutte le unità nella stessa area nello stesso servizio gestione API.
 
 ## <a name="caching-policies"></a><a name="CachingPolicies"></a> Criteri di memorizzazione nella cache
 
@@ -56,7 +59,7 @@ Usare il criterio `cache-lookup` per eseguire una ricerca nella cache e restitui
 </cache-lookup>
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="example"></a>Esempio
 
@@ -114,8 +117,8 @@ Per altre informazioni, vedere [Espressioni di criteri](api-management-policy-ex
 | tipo di memorizzazione nella cache               | Scegliere tra i valori dell'attributo seguenti:<br />- `internal` per usare la cache di Gestione API predefinita,<br />- `external` per usare la cache esterna, come descritto in [Usare una cache Redis esterna in Gestione API di Azure](api-management-howto-cache-external.md),<br />- `prefer-external` per usare la cache esterna se configurata o quella interna in caso contrario. | No       | `prefer-external` |
 | downstream-caching-type        | Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   none - Non è consentita la memorizzazione nella cache downstream.<br />-   private - È consentita la memorizzazione nella cache downstream privata.<br />-   public - È consentita la memorizzazione nella cache downstream privata e condivisa.                                                                                                          | No       | Nessuno              |
 | must-revalidate                | Quando è abilitata la memorizzazione nella cache downstream, questo attributo attiva o disattiva la direttiva di controllo di memorizzazione della cache `must-revalidate` nelle risposte del gateway.                                                                                                                                                                                                                      | No       | true              |
-| vary-by-developer              | Impostare su `true` per memorizzare nella cache le risposte per account sviluppatore che possiede la [chiave di sottoscrizione](./api-management-subscriptions.md) inclusa nella richiesta.                                                                                                                                                                                                                                                                                                  | Sì      |         False          |
-| vary-by-developer-groups       | Impostare su `true` per memorizzare le risposte nella cache per ogni [gruppo utenti](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Sì      |       False            |
+| vary-by-developer              | Impostare su `true` per memorizzare nella cache le risposte per account sviluppatore che possiede la [chiave di sottoscrizione](./api-management-subscriptions.md) inclusa nella richiesta.                                                                                                                                                                                                                                                                                                  | Sì      |         Falso          |
+| vary-by-developer-groups       | Impostare su `true` per memorizzare le risposte nella cache per ogni [gruppo utenti](./api-management-howto-create-groups.md).                                                                                                                                                                                                                                                                                                             | Sì      |       Falso            |
 
 ### <a name="usage"></a>Utilizzo
 Questo criterio può essere usato nelle [sezioni](./api-management-howto-policies.md#sections) e negli [ambiti](./api-management-howto-policies.md#scopes) del criterio seguenti.
@@ -135,7 +138,7 @@ Il criterio `cache-store` memorizza nella cache le risposte in base alle imposta
 <cache-store duration="seconds" />
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="example"></a>Esempio
 

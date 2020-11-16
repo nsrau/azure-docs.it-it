@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6fd0ba19739b75e72541ac84d6b1696ab2819dee
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ddf9d689316d3c95c322aa3a967af53621a2e00f
+ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317423"
+ms.lasthandoff: 11/16/2020
+ms.locfileid: "94638870"
 ---
 # <a name="best-practices-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Procedure consigliate per il pool SQL senza server (anteprima) in Azure sinapsi Analytics
 
@@ -127,13 +127,17 @@ Se i dati archiviati non sono partizionati, prendere in considerazione di partiz
 
 Quando si eseguono query su file CSV, è possibile usare un parser ottimizzato per le prestazioni. Per informazioni dettagliate, vedere [PARSER_VERSION](develop-openrowset.md).
 
+## <a name="manually-create-statistics-for-csv-files"></a>Creare manualmente le statistiche per i file CSV
+
+Il pool SQL senza server si basa sulle statistiche per generare piani di esecuzione di query ottimali. Quando necessario, le statistiche vengono create automaticamente per le colonne nei file parquet. In questo momento, le statistiche non vengono create automaticamente per le colonne nei file CSV ed è necessario creare manualmente le statistiche per le colonne utilizzate nelle query, in particolare quelle utilizzate in DISTINCT, JOIN, WHERE, ORDER BY e GROUP BY. Per informazioni dettagliate, controllare le [statistiche nel pool SQL senza server](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview) .
+
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Usare CETAS per ottimizzare le prestazioni e i join delle query
 
 [CETAS](develop-tables-cetas.md) è una delle funzionalità più importanti disponibili nel pool SQL senza server. CETAS è un'operazione parallela che crea metadati di tabelle esterne ed esporta i risultati delle query SELECT in un set di file nell'account di archiviazione.
 
 È possibile usare CETAS per archiviare parti di query usate di frequente, come le tabelle di riferimento unite in join, in un nuovo set di file. È quindi possibile creare un join a questa sola tabella esterna invece di ripetere join comuni in più query.
 
-Poiché CETAS genera file Parquet, le statistiche vengono create automaticamente quando la prima query raggiunge questa tabella esterna, con un conseguente miglioramento delle prestazioni.
+Quando CETAS genera file parquet, le statistiche vengono create automaticamente quando la prima query è destinata a questa tabella esterna, con conseguente miglioramento delle prestazioni per le query successive destinate alla tabella generata con CETAS.
 
 ## <a name="azure-ad-pass-through-performance"></a>Prestazioni del pass-through di Azure AD
 
