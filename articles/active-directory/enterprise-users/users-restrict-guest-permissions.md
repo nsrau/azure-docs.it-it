@@ -5,20 +5,20 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 09/04/2020
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8fdeefab150a2992edf40076a44c936d35b14dc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cac88e57ce0135295ac4b7078111102fa69e6838
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375327"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646594"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Limitare le autorizzazioni di accesso Guest (anteprima) in Azure Active Directory
 
@@ -42,7 +42,7 @@ Sono state apportate modifiche ai controlli portale di Azure esistenti per le au
 
 1. Accedere al centro di [amministrazione Azure ad](https://aad.portal.azure.com) con autorizzazioni di amministratore globale.
 1. Nella pagina Panoramica **Azure Active Directory** dell'organizzazione selezionare **impostazioni utente**.
-1. In **utenti esterni**selezionare **Gestisci impostazioni di collaborazione esterna**.
+1. In **utenti esterni** selezionare **Gestisci impostazioni di collaborazione esterna**.
 1. Nella pagina **impostazioni di collaborazione esterna** selezionare **accesso utente Guest è limitato alle proprietà e alle appartenenze dell'opzione oggetti directory** .
 
     ![Pagina impostazioni di collaborazione esterna Azure AD](./media/users-restrict-guest-permissions/external-collaboration-settings.png)

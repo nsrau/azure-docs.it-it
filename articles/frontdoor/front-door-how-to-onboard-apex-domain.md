@@ -5,14 +5,14 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 11/13/2020
 ms.author: duau
-ms.openlocfilehash: 44813a7662420ab4dedcd0bf99cc1eec7e9d9d2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55eefe7a7490df050aa7ebc2bb41fbadcc8d8279
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819077"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646339"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Eseguire l'onboarding di un dominio radice o apex nella frontdoor
 Il front-end di Azure usa record CNAME per convalidare la proprietà del dominio per l'onboarding di domini personalizzati. La porta anteriore non espone l'indirizzo IP front-end associato al profilo della porta anteriore. Quindi, non è possibile eseguire il mapping del dominio Apex a un indirizzo IP se lo si vuole caricare in Azure front door.
@@ -54,7 +54,7 @@ Per eseguire il mapping del dominio apice o radice al profilo della porta anteri
 
 1. Selezionare **Save (Salva** ) per inviare le modifiche.
 
-   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Record alias per l'apice della zona":::
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Menu del dominio personalizzato":::
 
 ## <a name="enable-https-on-your-custom-domain"></a>Abilitare HTTPS nel dominio personalizzato
 
@@ -62,7 +62,7 @@ Per eseguire il mapping del dominio apice o radice al profilo della porta anteri
 
 1. Selezionare il  **tipo di gestione dei certificati** per *usare il proprio certificato*.
 
-   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Record alias per l'apice della zona":::    
+   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-custom-domain.png" alt-text="Impostazioni HTTPS del dominio personalizzato":::    
 
    > [!WARNING]
    > Il tipo di gestione dei certificati gestiti dalla porta anteriore non è attualmente supportato per i domini di apice o radice. L'unica opzione disponibile per l'abilitazione di HTTPS in un vertice o un dominio radice per la porta anteriore è l'uso di un certificato TLS/SSL personalizzato ospitato in Azure Key Vault.

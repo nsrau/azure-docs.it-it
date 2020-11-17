@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6f7888e978fd4eb19232c156ce65b6e4967d9c5a
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 80ecd02f9aebbca66169d64d6c6d0302d58ca439
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575969"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647665"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrare un'applicazione SAML in Azure AD B2C
 
@@ -101,7 +101,7 @@ Successivamente, caricare l'asserzione SAML e il certificato di firma della risp
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare al tenant di Azure AD B2C.
 1. In **Criteri** selezionare **Identity Experience Framework** e quindi **Chiavi dei criteri**.
 1. Selezionare **Aggiungi** e quindi **Opzioni** > **Carica**.
-1. Immettere un valore per **Nome** , ad esempio *SamlIdpCert*. Verrà automaticamente aggiunto il prefisso *B2C_1A_* al nome della chiave.
+1. Immettere un valore per **Nome**, ad esempio *SamlIdpCert*. Verrà automaticamente aggiunto il prefisso *B2C_1A_* al nome della chiave.
 1. Caricare il certificato usando il controllo di caricamento file.
 1. Immettere la password del certificato.
 1. Selezionare **Create** (Crea).
@@ -131,7 +131,7 @@ Individuare la sezione `<ClaimsProviders>` e aggiungere il frammento XML seguent
       <OutputTokenFormat>SAML2</OutputTokenFormat>
       <Metadata>
         <!-- The issuer contains the policy name; it should be the same name as configured in the relying party application. B2C_1A_signup_signin_SAML is used below. -->
-        <!--<Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>-->
+        <!--<Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml</Item>-->
       </Metadata>
       <CryptographicKeys>
         <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
@@ -260,7 +260,7 @@ Il file dei criteri di relying party finale dovrebbe essere simile al codice XML
 
 Salvare le modifiche e caricare il nuovo file dei criteri. Dopo aver caricato entrambi i criteri (i file dell'estensione e della relying party), aprire un Web browser e passare ai metadati dei criteri.
 
-I metadati IDP dei criteri di Azure AD B2C sono informazioni usate nel protocollo SAML per esporre la configurazione di un provider di identità SAML. I metadati definiscono il percorso dei servizi, ad esempio accesso e disconnessione, certificati, metodo di accesso e altro ancora. I metadati dei criteri di Azure AD B2C sono disponibili all'URL seguente. Sostituire `tenant-name` con il nome del tenant Azure ad B2C e `policy-name` con il nome (ID) del criterio, ad esempio.../B2C_1A_SAML2_signup_signin/samlp/Metadata:
+I metadati IDP dei criteri di Azure AD B2C sono informazioni usate nel protocollo SAML per esporre la configurazione di un provider di identità SAML. I metadati definiscono il percorso dei servizi, ad esempio accesso e disconnessione, certificati, metodo di accesso e altro ancora. I metadati dei criteri di Azure AD B2C sono disponibili all'URL seguente. Sostituire `tenant-name` con il nome del tenant Azure ad B2C e `policy-name` con il nome (ID) del criterio, ad esempio.../B2C_1A_signup_signin_saml/samlp/Metadata:
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
@@ -339,10 +339,10 @@ I metadati possono essere configurati nel provider di servizi come "metadati sta
 
 In genere sono necessari alcuni o tutti gli elementi seguenti:
 
-* **Metadati** : `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Emittente** : il valore della richiesta SAML `issuer` deve corrispondere a uno degli URI configurati nell' `identifierUris` elemento del manifesto di registrazione dell'applicazione. Se il nome della richiesta SAML `issuer` non esiste nell' `identifierUris` elemento, [aggiungerlo al manifesto di registrazione dell'applicazione](#identifieruris). Ad esempio, `https://contoso.onmicrosoft.com/app-name` 
-* **URL di accesso/endpoint SAML/URL SAML** : controllare il valore nel file di metadati dei criteri SAML Azure ad B2C per l' `<SingleSignOnService>` elemento XML
-* **Certificato** : *B2C_1A_SamlIdpCert* , ma senza la chiave privata. Per ottenere la chiave pubblica del certificato:
+* **Metadati**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
+* **Emittente**: il valore della richiesta SAML `issuer` deve corrispondere a uno degli URI configurati nell' `identifierUris` elemento del manifesto di registrazione dell'applicazione. Se il nome della richiesta SAML `issuer` non esiste nell' `identifierUris` elemento, [aggiungerlo al manifesto di registrazione dell'applicazione](#identifieruris). Ad esempio, `https://contoso.onmicrosoft.com/app-name` 
+* **URL di accesso/endpoint SAML/URL SAML**: controllare il valore nel file di metadati dei criteri SAML Azure ad B2C per l' `<SingleSignOnService>` elemento XML
+* **Certificato**: *B2C_1A_SamlIdpCert*, ma senza la chiave privata. Per ottenere la chiave pubblica del certificato:
 
     1. Passare all'URL dei metadati specificato sopra.
     1. Copiare il valore nell'elemento `<X509Certificate>`.
@@ -428,7 +428,7 @@ Sono disponibili criteri di esempio completi che è possibile usare per i test c
 
 1. Scaricare i [criteri di esempio di accesso SAML-SP-initiated](https://github.com/azure-ad-b2c/saml-sp/tree/master/policy/SAML-SP-Initiated)
 1. Aggiornare `TenantId` in base al nome del tenant, ad esempio *contoso.b2clogin.com*
-1. Mantenere il nome dei criteri *B2C_1A_SAML2_signup_signin*
+1. Mantieni il nome dei criteri di *B2C_1A_signup_signin_saml*
 
 ## <a name="supported-and-unsupported-saml-modalities"></a>Modalità SAML supportate e non
 

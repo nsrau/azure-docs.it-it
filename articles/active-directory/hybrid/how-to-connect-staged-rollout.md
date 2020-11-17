@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d7208b068bee4b0a4cc30adfd98d2422718bbcc
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628901"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646577"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Eseguire la migrazione all'autenticazione cloud tramite un'implementazione a fasi (anteprima)
 
@@ -41,7 +41,7 @@ Per una panoramica della funzionalità, vedere il video seguente sull'implementa
     - **Opzione A**  -  *sincronizzazione dell'hash delle password (sincronizzazione)*  +  *Single Sign-on seamless (SSO)*.  Per altre informazioni, vedere [che cos'è la sincronizzazione degli hash delle password](whatis-phs.md) e [che cos'è seamless SSO](how-to-connect-sso.md)
     - **Opzione B**  -  autenticazione pass- *through*  +  accesso *SSO semplice*.  Per altre informazioni, vedere [che cos'è l'autenticazione pass-through](how-to-connect-pta.md)  
     
-    Sebbene l' *accesso Single Sign-On facile* sia facoltativo, è consigliabile abilitarlo perché gli utenti che eseguono computer aggiunti a un dominio all'interno di una rete aziendale possano vivere un'esperienza di accesso automatica.
+    Sebbene l'*accesso Single Sign-On facile* sia facoltativo, è consigliabile abilitarlo perché gli utenti che eseguono computer aggiunti a un dominio all'interno di una rete aziendale possano vivere un'esperienza di accesso automatica.
 
 -   Sono stati configurati tutti i criteri appropriati di personalizzazione del tenant e di accesso condizionale necessari per gli utenti di cui viene eseguita la migrazione all'autenticazione cloud.
 
@@ -49,7 +49,7 @@ Per una panoramica della funzionalità, vedere il video seguente sull'implementa
 
 -   Per usare la funzionalità di implementazione a fasi, è necessario essere un amministratore globale nel tenant.
 
--   Per abilitare l' *accesso Single Sign-On facile* in una foresta di Active Directory specifica, è necessario essere un amministratore di dominio.
+-   Per abilitare l'*accesso Single Sign-On facile* in una foresta di Active Directory specifica, è necessario essere un amministratore di dominio.
 
 -  Se si distribuisce Azure AD ibrido o Azure AD join, è necessario eseguire l'aggiornamento a Windows 10 1903 Update.
 
@@ -73,7 +73,7 @@ Per l'implementazione a fasi non sono supportati gli scenari riportati di seguit
 
 - Gli amministratori possono implementare l'autenticazione cloud usando i gruppi di sicurezza. Per evitare latenza di sincronizzazione durante l'uso dei gruppi di sicurezza Active Directory locali, è consigliabile usare gruppi di sicurezza cloud. Si applicano le condizioni seguenti:
 
-    - È possibile usare un massimo di 10 gruppi per ogni funzionalità, vale a dire 10 gruppi per *sincronizzazione dell'hash delle password* , 10 per *autenticazione pass-through* e 10 per *accesso Single Sign-On facile*.
+    - È possibile usare un massimo di 10 gruppi per ogni funzionalità, vale a dire 10 gruppi per *sincronizzazione dell'hash delle password*, 10 per *autenticazione pass-through* e 10 per *accesso Single Sign-On facile*.
     - I gruppi annidati *non sono supportati*. Questo ambito è valido anche per l'anteprima pubblica.
     - I gruppi dinamici *non sono supportati* per l'implementazione a fasi.
     - Gli oggetti Contact all'interno del gruppo impediscono l'aggiunta del gruppo.
@@ -99,7 +99,7 @@ Per informazioni sui cmdlet PowerShell da usare, vedere [Anteprima di Azure AD 2
 
    ![Screenshot della pagina "Funzionalità facoltative" in Azure Active Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
 
-1. Verificare che sia stato eseguito un ciclo completo di *sincronizzazione dell'hash delle password* in modo che tutti gli hash delle password degli utenti siano stati sincronizzati con Azure AD. Per controllare lo stato di *sincronizzazione dell'hash delle password* , è possibile usare la diagnostica di PowerShell descritta in [Risolvere i problemi di sincronizzazione degli hash delle password con la sincronizzazione Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
+1. Verificare che sia stato eseguito un ciclo completo di *sincronizzazione dell'hash delle password* in modo che tutti gli hash delle password degli utenti siano stati sincronizzati con Azure AD. Per controllare lo stato di *sincronizzazione dell'hash delle password*, è possibile usare la diagnostica di PowerShell descritta in [Risolvere i problemi di sincronizzazione degli hash delle password con la sincronizzazione Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
 
    ![Screenshot del log di risoluzione dei problemi di Azure AD Connect](./media/how-to-connect-staged-rollout/sr2.png)
 
@@ -117,19 +117,19 @@ Se si vuole testare l'accesso tramite *autenticazione pass-through* usando l'imp
 
 1. Assicurarsi di aver configurato le [impostazione di blocco intelligente](../authentication/howto-password-smart-lockout.md) in modo appropriato. In questo modo è possibile assicurarsi che gli account Active Directory locali degli utenti non vengano bloccati da utenti malintenzionati.
 
-È consigliabile abilitare l' *accesso Single Sign-On facile* indipendentemente dal metodo di accesso ( *sincronizzazione dell'hash delle password* o *autenticazione pass-through* ) selezionato per l'implementazione a fasi. Per abilitare l' *accesso Single Sign-On facile* , seguire le istruzioni preliminari illustrate nella sezione successiva.
+È consigliabile abilitare l'*accesso Single Sign-On facile* indipendentemente dal metodo di accesso (*sincronizzazione dell'hash delle password* o *autenticazione pass-through*) selezionato per l'implementazione a fasi. Per abilitare l'*accesso Single Sign-On facile*, seguire le istruzioni preliminari illustrate nella sezione successiva.
 
 ## <a name="pre-work-for-seamless-sso"></a>Istruzioni preliminari per l'accesso Single Sign-On facile
 
 Abilitare l'accesso *SSO* facile nelle foreste Active Directory usando PowerShell. Se si dispone di più di una foresta Active Directory, abilitarla singolarmente per ogni foresta. *Seamless SSO* viene attivato solo per gli utenti selezionati per l'implementazione temporanea. Non condiziona la configurazione della federazione esistente.
 
-Abilitare l' *accesso Single Sign-On facile* eseguendo le operazioni seguenti:
+Abilitare l'*accesso Single Sign-On facile* eseguendo le operazioni seguenti:
 
 1. Accedere al server di Azure AD Connect.
 
 2. Passare alla cartella *% ProgramFiles% \\ Microsoft Azure Active Directory Connect* .
 
-3. Importare il modulo PowerShell dell' *accesso Single Sign-On facile* eseguendo il comando seguente: 
+3. Importare il modulo PowerShell dell'*accesso Single Sign-On facile* eseguendo il comando seguente: 
 
    `Import-Module .\AzureADSSO.psd1`
 
@@ -141,15 +141,15 @@ Abilitare l' *accesso Single Sign-On facile* eseguendo le operazioni seguenti:
 
 6. Chiamare `$creds = Get-Credential`. Al prompt dei comandi, immettere le credenziali dell'amministratore di dominio per la foresta di Active Directory da usare.
 
-7. Chiamare `Enable-AzureADSSOForest -OnPremCredentials $creds`. Questo comando crea l'account computer AZUREADSSOACC dal controller di dominio locale per la foresta di Active Directory necessaria per l' *accesso Single Sign-On facile*.
+7. Chiamare `Enable-AzureADSSOForest -OnPremCredentials $creds`. Questo comando crea l'account computer AZUREADSSOACC dal controller di dominio locale per la foresta di Active Directory necessaria per l'*accesso Single Sign-On facile*.
 
-8. Per l' *accesso Single Sign-On facile* è necessario che gli URL siano nell'area Intranet. Per distribuire tali URL usando i criteri di gruppo, vedere [Avvio rapido: Accesso Single Sign-On facile di Azure AD](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature).
+8. Per l'*accesso Single Sign-On facile* è necessario che gli URL siano nell'area Intranet. Per distribuire tali URL usando i criteri di gruppo, vedere [Avvio rapido: Accesso Single Sign-On facile di Azure AD](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature).
 
-9. Per una procedura dettagliata completa, è anche possibile scaricare i [piani di distribuzione](https://aka.ms/SeamlessSSODPDownload) per l' *accesso Single Sign-On facile*.
+9. Per una procedura dettagliata completa, è anche possibile scaricare i [piani di distribuzione](https://aka.ms/SeamlessSSODPDownload) per l'*accesso Single Sign-On facile*.
 
 ## <a name="enable-staged-rollout"></a>Abilitare l'implementazione a fasi
 
-Per implementare una funzionalità specifica ( *autenticazione pass-through* , *sincronizzazione dell'hash delle password* o *accesso Single Sign-On facile* ) per una serie di utenti in un gruppo, seguire le istruzioni illustrate nelle sezioni successive.
+Per implementare una funzionalità specifica (*autenticazione pass-through*, *sincronizzazione dell'hash delle password* o *accesso Single Sign-On facile*) per una serie di utenti in un gruppo, seguire le istruzioni illustrate nelle sezioni successive.
 
 ### <a name="enable-a-staged-rollout-of-a-specific-feature-on-your-tenant"></a>Abilitare un'implementazione a fasi di una funzionalità specifica nel tenant
 
@@ -165,34 +165,35 @@ Eseguire le operazioni seguenti:
 
 2. Selezionare il collegamento **Abilita l'implementazione a fasi per l'accesso utente gestito (anteprima)** .
 
-   Ad esempio, se si vuole abilitare l' *opzione A* , scorrere i controlli **Sincronizzazione hash password** e **Accesso Single Sign-On facile** su **On** , come illustrato nelle immagini seguenti.
+   Ad esempio, se si vuole abilitare l'*opzione A*, scorrere i controlli **Sincronizzazione hash password** e **Accesso Single Sign-On facile** su **On**, come illustrato nelle immagini seguenti.
 
    ![Pagina di Azure AD Connect](./media/how-to-connect-staged-rollout/sr4.png)
 
    ![Pagina "Abilita le funzionalità dell'implementazione a fasi (anteprima)"](./media/how-to-connect-staged-rollout/sr5.png)
 
-3. Aggiungere i gruppi alla funzionalità per abilitare l' *autenticazione pass-through* e l' *accesso Single Sign-On facile*. Per evitare un timeout dell'esperienza utente, assicurarsi che i gruppi di sicurezza non contengano inizialmente più di 200 membri.
+3. Aggiungere i gruppi alla funzionalità per abilitare l'*autenticazione pass-through* e l'*accesso Single Sign-On facile*. Per evitare un timeout dell'esperienza utente, assicurarsi che i gruppi di sicurezza non contengano inizialmente più di 200 membri.
 
    ![Pagina "Gestione dei gruppi per Sincronizzazione hash password (anteprima)"](./media/how-to-connect-staged-rollout/sr6.png)
 
    >[!NOTE]
    >I membri di un gruppo vengono automaticamente abilitati per l'implementazione a fasi. I gruppi annidati e dinamici non sono supportati per l'implementazione a fasi.
    >Quando si aggiunge un nuovo gruppo, gli utenti del gruppo (fino a 200 utenti per un nuovo gruppo) verranno aggiornati per l'uso dell'autenticazione immidiatly gestita. Modifica di un gruppo (aggiunta o rimozione di utenti), possono essere necessarie fino a 24 ore prima che le modifiche abbiano effetto.
+   >L'accesso SSO facile verrà applicato solo se gli utenti si trovano nel gruppo SSO seamless e anche in un gruppo PTA o pH.
 
 ## <a name="auditing"></a>Controllo
 
 Sono stati abilitati gli eventi di controllo per le varie azioni eseguite per l'implementazione a fasi:
 
-- Evento di controllo durante l'abilitazione dell'implementazione a fasi per *sincronizzazione dell'hash delle password* , *autenticazione pass-through* o *accesso Single Sign-On facile*.
+- Evento di controllo durante l'abilitazione dell'implementazione a fasi per *sincronizzazione dell'hash delle password*, *autenticazione pass-through* o *accesso Single Sign-On facile*.
 
   >[!NOTE]
-  >Un evento di controllo viene registrato quando si attiva l' *accesso Single Sign-On facile* tramite l'implementazione a fasi.
+  >Un evento di controllo viene registrato quando si attiva l'*accesso Single Sign-On facile* tramite l'implementazione a fasi.
 
   ![Riquadro "Create rollout policy for feature" (Crea criteri di implementazione per la funzionalità) nella scheda Attività](./media/how-to-connect-staged-rollout/sr7.png)
 
   ![Riquadro "Create rollout policy for feature" (Crea criteri di implementazione per la funzionalità) nella scheda Proprietà modificate](./media/how-to-connect-staged-rollout/sr8.png)
 
-- Evento di controllo durante l'aggiunta di un gruppo alla *sincronizzazione dell'hash delle password* , all' *autenticazione pass-through* o all' *accesso Single Sign-On facile*.
+- Evento di controllo durante l'aggiunta di un gruppo alla *sincronizzazione dell'hash delle password*, all'*autenticazione pass-through* o all'*accesso Single Sign-On facile*.
 
   >[!NOTE]
   >Un evento di controllo viene registrato quando un gruppo viene aggiunto alla *sincronizzazione dell'hash delle password* per l'implementazione a fasi.
@@ -217,11 +218,11 @@ Per testare l'accesso tramite *sincronizzazione dell'hash delle password* o *aut
 
 1. Verificare che l'accesso venga visualizzato nel [report delle attività di accesso di Azure AD](../reports-monitoring/concept-sign-ins.md), usando UserPrincipalName come filtro.
 
-Per verificare l'accesso tramite *accesso Single Sign-On facile* :
+Per verificare l'accesso tramite *accesso Single Sign-On facile*:
 
 1. Nella Intranet andare alla [pagina App](https://myapps.microsoft.com) in una sessione privata del browser, quindi immettere il valore UserPrincipalName (UPN) dell'account utente selezionato per l'implementazione a fasi.
 
-   Gli utenti selezionati per l'implementazione a fase dell' *accesso Single Sign-on facile* visualizzano il messaggio "Tentativo di accesso per conto dell'utente" prima di accedere automaticamente.
+   Gli utenti selezionati per l'implementazione a fase dell'*accesso Single Sign-on facile* visualizzano il messaggio "Tentativo di accesso per conto dell'utente" prima di accedere automaticamente.
 
 1. Verificare che l'accesso venga visualizzato nel [report delle attività di accesso di Azure AD](../reports-monitoring/concept-sign-ins.md), usando UserPrincipalName come filtro.
 
@@ -239,7 +240,7 @@ A: Sì, è possibile usare questa funzionalità nel tenant di produzione, ma è 
 
 **D: È possibile usare questa funzionalità per gestire una "coesistenza permanente", in cui alcuni utenti usano l'autenticazione federata e altri usano l'autenticazione cloud?**
 
-A: No, questa funzionalità è progettata per eseguire la migrazione dall'autenticazione federata all'autenticazione cloud in fasi e passare infine all'autenticazione cloud. Non è consigliabile usare uno stato misto permanente, poiché questo approccio potrebbe generare flussi di autenticazione imprevisti.
+R: No, questa funzionalità è progettata per testare l'autenticazione cloud. Dopo aver eseguito correttamente il testing di alcuni gruppi di utenti, è necessario passare all'autenticazione cloud. Non è consigliabile usare uno stato misto permanente, poiché questo approccio potrebbe generare flussi di autenticazione imprevisti.
 
 **D: È possibile usare PowerShell per eseguire l'implementazione a fasi?**
 

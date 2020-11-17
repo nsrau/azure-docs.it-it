@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 0534c85548b1d8b6203aaac4911dc851dd49d81a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1823de88597756ba3db9aee0dc29501b1ba914a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460355"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646237"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Risolvere i problemi di Single Sign-On basata su password in Azure AD
 
@@ -36,7 +36,7 @@ Questo problema si verifica in genere se il fornitore dell'applicazione ha modif
 
 Mentre Microsoft dispone di tecnologie per rilevare automaticamente le interruzioni nelle integrazioni, potrebbe non essere possibile rilevare i problemi immediatamente oppure i problemi richiedono tempo per essere risolti. Nel caso in cui una di queste integrazioni non funzioni correttamente, aprire un caso di supporto in modo che il problema possa essere risolto il più rapidamente possibile.
 
-**Se l'utente è in contatto con il fornitore dell'applicazione, **può inviargli la soluzione offerta in modo che Microsoft possa lavorare con loro per integrare nativamente la loro applicazione con Azure Active Directory. Per iniziare, è possibile indirizzare il fornitore all'[Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
+**Se l'utente è in contatto con il fornitore dell'applicazione,** può inviargli la soluzione offerta in modo che Microsoft possa lavorare con loro per integrare nativamente la loro applicazione con Azure Active Directory. Per iniziare, è possibile indirizzare il fornitore all'[Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](../develop/v2-howto-app-gallery-listing.md).
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Le credenziali vengono compilate e inoltrate, ma un messaggio nella pagina indica che le credenziali sono errate
 
@@ -46,13 +46,13 @@ Per risolvere questo problema, provare innanzitutto queste soluzioni:
 
   * Se l'accesso funziona, fare in modo che l'utente faccia clic sul pulsante **Aggiorna credenziali** nel **riquadro dell'applicazione** nella sezione **app** di [app personali](https://myapps.microsoft.com/) per aggiornarle al nome utente e alla password funzionanti più recenti.
 
-  * Se è stato un amministratore ad assegnare le credenziali per questo utente, individuare l'assegnazione dell'applicazione dell'utente o del gruppo passando alla scheda **Utenti gruppi** dell'applicazione, selezionando l'assegnazione e facendo clic sul pulsante**Aggiorna credenziali**.
+  * Se è stato un amministratore ad assegnare le credenziali per questo utente, individuare l'assegnazione dell'applicazione dell'utente o del gruppo passando alla scheda **Utenti gruppi** dell'applicazione, selezionando l'assegnazione e facendo clic sul pulsante **Aggiorna credenziali**.
 
 - Se è stato l'utente ad assegnarsi le credenziali, chiedergli di **verificare che la password dell'applicazione non sia scaduta** ed eventualmente **aggiornarla** accedendo all'applicazione direttamente.
 
   * Dopo che la password è stata aggiornata nell'applicazione, richiedere all'utente di fare clic sul pulsante **Aggiorna credenziali** nel **riquadro dell'applicazione** nella sezione **app** di [app personali](https://myapps.microsoft.com/) per aggiornarle al nome utente e alla password più recenti.
 
-  * Se è stato un amministratore ad assegnare le credenziali per questo utente, individuare l'assegnazione dell'applicazione dell'utente o del gruppo passando alla scheda **Utenti gruppi** dell'applicazione, selezionando l'assegnazione e facendo clic sul pulsante**Aggiorna credenziali**.
+  * Se è stato un amministratore ad assegnare le credenziali per questo utente, individuare l'assegnazione dell'applicazione dell'utente o del gruppo passando alla scheda **Utenti gruppi** dell'applicazione, selezionando l'assegnazione e facendo clic sul pulsante **Aggiorna credenziali**.
 
 - Verificare che l'estensione del browser app personali sia in esecuzione e abilitata nel browser dell'utente.
 
@@ -62,7 +62,7 @@ Se il problema persiste, è possibile che sia stata apportata una modifica sul l
 
 Mentre Microsoft dispone di tecnologie per rilevare automaticamente le interruzioni delle integrazioni delle applicazioni, potrebbe non essere possibile rilevare i problemi immediatamente oppure i problemi richiedono tempo per essere risolti. Quando un'integrazione non funziona correttamente, è possibile aprire un caso di supporto per risolvere il problema nel più breve tempo possibile. 
 
-**Se l'utente è inoltre in contatto con il fornitore dell'applicazione,** **può inviargli la soluzione offerta da Microsoft** affinché si possa collaborare a integrare in modo nativo l'applicazione con Azure Active Directory. Per iniziare, è possibile indirizzare il fornitore all'[Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
+**Se l'utente è inoltre in contatto con il fornitore dell'applicazione,** **può inviargli la soluzione offerta da Microsoft** affinché si possa collaborare a integrare in modo nativo l'applicazione con Azure Active Directory. Per iniziare, è possibile indirizzare il fornitore all'[Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](../develop/v2-howto-app-gallery-listing.md).
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Controllare se la pagina di accesso dell'applicazione è cambiata di recente o richiede un campo aggiuntivo
 
@@ -70,7 +70,7 @@ Se la pagina di accesso dell'applicazione è cambiata drasticamente, talvolta è
 
 Mentre Microsoft dispone di tecnologie per rilevare automaticamente le interruzioni delle integrazioni delle applicazioni, potrebbe non essere possibile rilevare i problemi immediatamente oppure i problemi richiedono tempo per essere risolti. Quando un'integrazione non funziona correttamente, è possibile aprire un caso di supporto per risolvere il problema nel più breve tempo possibile. 
 
-**Se l'utente è inoltre in contatto con il fornitore dell'applicazione,** **può inviargli la soluzione offerta da Microsoft** affinché si possa collaborare a integrare in modo nativo l'applicazione con Azure Active Directory. Per iniziare, è possibile indirizzare il fornitore all'[Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
+**Se l'utente è inoltre in contatto con il fornitore dell'applicazione,** **può inviargli la soluzione offerta da Microsoft** affinché si possa collaborare a integrare in modo nativo l'applicazione con Azure Active Directory. Per iniziare, è possibile indirizzare il fornitore all'[Inserimento dell'applicazione nella raccolta di applicazioni Azure Active Directory](../develop/v2-howto-app-gallery-listing.md).
 
 ## <a name="capture-sign-in-fields-for-an-app"></a>Acquisire i campi di accesso per un'app
 
@@ -103,7 +103,7 @@ Per configurare l'accesso SSO basato su password usando l'acquisizione automatic
 
 ### <a name="manually-capture-sign-in-fields-for-an-app"></a>Acquisire manualmente i campi di accesso per un'app
 
-Per acquisire manualmente i campi di accesso, è necessario che sia installata l'estensione del browser app personali. Inoltre, il browser non può essere eseguito in modalità *InPrivate*, *incognito*o *privata* .
+Per acquisire manualmente i campi di accesso, è necessario che sia installata l'estensione del browser app personali. Inoltre, il browser non può essere eseguito in modalità *InPrivate*, *incognito* o *privata* .
 
 Per configurare l'accesso SSO basato su password per un'app usando l'acquisizione manuale dei campi di accesso, seguire questa procedura:
 1. Aprire il [portale di Azure](https://portal.azure.com/). Accedere come amministratore globale o coamministratore.
@@ -117,7 +117,7 @@ Per configurare l'accesso SSO basato su password per un'app usando l'acquisizion
 7. Al termine del caricamento dell'app, selezionare **Single Sign-on** nel riquadro di spostamento sul lato sinistro.
 8. Selezionare la modalità **accesso basato su password** .
 9. Immettere l' **URL di accesso**, ovvero la pagina in cui gli utenti immettono il nome utente e la password per l'accesso. *Assicurarsi che i campi di accesso siano visibili nella pagina per l'URL fornito*.
-10. Selezionare **Configure * &lt; appname &gt; * password Single Sign-on Settings**.
+10. Selezionare **Configure *&lt; appname &gt;* password Single Sign-on Settings**.
 11. Selezionare **rileva manualmente i campi di accesso**.
 14. Selezionare **OK**.
 15. Selezionare **Salva**.
@@ -145,11 +145,11 @@ Quando il rilevamento manuale non funziona, è possibile osservare i comportamen
 - L'acquisizione manuale sembra funzionare, ma SSO non si verifica quando gli utenti passano all'app dalle app personali.
 
 Se si verifica uno di questi problemi, effettuare le operazioni seguenti:
-- Assicurarsi che sia *installata e abilitata*la versione più recente dell'estensione del browser app personali.
-- Assicurarsi che il browser non sia in modalità *incognito*, *InPrivate*o *privata* durante il processo di acquisizione. L'estensione app personali non è supportata in queste modalità.
-- Assicurarsi che gli utenti non stiano tentando di accedere all'app dalle app personali in *incognito*, *InPrivate*o in *modalità privata*.
+- Assicurarsi che sia *installata e abilitata* la versione più recente dell'estensione del browser app personali.
+- Assicurarsi che il browser non sia in modalità *incognito*, *InPrivate* o *privata* durante il processo di acquisizione. L'estensione app personali non è supportata in queste modalità.
+- Assicurarsi che gli utenti non stiano tentando di accedere all'app dalle app personali in *incognito*, *InPrivate* o in *modalità privata*.
 - Provare a eseguire di nuovo il processo di acquisizione manuale. Assicurarsi che i marcatori rossi si trovino sui campi corretti.
-- Se il processo di acquisizione manuale sembra smettere di rispondere o la pagina di accesso non risponde, provare a eseguire di nuovo il processo di acquisizione manuale. Questa volta, tuttavia, dopo aver completato il processo, premere il tasto F12 per aprire la console per sviluppatori del browser. Selezionare la scheda **console** . digitare **Window. location = "* &lt; URL di accesso specificato durante la configurazione dell' &gt; app*"** e quindi premere INVIO. In questo modo viene forzato un reindirizzamento della pagina che termina il processo di acquisizione e archivia i campi acquisiti.
+- Se il processo di acquisizione manuale sembra smettere di rispondere o la pagina di accesso non risponde, provare a eseguire di nuovo il processo di acquisizione manuale. Questa volta, tuttavia, dopo aver completato il processo, premere il tasto F12 per aprire la console per sviluppatori del browser. Selezionare la scheda **console** . digitare **Window. location = "*&lt; URL di accesso specificato durante la configurazione dell' &gt; app*"** e quindi premere INVIO. In questo modo viene forzato un reindirizzamento della pagina che termina il processo di acquisizione e archivia i campi acquisiti.
 
 ## <a name="request-support"></a>Richiedere supporto 
 Se viene visualizzato un messaggio di errore quando si configura SSO e si assegnano utenti, aprire un ticket di supporto. Includere la maggior parte delle informazioni riportate di seguito:

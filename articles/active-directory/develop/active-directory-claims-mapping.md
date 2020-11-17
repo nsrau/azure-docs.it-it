@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: c300faf33f57518d26f82234bdff94a37235cd66
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2d65889a841655fe27994d3855f30f7a7e20e1ed
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275801"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647597"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 
@@ -239,6 +239,9 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 
 Per controllare quali attestazioni vengono generate e da quali origini provengono i dati, usare le proprietà dei criteri di mapping delle attestazioni. Se non sono impostati criteri, il sistema emette token che includono il set di attestazioni core, il set di attestazioni di base ed eventuali [attestazioni facoltative](active-directory-optional-claims.md) che l'applicazione ha scelto di ricevere.
 
+> [!NOTE]
+> Le attestazioni del set di attestazioni core sono presenti in ogni token, indipendentemente dall'impostazione di questa proprietà.
+
 ### <a name="include-basic-claim-set"></a>Includere set di attestazioni di base
 
 **Stringa:** IncludeBasicClaimSet
@@ -250,8 +253,7 @@ Per controllare quali attestazioni vengono generate e da quali origini provengon
 - Se impostata su True, tutte le attestazioni nel set di attestazioni di base verranno generate nei token interessati dal criterio.
 - Se impostata su False, le attestazioni nel set di attestazioni di base non vengono generate nei token, a meno che non vengano aggiunte singolarmente nella proprietà dello schema delle attestazioni degli stessi criteri.
 
-> [!NOTE]
-> Le attestazioni del set di attestazioni core sono presenti in ogni token, indipendentemente dall'impostazione di questa proprietà.
+
 
 ### <a name="claims-schema"></a>Schema di attestazioni
 
@@ -260,7 +262,7 @@ Per controllare quali attestazioni vengono generate e da quali origini provengon
 **Tipo di dati:** BLOB JSON con una o più voci dello schema di attestazioni
 
 **Riepilogo:** questa proprietà definisce quali attestazioni sono presenti nei token interessati dai criteri, oltre al set di attestazioni di base e al set di attestazioni core.
-Per ogni voce di schema di attestazioni definita in questa proprietà sono necessarie alcune informazioni. Consente di specificare la provenienza dei dati (**valore**, **coppia di origine/ID**o **coppia source/ExtensionID**) e l'attestazione in cui vengono emessi i dati (**tipo di attestazione**).
+Per ogni voce di schema di attestazioni definita in questa proprietà sono necessarie alcune informazioni. Consente di specificare la provenienza dei dati (**valore**, **coppia di origine/ID** o **coppia source/ExtensionID**) e l'attestazione in cui vengono emessi i dati (**tipo di attestazione**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementi di voci dello schema di attestazioni
 
@@ -439,8 +441,7 @@ I criteri di mapping delle attestazioni possono essere assegnati solo a oggetti 
 
 In molti scenari di Azure AD è possibile personalizzare le attestazioni generate nei token per specifiche entità servizio. In questa sezione vengono illustrati alcuni scenari comuni che permettono di comprendere come usare il tipo di criteri di mapping delle attestazioni.
 
-> [!NOTE]
-> Quando si creano criteri di mapping delle attestazioni, è anche possibile emettere un'attestazione da un attributo di estensione dello schema di directory nei token. Usare *ExtensionID* per l'attributo extension anziché *ID* nell' `ClaimsSchema` elemento.  Per ulteriori informazioni sugli attributi di estensione, vedere [utilizzo degli attributi di estensione dello schema di directory](active-directory-schema-extensions.md).
+Quando si creano criteri di mapping delle attestazioni, è anche possibile emettere un'attestazione da un attributo di estensione dello schema di directory nei token. Usare *ExtensionID* per l'attributo extension anziché *ID* nell' `ClaimsSchema` elemento.  Per ulteriori informazioni sugli attributi di estensione, vedere [utilizzo degli attributi di estensione dello schema di directory](active-directory-schema-extensions.md).
 
 #### <a name="prerequisites"></a>Prerequisiti
 

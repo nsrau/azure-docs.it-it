@@ -8,19 +8,19 @@ manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 10/23/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0e2ce094b792d6f3f7e5f8fe1920d87a9cceea2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d0136f7677aa722e578ac54c4f7d34338e47b0f7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517176"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646611"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Miglioramenti alla gestione degli utenti (anteprima) in Azure Active Directory
 
@@ -88,7 +88,7 @@ Alcune colonne vengono visualizzate per impostazione predefinita. Per aggiungere
 Selezionare una voce nella colonna **emittente identità** per qualsiasi utente per visualizzare ulteriori dettagli sull'autorità emittente, inclusi il tipo di accesso e l'ID assegnato all'autorità emittente. Le voci della colonna **Issuer Identity** possono essere multivalore. Se sono presenti più autorità emittenti dell'identità dell'utente, la parola multipla verrà visualizzata nella colonna **autorità emittente identità** in tutte le pagine **utenti** e **utenti eliminati** e nel riquadro dei dettagli verranno elencate tutte le autorità emittenti.
 
 > [!NOTE]
-> La colonna di **origine** viene sostituita da più colonne, tra cui il **tipo di creazione**, la **sincronizzazione della directory**e l'emittente di **identità** , per un filtro più granulare.
+> La colonna di **origine** viene sostituita da più colonne, tra cui il **tipo di creazione**, la **sincronizzazione della directory** e l'emittente di **identità** , per un filtro più granulare.
 
 ## <a name="user-list-search"></a>Ricerca elenco utenti
 
