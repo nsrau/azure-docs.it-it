@@ -2,6 +2,8 @@
   href: cut-planes.md
 - name: Eseguire il debug del rendering
   href: debug-rendering.md
+- name: Effetto Fresnel
+  href: fresnel-effect.md
 - name: Override dello stato gerarchico
   href: override-hierarchical-state.md
 - name: Fotocamera

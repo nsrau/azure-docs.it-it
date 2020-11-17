@@ -10,16 +10,31 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: a87e76d4a726f7a01b96d602e7f41d60409dae56
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 030b09dae9db11fb14defecde3d14e949b9e6748
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521493"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412732"
 ---
 # <a name="whats-new-in-custom-vision"></a>Novità di Visione personalizzata
 
 Ecco cosa c'è di nuovo nel servizio. Le novità possono essere note sulla versione, video, post di blog e altri tipi di informazioni. Aggiungere un segnalibro a questa pagina per rimanere sempre aggiornati sul servizio.
+
+
+## <a name="october-2020"></a>Ottobre 2020 
+
+### <a name="custom-base-model"></a>Modello di base personalizzato
+
+- Per alcune applicazioni è presente una grande quantità di dati di training comuni, ma è necessario ottimizzare separatamente i relativi modelli. In questo modo si ottiene un miglioramento delle prestazioni per le immagini di origini diverse con differenze minime. In questo caso, è possibile eseguire il training del primo modello come di consueto usando un volume elevato di dati di training. Chiamare quindi **TrainProject** nell'API di anteprima pubblica 3.4 con _CustomBaseModelInfo_ nel corpo della richiesta per usare il modello sottoposto a training della prima fase come modello di base per i progetti downstream. Se il progetto di origine e il progetto di destinazione downstream hanno caratteristiche simili per le immagini, è possibile prevedere prestazioni migliori. 
+
+### <a name="new-domain-information"></a>Nuove informazioni sul dominio
+
+- Le informazioni sul dominio restituite da **GetDomains** nell'API di anteprima pubblica Visione personalizzata 3.4 ora includono piattaforme esportabili supportate, una breve descrizione dell'architettura del modello e le dimensioni del modello per i domini compatti.
+
+### <a name="training-divergence-feedback"></a>Feedback sulla divergenza di training
+
+- L'API di Visione personalizzata 3.4 (anteprima pubblica) ora restituisce **TrainingErrorDetails** dalla chiamata **GetIteration**. In caso di iterazioni non riuscite indica se l'errore è stato causato dalla divergenza di training, che può essere risolta con una maggiore quantità di dati di training di qualità superiore.
 
 ## <a name="july-2020"></a>Luglio 2020
 

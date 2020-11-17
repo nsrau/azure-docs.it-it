@@ -4,16 +4,16 @@ description: includere file
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 04/27/2020
-ms.openlocfilehash: fabd79829425147667c46f686a1ec1ceb6a29b00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/09/2020
+ms.openlocfilehash: fa497b69b067d5556f11effdb52505895ecc3bdd
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87132892"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386475"
 ---
 Questa guida introduttiva basata su Postman assiste nell'ottenimento di una risposta da una knowledge base.
 
@@ -28,6 +28,8 @@ Questa guida introduttiva basata su Postman assiste nell'ottenimento di una risp
 > Una volta pronti a generare una risposta per una domanda dalla knowledge base, è necessario [eseguire il training](../Quickstarts/create-publish-knowledge-base.md#save-and-train) e [pubblicare](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) la knowledge base. Una volta pubblicata la knowledge base, nella pagina **Pubblica** vengono visualizzate le impostazioni della richiesta HTTP per generare una risposta. La scheda **Postman** mostra le impostazioni necessarie per generare una risposta.
 
 ## <a name="set-up-postman-for-requests"></a>Configurare Postman per le richieste
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 Questo argomento di avvio rapido usa le stesse impostazioni della richiesta **POST** Postman, quindi configura il codice JSON del corpo della richiesta POST inviato al servizio in base a ciò per cui si sta provando a eseguire una query.
 
@@ -44,6 +46,25 @@ Usare questa procedura per configurare Postman, quindi leggere ogni sezione succ
     ||`{"question":"<Your question>"}`|Corpo della richiesta POST come oggetto JSON. Questo valore verrà modificato in ogni sezione a seconda dello scopo della query.|
 
 1. Aprire Postman e creare una nuova richiesta **POST** di base con le impostazioni della knowledge base pubblicata. Nelle sezioni seguenti modificare il codice JSON del corpo della richiesta POST per modificare la query nella knowledge base.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
+
+Questo argomento di avvio rapido usa le stesse impostazioni della richiesta **POST** Postman, quindi configura il codice JSON del corpo della richiesta POST inviato al servizio in base a ciò per cui si sta provando a eseguire una query.
+
+Usare questa procedura per configurare Postman, quindi leggere ogni sezione successiva per configurare il codice JSON del corpo della richiesta POST.
+
+1. Nella pagina **Impostazioni** della knowledge base selezionare la scheda **Postman** per visualizzare la configurazione usata per generare una risposta dalla knowledge base. Copiare le informazioni seguenti da usare in Postman.
+
+    |Nome|Impostazione|Scopo e valore|
+    |--|--|--|
+    |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Si tratta del metodo HTTP e della route per l'URL.|
+    |`Host`|`https://YOUR-RESOURCE_NAME.cognitiveservices.azure.com/qnamaker`|Si tratta dell'host dell'URL. Concatenare i valori Host e Post per ottenere l'URL completo di generateAnswer.|
+    |`Ocp-Apim-Subscription-Key`|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|Valore dell'intestazione per autorizzare la richiesta. |
+    |`Content-type`|`application/json`|Valore dell'intestazione per il contenuto.|
+    ||`{"question":"<Your question>"}`|Corpo della richiesta POST come oggetto JSON. Questo valore verrà modificato in ogni sezione a seconda dello scopo della query.|
+
+1. Aprire Postman e creare una nuova richiesta **POST** di base con le impostazioni della knowledge base pubblicata. Nelle sezioni seguenti modificare il codice JSON del corpo della richiesta POST per modificare la query nella knowledge base.
+---
 
 ## <a name="use-metadata-to-filter-answer"></a>Usare i metadati per filtrare una risposta
 

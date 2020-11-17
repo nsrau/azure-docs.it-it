@@ -2,7 +2,7 @@
   href: index.yml
 - name: Panoramica
   items:
-    - name: Che cos'è Analisi di flusso?
+    - name: Introduzione ad Analisi di flusso
       href: stream-analytics-introduction.md
     - name: Cluster di Analisi di flusso
       href: cluster-overview.md

@@ -68,7 +68,7 @@ Questo articolo fornisce un flusso di lavoro generale per lo trasferimento di ri
 
 ### <a name="monitor-the-preparation-process"></a>Monitorare il processo di preparazione
 
-È possibile chiamare periodicamente [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) per monitorare la replica dei database dall'origine alla destinazione. L'oggetto di output di `Get-AzSqlDatabaseFailoverGroup` include una proprietà per **ReplicationState** :
+È possibile chiamare periodicamente [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) per monitorare la replica dei database dall'origine alla destinazione. L'oggetto di output di `Get-AzSqlDatabaseFailoverGroup` include una proprietà per **ReplicationState**:
 
 - **ReplicationState = 2** (CATCH_UP) indica che il database è sincronizzato e che può essere sottoposta a failover in modo sicuro.
 - **ReplicationState = 0** (seeding) indica che il database non è ancora stato sottoposta a seeding e un tentativo di eseguire il failover avrà esito negativo.
@@ -122,7 +122,7 @@ Al termine dello spostamento, rimuovere le risorse nell'area di origine per evit
 
 ### <a name="monitor-the-preparation-process"></a>Monitorare il processo di preparazione
 
-È possibile chiamare periodicamente [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) per monitorare la replica dei database dall'origine alla destinazione. L'oggetto di output di `Get-AzSqlDatabaseFailoverGroup` include una proprietà per **ReplicationState** :
+È possibile chiamare periodicamente [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) per monitorare la replica dei database dall'origine alla destinazione. L'oggetto di output di `Get-AzSqlDatabaseFailoverGroup` include una proprietà per **ReplicationState**:
 
 - **ReplicationState = 2** (CATCH_UP) indica che il database è sincronizzato e che può essere sottoposta a failover in modo sicuro.
 - **ReplicationState = 0** (seeding) indica che il database non è ancora stato sottoposta a seeding e un tentativo di eseguire il failover avrà esito negativo.
@@ -170,7 +170,7 @@ La replica di tutti i database in ogni istanza verrà avviata automaticamente. P
 
 ### <a name="monitor-the-preparation-process"></a>Monitorare il processo di preparazione
 
-È possibile chiamare periodicamente [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) per monitorare la replica dei database dall'origine alla destinazione. L'oggetto di output di `Get-AzSqlDatabaseFailoverGroup` include una proprietà per **ReplicationState** :
+È possibile chiamare periodicamente [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) per monitorare la replica dei database dall'origine alla destinazione. L'oggetto di output di `Get-AzSqlDatabaseFailoverGroup` include una proprietà per **ReplicationState**:
 
 - **ReplicationState = 2** (CATCH_UP) indica che il database è sincronizzato e che può essere sottoposta a failover in modo sicuro.
 - **ReplicationState = 0** (seeding) indica che non è ancora stato eseguito il seeding del database e un tentativo di eseguire il failover avrà esito negativo.

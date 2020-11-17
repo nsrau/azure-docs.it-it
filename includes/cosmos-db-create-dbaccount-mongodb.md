@@ -3,12 +3,12 @@ title: File di inclusione
 description: File di inclusione
 services: cosmos-db
 ms.custom: include file
-ms.openlocfilehash: ecf45a692f83689ed56c03bec13f291781508474
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad4445cbea6553a7a96299e1276dbe8f3816e166
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77061709"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94503959"
 ---
 1. In una nuova finestra del browser accedere al [portale di Azure](https://portal.azure.com/).
 
@@ -29,11 +29,12 @@ ms.locfileid: "77061709"
     Nome account|Immettere un nome univoco|Immettere un nome univoco per identificare l'account Azure Cosmos DB. L'URI dell'account sarà *mongo.cosmos.azure.com* e verrà aggiunto al nome dell'account univoco.<br><br>Il nome dell'account può contenere solo lettere minuscole, numeri e trattini e deve avere una lunghezza compresa tra 3 e 31 caratteri.
     API|API Azure Cosmos DB per MongoDB|L'API determina il tipo di account da creare. Azure Cosmos DB offre cinque API: Core (SQL) per i database di documenti, Gremlin per i database a grafo, API Azure Cosmos DB per MongoDB per i database di documenti, Tabella di Azure e Cassandra. Attualmente, è necessario creare un account separato per ogni API. <br><br>Selezionare l'**API Azure Cosmos DB per MongoDB** perché in questo argomento di avvio rapido si creerà una raccolta compatibile con MongoDB.<br><br>[Altre informazioni sull'API Azure Cosmos DB per MongoDB](../articles/cosmos-db/mongodb-introduction.md).|
     Location|Selezionare l'area più vicina agli utenti|Selezionare una posizione geografica in cui ospitare l'account Azure Cosmos DB. Usare la località più vicina agli utenti per offrire loro la massima velocità di accesso ai dati.|
+    Modalità di capacità|Provisioning velocità effettiva o Serverless|Selezionare **Provisioning velocità effettiva** per creare un account in modalità [Provisioning velocità effettiva](../articles/cosmos-db/set-throughput.md). Selezionare **Serverless** per creare un account in modalità [Serverless](../articles/cosmos-db/serverless.md).<br><br>**Nota**: L'API MongoDB versione 3.6 è supportata da account serverless. Se si sceglie la versione 3.2, l'account verrà forzato in modalità Provisioning velocità effettiva.
 
     Selezionare **Rivedi+Crea**. È possibile ignorare le sezioni **Rete** e **Tag**. 
 
     ![Pagina del nuovo account per Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-create-new-account.png)
 
-4. La creazione dell'account richiede alcuni minuti, Attendere che nel portale venga visualizzata la pagina **Complimenti, l'account dell'API Azure Cosmos DB per MongoDB è pronto**.
+4. La creazione dell'account richiede alcuni minuti. Attendere che nel portale venga visualizzata la pagina **Complimenti, l'account dell'API Azure Cosmos DB per MongoDB è pronto**.
 
-    ![Riquadro Notifiche del portale di Azure](./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-account-created.png)
+    ![Riquadro delle notifiche nel portale di Azure](./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-account-created.png)

@@ -28,8 +28,6 @@
       items:
         - name: Cambiare la lingua di origine del riconoscimento vocale
           href: how-to-specify-source-language.md
-        - name: Migliorare l'accuratezza con Riconoscimento vocale personalizzato
-          href: how-to-custom-speech.md
         - name: Usare formati di input audio compressi
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
@@ -45,20 +43,18 @@
           href: tutorial-tenant-model.md
     - name: Personalizzazione
       items:
+        - name: Che cos'è il servizio Riconoscimento vocale personalizzato?
+          href: custom-speech-overview.md
         - name: Testare un modello usando file audio in Speech Studio
           href: quickstarts/speech-studio-test-model.md
         - name: Preparare i dati per Riconoscimento vocale personalizzato
           href: how-to-custom-speech-test-and-train.md
         - name: Esaminare i dati di Riconoscimento vocale personalizzato
           href: how-to-custom-speech-inspect-data.md
-        - name: Valutare l'accuratezza di Riconoscimento vocale personalizzato
+        - name: Valutare e migliorare l'accuratezza di Riconoscimento vocale personalizzato
           href: how-to-custom-speech-evaluate-data.md
-        - name: Migliorare l'accuratezza di Riconoscimento vocale personalizzato
-          href: how-to-custom-speech-improve-accuracy.md
-        - name: Eseguire il training di un modello per Riconoscimento vocale personalizzato
+        - name: Eseguire il training e distribuire un modello di Riconoscimento vocale personalizzato
           href: how-to-custom-speech-train-model.md
-        - name: Distribuire un modello personalizzato
-          href: how-to-custom-speech-deploy-model.md
         - name: CI/CD per Riconoscimento vocale personalizzato
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
         - name: Creare trascrizioni con etichette umane
@@ -391,6 +387,10 @@
                       href: how-to-custom-commands-setup-web-endpoints.md
                     - name: Esportare l'app Comandi personalizzati come competenza
                       href: how-to-custom-commands-integrate-remote-skills.md
+                    - name: Aggiornare un comando dall'app client
+                      href: how-to-custom-commands-update-command-from-client.md
+                    - name: Aggiornare un comando da un endpoint Web
+                      href: how-to-custom-commands-update-command-from-web-endpoint.md
                 - name: Distribuire
                   items:
                     - name: Distribuzione continua con Azure DevOps
@@ -550,7 +550,7 @@
       items:
         - name: Come configurare un array di microfoni
           href: how-to-devices-microphone-array-configuration.md
-    - name: Avvio rapido
+    - name: Guida introduttiva
       items:
         - name: Usare Speech Devices SDK
           href: speech-devices-sdk-quickstart.md

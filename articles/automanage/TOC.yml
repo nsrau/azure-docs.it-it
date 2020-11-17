@@ -19,6 +19,8 @@
       href: virtual-machines-custom-preferences.md
     - name: Abilitare nelle VM tramite Criteri di Azure
       href: virtual-machines-policy-enable.md
+    - name: Correggere un account di Gestione automatica danneggiato
+      href: repair-automanage-account.md
 - name: Risorse
   expanded: true
   items:

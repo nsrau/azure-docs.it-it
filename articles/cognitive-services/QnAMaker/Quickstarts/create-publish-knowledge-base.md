@@ -4,13 +4,13 @@ description: È possibile creare una knowledge base di QnA Maker (KB) a partire 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 05/26/2020
-ms.openlocfilehash: 1646666244eb2247d6e7127c4d4e8d39cb0af5ff
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.date: 11/09/2020
+ms.openlocfilehash: b22c73b3f0626b9938608e88c3382e3f5e8d97fc
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777679"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427480"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Avvio rapido: Creare, eseguire il training e pubblicare la knowledge base QnA Maker
 
@@ -24,36 +24,75 @@ ms.locfileid: "91777679"
 
 ## <a name="create-your-first-qna-maker-knowledge-base"></a>Creare la prima knowledge base di QnA Maker
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
+
 1. Accedere al portale [QnAMaker.ai](https://QnAMaker.ai) con le credenziali di Azure.
 
-1. Nel portale di QnA Maker selezionare **Creare una knowledge base**.
+2. Nel portale di QnA Maker selezionare **Creare una knowledge base**.
 
-1. Nella pagina **Crea** ignorare il **Passaggio 1** se la risorsa QnA Maker è già presente.
+3. Nella pagina **Crea** ignorare il **Passaggio 1** se la risorsa QnA Maker è già presente.
 
     Se la risorsa non è ancora stata creata, selezionare **Creare un servizio QnA**. Si verrà reindirizzati al [portale di Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) per configurare un servizio QnA Maker nella sottoscrizione. Prendere nota dei valori di ID di Azure Active Directory, sottoscrizione e nome della risorsa di QnA selezionati durante la creazione della risorsa.
 
     Al termine della creazione della risorsa nel portale di Azure, tornare al portale di QnA Maker, aggiornare la pagina del browser e continuare con il **Passaggio 2**.
 
-1. Nel **Passaggio 3** selezionare l'istanza di Active Directory, la sottoscrizione, il servizio (risorsa) e la lingua per tutte le knowledge base create nel servizio.
+4. Nel **Passaggio 2** selezionare l'istanza di Active Directory, la sottoscrizione, il servizio (risorsa) e la lingua per tutte le knowledge base create nel servizio.
 
     :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="Screenshot della selezione di una knowledge base per il servizio QnA Maker":::
 
-1. Nel **Passaggio 3** assegnare alla knowledge base il nome **My Sample QnA KB**.
+5. Nel **Passaggio 3** assegnare alla knowledge base il nome **My Sample QnA KB**.
 
-1. Nel **Passaggio 4** configurare le impostazioni in base alla tabella seguente:
+6. Nel **Passaggio 4** configurare le impostazioni in base alla tabella seguente:
 
     |Impostazione|valore|
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files** (Abilita estrazione a più turni da URL e file PDF o DOCX)|Selezionato|
-    |**Default answer text** (Testo della risposta predefinita)| `Quickstart - default answer not found.`|
+    |**Multi-turn default text** (Testo predefinito per più turni)| Selezionare un'opzione|
     |**+ Add URL** (+ Aggiungi URL)|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
     |**Chit-chat**|Selezionare **Professional**|
 
-1. Nel **Passaggio 5** selezionare **Create your KB** (Crea la KB).
+7. Nel **Passaggio 5** selezionare **Create your KB** (Crea la KB).
 
     Il processo di estrazione impiega alcuni minuti per leggere il documento e identificare le domande e risposte.
 
     Al termine della creazione della knowledge base, verrà visualizzata la pagina **Knowledge base**. È possibile modificare il contenuto della knowledge base in questa pagina.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
+
+1. Accedere al portale [QnAMaker.ai](https://QnAMaker.ai) con le credenziali di Azure.
+
+2. Nel portale di QnA Maker selezionare **Creare una knowledge base**.
+
+3. Nella pagina **Crea** ignorare il **Passaggio 1** se la risorsa QnA Maker è già presente.
+
+    Se la risorsa non è ancora stata creata, selezionare **Creare un servizio QnA**. Si verrà reindirizzati al [portale di Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) per configurare un servizio QnA Maker nella sottoscrizione. Prendere nota dei valori di ID di Azure Active Directory, sottoscrizione e nome della risorsa di QnA selezionati durante la creazione della risorsa.
+
+    Al termine della creazione della risorsa nel portale di Azure, tornare al portale di QnA Maker, aggiornare la pagina del browser e continuare con il **Passaggio 2**.
+
+4. Nel **Passaggio 2** selezionare l'istanza di Active Directory, la sottoscrizione, il servizio (risorsa) e la lingua per tutte le knowledge base create nel servizio.
+
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/connect-your-knowledge-base.png" alt-text="Screenshot relativo alla selezione di un'anteprima gestita della knowledge base del servizio QnA Maker":::
+
+5. Se nel **Passaggio 2** si sta creando la prima knowledge base per il servizio, sarà possibile definire un'impostazione della lingua specifica per ogni knowledge base. Dopo aver definito l'impostazione della lingua per la prima knowledge base, non sarà possibile modificare le impostazioni per il servizio in un secondo momento.
+
+6. Nel  **Passaggio 3** assegnare alla knowledge base il nome  **My Sample QnA KB**. 
+
+7. Nel **Passaggio 4** configurare le impostazioni in base alla tabella seguente:
+
+    |Impostazione|valore|
+    |--|--|
+    |**Enable multi-turn extraction from URLs, .pdf or .docx files** (Abilita estrazione a più turni da URL e file PDF o DOCX)|Selezionato|
+    |**Multi-turn default text** (Testo predefinito per più turni)| Selezionare un'opzione|
+    |**+ Add URL** (+ Aggiungi URL)|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**Chit-chat**|Selezionare **Professional**|
+
+8. Nel **Passaggio 5** selezionare **Create your KB** (Crea la KB).
+
+    Il processo di estrazione impiega alcuni minuti per leggere il documento e identificare le domande e risposte.
+
+    Al termine della creazione della knowledge base, verrà visualizzata la pagina **Knowledge base**. È possibile modificare il contenuto della knowledge base in questa pagina.
+
+---
 
 ## <a name="add-a-new-question-and-answer-set"></a>Aggiungere un nuovo set di domande e risposte
 
@@ -66,7 +105,7 @@ ms.locfileid: "91777679"
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Screenshot della selezione di una knowledge base per il servizio QnA Maker":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Aggiungere la domanda come testo e la risposta formattata con Markdown.":::
 
     Il simbolo di markdown, `*`, viene usato per i punti elenco. `\n` viene usato per una nuova riga.
 
@@ -78,16 +117,34 @@ In alto a destra selezionare **Save and train** (Salva ed esegui il training) pe
 
 ## <a name="test-the-knowledge-base"></a>Testare la knowledge base
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
+
 1. In alto a destra del portale QnA Maker, selezionare **Esegui test** per verificare che le modifiche apportate abbiano avuto effetto.
-1. Immettere una query utente di esempio nella casella di testo.
+2. Immettere una query utente di esempio nella casella di testo.
 
     `How many Azure services are used by a knowledge base?`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Screenshot della selezione di una knowledge base per il servizio QnA Maker":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Immettere una query utente di esempio nella casella di testo.":::
 
-1. Selezionare **Ispeziona** per esaminare la risposta in modo più dettagliato. La finestra di test viene usata per testare le modifiche alla knowledge base prima della pubblicazione.
+3. Selezionare **Ispeziona** per esaminare la risposta in modo più dettagliato. La finestra di test viene usata per testare le modifiche alla knowledge base prima della pubblicazione.
 
-1. Selezionare nuovamente **Test** per chiudere il pannello **Test**.
+4. Selezionare nuovamente **Test** per chiudere il pannello **Test**.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
+
+1. In alto a destra del portale QnA Maker, selezionare **Esegui test** per verificare che le modifiche apportate abbiano avuto effetto.
+2. Immettere una query utente di esempio nella casella di testo.
+
+    `whats the size of the touchscreen`
+
+3. Se si abilita la funzionalità MRC per la knowledge base, selezionando l'opzione **Display short answer** (Visualizza risposta breve), verrà visualizzata anche una risposta precisa, se disponibile, unitamente al passaggio della risposta nel riquadro del test. 
+
+    ![Riquadro del test abilitato per la modalità gestita](../media/conversational-context/test-pane-with-managed.png)
+    
+
+4. Selezionare Ispeziona per esaminare la risposta in modo più dettagliato. La finestra di test viene usata per testare le modifiche alla knowledge base prima della pubblicazione. 
+5. Selezionare nuovamente **Test** per chiudere il pannello **Test**.
+---
 
 ## <a name="publish-the-knowledge-base"></a>Pubblicare la knowledge base
 
@@ -133,7 +190,7 @@ Quando si apportano modifiche alla knowledge base e si ripete la pubblicazione, 
 
     Il chatbot risponde con una risposta della knowledge base.
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Screenshot della selezione di una knowledge base per il servizio QnA Maker":::
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Immettere una query utente nella chat Web di test.":::
 
 ## <a name="what-did-you-accomplish"></a>Cosa si è ottenuto?
 
@@ -156,5 +213,4 @@ Per altre informazioni:
 
 * [Formato Markdown nelle risposte](../reference-markdown-format.md)
 * [Origini dati](../concepts/knowledge-base.md) di QnA Maker.
-
 

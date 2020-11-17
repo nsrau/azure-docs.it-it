@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: eb17b8286ce994146c1fa9867cd8131a909c8ace
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146689"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504391"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Gruppi di disponibilità AlwaysOn per SQL Server in Macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -72,13 +72,13 @@ Per iniziare, vedere come [configurare un listener di DNN](availability-group-di
 
 Sono disponibili diverse opzioni per la distribuzione di un gruppo di disponibilità in SQL Server in Macchine virtuali di Azure, alcune con più automazione di altre. 
 
-La tabella seguente include un confronto delle opzioni disponibili: 
+La tabella seguente include un confronto delle opzioni disponibili:
 
-| |**[Portale di Azure](availability-group-azure-portal-configure.md)**|**[Interfaccia della riga di comando di Azure/PowerShell](./availability-group-az-commandline-configure.md)**|**[Modelli di avvio rapido](availability-group-quickstart-template-configure.md)**|**[Manuale](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
+| | Portale di Azure | Interfaccia della riga di comando di Azure/PowerShell | Modelli di avvio rapido | Manuale |
+|---------|---------|---------|---------|---------|
 |**Versione di SQL Server** |2016 e successive |2016 e successive|2016 e successive|2012 e successive|
 |**Edizione di SQL Server** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
-|**Versione di Windows Server**| 2016 e successive | 2016 e successive | 2016 e successive | Tutti| 
+|**Versione di Windows Server**| 2016 e successive | 2016 e successive | 2016 e successive | Tutti|
 |**Crea automaticamente il cluster**|Sì|Sì | Sì |No|
 |**Crea automaticamente il gruppo di disponibilità** |Sì |No|No|No|
 |**Crea il listener e il servizio di bilanciamento del carico in modo indipendente** |No|No|No|Sì|
@@ -90,9 +90,8 @@ La tabella seguente include un confronto delle opzioni disponibili:
 |**Ripristino di emergenza con più zone nella stessa area**|Sì|Sì|Sì|Sì|
 |**Gruppo di disponibilità distribuito senza AD**|No|No|No|Sì|
 |**Gruppo di disponibilità distribuito senza cluster** |No|No|No|Sì|
-||||||
 
-
+Per altre informazioni, vedere [Portale di Azure](availability-group-azure-portal-configure.md), [Interfaccia della riga di comando di Azure/PowerShell](./availability-group-az-commandline-configure.md), [Modelli di avvio rapido](availability-group-quickstart-template-configure.md) e [Manuale](availability-group-manually-configure-prerequisites-tutorial.md).
 
 ## <a name="considerations"></a>Considerazioni 
 

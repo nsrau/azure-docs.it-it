@@ -4,11 +4,11 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 02/26/2020
 ms.author: jgao
-ms.openlocfilehash: e584bb86cbe99c2b0f706c0c914455829f079dbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa47831db9190161a827f84278acf8a1676d7bbf
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85249318"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488032"
 ---
-Un [modello di Resource Manager](/azure/azure-resource-manager/templates/overview) è un file JSON (JavaScript Object Notation) che definisce l'infrastruttura e la configurazione del progetto. Il modello usa una sintassi dichiarativa che consente di indicare ciò che si intende distribuire senza dover scrivere la sequenza dei comandi di programmazione per crearlo.
+Un [modello di Resource Manager](/azure/azure-resource-manager/templates/overview) è un file JSON (JavaScript Object Notation) che definisce l'infrastruttura e la configurazione del progetto. Il modello usa la sintassi dichiarativa. Nella sintassi dichiarativa si descrive la distribuzione prevista senza scrivere la sequenza di comandi di programmazione necessari per creare la distribuzione.
