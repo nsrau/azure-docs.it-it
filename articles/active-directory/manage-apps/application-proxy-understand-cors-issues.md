@@ -11,18 +11,18 @@ ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 2019802725e36c2400f57952fedf7af40877c8c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8836295e9f54260c4e9ff6c1da333ef2a86d58fb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759930"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651856"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Comprendere e risolvere Azure Active Directory Application Proxy problemi CORS
 
-[Condivisione di risorse tra le origini (CORS)](https://www.w3.org/TR/cors/)   a volte può presentare problemi per le app e le API pubblicate tramite il Azure Active Directory Application Proxy. Questo articolo illustra Azure AD il proxy di applicazione CORS problemi e soluzioni.
+La [condivisione di risorse tra le origini (CORS)](https://www.w3.org/TR/cors/) può talvolta presentare problemi per le app e le API pubblicate tramite il Azure Active Directory Application Proxy. Questo articolo illustra Azure AD il proxy di applicazione CORS problemi e soluzioni.
 
-La protezione del browser in genere impedisce a una pagina Web di effettuare richieste AJAX a un altro dominio. Questa restrizione è detta *criterio della stessa origine*e impedisce a un sito dannoso di leggere dati sensibili da un altro sito. Tuttavia, in alcuni casi potrebbe essere necessario lasciare che altri siti chiamino l'API Web. CORS è uno standard W3C che consente a un server di ridurre i criteri della stessa origine e di consentire alcune richieste tra le origini rifiutando altri utenti.
+La protezione del browser in genere impedisce a una pagina Web di effettuare richieste AJAX a un altro dominio. Questa restrizione è detta *criterio della stessa origine* e impedisce a un sito dannoso di leggere dati sensibili da un altro sito. Tuttavia, in alcuni casi potrebbe essere necessario lasciare che altri siti chiamino l'API Web. CORS è uno standard W3C che consente a un server di ridurre i criteri della stessa origine e di consentire alcune richieste tra le origini rifiutando altri utenti.
 
 ## <a name="understand-and-identify-cors-issues"></a>Comprendere e identificare i problemi di CORS
 
@@ -66,7 +66,7 @@ L'app CORSWebClient funziona quando viene ospitata in locale, ma non è possibil
 
 ### <a name="option-1-set-up-a-custom-domain"></a>Opzione 1: configurare un dominio personalizzato
 
-Usare un Azure AD [dominio personalizzato](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) del proxy di applicazione per pubblicare dalla stessa origine, senza dover apportare modifiche alle origini, al codice o alle intestazioni dell'app. 
+Usare un Azure AD [dominio personalizzato](./application-proxy-configure-custom-domain.md) del proxy di applicazione per pubblicare dalla stessa origine, senza dover apportare modifiche alle origini, al codice o alle intestazioni dell'app. 
 
 ### <a name="option-2-publish-the-parent-directory"></a>Opzione 2: pubblicare la directory padre
 
@@ -117,4 +117,4 @@ Non è possibile risolvere alcuni problemi di CORS, ad esempio quando l'app rein
 ## <a name="see-also"></a>Vedere anche
 - [Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](application-proxy-add-on-premises-application.md) 
 - [Pianificare una distribuzione di Azure AD Application Proxy](application-proxy-deployment-plan.md) 
-- [Accesso remoto alle applicazioni locali tramite Azure Active Directory Application Proxy](application-proxy.md) 
+- [Accesso remoto alle applicazioni locali tramite Azure Active Directory Application Proxy](application-proxy.md)

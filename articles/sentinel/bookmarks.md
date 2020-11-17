@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/24/2019
-ms.openlocfilehash: eacc104bf7157732f91507f631bcda2cd166bfb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e3b6802bab2c5fae97be8e55c8d5c11ff570f78
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77588689"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651313"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Tenere traccia dei dati durante la ricerca con Azure Sentinel
 
@@ -56,12 +56,12 @@ Inoltre, in anteprima, è possibile visualizzare i dati con segnalibro, facendo 
 
 6. A destra, nel riquadro **Aggiungi segnalibro** , facoltativamente, aggiornare il nome del segnalibro, aggiungere i tag e le note per facilitare l'identificazione dell'elemento interessante.
 
-7. Nella sezione **informazioni query** utilizzare le caselle di riepilogo a discesa per estrarre informazioni dai risultati della query per i tipi di entità **account**, **host**e **indirizzo IP** . Questa azione esegue il mapping del tipo di entità selezionato a una colonna specifica dal risultato della query. Ad esempio:
+7. Nella sezione **informazioni query** utilizzare le caselle di riepilogo a discesa per estrarre informazioni dai risultati della query per i tipi di entità **account**, **host** e **indirizzo IP** . Questa azione esegue il mapping del tipo di entità selezionato a una colonna specifica dal risultato della query. Ad esempio:
     
     > [!div class="mx-imgBorder"]
     > ![Mapping dei tipi di entità per il segnalibro Hunting](./media/bookmarks/map-entity-types-bookmark.png)
     
-    Per visualizzare il segnalibro nel grafico di analisi (attualmente in anteprima), è necessario eseguire il mapping di almeno un tipo di entità che sia **account**, **host**o **indirizzo IP**. 
+    Per visualizzare il segnalibro nel grafico di analisi (attualmente in anteprima), è necessario eseguire il mapping di almeno un tipo di entità che sia **account**, **host** o **indirizzo IP**. 
 
 5. Fare clic su **Salva** per eseguire il commit delle modifiche e aggiungere il segnalibro. Tutti i dati con segnalibro sono condivisi con altri investigatori ed è il primo passo verso un'esperienza di analisi collaborativa.
 
@@ -90,7 +90,7 @@ Inoltre, in anteprima, è possibile visualizzare i dati con segnalibro, facendo 
 
 1. Nella portale di Azure passare alla scheda **Sentinel**  >  **Threat Management**  >  **Hunting**  >  **Bookmarks** e selezionare il segnalibro o i segnalibri che si desidera analizzare.
 
-2. Nei dettagli del segnalibro verificare che sia stato eseguito il mapping di almeno un'entità. Per le **entità**, ad esempio, vengono visualizzate le voci relative a **IP**, **computer**o **account**.
+2. Nei dettagli del segnalibro verificare che sia stato eseguito il mapping di almeno un'entità. Per le **entità**, ad esempio, vengono visualizzate le voci relative a **IP**, **computer** o **account**.
 
 3. Fare **clic su** verifica per visualizzare il segnalibro nel grafico di analisi.
 
@@ -118,22 +118,22 @@ Per istruzioni sull'uso del grafico di indagine, vedere [usare il grafico di ind
 Per visualizzare il segnalibro nell'evento imprevisto: passare a **Sentinel**  >  **Threat Management**  >  **Incidents** e selezionare l'evento imprevisto con il segnalibro. Selezionare **Visualizza dettagli completi**, quindi selezionare la scheda **segnalibri** .
 
 > [!TIP]
-> In alternativa all'opzione **azioni evento imprevisto (anteprima)** sulla barra dei comandi, è possibile utilizzare il menu di scelta rapida (**...**) per uno o più segnalibri per selezionare le opzioni per la creazione di un **nuovo evento**imprevisto, l' **aggiunta all'evento**imprevisto esistente e la **rimozione da evento imprevisto**. 
+> In alternativa all'opzione **azioni evento imprevisto (anteprima)** sulla barra dei comandi, è possibile utilizzare il menu di scelta rapida (**...**) per uno o più segnalibri per selezionare le opzioni per la creazione di un **nuovo evento** imprevisto, l' **aggiunta all'evento** imprevisto esistente e la **rimozione da evento imprevisto**. 
 
 ## <a name="view-bookmarked-data-in-logs"></a>Visualizzare i dati con segnalibro nei log
 
-Per visualizzare le query con segnalibro, i risultati o la cronologia, selezionare il segnalibro dalla **Hunting**  >  scheda**segnalibri** caccia e usare i collegamenti disponibili nel riquadro dei dettagli: 
+Per visualizzare le query con segnalibro, i risultati o la cronologia, selezionare il segnalibro dalla **Hunting**  >  scheda **segnalibri** caccia e usare i collegamenti disponibili nel riquadro dei dettagli: 
 
 - Consente di **visualizzare** la query di origine per visualizzare la query di origine nel riquadro **log** .
 
 - **Visualizzare i log dei segnalibri** per visualizzare tutti i metadati dei segnalibri, che includono chi ha eseguito l'aggiornamento, i valori aggiornati e l'ora in cui si è verificato l'aggiornamento.
 
-È anche possibile visualizzare i dati dei segnalibri non elaborati per tutti i segnalibri selezionando i **log dei segnalibri** nella barra dei comandi nella **Hunting**  >  scheda**segnalibri** di caccia:
+È anche possibile visualizzare i dati dei segnalibri non elaborati per tutti i segnalibri selezionando i **log dei segnalibri** nella barra dei comandi nella **Hunting**  >  scheda **segnalibri** di caccia:
 
 > [!div class="mx-imgBorder"]
 > ![Segnalibri-log](./media/bookmarks/bookmark-logs.png)
 
-Questa visualizzazione Mostra tutti i segnalibri con i metadati associati. È possibile usare le query KQL ( [Keyword Query Language](https://docs.microsoft.com/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) ) per filtrare la versione più recente del segnalibro specifico che si sta cercando.
+Questa visualizzazione Mostra tutti i segnalibri con i metadati associati. È possibile usare le query KQL ( [Keyword Query Language](/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) ) per filtrare la versione più recente del segnalibro specifico che si sta cercando.
 
 > [!NOTE]
 > È possibile che si verifichi un ritardo significativo (espresso in minuti) tra il momento in cui si crea un segnalibro e quando questo viene visualizzato nella scheda **segnalibri** .

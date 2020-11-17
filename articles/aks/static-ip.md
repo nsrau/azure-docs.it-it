@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Informazioni su come creare e usare un indirizzo IP statico con il bilanciamento del carico del servizio Azure Kubernetes.
 services: container-service
 ms.topic: article
-ms.date: 03/09/2020
-ms.openlocfilehash: 3055b5d32055d0ed0e3870f16f6af95407a68cd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/14/2020
+ms.openlocfilehash: 22fd099633556fa9ddce575c2ac238b4950667cb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243937"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651890"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usare un indirizzo IP pubblico statico e un'etichetta DNS con il servizio di bilanciamento del carico di Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ Questo articolo illustra come creare un indirizzo IP pubblico statico e assegnar
 
 Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
-È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.59 o versione successiva. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure 2.0.59 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 Questo articolo illustra l'uso di un IP dello SKU *standard* con un servizio di bilanciamento del carico SKU *standard* . Per altre informazioni, vedere [Tipi di indirizzi IP e metodi di allocazione in Azure][ip-sku].
 
@@ -73,6 +73,9 @@ az role assignment create \
 ```
 
 In alternativa, è possibile usare l'identità gestita assegnata dal sistema per le autorizzazioni anziché l'entità servizio. Per altre informazioni, vedere [Usare le identità gestite](use-managed-identity.md).
+
+> [!IMPORTANT]
+> Se l'indirizzo IP in uscita è stato personalizzato, assicurarsi che l'identità del cluster disponga delle autorizzazioni per l'IP pubblico in uscita e per l'indirizzo IP pubblico in ingresso.
 
 Per creare un servizio *LoadBalancer* con l'indirizzo IP pubblico statico, aggiungere la `loadBalancerIP` proprietà e il valore dell'indirizzo IP pubblico statico al manifesto YAML. Creare un file denominato `load-balancer-service.yaml` e copiarlo nel codice YAML seguente. Aggiungere il proprio indirizzo IP pubblico creato nel passaggio precedente. Nell'esempio seguente viene anche impostata l'annotazione sul gruppo di risorse denominato *myResourceGroup*. Specificare il nome del gruppo di risorse.
 

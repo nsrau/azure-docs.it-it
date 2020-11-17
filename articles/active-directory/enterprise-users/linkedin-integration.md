@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d27cd30d6543d967cca2648597854a06f8ea4eb7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d70676e117a71fbd194e921b4755ba5d196871c7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377469"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650309"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrare le connessioni dell'account LinkedIn in Azure Active Directory
 
@@ -72,7 +72,7 @@ ms.locfileid: "92377469"
 1. Accedere Microsoft 365 con l'account amministratore.
 1. Avviare PowerShell.
 1. Installare il modulo Azure AD eseguendo `Install-Module AzureAD`
-1. Eseguire lo script riportato di seguito:
+1. Eseguire lo script seguente:
 
   ``` PowerShell
   $groupId = "GUID of the target group"
@@ -94,7 +94,7 @@ Per usare il gruppo dal passaggio 2 come gruppo selezionato nell'impostazione de
 1. Creare un oggetto Criteri di gruppo con l'impostazione seguente: **Configurazione utente**  >  **modelli amministrativi**  >  **Microsoft Office 2016**  >  **varie**  >  **Mostra le funzionalità di LinkedIn nelle applicazioni di Office**.
 1. Selezionare **Abilitato** o **Disabilitato**.
   
-   State | Effetto
+   Stato | Effetto
    ------ | ------
    **Enabled** | L'impostazione **Visualizza funzionalità di LinkedIn nelle applicazioni di Office** è abilitata nelle Opzioni di Office 2016. Gli utenti dell'organizzazione possono usare le funzionalità di LinkedIn nelle applicazioni Office 2016.
    **Disabilitato** | L'impostazione **Visualizza funzionalità di LinkedIn nelle applicazioni di Office** è disabilitata nelle Opzioni di Office 2016 e gli utenti finali non possono modificare questa impostazione. Gli utenti dell'organizzazione non possono usare le funzionalità di LinkedIn nelle applicazioni di Office 2016.

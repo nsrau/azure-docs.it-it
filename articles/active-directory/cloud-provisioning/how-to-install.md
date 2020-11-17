@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5b59942731c8ca7b29de30e160d8370c9cf76ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cc26d9490a4bff7a7b3ca0853d4cd668f700a06
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85807639"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651392"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Installare l'agente di provisioning cloud di Azure AD Connect
 Questo documento illustra il processo di installazione per l'Agente provisioning di Microsoft Azure Active Directory Connect (Azure AD) e come configurarlo inizialmente nel portale di Azure.
@@ -33,30 +33,27 @@ Per installare e configurare il provisioning di Azure AD Connect sono necessari 
 ## <a name="install-the-agent"></a>Installare l'agente
 Per installare l'agente, seguire questa procedura.
 
-1. Accedere al server che si userà con le autorizzazioni di amministratore dell'organizzazione.
-1. Accedere al portale di Azure, quindi passare a **Azure Active Directory**.
-1. Nel menu a sinistra selezionare **Azure ad Connect**.
-1. Selezionare **Gestisci il provisioning (anteprima)**  > **Verifica tutti gli agenti**.
-1. Scaricare l'agente di provisioning di Azure AD Connect dal portale di Azure.
-
-   ![Scarica agente locale](media/how-to-install/install9.png)</br>
-1. Eseguire il programma di installazione del provisioning di Azure AD Connect (AADConnectProvisioningAgent.Installer).
-1. Nella schermata **Microsoft Azure AD Connect Provisioning Agent Package** accettare le condizioni di licenza e selezionare **Installa**.
-
-   ![Schermata Microsoft Azure AD Connect Provisioning Agent Package](media/how-to-install/install1.png)</br>
-
-1. Al termine dell'operazione, viene avviata la configurazione guidata. Accedere con l'account amministratore globale di Azure AD.
-1. Nella schermata **Connetti Active Directory** selezionare **Aggiungi directory**. Accedere con l'account amministratore di Active Directory. Questa operazione aggiungerà la directory locale. Selezionare **Avanti**.
-
-   ![Schermata Connetti Active Directory](media/how-to-install/install3.png)</br>
-
-1. Nella schermata **Configurazione completata** selezionare **Conferma**. Questa operazione registra e riavvia l'agente.
-
-   ![Schermata Configurazione completata](media/how-to-install/install4.png)</br>
-
-1. Al termine di questa operazione, verrà visualizzato il avviso **La configurazione dell'agente è stata verificata.** Selezionare **Esci**.
-
-   ![Pulsante Esci](media/how-to-install/install5.png)</br>
+ 1. Accedere al server che si userà con le autorizzazioni di amministratore dell'organizzazione.
+ 2. Accedere al portale di Azure, quindi passare a **Azure Active Directory**.
+ 3. Nel menu a sinistra selezionare **Azure ad Connect**.
+ 4. Selezionare **Gestisci il provisioning (anteprima)**  > **Verifica tutti gli agenti**.
+ 5. Scaricare l'agente di provisioning di Azure AD Connect dal portale di Azure.
+   ![Scarica agente locale](media/how-to-install/install-9.png)</br>
+ 6. Eseguire il programma di installazione del provisioning Azure AD Connect AADConnectProvisioningAgent.msi.
+ 7. Nella schermata **Microsoft Azure AD Connect Provisioning Agent Package** accettare le condizioni di licenza e selezionare **Installa**.
+   ![Schermata Microsoft Azure AD Connect Provisioning Agent Package](media/how-to-install/install-1.png)</br>
+ 8. Al termine dell'operazione, viene avviata la configurazione guidata. Accedere con l'account amministratore globale di Azure AD.
+ 9. Nella schermata **Connetti Active Directory** selezionare **Aggiungi directory**. Accedere con l'account amministratore di Active Directory. Questa operazione aggiungerà la directory locale. 
+ 10. Facoltativamente, è possibile gestire le preferenze dei controller di dominio che l'agente userà selezionando **Seleziona priorità controller di dominio** e ordinando l'elenco dei controller di dominio.   Fare clic su **OK**.
+  ![Controlllers dominio ordini](media/how-to-install/install-2a.png)</br>
+ 11. Selezionare **Avanti**.
+  ![Schermata Connetti Active Directory](media/how-to-install/install-3.png)</br>
+ 12. Nella **schermata Configura account di servizio** immettere le credenziali di amministratore di dominio per creare l'account del servizio gestito del gruppo che verrà utilizzato per eseguire il servizio Agent.  Questo account verrà denominato provAgentgMSA $.
+   ![Crea gMSA](media/how-to-install/install-10.png)</br>
+ 13.  Nella schermata **installazione agente** confermare le impostazioni e l'account che verrà creato e fare clic su **conferma**.
+  ![Conferma settngs](media/how-to-install/install-11.png)</br>
+ 14. Al termine di questa operazione, si noterà che **l'installazione dell'agente è stata completata.** Selezionare **Esci**.
+  ![Schermata Configurazione completata](media/how-to-install/install-4a.png)</br>
 1. Se viene ancora visualizzata la schermata iniziale **Microsoft Azure AD Connect Provisioning Agent Package**, selezionare **Chiudi**.
 
 ## <a name="verify-agent-installation"></a>Verificare l'installazione dell'agente
@@ -68,15 +65,15 @@ Per verificare se l'agente viene visto da Azure, seguire questa procedura.
 1. Accedere al portale di Azure.
 1. Sulla sinistra, selezionare **Azure Active Directory** > **Azure AD Connect**. Al centro, selezionare **Gestione del provisioning (anteprima)** .
 
-   ![Portale di Azure](media/how-to-install/install6.png)</br>
+   ![Portale di Azure](media/how-to-install/install-6.png)</br>
 
 1.  Nella schermata **Provisioning di Azure AD (anteprima)** selezionare **Verifica tutti gli agenti**.
 
-    ![Opzione Verifica tutti gli agenti](media/how-to-install/install7.png)</br>
+    ![Opzione Verifica tutti gli agenti](media/how-to-install/install-7.png)</br>
  
 1. Nella schermata **Agenti di provisioning locali** verranno visualizzati gli agenti installati. Verificare che l'agente in questione sia presente e contrassegnato come *attivo*.
 
-   ![Schermata Agenti di provisioning locali](media/how-to-install/verify1.png)</br>
+   ![Schermata Agenti di provisioning locali](media/how-to-install/verify-1.png)</br>
 
 
 
@@ -87,10 +84,18 @@ Per verificare se l'agente è in esecuzione, seguire questa procedura.
 1.  Aprire **Servizi** passando all'opzione relativa oppure selezionando **Start** > **Esegui** > **Services.msc**.
 1.  In **Servizi** assicurarsi che siano presenti i servizi **Microsoft Azure AD Connect Agent Updater** e **Microsoft Azure AD Connect Provisioning Agent** e che il relativo stato sia *In esecuzione*.
 
-    ![Schermata Servizi](media/how-to-troubleshoot/troubleshoot1.png)
+    ![Schermata Servizi](media/how-to-install/troubleshoot-1.png)
 
 >[!IMPORTANT]
 >L'agente è stato installato, ma è necessario configurarlo e abilitarlo prima di avviare la sincronizzazione degli utenti. Per configurare un nuovo agente, vedere [Creare una nuova configurazione per il provisioning basato sul cloud di Azure AD Connect](how-to-configure.md).
+
+## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
+Un account del servizio gestito del gruppo è un account di dominio gestito che offre la gestione automatica delle password, la gestione semplificata del nome dell'entità servizio (SPN), la possibilità di delegare la gestione ad altri amministratori e anche di estendere questa funzionalità su più server.  Azure AD Connect Cloud Sync supporta e consiglia l'uso di un account del servizio gestito del gruppo per l'esecuzione dell'agente.  Per altre informazioni su un gMSA, vedere [account del servizio gestito del gruppo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
+
+
+### <a name="upgrading-an-existing-agent-to-use-the-gmsa-account"></a>Aggiornamento di un agente esistente per l'utilizzo dell'account gMSA
+Per aggiornare un agente esistente per l'utilizzo dell'account gMSA creato durante l'installazione, è sufficiente aggiornare il servizio Agent alla versione più recente eseguendo il AADConnectProvisioningAgent.msi.  Il servizio verrà aggiornato alla versione più recente.  A questo punto, eseguire nuovamente l'installazione guidata e fornire le credenziali per creare l'account quando richiesto.
+
 
 
 

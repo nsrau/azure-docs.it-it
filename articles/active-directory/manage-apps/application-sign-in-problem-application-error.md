@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c826a679c1c64e113beb6b2cc5ffd29f82b55a3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 779286a43f8b20ce9a9a528e14eaa930763d82b4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759539"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651584"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Una pagina dell'app mostra un messaggio di errore dopo l'accesso dell'utente
 
@@ -29,7 +29,7 @@ In questo scenario, Azure Active Directory (Azure AD) consente di firmare l'uten
 
 Esistono diversi motivi possibili per cui l'app non ha accettato la risposta da Azure AD. Se il messaggio di errore non identifica chiaramente i dati mancanti nella risposta, provare a eseguire le operazioni seguenti:
 
--   Se l'app è la raccolta di Azure AD, verificare di aver seguito i passaggi descritti in [come eseguire il debug di Single Sign-on basati su SAML per le applicazioni in Azure ad](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+-   Se l'app è la raccolta di Azure AD, verificare di aver seguito i passaggi descritti in [come eseguire il debug di Single Sign-on basati su SAML per le applicazioni in Azure ad](./debug-saml-sso-issues.md).
 
 -   Usare uno strumento come [Fiddler](https://www.telerik.com/fiddler) per acquisire la richiesta, la risposta e il token SAML.
 
@@ -60,7 +60,7 @@ Per aggiungere un attributo nella configurazione di Azure AD che verrà inviata 
 
    Per aggiungere un attributo:
 
-   1. Selezionare **Aggiungi attributo**. Immettere il **nome**e selezionare il **valore** dall'elenco a discesa.
+   1. Selezionare **Aggiungi attributo**. Immettere il **nome** e selezionare il **valore** dall'elenco a discesa.
 
    1.  Selezionare **Salva**. Il nuovo attributo verrà visualizzato nella tabella.
 
@@ -72,7 +72,7 @@ Per aggiungere un attributo nella configurazione di Azure AD che verrà inviata 
 
 L'accesso all'app ha esito negativo perché nella risposta SAML manca un attributo, ad esempio un ruolo. In alternativa, si verifica un errore perché l'app prevede un formato o un valore diverso per l'attributo **NameID** (ID utente).
 
-Se si usa [Azure ad provisioning utenti automatizzato](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) per creare, gestire e rimuovere gli utenti nell'app, verificare che sia stato effettuato il provisioning dell'utente per l'app Saas. Per altre informazioni, vedere [non è in corso il provisioning degli utenti in un'applicazione della raccolta Azure ad](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md).
+Se si usa [Azure ad provisioning utenti automatizzato](../app-provisioning/user-provisioning.md) per creare, gestire e rimuovere gli utenti nell'app, verificare che sia stato effettuato il provisioning dell'utente per l'app Saas. Per altre informazioni, vedere [non è in corso il provisioning degli utenti in un'applicazione della raccolta Azure ad](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md).
 
 ## <a name="add-an-attribute-to-the-azure-ad-app-configuration"></a>Aggiungere un attributo alla configurazione dell'app Azure AD
 
@@ -95,13 +95,13 @@ Per modificare il valore dell'ID utente, seguire questa procedura:
 
 7. Al termine del caricamento dell'app, selezionare **Single Sign-on** nel riquadro di spostamento.
 
-8. In **attributi utente**selezionare l'identificatore univoco per l'utente nell'elenco a discesa **identificatore utente** .
+8. In **attributi utente** selezionare l'identificatore univoco per l'utente nell'elenco a discesa **identificatore utente** .
 
 ## <a name="change-the-nameid-format"></a>Modificare il formato NameID
 
-Se l'applicazione prevede un altro formato per l'attributo **NameID** (ID utente), vedere [modifica di NameID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) per modificare il formato NameID.
+Se l'applicazione prevede un altro formato per l'attributo **NameID** (ID utente), vedere [modifica di NameID](../develop/active-directory-saml-claims-customization.md#editing-nameid) per modificare il formato NameID.
 
-Azure AD seleziona il formato per l'attributo **NameID** (identificatore utente) in base al valore selezionato o al formato richiesto dall'app nel oggetto authrequest SAML. Per ulteriori informazioni, vedere la sezione "NameIDPolicy" del [protocollo SAML per Single Sign-on](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy).
+Azure AD seleziona il formato per l'attributo **NameID** (identificatore utente) in base al valore selezionato o al formato richiesto dall'app nel oggetto authrequest SAML. Per ulteriori informazioni, vedere la sezione "NameIDPolicy" del [protocollo SAML per Single Sign-on](../develop/single-sign-on-saml-protocol.md#nameidpolicy).
 
 ## <a name="the-app-expects-a-different-signature-method-for-the-saml-response"></a>L'app prevede un metodo di firma diverso per la risposta SAML
 
@@ -124,7 +124,7 @@ Per modificare le parti del token SAML con firma digitale mediante Azure AD, att
 
 7. Al termine del caricamento dell'applicazione, selezionare **Single Sign-on** nel riquadro di spostamento.
 
-8. In **certificato di firma SAML**selezionare  **Mostra impostazioni avanzate**per la firma di certificati.
+8. In **certificato di firma SAML** selezionare  **Mostra impostazioni avanzate** per la firma di certificati.
 
 9. Selezionare l' **opzione di firma** che l'app prevede tra le seguenti opzioni:
 
@@ -157,11 +157,11 @@ Per modificare l'algoritmo di firma, seguire questa procedura:
 
 7. Al termine del caricamento dell'app, selezionare **Single Sign-on** nel riquadro di spostamento sul lato sinistro dell'app.
 
-8. In **certificato di firma SAML**selezionare **Mostra impostazioni avanzate**per la firma di certificati.
+8. In **certificato di firma SAML** selezionare **Mostra impostazioni avanzate** per la firma di certificati.
 
 9. Selezionare **SHA-1** come **algoritmo di firma**.
 
    La volta successiva che l'utente accede all'app, Azure AD firma il token SAML usando l'algoritmo SHA-1.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Come eseguire il debug di Single Sign-on basate su SAML per le applicazioni Azure ad](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+[Come eseguire il debug di Single Sign-on basate su SAML per le applicazioni Azure ad](./debug-saml-sso-issues.md).

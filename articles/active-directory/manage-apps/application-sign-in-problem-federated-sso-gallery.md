@@ -12,20 +12,20 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperfq2
-ms.openlocfilehash: 12b11d6283bbed4e43daf52a65c0c259c476e73f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: e75669c70c67d55c94642a0f6dbe3c9dbc3376e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357913"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651550"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemi di accesso alle app configurate Single Sign-On basate su SAML
 Per risolvere i problemi di accesso indicati di seguito, è consigliabile eseguire una diagnosi migliore e automatizzare i passaggi di risoluzione:
 
-- Installare l' [estensione My App Secure Browser](access-panel-extension-problem-installing.md) per semplificare la Azure Active Directory (Azure ad) per fornire una diagnosi e una risoluzione migliori quando si usa l'esperienza di test nel portale di Azure.
-- Riprodurre l'errore usando l'esperienza di test nella pagina di configurazione dell'app nel portale di Azure. Altre informazioni sul [debug di applicazioni Single Sign-on basate su SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- Installare l' [estensione My App Secure Browser](./access-panel-deployment-plan.md) per semplificare la Azure Active Directory (Azure ad) per fornire una diagnosi e una risoluzione migliori quando si usa l'esperienza di test nel portale di Azure.
+- Riprodurre l'errore usando l'esperienza di test nella pagina di configurazione dell'app nel portale di Azure. Altre informazioni sul [debug di applicazioni Single Sign-on basate su SAML](./debug-saml-sso-issues.md)
 
-Se si usa l' [esperienza di test](../azuread-dev/howto-v1-debug-saml-sso-issues.md) nella portale di Azure con l'estensione My App Secure browser, non è necessario seguire manualmente la procedura riportata di seguito per aprire la pagina di configurazione Single Sign-on basata su SAML.
+Se si usa l' [esperienza di test](./debug-saml-sso-issues.md) nella portale di Azure con l'estensione My App Secure browser, non è necessario seguire manualmente la procedura riportata di seguito per aprire la pagina di configurazione Single Sign-on basata su SAML.
 
 Per aprire la pagina di configurazione Single Sign-On basata su SAML:
 1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore**.
@@ -88,7 +88,7 @@ Azure AD non supporta la richiesta SAML inviata dall'applicazione per il Single 
 
 **Risoluzione**
 
-1. Acquisire la richiesta SAML. Per informazioni su come acquisire la richiesta SAML, seguire l'esercitazione [come eseguire il debug di Single Sign-on basate su SAML per le applicazioni di Azure ad](../azuread-dev/howto-v1-debug-saml-sso-issues.md) .
+1. Acquisire la richiesta SAML. Per informazioni su come acquisire la richiesta SAML, seguire l'esercitazione [come eseguire il debug di Single Sign-on basate su SAML per le applicazioni di Azure ad](./debug-saml-sso-issues.md) .
 1. Contattare il fornitore dell'applicazione e condividere i dati seguenti:
     - Richiesta SAML
     - [Requisiti del protocollo SAML per Single Sign-On di Azure](../develop/single-sign-on-saml-protocol.md)
@@ -174,5 +174,5 @@ Confrontare la risorsa a cui si richiede l'accesso nel codice con le autorizzazi
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Serie di guide di avvio rapido sulla gestione delle applicazioni](add-application-portal-assign-users.md)
-- [Come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
-- [Requisiti del protocollo SAML per Single Sign-On di Azure](../develop/active-directory-single-sign-on-protocol-reference.md)
+- [Come eseguire il debug di single sign-on basato su SAML per applicazioni in Azure Active Directory](./debug-saml-sso-issues.md)
+- [Requisiti del protocollo SAML per Single Sign-On di Azure](../develop/single-sign-on-saml-protocol.md)

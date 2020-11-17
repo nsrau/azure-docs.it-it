@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66c7229c7e6d32bbec9a7659329aff7a90e7887d
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: b3f4315f6ef1590c222866fe57644ea75efa4ce7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393609"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650955"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestione dei nomi di dominio personalizzati in Azure Active Directory
 
@@ -71,9 +71,9 @@ Prima di poter eliminare il nome di dominio personalizzato, è necessario modifi
 
 ### <a name="forcedelete-option"></a>Opzione ForceDelete
 
-È possibile eseguire l'operazione **ForceDelete** su un nome di dominio nell' [interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) oppure usando l' [API Microsoft Graph](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true). Tali opzioni usano un'operazione asincrona e aggiornano tutti i riferimenti del nome di dominio personalizzato, come "user@contoso.com", con il nome di dominio predefinito iniziale, come "user@contoso.onmicrosoft.com".
+È possibile eseguire l'operazione **ForceDelete** su un nome di dominio nell'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) oppure usando l'[API Microsoft Graph](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true). Tali opzioni usano un'operazione asincrona e aggiornano tutti i riferimenti del nome di dominio personalizzato, come "user@contoso.com", con il nome di dominio predefinito iniziale, come "user@contoso.onmicrosoft.com".
 
-Per chiamare **ForceDelete** nel portale di Azure, è necessario verificare che siano presenti meno di 1000 riferimenti al nome di dominio e aggiornare o rimuovere nell' [interfaccia di amministrazione di Exchange](https://outlook.office365.com/ecp/) tutti i riferimenti in cui il servizio di provisioning è Exchange. Ciò include gli elenchi distribuiti e i gruppi di sicurezza abilitati alla posta elettronica di Exchange. Per altre informazioni, vedere l'articolo relativo alla [rimozione dei gruppi di sicurezza abilitati alla posta elettronica](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups&preserve-view=true). L'operazione **ForceDelete** non riesce, inoltre, in presenza di una delle condizioni seguenti:
+Per chiamare **ForceDelete** nel portale di Azure, è necessario verificare che siano presenti meno di 1000 riferimenti al nome di dominio e aggiornare o rimuovere nell'[interfaccia di amministrazione di Exchange](https://outlook.office365.com/ecp/) tutti i riferimenti in cui il servizio di provisioning è Exchange. Ciò include gli elenchi distribuiti e i gruppi di sicurezza abilitati alla posta elettronica di Exchange. Per altre informazioni, vedere l'articolo relativo alla [rimozione dei gruppi di sicurezza abilitati alla posta elettronica](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups&preserve-view=true). L'operazione **ForceDelete** non riesce, inoltre, in presenza di una delle condizioni seguenti:
 
 * È stato acquistato un dominio tramite Microsoft 365 servizi di sottoscrizione di dominio
 * Si amministra come partner per conto dell'organizzazione di un altro cliente
@@ -92,7 +92,7 @@ Viene restituito un errore nei casi seguenti:
 ### <a name="frequently-asked-questions"></a>Domande frequenti
 
 **D: Perché l'eliminazione del dominio non riesce e genera un errore che indica la presenza di gruppi gestiti da Exchange per il nome di dominio?** <br>
-**R:** Attualmente, il provisioning di determinati gruppi, come gli elenchi distribuiti e i gruppi di sicurezza abilitati alla posta elettronica, viene effettuato da Exchange ed è necessario eseguirne manualmente la pulizia nell' [interfaccia di amministrazione di Exchange](https://outlook.office365.com/ecp/). Potrebbero essere presenti indirizzi proxy residui che si basano sul nome di dominio personalizzato e che dovranno essere aggiornati manualmente con un altro nome di dominio. 
+**R:** Attualmente, il provisioning di determinati gruppi, come gli elenchi distribuiti e i gruppi di sicurezza abilitati alla posta elettronica, viene effettuato da Exchange ed è necessario eseguirne manualmente la pulizia nell'[interfaccia di amministrazione di Exchange](https://outlook.office365.com/ecp/). Potrebbero essere presenti indirizzi proxy residui che si basano sul nome di dominio personalizzato e che dovranno essere aggiornati manualmente con un altro nome di dominio. 
 
 **D: Perché, dopo aver eseguito l'accesso come admin\@contoso.com, non è possibile eliminare il nome di dominio "contoso.com"?**<br>
 **R:** Non è possibile eliminare un nome di dominio personalizzato cui viene fatto riferimento nel nome dell'account utente in uso. Assicurarsi che l'account amministratore globale usi il nome di dominio predefinito iniziale ".onmicrosoft.com", ad esempio admin@contoso.onmicrosoft.com. Accedere con un diverso account amministratore globale, ad esempio admin@contoso.onmicrosoft.com, o con un altro nome di dominio personalizzato come "fabrikam.com", per il quale l'account è admin@fabrikam.com.

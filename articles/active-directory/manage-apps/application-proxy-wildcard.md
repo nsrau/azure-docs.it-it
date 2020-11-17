@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b2563b238bae310d662220d2c244e863249c9c4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85367734"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651941"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Applicazioni con carattere jolly in Azure Active Directory Application Proxy
 
@@ -72,7 +72,7 @@ Quando si usano i domini personalizzati, è necessario creare una voce DNS con u
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-Per verificare la corretta configurazione del record CNAME, è possibile usare [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) su uno degli endpoint di destinazione, ad esempio `expenses.adventure-works.com`.  La risposta deve includere l'alias già menzionato (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
+Per verificare la corretta configurazione del record CNAME, è possibile usare [nslookup](/windows-server/administration/windows-commands/nslookup) su uno degli endpoint di destinazione, ad esempio `expenses.adventure-works.com`.  La risposta deve includere l'alias già menzionato (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
 
 ## <a name="considerations"></a>Considerazioni
 

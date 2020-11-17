@@ -3,12 +3,12 @@ title: Lavorare con le raccolte Reliable Collections
 description: Informazioni sulle procedure consigliate per l'uso di Reliable Collections all'interno di un'applicazione Service Fabric di Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 7df48bc0dfbef6fc85335801e64484914a218eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d027dc432d1a0a20888bfca4f59bc41866e358d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86255796"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651907"
 ---
 # <a name="working-with-reliable-collections"></a>Lavorare con le raccolte Reliable Collections
 Service Fabric offre un modello di programmazione con stato disponibile per gli sviluppatori .NET tramite Reliable Collections. In particolare, Service Fabric offre classi ReliableDictionary e ReliableQueue. Quando si usano queste classi, lo stato è partizionato (per la scalabilità), replicato (per la disponibilità) e le transazioni vengono eseguite all'interno di una partizione (per la semantica ACID). Verrà ora esaminato un utilizzo tipico di un oggetto Reliable Dictionary e ne verrà verificata la realtà.
@@ -35,6 +35,7 @@ catch (TimeoutException)
 {
    // choose how to handle the situation where you couldn't get a lock on the file because it was 
    // already in use. You might delay and retry the operation
+   await Task.Delay(100);
 }
 ```
 

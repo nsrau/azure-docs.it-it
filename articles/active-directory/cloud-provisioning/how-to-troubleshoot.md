@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 34796a435536a48100b7434ed5267802cd2d549f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94cf1f34db590abeb084c5e95367781e50c85efc
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89226948"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650098"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Risoluzione dei problemi di provisioning nel cloud
 
@@ -47,11 +47,11 @@ Per verificare che l'agente sia visualizzato da Azure ed è integro, attenersi a
 1. Sulla sinistra, selezionare **Azure Active Directory** > **Azure AD Connect**. Al centro, selezionare **Gestione del provisioning (anteprima)** .
 1. Nella schermata **Provisioning di Azure AD (anteprima)** selezionare **Verifica tutti gli agenti**.
 
-   ![Esaminare tutti gli agenti](media/how-to-install/install7.png)</br>
+   ![Esaminare tutti gli agenti](media/how-to-install/install-7.png)</br>
  
 1. Nella schermata **agenti di provisioning locali** vengono visualizzati gli agenti installati. Verificare che l'agente in questione sia presente ed è contrassegnato come *integro*.
 
-   ![Schermata Agenti di provisioning locali](media/how-to-install/install8.png)</br>
+   ![Schermata Agenti di provisioning locali](media/how-to-install/install-8.png)</br>
 
 ### <a name="verify-the-port"></a>Verificare la porta
 
@@ -59,7 +59,7 @@ Verificare che Azure sia in ascolto sulla porta 443 e che l'agente sia in grado 
 
 Questo test verifica che gli agenti possano comunicare con Azure tramite la porta 443. Aprire un browser e passare all'URL precedente dal server in cui è installato l'agente.
 
-![Verifica della raggiungibilità della porta](media/how-to-install/verify2.png)
+![Verifica della raggiungibilità della porta](media/how-to-install/verify-2.png)
 
 ### <a name="on-the-local-server"></a>Nel server locale
 
@@ -86,7 +86,7 @@ Per risolvere il problema, attenersi alla seguente procedura.
 
 1. Accedere al server con un account amministratore.
 1. Aprire **Servizi** passando all'opzione relativa oppure selezionando **Start** > **Esegui** > **Services.msc**.
-1. In **Servizi**fare doppio clic su **Microsoft Azure ad Connetti agente di provisioning**.
+1. In **Servizi** fare doppio clic su **Microsoft Azure ad Connetti agente di provisioning**.
 1. Nella scheda **accesso** modificare **questo account** in un amministratore di dominio. Riavviare quindi il servizio. 
 
    ![Scheda accesso](media/how-to-troubleshoot/troubleshoot3.png)
@@ -122,7 +122,7 @@ Questo problema in genere è dovuto al fatto che l'agente non è in grado di ese
 
 Per risolvere questo problema, modificare i criteri di esecuzione di PowerShell nel server. È necessario che i criteri computer e utente siano impostati come *undefined* o *RemoteSigned*. Se sono impostati come *senza restrizioni*, verrà visualizzato questo errore. Per altre informazioni, vedere [criteri di esecuzione di PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
 
-### <a name="log-files"></a>File di registro
+### <a name="log-files"></a>File di log
 
 Per impostazione predefinita, l'agente genera un numero ridotto di messaggi di errore e informazioni minime di analisi dello stack. È possibile trovare i log di traccia nella cartella *C:\ProgramData\Microsoft\Azure il provisioning di AGENT\TRACE ad Connect*.
 

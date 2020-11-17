@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 65e1b1b5e84c3344a082b73b7768935d788a3394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 668976e9777b35e514746070f0f4039a12b4e02b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707408"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651720"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Accesso remoto alle applicazioni locali con Azure AD Application Proxy
 
@@ -36,7 +36,7 @@ Application Proxy è una funzionalità di Azure AD che consente agli utenti di a
 Application Proxy supporta:
 
 * Applicazioni Web che usano l'[autenticazione integrata di Windows](application-proxy-configure-single-sign-on-with-kcd.md) per l'autenticazione
-* Applicazioni Web che usano l'accesso basato su form o su [intestazione](application-proxy-configure-single-sign-on-with-ping-access.md)
+* Applicazioni Web che usano l'accesso basato su form o su [intestazione](/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers)
 * API Web che si vuole esporre ad applicazioni avanzate in dispositivi diversi
 * Applicazioni ospitate dietro un [Gateway Desktop remoto](application-proxy-integrate-with-remote-desktop-services.md)
 * App rich client integrate con Microsoft Authentication Library (MSAL)
@@ -74,4 +74,3 @@ Il diagramma seguente illustra come interagiscono Azure AD e Application Proxy p
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per iniziare a usare il proxy di applicazione, vedere [esercitazione: aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione](application-proxy-add-on-premises-application.md).
-

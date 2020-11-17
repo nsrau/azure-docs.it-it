@@ -10,18 +10,18 @@ editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 179ad1e552899f8fa92b8191fe78223458f87104
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f202bebd2c9ab6147d8a37fc6109b915065068aa
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375417"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650343"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Come eseguire la migrazione di utenti con licenze singole a gruppi per la gestione delle licenze
 
@@ -57,13 +57,13 @@ Di seguito è riportato un esempio di processo di migrazione:
 
 1. Usando il portale di Azure, assegnare la licenza di Office 365 E3 al gruppo **tutti gli utenti** in Azure ad.
 
-1. Verificare che l'assegnazione delle licenze sia stata completata per tutti gli utenti. Passare alla pagina Panoramica per il gruppo, selezionare **licenze**e controllare lo stato di elaborazione nella parte superiore del pannello **licenze** .
+1. Verificare che l'assegnazione delle licenze sia stata completata per tutti gli utenti. Passare alla pagina Panoramica per il gruppo, selezionare **licenze** e controllare lo stato di elaborazione nella parte superiore del pannello **licenze** .
 
    - Cercare "Le ultime modifiche della licenza sono state applicate a tutti gli utenti" per confermare che l'elaborazione è stata completata.
 
    - Nella parte superiore del pannello cercare una notifica relativa a eventuali utenti per i quali l'assegnazione della licenza non è riuscita. È possibile che il numero di licenze non sia sufficiente per tutti gli utenti. Alcuni utenti hanno piani di licenza in conflitto che impediscono loro di ereditare le licenze di gruppo?
 
-1. Eseguire un controllo a campione su alcuni utenti per verificare che siano state applicate sia le licenze dirette che quelle di gruppo. Passare alla pagina del profilo per un utente, selezionare **licenze**ed esaminare lo stato delle licenze.
+1. Eseguire un controllo a campione su alcuni utenti per verificare che siano state applicate sia le licenze dirette che quelle di gruppo. Passare alla pagina del profilo per un utente, selezionare **licenze** ed esaminare lo stato delle licenze.
 
    - Di seguito è riportato lo stato previsto per l'utente durante la migrazione:
 

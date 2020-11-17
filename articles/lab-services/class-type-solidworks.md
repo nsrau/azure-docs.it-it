@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 5511ad5a517bbd320ce3d66de90a8aec084c7e15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87290734"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94651805"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Configurare un Lab per le classi di progettazione con SOLIDWORKs
 
@@ -24,18 +24,18 @@ Questo articolo illustra come configurare una classe che usa SOLIDWORKs 2019 e l
 
 SOLIDWORKs Network Licensing richiede che SolidNetWork License Manager sia installato e attivato nel server licenze.  Questo server licenze si trova in genere nella rete locale o in una rete privata in Azure.  Per ulteriori informazioni su come configurare Gestione licenze SolidNetWork nel server, vedere [installazione e attivazione di un gestore licenze](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) nella Guida all'installazione di SolidWorks.  Quando si configura questa impostazione, ricordare il **numero di porta** e il numero di [**serie**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) utilizzati perché saranno necessari nei passaggi successivi.
 
-Dopo aver configurato il server licenze, è necessario eseguire il peering della [rete virtuale (VNet)](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) all' [account Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account).  Il peering di rete deve essere eseguito prima di creare il Lab in modo che le macchine virtuali del Lab possano accedere al server licenze e viceversa.
+Dopo aver configurato il server licenze, è necessario eseguire il peering della [rete virtuale (VNet)](./how-to-connect-peer-virtual-network.md) all' [account Lab](./tutorial-setup-lab-account.md).  Il peering di rete deve essere eseguito prima di creare il Lab in modo che le macchine virtuali del Lab possano accedere al server licenze e viceversa.
 
 > [!NOTE]
-> È necessario verificare che le porte appropriate siano aperte nei firewall per consentire la comunicazione tra le macchine virtuali del Lab e il server licenze.  Vedere ad esempio le istruzioni sulla [modifica delle porte del computer di gestione licenze per Windows Firewall](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) che illustrano come aggiungere regole in ingresso e in uscita al firewall del server licenze.  Potrebbe anche essere necessario aprire le porte per le macchine virtuali del Lab.  Per altre informazioni su questo argomento, vedere la procedura descritta nell'articolo sulle [impostazioni del firewall per Labs](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-firewall-settings) , incluso come ottenere l'indirizzo IP pubblico del Lab.
+> È necessario verificare che le porte appropriate siano aperte nei firewall per consentire la comunicazione tra le macchine virtuali del Lab e il server licenze.  Vedere ad esempio le istruzioni sulla [modifica delle porte del computer di gestione licenze per Windows Firewall](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) che illustrano come aggiungere regole in ingresso e in uscita al firewall del server licenze.  Potrebbe anche essere necessario aprire le porte per le macchine virtuali del Lab.  Per altre informazioni su questo argomento, vedere la procedura descritta nell'articolo sulle [impostazioni del firewall per Labs](./how-to-configure-firewall-settings.md) , incluso come ottenere l'indirizzo IP pubblico del Lab.
 
 ## <a name="lab-configuration"></a>Configurazione del lab
 
-Per configurare questo Lab, è necessario disporre di una sottoscrizione di Azure e di un account Lab per iniziare. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Una volta ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services. Per ulteriori informazioni sulla creazione di un nuovo account Lab, vedere l'esercitazione su [come configurare un account Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). È anche possibile usare un account lab esistente.
+Per configurare questo Lab, è necessario disporre di una sottoscrizione di Azure e di un account Lab per iniziare. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Una volta ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services. Per ulteriori informazioni sulla creazione di un nuovo account Lab, vedere l'esercitazione su [come configurare un account Lab](./tutorial-setup-lab-account.md). È anche possibile usare un account lab esistente.
 
 ### <a name="lab-account-settings"></a>Impostazioni dell'account Lab
 
-Abilitare le impostazioni descritte nella tabella seguente per l'account Lab. Per altre informazioni su come abilitare le immagini del Marketplace, vedere l'articolo su [come specificare le immagini del Marketplace disponibili per gli autori di Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Abilitare le impostazioni descritte nella tabella seguente per l'account Lab. Per altre informazioni su come abilitare le immagini del Marketplace, vedere l'articolo su [come specificare le immagini del Marketplace disponibili per gli autori di Lab](./specify-marketplace-images.md).
 
 | Impostazione dell'account lab | Istruzioni |
 | ------------------- | ------------ |

@@ -9,18 +9,18 @@ manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 04/29/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1b61ca00b83d4c6b43fb5ade68dfb1228f0e0d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 732a92aea321bac0bc9cea4d3eee5a3979a469b1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375423"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650581"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Assegnare licenze agli utenti in base all'appartenenza ai gruppi in Azure Active Directory
 
@@ -39,7 +39,7 @@ In questo esempio, l'organizzazione Azure AD contiene un gruppo di sicurezza den
 
 1. Selezionare **licenze** per aprire una pagina in cui è possibile visualizzare e gestire tutti i prodotti con licenza nell'organizzazione.
 
-1. In **tutti i prodotti**selezionare Office 365 Enterprise E5 e Enterprise Mobility + Security E3 selezionando i nomi dei prodotti. Per avviare l'assegnazione, selezionare **assegna** nella parte superiore della pagina.
+1. In **tutti i prodotti** selezionare Office 365 Enterprise E5 e Enterprise Mobility + Security E3 selezionando i nomi dei prodotti. Per avviare l'assegnazione, selezionare **assegna** nella parte superiore della pagina.
 
    ![Selezionare i prodotti per assegnare le licenze](./media/licensing-groups-assign/licenses-all-products-assign.png)
   
@@ -47,7 +47,7 @@ In questo esempio, l'organizzazione Azure AD contiene un gruppo di sicurezza den
 
 1. Selezionare un utente o un gruppo, quindi usare il pulsante **Seleziona** nella parte inferiore della pagina per confermare la selezione.
 
-1. Nella pagina **assegnazione licenza** fare clic su **Opzioni di assegnazione**per visualizzare tutti i piani di servizio inclusi nei due prodotti selezionati in precedenza. Trovare **Yammer Enterprise** e **disattivarlo per disabilitare** il servizio dalla licenza del prodotto. Confermare facendo clic su **OK** nella parte inferiore delle **Opzioni di licenza**.
+1. Nella pagina **assegnazione licenza** fare clic su **Opzioni di assegnazione** per visualizzare tutti i piani di servizio inclusi nei due prodotti selezionati in precedenza. Trovare **Yammer Enterprise** e **disattivarlo per disabilitare** il servizio dalla licenza del prodotto. Confermare facendo clic su **OK** nella parte inferiore delle **Opzioni di licenza**.
 
    ![Selezionare i piani di servizio per le licenze](./media/licensing-groups-assign/assignment-options.png)
   
@@ -81,7 +81,7 @@ Quando si assegnano licenze a un gruppo, Azure AD elabora tutti i membri esisten
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Passaggio 3: Controllare i problemi relativi alle licenze e risolverli
 
-1. Passare a **Azure Active Directory**  >  **gruppi**e individuare il gruppo a cui sono state assegnate le licenze.
+1. Passare a **Azure Active Directory**  >  **gruppi** e individuare il gruppo a cui sono state assegnate le licenze.
 1. Nella pagina gruppo selezionare **licenze**. La notifica nella parte superiore della pagina mostra che sono presenti 10 utenti a cui non è stato possibile assegnare le licenze. Aprirlo per visualizzare un elenco di tutti gli utenti in uno stato di errore di licenza per questo gruppo.
 1. La colonna **N. assegnazioni con errori** indica che non è stato possibile assegnare entrambe le licenze prodotto agli utenti. La colonna **Principali cause dell'errore** contiene la causa dell'errore. In questo caso si tratta di **Piani di servizio in conflitto**.
 

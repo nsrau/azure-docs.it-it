@@ -4,21 +4,21 @@ description: Scaricare in blocco le proprietà del gruppo nell'interfaccia di am
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 04/16/2020
+manager: daveba
+ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db800f3827d1b818115c886412ff7d4ffea3e768
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5bf7d0a650d73127a87475d4fcda9cff266040eb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375569"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650870"
 ---
 # <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Scaricare in blocco un elenco di gruppi in Azure Active Directory
 
@@ -27,7 +27,7 @@ Usando il portale di Azure Active Directory (Azure AD), è possibile eseguire il
 ## <a name="to-download-a-list-of-groups"></a>Per scaricare un elenco di gruppi
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore dell'organizzazione.
-1. In Azure ad selezionare **gruppi**gruppi di  >  **download**.
+1. In Azure ad selezionare **gruppi** gruppi di  >  **download**.
 1. Nella pagina di **download dei gruppi** selezionare **Avvia** per ricevere un file CSV che elenca i gruppi.
 
    ![Il comando Scarica gruppi si trova nella pagina tutti i gruppi](./media/groups-bulk-download/bulk-download.png)
