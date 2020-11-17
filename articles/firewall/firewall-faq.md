@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3e6ea6692a81a06bbf3180904dfb465a88b105d1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413004"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653420"
 ---
 # <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
@@ -40,9 +40,9 @@ Firewall di Azure supporta regole e raccolte di regole. Una raccolta di regole �
 
 Sono disponibili tre tipi di raccolte di regole:
 
-* *Regole di applicazione* : configurare i nomi di dominio completi (FQDN) accessibili da una subnet.
-* *Regole di rete* : configurare le regole che contengono indirizzi di origine, protocolli, porte di destinazione e indirizzi di destinazione.
-* *Regole NAT* : configurare le regole DNAT per consentire le connessioni Internet in ingresso.
+* *Regole di applicazione*: configurare i nomi di dominio completi (FQDN) accessibili da una subnet.
+* *Regole di rete*: configurare le regole che contengono indirizzi di origine, protocolli, porte di destinazione e indirizzi di destinazione.
+* *Regole NAT*: configurare le regole DNAT per consentire le connessioni Internet in ingresso.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Firewall di Azure supporta il filtraggio del traffico in ingresso?
 
@@ -50,7 +50,7 @@ Firewall di Azure supporta i filtri in ingresso e in uscita. La protezione in in
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Quali servizi di registrazione e analisi sono supportati da Firewall di Azure?
 
-Firewall di Azure è integrato con Monitoraggio di Azure per la visualizzazione e l'analisi dei log di firewall. I log possono essere inviati a Log Analytics, Archiviazione di Azure o Hub eventi e possono essere analizzati in Log Analytics o con strumenti diversi, ad esempio Excel e Power BI. Per altre informazioni, vedere [Esercitazione: Monitorare i log di Firewall di Azure](tutorial-diagnostics.md).
+Firewall di Azure è integrato con Monitoraggio di Azure per la visualizzazione e l'analisi dei log di firewall. I log possono essere inviati a Log Analytics, Archiviazione di Azure o Hub eventi e possono essere analizzati in Log Analytics o con strumenti diversi, ad esempio Excel e Power BI. Per altre informazioni, vedere [Esercitazione: Monitorare i log di Firewall di Azure](./firewall-diagnostics.md).
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Come funziona Firewall di Azure rispetto ad altri servizi esistenti, come le appliance virtuali di rete, nel marketplace?
 
@@ -139,11 +139,11 @@ No. Le regole NAT aggiungono in modo implicito una regola di rete corrispondente
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Come funzionano i caratteri jolly in un nome di dominio completo di destinazione di una regola dell'applicazione?
 
-I caratteri jolly attualmente possono essere utilizzati solo sul lato sinistro del nome di dominio completo. Ad esempio, * *_. contoso.com_* e * *_contoso.com_*.
+I caratteri jolly attualmente possono essere utilizzati solo sul lato sinistro del nome di dominio completo. Ad esempio, **_. contoso.com_* e **_contoso.com_*.
 
-Se si configura * *_. contoso.com_* , consente *anyvalue*. contoso.com, ma non contoso.com (il vertice del dominio). Se si intende consentire la radice del dominio, è necessario configurarla in modo esplicito come nome di dominio completo di destinazione.
+Se si configura **_. contoso.com_*, consente *anyvalue*. contoso.com, ma non contoso.com (il vertice del dominio). Se si intende consentire la radice del dominio, è necessario configurarla in modo esplicito come nome di dominio completo di destinazione.
 
-## <a name="what-does-provisioning-state-failed-mean"></a>Cosa significa *Stato di provisioning: non riuscito* ?
+## <a name="what-does-provisioning-state-failed-mean"></a>Cosa significa *Stato di provisioning: non riuscito*?
 
 Ogni volta che viene applicata una modifica alla configurazione, Firewall di Azure tenta di aggiornare tutte le istanze back-end sottostanti. In rari casi, una di tali istanze back-end potrebbe non riuscire ad aggiornarsi con la nuova configurazione e il processo di aggiornamento si interrompe con uno stato di provisioning non riuscito. Firewall di Azure è ancora operativo, ma la configurazione applicata potrebbe trovarsi in uno stato incoerente in cui per alcune istanze la configurazione è quella precedente, mentre per altre il set di regole è aggiornato. In tal caso, provare ad aggiornare la configurazione ancora una volta fino a quando l'operazione non ha esito positivo e il firewall si trova in uno stato di provisioning *Riuscito*.
 
@@ -217,7 +217,7 @@ No, il trasferimento di un gruppo IP a un altro gruppo di risorse non è attualm
 
 ## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Che cos'è il timeout di inattività TCP per il firewall di Azure?
 
-Un comportamento standard di un firewall di rete è garantire che le connessioni TCP vengano mantenute attive e chiuderle immediatamente se non è presente alcuna attività. Il timeout di inattività TCP del firewall di Azure è di quattro minuti. Questa impostazione non è configurabile. Se un periodo di inattività è più lungo del valore di timeout, non vi è alcuna garanzia che la sessione TCP o HTTP venga mantenuta. Una prassi comune consiste nell'usare una connessione TCP keep-alive per mantenere la connessione attiva per un periodo più lungo. Per ulteriori informazioni, vedere gli [esempi di .NET](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+Un comportamento standard di un firewall di rete è garantire che le connessioni TCP vengano mantenute attive e chiuderle immediatamente se non è presente alcuna attività. Il timeout di inattività TCP del firewall di Azure è di quattro minuti. Questa impostazione non è configurabile. Se un periodo di inattività è più lungo del valore di timeout, non vi è alcuna garanzia che la sessione TCP o HTTP venga mantenuta. Una prassi comune consiste nell'usare una connessione TCP keep-alive per mantenere la connessione attiva per un periodo più lungo. Per ulteriori informazioni, vedere gli [esempi di .NET](/dotnet/api/system.net.servicepoint.settcpkeepalive?view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
 
 ## <a name="can-i-deploy-azure-firewall-without-a-public-ip-address"></a>È possibile distribuire il firewall di Azure senza un indirizzo IP pubblico?
 

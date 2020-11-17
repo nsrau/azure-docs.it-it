@@ -16,12 +16,12 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a602405065a41cb26b2ae5303d12c45ed21616f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 224ccaeace91288171db42d2b8b8cf8c21a352e0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91741194"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94652519"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Risolvere i problemi di autenticazione pass-through di Azure Active Directory
 
@@ -34,7 +34,7 @@ Questo articolo consente di trovare informazioni utili per risolvere i problemi 
 
 ### <a name="check-status-of-the-feature-and-authentication-agents"></a>Controllare lo stato della funzionalità e degli agenti di autenticazione
 
-Verificare che la funzionalità di autenticazione pass-through sia ancora **abilitata** nel tenant e che lo stato degli agenti di autenticazione mostri **Attivo**e non **Inattivo**. Per verificare lo stato, è possibile passare al pannello **Azure AD Connect** nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/).
+Verificare che la funzionalità di autenticazione pass-through sia ancora **abilitata** nel tenant e che lo stato degli agenti di autenticazione mostri **Attivo** e non **Inattivo**. Per verificare lo stato, è possibile passare al pannello **Azure AD Connect** nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Interfaccia di amministrazione di Azure Active Directory - Pannello Azure AD Connect](./media/tshoot-connect-pass-through-authentication/pta7.png)
 
@@ -44,7 +44,7 @@ Verificare che la funzionalità di autenticazione pass-through sia ancora **abil
 
 Se l'utente non è in grado di accedere usando l'autenticazione pass-through, è possibile che venga visualizzato uno dei seguenti errori nella schermata di accesso di Azure AD: 
 
-|Errore|Descrizione|Soluzione
+|Errore|Descrizione|Risoluzione
 | --- | --- | ---
 |AADSTS80001|Impossibile connettersi ad Active Directory|Verificare che i server degli agenti siano membri della stessa foresta AD degli utenti le cui password devono essere convalidate e siano in grado di connettersi ad Active Directory.  
 |AADSTS8002|Si è verificato un timeout di connessione ad Active Directory|Verificare che Active Directory sia disponibile e risponda alle richieste degli agenti.
@@ -85,14 +85,14 @@ Se al tenant è associata una licenza di Azure AD Premium, è anche possibile es
 
 Passare a **Azure Active Directory**  ->  **accessi** nell'interfaccia di [amministrazione di Azure Active Directory](https://aad.portal.azure.com/) e fare clic sull'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
 
-|Codice dell'errore di accesso|Motivo dell'errore di accesso|Soluzione
+|Codice dell'errore di accesso|Motivo dell'errore di accesso|Risoluzione
 | --- | --- | ---
 | 50144 | La password di Active Directory dell'utente è scaduta. | Reimpostare la password dell'utente nella sessione locale di Active Directory.
 | 80001 | Non sono disponibili agenti di autenticazione. | Installare e registrare un agente di autenticazione.
 | 80002 | Timeout della richiesta di convalida della password dell'agente di autenticazione. | Verificare se Active Directory è raggiungibile dall'agente di autenticazione.
 | 80003 | Risposta non valida ricevuta dall'agente di autenticazione. | Se il problema è riproducibile in modo coerente tra più utenti, controllare la configurazione di Active Directory.
 | 80004 | È stato usato un nome dell'entità utente (UPN) non corretto nella richiesta di accesso. | Chiedere all'utente di accedere con il nome utente corretto.
-| 80005 | Agente di autenticazione: si è verificato un errore. | Errore temporaneo. Riprovare in un secondo tempo.
+| 80005 | Agente di autenticazione: si è verificato un errore. | Errore temporaneo. Riprovare in seguito.
 | 80007 | L'agente di autenticazione non è in grado di connettersi ad Active Directory. | Verificare se Active Directory è raggiungibile dall'agente di autenticazione.
 | 80010 | L'agente di autenticazione non è in grado di decrittografare la password. | Se il problema è riproducibile in modo coerente, installare e registrare un nuovo agente di autenticazione. E disinstallare quello corrente. 
 | 80011 | L'agente di autenticazione non è in grado di recuperare la chiave di decrittografia. | Se il problema è riproducibile in modo coerente, installare e registrare un nuovo agente di autenticazione. E disinstallare quello corrente.
@@ -156,6 +156,8 @@ Per gli errori relativi all'installazione, controllare i log di Azure AD Connect
 Per gli errori correlati all'agente di autenticazione aprire l'applicazione Visualizzatore eventi sul server e controllare in **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
 Per un'analisi dettagliata, abilitare il log sessione (fare clic con il pulsante destro del mouse all'interno dell'applicazione Visualizzatore eventi per trovare questa opzione). Non eseguire l'agente di autenticazione con questo registro abilitato durante il funzionamento normale, usarlo solo per la risoluzione dei problemi. Il contenuto del registro è visibile solo dopo che il registro è stato nuovamente disattivato.
+
+Il manifesto dell'evento PTA Agent è disponibile [qui](https://msazure.visualstudio.com/One/_git/AD-AppProxy?path=%2Fsrc%2FProduct%2FMUC%2FPTADiagnosticsResource%2FPTADiagnosticsResource%2FPTAConnectorDiagnosticsResource%2FPTAConnectorEventManifest.man&_a=contents&version=GBmaster).
 
 ### <a name="detailed-trace-logs"></a>Log di traccia dettagliati
 

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: ed34bf755023ab866e95c51aca6d1bfb1dd7bf71
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c0bd2f6a021baae80dafcc3d544e1062d8e022e8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099454"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653335"
 ---
 # <a name="fqdn-tags-overview"></a>Panoramica dei tag FQDN
 
@@ -30,8 +30,8 @@ La tabella seguente mostra i tag FQDN attuali che è possibile usare. Microsoft 
 
 |Tag FQDN  |Descrizione  |
 |---------|---------|
-|Windows Update     |Consente l'accesso in uscita a Microsoft Update come descritto in [Come configurare un firewall per gli aggiornamenti software](https://docs.microsoft.com/mem/configmgr/sum/get-started/install-a-software-update-point).|
-|Diagnostica per Windows|Consente l'accesso in uscita a tutti gli [endpoint di Diagnostica Windows](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
+|Windows Update     |Consente l'accesso in uscita a Microsoft Update come descritto in [Come configurare un firewall per gli aggiornamenti software](/mem/configmgr/sum/get-started/install-a-software-update-point).|
+|Diagnostica per Windows|Consente l'accesso in uscita a tutti gli [endpoint di Diagnostica Windows](/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints).|
 |Microsoft Active Protection Service (MAPS)|Consente l'accesso in uscita a [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
 |Ambiente del servizio app|Consente l'accesso in uscita al traffico della piattaforma Ambiente del servizio app. Questo tag non copre gli endpoint di archiviazione ed SQL specifici del cliente creati da Ambiente del servizio app. Queste devono essere abilitate tramite [endpoint di servizio](../virtual-network/tutorial-restrict-network-access-to-resources.md) o aggiunte manualmente.<br><br>Per altre informazioni sull'integrazione di firewall di Azure con l'ambiente del servizio app, vedere [bloccare un ambiente del servizio app](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Backup di Azure|Consente l'accesso in uscita ai servizi Backup di Azure.|
@@ -40,7 +40,7 @@ La tabella seguente mostra i tag FQDN attuali che è possibile usare. Microsoft 
 |Servizio Azure Kubernetes|Consente l'accesso in uscita a AKS. Per altre informazioni, vedere [usare il firewall di Azure per proteggere le distribuzioni di Azure Kubernetes Service (AKS)](protect-azure-kubernetes-service.md).|
 
 > [!NOTE]
-> Quando si seleziona il tag FQDN nella regola per un'applicazione, il campo protocol:port deve essere impostato su **https** .
+> Quando si seleziona il tag FQDN nella regola per un'applicazione, il campo protocol:port deve essere impostato su **https**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
