@@ -3,12 +3,12 @@ title: Configurare il lead del progetto come Lab con Azure Lab Services
 description: Informazioni su come configurare i Lab per insegnare a Project Lead il modo in cui le classi.
 ms.topic: article
 ms.date: 10/28/2020
-ms.openlocfilehash: 8585d09759319eef04da5ed68fec603cfa390093
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e3783ae4fa07bf783841022903c4bcf3ab6fbe23
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496889"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648005"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Configurare i Lab per il lead del progetto come le classi
 
@@ -53,12 +53,12 @@ ms.locfileid: "94496889"
 Per l' [elenco completo del software](https://www.pltw.org/pltw-software) per ogni classe, vedere il sito di pltw.
 
 ## <a name="lab-configuration"></a>Configurazione del lab
-Per configurare Labs per PLTW, è necessario disporre di una sottoscrizione di Azure e di un account Lab per iniziare. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Una volta ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services. Per ulteriori informazioni sulla creazione di un nuovo account Lab, vedere l'esercitazione su [come configurare un account Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). È anche possibile usare un account lab esistente.
+Per configurare Labs per PLTW, è necessario disporre di una sottoscrizione di Azure e di un account Lab per iniziare. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. Una volta ottenuto una sottoscrizione di Azure, è possibile creare un nuovo account Lab in Azure Lab Services. Per ulteriori informazioni sulla creazione di un nuovo account Lab, vedere l'esercitazione su [come configurare un account Lab](./tutorial-setup-lab-account.md). È anche possibile usare un account lab esistente.
 
 Quando si dispone di un account Lab, è necessario creare laboratori distinti per ogni sessione di una classe PLTW offerta dalla scuola.  Si consiglia inoltre di creare immagini separate per ogni tipo di classe PLTW.  Per altri dettagli su come strutturare i Lab e le immagini, vedere il post di Blog relativo [al passaggio da un Lab fisico a Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
 
 ### <a name="lab-account-settings"></a>Impostazioni dell'account Lab
-Abilitare le impostazioni descritte nella tabella seguente per l'account Lab. Per altre informazioni su come abilitare le immagini del Marketplace, vedere l'articolo su [come specificare le immagini del Marketplace disponibili per gli autori di Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Abilitare le impostazioni descritte nella tabella seguente per l'account Lab. Per altre informazioni su come abilitare le immagini del Marketplace, vedere l'articolo su [come specificare le immagini del Marketplace disponibili per gli autori di Lab](./specify-marketplace-images.md).
 
 | Impostazione dell'account lab | Istruzioni |
 | -------------------- | ----- |
@@ -73,26 +73,26 @@ Le dimensioni della macchina virtuale consigliata per le classi PLTW dipendono d
 |Dimensioni della macchina virtuale| **Grande**.  Queste dimensioni sono più indicate per le applicazioni che richiedono CPU più veloci, prestazioni del disco locale migliori, database di grandi dimensioni, cache di memoria di dimensioni elevate.  È consigliabile usare questa dimensione per le classi PLTW seguenti: Introduzione alla progettazione ingegneristica, principi di progettazione, informatica Essentials, principi di informatica e informatica A.
 
 ### <a name="licensing-server"></a>Server licenze
-La maggior parte del software usato nelle classi PLTW precedenti do * *_not_* _ richiede l'accesso a un server licenze.  Tuttavia, sarà necessario accedere a un server licenze se si prevede di utilizzare il modello di licenza di rete di Autodesk per il software seguente:
+La maggior parte del software usato nelle classi PLTW precedenti do **_not_* _ richiede l'accesso a un server licenze.  Tuttavia, sarà necessario accedere a un server licenze se si prevede di utilizzare il modello di licenza di rete di Autodesk per il software seguente:
 -   Revit
 -   Inventore
 -   CAMMA Inventory
 
 Per utilizzare le licenze di rete con il software di Autodesk, [pltw fornisce i passaggi dettagliati](https://www.pltw.org/pltw-software) per l'installazione di gestione licenze di Autodesk nel server licenze.  Questo server licenze si trova in genere nella rete locale o ospitata in una macchina virtuale (VM) di Azure all'interno di una rete virtuale di Azure (VNet).
 
-Dopo aver configurato il server licenze, è necessario eseguire [il peering di VNet](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) all' [account Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). Il peering di rete deve essere eseguito _before * creando il Lab in modo che le macchine virtuali del Lab possano accedere al server licenze e viceversa.
+Dopo aver configurato il server licenze, è necessario eseguire [il peering di VNet](./how-to-connect-peer-virtual-network.md) all' [account Lab](./tutorial-setup-lab-account.md). Il peering di rete deve essere eseguito _before * creando il Lab in modo che le macchine virtuali del Lab possano accedere al server licenze e viceversa.
 
 I file di licenza generati da Autodesk incorporano l'indirizzo MAC del server licenze.  Se si decide di ospitare il server licenze tramite una macchina virtuale di Azure, è importante assicurarsi che l'indirizzo MAC del server licenze non cambi.   In caso contrario, quando l'indirizzo MAC cambia, sarà necessario rigenerare i file di licenza.  Per evitare la modifica dell'indirizzo MAC, seguire questi suggerimenti:
 
-- [Impostare un indirizzo IP e un indirizzo Mac privato statico](https://docs.microsoft.com/azure/lab-services/how-to-create-a-lab-with-shared-resource#static-private-ip-and-mac-address) per la macchina virtuale di Azure che ospita il server licenze.
+- [Impostare un indirizzo IP e un indirizzo Mac privato statico](./how-to-create-a-lab-with-shared-resource.md#static-private-ip-and-mac-address) per la macchina virtuale di Azure che ospita il server licenze.
 - Assicurarsi di configurare l'account Lab e il VNet del server licenze in un region\location con capacità VM sufficiente, in modo da non dover spostare queste risorse in un nuovo region\location in un secondo momento.
 
-Leggere anche l'articolo su [come configurare un server licenze come risorsa condivisa](https://docs.microsoft.com/azure/lab-services/how-to-create-a-lab-with-shared-resource) per altre informazioni.
+Leggere anche l'articolo su [come configurare un server licenze come risorsa condivisa](./how-to-create-a-lab-with-shared-resource.md) per altre informazioni.
 
 ### <a name="template-machine"></a>Computer modello
 Alcuni dei file di installazione necessari per PLTW sono di grandi dimensioni e richiedono molto tempo per la copia quando vengono scaricati nel computer modello di un Lab.
 
-Anziché scaricare i file di installazione nel computer modello e installare tutti gli elementi, è consigliabile creare le immagini PLTW nell'ambiente fisico.  Quindi, è possibile importare le immagini nella raccolta immagini condivise in modo da poter usare queste immagini personalizzate per creare i Lab.  Per informazioni dettagliate, leggere l'articolo seguente: [caricare un'immagine personalizzata nella raccolta di immagini condivise](https://docs.microsoft.com/azure/lab-services/upload-custom-image-shared-image-gallery).
+Anziché scaricare i file di installazione nel computer modello e installare tutti gli elementi, è consigliabile creare le immagini PLTW nell'ambiente fisico.  Quindi, è possibile importare le immagini nella raccolta immagini condivise in modo da poter usare queste immagini personalizzate per creare i Lab.  Per informazioni dettagliate, leggere l'articolo seguente: [caricare un'immagine personalizzata nella raccolta di immagini condivise](./upload-custom-image-shared-image-gallery.md).
 
 Seguendo questa raccomandazione, di seguito sono riportate le principali attività per la configurazione di un Lab:
 
@@ -103,11 +103,11 @@ Seguendo questa raccomandazione, di seguito sono riportate le principali attivit
     > [!NOTE]    
     > Quando si installano le applicazioni di Autodesk, il computer in cui si installa Autodesk deve essere in grado di comunicare con il server licenze (l'installazione guidata di Autodesk richiede di specificare il nome del computer in cui è ospitato il server licenze).  Se si ospita il server licenze in una macchina virtuale di Azure, potrebbe essere necessario attendere per installare Autodesk nel computer modello del Lab in modo che l'installazione guidata di Autodesk possa accedere al server licenze
 
-    b.  [Installare e configurare OneDrive](https://docs.microsoft.com/azure/lab-services/how-to-prepare-windows-template#install-and-configure-onedrive) (o altre opzioni di backup che possono essere usate dalla scuola).
+    b.  [Installare e configurare OneDrive](./how-to-prepare-windows-template.md#install-and-configure-onedrive) (o altre opzioni di backup che possono essere usate dalla scuola).
     
-    c.  [Installare e configurare gli aggiornamenti di Windows](https://docs.microsoft.com/azure/lab-services/how-to-prepare-windows-template#install-and-configure-updates).
+    c.  [Installare e configurare gli aggiornamenti di Windows](./how-to-prepare-windows-template.md#install-and-configure-updates).
 
-1.  Caricare l'immagine personalizzata nella [raccolta di immagini condivise collegata all'account Lab](https://docs.microsoft.com/azure/lab-services/how-to-attach-detach-shared-image-gallery).
+1.  Caricare l'immagine personalizzata nella [raccolta di immagini condivise collegata all'account Lab](./how-to-attach-detach-shared-image-gallery.md).
 
 1.  Creare un Lab e selezionare l'immagine personalizzata caricata nel passaggio precedente.
 
@@ -118,9 +118,9 @@ Seguendo questa raccomandazione, di seguito sono riportate le principali attivit
 ## <a name="student-devices"></a>Dispositivi per studenti
 Gli studenti possono connettersi alle macchine virtuali del Lab da computer Windows\Mac e Chromebook.  Ecco i collegamenti alle istruzioni per ognuna di queste opzioni:
 
-- [Eseguire la connessione da Windows](https://docs.microsoft.com/azure/lab-services/how-to-use-classroom-lab#connect-to-the-vm)
-- [Connetti da Mac](https://docs.microsoft.com/azure/lab-services/connect-virtual-machine-mac-remote-desktop)
-- [Connetti da Chromebook](https://docs.microsoft.com/azure/lab-services/connect-virtual-machine-chromebook-remote-desktop)
+- [Eseguire la connessione da Windows](./how-to-use-classroom-lab.md#connect-to-the-vm)
+- [Connetti da Mac](./connect-virtual-machine-mac-remote-desktop.md)
+- [Connetti da Chromebook](./connect-virtual-machine-chromebook-remote-desktop.md)
 
 ## <a name="cost"></a>Cost
 Si tratterà di una possibile stima dei costi per le classi PLTW precedenti.  Questa stima non include il costo per l'esecuzione di un server licenze o per l'uso di raccolta immagini condivise.  Verrà usata una classe di 25 studenti.  Sono previste 20 ore di tempo della classe pianificata.  Ogni studente riceve inoltre una quota di 10 ore per il lavoro o assegnazioni al di fuori del tempo di classe pianificato.  Vedere le stime dei costi inferiori per le dimensioni della GPU ( **grandi** e **piccole)** .
@@ -145,4 +145,4 @@ I passaggi successivi sono comuni alla configurazione di qualsiasi lab:
 - [Aggiungere utenti](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Impostare la quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Impostare una pianificazione](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Inviare i collegamenti di registrazione agli studenti tramite posta elettronica](how-to-configure-student-usage.md#send-invitations-to-users). 
+- [Inviare i collegamenti di registrazione agli studenti tramite posta elettronica](how-to-configure-student-usage.md#send-invitations-to-users).

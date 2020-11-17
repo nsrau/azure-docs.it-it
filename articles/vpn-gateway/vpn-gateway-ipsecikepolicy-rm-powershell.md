@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 6039eeed2e1bcb348920be986e72089164c614ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96931d2dd94a8a31021ebe62caaefc54f643b007
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89392651"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649263"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurare criteri IPsec/IKE per connessioni VPN da sito a sito o da rete virtuale a rete virtuale
 
@@ -34,9 +34,8 @@ Questo articolo fornisce istruzioni per creare e configurare un criterio IPsec/I
 
 > [!IMPORTANT]
 > 1. Si noti che il criterio IPsec/IKE funziona solo sugli SKU di gateway seguenti:
->    * ***VpnGw1, VpnGw2, VpnGw3*** (basato su route)
->    * ***Standard*** e ***HighPerformance*** (basato su route)
-> 2. Per una determinata connessione è possibile specificare ***una*** sola combinazione di criteri.
+>    * ***VpnGw1, VpnGw2, VpnGw3** _ (basato su Route) _ ***standard** _ e _*_HighPerformance_*_ (basato su Route)
+> 2. È possibile specificare solo _*_una_*_ combinazione di criteri per una determinata connessione.
 > 3. È necessario specificare tutti gli algoritmi e i parametri sia per IKE (modalità principale) che per IPsec (modalità rapida). Non è consentito specificare criteri parziali.
 > 4. Consultare le specifiche del fornitore del dispositivo VPN per verificare che i criteri siano supportati dai dispositivi VPN locali. Non è possibile stabilire connessioni da sito a sito o da rete virtuale a rete virtuale se i criteri non sono compatibili.
 
@@ -56,7 +55,7 @@ Le istruzioni di questo articolo consentono di impostare e configurare criteri I
 
 La tabella seguente riporta l'elenco degli algoritmi di crittografia e dei tipi di attendibilità della chiave supportati e configurabili dai clienti:
 
-| **IPsec/IKEv2**  | **Opzioni**    |
+| _ *IPSec/IKEv2**  | **Opzioni**    |
 | ---  | --- 
 | Crittografia IKEv2 | AES256, AES192, AES128, DES3, DES  
 | Integrità IKEv2  | SHA384, SHA256, SHA1, MD5  |
@@ -153,7 +152,7 @@ $LNGIP6        = "131.107.72.22"
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. connettersi alla sottoscrizione e creare un nuovo gruppo di risorse
 
-Verificare di passare alla modalità PowerShell per usare i cmdlet di Gestione risorse. Per altre informazioni, vedere [Uso di Windows PowerShell con Gestione risorse](../powershell-azure-resource-manager.md).
+Verificare di passare alla modalità PowerShell per usare i cmdlet di Gestione risorse. Per altre informazioni, vedere [Uso di Windows PowerShell con Gestione risorse](../azure-resource-manager/management/manage-resources-powershell.md).
 
 Aprire la console di PowerShell e connettersi al proprio account. Per connettersi, usare l'esempio seguente:
 

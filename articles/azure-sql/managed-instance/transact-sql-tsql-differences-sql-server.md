@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 873bebc462ce4756d38f966a87edda167bd49501
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 23a620f8031335e5a950df96427b11251f0ec042
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506380"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649314"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Differenze di T-SQL tra SQL Server & SQL di Azure Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ I problemi noti temporanei individuati in SQL Istanza gestita e verranno risolti
 
 ## <a name="availability"></a>Disponibilità
 
-### <a name="always-on-availability-groups"></a><a name="always-on-availability-groups"></a>Gruppi di disponibilità AlwaysOn
+### <a name="always-on-availability-groups"></a><a name="always-on-availability-groups"></a>Gruppi di disponibilità Always On
 
 La [disponibilità elevata](../database/high-availability-sla.md) è incorporata in SQL istanza gestita e non può essere controllata dagli utenti. Le istruzioni seguenti non sono supportate:
 
@@ -114,7 +114,7 @@ SQL Istanza gestita non può accedere alle condivisioni file e alle cartelle di 
 
 Vedere [CREATE CERTIFICATE](/sql/t-sql/statements/create-certificate-transact-sql) e [BACKUP CERTIFICATE](/sql/t-sql/statements/backup-certificate-transact-sql). 
  
-**Soluzione alternativa** : anziché creare il backup del certificato e ripristinare il backup, [ottenere il contenuto binario e la chiave privata del certificato, archiviarlo come file con estensione SQL e crearlo da binario](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
+**Soluzione alternativa**: anziché creare il backup del certificato e ripristinare il backup, [ottenere il contenuto binario e la chiave privata del certificato, archiviarlo come file con estensione SQL e crearlo da binario](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
 
 ```sql
 CREATE CERTIFICATE  
@@ -517,12 +517,11 @@ Le variabili, funzioni e viste seguenti restituiscono risultati diversi:
 ### <a name="failover-groups"></a>Gruppi di failover
 I database di sistema non vengono replicati nell'istanza secondaria in un gruppo di failover. Pertanto, gli scenari che dipendono da oggetti dei database di sistema non saranno possibili nell'istanza secondaria, a meno che gli oggetti non vengano creati manualmente sul database secondario.
 
-### <a name="failover-groups"></a>Gruppi di failover
-I database di sistema non vengono replicati nell'istanza secondaria in un gruppo di failover. Pertanto, gli scenari che dipendono da oggetti dei database di sistema non saranno possibili nell'istanza secondaria, a meno che gli oggetti non vengano creati manualmente sul database secondario.
-
 ### <a name="tempdb"></a>TEMPDB
-
-La dimensione massima del file `tempdb` non può essere maggiore di 24 GB per core in un livello per utilizzo generico. Le dimensioni massime di `tempdb` un livello business critical sono limitate dalle dimensioni di archiviazione di SQL istanza gestita. `Tempdb` le dimensioni del file di log sono limitate a 120 GB nel livello per utilizzo generico. Alcune query potrebbero restituire un errore se hanno bisogno di più di 24 GB per core in `tempdb` o se producono più di 120 GB di dati di log.
+- La dimensione massima del file `tempdb` non può essere maggiore di 24 GB per core in un livello per utilizzo generico. Le dimensioni massime di `tempdb` un livello business critical sono limitate dalle dimensioni di archiviazione di SQL istanza gestita. `Tempdb` le dimensioni del file di log sono limitate a 120 GB nel livello per utilizzo generico. Alcune query potrebbero restituire un errore se hanno bisogno di più di 24 GB per core in `tempdb` o se producono più di 120 GB di dati di log.
+- `Tempdb` viene sempre suddiviso in 12 file di dati: 1 primario, denominato anche master, file di dati e 11 file di dati non primari. Impossibile modificare la struttura dei file e aggiungere nuovi file a `tempdb` . 
+- I [ `tempdb` metadati con ottimizzazione](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata)per la memoria, una nuova funzionalità di database in memoria SQL Server 2019, non sono supportati.
+- Gli oggetti creati nel database model non possono essere creati automaticamente in `tempdb` dopo un riavvio o un failover perché non `tempdb` Ottiene l'elenco di oggetti iniziale dal database modello replicato. 
 
 ### <a name="msdb"></a>MSDB
 

@@ -4,12 +4,12 @@ description: Questo articolo descrive come configurare la visualizzazione in tem
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: ef3fd6ce2a5be4f3d06a37b135e0f9cf0851effb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4966ab0d64745c36ee53f27ba4063714f18e35da
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116710"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648107"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Come configurare la funzionalità dati in tempo reale (anteprima)
 
@@ -19,7 +19,7 @@ Questa funzionalità supporta i metodi seguenti per controllare l'accesso ai log
 
 - Servizio Azure Kubernetes senza autorizzazione del controllo degli accessi in base al ruolo di Kubernetes abilitata
 - Servizio Azure Kubernetes con autorizzazione del controllo degli accessi in base al ruolo di Kubernetes abilitata
-    - AKS configurato con l'associazione di ruoli del cluster ** [clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
+    - AKS configurato con l'associazione di ruoli del cluster **[clusterMonitoringUser](/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0&preserve-view=true)**
 - AKS abilitato con Single Sign-on basato su SAML di Azure Active Directory (AD)
 
 Queste istruzioni richiedono l'accesso amministrativo al cluster Kubernetes e, se si configura per l'uso di Azure Active Directory (AD) per l'autenticazione degli utenti, l'accesso amministrativo ai Azure AD.
@@ -50,7 +50,7 @@ Per eliminare la necessità di applicare modifiche di configurazione aggiuntive 
 
 Per usare la funzionalità dati in tempo reale (anteprima) con questo nuovo utente, è necessario essere un membro del ruolo [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) sulla risorsa cluster AKS. Il monitoraggio di Azure per i contenitori, se abilitato, è configurato per l'autenticazione con questo utente per impostazione predefinita. Se l'associazione di ruolo clusterMonitoringUser non esiste in un cluster, per l'autenticazione viene usato **clusterUser** .
 
-AKS ha rilasciato questa nuova associazione di ruolo nel 2020 gennaio, quindi i cluster creati prima di gennaio 2020 non lo hanno. Se si dispone di un cluster creato prima del 2020 gennaio, è possibile aggiungere il nuovo **clusterMonitoringUser** a un cluster esistente eseguendo un'operazione Put nel cluster o eseguendo qualsiasi altra operazione nel cluster, che esegue un'operazione Put nel cluster, ad esempio l'aggiornamento della versione del cluster.
+AKS ha rilasciato questa nuova associazione di ruolo nel 2020 gennaio, quindi i cluster creati prima di gennaio 2020 non lo hanno. Se si dispone di un cluster creato prima del 2020 gennaio, è possibile aggiungere il nuovo **clusterMonitoringUser** a un cluster esistente eseguendo un'operazione Put nel cluster o eseguendo qualsiasi altra operazione nel cluster che esegue un'operazione Put nel cluster, ad esempio l'aggiornamento della versione del cluster.
 
 ## <a name="kubernetes-cluster-without-rbac-enabled"></a>Cluster Kubernetes con controllo degli accessi in base al ruolo abilitato
 
@@ -121,7 +121,7 @@ Per altre informazioni sulla configurazione della sicurezza avanzata in Kubernet
     >[!NOTE]
     >Se si usa questa funzionalità in Azure Cina, il primo valore dell'URL di base deve essere `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` e il secondo valore dell'URL di base deve essere `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` .
 
-4. Dopo la registrazione degli URL di reindirizzamento, in **concessione implicita**selezionare le opzioni **token di accesso** e **token ID** , quindi salvare le modifiche.
+4. Dopo la registrazione degli URL di reindirizzamento, in **concessione implicita** selezionare le opzioni **token di accesso** e **token ID** , quindi salvare le modifiche.
 
 >[!NOTE]
 >La configurazione dell'autenticazione con Azure Active Directory per l'accesso Single Sign-on può essere eseguita solo durante la distribuzione iniziale di un nuovo cluster AKS. Non è possibile configurare l'accesso Single Sign-On per un cluster del servizio Azure Kubernetes già distribuito.
@@ -136,7 +136,7 @@ Per accedere alla funzionalità dei dati in tempo reale (anteprima), è necessar
 >[!IMPORTANT]
 >Se l'utente che si concede l'associazione RBAC per si trova nello stesso tenant Azure AD, assegnare le autorizzazioni in base a userPrincipalName. Se l'utente si trova in un tenant Azure AD diverso, eseguire una query per e utilizzare la proprietà objectId.
 
-Per ulteriori informazioni sulla configurazione del **ClusterRoleBinding**del cluster AKS, vedere [creare un'associazione RBAC](../../aks/azure-ad-integration-cli.md#create-rbac-binding).
+Per ulteriori informazioni sulla configurazione del **ClusterRoleBinding** del cluster AKS, vedere [creare un'associazione RBAC](../../aks/azure-ad-integration-cli.md#create-rbac-binding).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

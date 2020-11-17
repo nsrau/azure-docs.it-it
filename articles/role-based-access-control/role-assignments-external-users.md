@@ -16,16 +16,16 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: a891830d876bfa99d29087278dd5b870ae7e2866
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 846e1a83f3cba5f87210ae4f825b5fac4f1569c6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368384"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648379"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure per gli utenti Guest esterni usando il portale di Azure
 
-Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](overview.md) consente una migliore gestione della sicurezza per le organizzazioni di grandi dimensioni e per le aziende di piccole e medie dimensioni che lavorano con collaboratori esterni, fornitori o freelance che necessitano dell'accesso a risorse specifiche nell'ambiente, ma non necessariamente all'intera infrastruttura o agli ambiti correlati alla fatturazione. È possibile usare le funzionalità di [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) per collaborare con utenti Guest esterni ed è possibile usare il controllo degli accessi in base al ruolo di Azure per concedere solo le autorizzazioni necessarie per gli utenti guest nell'ambiente in uso.
+Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](overview.md) consente una migliore gestione della sicurezza per le organizzazioni di grandi dimensioni e per le aziende di piccole e medie dimensioni che lavorano con collaboratori esterni, fornitori o freelance che necessitano dell'accesso a risorse specifiche nell'ambiente, ma non necessariamente all'intera infrastruttura o agli ambiti correlati alla fatturazione. È possibile usare le funzionalità di [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md) per collaborare con utenti Guest esterni ed è possibile usare il controllo degli accessi in base al ruolo di Azure per concedere solo le autorizzazioni necessarie per gli utenti guest nell'ambiente in uso.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -49,13 +49,13 @@ I membri nativi di una directory (utenti membro) hanno autorizzazioni diverse ri
 
 Attenersi alla seguente procedura per aggiungere un utente guest alla directory usando la pagina Azure Active Directory.
 
-1. Assicurarsi che le impostazioni di collaborazione esterna dell'organizzazione siano configurate per consentire gli inviti agli utenti guest. Per altre informazioni, vedere [abilitare la collaborazione esterna B2B e gestire gli utenti che possono invitare i guest](../active-directory/b2b/delegate-invitations.md).
+1. Assicurarsi che le impostazioni di collaborazione esterna dell'organizzazione siano configurate per consentire gli inviti agli utenti guest. Per altre informazioni, vedere [abilitare la collaborazione esterna B2B e gestire gli utenti che possono invitare i guest](../active-directory/external-identities/delegate-invitations.md).
 
 1. Nella portale di Azure fare clic su **Azure Active Directory**  >  **utenti**  >  **nuovo utente Guest**.
 
     ![Nuova funzionalità utente guest in portale di Azure](./media/role-assignments-external-users/invite-guest-user.png)
 
-1. Seguire i passaggi per aggiungere un nuovo utente Guest. Per ulteriori informazioni, vedere [aggiungere Azure Active Directory utenti di collaborazione B2B nel portale di Azure](../active-directory/b2b/add-users-administrator.md#add-guest-users-to-the-directory).
+1. Seguire i passaggi per aggiungere un nuovo utente Guest. Per ulteriori informazioni, vedere [aggiungere Azure Active Directory utenti di collaborazione B2B nel portale di Azure](../active-directory/external-identities/add-users-administrator.md#add-guest-users-to-the-directory).
 
 In seguito all'aggiunta di un utente guest alla directory, è possibile inviare all'utente guest un collegamento diretto a un'app condivisa oppure l'utente guest può selezionare l'URL di riscatto nel messaggio di posta elettronica di invito.
 
@@ -65,7 +65,7 @@ Per consentire all'utente guest di accedere alla directory, è necessario comple
 
 ![Autorizzazioni di verifica dell'invito utente Guest](./media/role-assignments-external-users/invite-review-permissions.png)
 
-Per ulteriori informazioni sul processo di invito, vedere [Azure Active Directory riscatto dell'invito di collaborazione B2B](../active-directory/b2b/redemption-experience.md).
+Per ulteriori informazioni sul processo di invito, vedere [Azure Active Directory riscatto dell'invito di collaborazione B2B](../active-directory/external-identities/redemption-experience.md).
 
 ## <a name="add-a-role-assignment-for-a-guest-user"></a>Aggiungere un'assegnazione di ruolo per un utente Guest
 
@@ -145,7 +145,7 @@ Se l'utente Guest non è ancora presente nella directory, è possibile invitare 
 
 1. Inviare il collegamento di invito all'utente Guest per completare il processo di invito.
 
-    Per ulteriori informazioni sul processo di invito, vedere [Azure Active Directory riscatto dell'invito di collaborazione B2B](../active-directory/b2b/redemption-experience.md).
+    Per ulteriori informazioni sul processo di invito, vedere [Azure Active Directory riscatto dell'invito di collaborazione B2B](../active-directory/external-identities/redemption-experience.md).
 
 ## <a name="remove-a-guest-user-from-your-directory"></a>Rimuovere un utente guest dalla directory
 
@@ -183,7 +183,7 @@ Gli utenti guest hanno autorizzazioni di directory limitate. Ad esempio, gli ute
 
 ![L'utente Guest non può esplorare gli utenti in una directory](./media/role-assignments-external-users/directory-no-users.png)
 
-Se un utente Guest necessita di privilegi aggiuntivi nella directory, è possibile assegnare un ruolo della directory all'utente Guest. Se si desidera che un utente guest disponga di accesso in lettura completo alla directory, è possibile aggiungere l'utente Guest al ruolo [Readers di directory](../active-directory/roles/permissions-reference.md) in Azure ad. Per altre informazioni, vedere [concedere le autorizzazioni agli utenti dalle organizzazioni partner nel tenant del Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Se un utente Guest necessita di privilegi aggiuntivi nella directory, è possibile assegnare un ruolo della directory all'utente Guest. Se si desidera che un utente guest disponga di accesso in lettura completo alla directory, è possibile aggiungere l'utente Guest al ruolo [Readers di directory](../active-directory/roles/permissions-reference.md) in Azure ad. Per altre informazioni, vedere [concedere le autorizzazioni agli utenti dalle organizzazioni partner nel tenant del Azure Active Directory](../active-directory/external-identities/add-guest-to-role.md).
 
 ![Assegnare il ruolo lettori directory](./media/role-assignments-external-users/directory-roles.png)
 
@@ -193,27 +193,27 @@ Gli utenti guest hanno autorizzazioni di directory limitate. Anche se un utente 
 
 ![L'utente Guest non può esplorare le entità di sicurezza per assegnare i ruoli](./media/role-assignments-external-users/directory-no-browse.png)
 
-Se l'utente Guest conosce il nome di accesso esatto di un utente nella directory, può concedere l'accesso. Se si desidera che un utente guest disponga di accesso in lettura completo alla directory, è possibile aggiungere l'utente Guest al ruolo [Readers di directory](../active-directory/roles/permissions-reference.md) in Azure ad. Per altre informazioni, vedere [concedere le autorizzazioni agli utenti dalle organizzazioni partner nel tenant del Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Se l'utente Guest conosce il nome di accesso esatto di un utente nella directory, può concedere l'accesso. Se si desidera che un utente guest disponga di accesso in lettura completo alla directory, è possibile aggiungere l'utente Guest al ruolo [Readers di directory](../active-directory/roles/permissions-reference.md) in Azure ad. Per altre informazioni, vedere [concedere le autorizzazioni agli utenti dalle organizzazioni partner nel tenant del Azure Active Directory](../active-directory/external-identities/add-guest-to-role.md).
 
 ### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>L'utente Guest non può registrare le applicazioni o creare entità servizio
 
-Gli utenti guest hanno autorizzazioni di directory limitate. Se un utente guest deve essere in grado di registrare le applicazioni o creare entità servizio, è possibile aggiungere l'utente Guest al ruolo di [sviluppatore dell'applicazione](../active-directory/roles/permissions-reference.md) in Azure ad. Per altre informazioni, vedere [concedere le autorizzazioni agli utenti dalle organizzazioni partner nel tenant del Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Gli utenti guest hanno autorizzazioni di directory limitate. Se un utente guest deve essere in grado di registrare le applicazioni o creare entità servizio, è possibile aggiungere l'utente Guest al ruolo di [sviluppatore dell'applicazione](../active-directory/roles/permissions-reference.md) in Azure ad. Per altre informazioni, vedere [concedere le autorizzazioni agli utenti dalle organizzazioni partner nel tenant del Azure Active Directory](../active-directory/external-identities/add-guest-to-role.md).
 
 ![L'utente Guest non può registrare le applicazioni](./media/role-assignments-external-users/directory-access-denied.png)
 
 ### <a name="guest-user-does-not-see-the-new-directory"></a>L'utente Guest non Visualizza la nuova directory
 
-Se a un utente Guest è stato concesso l'accesso a una directory, ma non viene visualizzata la nuova directory elencata nel portale di Azure quando si tenta di passare al riquadro **directory + sottoscrizione** , assicurarsi che l'utente Guest abbia completato il processo di invito. Per ulteriori informazioni sul processo di invito, vedere [Azure Active Directory riscatto dell'invito di collaborazione B2B](../active-directory/b2b/redemption-experience.md).
+Se a un utente Guest è stato concesso l'accesso a una directory, ma non viene visualizzata la nuova directory elencata nel portale di Azure quando si tenta di passare al riquadro **directory + sottoscrizione** , assicurarsi che l'utente Guest abbia completato il processo di invito. Per ulteriori informazioni sul processo di invito, vedere [Azure Active Directory riscatto dell'invito di collaborazione B2B](../active-directory/external-identities/redemption-experience.md).
 
 ### <a name="guest-user-does-not-see-resources"></a>Le risorse non vengono visualizzate dall'utente Guest
 
-Se a un utente Guest è stato concesso l'accesso a una directory, ma non vengono visualizzate le risorse a cui è stato concesso l'accesso nel portale di Azure, assicurarsi che l'utente Guest abbia selezionato la directory corretta. Un utente guest potrebbe avere accesso a più directory. Per cambiare directory, in alto a sinistra fare clic su **directory + sottoscrizione**e quindi fare clic sulla directory appropriata.
+Se a un utente Guest è stato concesso l'accesso a una directory, ma non vengono visualizzate le risorse a cui è stato concesso l'accesso nel portale di Azure, assicurarsi che l'utente Guest abbia selezionato la directory corretta. Un utente guest potrebbe avere accesso a più directory. Per cambiare directory, in alto a sinistra fare clic su **directory + sottoscrizione** e quindi fare clic sulla directory appropriata.
 
 ![Riquadro Directory + sottoscrizioni in portale di Azure](./media/role-assignments-external-users/directory-subscription.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure](../active-directory/b2b/add-users-administrator.md)
-- [Proprietà di un utente di Collaborazione B2B di Azure Active Directory](../active-directory/b2b/user-properties.md)
-- [Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory](../active-directory/b2b/invitation-email-elements.md)
+- [Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure](../active-directory/external-identities/add-users-administrator.md)
+- [Proprietà di un utente di Collaborazione B2B di Azure Active Directory](../active-directory/external-identities/user-properties.md)
+- [Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory](../active-directory/external-identities/invitation-email-elements.md)
 - [Aggiungere un utente guest come coamministratore](classic-administrators.md#add-a-guest-user-as-a-co-administrator)

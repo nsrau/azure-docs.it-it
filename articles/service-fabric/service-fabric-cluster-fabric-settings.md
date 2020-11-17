@@ -3,12 +3,12 @@ title: Modificare le impostazioni di un cluster di Azure Service Fabric
 description: Questo articolo descrive le impostazioni dell'infrastruttura e i criteri di aggiornamento dell'infrastruttura che è possibile personalizzare.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: fbd6c9503e409473a87c58202eb88d77716441f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a83d24b4badd78750756a3cb4564b1e53fd30593
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89055121"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648226"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -243,7 +243,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |QuorumLossWaitDuration | Tempo in secondi, valore predefinito: MaxValue |Statico|Specificare l'intervallo di tempo in secondi. QuorumLossWaitDuration per FaultAnalysisService. |
 |ReplicaDropWaitDurationInSeconds|int, valore predefinito: 600|Statico|Questo parametro viene usato quando viene chiamata l'API per la perdita di dati. Controlla il tempo di attesa del sistema per l'eliminazione di una replica dopo una chiamata interna di rimozione della replica. |
 |ReplicaRestartWaitDuration |Tempo in secondi, valore predefinito: 60 minuti|Statico|Specificare l'intervallo di tempo in secondi. ReplicaRestartWaitDuration per FaultAnalysisService. |
-|StandByReplicaKeepDuration| Tempo in secondi, valore predefinito: (60*24*7) minuti |Statico|Specificare l'intervallo di tempo in secondi. StandByReplicaKeepDuration per FaultAnalysisService. |
+|StandByReplicaKeepDuration| Tempo in secondi, valore predefinito: (60 *24* 7) minuti |Statico|Specificare l'intervallo di tempo in secondi. StandByReplicaKeepDuration per FaultAnalysisService. |
 |StoredActionCleanupIntervalInSeconds | Int, valore predefinito: 3600 |Statico|Indica la frequenza di pulizia dell'archivio. Verranno rimosse solo le azioni in stato terminale e completate da un numero di secondi pari almeno a CompletedActionKeepDurationInSeconds. |
 |StoredChaosEventCleanupIntervalInSeconds | Int, valore predefinito: 3600 |Statico|Frequenza con cui l'archivio verrà controllato per eseguire eventualmente la pulizia. Se il numero di eventi è superiore a 30.000, la pulizia verrà avviata. |
 |TargetReplicaSetSize |Int, valore predefinito: 0 |Statico|NOT_PLATFORM_UNIX_START TargetReplicaSetSize per FaultAnalysisService. |
@@ -423,14 +423,14 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |AzureStorageMaxConnections | Int, valore predefinito: 5000 |Dinamico|Il numero massimo di connessioni simultanee all'archiviazione di Azure. |
 |AzureStorageMaxWorkerThreads | Int, valore predefinito: 25 |Dinamico|Il numero massimo di thread di ruoli di lavoro in parallelo. |
 |AzureStorageOperationTimeout | Tempo in secondi, valore predefinito: 6000 |Dinamico|Specificare l'intervallo di tempo in secondi. Timeout per il completamento dell'operazione xstore. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, valore predefinito: FALSE |Dinamico|Abilita o disabilita la pulizia automatica del pacchetto dell'applicazione quando il provisioning ha esito positivo.
-
-*La procedura consigliata consiste nell'usare `true` .* | | CleanupUnusedApplicationTypes | Bool, valore predefinito: FALSE | Dinamica | Questa configurazione, se abilitata, consente di annullare automaticamente la registrazione delle versioni del tipo di applicazione inutilizzate ignorando le ultime tre versioni inutilizzate, riducendo così lo spazio su disco occupato dall'archivio immagini. La pulizia automatica verrà attivata alla fine di un provisioning corretto per il tipo di app specifico e verrà eseguita periodicamente una volta al giorno per tutti i tipi di applicazione. Il numero di versioni non usate da ignorare è configurabile con il parametro "MaxUnusedAppTypeVersionsToKeep". 
-
-*La procedura consigliata consiste nell'usare `true` .*
-| | DisableChecksumValidation | Bool, valore predefinito: false | Static | Questa configurazione consente di abilitare o disabilitare la convalida del checksum durante il provisioning dell'applicazione. | | DisableServerSideCopy | Bool, valore predefinito: false | Static | Questa configurazione Abilita o Disabilita la copia sul lato server del pacchetto dell'applicazione in ImageStore durante il provisioning dell'applicazione. | | ImageCachingEnabled | Bool, valore predefinito: true | Static | Questa configurazione consente di abilitare o disabilitare la memorizzazione nella cache. | | ImageStoreConnectionString | SecureString | Static | Stringa di connessione alla radice per ImageStore. | | ImageStoreMinimumTransferBPS | Int, valore predefinito: 1024 | Dinamica | Velocità di trasferimento minima tra il cluster e ImageStore. Questo valore viene usato per determinare il timeout durante l'accesso a ImageStore esterno. Modificarlo solo in caso di latenza elevata tra il cluster e ImageStore per dare più tempo al cluster di scaricare da ImageStore esterno. | | MaxUnusedAppTypeVersionsToKeep | Int, valore predefinito: 3 | Dinamica | Questa configurazione definisce il numero di versioni del tipo di applicazione non utilizzate da ignorare per la pulizia. Questo parametro è applicabile solo se il parametro CleanupUnusedApplicationTypes è abilitato.
-
-*La procedura consigliata generale consiste nell'usare il valore predefinito ( `3` ).*|
+|CleanupApplicationPackageOnProvisionSuccess|bool, valore predefinito: FALSE |Dinamico|Abilita o disabilita la pulizia automatica del pacchetto dell'applicazione quando il provisioning ha esito positivo.<br/> *La procedura consigliata consiste nell'usare `true` .*
+|CleanupUnusedApplicationTypes|Bool, valore predefinito: false |Dinamico|Questa configurazione, se abilitata, consente di annullare automaticamente la registrazione delle versioni dei tipi di applicazioni inutilizzate ignorando le ultime tre versioni inutilizzate, riducendo così lo spazio su disco occupato dall'archivio immagini. La pulizia automatica verrà attivata alla fine di un provisioning corretto per il tipo di app specifico e verrà eseguita periodicamente una volta al giorno per tutti i tipi di applicazione. Il numero di versioni non usate da ignorare è configurabile con il parametro "MaxUnusedAppTypeVersionsToKeep". <br/> *La procedura consigliata consiste nell'usare `true` .*
+|DisableChecksumValidation | Bool, valore predefinito: false |Statico| Questa configurazione consente di abilitare o disabilitare la convalida di checksum durante il provisioning dell'applicazione. |
+|DisableServerSideCopy | Bool, valore predefinito: false |Statico|Questa configurazione consente di abilitare o disabilitare la copia sul lato server del pacchetto dell'applicazione in ImageStore durante il provisioning dell'applicazione. |
+|ImageCachingEnabled | Bool, valore predefinito: true |Statico|Questa configurazione consente di abilitare o disabilitare la memorizzazione nella cache. |
+|ImageStoreConnectionString |SecureString |Statico|Stringa di connessione per la radice di ImageStore. |
+|ImageStoreMinimumTransferBPS | Int, valore predefinito: 1024 |Dinamico|La velocità di trasferimento minima tra il cluster e ImageStore. Questo valore viene usato per determinare il timeout durante l'accesso a ImageStore esterno. Modificarlo solo in caso di latenza elevata tra il cluster e ImageStore per dare più tempo al cluster di scaricare da ImageStore esterno. |
+|MaxUnusedAppTypeVersionsToKeep | Int, valore predefinito: 3 |Dinamico|Questa configurazione definisce il numero di versioni dei tipi di applicazioni non utilizzate da ignorare per la pulizia. Questo parametro è applicabile solo se il parametro CleanupUnusedApplicationTypes è abilitato. <br/>*La procedura consigliata generale consiste nell'usare il valore predefinito ( `3` ). I valori minori di 1 non sono validi.*|
 
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
@@ -890,7 +890,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |PlacementConstraints | stringa, il valore predefinito è "" |Statico| PlacementConstraints per UpgradeOrchestrationService. |
 |QuorumLossWaitDuration | Tempo in secondi, valore predefinito: MaxValue |Statico| Specificare l'intervallo di tempo in secondi. QuorumLossWaitDuration per UpgradeOrchestrationService. |
 |ReplicaRestartWaitDuration | Tempo in secondi, valore predefinito: 60 minuti|Statico| Specificare l'intervallo di tempo in secondi. ReplicaRestartWaitDuration per UpgradeOrchestrationService. |
-|StandByReplicaKeepDuration | Tempo in secondi, valore predefinito: 60*24*7 minuti |Statico| Specificare l'intervallo di tempo in secondi. StandByReplicaKeepDuration per UpgradeOrchestrationService. |
+|StandByReplicaKeepDuration | Tempo in secondi, valore predefinito: 60 *24* 7 minuti |Statico| Specificare l'intervallo di tempo in secondi. StandByReplicaKeepDuration per UpgradeOrchestrationService. |
 |TargetReplicaSetSize |Int, valore predefinito: 0 |Statico |TargetReplicaSetSize per UpgradeOrchestrationService. |
 |UpgradeApprovalRequired | Bool, valore predefinito: false | Statico|Impostazione per richiedere l'approvazione di un amministratore prima di procedere con l'aggiornamento del codice. |
 

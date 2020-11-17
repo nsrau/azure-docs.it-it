@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: arvindh
-ms.openlocfilehash: 8968fd54968f3115641d2315a534ba61a247a06d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bcf45cdfbadbf16f48f8f2ac3bd0c6320a2803f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605125"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649229"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Esperienze per gli utenti finali per le applicazioni in Azure Active Directory
 
@@ -37,13 +37,13 @@ Per impostazione predefinita, tutte le applicazioni sono elencate insieme in un'
 
 App personali è separata dalla portale di Azure e non richiede che gli utenti dispongano di una sottoscrizione di Azure o di una sottoscrizione di Microsoft 365.
 
-Per altre informazioni su Azure AD app personali, vedere [Introduzione alle app personali](../user-help/active-directory-saas-access-panel-introduction.md).
+Per altre informazioni su Azure AD app personali, vedere [Introduzione alle app personali](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="microsoft-365-application-launcher"></a>Utilità di avvio dell'applicazione Microsoft 365
 
 Per le organizzazioni che hanno distribuito Microsoft 365, le applicazioni assegnate agli utenti tramite Azure AD verranno visualizzate anche nel portale di Office 365 all'indirizzo [https://portal.office.com/myapps](https://portal.office.com/myapps) . In questo modo è facile e comodo per gli utenti di un'organizzazione avviare le proprie app senza dover usare un secondo portale ed è la soluzione di avvio delle app consigliata per le organizzazioni che usano Microsoft 365.
 
-Per ulteriori informazioni sull'avvio di applicazioni di Office 365, vedere [Visualizzazione dell'applicazione nell’applicazione di avvio di Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+Per ulteriori informazioni sull'avvio di applicazioni di Office 365, vedere [Visualizzazione dell'applicazione nell’applicazione di avvio di Office 365](/previous-versions/office/office-365-api/).
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Accesso diretto alle applicazioni federate
 

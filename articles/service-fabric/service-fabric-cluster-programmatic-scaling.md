@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bd47e5e39684bd4b684cd1e12dd9a3d420640ee2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f39bd874c1f5a1be42ca1c88e6ea2fe8df22f87
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005806"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648209"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Aumentare o ridurre le istanze di un cluster di Service Fabric a livello di codice 
 
@@ -121,5 +121,5 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 Per iniziare a implementare la logica di scalabilità automatica, acquisire familiarità con i seguenti concetti e le utili API:
 
 - [Scalabilità manuale o con regole di scalabilità automatica](./service-fabric-cluster-scale-in-out.md)
-- [Fluent Azure Management Libraries per .NET](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (utili per l'interazione con i set di scalabilità di macchine virtuali sottostanti del cluster Service Fabric)
+- [Librerie di gestione di Azure per .NET](https://github.com/Azure/azure-libraries-for-net) (utili per interagire con i set di scalabilità di macchine virtuali sottostanti di un cluster Service Fabric)
 - [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient) (utile per l'interazione con un cluster Service Fabric e i relativi nodi)

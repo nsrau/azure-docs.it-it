@@ -3,12 +3,12 @@ title: Abilitare Desktop remoto grafico per Linux in Azure Lab Services | Micros
 description: Informazioni su come abilitare Desktop remoto per le macchine virtuali Linux in un lab Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b8db01ca57d90739a57cd9bbb3caf63ada5f26fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34c940fec388bb0e79ab5e1db9be6d52fb223873
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251610"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647954"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Abilitare Desktop remoto grafico per le macchine virtuali Linux in Azure Lab Services
 Questo articolo illustra come eseguire le attività seguenti:
@@ -38,7 +38,7 @@ X2Go usa la stessa porta già abilitata per SSH.  Di conseguenza, non è necessa
 > In alcuni casi, ad esempio con Ubuntu LTS 18.04, X2Go offre prestazioni migliori.  Se si usa RDP e si nota latenza durante l'interazione con l'ambiente desktop grafico, provare con X2Go, in quanto potrebbe migliorare le prestazioni.
 
 > [!IMPORTANT]
->  In alcune immagini del marketplace sono già installati un ambiente desktop grafico e un server Desktop remoto.  Ad esempio, in [Data Science Virtual Machine per Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804), l'[ambiente XFCE e il server X2Go sono già installati e configurati per accettare connessioni client](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
+>  In alcune immagini del marketplace sono già installati un ambiente desktop grafico e un server Desktop remoto.  Ad esempio, in [Data Science Virtual Machine per Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804), l'[ambiente XFCE e il server X2Go sono già installati e configurati per accettare connessioni client](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
 
 ## <a name="enable-remote-desktop-connection-for-rdp"></a>Abilitare Connessione desktop remoto per RDP
 
@@ -73,7 +73,7 @@ Attenersi ai passaggi seguenti per configurare la macchina virtuale modello:
     ![Stringa di connessione SSH](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
 4. Installare RDP o X2Go insieme all'ambiente desktop grafico di propria scelta.  Fare riferimento alle istruzioni seguenti:
-    - [Installare e configurare RDP](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop)
+    - [Installare e configurare RDP](../virtual-machines/linux/use-remote-desktop.md)
     - [Installare e configurare X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop)
 
 ## <a name="connect-to-the-template-vm-via-the-gui"></a>Connettersi alla macchina virtuale modello mediante GUI
@@ -82,7 +82,7 @@ Al termine della configurazione della macchina virtuale modello, il docente può
 
 ### <a name="microsoft-remote-desktop-rdp-client"></a>Client Desktop remoto Microsoft (RDP)
 
-Il client Desktop remoto Microsoft (RDP) viene usato per connettersi a una macchina virtuale modello con RDP configurato.  Il client Desktop remoto può essere usato su sistemi Windows, Chromebook, Mac e altro ancora.  Per altre informazioni, fare riferimento all'articolo sui [client Desktop remoto](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).
+Il client Desktop remoto Microsoft (RDP) viene usato per connettersi a una macchina virtuale modello con RDP configurato.  Il client Desktop remoto può essere usato su sistemi Windows, Chromebook, Mac e altro ancora.  Per altre informazioni, fare riferimento all'articolo sui [client Desktop remoto](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).
 
 Attenersi alla procedura seguente in base al tipo di computer usato per connettersi alla macchina virtuale modello:
 

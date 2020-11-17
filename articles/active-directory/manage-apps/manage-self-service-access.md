@@ -15,16 +15,16 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bd6ddf58b3a6e8eb8c618ded335c699fc93328c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dfa7530617830de99d752edcf4545300525ddbe8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362366"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649212"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Come configurare un'assegnazione di applicazioni self-service
 
-Prima che gli utenti possano individuare autonomamente le applicazioni dalle app personali, è necessario abilitare **l'accesso alle applicazioni self-service** alle applicazioni per le quali si desidera consentire agli utenti di individuare autonomamente e richiedere l'accesso. Questa funzionalità è disponibile per le applicazioni che sono state aggiunte dalla [raccolta di Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app), [Azure ad proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) o sono state aggiunte tramite il [consenso dell'utente o dell'amministratore](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience). 
+Prima che gli utenti possano individuare autonomamente le applicazioni dalle app personali, è necessario abilitare **l'accesso alle applicazioni self-service** alle applicazioni per le quali si desidera consentire agli utenti di individuare autonomamente e richiedere l'accesso. Questa funzionalità è disponibile per le applicazioni che sono state aggiunte dalla [raccolta di Azure ad](./add-application-portal.md), [Azure ad proxy di applicazione](./application-proxy.md) o sono state aggiunte tramite il [consenso dell'utente o dell'amministratore](../develop/application-consent-experience.md). 
 
 Questa funzionalità è un modo efficace per consentire di risparmiare tempo e denaro al gruppo IT ed è altamente consigliata come parte di una distribuzione moderna di applicazioni con Azure Active Directory.
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9b0df4337a5e5faff3427222fb66caf8e02184a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3fc54829be301c063440bd3508472287b6db265
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86146650"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648325"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure con Azure PowerShell
 
@@ -32,7 +32,7 @@ ms.locfileid: "86146650"
 Per aggiungere o rimuovere assegnazioni di ruolo, è necessario disporre di:
 
 - autorizzazioni `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, ad esempio [Amministratore accesso utenti](built-in-roles.md#user-access-administrator) o [Proprietario](built-in-roles.md#owner)
-- [PowerShell in Azure cloud Shell](/azure/cloud-shell/overview) o [Azure PowerShell](/powershell/azure/install-az-ps)
+- [PowerShell in Azure cloud Shell](../cloud-shell/overview.md) o [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="get-object-ids"></a>Recuperare ID oggetto
 

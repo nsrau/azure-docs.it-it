@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8051621cf05b0f8c387c41cf0b95bb32e15e667
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 794c4e1a0859fc8a36b0abf4fcc9d5243c8bd308
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825901"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649569"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerazioni relative alla sicurezza quando si accede alle app in remoto usando il proxy applicazione di Azure AD
 
@@ -49,7 +49,7 @@ Applicare controlli dei criteri più completi prima che vengano stabilite connes
 
 Con l'[accesso condizionale](../conditional-access/concept-conditional-access-cloud-apps.md) è possibile definire restrizioni per il modo in cui gli utenti possono accedere alle applicazioni. È possibile, ad esempio, creare criteri per definire restrizioni in base alla posizione, al livello di autenticazione e al profilo di rischio.
 
-È anche possibile usare l'accesso condizionale per configurare criteri Multi-Factor Authentication e aggiungere così un altro livello di sicurezza alle autenticazioni utente. Le applicazioni possono anche essere indirizzate a Microsoft Cloud App Security tramite l'accesso condizionale di Azure AD per fornire monitoraggio e controlli in tempo reale, tramite i criteri di [accesso](https://docs.microsoft.com/cloud-app-security/access-policy-aad) e della [sessione](https://docs.microsoft.com/cloud-app-security/session-policy-aad).
+È anche possibile usare l'accesso condizionale per configurare criteri Multi-Factor Authentication e aggiungere così un altro livello di sicurezza alle autenticazioni utente. Le applicazioni possono anche essere indirizzate a Microsoft Cloud App Security tramite l'accesso condizionale di Azure AD per fornire monitoraggio e controlli in tempo reale, tramite i criteri di [accesso](/cloud-app-security/access-policy-aad) e della [sessione](/cloud-app-security/session-policy-aad).
 
 ### <a name="traffic-termination"></a>Terminazione di traffico
 
@@ -69,7 +69,7 @@ Per altre informazioni sui connettori, vedere [Understand Azure AD Application P
 
 Ottenere una protezione all'avanguardia.
 
-Dal momento che fa parte di Azure Active Directory, il proxy applicazione può sfruttare [Azure AD Identity Protection](../active-directory-identityprotection.md) con i dati provenienti da Microsoft Security Response Center e dalla Digital Crimes Unit. Insieme si possono identificare gli account compromessi e offrire protezione contro gli accessi ad alto rischio. Per determinare quali tentativi di accesso sono ad alto rischio, si tiene conto di numerosi fattori. Questi fattori includono l'uso di flag per contrassegnare i dispositivi infettati, l'anonimizzazione delle reti e i percorsi atipici o improbabili.
+Dal momento che fa parte di Azure Active Directory, il proxy applicazione può sfruttare [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) con i dati provenienti da Microsoft Security Response Center e dalla Digital Crimes Unit. Insieme si possono identificare gli account compromessi e offrire protezione contro gli accessi ad alto rischio. Per determinare quali tentativi di accesso sono ad alto rischio, si tiene conto di numerosi fattori. Questi fattori includono l'uso di flag per contrassegnare i dispositivi infettati, l'anonimizzazione delle reti e i percorsi atipici o improbabili.
 
 Molti di questi eventi e segnalazioni sono già disponibili tramite un'API per l'integrazione con i sistemi SIEM (Security Information and Event Management, Sistema di gestione delle informazioni e degli eventi di sicurezza).
 
@@ -107,8 +107,8 @@ Il connettore usa un certificato client per l'autenticazione al servizio proxy a
 
 Quando il connettore viene configurato per la prima volta, si verificano gli eventi di flusso seguenti:
 
-1. La registrazione del connettore al servizio avviene durante l'installazione del connettore. Agli utenti viene chiesto di immettere le credenziali di amministratore di Azure AD. Il token acquisito dalla procedura di autenticazione viene quindi presentato al servizio proxy di applicazione di Azure AD.
-2. Il servizio proxy di applicazione valuta il token Controlla se l'utente è un amministratore dell'azienda nel tenant. Se l'utente non è un amministratore, il processo viene terminato.
+1. La registrazione del connettore al servizio avviene durante l'installazione del connettore. Agli utenti viene chiesto di immettere le credenziali di amministratore di Azure AD.  Il token acquisito dalla procedura di autenticazione viene quindi presentato al servizio proxy di applicazione di Azure AD.
+2. Il servizio proxy di applicazione valuta il token Controlla se l'utente è un amministratore dell'azienda nel tenant.  Se l'utente non è un amministratore, il processo viene terminato.
 3. Il connettore genera una richiesta di certificato client e la passa con il token al servizio proxy di applicazione, che a sua volta verifica il token e firma la richiesta del certificato client.
 4. Il connettore usa questo certificato client per la futura comunicazione con il servizio proxy applicazione.
 5. Il connettore esegue un pull iniziale dei dati di configurazione del sistema dal servizio usando il certificato client ed è quindi pronto ad accettare le richieste.
@@ -173,7 +173,7 @@ Dopo aver completato la richiesta e la trasmissione di tutto il contenuto al bac
 
 Dopo aver ricevuto la risposta, il connettore esegue una connessione in uscita al servizio proxy applicazione per restituire i dettagli dell'intestazione e avviare il flusso dei dati restituiti.
 
-#### <a name="5-the-service-streams-data-to-the-user"></a>5. Il servizio invia i dati all'utente. 
+#### <a name="5-the-service-streams-data-to-the-user"></a>5. Il servizio invia i dati all'utente. 
 
 In questa fase è possibile che vengano eseguite alcune operazioni di elaborazione dell'applicazione. Se è il proxy di applicazione è stato configurato in modo da convertire le intestazioni o gli URL nell'applicazione, in questa fase vengono eseguite tutte le operazioni di elaborazione necessarie.
 

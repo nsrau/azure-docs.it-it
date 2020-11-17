@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9559e22a8396de93bbe46f20b76855d9ff00f753
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa74424dddd7577eb942f72f038f5bd56854abac
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763721"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648192"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>Richiesta di consenso imprevista al momento dell'accesso a un'applicazione
 
@@ -39,7 +39,7 @@ Ulteriori richieste aggiuntive sono possibili in vari scenari:
 
 * L'utente che ha originariamente autorizzato l'applicazione è un amministratore, ma non ha dato il consenso per conto dell'intera organizzazione.
 
-* L'applicazione utilizza il [consenso incrementale e dinamico](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent) per richiedere ulteriori autorizzazioni dopo che inizialmente è stato concesso il consenso. Questo tipo di consenso viene frequentemente usato quando funzionalità facoltative di un'applicazione richiedono autorizzazioni ulteriori a quelle richieste per la funzionalità di base.
+* L'applicazione utilizza il [consenso incrementale e dinamico](../azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) per richiedere ulteriori autorizzazioni dopo che inizialmente è stato concesso il consenso. Questo tipo di consenso viene frequentemente usato quando funzionalità facoltative di un'applicazione richiedono autorizzazioni ulteriori a quelle richieste per la funzionalità di base.
 
 * Il consenso è stato revocato dopo essere stato inizialmente consentito.
 
@@ -47,8 +47,6 @@ Ulteriori richieste aggiuntive sono possibili in vari scenari:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
--   [App, autorizzazioni e consenso in Azure Active Directory (endpoint v1.0)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
+-   [App, autorizzazioni e consenso in Azure Active Directory (endpoint v1.0)](../develop/quickstart-register-app.md)
 
--   [Ambiti, autorizzazioni e consenso in Azure Active Directory (endpoint v2.0)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
-
+-   [Ambiti, autorizzazioni e consenso in Azure Active Directory (endpoint v2.0)](../develop/v2-permissions-and-consent.md)

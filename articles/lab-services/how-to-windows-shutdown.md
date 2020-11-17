@@ -3,19 +3,19 @@ title: Guida al controllo del comportamento di arresto di Windows in Azure Lab S
 description: Viene descritta la procedura per arrestare automaticamente una macchina virtuale di Windows inattiva e rimuovere il comando di arresto di Windows.
 ms.topic: article
 ms.date: 09/29/2020
-ms.openlocfilehash: c6021131787dde4fe23ec4caad107bda2e20158a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248bbeabaf704ba636e2f82c7a93d0ee90a09f22
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541561"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647699"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guida al controllo del comportamento di arresto di Windows
 
 Azure Lab Services offre diversi controlli dei costi per garantire che le macchine virtuali (VM) Windows non siano in esecuzione imprevista:
- - [Impostare una pianificazione](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
- - [Impostare quote per gli utenti](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users)
- - [Abilitare l'arresto automatico alla disconnessione](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
+ - [Impostare una pianificazione](./tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+ - [Impostare quote per gli utenti](./how-to-configure-student-usage.md#set-quotas-for-users)
+ - [Abilitare l'arresto automatico alla disconnessione](./how-to-enable-shutdown-disconnect.md)
 
 Anche con questi controlli dei costi, in alcune situazioni è possibile che una macchina virtuale Windows continui a funzionare; e, di conseguenza, dedurre dalla quota dello studente:
 
@@ -25,7 +25,7 @@ Anche con questi controlli dei costi, in alcune situazioni è possibile che una 
 
 - **Il comando Shutdown di Windows viene usato per spegnere la macchina virtuale**
   
-    Uno studente può usare il comando Shutdown di Windows o altri meccanismi di arresto disponibili in Windows per disattivare la VM invece di usare [Azure Lab Services pulsante Interrompi](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-classroom-lab#start-or-stop-the-vm).  Quando ciò accade, dal punto di vista del Azure Lab Services, la macchina virtuale è ancora in uso.
+    Uno studente può usare il comando Shutdown di Windows o altri meccanismi di arresto disponibili in Windows per disattivare la VM invece di usare [Azure Lab Services pulsante Interrompi](./how-to-use-classroom-lab.md#start-or-stop-the-vm).  Quando ciò accade, dal punto di vista del Azure Lab Services, la macchina virtuale è ancora in uso.
     
 Per evitare che si verifichino queste situazioni, in questa guida vengono descritte le procedure per arrestare automaticamente una macchina virtuale inattiva di Windows e rimuovere il comando di arresto di Windows dal menu **Start** .  
 

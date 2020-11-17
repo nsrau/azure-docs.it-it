@@ -3,12 +3,12 @@ title: Eseguire il backup di un database SAP HANA in Azure con Backup di Azure
 description: Questo articolo illustra come eseguire il backup di un database SAP HANA in macchine virtuali di Azure con il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: a0a03a0d126845b1beba6d247f82950b0a9a35ab
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 28c9716bfb2dd0a6ac380d9ffd6dcd7fd5eb4978
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172992"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649440"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Eseguire il backup di database SAP HANA nelle VM di Azure
 
@@ -122,7 +122,7 @@ Ora abilitare il backup.
 3. In **Criteri di backup** > **Scegliere i criteri di backup** creare un nuovo criterio di backup per i database, seguendo le istruzioni seguenti.
 
     ![Scegliere i criteri di backup](./media/backup-azure-sap-hana-database/backup-policy.png)
-4. Dopo aver creato il criterio, scegliere **Abilita backup**dal menu **backup** .
+4. Dopo aver creato il criterio, scegliere **Abilita backup** dal menu **backup** .
 
     ![Abilita backup](./media/backup-azure-sap-hana-database/enable-backup.png)
 5. Per tenere traccia dello stato di avanzamento della configurazione di backup, vedere l'area **Notifiche** del portale.
@@ -169,7 +169,12 @@ Specificare le impostazioni del criterio come segue:
     ![Criteri di backup differenziale](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > I backup incrementali non sono attualmente supportati.
+    > I backup incrementali sono ora supportati nell'anteprima pubblica. È possibile scegliere un backup differenziale o incrementale come backup giornaliero, ma non entrambi.
+7. In **criterio di backup incrementale** selezionare **Abilita** per aprire la frequenza e i controlli di conservazione.
+    * Al massimo, è possibile attivare un backup incrementale al giorno.
+    * I backup incrementali possono essere conservati per un massimo di 180 giorni. Se è necessario conservarli più a lungo, usare i backup completi.
+
+    ![Criteri di backup incrementale](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
 
 7. Selezionare **OK** per salvare il criterio e tornare al menu principale **Criteri di backup**.
 8. Selezionare **Backup del log** per aggiungere un criterio per i backup del log delle transazioni.
@@ -190,8 +195,8 @@ Specificare le impostazioni del criterio come segue:
 I backup vengono eseguiti in base alla pianificazione dei criteri. È possibile eseguire un backup su richiesta nel modo seguente:
 
 1. Nel menu dell'insieme di credenziali selezionare **elementi di backup**.
-2. In **elementi di backup**selezionare la macchina virtuale che esegue il database di SAP Hana, quindi selezionare **Esegui backup ora**.
-3. In **backup ora**scegliere il tipo di backup che si desidera eseguire. Selezionare **OK**. Questo backup verrà mantenuto in base ai criteri associati a questo elemento di backup.
+2. In **elementi di backup** selezionare la macchina virtuale che esegue il database di SAP Hana, quindi selezionare **Esegui backup ora**.
+3. In **backup ora** scegliere il tipo di backup che si desidera eseguire. Selezionare **OK**. Questo backup verrà mantenuto in base ai criteri associati a questo elemento di backup.
 4. Monitorare le notifiche del portale. È possibile monitorare l'avanzamento del processo nel dashboard dell'insieme di credenziali > **Processi di Backup** > **In corso**. A seconda delle dimensioni del database, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
 
 Per impostazione predefinita, la conservazione dei backup su richiesta è di 45 giorni.

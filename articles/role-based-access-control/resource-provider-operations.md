@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: e337cef9121dc5992f87b9996cfd01d16d9cc188
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cf8c8e7d56f4eff351361edd148f91e81a07bfbb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309365"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649144"
 ---
 # <a name="azure-resource-provider-operations"></a>Operazioni del provider di risorse di Azure
 
@@ -792,7 +792,7 @@ Servizio di Azure: rete virtuale del modello di distribuzione classica
 
 ### <a name="microsoftnetwork"></a>Microsoft.Network
 
-Servizio di Azure: [gateway applicazione](../application-gateway/index.yml), [Azure Bastion](../bastion/index.yml), [protezione DDoS di Azure](../virtual-network/ddos-protection-overview.md), [DNS di Azure](../dns/index.yml), [Azure ExpressRoute](../expressroute/index.yml), [Firewall](../firewall/index.yml)di azure, [servizio Azure front door](../frontdoor/index.yml), [collegamento privato di Azure](../private-link/index.yml), [Load Balancer](../load-balancer/index.yml), [Network Watcher](../network-watcher/index.yml), [Traffic Manager](../traffic-manager/index.yml), [rete virtuale](../virtual-network/index.yml), [WAN virtuale](../virtual-wan/index.yml), [gateway VPN](../vpn-gateway/index.yml)
+Servizio di Azure: [gateway applicazione](../application-gateway/index.yml), [Azure Bastion](../bastion/index.yml), [protezione DDoS di Azure](../ddos-protection/ddos-protection-overview.md), [DNS di Azure](../dns/index.yml), [Azure ExpressRoute](../expressroute/index.yml), [Firewall](../firewall/index.yml)di azure, [servizio Azure front door](../frontdoor/index.yml), [collegamento privato di Azure](../private-link/index.yml), [Load Balancer](../load-balancer/index.yml), [Network Watcher](../network-watcher/index.yml), [Traffic Manager](../traffic-manager/index.yml), [rete virtuale](../virtual-network/index.yml), [WAN virtuale](../virtual-wan/index.yml), [gateway VPN](../vpn-gateway/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Azione | Descrizione |
@@ -1343,7 +1343,7 @@ Servizio di Azure: [gateway applicazione](../application-gateway/index.yml), [Az
 > | Microsoft.Network/vpnsites/delete | Elimina una risorsa di sito VPN. |
 > | Microsoft. Network/vpnSites/vpnSiteLinks/Read | Ottiene un collegamento di sito VPN |
 
-## <a name="storage"></a>Archiviazione:
+## <a name="storage"></a>Archiviazione
 
 ### <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
@@ -3850,7 +3850,7 @@ Servizio di Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 
 ### <a name="microsoftsql"></a>Microsoft.Sql
 
-Servizio di Azure: [database SQL di Azure](../azure-sql/database/index.yml), [istanza gestita SQL di Azure](../azure-sql/managed-instance/index.yml), [Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](../sql-data-warehouse/index.yml)
+Servizio di Azure: [database SQL di Azure](../azure-sql/database/index.yml), [istanza gestita SQL di Azure](../azure-sql/managed-instance/index.yml), [Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](../synapse-analytics/sql-data-warehouse/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Azione | Descrizione |
@@ -4331,7 +4331,7 @@ Servizio di Azure: [Azure Analysis Services](../analysis-services/index.yml)
 
 ### <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
-Servizio di Azure: [Azure Databricks](https://docs.microsoft.com/azure/databricks/)
+Servizio di Azure: [Azure Databricks](/azure/databricks/)
 
 > [!div class="mx-tableFixed"]
 > | Azione | Descrizione |
@@ -4619,7 +4619,7 @@ Servizio di Azure: [azure Esplora dati](/azure/data-explorer/)
 
 ### <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
-Servizio di Azure: [Power BI embedded](https://docs.microsoft.com/azure/power-bi-embedded/)
+Servizio di Azure: [Power BI embedded](/azure/power-bi-embedded/)
 
 > [!div class="mx-tableFixed"]
 > | Azione | Descrizione |
@@ -4712,7 +4712,7 @@ Servizio di Azure: [servizio Azure blockchain](../blockchain/workbench/index.yml
 
 ### <a name="microsoftbotservice"></a>Microsoft.BotService
 
-Servizio di Azure: [servizio Azure bot](https://docs.microsoft.com/azure/bot-service/)
+Servizio di Azure: [servizio Azure bot](/azure/bot-service/)
 
 > [!div class="mx-tableFixed"]
 > | Azione | Descrizione |
@@ -6187,7 +6187,7 @@ Servizio di Azure: app per la [logica](../logic-apps/index.yml)
 
 ### <a name="microsoftrelay"></a>Microsoft.Relay
 
-Servizio di Azure: [inoltro di Azure](../service-bus-relay/relay-what-is-it.md)
+Servizio di Azure: [inoltro di Azure](../azure-relay/relay-what-is-it.md)
 
 > [!div class="mx-tableFixed"]
 > | Azione | Descrizione |
@@ -6257,7 +6257,7 @@ Servizio di Azure: [inoltro di Azure](../service-bus-relay/relay-what-is-it.md)
 
 ### <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
-Servizio di Azure: [bus di servizio](../service-bus/index.md)
+Servizio di Azure: [bus di servizio](../service-bus-messaging/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Azione | Descrizione |
@@ -6957,7 +6957,7 @@ Servizio di Azure: [Azure Lab Services](../lab-services/index.yml)
 
 ### <a name="microsoftvisualstudio"></a>Microsoft.VisualStudio
 
-Servizio di Azure: [Azure DevOps](https://docs.microsoft.com/azure/devops/)
+Servizio di Azure: [Azure DevOps](/azure/devops/)
 
 > [!div class="mx-tableFixed"]
 > | Azione | Descrizione |
@@ -8367,7 +8367,7 @@ Servizio di Azure: [monitoraggio di Azure](../azure-monitor/index.yml)
 > | Microsoft. operationalinsights/Workspaces/scopedPrivateLinkProxies/Read | Ottiene il proxy di collegamento privato con ambito. |
 > | Microsoft. operationalinsights/Workspaces/scopedPrivateLinkProxies/Write | Inserire il proxy di collegamento privato con ambito. |
 > | Microsoft. operationalinsights/Workspaces/scopedPrivateLinkProxies/Delete | Elimina il proxy di collegamento privato con ambito. |
-> | microsoft.operationalinsights/workspaces/search/read | Ottiene i risultati della ricerca. Operazione deprecata. |
+> | microsoft.operationalinsights/workspaces/search/read | Ottiene i risultati della ricerca. Deprecato. |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Recupera le chiavi condivise per l'area di lavoro. Queste chiavi servono per collegare gli agenti di Microsoft Operational Insights all’area di lavoro. |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/write | Crea una nuova configurazione di archiviazione. Tali configurazioni servono per estrarre i dati da una posizione in un account di archiviazione esistente. |
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/read | Ottiene una configurazione di archiviazione. |
@@ -8924,7 +8924,7 @@ Servizio di Azure: [Azure Arc](../azure-arc/index.yml)
 
 ### <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
 
-Servizio di Azure: [Azure Arc abilitato Kubernetes](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
+Servizio di Azure: [Azure Arc abilitato Kubernetes](../azure-arc/kubernetes/overview.md)
 
 > [!div class="mx-tableFixed"]
 > | Azione | Descrizione |
@@ -9673,11 +9673,11 @@ Servizio di Azure: Microsoft Monitoring Insights
 > | Microsoft.Intune/diagnosticsettings/delete | Eliminazione di un'impostazione di diagnostica |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Lettura delle categorie di un'impostazione di diagnostica |
 
-## <a name="other"></a>Altri
+## <a name="other"></a>Altro
 
 ### <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
-Servizio di Azure: [Bing Maps](https://docs.microsoft.com/BingMaps/)
+Servizio di Azure: [Bing Maps](/BingMaps/)
 
 > [!div class="mx-tableFixed"]
 > | Azione | Descrizione |

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/28/2020
 ms.author: rolyon
 ms.custom: contperfq1
-ms.openlocfilehash: 16ead03af14da70b5aaedc21118488c6dd3012c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75f2eb90e2418b57e5e0a358fbd6282b20ddc9e7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597659"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648362"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia della riga di comando di Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "91597659"
 Per aggiungere o rimuovere assegnazioni di ruolo, è necessario disporre di:
 
 - autorizzazioni `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete`, ad esempio [Amministratore accesso utenti](built-in-roles.md#user-access-administrator) o [Proprietario](built-in-roles.md#owner)
-- [Bash in Azure cloud Shell o nell'interfaccia della riga di comando di](/azure/cloud-shell/overview) [Azure](/cli/azure)
+- [Bash in Azure cloud Shell o nell'interfaccia della riga di comando di](../cloud-shell/overview.md) [Azure](/cli/azure)
 
 ## <a name="steps-to-add-a-role-assignment"></a>Procedura per aggiungere un'assegnazione di ruolo
 
@@ -232,7 +232,7 @@ Ci sono un paio di volte in cui un nome di ruolo potrebbe cambiare, ad esempio:
 
 Anche se un ruolo viene rinominato, l'ID del ruolo non cambia. Se si usano script o automazione per creare le assegnazioni di ruolo, è consigliabile usare l'ID del ruolo univoco anziché il nome del ruolo. Di conseguenza, se un ruolo viene rinominato, è più probabile che gli script funzionino.
 
-L'esempio seguente assegna il ruolo [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) all'utente * \@ contoso.com di patlong* nell'ambito del gruppo di risorse *Pharma-Sales* .
+L'esempio seguente assegna il ruolo [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) all'utente *\@ contoso.com di patlong* nell'ambito del gruppo di risorse *Pharma-Sales* .
 
 ```azurecli
 az role assignment create --assignee "patlong@contoso.com" \
@@ -293,7 +293,7 @@ az role assignment create --assignee-object-id "33333333-3333-3333-3333-33333333
 
 ### <a name="add-role-assignment-for-a-user-at-a-subscription-scope"></a>Aggiungere un'assegnazione di ruolo per un utente in un ambito di sottoscrizione
 
-Assegna il ruolo [Reader](built-in-roles.md#reader) all'utente * \@ example.com di annm* in un ambito di sottoscrizione.
+Assegna il ruolo [Reader](built-in-roles.md#reader) all'utente *\@ example.com di annm* in un ambito di sottoscrizione.
 
 ```azurecli
 az role assignment create --assignee "annm@example.com" \
@@ -362,4 +362,4 @@ az role assignment delete --assignee "alain@example.com" \
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Elencare le assegnazioni di ruolo di Azure tramite l'interfaccia della riga](role-assignments-list-cli.md)
-- [Usare l'interfaccia della riga di comando di Azure per gestire risorse e gruppi di risorse](../azure-resource-manager/cli-azure-resource-manager.md)
+- [Usare l'interfaccia della riga di comando di Azure per gestire risorse e gruppi di risorse](../azure-resource-manager/management/manage-resources-cli.md)

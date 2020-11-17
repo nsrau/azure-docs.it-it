@@ -11,16 +11,16 @@ ms.workload: identity
 ms.date: 07/30/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 49191ffc0033559f0668a5330b8c91643dee39d3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8fc26b00214106aa08e0e6e4c41f9f05aca9344d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073972"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648039"
 ---
 # <a name="understand-linked-sign-on"></a>Informazioni sull'accesso collegato
 
-Nella [serie di guide introduttive](view-applications-portal.md) sulla gestione delle applicazioni si è appreso come usare Azure ad come provider di identità (IDP) per un'applicazione. Nella Guida introduttiva viene configurato l'accesso Single Sign-on basato su SAML o su OIDC. È stata **collegata**un'altra opzione. Questo articolo illustra in modo più dettagliato l'opzione collegata.
+Nella [serie di guide introduttive](view-applications-portal.md) sulla gestione delle applicazioni si è appreso come usare Azure ad come provider di identità (IDP) per un'applicazione. Nella Guida introduttiva viene configurato l'accesso Single Sign-on basato su SAML o su OIDC. È stata **collegata** un'altra opzione. Questo articolo illustra in modo più dettagliato l'opzione collegata.
 
 L'opzione **collegata** consente di configurare il percorso di destinazione quando un utente seleziona l'app nel portale [app personali](https://myapps.microsoft.com/) o Office 365 dell'organizzazione.
 
@@ -40,7 +40,7 @@ L'opzione **collegata** non fornisce funzionalità di accesso tramite Azure ad. 
 > [!IMPORTANT] 
 > Esistono alcuni scenari in cui l'opzione **Single Sign-on** non verrà spostata per un'applicazione nelle **applicazioni aziendali**. 
 >
-> Se l'applicazione è stata registrata usando **registrazioni app** , la funzionalità Single Sign-on è impostata per l'uso di OAuth OIDC per impostazione predefinita. In questo caso, l'opzione **Single Sign-on** non verrà visualizzata nella finestra di navigazione in **applicazioni aziendali**. Quando si usa **registrazioni app** per aggiungere l'app personalizzata, si configurano le opzioni nel file manifesto. Per ulteriori informazioni sul file manifesto, vedere [Azure Active Directory manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Per altre informazioni sugli standard SSO, vedere [autenticazione e autorizzazione con la piattaforma di identità Microsoft](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+> Se l'applicazione è stata registrata usando **registrazioni app** , la funzionalità Single Sign-on è impostata per l'uso di OAuth OIDC per impostazione predefinita. In questo caso, l'opzione **Single Sign-on** non verrà visualizzata nella finestra di navigazione in **applicazioni aziendali**. Quando si usa **registrazioni app** per aggiungere l'app personalizzata, si configurano le opzioni nel file manifesto. Per ulteriori informazioni sul file manifesto, vedere [Azure Active Directory manifesto dell'applicazione](../develop/reference-app-manifest.md). Per altre informazioni sugli standard SSO, vedere [autenticazione e autorizzazione con la piattaforma di identità Microsoft](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-microsoft-identity-platform). 
 >
 > Gli altri scenari in cui l' **accesso Single Sign-on** non sarà presente nella navigazione includono quando un'applicazione è ospitata in un altro tenant o se l'account non ha le autorizzazioni necessarie (amministratore globale, amministratore dell'applicazione cloud, amministratore dell'applicazione o proprietario dell'entità servizio). Le autorizzazioni possono anche causare uno scenario in cui è possibile aprire l' **accesso Single Sign-on** , ma non sarà possibile salvarlo. Per ulteriori informazioni sui ruoli amministrativi Azure AD, vedere ( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
@@ -52,5 +52,5 @@ Dopo aver configurato un'app, assegnarvi utenti e gruppi. Quando si assegnano ut
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Assegnare utenti o gruppi all'applicazione](methods-for-assigning-users-and-groups.md)
+- [Assegnare utenti o gruppi all'applicazione](./assign-user-or-group-access-portal.md)
 - [Configurare il provisioning automatico degli account utente](../app-provisioning/configure-automatic-user-provisioning-portal.md)

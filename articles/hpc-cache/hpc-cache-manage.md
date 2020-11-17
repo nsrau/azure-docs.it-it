@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: v-erkel
-ms.openlocfilehash: 19950ca215abbac3a56bdb901448c9d92ad369be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 067b12d4dcfd5ba2b730204ef680b900d79f1b72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613050"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648073"
 ---
 # <a name="manage-your-cache"></a>Gestire la cache
 
@@ -58,7 +58,7 @@ Per riattivare una cache arrestata, fare clic sul pulsante **Avvia** . Non è ne
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurare l'interfaccia della riga di comando di Azure per la cache HPC di Azure](./az-cli-prerequisites.md).
 
 Sospendere temporaneamente una cache con il comando [AZ HPC-cache Stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) . Questa azione è valida solo quando lo stato di una cache è **integro** o **danneggiato**.
 
@@ -113,7 +113,7 @@ Per svuotare la cache, fare clic sul pulsante **Scarica** e quindi fare clic su 
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurare l'interfaccia della riga di comando di Azure per la cache HPC di Azure](./az-cli-prerequisites.md).
 
 Usare [AZ HPC-cache flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) per forzare la scrittura di tutti i dati modificati nelle destinazioni di archiviazione da parte della cache.
 
@@ -161,7 +161,7 @@ Fare clic sul pulsante **Aggiorna** per avviare l'aggiornamento software. Lo sta
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurare l'interfaccia della riga di comando di Azure per la cache HPC di Azure](./az-cli-prerequisites.md).
 
 Nell'interfaccia della riga di comando di Azure le nuove informazioni software sono incluse alla fine del rapporto stato cache. Usare [AZ HPC-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) per verificare. Cercare la stringa "upgradeStatus" nel messaggio.
 
@@ -225,7 +225,7 @@ Dopo aver arrestato la cache, fare clic sul pulsante **Elimina** per rimuovere d
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurare l'interfaccia della riga di comando di Azure per la cache HPC di Azure](./az-cli-prerequisites.md).
 
 Usare il comando dell'interfaccia della riga di comando di Azure [AZ HPC-cache Delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) per rimuovere definitivamente la cache.
 

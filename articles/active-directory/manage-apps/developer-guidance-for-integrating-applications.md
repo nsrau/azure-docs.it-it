@@ -12,22 +12,22 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da1b56e3818d2d9701ecb0252328746dc39bb260
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: de16c947c59f5a0111b9325dbefe7daf1268fb40
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578315"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649161"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Sviluppare app line-of-business per Azure Active Directory
 Questa guida fornisce una panoramica dello sviluppo di applicazioni line-of-business (LoB) per Azure Active Directory (AD). Il destinatario è Active Directory/Microsoft 365 gli amministratori globali.
 
 ## <a name="overview"></a>Panoramica
-La creazione di applicazioni integrate con Azure AD consente agli utenti dell'organizzazione Single Sign-On con Microsoft 365. La disponibilità dell'applicazione in Azure AD consente di avere il controllo dei criteri di autenticazione impostati per l'applicazione. Per altre informazioni sull'accesso condizionale e su come proteggere le app con multi-factor authentication, vedere [configurazione delle regole di accesso](../conditional-access/app-based-mfa.md).
+La creazione di applicazioni integrate con Azure AD consente agli utenti dell'organizzazione Single Sign-On con Microsoft 365. La disponibilità dell'applicazione in Azure AD consente di avere il controllo dei criteri di autenticazione impostati per l'applicazione. Per altre informazioni sull'accesso condizionale e su come proteggere le app con multi-factor authentication, vedere [configurazione delle regole di accesso](../authentication/tutorial-enable-azure-mfa.md).
 
 Registrare l'applicazione per l'uso di Azure Active Directory. Registrando l'applicazione, gli sviluppatori possono usare Azure AD per autenticare gli utenti e richiedere l'accesso a risorse degli utenti come posta elettronica, calendario e documenti.
 
-Qualsiasi membro della directory (non guest) può registrare un'applicazione, operazione nota anche come *creazione di un oggetto applicazione*. Se non si è in grado di registrare un'applicazione, significa che l'amministratore globale della directory ha limitato questa funzionalità e potrebbe essere necessario contattarlo per [ottenere i diritti appropriati](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#assign-built-in-application-admin-roles) per poter registrare l'applicazione. Per altre informazioni su come limitare le autorizzazioni, vedere l'articolo relativo alla [registrazione delle app delegate nell'Azure Active Directory](https://docs.microsoft.com/azure/active-directory/roles/delegate-app-roles#restrict-who-can-create-applications).
+Qualsiasi membro della directory (non guest) può registrare un'applicazione, operazione nota anche come *creazione di un oggetto applicazione*. Se non si è in grado di registrare un'applicazione, significa che l'amministratore globale della directory ha limitato questa funzionalità e potrebbe essere necessario contattarlo per [ottenere i diritti appropriati](../roles/delegate-app-roles.md#assign-built-in-application-admin-roles) per poter registrare l'applicazione. Per altre informazioni su come limitare le autorizzazioni, vedere l'articolo relativo alla [registrazione delle app delegate nell'Azure Active Directory](../roles/delegate-app-roles.md#restrict-who-can-create-applications).
 
 La registrazione di un'applicazione consente a qualsiasi utente di eseguire le operazioni seguenti:
 
@@ -55,14 +55,14 @@ Ecco cosa deve fare l'amministratore globale per aiutare gli sviluppatori a rend
 * Evitare l'esperienza di autorizzazione utente predefinita
 
 ## <a name="configure-access-rules"></a>Configurare regole di accesso
-Configurare regole di accesso per ogni applicazione nelle app SaaS. Ad esempio, è possibile richiedere l'autenticazione a più fattori oppure solo di consentire l'accesso agli utenti connessi a reti attendibili. I dettagli a questo scopo sono disponibili nel documento [Configurazione di regole di accesso](../conditional-access/app-based-mfa.md).
+Configurare regole di accesso per ogni applicazione nelle app SaaS. Ad esempio, è possibile richiedere l'autenticazione a più fattori oppure solo di consentire l'accesso agli utenti connessi a reti attendibili. I dettagli a questo scopo sono disponibili nel documento [Configurazione di regole di accesso](../authentication/tutorial-enable-azure-mfa.md).
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>Configurare l'app per richiedere l'assegnazione di utenti e assegnare gli utenti
 Per impostazione predefinita, gli utenti possono accedere alle applicazioni senza esservi assegnati. Tuttavia, se l'applicazione espone ruoli o se si vuole che l'applicazione venga visualizzata in app personali di un utente, è necessario richiedere l'assegnazione dell'utente.
 
 Per gli abbonati ad Azure AD Premium o Enterprise Mobility Suite (EMS), è consigliabile usare i gruppi. L'assegnazione di gruppi per l'applicazione consente di delegare le attività di gestione continuativa degli accessi al proprietario del gruppo. È possibile creare il gruppo oppure richiedere al responsabile dell'organizzazione di creare il gruppo con gli strumenti per la gestione dei gruppi.
 
-[Assegnazione di utenti e gruppi a un'applicazione](methods-for-assigning-users-and-groups.md)  
+[Assegnazione di utenti e gruppi a un'applicazione](./assign-user-or-group-access-portal.md)  
 
 
 ## <a name="suppress-user-consent"></a>Rimuovere l'esperienza di consenso dell'utente
@@ -70,9 +70,8 @@ Per impostazione predefinita, ogni utente è sottoposto a un'esperienza di conse
 
 Per le applicazioni attendibili, è possibile semplificare l'esperienza utente dando il consenso per l'applicazione per conto dell'organizzazione.
 
-Per altre informazioni sul consenso dell'utente e l'esperienza di consenso in Azure, vedere [Integrazione di applicazioni con Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+Per altre informazioni sul consenso dell'utente e l'esperienza di consenso in Azure, vedere [Integrazione di applicazioni con Azure Active Directory](../develop/quickstart-register-app.md).
 
 ## <a name="related-articles"></a>Articoli correlati
 * [Consentire l'accesso remoto sicuro ad applicazioni locali con il proxy di applicazione di Azure AD](application-proxy.md)
 * [Gestione dell'accesso alle app tramite Azure AD](what-is-access-management.md)
-

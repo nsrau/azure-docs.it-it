@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 027cd8eb9c855afb845b08ce6aada7ddfd44daba
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: e44437bb926e8d2d1ffcd3134bbc63538a112ff0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147012"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648311"
 ---
 # <a name="list-azure-role-assignments-using-azure-cli"></a>Elencare le assegnazioni di ruolo di Azure tramite l'interfaccia della riga
 
@@ -30,7 +30,7 @@ ms.locfileid: "93147012"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- [Bash in Azure cloud Shell o nell'interfaccia della riga di comando di](/azure/cloud-shell/overview) [Azure](/cli/azure)
+- [Bash in Azure cloud Shell o nell'interfaccia della riga di comando di](../cloud-shell/overview.md) [Azure](/cli/azure)
 
 ## <a name="list-role-assignments-for-a-user"></a>Elencare i ruoli assegnati a un utente
 

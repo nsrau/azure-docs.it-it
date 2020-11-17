@@ -5,12 +5,12 @@ author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: cf1b9db8de2c0f2c852a41d1e30343c5cef1b20b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 216dc843b31eac355e1d818014f3d70b2ef83132
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396689"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647903"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guida alla configurazione di un computer modello Windows in Azure Lab Services
 
@@ -47,7 +47,7 @@ Write-Host "Installing OneDrive..."
 
 ### <a name="onedrive-customizations"></a>Personalizzazioni di OneDrive
 
-Sono disponibili molte [personalizzazioni che è possibile eseguire per OneDrive](https://docs.microsoft.com/onedrive/use-group-policy). Ecco alcune delle personalizzazioni più comuni.
+Sono disponibili molte [personalizzazioni che è possibile eseguire per OneDrive](/onedrive/use-group-policy). Ecco alcune delle personalizzazioni più comuni.
 
 #### <a name="silently-move-windows-known-folders-to-onedrive"></a>Sposta automaticamente le cartelle note di Windows in OneDrive
 
@@ -61,7 +61,7 @@ Se ci si trova in un computer che non usa Active Directory, gli utenti possono s
 
 Se la macchina virtuale è connessa a Active Directory, è possibile impostare il computer modello in modo da richiedere automaticamente agli studenti di spostare le cartelle note in OneDrive.  
 
-Per prima cosa è necessario recuperare l'ID organizzazione.  Per altre istruzioni, vedere [trovare l'ID organizzazione Microsoft 365](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  È anche possibile ottenere l'ID organizzazione usando il seguente PowerShell.
+Per prima cosa è necessario recuperare l'ID organizzazione.  Per altre istruzioni, vedere [trovare l'ID organizzazione Microsoft 365](/onedrive/find-your-office-365-tenant-id).  È anche possibile ottenere l'ID organizzazione usando il seguente PowerShell.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -137,7 +137,7 @@ Se il computer modello richiede Office, è consigliabile installare Office trami
 
 ### <a name="change-the-microsoft-365-update-channel"></a>Modificare il canale di aggiornamento Microsoft 365
 
-Utilizzando lo strumento di configurazione di Office, è possibile impostare la frequenza con cui Office riceve gli aggiornamenti. Tuttavia, se è necessario modificare la frequenza con cui Office riceve gli aggiornamenti dopo l'installazione, è possibile modificare l'URL del canale di aggiornamento. Gli indirizzi URL del canale di aggiornamento sono reperibili in [modificare il canale di aggiornamento delle app Microsoft 365 per i dispositivi nell'organizzazione](https://docs.microsoft.com/deployoffice/change-update-channels). Nell'esempio seguente viene illustrato come impostare Microsoft 365 per l'utilizzo del canale di aggiornamento mensile.
+Utilizzando lo strumento di configurazione di Office, è possibile impostare la frequenza con cui Office riceve gli aggiornamenti. Tuttavia, se è necessario modificare la frequenza con cui Office riceve gli aggiornamenti dopo l'installazione, è possibile modificare l'URL del canale di aggiornamento. Gli indirizzi URL del canale di aggiornamento sono reperibili in [modificare il canale di aggiornamento delle app Microsoft 365 per i dispositivi nell'organizzazione](/deployoffice/change-update-channels). Nell'esempio seguente viene illustrato come impostare Microsoft 365 per l'utilizzo del canale di aggiornamento mensile.
 
 ```powershell
 # Update to the Microsoft 365 Monthly Channel
@@ -188,7 +188,7 @@ Si consiglia di aggiornare tutte le app Microsoft Store alle versioni più recen
 
 ### <a name="stop-automatic-windows-updates"></a>Arrestare gli aggiornamenti automatici di Windows
 
-Dopo l'aggiornamento di Windows alla versione più recente, è possibile prendere in considerazione l'arresto degli aggiornamenti di Windows.  Gli aggiornamenti automatici potrebbero interferire con l'ora della classe pianificata.  Se il corso è più lungo, prendere in considerazione la possibilità di chiedere agli studenti di controllare manualmente la disponibilità di aggiornamenti o di impostare gli aggiornamenti automatici per un periodo di tempo non compreso nelle ore della classe pianificata.  Per ulteriori informazioni sulle opzioni di personalizzazione per Windows Update, vedere la pagina relativa alla [gestione delle impostazioni di Windows Update aggiuntive](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings).
+Dopo l'aggiornamento di Windows alla versione più recente, è possibile prendere in considerazione l'arresto degli aggiornamenti di Windows.  Gli aggiornamenti automatici potrebbero interferire con l'ora della classe pianificata.  Se il corso è più lungo, prendere in considerazione la possibilità di chiedere agli studenti di controllare manualmente la disponibilità di aggiornamenti o di impostare gli aggiornamenti automatici per un periodo di tempo non compreso nelle ore della classe pianificata.  Per ulteriori informazioni sulle opzioni di personalizzazione per Windows Update, vedere la pagina relativa alla [gestione delle impostazioni di Windows Update aggiuntive](/windows/deployment/update/waas-wu-settings).
 
 Gli aggiornamenti automatici di Windows possono essere interrotti usando il seguente script di PowerShell.
 

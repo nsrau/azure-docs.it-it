@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 8ec87a8d78f73af48b662c5971dfe1803717f88a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 376086d0fc84e04645215b26ba896cf22f3f9c57
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704549"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647886"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali
 
@@ -62,12 +62,12 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
       ![Pulsante Autorizzazioni di modifica](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
+    >[!NOTE]
+    >Il ruolo di amministratore di App cloud e App non funzionerà in questo scenario perché sono necessarie le autorizzazioni di amministratore globale per le directory in lettura e scrittura.
+
     c. Selezionare le autorizzazioni seguenti nell'elenco (se non sono già disponibili) e quindi **Autorizzazioni di modifica**.
 
       ![Elenco delle autorizzazioni e pulsante Autorizzazioni di modifica](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
-
-    > [!Note]
-    > Il ruolo di amministratore di App cloud e App non funzionerà in questo scenario perché sono necessarie le autorizzazioni di amministratore globale per le directory in lettura e scrittura.
 
     d. Accettare la richiesta di consenso. Si verrà riconnessi al sistema.
 
@@ -79,9 +79,7 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
       ![Finestra di dialogo Graph explorer, con la query per recuperare le entità servizio](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
-      > [!Note]
-      > Poiché le API sono già in fase di aggiornamento, è possibile che i clienti riscontrino alcuni problemi nel servizio.
-
+      
     f. Nell'elenco delle entità servizio recuperate ottenere quella da modificare. È anche possibile usare CTRL+F per cercare l'applicazione tra tutte le entità servizio elencate. Cercare l'ID oggetto copiato dalla pagina **Proprietà** e usare la query seguente per ottenere l'entità servizio:
 
       `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
@@ -92,8 +90,8 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
       ![Dettagli della proprietà appRoles](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-      > [!Note]
-      > Se si usa l'app personalizzata e non l'app Azure Marketplace, verranno visualizzati due ruoli predefiniti: user e msiam_access. Per l'app Marketplace, msiam_access è l'unico ruolo predefinito. Non è necessario apportare modifiche ai ruoli predefiniti.
+      
+      Se si usa l'app personalizzata e non l'app Azure Marketplace, verranno visualizzati due ruoli predefiniti: user e msiam_access. Per l'app Marketplace, msiam_access è l'unico ruolo predefinito. Non è necessario apportare modifiche ai ruoli predefiniti.
 
     h. Generare nuovi ruoli per l'applicazione.
 
@@ -128,8 +126,8 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
       }
       ```
 
-      > [!Note]
-      > È possibile aggiungere nuovi ruoli solo dopo msiam_access per l'operazione patch. Inoltre, è possibile aggiungere tutti i ruoli necessari per l'organizzazione. Azure AD invierà il valore di questi ruoli come valore dell'attestazione nella risposta SAML. Per generare i valori GUID per l'ID dei nuovi ruoli, usare strumenti Web come [questo](https://www.guidgenerator.com/)
+      
+      È possibile aggiungere nuovi ruoli solo dopo msiam_access per l'operazione patch. Inoltre, è possibile aggiungere tutti i ruoli necessari per l'organizzazione. Azure AD invierà il valore di questi ruoli come valore dell'attestazione nella risposta SAML. Per generare i valori GUID per l'ID dei nuovi ruoli, usare strumenti Web come [questo](https://www.guidgenerator.com/)
 
     i. Tornare a Graph explorer e modificare il metodo da **GET** a **PATCH**. Applicare la patch all'oggetto entità servizio in modo da avere i ruoli desiderati aggiornando la proprietà **appRoles** perché sia simile a quella mostrata nell'esempio precedente. Selezionare **Esegui query** per eseguire l'operazione patch. Un messaggio di operazione completata conferma la creazione del ruolo.
 
@@ -143,8 +141,8 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
     ![Riquadro Modifica assegnazione e riquadro Selezionare un ruolo](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
-    > [!Note]
-    > È necessario aggiornare la sessione nel portale di Azure per visualizzare i nuovi ruoli.
+    
+    È necessario aggiornare la sessione nel portale di Azure per visualizzare i nuovi ruoli.
 
 8. Aggiornare la tabella **Attributi** per definire un mapping personalizzato dell'attestazione basata su ruolo.
 
@@ -154,8 +152,8 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
     | -------------- | ----------------|
     | Nome del ruolo  | user.assignedroles |
 
-    >[!NOTE]
-    >Se il valore dell'attestazione del ruolo è null, Azure AD non invierà questo valore nel token e questa impostazione è predefinita in base alla progettazione.
+    
+    Se il valore dell'attestazione del ruolo è null, Azure AD non invierà questo valore nel token e questa impostazione è predefinita in base alla progettazione.
 
     a. fare clic sull'icona **modifica** per aprire **attributi utente &** finestra di dialogo attestazioni.
 
@@ -253,15 +251,15 @@ Per eliminare un ruolo esistente, completare questi passaggi:
 
     d. Selezionare **Esegui query**.
 
-    > [!NOTE]
-    > Assicurarsi di avere il ruolo msiam_access e che l'ID corrisponda nel ruolo generato.
+    
+    Assicurarsi di avere il ruolo msiam_access e che l'ID corrisponda nel ruolo generato.
 
 7. Dopo che il ruolo è stato disabilitato, eliminare il blocco del ruolo dalla sezione **appRoles**. Mantenere il metodo come **PATCH** e selezionare **Esegui query**.
 
 8. Al termine dell'esecuzione della query, il ruolo viene eliminato.
 
-    > [!NOTE]
-    > Il ruolo deve essere disabilitato prima che possa essere rimosso.
+    
+    Il ruolo deve essere disabilitato prima che possa essere rimosso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

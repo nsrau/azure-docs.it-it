@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: abd182339719f19a521feed95f7cfbed6942b3e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cbca82ba88baf5ddda2a6d7a6cdd35b62f28b8e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404783"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647937"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Configurare un Lab con macchine virtuali GPU
 
@@ -30,14 +30,14 @@ Come descritto nella tabella seguente, le dimensioni della GPU di *calcolo* sono
 
 | Dimensione | Core | RAM | Descrizione | 
 | ---- | ----- | --- | ----------- | 
-| GPU small (calcolo) | -&nbsp;6 &nbsp; Core<br>-&nbsp;56 &nbsp; GB di &nbsp; RAM  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Queste dimensioni sono ideali per applicazioni a elevato utilizzo di calcolo, ad esempio intelligenza artificiale e apprendimento avanzato. |
+| GPU small (calcolo) | -&nbsp;6 &nbsp; Core<br>-&nbsp;56 &nbsp; GB di &nbsp; RAM  | [Standard_NC6](../virtual-machines/nc-series.md) |Queste dimensioni sono ideali per applicazioni a elevato utilizzo di calcolo, ad esempio intelligenza artificiale e apprendimento avanzato. |
 
 Le dimensioni della GPU di *visualizzazione* sono destinate a applicazioni a elevato utilizzo di grafica.  Ad esempio, il [tipo di classe ingegneristica SolidWorks](./class-type-solidworks.md) Mostra l'uso della dimensione della **GPU (visualizzazione) piccola** .  La GPU di visualizzazione è adatta per questo tipo di classe, perché gli studenti interagiscono con l'ambiente SOLIDWORKs 3D computerizzato (CAD) per la modellazione e la visualizzazione di oggetti solidi.
 
 | Dimensione | Core | RAM | Descrizione | 
 | ---- | ----- | --- | ----------- | 
-| GPU small (visualizzazione) | -&nbsp;6 &nbsp; Core<br>-&nbsp;56 &nbsp; GB di &nbsp; RAM  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica che usano Framework come OpenGL e DirectX. |
-| GPU medium (visualizzazione) | -&nbsp;12 &nbsp; Core<br>-&nbsp;112 &nbsp; GB di &nbsp; RAM  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica che usano Framework come OpenGL e DirectX. |
+| GPU small (visualizzazione) | -&nbsp;6 &nbsp; Core<br>-&nbsp;56 &nbsp; GB di &nbsp; RAM  | [Standard_NV6](../virtual-machines/nv-series.md) | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica che usano Framework come OpenGL e DirectX. |
+| GPU medium (visualizzazione) | -&nbsp;12 &nbsp; Core<br>-&nbsp;112 &nbsp; GB di &nbsp; RAM  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Queste dimensioni sono ideali per la visualizzazione remota, lo streaming, i giochi e la codifica che usano Framework come OpenGL e DirectX. |
 
 > [!NOTE]
 > È possibile che alcune di queste dimensioni di macchina virtuale non vengano visualizzate nell'elenco durante la creazione di un lab per le classi. L'elenco viene popolato in base alla capacità corrente della località del lab. Se l'autore dell'account lab [consente agli autori del lab di selezionare una località per il lab](allow-lab-creator-pick-lab-location.md), è possibile provare a scegliere una località diversa per il lab e verificare se le dimensioni della macchina virtuale sono disponibili. Per la disponibilità delle macchine virtuali, vedere [prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/?products=virtual-machines).
@@ -76,7 +76,7 @@ Per installare manualmente i driver per le dimensioni della GPU di calcolo, proc
 1. Dopo aver installato i driver e altri software necessari per la classe, selezionare **pubblica** per creare le macchine virtuali degli studenti.
 
 > [!NOTE]
-> Se si usa un'immagine Linux, dopo aver scaricato il programma di installazione, installare i driver seguendo le istruzioni riportate in [Install CUDA drivers on Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup?toc=/azure/virtual-machines/linux/toc.json#install-cuda-drivers-on-n-series-vms).
+> Se si usa un'immagine Linux, dopo aver scaricato il programma di installazione, installare i driver seguendo le istruzioni riportate in [Install CUDA drivers on Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#install-cuda-drivers-on-n-series-vms).
 
 #### <a name="install-the-visualization-gpu-drivers"></a>Installare i driver GPU per la visualizzazione
 
@@ -85,8 +85,8 @@ Per installare manualmente i driver per le dimensioni della GPU di visualizzazio
 1. Nella creazione guidata Lab, quando si [Crea il Lab](./how-to-manage-classroom-labs.md), disabilitare l'impostazione **Installa driver GPU** .
 1. Dopo aver creato il Lab, connettersi alla macchina virtuale modello per installare i driver appropriati.
 1. Installare i driver della griglia forniti da Microsoft nella macchina virtuale modello seguendo le istruzioni per il sistema operativo in uso:
-   -  [Driver della griglia di Windows NVIDIA](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers)
-   -  [Driver NVIDIA GRID Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup?toc=/azure/virtual-machines/linux/toc.json#nvidia-grid-drivers)
+   -  [Driver della griglia di Windows NVIDIA](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers)
+   -  [Driver NVIDIA GRID Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#nvidia-grid-drivers)
   
 1. Riavviare la macchina virtuale del modello.
 1. Verificare che i driver siano installati correttamente seguendo le istruzioni riportate nella sezione [convalidare i driver installati](how-to-setup-lab-gpu.md#validate-the-installed-drivers) .
@@ -96,9 +96,9 @@ Per installare manualmente i driver per le dimensioni della GPU di visualizzazio
 Questa sezione descrive come verificare che i driver GPU siano installati correttamente.
 
 #### <a name="windows-images"></a>Immagini di Windows
-1.  Seguire le istruzioni nella sezione "verificare l'installazione dei driver" di [installare driver GPU NVIDIA in VM serie N che eseguono Windows](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation).
+1.  Seguire le istruzioni nella sezione "verificare l'installazione dei driver" di [installare driver GPU NVIDIA in VM serie N che eseguono Windows](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
 1.  Se si usa una GPU di *visualizzazione* , è anche possibile:
-    - Consente di visualizzare e modificare le impostazioni della GPU nel pannello di controllo di NVIDIA. A tale scopo, nel **Pannello di controllo di Windows**selezionare **hardware**e quindi selezionare **Pannello di controllo NVIDIA**.
+    - Consente di visualizzare e modificare le impostazioni della GPU nel pannello di controllo di NVIDIA. A tale scopo, nel **Pannello di controllo di Windows** selezionare **hardware** e quindi selezionare **Pannello di controllo NVIDIA**.
 
       ![Screenshot del pannello di controllo di Windows che mostra il collegamento del pannello di controllo di NVIDIA](./media/how-to-setup-gpu/control-panel-nvidia-settings.png) 
 
@@ -110,7 +110,7 @@ Questa sezione descrive come verificare che i driver GPU siano installati corret
       > È possibile accedere alle impostazioni del pannello di controllo NVIDIA solo per le GPU di *visualizzazione* .  Se si tenta di aprire il pannello di controllo NVIDIA per una GPU di calcolo, verrà visualizzato l'errore seguente: "le impostazioni di visualizzazione NVIDIA non sono disponibili.  Attualmente non si sta usando una visualizzazione collegata a una GPU NVIDIA ".  Analogamente, le informazioni sulle prestazioni della GPU in Gestione attività vengono fornite solo per le GPU di visualizzazione.
 
 #### <a name="linux-images"></a>Immagini di Linux
-Seguire le istruzioni nella sezione "verificare l'installazione dei driver" di [installare driver GPU NVIDIA in VM serie N che eseguono Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#verify-driver-installation).
+Seguire le istruzioni nella sezione "verificare l'installazione dei driver" di [installare driver GPU NVIDIA in VM serie N che eseguono Linux](../virtual-machines/linux/n-series-driver-setup.md#verify-driver-installation).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:
@@ -118,6 +118,3 @@ Vedere gli articoli seguenti:
 - [Creare e gestire i lab per le classi](how-to-manage-classroom-labs.md)
 - [Tipo classe CAD (computer-aided design) SOLIDWORKs](class-type-solidworks.md)
 - [Tipo classe MATLAB (Matrix Laboratory)](class-type-matlab.md)
-
-
-

@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: ad92862c78260e7385168faf794c013e85f66b82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8135e11fb7b7ddb588ab3a8ed01227712072fd2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445730"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647920"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-manually"></a>Abilitare la virtualizzazione annidata in una macchina virtuale modello in Azure Lab Services manualmente
 
@@ -25,14 +25,14 @@ Questo articolo illustra come configurare la virtualizzazione annidata in un com
 
 Nei passaggi seguenti vengono descritte le azioni necessarie per abilitare Hyper-V in Windows Server utilizzando uno dei Server Manager.  Una volta completata l'installazione, la console di gestione di Hyper-V sarà disponibile per aggiungere, modificare ed eliminare le macchine virtuali client.
 
-1. Nella pagina dashboard di **Server Manager**fare clic su **Aggiungi ruoli e funzionalità**.
+1. Nella pagina dashboard di **Server Manager** fare clic su **Aggiungi ruoli e funzionalità**.
 2. Nella pagina **Prima di iniziare**, fare clic su **Avanti**.
 3. Nella pagina **Selezione tipo di installazione** Mantieni la selezione predefinita di installazione basata su ruoli o basata su funzionalità e quindi fai clic su **Avanti**.
 4. Nella pagina **Selezione server di destinazione** selezionare selezionare un server dal pool di server.   Il server corrente sarà già selezionato.  Scegliere Avanti.
-5. Nella pagina **Selezione ruoli server ** selezionare **Hyper-V**.  
+5. Nella pagina **Selezione ruoli server** selezionare **Hyper-V**.  
 6. Verrà visualizzato il popup **Aggiunta guidata ruoli e funzionalità** .  Selezionare **Includi strumenti di gestione (se applicabile)**.  Fare clic sul pulsante **Aggiungi funzionalità** .
 7. Nella pagina **Selezione ruoli server** fare clic su **Avanti**.
-8. Nella **pagina Selezione funzionalità**fare clic su **Avanti**.
+8. Nella **pagina Selezione funzionalità** fare clic su **Avanti**.
 9. Nella pagina **Hyper-V** fare clic su **Avanti**.
 10. Nella pagina **Crea commutatori virtuali** accettare le impostazioni predefinite e fare clic su **Avanti**.
 11. Nella pagina **migrazione macchina virtuale** accettare le impostazioni predefinite e fare clic su **Avanti**.
@@ -41,13 +41,13 @@ Nei passaggi seguenti vengono descritte le azioni necessarie per abilitare Hyper
 14. Quando viene visualizzato il popup **Aggiunta guidata ruoli e funzionalità** , fare clic su **Sì**.
 15. Fare clic su **Installa**.
 16. Attendere che la pagina **stato installazione** indichi che il ruolo Hyper-V è completo.  Il computer può essere riavviato al centro dell'installazione.
-17. Fare clic su **Chiudi**.
+17. Fare clic su **Close**.
 
 ## <a name="enable-dhcp-role"></a>Abilita ruolo DHCP
 
 Per tutte le macchine virtuali Client Hyper-V create, è necessario un indirizzo IP nella rete NAT.  La rete NAT verrà creata in un secondo momento.  Un modo per assegnare gli indirizzi IP consiste nel configurare l'host, in questo caso il modello di macchina virtuale Lab come server DHCP.  Di seguito sono riportati i passaggi necessari per abilitare il ruolo DHCP.
 
-1. Nella pagina **Dashboard** di **Server Manager**fare clic su **Aggiungi ruoli e funzionalità**.
+1. Nella pagina **Dashboard** di **Server Manager** fare clic su **Aggiungi ruoli e funzionalità**.
 2. Nella pagina **Prima di iniziare**, fare clic su **Avanti**.
 3. Nella pagina **Selezione tipo di installazione** selezionare **Installazione basata su ruoli o basata su funzionalità** e quindi fare clic su **Avanti**.
 4. Nella pagina **Selezione server di destinazione** selezionare il server corrente dal pool di server e quindi fare clic su **Avanti**.
@@ -66,7 +66,7 @@ Per tutte le macchine virtuali Client Hyper-V create, è necessario un indirizzo
 
 ## <a name="enable-routing-and-remote-access-role"></a>Abilitare il ruolo Routing e accesso remoto
 
-1. Nella pagina **Dashboard** di **Server Manager**fare clic su **Aggiungi ruoli e funzionalità**.
+1. Nella pagina **Dashboard** di **Server Manager** fare clic su **Aggiungi ruoli e funzionalità**.
 2. Nella pagina **Prima di iniziare**, fare clic su **Avanti**.
 3. Nella pagina **Selezione tipo di installazione** selezionare **Installazione basata su ruoli o basata su funzionalità** e quindi fare clic su **Avanti**.
 4. Nella pagina **Selezione server di destinazione** selezionare il server corrente dal pool di server e quindi fare clic su **Avanti**.
@@ -80,7 +80,7 @@ Per tutte le macchine virtuali Client Hyper-V create, è necessario un indirizzo
 12. Nella pagina **Selezione servizi ruolo** fare clic su **Avanti**.
 13. Nella pagina **Conferma selezioni per l'installazione** fare clic su **Installa**.
 14. Attendere la pagina **stato dell'installazione** per indicare che il ruolo accesso remoto è stato completato.  
-15. Fare clic su **Chiudi**.
+15. Fare clic su **Close**.
 
 ## <a name="create-virtual-nat-network"></a>Creare una rete NAT virtuale
 
@@ -154,9 +154,9 @@ I passaggi seguenti sono istruzioni per l'aggiunta di un ambito DHCP.  In questo
 15. Nella pagina **Attiva ambito** selezionare **Sì, attiva ora questo ambito**.  Fare clic su **Avanti**.
 16. Nella pagina **Completamento procedura guidata nuovo ambito** fare clic su **fine**.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
-A questo punto il computer modello è pronto per la creazione di macchine virtuali Hyper-V.   Per istruzioni su come creare macchine virtuali Hyper-V, vedere [creare una macchina virtuale in Hyper-v](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) .  Vedere anche [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) per consultare i sistemi operativi e il software disponibili.
+A questo punto il computer modello è pronto per la creazione di macchine virtuali Hyper-V.   Per istruzioni su come creare macchine virtuali Hyper-V, vedere [creare una macchina virtuale in Hyper-v](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) .  Vedere anche [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) per consultare i sistemi operativi e il software disponibili.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

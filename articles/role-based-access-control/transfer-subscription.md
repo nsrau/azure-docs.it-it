@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/06/2020
 ms.author: rolyon
-ms.openlocfilehash: 3289f8a22e5601552ec6d44c7d37195b06913fde
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ad0ba3c63f6f0ef6e7e02051031cf215c2e72cce
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545345"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648243"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Trasferire una sottoscrizione di Azure a una directory Azure AD diversa
 
@@ -68,7 +68,7 @@ Diverse risorse di Azure hanno una dipendenza da una sottoscrizione o una direct
 | Ruoli personalizzati | Sì | Sì | [Elencare ruoli personalizzati](#save-custom-roles) | Tutti i ruoli personalizzati vengono eliminati definitivamente. È necessario ricreare i ruoli personalizzati e le assegnazioni di ruolo. |
 | Identità gestite assegnate dal sistema | Sì | Sì | [Elencare le identità gestite](#list-role-assignments-for-managed-identities) | È necessario disabilitare e riabilitare le identità gestite. È necessario ricreare le assegnazioni di ruolo. |
 | Identità gestite assegnate dall'utente | Sì | Sì | [Elencare le identità gestite](#list-role-assignments-for-managed-identities) | È necessario eliminare, ricreare e collegare le identità gestite alla risorsa appropriata. È necessario ricreare le assegnazioni di ruolo. |
-| Insieme di credenziali chiave di Azure | Sì | Sì | [Elencare i criteri di accesso Key Vault](#list-key-vaults) | È necessario aggiornare l'ID tenant associato agli insiemi di credenziali delle chiavi. È necessario rimuovere e aggiungere nuovi criteri di accesso. |
+| Azure Key Vault | Sì | Sì | [Elencare i criteri di accesso Key Vault](#list-key-vaults) | È necessario aggiornare l'ID tenant associato agli insiemi di credenziali delle chiavi. È necessario rimuovere e aggiungere nuovi criteri di accesso. |
 | Database SQL di Azure con Azure AD Integration Authentication abilitato | Sì | No | [Controllare i database SQL di Azure con l'autenticazione Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Archiviazione di Azure e Azure Data Lake Storage Gen2 | Sì | Sì |  | È necessario ricreare gli ACL. |
 | Azure Data Lake Storage Gen1 | Sì | Sì |  | È necessario ricreare gli ACL. |
@@ -87,7 +87,7 @@ Diverse risorse di Azure hanno una dipendenza da una sottoscrizione o una direct
 
 Per completare questi passaggi, sarà necessario:
 
-- [Bash in Azure cloud Shell o nell'interfaccia della riga di comando di](/azure/cloud-shell/overview) [Azure](/cli/azure)
+- [Bash in Azure cloud Shell o nell'interfaccia della riga di comando di](../cloud-shell/overview.md) [Azure](/cli/azure)
 - Amministratore account della sottoscrizione che si desidera trasferire nella directory di origine
 - Ruolo [proprietario](built-in-roles.md#owner) nella directory di destinazione
 
@@ -111,7 +111,7 @@ Per completare questi passaggi, sarà necessario:
 
 ### <a name="install-the-azure-resource-graph-extension"></a>Installare l'estensione del grafico delle risorse di Azure
 
- L'estensione dell'interfaccia della riga di comando di Azure per [Azure Resource Graph](../governance/resource-graph/index.yml), *Resource-Graph* , consente di usare il comando [AZ Graph](/cli/azure/ext/resource-graph/graph) per eseguire query sulle risorse gestite da Azure Resource Manager. Questo comando verrà usato nei passaggi successivi.
+ L'estensione dell'interfaccia della riga di comando di Azure per [Azure Resource Graph](../governance/resource-graph/index.yml), *Resource-Graph*, consente di usare il comando [AZ Graph](/cli/azure/ext/resource-graph/graph) per eseguire query sulle risorse gestite da Azure Resource Manager. Questo comando verrà usato nei passaggi successivi.
 
 1. Usare [AZ Extension List](/cli/azure/extension#az_extension_list) per verificare se l'estensione del *grafico risorse* è installata.
 
@@ -314,7 +314,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
 
 1. Disabilitare e riabilitare le identità gestite assegnate dal sistema.
 
-    | Servizio di Azure | Ulteriori informazioni | 
+    | Servizio di Azure | Altre informazioni | 
     | --- | --- |
     | Macchine virtuali | [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#system-assigned-managed-identity) |
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
@@ -330,7 +330,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
 
 1. Elimina, ricrea e Connetti identità gestite assegnate dall'utente.
 
-    | Servizio di Azure | Ulteriori informazioni | 
+    | Servizio di Azure | Altre informazioni | 
     | --- | --- |
     | Macchine virtuali | [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) |
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |

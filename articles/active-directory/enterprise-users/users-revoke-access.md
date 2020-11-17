@@ -3,22 +3,22 @@ title: Revocare l'accesso utente in situazioni di emergenza in Azure Active Dire
 description: Revoca di tutti gli accessi per un utente in Azure Active Directory
 services: active-directory
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
 author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 07/15/2020
+ms.date: 11/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16577c3509c9d3d9b02ead5e69832bacc7d083bb
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e12d08acdd9fc869ed766a1bbd78f35eb371cc8a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92375322"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94649688"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Revocare l'accesso utente in Azure Active Directory
 

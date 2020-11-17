@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16af484e77787ee1d729ce97eec8c666bf925837
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 873a87ed2c75d41e0a249bde4b6a29921b7e5ce5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763585"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648056"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurare i comportamenti delle informazioni di accesso di Azure Active Directory per un'applicazione usando criteri di individuazione dell'area di autenticazione principale
 
@@ -207,7 +207,7 @@ Per eseguire i criteri HRD dopo la rispettiva creazione, è possibile assegnarli
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Passaggio 2: individuazione dell'entità servizio a cui assegnare i criteri  
 È necessario disporre dell'**ObjectID** delle entità servizio alle quali si intende assegnare i criteri. Esistono diversi modi per trovare l'**ObjectID** delle entità servizio.    
 
-È possibile usare il portale oppure è possibile eseguire una query [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). Per visualizzare tutte le entità servizio dell'organizzazione, è inoltre possibile passare allo [strumento Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) e accedere all'account Azure AD. 
+È possibile usare il portale oppure è possibile eseguire una query [Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta). Per visualizzare tutte le entità servizio dell'organizzazione, è inoltre possibile passare allo [strumento Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) e accedere all'account Azure AD. 
 
 Poiché si usa PowerShell, è possibile usare il cmdlet seguente per elencare le entità servizio e i relativi ID.
 
@@ -267,6 +267,6 @@ Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -P
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Passaggi successivi
-- Per altre informazioni sul funzionamento dell'autenticazione in Azure AD, vedere [Scenari di autenticazione per Azure AD](../develop/authentication-scenarios.md).
+- Per altre informazioni sul funzionamento dell'autenticazione in Azure AD, vedere [Scenari di autenticazione per Azure AD](../develop/authentication-vs-authorization.md).
 - Per ulteriori informazioni sull'Single Sign-On utente, vedere [Single Sign-on to Applications in Azure Active Directory](what-is-single-sign-on.md).
 - Per una panoramica di tutti i contenuti correlati agli sviluppatori, visitare la [piattaforma Microsoft Identity](../develop/v2-overview.md) .

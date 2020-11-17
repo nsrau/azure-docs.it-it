@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.openlocfilehash: badf10da8af0ed3829deb2498b51b5d5c8ce6a93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56b6638462acaf43b6353787495e5b7993acb413
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604416"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648277"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>Procedura per aggiungere un'assegnazione di ruolo
 
@@ -26,7 +26,7 @@ Per prima cosa è necessario determinare chi necessita di accesso. È possibile 
 
 ![Entità di sicurezza per un'assegnazione di ruolo](./media/shared/rbac-security-principal.png)
 
-- Utente: un soggetto che dispone di un profilo in Azure Active Directory. È anche possibile assegnare ruoli agli utenti in altri tenant. Per informazioni sugli utenti in altre organizzazioni, vedere [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
+- Utente: un soggetto che dispone di un profilo in Azure Active Directory. È anche possibile assegnare ruoli agli utenti in altri tenant. Per informazioni sugli utenti in altre organizzazioni, vedere [Azure Active Directory B2B](../active-directory/external-identities/what-is-b2b.md).
 - Gruppo: un set di utenti creato in Azure Active Directory. Quando si assegna un ruolo a un gruppo, tutti gli utenti all'interno di tale gruppo dispongono del ruolo appropriato. 
 - Entità servizio: un'identità di sicurezza utilizzata da applicazioni o servizi per accedere a specifiche risorse di Azure. È possibile pensare a questo elemento come a un'*identità utente* (nome utente e password o certificato) per un'applicazione.
 - Identità gestita: un'identità in Azure Active Directory che viene gestita automaticamente da Azure. Le [identità gestite](../active-directory/managed-identities-azure-resources/overview.md) vengono in genere usate durante lo sviluppo di applicazioni cloud per gestire le credenziali per l'autenticazione ai servizi di Azure.

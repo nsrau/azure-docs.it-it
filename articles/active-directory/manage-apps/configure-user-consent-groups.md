@@ -12,16 +12,16 @@ ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: df50231b03f71008f967c4f09ce09c5b5890802f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d5c42675b182fbc34354c75778214463adfe491f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427653"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94648141"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configurare il consenso del proprietario del gruppo per le app che accedono ai dati di gruppo
 
-I proprietari di gruppi e team possono autorizzare le applicazioni, ad esempio le applicazioni pubblicate da fornitori di terze parti, ad accedere ai dati dell'organizzazione associati a un gruppo. Ad esempio, il proprietario di un team in Microsoft Teams può consentire a un'app di leggere tutti i messaggi del team oppure elencare il profilo di base dei membri di un gruppo. Per altre informazioni, vedere il [consenso specifico per le risorse in Microsoft teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent) .
+I proprietari di gruppi e team possono autorizzare le applicazioni, ad esempio le applicazioni pubblicate da fornitori di terze parti, ad accedere ai dati dell'organizzazione associati a un gruppo. Ad esempio, il proprietario di un team in Microsoft Teams può consentire a un'app di leggere tutti i messaggi del team oppure elencare il profilo di base dei membri di un gruppo. Per altre informazioni, vedere il [consenso specifico per le risorse in Microsoft teams](/microsoftteams/resource-specific-consent) .
 
 ## <a name="manage-group-owner-consent-to-apps"></a>Gestire il consenso del proprietario del gruppo alle app
 
@@ -42,9 +42,9 @@ In questo esempio, tutti i proprietari del gruppo possono fornire il consenso al
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-È possibile usare il modulo Azure AD PowerShell Preview, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), per abilitare o disabilitare la capacità dei proprietari dei gruppi di fornire il consenso alle applicazioni che accedono ai dati dell'organizzazione per i gruppi di cui sono proprietari.
+È possibile usare il modulo Azure AD PowerShell Preview, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview), per abilitare o disabilitare la capacità dei proprietari dei gruppi di fornire il consenso alle applicazioni che accedono ai dati dell'organizzazione per i gruppi di cui sono proprietari.
 
-1. Accertarsi di usare il modulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Questo passaggio è importante se sono stati installati sia il modulo [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) sia il modulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)).
+1. Accertarsi di usare il modulo [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview). Questo passaggio è importante se sono stati installati sia il modulo [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) sia il modulo [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)).
 
     ```powershell
     Remove-Module AzureAD
@@ -74,7 +74,7 @@ In questo esempio, tutti i proprietari del gruppo possono fornire il consenso al
 
 1. Esaminare i valori delle impostazioni. Sono disponibili due valori delle impostazioni che definiscono gli utenti che possono consentire a un'app di accedere ai dati del gruppo:
 
-    | Impostazione       | Tipo         | Descrizione  |
+    | Impostazione       | Type         | Descrizione  |
     | ------------- | ------------ | ------------ |
     | _EnableGroupSpecificConsent_   | Boolean | Flag che indica se i proprietari dei gruppi possono concedere autorizzazioni specifiche del gruppo. |
     | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | Guid | Se _EnableGroupSpecificConsent_ è impostato su "True" e questo valore è impostato sull'ID oggetto di un gruppo, i membri del gruppo identificato saranno autorizzati a concedere autorizzazioni specifiche ai gruppi di cui sono proprietari. |
@@ -121,7 +121,7 @@ Per altre informazioni:
 * [Configurare il flusso di lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md)
 * [Informazioni su come gestire il consenso alle applicazioni e valutare le richieste di consenso](manage-consent-requests.md)
 * [Concedere a un'applicazione il consenso amministratore a livello di tenant](grant-admin-consent.md)
-* [Autorizzazioni e consenso in Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
+* [Autorizzazioni e consenso in Microsoft Identity Platform](../develop/v2-permissions-and-consent.md)
 
 Per ottenere assistenza o trovare risposte alle domande:
 * [Azure AD in StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
