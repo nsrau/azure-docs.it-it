@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 18c8aa0ff05dababc5a79c5c05b43ce9ebcbf9b4
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 3cae4591a5da53683c965d7c6ba3ec169249c87e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397094"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566130"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Esercitazione: Abilitare il componente aggiuntivo Controller in ingresso (anteprima) per un nuovo cluster del servizio Azure Kubernetes con una nuova istanza del gateway applicazione
 
@@ -30,43 +30,30 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Distribuire un'applicazione di esempio usando Controller in ingresso del gateway applicazione per il traffico in ingresso nel cluster del servizio Azure Kubernetes.
 > * Verificare che l'applicazione sia raggiungibile tramite il gateway applicazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+ - Per questa esercitazione è necessaria la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
+ - Per registrare il flag di funzionalità *AKS-IngressApplicationGatewayAddon*, usare il comando [az feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register), come illustrato nell'esempio seguente. È necessario eseguire questa operazione una sola volta per ogni sottoscrizione finché il componente aggiuntivo è disponibile in anteprima.
+    ```azurecli-interactive
+    az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
+    ```
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure 2.0.4 o versione successiva. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+   Dopo alcuni minuti dovrebbe essere visualizzato lo stato `Registered`. È possibile controllare lo stato di registrazione con il comando [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register):
+    ```azurecli-interactive
+    az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
+    ```
 
-Per registrare il flag di funzionalità *AKS-IngressApplicationGatewayAddon* , usare il comando [az feature register](/cli/azure/feature#az-feature-register), come illustrato nell'esempio seguente. È necessario eseguire questa operazione una sola volta per ogni sottoscrizione finché il componente aggiuntivo è disponibile in anteprima.
-```azurecli-interactive
-az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
-```
-
-Dopo alcuni minuti dovrebbe essere visualizzato lo stato `Registered`. È possibile controllare lo stato di registrazione con il comando [az feature list](/cli/azure/feature#az-feature-register):
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
-```
-
-Quando si è pronti, aggiornare la registrazione del provider di risorse Microsoft.ContainerService usando il comando [az provider register](/cli/azure/provider#az-provider-register):
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-Installare o aggiornare l'estensione aks-preview per questa esercitazione. Usare i comandi seguenti dell'interfaccia della riga di comando di Azure:
-```azurecli-interactive
-az extension add --name aks-preview
-az extension list
-```
-```azurecli-interactive
-az extension update --name aks-preview
-az extension list
-```
+ - Quando si è pronti, aggiornare la registrazione del provider di risorse Microsoft.ContainerService usando il comando [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register):
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.ContainerService
+    ```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-In Azure, si allocano le risorse correlate a un gruppo di risorse. Creare un gruppo di risorse usando [az group create](/cli/azure/group#az-group-create). L'esempio seguente consente di creare un gruppo di risorse denominato *myResourceGroup* nella località (area) *canadacentral* : 
+In Azure, si allocano le risorse correlate a un gruppo di risorse. Creare un gruppo di risorse usando [az group create](/cli/azure/group#az-group-create). L'esempio seguente consente di creare un gruppo di risorse denominato *myResourceGroup* nella località (area) *canadacentral*: 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location canadacentral
@@ -93,7 +80,7 @@ az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-ma
 Per configurare parametri aggiuntivi per il comando `az aks create`, vedere [questi argomenti di riferimento](/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
 
 > [!NOTE]
-> Il cluster del servizio Azure Kubernetes creato verrà visualizzato nel gruppo di risorse creato, ovvero *myResourceGroup*. Tuttavia, l'istanza del gateway applicazione creata automaticamente si troverà nel gruppo di risorse del nodo, in cui si trovano i pool di agenti. Per impostazione predefinita, il nome del gruppo di risorse del nodo è *MC_resource-group-name_cluster-name_location* , ma può essere modificato. 
+> Il cluster del servizio Azure Kubernetes creato verrà visualizzato nel gruppo di risorse creato, ovvero *myResourceGroup*. Tuttavia, l'istanza del gateway applicazione creata automaticamente si troverà nel gruppo di risorse del nodo, in cui si trovano i pool di agenti. Per impostazione predefinita, il nome del gruppo di risorse del nodo è *MC_resource-group-name_cluster-name_location*, ma può essere modificato. 
 
 ## <a name="deploy-a-sample-application-by-using-agic"></a>Distribuire un'applicazione di esempio con Controller in ingresso del gateway applicazione
 

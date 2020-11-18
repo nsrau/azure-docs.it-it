@@ -1,5 +1,5 @@
 ---
-title: "Guida di avvio rapido: Configurare l'accesso per un'app a pagina singola"
+title: "Avvio rapido: Configurare l'accesso per un'app a pagina singola"
 titleSuffix: Azure AD B2C
 description: In questo Avvio rapido eseguire un'applicazione a singola pagina di esempio che usa Azure Active Directory B2C per consentire l'accesso all'account.
 services: active-directory-b2c
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: db18c71b09cd9beb58799ad4fbcbc944061153fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6471d1b5a5ad2b8ba34080ae1220872fa0e2e232
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87921759"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421057"
 ---
-# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Guida di avvio rapido: Configurare l'accesso per un'app a singola pagina tramite Azure Active Directory B2C
+# <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Avvio rapido: Configurare l'accesso per un'app a singola pagina tramite Azure Active Directory B2C
 
 Azure Active Directory B2C (Azure AD B2C) consente la gestione delle identità del cloud per garantire la protezione costante dell'applicazione, delle attività aziendali e dei clienti. Azure AD B2C consente alle applicazioni di eseguire l'autenticazione per account di social networking e account aziendali usando protocolli standard aperti. In questa guida di avvio rapido si usa un'applicazione a pagina singola per eseguire l'accesso con un provider di identità basato su social network e chiamare un'API Web protetta da Azure AD B2C.
 
@@ -29,12 +29,12 @@ Azure Active Directory B2C (Azure AD B2C) consente la gestione delle identità d
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Node.js](https://nodejs.org/en/download/)
 - Un account di social networking di Facebook, Google o Microsoft
-- Esempio di codice di GitHub: [active-directory-b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+- Esempio di codice di GitHub: [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)
 
-    È possibile [scaricare l'archivio ZIP](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clonare il repository:
+    È possibile [scaricare l'archivio ZIP](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) o clonare il repository:
 
     ```console
-    git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+    git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
     ```
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
@@ -42,7 +42,6 @@ Azure Active Directory B2C (Azure AD B2C) consente la gestione delle identità d
 1. Avviare il server eseguendo questi comandi al prompt dei comandi di Node.js:
 
     ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
     npm install && npm update
     npm start
     ```
@@ -60,7 +59,7 @@ Azure Active Directory B2C (Azure AD B2C) consente la gestione delle identità d
 ## <a name="sign-in-using-your-account"></a>Eseguire l'accesso con il proprio account
 
 1. Selezionare **Accedi** per iniziare il percorso utente.
-1. Azure AD B2C presenta una pagina di accesso per un'azienda fittizia denominata Fabrikam per l'applicazione Web di esempio. Per iscriversi usando un provider di identità basato su social network, selezionare il pulsante del provider di identità che si vuole usare.
+1. Azure AD B2C presenta una pagina di accesso per un'azienda fittizia denominata "Fabrikam" per l'applicazione Web di esempio. Per iscriversi usando un provider di identità basato su social network, selezionare il pulsante del provider di identità che si vuole usare.
 
     ![Pagina di accesso o di iscrizione che mostra i pulsanti del provider di identità](./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png)
 

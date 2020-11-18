@@ -3,27 +3,27 @@ title: 'Avvio rapido: Creare e gestire i token di accesso'
 titleSuffix: An Azure Communication Services quickstart
 description: Informazioni su come gestire le identità e i token di accesso usando la libreria client di amministrazione di Servizi di comunicazione di Azure.
 author: tomaschladek
-manager: jken
+manager: nmurav
 services: azure-communication-services
 ms.author: tchladek
 ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: e323f1f50fe6c67a841c300fcbec1eed3afc4497
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b67d0808643797d88628b626403c1b9d97cf1cad
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074125"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506251"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>Avvio rapido: Creare e gestire i token di accesso
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Iniziare a usare Servizi di comunicazione di Azure tramite la libreria client di amministrazione di Servizi di comunicazione per effettuare il provisioning e gestire i token di accesso. I token di accesso consentono alle librerie client per le chat e le chiamate di eseguire l'autenticazione direttamente in Servizi di comunicazione di Azure. Questi token vengono generati in un servizio di provisioning di token sul lato server implementato dall'utente. Vengono quindi usati per inizializzare le librerie client di Servizi di comunicazione nei dispositivi client.
+Introduzione a Servizi di comunicazione di Azure con l'uso della libreria client Amministrazione di Servizi di comunicazione. Consente di creare identità e di gestire i token di accesso. L'identità rappresenta l'entità dell'applicazione nel servizio di comunicazione di Azure, ad esempio utente o dispositivo. I token di accesso consentono alle librerie client per le chat e le chiamate di eseguire l'autenticazione direttamente in Servizi di comunicazione di Azure. È consigliabile generare token di accesso in un servizio lato server. I token di accesso vengono quindi usati per inizializzare le librerie client di Servizi di comunicazione nei dispositivi client.
 
-Si noti che tutti i prezzi visualizzati nelle immagini in questa esercitazione sono solo a scopo esemplificativo.
+Tutti i prezzi visualizzati nelle immagini di questa esercitazione sono riportati unicamente a scopo dimostrativo.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/user-access-token-net.md)]
@@ -46,15 +46,14 @@ L'output dell'app descrive ogni azione completata:
 ```console
 Azure Communication Services - Access Tokens Quickstart
 
-Issued a access token with 'voip' scope for identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
+Created an identity: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+
+Issued a access token with 'voip' scope for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502:
 <token signature here>
 
-Issued a access token with 'chat' scope for identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
-<token signature here>
+Successfully deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 
-Successfully deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
-
-Deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
+Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 ```
 <!---cSpell:enable --->
 
@@ -81,3 +80,4 @@ Può essere utile vedere anche gli articoli seguenti:
  - [Informazioni sull'autenticazione](../concepts/authentication.md)
  - [Aggiungere una chat all'app](./chat/get-started.md)
  - [Informazioni sull'architettura client e server](../concepts/client-and-server-architecture.md)
+ 

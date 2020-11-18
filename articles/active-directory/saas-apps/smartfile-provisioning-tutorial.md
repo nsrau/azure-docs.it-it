@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: configurare SmartFile per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: Configurare SmartFile per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in SmartFile.
 services: active-directory
 author: zchia
@@ -8,19 +8,19 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 3f480cb0d478ca60555fa15849d5fcbed6cda684
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: fca18a58ccb8d4e2f10b5db606ad01a97c2d5bac
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91286115"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359930"
 ---
-# <a name="tutorial-configure-smartfile-for-automatic-user-provisioning"></a>Esercitazione: configurare SmartFile per il provisioning utenti automatico
+# <a name="tutorial-configure-smartfile-for-automatic-user-provisioning"></a>Esercitazione: Configurare SmartFile per il provisioning utenti automatico
 
-Questa esercitazione descrive i passaggi da eseguire in SmartFile e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in SmartFile.
+Questa esercitazione descrive la procedura da eseguire in SmartFile e Azure Active Directory (Azure AD) per configurare Azure AD in modo da effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in SmartFile.
 
 > [!NOTE]
 > L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -32,43 +32,43 @@ Questa esercitazione descrive i passaggi da eseguire in SmartFile e Azure Active
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * Un tenant di Azure AD.
-* [Tenant di SmartFile](https://www.SmartFile.com/pricing/).
+* [Un tenant di SmartFile](https://www.SmartFile.com/pricing/).
 * Un account utente in SmartFile con autorizzazioni di amministratore.
 
 ## <a name="assigning-users-to-smartfile"></a>Assegnazione di utenti a SmartFile
 
-Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni*. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni*. Nel contesto del provisioning utenti automatico vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
-Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a SmartFile. Dopo aver stabilito questo, è possibile assegnare gli utenti e/o i gruppi a SmartFile seguendo le istruzioni riportate qui:
+Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD devono poter accedere a SmartFile. Dopo aver definito questo aspetto, è possibile assegnare gli utenti e/o i gruppi a SmartFile seguendo le istruzioni riportate di seguito:
 * [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="important-tips-for-assigning-users-to-smartfile"></a>Suggerimenti importanti per l'assegnazione di utenti a SmartFile
 
-* È consigliabile assegnare un singolo Azure AD utente a SmartFile per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
+* È consigliabile assegnare un singolo utente di Azure AD a SmartFile per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
 * Quando si assegna un utente a SmartFile, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo **Accesso predefinito** vengono esclusi dal provisioning.
 
 ## <a name="setup-smartfile-for-provisioning"></a>Configurare SmartFile per il provisioning
 
-Prima di configurare SmartFile per il provisioning utenti automatico con Azure AD, è necessario abilitare il provisioning di SCIM su SmartFile e raccogliere ulteriori dettagli necessari.
+Prima di configurare SmartFile per il provisioning utenti automatico con Azure AD, è necessario abilitare il provisioning SCIM in SmartFile.
 
-1. Accedere a SmartFile Admin Console. Passare all'angolo superiore destro della console di amministrazione di SmartFile. Selezionare **Product Key**.
+1. Accedere alla console di amministrazione di SmartFile. Passare all'angolo in alto a destra della console di amministrazione di SmartFile. Selezionare **Product Key** (Codice Product Key).
 
     ![Console di amministrazione di SmartFile](media/smartfile-provisioning-tutorial/login.png)
 
-2. Per generare una bearer token, copiare il **codice Product Key** e la relativa **password**. Incollarli in un blocco note con i due punti tra di essi.
+2. Per generare un token di connessione, copiare i valori di **Product Key** (Codice Product Key) e **Product Password** (Password del prodotto). Incollarli nel Blocco note separandoli con due punti.
     
-     ![Screenshot della sezione codice Product Key con le caselle di testo codice Product Key e password prodotto denominate.](media/smartfile-provisioning-tutorial/auth.png)
+     ![Screenshot della sezione codice Product Key con le caselle di testo codice Product Key e Product Password evidenziate.](media/smartfile-provisioning-tutorial/auth.png)
 
     ![Screenshot del testo non crittografato che mostra il codice Product Key e la password del prodotto separati da due punti.](media/smartfile-provisioning-tutorial/key.png)
 
 ## <a name="add-smartfile-from-the-gallery"></a>Aggiungere SmartFile dalla raccolta
 
-Per configurare SmartFile per il provisioning utenti automatico con Azure AD, è necessario aggiungere SmartFile dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS gestite.
+Per configurare SmartFile per il provisioning utenti automatico con Azure AD, è necessario aggiungere SmartFile dalla raccolta di applicazioni di Azure AD all'elenco di applicazioni SaaS gestite.
 
-**Per aggiungere SmartFile dalla raccolta di applicazioni Azure AD, seguire questa procedura:**
+**Per aggiungere SmartFile dalla raccolta di applicazioni di Azure AD, eseguire queste operazioni:**
 
-1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
+1. Nel **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory** nel riquadro di spostamento sinistro.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
@@ -76,7 +76,7 @@ Per configurare SmartFile per il provisioning utenti automatico con Azure AD, è
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
+3. Per aggiungere una nuova applicazione, selezionare il pulsante **Nuova applicazione** nella parte superiore del riquadro.
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
@@ -84,12 +84,12 @@ Per configurare SmartFile per il provisioning utenti automatico con Azure AD, è
 
     ![SmartFile nell'elenco risultati](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-smartfile"></a>Configurazione del provisioning utenti automatico in SmartFile 
+## <a name="configuring-automatic-user-provisioning-to-smartfile"></a>Configurazione del provisioning utenti automatico per SmartFile 
 
-Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in SmartFile in base alle assegnazioni di utenti e/o gruppi in Azure AD.
+Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in SmartFile in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare la Single Sign-On basata su SAML per SmartFile, seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di SmartFile](SmartFile-tutorial.md). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
+> È anche possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per SmartFile, seguendo le istruzioni contenute nell'[esercitazione sull'accesso Single Sign-On per SmartFile](SmartFile-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari
 
 ### <a name="to-configure-automatic-user-provisioning-for-smartfile-in-azure-ad"></a>Per configurare il provisioning utenti automatico per SmartFile in Azure AD:
 
@@ -103,13 +103,13 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
+    ![Screenshot delle opzioni di gestione con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatico evidenziata.](common/provisioning-automatic.png)
 
-5.  Nella sezione **credenziali amministratore** immettere `https://<SmartFile sitename>.smartfile.com/ftp/scim` in **URL tenant**. Un esempio potrebbe essere simile a `https://demo1test.smartfile.com/ftp/scim` . Immettere il valore del **token di porta** (ProductKey: ProductPassword) recuperato in precedenza in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a SmartFile. Se la connessione non riesce, verificare che l'account SmartFile disponga delle autorizzazioni di amministratore e riprovare.
+5.  Nella sezione **Credenziali amministratore** immettere `https://<SmartFile sitename>.smartfile.com/ftp/scim` in **URL tenant**. Ad esempio, sarà simile a `https://demo1test.smartfile.com/ftp/scim`. Immettere il valore del **token di connessione** (ProductKey:ProductPassword) recuperato in precedenza in **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a SmartFile. Se la connessione non riesce, verificare che l'account SmartFile abbia autorizzazioni di amministratore e riprovare.
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -117,31 +117,31 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
-8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a SmartFile**.
+8. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to SmartFile** (Sincronizza utenti di Azure Active Directory con SmartFile).
 
-    ![Mapping utente SmartFile](media/smartfile-provisioning-tutorial/usermapping.png)
+    ![Mapping utente in SmartFile](media/smartfile-provisioning-tutorial/usermapping.png)
 
-9. Esaminare gli attributi utente sincronizzati da Azure AD a SmartFile nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in SmartFile per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+9. Esaminare gli attributi utente sincronizzati tra Azure AD a SmartFile nella sezione **Mapping di attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in SmartFile per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Attributi utente di SmartFile](media/smartfile-provisioning-tutorial/userattribute.png)
+    ![Attributi utente in SmartFile](media/smartfile-provisioning-tutorial/userattribute.png)
 
-10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to SmartFile**.
+10. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Groups to SmartFile** (Sincronizza gruppi di Azure Active Directory con SmartFile).
 
-    ![Mapping del gruppo SmartFile](media/smartfile-provisioning-tutorial/groupmapping.png)
+    ![Mapping dei gruppi in SmartFile](media/smartfile-provisioning-tutorial/groupmapping.png)
 
-11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a SmartFile nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in SmartFile per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+11. Esaminare gli attributi gruppo sincronizzati tra Azure AD a SmartFile nella sezione **Mapping di attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in SmartFile per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Attributi del gruppo SmartFile](media/smartfile-provisioning-tutorial/groupattribute.png)
+    ![Attributi gruppo in SmartFile](media/smartfile-provisioning-tutorial/groupattribute.png)
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Per abilitare il servizio di provisioning Azure AD per SmartFile, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+13. Per abilitare il servizio di provisioning di Azure AD per SmartFile, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-14. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in SmartFile selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
+14. Definire gli utenti e/o i gruppi di cui effettuare il provisioning in SmartFile selezionando i valori appropriati in **Ambito** nella sezione **Impostazioni**.
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
@@ -149,13 +149,13 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-    L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su SmartFile.
+    L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning di Azure AD in SmartFile.
 
-    Per altre informazioni su come leggere i log di provisioning di Azure AD, vedere [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md)
+    Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere [Creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md)
     
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 
-* SmartFile supporta solo le eliminazioni rigide. 
+* SmartFile supporta solo le eliminazioni definitive. 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

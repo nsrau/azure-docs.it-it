@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 923b83b388b58313e9613f0f8b71f266dcbeb028
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: be5ce5b3eebb2f784469680cf7614df6ca750b55
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282134"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658265"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
 
@@ -45,7 +45,7 @@ Per distribuire correttamente il proxy di applicazione, è necessario almeno un 
     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
     ```
 
-1. Riavviare il server
+1. Riavviare il server.
 
 Per ulteriori informazioni sui requisiti di rete per il server del connettore, vedere [Introduzione al proxy dell'applicazione e installazione di un connettore](application-proxy-add-on-premises-application.md).
 
@@ -104,7 +104,7 @@ In generale, più utenti si hanno, più sarà grande il computer necessario. Di 
 > [!NOTE]
 > Non c'è molta differenza nel numero massimo di TPS tra computer Core 4, 8 e 16. La differenza principale è la latenza prevista.
 >
-> Questa tabella è incentrata anche sulle prestazioni previste di un connettore in base al tipo di computer in cui è installato. Questa operazione è separata dai limiti di limitazione del servizio proxy di applicazione, vedere [limiti e restrizioni del servizio](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+> Questa tabella è incentrata anche sulle prestazioni previste di un connettore in base al tipo di computer in cui è installato. Questa operazione è separata dai limiti di limitazione del servizio proxy di applicazione, vedere [limiti e restrizioni del servizio](../enterprise-users/directory-service-limits-restrictions.md).
 
 ## <a name="security-and-networking"></a>Sicurezza e rete
 
@@ -155,7 +155,7 @@ I certificati utilizzati sono specifici per il servizio proxy applicazione. Veng
 
 Al termine del primo rinnovo del certificato riuscito, il servizio di Azure AD connettore del proxy di applicazione (servizio di rete) non dispone dell'autorizzazione per rimuovere il certificato precedente dall'archivio del computer locale. Se il certificato è scaduto o non verrà più usato dal servizio, è possibile eliminarlo in modo sicuro.
 
-Per evitare problemi con il rinnovo del certificato, assicurarsi che la comunicazione di rete dal connettore verso le [destinazioni documentate](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) sia abilitata.
+Per evitare problemi con il rinnovo del certificato, assicurarsi che la comunicazione di rete dal connettore verso le [destinazioni documentate](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) sia abilitata.
 
 Se un connettore non viene connesso al servizio per molti mesi, i relativi certificati potrebbero non essere più aggiornati. In questo caso, disinstallare e reinstallare il connettore per attivare la registrazione. È possibile eseguire i seguenti comandi di PowerShell:
 
@@ -180,7 +180,7 @@ e con i contatori delle prestazioni di Windows.
 
 I connettori hanno sia log di **amministratore** che di **sessione** . Il log di **Amministrazione** include gli eventi principali e i relativi errori. Il log della **sessione** include tutte le transazioni e i relativi dettagli di elaborazione.
 
-Per visualizzare i log, aprire **Visualizzatore eventi** e passare a **registri applicazioni e servizi**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**. Per rendere visibile il log della **sessione** , scegliere **Mostra log analitici e di debug**dal menu **Visualizza** . Il log della **sessione** viene in genere utilizzato per la risoluzione dei problemi ed è disabilitato per impostazione predefinita. Abilitarlo per iniziare a raccogliere gli eventi e disabilitarlo quando non è più necessario.
+Per visualizzare i log, aprire **Visualizzatore eventi** e passare a **registri applicazioni e servizi**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**. Per rendere visibile il log della **sessione** , scegliere **Mostra log analitici e di debug** dal menu **Visualizza** . Il log della **sessione** viene in genere utilizzato per la risoluzione dei problemi ed è disabilitato per impostazione predefinita. Abilitarlo per iniziare a raccogliere gli eventi e disabilitarlo quando non è più necessario.
 
 È possibile esaminare lo stato del servizio nella finestra Servizi. Il connettore è costituito da due servizi di Windows, ovvero il connettore stesso e il programma di aggiornamento. Entrambi devono essere eseguiti costantemente.
 

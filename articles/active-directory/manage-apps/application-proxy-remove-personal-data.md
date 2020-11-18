@@ -15,12 +15,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e78efd71943332e8a40e5b44b6b78f88e516649a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99fb466debd5a2ee4bb659aea3494469a8bbe8e1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84759964"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658418"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Rimuovere i dati personali in Azure Active Directory Application Proxy
 
@@ -35,7 +35,7 @@ Azure Active Directory Application Proxy richiede l'installazione dei connettori
 
 ## <a name="remove-personal-data-from-windows-event-logs"></a>Rimuovere i dati personali dai log eventi di Windows
 
-Per informazioni su come configurare la conservazione dei dati per i registri eventi di Windows, consultare [Impostazioni dei log eventi](https://technet.microsoft.com/library/cc952132.aspx). Per informazioni sui log eventi di Windows, consultare [Utilizzare il log eventi di Windows](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
+Per informazioni su come configurare la conservazione dei dati per i registri eventi di Windows, consultare [Impostazioni dei log eventi](https://technet.microsoft.com/library/cc952132.aspx). Per informazioni sui log eventi di Windows, consultare [Utilizzare il log eventi di Windows](/windows/win32/wes/using-windows-event-log).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
@@ -54,7 +54,7 @@ Utilizzare le sezioni seguenti per rimuovere i dati personali dai log eventi dei
 
 Per visualizzare o esportare dati specifici, cercare le voci relative in ognuno dei log eventi dei connettori. I log si trovano alla `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`.
 
-Poiché i log sono file di testo, è possibile usare [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) per cercare le voci correlate a un utente.  
+Poiché i log sono file di testo, è possibile usare [findstr](/windows-server/administration/windows-commands/findstr) per cercare le voci correlate a un utente.  
 
 Per trovare i dati personali, cercare i file di log per l'ID utente.
 

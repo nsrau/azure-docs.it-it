@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/30/2020
-ms.openlocfilehash: 75cacf0dc899f47d55c44e5262b23bae73bfa7ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: df6da5ce1dcd5213b3e54abe54c087bfdd8480c5
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88924368"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379974"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Avvio rapido: Creare un archivio conoscenze di Ricerca cognitiva di Azure nel portale di Azure
 
@@ -21,7 +21,7 @@ L'archivio conoscenze è una funzionalità di Ricerca cognitiva di Azure che con
 
 Una pipeline accetta contenuto non strutturato di testo e immagini, applica l'intelligenza artificiale basata su Servizi cognitivi (ad esempio OCR ed elaborazione del linguaggio naturale) e restituisce nuove strutture e informazioni che prima non esistevano. Uno degli artefatti fisici creati da una pipeline è un [archivio conoscenze](knowledge-store-concept-intro.md), a cui è possibile accedere tramite strumenti per analizzare ed esplorare il contenuto.
 
-In questa guida di avvio rapido verranno combinati servizi e dati nel cloud di Azure per creare un archivio conoscenze. Si userà quindi la procedura guidata **Importa dati** nel portale per riunire tutti i dati ottenuti. Il risultato finale include il contenuto di testo originale e quello generato dall'intelligenza artificiale che è possibile visualizzare nel portale ([Storage Explorer](knowledge-store-view-storage-explorer.md)).
+In questa guida di avvio rapido verranno combinati servizi e dati nel cloud di Azure per creare un archivio conoscenze. Si userà quindi la procedura guidata **Importa dati** nel portale per riunire tutti i dati ottenuti. Il risultato finale è costituito dal contenuto di testo originale e da quello generato dall'intelligenza artificiale che è possibile visualizzare nel portale ([Storage Explorer](knowledge-store-view-storage-explorer.md)).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

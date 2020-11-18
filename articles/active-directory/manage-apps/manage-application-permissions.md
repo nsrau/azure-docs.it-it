@@ -12,12 +12,12 @@ ms.date: 7/10/2020
 ms.author: mimart
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95e13cedc0cdbaedc8c00b9d855057da7e631c19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ff97d0a69efbe624e959f92f5320f921476a306
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510879"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658979"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Intervenire su applicazioni sospette o con privilegi eccessivi in Azure Active Directory
 
@@ -29,7 +29,7 @@ Per altre informazioni sul consenso alle applicazioni, vedere [framework di cons
 
 Per eseguire le azioni seguenti, è necessario accedere come amministratore globale, amministratore dell'applicazione o amministratore di applicazioni cloud.
 
-Per limitare l'accesso alle applicazioni è necessario richiedere l'assegnazione dell'utente, quindi assegnare utenti o gruppi all'applicazione.  Per altre informazioni, vedere [Metodi per l'assegnazione di utenti e gruppi](methods-for-assigning-users-and-groups.md).
+Per limitare l'accesso alle applicazioni è necessario richiedere l'assegnazione dell'utente, quindi assegnare utenti o gruppi all'applicazione.  Per altre informazioni, vedere [Metodi per l'assegnazione di utenti e gruppi](./assign-user-or-group-access-portal.md).
 
 È possibile accedere al portale di Azure AD per ottenere gli script di PowerShell contestuali per eseguire le azioni.
  
@@ -66,7 +66,7 @@ Facoltativamente, è possibile disabilitare l'applicazione per impedire agli ute
 1. Accedere come amministratore globale, amministratore di applicazioni o amministratore di applicazioni cloud nel [portale di Azure](https://portal.azure.com).
 2. Selezionare **Azure Active Directory**  >  **applicazioni aziendali**.
 3. Selezionare l'applicazione a cui si desidera limitare l'accesso.
-4. Selezionare **Proprietà**e quindi impostare **abilitata per l'accesso degli utenti?** su **No**.
+4. Selezionare **Proprietà** e quindi impostare **abilitata per l'accesso degli utenti?** su **No**.
 
 ## <a name="investigate-a-suspicious-application"></a>Esaminare un'applicazione sospetta
 
@@ -76,7 +76,7 @@ Si consiglia di limitare l'accesso all'applicazione attivando l'impostazione di 
 3. Selezionare **Azure Active Directory**  >  **applicazioni aziendali**.
 5. Selezionare l'applicazione a cui si desidera limitare l'accesso.
 6. Selezionare **Proprietà**, quindi impostare richiesta **utente** su **Sì**.
-7. Selezionare **autorizzazioni**ed esaminare le autorizzazioni di amministratore e del consenso utente.
+7. Selezionare **autorizzazioni** ed esaminare le autorizzazioni di amministratore e del consenso utente.
 
 Facoltativamente, usando PowerShell è possibile:
 

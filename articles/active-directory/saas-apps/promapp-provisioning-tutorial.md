@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: configurare Promapp per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: Configurare Promapp per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Promapp.
 services: active-directory
 author: zchia
@@ -8,19 +8,19 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: Zhchia
-ms.openlocfilehash: 00adf8f1559d01d6ba17692e1166c93c93fcbf8f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 5ba9adbc8553e92eb76a4d3327681f798db19218
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516648"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359103"
 ---
-# <a name="tutorial-configure-promapp-for-automatic-user-provisioning"></a>Esercitazione: configurare Promapp per il provisioning utenti automatico
+# <a name="tutorial-configure-promapp-for-automatic-user-provisioning"></a>Esercitazione: Configurare Promapp per il provisioning utenti automatico
 
-Questa esercitazione descrive i passaggi da eseguire in Promapp e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in Promapp.
+Questa esercitazione descrive la procedura da eseguire in Promapp e Azure Active Directory (Azure AD) per configurare Azure AD in modo da effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in Promapp.
 
 > [!NOTE]
 > L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -32,47 +32,47 @@ Questa esercitazione descrive i passaggi da eseguire in Promapp e Azure Active D
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * Un tenant di Azure AD
-* [Tenant di Promapp](https://www.promapp.com/licensing/)
+* [Un tenant di Promapp](https://www.promapp.com/licensing/)
 * Un account utente in Promapp con autorizzazioni di amministratore.
 
 ## <a name="assigning-users-to-promapp"></a>Assegnazione di utenti a Promapp
 
-Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni*. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle *assegnazioni*. Nel contesto del provisioning utenti automatico vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
-Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a Promapp. Dopo aver stabilito questo, è possibile assegnare gli utenti e/o i gruppi a Promapp seguendo le istruzioni riportate qui:
+Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD devono poter accedere a Promapp. Dopo aver definito questo aspetto, è possibile assegnare gli utenti e/o i gruppi a Promapp seguendo le istruzioni riportate di seguito:
 * [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="important-tips-for-assigning-users-to-promapp"></a>Suggerimenti importanti per l'assegnazione di utenti a Promapp
 
-* È consigliabile assegnare un singolo Azure AD utente a Promapp per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
+* È consigliabile assegnare un singolo utente di Azure AD a Promapp per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
 * Quando si assegna un utente a Promapp, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo **Accesso predefinito** vengono esclusi dal provisioning.
 
 ## <a name="setup-promapp-for-provisioning"></a>Configurare Promapp per il provisioning
 
-1. Accedere a [Promapp Admin Console](https://freetrial.promapp.com/axelerate/Login.aspx). In nome utente passare a **profilo personale**.
+1. Accedere alla [console di amministrazione di Promapp](https://freetrial.promapp.com/axelerate/Login.aspx). Sotto il nome utente passare a **My Profile** (Profilo personale).
 
-    ![Console di amministrazione di Promapp](media/promapp-provisioning-tutorial/admin.png)
+    ![Console di amministrazione di Promapp Admin](media/promapp-provisioning-tutorial/admin.png)
 
-2.  In **token di accesso** fare clic sul pulsante **crea token** .
+2.  In **Access Tokens** (Token di accesso) fare clic sul pulsante **Create Token** (Crea token).
 
-    ![Promapp aggiungere SCIM](media/promapp-provisioning-tutorial/addtoken.png)
+    ![Aggiunta di SCIM in Promapp](media/promapp-provisioning-tutorial/addtoken.png)
 
-3.  Immettere un nome nel campo **Descrizione** e selezionare **scim** dal menu a discesa **ambito** . Fare clic sull'icona Salva.
+3.  Immettere un nome qualsiasi nel campo **Description** (Descrizione) e selezionare **Scim** nel menu a discesa **Scope** (Ambito). Fare clic sull'icona Salva.
 
-    ![Promapp Aggiungi nome](media/promapp-provisioning-tutorial/addname.png)
+    ![Aggiunta del nome in Promapp](media/promapp-provisioning-tutorial/addname.png)
 
-4.  Copiare il token di accesso e salvarlo perché questo sarà l'unico momento in cui è possibile visualizzarlo. Questo valore verrà immesso nel campo token segreto nella scheda provisioning dell'applicazione Promapp nel portale di Azure.
+4.  Copiare il token di accesso e salvarlo perché questa è l'unica volta in cui è possibile visualizzarlo. Questo valore verrà immesso nel campo Token segreto nella scheda Provisioning dell'applicazione Promapp nel portale di Azure.
 
-    ![Promapp creare token](media/promapp-provisioning-tutorial/token.png)
+    ![Creazione del token in Promapp](media/promapp-provisioning-tutorial/token.png)
 
 ## <a name="add-promapp-from-the-gallery"></a>Aggiungere Promapp dalla raccolta
 
-Prima di configurare Promapp per il provisioning utenti automatico con Azure AD, è necessario aggiungere Promapp dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS gestite.
+Prima di configurare Promapp per il provisioning utenti automatico con Azure AD, è necessario aggiungere Promapp dalla raccolta di applicazioni di Azure AD all'elenco di applicazioni SaaS gestite.
 
-**Per aggiungere Promapp dalla raccolta di applicazioni Azure AD, seguire questa procedura:**
+**Per aggiungere Promapp dalla raccolta di applicazioni di Azure AD, eseguire queste operazioni:**
 
-1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
+1. Nel **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory** nel riquadro di spostamento sinistro.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
@@ -80,7 +80,7 @@ Prima di configurare Promapp per il provisioning utenti automatico con Azure AD,
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
+3. Per aggiungere una nuova applicazione, selezionare il pulsante **Nuova applicazione** nella parte superiore del riquadro.
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
@@ -90,10 +90,10 @@ Prima di configurare Promapp per il provisioning utenti automatico con Azure AD,
 
 ## <a name="configuring-automatic-user-provisioning-to-promapp"></a>Configurazione del provisioning utenti automatico in Promapp 
 
-Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Promapp in base alle assegnazioni di utenti e/o gruppi in Azure AD.
+Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Promapp in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare Single Sign-On basate su SAML per Promapp seguendo le istruzioni fornite nell' [esercitazione sull'accesso Single Sign-on di Promapp](./promapp-tutorial.md). Il Single Sign-on può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
+> È anche possibile scegliere di abilitare l'accesso Single Sign-On basato su SAML per Promapp, seguendo le istruzioni contenute nell'[esercitazione sull'accesso Single Sign-On per Promapp](./promapp-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, anche se queste due funzionalità sono complementari.
 
 ### <a name="to-configure-automatic-user-provisioning-for-promapp-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Promapp in Azure AD:
 
@@ -107,13 +107,13 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
+    ![Screenshot delle opzioni di gestione con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatico evidenziata.](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere `https://api.promapp.com/api/scim` in **URL tenant**. Immettere il valore del **token di autenticazione scim** recuperato in precedenza in **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a Promapp. Se la connessione non riesce, verificare che l'account Promapp disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **Credenziali amministratore** immettere `https://api.promapp.com/api/scim` in **URL tenant**. Immettere il valore del **token di autenticazione SCIM** recuperato in precedenza in **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Promapp. Se la connessione non riesce, verificare che l'account Promapp abbia autorizzazioni di amministratore e riprovare.
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -123,21 +123,21 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 7. Fare clic su **Salva**.
 
-8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Promapp**.
+8. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to Promapp** (Sincronizza utenti di Azure Active Directory con Promapp).
 
-    ![Mapping utente Promapp](media/promapp-provisioning-tutorial/usermappings.png)
+    ![Mapping utente in Promapp](media/promapp-provisioning-tutorial/usermappings.png)
 
-9. Esaminare gli attributi utente sincronizzati da Azure AD a Promapp nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Promapp per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+9. Esaminare gli attributi utente sincronizzati tra Azure AD a Promapp nella sezione **Mapping di attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Promapp per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Attributi utente di Promapp](media/promapp-provisioning-tutorial/userattributes.png)
+    ![Attributi utente in Promapp](media/promapp-provisioning-tutorial/userattributes.png)
 
 11. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Per abilitare il servizio di provisioning Azure AD per Promapp, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+12. Per abilitare il servizio di provisioning di Azure AD per Promapp, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-13. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in Promapp selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
+13. Definire gli utenti e/o i gruppi di cui effettuare il provisioning in Promapp scegliendo i valori appropriati in **Ambito** nella sezione **Impostazioni**.
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
@@ -145,7 +145,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su Promapp.
+L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning di Azure AD in Promapp.
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 

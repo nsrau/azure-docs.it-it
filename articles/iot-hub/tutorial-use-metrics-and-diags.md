@@ -1,81 +1,92 @@
 ---
-title: Configurare e usare le metriche e i log di diagnostica con un hub IoT di Azure
-description: Informazioni su come configurare e usare le metriche e i log di diagnostica con un hub IoT di Azure. Vengono forniti i dati da analizzare per facilitare la diagnosi dei problemi che l'hub potrebbe avere.
+title: Configurare e usare metriche e log con un hub IoT di Azure
+description: Informazioni su come configurare e usare metriche e log con un hub IoT di Azure. Vengono forniti i dati da analizzare per facilitare la diagnosi dei problemi che l'hub potrebbe avere.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 3/13/2019
+ms.date: 10/29/2020
 ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: 47cca5019277b2f4d0025ccb6743589a21dfaafa
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d59e37cdcb6f530b08e980cf75d8834aed332252
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480123"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315197"
 ---
-# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Esercitazione: Configurare e usare le metriche e i log di diagnostica con un hub IoT
+# <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Esercitazione: Configurare e usare metriche e log con un hub IoT
 
-Se si dispone di una soluzione hub IoT in esecuzione nell'ambiente di produzione, è possibile configurare alcune metriche e abilitare i log di diagnostica. Se si verifica un problema, sarà quindi possibile esaminare i dati che consentono di diagnosticare il problema e risolverlo più rapidamente. In questo articolo verrà illustrato come abilitare i log di diagnostica e come controllarli per verificare la presenza di errori. Verranno inoltre configurate alcune metriche da controllare e gli avvisi che vengono generati quando le metriche raggiungono un determinato limite. Ad esempio, si potrebbe impostare la ricezione di un messaggio di posta elettronica quando il numero di messaggi di telemetria inviati supera un limite specifico o quando il numero di messaggi usati sta per raggiungere la quota di messaggi consentiti al giorno per l'hub IoT. 
+È possibile usare Monitoraggio di Azure per raccogliere le metriche e i log per l'hub IoT che possono essere utili per monitorare il funzionamento della soluzione e risolvere gli eventuali problemi. Questo articolo illustra come creare grafici basati su metriche, creare avvisi che vengono attivati in base alle metriche, inviare le operazioni e gli errori dell'hub IoT ai log di Monitoraggio di Azure e verificare la presenza di errori nei log.
 
-Un esempio di caso d'uso è una stazione di servizio in cui le pompe sono dispositivi IoT che comunicano con un hub IoT. Le carte di credito vengono convalidate e la transazione finale viene scritta in un archivio dati. Se i dispositivi IoT smettono di connettersi all'hub e di inviare messaggi, sarà molto più difficile risolvere il problema se non si ha visibilità su ciò che sta succedendo.
+Questa esercitazione usa l'esempio di Azure dell'[avvio rapido relativo all'invio di dati di telemetria in .NET](quickstart-send-telemetry-dotnet.md) per inviare messaggi all'hub IoT. È sempre possibile usare un dispositivo o un altro esempio per inviare i messaggi, ma potrebbe essere necessario modificare alcuni passaggi di conseguenza.
 
-Questa esercitazione usa l'esempio di Azure del [routing dell'hub IoT](tutorial-routing.md) per inviare messaggi all'hub IoT.
+Prima di iniziare questa esercitazione può essere utile acquisire familiarità con i concetti di Monitoraggio di Azure. Per altre informazioni, vedere [Monitoraggio dell'hub IoT di Azure](monitor-iot-hub.md). Per altre informazioni sulle metriche e i log delle risorse emessi dall'hub IoT, vedere [Informazioni di riferimento sul monitoraggio dei dati dell'hub IoT](monitor-iot-hub-reference.md).
 
 In questa esercitazione si eseguono le seguenti attività:
 
 > [!div class="checklist"]
-> * Creare un hub IoT, un dispositivo simulato e un account di archiviazione con l'interfaccia della riga di comando di Azure.  
-> * Abilitare i log di diagnostica.
-> * Abilitare le metriche.
-> * Configurare gli avvisi per tali metriche. 
-> * Scaricare ed eseguire un'app che simuli un dispositivo IoT che invia messaggi all'hub. 
-> * Eseguire l'app finché non vengono generati gli avvisi. 
-> * Visualizzare i risultati di metriche e controllare i log di diagnostica. 
+>
+> * Usare l'interfaccia della riga di comando di Azure per creare un hub IoT, registrare un dispositivo simulato e creare un'area di lavoro Log Analytics.  
+> * Inviare i log delle risorse sulle connessioni e i dati di telemetria del dispositivo dell'hub IoT ai log di Monitoraggio di Azure nell'area di lavoro Log Analytics.
+> * Usare lo strumento di esplorazione metriche per creare un grafico basato sulle metriche selezionate e aggiungerlo al dashboard.
+> * Creare avvisi delle metriche in modo da ricevere una notifica tramite posta elettronica quando si verificano condizioni importanti.
+> * Scaricare ed eseguire un'app che simula un dispositivo IoT che invia messaggi all'hub IoT.
+> * Visualizzare gli avvisi generati quando si verificano determinate condizioni.
+> * Visualizzare il grafico delle metriche nel dashboard.
+> * Visualizzare gli errori e le operazioni dell'hub IoT nei log di Monitoraggio di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-- Installare [Visual Studio](https://www.visualstudio.com/). 
+* È necessario .NET Core SDK 2.1 o versione successiva nel computer di sviluppo. È possibile scaricare .NET Core SDK per più piattaforme da [.NET](https://www.microsoft.com/net/download/all).
 
-- Un account di posta elettronica in grado di ricevere posta.
+  È possibile verificare la versione corrente di C# installata nel computer di sviluppo tramite il comando seguente:
 
-- Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo di questa esercitazione usa il protocollo MQTT, che comunica tramite la porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+  ```cmd/sh
+  dotnet --version
+  ```
 
+* Un account di posta elettronica in grado di ricevere posta.
+
+* Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo di questa esercitazione usa il protocollo MQTT, che comunica tramite la porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="set-up-resources"></a>Configurare le risorse
 
-Per questa esercitazione, è necessario un hub IoT, un account di archiviazione e un dispositivo IoT simulato. Queste risorse possono essere create usando l'interfaccia della riga di comando di Azure o Azure PowerShell. Usare lo stesso gruppo di risorse e lo stesso percorso per tutte le risorse. Alla fine, poi, è possibile rimuovere tutti gli elementi in un unico passaggio tramite l'eliminazione del gruppo di risorse.
+Per questa esercitazione sono necessari un hub IoT, un'area di lavoro Log Analytics e un dispositivo IoT simulato. Queste risorse possono essere create usando l'interfaccia della riga di comando di Azure o Azure PowerShell. Usare lo stesso gruppo di risorse e lo stesso percorso per tutte le risorse. Al termine dell'esercitazione, sarà possibile rimuovere tutti gli elementi in un unico passaggio tramite l'eliminazione del gruppo di risorse.
 
-Questi sono i passaggi necessari.
+Ecco la procedura da eseguire.
 
-1. Creare un [gruppo di risorse](../azure-resource-manager/management/overview.md). 
+1. Creare un [gruppo di risorse](../azure-resource-manager/management/overview.md).
 
 2. Creare un hub IoT.
 
-3. Creare un account di archiviazione V1 standard con la replica Standard_LRS.
+3. Creare un'area di lavoro Log Analytics.
 
-4. Creare un'identità del dispositivo per il dispositivo simulato che invia messaggi all'hub dell'utente. Salvare la chiave per la fase del test.
+4. Registrare un'identità del dispositivo per il dispositivo simulato che invia messaggi all'hub IoT. Salvare la stringa di connessione del dispositivo da usare per configurare il dispositivo simulato.
 
 ### <a name="set-up-resources-using-azure-cli"></a>Configurare le risorse usando l'interfaccia della riga di comando di Azure
 
-Copiare e incollare lo script seguente in Cloud Shell. Presupponendo che si sia già eseguito l'accesso, lo script verrà eseguito una riga alla volta. Le nuove risorse vengono create nel gruppo di risorse ContosoResources.
+Copiare e incollare lo script seguente in Cloud Shell. Presupponendo che si sia già eseguito l'accesso, lo script verrà eseguito una riga alla volta. L'esecuzione di alcuni comandi potrebbe richiedere del tempo. Le nuove risorse vengono create nel gruppo di risorse *ContosoResources*.
 
-Le variabili che devono essere globalmente univoche hanno l'elemento `$RANDOM` concatenato. Quando viene eseguito lo script e le variabili vengono configurate, viene generata una stringa numerica casuale che viene concatenata alla fine della stringa fissa, rendendola univoca.
+Il nome di alcune risorse deve essere univoco in Azure. Lo script genera un valore casuale con la funzione `$RANDOM` e lo archivia in una variabile. Per queste risorse, lo script aggiunge questo valore casuale alla fine di un nome di base per la risorsa, rendendo univoco tale nome.
+
+È consentito un solo hub IoT gratuito per sottoscrizione. Se nella sottoscrizione è già presente un hub IoT gratuito, eliminarlo prima di eseguire lo script oppure modificare lo script in modo da usare l'hub IoT gratuito già esistente o un hub IoT che usa il livello Standard o Basic.
+
+Lo script visualizza il nome dell'hub IoT, il nome dell'area di lavoro Log Analytics e la stringa di connessione del dispositivo registrato. Prendere nota di questi dati, che saranno necessari più avanti in questo articolo.
 
 ```azurecli-interactive
 
 # This is the IOT Extension for Azure CLI.
 # You only need to install this the first time.
-# You need it to create the device identity. 
+# You need it to create the device identity.
 az extension add --name azure-iot
 
 # Set the values for the resource names that don't have to be globally unique.
@@ -84,7 +95,8 @@ az extension add --name azure-iot
 #   run this script, and it will work with no conflicts.
 location=westus
 resourceGroup=ContosoResources
-iotDeviceName=Contoso-Test-Device 
+iotDeviceName=Contoso-Test-Device
+randomValue=$RANDOM
 
 # Create the resource group to be used
 #   for all the resources for this tutorial.
@@ -92,31 +104,31 @@ az group create --name $resourceGroup \
     --location $location
 
 # The IoT hub name must be globally unique, so add a random number to the end.
-iotHubName=ContosoTestHub$RANDOM
+iotHubName=ContosoTestHub$randomValue
 echo "IoT hub name = " $iotHubName
 
-# Create the IoT hub in the Free tier.
+# Create the IoT hub in the Free tier. Partition count must be 2.
 az iot hub create --name $iotHubName \
     --resource-group $resourceGroup \
+    --partition-count 2 \
     --sku F1 --location $location
 
-# The storage account name must be globally unique, so add a random number to the end.
-storageAccountName=contosostoragemon$RANDOM
-echo "Storage account name = " $storageAccountName
+# The Log Analytics workspace name must be globally unique, so add a random number to the end.
+workspaceName=contoso-la-workspace$randomValue
+echo "Log Analytics workspace name = " $workspaceName
 
-# Create the storage account.
-az storage account create --name $storageAccountName \
-    --resource-group $resourceGroup \
-    --location $location \
-    --sku Standard_LRS
+
+# Create the Log Analytics workspace
+az monitor log-analytics workspace create --resource-group $resourceGroup \
+    --workspace-name $workspaceName --location $location
 
 # Create the IoT device identity to be used for testing.
 az iot hub device-identity create --device-id $iotDeviceName \
-    --hub-name $iotHubName 
+    --hub-name $iotHubName
 
-# Retrieve the information about the device identity, then copy the primary key to
+# Retrieve the primary connection string for the device identity, then copy it to
 #   Notepad. You need this to run the device simulation during the testing phase.
-az iot hub device-identity show --device-id $iotDeviceName \
+az iot hub device-identity show-connection-string --device-id $iotDeviceName \
     --hub-name $iotHubName
 
 ```
@@ -130,263 +142,293 @@ az iot hub device-identity show --device-id $iotDeviceName \
 >az extension update --name azure-iot
 >```
 
-## <a name="enable-the-diagnostic-logs"></a>Abilitare i log di diagnostica 
+## <a name="collect-logs-for-connections-and-device-telemetry"></a>Raccogliere log relativi alle connessioni e ai dati di telemetria del dispositivo
 
-I [log di diagnostica](../azure-monitor/platform/platform-logs-overview.md) sono disabilitati per impostazione predefinita quando si crea un nuovo hub IoT. In questa sezione abilitare i log di diagnostica per l'hub.
+L'hub IoT emette i log delle risorse per diverse categorie di operazioni. Per visualizzare questi log occorre però creare un'impostazione di diagnostica per inviarli a una destinazione. Una destinazione adatta è costituita dai log di Monitoraggio di Azure, che sono raccolti in un'area di lavoro Log Analytics. I log delle risorse dell'hub IoT sono raggruppati in categorie diverse. È possibile selezionare le categorie che devono essere inviate ai log di Monitoraggio di Azure nell'impostazione di diagnostica. In questo articolo si raccoglieranno i log per le operazioni e gli errori correlati alle connessioni e ai dati di telemetria del dispositivo. Per un elenco completo delle categorie supportate per l'hub IoT, vedere [Log delle risorse dell'hub IoT](monitor-iot-hub-reference.md#resource-logs).
 
-1. In primo luogo, se non si è già nel proprio hub nel portale, fare clic su **Gruppi di risorse** e quindi sul gruppo di risorse Contoso-Resources. Selezionare l'hub dall'elenco di risorse visualizzate. 
+Per creare un'impostazione di diagnostica per l'invio dei log delle risorse dell'hub IoT ai log di Monitoraggio di Azure, seguire questa procedura:
 
-2. Cercare la sezione **Monitoraggio** nel pannello Hub IoT. Fare clic su **Impostazioni di diagnostica**. 
+1. In primo luogo, se non si è già nel proprio hub nel portale, selezionare **Gruppi di risorse** e quindi il gruppo di risorse ContosoResources. Selezionare l'hub IoT dall'elenco di risorse visualizzato.
 
-   ![Screenshot che evidenzia l'opzione Impostazioni di diagnostica nella sezione Monitoraggio.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
+1. Cercare la sezione **Monitoraggio** nel pannello Hub IoT. Selezionare **Impostazioni di diagnostica**. Quindi selezionare **Aggiungi impostazione di diagnostica**.
 
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/open-diagnostic-settings.png" alt-text="Screenshot che evidenzia l'opzione Impostazioni di diagnostica nella sezione Monitoraggio.":::
 
-3. Verificare che la sottoscrizione e il gruppo di risorse siano corretti. In **Tipo di risorsa** deselezionare **Seleziona tutto** , quindi cercare e selezionare **Hub IoT**. Viene visualizzato di nuovo il segno di spunta accanto a *Seleziona tutto* che in questo caso può essere ignorato. In **Risorsa** selezionare il nome dell'hub. Verrà visualizzata una schermata simile alla seguente: 
+1. Nel riquadro **Impostazione di diagnostica** assegnare all'impostazione un nome descrittivo, ad esempio "Invio dati di telemetria e connessioni ai log".
 
-   ![Schermata che mostra la parte delle impostazioni di diagnostica del pannello Hub IoT.](./media/tutorial-use-metrics-and-diags/02-diagnostic-settings-start.png)
+1. In **Dettagli categoria** selezionare **Connections** e **DeviceTelemetry**.
 
-4. Fare clic su **Abilita diagnostica**. Viene visualizzato il riquadro Impostazioni di diagnostica. Specificare "diags-hub" come nome delle impostazioni dei log di diagnostica.
+1. In **Dettagli della destinazione** selezionare **Invia a Log Analytics**, quindi usare lo strumento di selezione dell'area di lavoro Log Analytics per selezionare l'area di lavoro annotata in precedenza. Al termine, l'impostazione di diagnostica dovrebbe avere un aspetto simile allo screenshot seguente:
 
-5. Selezionare **Archivia in un account di archiviazione**. 
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/add-diagnostic-setting.png" alt-text="Schermata che mostra le impostazioni finali dei log di diagnostica.":::
 
-   ![Schermata che mostra l'impostazione di diagnostica per l'archiviazione in un account di archiviazione.](./media/tutorial-use-metrics-and-diags/03-diagnostic-settings-storage.png)
+1. Selezionare **Salva** per salvare le impostazioni. Chiudere il riquadro **Impostazione di diagnostica**. La nuova impostazione è ora presente nell'elenco delle impostazioni di diagnostica.
 
-    Fare clic su **Configura** per visualizzare la schermata **Selezionare un account di archiviazione** , selezionare l'account corretto ( *contosostoragemon* ) e fare clic su **OK** per tornare al riquadro Impostazioni di diagnostica. 
+## <a name="set-up-metrics"></a>Configurare le metriche
 
-   ![Schermata che mostra l'impostazione di log di diagnostica per l'archiviazione in un account di archiviazione.](./media/tutorial-use-metrics-and-diags/04-diagnostic-settings-after-storage.png)
+A questo punto si userà lo strumento di esplorazione delle metriche per creare un grafico con le metriche da monitorare. Questo grafico verrà quindi aggiunto al dashboard predefinito nel portale di Azure.
 
-6. In **LOG** selezionare **Connessioni** e **Telemetria dei dispositivi** e impostare la **Conservazione (giorni)** su 7 giorni per ciascuna opzione. La schermata Impostazioni di diagnostica visualizzata dovrà ora essere simile alla seguente:
+1. Nel riquadro sinistro dell'hub IoT selezionare **Metriche** nella sezione **Monitoraggio**.
 
-   ![Schermata che mostra le impostazioni finali dei log di diagnostica.](./media/tutorial-use-metrics-and-diags/05-diagnostic-settings-done.png)
+1. Nella parte superiore della schermata selezionare **Ultime 24 ore (automatico)** . Nell'elenco a discesa visualizzato selezionare **Ultime 4 ore** per **Intervallo di tempo**, impostare **Granularità temporale** su **1 minuto** e selezionare **Locale** per **Mostra ora come**. Selezionare **Applica** per salvare le impostazioni. L'impostazione ora dovrebbe essere **Ora locale: Ultime 4 ore (1 minuto)** .
 
-7. Fare clic su **Salva** per salvare le impostazioni. Chiudere il riquadro Impostazioni di diagnostica.
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-select-time-range.png" alt-text="Schermata che mostra le impostazioni temporali delle metriche.":::
 
-Successivamente, quando si esaminano i log di diagnostica, sarà possibile vedere la registrazione della connessione e della disconnessione del dispositivo. 
+1. Nel grafico è visualizzata un'impostazione di metrica parziale nell'ambito dell'hub IoT. Lasciare invariati i valori predefiniti di **Ambito** e **Spazio dei nomi della metrica**. Selezionare l'impostazione **Metrica** e digitare "Telemetria", quindi selezionare **Messaggi di telemetria inviati** nell'elenco a discesa. L'opzione **Aggregazione** verrà impostata automaticamente su **Somma**. Si noti che anche il titolo del grafico cambia.
 
-## <a name="set-up-metrics"></a>Configurare le metriche 
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-telemetry-messages-sent.png" alt-text="Screenshot che mostra l'aggiunta della metrica Messaggi di telemetria inviati al grafico.":::
 
-Configurare ora alcune metriche per controllare quando i messaggi vengono inviati all'hub. 
+1. Ora selezionare **Aggiungi metrica** per aggiungere un'altra metrica al grafico. In **Metrica** selezionare **Numero totale di messaggi usati**. L'opzione **Aggregazione** verrà impostata automaticamente su **Media**. Si noti che il titolo del grafico è cambiato ancora in modo da includere questa metrica.
 
-1. Nel riquadro delle impostazioni per l'hub IoT fare clic sull'opzione **Metriche** nella sezione **Monitoraggio**.
+   Ora la schermata mostra la metrica minimizzata per i *Messaggi di telemetria inviati*, più la nuova metrica per il *Numero totale di messaggi usati*.
 
-2. Nella parte superiore della schermata fare clic su **Ultime 24 ore (automatico)** . Nell'elenco a discesa visualizzato selezionare **Ultime 4 ore** per **Intervallo di tempo** e impostare **Granularità temporale** su **1 minuto** , ora locale. Fare clic su **Applica** per salvare le impostazioni. 
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-total-number-of-messages-used.png" alt-text="Screenshot che mostra l'aggiunta della metrica Numero totale di messaggi usati al grafico.":::
 
-   ![Schermata che mostra le impostazioni temporali delle metriche.](./media/tutorial-use-metrics-and-diags/06-metrics-set-time-range.png)
+1. Nell'angolo in alto a destra del grafico selezionare **Aggiungi al dashboard**.
 
-3. È presente una voce di metrica per impostazione predefinita. Lasciare il gruppo di risorse predefinito e lo spazio dei nomi della metrica. Nell'elenco a discesa **Metrica** selezionare **Messaggi di telemetria inviati**. Impostare **Aggregazione** su **Somma**.
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-total-number-of-messages-used-pin.png" alt-text="Screenshot che evidenzia il pulsante Aggiungi al dashboard.":::
 
-   ![Schermata che mostra l'aggiunta di una metrica per i messaggi di telemetria inviati.](./media/tutorial-use-metrics-and-diags/07-metrics-telemetry-messages-sent.png)
+1. Nel riquadro **Aggiungi al dashboard** selezionare la scheda **Esistente**. Selezionare **Privato** e quindi selezionare **Dashboard** nell'elenco a discesa Dashboard. Infine, selezionare **Aggiungi** per aggiungere il grafico al dashboard predefinito nel portale di Azure. Se non si aggiunge il grafico a un dashboard, le impostazioni non vengono mantenute quando si esce dallo strumento di esplorazione delle metriche.
 
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/pin-to-dashboard.png" alt-text="Screenshot che mostra le impostazioni per Aggiungi al dashboard.":::
 
-4. Fare clic su **Aggiungi metrica** per aggiungere un'altra metrica al grafico. Selezionare il gruppo di risorse ( **ContosoTestHub** ). In **Metrica** selezionare **Numero totale di messaggi usati**. Per **Aggregazione** selezionare **Media**. 
+## <a name="set-up-metric-alerts"></a>Configurare gli avvisi delle metriche
 
-   Ora la schermata mostra la metrica minimizzata per i *Messaggi di telemetria inviati* , più la nuova metrica per il *Numero totale di messaggi usati*.
+A questo punto occorre configurare gli avvisi da attivare sulla base delle metriche *Messaggi di telemetria inviati* e *Numero totale di messaggi usati*.
 
-   ![Screenshot che evidenzia il pulsante Aggiungi al dashboard.](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
+*Messaggi di telemetria inviati* è una metrica che è utile monitorare per tenere traccia della velocità effettiva dei messaggi ed evitare limitazioni. Per un hub IoT nel livello gratuito la limitazione massima è di 100 messaggi al secondo. Dato che con un solo dispositivo non è possibile raggiungere questo tipo di velocità effettiva, si configurerà l'avviso in modo che venga attivato se il numero di messaggi supera i 1000 in 5 minuti. In ambiente di produzione è possibile impostare il segnale su un valore più significativo in base al livello, all'edizione e al numero di unità dell'hub IoT.
 
-   Fare clic su **Aggiungi al dashboard**. Verrà aggiunta al dashboard del portale di Azure in modo che sia possibile accedervi nuovamente. Se non viene aggiunta al dashboard, le impostazioni non vengono mantenute.
+La metrica *Numero totale di messaggi usati* tiene traccia del numero di messaggi usati giornalmente. Viene reimpostata ogni giorno alle 00:00 UTC. Se si supera la quota giornaliera oltre una determinata soglia, l'hub IoT non accetterà più messaggi. Per un hub IoT nel livello gratuito la quota giornaliera dei messaggi è pari a 8.000. Si configurerà l'avviso in modo che venga attivato se il numero totale di messaggi supera 4000, il 50% della quota. Nella pratica questa percentuale viene probabilmente impostata su un valore più alto. Il valore della quota giornaliera dipende dal livello, dall'edizione e dal numero di unità dell'hub IoT.
 
-## <a name="set-up-alerts"></a>Impostare gli avvisi
+Per altre informazioni sui limiti delle quote e la limitazione delle operazioni con l'hub IoT, vedere [Quote e limitazioni](iot-hub-devguide-quotas-throttling.md).
 
-Andare all'hub nel portale. Fare clic su **Gruppi di risorse** , selezionare *ContosoResources* , quindi selezionare l'hub IoT *ContosoTestHub*. 
+Per configurare gli avvisi delle metriche:
 
-L'hub IoT non è ancora stato migrato alle [metriche in Monitoraggio di Azure](../azure-monitor/platform/data-platform.md#metrics). È necessario usare gli [avvisi classici](../azure-monitor/platform/alerts-classic.overview.md).
+1. Passare all'hub IoT nel portale di Azure.
 
-1. In **Monitoraggio** fare clic su **Avvisi**. Viene visualizzata la schermata principale degli avvisi. 
+1. In **Monitoraggio** selezionare **Avvisi**. Quindi selezionare **Nuova regola di avviso**.  Si aprirà il riquadro **Crea regola di avviso**.
 
-   ![Schermata che mostra come trovare gli avvisi classici.](./media/tutorial-use-metrics-and-diags/08-find-classic-alerts.png)
+    :::image type="content" source="media/tutorial-use-metrics-and-diags/create-alert-rule-pane.png" alt-text="Screenshot che mostra il riquadro Crea regola di avviso.":::
 
-2. Per visualizzare gli avvisi classici da qui, fare clic su **Visualizza avvisi classici**. 
+    Il riquadro **Crea regola di avviso** è suddiviso in quattro sezioni:
 
-    ![Schermata che mostra gli avvisi classici.](./media/tutorial-use-metrics-and-diags/09-view-classic-alerts.png)
+    * **Ambito** è già impostato sull'hub IoT, quindi non occorre fare nulla in questa sezione.
+    * **Condizione** imposta il segnale e le condizioni che attiveranno l'avviso.
+    * **Azioni** configura le azioni da eseguire all'attivazione dell'avviso.
+    * **Dettagli regola di avviso** consente di impostare un nome e una descrizione per l'avviso.
 
-    Compilare i campi: 
+1. Configurare prima di tutto la condizione in base alla quale verrà attivato l'avviso.
 
-    **Sottoscrizione** lasciare questo campo impostato sulla sottoscrizione corrente.
+    1. In **Condizione** selezionare **Selezione condizione**. Nel riquadro **Configura logica dei segnali** digitare "telemetria" nella casella di ricerca e selezionare **Messaggi di telemetria inviati**.
 
-    **Origine** : impostare questo campo su *Metriche*.
+       :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="Screenshot che mostra la selezione della metrica.":::
 
-    **Gruppo di risorse** : impostare questo campo sul gruppo di risorse corrente *ContosoResources*. 
+    1. Nel riquadro **Configura logica dei segnali** impostare o confermare i campi seguenti in **Logica avvisi** (è possibile ignorare il grafico):
 
-    **Tipo di risorsa** : impostare questo campo su Hub IoT. 
+       **Soglia**:  *Statica*.
 
-    **Resource** (Risorsa): selezionare l'hub IoT *ContosoTestHub*.
+       **Operatore**: *Maggiore di*.
 
-3. Fare clic su **Aggiungi avviso per la metrica (versione classica)** per configurare un nuovo avviso.
+       **Tipo di aggregazione**: *Totale*.
 
-    Compilare i campi:
+       **Valore soglia**: 1000.
 
-    **Name** : specificare un nome per la regola di avviso, ad esempio *telemetry-messages*.
+       **Granularità aggregazione (periodo)** : *5 minuti*.
 
-    **Descrizione** : fornire una descrizione dell'avviso, ad esempio *alert when there are 1000 telemetry messages sent*. 
+       **Frequenza della valutazione**: *Ogni minuto*
 
-    **Origine** : impostare questa opzione su *Metriche*.
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-set-conditions.png" alt-text="Screenshot che mostra le impostazioni delle condizioni per gli avvisi.":::
 
-    I campi **Sottoscrizione** , **Gruppo di risorse** e **Risorsa** devono essere impostati sui valori selezionati nella schermata **Visualizza avvisi classici**. 
+       Queste impostazioni impostano il segnale sul totale del numero dei messaggi su un periodo di 5 minuti. Questo totale viene valutato ogni minuto e, se il totale per i 5 minuti precedenti supera i 1000 messaggi, viene attivato l'avviso.
 
-    Impostare il campo **Metrica** su *Messaggi di telemetria inviati*.
+       Selezionare **Fine** per salvare la logica dei segnali.
 
-    ![Schermata che mostra la configurazione di un avviso classico per i messaggi di telemetria inviati.](./media/tutorial-use-metrics-and-diags/10-alerts-add-rule-telemetry-top.png)
+1. A questo punto occorre configurare l'azione per l'avviso.
 
-4. Dopo il grafico impostare i campi seguenti:
+    1. Tornare al riquadro **Crea regola di avviso** e in **Azioni** selezionare **Seleziona gruppo di azioni**. In **Selezionare un gruppo di azioni da collegare a questa regola di avviso** selezionare **Crea gruppo di azioni**.
 
-   **Condizione** : Impostare su *Maggiore di*.
+    1. Nella scheda **Informazioni di base** del riquadro **Crea gruppo di azioni** assegnare al gruppo di azioni un nome e un nome visualizzato.
 
-   **Soglia** : Impostare su 1000.
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/create-action-group-basics.png" alt-text="Screenshot che mostra la scheda Informazioni di base del riquadro Crea gruppo di azioni.":::
 
-   **Periodo** : Impostare su *Negli ultimi 5 minuti*.
+    1. Selezionare la scheda **Notifiche**. In **Tipo di notifica** selezionare **Email/SMS message/Push/Voice** (Messaggio di posta elettronica/Messaggio SMS/Push/Voce) dall'elenco a discesa. Si aprirà il riquadro **Email/SMS message/Push/Voice** (Messaggio di posta elettronica/Messaggio SMS/Push/Voce).
 
-   **Destinatari dei messaggi di posta elettronica di notifica** : Immettere l'indirizzo di posta elettronica personale. 
+    1. Nel riquadro **Email/SMS message/Push/Voice** selezionare Posta elettronica e immettere l'indirizzo di posta elettronica, quindi scegliere **OK**.
 
-   ![Schermata che mostra la metà inferiore della schermata degli avvisi.](./media/tutorial-use-metrics-and-diags/11-alerts-add-rule-bottom.png)
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/set-email-address.png" alt-text="Screenshot che mostra l'impostazione dell'indirizzo di posta elettronica.":::
 
-   Fare clic su **OK** per salvare l'avviso. 
+    1. Nel riquadro **Notifiche** immettere un nome per la notifica.
 
-5. Configurare ora un altro avviso per il *numero totale di messaggi usati*. Questa metrica è utile se si vuole inviare un avviso quando il numero di messaggi usati sta per raggiungere la quota per l'hub IoT, per informare che presto l'hub inizierà a rifiutare i messaggi.
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/create-action-group-notification-complete.png" alt-text="Screenshot che mostra il riquadro Notifiche completato.":::
 
-   Nella schermata **Visualizza avvisi classici** fare clic su **Aggiungi avviso per la metrica (versione classica)** , quindi compilare questi campi nel riquadro **Aggiungi regola**.
+    1. (Facoltativo) Se si seleziona la scheda **Azioni** e quindi l'elenco a discesa **Tipo di azione**, è possibile vedere i tipi di azioni che possono essere attivati con un avviso. Ai fini di questo articolo si useranno solo le notifiche, pertanto è possibile ignorare le impostazioni di questa scheda.
 
-   **Name** : specificare un nome per la regola di avviso, ad esempio *number-of-messages-used*.
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/action-types.png" alt-text="Screenshot che mostra i tipi di azione disponibili nel riquadro Azioni.":::
 
-   **Descrizione** : fornire una descrizione dell'avviso, ad esempio *alert when getting close to quota*.
+    1. Selezionare la scheda **Rivedi e crea**, verificare le impostazioni e selezionare **Crea**.
 
-   **Origine** : impostare questo campo su *Metriche*.
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/create-action-group-review-and-create.png" alt-text="Screenshot che mostra il riquadro Rivedi e crea.":::
 
-    I campi **Sottoscrizione** , **Gruppo di risorse** e **Risorsa** devono essere impostati sui valori selezionati nella schermata **Visualizza avvisi classici**. 
+    1. Tornando al riquadro **Crea regola di avviso**, si può notare che il nuovo gruppo di azioni è stato aggiunto alle azioni per l'avviso.  
 
-    Impostare il campo **Metrica** su *Numero totale di messaggi usati*.
+1. Infine, configurare i dettagli della regola di avviso e salvare la regola.
 
-6. Sotto il grafico compilare i campi seguenti:
+    1. Nella sezione Dettagli regola di avviso del riquadro **Crea regola di avviso** immettere un nome e una descrizione per l'avviso, ad esempio "Avvisa in caso di superamento di 1000 messaggi in 5 minuti". Verificare che la casella **Abilita regola di avviso alla creazione** sia selezionata. La regola di avviso completata sarà simile allo screenshot seguente.
 
-   **Condizione** : Impostare su *Maggiore di*.
+        :::image type="content" source="media/tutorial-use-metrics-and-diags/create-alert-rule-final.png" alt-text="Screenshot che mostra il riquadro Crea regola di avviso completato.":::
 
-   **Soglia** : Impostare su 1000.
+    1. Selezionare **Crea regola di avviso** per salvare la nuova regola.
 
-   **Periodo** : Impostare questo campo su *Negli ultimi 5 minuti*. 
+1. Configurare ora un altro avviso per il *numero totale di messaggi usati*. Questa metrica è utile se si vuole inviare un avviso quando il numero di messaggi usati si sta avvicinando alla quota giornaliera per l'hub IoT, al raggiungimento della quale l'hub inizierà a rifiutare i messaggi. Seguire la procedura descritta in precedenza, con le differenze seguenti.
 
-   **Destinatari dei messaggi di posta elettronica di notifica** : Immettere l'indirizzo di posta elettronica personale. 
+    * Per il segnale nel riquadro **Configura logica dei segnali** selezionare **Numero totale di messaggi usati**.
 
-   Fare clic su **OK** per salvare la regola. 
+    * Nel riquadro **Configura logica dei segnali** impostare o confermare i campi seguenti (è possibile ignorare il grafico):
 
-5. Verranno visualizzati ora due avvisi nel riquadro degli avvisi classici: 
+       **Soglia**:  *Statica*.
 
-   ![Schermata che mostra gli avvisi classici con le nuove regole di avviso.](./media/tutorial-use-metrics-and-diags/12-alerts-done.png)
+       **Operatore**: *Maggiore di*.
 
-6. Chiudere il riquadro degli avvisi. 
-    
-    Con queste impostazioni, si riceverà un avviso quando il numero di messaggi inviati è superiore a 400 e quando il numero totale di messaggi sati supera il valore NUMERO.
+       **Tipo di aggregazione**: *Massimo*.
 
-## <a name="run-simulated-device-app"></a>Eseguire l'app di dispositivo simulato
+       **Valore soglia**: 4000.
 
-In precedenza nella sezione di installazione dello script, è stato configurato un dispositivo per simulare l'uso di un dispositivo IoT. In questa sezione si scarica un'app console di .NET che simula un dispositivo che invia messaggi da dispositivo a cloud a un hub IoT.  
+       **Granularità aggregazione (periodo)** : *1 minuto*.
 
-Scaricare la soluzione per la [simulazione dispositivi IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Viene scaricato un repository contenente diverse applicazioni. La soluzione desiderata si trova in iot-hub/Tutorials/Routing/.
+       **Frequenza della valutazione**: *Ogni minuto*
 
-Fare doppio clic sul file di soluzione (SimulatedDevice.sln) per aprire il codice in Visual Studio, quindi aprire Program.cs. Sostituire `{iot hub hostname}` con il nome host dell'hub IoT. Il formato del nome host dell'hub IoT **{nome hub iot} .azure-devices.net**. Per questa esercitazione, il nome host dell'hub è **ContosoTestHub.azure devices.net**. Successivamente, sostituire `{device key}` con la chiave del dispositivo salvato in precedenza durante la configurazione del dispositivo simulato. 
+       Queste impostazioni impostano l'attivazione del segnale quando il numero di messaggi raggiunge i 4000. La metrica viene valutata ogni minuto.
 
-   ```csharp
-        static string myDeviceId = "contoso-test-device";
-        static string iotHubUri = "ContosoTestHub.azure-devices.net";
-        // This is the primary key for the device. This is in the portal. 
-        // Find your IoT hub in the portal > IoT devices > select your device > copy the key. 
-        static string deviceKey = "{your device key here}";
-   ```
+    * Quando si specifica l'azione per la regola di avviso, selezionare semplicemente il gruppo di azioni creato in precedenza.
 
-## <a name="run-and-test"></a>Esecuzione e test 
+    * Per i dettagli dell'avviso, scegliere un nome e una descrizione diversi rispetto a quelli specificati in precedenza.
 
-Nel file Program.cs modificare `Task.Delay` da 1000 a 10, riducendo la quantità di tempo che intercorre tra l'invio di messaggi da 1 secondo a 0.01 secondi. La riduzione di questo ritardo consente di aumentare il numero di messaggi inviati.
+1. Selezionare **Avvisi** in **Monitoraggio** nel riquadro sinistro dell'hub IoT. Selezionare **Gestisci regole di avviso** nel menu nella parte superiore del riquadro **Avvisi**. Si aprirà il riquadro **Regole**. A questo punto si dovrebbero vedere i due avvisi:
 
-```csharp
-await Task.Delay(10);
-```
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/rules-management.png" alt-text="Screenshot che mostra il riquadro Regole con le nuove regole di avviso.":::
 
-Eseguire l'applicazione console. Attendere qualche minuto (10-15). È possibile visualizzare i messaggi inviati dal dispositivo simulato all'hub nella finestra della console dell'applicazione.
+1. Chiudere il riquadro **Regole**.
 
-### <a name="see-the-metrics-in-the-portal"></a>Visualizzare le metriche nel portale
+Con queste impostazioni verrà attivato un avviso e si riceverà una notifica tramite posta elettronica quando vengono inviati più di 1000 messaggi entro un intervallo di 5 minuti e anche quando il numero totale di messaggi usati è superiore a 4000 (il 50% della quota giornaliera per un hub IoT nel livello gratuito).
 
-Aprire le metriche nel dashboard. Impostare il valore su *Ultimi 30 minuti* con una granularità temporale di *1 minuto*. Nel grafico vengono visualizzati i messaggi di telemetria inviati e il numero totale di messaggi usati con i numeri più recenti nella parte inferiore del grafico.
+## <a name="run-the-simulated-device-app"></a>Eseguire un'app di dispositivo simulato
 
-   ![Schermata che mostra le metriche.](./media/tutorial-use-metrics-and-diags/13-metrics-populated.png)
+Nelle sezione [Configurare le risorse](#set-up-resources) è stata registrata un'identità del dispositivo da usare per la simulazione con un dispositivo IoT. In questa sezione si scarica un'app console .NET che simula un dispositivo che invia messaggi da dispositivo a cloud a un hub IoT, si configura l'app per inviare questi messaggi all'hub IoT e quindi la si esegue. 
 
-### <a name="see-the-alerts"></a>Visualizzare gli avvisi
+> [!IMPORTANT]
+>
+> La configurazione completa e l'abilitazione degli avvisi da parte dell'hub IoT possono richiedere fino a 10 minuti. Attendere almeno 10 minuti tra il momento in cui viene configurato l'ultimo avviso e l'esecuzione dell'app del dispositivo simulato.
 
-Tornare agli avvisi. Fare clic su **Gruppi di risorse** , selezionare *ContosoResources* , quindi selezionare l'hub *ContosoTestHub*. Nella pagina delle proprietà visualizzata per l'hub selezionare **Avvisi** , quindi **Visualizza avvisi classici**. 
+Scaricare la soluzione per la [simulazione dispositivi IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Tramite questo collegamento viene scaricato un repository contenente diverse applicazioni. La soluzione desiderata si trova in iot-hub/Quickstarts/simulated-device/.
 
-Quando il numero di messaggi inviati supera il limite, si inizierà a ricevere avvisi tramite posta elettronica. Per verificare se sono presenti avvisi attivi, passare all'hub e selezionare **Avvisi**. Vengono visualizzati gli avvisi attivi e se sono presenti altri eventuali avvisi. 
+1. In una finestra del terminale locale passare alla cartella radice della soluzione. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device**.
 
-   ![Schermata che mostra gli avvisi che sono stati generati.](./media/tutorial-use-metrics-and-diags/14-alerts-firing.png)
+1. Aprire il file **SimulatedDevice.cs** in un editor di testo di propria scelta.
 
-Fare clic sull'avviso per i messaggi di telemetria. Viene visualizzato il risultato delle metriche e un grafico con i risultati. Inoltre, il messaggio di posta elettronica inviato per avvisare della generazione dell'avviso sarà simile a quello mostrato in questa immagine:
+    1. Sostituire il valore della variabile `s_connectionString` con la stringa di connessione del dispositivo annotata quando è stato eseguito lo script per configurare le risorse.
 
-   ![Schermata del messaggio di posta elettronica che mostra gli avvisi che sono stati generati.](./media/tutorial-use-metrics-and-diags/15-alert-email.png)
+    1. Nel metodo `SendDeviceToCloudMessagesAsync` cambiare il valore di `Task.Delay` da 1000 a 1, riducendo così la quantità di tempo che intercorre tra gli invii di messaggi da 1 secondo a 0,001 secondi. La riduzione di questo ritardo consente di aumentare il numero di messaggi inviati. Probabilmente non si otterrà una frequenza di 100 messaggi al secondo.
 
-### <a name="see-the-diagnostic-logs"></a>Visualizzare i log di diagnostica
+        ```csharp
+        await Task.Delay(1);
+        ```
 
-È possibile configurare i log di diagnostica da esportare nell'archiviazione BLOB. Passare al gruppo di risorse e selezionare l'account di archiviazione *contosostoragemon*. Selezionare i BLOB e quindi aprire il contenitore *insights-logs-connections*. Eseguire il drill-down fino a quando non viene visualizzata la data corrente e selezionare il file più recente. 
+    1. Salvare le modifiche nel file **SimulatedDevice.cs**.
 
-   ![Schermata del drill-down nel contenitore di archiviazione per visualizzare i log di diagnostica.](./media/tutorial-use-metrics-and-diags/16-diagnostics-logs-list.png)
+1. Nella finestra del terminale locale eseguire il comando seguente per installare i pacchetti necessari per l'applicazione del dispositivo simulato:
 
-Fare clic su **Scarica** per scaricare e aprire il file. Vengono visualizzati i log del dispositivo che si connette e si disconnette mentre invia messaggi all'hub. Di seguito viene riportato un esempio:
+    ```cmd/sh
+    dotnet restore
+    ```
 
-``` json
-{ 
-  "time": "2018-12-17T18:11:25Z", 
-  "resourceId": 
-    "/SUBSCRIPTIONS/your-subscription-id/RESOURCEGROUPS/CONTOSORESOURCES/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/CONTOSOTESTHUB", 
-  "operationName": "deviceConnect", 
-  "category": "Connections", 
-  "level": "Information", 
-  "properties": 
-      {"deviceId":"Contoso-Test-Device",
-       "protocol":"Mqtt",
-       "authType":null,
-       "maskedIpAddress":"73.162.215.XXX",
-       "statusCode":null
-       }, 
-  "location": "westus"
-}
-{ 
-   "time": "2018-12-17T18:19:25Z", 
-   "resourceId": 
-     "/SUBSCRIPTIONS/your-subscription-id/RESOURCEGROUPS/CONTOSORESOURCES/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/CONTOSOTESTHUB", 
-    "operationName": "deviceDisconnect", 
-    "category": "Connections", 
-    "level": "Error", 
-    "resultType": "404104", 
-    "resultDescription": "DeviceConnectionClosedRemotely", 
-    "properties": 
-        {"deviceId":"Contoso-Test-Device",
-         "protocol":"Mqtt",
-         "authType":null,
-         "maskedIpAddress":"73.162.215.XXX",
-         "statusCode":"404"
-         }, 
-    "location": "westus"
-}
-```
+1. Nella finestra del terminale eseguire il comando seguente per compilare ed eseguire l'applicazione del dispositivo simulato:
 
-## <a name="clean-up-resources"></a>Pulire le risorse 
+    ```cmd/sh
+    dotnet run
+    ```
 
-Per rimuovere tutte le risorse create in questa esercitazione, eliminare il gruppo di risorse. Questa azione elimina tutte le risorse contenute all'interno del gruppo. In questo caso, verranno rimossi l'hub IoT, l'account di archiviazione e il gruppo di risorse stesso. Se sono state aggiunte metriche al dashboard, è necessario rimuoverle manualmente, facendo clic sui tre punti nell'angolo in alto a destra di ciascuna di esse e selezionando **Rimuovi**.
+    La schermata seguente mostra l'output mentre l'applicazione del dispositivo simulato invia i dati di telemetria all'hub IoT:
 
-Per rimuovere il gruppo di risorse, usare il comando [eliminazione del gruppo az](/cli/azure/group?view=azure-cli-latest#az-group-delete).
+    :::image type="content" source="media/tutorial-use-metrics-and-diags/simulated-device-output.png" alt-text="Screenshot che mostra l'output del dispositivo simulato.":::
+
+Lasciare l'applicazione in esecuzione per almeno 10-15 minuti. L'ideale è lasciarla in esecuzione finché non smette di inviare messaggi (circa 20-30 minuti). Questo avviene quando si supera la quota giornaliera di messaggi per l'hub IoT e quest'ultimo non accetta più altri messaggi.
+
+> [!NOTE]
+> Se si lascia l'app del dispositivo in esecuzione per un periodo di tempo prolungato dopo che ha smesso di inviare messaggi, è possibile che venga generata un'eccezione. È possibile ignorare tranquillamente questa eccezione e chiudere la finestra dell'app.
+
+## <a name="view-metrics-chart-on-your-dashboard"></a>Visualizzare il grafico delle metriche nel dashboard
+
+1. Nell'angolo in alto a sinistra del portale di Azure aprire il menu del portale e quindi selezionare **Dashboard**.
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/select-dashboard.png" alt-text="Screenshot che mostra come selezionare il dashboard.":::
+
+1. Trovare il grafico aggiunto in precedenza e fare clic in un punto qualsiasi del riquadro all'esterno dei dati del grafico per espanderlo. Nel grafico vengono visualizzati i messaggi di telemetria inviati e il numero totale di messaggi usati. I numeri più recenti sono visualizzati nella parte inferiore del grafico. È possibile spostare il cursore all'interno del grafico per visualizzare i valori delle metriche per orari specifici. È anche possibile modificare il valore e la granularità nella parte superiore del grafico per limitare o espandere i dati a un periodo di tempo di interesse.
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/metrics-on-dashboard-last-hour.png" alt-text="Screenshot che mostra il grafico delle metriche.":::
+
+   In questo scenario la velocità effettiva dei messaggi del dispositivo simulato non è sufficientemente elevata da causare la limitazione dei messaggi da parte dell'hub IoT. In uno scenario che prevede effettivamente la limitazione, è possibile che i messaggi di telemetria inviati superino il limite impostato per l'hub IoT per un periodo di tempo limitato. Lo scopo è quello di consentire la gestione dei picchi di traffico. Per informazioni dettagliate, vedere [Traffic Shaping](iot-hub-devguide-quotas-throttling.md#traffic-shaping).
+
+## <a name="view-the-alerts"></a>Visualizzare gli avvisi
+
+Quando il numero di messaggi inviati supera i limiti impostati nelle regole di avviso, si inizierà a ricevere avvisi tramite posta elettronica.
+
+Per verificare la presenza di avvisi attivi, selezionare **Avvisi** in **Monitoraggio** nel riquadro sinistro dell'hub IoT. Il riquadro **Avvisi** mostra il numero di avvisi generati ordinati per livello di gravità per l'intervallo di tempo specificato.
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/view-alerts.png" alt-text="Screenshot che mostra il riepilogo degli avvisi.":::
+
+Selezionare la riga relativa al livello Gravità 3. Si aprirà il riquadro **Tutti gli avvisi** in cui sono elencati gli avvisi con livello di gravità 3 generati.
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/view-all-alerts.png" alt-text="Screenshot che mostra il riquadro Tutti gli avvisi.":::
+
+Selezionare uno degli avvisi per visualizzarne i dettagli.
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/view-individual-alert.png" alt-text="Screenshot che mostra i dettagli dell'avviso.":::
+
+Controllare la posta in arrivo per verificare se sono presenti messaggi da Microsoft Azure. La riga dell'oggetto conterrà la descrizione dell'avviso attivato. Ad esempio, *Azure: Gravità attivata: 3 Avvisa in caso di superamento di 1000 messaggi in 5 minuti*. Il corpo del messaggio sarà simile a quello nell'immagine seguente:
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/alert-mail.png" alt-text="Schermata del messaggio di posta elettronica che mostra gli avvisi che sono stati generati.":::
+
+## <a name="view-azure-monitor-logs"></a>Visualizzare i log di Monitoraggio di Azure
+
+Nella sezione [Raccogliere log relativi alle connessioni e ai dati di telemetria del dispositivo](#collect-logs-for-connections-and-device-telemetry) è stata creata un'impostazione di diagnostica per l'invio dei log delle risorse emessi dall'hub IoT per le operazioni di connessione e telemetria del dispositivo ai log di Monitoraggio di Azure. In questa sezione si eseguirà una query Kusto sui log di Monitoraggio di Azure per osservare gli eventuali errori.
+
+1. In **Monitoraggio**, nel riquadro sinistro dell'hub IoT nel portale di Azure, selezionare **Log**. Chiudere la finestra **Query** iniziale, se aperta.
+
+1. Nel riquadro Nuova query selezionare la scheda **Query** , quindi espandere **Hub IoT** per visualizzare l'elenco delle query predefinite.
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/new-query-pane.png" alt-text="Screenshot delle query predefinite dell'hub IoT.":::
+
+1. Selezionare la query *Riepilogo errori*. La query viene visualizzata nel riquadro Editor di query. Selezionare **Esegui** nel riquadro dell'editor e osservare i risultati della query. Espandere una delle righe per visualizzare i dettagli.
+
+   :::image type="content" source="media/tutorial-use-metrics-and-diags/logs-errors.png" alt-text="Screenshot dei log restituiti dalla query Riepilogo errori.":::
+
+   > [!NOTE]
+   > Se non vengono visualizzati errori, provare a eseguire la query *Recently connected devices* (Dispositivi connessi di recente). La query dovrebbe restituire una riga per il dispositivo simulato.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Per rimuovere tutte le risorse create in questa esercitazione, eliminare il gruppo di risorse. Questa azione elimina tutte le risorse contenute all'interno del gruppo. In questo caso rimuove l'hub IoT, l'area di lavoro Log Analytics e il gruppo di risorse stesso. Se sono stati aggiunti grafici di metriche al dashboard, è necessario rimuoverli manualmente facendo clic sui tre puntini nell'angolo in alto a destra di ciascun grafico e selezionando **Rimuovi**. Assicurarsi di salvare le modifiche dopo aver eliminato i grafici.
+
+Per rimuovere il gruppo di risorse, usare il comando [eliminazione del gruppo az](/cli/azure/group#az-group-delete).
 
 ```azurecli-interactive
-az group delete --name $resourceGroup
+az group delete --name ContosoResources
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato illustrato come usare le metriche e i log di diagnostica effettuando le operazioni seguenti:
+In questa esercitazione è stato illustrato come usare le metriche di hub IoT e i log effettuando le operazioni seguenti:
 
 > [!div class="checklist"]
-> * Creare un hub IoT, un dispositivo simulato e un account di archiviazione con l'interfaccia della riga di comando di Azure.  
-> * Abilitare i log di diagnostica. 
-> * Abilitare le metriche.
-> * Configurare gli avvisi per tali metriche. 
-> * Scaricare ed eseguire un'app che simuli un dispositivo IoT che invia messaggi all'hub. 
-> * Eseguire l'app finché non vengono generati gli avvisi. 
-> * Visualizzare i risultati di metriche e controllare i log di diagnostica. 
+>
+> * Usare l'interfaccia della riga di comando di Azure per creare un hub IoT, registrare un dispositivo simulato e creare un'area di lavoro Log Analytics.  
+> * Inviare i log delle risorse sulle connessioni e i dati di telemetria del dispositivo dell'hub IoT ai log di Monitoraggio di Azure nell'area di lavoro Log Analytics.
+> * Usare lo strumento di esplorazione metriche per creare un grafico basato sulle metriche selezionate e aggiungerlo al dashboard.
+> * Creare avvisi delle metriche in modo da ricevere una notifica tramite posta elettronica quando si verificano condizioni importanti.
+> * Scaricare ed eseguire un'app che simula un dispositivo IoT che invia messaggi all'hub IoT.
+> * Visualizzare gli avvisi generati quando si verificano determinate condizioni.
+> * Visualizzare il grafico delle metriche nel dashboard.
+> * Visualizzare gli errori e le operazioni dell'hub IoT nei log di Monitoraggio di Azure.
 
 Passare all'esercitazione successiva per imparare a gestire lo stato di un dispositivo hub IoT. 
 

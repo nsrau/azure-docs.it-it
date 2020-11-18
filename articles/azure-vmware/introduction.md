@@ -3,12 +3,12 @@ title: Introduzione
 description: Informazioni sulle funzionalità e i vantaggi della soluzione Azure VMware per distribuire e gestire i carichi di lavoro basati su VMware in Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: b71427402e08167e5868128ed1e553c69bef425d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 1875f535a5ca3e346362409c143da82cb8c07a12
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91574459"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488588"
 ---
 # <a name="what-is-azure-vmware-solution"></a>Che cos'è la soluzione Azure VMware?
 
@@ -44,7 +44,7 @@ Gli aggiornamenti regolari del cloud privato della soluzione Azure VMware e del 
 
 ## <a name="monitoring-your-private-cloud"></a>Monitoraggio del cloud privato
 
-Una volta distribuita la soluzione Azure VMware nella sottoscrizione, i [log di Monitoraggio di Azure](../azure-monitor/overview.md) vengono generati automaticamente. È inoltre possibile raccogliere i log in ognuna delle macchine virtuali nel cloud privato. È possibile [scaricare e installare l'agente MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options) nelle macchine virtuali Linux e Windows in esecuzione nei cloud privati della soluzione Azure VMware, nonché abilitare l'[estensione Diagnostica di Azure](../azure-monitor/platform/diagnostics-extension-overview.md). È anche possibile eseguire le stesse query che si eseguono normalmente nelle macchine virtuali. Per altre informazioni sulla creazione di query, vedere [Come scrivere le query](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries). I modelli di monitoraggio nella soluzione Azure VMware sono simili alle macchine virtuali di Azure nella piattaforma IaaS. Per altre informazioni e procedure, vedere [Monitoraggio delle macchine virtuali di Azure con Monitoraggio di Azure](../azure-monitor/insights/monitor-vm-azure.md).
+Una volta distribuita la soluzione Azure VMware nella sottoscrizione, i [log di Monitoraggio di Azure](../azure-monitor/overview.md) vengono generati automaticamente. È inoltre possibile raccogliere i log in ognuna delle macchine virtuali nel cloud privato. È possibile [scaricare e installare l'agente MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options) nelle macchine virtuali Linux e Windows in esecuzione nei cloud privati della soluzione Azure VMware, nonché abilitare l'[estensione Diagnostica di Azure](../azure-monitor/platform/diagnostics-extension-overview.md). È anche possibile eseguire le stesse query che si eseguono normalmente nelle macchine virtuali. Per altre informazioni sulla creazione di query, vedere [Panoramica dei log di Monitoraggio di Azure](../azure-monitor/platform/data-platform-logs.md). I modelli di monitoraggio nella soluzione Azure VMware sono simili alle macchine virtuali di Azure nella piattaforma IaaS. Per altre informazioni e procedure, vedere [Monitoraggio delle macchine virtuali di Azure con Monitoraggio di Azure](../azure-monitor/insights/monitor-vm-azure.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

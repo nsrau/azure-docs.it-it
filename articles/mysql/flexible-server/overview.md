@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4cb706bfa1c10e941e6d2d44358c784549973302
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: f6ec6bced9c84e4e5b0f04cc32eebb438052bd6c
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927975"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348288"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Database di Azure per MySQL - Server flessibile (anteprima)
 
@@ -89,7 +89,7 @@ Per altre informazioni, vedere i [concetti su calcolo e archiviazione](concepts-
 
 MySQL è uno dei motori di database più diffusi per l'esecuzione di applicazioni Web e per dispositivi mobili su scala Internet. Molti clienti lo usano per servizi di formazione online, servizi di streaming video, soluzioni di pagamento digitale, piattaforme di e-commerce, servizi per videogiochi, portali di notizie, siti Web di enti pubblici e assistenza sanitaria. Per rispondere alle esigenze dei clienti, questi servizi devono poter essere ampliati con l'aumento del traffico nelle applicazioni Web o per dispositivi mobili.
 
-Sul lato applicazioni, l'applicazione viene in genere sviluppata in Java o php e ne viene eseguita la migrazione per l'esecuzione in  [set di scalabilità di macchine virtuali di Azure](/azure/virtual-machine-scale-sets/overview.md) o in [Servizi app di Azure](/azure/app-service/overview.md) oppure viene inserita in contenitori per l'esecuzione nel [servizio Azure Kubernetes](/azure/aks/intro-kubernetes.md). Con il set di scalabilità di macchine virtuali, il servizio app o il servizio Azure Kubernetes come infrastruttura sottostante, la scalabilità dell'applicazione risulta semplificata tramite il provisioning istantaneo di nuove VM e la replica dei componenti senza stato per soddisfare le richieste, ma spesso il database finisce col diventare un collo di bottiglia come componente con stato centralizzato.
+Sul lato applicazioni, l'applicazione viene in genere sviluppata in Java o php e ne viene eseguita la migrazione per l'esecuzione in  [set di scalabilità di macchine virtuali di Azure](../../virtual-machine-scale-sets/overview.md) o in [Servizi app di Azure](../../app-service/overview.md) oppure viene inserita in contenitori per l'esecuzione nel [servizio Azure Kubernetes](../../aks/intro-kubernetes.md). Con il set di scalabilità di macchine virtuali, il servizio app o il servizio Azure Kubernetes come infrastruttura sottostante, la scalabilità dell'applicazione risulta semplificata tramite il provisioning istantaneo di nuove VM e la replica dei componenti senza stato per soddisfare le richieste, ma spesso il database finisce col diventare un collo di bottiglia come componente con stato centralizzato.
 
 La funzionalità di replica in lettura consente di replicare i dati di un server flessibile di Database di Azure per MySQL in un server di sola lettura. È possibile creare **fino a 10 repliche** da un server di origine. Le repliche vengono aggiornate in modo asincrono tramite la [tecnologia di replica basata sulla posizione del file di log binario (binlog)](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) nativo del motore MySQL. È possibile usare una soluzione proxy del servizio di bilanciamento del carico, come [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042), per aumentare il carico di lavoro dell'applicazione e includere le repliche in lettura senza costi di refactoring. 
 
@@ -125,8 +125,8 @@ Per altre informazioni, vedere i [concetti sul monitoraggio](concepts-monitoring
 
 Il servizio esegue la versione community di MySQL. Questo consente la compatibilità completa delle applicazioni e richiede un costo di refactoring minimo per eseguire la migrazione di un'applicazione esistente sviluppata sul motore MySQL a un servizio server singolo. Per eseguire la migrazione al server singolo, è possibile usare una delle opzioni seguenti:
 
-- **Dump e ripristino** : per le migrazioni offline, in cui gli utenti possono permettersi un certo tempo di inattività, l'esecuzione del dump e del ripristino usando strumenti della community come mysqldump/mydumpere può fornire una soluzione più rapida per la migrazione. Per i dettagli, vedere Eseguire la migrazione con dump e ripristino. 
-- **Servizio Migrazione del database di Azure** : per migrazioni semplici e facilitate al server singolo con tempi di inattività minimi, è possibile sfruttare [Servizio Migrazione del database di Azure](../../dms/tutorial-mysql-azure-mysql-online.md). 
+- **Dump e ripristino**: per le migrazioni offline, in cui gli utenti possono permettersi un certo tempo di inattività, l'esecuzione del dump e del ripristino usando strumenti della community come mysqldump/mydumpere può fornire una soluzione più rapida per la migrazione. Per i dettagli, vedere Eseguire la migrazione con dump e ripristino. 
+- **Servizio Migrazione del database di Azure**: per migrazioni semplici e facilitate al server singolo con tempi di inattività minimi, è possibile sfruttare [Servizio Migrazione del database di Azure](../../dms/tutorial-mysql-azure-mysql-online.md). 
 
 ## <a name="azure-regions"></a>Aree di Azure
 

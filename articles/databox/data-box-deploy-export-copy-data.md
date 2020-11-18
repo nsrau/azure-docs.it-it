@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fb1415874c42e3913d98d4a674732a4d9b98a0c5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ecc6e1e1a543f3190e9f73512ca0b9ae45cc3fe9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123909"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335214"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Esercitazione: Copiare i dati dal dispositivo Azure Data Box tramite SMB (anteprima)
 
@@ -54,7 +54,7 @@ Se si usa un computer host Windows Server, eseguire le operazioni seguenti per c
 
 2. Nella finestra di dialogo Accedi alla condivisione e copia i dati copiare il **nome utente** e la **password** corrispondenti alla condivisione. Selezionare **OK**.
     
-    ![Ottenere le credenziali delle condivisioni 2](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
+    ![Ottenere le credenziali della condivisione, accedere e copiare i dati](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
 
 3. Per accedere alle condivisioni associate all'account di archiviazione (*exportbvtdataset2* nell'esempio seguente) dal computer host, aprire una finestra di comando. Al prompt dei comandi digitare:
 
@@ -73,13 +73,13 @@ Se si usa un computer host Windows Server, eseguire le operazioni seguenti per c
     The command completed successfully.
     ```
 
-4. Premere WINDOWS+R. Nella finestra **Esegui** specificare `\\<device IP address>`. Scegliere **OK** per aprire Esplora file.
+5. Premere WINDOWS+R. Nella finestra **Esegui** specificare `\\<device IP address>`. Scegliere **OK** per aprire Esplora file.
     
-    ![Connettersi a una condivisione tramite Esplora file](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![Connettersi alla condivisione tramite Esplora file, immettere l'indirizzo IP del dispositivo](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     Le condivisioni verranno ora visualizzate come cartelle.
     
-    ![Connettersi a una condivisione tramite Esplora file 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
+    ![Connettersi alla condivisione tramite Esplora file, visualizzare le condivisioni](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
 
     
 Se si usa un client Linux, usare il comando seguente per montare la condivisione SMB. Il parametro "vers" di seguito è la versione di SMB supportata dall'host Linux. Collegare la versione appropriata nel comando seguente. Per le versioni di SMB supportate da Data Box,vedere [File system supportati per client Linux](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 11/13/2020
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 54014a0d76130b82788a1ae432e42baec28df2c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39fdde572e269bb4f5648e91bf85539d02236ff6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448340"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658554"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile
 
@@ -46,7 +46,7 @@ L'archiviazione non modificabile supporta le funzionalità seguenti:
 
 - **Configurazione a livello di contenitore**: gli utenti possono configurare criteri di conservazione basati sul tempo e tag di blocco a fini giudiziari a livello di contenitore. Grazie a semplici impostazioni a livello di contenitore, gli utenti possono creare e bloccare i criteri di conservazione basati sul tempo, estendere gli intervalli di conservazione, impostare e rimuovere i blocchi a fini giudiziari e così via. Questi criteri si applicano a tutti i BLOB nel contenitore, nuovi ed esistenti.
 
-- **Supporto**per la registrazione di controllo: ogni contenitore include un log di controllo dei criteri. Mostra fino a sette comandi di conservazione basati sul tempo per i criteri di conservazione basati sul tempo bloccati e contiene l'ID utente, il tipo di comando, i timestamp e l'intervallo di conservazione. Per i blocchi a fini giudiziari, il log contiene l'ID utente, il tipo di comando, i timestamp e i tag di blocco a fini giudiziari. Questo log viene mantenuto per la durata del criterio, in conformità con le linee guida per le normative SEC 17a-4 (f). Il [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md) Mostra un log più completo di tutte le attività del piano di controllo; Quando si abilitano i [log delle risorse di Azure](../../azure-monitor/platform/platform-logs-overview.md) , le operazioni del piano dati vengono mantenute. È responsabilità dell'utente archiviare questi log in modo permanente, poiché potrebbero essere richiesti per scopi legali o di altro tipo.
+- **Supporto** per la registrazione di controllo: ogni contenitore include un log di controllo dei criteri. Mostra fino a sette comandi di conservazione basati sul tempo per i criteri di conservazione basati sul tempo bloccati e contiene l'ID utente, il tipo di comando, i timestamp e l'intervallo di conservazione. Per i blocchi a fini giudiziari, il log contiene l'ID utente, il tipo di comando, i timestamp e i tag di blocco a fini giudiziari. Questo log viene mantenuto per la durata del criterio, in conformità con le linee guida per le normative SEC 17a-4 (f). Il [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md) Mostra un log più completo di tutte le attività del piano di controllo; Quando si abilitano i [log delle risorse di Azure](../../azure-monitor/platform/platform-logs-overview.md) , le operazioni del piano dati vengono mantenute. È responsabilità dell'utente archiviare questi log in modo permanente, poiché potrebbero essere richiesti per scopi legali o di altro tipo.
 
 ## <a name="how-it-works"></a>Funzionamento
 
@@ -102,17 +102,21 @@ I limiti seguenti si applicano alle note legali:
 - Per un contenitore, vengono conservati al massimo 10 log di controllo dei criteri di conservazione per la durata dei criteri.
 
 ## <a name="scenarios"></a>Scenari
+
 La tabella seguente illustra i tipi di operazioni di archiviazione BLOB disabilitate per i diversi scenari non modificabili. Per altre informazioni, vedere la documentazione dell' [API REST del servizio BLOB di Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) .
 
-|Scenario  |Stato BLOB  |Operazioni BLOB negate  |Protezione di contenitori e account
-|---------|---------|---------|---------|
-|L'intervallo di conservazione effettivo nel BLOB non è ancora scaduto e/o è impostato un blocco a fini giudiziari     |Non modificabile: protetto da eliminazione e scrittura         | Inserire il BLOB<sup>1</sup>, inserire il blocco<sup>1</sup>, inserire l'elenco dei blocchi<sup>1</sup>, eliminare il contenitore, eliminare il BLOB, impostare i metadati dei BLOB, inserire la pagina, impostare le proprietà del BLOB, il BLOB di snapshot, il BLOB di copia incrementale e il blocco<sup>2</sup>         |Eliminazione del contenitore negata; Eliminazione dell'account di archiviazione negata         |
-|L'intervallo di conservazione effettivo sul BLOB è scaduto e non è impostata alcuna esenzione legale    |Solo protetto da scrittura (le operazioni di eliminazione sono consentite)         |Inserire il BLOB<sup>1</sup>, inserire il blocco<sup>1</sup>, inserire l'elenco dei blocchi<sup>1</sup>, impostare i metadati del BLOB, inserire la pagina, impostare le proprietà del BLOB, il BLOB di snapshot, il BLOB di copia incrementale, il blocco<sup>2</sup>         |L'eliminazione del contenitore è stata negata se nel contenitore protetto esiste almeno un BLOB; Eliminazione dell'account di archiviazione negata solo per i criteri basati sul tempo *bloccati*         |
-|Nessun criterio WORM applicato (nessuna conservazione basata sul tempo e nessun tag di tenuta legale)     |Modificabile         |nessuno         |nessuno         |
+| Scenario | Stato BLOB | Operazioni BLOB negate | Protezione di contenitori e account |
+|--|--|--|--|
+| L'intervallo di conservazione effettivo nel BLOB non è ancora scaduto e/o è impostato un blocco a fini giudiziari | Non modificabile: protetto da eliminazione e scrittura | Inserire il BLOB<sup>1</sup>, inserire il blocco<sup>1</sup>, inserire l'elenco dei blocchi<sup>1</sup>, eliminare il contenitore, eliminare il BLOB, impostare i metadati dei BLOB, inserire la pagina, impostare le proprietà del BLOB, il BLOB di snapshot, il BLOB di copia incrementale e il blocco<sup>2</sup> | Eliminazione del contenitore negata; Eliminazione dell'account di archiviazione negata |
+| L'intervallo di conservazione effettivo sul BLOB è scaduto e non è impostata alcuna esenzione legale | Solo protetto da scrittura (le operazioni di eliminazione sono consentite) | Inserire il BLOB<sup>1</sup>, inserire il blocco<sup>1</sup>, inserire l'elenco dei blocchi<sup>1</sup>, impostare i metadati del BLOB, inserire la pagina, impostare le proprietà del BLOB, il BLOB di snapshot, il BLOB di copia incrementale, il blocco<sup>2</sup> | L'eliminazione del contenitore è stata negata se nel contenitore protetto esiste almeno un BLOB; Eliminazione dell'account di archiviazione negata solo per i criteri basati sul tempo *bloccati* |
+| Nessun criterio WORM applicato (nessuna conservazione basata sul tempo e nessun tag di tenuta legale) | Modificabile | Nessuno | Nessuno |
 
 <sup>1</sup> il servizio BLOB consente a queste operazioni di creare un nuovo BLOB una sola volta. Non sono consentite tutte le operazioni di sovrascrittura successive in un percorso BLOB esistente in un contenitore non modificabile.
 
 <sup>2</sup> il blocco Append è consentito solo per i criteri di conservazione basati sul tempo con la `allowProtectedAppendWrites` proprietà abilitata. Per ulteriori informazioni, vedere la sezione [Consenti le scritture di Accodamento BLOB protetti](#allow-protected-append-blobs-writes) .
+
+> [!IMPORTANT]
+> Alcuni carichi di lavoro, ad esempio il [backup SQL nell'URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url), creano un BLOB e quindi lo aggiungono. Se il contenitore dispone di un criterio di conservazione attivo basato sul tempo o di una tenuta legale, questo modello avrà esito negativo.
 
 ## <a name="pricing"></a>Prezzi
 

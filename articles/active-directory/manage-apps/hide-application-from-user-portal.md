@@ -12,12 +12,12 @@ ms.date: 03/25/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d2d6645bea6e99e9f62e36364adf8816329c26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0a103ac9b8e6d29830b5ecd6732cd19547014b0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601140"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659064"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Nascondi le applicazioni aziendali dagli utenti finali nel Azure Active Directory
 
@@ -40,14 +40,14 @@ Usare la procedura seguente per nascondere un'applicazione dal pannello app e Mi
 5.  Cercare l'applicazione che si desidera nascondere e fare clic su di essa.  Viene visualizzata la panoramica dell'applicazione.
 6.  Scegliere **Proprietà**. 
 7.  Nel campo **Visibile agli utenti?** fare clic su **No**.
-8.  Fare clic su **Save**.
+8.  Fare clic su **Salva**.
 
 > [!NOTE]
 > Queste istruzioni sono valide solo per le applicazioni aziendali.
 
 ## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Usare Azure AD PowerShell per nascondere un'applicazione
 
-Per nascondere un'applicazione dal pannello app, è possibile aggiungere manualmente il tag HideApp all'entità servizio per l'applicazione. Eseguire i seguenti comandi di [PowerShell per AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals) per impostare la proprietà Visible dell'applicazione **per gli utenti?** su **No**. 
+Per nascondere un'applicazione dal pannello app, è possibile aggiungere manualmente il tag HideApp all'entità servizio per l'applicazione. Eseguire i seguenti comandi di [PowerShell per AzureAD](/powershell/module/azuread/?view=azureadps-2.0#service_principals) per impostare la proprietà Visible dell'applicazione **per gli utenti?** su **No**. 
 
 ```PowerShell
 Connect-AzureAD
@@ -74,6 +74,5 @@ Usare la procedura seguente per nascondere tutte le applicazioni Microsoft 365 d
 ## <a name="next-steps"></a>Passaggi successivi
 * [Visualizzare tutti i gruppi personali](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Assegnare un utente o gruppo a un'app aziendale](assign-user-or-group-access-portal.md)
-* [Rimuovere l'assegnazione di un utente o un gruppo da un'app aziendale](remove-user-or-group-access-portal.md)
-* [Modificare il nome o il logo di un'app aziendale](change-name-or-logo-portal.md)
-
+* [Rimuovere l'assegnazione di un utente o un gruppo da un'app aziendale](./assign-user-or-group-access-portal.md)
+* [Modificare il nome o il logo di un'app aziendale](./add-application-portal-configure.md)

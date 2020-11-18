@@ -2,18 +2,18 @@
 title: Panoramica dei server con abilitazione di Azure Arc
 description: Informazioni su come usare i server con abilitazione di Azure Arc per gestire server ospitati all'esterno di Azure come una risorsa di Azure.
 keywords: automazione di azure, DSC, powershell, configurazione dello stato desiderato, gestione aggiornamenti, rilevamento modifiche, inventario, runbook, python, grafico, ibrido
-ms.date: 10/15/2020
+ms.date: 11/04/2020
 ms.topic: overview
-ms.openlocfilehash: 01de579d2e1ea84c0e9da4ceafbd33dbad4c6e27
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b9d38b2395d922e3e2a7daec654cd73de7267ee1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460853"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360582"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Che cosa sono i server con abilitazione di Azure Arc?
 
-I server con abilitazione di Azure Arc consentono di gestire le macchine virtuali Windows e Linux ospitate all'esterno di Azure, nella rete aziendale o in un altro provider di servizi cloud, in modo analogo a come si gestiscono le macchine virtuali native di Azure. Quando una macchina virtuale ibrida viene connessa ad Azure, diventa una macchina virtuale connessa e viene considerata come una risorsa in Azure. Ogni macchina virtuale connessa dispone di un ID risorsa, viene gestita come parte di un gruppo di risorse all'interno di una sottoscrizione e usufruisce dei vantaggi derivanti dai costrutti di Azure standard, ad esempio Criteri di Azure e assegnazione di tag. I provider di servizi che gestiscono l'infrastruttura locale di un cliente possono gestire le proprie macchine virtuali ibride in più ambienti di clienti, proprio come avviene oggi con le risorse native di Azure, usando [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) con Azure Arc.
+I server con abilitazione di Azure Arc consentono di gestire le macchine virtuali Windows e Linux ospitate all'esterno di Azure, nella rete aziendale o in un altro provider di servizi cloud, in modo analogo a come si gestiscono le macchine virtuali native di Azure. Quando una macchina virtuale ibrida viene connessa ad Azure, diventa una macchina virtuale connessa e viene considerata come una risorsa in Azure. Ogni macchina virtuale connessa ha un ID risorsa, è inclusa in un gruppo di risorse e usufruisce dei vantaggi derivanti dai costrutti di Azure standard, ad esempio Criteri di Azure e applicazione di tag. I provider di servizi che gestiscono l'infrastruttura locale di un cliente possono gestire le proprie macchine virtuali ibride in più ambienti di clienti, proprio come avviene oggi con le risorse native di Azure, usando [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) con Azure Arc.
 
 Per offrire questa esperienza con le macchine virtuali ibride ospitate all'esterno di Azure, è necessario installare l'agente Azure Connected Machine in ogni macchina virtuale che si prevede di connettere ad Azure. Questo agente non fornisce altre funzionalità e non sostituisce l'[agente di Azure Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). L'agente di Log Analytics per Windows e Linux è necessario quando si vuole monitorare in modo proattivo il sistema operativo e i carichi di lavoro in esecuzione nella macchina virtuale, gestirla con runbook di automazione o soluzioni come Gestione aggiornamenti o usare altri servizi di Azure, come il [Centro sicurezza di Azure](../../security-center/security-center-introduction.md).
 
@@ -29,7 +29,10 @@ Quando si connette la macchina virtuale a server con abilitazione di Azure Arc, 
 
 - Semplificare la distribuzione con altri servizi di Azure, ad esempio [State Configuration](../../automation/automation-dsc-overview.md) di Automazione di Azure e l'area di lavoro Log Analytics di Monitoraggio di Azure, usando le [estensioni macchina virtuale di Azure](manage-vm-extensions.md) supportate per le macchine virtuali Windows o Linux non di Azure. È inclusa l'esecuzione della configurazione post-distribuzione o l'installazione del software tramite l'estensione Script personalizzato.
 
-- È possibile usare [Gestione aggiornamenti](../../automation/update-management/update-mgmt-overview.md) di Automazione di Azure per gestire gli aggiornamenti del sistema operativo per i server Windows e Linux.
+- È possibile usare [Gestione aggiornamenti](../../automation/update-management/update-mgmt-overview.md) di Automazione di Azure per gestire gli aggiornamenti del sistema operativo per i server Windows e Linux
+
+    > [!NOTE]
+    > Al momento, l'abilitazione di Gestione aggiornamenti direttamente da un server con abilitazione di Arc non è supportata. Per informazioni sui requisiti e su come eseguire l'abilitazione per il server, vedere [Abilitare Gestione aggiornamenti dal proprio account di Automazione](../../automation/update-management/enable-from-automation-account.md).
 
 - Includere i server non di Azure per il rilevamento delle minacce e monitorare in modo proattivo le potenziali minacce per la sicurezza usando [Centro sicurezza di Azure](../../security-center/security-center-introduction.md).
 
@@ -45,7 +48,7 @@ Nella maggior parte dei casi, la posizione selezionata durante la creazione dell
 
 ### <a name="agent-status"></a>Stato dell'agente
 
-L'agente Connected Machine invia un messaggio regolare di tipo heartbeat al servizio ogni 5 minuti. Se il servizio smette di ricevere questi messaggi di tipo heartbeat da un computer, quest'ultimo viene considerato offline e lo stato verrà automaticamente modificato in **Disconnesso** nel portale in un arco di tempo compreso tra 15 e 30 minuti. Alla ricezione di un messaggio successivo di tipo heartbeat dall'agente Connected Machine, il relativo stato verrà automaticamente modificato in **Connesso** .
+L'agente Connected Machine invia un messaggio regolare di tipo heartbeat al servizio ogni 5 minuti. Se il servizio smette di ricevere questi messaggi di tipo heartbeat da un computer, quest'ultimo viene considerato offline e lo stato verrà automaticamente modificato in **Disconnesso** nel portale in un arco di tempo compreso tra 15 e 30 minuti. Alla ricezione di un messaggio successivo di tipo heartbeat dall'agente Connected Machine, il relativo stato verrà automaticamente modificato in **Connesso**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

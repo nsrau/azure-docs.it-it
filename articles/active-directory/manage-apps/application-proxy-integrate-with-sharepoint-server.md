@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42dd979f6e069addc1067d0018390c358e79a7b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c318c539b1c09761ed81e7602808e415fdaf8b80
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764537"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658180"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Abilitare l'accesso remoto a SharePoint con il proxy di applicazione di Azure AD
 
@@ -68,7 +68,7 @@ In questo passaggio viene creata un'applicazione nel tenant di Azure Active Dire
    1. Nella pagina dell'applicazione nel portale selezionare **Single Sign-On**.
    1. Per **Modalità Single Sign-On**, selezionare **Autenticazione integrata di Windows**.
    1. Impostare **SPN applicazione interna** sul valore impostato in precedenza. Per questo esempio, il valore è `HTTP/sharepoint` .
-   1. In **identità account di accesso delegato**selezionare l'opzione più adatta per la configurazione della foresta Active Directory. Se, ad esempio, si dispone di un singolo dominio Active Directory nella foresta, selezionare il **nome dell'account SAM locale** (come illustrato nello screenshot seguente). Tuttavia, se gli utenti non si trovano nello stesso dominio di SharePoint e nei server del connettore del proxy di applicazione, selezionare il **nome dell'entità utente locale** (non mostrato nello screenshot).
+   1. In **identità account di accesso delegato** selezionare l'opzione più adatta per la configurazione della foresta Active Directory. Se, ad esempio, si dispone di un singolo dominio Active Directory nella foresta, selezionare il **nome dell'account SAM locale** (come illustrato nello screenshot seguente). Tuttavia, se gli utenti non si trovano nello stesso dominio di SharePoint e nei server del connettore del proxy di applicazione, selezionare il **nome dell'entità utente locale** (non mostrato nello screenshot).
 
    ![Configurare l'autenticazione integrata di Windows per SSO](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 
@@ -167,7 +167,7 @@ Poiché l'URL interno utilizza il protocollo HTTPS ( `https://SharePoint/` ), è
 
 ## <a name="step-3-configure-kerberos-constrained-delegation"></a>Passaggio 3: configurare la delega vincolata Kerberos
 
-Gli utenti eseguiranno l'autenticazione iniziale in Azure AD e quindi a SharePoint usando Kerberos tramite il connettore proxy di Azure AD. Per consentire al connettore di ottenere un token Kerberos per conto dell'utente Azure AD, è necessario configurare la delega vincolata Kerberos (delega vincolata Kerberos) con la transizione del protocollo. Per altre informazioni su delega vincolata Kerberos, vedere [Cenni preliminari sulla delega vincolata Kerberos](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)).
+Gli utenti eseguiranno l'autenticazione iniziale in Azure AD e quindi a SharePoint usando Kerberos tramite il connettore proxy di Azure AD. Per consentire al connettore di ottenere un token Kerberos per conto dell'utente Azure AD, è necessario configurare la delega vincolata Kerberos (delega vincolata Kerberos) con la transizione del protocollo. Per altre informazioni su delega vincolata Kerberos, vedere [Cenni preliminari sulla delega vincolata Kerberos](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)).
 
 ### <a name="set-the-spn-for-the-sharepoint-service-account"></a>Impostare il nome SPN per l'account del servizio SharePoint
 
@@ -176,7 +176,7 @@ Per registrare il nome SPN `HTTP/sharepoint` per l'account del pool di applicazi
 
 `setspn -S HTTP/sharepoint Contoso\spapppool`
 
-Il `Setspn` comando Cerca il nome SPN prima di aggiungerlo. Se il nome SPN esiste già, viene visualizzato un errore di **valore SPN duplicato** . In tal caso, provare a rimuovere il nome SPN esistente se non è impostato nell'account del pool di applicazioni corretto. È possibile verificare che il nome SPN sia stato aggiunto correttamente eseguendo il `Setspn` comando con l'opzione-L. Per altre informazioni su questo comando, vedere [Setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
+Il `Setspn` comando Cerca il nome SPN prima di aggiungerlo. Se il nome SPN esiste già, viene visualizzato un errore di **valore SPN duplicato** . In tal caso, provare a rimuovere il nome SPN esistente se non è impostato nell'account del pool di applicazioni corretto. È possibile verificare che il nome SPN sia stato aggiunto correttamente eseguendo il `Setspn` comando con l'opzione-L. Per altre informazioni su questo comando, vedere [Setspn](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
 
 ### <a name="make-sure-the-connector-is-trusted-for-delegation-to-the-spn-that-was-added-to-the-sharepoint-application-pool-account"></a>Verificare che il connettore sia attendibile per la delega al nome SPN aggiunto all'account del pool di applicazioni di SharePoint
 
@@ -188,7 +188,7 @@ Per configurare il delega vincolata Kerberos, seguire questa procedura per ogni 
 1. Trovare il computer che esegue il connettore proxy Azure AD. In questo esempio si tratta del server SharePoint.
 1. Fare doppio clic sul computer, quindi selezionare la scheda **Delega**.
 1. Verificare che le opzioni di delega siano impostate su **Considera attendibile il computer per la delega solo ai servizi specificati**. Selezionare quindi **Usa un qualsiasi protocollo di autenticazione**.
-1. Selezionare il pulsante **Aggiungi** , selezionare **utenti o computer**e individuare l'account del pool di applicazioni di SharePoint. Ad esempio: `Contoso\spapppool`.
+1. Selezionare il pulsante **Aggiungi** , selezionare **utenti o computer** e individuare l'account del pool di applicazioni di SharePoint. Ad esempio: `Contoso\spapppool`.
 1. Nell'elenco di nomi SPN selezionare quello creato in precedenza per l'account del servizio.
 1. Selezionare **OK** , quindi fare di nuovo clic su **OK** per salvare le modifiche.
   
@@ -198,7 +198,7 @@ A questo punto si è pronti per accedere a SharePoint usando l'URL esterno e per
 
 ## <a name="troubleshoot-sign-in-errors"></a>Risolvere gli errori di accesso
 
-Se l'accesso al sito non funziona, è possibile ottenere altre informazioni sul problema nei log del connettore: dal computer che esegue il connettore, aprire il Visualizzatore eventi, passare a **registri applicazioni e servizi**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**ed esaminare il registro **amministratore** .
+Se l'accesso al sito non funziona, è possibile ottenere altre informazioni sul problema nei log del connettore: dal computer che esegue il connettore, aprire il Visualizzatore eventi, passare a **registri applicazioni e servizi**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector** ed esaminare il registro **amministratore** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

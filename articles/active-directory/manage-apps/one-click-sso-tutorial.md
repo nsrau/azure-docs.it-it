@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7e72718e13106b9d895921a2335f1525a7b88c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe4e981782878ce4f86dd7dcb8ae635a60b2405a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763126"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658707"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Configurazione dell'accesso Single Sign-On con un clic per l'app
 
@@ -40,7 +40,7 @@ La funzionalità di accesso SSO con un clic è progettata in modo da consentire 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Una sottoscrizione attiva per l'applicazione da configurare con l'accesso SSO. Sono necessarie anche le credenziali dell'amministratore.
-- **Estensione del browser My Apps Secure Sign-in** Microsoft installata nel browser. Per altre informazioni, vedere [Accedere e usare le app nel portale App personali](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+- **Estensione del browser My Apps Secure Sign-in** Microsoft installata nel browser. Per altre informazioni, vedere [Accedere e usare le app nel portale App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="one-click-sso-configuration-steps"></a>Procedura per la configurazione dell'accesso SSO con un clic
 
@@ -84,6 +84,5 @@ La funzionalità di accesso SSO con un clic è progettata in modo da consentire 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
-* [Informazioni sull'estensione del browser My Apps Secure Sign-in](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
- 
+* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
+* [Informazioni sull'estensione del browser My Apps Secure Sign-in](../user-help/my-apps-portal-end-user-access.md)

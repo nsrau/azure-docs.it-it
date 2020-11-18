@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: configurare la directory federata per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
-description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente nella directory federata.
+title: 'Esercitazione: Configurare Federated Directory per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Federated Directory.
 services: active-directory
 author: zchia
 writer: zchia
@@ -8,19 +8,19 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 5596dfab98f6826cd61241441a9ddade72e36674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 8ca7654d930247f70d85cbc20fbbeb961223f05f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851272"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359800"
 ---
-# <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Esercitazione: configurare la directory federata per il provisioning utenti automatico
+# <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Esercitazione: Configurare Federated Directory per il provisioning utenti automatico
 
-L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire nella directory federata e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi nella directory federata.
+Questa esercitazione descrive la procedura da eseguire in Federated Directory e Azure Active Directory (Azure AD) per configurare Azure AD in modo da effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in Federated Directory.
 
 > [!NOTE]
 >  L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -32,53 +32,53 @@ L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire nella d
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * Un tenant di Azure AD.
-* [Una directory federata](https://www.federated.directory/pricing).
-* Un account utente nella directory federata con autorizzazioni di amministratore.
+* [Un'istanza di Federated Directory](https://www.federated.directory/pricing).
+* Un account utente in Federated Directory con autorizzazioni di amministratore.
 
-## <a name="assign-users-to-federated-directory"></a>Assegnare gli utenti alla directory federata
-Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle assegnazioni. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+## <a name="assign-users-to-federated-directory"></a>Assegnare gli utenti a Federated Directory
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle assegnazioni. Nel contesto del provisioning utenti automatico vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
-Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere alla directory federata. Dopo aver stabilito questo, è possibile assegnare questi utenti e/o gruppi alla directory federata seguendo le istruzioni riportate qui:
+Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD devono poter accedere a Federated Directory. Dopo aver definito questo aspetto, è possibile assegnare gli utenti e/o i gruppi a Federated Directory seguendo le istruzioni riportate di seguito:
 
  * [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md) 
  
- ## <a name="important-tips-for-assigning-users-to-federated-directory"></a>Suggerimenti importanti per l'assegnazione di utenti alla directory federata
- * È consigliabile assegnare un singolo Azure AD utente alla directory federata per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
+ ## <a name="important-tips-for-assigning-users-to-federated-directory"></a>Suggerimenti importanti per l'assegnazione di utenti a Federated Directory
+ * È consigliabile assegnare un singolo utente di Azure AD a Federated Directory per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
-* Quando si assegna un utente alla directory federata, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning.
+* Quando si assegna un utente a Federated Directory, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning.
     
- ## <a name="set-up-federated-directory-for-provisioning"></a>Configurare la directory federata per il provisioning
+ ## <a name="set-up-federated-directory-for-provisioning"></a>Configurare Federated Directory per il provisioning
 
-Prima di configurare la directory federata per il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM nella directory federata.
+Prima di configurare Federated Directory per il provisioning utenti automatico con Azure AD, è necessario abilitare il provisioning SCIM in Federated Directory.
 
-1. Accedere alla console di [amministrazione della directory federata](https://federated.directory/of)
+1. Accedere alla [console di amministrazione di Federated Directory](https://federated.directory/of)
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/companyname.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/companyname.png" alt-text="Screenshot della console di amministrazione di Federated Directory che mostra un campo per l'immissione del nome della società. Sono anche visibili i pulsanti per l'accesso." border="false":::
 
-2. Passare a **directory > directory utente** e selezionare il tenant. 
+2. Passare a **Directories > User directories** (Directory > Directory utente) e selezionare il tenant. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Screenshot della console di amministrazione di Federated Directory, con le opzioni Directories e Federated Directory Azure AD Test evidenziate." border="false":::
 
-3.  Per generare un bearer token permanente, passare a **chiavi Directory > Crea nuova chiave.** 
+3.  Per generare un token di connessione permanente, passare a **Directory Keys > Create New Key** (Chiavi directory > Crea nuova chiave). 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated01.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated01.png" alt-text="Screenshot della pagina Directory Keys della console di amministrazione di Federated Directory. Il pulsante Create new key è evidenziato." border="false":::
 
-4. Creare una chiave di directory. 
+4. Creare una chiave della directory. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated02.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated02.png" alt-text="Screenshot della pagina Create directory key della console di amministrazione di Federated Directory, con i campi Name e Description e il pulsante Create key." border="false":::
     
 
-5. Copiare il valore del **token di accesso**. Questo valore verrà immesso nel campo **token segreto** nella scheda provisioning dell'applicazione directory federata nell'portale di Azure. 
+5. Copiare il valore del **token di accesso**. Questo valore verrà immesso nel campo **Token segreto** nella scheda Provisioning dell'applicazione Federated Directory nel portale di Azure. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated03.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated03.png" alt-text="Screenshot di una pagina della console di amministrazione di Federated Directory. Sono visibili un segnaposto del token di accesso e un nome di chiave, una descrizione e un'autorità emittente." border="false":::
     
-## <a name="add-federated-directory-from-the-gallery"></a>Aggiungere la directory federata dalla raccolta
+## <a name="add-federated-directory-from-the-gallery"></a>Aggiungere Federated Directory dalla raccolta
 
-Per configurare la directory federata per il provisioning utenti automatico con Azure AD, è necessario aggiungere la directory federata dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS gestite.
+Per configurare Federated Directory per il provisioning utenti automatico con Azure AD, è necessario aggiungere Federated Directory dalla raccolta di applicazioni di Azure AD all'elenco di applicazioni SaaS gestite.
 
-**Per aggiungere la directory federata dalla raccolta di applicazioni di Azure AD, seguire questa procedura:**
+**Per aggiungere Federated Directory dalla raccolta di applicazioni di Azure AD, eseguire queste operazioni:**
 
-1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
+1. Nel **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory** nel riquadro di spostamento sinistro.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
@@ -86,55 +86,55 @@ Per configurare la directory federata per il provisioning utenti automatico con 
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
+3. Per aggiungere una nuova applicazione, selezionare il pulsante **Nuova applicazione** nella parte superiore del riquadro.
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **directory federata**e selezionare **directory federata** nel pannello dei risultati.
+4. Nella casella di ricerca immettere **Federated Directory**, quindi selezionare **Federated Directory** nel pannello dei risultati.
 
-    ![Directory federata nell'elenco dei risultati](common/search-new-app.png)
+    ![Federated Directory nell'elenco dei risultati](common/search-new-app.png)
 
-5. Passare all' **URL** evidenziato di seguito in un browser separato. 
+5. Passare all'**URL** evidenziato di seguito in una finestra del browser separata. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Screenshot di una pagina del portale di Azure che visualizza informazioni su Federated Directory. Il valore URL è evidenziato." border="false":::
 
-6. Fare clic su **Accedi**.
+6. Fare clic su **LOG IN** (Accedi).
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Screenshot del menu principale nel sito Federated Directory. Il pulsante Log in è evidenziato." border="false":::
 
-7.  Poiché la directory federata è un'app OpenIDConnect, scegliere di accedere alla directory federata con l'account Microsoft Work.
+7.  Poiché Federated Directory è un'app OpenIDConnect, scegliere di accedere con l'account aziendale Microsoft.
     
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="Screenshot della pagina SCIM AD test nel sito Federated Directory. L'opzione per l'accesso con l'account Microsoft è evidenziata." border="false":::
  
-8. Una volta completata l'autenticazione, accettare la richiesta di consenso per la pagina di consenso. L'applicazione verrà quindi aggiunta automaticamente al tenant e si verrà reindirizzati all'account della directory federata.
+8. Dopo l'autenticazione, accettare la richiesta di consenso nella pagina. L'applicazione verrà quindi aggiunta automaticamente al tenant e si verrà reindirizzati all'account Federated Directory.
 
-    ![Directory federata aggiungere SCIM](media/federated-directory-provisioning-tutorial/premission.png)
+    ![Aggiunta di SCIM in Federated Directory](media/federated-directory-provisioning-tutorial/premission.png)
 
 
 
-## <a name="configuring-automatic-user-provisioning-to-federated-directory"></a>Configurazione del provisioning utenti automatico in una directory federata 
+## <a name="configuring-automatic-user-provisioning-to-federated-directory"></a>Configurazione del provisioning utenti automatico in Federated Directory 
 
-Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in directory federate in base alle assegnazioni di utenti e/o gruppi in Azure AD.
+Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Federated Directory in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-federated-directory-in-azure-ad"></a>Per configurare il provisioning utenti automatico per la directory federata in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-federated-directory-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Federated Directory in Azure AD:
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **directory federata**.
+2. Nell'elenco delle applicazioni selezionare **Federated Directory**.
 
-    ![Collegamento alla directory federata nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento a Federated Directory nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
+    ![Screenshot delle opzioni di gestione con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatico evidenziata.](common/provisioning-automatic.png)
 
-5. Nella sezione **Credenziali amministratore** immettere `https://api.federated.directory/v2/` in URL tenant. Immettere il valore recuperato e salvato in precedenza dalla directory federata nel **token Secret**. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi alla directory federata. Se la connessione non riesce, verificare che l'account della directory federata disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **Credenziali amministratore** immettere `https://api.federated.directory/v2/` in URL tenant. Immettere il valore recuperato e salvato in precedenza da Federated Directory in **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Federated Directory. Se la connessione non riesce, verificare che l'account Federated Directory abbia autorizzazioni di amministratore e riprovare.
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -142,25 +142,25 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**.
 
-10. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti alla directory federata**.
+10. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to Federated Directory** (Sincronizza utenti di Azure Active Directory con Federated Directory).
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Screenshot della sezione Mapping. In Name l'opzione Synchronize Azure Active Directory Users to Federated Directory è evidenziata." border="false":::
     
     
-11. Esaminare gli attributi utente che vengono sincronizzati da Azure AD alla directory federata nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente nella directory federata per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+11. Esaminare gli attributi utente sincronizzati tra Azure AD e Federated Directory nella sezione **Mapping di attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Federated Directory per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Screenshot della console di amministrazione della directory federata che mostra un campo per l'immissione di un nome della società. Sono visibili anche i pulsanti di accesso." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Screenshot della pagina Mapping di attributi. In una tabella sono elencati gli attributi di Azure Active Directory e di Federated Directory con lo stato di corrispondenza." border="false":::
     
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Per abilitare il servizio di provisioning Azure AD per la directory federata, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+13. Per abilitare il servizio di provisioning di Azure AD per Federated Directory, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-14. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning nella directory federata scegliendo i valori desiderati in **ambito** nella sezione **Impostazioni** .
+14. Definire gli utenti e/o i gruppi di cui effettuare il provisioning in Federated Directory selezionando i valori appropriati in **Ambito** nella sezione **Impostazioni**.
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
@@ -168,9 +168,9 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning Azure ad sulla directory federata.
+L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning di Azure AD in Federated Directory.
 
-Per altre informazioni su come leggere i log di provisioning di Azure AD, vedere [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md)
+Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere [Creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md)
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)

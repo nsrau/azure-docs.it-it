@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 629c27602df14c0b35e2063d8db2d0b13bbff99a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b31931af7b8d1442a66333622a23d017ab7fb5a9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635899"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658690"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -72,50 +72,50 @@ Di seguito è riportata una guida per la configurazione di una versione di Azure
 
 1.  In [Azure DevOps](https://dev.azure.com/) aprire il progetto configurato con la data factory.
 
-1.  Sul lato sinistro della pagina selezionare **Pipeline** , quindi selezionare **Versioni** .
+1.  Sul lato sinistro della pagina selezionare **Pipeline**, quindi selezionare **Versioni**.
 
     ![Selezionare Pipeline, Versioni](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-1.  Selezionare **Nuova pipeline** oppure, se sono presenti pipeline esistenti, selezionare **Nuova** , quindi **Nuova pipeline di versione** .
+1.  Selezionare **Nuova pipeline** oppure, se sono presenti pipeline esistenti, selezionare **Nuova**, quindi **Nuova pipeline di versione**.
 
-1.  Selezionare il modello **Fase vuota** .
+1.  Selezionare il modello **Fase vuota**.
 
     ![Selezionare Fase vuota](media/continuous-integration-deployment/continuous-integration-image13.png)
 
 1.  Nella casella **Nome fase** immettere il nome dell'ambiente.
 
-1.  Selezionare **Aggiungi artefatto** , quindi selezionare il repository Git configurato con la data factory di sviluppo. Selezionare la [pubblicazione del ramo](source-control.md#configure-publishing-settings) del repository per il **ramo predefinito** . Per impostazione predefinita, questa pubblicazione del ramo è `adf_publish`. Per la **versione predefinita** , selezionare **Più recente dal ramo predefinito** .
+1.  Selezionare **Aggiungi artefatto**, quindi selezionare il repository Git configurato con la data factory di sviluppo. Selezionare la [pubblicazione del ramo](source-control.md#configure-publishing-settings) del repository per il **ramo predefinito**. Per impostazione predefinita, questa pubblicazione del ramo è `adf_publish`. Per la **versione predefinita**, selezionare **Più recente dal ramo predefinito**.
 
     ![Aggiungere un elemento](media/continuous-integration-deployment/continuous-integration-image7.png)
 
 1.  Aggiungere un'attività di distribuzione di Azure Resource Manager:
 
-    a.  Nella visualizzazione dei passaggi selezionare **Visualizza le attività della fase** .
+    a.  Nella visualizzazione dei passaggi selezionare **Visualizza le attività della fase**.
 
     ![Visualizzazione dei passaggi](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Creare una nuova attività. Cercare la **distribuzione del modello ARM** e quindi selezionare **Aggiungi** .
+    b.  Creare una nuova attività. Cercare la **distribuzione del modello ARM** e quindi selezionare **Aggiungi**.
 
     c.  Nell'attività Distribuzione scegliere la sottoscrizione, il gruppo di risorse e la posizione per la data factory di destinazione. Fornire le credenziali, se necessario.
 
-    d.  Nell'elenco **Azione** selezionare **Creare o aggiornare un gruppo di risorse** .
+    d.  Nell'elenco **Azione** selezionare **Creare o aggiornare un gruppo di risorse**.
 
-    e.  Selezionare il pulsante con i puntini di sospensione ( **...** ) accanto alla casella **Modello** . Cercare il modello di Azure Resource Manager generato nel ramo di pubblicazione del repository Git configurato. Cercare il file `ARMTemplateForFactory.json` nella cartella <FactoryName> del ramo adf_publish.
+    e.  Selezionare il pulsante con i puntini di sospensione ( **...** ) accanto alla casella **Modello**. Cercare il modello di Azure Resource Manager generato nel ramo di pubblicazione del repository Git configurato. Cercare il file `ARMTemplateForFactory.json` nella cartella <FactoryName> del ramo adf_publish.
 
     f.  Selezionare **...** accanto alla casella **Parametri modello** per scegliere il file dei parametri. Cercare il file `ARMTemplateParametersForFactory.json` nella cartella <FactoryName> del ramo adf_publish.
 
     g.  Selezionare **...** accanto alla casella **Esegui override dei parametri del modello** e immettere i valori dei parametri desiderati per la data factory di destinazione. Per le credenziali provenienti da Azure Key Vault, immettere il nome del segreto tra virgolette doppie. Se, ad esempio, il nome del segreto è cred1, immettere **"$(cred1)"** per questo valore.
 
-    h. Selezionare **Incrementale** per la **Modalità di distribuzione** .
+    h. Selezionare **Incrementale** per la **Modalità di distribuzione**.
 
     > [!WARNING]
-    > In modalità di distribuzione completa, le risorse esistenti nel gruppo di risorse, ma non specificate nel nuovo modello di Gestione risorse verranno **eliminate** . Per altre informazioni, vedere [Azure Resource Manager modalità di distribuzione](../azure-resource-manager/templates/deployment-modes.md)
+    > In modalità di distribuzione completa, le risorse esistenti nel gruppo di risorse, ma non specificate nel nuovo modello di Gestione risorse verranno **eliminate**. Per altre informazioni, vedere [Azure Resource Manager modalità di distribuzione](../azure-resource-manager/templates/deployment-modes.md)
 
     ![Distribuzione di produzione della Data Factory](media/continuous-integration-deployment/continuous-integration-image9.png)
 
 1.  Salvare la pipeline di versione.
 
-1. Per attivare una versione, selezionare **Crea versione** . Per automatizzare la creazione di versioni, vedere [Trigger versione di Azure DevOps](/azure/devops/pipelines/release/triggers?view=azure-devops)
+1. Per attivare una versione, selezionare **Crea versione**. Per automatizzare la creazione di versioni, vedere [Trigger versione di Azure DevOps](/azure/devops/pipelines/release/triggers?view=azure-devops)
 
    ![Selezionare Crea versione](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -167,7 +167,7 @@ L'attività di Azure Key Vault potrebbe non riuscire con un errore di accesso ne
 
 La distribuzione può non riuscire se si prova ad aggiornare i trigger attivi. Per aggiornare trigger attivi, è necessario arrestarli manualmente e riavviarli dopo la distribuzione. Questa operazione può essere eseguita usando un'attività di Azure PowerShell:
 
-1.  Nella scheda **Attività** della versione aggiungere un' **attività di Azure PowerShell** . Scegliere la versione dell'attività 4.*. 
+1.  Nella scheda **Attività** della versione aggiungere un'**attività di Azure PowerShell**. Scegliere la versione dell'attività 4.*. 
 
 1.  Selezionare la sottoscrizione in cui risiede la factory.
 
@@ -189,11 +189,11 @@ Il team della data factory ha fornito uno [script pre-distribuzione e post-distr
 
    ![Esportare un modello di Resource Manager](media/continuous-integration-deployment/continuous-integration-image1.png)
 
-1. Nelle data factory di test e di produzione selezionare **Importa modello ARM** . Questa azione consente di passare al portale di Azure, in cui è possibile importare il modello esportato. Selezionare **Creare un modello personalizzato nell'editor** per aprire l'editor modelli di Resource Manager.
+1. Nelle data factory di test e di produzione selezionare **Importa modello ARM**. Questa azione consente di passare al portale di Azure, in cui è possibile importare il modello esportato. Selezionare **Creare un modello personalizzato nell'editor** per aprire l'editor modelli di Resource Manager.
 
    ![Creare un modello personalizzato](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. Selezionare **Carica file** , quindi selezionare il modello di Resource Manager generato. Si tratta del file **arm_template.json** che si trova nel file con estensione zip esportato nel passaggio 1.
+1. Selezionare **Carica file**, quindi selezionare il modello di Resource Manager generato. Si tratta del file **arm_template.json** che si trova nel file con estensione zip esportato nel passaggio 1.
 
    ![Modifica del modello](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
@@ -225,7 +225,7 @@ Quando si esporta un modello di Gestione risorse, Data Factory legge questo file
 
 ### <a name="custom-parameter-syntax"></a>Sintassi dei parametri personalizzata
 
-Di seguito sono riportate alcune linee guida da seguire quando si crea il file di parametri personalizzati **arm-template-parameters-definition.json** . Il file è costituito da una sezione per ogni tipo di entità: trigger, pipeline, servizio collegato, set di dati, runtime di integrazione e flusso di dati.
+Di seguito sono riportate alcune linee guida da seguire quando si crea il file di parametri personalizzati **arm-template-parameters-definition.json**. Il file è costituito da una sezione per ogni tipo di entità: trigger, pipeline, servizio collegato, set di dati, runtime di integrazione e flusso di dati.
 
 * Immettere il percorso della proprietà nel tipo di entità pertinente.
 * L'impostazione di un nome di proprietà su `*` indica che si desidera parametrizzare tutte le proprietà al suo interno (solo per il primo livello, non in modo ricorsivo). È anche possibile fornire eccezioni a questa configurazione.
@@ -607,7 +607,7 @@ Per usare modelli collegati anziché il modello di Resource Manager completo, ag
 
 Ricordarsi di aggiungere gli script di Data Factory nella pipeline CI/CD prima e dopo l'attività di distribuzione.
 
-Se Git non è stato configurato, è possibile accedere ai modelli collegati tramite **Esporta modello ARM** nell'elenco **Modello ARM** .
+Se Git non è stato configurato, è possibile accedere ai modelli collegati tramite **Esporta modello ARM** nell'elenco **Modello ARM**.
 
 ## <a name="hotfix-production-environment"></a>Ambiente di produzione hotfix
 
@@ -633,19 +633,23 @@ Se si distribuisce una factory in produzione e si nota che è presente un bug ch
 
 10.   Aggiungere le modifiche dall'hotfix al ramo di sviluppo in modo che le versioni successive non includano lo stesso bug.
 
+Vedere il video sotto un'esercitazione dettagliata su come correggere gli ambienti. 
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4I7fi]
+
 ## <a name="best-practices-for-cicd"></a>Procedure consigliate per la pipeline CI/CD
 
 Se si usa l'integrazione di Git con la data factory e si dispone di una pipeline CI/CD che sposta le modifiche apportate dall'ambiente di sviluppo all'ambiente di test e successivamente all'ambiente di produzione, è consigliabile osservare le procedure consigliate seguenti:
 
--   **Integrazione di Git** . Configurare solo la data factory di sviluppo con l'integrazione di Git. Le modifiche all'ambiente di test e produzione vengono distribuite tramite CI/CD e non necessitano dell'integrazione di Git.
+-   **Integrazione di Git**. Configurare solo la data factory di sviluppo con l'integrazione di Git. Le modifiche all'ambiente di test e produzione vengono distribuite tramite CI/CD e non necessitano dell'integrazione di Git.
 
--   **Script pre-distribuzione e post-distribuzione** . Prima del passaggio di distribuzione di Resource Manager in CI/CD, è necessario completare determinate attività, ad esempio l'arresto e il riavvio dei trigger e l'esecuzione della pulizia. È consigliabile usare gli script di PowerShell prima e dopo l'attività di distribuzione. Per altre informazioni, vedere [Aggiornamento di trigger attivi](#updating-active-triggers). Il team della data factory ha [fornito uno script](#script) da usare alla fine di questa pagina.
+-   **Script pre-distribuzione e post-distribuzione**. Prima del passaggio di distribuzione di Resource Manager in CI/CD, è necessario completare determinate attività, ad esempio l'arresto e il riavvio dei trigger e l'esecuzione della pulizia. È consigliabile usare gli script di PowerShell prima e dopo l'attività di distribuzione. Per altre informazioni, vedere [Aggiornamento di trigger attivi](#updating-active-triggers). Il team della data factory ha [fornito uno script](#script) da usare alla fine di questa pagina.
 
--   **Runtime di integrazione e condivisione** . I runtime di integrazione non cambiano spesso e sono simili in tutte le fasi di CI/CD. Di conseguenza, Data Factory prevede che l'utente abbia lo stesso nome e lo stesso tipo di runtime di integrazione in tutte le fasi di CI/CD. Se si desidera condividere runtime di integrazione in tutte le fasi, è consigliabile usare una factory ternaria per contenere solo i runtime di integrazione condivisi. È possibile usare questa factory condivisa in tutti gli ambienti come tipo di runtime di integrazione collegato.
+-   **Runtime di integrazione e condivisione**. I runtime di integrazione non cambiano spesso e sono simili in tutte le fasi di CI/CD. Di conseguenza, Data Factory prevede che l'utente abbia lo stesso nome e lo stesso tipo di runtime di integrazione in tutte le fasi di CI/CD. Se si desidera condividere runtime di integrazione in tutte le fasi, è consigliabile usare una factory ternaria per contenere solo i runtime di integrazione condivisi. È possibile usare questa factory condivisa in tutti gli ambienti come tipo di runtime di integrazione collegato.
 
--   **Distribuzione di endpoint privati gestiti** . Se un endpoint privato esiste già in una factory e si prova a distribuire un modello ARM contenente un endpoint privato con lo stesso nome ma con le proprietà modificate, la distribuzione avrà esito negativo. In altre parole, è possibile distribuire correttamente un endpoint privato purché abbia le stesse proprietà di quello già esistente nella Factory. Se una proprietà è diversa tra ambienti, è possibile eseguirne l'override parametrizzazione tale proprietà e specificando il rispettivo valore durante la distribuzione.
+-   **Distribuzione di endpoint privati gestiti**. Se un endpoint privato esiste già in una factory e si prova a distribuire un modello ARM contenente un endpoint privato con lo stesso nome ma con le proprietà modificate, la distribuzione avrà esito negativo. In altre parole, è possibile distribuire correttamente un endpoint privato purché abbia le stesse proprietà di quello già esistente nella Factory. Se una proprietà è diversa tra ambienti, è possibile eseguirne l'override parametrizzazione tale proprietà e specificando il rispettivo valore durante la distribuzione.
 
--   **Insieme di credenziali delle chiavi** . Quando si usano servizi collegati le cui informazioni di connessione vengono archiviate in Azure Key Vault, è consigliabile conservare insiemi di credenziali delle chiavi separati per ambienti diversi. È anche possibile configurare i livelli di autorizzazione separati per ogni insieme di credenziali delle chiavi. Ad esempio, è possibile che non si voglia che i membri del team siano autorizzati ad accedere ai segreti di produzione. Se si segue questo approccio, è consigliabile mantenere gli stessi nomi dei segreti in tutte le fasi. Se si mantengono gli stessi nomi dei segreti, non è necessario parametrizzare ogni stringa di connessione negli ambienti CI/CD, perché l'unica cosa che cambia è il nome dell'insieme di credenziali delle chiavi, che è un parametro separato.
+-   **Insieme di credenziali delle chiavi**. Quando si usano servizi collegati le cui informazioni di connessione vengono archiviate in Azure Key Vault, è consigliabile conservare insiemi di credenziali delle chiavi separati per ambienti diversi. È anche possibile configurare i livelli di autorizzazione separati per ogni insieme di credenziali delle chiavi. Ad esempio, è possibile che non si voglia che i membri del team siano autorizzati ad accedere ai segreti di produzione. Se si segue questo approccio, è consigliabile mantenere gli stessi nomi dei segreti in tutte le fasi. Se si mantengono gli stessi nomi dei segreti, non è necessario parametrizzare ogni stringa di connessione negli ambienti CI/CD, perché l'unica cosa che cambia è il nome dell'insieme di credenziali delle chiavi, che è un parametro separato.
 
 -  **Denominazione delle risorse** A causa dei vincoli del modello ARM, è possibile che si verifichino problemi di distribuzione se le risorse contengono spazi nel nome. Il team di Azure Data Factory consiglia di usare caratteri ' _' o '-' anziché spazi per le risorse. Ad esempio,' Pipeline_1' potrebbe essere un nome preferibile rispetto a' pipeline 1'.
 
@@ -666,12 +670,12 @@ Se si usa l'integrazione di Git con la data factory e si dispone di una pipeline
 
 Lo script di esempio seguente può essere usato per arrestare i trigger prima della distribuzione e riavviarli in seguito. Lo script include anche il codice per eliminare le risorse che sono state rimosse. Salvare lo script in un repository Git di Azure DevOps e farvi riferimento tramite un'attività di Azure PowerShell usando la versione 4.*.
 
-Quando si esegue uno script pre-distribuzione, è necessario specificare una variante dei parametri seguenti nel campo **Argomenti script** .
+Quando si esegue uno script pre-distribuzione, è necessario specificare una variante dei parametri seguenti nel campo **Argomenti script**.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $true -deleteDeployment $false`
 
 
-Quando si esegue uno script post-distribuzione, è necessario specificare una variante dei parametri seguenti nel campo **Argomenti script** .
+Quando si esegue uno script post-distribuzione, è necessario specificare una variante dei parametri seguenti nel campo **Argomenti script**.
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 

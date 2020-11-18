@@ -5,18 +5,18 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 4f4733a52d1d58cbec4413140a613a93c8074188
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b709981e199d63c32426381ba48665402de820ce
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323414"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422706"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Connettere Funzioni di Azure ad Archiviazione di Azure con Visual Studio Code
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-Questo articolo illustra come usare Visual Studio Code per connettere la funzione creata nel [precedente argomento di avvio rapido](functions-create-first-function-vs-code.md) ad Archiviazione di Azure. Il binding di output che si aggiunge a questa funzione scrive i dati della richiesta HTTP in un messaggio della coda di Archiviazione code di Azure. 
+Questo articolo illustra come usare Visual Studio Code per connettere Archiviazione di Azure alla funzione creata nel precedente argomento di avvio rapido. Il binding di output che si aggiunge a questa funzione scrive i dati della richiesta HTTP in un messaggio della coda di Archiviazione code di Azure. 
 
 La maggior parte dei binding richiede una stringa di connessione archiviata che verrà usata da Funzioni per accedere al servizio associato. Per semplicità, usare l'account di archiviazione creato con l'app per le funzioni. La connessione a questo account è già archiviata in un'impostazione dell'app denominata `AzureWebJobsStorage`.  
 
@@ -32,7 +32,24 @@ Prima di iniziare questo articolo, è necessario soddisfare i requisiti seguenti
 * Installare gli [strumenti dell'interfaccia della riga di comando di .NET Core](/dotnet/core/tools/?tabs=netcore2x).
 ::: zone-end
 
-* Completare i passaggi descritti nella [parte 1 dell'argomento di avvio rapido su Visual Studio Code](functions-create-first-function-vs-code.md). 
+::: zone pivot="programming-language-csharp"  
+* Completare i passaggi descritti nella [parte 1 dell'argomento di avvio rapido su Visual Studio Code](create-first-function-vs-code-csharp.md). 
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+* Completare i passaggi descritti nella [parte 1 dell'argomento di avvio rapido su Visual Studio Code](create-first-function-vs-code-node.md). 
+::: zone-end   
+::: zone pivot="programming-language-java"  
+* Completare i passaggi descritti nella [parte 1 dell'argomento di avvio rapido su Visual Studio Code](create-first-function-vs-code-java.md). 
+::: zone-end   
+::: zone pivot="programming-language-typescript"  
+* Completare i passaggi descritti nella [parte 1 dell'argomento di avvio rapido su Visual Studio Code](create-first-function-vs-code-typescript.md). 
+::: zone-end   
+::: zone pivot="programming-language-python"  
+* Completare i passaggi descritti nella [parte 1 dell'argomento di avvio rapido su Visual Studio Code](create-first-function-vs-code-python.md). 
+::: zone-end   
+::: zone pivot="programming-language-powershell"  
+* Completare i passaggi descritti nella [parte 1 dell'argomento di avvio rapido su Visual Studio Code](create-first-function-vs-code-powershell.md). 
+::: zone-end   
 
 Questo articolo presuppone che sia già stato eseguito l'accesso alla sottoscrizione di Azure da Visual Studio Code. È possibile accedere eseguendo `Azure: Sign In` dal riquadro comandi. 
 
@@ -205,33 +222,42 @@ In Azure il termine *risorse* si riferisce ad app per le funzioni, funzioni, acc
 
 Per completare queste guide introduttive sono state create risorse. Per tali risorse potrebbero venire addebitati costi, a seconda dello [stato dell'account](https://azure.microsoft.com/account/) e dei [prezzi dei servizi](https://azure.microsoft.com/pricing/). Se le risorse non sono più necessarie, ecco come eliminarle:
 
-[!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
+[!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 La funzione di trigger HTTP è stata aggiornata per scrivere dati in una coda di archiviazione. A questo punto, è possibile ottenere maggiori informazioni sullo sviluppo di funzioni con Visual Studio Code:
 
 + [Sviluppare Funzioni di Azure con Visual Studio Code](functions-develop-vs-code.md)
+
++ [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
 ::: zone pivot="programming-language-csharp"  
 + [Esempi di progetti di Funzioni completi in C#](/samples/browse/?products=azure-functions&languages=csharp).
+
 + [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-dotnet-class-library.md)  
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 + [Esempi di progetti di Funzioni completi in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
+
 + [Guida per gli sviluppatori JavaScript di Funzioni di Azure](functions-reference-node.md)  
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ [Esempi di progetti di Funzioni completi in Java](/samples/browse/?products=azure-functions&languages=java).
+
++ [Guida per sviluppatori Java per Funzioni di Azure](functions-reference-java.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [Esempi di progetti di Funzioni completi in TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
+
 + [Guida per sviluppatori TypeScript di Funzioni di Azure](functions-reference-node.md#typescript)  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Esempi di progetti di Funzioni completi in Python](/samples/browse/?products=azure-functions&languages=python)
+
 + [Guida per sviluppatori Python per Funzioni di Azure](functions-reference-python.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [Esempi di progetti di Funzioni completi in PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
+
 + [Guida per sviluppatori PowerShell per Funzioni di Azure](functions-reference-powershell.md) 
 ::: zone-end
-+ [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
-+ [Pagina dei prezzi di Funzioni](https://azure.microsoft.com/pricing/details/functions/)
-+ Articolo [Stima dei costi del piano a consumo](functions-consumption-costs.md)

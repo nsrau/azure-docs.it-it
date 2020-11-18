@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 97853f0524b794169de3aaaec33cf1b30949d930
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d62ed31a68d9469a1bd1fc66e479b0f91db2f916
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901554"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372269"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -29,19 +29,19 @@ La protezione delle risorse è frutto della collaborazione tra il provider di cl
 
 Centro sicurezza di Azure consente di risolvere le tre problematiche di sicurezza più urgenti:
 
--   **Carichi di lavoro in costante evoluzione** : è un punto di forza e al tempo stesso una delle difficoltà del cloud. Da una parte, gli utenti hanno a disposizione più opzioni. Da un’altra parte, come assicurarsi che i servizi in continua evoluzione che le persone usano e creano siano conformi agli standard di sicurezza e che le persone seguano le procedure consigliate?
+-   **Carichi di lavoro in costante evoluzione**: è un punto di forza e al tempo stesso una delle difficoltà del cloud. Da una parte, gli utenti hanno a disposizione più opzioni. Da un’altra parte, come assicurarsi che i servizi in continua evoluzione che le persone usano e creano siano conformi agli standard di sicurezza e che le persone seguano le procedure consigliate?
 
--   **Attacchi sempre più sofisticati** : ogni volta che si eseguono carichi di lavoro, gli attacchi diventano sempre più sofisticati. È necessario proteggere i carichi di lavoro su cloud pubblico, che sono in realtà carichi di lavoro su Internet che possono rendere più vulnerabili, se non si rispettano le procedure consigliate per la sicurezza.
+-   **Attacchi sempre più sofisticati**: ogni volta che si eseguono carichi di lavoro, gli attacchi diventano sempre più sofisticati. È necessario proteggere i carichi di lavoro su cloud pubblico, che sono in realtà carichi di lavoro su Internet che possono rendere più vulnerabili, se non si rispettano le procedure consigliate per la sicurezza.
 
--   **Le competenze di sicurezza sono scarse** : il numero di avvisi e di sistemi di avviso per la sicurezza superano di gran lunga il numero di amministratori con le conoscenze e l'esperienza necessarie per garantire che gli ambienti siano protetti. Rimanere aggiornati sugli attacchi più recenti è una sfida costante che rende impossibile rimanere fermi quando il mondo della sicurezza si muove in continuazione.
+-   **Le competenze di sicurezza sono scarse**: il numero di avvisi e di sistemi di avviso per la sicurezza superano di gran lunga il numero di amministratori con le conoscenze e l'esperienza necessarie per garantire che gli ambienti siano protetti. Rimanere aggiornati sugli attacchi più recenti è una sfida costante che rende impossibile rimanere fermi quando il mondo della sicurezza si muove in continuazione.
 
 Per garantire la protezione da questi problemi, Centro sicurezza offre gli strumenti necessari per:
 
--   **Migliorare il comportamento di sicurezza** : Centro sicurezza valuta l'ambiente e consente di comprendere lo stato delle risorse e se queste sono sicure.
+-   **Migliorare il comportamento di sicurezza**: Centro sicurezza valuta l'ambiente e consente di comprendere lo stato delle risorse e se queste sono sicure.
 
--   **Proteggiti dalle minacce** : Centro sicurezza valuta i carichi di lavoro e genera raccomandazioni per la prevenzione delle minacce e avvisi di sicurezza.
+-   **Proteggiti dalle minacce**: Centro sicurezza valuta i carichi di lavoro e genera raccomandazioni per la prevenzione delle minacce e avvisi di sicurezza.
 
--   **Protezione più rapida** : In Centro sicurezza, tutto viene eseguito con la velocità del cloud. Poiché è integrato in modo nativo, la distribuzione di Centro sicurezza è facile e consente di utilizzare il provisioning automatico e la protezione dei servizi di Azure.
+-   **Protezione più rapida**: In Centro sicurezza, tutto viene eseguito con la velocità del cloud. Poiché è integrato in modo nativo, la distribuzione di Centro sicurezza è facile e consente di utilizzare il provisioning automatico e la protezione dei servizi di Azure.
 
 > [!NOTE]
 > Questo servizio supporta [Azure Lighthouse](../lighthouse/overview.md), che consente ai provider di servizi di accedere al proprio tenant per gestire le sottoscrizioni e i gruppi di risorse che i clienti hanno delegato. Per gli scenari del Centro sicurezza di Azure, è necessario delegare un'intera sottoscrizione piuttosto che singoli gruppi di risorse.
@@ -54,7 +54,7 @@ Il Centro sicurezza protegge inoltre i server e le macchine virtuali non di Azur
 
 Gli eventi raccolti dagli agenti e da Azure sono correlati nel motore di analisi della sicurezza per fornire raccomandazioni personalizzate (attività di protezione avanzata), che è necessario seguire per assicurarsi che i carichi di lavoro siano protetti, e avvisi di sicurezza. È necessario esaminare gli avvisi appena possibile per assicurarsi che non siano in corso attacchi dannosi ai carichi di lavoro.
 
-Se si abilita Centro sicurezza, i criteri di sicurezza incorporati al suo interno si riflettono in Criteri di Azure come iniziativa predefinita nella categoria Centro sicurezza. L'iniziativa predefinita viene automaticamente assegnata a tutte le sottoscrizioni registrate di Centro sicurezza (piani tariffari Gratuito o Standard). L'iniziativa predefinita contiene solo criteri di controllo. Per altre informazioni sui criteri di Centro sicurezza in Criteri di Azure, vedere [Utilizzo dei criteri di sicurezza](tutorial-security-policy.md).
+Se si abilita il Centro sicurezza, i relativi criteri di sicurezza predefiniti si riflettono in Criteri di Azure come iniziativa predefinita nella categoria Centro sicurezza. L'iniziativa predefinita viene automaticamente assegnata a tutte le sottoscrizioni registrate del Centro sicurezza (indipendentemente dal fatto che Azure Defender sia abilitato o meno). L'iniziativa predefinita contiene solo criteri di controllo. Per altre informazioni sui criteri di Centro sicurezza in Criteri di Azure, vedere [Utilizzo dei criteri di sicurezza](tutorial-security-policy.md).
 
 ## <a name="strengthen-security-posture"></a>Migliorare il comportamento di sicurezza
 
@@ -137,6 +137,6 @@ Raccolta di log estesi: i registri di Windows e Linux sono tutti sfruttati dal m
 
 - Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/free/).
 
-- Il piano tariffario gratuito di Centro sicurezza è abilitato per tutte le sottoscrizioni di Azure correnti quando si visita per la prima volta il dashboard di Centro sicurezza di Azure nel portale di Azure oppure viene abilitato a livello di codice tramite API. Per sfruttare i vantaggi della gestione della sicurezza avanzata e la funzionalità di rilevamento minacce, è necessario eseguire l'aggiornamento al piano tariffario Standard. È possibile provare gratuitamente il piano Standard per 30 giorni. Per altre informazioni, vedere [Prezzi di Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
+- Il piano tariffario gratuito di Centro sicurezza è abilitato per tutte le sottoscrizioni di Azure correnti quando si visita per la prima volta il dashboard di Centro sicurezza di Azure nel portale di Azure oppure viene abilitato a livello di codice tramite API. Per sfruttare i vantaggi delle funzionalità avanzate di gestione della sicurezza e rilevamento delle minacce, è necessario abilitare Azure Defender. È possibile provare gratuitamente Azure Defender per 30 giorni. Per altre informazioni, vedere [Prezzi di Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
 
-- Per abilitare subito il Centro sicurezza del livello Standard, procedere come indicato in [Avvio rapido: Caricamento della sottoscrizione Azure in Centro sicurezza Standard](security-center-get-started.md).
+- Se si vuole abilitare subito Azure Defender, vedere [Avvio rapido: Configurazione del Centro sicurezza di Azure](security-center-get-started.md) per la procedura.

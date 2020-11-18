@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 09056846ee3e531724f597ee35f92d812ce2c335
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 674b8ab8266921a4eef8bbf212f3c556b1e587d7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86037835"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658350"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Risoluzione dei problemi: una connessione VPN da sito a sito di Azure non può essere stabilita e smette di funzionare
 
@@ -22,7 +22,7 @@ Dopo aver configurato una connessione VPN da sito a sito tra una rete locale e u
 
 ## <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 
-Per risolvere il problema, provare prima a [reimpostare il gateway VPN di Azure](vpn-gateway-resetgw-classic.md) e a reimpostare il tunnel dal dispositivo VPN locale. Se il problema persiste, seguire questa procedura per identificare la causa del problema.
+Per risolvere il problema, provare prima a [reimpostare il gateway VPN di Azure](./reset-gateway.md) e a reimpostare il tunnel dal dispositivo VPN locale. Se il problema persiste, seguire questa procedura per identificare la causa del problema.
 
 ### <a name="prerequisite-step"></a>Passaggio preliminare
 

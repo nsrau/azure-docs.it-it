@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: dineshm
-ms.openlocfilehash: d1ec251edf384e8032a67dc66982787d17c75dbd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f618b7203cdbf99d79079cf81de38c6d15c91981
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781465"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345568"
 ---
 # <a name="what-are-azure-queues"></a>Che cosa sono le code di Azure?
 
@@ -23,23 +23,23 @@ Archiviazione code di Azure è un servizio per l'archiviazione di un numero elev
 
 Il servizio di accodamento contiene i componenti seguenti:
 
-![Diagramma che mostra la relazione tra un account di archiviazione, le code e i messaggi](./media/storage-queues-introduction/queue1.png)
+![Diagramma che mostra la relazione tra un account di archiviazione, le code e i messaggi.](./media/storage-queues-introduction/queue1.png)
 
-* **Formato dell'URL** : è possibile fare riferimento alle code usando il formato di URL seguente:
+- **Formato dell'URL**: è possibile fare riferimento alle code usando il formato di URL seguente:
 
-    `https://<storage account>.queue.core.windows.net/<queue>`
-  
-    L'URL seguente fa riferimento a una delle code nel diagramma:   
-  
-    `https://myaccount.queue.core.windows.net/images-to-download`
+  `https://<storage account>.queue.core.windows.net/<queue>`
 
-* **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità degli account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+  L'URL seguente fa riferimento a una delle code nel diagramma: 
 
-* **Coda:** una coda contiene un set di messaggi. Il nome della coda **deve** essere tutto in minuscolo. Per altre informazioni, vedere [Denominazione di code e metadati](/rest/api/storageservices/Naming-Queues-and-Metadata).
+  `https://myaccount.queue.core.windows.net/images-to-download`
 
-* **Messaggio:** un messaggio, in qualsiasi formato, con dimensioni massime di 64 KB. Prima della versione 2017-07-29, la durata (TTL) massima consentita è di sette giorni. Per la versione 2017-07-29 o successive, la durata massima consentita può essere un numero positivo qualsiasi o -1, a indicare che il messaggio non scade. Se questo parametro viene omesso, la durata predefinita è di sette giorni.
+- **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità degli account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
+
+- **Coda:** una coda contiene un set di messaggi. Il nome della coda **deve** essere tutto in minuscolo. Per altre informazioni, vedere [Denominazione di code e metadati](/rest/api/storageservices/Naming-Queues-and-Metadata).
+
+- **Messaggio:** un messaggio, in qualsiasi formato, con dimensioni massime di 64 KB. Prima della versione 2017-07-29, la durata (TTL) massima consentita è di sette giorni. Per la versione 2017-07-29 o successive, la durata massima consentita può essere un numero positivo qualsiasi o -1, a indicare che il messaggio non scade. Se questo parametro viene omesso, la durata predefinita è di sette giorni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare un account di archiviazione](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json)
-* [Introduzione alle code con .NET](storage-dotnet-how-to-use-queues.md)
+- [Creare un account di archiviazione](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json)
+- [Introduzione alle code con .NET](storage-dotnet-how-to-use-queues.md)

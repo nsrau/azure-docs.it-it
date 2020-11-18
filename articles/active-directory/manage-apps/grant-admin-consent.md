@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9680c9bee6d0cf5c9605ce7b6009a500abd81ffb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7e56968250c10bb46553e618fd278df7d642683f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369098"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659081"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Concedere a un'applicazione il consenso amministratore a livello di tenant
 
@@ -30,7 +30,7 @@ Per altre informazioni sul consenso alle applicazioni, vedere [framework di cons
 Per concedere il consenso dell'amministratore a livello di tenant, è necessario accedere come [amministratore globale](../roles/permissions-reference.md#global-administrator--company-administrator), [amministratore dell'applicazione](../roles/permissions-reference.md#application-administrator)o [amministratore di applicazioni cloud](../roles/permissions-reference.md#cloud-application-administrator).
 
 > [!IMPORTANT]
-> Quando a un'applicazione viene concesso il consenso dell'amministratore a livello di tenant, tutti gli utenti saranno in grado di accedere all'app a meno che non sia stata configurata per richiedere l'assegnazione dell'utente. Per limitare gli utenti che possono accedere a un'applicazione, richiedere l'assegnazione dell'utente e quindi assegnare utenti o gruppi all'applicazione. Per altre informazioni, vedere [Metodi per l'assegnazione di utenti e gruppi](methods-for-assigning-users-and-groups.md).
+> Quando a un'applicazione viene concesso il consenso dell'amministratore a livello di tenant, tutti gli utenti saranno in grado di accedere all'app a meno che non sia stata configurata per richiedere l'assegnazione dell'utente. Per limitare gli utenti che possono accedere a un'applicazione, richiedere l'assegnazione dell'utente e quindi assegnare utenti o gruppi all'applicazione. Per altre informazioni, vedere [Metodi per l'assegnazione di utenti e gruppi](./assign-user-or-group-access-portal.md).
 >
 > Il ruolo di amministratore globale è necessario per fornire il consenso dell'amministratore per le autorizzazioni dell'applicazione per l'API Microsoft Graph.
 
@@ -99,6 +99,6 @@ Come sempre, esaminare attentamente le autorizzazioni richieste da un'applicazio
 
 [Configurare il flusso di lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md)
 
-[Autorizzazioni e consenso in Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
+[Autorizzazioni e consenso in Microsoft Identity Platform](../develop/v2-permissions-and-consent.md)
 
 [Azure AD in StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

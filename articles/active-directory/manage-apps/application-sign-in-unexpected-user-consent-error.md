@@ -16,16 +16,16 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7a1b63864f0fbd945b97d6c2e285bfccbf934f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 558c6dc24f6d0d17c9a82bbc79f39649f63dc7f4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874544"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658486"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Errore imprevisto durante la richiesta di consenso per un'applicazione
 
-Questo articolo descrive gli errori che possono verificarsi quando si tenta di ottenere il consenso per un'applicazione. Per risolvere i problemi relativi a richieste di consenso impreviste che non contengono messaggi di errore, vedere [Scenari di autenticazione per Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
+Questo articolo descrive gli errori che possono verificarsi quando si tenta di ottenere il consenso per un'applicazione. Per risolvere i problemi relativi a richieste di consenso impreviste che non contengono messaggi di errore, vedere [Scenari di autenticazione per Azure AD](../develop/authentication-vs-authorization.md).
 
 Molte applicazioni integrate in Azure Active Directory richiedono autorizzazioni per accedere ad altre risorse e garantire il funzionamento. Quando anche queste risorse sono integrate in Azure Active Directory, le autorizzazioni per il relativo accesso vengono spesso richieste tramite il framework di consenso comune. Questo comporta la visualizzazione di una richiesta di consenso, che in genere viene inviata al primo utilizzo di un'applicazione ma a volte anche successivamente.
 
@@ -90,8 +90,6 @@ Gli utenti finali non saranno in grado di concedere il consenso alle app che son
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-[App, autorizzazioni e consenso in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
+[App, autorizzazioni e consenso in Azure Active Directory](../develop/quickstart-register-app.md)<br>
 
-[Ambiti, autorizzazioni e consenso in Azure Active Directory (endpoint v2.0)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
-
-
+[Ambiti, autorizzazioni e consenso in Azure Active Directory (endpoint v2.0)](../develop/v2-permissions-and-consent.md)

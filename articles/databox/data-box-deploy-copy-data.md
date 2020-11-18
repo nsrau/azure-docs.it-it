@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: ced33bb17e9c24faa127b27adacce9cab011e1d8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7ecccd64921b2d95155318fe91c897725e340b7e
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426258"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334670"
 ---
 ::: zone target="docs"
 
@@ -78,7 +78,7 @@ Se si usa un computer host Windows Server, eseguire le operazioni seguenti per c
     
     ![Recuperare il nome utente e la password per una condivisione](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Per accedere alle condivisioni associate all'account di archiviazione ( *utsac1* nell'esempio seguente) dal computer host, aprire una finestra di comando. Al prompt dei comandi digitare:
+3. Per accedere alle condivisioni associate all'account di archiviazione (*utsac1* nell'esempio seguente) dal computer host, aprire una finestra di comando. Al prompt dei comandi digitare:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -229,11 +229,11 @@ Se vengono riscontrati errori durante il processo di copia, verrà visualizzata 
 
 Selezionare **Scarica elenco problemi**.
 
-![Scaricare e visualizzare gli errori del processo Connetti e copia - 2](media/data-box-deploy-copy-data/view-errors-2.png)
+![Connetti e copia, Scarica elenco problemi](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Aprire l'elenco per visualizzare i dettagli dell'errore e selezionare l'URL di risoluzione per visualizzare la risoluzione consigliata.
 
-![Scaricare e visualizzare gli errori del processo Connetti e copia - 3](media/data-box-deploy-copy-data/view-errors-3.png)
+![Connetti e copia, scaricare e visualizzare gli errori](media/data-box-deploy-copy-data/view-errors-3.png)
 
 Per altre informazioni, vedere [Visualizzare i log degli errori durante la copia dei dati in Data Box](data-box-logs.md#view-error-log-during-data-copy). Per un elenco dettagliato degli errori durante la copia dei dati, vedere [Risolvere i problemi di Data Box](data-box-troubleshoot.md).
 

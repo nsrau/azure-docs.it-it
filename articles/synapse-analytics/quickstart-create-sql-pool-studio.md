@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6ffa7bb07ddb42946acdcef6ee3b7f2aa804f774
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f3ed5f3940a9b02701ad2f3c779b791e128e288c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324302"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506346"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>Avvio rapido: Creare un pool SQL dedicato con Synapse Studio
 
@@ -45,13 +45,13 @@ Accedere al [portale di Azure](https://portal.azure.com/)
 
 ## <a name="launch-synapse-studio"></a>Avviare Synapse Studio
 
-1. Nella pagina di panoramica dell'area di lavoro selezionare l' **URL Web dell'area di lavoro** per avviare Synapse Studio.
+1. Nella pagina di panoramica dell'area di lavoro selezionare l'**URL Web dell'area di lavoro** per avviare Synapse Studio.
 
     ![Panoramica dell'area di lavoro di Synapse nel portale di Azure con l'opzione URL Web dell'area di lavoro evidenziata.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
 
 ## <a name="create-a-dedicated-sql-pool-in-synapse-studio"></a>Creare un pool SQL dedicato in Synapse Studio
 
-1. Nella home page di Synapse Studio passare all' **hub di gestione** nel riquadro di navigazione a sinistra selezionando l'icona **Gestisci**.
+1. Nella home page di Synapse Studio passare all'**hub di gestione** nel riquadro di navigazione a sinistra selezionando l'icona **Gestisci**.
 
     ![Home page di Synapse Studio con la sezione dell’hub di gestione evidenziata.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-21.png)
 
@@ -63,7 +63,7 @@ Accedere al [portale di Azure](https://portal.azure.com/)
 
     ![Elenco nell’hub di gestione di Synapse Studio dei pool SQL.](media/quickstart-create-sql-pool/create-sql-pool-studio-23.png)
 
-1. Immettere i dettagli seguenti nella scheda **Informazioni di base** :
+1. Immettere i dettagli seguenti nella scheda **Informazioni di base**:
 
     | Impostazione | Valore consigliato | Descrizione |
     | :------ | :-------------- | :---------- |
@@ -74,13 +74,15 @@ Accedere al [portale di Azure](https://portal.azure.com/)
     > [!IMPORTANT]
     > Si noti che esistono limitazioni specifiche per i nomi che è possibile usare per i pool SQL dedicati. I nomi non possono contenere caratteri speciali, devono essere costituiti da un massimo di 15 caratteri, non possono contenere parole riservate e devono essere univoci nell'area di lavoro.
 
-4. Nella scheda successiva **Impostazioni aggiuntive** , selezionare **nessuna** per eseguire il provisioning del pool SQL senza dati. Lasciare selezionate le regole di confronto predefinite.
+4. Nella scheda successiva **Impostazioni aggiuntive**, selezionare **nessuna** per eseguire il provisioning del pool SQL senza dati. Lasciare selezionate le regole di confronto predefinite.
+
+    Per ripristinare il pool SQL dedicato da un punto di ripristino, selezionare **Punto di ripristino**. Per altre informazioni su come eseguire un ripristino, vedere [Procedura: Ripristinare un pool SQL dedicato esistente](backuprestore/restore-sql-pool.md)
 
     ![Flusso di creazione del pool SQL - Scheda Impostazioni aggiuntive.](media/quickstart-create-sql-pool/create-sql-pool-studio-25.png)
 
 1. Per il momento non verranno aggiunti tag, quindi selezionare **Rivedi e crea**.
 
-1. Nella scheda **Rivedi e crea** , verificare che i dettagli siano corretti in base a quanto specificato in precedenza, quindi premere **Crea**. 
+1. Nella scheda **Rivedi e crea**, verificare che i dettagli siano corretti in base a quanto specificato in precedenza, quindi premere **Crea**. 
 
     ![Flusso di creazione del pool SQL - Scheda Revisione impostazioni.](media/quickstart-create-sql-pool/create-sql-pool-studio-26.png)
 
@@ -101,7 +103,7 @@ Seguire questa procedura per eliminare il pool SQL dedicato dall'area di lavoro 
 Per eliminare il pool SQL dedicato, procedere come segue:
 
 1. Passare ai pool SQL nell'hub di gestione in Synapse Studio.
-1. Selezionare i puntini di sospensione nel pool SQL dedicato da eliminare (in questo caso, **contosoedw** ) per visualizzare i comandi relativi al pool SQL dedicato:
+1. Selezionare i puntini di sospensione nel pool SQL dedicato da eliminare (in questo caso, **contosoedw**) per visualizzare i comandi relativi al pool SQL dedicato:
 
     ![Elenco di pool SQL con il pool creato di recente selezionato.](media/quickstart-create-sql-pool/create-sql-pool-studio-28.png)
 1. Premere **CANC**.

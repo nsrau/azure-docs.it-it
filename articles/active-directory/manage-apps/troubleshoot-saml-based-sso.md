@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 7f7f999c145903be5db3b20ab60bd0f5a18778ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e8508d4fceb1e7fb580350c726dd70eeaea31c6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89463641"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658877"
 ---
 # <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Risolvere i problemi di Single Sign-On basati su SAML in Azure Active Directory
-Se si verifica un problema durante la configurazione di un'applicazione. Verificare di aver seguito tutti i passaggi dell'esercitazione per l'applicazione. Durante la configurazione dell'applicazione è disponibile la documentazione in linea relativa a come configurare l'applicazione. Per le istruzioni dettagliate, è possibile accedere all'[Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).
+Se si verifica un problema durante la configurazione di un'applicazione. Verificare di aver seguito tutti i passaggi dell'esercitazione per l'applicazione. Durante la configurazione dell'applicazione è disponibile la documentazione in linea relativa a come configurare l'applicazione. Per le istruzioni dettagliate, è possibile accedere all'[Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](../saas-apps/tutorial-list.md).
 
 ## <a name="cant-add-another-instance-of-the-application"></a>Impossibile aggiungere un'altra istanza dell'applicazione
 Per aggiungere una seconda istanza di un'applicazione, è necessario:
@@ -42,7 +42,7 @@ Per conoscere i modelli preconfigurati per l'applicazione:
 8. Selezionare **Accesso basato su SAML** dal menu a discesa **Modalità**.
 9. Passare alla casella di testo **Identificatore** o **URL di risposta** nella sezione **URL e dominio**.
 10. Esistono tre modi per conoscere i modelli supportati per l'applicazione:
-    * Nella casella di testo è presente il criterio supportato come segnaposto, * ad esempio:* <https://contoso.com>.
+    * Nella casella di testo è presente il criterio supportato come segnaposto, *ad esempio:* <https://contoso.com>.
     * Se il modello non è supportato, viene visualizzato un punto esclamativo rosso quando si tenta di immettere il valore nella casella di testo. Se si posiziona il mouse sul punto esclamativo rosso, vengono visualizzati i modelli supportati.
     * Nell'esercitazione per l'applicazione sono disponibili anche informazioni sui modelli supportati. Nella sezione **Configurare il Single Sign-On di Azure AD**. Andare al passaggio per configurare i valori nella sezione **URL e dominio**.
 
@@ -53,7 +53,7 @@ Se i valori non corrispondono ai modelli preconfigurati in Azure AD. È possibil
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Dove impostare il formato di EntityID (identificatore utente)
 Non è possibile selezionare il formato di EntityID (identificatore utente) che Azure AD invia all'applicazione in risposta all'autenticazione dell'utente.
 
-Azure AD seleziona il formato per l'attributo NameID (identificatore utente) in base al valore selezionato o al formato richiesto dall'applicazione nell'oggetto AuthRequest SAML. Per altre informazioni, vedere l'articolo relativo al [protocollo SAML per Single Sign-On](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) sotto la sezione NameIDPolicy.
+Azure AD seleziona il formato per l'attributo NameID (identificatore utente) in base al valore selezionato o al formato richiesto dall'applicazione nell'oggetto AuthRequest SAML. Per altre informazioni, vedere l'articolo relativo al [protocollo SAML per Single Sign-On](../develop/single-sign-on-saml-protocol.md#authnrequest) sotto la sezione NameIDPolicy.
 
 ## <a name="cant-find-the-azure-ad-metadata-to-complete-the-configuration-with-the-application"></a>Impossibile trovare i metadati di Azure AD per completare la configurazione con l'applicazione
 Per scaricare il certificato o i metadati dell'applicazione da Azure AD, seguire questa procedura:
@@ -70,7 +70,7 @@ Per scaricare il certificato o i metadati dell'applicazione da Azure AD, seguire
 Azure AD non fornisce URL per ottenere i metadati. I metadati possono essere recuperati solo come file XML.
 
 ## <a name="customize-saml-claims-sent-to-an-application"></a>Personalizzare le attestazioni SAML inviate a un'applicazione
-Per informazioni su come personalizzare le attestazioni degli attributi SAML inviate all'applicazione, vedere [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) (Mapping di attestazioni in Azure Active Directory).
+Per informazioni su come personalizzare le attestazioni degli attributi SAML inviate all'applicazione, vedere [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md) (Mapping di attestazioni in Azure Active Directory).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Serie di guide di avvio rapido sulla gestione delle applicazioni](view-applications-portal.md)

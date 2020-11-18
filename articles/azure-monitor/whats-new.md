@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: c9679fec1d9c5d501ead03bcfbf28132d9e3b90a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6ed00931e8cca1febac0b9b72b53eeb7e81042ea
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151808"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94487993"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novità della documentazione di Monitoraggio di Azure
 
@@ -157,7 +157,7 @@ Questo articolo elenca gli articoli su Monitoraggio di Azure nuovi o aggiornati 
 ### <a name="alerts"></a>Avvisi
 - [Regole di azione per gli avvisi di Monitoraggio di Azure](platform/alerts-action-rules.md) - Aggiunta dei processi dell'interfaccia della riga di comando.
 - [Creare e gestire gruppi di azione nel portale di Azure](platform/action-groups.md) - Aggiornamento per riflettere le modifiche apportate all'interfaccia utente.
-- [Query salvate di Log Analytics in Monitoraggio di Azure](log-query/saved-queries.md) - Nuovo articolo.
+- [Query di esempio di Log Analytics in Monitoraggio di Azure](log-query/example-queries.md) - Nuovo articolo.
 - [Risolvere i problemi relativi agli avvisi dei log in Monitoraggio di Azure](platform/alerts-troubleshoot-log.md) - Aggiunta la sezione relativa alla quota delle regole di avviso.
 - [Risoluzione dei problemi relativi agli avvisi delle metriche di Azure](platform/alerts-troubleshoot-metric.md) - Aggiunta la sezione relativa alla regola di avviso per una metrica personalizzata che non è ancora stata emessa.
 - [Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure](platform/alerts-metric-overview.md) - È stata aggiunta una raccomandazione per la selezione della granularità dell'aggregazione.

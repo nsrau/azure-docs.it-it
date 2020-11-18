@@ -9,27 +9,27 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: fe30a2a0885e1a579eb32ad84ef467f7162febe4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 03995166df5d40f7f8be7054aed0727be254ed73
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310324"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376894"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Funzionalità Transact-SQL supportate in Azure Synapse SQL
 
 Azure Synapse SQL è un servizio di analisi di Big Data che consente di eseguire query e di analizzare i dati tramite il linguaggio T-SQL. Per l'analisi dei dati, è possibile usare il dialetto standard compatibile con ANSI del linguaggio SQL usato in SQL Server e in Database SQL di Azure. 
 
-Il linguaggio Transact-SQL usato nel modello serverless e con provisioning di Synapse SQL può fare riferimento a oggetti diversi e presenta alcune differenze nel set di funzionalità supportate. Questa pagina illustra le differenze generali del linguaggio Transact-SQL tra i modelli di consumo di Synapse SQL.
+Il linguaggio Transact-SQL usato nel modello serverless e dedicato di Synapse SQL può fare riferimento a oggetti diversi e presenta alcune differenze nel set di funzionalità supportate. Questa pagina illustra le differenze generali del linguaggio Transact-SQL tra i modelli di consumo di Synapse SQL.
 
 ## <a name="database-objects"></a>Oggetti di database
 
 I modelli di consumo in Synapse SQL consentono di usare oggetti di database diversi. Il confronto dei tipi di oggetto supportati è illustrato nella tabella seguente:
 
-|   | Sottoposto a provisioning | Senza server |
+|   | Dedicato | Senza server |
 | --- | --- | --- |
 | **Tabelle** | [Sì](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | No, il modello serverless consente di eseguire query solo sui dati esterni posizionati in [Archiviazione di Azure](#storage-options) |
-| **Visualizzazioni** | [Sì](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Le viste possono usare gli [elementi del linguaggio di query](#query-language) disponibili nel modello con provisioning. | [Sì](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Le viste possono usare gli [elementi del linguaggio di query](#query-language) disponibili nel modello serverless. |
+| **Visualizzazioni** | [Sì](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Le viste possono usare gli [elementi del linguaggio di query](#query-language) disponibili nel modello dedicato. | [Sì](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Le viste possono usare gli [elementi del linguaggio di query](#query-language) disponibili nel modello serverless. |
 | **Schemi** | [Sì](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | [Sì](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |
 | **Tabelle temporanee** | [Sì](../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | No |
 | **Procedure** | [Sì](/sql/t-sql/statements/create-procedure-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | No |
@@ -48,7 +48,7 @@ I modelli di consumo in Synapse SQL consentono di usare oggetti di database dive
 
 I linguaggi di query usati in Synapse SQL possono supportare funzionalità diverse in base al modello di consumo. La tabella seguente illustra le differenze più importanti del linguaggio di query nei dialetti Transact-SQL:
 
-|   | Sottoposto a provisioning | Senza server |
+|   | Dedicato | Senza server |
 | --- | --- | --- |
 | **Istruzione SELECT** | Sì. Le clausole di query Transact-SQL [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e [MATCH](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) non sono supportate. | Sì. Le clausole di query Transact-SQL [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e [PREDICT](/sql/t-sql/queries/predict-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e gli hint per la query non sono supportati. È possibile usare [OFFSET/FETCH](/sql/t-sql/queries/select-order-by-clause-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#using-offset-and-fetch-to-limit-the-rows-returned) e [PIVOT/UNPIVOT](/sql/t-sql/queries/from-using-pivot-and-unpivot?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) per eseguire query su oggetti di sistema (non sui dati esterni). |
 | **Istruzione INSERT** | Sì | No |
@@ -73,7 +73,7 @@ I linguaggi di query usati in Synapse SQL possono supportare funzionalità diver
 
 Synapse SQL consente di usare le funzionalità di sicurezza predefinite per proteggere i dati e controllare l'accesso. Nella tabella seguente vengono confrontate le differenze generali tra i modelli di consumo di Synapse SQL.
 
-|   | Sottoposto a provisioning | Senza server |
+|   | Dedicato | Senza server |
 | --- | --- | --- |
 | **Account di accesso** | N/A (sono supportati solo gli utenti contenuti nei database) | Sì |
 | **Utenti** |  N/A (sono supportati solo gli utenti contenuti nei database) | Sì |
@@ -109,7 +109,7 @@ Il pool SQL dedicato e il pool SQL serverless usano il linguaggio Transact-SQL p
 
 È possibile usare vari strumenti per connettersi a Synapse SQL per eseguire query sui dati.
 
-|   | Sottoposto a provisioning | Senza server |
+|   | Dedicato | Senza server |
 | --- | --- | --- |
 | **Synapse Studio** | Sì, script SQL | Sì, script SQL |
 | **Power BI** | Sì | [Sì](tutorial-connect-power-bi-desktop.md) |
@@ -120,13 +120,13 @@ Il pool SQL dedicato e il pool SQL serverless usano il linguaggio Transact-SQL p
 > [!NOTE]
 > È possibile usare SSMS per connettersi al pool SQL serverless (anteprima) ed eseguire query. SSMS è parzialmente supportato a partire dalla versione 18.5, è possibile usarlo solo per connettersi ed eseguire query.
 
-La maggior parte delle applicazioni che usano il linguaggio Transact-SQL standard possono eseguire query sia sui modelli di consumo con provisioning che serverless di Synapse SQL.
+La maggior parte delle applicazioni che usano il linguaggio Transact-SQL standard possono eseguire query sia sui modelli di consumo dedicati che serverless di Synapse SQL.
 
 ## <a name="storage-options"></a>Opzioni di archiviazione
 
 I dati analizzati possono essere archiviati in vari tipi di archiviazione. La tabella seguente elenca tutte le opzioni di archiviazione disponibili:
 
-|   | Sottoposto a provisioning | Senza server |
+|   | Dedicato | Senza server |
 | --- | --- | --- |
 | **Archiviazione interna** | Sì | No |
 | **Azure Data Lake v2** | Sì | Sì |
@@ -137,7 +137,7 @@ I dati analizzati possono essere archiviati in vari tipi di archiviazione. La ta
 
 I dati analizzati possono essere archiviati in vari formati di archiviazione. La tabella seguente elenca tutti i formati di dati disponibili che è possibile analizzare:
 
-|   | Sottoposto a provisioning | Senza server |
+|   | Dedicato | Senza server |
 | --- | --- | --- |
 | **Delimitato** | [Sì](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | [Sì](query-single-csv-file.md) |
 | **CSV** | Sì, (i delimitatori a più caratteri non sono supportati) | [Sì](query-single-csv-file.md) |

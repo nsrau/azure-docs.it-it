@@ -2,15 +2,15 @@
 title: Configurare app Python in Linux
 description: Informazioni su come configurare il contenitore Python in cui vengono eseguite app Web, usando sia il portale di Azure che l'interfaccia della riga di comando di Azure.
 ms.topic: quickstart
-ms.date: 10/06/2020
+ms.date: 11/06/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 935baef209811146d0b60f4fc02986818fd103a7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9e0e9098959231d4283608e8191081ae2df6737a
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743788"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425916"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurare un'app Python in Linux per il servizio app di Azure
 
@@ -22,11 +22,11 @@ Questa guida illustra i concetti chiave e le istruzioni per gli sviluppatori Pyt
 
 Per la configurazione, è possibile usare il [portale di Azure](https://portal.azure.com) o l'interfaccia della riga di comando di Azure:
 
-- **Portale di Azure** : usare la pagina **Impostazioni** > **Configurazione** dell'app, come descritto in [Configurare un'app del servizio app nel portale di Azure](configure-common.md).
+- **Portale di Azure**: usare la pagina **Impostazioni** > **Configurazione** dell'app, come descritto in [Configurare un'app del servizio app nel portale di Azure](configure-common.md).
 
-- **Interfaccia della riga di comando di Azure** : sono disponibili due opzioni.
+- **Interfaccia della riga di comando di Azure**: sono disponibili due opzioni.
 
-    - Eseguire i comandi di [Azure Cloud Shell](../cloud-shell/overview.md), che è possibile aprire con il pulsante **Prova** nell'angolo in alto a destra dei blocchi di codice.
+    - Eseguire i comandi in [Azure Cloud Shell](../cloud-shell/overview.md).
     - Eseguire i comandi in locale installando l'ultima versione dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli), quindi accedere ad Azure usando [az login](/cli/azure/reference-index#az-login).
     
 > [!NOTE]
@@ -34,13 +34,13 @@ Per la configurazione, è possibile usare il [portale di Azure](https://portal.a
 
 ## <a name="configure-python-version"></a>Configurare la versione di Python
 
-- **Portale di Azure** : usare la scheda **Impostazioni generali** nella pagina **Configurazione** , come descritto in [Configurare le impostazioni generali](configure-common.md#configure-general-settings) per contenitori Linux.
+- **Portale di Azure**: usare la scheda **Impostazioni generali** nella pagina **Configurazione**, come descritto in [Configurare le impostazioni generali](configure-common.md#configure-general-settings) per contenitori Linux.
 
-- **Interfaccia della riga di comando di Azure** :
+- **Interfaccia della riga di comando di Azure**:
 
     -  visualizzare la versione corrente di Python con [az webapp config show](/cli/azure/webapp/config#az_webapp_config_show):
     
-        ```azurecli-interactive
+        ```azurecli
         az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
         ```
         
@@ -48,13 +48,13 @@ Per la configurazione, è possibile usare il [portale di Azure](https://portal.a
     
     - Impostare la versione di Python con [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set)
         
-        ```azurecli-interactive
+        ```azurecli
         az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
         ```
     
     - Visualizzare tutte le versioni di Python supportate nel servizio app di Azure con [az webapp list-runtimes](/cli/azure/webapp#az_webapp_list_runtimes):
     
-        ```azurecli-interactive
+        ```azurecli
         az webapp list-runtimes --linux | grep PYTHON
         ```
     
@@ -69,7 +69,7 @@ Il sistema di compilazione del servizio app, Oryx, esegue i passaggi seguenti qu
 
 1. Esegue uno script di pre-compilazione personalizzato se specificato dall'impostazione `PRE_BUILD_COMMAND`.
 1. Eseguire `pip install -r requirements.txt`. Il file *requirements.txt* deve essere presente nella cartella radice del progetto. In caso contrario, il processo di compilazione segnala l'errore con un messaggio analogo al seguente: "Non è stato possibile trovare setup.py o requirements.txt; l'installazione di pip non verrà eseguita".
-1. Se nella radice del repository viene trovato *manage.py* (che indica un'app Django), esegue *manage.py collectstatic* . Tuttavia, se l'impostazione `DISABLE_COLLECTSTATIC` è `true`, questo passaggio viene ignorato.
+1. Se nella radice del repository viene trovato *manage.py* (che indica un'app Django), esegue *manage.py collectstatic*. Tuttavia, se l'impostazione `DISABLE_COLLECTSTATIC` è `true`, questo passaggio viene ignorato.
 1. Esegue uno script di post-compilazione personalizzato se specificato dall'impostazione `POST_BUILD_COMMAND`.
 
 Per impostazione predefinita, le impostazioni `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND` e `DISABLE_COLLECTSTATIC` sono vuote. 
@@ -82,6 +82,8 @@ Per impostazione predefinita, le impostazioni `PRE_BUILD_COMMAND`, `POST_BUILD_C
 
 Per altre impostazioni che personalizzano l'automazione della compilazione, vedere [Configurazione di Oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md). 
 
+Per accedere ai log di compilazione e distribuzione, vedere [Accedere ai log di distribuzione](#access-deployment-logs).
+
 Per altre informazioni sull'esecuzione del servizio app e sulla compilazione di app Python in Linux, vedere [come vengono rilevate e compilate le app Python in Oryx](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/python.md).
 
 > [!NOTE]
@@ -90,7 +92,7 @@ Per altre informazioni sull'esecuzione del servizio app e sulla compilazione di 
 > Un'impostazione denominata `SCM_DO_BUILD_DURING_DEPLOYMENT`, se contiene `true` o 1, attiva una compilazione Oryx durante la distribuzione. L'impostazione è true quando si esegue la distribuzione usando git, il comando `az webapp up` dell'interfaccia della riga di comando di Azure e Visual Studio Code.
 
 > [!NOTE]
-> Usare sempre percorsi relativi negli script di pre- e post-compilazione, perché il contenitore di compilazione in cui viene eseguito Oryx è diverso dal contenitore di runtime in cui viene eseguita l'app. Non fare mai affidamento sul posizionamento esatto della cartella di progetto dell'app all'interno del contenitore, ad esempio che si trova in *site/wwwroot* .
+> Usare sempre percorsi relativi negli script di pre- e post-compilazione, perché il contenitore di compilazione in cui viene eseguito Oryx è diverso dal contenitore di runtime in cui viene eseguita l'app. Non fare mai affidamento sul posizionamento esatto della cartella di progetto dell'app all'interno del contenitore, ad esempio che si trova in *site/wwwroot*.
 
 ## <a name="production-settings-for-django-apps"></a>Impostazioni di produzione per le app Django
 
@@ -102,7 +104,7 @@ La tabella seguente descrive le impostazioni di produzione pertinenti per Azure.
 | --- | --- |
 | `SECRET_KEY` | Archiviare il valore in un'impostazione del servizio app, come descritto in [Accedere alle impostazioni dell'app come variabili di ambiente](#access-app-settings-as-environment-variables). In alternativa, è possibile [archiviare il valore come "segreto" in Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
 | `DEBUG` | Creare un'impostazione `DEBUG` nel servizio app con il valore 0 (false), quindi caricare il valore come variabile di ambiente. Nell'ambiente di sviluppo creare una variabile di ambiente `DEBUG` con il valore 1 (true). |
-| `ALLOWED_HOSTS` | In produzione, Django richiede di includere l'URL dell'app nella matrice `ALLOWED_HOSTS` di *settings-py* . È possibile recuperare questo URL in fase di esecuzione con il codice `os.environ['WEBSITE_HOSTNAME']`. Il servizio app imposta automaticamente la variabile di ambiente `WEBSITE_HOSTNAME` sull'URL dell'app. |
+| `ALLOWED_HOSTS` | In produzione, Django richiede di includere l'URL dell'app nella matrice `ALLOWED_HOSTS` di *settings-py*. È possibile recuperare questo URL in fase di esecuzione con il codice `os.environ['WEBSITE_HOSTNAME']`. Il servizio app imposta automaticamente la variabile di ambiente `WEBSITE_HOSTNAME` sull'URL dell'app. |
 | `DATABASES` | Definire le impostazioni nel servizio app per la connessione al database e caricarle come variabili di ambiente per popolare il dizionario [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES). In alternativa, è possibile archiviare i valori, in particolare il nome utente e la password, come [segreti di Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
 
 ## <a name="container-characteristics"></a>Caratteristiche del contenitore
@@ -144,7 +146,7 @@ Per le app Django il servizio app cerca un file denominato `wsgi.py` all'interno
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-Per avere un controllo più specifico sul comando di avvio, usare un [comando di avvio personalizzato](#customize-startup-command), sostituire `<module>` con il nome della cartella che contiene *wsgi.py* , quindi aggiungere un argomento `--chdir` se tale modulo non è presente nella radice del progetto. Ad esempio, se il file *wsgi.py* si trova in *knboard/backend/config* rispetto alla radice del progetto, usare gli argomenti `--chdir knboard/backend config.wsgi`.
+Per avere un controllo più specifico sul comando di avvio, usare un [comando di avvio personalizzato](#customize-startup-command), sostituire `<module>` con il nome della cartella che contiene *wsgi.py*, quindi aggiungere un argomento `--chdir` se tale modulo non è presente nella radice del progetto. Ad esempio, se il file *wsgi.py* si trova in *knboard/backend/config* rispetto alla radice del progetto, usare gli argomenti `--chdir knboard/backend config.wsgi`.
 
 Per abilitare la registrazione di produzione, aggiungere i parametri `--access-logfile` e `--error-logfile`, come illustrato negli esempi per i [comandi di avvio personalizzati](#customize-startup-command).
 
@@ -164,25 +166,29 @@ Se il modulo principale dell'app è contenuto in un file diverso, usare un nome 
 
 ### <a name="default-behavior"></a>Comportamento predefinito
 
-Se il servizio app non trova un comando personalizzato, un'app Django o un'app Flask, verrà eseguita un'app predefinita di sola lettura che si trova nella cartella _opt/defaultsite_ . L'app predefinita è simile alla seguente:
+Se il servizio app non trova un comando personalizzato, un'app Django o un'app Flask, verrà eseguita un'app predefinita di sola lettura che si trova nella cartella _opt/defaultsite_, come illustrato nell'immagine seguente.
 
-![Pagina Web predefinita del servizio app in Linux](media/configure-language-python/default-python-app.png)
+Se il codice è stato distribuito e viene ancora visualizzata l'app predefinita, vedere [Risoluzione dei problemi: l'app non viene visualizzata](#app-doesnt-appear).
+
+[![Pagina Web predefinita del servizio app in Linux](media/configure-language-python/default-python-app.png)](#app-doesnt-appear)
+
+Anche in questo caso, se ci si aspetta di vedere un'app distribuita invece di quella predefinita, vedere [Risoluzione dei problemi: l'app non viene visualizzata](#app-doesnt-appear).
 
 ## <a name="customize-startup-command"></a>Personalizzare un comando di avvio
 
 Come accennato prima in questo articolo, è possibile specificare impostazioni personalizzate per Gunicorn tramite un file *gunicorn.conf.py* nella radice del progetto, come descritto nella [panoramica della configurazione di Gunicorn](https://docs.gunicorn.org/en/stable/configure.html#configuration-file).
 
-Se tale configurazione non è sufficiente, è possibile controllare il comportamento di avvio del contenitore specificando un comando di avvio personalizzato oppure più comandi in un file di comandi di avvio. Per un file di comandi di avvio è possibile usare qualsiasi nome, ad esempio *startup.sh* , *startup.cmd* , *startup.txt* e così via.
+Se tale configurazione non è sufficiente, è possibile controllare il comportamento di avvio del contenitore specificando un comando di avvio personalizzato oppure più comandi in un file di comandi di avvio. Per un file di comandi di avvio è possibile usare qualsiasi nome, ad esempio *startup.sh*, *startup.cmd*, *startup.txt* e così via.
 
 Tutti i comandi devono usare percorsi relativi alla cartella radice del progetto.
 
 Per specificare un comando di avvio o un file di comandi:
 
-- **Portale di Azure** : selezionare la pagina **Configurazione** dell'app, quindi selezionare **Impostazioni generali** . Nel campo **Comando di avvio** inserire il testo completo del comando di avvio o il nome del file di comandi di avvio. Quindi selezionare **Salva** per applicare le modifiche. Vedere [Configurare le impostazioni generali](configure-common.md#configure-general-settings) per i contenitori Linux.
+- **Portale di Azure**: selezionare la pagina **Configurazione** dell'app, quindi selezionare **Impostazioni generali**. Nel campo **Comando di avvio** inserire il testo completo del comando di avvio o il nome del file di comandi di avvio. Quindi selezionare **Salva** per applicare le modifiche. Vedere [Configurare le impostazioni generali](configure-common.md#configure-general-settings) per i contenitori Linux.
 
-- **Interfaccia della riga di comando di Azure** : usare il comando [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) con il parametro `--startup-file` per impostare il comando di avvio o il file:
+- **Interfaccia della riga di comando di Azure**: usare il comando [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) con il parametro `--startup-file` per impostare il comando di avvio o il file:
 
-    ```azurecli-interactive
+    ```azurecli
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
     ```
         
@@ -192,7 +198,7 @@ Il servizio app ignora gli eventuali errori che possono verificarsi durante l'el
 
 ### <a name="example-startup-commands"></a>Comandi di avvio di esempio
 
-- **Argomenti Gunicorn aggiunti** : l'esempio seguente aggiunge `--workers=4` a una riga di comando di Gunicorn per l'avvio di un'app Django: 
+- **Argomenti Gunicorn aggiunti**: l'esempio seguente aggiunge `--workers=4` a una riga di comando di Gunicorn per l'avvio di un'app Django: 
 
     ```bash
     # <module-path> is the relative path to the folder that contains the module
@@ -202,7 +208,7 @@ Il servizio app ignora gli eventuali errori che possono verificarsi durante l'el
 
     Per altre informazioni, vedere l'articolo relativo all'[esecuzione di Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
-- **Abilitare la registrazione di produzione per Django** : aggiungere gli argomenti `--access-logfile '-'` e `--error-logfile '-'` alla riga di comando:
+- **Abilitare la registrazione di produzione per Django**: aggiungere gli argomenti `--access-logfile '-'` e `--error-logfile '-'` alla riga di comando:
 
     ```bash    
     # '-' for the log files means stdout for --access-logfile and stderr for --error-logfile.
@@ -213,7 +219,7 @@ Il servizio app ignora gli eventuali errori che possono verificarsi durante l'el
 
     Per altre informazioni, vedere l'articolo relativo alla [registrazione di Gunicorn](https://docs.gunicorn.org/en/stable/settings.html#logging) (docs.gunicorn.org).
     
-- **Modulo principale Flask personalizzato** : per impostazione predefinita, il servizio app presuppone che il modulo principale di un'app Flask sia *application.py* o *app.py* . Se il modulo principale usa un nome diverso, è necessario personalizzare il comando di avvio. Ad esempio, se il modulo principale di un'app Flask è *hello.py* e l'oggetto app Flask in tale file è denominato `myapp`, il comando sarà come segue:
+- **Modulo principale Flask personalizzato**: per impostazione predefinita, il servizio app presuppone che il modulo principale di un'app Flask sia *application.py* o *app.py*. Se il modulo principale usa un nome diverso, è necessario personalizzare il comando di avvio. Ad esempio, se il modulo principale di un'app Flask è *hello.py* e l'oggetto app Flask in tale file è denominato `myapp`, il comando sarà come segue:
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -225,7 +231,7 @@ Il servizio app ignora gli eventuali errori che possono verificarsi durante l'el
     gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
     ```
     
-- **Usare un server non Gunicorn** : per usare un server Web diverso, ad esempio [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), usare il comando appropriato come comando di avvio o nel file di comandi di avvio:
+- **Usare un server non Gunicorn**: per usare un server Web diverso, ad esempio [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), usare il comando appropriato come comando di avvio o nel file di comandi di avvio:
 
     ```bash
     python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
@@ -258,33 +264,81 @@ I framework Web più diffusi consentono di accedere alle informazioni `X-Forward
 
 Per accedere ai log tramite il portale di Azure, selezionare **Monitoraggio** > **Flusso di registrazione** nel menu sinistro dell'app.
 
+## <a name="access-deployment-logs"></a>Accedere ai log di distribuzione
+
+Quando si distribuisce il codice, il servizio app esegue il processo di compilazione descritto in precedenza nella sezione [Personalizzare l'automazione della compilazione](#customize-build-automation). Poiché la compilazione viene eseguita nel proprio contenitore, i log di compilazione vengono archiviati separatamente dai log di diagnostica dell'app.
+
+Usare la procedura seguente per accedere ai log di distribuzione:
+
+1. Nel portale di Azure per l'app Web selezionare **Distribuzione** > **Centro distribuzione (anteprima)** nel menu sinistro.
+1. Nella scheda **Log** selezionare il valore di **ID commit** relativo al commit più recente.
+1. Nella pagina **Dettagli log** visualizzata selezionare il collegamento **Mostra log** visualizzato accanto al messaggio che indica che è in corso l'esecuzione della build oryx.
+
+In questi log verranno visualizzati i problemi di compilazione, ad esempio dipendenze non corrette nel file *requirements.txt*, ed errori negli script di pre- o post-compilazione. Gli errori vengono visualizzati anche se il file dei requisiti non è denominato esattamente *requirements.txt* o non è presente nella cartella radice del progetto.
+
 ## <a name="open-ssh-session-in-browser"></a>Aprire una sessione SSH nel browser
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
+Una volta stabilita una connessione con la sessione SSH, nella parte inferiore della finestra verrà visualizzato un messaggio analogo a "Connessione SSH stabilita". Se vengono visualizzati errori come "SSH_CONNECTION_CLOSED" o un messaggio che indica che il contenitore verrà riavviato, è possibile che un errore impedisca l'avvio del contenitore dell'app. Per analizzare i possibili problemi, vedere [Risoluzione dei problemi](#troubleshooting).
+
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-- **Dopo avere distribuito il codice app personalizzato viene visualizzata l'app predefinita.** L'app predefinita viene visualizzata perché il codice app personalizzato non è stato distribuito nel servizio app o perché il servizio app non è riuscito a trovare il codice app personalizzato e ha quindi eseguito l'app predefinita.
+In generale, il primo passaggio nella risoluzione dei problemi consiste nell'usare la diagnostica del servizio app:
+
+1. Nel portale di Azure per l'app Web selezionare **Diagnostica e risoluzione dei problemi** nel menu sinistro.
+1. Selezionare **Availability and performance** (Disponibilità e prestazioni).
+1. Esaminare le informazioni contenute nelle opzioni **Log applicazione**, **Container crash** (Arresto anomalo del contenitore) e **Container issues**(Problemi del contenitore), in cui verranno visualizzati i problemi più comuni.
+
+Esaminare quindi i [log di distribuzione](#access-deployment-logs) e i [log dell'app](#access-diagnostic-logs) per individuare eventuali messaggi di errore. Questi log identificano spesso problemi specifici che possono impedire la distribuzione o l'avvio dell'app. La compilazione può ad esempio non riuscire se il file *requirements.txt* ha un nome errato o non è presente nella cartella radice del progetto.
+
+Le sezioni seguenti forniscono indicazioni aggiuntive per problemi specifici.
+
+- [L'app non viene visualizzata: viene visualizzata l'app predefinita](#app-doesnt-appear)
+- [L'app non viene visualizzata: messaggio "servizio non disponibile"](#service-unavailable)
+- [Non è stato possibile trovare setup.py o requirements.txt](#could-not-find-setuppy-or-requirementstxt)
+- [Le password digitate non vengono visualizzate nella sessione SSH](#other-issues)
+- [I comandi visualizzati nella sessione SSH sono troncati](#other-issues)
+- [Gli asset statici non vengono visualizzati in un'app Django](#other-issues)
+- [Errore irreversibile: è necessaria una connessione SSL](#other-issues)
+
+#### <a name="app-doesnt-appear"></a>L'app non viene visualizzata
+
+- **Dopo avere distribuito il codice app personalizzato viene visualizzata l'app predefinita.** L'[app predefinita](#default-behavior) viene visualizzata perché il codice dell'app personalizzata non è stato distribuito nel servizio app o perché il servizio app non ha trovato il codice dell'app personalizzata e ha quindi eseguito l'app predefinita.
 
     - Riavviare il servizio app, attendere 15-20 secondi e verifica di nuovo l'app.
     
-    - Assicurarsi di usare il servizio app per Linux anziché un'istanza basata su Windows. Dall'interfaccia della riga di comando di Azure, eseguire il comando `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, sostituendo `<resource-group-name>` e `<app-service-name>` di conseguenza. L'output dovrebbe essere `app,linux`; in caso contrario, creare di nuovo il servizio app e scegliere Linux.
+    - Assicurarsi di usare il servizio app per Linux anziché un'istanza basata su Windows. Dall'interfaccia della riga di comando di Azure, eseguire il comando `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, sostituendo `<resource-group-name>` e `<app-name>` di conseguenza. L'output dovrebbe essere `app,linux`; in caso contrario, creare di nuovo il servizio app e scegliere Linux.
     
-    - Usare SSH o la console Kudu per connettersi direttamente al servizio app e verificare che i file siano presenti in *site/wwwroot* . Se i file non sono presenti, controllare il processo di distribuzione e ridistribuire l'app.
+    - Usare [SSH](#open-ssh-session-in-browser) per connettersi direttamente al contenitore del servizio app e verificare che i file siano presenti in *site/wwwroot*. Se i file non esistono, seguire questa procedura:
+      1. Creare un'impostazione dell'app denominata `SCM_DO_BUILD_DURING_DEPLOYMENT` con il valore 1, ridistribuire il codice, attendere alcuni minuti, quindi provare di nuovo ad accedere all'app. Per altre informazioni sulla creazione di impostazioni dell'app, vedere [Configurare un'app del servizio app nel portale di Azure](configure-common.md).
+      1. Esaminare il processo di distribuzione, [controllare i log di distribuzione](#access-deployment-logs), correggere eventuali errori e ridistribuire l'app.
     
     - Se i file sono presenti, il servizio app non è riuscito a identificare il file di avvio specifico. Verificare che l'app sia strutturata come prevista dal servizio app per [Django](#django-app) o [Flask](#flask-app) oppure usare un [comando di avvio personalizzato](#customize-startup-command).
 
-- **Nel browser viene visualizzato il messaggio "Servizio non disponibile".** Si è verificato un timeout del browser durante l'attesa di una risposta dal servizio app, che indica che il servizio app ha avviato il server Gunicorn, ma gli argomenti che specificano il codice app non sono corretti.
+- <a name="service-unavailable"></a>**Nel browser viene visualizzato il messaggio "Servizio non disponibile".** Si è verificato un timeout del browser durante l'attesa di una risposta del servizio app, che indica che il servizio app ha avviato il server Gunicorn, ma l'app non è stata avviata. Questa condizione può indicare che gli argomenti di Gunicorn non sono corretti o che si è verificato un errore nel codice dell'app.
 
     - Aggiornare il browser, in particolare se si usano i piani tariffari inferiori nel piano di servizio app. Ad esempio, l'avvio dell'app potrebbe richiedere più tempo quando si usano i livelli gratuiti e l'app potrebbe rispondere dopo l'aggiornamento del browser.
 
     - Verificare che l'app sia strutturata come prevista dal servizio app per [Django](#django-app) o [Flask](#flask-app) oppure usare un [comando di avvio personalizzato](#customize-startup-command).
 
-    - Esaminare il [flusso di registrazione](#access-diagnostic-logs) per rilevare eventuali messaggi di errore.
+    - Esaminare il [flusso dei log dell'app](#access-diagnostic-logs) per individuare eventuali messaggi di errore. I log visualizzano tutti gli errori del codice dell'app.
 
-- **Il flusso di registrazione visualizza un messaggio analogo a "Non è stato possibile trovare setup.py o requirements.txt; l'installazione di pip non verrà eseguita".** : il processo di compilazione Oryx non è riuscito a trovare il file *requirements.txt* .
+#### <a name="could-not-find-setuppy-or-requirementstxt"></a>Non è stato possibile trovare setup.py o requirements.txt
 
-    - Usare SSH o la console Kudu per connettersi direttamente al servizio app e verificare che il file *requirements.txt* sia presente in *site/wwwroot* . Se non è presente, assicurarsi che esista nel repository e che venga incluso nella distribuzione. Se è disponibile in una cartella separata, spostarlo nella radice.
+- **Il flusso di registrazione visualizza un messaggio analogo a "Non è stato possibile trovare setup.py o requirements.txt; l'installazione di pip non verrà eseguita".** : il processo di compilazione Oryx non è riuscito a trovare il file *requirements.txt*.
+
+    - Connettersi al contenitore dell'app Web tramite [SSH](#open-ssh-session-in-browser) e verificare che il file *requirements.txt* abbia il nome corretto e si trovi direttamente in *site/wwwroot*. Se non è presente, assicurarsi che esista nel repository e che venga incluso nella distribuzione. Se è disponibile in una cartella separata, spostarlo nella radice.
+
+#### <a name="other-issues"></a>Altri problemi
+
+- **Le password digitate non vengono visualizzate nella sessione SSH**: per motivi di sicurezza, la sessione SSH mantiene nascosta la password durante la digitazione. Tuttavia, i caratteri vengono registrati, quindi digitare la password come di consueto e premere **INVIO** al termine.
+
+- **I comandi visualizzati nella sessione SSH sono troncati**: l'editor potrebbe non supportare il ritorno a capo del testo dei comandi, che tuttavia dovrebbero essere eseguiti correttamente.
+
+- **Gli asset statici non vengono visualizzati in un'app Django**: assicurarsi di aver abilitato il [modulo whitenoise](http://whitenoise.evans.io/en/stable/django.html)
+
+- **Viene visualizzato il messaggio "Errore irreversibile: è necessaria una connessione SSL"** : controllare i nomi utente e le password usati per accedere alle risorse, ad esempio i database, dall'interno dell'app.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

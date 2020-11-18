@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: 3f6b1bb189390f6ddd02e9ea2d636dcaa66a4f19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8000d07824c27f60dd5d8d6a457521691fe2b7d7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88210869"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658401"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Proxy dell'applicazione Azure AD: cronologia delle versioni
 Questo articolo elenca le versioni e le funzionalità del proxy di applicazione Azure Active Directory (Azure AD) rilasciate. Il team di Azure AD aggiorna regolarmente il proxy di applicazione con nuove caratteristiche e funzionalità. I connettori del proxy di applicazione vengono aggiornati automaticamente quando viene rilasciata una nuova versione. 
@@ -38,7 +38,7 @@ Download del connettore del proxy di applicazione Azure AD |  [Scaricare il conn
 22 luglio 2020: rilasciata per il download questa versione è disponibile solo per l'installazione tramite la pagina di download. Una versione di aggiornamento automatico di questa versione verrà rilasciata in un secondo momento.
 
 ### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità
--   Supporto migliorato per gli ambienti cloud di Azure per enti pubblici. Per la procedura di installazione corretta del connettore per il cloud di Azure per enti pubblici, vedere i [prerequisiti](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) e le [procedure di installazione](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud).
+-   Supporto migliorato per gli ambienti cloud di Azure per enti pubblici. Per la procedura di installazione corretta del connettore per il cloud di Azure per enti pubblici, vedere i [prerequisiti](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) e le [procedure di installazione](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
 - Supporto per l'uso del client Web di Servizi Desktop remoto con il proxy di applicazione. Per altri dettagli, vedere [pubblicare desktop remoto con Azure ad proxy di applicazione](application-proxy-integrate-with-remote-desktop-services.md) .
 - Negoziazione migliorata dell'estensione WebSocket. 
 

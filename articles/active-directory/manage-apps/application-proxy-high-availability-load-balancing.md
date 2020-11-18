@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ab3b340654fd6d824edef0a33d1ea363a913654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 403fa4cab94ad6149e388b10acccd9d5e7a2b7a8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764588"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658163"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Disponibilità elevata e bilanciamento del carico delle applicazioni e dei connettori proxy dell'applicazione
 
@@ -39,7 +39,7 @@ I connettori stabiliscono le connessioni in base ai principi per la disponibilit
 
 1. Un utente su un dispositivo client tenta di accedere a un'applicazione locale pubblicata tramite il proxy di applicazione.
 2. La richiesta passa attraverso un Azure Load Balancer per determinare quale istanza del servizio proxy dell'applicazione deve eseguire la richiesta. Per area sono disponibili decine di istanze per accettare la richiesta. Questo metodo consente di distribuire uniformemente il traffico tra le istanze del servizio.
-3. La richiesta viene inviata al [bus di servizio](https://docs.microsoft.com/azure/service-bus-messaging/).
+3. La richiesta viene inviata al [bus di servizio](../../service-bus-messaging/index.yml).
 4. Il bus di servizio segnala a un connettore disponibile. Il connettore preleva quindi la richiesta dal bus di servizio.
    - Nel passaggio 2, le richieste vengono indirizzate a diverse istanze del servizio proxy di applicazione, quindi è più probabile che le connessioni vengano effettuate con connettori diversi. Di conseguenza, i connettori vengono usati quasi uniformemente all'interno del gruppo.
 5. Il connettore passa la richiesta al server back-end dell'applicazione. Quindi, l'applicazione invia la risposta al connettore.
@@ -98,4 +98,4 @@ Per informazioni sui requisiti di bilanciamento del carico dell'applicazione bac
 - [Abilitare l'accesso Single Sign-On](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Abilitare l'accesso condizionale](application-proxy-integrate-with-sharepoint-server.md)
 - [Risolvere i problemi che si verificano con il proxy di applicazione](application-proxy-troubleshoot.md)
-- [Informazioni su come Azure AD architettura supporta la disponibilità elevata](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)
+- [Informazioni su come Azure AD architettura supporta la disponibilità elevata](../fundamentals/active-directory-architecture.md)

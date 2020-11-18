@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: victorh
-ms.openlocfilehash: 68789d3b8a4be51a381e95d6e6f840331b46b4e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c0e2033ee559af38a6816bdfa611eea86b14dea
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400112"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658316"
 ---
 # <a name="azure-firewall-remote-work-support"></a>Supporto per lavoro remoto del firewall di Azure
 
@@ -28,4 +28,4 @@ Desktop virtuale di Windows è un servizio di virtualizzazione desktop e app com
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ulteriori informazioni su [desktop virtuale di Windows](https://docs.microsoft.com/azure/virtual-desktop/).
+Ulteriori informazioni su [desktop virtuale di Windows](../virtual-desktop/index.yml).

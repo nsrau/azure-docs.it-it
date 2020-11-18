@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 502b93b4459fba4da04207d9186f8c7ce6b298c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d13f401fab126f57d07d405ab5d6ce461c26e139
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578479"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658945"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Estendere Azure Sentinel tra più aree di lavoro e tenant
 
@@ -84,7 +84,7 @@ Azure Sentinel supporta una [visualizzazione degli eventi imprevisti a più aree
 Azure Sentinel supporta l'esecuzione di query [su più aree di lavoro in una singola query](../azure-monitor/log-query/cross-workspace-query.md), consentendo la ricerca e la correlazione dei dati da più aree di lavoro in una singola query. 
 
 - Utilizzare l' [espressione Workspace ()](../azure-monitor/log-query/workspace-expression.md) per fare riferimento a una tabella in un'area di lavoro diversa. 
-- Utilizzare l' [operatore Union](https://docs.microsoft.com/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) insieme all'espressione Workspace () per applicare una query tra tabelle in più aree di lavoro.
+- Utilizzare l' [operatore Union](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) insieme all'espressione Workspace () per applicare una query tra tabelle in più aree di lavoro.
 
 È possibile usare le [funzioni](../azure-monitor/log-query/functions.md) salvate per semplificare le query tra aree di lavoro. Se, ad esempio, un riferimento a un'area di lavoro è lungo, potrebbe essere necessario salvare l'espressione `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` come funzione chiamata `SecurityEventCustomerA` . È quindi possibile scrivere query come `SecurityEventCustomerA | where ...` .
 

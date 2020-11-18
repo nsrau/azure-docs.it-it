@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: a91d0e11c44657a2d4cdd267ffa6490ca89532a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e60c829831bde3b454ab180d1a39ec46cb346963
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069409"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658639"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell
 
@@ -48,7 +48,7 @@ Se invece si vuole usare portale di Azure per completare questa esercitazione, v
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per questo articolo è necessario eseguire PowerShell in locale. È necessario aver installato il modulo di Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Dopo avere verificato la versione di PowerShell, eseguire `Login-AzAccount` per creare una connessione ad Azure.
+Per questo articolo è necessario eseguire PowerShell in locale. È necessario aver installato il modulo di Azure PowerShell. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Dopo avere verificato la versione di PowerShell, eseguire `Login-AzAccount` per creare una connessione ad Azure.
 
 Per il corretto funzionamento di questo scenario devono essere soddisfatti tre requisiti principali:
 
@@ -68,7 +68,7 @@ Vedere la sezione [creare le route](#create-the-routes) in questo articolo per v
 >[!NOTE]
 >Il traffico tra reti virtuali direttamente con peering viene instradato direttamente anche se una route definita dall'utente punta al firewall di Azure come gateway predefinito. Per inviare il traffico da subnet a subnet al firewall in questo scenario, una route definita dall'utente deve contenere il prefisso di rete subnet di destinazione in modo esplicito su entrambe le subnet.
 
-Per esaminare la documentazione di riferimento di Azure PowerShell correlata, vedere [Informazioni di riferimento su Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
+Per esaminare la documentazione di riferimento di Azure PowerShell correlata, vedere [Informazioni di riferimento su Azure PowerShell](/powershell/module/az.network/new-azfirewall).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -496,4 +496,4 @@ A questo punto rieseguire i test, che dovrebbero avere tutti esito negativo. Chi
 
 È possibile ora monitorare i log di Firewall di Azure.
 
-[Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)
+[Esercitazione: monitorare i log del Firewall di Azure](./firewall-diagnostics.md)

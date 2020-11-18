@@ -1,44 +1,44 @@
 ---
-title: 'Esercitazione: configurare il writeback della giornata lavorativa in Azure Active Directory | Microsoft Docs'
-description: Informazioni su come configurare il writeback degli attributi da Azure AD a giornata lavorativa
+title: 'Esercitazione: Configurare il writeback di Workday in Azure Active Directory | Microsoft Docs'
+description: Informazioni su come configurare il writeback degli attributi da Azure AD a Workday
 services: active-directory
 author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: a1428a92857f48920c86ed7a3f0719fa42b38b24
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
-ms.translationtype: MT
+ms.openlocfilehash: c65fddcc90b25f70759fb038a72dad0facfa99a9
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072034"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359732"
 ---
-# <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Esercitazione: configurare il writeback degli attributi da Azure AD a giornata lavorativa
-L'obiettivo di questa esercitazione è mostrare i passaggi da eseguire per gli attributi di writeback da Azure AD a giornata lavorativa. L'app di provisioning writeback dei giorni lavorativi supporta l'assegnazione di valori agli attributi di giornata lavorativi seguenti:
+# <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Esercitazione: Configurare il writeback degli attributi da Azure AD a Workday
+Questa esercitazione illustra la procedura per eseguire il writeback degli attributi da Azure AD a Workday. L'app di provisioning Writeback di Workday supporta l'assegnazione di valori agli attributi seguenti di Workday:
 * Indirizzo di posta elettronica aziendale 
-* Nome utente giornata lavorativa
-* Numero di telefono fisso del lavoro (incluso codice paese, prefisso, numero ed estensione)
-* Contrassegno primario numero di telefono fisso lavoro
-* Numero di lavoro mobile (incluso il codice paese, il codice di area, numero)
-* Contrassegno primario mobile di lavoro
+* Nome utente di Workday
+* Numero di telefono aziendale fisso (comprensivo di codice paese, prefisso, numero e interno)
+* Flag primario del numero di telefono fisso aziendale
+* Numero di telefono cellulare aziendale (comprensivo di codice paese, prefisso, numero)
+* Flag primario del cellulare aziendale
 
 ## <a name="overview"></a>Panoramica
 
-Dopo aver configurato l'integrazione del provisioning in ingresso usando la [giornata di lavoro per](workday-inbound-tutorial.md) l'app di provisioning di ad locale o la [giornata lavorativa per Azure ad app di](workday-inbound-cloud-only-tutorial.md) provisioning, è possibile configurare facoltativamente l'app writeback dei giorni lavorativi per scrivere informazioni di contatto, ad esempio posta elettronica e numero di telefono per la giornata lavorativa 
+Dopo aver configurato l'integrazione del provisioning in ingresso usando l'app di provisioning da [Workday ad AD locale](workday-inbound-tutorial.md) o l'app di provisioning da [Workday ad Azure AD](workday-inbound-cloud-only-tutorial.md), facoltativamente è possibile configurare l'app Writeback di Workday per scrivere informazioni di contatto come l'indirizzo di posta elettronica aziendale e il numero di telefono in Workday. 
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Per chi è più adatta questa soluzione di provisioning utenti?
 
-Questa soluzione di provisioning utenti writeback dei giorni lavorativi è ideale per:
+Questa soluzione di provisioning utenti Writeback di Workday è idealmente appropriata per:
 
-* Le organizzazioni che usano Microsoft 365 che desiderano eseguire il writeback degli attributi autorevoli gestiti dall'IT (ad esempio indirizzo di posta elettronica, nome utente e numero di telefono) alla giornata lavorativa
+* Le organizzazioni che usano Microsoft 365 e vogliono eseguire il writeback degli attributi autorevoli gestiti dall'IT (ad esempio indirizzo di posta elettronica, nome utente e numero di telefono) in Workday
 
 ## <a name="configure-integration-system-user-in-workday"></a>Configurare un utente del sistema di integrazione in Workday
 
-Vedere la sezione [configurare l'utente del sistema di integrazione](workday-inbound-tutorial.md#configure-integration-system-user-in-workday) per la creazione di un account utente del sistema di integrazione lavorativa con le autorizzazioni per recuperare i dati di lavoro. 
+Vedere la sezione [Configurare un utente del sistema di integrazione](workday-inbound-tutorial.md#configure-integration-system-user-in-workday) per informazioni su come creare un account utente del sistema di integrazione di Workday con le autorizzazioni per il recupero dei dati dei lavoratori. 
 
 ## <a name="configuring-azure-ad-attribute-writeback-to-workday"></a>Configurazione del writeback degli attributi di Azure AD in Workday
 
@@ -82,9 +82,9 @@ Seguire queste istruzioni per configurare il writeback degli indirizzi di posta 
 
 In questa sezione si configurerà il flusso degli attributi writeback da Azure AD a Workday. 
 
-1. Nella scheda provisioning, in **mapping**, fare clic sul nome del mapping.
+1. Nella scheda Provisioning, in **Mapping**, fare clic sul nome del mapping.
 
-2. Nel campo **ambito dell'oggetto di origine** è possibile filtrare facoltativamente i set di utenti in Azure Active Directory devono far parte del writeback. L'ambito predefinito è "tutti gli utenti in Azure AD".
+2. Nel campo **Ambito dell'oggetto di origine** è possibile scegliere di filtrare i set di utenti di Azure Active Directory che dovranno far parte del writeback. L'ambito predefinito è "tutti gli utenti in Azure AD".
 
 3. Nella sezione **Mapping degli attributi**, aggiornare l'ID corrispondente per indicare l'attributo in Azure Active Directory in cui è memorizzato l'ID del ruolo di lavoro Workday o l'ID del dipendente. Un metodo comune per garantire la corrispondenza è sincronizzare l'ID lavoratore o l'ID dipendente di Workday in extensionAttribute1-15 in Azure AD e quindi usare questo attributo in Azure AD per associare gli utenti in Workday.
 
@@ -93,41 +93,41 @@ In questa sezione si configurerà il flusso degli attributi writeback da Azure A
      >[!div class="mx-imgBorder"]
      >![Azure portal](./media/workday-inbound-tutorial/workday-writeback-mapping.png)
 
-5. Usare le indicazioni condivise di seguito per eseguire il mapping dei valori degli attributi dei numeri di telefono da Azure AD a giornata lavorativa 
+5. Usare le indicazioni riportate di seguito per eseguire il mapping dei valori degli attributi dei numeri di telefono da Azure AD a Workday. 
 
-     | Attributo telefono giorni lavorativi | Valore previsto | Linee guida per il mapping |
+     | Attributo del numero di telefono di Workday | Valore previsto | Indicazioni sul mapping |
      |-------------------------|----------------|------------------|
-     | WorkphoneLandlineIsPrimary | true/false | Costante o mapping di espressioni il cui output è "true" o "false" valore stringa. |
-     | WorkphoneLandlineCountryCodeName | [Codice paese ISO 3166-1 di tre lettere](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) | Costante o mapping di espressioni il cui output è un codice paese di tre lettere. |
-     | WorkphoneLandlineCountryCodeNumber | [Codice internazionale che chiama il paese](https://en.wikipedia.org/wiki/List_of_country_calling_codes) | Costante o mapping di espressioni il cui output è un codice paese valido (senza il segno +). |
-     | WorkphoneLandlineNumber | Numero di telefono completo che include il prefisso | Eseguire il mapping all'attributo *telephoneNumber* . Usare Regex per rimuovere spazi, parentesi quadre e codice paese. Vedi l'esempio seguente. |
-     | WorkphoneLandlineExtension | Numero di estensione | Se *telephoneNumber* contiene l'estensione, usare Regex per estrarre il valore. |
-     | WorkphoneMobileIsPrimary | true/false | Mapping costante o mapping di espressioni il cui output è "true" o "false" valore stringa |
-     | WorkphoneMobileCountryCodeName | [Codice paese ISO 3166-1 di tre lettere](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) | Costante o mapping di espressioni il cui output è un codice paese di tre lettere. |
-     | WorkphoneMobileCountryCodeNumber | [Codice internazionale che chiama il paese](https://en.wikipedia.org/wiki/List_of_country_calling_codes) | Costante o mapping di espressioni il cui output è un codice paese valido (senza il segno +). |
-     | WorkphoneMobileNumber | Numero di telefono completo che include il prefisso | Eseguire il mapping a un attributo per *dispositivi mobili* . Usare Regex per rimuovere spazi, parentesi quadre e codice paese. Vedi l'esempio seguente. |
+     | WorkphoneLandlineIsPrimary | true/false | Mapping di costanti o espressioni il cui output è un valore di stringa "true" o "false". |
+     | WorkphoneLandlineCountryCodeName | [Codice paese ISO 3166-1 di tre lettere](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) | Mapping di costanti o espressioni il cui output è un codice paese di tre lettere. |
+     | WorkphoneLandlineCountryCodeNumber | [Prefisso telefonico internazionale](https://en.wikipedia.org/wiki/List_of_country_calling_codes) | Mapping di costanti o espressioni il cui output è un codice paese valido (senza il segno +). |
+     | WorkphoneLandlineNumber | Numero di telefono completo che include il prefisso | Mapping all'attributo *telephoneNumber*. Usare regex per rimuovere spazi, parentesi quadre e codice paese. Vedi l'esempio seguente. |
+     | WorkphoneLandlineExtension | Numero di interno | Se *telephoneNumber* contiene l'interno, usare regex per estrarre il valore. |
+     | WorkphoneMobileIsPrimary | true/false | Mapping di costanti o espressioni il cui output è un valore di stringa "true" o "false" |
+     | WorkphoneMobileCountryCodeName | [Codice paese ISO 3166-1 di tre lettere](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) | Mapping di costanti o espressioni il cui output è un codice paese di tre lettere. |
+     | WorkphoneMobileCountryCodeNumber | [Prefisso telefonico internazionale](https://en.wikipedia.org/wiki/List_of_country_calling_codes) | Mapping di costanti o espressioni il cui output è un codice paese valido (senza il segno +). |
+     | WorkphoneMobileNumber | Numero di telefono completo che include il prefisso | Mapping all'attributo *mobile*. Usare regex per rimuovere spazi, parentesi quadre e codice paese. Vedi l'esempio seguente. |
 
      > [!NOTE]
-     > Quando si richiama il servizio Web Change_Work_Contact giorni lavorativi, Azure AD invia i valori costanti seguenti: <br>
-     > * **Communication_Usage_Type_ID** è impostato sulla stringa costante "Work" <br>
-     > * **Phone_Device_Type_ID** è impostato sulla stringa costante "mobile" per i numeri di telefono cellulare e "rete fissa" per i numeri di telefono fissi. <br>
+     > Quando si richiama il servizio Web Change_Work_Contact di Workday, Azure AD invia i valori costanti seguenti: <br>
+     > * **Communication_Usage_Type_ID** è impostato sulla stringa costante "WORK" <br>
+     > * **Phone_Device_Type_ID** è impostato sulla stringa costante "Mobile" per i numeri di telefono cellulare e "Landline" per i numeri di telefono fissi. <br>
      > 
-     > Se il tenant della giornata lavorativa USA Type_IDs diversi, si verificheranno errori di writeback. Per evitare tali errori, è possibile utilizzare l'attività **manutenzione degli ID di riferimento** e aggiornare le Type_IDs in modo che corrispondano ai valori utilizzati da Azure ad. <br>
+     > Se il tenant di Workday usa valori di Type_ID diversi, si verificano errori di writeback. Per evitare tali errori, è possibile usare l'attività **Maintain Reference IDs** (Mantieni ID di riferimento) di Workday e aggiornare i Type_ID in base ai valori usati da Azure AD. <br>
      >  
 
-     **Espressioni Regex di riferimento-esempio 1**
+     **Espressioni regex di riferimento - Esempio 1**
 
-     Utilizzare l'espressione regolare seguente se il numero di telefono in Azure AD viene impostato utilizzando il formato necessario per la reimpostazione della password self-service (SSPR). <br>
-     Esempio: se il valore del numero di telefono è + 1 1112223333->, l'espressione Regex verrà restituita 1112223333
+     Usare l'espressione regolare seguente se il numero di telefono in Azure AD è impostato nel formato richiesto per la reimpostazione della password self-service. <br>
+     Esempio: se il valore del numero di telefono è + 1 1112223333, l'espressione regex restituirà 1112223333
 
      ```C#
      Replace([telephoneNumber], , "\\+(?<isdCode>\\d* )(?<phoneNumber>\\d{10})", , "${phoneNumber}", , )
      ```
 
-     **Espressioni Regex di riferimento-esempio 2**
+     **Espressioni regex di riferimento - Esempio 2**
 
-     Utilizzare l'espressione regolare seguente se il numero di telefono in Azure AD viene impostato utilizzando il formato (XXX) XXX-XXXX. <br>
-     Esempio: se il valore del numero di telefono è (111) 222-3333->, l'espressione Regex verrà restituita 1112223333
+     Usare l'espressione regolare seguente se il numero di telefono in Azure AD è impostato nel formato (XXX) XXX-XXXX. <br>
+     Esempio: se il valore del numero di telefono è (111) 222-3333, l'espressione regolare restituirà 1112223333
 
      ```C#
      Replace([mobile], , "[()\\s-]+", , "", , )
@@ -144,30 +144,30 @@ Dopo aver completato le configurazioni dell'app di provisioning Workday, è poss
 
 1. Nella scheda **Provisioning** impostare **Stato provisioning** su **Attivato**.
 
-1. Nell'elenco a discesa **ambito** selezionare **Sincronizza tutti gli utenti e i gruppi**. Con questa opzione, l'app writeback eseguirà la scrittura degli attributi mappati di tutti gli utenti da Azure ad a giornata lavorativa, in **Mappings**base alle regole di ambito definite nell'  ->  **ambito dell'oggetto di origine**dei mapping. 
+1. Nell'elenco a discesa **Ambito** selezionare **Sincronizza tutti gli utenti e i gruppi**. Con questa opzione l'app Writeback eseguirà il writeback degli attributi mappati di tutti gli utenti da Azure AD a Workday, in base alle regole di definizione dell'ambito specificate in **Mapping** -> **Ambito dell'oggetto di origine**. 
 
    > [!div class="mx-imgBorder"]
-   > ![Seleziona ambito writeback](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
+   > ![Selezione dell'ambito del writeback](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
 
    > [!NOTE]
-   > L'app di provisioning writeback dei giorni lavorativi non supporta l'opzione **Sincronizza solo utenti e gruppi assegnati**.
+   > L'app di provisioning Writeback di Workday non supporta l'opzione **Sincronizza solo utenti e gruppi assegnati**.
  
 
 2. Fare clic su **Salva**.
 
-3. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti presenti nella directory di origine. È possibile controllare l'indicatore di stato per tenere traccia dello stato di avanzamento del ciclo di sincronizzazione. 
+3. Questa operazione avvierà la sincronizzazione iniziale, che può richiedere un numero variabile di ore a seconda del numero di utenti presenti nella directory di origine. È possibile controllare l'indicatore di stato per monitorare l'avanzamento del ciclo di sincronizzazione. 
 
-4. In qualsiasi momento, controllare la scheda **log di provisioning** nel portale di Azure per visualizzare le azioni eseguite dal servizio di provisioning. I log di controllo elencano tutti gli eventi di sincronizzazione singoli eseguiti dal servizio di provisioning, ad esempio gli utenti importati dall'origine e esportati nell'applicazione di destinazione.  
+4. In qualsiasi momento è possibile controllare la scheda **Log di provisioning** nel portale di Azure per vedere quali azioni sono state eseguite dal servizio di provisioning. I log di controllo elencano tutti i singoli eventi di sincronizzazione eseguiti dal servizio di provisioning, ad esempio quali utenti vengono importati dall'origine ed esportati nell'applicazione di destinazione.  
 
-5. Una volta completata la sincronizzazione iniziale, viene scritto un report riepilogativo nella scheda **provisioning** , come illustrato di seguito.
+5. Al termine della sincronizzazione iniziale, verrà scritto un report di riepilogo nella scheda **Provisioning**, come illustrato di seguito.
 
      > [!div class="mx-imgBorder"]
      > ![Indicatore di stato del provisioning](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
 
 ## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
 
-* L'app writeback usa un valore predefinito per i parametri **Communication_Usage_Type_ID** e **Phone_Device_Type_ID**. Se il tenant della giornata lavorativa usa un valore diverso per questi attributi, l'operazione di writeback avrà esito negativo. Una soluzione alternativa consigliata consiste nell'aggiornare il Type_IDs nel giorno lavorativo. 
-* Quando l'app writeback è configurata per l'aggiornamento dei numeri di telefono secondari, non sostituisce il numero di telefono secondario esistente nella giornata lavorativa. Aggiunge un altro numero di telefono secondario al record di lavoro. Non esiste alcuna soluzione alternativa a questo comportamento. 
+* L'app Writeback usa un valore predefinito per i parametri **Communication_Usage_Type_ID** e **Phone_Device_Type_ID**. Se il tenant di Workday usa un valore diverso per questi attributi, l'operazione di writeback avrà esito negativo. Una soluzione alternativa consigliata consiste nell'aggiornare i valori di Type_ID in Workday. 
+* Se l'app Writeback è configurata per l'aggiornamento dei numeri di telefono secondari, non sostituisce il numero di telefono secondario esistente in Workday, ma ne aggiunge un altro al record del lavoratore. Non sono disponibili soluzioni alternative per questo comportamento. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -175,5 +175,5 @@ Dopo aver completato le configurazioni dell'app di provisioning Workday, è poss
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
 * [Informazioni su come configurare l'accesso Single Sign-On tra Workday e Azure Active Directory](workday-tutorial.md)
 * [Informazioni sull'integrazione di altre applicazioni SaaS con Azure Active Directory](tutorial-list.md)
-* [Informazioni su come esportare e importare le configurazioni di provisioning](../app-provisioning/export-import-provisioning-configuration.md)
+* [Informazioni su come esportare e importare le configurazioni del provisioning](../app-provisioning/export-import-provisioning-configuration.md)
 

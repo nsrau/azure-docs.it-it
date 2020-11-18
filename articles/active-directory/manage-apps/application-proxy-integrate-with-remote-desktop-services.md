@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 83d7ed6c937d515520058819636bc23c8de173fd
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 03e89b0da25a915a00c70a9a87bd0f675b8e12d6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015277"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658078"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Pubblicare Desktop remoto con il proxy applicazione di Azure AD
 
@@ -28,7 +28,7 @@ I destinatari di questo articolo sono:
 
 ## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Ruolo del proxy applicazione nella distribuzione standard di Servizi Desktop remoto
 
-Una distribuzione standard di Servizi Desktop remoto include vari servizi ruolo Desktop remoto in esecuzione su Windows Server. L'[architettura di Servizi Desktop remoto](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) offre più opzioni di distribuzione. Diversamente da altre opzioni di distribuzione di Servizi Desktop remoto, la [distribuzione di Servizi Desktop remoto con il proxy di applicazione di AD Azure](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (mostrata nel diagramma seguente) ha una connessione in uscita permanente dal server che esegue il servizio connettore. Altre distribuzioni lasciano le connessioni in ingresso aperte tramite un servizio di bilanciamento del carico.
+Una distribuzione standard di Servizi Desktop remoto include vari servizi ruolo Desktop remoto in esecuzione su Windows Server. L'[architettura di Servizi Desktop remoto](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture) offre più opzioni di distribuzione. Diversamente da altre opzioni di distribuzione di Servizi Desktop remoto, la [distribuzione di Servizi Desktop remoto con il proxy di applicazione di AD Azure](/windows-server/remote/remote-desktop-services/Desktop-hosting-logical-architecture) (mostrata nel diagramma seguente) ha una connessione in uscita permanente dal server che esegue il servizio connettore. Altre distribuzioni lasciano le connessioni in ingresso aperte tramite un servizio di bilanciamento del carico.
 
 ![Il proxy applicazione si trova tra la VM di Servizi Desktop remoto e la rete Internet pubblica](./media/application-proxy-integrate-with-remote-desktop-services/rds-with-app-proxy.png)
 
@@ -37,13 +37,13 @@ In una distribuzione di Servizi Desktop remoto, il ruolo di Web Desktop remoto e
 - Gateway Desktop remoto entra in gioco una volta che l'utente avvia la connessione RDP. Gateway Desktop remoto gestisce il traffico RDP crittografato su Internet e lo trasferisce nel server locale a cui si connette l'utente. In questo scenario il traffico che Gateway Desktop remoto riceve proviene dal proxy applicazione di AD Azure.
 
 >[!TIP]
->Se Servizi Desktop remoto non è stato distribuito prima e se si desiderano altre informazioni prima di iniziare, vedere come [distribuire facilmente Servizi Desktop remoto con Azure Resource Manager e Azure Marketplace](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
+>Se Servizi Desktop remoto non è stato distribuito prima e se si desiderano altre informazioni prima di iniziare, vedere come [distribuire facilmente Servizi Desktop remoto con Azure Resource Manager e Azure Marketplace](/windows-server/remote/remote-desktop-services/rds-in-azure).
 
 ## <a name="requirements"></a>Requisiti
 
 - Entrambi gli endpoint Web Desktop remoto e Gateway Desktop remoto devono trovarsi nello stesso computer e avere una radice comune. Web Desktop remoto e Gateway Desktop remoto vengono pubblicati come un'unica applicazione con il proxy di applicazione in modo da offrire un'esperienza di accesso Single Sign-On tra le due applicazioni.
 
-- Si dovrebbe avere già [distribuito Servizi Desktop remoto](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) e avere già [abilitato il proxy applicazione](application-proxy-add-on-premises-application.md).
+- Si dovrebbe avere già [distribuito Servizi Desktop remoto](/windows-server/remote/remote-desktop-services/rds-in-azure) e avere già [abilitato il proxy applicazione](application-proxy-add-on-premises-application.md).
 
 - Gli utenti finali devono usare un browser compatibile per connettersi al client Web Desktop remoto o desktop remoto. Per altri dettagli, vedere [supporto per le configurazioni client](#support-for-other-client-configurations).
 
@@ -51,7 +51,7 @@ In una distribuzione di Servizi Desktop remoto, il ruolo di Web Desktop remoto e
 
 - Se si utilizza il Web Desktop remoto in Internet Explorer, sarà necessario abilitare il componente aggiuntivo ActiveX di Servizi Desktop remoto.
 
-- Se si usa il client Web Desktop remoto, sarà necessario usare il connettore del proxy di applicazione [1.5.1975 o versione successiva](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-release-version-history).
+- Se si usa il client Web Desktop remoto, sarà necessario usare il connettore del proxy di applicazione [1.5.1975 o versione successiva](./application-proxy-release-version-history.md).
 
 - Per il flusso di pre-autenticazione Azure AD, gli utenti possono connettersi solo alle risorse pubblicate nel riquadro **RemoteApp e desktop** . Gli utenti non possono connettersi a un desktop usando il riquadro **Connetti a un PC remoto** .
 
@@ -73,7 +73,7 @@ Dopo avere configurato Servizi Desktop remoto e il proxy applicazione di Azure A
    >Agli utenti viene richiesto di eseguire l'autenticazione una sola volta per Azure AD e una volta al Web Desktop remoto, ma sono Single Sign-On a Gateway Desktop remoto.
 
 4. Selezionare **Azure Active Directory**, quindi registrazioni per l' **app**. Scegli l'app dall'elenco.
-5. In **Gestisci**selezionare **personalizzazione**.
+5. In **Gestisci** selezionare **personalizzazione**.
 6. Aggiornare il campo **URL della Home page** in modo che punti all'endpoint Web Desktop remoto (ad esempio `https://\<rdhost\>.com/RDWeb` ).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Dirigere il traffico di Servizi Desktop remoto verso il proxy applicazione
@@ -111,7 +111,7 @@ Connettersi alla distribuzione di Servizi Desktop remoto come amministratore e m
 Dopo avere configurato Desktop remoto, il proxy applicazione di Azure AD diventa il componente con connessione Internet di Servizi Desktop remoto. È possibile rimuovere gli altri endpoint con connessione Internet pubblici nei computer Web Desktop remoto e Gateway Desktop remoto.
 
 ### <a name="enable-the-rd-web-client"></a>Abilitare il client Web Desktop remoto
-Se si desidera che gli utenti siano in grado di utilizzare il client Web Desktop remoto, attenersi alla procedura descritta in [configurare la desktop remoto client Web per gli utenti](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin) per abilitare questa operazione.
+Se si desidera che gli utenti siano in grado di utilizzare il client Web Desktop remoto, attenersi alla procedura descritta in [configurare la desktop remoto client Web per gli utenti](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin) per abilitare questa operazione.
 
 Il client Web di Desktop remoto consente agli utenti di accedere all'infrastruttura Desktop remoto dell'organizzazione tramite un Web browser compatibile con HTML5, ad esempio Microsoft Edge, Internet Explorer 11, Google Chrome, Safari o Mozilla Firefox (v 55.0 e versioni successive).
 
@@ -130,7 +130,7 @@ La configurazione descritta in questo articolo è relativa all'accesso a Servizi
 
 | Metodo di autenticazione | Configurazione client supportata |
 | --------------------- | ------------------------------ |
-| Pre-autenticazione    | Web Desktop remoto-Windows 7/10 con Internet Explorer o la modalità di utilizzo di Microsoft [Edge Chromium](https://docs.microsoft.com/deployedge/edge-ie-mode) + RDS ActiveX |
+| Pre-autenticazione    | Web Desktop remoto-Windows 7/10 con Internet Explorer o la modalità di utilizzo di Microsoft [Edge Chromium](/deployedge/edge-ie-mode) + RDS ActiveX |
 | Pre-autenticazione    | Client Web Desktop remoto: Web browser compatibile con HTML5, ad esempio Microsoft Edge, Internet Explorer 11, Google Chrome, Safari o Mozilla Firefox (v 55.0 e versioni successive) |
 | Pass-through | Qualsiasi altro sistema operativo che supporta l'applicazione Desktop remoto Microsoft |
 

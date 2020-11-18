@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: 07637a8be49fb2449c5c92c1a1ea4b2c7ace9a8d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4368f20171da0c1896e642361578580b1d958296
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442260"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659047"
 ---
 # <a name="manage-app-consent-policies"></a>Gestire i criteri di consenso delle app
 
@@ -31,7 +31,7 @@ I criteri di consenso delle app in cui l'ID inizia con "Microsoft-" sono criteri
 
 ## <a name="pre-requisites"></a>Prerequisiti
 
-1. Accertarsi di usare il modulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Questo passaggio è importante se sono stati installati sia il modulo [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) sia il modulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)).
+1. Accertarsi di usare il modulo [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview). Questo passaggio è importante se sono stati installati sia il modulo [AzureAD](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0) sia il modulo [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)).
 
     ```powershell
     Remove-Module AzureAD -ErrorAction SilentlyContinue
@@ -133,7 +133,7 @@ La tabella seguente include l'elenco delle condizioni supportate per i criteri d
 | Condizione | Descrizione|
 |:---------------|:----------|
 | PermissionClassification | [Classificazione delle autorizzazioni](configure-permission-classifications.md) per l'autorizzazione che viene concessa o "All" per la corrispondenza con qualsiasi classificazione di autorizzazione (incluse le autorizzazioni non classificate). Il valore predefinito è "All". |
-| PermissionType | Tipo di autorizzazione dell'autorizzazione concessa. Usare "Application" per le autorizzazioni dell'applicazione (ad esempio, i ruoli dell'app) o "delegate" per le autorizzazioni delegate. <br><br>**Nota** : il valore "delegatedUserConsentable" indica le autorizzazioni delegate che non sono state configurate dal server di pubblicazione API per richiedere il consenso dell'amministratore. questo valore può essere usato nei criteri di concessione delle autorizzazioni predefinite, ma non può essere usato nei criteri di concessione delle autorizzazioni personalizzate. Obbligatorio. |
+| PermissionType | Tipo di autorizzazione dell'autorizzazione concessa. Usare "Application" per le autorizzazioni dell'applicazione (ad esempio, i ruoli dell'app) o "delegate" per le autorizzazioni delegate. <br><br>**Nota**: il valore "delegatedUserConsentable" indica le autorizzazioni delegate che non sono state configurate dal server di pubblicazione API per richiedere il consenso dell'amministratore. questo valore può essere usato nei criteri di concessione delle autorizzazioni predefinite, ma non può essere usato nei criteri di concessione delle autorizzazioni personalizzate. Obbligatorio. |
 | ResourceApplication | **AppID** dell'applicazione della risorsa (ad esempio, l'API) per cui viene concessa un'autorizzazione o "any" per la corrispondenza con qualsiasi API o applicazione della risorsa. Il valore predefinito è "any". |
 | Autorizzazioni | Elenco di ID di autorizzazione per le autorizzazioni specifiche con cui trovare una corrispondenza o un elenco con il singolo valore "All" per la corrispondenza con qualsiasi autorizzazione. Il valore predefinito è "All". <ul><li>Gli ID autorizzazione delegati si trovano nella proprietà **OAuth2Permissions** dell'oggetto SERVICEPRINCIPAL dell'API.</li><li>Gli ID delle autorizzazioni dell'applicazione sono reperibili nella proprietà **AppRoles** dell'oggetto SERVICEPRINCIPAL dell'API.</li></ol> |
 | ClientApplicationIds | Elenco di valori **AppID** per le applicazioni client con cui trovare una corrispondenza o un elenco con il singolo valore "All" per la corrispondenza con qualsiasi applicazione client. Il valore predefinito è "All". |
@@ -149,7 +149,7 @@ Per altre informazioni:
 * [Configurare il flusso di lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md)
 * [Informazioni su come gestire il consenso alle applicazioni e valutare le richieste di consenso](manage-consent-requests.md)
 * [Concedere a un'applicazione il consenso amministratore a livello di tenant](grant-admin-consent.md)
-* [Autorizzazioni e consenso in Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
+* [Autorizzazioni e consenso in Microsoft Identity Platform](../develop/v2-permissions-and-consent.md)
 
 Per ottenere assistenza o trovare risposte alle domande:
 * [Azure AD in StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.assetid: 7aa21ef8-9cfb-43e0-bfda-3f10a2a2f3ef
 ms.date: 10/23/2020
-ms.openlocfilehash: 875d04751475d1d5236e9f15fbca585cdc9b1ab0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 842913b8e9f83ff3b188976da55aef7c909518ca
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897626"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359919"
 ---
 # <a name="quickstart-wildfly-on-centos-8"></a>Avvio rapido: WildFly in CentOS 8
 
@@ -49,13 +49,15 @@ Per avviare il server WildFly autonomo con un'altra configurazione, usare l'argo
 
 Ad esempio, per usare Jakarta EE Platform 8 con le funzionalità di clustering, usare il comando seguente:
 
-`./standalone.sh --server-config=standalone-full-ha.xml`
+```
+./standalone.sh --server-config=standalone-full-ha.xml
+```
 
 Per altre informazioni sulle configurazioni, vedere la [guida introduttiva di WildFly](https://docs.wildfly.org/18/Getting_Started_Guide.html#wildfly-10-configurations).
 
 ## <a name="licensing-support-and-subscription-notes"></a>Note sulle licenze, il supporto e le sottoscrizioni
 
-L'immagine di Azure CentOS 8 è un'immagine di VM con pagamento in base al consumo e non richiede all'utente di ottenere una licenza. Al primo avvio della VM, viene attivato automaticamente il sistema operativo della VM dotato di licenza e viene addebitata una tariffa oraria, in aggiunta alle tariffe orarie Microsoft per le VM Linux. Per altre informazioni, vedere [Prezzi di Macchine virtuali Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#linux). WildFly può essere scaricato e usato gratuitamente e non richiede una sottoscrizione o una licenza di Red Hat.
+L'immagine di Azure CentOS 8 è un'immagine di VM con pagamento in base al consumo e non richiede all'utente di ottenere una licenza. Al primo avvio della VM, viene attivata automaticamente la licenza del relativo sistema operativo e viene addebitata una tariffa oraria, in aggiunta alle tariffe orarie Microsoft per le VM Linux. Per altre informazioni, vedere [Prezzi di Macchine virtuali Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#linux). WildFly può essere scaricato e usato gratuitamente e non richiede una sottoscrizione o una licenza di Red Hat.
 
 ## <a name="how-to-consume"></a>Modalità di utilizzo
 
@@ -63,15 +65,23 @@ L'immagine di Azure CentOS 8 è un'immagine di VM con pagamento in base al consu
 
 - Tramite PowerShell. Distribuire il modello eseguendo i comandi seguenti: Per informazioni sull'installazione e la configurazione di Azure PowerShell, vedere [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
-    `New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment`
+    ```
+    New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
+    ```
 
-    `New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json`
+    ```
+    New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
+    ```
     
 - Tramite l'interfaccia della riga di comando di Azure. Distribuire il modello eseguendo i comandi seguenti: Per informazioni sull'installazione e la configurazione dell'interfaccia della riga di comando di Azure multipiattaforma, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-    `az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment`
+    ```
+    az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment
+    ```
 
-    `az group deployment create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json`
+    ```
+    az group deployment create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
+    ```
 
 - Tramite il portale di Azure. Distribuire il modello facendo clic <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwildfly-standalone-centos8%2Fazuredeploy.json" target="_blank">qui</a> per accedere al portale di Azure.
 
@@ -81,7 +91,7 @@ L'immagine di Azure CentOS 8 è un'immagine di VM con pagamento in base al consu
 
 ## <a name="resource-links"></a>Collegamenti alle risorse
 
-* Altre informazioni su [WildFly 18](https://wildfly.org/18)
+* Altre informazioni su [WildFly 18](https://docs.wildfly.org/18/)
 * Altre informazioni sulle [distribuzioni Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
 * [Documentazione per gli sviluppatori di Azure per Java](https://github.com/JasonFreeberg/jboss-on-app-service)
 

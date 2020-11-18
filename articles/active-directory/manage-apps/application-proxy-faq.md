@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 38bff38ebe44d9018299444b89d7743c4cc92b72
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ef38c5364a0df1df63be825e2c46009174840b72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424202"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658129"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Domande frequenti sul proxy di applicazione Active Directory (Azure AD)
 
@@ -58,7 +58,7 @@ Per indicazioni, vedere [disponibilità elevata e bilanciamento del carico delle
 Il connettore del proxy di applicazione esegue l'autenticazione basata sui certificati in Azure. La terminazione TLS (ispezione TLS/HTTPS o accelerazione) interrompe questo metodo di autenticazione e non è supportata. Il traffico dal connettore ad Azure deve ignorare tutti i dispositivi che eseguono la terminazione TLS.  
 
 ### <a name="is-tls-12-required-for-all-connections"></a>È necessario TLS 1,2 per tutte le connessioni?
-Sì. Per fornire ai nostri clienti la crittografia migliore della categoria, il servizio Application Proxy limita l'accesso ai soli protocolli TLS 1.2. Queste modifiche sono state implementate gradualmente e sono effettive a partire dal 31 agosto 2019. Per mantenere la connessione con il servizio Application Proxy, assicurarsi che tutte le combinazioni client-server e browser-server siano aggiornate per l'uso di TLS 1.2. Queste includono i client usati dagli utenti per accedere alle applicazioni pubblicate tramite Application Proxy. Vedere [Preparazione per l'uso di TLS 1.2 in Office 365](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365) per riferimenti e risorse utili.
+Sì. Per fornire ai nostri clienti la crittografia migliore della categoria, il servizio Application Proxy limita l'accesso ai soli protocolli TLS 1.2. Queste modifiche sono state implementate gradualmente e sono effettive a partire dal 31 agosto 2019. Per mantenere la connessione con il servizio Application Proxy, assicurarsi che tutte le combinazioni client-server e browser-server siano aggiornate per l'uso di TLS 1.2. Queste includono i client usati dagli utenti per accedere alle applicazioni pubblicate tramite Application Proxy. Vedere [Preparazione per l'uso di TLS 1.2 in Office 365](/microsoft-365/compliance/prepare-tls-1.2-in-office-365) per riferimenti e risorse utili.
 
 ### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>È possibile inserire un dispositivo proxy di inoltro tra i server del connettore e il server applicazioni back-end?
 Sì, questo scenario è supportato a partire dalla versione del connettore 1.5.1526.0. Vedere [usare server proxy locali esistenti](application-proxy-configure-connectors-with-proxy-servers.md).
@@ -102,7 +102,7 @@ La lunghezza predefinita è pari a 85 secondi. L'impostazione "Long" è 180 seco
 
 ### <a name="how-do-i-change-the-landing-page-my-application-loads"></a>Ricerca per categorie modificare la pagina di destinazione caricata dall'applicazione?
 
-Dalla pagina registrazioni applicazioni è possibile modificare l'URL della Home page dell'URL esterno desiderato della pagina di destinazione. La pagina specificata verrà caricata quando l'applicazione viene avviata da app personali o dal portale di Office 365. Per i passaggi di configurazione, vedere [impostare un Home page personalizzato per le app pubblicate usando Azure ad proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-home-page)
+Dalla pagina registrazioni applicazioni è possibile modificare l'URL della Home page dell'URL esterno desiderato della pagina di destinazione. La pagina specificata verrà caricata quando l'applicazione viene avviata da app personali o dal portale di Office 365. Per i passaggi di configurazione, vedere [impostare un Home page personalizzato per le app pubblicate usando Azure ad proxy di applicazione](./application-proxy-configure-custom-home-page.md)
 
 ### <a name="can-only-iis-based-applications-be-published-what-about-web-applications-running-on-non-windows-web-servers-does-the-connector-have-to-be-installed-on-a-server-with-iis-installed"></a>È possibile pubblicare solo le applicazioni basate su IIS? Che cosa accade per le applicazioni Web in esecuzione su server Web non Windows? Il connettore deve essere installato in un server in cui è installato IIS?
 
@@ -171,7 +171,7 @@ Vedere [abilitare l'accesso remoto a SharePoint con Azure ad proxy di applicazio
 
 ### <a name="can-i-use-the-sharepoint-mobile-app-ios-android-to-access-a-published-sharepoint-server"></a>È possibile usare l'app per dispositivi mobili SharePoint (iOS/Android) per accedere a un server SharePoint pubblicato?
 
-L' [app per dispositivi mobili SharePoint](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) non supporta attualmente Azure Active Directory pre-autenticazione.
+L' [app per dispositivi mobili SharePoint](/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) non supporta attualmente Azure Active Directory pre-autenticazione.
 
 ## <a name="active-directory-federation-services-ad-fs-publishing"></a>Pubblicazione di Active Directory Federation Services (AD FS) 
 
@@ -193,7 +193,7 @@ Le funzionalità (registri eventi, PowerShell e Servizi Desktop remoto) nell'int
 
 Sì. La conversione del collegamento influiscono sulle prestazioni. Il servizio proxy applicazione esegue l'analisi dell'applicazione per i collegamenti hardcoded e li sostituisce con i rispettivi URL esterni pubblicati prima di presentarli all'utente. 
 
-Per ottenere prestazioni ottimali, è consigliabile utilizzare URL interni ed esterni identici configurando [domini personalizzati](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain). Se l'uso di domini personalizzati non è possibile, è possibile migliorare le prestazioni di conversione dei collegamenti usando l'estensione di accesso sicuro app personali o il browser Microsoft Edge su dispositivi mobili. Vedere [Reindirizzamento dei collegamenti hardcoded per le app pubblicate con Azure ad proxy di applicazione](application-proxy-configure-hard-coded-link-translation.md).
+Per ottenere prestazioni ottimali, è consigliabile utilizzare URL interni ed esterni identici configurando [domini personalizzati](./application-proxy-configure-custom-domain.md). Se l'uso di domini personalizzati non è possibile, è possibile migliorare le prestazioni di conversione dei collegamenti usando l'estensione di accesso sicuro app personali o il browser Microsoft Edge su dispositivi mobili. Vedere [Reindirizzamento dei collegamenti hardcoded per le app pubblicate con Azure ad proxy di applicazione](application-proxy-configure-hard-coded-link-translation.md).
 
 ## <a name="wildcards"></a>Caratteri jolly
 
@@ -204,5 +204,5 @@ Questo scenario non è supportato direttamente. Le opzioni per questo scenario s
 1. Pubblicare gli URL HTTP e HTTPS come applicazioni separate con un carattere jolly, ma assegnare a ognuno di essi un dominio personalizzato diverso. Questa configurazione funzionerà poiché hanno URL esterni diversi.
 
 2. Pubblicare l'URL HTTPS tramite un'applicazione con caratteri jolly. Pubblicare le applicazioni HTTP separatamente usando questi cmdlet di PowerShell del proxy di applicazione:
-   - [Gestione applicazioni del proxy di applicazione](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
-   - [Gestione connettore del proxy di applicazione](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)
+   - [Gestione applicazioni del proxy di applicazione](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
+   - [Gestione connettore del proxy di applicazione](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)

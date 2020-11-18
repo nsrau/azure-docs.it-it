@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: c72a2b134fc2c24789ebb75f61d9b64d63d3d48e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: ec020ecd4c2bcf6e9186afb3d2c4a79ef235c371
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339479"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658911"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>Informazioni Single Sign-On basate su SAML
 
@@ -32,7 +32,7 @@ Nella [serie di guide introduttive](add-application-portal-setup-sso.md)è dispo
 > [!IMPORTANT] 
 > Esistono alcuni scenari in cui l'opzione **Single Sign-on** non sarà presente nella navigazione per un'applicazione nelle **applicazioni aziendali**. 
 >
-> Se l'applicazione è stata registrata usando **registrazioni app** , la funzionalità Single Sign-on è configurata in modo da usare OAuth OIDC per impostazione predefinita. In questo caso, l'opzione **Single Sign-on** non verrà visualizzata nella finestra di navigazione in **applicazioni aziendali**. Quando si usa **registrazioni app** per aggiungere l'app personalizzata, si configurano le opzioni nel file manifesto. Per ulteriori informazioni sul file manifesto, vedere [Azure Active Directory manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Per altre informazioni sugli standard SSO, vedere [autenticazione e autorizzazione con la piattaforma di identità Microsoft](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+> Se l'applicazione è stata registrata usando **registrazioni app** , la funzionalità Single Sign-on è configurata in modo da usare OAuth OIDC per impostazione predefinita. In questo caso, l'opzione **Single Sign-on** non verrà visualizzata nella finestra di navigazione in **applicazioni aziendali**. Quando si usa **registrazioni app** per aggiungere l'app personalizzata, si configurano le opzioni nel file manifesto. Per ulteriori informazioni sul file manifesto, vedere [Azure Active Directory manifesto dell'applicazione](../develop/reference-app-manifest.md). Per altre informazioni sugli standard SSO, vedere [autenticazione e autorizzazione con la piattaforma di identità Microsoft](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-microsoft-identity-platform). 
 >
 > Gli altri scenari in cui l' **accesso Single Sign-on** non sarà presente nella navigazione includono quando un'applicazione è ospitata in un altro tenant o se l'account non ha le autorizzazioni necessarie (amministratore globale, amministratore dell'applicazione cloud, amministratore dell'applicazione o proprietario dell'entità servizio). Le autorizzazioni possono anche causare uno scenario in cui è possibile aprire l' **accesso Single Sign-on** , ma non sarà possibile salvarlo. Per ulteriori informazioni sui ruoli amministrativi Azure AD, vedere ( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
@@ -72,7 +72,7 @@ Per altre informazioni sulla personalizzazione delle attestazioni SAML, vedere [
 >- Per creare ruoli personalizzati tramite il portale di Azure, vedere [Configurare le attestazioni dei ruoli](../develop/active-directory-enterprise-app-role-management.md).
 >- Per personalizzare le attestazioni tramite PowerShell, vedere [Personalizzare le attestazioni - PowerShell](../develop/active-directory-claims-mapping.md).
 >- Per modificare il manifesto dell'applicazione e configurare attestazioni facoltative per l'applicazione, vedere [Configurare le attestazioni facoltative](../develop/active-directory-optional-claims.md).
->- Per impostare i criteri di durata per i token di aggiornamento, i token di accesso, i token di sessione e i token ID, vedere [Configurare la durata dei token](../develop/active-directory-configurable-token-lifetimes.md). In alternativa, per limitare le sessioni di autenticazione tramite Accesso condizionale di Azure AD, vedere [Funzionalità di gestione delle sessioni di autenticazione](https://go.microsoft.com/fwlink/?linkid=2083106).
+>- Per impostare i criteri di durata per i token di aggiornamento, i token di accesso, i token di sessione e i token ID, vedere [Configurare la durata dei token](../develop/active-directory-configurable-token-lifetimes.md). In alternativa, per limitare le sessioni di autenticazione tramite Accesso condizionale di Azure AD, vedere [Funzionalità di gestione delle sessioni di autenticazione](../conditional-access/howto-conditional-access-session-lifetime.md).
 
 ## <a name="saml-signing-certificate"></a>Certificato di firma SAML
 
@@ -85,17 +85,17 @@ Da Azure AD è possibile scaricare il certificato attivo in formato Base64 o RAW
 
 Di seguito sono riportati alcuni aspetti comuni da verificare per verificare un certificato: 
    - *Data di scadenza corretta.* È possibile configurare la data di scadenza fino a un massimo di tre anni nel futuro.
-   - *Stato attivo per il certificato corretto.* Se lo stato è **Inattivo** , modificarlo in **Attivo**. Per modificare lo stato, fare clic con il pulsante destro del mouse sulla riga del certificato e selezionare **Rendi attivo il certificato**.
+   - *Stato attivo per il certificato corretto.* Se lo stato è **Inattivo**, modificarlo in **Attivo**. Per modificare lo stato, fare clic con il pulsante destro del mouse sulla riga del certificato e selezionare **Rendi attivo il certificato**.
    - *Opzione e algoritmo di firma corretti.*
    - *Indirizzi del messaggio di notifica corretti.* Quando la data del certificato attivo si avvicina alla scadenza, Azure AD invia una notifica all'indirizzo di posta elettronica configurato in questo campo.
 
-In alcuni casi potrebbe essere necessario scaricare il certificato. Prestare attenzione quando si salva il percorso. Per scaricare il certificato, selezionare una delle opzioni per formato Base64, RAW o XML metadati federazione. Azure AD fornisce anche l' **URL dei metadati della federazione dell'app** tramite cui è possibile accedere ai metadati specifici dell'applicazione nel formato `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
+In alcuni casi potrebbe essere necessario scaricare il certificato. Prestare attenzione quando si salva il percorso. Per scaricare il certificato, selezionare una delle opzioni per formato Base64, RAW o XML metadati federazione. Azure AD fornisce anche l'**URL dei metadati della federazione dell'app** tramite cui è possibile accedere ai metadati specifici dell'applicazione nel formato `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
 > [!NOTE]
 > L'applicazione deve essere in grado di gestire il marcatore dell'ordine dei byte presente nel file XML sottoposto a rendering quando si usa https://login.microsoftonline.com/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={app-id} . Byte Order Mark è rappresentato come carattere ASCII non stampabile» ¿e in Hex è rappresentato come EF BB BF quando si esaminano i dati XML.
 
 Per apportare modifiche ai certificati, selezionare il pulsante modifica. Nella pagina **certificato di firma SAML** è possibile eseguire diverse operazioni:
-   - Creare un nuovo certificato: selezionare **nuovo certificato** , selezionare la **Data di scadenza** e quindi fare clic su **Salva**. Per attivare il certificato, selezionare il menu di scelta rapida **(...)** e scegliere **Rendi attivo il certificato**.
+   - Creare un nuovo certificato: selezionare **nuovo certificato**, selezionare la **Data di scadenza** e quindi fare clic su **Salva**. Per attivare il certificato, selezionare il menu di scelta rapida **(...)** e scegliere **Rendi attivo il certificato**.
    - Caricare un certificato con chiave privata e credenziali PFX: selezionare **Importa certificato** e selezionare il certificato. Immettere la **Password PFX** e quindi selezionare **Aggiungi**.  
    - Configurare la firma avanzata del certificato. Per ulteriori informazioni su queste opzioni, vedere [Advanced Certificate Signing Options](certificate-signing-options.md).
    - Invia una notifica a persone aggiuntive quando il certificato attivo è prossimo alla data di scadenza: immettere gli indirizzi di posta elettronica nei campi degli **indirizzi di posta elettronica di notifica** .
@@ -114,7 +114,7 @@ Dopo aver configurato l'applicazione per l'uso di Azure AD come provider di iden
 
 Selezionare **test** , quindi scegliere di eseguire il test con l'utente attualmente connesso o come un altro utente. 
 
-Se l'accesso riesce, è possibile assegnare utenti e gruppi all'applicazione SAML. Congratulazioni!
+Se l'accesso riesce, è possibile assegnare utenti e gruppi all'applicazione SAML. Congratulazioni.
 
 Se viene visualizzato un messaggio di errore, completare la procedura seguente:
 
@@ -128,12 +128,12 @@ Se viene visualizzato un messaggio di errore, completare la procedura seguente:
 
 4. Eseguire di nuovo il test finché non viene completato correttamente.
 
-Per altre informazioni, vedere [Eseguire il debug di Single Sign-On basato su SAML per applicazioni in Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
+Per altre informazioni, vedere [Eseguire il debug di Single Sign-On basato su SAML per applicazioni in Azure Active Directory](./debug-saml-sso-issues.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Serie di guide di avvio rapido sulla gestione delle applicazioni](view-applications-portal.md)
-- [Assegnare utenti o gruppi all'applicazione](methods-for-assigning-users-and-groups.md)
+- [Assegnare utenti o gruppi all'applicazione](./assign-user-or-group-access-portal.md)
 - [Configurare il provisioning automatico degli account utente](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 - [Protocollo SAML per Single Sign-On](../develop/single-sign-on-saml-protocol.md)

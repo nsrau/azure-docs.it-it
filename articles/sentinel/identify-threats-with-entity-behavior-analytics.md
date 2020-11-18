@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 9c5e57f2eb3c38a7df23052a4b3d33bc5a9675fc
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 657221a2acbf592a56cb4659ced2199023bc5e5b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425933"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658792"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificare le minacce avanzate con l'analisi del comportamento dell'utente e dell'entità (offrono dati) in Sentinel di Azure
 
@@ -109,7 +109,7 @@ In Sentinel di Azure sono attualmente identificati i tipi di entità seguenti:
 
 ### <a name="entity-pages"></a>Pagine entità
 
-Quando si verifica un'entità (attualmente limitata a utenti e host) in una ricerca, un avviso o un'indagine, è possibile selezionare l'entità e una **pagina di entità** , un foglio dati completo di informazioni utili su tale entità. I tipi di informazioni che si troveranno in questa pagina includono fact di base sull'entità, una sequenza temporale di eventi rilevanti correlati a questa entità e informazioni dettagliate sul comportamento dell'entità.
+Quando si verifica un'entità (attualmente limitata a utenti e host) in una ricerca, un avviso o un'indagine, è possibile selezionare l'entità e una **pagina di entità**, un foglio dati completo di informazioni utili su tale entità. I tipi di informazioni che si troveranno in questa pagina includono fact di base sull'entità, una sequenza temporale di eventi rilevanti correlati a questa entità e informazioni dettagliate sul comportamento dell'entità.
  
 Le pagine entità sono costituite da tre parti:
 - Il pannello a sinistra contiene le informazioni di identificazione dell'entità, raccolte da origini dati come Azure Active Directory, monitoraggio di Azure, Centro sicurezza di Azure e Microsoft Defender.
@@ -124,7 +124,7 @@ Le pagine entità sono costituite da tre parti:
 
 La sequenza temporale è una parte importante del contributo della pagina di entità all'analisi del comportamento in Sentinel di Azure. Viene presentata una storia sugli eventi correlati a entità, che consente di comprendere l'attività dell'entità in un intervallo di tempo specifico.
 
-È possibile scegliere l' **intervallo di tempo** tra le diverse opzioni predefinite (ad esempio, le *ultime 24 ore* ) o impostarlo su qualsiasi intervallo di tempo definito personalizzato. Inoltre, è possibile impostare i filtri che limitano le informazioni nella sequenza temporale a tipi specifici di eventi o avvisi.
+È possibile scegliere l' **intervallo di tempo** tra le diverse opzioni predefinite (ad esempio, le *ultime 24 ore*) o impostarlo su qualsiasi intervallo di tempo definito personalizzato. Inoltre, è possibile impostare i filtri che limitano le informazioni nella sequenza temporale a tipi specifici di eventi o avvisi.
 
 Nella sequenza temporale sono inclusi i tipi di elementi seguenti:
 
@@ -180,7 +180,7 @@ Le pagine di entità sono progettate per essere parte di più scenari di utilizz
 
 ### <a name="querying-behavior-analytics-data"></a>Esecuzione di query sui dati di analisi del comportamento
 
-Usando [KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/), è possibile eseguire una query sulla tabella di analisi comportamentale.
+Usando [KQL](/azure/data-explorer/kusto/query/), è possibile eseguire una query sulla tabella di analisi comportamentale.
 
 Ad esempio, se si vuole trovare tutti i casi di un utente che non è riuscito ad accedere a una risorsa di Azure, dove è stato il primo tentativo dell'utente di connettersi da un determinato paese e le connessioni da tale paese non sono comuni anche per i peer dell'utente, è possibile usare la query seguente:
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: ba46d4dbe90b696398ed4c78383e127861c1a066
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e5cfc9beb5473917a76f822862ce3d61675d6493
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86050214"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93406700"
 ---
 1. Per creare una risorsa del Servizio Azure SignalR, prima di tutto accedere al [portale di Azure](https://portal.azure.com). Nell'angolo in alto a sinistra della pagina selezionare **+ Crea una risorsa**. Nella casella di testo **Cerca nel marketplace** immettere **Servizio SignalR**.
 
@@ -30,9 +30,11 @@ ms.locfileid: "86050214"
     | Piano tariffario | *Free* | Attualmente sono disponibili due opzioni: **Gratuito** e **Standard**. |
     | Aggiungi al dashboard | ✔ | Selezionare questa casella per aggiungere la risorsa al dashboard e renderla più facile da trovare. |
 
-4. Selezionare **Create** (Crea). Il completamento della distribuzione può richiedere alcuni minuti.
+4. Selezionare **Rivedi e crea**. Attendere il completamento della convalida. 
 
-5. Dopo aver completato la distribuzione, in **IMPOSTAZIONI** selezionare **Chiavi**. Copiare la stringa di connessione per la chiave primaria. La stringa sarà utile in un secondo momento per configurare l'app per usare la risorsa del Servizio Azure SignalR.
+5. Selezionare **Crea**. Il completamento della distribuzione può richiedere alcuni minuti.
+
+6. Dopo aver completato la distribuzione, in **IMPOSTAZIONI** selezionare **Chiavi**. Copiare la stringa di connessione per la chiave primaria. La stringa sarà utile in un secondo momento per configurare l'app per usare la risorsa del Servizio Azure SignalR.
 
     La stringa di connessione deve avere il formato seguente:
     

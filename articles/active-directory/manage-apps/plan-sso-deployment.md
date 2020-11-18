@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 87d455a77096a2ae9339c578f3405c629d79fa76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14520c7c448231045b36e025c2c92332f9daac53
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603340"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658724"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Pianificare una distribuzione di Single Sign-On
 
@@ -32,14 +32,14 @@ Molte organizzazioni si basano su applicazioni SaaS (Software as a Service), ad 
 
 Azure Marketplace ha più di 3000 applicazioni con connessioni SSO pre-integrate, semplificando l'integrazione nel tenant.
 
-## <a name="licensing"></a>Licenza
+## <a name="licensing"></a>Gestione delle licenze
 
 - **Azure ad Licensing** -SSO per le applicazioni SaaS pre-integrate è gratuito. Tuttavia, il numero di oggetti nella directory e le funzionalità che si desidera distribuire potrebbero richiedere licenze aggiuntive. Per un elenco completo dei requisiti di licenza, vedere [Azure Active Directory prezzi](https://azure.microsoft.com/pricing/details/active-directory/).
 - **Licenze** per le applicazioni: per soddisfare le esigenze aziendali è necessario disporre delle licenze appropriate per le applicazioni SaaS. Collaborare con il proprietario dell'applicazione per determinare se gli utenti assegnati all'applicazione hanno le licenze appropriate per i rispettivi ruoli all'interno dell'applicazione. Se Azure AD gestisce il provisioning automatico basato sui ruoli, i ruoli assegnati in Azure AD devono essere allineati con il numero di licenze possedute nell'applicazione. Il numero di licenze non corrette di proprietà dell'applicazione può causare errori durante il provisioning o l'aggiornamento di un utente.
 
 ## <a name="plan-your-sso-team"></a>Pianificare il team SSO
 
-- **Coinvolgere gli stakeholder più appropriati** : quando i progetti di tecnologia hanno esito negativo, in genere è dovuto a una mancata corrispondenza delle aspettative in merito a conseguenze, risultati e responsabilità. Per evitare questi problemi, [assicurarsi di coinvolgere le parti interessate giuste](https://aka.ms/deploymentplans) e che le parti interessate siano in grado di comprendere i loro ruoli.
+- **Coinvolgere gli stakeholder più appropriati** : quando i progetti di tecnologia hanno esito negativo, in genere è dovuto a una mancata corrispondenza delle aspettative in merito a conseguenze, risultati e responsabilità. Per evitare questi problemi, [assicurarsi di coinvolgere le parti interessate giuste](../fundamentals/active-directory-deployment-plans.md) e che le parti interessate siano in grado di comprendere i loro ruoli.
 - **Pianificare le comunicazioni** : la comunicazione è fondamentale per il successo di un nuovo servizio. Comunicare in modo proattivo agli utenti le modifiche apportate alla loro esperienza, quando verranno modificate e come ottenere supporto in caso di problemi. Esaminare le opzioni per il modo in cui [gli utenti finali accedono alle applicazioni abilitate per SSO](end-user-experiences.md)e creare le comunicazioni corrispondenti alla selezione. 
 
 ## <a name="plan-your-sso-protocol"></a>Pianificare il protocollo SSO
@@ -54,25 +54,25 @@ Esistono due modi principali in cui è possibile consentire agli utenti di Singl
 
 ### <a name="considerations-for-federation-based-sso"></a>Considerazioni per SSO basato su Federazione
 
-- **Usando OpenID Connect e OAuth** : se l'applicazione a cui ci si connette supporta, usare il metodo OIDC/OAuth 2,0 per abilitare l'accesso SSO a tale applicazione. Questo metodo richiede un minor numero di configurazioni e offre un'esperienza utente più completa. Per ulteriori informazioni, vedere [OAuth 2,0](../develop/v2-oauth2-auth-code-flow.md), [OpenID Connect 1,0](../develop/v2-protocols-oidc.md)e [Azure Active Directory Guida per gli sviluppatori](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+- **Usando OpenID Connect e OAuth** : se l'applicazione a cui ci si connette supporta, usare il metodo OIDC/OAuth 2,0 per abilitare l'accesso SSO a tale applicazione. Questo metodo richiede un minor numero di configurazioni e offre un'esperienza utente più completa. Per ulteriori informazioni, vedere [OAuth 2,0](../develop/v2-oauth2-auth-code-flow.md), [OpenID Connect 1,0](../develop/v2-protocols-oidc.md)e [Azure Active Directory Guida per gli sviluppatori](../develop/index.yml).
 - **Configurazioni di endpoint per SSO basato su SAML** : se si usa SAML, gli sviluppatori dovranno disporre di informazioni specifiche prima di configurare l'applicazione. Per altre informazioni, vedere [configurare Single Sign-on basato su SAML](configure-saml-single-sign-on.md).
-- **Gestione dei certificati per SSO basato su SAML** : quando si Abilita SSO federato per l'applicazione, Azure ad crea un certificato che per impostazione predefinita è valido per tre anni. Se necessario, è possibile personalizzare la data di scadenza del certificato. Assicurarsi di disporre di processi per rinnovare i certificati prima della scadenza. Per altre informazioni, vedere [Azure ad gestione dei certificati](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
+- **Gestione dei certificati per SSO basato su SAML** : quando si Abilita SSO federato per l'applicazione, Azure ad crea un certificato che per impostazione predefinita è valido per tre anni. Se necessario, è possibile personalizzare la data di scadenza del certificato. Assicurarsi di disporre di processi per rinnovare i certificati prima della scadenza. Per altre informazioni, vedere [Azure ad gestione dei certificati](./manage-certificates-for-federated-single-sign-on.md).
 
 ### <a name="considerations-for-password-based-sso"></a>Considerazioni per SSO basato su password
 
-L'utilizzo di Azure AD per l'accesso SSO basato su password richiede la distribuzione di un'estensione del browser che recupererà in modo sicuro le credenziali e compilerà i form di accesso. Definire un meccanismo per distribuire l'estensione su larga scala con i [browser supportati](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Le opzioni includono:
+L'utilizzo di Azure AD per l'accesso SSO basato su password richiede la distribuzione di un'estensione del browser che recupererà in modo sicuro le credenziali e compilerà i form di accesso. Definire un meccanismo per distribuire l'estensione su larga scala con i [browser supportati](../user-help/my-apps-portal-end-user-access.md). Le opzioni includono:
 
-- [Criteri di gruppo per Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [Configuration Manager per Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-- [Download e configurazione gestiti dall'utente per Chrome, Firefox, Microsoft Edge o IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+- [Criteri di gruppo per Internet Explorer](./access-panel-deployment-plan.md)
+- [Configuration Manager per Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+- [Download e configurazione gestiti dall'utente per Chrome, Firefox, Microsoft Edge o IE](../user-help/my-apps-portal-end-user-access.md)
 
-Per ulteriori informazioni, vedere [come configurare la password Single Sign-on](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
+Per ulteriori informazioni, vedere [come configurare la password Single Sign-on](./configure-password-single-sign-on-non-gallery-applications.md).
 
 #### <a name="capturing-login-forms-metadata-for-applications-that-arent-in-the-gallery"></a>Acquisizione dei metadati dei form di accesso per le applicazioni che non si trovano nella raccolta
 
 Microsoft supporta l'acquisizione di metadati in un'applicazione Web per l'insieme di credenziali delle password (acquisizione dei campi nome utente e password). Passare all'URL di accesso durante il processo di configurazione dell'applicazione per acquisire i metadati dei moduli. Chiedere al proprietario dell'applicazione l'URL di accesso esatto. Queste informazioni vengono usate durante il processo di accesso, eseguendo il mapping delle credenziali Azure AD all'applicazione durante l'accesso.
 
-Per altre informazioni, vedere [che cos'è l'accesso alle applicazioni e SSO con Azure ad?-SSO basato su password](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/).
+Per altre informazioni, vedere [che cos'è l'accesso alle applicazioni e SSO con Azure ad?-SSO basato su password](./what-is-single-sign-on.md).
 
 #### <a name="indications-that-metadata-in-forms-needs-to-be-recaptured"></a>Indicazioni per la riacquisizione dei metadati nei moduli
 
@@ -96,7 +96,7 @@ Dal punto di vista dell'accesso, le applicazioni con account condivisi non sono 
 
 La scelta del metodo di autenticazione appropriato è una prima decisione fondamentale nella configurazione di una soluzione ibrida di gestione delle identità di Azure AD. Implementare il metodo di autenticazione configurato mediante Azure AD Connect, che esegue anche il provisioning degli utenti nel cloud.
 
-Per scegliere un metodo di autenticazione è necessario prendere in considerazione il tempo, l'infrastruttura esistente, la complessità e i costi di implementazione della propria scelta. Questi fattori variano in base all'organizzazione e possono cambiare nel corso del tempo. È consigliabile scegliere quella più adatta per lo scenario specifico. Per altre informazioni, vedere [scegliere il metodo di autenticazione appropriato per la soluzione di identità ibrida Azure Active Directory](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
+Per scegliere un metodo di autenticazione è necessario prendere in considerazione il tempo, l'infrastruttura esistente, la complessità e i costi di implementazione della propria scelta. Questi fattori variano in base all'organizzazione e possono cambiare nel corso del tempo. È consigliabile scegliere quella più adatta per lo scenario specifico. Per altre informazioni, vedere [scegliere il metodo di autenticazione appropriato per la soluzione di identità ibrida Azure Active Directory](../hybrid/choose-ad-authn.md).
 
 ## <a name="plan-your-security-and-governance"></a>Pianificare sicurezza e governance 
 
@@ -104,7 +104,7 @@ L'identità è il nuovo perno principale per l'attenzione e gli investimenti di 
 
 ### <a name="plan-access-reviews"></a>Pianificare le verifiche di accesso
 
-Le verifiche di [accesso](https://docs.microsoft.com/azure/active-directory/governance/create-access-review) consentono alle organizzazioni di gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. È consigliabile pianificare la verifica dell'accesso degli utenti a intervalli regolari per assicurarsi che solo le persone giuste abbiano accesso continuo.
+Le verifiche di [accesso](../governance/create-access-review.md) consentono alle organizzazioni di gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. È consigliabile pianificare la verifica dell'accesso degli utenti a intervalli regolari per assicurarsi che solo le persone giuste abbiano accesso continuo.
 
 Di seguito sono elencati alcuni degli argomenti chiave da pianificare durante la configurazione delle verifiche di accesso:
 
@@ -116,7 +116,7 @@ Di seguito sono elencati alcuni degli argomenti chiave da pianificare durante la
 
 ### <a name="plan-auditing"></a>Pianificare il controllo
 
-Azure AD fornisce [report contenenti informazioni tecniche e aziendali](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). 
+Azure AD fornisce [report contenenti informazioni tecniche e aziendali](../reports-monitoring/overview-reports.md). 
 
 Sono disponibili sia report di sicurezza che di attività. I report di sicurezza mostrano gli utenti contrassegnati per il rischio e gli accessi a rischio. I report delle attività consentono di comprendere il comportamento degli utenti dell'organizzazione, fornendo informazioni dettagliate sulle attività di accesso e fornendo audit trail di tutti gli account di accesso. È possibile utilizzare i report per gestire i rischi, aumentare la produttività e monitorare la conformità.
 
@@ -139,15 +139,15 @@ La distribuzione di MCAS consente di:
 - Usa la protezione Controllo app per l'accesso condizionale per ottenere visibilità e controllo in tempo reale dell'accesso e delle attività nelle app Cloud
 - Consente di avere un controllo continuo impostando e quindi ottimizzando costantemente i criteri.
 
-Il controllo della sessione MCAS (Microsoft Cloud Application Security) è disponibile per qualsiasi browser su qualsiasi piattaforma principale in qualsiasi sistema operativo. È anche possibile bloccare o consentire le app per dispositivi mobili e le app desktop. Grazie all'integrazione nativa con Azure AD, è possibile supportare tutte le app configurate con SAML o app Open ID Connect con Single Sign-On in Azure AD, incluse [alcune app in primo piano](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad).
+Il controllo della sessione MCAS (Microsoft Cloud Application Security) è disponibile per qualsiasi browser su qualsiasi piattaforma principale in qualsiasi sistema operativo. È anche possibile bloccare o consentire le app per dispositivi mobili e le app desktop. Grazie all'integrazione nativa con Azure AD, è possibile supportare tutte le app configurate con SAML o app Open ID Connect con Single Sign-On in Azure AD, incluse [alcune app in primo piano](/cloud-app-security/proxy-intro-aad).
 
-Per informazioni su MCAS, vedere la [Panoramica di Microsoft cloud app Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security). MCAS è un servizio di sottoscrizione basato su utente. È possibile esaminare i dettagli relativi alle licenze nel [foglio dati di licenza MCAS](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NXYO).
+Per informazioni su MCAS, vedere la [Panoramica di Microsoft cloud app Security](/cloud-app-security/what-is-cloud-app-security). MCAS è un servizio di sottoscrizione basato su utente. È possibile esaminare i dettagli relativi alle licenze nel [foglio dati di licenza MCAS](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NXYO).
 
 ### <a name="use-conditional-access"></a>Usare l'accesso condizionale
 
 Con l'accesso condizionale è possibile automatizzare le decisioni relative al controllo degli accessi in base ai criteri per le app cloud.
 
-I criteri di accesso condizionale vengono applicati dopo il completamento dell'autenticazione con primo fattore. L'accesso condizionale non è quindi concepito come una difesa di prima linea per scenari come gli attacchi Denial of Service (DoS), ma può usare i segnali di questi eventi per determinare l'accesso. È ad esempio possibile usare il livello di rischio di accesso, il percorso della richiesta e così via. Per ulteriori informazioni sull'accesso condizionale, vedere [la panoramica](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) e il [piano di distribuzione](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
+I criteri di accesso condizionale vengono applicati dopo il completamento dell'autenticazione con primo fattore. L'accesso condizionale non è quindi concepito come una difesa di prima linea per scenari come gli attacchi Denial of Service (DoS), ma può usare i segnali di questi eventi per determinare l'accesso. È ad esempio possibile usare il livello di rischio di accesso, il percorso della richiesta e così via. Per ulteriori informazioni sull'accesso condizionale, vedere [la panoramica](../conditional-access/plan-conditional-access.md) e il [piano di distribuzione](../conditional-access/plan-conditional-access.md).
 
 ## <a name="azure-sso-technical-requirements"></a>Requisiti tecnici di Azure SSO
 
@@ -163,7 +163,7 @@ Per tutte le app SaaS pre-integrate, Microsoft fornisce un'esercitazione e non �
 
 ### <a name="attribute-requirements"></a>Requisiti per gli attributi
 
-Esiste un set preconfigurato di attributi e mapping degli attributi tra gli oggetti utente di Azure AD e gli oggetti utente di ogni app SaaS. Alcune app gestiscono altri tipi di oggetti, ad esempio i gruppi. Pianificare il mapping degli attributi utente da Azure AD all'applicazione e [personalizzare i mapping](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) degli attributi predefiniti in base alle esigenze aziendali.
+Esiste un set preconfigurato di attributi e mapping degli attributi tra gli oggetti utente di Azure AD e gli oggetti utente di ogni app SaaS. Alcune app gestiscono altri tipi di oggetti, ad esempio i gruppi. Pianificare il mapping degli attributi utente da Azure AD all'applicazione e [personalizzare i mapping](../app-provisioning/customize-application-attributes.md) degli attributi predefiniti in base alle esigenze aziendali.
 
 ### <a name="certificate-requirements"></a>Requisiti per i certificati
 
@@ -171,9 +171,9 @@ Il certificato per l'applicazione deve essere aggiornato o il rischio che gli ut
 
 Esistono due modi per gestire i certificati. 
 
-- **Rollover automatico dei certificati** : Microsoft supporta il [rollover della chiave di firma in Azure ad](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Sebbene questo sia il metodo preferito per la gestione dei certificati, questo scenario non è supportato da tutti gli ISV.
+- **Rollover automatico dei certificati** : Microsoft supporta il [rollover della chiave di firma in Azure ad](../develop/active-directory-signing-key-rollover.md). Sebbene questo sia il metodo preferito per la gestione dei certificati, questo scenario non è supportato da tutti gli ISV.
 
-- **Aggiornamento manuale** : ogni applicazione dispone di un proprio certificato che scade in base alla modalità di definizione. Prima della scadenza del certificato dell'applicazione, creare un nuovo certificato e inviarlo all'ISV. Queste informazioni possono essere estratte dai metadati della Federazione. [Altre informazioni sui metadati di federazione sono disponibili qui.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-federation-metadata)
+- **Aggiornamento manuale** : ogni applicazione dispone di un proprio certificato che scade in base alla modalità di definizione. Prima della scadenza del certificato dell'applicazione, creare un nuovo certificato e inviarlo all'ISV. Queste informazioni possono essere estratte dai metadati della Federazione. [Altre informazioni sui metadati di federazione sono disponibili qui.](../azuread-dev/azure-ad-federation-metadata.md)
 
 ## <a name="implement-sso"></a>Implementa SSO
 
@@ -189,11 +189,11 @@ Usare le fasi seguenti per pianificare e distribuire la soluzione nell'organizza
 
 - **Configurare SSL**
 
-   Dall' [elenco di applicazioni](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list), individuare e aprire l'esercitazione SSO per l'applicazione, quindi seguire i passaggi dell'esercitazione in per configurare correttamente l'applicazione SaaS.
+   Dall' [elenco di applicazioni](../saas-apps/tutorial-list.md), individuare e aprire l'esercitazione SSO per l'applicazione, quindi seguire i passaggi dell'esercitazione in per configurare correttamente l'applicazione SaaS.
 
-   Se non è possibile individuare l'applicazione, vedere la [documentazione dell'applicazione personalizzata](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). Verrà illustrato come aggiungere un'applicazione che non si trova nella raccolta di Azure AD.
+   Se non è possibile individuare l'applicazione, vedere la [documentazione dell'applicazione personalizzata](./configure-saml-single-sign-on.md). Verrà illustrato come aggiungere un'applicazione che non si trova nella raccolta di Azure AD.
 
-   Facoltativamente, è possibile usare le attestazioni rilasciate nel token SAML per l'applicazione aziendale usando la [documentazione di Microsoft](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping). Assicurarsi che questo sia mappato a ciò che si prevede di ricevere nella risposta SAML per l'applicazione. Se si verificano problemi durante la configurazione, attenersi alle indicazioni su [come eseguire il debug dell'integrazione SSO](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging).
+   Facoltativamente, è possibile usare le attestazioni rilasciate nel token SAML per l'applicazione aziendale usando la [documentazione di Microsoft](../develop/active-directory-claims-mapping.md). Assicurarsi che questo sia mappato a ciò che si prevede di ricevere nella risposta SAML per l'applicazione. Se si verificano problemi durante la configurazione, attenersi alle indicazioni su [come eseguire il debug dell'integrazione SSO](./debug-saml-sso-issues.md).
 
 ### <a name="provide-sso-change-communications-to-end-users"></a>Fornire le comunicazioni di modifica SSO agli utenti finali
 
@@ -231,7 +231,7 @@ In questa sezione vengono descritti i requisiti e le indicazioni per gestire cor
 
 ### <a name="required-administrative-roles"></a>Ruoli amministrativi richiesti
 
-Usare sempre il ruolo con il minor numero di autorizzazioni disponibili per eseguire l'attività necessaria entro Azure Active Directory. Microsoft consiglia di [esaminare i diversi ruoli disponibili](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) e scegliere quello più adatto a soddisfare le proprie esigenze per ogni utente di questa applicazione. È possibile che alcuni ruoli debbano essere applicati temporaneamente e rimossi dopo il completamento della distribuzione.
+Usare sempre il ruolo con il minor numero di autorizzazioni disponibili per eseguire l'attività necessaria entro Azure Active Directory. Microsoft consiglia di [esaminare i diversi ruoli disponibili](../roles/permissions-reference.md) e scegliere quello più adatto a soddisfare le proprie esigenze per ogni utente di questa applicazione. È possibile che alcuni ruoli debbano essere applicati temporaneamente e rimossi dopo il completamento della distribuzione.
 
 | Utente tipo| Ruoli | Ruolo Azure AD (se necessario) |
 |--------|-------|-----------------------------|
@@ -241,7 +241,7 @@ Usare sempre il ruolo con il minor numero di autorizzazioni disponibili per eseg
 | Amministratori dell'infrastruttura | Proprietario del rollover del certificato | Amministratore globale |
 | Proprietario/stakeholder aziendale | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuno |
 
-È consigliabile usare [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) per gestire i ruoli per fornire controllo, controllo e verifica di accesso aggiuntivi per gli utenti con autorizzazioni di directory.
+È consigliabile usare [Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM) per gestire i ruoli per fornire controllo, controllo e verifica di accesso aggiuntivi per gli utenti con autorizzazioni di directory.
 
 ### <a name="sso-certificate-lifecycle-management"></a>Gestione del ciclo di vita dei certificati SSO
 
@@ -265,7 +265,7 @@ La disponibilità dei metodi di autenticazione all'interno dell'applicazione det
 
 ### <a name="access-management"></a>Gestione degli accessi
 
-È consigliabile scegliere un approccio ridimensionato per la gestione dell'accesso alle risorse. Gli approcci comuni includono l'uso di gruppi locali tramite la sincronizzazione tramite Azure AD Connect, la [creazione di gruppi dinamici in Azure ad in base agli attributi utente](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal)o la creazione di [gruppi self-service](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) in Azure ad gestiti da un proprietario di risorse.
+È consigliabile scegliere un approccio ridimensionato per la gestione dell'accesso alle risorse. Gli approcci comuni includono l'uso di gruppi locali tramite la sincronizzazione tramite Azure AD Connect, la [creazione di gruppi dinamici in Azure ad in base agli attributi utente](../enterprise-users/groups-dynamic-membership.md)o la creazione di [gruppi self-service](../enterprise-users/groups-self-service-management.md) in Azure ad gestiti da un proprietario di risorse.
 
 ### <a name="monitor-security"></a>Monitorare la sicurezza
 
@@ -277,52 +277,52 @@ I collegamenti seguenti presentano scenari di risoluzione dei problemi. Potrebbe
 
 #### <a name="consent-issues"></a>Problemi di consenso
 
-- [Errore di consenso imprevisto](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-unexpected-user-consent-prompt)
+- [Errore di consenso imprevisto](./application-sign-in-unexpected-user-consent-prompt.md)
 
-- [Errore di consenso utente](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-unexpected-user-consent-error)
+- [Errore di consenso utente](./application-sign-in-unexpected-user-consent-error.md)
 
 #### <a name="sign-in-issues"></a>Problemi di accesso
 
-- [Problemi di accesso da un portale personalizzato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
+- [Problemi di accesso da un portale personalizzato](./application-sign-in-other-problem-access-panel.md)
 
-- [Problemi durante l'accesso da App personali](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
+- [Problemi durante l'accesso da App personali](./application-sign-in-other-problem-access-panel.md)
 
-- [Errore della pagina di accesso dell'applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-application-error)
+- [Errore della pagina di accesso dell'applicazione](./application-sign-in-problem-application-error.md)
 
-- [Problemi di accesso a un'applicazione Microsoft](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-first-party-microsoft)
+- [Problemi di accesso a un'applicazione Microsoft](./application-sign-in-problem-first-party-microsoft.md)
 
 #### <a name="sso-issues-for-applications-listed-in-the-azure-application-gallery"></a>Problemi di SSO per le applicazioni elencate nella raccolta di applicazione Azure
 
-- [Problema con l'accesso SSO basato su password per le applicazioni elencate nella raccolta di applicazione Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery) 
+- [Problema con l'accesso SSO basato su password per le applicazioni elencate nella raccolta di applicazione Azure](./troubleshoot-password-based-sso.md) 
 
-- [Problema con SSO federato per le applicazioni elencate nella raccolta di applicazione Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery)   
+- [Problema con SSO federato per le applicazioni elencate nella raccolta di applicazione Azure](./application-sign-in-problem-federated-sso-gallery.md)   
 
 #### <a name="sso-issues-for-applications-not-listed-in-the-azure-application-gallery"></a>Problemi di SSO per le applicazioni non elencate nella raccolta di applicazione Azure
 
-- [Problema con la password SSO per le applicazioni non elencate nella raccolta di applicazione Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-non-gallery) 
+- [Problema con la password SSO per le applicazioni non elencate nella raccolta di applicazione Azure](./troubleshoot-password-based-sso.md) 
 
-- [Problema con SSO federato per le applicazioni non elencate nella raccolta di applicazione Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-non-gallery)
+- [Problema con SSO federato per le applicazioni non elencate nella raccolta di applicazione Azure](./application-sign-in-problem-federated-sso-gallery.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Eseguire il debug di Single Sign-On basato su SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
+[Eseguire il debug di Single Sign-On basato su SAML](./debug-saml-sso-issues.md)
 
-[Mapping delle attestazioni per le app tramite PowerShell](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping)
+[Mapping delle attestazioni per le app tramite PowerShell](../develop/active-directory-claims-mapping.md)
 
-[Personalizzazione delle attestazioni rilasciate nel token SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)
+[Personalizzazione delle attestazioni rilasciate nel token SAML](../develop/active-directory-saml-claims-customization.md)
 
-[Protocollo SAML per Single Sign-on](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
+[Protocollo SAML per Single Sign-on](../develop/single-sign-on-saml-protocol.md)
 
-[Protocollo Single Sign-Out SAML](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-out-protocol-reference)
+[Protocollo Single Sign-Out SAML](../develop/single-sign-out-saml-protocol.md)
 
-[Azure ad B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) (per utenti esterni, ad esempio partner e fornitori)
+[Azure ad B2B](../external-identities/what-is-b2b.md) (per utenti esterni, ad esempio partner e fornitori)
 
-[Accesso condizionale di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
+[Accesso condizionale di Azure AD](../conditional-access/overview.md)
 
-[Azure Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+[Azure Identity Protection](../identity-protection/overview-identity-protection.md)
 
-[Accesso SSO](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+[Accesso SSO](./what-is-single-sign-on.md)
 
-[Esercitazione su Application SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+[Esercitazione su Application SSO](../saas-apps/tutorial-list.md)
 
 [White paper download-piano di distribuzione Single Sign-on](https://aka.ms/SSODeploymentPlan)

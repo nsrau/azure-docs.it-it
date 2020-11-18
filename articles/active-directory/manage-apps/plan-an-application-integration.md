@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc691148723e610f0885f7c20fd8684f11a81dc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 913b7975de4598bba7240647c1d9e8c81cd1cec9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182327"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659098"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni
 
@@ -66,9 +66,9 @@ Come indicato in precedenza, è possibile che alcune applicazioni non siano stat
 ## <a name="integrating-applications-with-azure-ad"></a>Integrazione di applicazioni con Azure AD
 Gli articoli seguenti illustrano i diversi modi in cui le applicazioni si integrano con Azure AD e forniscono alcune indicazioni.
 
-* [Scelta del tipo di Active Directory da usare](../fundamentals/active-directory-administer.md)
+* [Scelta del tipo di Active Directory da usare](../fundamentals/active-directory-whatis.md)
 * [Uso delle applicazioni della raccolta di applicazioni di Azure](what-is-single-sign-on.md)
-* [Elenco delle esercitazioni sull'integrazione di applicazioni SaaS](../active-directory-saas-tutorial-list.md)
+* [Elenco delle esercitazioni sull'integrazione di applicazioni SaaS](../saas-apps/tutorial-list.md)
 
 ### <a name="authentication-types"></a>Tipi di autenticazione
 È possibile che ogni applicazione abbia requisiti di autenticazione diversi. Con Azure AD la firma dei certificati può essere usata con applicazioni che usano i protocolli di connessione SAML 2.0, WS-Federation oppure OpenID, oltre a Password Single Sign-On. Per altre informazioni sui tipi di autenticazione per le applicazioni che possono essere usati con Azure AD, vedere [Gestione di certificati per Single Sign-On federato in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) e [Accesso Single Sign-On basato su password](what-is-single-sign-on.md).
@@ -77,7 +77,7 @@ Gli articoli seguenti illustrano i diversi modi in cui le applicazioni si integr
 Con il proxy di applicazione di Microsoft Azure AD è possibile garantire l'accesso ad applicazioni che si trovano all'interno della rete privata in modo sicuro da qualsiasi posizione e su qualsiasi dispositivo. Dopo aver installato un connettore del proxy di applicazione all'interno dell'ambiente, è possibile configurarlo facilmente con Azure AD.
 
 ### <a name="integrating-custom-applications"></a>Integrazione di applicazioni personalizzate
-Se si scrive una nuova applicazione e si vuole aiutare gli sviluppatori a sfruttare la potenza di Azure AD, vedere [Guida per gli sviluppatori](../active-directory-applications-guiding-developers-for-lob-applications.md).
+Se si scrive una nuova applicazione e si vuole aiutare gli sviluppatori a sfruttare la potenza di Azure AD, vedere [Guida per gli sviluppatori](./developer-guidance-for-integrating-applications.md).
 
 Per aggiungere un'applicazione personalizzata alla raccolta di applicazioni di Azure, vedere il post di blog su ["Bring your own app" con la configurazione SAML Self-Service di Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
@@ -86,12 +86,12 @@ Gli articoli seguenti illustrano i modi in cui è possibile gestire l'accesso al
 
 * [Gestione dell'accesso alle app tramite Azure AD](what-is-access-management.md)
 * [Automazione con i connettori di Azure AD](../app-provisioning/user-provisioning.md)
-* [Assegnazione di utenti a un'applicazione](../active-directory-applications-guiding-developers-assigning-users.md)
-* [Assegnazione di gruppi a un'applicazione](../active-directory-applications-guiding-developers-assigning-groups.md)
-* [Condivisione di account](../active-directory-sharing-accounts.md)
+* [Assegnazione di utenti a un'applicazione](./assign-user-or-group-access-portal.md)
+* [Assegnazione di gruppi a un'applicazione](./assign-user-or-group-access-portal.md)
+* [Condivisione di account](../enterprise-users/users-sharing-accounts.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni dettagliate, è possibile scaricare i piani di distribuzione di Azure Active Directory da [GitHub](https://aka.ms/deploymentplans). Per le applicazioni della raccolta, è possibile scaricare i piani di distribuzione per Single Sign-On, l'accesso condizionale e il provisioning degli utenti tramite l' [portale di Azure](https://portal.azure.com). 
+Per informazioni dettagliate, è possibile scaricare i piani di distribuzione di Azure Active Directory da [GitHub](../fundamentals/active-directory-deployment-plans.md). Per le applicazioni della raccolta, è possibile scaricare i piani di distribuzione per Single Sign-On, l'accesso condizionale e il provisioning degli utenti tramite l' [portale di Azure](https://portal.azure.com). 
 
 Per scaricare un piano di distribuzione dal portale di Azure:
 

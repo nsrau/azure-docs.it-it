@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: ddf418c90857b5bb7eca97eb2c6943cc93fce9ab
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7f71cacee86edd5b3f054f0996893c2148c626eb
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518926"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422672"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novità di Ricerca cognitiva di Azure
 
@@ -42,7 +42,7 @@ Creare un'identità per un servizio di ricerca in Azure Active Directory, quindi
 
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
-| [Libreria client Azure.Search.Documents](/dotnet/api/overview/azure/search.documents-readme) | Azure SDK per .NET | Libreria client .NET rilasciata dal team di Azure SDK, progettata per coerenza con altre librerie client .NET. <br/><br/>La versione 11 è destinata all'API REST Ricerca api-version=2020-06-30, ma non supporta ancora l'archivio conoscenze, i tipi geospaziali o [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder). <br/><br/>Per altre informazioni, vedere [Avvio rapido: Creare un indice](search-get-started-dotnet.md) ed [Eseguire l'aggiornamento ad Azure.Search.Documents (v11)](search-dotnet-sdk-migration-version-11.md). | Disponibile a livello generale. </br> Installare il [pacchetto Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) da NuGet. |
+| [Libreria client Azure.Search.Documents](/dotnet/api/overview/azure/search.documents-readme) | Azure SDK per .NET | Libreria client .NET rilasciata dal team di Azure SDK, progettata per coerenza con altre librerie client .NET. <br/><br/>La versione 11 è destinata all'API REST Ricerca api-version=2020-06-30, ma non supporta ancora l'archivio conoscenze o i tipi geospaziali. <br/><br/>Per altre informazioni, vedere [Avvio rapido: Creare un indice](search-get-started-dotnet.md) ed [Eseguire l'aggiornamento ad Azure.Search.Documents (v11)](search-dotnet-sdk-migration-version-11.md). | Disponibile a livello generale. </br> Installare il [pacchetto Azure.Search.Documents](https://www.nuget.org/packages/Azure.Search.Documents/) da NuGet. |
 | [Libreria client azure.search.documents](/python/api/overview/azure/search-documents-readme)  | Azure SDK per Python| Libreria client Python rilasciata dal team di Azure SDK, progettata per coerenza con altre librerie client Python. <br/><br/>La versione 11 è destinata all'API REST Ricerca api-version=2020-06-30. | Disponibile a livello generale. </br> Installare il [pacchetto azure-search-documents](https://pypi.org/project/azure-search-documents/) da PyPI. |
 | [@azure/search-documents libreria client](/javascript/api/overview/azure/search-documents-readme)  | Azure SDK per JavaScript | Libreria client JavaScript rilasciata dal team di Azure SDK, progettata per coerenza con altre librerie client JavaScript. <br/><br/>La versione 11 è destinata all'API REST Ricerca api-version=2020-06-30. | Disponibile a livello generale. </br> Installare il [pacchetto @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents) da npm. |
 
@@ -85,7 +85,7 @@ Creare un'identità per un servizio di ricerca in Azure Active Directory, quindi
 |Funzionalità&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Descrizione | Disponibilità  |
 |---------|------------------|-------------|---------------|
 | [**Chiavi di crittografia gestite dal cliente**](search-security-manage-encryption-keys.md) |Sicurezza | Aggiunge un ulteriore livello di crittografia oltre alla crittografia incorporata della piattaforma. Usando una chiave di crittografia creata e gestita personalmente, è possibile crittografare il contenuto dell'indice e le mappe di sinonimi prima che il payload raggiunga un servizio di ricerca. | Disponibile a livello generale. </br> Usare l'API REST di ricerca 2019-05-06 o versioni successive. Per il codice gestito, il pacchetto corretto è ancora [.NET SDK versione 8.0-preview](search-dotnet-sdk-migration-version-9.md) anche se la funzionalità non è più in anteprima. |
-| [**Regole IP per il supporto del firewall in ingresso (anteprima)**](service-configure-firewall.md) | Sicurezza | Limitano l'accesso a un endpoint di servizio di ricerca a indirizzi IP specifici. L'API di anteprima include le nuove proprietà **IpRule** e **NetworkRuleSet** nell' [API CreateOrUpdate](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Questa funzionalità di anteprima è disponibile in specifiche aree. |  Anteprima pubblica con api-version=2019-10-01-Preview.  |
+| [**Regole IP per il supporto del firewall in ingresso (anteprima)**](service-configure-firewall.md) | Sicurezza | Limitano l'accesso a un endpoint di servizio di ricerca a indirizzi IP specifici. L'API di anteprima include le nuove proprietà **IpRule** e **NetworkRuleSet** nell'[API CreateOrUpdate](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Questa funzionalità di anteprima è disponibile in specifiche aree. |  Anteprima pubblica con api-version=2019-10-01-Preview.  |
 | [**Collegamento privato di Azure per un endpoint di ricerca privato (anteprima)**](service-create-private-endpoint.md) | Sicurezza| Scherma un servizio di ricerca dalla rete Internet pubblica eseguendolo come una risorsa collegamento privato, accessibile solo alle app client e ad altri servizi di Azure nella stessa rete virtuale. | Anteprima pubblica con api-version=2019-10-01-Preview.  |
 
 ## <a name="features-in-2019"></a>Funzionalità del 2019
