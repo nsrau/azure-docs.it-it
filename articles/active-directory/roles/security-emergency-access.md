@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 966d264cc338487dd1a8c04f2efd0825dfccdef0
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 10d93b92f3bb0adfe734ad439079afdfcaa6270e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378755"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834439"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gestire gli account di accesso di emergenza in Azure AD
 
@@ -33,7 +33,7 @@ Questo articolo fornisce indicazioni per la gestione degli account di accesso di
 Per un'organizzazione può essere necessario usare un account di accesso di emergenza nelle situazioni seguenti:
 
 - Gli account utente sono federati e la federazione non è attualmente disponibile a causa di un'interruzione del funzionamento della rete cellulare o di un problema tecnico del provider di identità. Se ad esempio l'host del provider di identità dell'ambiente è stato disattivato, gli utenti potrebbero non essere in grado di effettuare l'accesso quando Azure AD li reindirizza al provider di identità.
-- Gli amministratori vengono registrati tramite Azure Multi-Factor Authentication e tutti i loro dispositivi non sono disponibili oppure il servizio non è disponibile. Gli utenti potrebbero non essere in grado di completare l'autenticazione a più fattori per attivare un ruolo. Ad esempio, un'interruzione del funzionamento della rete cellulare può impedire di rispondere alle chiamate telefoniche o di ricevere SMS, gli unici due meccanismi di autenticazione registrati per il dispositivo.
+- Gli amministratori vengono registrati tramite Azure AD Multi-Factor Authentication e tutti i singoli dispositivi non sono disponibili o il servizio non è disponibile. Gli utenti potrebbero non essere in grado di completare l'autenticazione a più fattori per attivare un ruolo. Ad esempio, un'interruzione del funzionamento della rete cellulare può impedire di rispondere alle chiamate telefoniche o di ricevere SMS, gli unici due meccanismi di autenticazione registrati per il dispositivo.
 - L'utente con l'accesso di amministratore globale più recente ha lasciato l'organizzazione. Azure Active Directory impedisce l'eliminazione dell'ultimo account di amministratore globale, ma non impedisce l'eliminazione o la disabilitazione dell'account a livello locale. Entrambi i casi potrebbero rendere impossibile per l'organizzazione ripristinare l'account.
 - Circostanze impreviste come una calamità naturale durante la quale la rete cellulare o altre reti potrebbero non essere disponibili. 
 
@@ -44,7 +44,7 @@ Creare due o più account di accesso di emergenza. Devono essere account solo cl
 Durante la configurazione di questi account, devono essere soddisfatti i requisiti seguenti:
 
 - Gli account di accesso di emergenza non devono essere associati a un utente specifico dell'organizzazione. Assicurarsi che gli account non siano connessi a cellulari forniti ai dipendenti, token hardware che viaggiano con i singoli dipendenti o altre credenziali specifiche del dipendente. Questa precauzione consente di affrontare le situazioni in cui un singolo dipendente è irraggiungibile quando sono necessarie le credenziali. È importante verificare che tutti i dispositivi registrati vengano conservati in una posizione nota e sicura con più mezzi di comunicazione con Azure AD.
-- Il meccanismo di autenticazione usato per un account di accesso di emergenza deve essere diverso da quello usato dagli altri account amministrativi, inclusi altri account di accesso di emergenza.  Ad esempio, se l'amministratore usuale accede tramite l'autenticazione a più fattori locale, Azure MFA sarebbe un meccanismo diverso.  Tuttavia, se Azure MFA rappresenta la parte principale dell'autenticazione per gli account amministrativi, è consigliabile adottare un approccio diverso per questi ultimi, ad esempio usare l'Accesso condizionale con un provider di autenticazione a più fattori di terze parti tramite i Controlli personalizzati.
+- Il meccanismo di autenticazione usato per un account di accesso di emergenza deve essere diverso da quello usato dagli altri account amministrativi, inclusi altri account di accesso di emergenza.  Se, ad esempio, l'accesso dell'amministratore normale avviene tramite l'autenticazione a più fattori locale, Azure AD autenticazione a più fattori è un meccanismo diverso.  Tuttavia, se Azure AD autenticazione a più fattori è la parte principale dell'autenticazione per gli account amministrativi, prendere in considerazione un approccio diverso, ad esempio l'uso dell'accesso condizionale con un provider di autenticazione a più fattori di terze parti tramite controlli personalizzati.
 - Il dispositivo o le credenziali non devono scadere o trovarsi nell'ambito della pulizia automatica per mancanza di utilizzo.  
 - È necessario rendere permanente l'assegnazione del ruolo di amministratore globale per gli account di accesso di emergenza. 
 
@@ -87,7 +87,7 @@ Le organizzazioni devono monitorare l'attività del log di accesso e controllo d
 ### <a name="create-an-alert-rule"></a>Creare una regola di avviso
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account assegnato al ruolo Collaboratore monitoraggio in Monitoraggio di Azure.
-1. Selezionare **Tutti i servizi** , immettere "log analytics" in Cerca e quindi selezionare **Aree di lavoro Log Analytics**.
+1. Selezionare **Tutti i servizi**, immettere "log analytics" in Cerca e quindi selezionare **Aree di lavoro Log Analytics**.
 1. Selezionare un'area di lavoro.
 1. Nell'area di lavoro selezionare **Avvisi** > **Nuova regola di avviso**.
     1. In **Risorsa** verificare che la sottoscrizione sia quella a cui si vuole associare la regola di avviso.
@@ -105,7 +105,7 @@ Le organizzazioni devono monitorare l'attività del log di accesso e controllo d
         - Operator: Maggiore di
         - Valore soglia: 0
 
-    1. In **Valutati in base a** , selezionare il **Periodo (in minuti)** per il periodo di tempo in cui si desidera eseguire la query e la **Frequenza (in minuti)** per la frequenza con cui si desidera eseguire la query. La frequenza deve essere minore o uguale al periodo di ricerca.
+    1. In **Valutati in base a**, selezionare il **Periodo (in minuti)** per il periodo di tempo in cui si desidera eseguire la query e la **Frequenza (in minuti)** per la frequenza con cui si desidera eseguire la query. La frequenza deve essere minore o uguale al periodo di ricerca.
 
         ![logica avvisi](./media/security-emergency-access/alert-image2.png)
 

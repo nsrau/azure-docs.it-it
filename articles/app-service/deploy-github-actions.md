@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 6c768df964d46364a8ca501c078dbecaf1aaa21f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: e2432ca4cecb3c36d2fae19907c1ad17d9ef2505
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095561"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833504"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Eseguire la distribuzione nel servizio app usando GitHub Actions
 
@@ -21,7 +21,7 @@ Inizia a usare le [azioni di GitHub](https://help.github.com/en/articles/about-g
 ## <a name="prerequisites"></a>Prerequisiti 
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Un account GitHub. Se non si ha un accesso, iscriversi [gratuitamente](https://github.com/join).  
+- Un account GitHub. Se non è disponibile, iscriversi per riceverne uno [gratuito](https://github.com/join).  
 - Un'app di servizio app Azure funzionante. 
     - .NET: [creare un'app web ASP.NET Core in Azure](quickstart-dotnetcore.md)
     - ASP.NET: [creare un'app web ASP.NET Framework in Azure](quickstart-dotnet-framework.md)
@@ -71,16 +71,16 @@ Un profilo di pubblicazione è una credenziale a livello di app. Configurare il 
 
 1. Passare al servizio app nel portale di Azure. 
 
-1. Nella pagina **Panoramica** selezionare **Ottieni profilo di pubblicazione** .
+1. Nella pagina **Panoramica** selezionare **Ottieni profilo di pubblicazione**.
 
 1. Salvare il file scaricato. Il contenuto del file verrà usato per creare un segreto GitHub.
 
 > [!NOTE]
-> A partire dal 2020 ottobre, per le app Web Linux è necessario impostare l'opzione app `WEBSITE_WEBDEPLOY_USE_SCM` su `true` **prima di scaricare il profilo di pubblicazione** . Questo requisito verrà rimosso in futuro.
+> A partire dal 2020 ottobre, per le app Web Linux è necessario impostare l'opzione app `WEBSITE_WEBDEPLOY_USE_SCM` su `true` **prima di scaricare il profilo di pubblicazione**. Questo requisito verrà rimosso in futuro.
 
 # <a name="service-principal"></a>[Entità servizio](#tab/userlevel)
 
-È possibile creare un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) con il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dell'[interfaccia della riga di comando di Azure](/cli/azure/). Eseguire questo comando con [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova** .
+È possibile creare un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) con il comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) dell'[interfaccia della riga di comando di Azure](/cli/azure/). Eseguire questo comando con [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -110,7 +110,7 @@ Nell'esempio precedente sostituire i segnaposto con l'ID sottoscrizione, il nome
 
 # <a name="publish-profile"></a>[Profilo di pubblicazione](#tab/applevel)
 
-In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto** .
+In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto**.
 
 Per usare le [credenziali a livello di app](#generate-deployment-credentials), incollare il contenuto del file del profilo di pubblicazione scaricato nel campo del valore del segreto. Denominare il segreto `AZURE_WEBAPP_PUBLISH_PROFILE` .
 
@@ -124,7 +124,7 @@ Quando si configura il flusso di lavoro di GitHub, si usa il `AZURE_WEBAPP_PUBLI
 
 # <a name="service-principal"></a>[Entità servizio](#tab/userlevel)
 
-In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto** .
+In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto**.
 
 Per usare le [credenziali a livello di utente](#generate-deployment-credentials), incollare l'intero output JSON dal comando dell'interfaccia della riga di comando di Azure nel campo del valore del segreto. Assegnare al segreto il nome `AZURE_CREDENTIALS`.
 

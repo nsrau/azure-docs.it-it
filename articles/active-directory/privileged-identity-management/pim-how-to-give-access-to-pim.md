@@ -14,19 +14,19 @@ ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95f8991d5ba9efb8e3223dd44a8d037acf2de849
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fba46ee5632f7411c433e4bba29201c59c552f21
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009563"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835204"
 ---
 # <a name="delegate-access-to-privileged-identity-management"></a>Delega accesso a Privileged Identity Management
 
 Per delegare l'accesso a Privileged Identity Management (PIM), un amministratore globale può assegnare altri utenti al ruolo di amministratore dei ruoli con privilegi. Per impostazione predefinita, gli amministratori della sicurezza e i lettori di sicurezza hanno accesso in sola lettura a Privileged Identity Management. Per concedere l'accesso a Privileged Identity Management, il primo utente può assegnare altri utenti al ruolo di **amministratore dei ruoli con privilegi** . Il ruolo di amministratore del ruolo con privilegi è necessario solo per la gestione dei ruoli Azure AD. Le autorizzazioni di amministratore del ruolo con privilegi non sono necessarie per gestire le impostazioni per le risorse di Azure.
 
 > [!NOTE]
-> La gestione di Privileged Identity Management richiede Multi-Factor Authentication di Azure. Poiché gli account Microsoft non possono eseguire la registrazione per Azure Multi-Factor Authentication, un utente che accede con una account Microsoft non può accedere Privileged Identity Management.
+> La gestione di Privileged Identity Management richiede Azure AD Multi-Factor Authentication. Poiché gli account Microsoft non possono eseguire la registrazione per Azure AD Multi-Factor Authentication, un utente che accede con una account Microsoft non può accedere Privileged Identity Management.
 
 Assicurarsi che almeno due utenti abbiano sempre il ruolo di amministratore dei ruoli con privilegi, per l'eventualità in cui uno di questi venga bloccato o il suo account venga eliminato.
 

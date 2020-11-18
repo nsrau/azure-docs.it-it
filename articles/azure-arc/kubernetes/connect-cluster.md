@@ -8,13 +8,13 @@ author: mlearned
 ms.author: mlearned
 description: Connettere un cluster Kubernetes abilitato per Azure Arc con Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, contenitori
-ms.custom: references_regions
-ms.openlocfilehash: 74a0de494148f1f3315511c0bf6cb10f40cdc416
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 0166ac0b19208a60f360792fb67ccc050a014ce1
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855005"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833249"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Connettere un cluster Kubernetes abilitato per Azure Arc (anteprima)
 
@@ -257,7 +257,7 @@ Kubernetes abilitato per Azure Arc è costituito da alcuni agenti (operatori) ch
 È possibile eliminare una risorsa `Microsoft.Kubernetes/connectedcluster` usando l'interfaccia della riga di comando di Azure o il portale di Azure.
 
 
-* **Eliminazione con l'interfaccia**della riga di comando di Azure: è possibile usare l'interfaccia della riga di comando di Azure seguente per avviare l'eliminazione della risorsa Kubernetes abilitata per Azure Arc.
+* **Eliminazione con l'interfaccia** della riga di comando di Azure: è possibile usare l'interfaccia della riga di comando di Azure seguente per avviare l'eliminazione della risorsa Kubernetes abilitata per Azure Arc.
   ```console
   az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
   ```

@@ -5,13 +5,13 @@ keywords: servizio app di Azure, app Web, impostazioni dell'app, variabili di am
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 86f9f227c0ea92b7b52a3037759426cc87f6d937
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
+ms.openlocfilehash: 1ab6f5e9c7b602ce124116c02584c5a48a3f597f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152049"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833657"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurare un'app del servizio app nel portale di Azure
 
@@ -236,7 +236,7 @@ Per le app di Windows, è possibile personalizzare i mapping del gestore IIS e l
 
 I mapping dei gestori consentono di aggiungere processori script personalizzati per gestire le richieste di estensioni di file specifiche. Per aggiungere un gestore personalizzato, fare clic su **nuovo gestore**. Configurare il gestore come segue:
 
-- **Estensione**. Estensione di file che si desidera gestire, ad esempio * \* . php* o *handler. fcgi*.
+- **Estensione**. Estensione di file che si desidera gestire, ad esempio *\* . php* o *handler. fcgi*.
 - **Processore di script**. Percorso assoluto del processore di script. Le richieste ai file che corrispondono all'estensione di file vengono elaborate dal processore di script. Utilizzare il percorso `D:\home\site\wwwroot` per fare riferimento alla directory radice della propria app.
 - **Argomenti**. Argomenti della riga di comando facoltativi per il processore di script.
 
@@ -279,7 +279,7 @@ Vedere [configurare un contenitore Linux personalizzato per il servizio app Azur
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Configurare un nome di dominio personalizzato nel servizio app di Azure]
-- [Configurare gli ambienti di gestione temporanea in Servizio app di Azure]
+- [Configurare gli ambienti di gestione temporanea nel servizio app di Azure]
 - [Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure](configure-ssl-bindings.md)
 - [Abilitare i log di diagnostica](troubleshoot-diagnostic-logs.md)
 - [Aumentare le prestazioni di un'app nel Servizio app di Azure]
@@ -291,7 +291,7 @@ Vedere [configurare un contenitore Linux personalizzato per il servizio app Azur
 [ASP.NET SignalR]: https://www.asp.net/signalr
 [Portale di Azure]: https://portal.azure.com/
 [Configurare un nome di dominio personalizzato nel servizio app di Azure]: ./app-service-web-tutorial-custom-domain.md
-[Configurare gli ambienti di gestione temporanea in Servizio app di Azure]: ./deploy-staging-slots.md
+[Configurare gli ambienti di gestione temporanea nel servizio app di Azure]: ./deploy-staging-slots.md
 [How to: Monitor web endpoint status]: ./web-sites-monitor.md
 [Informazioni di base sul monitoraggio nel Servizio app di Azure]: ./web-sites-monitor.md
 [modalità pipeline]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application

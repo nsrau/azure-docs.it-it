@@ -16,13 +16,13 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
-ms.openlocfilehash: cf9f484a3f9285d1be06443b39bd50ec73ccf632
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: has-adal-ref, devx-track-azurecli
+ms.openlocfilehash: c41ec06b1f985296377d27dcbe72b5f41224809b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665294"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835408"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Domande frequenti e problemi noti nell'uso di identità gestite per le risorse di Azure
 
@@ -129,7 +129,7 @@ Soluzione alternativa per le identità gestite in una sottoscrizione che è stat
  - Per le identità gestite assegnate dal sistema: disabilitare e abilitare di nuovo. 
  - Per le identità gestite assegnate dall'utente: eliminare, ricreare e collegare nuovamente alle risorse necessarie (ad esempio macchine virtuali)
 
-Per altre informazioni, vedere [trasferire una sottoscrizione di Azure a un'altra directory di Azure ad](../../role-based-access-control/transfer-subscription.md).
+Per altre informazioni, vedere [Trasferire una sottoscrizione di Azure in una directory di Azure AD diversa](../../role-based-access-control/transfer-subscription.md).
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Spostamento di un'identità gestita assegnata dall'utente in un'altra sottoscrizione o in un gruppo di risorse diverso
 

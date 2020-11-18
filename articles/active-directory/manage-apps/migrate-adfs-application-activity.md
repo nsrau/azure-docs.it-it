@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ee1734e61ffe59fccf3ad35c1f0c607882f7f40
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 1245010ae0b21c5bb8e3ebd93a9fe851d48c858b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659198"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835510"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Usare il report delle attività dell'applicazione AD FS (anteprima) per eseguire la migrazione delle applicazioni ai Azure AD
 
@@ -76,7 +76,7 @@ Nella tabella seguente sono elencati tutti i test di configurazione eseguiti su 
 
 |Risultato  |Superato/avviso/esito negativo  |Descrizione  |
 |---------|---------|---------|
-|Test-ADFSRPAdditionalAuthenticationRules <br> È stata rilevata almeno una regola non migrazione nei per AdditionalAuthentication.       | Pass/avviso          | Il relying party dispone di regole per richiedere l'autenticazione a più fattori (multi-factor authentication). Per spostarsi in Azure AD, tradurre tali regole in criteri di accesso condizionale. Se si usa un'autenticazione a più fattori locale, si consiglia di passare ad autenticazione a più fattori di Azure. [Altre informazioni sull'accesso condizionale](../authentication/concept-mfa-howitworks.md).        |
+|Test-ADFSRPAdditionalAuthenticationRules <br> È stata rilevata almeno una regola non migrazione nei per AdditionalAuthentication.       | Pass/avviso          | Il relying party dispone di regole per richiedere l'autenticazione a più fattori (multi-factor authentication). Per spostarsi in Azure AD, tradurre tali regole in criteri di accesso condizionale. Se si usa un'autenticazione a più fattori locale, si consiglia di passare a Azure AD autenticazione a più fattori. [Altre informazioni sull'accesso condizionale](../authentication/concept-mfa-howitworks.md).        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> Il valore di AdditionalWSFedEndpoint del componente è impostato su true.       | Esito positivo o negativo          | Il relying party in AD FS consente più endpoint dell'asserzione di WS-Fed.Attualmente Azure AD ne supporta solo uno.Se si dispone di uno scenario in cui il risultato è il blocco della migrazione, segnalare il [problema.](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints)     |
 |Test-ADFSRPAllowedAuthenticationClassReferences <br> Il componente ha impostato AllowedAuthenticationClassReferences.       | Esito positivo o negativo          | Questa impostazione in AD FS consente di specificare se l'applicazione è configurata in modo da consentire solo determinati tipi di autenticazione. Per ottenere questa funzionalità, è consigliabile usare l'accesso condizionale. Se si dispone di uno scenario in cui il risultato è il blocco della migrazione, segnalare il [problema.](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695672-allow-in-azure-ad-to-specify-certain-authentication)  [Altre informazioni sull'accesso condizionale](../authentication/concept-mfa-howitworks.md).          |
 |Test-ADFSRPAlwaysRequireAuthentication <br> AlwaysRequireAuthenticationCheckResult      | Esito positivo o negativo          | Questa impostazione in AD FS consente di specificare se l'applicazione è configurata in modo da ignorare i cookie SSO e **richiedere sempre l'autenticazione**. In Azure AD, è possibile gestire la sessione di autenticazione usando i criteri di accesso condizionale per ottenere un comportamento simile. [Altre informazioni sulla configurazione della gestione delle sessioni di autenticazione con l'accesso condizionale](../conditional-access/howto-conditional-access-session-lifetime.md).          |

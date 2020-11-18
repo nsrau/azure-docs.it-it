@@ -12,18 +12,18 @@ ms.topic: end-user-help
 ms.date: 10/20/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 017898249f1ad32a37b7ccd6bce17fe3d32843f3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 65bd5a89d132a575817480d0609109a3f379e969
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480310"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833963"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Domande frequenti sull'app Microsoft Authenticator
 
 Questo articolo risponde a domande comuni sull'app Microsoft Authenticator. Se non viene visualizzata una risposta alla domanda, accedere al [forum dell'app Microsoft Authenticator](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp).
 
-L'app Microsoft Authenticator ha sostituito l'app Azure Authenticator ed è l'app consigliata quando si usa Multi-Factor Authentication di Azure. L'app Microsoft Authenticator è disponibile per [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) e [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
+L'app Microsoft Authenticator ha sostituito l'app Azure Authenticator ed è l'app consigliata quando si usa Azure AD Multi-Factor Authentication. L'app Microsoft Authenticator è disponibile per [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) e [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

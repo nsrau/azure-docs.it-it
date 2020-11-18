@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3b4a9547a1bd62b7464b4a79fe68720572630f3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d826b80c11b700d753acc18f8d4c626a65510f93
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961891"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833810"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Procedure consigliate e risoluzione dei problemi per le applicazioni Node nel Servizio app di Azure per Windows
 
@@ -121,13 +121,13 @@ Per altre informazioni sul debug, vedere [Debug node.js applications on Windows]
 
 Il funzionamento normale di molte applicazioni prevede l'esecuzione di connessioni in uscita. Quando si riceve una richiesta, ad esempio, l'app Node deve contattare un'API REST in una posizione diversa e ottenere informazioni per elaborare la richiesta. È consigliabile usare un agente keep-alive durante l'esecuzione di chiamate HTTP o HTTPS. È possibile usare il modulo agentkeepalive come agente keep-alive durante le chiamate in uscita.
 
-Il modulo agentkeepalive assicura il riutilizzo dei socket nella macchina virtuale in App Web di Azure. La creazione di un nuovo socket a ogni richiesta in uscita comporta un ulteriore sovraccarico per l'applicazione. Facendo in modo che l'applicazione riutilizzi i socket per le richieste in uscita, è possibile evitare che l'applicazione superi il valore di maxSockets allocato per ogni macchina virtuale. In Servizio app di Azure è consigliabile impostare il valore di maxSockets per agentKeepAlive su un totale di 160 socket per macchina virtuale (4 istanze di node.exe \* 40 maxSockets/istanza).
+Il modulo agentkeepalive assicura il riutilizzo dei socket nella macchina virtuale in App Web di Azure. La creazione di un nuovo socket a ogni richiesta in uscita comporta un ulteriore sovraccarico per l'applicazione. Facendo in modo che l'applicazione riutilizzi i socket per le richieste in uscita, è possibile evitare che l'applicazione superi il valore di maxSockets allocato per ogni macchina virtuale. Il suggerimento sul servizio app Azure consiste nell'impostare il valore maxSockets per agentkeepalive su un totale di (4 istanze di node.exe \* 32 maxSockets/istanza) 128 socket per macchina virtuale.
 
 Esempio di configurazione di [per agentkeepalive](https://www.npmjs.com/package/agentkeepalive) :
 
 ```nodejs
 let keepaliveAgent = new Agent({
-    maxSockets: 40,
+    maxSockets: 32,
     maxFreeSockets: 10,
     timeout: 60000,
     keepAliveTimeout: 300000

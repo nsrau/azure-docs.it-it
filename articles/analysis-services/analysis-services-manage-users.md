@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 032b63700f2842826de916a8f077975689d56911
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b40be802f30bac8438f10c4ab60e1c196c9f7164
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014903"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833793"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticazione e autorizzazioni utente
 
@@ -32,7 +32,7 @@ Applicazioni client quali Excel e Power BI Desktop e strumenti come SQL Server M
 
 A seconda dello strumento o dell'applicazione client in uso, il tipo di autenticazione e la modalità di accesso possono essere diverse. Ogni applicazione può supportare funzionalità diverse per la connessione ai servizi cloud quali Azure Analysis Services.
 
-Power BI Desktop, Visual Studio e SSMS supportano l'autenticazione universale di Active Directory, ovvero un metodo interattivo che supporta anche Azure Multi-Factor Authentication (MFA). Azure MFA consente di proteggere l'accesso ai dati e alle applicazioni, offrendo al tempo stesso una procedura di accesso semplice. MFA include funzionalità avanzate di autenticazione con varie opzioni di verifica (chiamata telefonica, SMS, smart card con PIN o notifica tramite app per dispositivi mobili). La convalida di MFA interattiva con Azure AD può avvenire attraverso una finestra popup. **È consigliata l'autenticazione universale**.
+Power BI Desktop, Visual Studio e SSMS supportano Active Directory autenticazione universale, un metodo interattivo che supporta anche Azure AD Multi-Factor Authentication (multi-factor authentication). Azure AD autenticazione a più fattori consente di proteggere l'accesso ai dati e alle applicazioni, garantendo al tempo stesso un processo di accesso semplice. MFA include funzionalità avanzate di autenticazione con varie opzioni di verifica (chiamata telefonica, SMS, smart card con PIN o notifica tramite app per dispositivi mobili). La convalida di MFA interattiva con Azure AD può avvenire attraverso una finestra popup. **È consigliata l'autenticazione universale**.
 
 Se si accede ad Azure con un account di Windows e l'autenticazione universale non è selezionata o disponibile (Excel), è richiesto [Active Directory Federation Services (AD FS)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs). Con la Federazione, gli utenti Azure AD e Microsoft 365 vengono autenticati con le credenziali locali e possono accedere alle risorse di Azure.
 
@@ -44,7 +44,7 @@ I server di Azure Analysis Services supportano connessioni da [SSMS V17.1](/sql/
 
 *  Supporta gli utenti guest di Azure B2B invitati al tenant di Azure AS. Quando si connettono a un server, gli utenti guest devono selezionare l'autenticazione universale di Active Directory.
 
-*  Supporta l'autenticazione a più fattori (Multi-Factor Authentication, MFA). Azure MFA agevola la protezione dell'accesso ai dati e alle applicazioni con una serie di semplici opzioni di verifica, tra cui: chiamata telefonica, SMS, smart card con pin o notifica tramite app per dispositivi mobili. La convalida di MFA interattiva con Azure AD può avvenire attraverso una finestra popup.
+*  Supporta l'autenticazione a più fattori (Multi-Factor Authentication, MFA). Azure AD autenticazione a più fattori consente di proteggere l'accesso ai dati e alle applicazioni con una gamma di opzioni di verifica: telefonata, SMS, smart card con pin o notifica tramite app per dispositivi mobili. La convalida di MFA interattiva con Azure AD può avvenire attraverso una finestra popup.
 
 ### <a name="visual-studio"></a>Visual Studio
 

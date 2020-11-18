@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f5a01724bfefd50297182f998b46f99eacca5843
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a46c272ee2f7aa2d6621e3dc2db81605ba0363f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325777"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833113"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Binding di input di archiviazione BLOB di Azure per funzioni di Azure
 
@@ -175,6 +175,15 @@ Nel file *function.json* viene usata la proprietà dei metadati `queueTrigger` p
 
 Queste proprietà sono descritte nella sezione [configuration](#configuration).
 
+La `dataType` proprietà determina quale associazione viene utilizzata. Per supportare strategie di associazione diverse sono disponibili i valori seguenti:
+
+| Valore di binding | Predefinito | Descrizione | Esempio |
+| --- | --- | --- | --- |
+| `undefined` | S | Usa l'associazione avanzata | `def main(input: func.InputStream)` |
+| `string` | N | Usa un'associazione generica e esegue il cast del tipo di input come `string` | `def main(input: str)` |
+| `binary` | N | Usa l'associazione generica e esegue il cast del BLOB di input come `bytes` oggetto Python | `def main(input: bytes)` |
+
+
 Ecco il codice Python:
 
 ```python
@@ -309,6 +318,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**nome** | n/d | Nome della variabile che rappresenta il BLOB nel codice della funzione.|
 |**path** |**BlobPath** | Percorso del BLOB. |
 |**connection** |**Connection**| Nome di un'impostazione dell'app che contiene la [stringa di connessione di archiviazione](../storage/common/storage-configure-connection-string.md) da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Se ad esempio si imposta `connection` su "Storage", il runtime di funzioni Cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>La stringa di connessione deve essere relativa a un account di archiviazione di uso generico, non a un [account di archiviazione solo BLOB](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**dataType**| n/d | Per i linguaggi tipizzati in modo dinamico, specifica il tipo di dati sottostante. I valori possibili sono `string`, `binary` o `stream`. Per ulteriori dettagli, fare riferimento ai [concetti relativi a trigger e associazioni](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
 |n/d | **Accesso** | Indica se eseguire la lettura o la scrittura. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

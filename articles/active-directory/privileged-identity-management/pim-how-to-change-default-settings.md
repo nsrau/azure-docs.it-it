@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 391d4d6cb925eec0ea7be19eb6fa6849aa38985e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fadcf3f5aefa76ab03d6313643fc18df71f6c3b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369744"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835238"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurare le impostazioni del ruolo Azure AD in Privileged Identity Management
 
@@ -81,7 +81,7 @@ L'utente può scegliere una delle opzioni di durata dell'assegnazione **attiva**
 
 ## <a name="require-multi-factor-authentication"></a>Richiedi autenticazione a più fattori
 
-Privileged Identity Management offre inoltre l'imposizione facoltativa di Azure Multi-Factor Authentication (MFA) per due scenari distinti.
+Privileged Identity Management fornisce l'applicazione facoltativa del Multi-Factor Authentication Azure AD per due scenari distinti.
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Richiedi Multi-Factor Authentication in caso di assegnazione attiva
 
@@ -91,7 +91,7 @@ Per assicurarsi che l'amministratore che esegue l'assegnazione sia colui che dic
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Richiedi il servizio Multi-Factor Authentication all'attivazione
 
-È possibile richiedere agli utenti idonei per un ruolo di dimostrare chi sta usando Azure Multi-Factor Authentication prima di poter attivare. L'autenticazione a più fattori garantisce che l'utente sia quello che afferma di essere con una ragionevole certezza. L'imposizione di questa opzione consente di proteggere risorse critiche in situazioni di potenziale compromissione dell'account utente.
+È possibile richiedere agli utenti idonei per un ruolo di dimostrare chi utilizza Azure AD Multi-Factor Authentication prima di poter eseguire l'attivazione. L'autenticazione a più fattori garantisce che l'utente sia quello che afferma di essere con una ragionevole certezza. L'imposizione di questa opzione consente di proteggere risorse critiche in situazioni di potenziale compromissione dell'account utente.
 
 Per richiedere l'autenticazione a più fattori prima dell'attivazione, selezionare la casella **richiedi multi-factor authentication all'attivazione** nella scheda assegnazione dell' **impostazione modifica ruolo**.
 
@@ -167,8 +167,8 @@ Usare l' **opzione** per richiedere agli amministratori idonei di includere un n
 
 Usare l'opzione **Multi-Factor Authentication** per specificare se richiedere agli utenti di verificare la propria identità con MFA prima di attivare i ruoli. È necessario verificarne l'identità una sola volta per ogni sessione, non ogni volta che viene attivato un ruolo. Tenere presente due suggerimenti quando si abilita l'autenticazione MFA:
 
-- Gli utenti che dispongono di account Microsoft per gli indirizzi di posta elettronica (in genere @outlook.com , ma non sempre) non possono registrarsi per multi-factor authentication di Azure. Se si desidera assegnare ruoli agli utenti con account Microsoft, è necessario renderli amministratori permanenti o disabilitare l'autenticazione a più fattori per quel ruolo.
-- Non è possibile disabilitare Multi-Factor Authentication di Azure per i ruoli con privilegi elevati per Azure AD e Microsoft 365. Questa funzionalità di sicurezza consente di proteggere i ruoli seguenti:  
+- Gli utenti che dispongono di account Microsoft per gli indirizzi di posta elettronica (in genere @outlook.com , ma non sempre) non possono registrarsi per Azure AD multi-factor authentication. Se si desidera assegnare ruoli agli utenti con account Microsoft, è necessario renderli amministratori permanenti o disabilitare l'autenticazione a più fattori per quel ruolo.
+- Non è possibile disabilitare Azure AD Multi-Factor Authentication per i ruoli con privilegi elevati per Azure AD e Microsoft 365. Questa funzionalità di sicurezza consente di proteggere i ruoli seguenti:  
   
   - Amministratore di Azure Information Protection
   - Amministratore fatturazione

@@ -14,12 +14,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf1113f7b2f396deed849fa46108537f290b53a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4344e769cc8466287dab1e98e95cc3fbe705ffbd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84742097"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835000"
 ---
 # <a name="multi-factor-authentication-and-privileged-identity-management"></a>Autenticazione a più fattori e Privileged Identity Management
 
@@ -28,15 +28,15 @@ ms.locfileid: "84742097"
 È possibile richiedere agli utenti di completare una richiesta di autenticazione a più fattori quando eseguono l'accesso. È anche possibile richiedere che gli utenti completino una richiesta di autenticazione a più fattori quando attivano un ruolo in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). In questo modo, se l'utente non ha completato una richiesta di autenticazione a più fattori quando ha eseguito l'accesso, verrà richiesto di farlo da Privileged Identity Management.
 
 > [!IMPORTANT]
-> Attualmente, Azure Multi-Factor Authentication funziona solo con gli account aziendali o dell'Istituto di istruzione, non con gli account personali Microsoft (in genere un account personale usato per accedere ai servizi Microsoft, ad esempio Skype, Xbox o Outlook.com). Per questo motivo, chiunque usi un account personale non può essere un amministratore idoneo perché non può usare l'autenticazione a più fattori per attivare i ruoli. Se devono continuare a gestire i carichi di lavoro con un account Microsoft, elevare questi utenti a livello di amministratori permanenti per ora.
+> Al momento, Azure AD Multi-Factor Authentication funziona solo con account aziendali o dell'Istituto di istruzione, non con account personali Microsoft (in genere un account personale usato per accedere ai servizi Microsoft, ad esempio Skype, Xbox o Outlook.com). Per questo motivo, chiunque usi un account personale non può essere un amministratore idoneo perché non può usare l'autenticazione a più fattori per attivare i ruoli. Se devono continuare a gestire i carichi di lavoro con un account Microsoft, elevare questi utenti a livello di amministratori permanenti per ora.
 
 ## <a name="how-pim-validates-mfa"></a>Modalità di convalida di MFA da parte di PIM
 
 Sono disponibili due opzioni per la convalida dell'autenticazione a più fattori quando un utente attiva un ruolo.
 
-L'opzione più semplice consiste nell'utilizzare Multi-Factor Authentication di Azure per gli utenti che attivano un ruolo con privilegi. A tale scopo, verificare prima di tutto che questi utenti siano provvisti di licenza, se necessario, e abbiano effettuato la registrazione per Azure Multi-Factor Authentication. Per altre informazioni su come distribuire Multi-Factor Authentication di Azure, vedere [distribuire azure multi-factor authentication basato sul cloud](../authentication/howto-mfa-getstarted.md). È consigliabile, ma non obbligatorio, configurare Azure AD per applicare l'autenticazione a più fattori per questi utenti al momento dell'accesso. Ciò è dovuto al fatto che i controlli di autenticazione a più fattori verranno effettuati dal Privileged Identity Management stesso.
+L'opzione più semplice consiste nell'utilizzare Azure AD Multi-Factor Authentication per gli utenti che attivano un ruolo con privilegi. A tale scopo, verificare prima che questi utenti siano provvisti di licenza, se necessario, e abbiano effettuato la registrazione per Azure AD Multi-Factor Authentication. Per altre informazioni su come distribuire Azure AD Multi-Factor Authentication, vedere [distribuire multi-factor authentication di Azure ad basati sul cloud](../authentication/howto-mfa-getstarted.md). È consigliabile, ma non obbligatorio, configurare Azure AD per applicare l'autenticazione a più fattori per questi utenti al momento dell'accesso. Ciò è dovuto al fatto che i controlli di autenticazione a più fattori verranno effettuati dal Privileged Identity Management stesso.
 
-In alternativa, se gli utenti eseguono l'autenticazione in locale, il provider di identità può essere responsabile dell'autenticazione a più fattori. Ad esempio, se AD Federation Services è stato configurato per richiedere l'autenticazione basata su smart card prima dell'accesso ad Azure AD, vedere le istruzioni per la configurazione di AD FS per l'invio di attestazioni ad Azure AD nell'articolo [Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS](../authentication/howto-mfa-adfs.md) . Quando un utente tenta di attivare un ruolo, Privileged Identity Management accetta che l'autenticazione a più fattori sia già stata convalidata per l'utente dopo la ricezione delle attestazioni appropriate.
+In alternativa, se gli utenti eseguono l'autenticazione in locale, il provider di identità può essere responsabile dell'autenticazione a più fattori. Ad esempio, se AD Federation Services è stato configurato per richiedere l'autenticazione basata su smart card prima di accedere Azure AD, la [protezione delle risorse cloud con Azure AD multi-factor authentication e ad FS](../authentication/howto-mfa-adfs.md) include istruzioni per la configurazione di ad FS per l'invio di attestazioni a Azure ad. Quando un utente tenta di attivare un ruolo, Privileged Identity Management accetta che l'autenticazione a più fattori sia già stata convalidata per l'utente dopo la ricezione delle attestazioni appropriate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

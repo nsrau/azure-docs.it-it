@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e483c5cdb7e5acc0677b0d0cf2b41c390eef0b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fb23e60539c704dac457ab6e8706ec0cfe350ed9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371563"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835323"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Configurare ruoli personalizzati di Azure AD in Privileged Identity Management
 
@@ -64,9 +64,9 @@ Ed è anche possibile scegliere una delle opzioni di durata dell'assegnazione *a
 - **Consenti assegnazione attiva permanente**: gli amministratori possono assegnare l'appartenenza permanente attiva.
 - **Scadenza assegnazione attiva dopo**: gli amministratori possono richiedere che tutte le assegnazioni attive abbiano una data di inizio e di fine specificata.
 
-### <a name="require-azure-multi-factor-authentication"></a>Richiedere Azure Multi-Factor Authentication
+### <a name="require-azure-ad-multi-factor-authentication"></a>Richiedi Azure AD Multi-Factor Authentication
 
-Privileged Identity Management offre inoltre l'imposizione facoltativa di Azure Multi-Factor Authentication (MFA) per due scenari distinti.
+Privileged Identity Management fornisce l'applicazione facoltativa del Multi-Factor Authentication Azure AD per due scenari distinti.
 
 - **Richiedi Multi-Factor Authentication in caso di assegnazione attiva**
 
@@ -74,7 +74,7 @@ Privileged Identity Management offre inoltre l'imposizione facoltativa di Azure 
 
 - **Richiedi il servizio Multi-Factor Authentication all'attivazione**
 
-  È possibile richiedere agli utenti idonei assegnati a un ruolo di eseguire la registrazione ad Azure Multi-Factor Authentication prima dell'assegnazione. Questo processo assicura che l'utente che richiede l'attivazione sia effettivamente chi dichiara di essere con ragionevole certezza. L'imposizione di questa opzione consente di proteggere ruoli critici in situazioni di potenziale compromissione dell'account utente. Per richiedere a un membro idoneo di eseguire Azure Multi-Factor Authentication prima dell'attivazione, selezionare la casella **Richiedi il servizio Multi-Factor Authentication all'attivazione**.
+  È possibile richiedere agli utenti idonei assegnati a un ruolo di registrarsi in Azure AD Multi-Factor Authentication prima di poter eseguire l'attivazione. Questo processo assicura che l'utente che richiede l'attivazione sia effettivamente chi dichiara di essere con ragionevole certezza. L'imposizione di questa opzione consente di proteggere ruoli critici in situazioni di potenziale compromissione dell'account utente. Per richiedere un membro idoneo per l'esecuzione Azure AD Multi-Factor Authentication prima dell'attivazione, selezionare la casella **richiedi multi-factor authentication on Activation** .
 
 Per altre informazioni, vedere [Autenticazione a più fattori e Privileged Identity Management](pim-how-to-require-mfa.md).
 

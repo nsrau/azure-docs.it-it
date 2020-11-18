@@ -17,12 +17,12 @@ ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98b9a2da11ad32e35704a49cfcf1788f95276dda
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: bc5f902d75084d649f211d589e53041f1eb37f0e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393456"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834711"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Quanto tempo Azure AD archiviare i dati dei report?
 
@@ -41,7 +41,7 @@ In questo articolo vengono illustrati i criteri di conservazione dei dati per i 
 ### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>Quando i dati dell'attività sono disponibili nel portale di Azure?
 
 - **Immediatamente** : se si è già lavorato con i report nel portale di Azure.
-- **Entro 2 ore** : se non si è attivata la creazione di report nel portale di Azure.
+- **Entro 2 ore**: se non si è attivata la creazione di report nel portale di Azure.
 
 ---
 
@@ -65,7 +65,7 @@ Per i segnali di sicurezza, il processo di raccolta viene avviato quando si acco
 | :--                    | :--           | :--                 | :--                 |
 | Log di controllo             | 7 giorni        | 30 giorni             | 30 giorni             |
 | Accessi               | 7 giorni        | 30 giorni             | 30 giorni             |
-| Utilizzo dell'autenticazione a più fattori di Azure        | 30 giorni       | 30 giorni             | 30 giorni             |
+| Utilizzo dell'autenticazione a più fattori Azure AD        | 30 giorni       | 30 giorni             | 30 giorni             |
 
 È possibile mantenere i dati relativi alle attività di controllo e accesso per più tempo rispetto al periodo di conservazione predefinito descritto in precedenza instradandoli a un account di archiviazione di Azure con Monitoraggio di Azure. Per altre informazioni, vedere [Archiviare i log di Azure AD in un account di archiviazione di Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
@@ -80,6 +80,6 @@ Per i segnali di sicurezza, il processo di raccolta viene avviato quando si acco
 
 ### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>È possibile visualizzare i dati del mese precedente dopo avere acquistato una licenza Azure AD Premium?
 
-**No** , non è possibile. Azure archivia fino a sette giorni di dati di attività per una versione gratuita. Ciò significa che quando si passa da una versione gratuita a una a una versione Premium, è possibile visualizzare solo fino a 7 giorni di dati.
+**No**, non è possibile. Azure archivia fino a sette giorni di dati di attività per una versione gratuita. Ciò significa che quando si passa da una versione gratuita a una a una versione Premium, è possibile visualizzare solo fino a 7 giorni di dati.
 
 ---

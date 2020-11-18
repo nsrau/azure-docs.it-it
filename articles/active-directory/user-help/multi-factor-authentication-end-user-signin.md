@@ -13,17 +13,17 @@ ms.date: 04/02/2017
 ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.openlocfilehash: 51cfe2c448fde8c50f8b846979a4b35fa4be5ec1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f27dd7daf310e425b09db7905ad2f7c37fcff81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056029"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834167"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Accedere all'account aziendale o dell'istituto di istruzione usando il metodo di verifica a due fattori
 
 > [!NOTE]
-> Lo scopo di questo articolo è di illustrare un'esperienza di accesso tipico. Per informazioni sull’accesso o per la risoluzione dei problemi, vedere [Problemi con Multi-Factor Authentication di Azure](multi-factor-authentication-end-user-troubleshoot.md).
+> Lo scopo di questo articolo è di illustrare un'esperienza di accesso tipico. Per informazioni sull'accesso o sulla risoluzione dei problemi, vedere problemi [con Azure AD multi-factor authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 ## <a name="what-will-your-sign-in-experience-be"></a>Come sarà l'esperienza di accesso?
 L'esperienza di accesso varia a seconda di ciò che si desidera usare come secondo fattore: una telefonata, un'app di autenticazione o un messaggio. Scegliere l'opzione che meglio descrive l'operazione:
@@ -83,7 +83,7 @@ A volte non si dispone del telefono o del dispositivo configurato come metodo di
    ![Utilizzare un metodo alternativo](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-- In caso di problemi di accesso con la verifica in due passaggi, è possibile ottenere altre informazioni in [Problemi con Multi-Factor Authentication di Azure](multi-factor-authentication-end-user-troubleshoot.md).
+- Se si verificano problemi di accesso con la verifica in due passaggi, è possibile ottenere altre informazioni in caso [di problemi con Azure AD multi-factor authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
 - Informazioni su come [Gestire le impostazioni della verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md).
 

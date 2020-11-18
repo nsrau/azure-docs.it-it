@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69428898ca123bf5b5fa96cf041818cc15f5ac40
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: b0a62aafd8073b5f1a35ba340c48c80f498be2c2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378636"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94834456"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -114,7 +114,7 @@ Valutare gli account assegnati o idonei per il ruolo di amministratore globale. 
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Attivare l'autenticazione a più fattori e registrare tutti gli altri account amministratore con privilegi elevati non federati per utente singolo
 
-Richiedere Azure Multi-Factor Authentication (multi-factor authentication) al momento dell'accesso a tutti i singoli utenti assegnati in modo permanente a uno o più ruoli di amministratore di Azure AD: amministratore globale, amministratore del ruolo con privilegi, amministratore di Exchange e amministratore di SharePoint. Usare la guida per abilitare [Multi-Factor Authentication (MFA) per gli account amministratore](../authentication/howto-mfa-userstates.md) e assicurarsi che tali utenti abbiano tutti eseguito la registrazione in [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Altre informazioni sono disponibili nel passaggio 2 e nel passaggio 3 della Guida [proteggere l'accesso ai dati e ai servizi in Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Richiedere Azure AD Multi-Factor Authentication (multi-factor authentication) all'accesso per tutti i singoli utenti assegnati in modo permanente a uno o più ruoli di amministratore di Azure AD: amministratore globale, amministratore del ruolo con privilegi, amministratore di Exchange e amministratore di SharePoint. Usare la guida per abilitare [Multi-Factor Authentication (MFA) per gli account amministratore](../authentication/howto-mfa-userstates.md) e assicurarsi che tali utenti abbiano tutti eseguito la registrazione in [https://aka.ms/mfasetup](https://aka.ms/mfasetup). Altre informazioni sono disponibili nel passaggio 2 e nel passaggio 3 della Guida [proteggere l'accesso ai dati e ai servizi in Microsoft 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>Fase 2: Attenuare gli attacchi usati di frequente
 
@@ -135,7 +135,7 @@ L'aumento degli scenari "Bring Your Own Device" e di lavoro da casa e la diffusi
 * Assicurarsi che gli account usati per scopi amministrativi:
 
   * Abbiano indirizzi di posta elettronica funzionanti associati
-  * Siano registrati per Azure Multi-Factor Authentication o usino MFA in locale
+  * Hanno effettuato la registrazione per Azure AD Multi-Factor Authentication o usano l'autenticazione a più fattori in locale
 * Chiedere agli utenti il motivo per cui necessitano di accesso amministrativo.
 * Rimuovere l'accesso amministrativo per gli utenti e i servizi non necessari.
 
@@ -240,7 +240,7 @@ L'organizzazione deve avere tutti i dipendenti che gestiscono le transazioni azi
 
 #### <a name="continue-rollout-of-stronger-authentication-for-all-users"></a>Continuare l'implementazione di metodi di autenticazione più avanzati per tutti gli utenti
 
-Richiedere agli utenti molto esposti di usare un'autenticazione moderna e avanzata, ad esempio Azure MFA o Windows Hello. Di seguito sono riportati alcuni esempi di utenti molto esposti:
+Richiedere agli utenti altamente esposti di avere un'autenticazione moderna e avanzata, ad esempio Azure AD multi-factor authentication o Windows Hello. Di seguito sono riportati alcuni esempi di utenti molto esposti:
 
 * Dirigenti
 * Manager di alto livello

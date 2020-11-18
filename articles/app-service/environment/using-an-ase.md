@@ -6,13 +6,13 @@ ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 1e6bace9652ff68bb4cc28d482016b7e7510154b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 86d0569d95df18924ed47682b75d7491c71d4483
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150202"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833555"
 ---
 # <a name="use-an-app-service-environment"></a>Usare un ambiente del servizio app
 
@@ -134,12 +134,12 @@ Per configurare DNS nel proprio server DNS con l'ambiente del servizio app ILB:
 
 Per configurare DNS nelle zone private di DNS di Azure:
 
-1. creare una zona privata di DNS di Azure denominata &lt; ASE nome &gt; . appserviceenvironment.NET
+1. creare una zona privata di DNS di Azure denominata &lt;nome ambiente del servizio app&gt;.appserviceenvironment.net
 1. creare un record A in tale zona che punti * all'indirizzo IP del servizio ILB
 1. creare un record A in tale zona che punti @ all'indirizzo IP del servizio ILB
 1. Creare un record A in tale zona che punta *.scm all'indirizzo IP del servizio ILB
 
-Le impostazioni DNS per il suffisso di dominio predefinito dell'ambiente del servizio app non limitano l'accesso alle app solo a questi nomi. In un ambiente del servizio app ILB è possibile impostare un nome di dominio personalizzato senza alcuna convalida nelle app. Se quindi si vuole creare una zona denominata *contoso.NET*, è possibile fare in modo che punti all'indirizzo IP di ILB. Il nome del dominio personalizzato funziona per le richieste di app ma non per il sito scm. Il sito SCM è disponibile solo in * &lt; appname &gt; . SCM. &lt; asename &gt; . appserviceenvironment.NET*. 
+Le impostazioni DNS per il suffisso di dominio predefinito dell'ambiente del servizio app non limitano l'accesso alle app solo a questi nomi. In un ambiente del servizio app ILB è possibile impostare un nome di dominio personalizzato senza alcuna convalida nelle app. Se quindi si vuole creare una zona denominata *contoso.NET*, è possibile fare in modo che punti all'indirizzo IP di ILB. Il nome del dominio personalizzato funziona per le richieste di app ma non per il sito scm. Il sito SCM è disponibile solo in *&lt; appname &gt; . SCM. &lt; asename &gt; . appserviceenvironment.NET*. 
 
 Area denominata *. &lt; asename &gt; . appserviceenvironment.NET* è univoco a livello globale. Prima del mese di maggio 2019, i clienti potevano specificare il suffisso di dominio dell'ambiente del servizio app ILB. Se si desidera utilizzare *. contoso.com* per il suffisso di dominio, è possibile eseguire questa operazione e includere il sito SCM. Con questo modello si verificavano problemi, come la gestione del certificato SSL predefinito, la mancanza di accesso Single Sign-On al sito scm e il requisito di usare un certificato con caratteri jolly. Il processo di aggiornamento del certificato predefinito dell'ambiente del servizio app ILB era inoltre complicato e causava il riavvio dell'applicazione. Per risolvere questi problemi, il comportamento dell'ambiente del servizio app ILB è stato cambiato e prevede ora l'uso di un suffisso di domino basato sul nome dell'ambiente del servizio app con un suffisso di proprietà di Microsoft. La modifica del comportamento dell'ambiente del servizio app ILB influisce solo su tali ambienti creati dopo maggio 2019. Gli ambienti del servizio app ILB preesistenti continuano a gestire il certificato predefinito dell'ambiente e la rispettiva configurazione DNS.
 
@@ -169,7 +169,7 @@ Un ambiente del servizio app ha 1 TB di spazio di archiviazione per tutte le app
 
 È possibile integrare l'ambiente del servizio app con monitoraggio di Azure per inviare i log relativi all'ambiente del servizio app ad archiviazione di Azure, Hub eventi di Azure o Log Analytics. Questi elementi vengono registrati oggi:
 
-| Situazione | Message |
+| Situazione | Messaggio |
 |---------|----------|
 | Ambiente del servizio app non integro | L'ambiente del servizio app specificato non è integro a causa di una configurazione di rete virtuale non valida. L'ambiente del servizio app verrà sospeso se lo stato non integro continua. Verificare che siano seguite le linee guida definite in questo articolo: https://docs.microsoft.com/azure/app-service/environment/network-info . |
 | La subnet dell'ambiente del servizio app è quasi esaurita | L'ambiente del servizio app specificato si trova in una subnet quasi esaurita. Sono presenti {0} indirizzi rimanenti. Una volta esauriti questi indirizzi, l'ambiente del servizio app non sarà in grado di eseguire la scalabilità.  |
@@ -185,7 +185,7 @@ Un ambiente del servizio app ha 1 TB di spazio di archiviazione per tutte le app
 Per abilitare la registrazione nell'ambiente del servizio app:
 
 1. Nel portale passare a impostazioni di **diagnostica**.
-1. Selezionare **Aggiungi impostazioni di diagnostica**.
+1. Selezionare **Aggiungi impostazione di diagnostica**.
 1. Consente di specificare un nome per l'integrazione dei log.
 1. Selezionare e configurare le destinazioni dei log desiderate.
 1. Selezionare **AppServiceEnvironmentPlatformLogs**.
@@ -218,7 +218,7 @@ Se si usa https://resources.azure.com , attenersi alla procedura seguente per im
 1. Passare a resources.azure.com e accedere con l'account Azure.
 1. Passare attraverso le risorse al \/ \[ nome sottoscrizione sottoscrizioni resourceGroups nome \] \/ \/ \[ gruppo di risorse \] \/ provider \/ Microsoft. Web \/ hostingEnvironments \/ \[ ASE nome \] .
 1. Selezionare **lettura/scrittura** nella parte superiore.
-1. Selezionare **Modifica**.
+1. Selezionare **Edit** (Modifica).
 1. Impostare **upgradePreference** su uno dei tre valori desiderati.
 1. Selezionare **patch**.
 
@@ -250,7 +250,7 @@ Per eliminare un ambiente del servizio app:
 
     ![Eliminazione dell'ambiente del servizio app][3]
 
-1. Fare clic su **OK**.
+1. Selezionare **OK**.
 
 ## <a name="ase-cli"></a>INTERFACCIA DELLA RIGA DI COMANDO ASE
 
