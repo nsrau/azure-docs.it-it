@@ -35,6 +35,10 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
 - name: Concetti
   items:
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
     - name: Funzionamento della memorizzazione nella cache
       href: cdn-how-caching-works.md
     - name: Recapito di contenuti - Cina

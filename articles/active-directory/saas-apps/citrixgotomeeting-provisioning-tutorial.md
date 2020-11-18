@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 4abd16d6b5c9593cb1a4df52a7135a658c513410
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: ff377b0f93968eb6743187e4e659f4e888e5010e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455938"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358900"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Esercitazione: Configurare GoToMeeting per il provisioning utenti automatico
 
@@ -58,9 +58,9 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 1. Selezionare l'istanza di GoToMeeting e quindi la scheda **Provisioning**.
 
-1. Impostare la modalità di **provisioning** su **automatico**. 
+1. Impostare **Modalità di provisioning** su **Automatico**. 
 
-    ![Screenshot della scheda provisioning per GoToMeeting in portale di Azure. La modalità di provisioning è impostata su automatico e il nome utente amministratore, la password e la connessione di test sono evidenziati.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Screenshot della scheda Provisioning per GoToMeeting nel portale di Azure. L'opzione Modalità di provisioning è impostata su Automatico e le opzioni Nome utente amministratore, Password amministratore e Test connessione sono evidenziate.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 1. Nella sezione Credenziali amministratore, seguire questa procedura:
    
@@ -90,4 +90,4 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 * [Gestione del provisioning degli account utente per app aziendali](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-* [Configura accesso Single Sign-on](./citrix-gotomeeting-tutorial.md)
+* [Configurare l'accesso Single Sign-On](./citrix-gotomeeting-tutorial.md)

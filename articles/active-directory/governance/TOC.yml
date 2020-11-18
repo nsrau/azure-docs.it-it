@@ -142,6 +142,6 @@
   expanded: true
   items:
     - name: Verifiche di accesso - API Graph
-      href: /graph/api/resources/accessreviews-root?view=graph-rest-beta
+      href: /graph/api/resources/accessreviewsv2-root?view=graph-rest-beta
     - name: Gestione entitlement - API Graph
       href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta

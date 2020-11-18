@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: configurare Oracle Cloud Infrastructure console per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
-description: Informazioni su come effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD alla console di infrastruttura cloud Oracle.
+title: 'Esercitazione: Configurare Oracle Cloud Infrastructure Console per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+description: Informazioni su come eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Oracle Cloud Infrastructure Console.
 services: active-directory
 author: zchia
 writer: zchia
@@ -8,28 +8,28 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 7f34eca7ce92a2f465cc34bdde48ada15b21860d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 92aeedd25a4a60b49de54aaaa90ee4a31490c444
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515696"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359834"
 ---
-# <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Esercitazione: configurare Oracle Cloud Infrastructure console per il provisioning utenti automatico
+# <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>Esercitazione: Configurare Oracle Cloud Infrastructure Console per il provisioning utenti automatico
 
-In questa esercitazione vengono descritti i passaggi da eseguire nella console di infrastruttura cloud Oracle e in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Se configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning di utenti e gruppi nella [console di infrastruttura cloud Oracle](https://www.oracle.com/cloud/free/?source=:ow:o:p:nav:0916BCButton&intcmp=:ow:o:p:nav:0916BCButton) usando il servizio di provisioning Azure ad. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
+Questa esercitazione descrive le procedure da eseguire sia in Oracle Cloud Infrastructure Console che in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Una volta configurato, Azure AD effettua automaticamente il provisioning e il deprovisioning di utenti e gruppi per [Oracle Cloud Infrastructure Console](https://www.oracle.com/cloud/free/?source=:ow:o:p:nav:0916BCButton&intcmp=:ow:o:p:nav:0916BCButton) usando il servizio di provisioning di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funzionalità supportate
 > [!div class="checklist"]
-> * Creare utenti in Oracle Cloud Infrastructure console
-> * Rimuovere gli utenti nella console di Oracle Cloud Infrastructure quando non richiedono più l'accesso
-> * Mantieni gli attributi utente sincronizzati tra Azure AD e la console dell'infrastruttura cloud Oracle
-> * Eseguire il provisioning di gruppi e appartenenze a gruppi in Oracle Cloud Infrastructure console
-> * [Single Sign-on](./oracle-cloud-tutorial.md) per Oracle Cloud Infrastructure Console (scelta consigliata)
+> * Creare utenti in Oracle Cloud Infrastructure Console
+> * Rimuovere utenti da Oracle Cloud Infrastructure Console quando non richiedono più l'accesso
+> * Mantenere gli attributi utente sincronizzati tra Azure AD e Oracle Cloud Infrastructure Console
+> * Effettuare il provisioning di gruppi e appartenenza a gruppi in Oracle Cloud Infrastructure Console
+> * [Accesso Single Sign-On](./oracle-cloud-tutorial.md) a Oracle Cloud Infrastructure Console (scelta consigliata)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,58 +37,58 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 * [Un tenant di Azure AD](../develop/quickstart-create-new-tenant.md) 
 * Un account utente in Azure AD con l'[autorizzazione](../users-groups-roles/directory-assign-admin-roles.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale. 
-* [Tenant](https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier&source=:ow:o:p:nav:0916BCButton)di controllo dell'infrastruttura cloud Oracle.
-* Un account utente nel controllo dell'infrastruttura cloud Oracle con autorizzazioni di amministratore.
+* Un [tenant](https://www.oracle.com/cloud/sign-in.html?intcmp=OcomFreeTier&source=:ow:o:p:nav:0916BCButton) di Oracle Cloud Infrastructure Control.
+* Account utente in Oracle Cloud Infrastructure Control con autorizzazioni di amministratore.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
 1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determinare quali dati eseguire il [mapping tra Azure ad e la console dell'infrastruttura cloud di Oracle](../app-provisioning/customize-application-attributes.md). 
+3. Determinare i dati di cui [eseguire il mapping tra Azure AD e Oracle Cloud Infrastructure Console](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-oracle-cloud-infrastructure-console-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Oracle Cloud Infrastructure console per supportare il provisioning con Azure AD
+## <a name="step-2-configure-oracle-cloud-infrastructure-console-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Oracle Cloud Infrastructure Console per supportare il provisioning con Azure AD
 
-1. Accedere al portale di amministrazione di Oracle Cloud Infrastructure console. Nell'angolo superiore sinistro della schermata passare a **identità > Federazione**.
+1. Accedere al portale di amministrazione di Oracle Cloud Infrastructure Console. Nell'angolo in alto a sinistra passare a **Identity > Federation** (Identità > Federazione).
 
-    ![Amministratore Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/identity.png)
+    ![Amministratore di Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/identity.png)
 
-2. Fare clic sull'URL visualizzato nella pagina accanto alla console del servizio Oracle Identity cloud.
+2. Fare clic sull'URL visualizzato nella pagina accanto a Oracle Identity Cloud Service Console.
 
-    ![URL Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/url.png)
+    ![URL di Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/url.png)
 
-3. Fare clic su **Aggiungi provider di identità** per creare un nuovo provider di identità. Salvare l'ID IdP da usare come parte dell'URL del tenant. Fare clic sull'icona del segno più accanto alla scheda **applicazioni** per creare un client OAuth e concedere a IDC Identity Domain Administrator AppRole.
+3. Fare clic su **Add Identity Provider** (Aggiungi provider di identità) per creare un nuovo provider di identità. Salvare l'ID del provider di identità da usare come parte dell'URL del tenant. Fare clic sull'icona più (+) accanto alla scheda **Applications** (Applicazioni) per creare un client OAuth e concedere a IDCS l'AppRole di amministratore di dominio delle identità.
 
     ![Icona del cloud Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/add.png)
 
-4. Per configurare l'applicazione, seguire gli screenshot seguenti. Al termine della configurazione, fare clic su **Salva**.
+4. Vedere gli screenshot seguenti per configurare l'applicazione. Al termine della configurazione, fare clic su **Save** (Salva).
 
-    ![Configurazione Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/configuration.png)
+    ![Configurazione di Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/configuration.png)
 
-    ![Criteri di rilascio dei token Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/token-issuance.png)
+    ![Criteri di rilascio token di Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/token-issuance.png)
 
-5. Nella scheda configurazioni dell'applicazione espandere l'opzione **informazioni generali** per recuperare l'ID client e il segreto client.
+5. Nella scheda Configuration (Configurazione) dell'applicazione espandere l'opzione **General Information** (Informazioni generali) per recuperare l'ID client e il segreto client.
 
-    ![Generazione di token Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/general-information.png)
+    ![Generazione del token di Oracle](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/general-information.png)
 
-6. Per generare un token segreto Base64 codificare l'ID client e il segreto client nel formato **ID client: chiave privata client**. Salvare il token Secret. Questo valore verrà immesso nel campo **token segreto** nella scheda provisioning dell'applicazione console dell'infrastruttura cloud Oracle nel portale di Azure.
+6. Per generare un token segreto, codificare in Base64 l'ID client e il segreto client in formato **ID client:Segreto client**. Salvare il token segreto. Questo valore verrà immesso nel campo **Token segreto** nella scheda Provisioning dell'applicazione Oracle Cloud Infrastructure Console nel portale di Azure.
 
-## <a name="step-3-add-oracle-cloud-infrastructure-console-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere Oracle Cloud Infrastructure console dalla raccolta di applicazioni Azure AD
+## <a name="step-3-add-oracle-cloud-infrastructure-console-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere Oracle Cloud Infrastructure Console dalla raccolta di applicazioni di Azure AD
 
-Aggiungere Oracle Cloud Infrastructure console dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in Oracle Cloud Infrastructure console. Se in precedenza è stata eseguita la configurazione di Oracle Cloud Infrastructure console per SSO, è possibile utilizzare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md). 
+Aggiungere Oracle Cloud Infrastructure Console dalla raccolta di applicazioni di Azure AD per iniziare a gestire il provisioning in Oracle Cloud Infrastructure Console. Se Oracle Cloud Infrastructure Console è stato configurato in precedenza per l'accesso SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning 
 
 Il servizio di provisioning di Azure AD consente di definire l'ambito per gli utenti di cui verrà eseguito il provisioning in base all'assegnazione all'applicazione e/o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile seguire questa [procedura](../manage-apps/assign-user-or-group-access-portal.md) per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning esclusivamente in base agli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Quando si assegnano utenti e gruppi a Oracle Cloud Infrastructure console, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli. 
+* Quando si assegnano utenti e gruppi a Oracle Cloud Infrastructure Console, è necessario selezionare un ruolo diverso da **Accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli. 
 
 * Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti e gruppi prima di eseguire la distribuzione a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-oracle-cloud-infrastructure-console"></a>Passaggio 5. Configurare il provisioning utenti automatico nella console di infrastruttura cloud Oracle 
+## <a name="step-5-configure-automatic-user-provisioning-to-oracle-cloud-infrastructure-console"></a>Passaggio 5. Configurare il provisioning utenti automatico per Oracle Cloud Infrastructure Console 
 
 Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in TestApp in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-oracle-cloud-infrastructure-console-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Oracle Cloud Infrastructure console in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-oracle-cloud-infrastructure-console-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Oracle Cloud Infrastructure Console in Azure AD:
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
@@ -96,19 +96,19 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 2. Nell'elenco delle applicazioni selezionare **Oracle Cloud Infrastructure Console**.
 
-    ![Collegamento di Oracle Cloud Infrastructure console nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di Oracle Cloud Infrastructure Console nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
+    ![Screenshot delle opzioni disponibili in Gestisci con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatica evidenziata.](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere l'URL del **tenant** nel formato `https://<IdP ID>.identity.oraclecloud.com/admin/v1` . Ad esempio `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Immettere il valore del token segreto recuperato in precedenza in **Token segreto**. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi alla console di infrastruttura cloud Oracle. Se la connessione non riesce, verificare che l'account di Oracle Cloud Infrastructure Console disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **Credenziali amministratore** immettere il valore di **URL tenant** in formato `https://<IdP ID>.identity.oraclecloud.com/admin/v1` . Ad esempio `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. Immettere il valore del token segreto recuperato in precedenza in **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Oracle Cloud Infrastructure Console. Se la connessione non riesce, verificare che l'account Oracle Cloud Infrastructure Console abbia autorizzazioni di amministratore e riprovare.
 
-    ![Screenshot mostra la finestra di dialogo credenziali amministratore, in cui è possibile immettere il tenant U R L e il token segreto.](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/provisioning.png)
+    ![Screenshot che mostra la finestra di dialogo Credenziali amministratore, in cui è possibile immettere l'URL del tenant e il token segreto.](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/provisioning.png)
 
 6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
@@ -116,9 +116,9 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 7. Selezionare **Salva**.
 
-8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti alla console di infrastruttura cloud Oracle**.
+8. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to Oracle Cloud Infrastructure Console** (Sincronizza utenti di Azure Active Directory con Oracle Cloud Infrastructure Console).
 
-9. Esaminare gli attributi utente sincronizzati da Azure AD alla console di infrastruttura cloud Oracle nella sezione **mapping attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Oracle Cloud Infrastructure console per le operazioni di aggiornamento. Se si sceglie di modificare l' [attributo di destinazione corrispondente](../app-provisioning/customize-application-attributes.md), è necessario assicurarsi che l'API della console dell'infrastruttura cloud Oracle supporti il filtraggio degli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+9. Esaminare gli attributi utente sincronizzati da Azure AD a Oracle Cloud Infrastructure Console nella sezione **Mapping degli attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Oracle Cloud Infrastructure Console per le operazioni di aggiornamento. Se si sceglie di modificare l'[attributo di destinazione corrispondente](../app-provisioning/customize-application-attributes.md), sarà necessario assicurarsi che l'API Oracle Cloud Infrastructure Console supporti il filtro degli utenti basato su tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
       |Attributo|Type|
       |---|---|
@@ -142,12 +142,12 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|string|
       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informazioni di riferimento|
       |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|string|
-      |urn: IETF: params: SCIM: schemas: Oracle: IDC: Extension: utente: utente: bypassNotification|Boolean|
-      |urn: IETF: params: SCIM: schemas: Oracle: IDC: Extension: utente: utente: isFederatedUser|Boolean|
+      |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:bypassNotification|Boolean|
+      |urn:ietf:params:scim:schemas:oracle:idcs:extension:user:User:isFederatedUser|Boolean|
 
-10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to Oracle Cloud Infrastructure console**.
+10. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Groups to Oracle Cloud Infrastructure Console** (Sincronizza gruppi di Azure Active Directory con Oracle Cloud Infrastructure Console).
 
-11. Esaminare gli attributi di gruppo sincronizzati da Azure AD alla console di infrastruttura cloud Oracle nella sezione **mapping attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in Oracle Cloud Infrastructure console per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+11. Esaminare gli attributi gruppo sincronizzati da Azure AD a Oracle Cloud Infrastructure Console nella sezione **Mapping degli attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in Oracle Cloud Infrastructure Console per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
       |Attributo|Type|
       |---|---|
@@ -157,11 +157,11 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Per abilitare il servizio di provisioning Azure AD per Oracle Cloud Infrastructure console, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+13. Per abilitare il servizio di provisioning di Azure AD per Oracle Cloud Infrastructure Console, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-14. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in Oracle Cloud Infrastructure console scegliendo i valori desiderati in **ambito** nella sezione **Impostazioni** .
+14. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in Oracle Cloud Infrastructure Console selezionando i valori desiderati in **Ambito** nella sezione **Impostazioni**.
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 

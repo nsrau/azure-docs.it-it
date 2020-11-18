@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Distribuire funzioni di Azure come moduli - Azure IoT Edge'
-description: In questa esercitazione una funzione di Azure viene distribuita come modulo IoT Edge, quindi in un dispositivo perimetrale.
+description: In questa esercitazione viene sviluppata una funzione di Azure come modulo IoT Edge e quindi viene distribuita in un dispositivo IoT Edge.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 6e148adfe6db62e6fdaea53165a5c23d9a08efba
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 45f990e5426516db5537319d07c11aa705e462e7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042372"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534841"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Esercitazione: Distribuire funzioni di Azure come moduli IoT Edge
 
