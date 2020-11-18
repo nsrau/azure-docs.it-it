@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione sulla regressione: Funzionalità automatiche di Machine Learning'
 titleSuffix: Azure Machine Learning
-description: In questa esercitazione viene descritto come generare un modello di Machine Learning tramite Machine Learning automatizzato. Azure Machine Learning può eseguire la pre-elaborazione dei dati e la selezione automatica di algoritmi e iperparametri.
+description: Creare un esperimento di Machine Learning automatizzato che genera un modello di regressione in base ai dati di training e alle impostazioni di configurazione fornite.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: aniththa
 ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: cf6616dcc3935946ad4a7213263bb20281d25354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-python, automl
+ms.openlocfilehash: 811f1c27af660d388ecb875741c073591bd25f7f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896790"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358610"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Esercitazione: Usare il servizio Machine Learning automatizzato per stimare le tariffe dei taxi
 
@@ -173,7 +173,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Configurare l'area di lavoro
 
-Creare un oggetto area di lavoro dall'area di lavoro esistente. Un'[area di lavoro](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) è una classe che accetta le informazioni sulla sottoscrizione e sulle risorse di Azure. Crea inoltre una risorsa cloud per monitorare le esecuzioni del modello e tenerne traccia. `Workspace.from_config()` legge il file **config.json** e carica i dettagli di autenticazione in un oggetto denominato `ws`. `ws` viene usato in tutta la parte restante del codice in questa esercitazione.
+Creare un oggetto area di lavoro dall'area di lavoro esistente. Un'[area di lavoro](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) è una classe che accetta le informazioni sulla sottoscrizione e sulle risorse di Azure. Crea inoltre una risorsa cloud per monitorare le esecuzioni del modello e tenerne traccia. `Workspace.from_config()` legge il file **config.json** e carica i dettagli di autenticazione in un oggetto denominato `ws`. `ws` viene usato in tutta la parte restante del codice in questa esercitazione.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -300,7 +300,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-the-results"></a>Esplorare i risultati
 
-Esplorare i risultati del training automatico usando un [widget di Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Il widget consente di visualizzare un grafico e una tabella di tutte le iterazioni di esecuzione singole, insieme alle metriche e ai metadati di accuratezza del training. Inoltre, è possibile filtrare in base a metriche di accuratezza diverse rispetto alla metrica primaria con il selettore a discesa.
+Esplorare i risultati del training automatico usando un [widget di Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Il widget consente di visualizzare un grafico e una tabella di tutte le iterazioni di esecuzione singole, insieme alle metriche e ai metadati di accuratezza del training. Inoltre, è possibile filtrare in base a metriche di accuratezza diverse rispetto alla metrica primaria con il selettore a discesa.
 
 ```python
 from azureml.widgets import RunDetails

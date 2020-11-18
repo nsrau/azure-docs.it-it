@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 7af3386a618fdcc58facb1d67c26692312d30a89
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 179d4124e28abfffa83b16cfdb418d8e860192d8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535774"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337133"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Esercitazione: Progettare un'istanza del database di Azure per server singolo PostgreSQL usando il portale di Azure
 
@@ -54,11 +54,11 @@ Seguire questa procedura per creare un database di Azure per il server PostgreSQ
     Resource group|*myresourcegroup*| Nuovo nome di gruppo di risorse o uno esistente nella sottoscrizione.
     Nome server |*mydemoserver*|Nome univoco per identificare il database di Azure per il server PostgreSQL. Al nome del server specificato viene aggiunto il nome di dominio *postgres.database.azure.com*. Il server può contenere solo lettere minuscole, numeri e il segno meno (-). Deve contenere almeno da 3 a 63 caratteri.
     Origine dati | *Nessuno* | Selezionare *Nessuno* per creare un nuovo server da zero. Si selezionerebbe *Backup* se si stesse creando un server da un backup geografico di un server Database di Azure per PostgreSQL esistente.
-    Nome utente amministratore |*myadmin*| Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser** , **azure_pg_admin** , **admin** , **administrator** , **root** , **guest** o **public**. Non può iniziare con **pg_** .
+    Nome utente amministratore |*myadmin*| Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** o **public**. Non può iniziare con **pg_** .
     Password |Password| Nuova password per l'account amministratore del server. Deve contenere tra 8 e 128 caratteri. La password deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri (da 0 a 9) e caratteri non alfanumerici (!, $, #, % e così via).
     Location|Area più vicina ai propri utenti| Località più vicina agli utenti.
     Versione|La versione principale più recente| La versione principale più recente di PostgreSQL, a meno che non si abbiano requisiti specifici diversi.
-    Calcolo e archiviazione | **Utilizzo generico** , **Generazione 5** , **2 vCore** , **5 GB** , **7 giorni** , **Con ridondanza geografica** | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Configura server**. Selezionare quindi la scheda **Utilizzo generico**. *Generazione 5* , *4 vCore* , *100 GB* e *7 giorni* sono i valori predefiniti per **Generazione di calcolo** , **vCore** , **Archiviazione** e **Periodo di conservazione backup**. È possibile lasciare questi dispositivi di scorrimento nella posizione in cui si trovano oppure regolarli. Per abilitare l'archiviazione con ridondanza geografica dei backup del server, selezionare **Con ridondanza geografica** in **Opzioni di ridondanza per il backup**. Per salvare la selezione del piano tariffario, selezionare **OK**. Lo screenshot successivo mostra queste selezioni.
+    Calcolo e archiviazione | **Utilizzo generico**, **Generazione 5**, **2 vCore**, **5 GB**, **7 giorni**, **Con ridondanza geografica** | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Configura server**. Selezionare quindi la scheda **Utilizzo generico**. *Generazione 5*, *4 vCore*, *100 GB* e *7 giorni* sono i valori predefiniti per **Generazione di calcolo**, **vCore**, **Archiviazione** e **Periodo di conservazione backup**. È possibile lasciare questi dispositivi di scorrimento nella posizione in cui si trovano oppure regolarli. Per abilitare l'archiviazione con ridondanza geografica dei backup del server, selezionare **Con ridondanza geografica** in **Opzioni di ridondanza per il backup**. Per salvare la selezione del piano tariffario, selezionare **OK**. Lo screenshot successivo mostra queste selezioni.
 
    > [!NOTE]
    > È consigliabile usare il piano tariffario Basic se le esigenze di calcolo e di prestazioni I/O sono adeguate per il carico di lavoro. Si noti che i server creati nel piano tariffario Basic non possono essere scalati in un secondo momento per utilizzo generico o ottimizzati per la memoria. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/postgresql/).
@@ -67,7 +67,7 @@ Seguire questa procedura per creare un database di Azure per il server PostgreSQ
     :::image type="content" source="./media/quickstart-create-database-portal/2-pricing-tier.png" alt-text="Riquadro Piano tariffario":::
 
     > [!TIP]
-    > Quando l'opzione per l' **aumento automatico** è abilitata, il server aumenta lo spazio di archiviazione disponibile quando si sta per raggiungere il limite allocato, senza alcun impatto sul carico di lavoro.
+    > Quando l'opzione per l'**aumento automatico** è abilitata, il server aumenta lo spazio di archiviazione disponibile quando si sta per raggiungere il limite allocato, senza alcun impatto sul carico di lavoro.
 
 5. Selezionare **Revisione e creazione** per rivedere le selezioni effettuate. Selezionare **Crea** per effettuare il provisioning del server. Questa operazione può richiedere qualche minuto.
 
@@ -138,7 +138,7 @@ Se nel computer client è installato PostgreSQL, è possibile usare un'istanza l
    CREATE DATABASE mypgsqldb;
    ```
 
-3. Nel prompt, eseguire il comando seguente per cambiare la connessione nel database appena creato **mypgsqldb** :
+3. Nel prompt, eseguire il comando seguente per cambiare la connessione nel database appena creato **mypgsqldb**:
    ```sql
    \c mypgsqldb
    ```
@@ -196,21 +196,26 @@ Si supponga di aver eliminato accidentalmente questa tabella. Questa situazione 
 
    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png" alt-text="Portale di Azure - Opzioni del modulo di ripristino":::
 
-   - **Punto di ripristino** : selezionare un punto nel tempo precedente la modifica del server
-   - **Server di destinazione** : specificare il nome del nuovo server in cui eseguire il ripristino
-   - **Località** : non è possibile selezionare l'area, per impostazione predefinita è la stessa del server di origine
-   - **Piano tariffario** : non è possibile modificare questo valore quando si ripristina un server. È uguale al server di origine. 
+   - **Punto di ripristino**: selezionare un punto nel tempo precedente la modifica del server
+   - **Server di destinazione**: specificare il nome del nuovo server in cui eseguire il ripristino
+   - **Località**: non è possibile selezionare l'area, per impostazione predefinita è la stessa del server di origine
+   - **Piano tariffario**: non è possibile modificare questo valore quando si ripristina un server. È uguale al server di origine. 
 3. Fare clic su **OK** per [ripristinare il server a un momento specifico](./howto-restore-server-portal.md) precedente all'eliminazione della tabella. Il ripristino di un server a un momento diverso crea un nuovo server duplicato uguale al server originale nel momento specificato, a condizione che rientri nel periodo di conservazione previsto per il [piano tariffario](./concepts-pricing-tiers.md).
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Nei passaggi precedenti sono state create risorse di Azure in un gruppo di server. Se non si prevede di avere bisogno di queste risorse in futuro, eliminare il gruppo di server. Fare clic sul pulsante *Elimina* nella pagina *Panoramica* per il gruppo di server. Quando viene visualizzata la richiesta in una pagina popup, verificare il nome del gruppo di server e fare clic sul pulsante *Elimina* in basso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si apprenderà come usare il portale di Azure e altre utilità per:
 > [!div class="checklist"]
 > * Creare un database di Azure per il server PostgreSQL
 > * Configurare il firewall del server
-> * Usare l'utilità [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) per creare un database
+> * Usare l'utilità **psql** per creare un database
 > * Caricare dati di esempio
 > * Eseguire query sui dati
 > * Aggiornare i dati
 > * Ripristinare i dati
 
-Per apprendere come usare l'interfaccia della riga di comando di Azure per eseguire attività simili, vedere quindi questa esercitazione: [Progettare la prima istanza di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure](tutorial-design-database-using-azure-cli.md)
+> [!div class="nextstepaction"]
+>[Progettare il primo Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure](tutorial-design-database-using-azure-cli.md)

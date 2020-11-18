@@ -9,18 +9,18 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 18ffa0f878effda8888200c13ab312851aaebdcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99918d039052c9913400b85ac3caa4a1a5481155
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992487"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445320"
 ---
 # <a name="secure-access-to-your-managed-hsms"></a>Proteggere l'accesso ai moduli di protezione hardware gestiti
 
 Il modulo di protezione hardware gestito di Azure Key Vault è un servizio cloud che consente di proteggere le chiavi di crittografia. Poiché questi dati sono riservati e importanti per l'azienda, è necessario proteggere i moduli di protezione hardware gestiti consentendo l'accesso solo ad applicazioni e utenti autorizzati. Questo articolo offre una panoramica del modello di controllo di accesso del modulo di protezione hardware gestito. Verranno illustrate l'autenticazione e l'autorizzazione e sarà descritto come proteggere l'accesso ai moduli di protezione hardware gestiti.
 
-Questa esercitazione illustra in modo dettagliato un semplice esempio che mostra come ottenere la separazione dei compiti e il controllo degli accessi con il controllo degli accessi in base al ruolo di Azure e il controllo degli accessi in base al ruolo del modulo di protezione hardware gestito locale. Per informazioni sul modello di controllo di accesso del modulo di protezione hardware gestito, vedere [Controllo di accesso del modulo di protezione hardware gestito](access-control.md).
+Questa esercitazione illustra un semplice esempio che mostra come ottenere la separazione dei compiti e il controllo degli accessi usando il controllo degli accessi in base al ruolo di Azure e il controllo degli accessi in base al ruolo del modulo di protezione hardware gestito locale. Per informazioni sul modello di controllo di accesso del modulo di protezione hardware gestito, vedere [Controllo di accesso del modulo di protezione hardware gestito](access-control.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

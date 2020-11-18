@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 180490dc79554efa072311e9a2b7f5df348b432b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0812716ab9d952969ccfc14fc0a1e833fae1c9e1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014240"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653794"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure
 
@@ -690,7 +690,7 @@ La soluzione di monitoraggio per i contenitori non supporta il Controllo degli a
 
 ### <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Come si abilita la raccolta di log per i contenitori nello spazio dei nomi kube-system tramite Helm?
 
-La raccolta di log dai contenitori nello spazio dei nomi kube-system è disabilitata per impostazione predefinita. È possibile abilitare la raccolta di log impostando una variabile di ambiente in omsagent. Per altre informazioni, vedere la pagina [Monitoraggio di Azure per i contenitori](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) in GitHub. 
+La raccolta di log dai contenitori nello spazio dei nomi kube-system è disabilitata per impostazione predefinita. È possibile abilitare la raccolta di log impostando una variabile di ambiente in omsagent. Per altre informazioni, vedere la pagina [Monitoraggio di Azure per i contenitori](https://aka.ms/azuremonitor-containers-helm-chart) in GitHub. 
 
 ### <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>Come si aggiorna omsagent alla versione rilasciata più recente?
 

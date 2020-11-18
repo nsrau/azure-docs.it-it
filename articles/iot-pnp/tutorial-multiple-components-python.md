@@ -1,18 +1,18 @@
 ---
-title: Connettere il codice Python di un dispositivo Plug and Play IoT di esempio con componenti a un hub IoT | Microsoft Docs
-description: Compilare ed eseguire il codice Python di un dispositivo Plug and Play IoT di esempio che usa più componenti e si connette a un hub IoT. Usare lo strumento Azure IoT Explorer per visualizzare le informazioni inviate dal dispositivo all'hub.
+title: 'Esercitazione: Connettere il codice Python di un dispositivo Plug and Play IoT di esempio con componenti a un hub IoT di Azure | Microsoft Docs'
+description: "Esercitazione: Compilare ed eseguire il codice Python di un dispositivo Plug and Play IoT di esempio che usa più componenti e si connette a un hub IoT. Usare lo strumento Azure IoT Explorer per visualizzare le informazioni inviate dal dispositivo all'hub."
 author: ericmitt
 ms.author: ericmitt
 ms.date: 7/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1b329206dcc41d8f7fcb3874da037f5b57142722
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 0a4130688d479902f7836ae09c4006bb36fc16d2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91613663"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421397"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-python"></a>Esercitazione: Connettere un'applicazione di un dispositivo Plug and Play IoT di esempio con più componenti a un hub IoT (Python)
 

@@ -8,16 +8,16 @@ ms.author: manoskow
 ms.date: 10/23/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4921078e9e7b5d9de06fbbc9a97dc4a964569e04
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ff3e7fee87661fb89ba930b7368bd54e71ad57bf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754666"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357624"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Risoluzione dei problemi in Servizi di comunicazione di Azure
 
-Questo documento illustra come raccogliere le informazioni necessarie per risolvere i problemi relativi alla soluzione Servizi di comunicazione.
+Questo documento consente di risolvere i problemi che potrebbero verificarsi all'interno della soluzione Servizi di comunicazione. Per la risoluzione dei problemi del servizio SMS, è possibile [abilitare la creazione di report di recapito con Griglia di eventi](../quickstarts/telephony-sms/handle-sms-events.md) per acquisire i dettagli di recapito SMS.
 
 ## <a name="getting-help"></a>Risorse della Guida
 
@@ -30,9 +30,11 @@ A seconda del [piano di supporto](https://azure.microsoft.com/support/plans/) de
 
 Per poter risolvere determinati tipi di problemi, è possibile che vengano richieste le informazioni seguenti:
 
-* **ID MS-CV** : questo ID viene usato per la risoluzione dei problemi relativi a chiamate e messaggi. 
-* **ID chiamata** : questo ID viene usato per identificare le chiamate a Servizi di comunicazione.
-* **ID del messaggio SMS** : questo ID viene usato per identificare i messaggi SMS.
+* **ID MS-CV**: questo ID viene usato per la risoluzione dei problemi relativi a chiamate e messaggi. 
+* **ID chiamata**: questo ID viene usato per identificare le chiamate a Servizi di comunicazione.
+* **ID del messaggio SMS**: questo ID viene usato per identificare i messaggi SMS.
+* **Registri chiamate**: questi registri contengono informazioni dettagliate che possono essere usate per risolvere i problemi di chiamata e di rete.
+
 
 ## <a name="access-your-ms-cv-id"></a>Accedere all'ID MS-CV
 
@@ -126,6 +128,44 @@ console.log(result); // your message ID will be in the result
 }
 ```
 ---
+
+## <a name="enable-and-access-call-logs"></a>Abilitare e accedere ai registri chiamate
+
+
+
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Il codice seguente può essere usato per configurare `AzureLogger` in modo da restituire i registri alla console usando la libreria client JavaScript:
+
+```javascript
+import { AzureLogger } from '@azure/logger'; 
+
+AzureLogger.verbose = (...args) => { console.info(...args); } 
+AzureLogger.info = (...args) => { console.info(...args); } 
+AzureLogger.warning = (...args) => { console.info(...args); } 
+AzureLogger.error = (...args) => { console.info(...args); } 
+
+callClient = new CallClient({logger: AzureLogger}); 
+```
+
+# <a name="ios"></a>[iOS](#tab/ios)
+
+Quando si sviluppa per iOS, i registri vengono archiviati nei file `.blog`. Si noti che non è possibile visualizzare i registri direttamente perché sono crittografati.
+
+È possibile accedervi aprendo Xcode. Passare a Windows > Dispositivi e simulatori > Dispositivi. Selezionare il dispositivo. In App installate selezionare l'applicazione e fare clic su "Scarica contenitore". 
+
+Verrà restituito un file `xcappdata`. Fare clic con il pulsante destro del mouse su questo file e selezionare "Mostra contenuto del pacchetto". Verranno quindi visualizzati i file di `.blog` che è possibile allegare alla richiesta al supporto tecnico di Azure.
+
+# <a name="android"></a>[Android](#tab/android)
+
+Quando si sviluppa per Android, i registri vengono archiviati nei file `.blog`. Si noti che non è possibile visualizzare i registri direttamente perché sono crittografati.
+
+In Android Studio passare a Device File Explorer selezionando View > Tool Windows > Device File Explorer dal simulatore e dal dispositivo. Il file `.blog` si troverà all'interno della directory dell'applicazione, che dovrebbe essere simile a `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. Il file può essere allegato alla richiesta di supporto. 
+   
+
+---
+
 
 ## <a name="related-information"></a>Informazioni correlate
 - [Log e diagnostica](logging-and-diagnostics.md)

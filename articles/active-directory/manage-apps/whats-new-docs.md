@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: CelesteDG
-ms.openlocfilehash: 7c011c55728db53f0c64ac063c3372a610ef8f2f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 10861438334bc804d1b1e4b9a669280f7e09ffde
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542457"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654010"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestione applicazioni Azure Active Directory: novità
 
@@ -43,7 +43,7 @@ Ecco le novità della documentazione sulla gestione delle applicazioni Azure Act
 ### <a name="new-articles"></a>Nuovi articoli
 - [Avvio rapido: Configurare l'accesso Single Sign-On (SSO) basato su OIDC per un'applicazione nel tenant di Azure Active Directory (Azure AD)](add-application-portal-setup-oidc-sso.md)
 - [Avvio rapido: Assegnare utenti a un'app che usa Azure AD come provider di identità](add-application-portal-assign-users.md)
-- [Quali sono le novità di docs?](whats-new-docs.md)
+- [Novità della documentazione](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>Articoli aggiornati
@@ -70,7 +70,7 @@ Ecco le novità della documentazione sulla gestione delle applicazioni Azure Act
 - [Informazioni sull'accesso Single Sign-On (SSO)](what-is-single-sign-on.md)
 - [Intervenire su applicazioni sospette o con privilegi eccessivi in Azure Active Directory](manage-application-permissions.md)
 - [Avvio rapido: Configurare le proprietà per un'applicazione nel tenant di Azure Active Directory (Azure AD)](add-application-portal-configure.md)
-- [Automatizzare la configurazione dell'accesso SSO basato su SAML per l'app con l'API Microsoft Graph](application-saml-sso-configure-api.md)
+- [Automatizzare la configurazione dell'accesso SSO basato su SAML per l'app con l'API Microsoft Graph](/graph/application-saml-sso-configure-api)
 
 
 ## <a name="july-2020"></a>Luglio 2020

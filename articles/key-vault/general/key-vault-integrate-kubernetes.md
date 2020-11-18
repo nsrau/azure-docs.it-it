@@ -4,14 +4,15 @@ description: Questa esercitazione illustra come accedere e recuperare segreti da
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: c101cb4eca246ee68a30ba3499981c589c564f92
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b7d587f2be5141f7de82e9294b1fdb9fba4a6a41
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368656"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488644"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Esercitazione: Configurare ed eseguire il provider di Azure Key Vault per il driver CSI dell'archivio di segreti in Kubernetes
 
@@ -35,7 +36,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-* Prima di iniziare questa esercitazione, installare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+* Prima di iniziare questa esercitazione, installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 ## <a name="create-a-service-principal-or-use-managed-identities"></a>Creare un'entità servizio o usare le identità gestite
 
@@ -52,11 +53,17 @@ Questa operazione restituisce una serie di coppie chiave-valore:
 
 Copiare le credenziali **appId** e **password** per un uso successivo.
 
+## <a name="flow-for-using-managed-identity"></a>Flusso per l'uso dell'identità gestita
+
+Questo diagramma illustra il flusso di integrazione dell'insieme di credenziali delle chiavi del servizio Azure Kubernetes per l'identità gestita:
+
+![Diagramma che mostra il flusso di integrazione dell'insieme di credenziali delle chiavi del servizio Azure Kubernetes per l'identità gestita](../media/aks-key-vault-integration-flow.png)
+
 ## <a name="deploy-an-azure-kubernetes-service-aks-cluster-by-using-the-azure-cli"></a>Distribuire un cluster del servizio Azure Kubernetes tramite l'interfaccia della riga di comando di Azure
 
 Non è necessario usare Azure Cloud Shell. Sarà sufficiente usare il prompt dei comandi (terminale) con l'interfaccia della riga di comando di Azure installata. 
 
-Completare le sezioni "Creare un gruppo di risorse", "Creare un cluster del servizio Azure Kubernetes" e "Connettersi al cluster" dell'articolo [Distribuire un cluster del servizio Azure Kubernetes con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough). 
+Completare le sezioni "Creare un gruppo di risorse", "Creare un cluster del servizio Azure Kubernetes" e "Connettersi al cluster" dell'articolo [Distribuire un cluster del servizio Azure Kubernetes con l'interfaccia della riga di comando di Azure](../../aks/kubernetes-walkthrough.md). 
 
 > [!NOTE] 
 > Se si prevede di usare un'identità pod invece di un entità servizio, assicurarsi di abilitarla quando si crea il cluster Kubernetes, come illustrato nel comando seguente:
@@ -103,7 +110,7 @@ L'interfaccia del driver [CSI dell'archivio segreti](https://github.com/Azure/se
 
 ## <a name="create-an-azure-key-vault-and-set-your-secrets"></a>Creare un'istanza di Azure Key Vault e impostare i segreti
 
-Per creare un'istanza di Key Vault e impostare i segreti, seguire le istruzioni riportate in [Impostare e recuperare un segreto da Azure Key Vault con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-cli).
+Per creare un'istanza di Key Vault e impostare i segreti, seguire le istruzioni riportate in [Impostare e recuperare un segreto da Azure Key Vault con l'interfaccia della riga di comando di Azure](../secrets/quick-create-cli.md).
 
 > [!NOTE] 
 > Non è necessario usare Azure Cloud Shell o creare un nuovo gruppo di risorse. È possibile usare il gruppo di risorse creato in precedenza per il cluster Kubernetes.
@@ -128,7 +135,7 @@ La documentazione relativa a tutti i campi obbligatori è disponibile qui: [Coll
 Il modello aggiornato è mostrato nel codice seguente. Scaricarlo come file YAML e compilare i campi obbligatori. In questo esempio l'istanza di Key Vault è **contosoKeyVault5**. Contiene due segreti, **secret1** e **secret2**.
 
 > [!NOTE] 
-> Se si usano le identità gestite, impostare il valore di **usePodIdentity** su *true*e il valore di **userAssignedIdentityID** su una coppia di virgolette ( **""** ). 
+> Se si usano le identità gestite, impostare il valore di **usePodIdentity** su *true* e il valore di **userAssignedIdentityID** su una coppia di virgolette ( **""** ). 
 
 ```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
@@ -210,7 +217,7 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 Se si usano le identità gestite, assegnare ruoli specifici al cluster del servizio Azure Kubernetes creato. 
 
-1. Per creare, elencare o leggere un'identità gestita assegnata dall'utente, è necessario assegnare al cluster del servizio Azure Kubernetes il ruolo [Operatore di identità gestite](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator). Assicurarsi che il valore di **$clientId** corrisponda a quello di clientId del cluster Kubernetes. Per l'ambito, si troverà nel servizio della sottoscrizione di Azure, in particolare nel gruppo di risorse del nodo che è stato creato al momento della creazione del cluster del servizio Azure Kubernetes. Questo ambito garantisce che solo le risorse all'interno di tale gruppo siano interessate dai ruoli assegnati di seguito. 
+1. Per creare, elencare o leggere un'identità gestita assegnata dall'utente, è necessario assegnare al cluster del servizio Azure Kubernetes il ruolo [Operatore di identità gestite](../../role-based-access-control/built-in-roles.md#managed-identity-operator). Assicurarsi che il valore di **$clientId** corrisponda a quello di clientId del cluster Kubernetes. Per l'ambito, si troverà nel servizio della sottoscrizione di Azure, in particolare nel gruppo di risorse del nodo che è stato creato al momento della creazione del cluster del servizio Azure Kubernetes. Questo ambito garantisce che solo le risorse all'interno di tale gruppo siano interessate dai ruoli assegnati di seguito. 
 
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
@@ -355,4 +362,4 @@ Verificare che il contenuto del segreto sia visualizzato.
 
 Per assicurarsi che l'istanza di Key Vault sia recuperabile, vedere:
 > [!div class="nextstepaction"]
-> [Abilitare l'eliminazione temporanea](https://docs.microsoft.com/azure/key-vault/general/soft-delete-cli)
+> [Abilitare l'eliminazione temporanea](./soft-delete-cli.md)

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
-ms.date: 08/28/2020
-ms.openlocfilehash: c64112e30bdaf0da2218177bd2737c3ebe688b0c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/16/2020
+ms.openlocfilehash: 35856a0d414e288fcd184164733e9430a6bee296
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675296"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653743"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -97,14 +97,17 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
 - **Criteri di failover automatico**
 
-  Per impostazione predefinita un gruppo di failover viene configurato con criteri di failover automatico. Azure attiva il failover dopo che l'errore è stato rilevato e il periodo di tolleranza è scaduto. Il sistema deve verificare che l'interruzione non possa essere mitigata dall' [infrastruttura di disponibilità elevata](high-availability-sla.md) incorporata a causa della scalabilità dell'effetto. Se si desidera controllare il flusso di lavoro del failover dall'applicazione, è possibile disattivare il failover automatico.
+  Per impostazione predefinita un gruppo di failover viene configurato con criteri di failover automatico. Azure attiva il failover dopo che l'errore è stato rilevato e il periodo di tolleranza è scaduto. Il sistema deve verificare che l'interruzione non possa essere mitigata dall' [infrastruttura di disponibilità elevata](high-availability-sla.md) incorporata a causa della scalabilità dell'effetto. Se si desidera controllare il flusso di lavoro di failover dall'applicazione o manualmente, è possibile disattivare il failover automatico.
   
   > [!NOTE]
   > Poiché la verifica della scalabilità dell'interruzione e la rapidità con cui è possibile mitigare il problema implicano azioni umane da parte del team operativo, il periodo di tolleranza non può essere impostato al di sotto di un'ora. Questa limitazione si applica a tutti i database nel gruppo di failover indipendentemente dallo stato di sincronizzazione dei dati.
 
 - **Criteri di failover di sola lettura**
 
-  Per impostazione predefinita, il failover del listener di sola lettura è disabilitato. Verificare che le prestazioni del database primario non siano interessate quando il database secondario è offline. Ciò significa anche che le sessioni di sola lettura non sono in grado di connettersi fino a quando il database secondario non viene recuperato. Se non è possibile tollerare i tempi di inattività per le sessioni di sola lettura e si è pronti a usare temporaneamente il database primario per il traffico di sola lettura e di lettura/scrittura a scapito della potenziale riduzione delle prestazioni del database primario, è possibile abilitare il failover per il listener di sola lettura configurando la `AllowReadOnlyFailoverToPrimary` Proprietà. In tal caso, il traffico di sola lettura verrà reindirizzato automaticamente al database primario se il database secondario non è disponibile.
+  Per impostazione predefinita, il failover del listener di sola lettura è disabilitato. Verificare che le prestazioni del database primario non siano interessate quando il database secondario è offline. Ciò significa anche che le sessioni di sola lettura non sono in grado di connettersi fino a quando il database secondario non viene recuperato. Se non è possibile tollerare i tempi di inattività per le sessioni di sola lettura e usare il database primario per il traffico di sola lettura e di lettura/scrittura a scapito della potenziale riduzione delle prestazioni del database primario, è possibile abilitare il failover per il listener di sola lettura configurando la `AllowReadOnlyFailoverToPrimary` Proprietà. In tal caso, il traffico di sola lettura verrà reindirizzato automaticamente al database primario se il database secondario non è disponibile.
+
+  > [!NOTE]
+  > La `AllowReadOnlyFailoverToPrimary` proprietà ha effetto solo se i criteri di failover automatici sono abilitati e un failover automatico è stato attivato da Azure. In tal caso, se la proprietà è impostata su true, il nuovo database primario servirà entrambe le sessioni di lettura/scrittura e di sola lettura.
 
 - **Failover pianificato**
 
@@ -120,7 +123,7 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
 - **Failover manuale**
 
-  È possibile avviare manualmente il failover in qualsiasi momento, indipendentemente dalla configurazione del failover automatico. Se non sono configurati criteri di failover automatico, è necessario eseguire il failover manuale per ripristinare i database del gruppo di failover nell'area secondaria. È possibile avviare il failover forzato o semplice (con sincronizzazione completa dei dati). Quest'ultimo può essere usato per rilocare il database primario nell'area secondaria. Quando il failover viene completato, i record DNS vengono aggiornati automaticamente per garantire la connettività al nuovo database primario
+  È possibile avviare manualmente il failover in qualsiasi momento, indipendentemente dalla configurazione del failover automatico. Se non sono configurati criteri di failover automatico, è necessario eseguire il failover manuale per ripristinare i database del gruppo di failover nell'area secondaria. È possibile avviare il failover forzato o semplice (con sincronizzazione completa dei dati). Quest'ultimo può essere usato per rilocare il database primario nell'area secondaria. Al termine del failover, i record DNS vengono aggiornati automaticamente per garantire la connettività al nuovo database primario.
 
 - **Periodo di tolleranza con perdita di dati**
 
@@ -128,7 +131,7 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
 - **Più gruppi di failover**
 
-  È possibile configurare più gruppi di failover per la stessa coppia di server per controllare la scalabilità di failover. Ogni gruppo esegue il failover in modo indipendente. Se l'applicazione multi-tenant fa uso di pool elastici, è possibile usare questa funzionalità per combinare i database primari e secondari in ogni pool. In questo modo è possibile ridurre l'impatto di un'interruzione a solo la metà dei tenant.
+  È possibile configurare più gruppi di failover per la stessa coppia di server per controllare l'ambito dei failover. Ogni gruppo esegue il failover in modo indipendente. Se l'applicazione multi-tenant fa uso di pool elastici, è possibile usare questa funzionalità per combinare i database primari e secondari in ogni pool. In questo modo è possibile ridurre l'impatto di un'interruzione a solo la metà dei tenant.
 
   > [!NOTE]
   > SQL Istanza gestita non supporta più gruppi di failover.
@@ -173,7 +176,7 @@ Quando si eseguono operazioni OLTP, usare `<fog-name>.database.windows.net` come
 
 ### <a name="using-read-only-listener-for-read-only-workload"></a>Uso del listener di sola lettura per il carico di lavoro di sola lettura
 
-Se è presente un carico di lavoro di sola lettura isolato logicamente che tollera un certo grado di obsolescenza dei dati, è possibile usare il database secondario nell'applicazione. Per sessioni di sola lettura usare `<fog-name>.secondary.database.windows.net` come URL del server per indirizzare automaticamente le connessioni al server secondario. È inoltre consigliabile indicare la finalità di lettura della stringa di connessione tramite `ApplicationIntent=ReadOnly` . Per assicurarsi che il carico di lavoro di sola lettura possa riconnettersi dopo il failover o se il server secondario passa alla modalità offline, assicurarsi di configurare la `AllowReadOnlyFailoverToPrimary` proprietà dei criteri di failover.
+Se è presente un carico di lavoro di sola lettura isolato logicamente che tollera un certo grado di obsolescenza dei dati, è possibile usare il database secondario nell'applicazione. Per sessioni di sola lettura usare `<fog-name>.secondary.database.windows.net` come URL del server per indirizzare automaticamente le connessioni al server secondario. È inoltre consigliabile indicare la finalità di lettura della stringa di connessione tramite `ApplicationIntent=ReadOnly` .
 
 ### <a name="preparing-for-performance-degradation"></a>Preparazione per il calo delle prestazioni
 
@@ -264,20 +267,20 @@ Quando si eseguono operazioni OLTP, usare `<fog-name>.zone_id.database.windows.n
 Se è presente un carico di lavoro di sola lettura isolato logicamente che tollera un certo grado di obsolescenza dei dati, è possibile usare il database secondario nell'applicazione. Per connettersi direttamente al database secondario con replica geografica, usare `<fog-name>.secondary.<zone_id>.database.windows.net` come URL del server.
 
 > [!NOTE]
-> In alcuni livelli di servizio, il database SQL supporta l'utilizzo di [repliche](read-scale-out.md) di sola lettura per bilanciare il carico dei carichi di lavoro di query di sola lettura utilizzando la capacità di una replica di sola lettura e l'utilizzo del `ApplicationIntent=ReadOnly` parametro nella stringa di connessione. Dopo aver configurato un database secondario con replica geografica, sarà possibile usare questa funzionalità per connettersi a una replica di sola lettura nella posizione primaria o nella posizione con replica geografica.
+> Nei livelli di servizio Premium, business critical e iperscalare, il database SQL supporta l'uso di [repliche](read-scale-out.md) di sola lettura per eseguire carichi di lavoro di query di sola lettura usando la capacità di una o più repliche di sola lettura, usando il `ApplicationIntent=ReadOnly` parametro nella stringa di connessione. Dopo aver configurato un database secondario con replica geografica, sarà possibile usare questa funzionalità per connettersi a una replica di sola lettura nella posizione primaria o nella posizione con replica geografica.
 >
-> - Per connettersi a una replica di sola lettura nella posizione con replica geografica, usare `<fog-name>.<zone_id>.database.windows.net`.
-> - Per connettersi a una replica di sola lettura nella posizione secondaria, usare `<fog-name>.secondary.<zone_id>.database.windows.net` .
+> - Per connettersi a una replica di sola lettura nella posizione primaria, utilizzare `ApplicationIntent=ReadOnly` e `<fog-name>.<zone_id>.database.windows.net` .
+> - Per connettersi a una replica di sola lettura nella posizione secondaria, utilizzare `ApplicationIntent=ReadOnly` e `<fog-name>.secondary.<zone_id>.database.windows.net` .
 
 ### <a name="preparing-for-performance-degradation"></a>Preparazione per il calo delle prestazioni
 
-Una tipica applicazione Azure usa più servizi di Azure ed è costituita da più componenti. Il failover automatico del gruppo di failover viene attivato in base allo stato solo dei componenti SQL di Azure. È possibile che altri servizi di Azure nell'area primaria non siano interessati dall'interruzione e che i relativi componenti siano ancora disponibili in tale area. Una volta che i database primari passano all'area di ripristino di emergenza, la latenza tra i componenti dipendenti può aumentare. Per evitare l'effetto di una latenza più elevata sulle prestazioni dell'applicazione, verificare la ridondanza di tutti i componenti dell'applicazione nell'area di ripristino di emergenza e attenersi alle [linee guida](#failover-groups-and-network-security)per la sicurezza di rete.
+Una tipica applicazione Azure usa più servizi di Azure ed è costituita da più componenti. Il failover automatico del gruppo di failover viene attivato in base allo stato solo dei componenti SQL di Azure. È possibile che altri servizi di Azure nell'area primaria non siano interessati dall'interruzione e che i relativi componenti siano ancora disponibili in tale area. Una volta che i database primari passano all'area secondaria, la latenza tra i componenti dipendenti può aumentare. Per evitare l'effetto di una latenza più elevata sulle prestazioni dell'applicazione, garantire la ridondanza di tutti i componenti dell'applicazione nell'area secondaria ed eseguire il failover dei componenti dell'applicazione insieme al database. Al momento della configurazione, attenersi alle [linee guida sulla sicurezza di rete](#failover-groups-and-network-security) per garantire la connettività al database nell'area secondaria.
 
 ### <a name="preparing-for-data-loss"></a>Preparazione per la perdita di dati
 
-Se viene rilevata un'interruzione, viene attivato un failover di lettura/scrittura in caso di perdita di dati pari a zero, al meglio della nostra conoscenza. In caso contrario, resta in attesa del periodo specificato da. In caso contrario, attende il periodo specificato da `GracePeriodWithDataLossHours`. Se è stato specificato `GracePeriodWithDataLossHours`, potrebbe verificarsi una perdita di dati. Durante le interruzioni del servizio, generalmente Azure predilige la disponibilità. Se non ci si può permettere una perdita di dati, assicurarsi di impostare GracePeriodWithDataLossHours su un numero sufficientemente elevato, ad esempio 24 ore.
+Se viene rilevata un'interruzione, viene attivato un failover di lettura/scrittura in caso di perdita di dati pari a zero, al meglio della nostra conoscenza. In caso contrario, il failover viene posticipato per il periodo specificato tramite `GracePeriodWithDataLossHours` . Se è stato specificato `GracePeriodWithDataLossHours`, potrebbe verificarsi una perdita di dati. Durante le interruzioni del servizio, generalmente Azure predilige la disponibilità. Se non è possibile permettersi la perdita di dati, assicurarsi di impostare GracePeriodWithDataLossHours su un numero sufficientemente elevato, ad esempio 24 ore, o disabilitare il failover automatico.
 
-Subito dopo l'avvio del failover si verificherà l'aggiornamento DNS del listener di lettura/scrittura. Questa operazione non comporta la perdita di dati. Tuttavia, il processo di scambio dei ruoli del database può richiedere fino a 5 minuti in condizioni normali. Durante il processo alcuni database nella nuova istanza primaria rimarranno di sola lettura. Se il failover viene avviato con PowerShell, l'intera operazione è sincrona. Se viene avviata usando il portale di Azure, l'interfaccia utente indicherà lo stato di completamento. Se viene avviato mediante l'API REST, usare il meccanismo di polling standard di Azure Resource Manager per il monitoraggio del completamento.
+Subito dopo l'avvio del failover si verificherà l'aggiornamento DNS del listener di lettura/scrittura. Questa operazione non comporta la perdita di dati. Tuttavia, il processo di scambio dei ruoli del database può richiedere fino a 5 minuti in condizioni normali. Durante il processo alcuni database nella nuova istanza primaria rimarranno di sola lettura. Se viene avviato un failover usando PowerShell, l'operazione per cambiare il ruolo di replica primaria è sincrona. Se viene avviata usando il portale di Azure, l'interfaccia utente indicherà lo stato di completamento. Se viene avviato mediante l'API REST, usare il meccanismo di polling standard di Azure Resource Manager per il monitoraggio del completamento.
 
 > [!IMPORTANT]
 > Usare il failover manuale dei gruppi per ripristinare i database primari nella posizione originale. Quando viene risolta l'interruzione del servizio che ha determinato il failover, sarà possibile spostare i database primari nel percorso originale. A tale scopo è necessario avviare il failover manuale del gruppo.

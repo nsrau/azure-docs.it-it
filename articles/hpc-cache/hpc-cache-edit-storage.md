@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 70f350204796099e02f7afe829a6e2e1fdf653c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b7bc87f83925baed15bc6a411f5b4e4f78df6cc
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613109"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654508"
 ---
 # <a name="edit-storage-targets"></a>Modificare le destinazioni di archiviazione
 
@@ -40,7 +40,7 @@ Per rimuovere una destinazione di archiviazione, aprire la pagina **destinazioni
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurare l'interfaccia della riga di comando di Azure per la cache HPC di Azure](./az-cli-prerequisites.md).
 
 Usare [AZ HPC-cache storage-target Remove](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-remove) per eliminare una destinazione di archiviazione dalla cache.
 
@@ -79,7 +79,7 @@ Dopo aver apportato le modifiche, fare clic su **OK** per aggiornare la destinaz
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurare l'interfaccia della riga di comando di Azure per la cache HPC di Azure](./az-cli-prerequisites.md).
 
 Per modificare lo spazio dei nomi della destinazione di archiviazione BLOB con l'interfaccia della riga di comando di Azure, usare il comando [AZ HPC-cache BLOB-Storage-target Update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update). `--virtual-namespace-path`È possibile modificare solo il valore.
 
@@ -117,7 +117,7 @@ Usare la pagina **dello spazio dei nomi** per la cache HPC di Azure per aggiorna
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurare l'interfaccia della riga di comando di Azure per la cache HPC di Azure](./az-cli-prerequisites.md).
 
 Usare l' ``--junction`` opzione nel comando [AZ HPC-cache NFS-storage-target Update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target) per modificare il percorso dello spazio dei nomi, l'esportazione NFS o l'esportazione della sottodirectory.
 
@@ -159,7 +159,7 @@ Usare il selettore a discesa per scegliere un nuovo modello di utilizzo. Fare cl
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurare l'interfaccia della riga di comando di Azure per la cache HPC di Azure](./az-cli-prerequisites.md).
 
 Usare il comando [AZ HPC-cache NFS-storage-target Update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target?view=azure-cli-latest#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update) .
 

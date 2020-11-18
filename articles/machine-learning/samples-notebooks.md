@@ -1,7 +1,7 @@
 ---
 title: Notebook di Jupyter di esempio
 titleSuffix: Azure Machine Learning
-description: Trovare e usare notebook Jupyter di esempio per esplorare Azure Machine Learning SDK per Python.
+description: Informazioni su come trovare e usare i notebook di Juypter progettati per facilitare l'esplorazione dell'SDK e fungere da modelli per progetti di Machine Learning personalizzati.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: f8b4256f33a143c711a23a3564c2a46c69e0783b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3f5cb2831a58ce9d0d30039b80815e281401e883
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675775"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542559"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Esplorare Azure Machine Learning con notebook Jupyter
 
@@ -47,7 +47,7 @@ Se si preferisce usare un server notebook personale per lo sviluppo locale, segu
 
 [!INCLUDE [aml-your-server](../../includes/aml-your-server.md)]
 
-Queste istruzioni consentono di installare i pacchetti SDK di base necessari per i notebook della guida di avvio rapido e dell'esercitazione. Altri notebook di esempio potrebbero richiedere l'installazione di ulteriori componenti. Per altre informazioni, vedere [Installare Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+Queste istruzioni consentono di installare i pacchetti SDK di base necessari per i notebook della guida di avvio rapido e dell'esercitazione. Altri notebook di esempio potrebbero richiedere l'installazione di ulteriori componenti. Per altre informazioni, vedere [Installare Azure Machine Learning SDK per Python](/python/api/overview/azure/ml/install).
 
 <a name="dsvm"></a>
 ## <a name="get-samples-on-dsvm"></a>Ottenere esempi su DSVM

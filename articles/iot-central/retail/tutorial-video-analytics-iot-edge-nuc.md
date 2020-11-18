@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: b74c7c3e9678c89edbe90d648520b9526c8fb569
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e2e97b857f648390ec017a529115b23c4f17a68d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748646"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427990"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Esercitazione: Creare un'istanza di IoT Edge per l'analisi video (Intel NUC)
 
@@ -117,9 +117,9 @@ Configurare IoT Edge per la registrazione e la connessione all'applicazione IoT 
 
 1. Sostituire `{scope_id}` con il valore di **Ambito ID** annotato nel file *scratchpad.txt* nell'esercitazione precedente.
 
-1. Sostituire `{registration_id}` con *lva-gateway-001* , il dispositivo creato nell'esercitazione precedente.
+1. Sostituire `{registration_id}` con *gateway-001*, il dispositivo creato nell'esercitazione precedente.
 
-1. Sostituire `{symmetric_key}` con il valore di **Chiave primaria** per il dispositivo **lva-gateway-001** annotato nel file *scratchpad.txt* nell'esercitazione precedente.
+1. Sostituire `{symmetric_key}` con il valore di **Chiave primaria** per il dispositivo **gateway-001** annotato nel file *scratchpad.txt* nell'esercitazione precedente.
 
 1. Eseguire il comando seguente per riavviare il daemon di IoT Edge:
 

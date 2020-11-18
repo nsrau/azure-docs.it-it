@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 3a0a69784be3b03b030ef599037b57c2c20ea2c6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: 185b61f77b275ed78050f5d8efb820c5333f6e1f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92454678"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358576"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Esercitazione: Configurare DocuSign per il provisioning utenti automatico
 
@@ -65,7 +65,7 @@ Questa sezione descrive come abilitare il provisioning degli account utente di A
 
 1. Impostare **Modalità di provisioning** su **Automatico**. 
 
-    ![Screenshot della scheda provisioning per DocuSign in portale di Azure. La modalità di provisioning è impostata su automatico e il nome utente amministratore, la password e la connessione di test sono evidenziati.](./media/docusign-provisioning-tutorial/provisioning.png)
+    ![Screenshot della scheda Provisioning per DocuSign nel portale di Azure. L'opzione Modalità di provisioning è impostata su Automatico e le opzioni Nome utente amministratore, Password e Test connessione sono evidenziate.](./media/docusign-provisioning-tutorial/provisioning.png)
 
 1. Nella sezione **Credenziali di amministratore** specificare le impostazioni di configurazione seguenti:
    
@@ -74,7 +74,7 @@ Questa sezione descrive come abilitare il provisioning degli account utente di A
     b. Nella casella di testo **Password amministratore** digitare la password per questo account.
 
 > [!NOTE]
-> Se sia il provisioning SSO che l'utente sono impostati, le credenziali di autorizzazione usate per il provisioning devono essere configurate per l'uso sia di SSO che di nome utente/password.
+> Se sia il Single Sign-On che provisioning utenti sono impostati, le credenziali di autorizzazione usate per il provisioning devono essere configurate per l'uso sia con SSO che con Nome utente/Password.
 
 1. Nel portale di Azure fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app DocuSign.
 
@@ -95,13 +95,13 @@ Viene avviata la sincronizzazione iniziale di tutti gli utenti assegnati a DocuS
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi
-* Il provisioning di un ruolo o di un profilo di autorizzazione per un utente in DocuSign può essere eseguito usando un'espressione nei mapping degli attributi usando le funzioni [Switch](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#switch) e [singleAppRoleAssignment](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#singleapproleassignment) . Nell'espressione seguente, ad esempio, viene eseguito il provisioning dell'ID "8032066" quando a un utente è assegnato il ruolo di amministratore DS in Azure AD. Non verrà effettuato il provisioning di alcun profilo di autorizzazione se all'utente non è assegnato un ruolo sul lato Azure AD. L'ID può essere recuperato dal [portale](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles)di DocuSign.
+* Per eseguire il provisioning del profilo di un ruolo o di autorizzazione per un utente in DocuSign, è possibile usare un'espressione nei mapping degli attributi usando le funzioni [switch](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#switch) e [singleAppRoleAssignment](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#singleapproleassignment). Nell'espressione seguente, ad esempio, viene eseguito il provisioning dell'ID "8032066" quando a un utente è assegnato il ruolo di "Amministratore DS" in Azure AD. Non verrà effettuato il provisioning di alcun profilo di autorizzazione se all'utente non è assegnato un ruolo sul lato Azure AD. È possibile recuperare l'ID dal portale [DocuSign](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles).
 
-Switch (SingleAppRoleAssignment ([appRoleAssignments]), "", "8032066", "admin DS")
+Switch(SingleAppRoleAssignment([appRoleAssignments])," ", "8032066", "DS Admin")
 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Gestione del provisioning degli account utente per app aziendali](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-* [Configura accesso Single Sign-on](docusign-tutorial.md)
+* [Configurare l'accesso Single Sign-On](docusign-tutorial.md)

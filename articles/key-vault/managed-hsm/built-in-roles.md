@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 6b39c1d6fe2e84055e7c94dde076514d04a24f36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5ecd8f13a3255a565168f62f358a6a38e3cbab4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90992443"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445218"
 ---
 # <a name="managed-hsm-local-rbac-built-in-roles"></a>Ruoli predefiniti del controllo degli accessi in base al ruolo locale per il modulo di protezione hardware gestito
 
@@ -77,5 +77,5 @@ Il controllo degli accessi in base al ruolo locale prevede diversi ruoli predefi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Panoramica del [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md).
+- Vedere una panoramica del [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md).
 - Esercitazione sulla [gestione dei ruoli del modulo di protezione hardware gestito](role-management.md)

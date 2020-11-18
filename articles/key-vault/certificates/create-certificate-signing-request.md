@@ -10,18 +10,18 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: ad3dd64bb55ccd657b74bacff3e4441ce63f0cf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a85656909df5538f9f57e05d79ae768623d7eba6
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569374"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289610"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Creazione e unione di CSR in Key Vault
 
 Azure Key Vault supporta l'archiviazione del certificato digitale emesso da qualsiasi autorità di certificazione nell'insieme di credenziali delle chiavi. Consente di creare la richiesta di firma del certificato con una coppia di chiavi pubblica/privata che può essere firmata dall'autorità di certificazione scelta. Può trattarsi di un'autorità di certificazione aziendale interna o di un'autorità di certificazione pubblica esterna. Una richiesta di firma del certificato (nota anche come CSR o richiesta di certificazione) è un messaggio che viene inviato dall'utente a un'autorità di certificazione per richiedere il rilascio di un certificato digitale.
 
-Per informazioni più generali sui certificati, vedere [Certificati di Azure Key Vault](/azure/key-vault/certificates/about-certificates).
+Per informazioni più generali sui certificati, vedere [Certificati di Azure Key Vault](./about-certificates.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -74,7 +74,7 @@ La procedura seguente consente di creare un certificato rilasciato da autorità 
     ![Proprietà del certificato](../media/certificates/create-csr-merge-csr/create-certificate.png)
 6.  Si noterà che il certificato è stato aggiunto all'elenco dei certificati. Selezionare il nuovo certificato appena creato. Lo stato corrente del certificato sarà 'disabilitato' perché non è ancora stato rilasciato dall'autorità di certificazione.
 7. Fare clic sulla scheda **Operazione relativa al certificato** e selezionare **Scarica file CSR**.
- ![Proprietà del certificato](../media/certificates/create-csr-merge-csr/download-csr.png)
+ ![Screenshot con il pulsante Scarica file CSR evidenziato.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
 8.  Sottoporre il file con estensione csr all'autorità di certificazione in modo che la richiesta venga firmata.
 9.  Dopo che la richiesta è stata firmata dall'autorità di certificazione, ripristinare il file del certificato per **unire la richiesta firmata** nella stessa schermata dell'operazione relativa al certificato.

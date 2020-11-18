@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 66d09503f5db95811f807aa7faa83b92facca992
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a6923f0a1d568cc695b86d1538ba55a3eb3444da
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543696"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341485"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Esercitazione: Effettuare il provisioning di un server di Database di Azure per MySQL usando il modello di Azure Resource Manager
 
@@ -29,6 +29,8 @@ In questa esercitazione si useranno il modello di Azure Resource Manager e altre
 > * Caricare dati di esempio
 > * Eseguire query sui dati
 > * Aggiornare i dati
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -115,7 +117,7 @@ Per connettersi al server, è necessario specificare le informazioni sull'host e
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l' **administratorLogin** .
+Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l'**administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -199,13 +201,47 @@ La riga viene aggiornata di conseguenza quando si recuperano dati.
 SELECT * FROM inventory;
 ```
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non è più necessario, eliminare il gruppo di risorse per eliminare tutte le risorse contenute al suo interno.
+
+# <a name="portal"></a>[Portale](#tab/azure-portal)
+
+1. Nel [portale di Azure](https://portal.azure.com) cercare e selezionare **Gruppi di risorse**.
+
+2. Nell'elenco dei gruppi di risorse scegliere il nome del gruppo di risorse.
+
+3. Nella pagina **Panoramica** del gruppo di risorse selezionare **Elimina gruppo di risorse**.
+
+4. Nella finestra di dialogo di conferma, digitare il nome del gruppo di risorse e quindi selezionare **Elimina**.
+
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+Write-Host "Press [ENTER] to continue..."
+```
+
+# <a name="cli"></a>[CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
+
+---
+
 ## <a name="next-steps"></a>Passaggi successivi
 Questa esercitazione illustra come:
 > [!div class="checklist"]
 > * Creare un server di Database di Azure per MySQL con un endpoint servizio rete virtuale usando un modello di Azure Resource Manager
-> * Usare lo [strumento della riga di comando di MySQL](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) per creare un database
+> * Usare lo strumento da riga di comando mysql per creare un database
 > * Caricare dati di esempio
 > * Eseguire query sui dati
 > * Aggiornare i dati
-> 
+
+> [!div class="nextstepaction"]
 > [Come connettere le applicazioni a Database di Azure per MySQL](./howto-connection-string.md)

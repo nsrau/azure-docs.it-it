@@ -8,17 +8,17 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 370be4501a113403a9b1db14571f5a021ac15517
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 78d4d9a8b5023731530c5e348f5c9ba72815d410
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149104"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445643"
 ---
 # <a name="managed-hsm-role-management"></a>Gestione dei ruoli del modulo di protezione hardware gestito
 
 > [!NOTE]
-> Key Vault supporta due tipi di risorsa: insiemi di credenziali e moduli di protezione hardware gestiti. Questo articolo riguarda il **modulo di protezione hardware gestito** . Per informazioni su come gestire un insieme di credenziali, vedere [Gestire Key Vault con l'interfaccia della riga di comando di Azure](../general/manage-with-cli2.md).
+> Key Vault supporta due tipi di risorsa: insiemi di credenziali e moduli di protezione hardware gestiti. Questo articolo riguarda il **modulo di protezione hardware gestito**. Per informazioni su come gestire un insieme di credenziali, vedere [Gestire Key Vault con l'interfaccia della riga di comando di Azure](../general/manage-with-cli2.md).
 
 Per una panoramica del modulo di protezione hardware gestito, vedere [Che cos'è il modulo di protezione hardware gestito?](overview.md). Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -60,7 +60,7 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 ### <a name="assign-role-for-a-specific-key"></a>Assegnare il ruolo per una chiave specifica
 
-Usare il comando `az keyvault role assignment create` per assegnare un ruolo **Managed HSM Crypto Officer** all'utente identificato dal nome dell'entità utente **user2\@contoso.com** per una chiave specifica denominata **myrsakey** .
+Usare il comando `az keyvault role assignment create` per assegnare un ruolo **Managed HSM Crypto Officer** all'utente identificato dal nome dell'entità utente **user2\@contoso.com** per una chiave specifica denominata **myrsakey**.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey
@@ -82,7 +82,7 @@ Tutte le assegnazioni di ruolo a livello del modulo di protezione hardware per u
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user@contoso.com
 ```
 
-Tutte le assegnazioni di ruolo per un utente specifico **user2@contoso.com** per una chiave specifica **myrsakey** .
+Tutte le assegnazioni di ruolo per un utente specifico **user2@contoso.com** per una chiave specifica **myrsakey**.
 
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso.com --scope /keys/myrsakey
@@ -97,7 +97,7 @@ az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso
 
 ## <a name="delete-a-role-assignment"></a>Eliminare un'assegnazione di ruolo
 
-Usare il comando `az keyvault role assignment delete` per eliminare un ruolo **Managed HSM Crypto Officer** assegnato all'utente **user2\@contoso.com** per la chiave **myrsakey2** .
+Usare il comando `az keyvault role assignment delete` per eliminare un ruolo **Managed HSM Crypto Officer** assegnato all'utente **user2\@contoso.com** per la chiave **myrsakey2**.
 
 ```azurecli-interactive
 az keyvault role assignment delete --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey2
@@ -113,7 +113,7 @@ az keyvault role definition list --hsm-name ContosoMHSM
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Panoramica del [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md).
+- Vedere una panoramica del [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md).
 - Esercitazione sulla [gestione dei ruoli del modulo di protezione hardware gestito](role-management.md)
 - Per altre informazioni, vedere [Modello di controllo di accesso del modulo di protezione hardware gestito](access-control.md)
 - Vedere tutti i [ruoli predefiniti per il controllo degli accessi in base al ruolo del modulo di protezione hardware gestito](built-in-roles.md)

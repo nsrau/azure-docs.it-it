@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e8ae0463633940ba3192815af6a07a6356901044
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 47427f8d3690218060fd1e6221b1b089c68d6e1d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426987"
+ms.locfileid: "94441835"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gestire le chiavi degli account di archiviazione con Key Vault e l'interfaccia della riga di comando di Azure
 
@@ -34,11 +34,11 @@ Quando si usa la funzionalità di chiave dell'account di archiviazione gestita, 
 
 Azure AD consente di autenticare l'applicazione client con un'identità di applicazione o utente, anziché con le credenziali dell'account di archiviazione. È possibile usare un'[identità gestita di Azure AD](../../active-directory/managed-identities-azure-resources/index.yml) per l'esecuzione in Azure. Le identità gestite eliminano la necessità di eseguire l'autenticazione dei client e di archiviare le credenziali nell'applicazione.
 
-Azure AD usa il controllo degli accessi in base al ruolo per gestire l'autorizzazione e questo approccio è supportato anche da Key Vault.
+Azure AD usa il controllo degli accessi in base al ruolo di Azure per gestire l'autorizzazione e questo approccio è supportato anche da Key Vault.
 
 ## <a name="service-principal-application-id"></a>ID applicazione dell'entità servizio
 
-Un tenant di Azure AD assegna a ogni applicazione registrata un'[entità servizio](../../active-directory/develop/developer-glossary.md#service-principal-object). L'entità servizio fornisce l'ID applicazione, che viene usato durante la configurazione dell'autorizzazione per l'accesso ad altre risorse di Azure tramite il controllo degli accessi in base al ruolo.
+Un tenant di Azure AD assegna a ogni applicazione registrata un'[entità servizio](../../active-directory/develop/developer-glossary.md#service-principal-object). L'entità servizio fornisce l'ID applicazione, che viene usato durante la configurazione dell'autorizzazione per l'accesso ad altre risorse di Azure tramite il controllo degli accessi in base al ruolo di Azure.
 
 Key Vault è un'applicazione Microsoft già registrata in tutti i tenant di Azure AD. Key Vault è registrato con lo stesso ID applicazione in ogni cloud di Azure.
 

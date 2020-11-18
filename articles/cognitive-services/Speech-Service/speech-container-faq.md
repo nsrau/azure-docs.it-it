@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e4a6d9180d2a9949cebc40cf30edffac73ef9d0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88918469"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94653539"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Domande frequenti sui contenitori di servizi vocali
 
@@ -43,7 +43,7 @@ Inoltre, gli eseguibili pre-pacchetto vengono preconfezionati per i computer con
 Cannot find Scan4_llvm__mcpu_skylake_avx512 in cache, using JIT...
 ```
 
-Infine, è possibile impostare il numero di decodificatori desiderati all'interno di un *singolo* contenitore utilizzando la `DECODER MAX_COUNT` variabile. Fondamentalmente, è consigliabile iniziare con lo SKU (CPU/memoria) ed è possibile suggerire come sfruttare al meglio le proprie esigenze. Un ottimo punto di partenza si riferisce alle specifiche delle risorse del computer host consigliate.
+È possibile impostare il numero di decodificatori desiderati all'interno di un *singolo* contenitore utilizzando la `DECODER MAX_COUNT` variabile. Fondamentalmente, è consigliabile iniziare con lo SKU (CPU/memoria) ed è possibile suggerire come sfruttare al meglio le proprie esigenze. Un ottimo punto di partenza si riferisce alle specifiche delle risorse del computer host consigliate.
 
 <br>
 </details>
@@ -367,7 +367,7 @@ Il piano corrente consiste nel prendere un file audio esistente e suddividerlo i
 
 Il documento dice di esporre una porta diversa, ma il contenitore LUIS è ancora in ascolto sulla porta 5000?
 
-**Risposta:** Provare `-p <outside_unique_port>:5000` . Ad esempio: `-p 5001:5000`.
+**Risposta:** Provare `-p <outside_unique_port>:5000` . Ad esempio, `-p 5001:5000`
 
 
 <br>
@@ -419,7 +419,7 @@ Quante richieste simultanee sono gestite da 4 core, 4 GB di RAM? Se è necessari
 |-----------------------|---------------------|---------------------|
 | Sintesi vocale personalizzata | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
 
-***
+**_
 
 - Ogni core deve essere almeno 2,6 GHz o superiore.
 - Per i file, la limitazione sarà nell'SDK di riconoscimento vocale, a 2x (i primi 5 secondi di audio non sono limitati).
@@ -438,7 +438,7 @@ Ad esempio, per gestire 1000 ore/24 ore, è stata tentata la configurazione di m
 <b>Il contenitore vocale supporta la punteggiatura?</b>
 </summary>
 
-**Risposta:** Nel contenitore locale sono disponibili le maiuscole e le maiuscole (ITN). La punteggiatura dipende dal linguaggio e non è supportata per alcune lingue, tra cui il cinese e il giapponese.
+_ *Risposta:** è disponibile la capitalizzazione (ITN) nel contenitore locale. La punteggiatura dipende dal linguaggio e non è supportata per alcune lingue, tra cui il cinese e il giapponese.
 
 Sono *disponibili* supporto per la punteggiatura implicita e di base per i contenitori esistenti, ma è per `off` impostazione predefinita. Ciò significa che è possibile ottenere il `.` carattere nell'esempio, ma non il `。` carattere. Per abilitare questa logica implicita, di seguito è riportato un esempio di come eseguire questa operazione in Python usando l'SDK di riconoscimento vocale (sarebbe simile in altre lingue):
 
@@ -480,6 +480,16 @@ Content-Length: 0
 
 **Risposta:** L'API REST non è supportata in un contenitore di sintesi vocale, ma supporta solo i WebSocket tramite l'SDK di riconoscimento vocale. Fare sempre riferimento alla documentazione ufficiale, vedere [query PREDICTION Endpoints](speech-container-howto.md#query-the-containers-prediction-endpoint).
 
+<br>
+</details>
+
+
+<details>
+<summary>
+<b> Perché il contenitore è in esecuzione come utente non root? Quali problemi possono verificarsi per questo?</b>
+</summary>
+
+**Risposta:** Si noti che l'utente predefinito all'interno del contenitore è un utente non root. In questo modo viene fornita la protezione contro i processi che sfuggono al contenitore e si ottengono autorizzazioni con escalation nel nodo host. Per impostazione predefinita, alcune piattaforme come la piattaforma OpenShift container eseguono già questa operazione eseguendo i contenitori usando un ID utente assegnato in modo arbitrario. Per queste piattaforme, l'utente non root dovrà disporre delle autorizzazioni per scrivere in qualsiasi volume con mapping esterno che richiede Scritture. Ad esempio una cartella di registrazione o una cartella di download del modello personalizzata.
 <br>
 </details>
 

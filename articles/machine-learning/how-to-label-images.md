@@ -1,23 +1,23 @@
 ---
 title: Aggiungere tag alle immagini in un progetto di etichettatura
 title.suffix: Azure Machine Learning
-description: Informazioni su come usare gli strumenti di aggiunta dei tag ai dati in un progetto di etichettatura di Azure Machine Learning.
+description: Informazioni su come usare gli strumenti di aggiunta dei tag per preparare rapidamente i dati in un progetto di etichettatura di Azure Machine Learning.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e34fa4af08be898785acbc6f00aa735c1412ec47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4392086146642e18b1fdef28a9e602bdbb5b0b18
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897564"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542185"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Aggiungere tag alle immagini in un progetto di etichettatura 
 
-Dopo che l'amministratore di progetto ha [creato un progetto di etichettatura](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) in Azure Machine Learning, è possibile usare lo strumento di etichettatura (anteprima pubblica) per preparare rapidamente i dati per un progetto di Machine Learning. L'articolo illustra:
+Dopo che l'amministratore del progetto ha [creato un progetto di etichettatura](./how-to-create-labeling-projects.md#create-a-labeling-project) in Azure Machine Learning, è possibile usare lo strumento di etichettatura per preparare rapidamente i dati per un progetto di Machine Learning. L'articolo illustra:
 
 > [!div class="checklist"]
 > * Come accedere ai progetti di etichettatura
@@ -127,6 +127,28 @@ Per eliminare *tutti* i rettangoli di selezione nell'immagine corrente, selezion
 
 Dopo aver creato i rettangoli di selezione per un'immagine, selezionare **Invia** per salvare il lavoro in corso, che altrimenti non verrà salvato.
 
+## <a name="tag-images-and-specify-polygons-for-image-segmentation"></a>Contrassegnare le immagini e specificare i poligoni per la segmentazione immagini 
+
+Se il progetto è di tipo "Instance Segmentation (Polygon)" (Segmentazione istanze - Poligono), è necessario specificare uno o più poligoni nell'immagine e applicare un tag a ognuno. Per ogni immagine è possibile specificare più poligoni di selezione, ognuno con un singolo tag. Usare **View detailed instructions** (Visualizza istruzioni dettagliate) per determinare se nel progetto vengono usati più poligoni.
+
+1. Selezionare un tag per il poligono da creare.
+1. Selezionare lo strumento **Draw polygon region** (Disegna area poligono) ![strumento Draw polygon region](./media/how-to-label-images/polygon-tool.png) oppure selezionare "P."
+3. Fare clic su ogni punto del poligono.  Dopo aver completato la forma, fare doppio clic per terminare.
+
+    :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Creare poligoni per gatto e cane":::
+
+Per eliminare un poligono, fare clic sulla X visualizzata accanto ad esso dopo la creazione.
+
+Se si vuole modificare il tag per un poligono, selezionare lo strumento **Move regione** (Sposta area), fare clic sul poligono e selezionare il tag corretto.
+
+È possibile modificare i poligoni esistenti. Per attivare o disattivare questo comportamento usare lo strumento **Lock/unlock regions** (Blocca/Sblocca aree) ![Modificare i poligoni con lo strumento Lock/unlock regions](./media/how-to-label-images/lock-bounding-boxes-tool.png) oppure selezionare "L". Se le aree sono bloccate, è possibile cambiare solo la forma o la posizione di un nuovo poligono.
+
+Usare lo strumento **Add or remove polygon points** (Aggiungi o Rimuovi punti poligoni) ![Strumento Add or remove polygon points](./media/how-to-label-images/add-remove-points-tool.png) o selezionare "U" per modificare un poligono esistente. Fare clic sul poligono per aggiungere o rimuovere un punto. Se non è possibile modificare un'area, è probabile che sia stato attivato o disattivato lo strumento **Lock/unlock regions** (Blocca/Sblocca aree).
+
+Per eliminare *tutti* i poligoni nell'immagine corrente, selezionare lo strumento **Delete All Regions** (Elimina tutte le aree) ![Delete all regions tool](./media/how-to-label-images/delete-regions-tool.png) (Strumento Elimina tutte le aree).
+
+Dopo aver creato i poligoni per un'immagine, selezionare **Invia** per salvare il lavoro in corso, che altrimenti non verrà salvato.
+
 ## <a name="finish-up"></a>Completare la procedura
 
 Quando si invia una pagina di dati con tag, Azure assegna all'utente nuovi dati non etichettati da una coda di lavoro. Se non sono disponibili altri dati senza etichetta, verrà visualizzato un messaggio con un collegamento alla home page del portale.
@@ -135,5 +157,4 @@ Al termine dell'etichettatura, selezionare il proprio nome nell'angolo in alto a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [eseguire il training di modelli di classificazione delle immagini in Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
-
+* Informazioni su come [eseguire il training di modelli di classificazione delle immagini in Azure](./tutorial-train-models-with-aml.md)

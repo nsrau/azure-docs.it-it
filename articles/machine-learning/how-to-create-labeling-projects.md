@@ -1,19 +1,19 @@
 ---
 title: Creare un progetto di etichettatura dei dati
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare ed eseguire i progetti di etichettatura per aggiungere tag ai dati per Machine Learning.  Gli strumenti includono l'etichettatura assistita da ML o l'etichettatura Human-in-the-loop per facilitare l'attività.
+description: Informazioni su come creare ed eseguire i progetti di etichettatura per aggiungere tag ai dati per Machine Learning.  Usare l'etichettatura assistita da ML o l'etichettatura Human-in-the-loop per facilitare l'attività.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e30140dc23e64bfc733a0a51fa77fe811ba8fbc7
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: da046fd633120944231ee440605367bdb730cbff
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776120"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543222"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
@@ -189,7 +189,7 @@ Per sospendere o riavviare il progetto, attivare lo stato **In esecuzione** in a
 
 La scheda **Dashboard** indicherà lo stato di avanzamento dell'attività di etichettatura.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Creazione guidata progetto di etichettatura":::
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Dashboard di etichettatura dei dati":::
 
 Il grafico sullo stato di avanzamento mostra il numero di elementi etichettati e il numero di quelli non ancora completati.  Gli elementi in sospeso possono essere:
 
@@ -260,4 +260,4 @@ Il file COCO viene creato nell'archivio BLOB predefinito dell'area di lavoro di 
 
 * [Esercitazione: Creare il primo progetto di etichettatura per la classificazione delle immagini](tutorial-labeling.md).
 * Etichettare le immagini per la [classificazione di immagini o il rilevamento di oggetti](how-to-label-images.md)
-* Altre informazioni su [Azure Machine Learning e Machine Learning Studio (versione classica)](compare-azure-ml-to-studio-classic.md)
+* Altre informazioni su [Azure Machine Learning e Machine Learning Studio (versione classica)](./overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)

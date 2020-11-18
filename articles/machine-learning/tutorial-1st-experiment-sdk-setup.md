@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Introduzione ai notebook di Jupyter (Python)'
 titleSuffix: Azure Machine Learning
-description: Configurazione per le esercitazioni sui notebook di Jupyter. Creare un'area di lavoro di Azure Machine Learning, clonare i notebook di Jupyter nell'area di lavoro e creare un'istanza di ambiente di calcolo in cui eseguire i notebook.
+description: Configurazione per le esercitazioni sui notebook di Jupyter. Creare un'area di lavoro, clonare i notebook nell'area di lavoro e creare un'istanza di ambiente di calcolo in cui eseguire i notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 601e124c1ad87724babfabffc95e9265bc962d87
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 6eb76c9d8cc8447755e045972a7aceddefd1604a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913297"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532971"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Esercitazione: Introduzione al servizio Azure Machine Learning nei notebook di Jupyter
 
@@ -41,7 +41,7 @@ Esistono molti [modi per creare un'area di lavoro](how-to-manage-workspace.md). 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT]
-> Prendere nota dell' *area di lavoro* e della *sottoscrizione*. Queste informazioni saranno necessarie per assicurarsi che l'esperimento venga creato nel posto giusto.
+> Prendere nota dell'*area di lavoro* e della *sottoscrizione*. Queste informazioni saranno necessarie per assicurarsi che l'esperimento venga creato nel posto giusto.
 
 ## <a name="run-a-notebook-in-your-workspace"></a><a name="azure"></a>Eseguire un notebook nell'area di lavoro
 

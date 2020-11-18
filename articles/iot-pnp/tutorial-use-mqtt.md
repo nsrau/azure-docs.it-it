@@ -1,20 +1,20 @@
 ---
-title: Usare MQTT per creare un client del dispositivo Plug and Play IoT | Microsoft Docs
-description: Usare direttamente il protocollo MQTT per creare un client del dispositivo Plug and Play IoT senza usare Azure IoT SDK per dispositivi
+title: 'Esercitazione: Usare MQTT per creare un client del dispositivo Plug and Play IoT di Azure | Microsoft Docs'
+description: 'Esercitazione: Usare direttamente il protocollo MQTT per creare un client del dispositivo Plug and Play IoT senza usare Azure IoT SDK per dispositivi'
 author: ericmitt
 ms.author: ericmitt
 ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d0ac0f000b6a096ae3de1f4f00a17b64f1948c1e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6852b0532b23e46c7b986926b21cd0b7e9f9736d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046282"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421380"
 ---
-# <a name="use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Usare MQTT per sviluppare un client del dispositivo Plug and Play IoT
+# <a name="tutorial---use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Esercitazione: Usare MQTT per sviluppare un client del dispositivo Plug and Play IoT
 
 Se possibile, per creare i client del dispositivo Plug and Play IoT, è consigliabile usare una delle istanze di Azure IoT SDK per dispositivi. Tuttavia, in scenari come l'uso di un dispositivo con vincoli di memoria, potrebbe essere necessario usare una libreria MQTT per comunicare con l'hub IoT.
 
@@ -96,7 +96,7 @@ Eseguire l'applicazione (CTRL+F5). Dopo un paio di secondi verrà visualizzato u
 
 In Azure IoT Explorer è possibile verificare che il dispositivo non è di tipo Plug and Play IoT:
 
-:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Output dell'applicazione di esempio MQTT":::
+:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Dispositivo non di tipo Plug and Play IoT in Azure IoT Explorer":::
 
 ### <a name="make-the-device-an-iot-plug-and-play-device"></a>Impostare il dispositivo come Plug and Play IoT
 
@@ -117,11 +117,11 @@ Ricompilare ed eseguire l'esempio.
 
 Il dispositivo gemello ora include l'ID modello:
 
-:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="Output dell'applicazione di esempio MQTT":::
+:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="Visualizzare l'ID modello in Azure IoT Explorer":::
 
 È ora possibile esplorare il componente Plug and Play IoT:
 
-:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="Output dell'applicazione di esempio MQTT":::
+:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="Visualizzare i componenti in Azure IoT Explorer":::
 
 È ora possibile modificare il codice del dispositivo per implementare i dati di telemetria, le proprietà e i comandi definiti nel modello. Per vedere un'implementazione di esempio del termostato usando la libreria Mosquitto, vedere [Uso di MQTT PnP con l'hub IoT di Azure senza IoT SDK in Windows](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/src/Windows/PnPMQTTWin32) su GitHub.
 

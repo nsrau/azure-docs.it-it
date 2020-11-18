@@ -8,12 +8,12 @@ ms.custom: mvc, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 475c2dfecbc882575955627d73b7159fa33ac4d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 019e6e738ea312b7e6a16c44354c7dcd54e24f2f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710210"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331897"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Esercitazione: Progettare un Database di Azure per PostgreSQL - Server singolo usando l'interfaccia della riga di comando di Azure 
 In questa esercitazione, si usano l'interfaccia della riga di comando di Azure e altre utilità per informazioni su come:
@@ -27,6 +27,9 @@ In questa esercitazione, si usano l'interfaccia della riga di comando di Azure e
 > * Ripristinare i dati
 
 È possibile usare Azure Cloud Shell nel browser oppure [installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli) nel proprio computer per eseguire i comandi di questa esercitazione.
+
+## <a name="prerequisites"></a>Prerequisiti
+Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -199,9 +202,9 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 
 Il comando `az postgres server restore` richiede i parametri seguenti:
 
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
+| resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | name | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Selezionare un punto di ripristino temporizzato. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. È possibile usare il fuso orario locale, ad esempio `2017-04-13T05:59:00-08:00`, o il formato UTC Zulu `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | Il nome o l'ID del server di origine da cui eseguire il ripristino. |
@@ -210,16 +213,21 @@ Il ripristino di un server in un punto nel tempo crea un nuovo server, ovvero un
 
 Il comando è sincrono e il risultato verrà restituito dopo il ripristino del server. Una volta terminato il ripristino, individuare il nuovo server creato. Verificare che i dati siano stati ripristinati come previsto.
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Nei passaggi precedenti sono state create risorse di Azure in un gruppo di server. Se non si prevede di avere bisogno di queste risorse in futuro, eliminare il gruppo di server. Fare clic sul pulsante *Elimina* nella pagina *Panoramica* per il gruppo di server. Quando viene visualizzata la richiesta in una pagina popup, verificare il nome del gruppo di server e fare clic sul pulsante *Elimina* in basso.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione è stato illustrato come usare l'interfaccia della riga di comando di Azure e altre utilità per:
 > [!div class="checklist"]
 > * Creare un database di Azure per il server PostgreSQL
 > * Configurare il firewall del server
-> * Usare l'utilità [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) per creare un database
+> * Usare l'utilità **psql** per creare un database
 > * Caricare dati di esempio
 > * Eseguire query sui dati
 > * Aggiornare i dati
 > * Ripristinare i dati
 
-Per apprendere come usare il portale di Azure per eseguire attività simili, vedere quindi questa esercitazione: [Progettare la prima istanza di Database di Azure per PostgreSQL tramite il portale di Azure](tutorial-design-database-using-azure-portal.md)
+> [!div class="nextstepaction"]
+> [Progettare la prima istanza di Database di Azure per PostgreSQL tramite il portale di Azure](tutorial-design-database-using-azure-portal.md)

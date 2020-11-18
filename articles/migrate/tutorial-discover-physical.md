@@ -4,12 +4,12 @@ description: Informazioni su come individuare i server fisici locali con Valutaz
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e7cbd7939248686a251fdf56bf1a5f1acc952a3a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 83ff63392c6cbcaa6a2ea011eb60199f61844bb1
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314074"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148338"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Esercitazione: Individuare i server fisici con Valutazione server
 
@@ -75,11 +75,15 @@ Se è appena stato creato un account Azure gratuito, si è proprietari della pro
 
 Configurare un account utilizzabile dall'appliance per accedere ai server fisici.
 
-- Per i server Windows configurare un account utente locale in tutti i server Windows da includere nell'individuazione. Aggiungere l'account utente ai gruppi seguenti: - Remote Management Users - Performance Monitor Users - Performance Log Users.
-- Per i server Linux, è necessario un account radice nei server Linux che si desidera individuare. In alternativa, impostare l'accesso nel modo seguente:
-    - setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk
-    - setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk (se /usr/sbin/fdisk non è presente)<br/> - setcap "cap_dac_override, cap_dac_read_search, cap_fowner,cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap=+eip" /sbin/lvm
-    - setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode chmod a+r /sys/class/dmi/id/product_uuid
+- Per i server Windows, usare un account di dominio per i computer aggiunti al dominio e un account locale per i computer che non sono aggiunti al dominio. L'account utente deve essere aggiunto a questi gruppi: Utenti Gestione remota, Performance Monitor Users e Performance Log Users.
+- Per i server Linux, è necessario un account radice nei server Linux che si desidera individuare. In alternativa, è possibile impostare un account non radice con le funzionalità necessarie usando i comandi seguenti:
+
+**Comando** | **Scopo**
+--- | --- |
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(if /usr/sbin/fdisk is not present)_ | Per raccogliere i dati di configurazione del disco
+setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service,cap_net_admin,cap_sys_chroot,cap_sys_admin,<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | Per raccogliere dati sulle prestazioni del disco
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | Per raccogliere il numero di serie del BIOS
+chmod a+r /sys/class/dmi/id/product_uuid | Per raccogliere il GUID BIOS
 
 
 ## <a name="set-up-a-project"></a>Configurare un progetto
@@ -94,7 +98,7 @@ Configurare un nuovo progetto di Azure Migrate.
 
    ![Caselle per il nome del progetto e l'area](./media/tutorial-discover-physical/new-project.png)
 
-7. Selezionare **Create** (Crea).
+7. Selezionare **Crea**.
 8. Attendere alcuni minuti durante la distribuzione del progetto di Azure Migrate.
 
 Lo strumento **Azure Migrate: Valutazione server** viene aggiunto per impostazione predefinita al nuovo progetto.
@@ -137,13 +141,13 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 3.  Verificare le versioni più recenti dell'appliance e i valori hash:
     - Per il cloud pubblico:
 
-        **Scenario** | **Download*** | **Valore hash**
+        **Scenario** | **Scaricare** _ | _ *Valore hash**
         --- | --- | ---
         Server fisico (85,8 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51dd39c3bd23099bc9baaabe29
 
     - Per Azure per enti pubblici:
 
-        **Scenario** | **Download*** | **Valore hash**
+        **Scenario** | **Scaricare** _ | _ *Valore hash**
         --- | --- | ---
         Server fisico (85,8 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  

@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: d23ef7b78f5e97ee8a82f46794f37f3baf05ca49
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: b72530868b2b12e5f95e79be6ad5a2d7ce170b62
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427658"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654678"
 ---
 # <a name="configure-permission-classifications"></a>Configurare le classificazioni delle autorizzazioni
 
@@ -45,7 +45,7 @@ In questo esempio è stato classificato il set minimo di autorizzazioni necessar
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Per classificare le autorizzazioni, è possibile usare il modulo Azure AD PowerShell Preview più recente, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Le classificazioni delle autorizzazioni vengono configurate nell'oggetto **ServicePrincipal** dell'API che pubblica le autorizzazioni.
+Per classificare le autorizzazioni, è possibile usare il modulo Azure AD PowerShell Preview più recente, [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview). Le classificazioni delle autorizzazioni vengono configurate nell'oggetto **ServicePrincipal** dell'API che pubblica le autorizzazioni.
 
 #### <a name="list-the-current-permission-classifications-for-an-api"></a>Elencare le classificazioni delle autorizzazioni correnti per un'API
 
@@ -123,7 +123,7 @@ Per altre informazioni:
 * [Configurare il flusso di lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md)
 * [Informazioni su come gestire il consenso alle applicazioni e valutare le richieste di consenso](manage-consent-requests.md)
 * [Concedere a un'applicazione il consenso amministratore a livello di tenant](grant-admin-consent.md)
-* [Autorizzazioni e consenso in Microsoft Identity Platform](../develop/active-directory-v2-scopes.md)
+* [Autorizzazioni e consenso in Microsoft Identity Platform](../develop/v2-permissions-and-consent.md)
 
 Per ottenere assistenza o trovare risposte alle domande:
 * [Azure AD in StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

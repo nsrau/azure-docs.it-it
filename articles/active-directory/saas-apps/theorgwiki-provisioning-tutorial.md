@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: configurare TheOrgWiki per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: Configurare TheOrgWiki per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in TheOrgWiki.
 services: active-directory
 author: zchia
@@ -8,19 +8,19 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 0a72ea413e7298c8e6cb622cb985e6516435b451
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 8238b9902aafcabc079c551a0eabc7170042209a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255835"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357624"
 ---
-# <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Esercitazione: configurare TheOrgWiki per il provisioning utenti automatico
+# <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Esercitazione: Configurare TheOrgWiki per il provisioning utenti automatico
 
-Questa esercitazione descrive i passaggi da eseguire in TheOrgWiki e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in TheOrgWiki.
+Questa esercitazione descrive la procedura da eseguire in TheOrgWiki e Azure Active Directory (Azure AD) per configurare Azure AD in modo da effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in TheOrgWiki.
 
 > [!NOTE]
 > L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -32,52 +32,52 @@ Questa esercitazione descrive i passaggi da eseguire in TheOrgWiki e Azure Activ
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
 * Un tenant di Azure AD.
-* [Tenant di OrgWiki](https://www.theorgwiki.com/welcome/).
+* [Un tenant di OrgWiki](https://www.theorgwiki.com/welcome/).
 * Un account utente in TheOrgWiki con autorizzazioni di amministratore.
 
-## <a name="assign-users-to-theorgwiki"></a>Assegnare gli utenti a TheOrgWiki
+## <a name="assign-users-to-theorgwiki"></a>Assegnare utenti a TheOrgWiki
 
-Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle assegnazioni. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle assegnazioni. Nel contesto del provisioning utenti automatico vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
-Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a TheOrgWiki. Dopo aver stabilito questo, è possibile assegnare gli utenti e/o i gruppi a TheOrgWiki seguendo le istruzioni riportate qui:
+Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD devono poter accedere a TheOrgWiki. Dopo averlo stabilito, è possibile assegnare gli utenti e/o i gruppi a TheOrgWiki seguendo le istruzioni fornite qui:
 
 * [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
 
 ## <a name="important-tips-for-assigning-users-to-theorgwiki"></a>Suggerimenti importanti per l'assegnazione di utenti a TheOrgWiki
 
-* È consigliabile assegnare un singolo Azure AD utente a TheOrgWiki per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
+* È consigliabile assegnare un singolo utente di Azure AD a TheOrgWiki per testare la configurazione del provisioning utenti automatico. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
 * Quando si assegna un utente a TheOrgWiki, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo **Accesso predefinito** vengono esclusi dal provisioning.
 
 ## <a name="set-up-theorgwiki-for-provisioning"></a>Configurare TheOrgWiki per il provisioning
 
-Prima di configurare TheOrgWiki per il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM in TheOrgWiki.
+Prima di configurare TheOrgWiki per il provisioning utenti automatico con Azure AD, è necessario abilitare il provisioning SCIM in TheOrgWiki.
 
-1. Accedere a [TheOrgWiki Admin Console](https://www.theorgwiki.com/login/). Fare clic su **console di amministrazione**.
+1. Accedere alla [console di amministrazione di TheOrgWiki](https://www.theorgwiki.com/login/). Fare clic su **Admin Console** (Console di amministrazione).
 
-    ![Screenshot del wiki dell'organizzazione con l'avatar utente e la console di amministrazione.](media/theorgwiki-provisioning-tutorial/login.png)
+    ![Screenshot della finestra OrgWiki con l'avatar dell'utente e Admin Console evidenziati.](media/theorgwiki-provisioning-tutorial/login.png)
 
-2. Nella console di amministrazione fare clic sulla **scheda Impostazioni**. 
+2. In Admin Console (Console di amministrazione) fare clic sulla scheda **Settings** (Impostazioni). 
 
-    ![Screenshot della console di amministrazione dell'organizzazione wiki con la scheda Impostazioni denominata.](media/theorgwiki-provisioning-tutorial/settings.png)
+    ![Screenshot della console di amministrazione di TheOrgWiki con la scheda Settings evidenziata.](media/theorgwiki-provisioning-tutorial/settings.png)
     
-3. Passare ad **account del servizio**.
+3. Passare a **Service Accounts** (Account del servizio).
 
-    ![Screenshot della pagina degli account di servizio nella console di amministrazione dell'organizzazione wiki.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
+    ![Screenshot della pagina Service Accounts nella console di amministrazione di TheOrgWiki.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
-4. Fare clic su **+ account del servizio**. In **tipo di account del servizio**selezionare **basato su token**. Fare clic su **Save**.
+4. Fare clic su **+Service Account** (+Account del servizio). In **Service Account Type** (Tipo di account del servizio) selezionare **Token Based** (Basato su token). Fare clic su **Salva**.
 
-    ![Screenshot della finestra di dialogo nuovo account del servizio con le opzioni tipo di account del servizio, basato su token e Salva.](media/theorgwiki-provisioning-tutorial/auth.png)
+    ![Screenshot della finestra di dialogo New Service Account con le opzioni Service Account Type, Token Based e Save evidenziate.](media/theorgwiki-provisioning-tutorial/auth.png)
 
-5.  Copiare i **token attivi**. Questo valore verrà immesso nel campo token segreto nella scheda provisioning dell'applicazione TheOrgWiki nel portale di Azure.
+5.  Copiare il valore di **Active Tokens** (Token attivi). Questo valore verrà immesso nel campo Token segreto nella scheda Provisioning dell'applicazione TheOrgWiki nel portale di Azure.
      
-    ![Screenshot della finestra di dialogo Gestisci token per il provisioning S C I M.](media/theorgwiki-provisioning-tutorial/token.png)
+    ![Screenshot della finestra di dialogo Manage Tokens for SCIM provisioning.](media/theorgwiki-provisioning-tutorial/token.png)
 
 ## <a name="add-theorgwiki-from-the-gallery"></a>Aggiungere TheOrgWiki dalla raccolta
 
-Per configurare TheOrgWiki per il provisioning utenti automatico con Azure AD, è necessario aggiungere TheOrgWiki dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS gestite.
+Per configurare TheOrgWiki per il provisioning utenti automatico con Azure AD, è necessario aggiungere TheOrgWiki dalla raccolta di applicazioni di Azure AD al proprio elenco di applicazioni SaaS gestite.
 
-1. Nel riquadro di spostamento a sinistra del **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory**.
+1. Nel **[portale di Azure](https://portal.azure.com)** selezionare **Azure Active Directory** nel riquadro di spostamento sinistro.
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
@@ -85,33 +85,33 @@ Per configurare TheOrgWiki per il provisioning utenti automatico con Azure AD, �
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-3. Per aggiungere una nuova applicazione, selezionare il pulsante **nuova applicazione** nella parte superiore del riquadro.
+3. Per aggiungere una nuova applicazione, selezionare il pulsante **Nuova applicazione** nella parte superiore del riquadro.
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **TheOrgWiki**, selezionare **TheOrgWiki** nel pannello dei risultati. 
+4. Nella casella di ricerca immettere **TheOrgWiki**, quindi selezionare **TheOrgWiki** nel pannello dei risultati. 
 
     ![TheOrgWiki nell'elenco risultati](common/search-new-app.png)
 
-5. Selezionare il pulsante **Iscriviti a TheOrgWiki** che consente di reindirizzare la pagina di accesso di TheOrgWiki. 
+5. Fare clic sul pulsante **Sign-up for TheOrgWiki** (Iscrizione per TheOrgWiki) per essere reindirizzati alla pagina di accesso di TheOrgWiki. 
 
-    ![Screenshot della pagina di accesso dell'organizzazione wiki con l'URL denominato](media/theorgwiki-provisioning-tutorial/image00.png)
+    ![Screenshot della pagina di accesso di TheOrgWiki con l'URL evidenziato](media/theorgwiki-provisioning-tutorial/image00.png)
 
-6.  Nell'angolo superiore destro selezionare **login**.
+6.  Nell'angolo superiore destro selezionare **Login** (Accedi).
 
-    ![Screenshot dell'angolo superiore destro della pagina di accesso con l'opzione di accesso denominata.](media/theorgwiki-provisioning-tutorial/image02.png)
+    ![Screenshot dell'angolo superiore destro della pagina di accesso con l'opzione Login evidenziata.](media/theorgwiki-provisioning-tutorial/image02.png)
 
-7. Poiché TheOrgWiki è un'app OpenIDConnect, scegliere di accedere a OrgWiki con l'account Microsoft Work.
+7. Poiché TheOrgWiki è un'app OpenIDConnect, scegliere di accedere a TheOrgWiki usando l'account aziendale Microsoft.
 
-    ![Screenshot della pagina di accesso alla wiki dell'organizzazione con l'opzione Accedi con Microsoft denominata.](media/theorgwiki-provisioning-tutorial/image03.png)
+    ![Screenshot della pagina di accesso di The Org Wiki con l'opzione Sign in with Microsoft evidenziata.](media/theorgwiki-provisioning-tutorial/image03.png)
     
-8. Una volta completata l'autenticazione, l'applicazione verrà aggiunta automaticamente al tenant e si verrà reindirizzati all'account TheOrgWiki.
+8. Dopo l'autenticazione, l'applicazione verrà aggiunta automaticamente al tenant e si verrà reindirizzati all'account TheOrgWiki.
 
-    ![OrgWiki aggiungere SCIM](media/theorgwiki-provisioning-tutorial/image04.png)
+    ![Aggiunta di SCIM in TheOrgWiki](media/theorgwiki-provisioning-tutorial/image04.png)
 
 ## <a name="configure-automatic-user-provisioning-to-theorgwiki"></a>Configurare il provisioning utenti automatico in TheOrgWiki 
 
-Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in TheOrgWiki in base alle assegnazioni di utenti e/o gruppi in Azure AD.
+Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in TheOrgWiki in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
 
 ### <a name="to-configure-automatic-user-provisioning-for-theorgwiki-in-azure-ad"></a>Per configurare il provisioning utenti automatico per TheOrgWiki in Azure AD:
@@ -122,24 +122,24 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 2. Nell'elenco delle applicazioni selezionare **TheOrgWiki**.
 
-    ![Collegamento di OrgWiki nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di TheOrgWiki nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
+    ![Screenshot delle opzioni disponibili in Gestisci con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatico evidenziata.](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/` in **URL tenant**. 
+5. Nella sezione **Credenziali amministratore** immettere `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/` in **URL tenant**. 
 
     Esempio: `https://test1.theorgwiki.com/api/v2/scim/v2/`
 
 > [!NOTE]
-> Il **valore del sottodominio** può essere impostato solo durante il processo di iscrizione iniziale per TheOrgWiki.
+> Il valore di **Subdomain Value** può essere impostato solo durante il processo di iscrizione iniziale a TheOrgWiki.
  
-6. Immettere il valore del token nel campo **token segreto** recuperato in precedenza da TheOrgWiki. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a TheOrgWiki. Se la connessione non riesce, verificare che l'account TheOrgWiki disponga delle autorizzazioni di amministratore e riprovare.
+6. Nel campo **Token segreto** immettere il valore del token che è stato recuperato in precedenza da TheOrgWiki. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a TheOrgWiki. Se la connessione non riesce, verificare che l'account TheOrgWiki abbia autorizzazioni di amministratore e riprovare.
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -147,23 +147,23 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-8. Fare clic su **Save**.
+8. Fare clic su **Salva**.
 
-9. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a TheOrgWiki**.
+9. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to TheOrgWiki** (Sincronizza utenti di Azure Active Directory in TheOrgWiki).
 
-    ![Mapping utente TheOrgWiki](media/theorgwiki-provisioning-tutorial/usermapping.png)
+    ![Mapping utente in TheOrgWiki](media/theorgwiki-provisioning-tutorial/usermapping.png)
 
-10. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a TheOrgWiki nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in TheOrgWiki per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+10. Esaminare gli attributi utente sincronizzati da Azure AD a TheOrgWiki nella sezione **Mapping attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per l'abbinamento con gli account utente in TheOrgWiki per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
     ![Attributi utente di TheOrgWiki](media/theorgwiki-provisioning-tutorial/userattribute.png).
 
 11. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Per abilitare il servizio di provisioning Azure AD per TheOrgWiki, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+12. Per abilitare il servizio di provisioning di Azure AD per TheOrgWiki, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-13. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in OrgWiki selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
+13. Definire gli utenti e/o i gruppi di cui si vuole effettuare il provisioning in TheOrgWiki selezionando i valori desiderati in **Ambito** nella sezione **Impostazioni**.
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
@@ -171,9 +171,9 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive. Per ulteriori informazioni sul tempo necessario per il provisioning di utenti e/o gruppi, vedere [quanto tempo sarà necessario per il provisioning degli utenti](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo rispetto a quelle successive. Per altre informazioni sul tempo necessario per effettuare il provisioning di utenti e/o gruppi, vedere [Quanto tempo sarà necessario per eseguire il provisioning degli utenti?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-È possibile usare la sezione **stato corrente** per monitorare lo stato di avanzamento e selezionare i collegamenti al report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio Azure ad provisioning su TheOrgWiki. Per altre informazioni, vedere [Controllare lo stato del provisioning utenti](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Per leggere i log di provisioning di Azure AD, vedere [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
+È possibile usare la sezione **Stato corrente** per monitorare lo stato di avanzamento e selezionare i collegamenti al report delle attività di provisioning, che descrive tutte le azioni eseguite dal servizio di provisioning di Azure AD in TheOrgWiki. Per altre informazioni, vedere [Controllare lo stato del provisioning utenti](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Per leggere i log di provisioning di Azure AD, vedere [Creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

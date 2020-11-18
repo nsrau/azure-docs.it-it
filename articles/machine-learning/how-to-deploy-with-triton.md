@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: afa1d958e054a769ea0f19b82afdf55a94c3d0cf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3a7d750caed297dfa364e2f1ef176ee19ad35480
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309719"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654207"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Servizio a prestazioni elevate con il server di inferenza Triton (anteprima) 
 
@@ -47,7 +47,7 @@ Prima di provare a usare Triton per un modello personalizzato, è importante com
 
 * Sono stati avviati più [Gunicorn](https://gunicorn.org/) Worker per gestire simultaneamente le richieste in ingresso.
 * Questi thread di lavoro gestiscono la pre-elaborazione, la chiamata al modello e la post-elaborazione. 
-* Le richieste di inferenza usano l'URI di assegnazione dei __punteggi__ Ad esempio: `https://myserevice.azureml.net/score`.
+* Le richieste di inferenza usano l'URI di assegnazione dei __punteggi__ Ad esempio, `https://myserevice.azureml.net/score`
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Diagramma dell'architettura di distribuzione normale, non Triton":::
 
@@ -56,7 +56,7 @@ Prima di provare a usare Triton per un modello personalizzato, è importante com
 * Sono stati avviati più [Gunicorn](https://gunicorn.org/) Worker per gestire simultaneamente le richieste in ingresso.
 * Le richieste vengono inviate al **Server Triton**. 
 * Triton elabora le richieste in batch per ottimizzare l'utilizzo della GPU.
-* Il client usa l' __URI__ di assegnazione dei punteggi per eseguire le richieste. Ad esempio: `https://myserevice.azureml.net/score`.
+* Il client usa l' __URI__ di assegnazione dei punteggi per eseguire le richieste. Ad esempio, `https://myserevice.azureml.net/score`
 
 :::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Distribuzione Inferenceconfig con Triton":::
 
@@ -66,7 +66,11 @@ Il flusso di lavoro per usare Triton per la distribuzione del modello è il segu
 1. Verificare che sia possibile inviare richieste al modello distribuito da Triton.
 1. Incorporare il codice specifico di Triton nella distribuzione di AML.
 
-## <a name="optional-define-a-model-config-file"></a>Opzionale Definire un file di configurazione del modello
+## <a name="verify-that-triton-can-serve-your-model"></a>Verificare che Triton possa gestire il modello
+
+Per prima cosa, attenersi alla procedura seguente per verificare che il server di inferenza Triton possa gestire il modello.
+
+### <a name="optional-define-a-model-config-file"></a>Opzionale Definire un file di configurazione del modello
 
 Il file di configurazione del modello indica a Triton il numero di input da prevedere e le dimensioni di tali input. Per ulteriori informazioni sulla creazione del file di configurazione, vedere [configurazione del modello](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html) nella documentazione di NVIDIA.
 
@@ -75,7 +79,7 @@ Il file di configurazione del modello indica a Triton il numero di input da prev
 > 
 > Per ulteriori informazioni su questa opzione, vedere la pagina relativa alla [configurazione del modello generata](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_configuration.html#generated-model-configuration) nella documentazione di NVIDIA.
 
-## <a name="directory-structure"></a>Struttura di directory
+### <a name="use-the-correct-directory-structure"></a>Usa la struttura di directory corretta
 
 Quando si registra un modello con Azure Machine Learning, è possibile registrare singoli file o una struttura di directory. Per usare Triton, la registrazione del modello deve essere relativa a una struttura di directory contenente una directory denominata `triton` . La struttura generale di questa directory è la seguente:
 
@@ -93,7 +97,7 @@ models
 > [!IMPORTANT]
 > Questa struttura di directory è un repository di modelli Triton ed è necessaria per il funzionamento dei modelli con Triton. Per ulteriori informazioni, vedere la pagina relativa ai [repository di modelli Triton](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/model_repository.html) nella documentazione di NVIDIA.
 
-## <a name="test-with-triton-and-docker"></a>Eseguire test con Triton e Docker
+### <a name="test-with-triton-and-docker"></a>Eseguire test con Triton e Docker
 
 Per testare il modello per verificare che venga eseguito con Triton, è possibile usare Docker. I comandi seguenti effettuano il pull del contenitore Triton nel computer locale e quindi avviano il server Triton:
 
@@ -146,7 +150,7 @@ Oltre a un controllo di integrità di base, è possibile creare un client per in
 
 Per altre informazioni sull'esecuzione di Triton con Docker, vedere [esecuzione di Triton in un sistema con una GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-with-a-gpu) ed [esecuzione di Triton in un sistema senza GPU](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/run.html#running-triton-on-a-system-without-a-gpu).
 
-## <a name="register-your-model"></a>Registrare il modello
+### <a name="register-your-model"></a>Registrare il modello
 
 Ora che è stato verificato che il modello funziona con Triton, registrarlo con Azure Machine Learning. Registrazione modelli archivia i file del modello nell'area di lavoro Azure Machine Learning e vengono usati quando si esegue la distribuzione con Python SDK e l'interfaccia della riga di comando di Azure.
 
@@ -176,9 +180,9 @@ az ml model register --model-path='triton' \
 
 <a id="processing"></a>
 
-## <a name="add-pre-and-post-processing"></a>Aggiungere pre e post-elaborazione
+## <a name="verify-you-can-call-into-your-model"></a>Verificare che sia possibile chiamare il modello
 
-Dopo aver verificato il corretto funzionamento del servizio Web, è possibile aggiungere codice di pre e post-elaborazione definendo uno _script di immissione_. Questo file è denominato `score.py` . Per ulteriori informazioni sugli script di immissione, vedere [definire uno script di immissione](how-to-deploy-and-where.md#define-an-entry-script).
+Dopo aver verificato che Triton è in grado di gestire il modello, è possibile aggiungere il codice di pre e post-elaborazione definendo uno _script di immissione_. Questo file è denominato `score.py` . Per ulteriori informazioni sugli script di immissione, vedere [definire uno script di immissione](how-to-deploy-and-where.md#define-an-entry-script).
 
 I due passaggi principali sono l'inizializzazione di un client HTTP Triton nel `init()` metodo e la chiamata al client nella `run()` funzione.
 

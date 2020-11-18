@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: encorona
-ms.openlocfilehash: 290f9ee9c23071ac56b1ff0c65ddc03decbc7344
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 1bffb09d0f49bbd0059e8a528d67bfe215f0650d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94571215"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654348"
 ---
 # <a name="update-a-command-from-the-client"></a>Aggiornare un comando dal client
 
@@ -121,17 +121,30 @@ Si consideri, ad esempio, lo scenario in cui si vuole inviare l'ID e il nome del
 Per testare questo scenario, è possibile creare un nuovo comando nell'applicazione corrente.
 1. Creare un nuovo comando denominato GetDeviceInfo.
 1. Aggiungere una frase di esempio con "Get Device Info".
-1. Nella regola di completamento "operazione completata" aggiungere un'azione Invia risposta vocale.
+1. Nella regola di completamento "operazione completata" aggiungere un'azione Invia risposta vocale che contiene gli attributi di clientContext.
     > ![Invia risposta vocale con contesto](media/custom-commands/send-speech-response-context.png)
-1. Salvare ed eseguire il training dell'applicazione.
-1. Testare l'applicazione.
+1. Salva, Esegui il training e testa la tua applicazione.
+1. Una volta nella finestra di test, inviare un'attività per aggiornare il contesto client.
+    > ```json
+    >{
+    >   "type": "event",
+    >   "name": "RemoteUpdate",
+    >   "value": {
+    >     "clientContext": {
+    >       "deviceId": "12345",
+    >       "deviceName": "My device"
+    >     },
+    >     "processTurn": false
+    >   }
+    >}
+    > ```
+1. Inviare il testo "Get Device Info".
     > ![Invia attività contesto client](media/custom-commands/send-client-context-activity.png)
 
 Prendere nota di alcune operazioni.
 1. È sufficiente inviare questa attività una sola volta (idealmente subito dopo l'avvio di una connessione).
-1. Per ClientContext è possibile usare oggetti complessi.
-1. È possibile usare ClientContext nelle risposte vocali per inviare le attività e quando si chiamano gli endpoint Web.
-
+1. Per clientContext è possibile usare oggetti complessi.
+1. È possibile usare clientContext nelle risposte vocali per inviare le attività e quando si chiamano gli endpoint Web.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

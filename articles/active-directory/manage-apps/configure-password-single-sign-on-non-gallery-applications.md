@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 9b48bc62fc0548c0c4f431e71598fdfa6850de13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b647e15d3fc99a7f15fbc24e2b6050fdfdc6e93
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598337"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654712"
 ---
 # <a name="understand-password-based-single-sign-on"></a>Informazioni Single Sign-On basate su password
 
@@ -29,11 +29,11 @@ SSO basato su password è un ottimo modo per iniziare a integrare rapidamente le
 
 - Supportare applicazioni che richiedono più campi di accesso per applicazioni che richiedono non solo i campi di nome utente e password per accedere
 
-- Personalizzare le etichette dei campi nome utente e password visualizzati dagli utenti nelle [app](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) quando immettono le credenziali
+- Personalizzare le etichette dei campi nome utente e password visualizzati dagli utenti nelle [app](../user-help/my-apps-portal-end-user-access.md) quando immettono le credenziali
 
 - Consentire agli utenti di fornire i propri nomi utente e password per tutti gli account dell'applicazione esistenti digitati manualmente.
 
-- Consentire a un membro del gruppo aziendale di specificare i nome utente e le password assegnati a un utente tramite la funzionalità di [accesso all'applicazione self-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
+- Consentire a un membro del gruppo aziendale di specificare i nome utente e le password assegnati a un utente tramite la funzionalità di [accesso all'applicazione self-service](./manage-self-service-access.md)
 
 -   Consentire a un amministratore di specificare un nome utente e una password da usare per singoli utenti o gruppi quando accedono all'applicazione con la funzionalità Aggiorna credenziali 
 
@@ -44,7 +44,7 @@ L'utilizzo di Azure AD come provider di identità (IdP) e la configurazione di S
 > [!IMPORTANT] 
 > Esistono alcuni scenari in cui l'opzione **Single Sign-on** non verrà spostata per un'applicazione nelle **applicazioni aziendali**. 
 >
-> Se l'applicazione è stata registrata usando **registrazioni app** , la funzionalità Single Sign-on è configurata in modo da usare OAuth OIDC per impostazione predefinita. In questo caso, l'opzione **Single Sign-on** non verrà visualizzata nella finestra di navigazione in **applicazioni aziendali**. Quando si usa **registrazioni app** per aggiungere l'app personalizzata, si configurano le opzioni nel file manifesto. Per ulteriori informazioni sul file manifesto, vedere [Azure Active Directory manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). Per altre informazioni sugli standard SSO, vedere [autenticazione e autorizzazione con la piattaforma di identità Microsoft](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+> Se l'applicazione è stata registrata usando **registrazioni app** , la funzionalità Single Sign-on è configurata in modo da usare OAuth OIDC per impostazione predefinita. In questo caso, l'opzione **Single Sign-on** non verrà visualizzata nella finestra di navigazione in **applicazioni aziendali**. Quando si usa **registrazioni app** per aggiungere l'app personalizzata, si configurano le opzioni nel file manifesto. Per ulteriori informazioni sul file manifesto, vedere [Azure Active Directory manifesto dell'applicazione](../develop/reference-app-manifest.md). Per altre informazioni sugli standard SSO, vedere [autenticazione e autorizzazione con la piattaforma di identità Microsoft](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-microsoft-identity-platform). 
 >
 > Gli altri scenari in cui l' **accesso Single Sign-on** non sarà presente nella navigazione includono quando un'applicazione è ospitata in un altro tenant o se l'account non ha le autorizzazioni necessarie (amministratore globale, amministratore dell'applicazione cloud, amministratore dell'applicazione o proprietario dell'entità servizio). Le autorizzazioni possono anche causare uno scenario in cui è possibile aprire l' **accesso Single Sign-on** , ma non sarà possibile salvarlo. Per ulteriori informazioni sui ruoli amministrativi Azure AD, vedere ( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) .
 
@@ -60,14 +60,14 @@ La pagina di configurazione per SSO basato su password è semplice. Include solo
 
 Dopo aver immesso l'URL, selezionare **Salva**. Azure AD analizza il codice HTML della pagina di accesso per i campi di input di nome utente e password. Se il tentativo ha esito positivo, l'operazione è completata.
  
-Il passaggio successivo consiste nell' [assegnare utenti o gruppi all'applicazione](methods-for-assigning-users-and-groups.md). Dopo aver assegnato utenti e gruppi, è possibile fornire le credenziali da usare per un utente durante l'accesso all'applicazione. Selezionare **utenti e gruppi**, selezionare la casella di controllo per la riga dell'utente o del gruppo, quindi selezionare **Aggiorna credenziali**. Infine, immettere il nome utente e la password da usare per l'utente o il gruppo. In caso contrario, agli utenti verrà richiesto di immettere le credenziali all'avvio.
+Il passaggio successivo consiste nell' [assegnare utenti o gruppi all'applicazione](./assign-user-or-group-access-portal.md). Dopo aver assegnato utenti e gruppi, è possibile fornire le credenziali da usare per un utente durante l'accesso all'applicazione. Selezionare **utenti e gruppi**, selezionare la casella di controllo per la riga dell'utente o del gruppo, quindi selezionare **Aggiorna credenziali**. Infine, immettere il nome utente e la password da usare per l'utente o il gruppo. In caso contrario, agli utenti verrà richiesto di immettere le credenziali all'avvio.
  
 
 ## <a name="manual-configuration"></a>Configurazione manuale
 
 Se il tentativo di analisi del Azure AD ha esito negativo, è possibile configurare l'accesso manualmente.
 
-1. In ** \<application name> configurazione**selezionare **Configura \<application name> le impostazioni di Single Sign-on basato su password** per visualizzare la pagina **Configura accesso** . 
+1. In **\<application name> configurazione** selezionare **Configura \<application name> le impostazioni di Single Sign-on basato su password** per visualizzare la pagina **Configura accesso** . 
 
 2. Selezionare **rileva manualmente i campi di accesso**. Verranno visualizzate altre istruzioni che descrivono il rilevamento manuale dei campi di accesso.
 
@@ -88,5 +88,5 @@ Se il tentativo di analisi del Azure AD ha esito negativo, è possibile configur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Assegnare utenti o gruppi all'applicazione](methods-for-assigning-users-and-groups.md)
+- [Assegnare utenti o gruppi all'applicazione](./assign-user-or-group-access-portal.md)
 - [Configurare il provisioning automatico degli account utente](../app-provisioning/configure-automatic-user-provisioning-portal.md)

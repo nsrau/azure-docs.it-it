@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: aa4ddfc773e2226fe155b563c237f1c533d52311
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 23173432db9364f25901e6e9b285d390c6a63a34
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127029"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426546"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Esercitazione: Creare un'istanza di IoT Edge per l'analisi video (macchina virtuale Linux)
 
@@ -55,7 +55,7 @@ Usare le informazioni nella tabella seguente per completare il modulo **Distribu
 | Nome utente amministratore | *AzureUser* |
 | Password amministratore | Immettere una password. Prendere nota della password nel file *scratchpad.txt* perché sarà necessaria in seguito. |
 | ID ambito | Valore di **ID ambito** annotato nel file *scratchpad.txt* nell'esercitazione precedente quando è stato aggiunto il dispositivo gateway. |
-| ID dispositivo | *lva-gateway-001*, ovvero il dispositivo gateway creato nell'esercitazione precedente. |
+| ID dispositivo | *gateway-001*, ovvero il dispositivo gateway creato nell'esercitazione precedente. |
 | Chiave del dispositivo | Chiave primaria del dispositivo annotata nel file *scratchpad.txt* nell'esercitazione precedente quando è stato aggiunto il dispositivo gateway. |
 | Iot Central App Host (Host app IoT Central) | Valore di **URL applicazione** annotato nel file *scratchpad.txt* nell'esercitazione precedente. Ad esempio, *traders.azureiotcentral.com*. |
 | Iot Central App Api Token (Token API app IoT Central) | Token dell'API dell'operatore annotato nell'esercitazione precedente. |

@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8942a55d880132313e1cdac6bfc025e0b153b410
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57deed9d7fb178ba1cdc8d6e954d751752532de4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707952"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654406"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemi di accesso a un'applicazione Microsoft
 
@@ -63,7 +63,7 @@ Di seguito sono riportati alcuni problemi comuni che vengono riscontrati quando 
 
   * Assicurarsi che l'account dell'utente sia **abilitato** per gli accessi. [Controllare lo stato dell'account di un utente](#problems-with-the-users-account)
 
-  * Verificare che la **password dell'utente non sia scaduta o non sia stata dimenticata**. [Reimpostare la password di un utente](#reset-a-users-password) o [Abilitare la reimpostazione self-service delle password](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+  * Verificare che la **password dell'utente non sia scaduta o non sia stata dimenticata**. [Reimpostare la password di un utente](#reset-a-users-password) o [Abilitare la reimpostazione self-service delle password](../authentication/tutorial-enable-sspr.md)
 
   * Verificare che **Multi-Factor Authentication** non blocchi l'accesso utente. [Controllare lo stato di autenticazione a più fattori di un utente](#check-a-users-multi-factor-authentication-status) o [Controllare le informazioni di contatto per l'autenticazione di un utente](#check-a-users-authentication-contact-info)
 
@@ -179,9 +179,9 @@ Per reimpostare la password di un utente, seguire questa procedura:
 
 Per abilitare la reimpostazione self-service delle password, eseguire questa procedura di distribuzione:
 
--   [Consentire agli utenti di reimpostare le password di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Consentire agli utenti di reimpostare le password di Azure AD](../authentication/tutorial-enable-sspr.md)
 
--   [Consentire agli utenti di reimpostare o modificare le password locali di Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+-   [Consentire agli utenti di reimpostare o modificare le password locali di Active Directory](../authentication/tutorial-enable-sspr.md)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>Controllare lo stato di autenticazione a più fattori di un utente
 
@@ -508,26 +508,25 @@ L'accesso all'applicazione può essere bloccato poiché non è stata eseguita l'
 
 -   Per qualsiasi applicazione abilitata a OpenID Connect che richiede le autorizzazioni, lo spostamento sulla schermata di accesso rappresenta un consenso a livello di utente all'applicazione per l'utente connesso.
 
--   Se si desidera eseguire questa operazione a livello di codice, vedere [Richiesta di consenso per un singolo utente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent).
+-   Se si desidera eseguire questa operazione a livello di codice, vedere [Richiesta di consenso per un singolo utente](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent).
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Eseguire un'operazione di consenso a livello di amministratore per qualsiasi applicazione
 
 -   **Solo per le applicazioni sviluppate usando il modello di applicazione V1**, è possibile imporre questo consenso a livello di amministratore aggiungendo "**?prompt=admin\_consent**" alla fine dell'URL di accesso di un'applicazione.
 
--   Per **qualsiasi applicazione sviluppata usando il modello di applicazione V2**, è possibile applicare questo consenso a livello di amministratore attenendosi alle istruzioni riportate nella sezione **Richiedere le autorizzazioni da un amministratore di directory** di [Uso dell'endpoint di consenso dell'amministratore](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Per **qualsiasi applicazione sviluppata usando il modello di applicazione V2**, è possibile applicare questo consenso a livello di amministratore attenendosi alle istruzioni riportate nella sezione **Richiedere le autorizzazioni da un amministratore di directory** di [Uso dell'endpoint di consenso dell'amministratore](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Eseguire un'operazione di consenso a livello di amministratore per un'applicazione a tenant singolo
 
 -   Per le **applicazioni a tenant singolo** che richiedono autorizzazioni (ad esempio quelle sviluppate internamente o di proprietà dell'organizzazione), è possibile eseguire un'operazione di **consenso a livello di amministratore** per conto di tutti gli utenti accedendo come amministratore globale e facendo clic sul pulsante **Concedi autorizzazioni** nella parte superiore del riquadro **Registro applicazioni -&gt; Tutte le applicazioni -&gt; Seleziona un'app -&gt; Autorizzazioni necessarie**.
 
--   Per **qualsiasi applicazione sviluppata usando il modello di applicazione V1 o V2**, è possibile applicare questo consenso a livello di amministratore attenendosi alle istruzioni riportate nella sezione **Richiedere le autorizzazioni da un amministratore di directory** di [Uso dell'endpoint di consenso dell'amministratore](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   Per **qualsiasi applicazione sviluppata usando il modello di applicazione V1 o V2**, è possibile applicare questo consenso a livello di amministratore attenendosi alle istruzioni riportate nella sezione **Richiedere le autorizzazioni da un amministratore di directory** di [Uso dell'endpoint di consenso dell'amministratore](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Eseguire un'operazione di consenso a livello di amministratore per un'applicazione multi-tenant
 
 -   Per le **applicazioni multi-tenant** che richiedono autorizzazioni (ad esempio un'applicazione sviluppata da terza parte o da Microsoft), è possibile eseguire un'operazione di **consenso a livello di amministratore**. Accedere come amministratore globale e fare clic sul pulsante **Concedi autorizzazioni** nel riquadro **Applicazioni aziendali -&gt; Tutte le applicazioni -&gt; Seleziona un'app -&gt; Autorizzazioni** (presto disponibile).
 
--   È anche possibile applicare questo consenso a livello di amministratore attenendosi alle istruzioni riportate nella sezione **Richiedere le autorizzazioni da un amministratore di directory** di [Uso dell'endpoint di consenso dell'amministratore](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   È anche possibile applicare questo consenso a livello di amministratore attenendosi alle istruzioni riportate nella sezione **Richiedere le autorizzazioni da un amministratore di directory** di [Uso dell'endpoint di consenso dell'amministratore](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Uso dell'endpoint di consenso dell'amministratore](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
-
+[Uso dell'endpoint di consenso dell'amministratore](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint)

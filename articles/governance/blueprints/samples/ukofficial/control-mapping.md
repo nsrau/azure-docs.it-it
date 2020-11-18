@@ -1,14 +1,14 @@
 ---
 title: Controlli degli esempi di progetti UK OFFICIAL e UK NHS
 description: Mapping dei controlli degli esempi di progetti UK OFFICIAL e UK NHS. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: b798ac98e057b85cce0faa835575dbb0d50f9c8c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 352ba30a21c638c68401e2f8e471096a777fbde9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931273"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420258"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapping dei controlli degli esempi di progetti UK OFFICIAL e UK NHS
 
@@ -26,7 +26,6 @@ Il progetto consente di assicurarsi che il trasferimento di informazioni con i s
 - Devono essere abilitate solo connessioni sicure alla Cache Redis
 - Il trasferimento sicuro negli account di archiviazione deve essere abilitato
 - Mostra i risultati del controllo dai server Web Windows che non usano protocolli di comunicazione sicuri
-- Distribuisci i prerequisiti per controllare i server Web Windows che non usano protocolli di comunicazione sicuri
 - L'applicazione Web deve essere accessibile solo tramite HTTPS
 - L'app per le funzioni deve essere accessibile solo tramite HTTPS
 - L'app per le API deve essere accessibile solo tramite HTTPS
@@ -55,19 +54,19 @@ Questo progetto consente di gestire le vulnerabilità dei sistemi informativi as
 - Le vulnerabilità dei database SQL devono essere risolte
 - Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità
 - La valutazione delle vulnerabilità deve essere abilitata nei server SQL
-- La valutazione delle vulnerabilità deve essere abilitata nelle istanze gestite di SQL
+- È necessario abilitare la valutazione della vulnerabilità nell'istanza gestita di SQL
 - Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte
-- La sicurezza dei dati avanzata deve essere abilitata nelle istanze gestite di SQL
+- È consigliabile abilitare la sicurezza avanzata dei dati nell'istanza gestita di SQL
 - Sicurezza dei dati avanzata deve essere abilitata nei server SQL
 
 ## <a name="53-protective-monitoring"></a>5.3 Monitoraggio protettivo
 
 Questo progetto consente di proteggere gli asset dei sistemi informativi assegnando definizioni di [Criteri di Azure](../../../policy/overview.md) che forniscono il monitoraggio protettivo dell'accesso senza restrizioni, dell'attività di inserimento di elementi consentiti e delle minacce.
 
-- Controlla l'accesso di rete senza restrizioni agli account di archiviazione
-- I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali
+- Gli account di archiviazione devono limitare l'accesso alla rete
+- I controlli applicazioni adattivi per la definizione delle applicazioni sicure devono essere abilitati nei computer
 - Controlla macchine virtuali in cui non è configurato il ripristino di emergenza
-- Lo standard di protezione DDoS deve essere abilitato
+- La protezione DDoS di Azure Standard deve essere abilitata
 - È consigliabile che i Tipi di Advanced Threat Protection siano impostati su "Tutti" nelle impostazioni di Sicurezza dei dati avanzata nell'istanza gestita di SQL
 - È consigliabile che i Tipi di Advanced Threat Protection siano impostati su "Tutti" nelle impostazioni di Sicurezza dei dati avanzata in SQL Server
 - Distribuisci Rilevamento minacce nelle istanze di SQL Server
@@ -115,11 +114,6 @@ Questo progetto assegna inoltre una definizione di Criteri di Azure che controll
 
 Questo progetto consente di imporre password complesse assegnando definizioni di Criteri di Azure che controllano le VM Windows per cui non sono applicati i requisiti minimi di complessità o di altro tipo per le password. Identificando le VM in violazione dei criteri di complessità delle password, è possibile adottare azioni correttive per assicurarsi che le password di tutti gli account utente delle VM siano conformi ai criteri.
 
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui la validità massima della password non è impostata su 70 giorni
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows che non limitano la lunghezza minima della password a 14 caratteri
-- Distribuisci i prerequisiti per controllare le macchine virtuali Windows che consentono il riutilizzo delle 24 password precedenti
 - Mostra i risultati del controllo dalle macchine virtuali Windows in cui non è abilitata l'impostazione relativa alla complessità della password
 - Mostra i risultati del controllo dalle macchine virtuali Windows in cui la validità minima della password non è impostata su 70 giorni
 - Mostra i risultati del controllo dalle macchine virtuali Windows in cui la validità minima della password non è impostata su 1 giorno
@@ -128,8 +122,6 @@ Questo progetto consente di imporre password complesse assegnando definizioni di
 
 Questo progetto consente inoltre di controllare l'accesso alle risorse di Azure assegnando definizioni di Criteri di Azure. Questi criteri controllano l'uso dei tipi di risorse e le configurazioni che potrebbero consentire un accesso più permissivo alle risorse. Identificando le risorse in violazione di questi criteri, è possibile adottare azioni correttive per restringere l'accesso alla risorse di Azure consentendolo solo agli utenti autorizzati.
 
-- Distribuisci i requisiti per controllare le macchine virtuali Linux in cui sono presenti account senza password
-- Distribuisci requisiti per controllare le macchine virtuali Linux che consentono connessioni remote da account senza password
 - Mostra i risultati del controllo dalle macchine virtuali Linux in cui sono presenti account senza password
 - Mostra i risultati del controllo dalle macchine virtuali Linux che consentono connessioni remote da account senza password
 - È consigliabile eseguire la migrazione degli account di archiviazione alle nuove risorse di Azure Resource Manager
@@ -141,15 +133,15 @@ Questo progetto consente inoltre di controllare l'accesso alle risorse di Azure 
 Invece di usare più di 25 criteri per la gestione appropriata e sicura degli utenti, questo progetto consente di proteggere le interfacce del servizio da accessi non autorizzati assegnando una definizione di [Criteri di Azure](../../../policy/overview.md) che monitora gli account di archiviazione senza restrizioni.
 Gli account di archiviazione con accesso senza restrizioni possono consentire l'accesso non autorizzato alle informazioni contenute nel sistema informativo. Questo progetto assegna inoltre un criterio che abilita i controlli delle applicazioni adattivi nelle macchine virtuali.
 
-- Controlla l'accesso di rete senza restrizioni agli account di archiviazione
-- I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali
+- Gli account di archiviazione devono limitare l'accesso alla rete
+- I controlli applicazioni adattivi per la definizione delle applicazioni sicure devono essere abilitati nei computer
 - L'accesso tramite endpoint con connessione Internet deve essere limitato
 - Le raccomandazioni di Protezione avanzata adattiva per la rete devono essere applicate alle macchine virtuali con connessione Internet
 - La soluzione Endpoint Protection deve essere installata nei set di scalabilità di macchine virtuali
-- Alle macchine virtuali deve essere applicato il controllo di accesso alla rete JIT
-- Il debug remoto deve essere disattivato per l'app per le funzioni
-- Il debug remoto deve essere disattivato per l'applicazione Web
-- Il debug remoto deve essere disattivato per l'app per le API
+- Le porte di gestione delle macchine virtuali devono essere protette tramite un controllo di accesso alla rete JIT
+- Il debug remoto deve essere disattivato per le app per le funzioni
+- Il debug remoto deve essere disattivato per le applicazioni Web
+- Il debug remoto deve essere disattivato per le app per le API
 
 ## <a name="13-audit-information-for-users"></a>13 Informazioni di controllo per gli utenti
 
@@ -161,6 +153,7 @@ Un criterio assegnato controlla inoltre se le macchine virtuali non inviano i lo
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux
 - \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Windows
 - Distribuisci Network Watcher quando vengono create reti virtuali
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

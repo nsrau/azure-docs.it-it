@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: afc851be08e6708efc0138dc45931cda147c67c1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 20173c4ba02f53a526167a5a8e22bd0cedc85594
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895886"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393219"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Esercitazione: Eseguire uno script "Hello world!" di Python t (parte 2 di 4)
 
@@ -99,7 +99,7 @@ Ecco come funziona lo script di controllo:
       `ws = Workspace.from_config()`
    :::column-end:::
    :::column span="2":::
-      [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) si connette all'area di lavoro di Azure Machine Learning in modo che sia possibile comunicare con le risorse di Azure Machine Learning.
+      [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) si connette all'area di lavoro di Azure Machine Learning in modo che sia possibile comunicare con le risorse di Azure Machine Learning.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -107,7 +107,7 @@ Ecco come funziona lo script di controllo:
       `experiment =  Experiment( ... )`
    :::column-end:::
    :::column span="2":::
-      [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) consente di organizzare in modo semplice più esecuzioni sotto un singolo nome. Più avanti si vedrà come gli esperimenti consentano di confrontare facilmente le metriche di decine di esecuzioni.
+      [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) consente di organizzare in modo semplice più esecuzioni sotto un singolo nome. Più avanti si vedrà come gli esperimenti consentano di confrontare facilmente le metriche di decine di esecuzioni.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -115,7 +115,7 @@ Ecco come funziona lo script di controllo:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) esegue il wrapping del codice `hello.py` e lo passa all'area di lavoro. Come indicato dal nome, è possibile usare questa classe per _configurare_ la modalità di _esecuzione_ dello _script_ in Azure Machine Learning. Specifica inoltre la destinazione di calcolo in cui verrà eseguito lo script. In questo codice la destinazione è il cluster di elaborazione creato nell'[esercitazione relativa alla configurazione](tutorial-1st-experiment-sdk-setup-local.md).
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) esegue il wrapping del codice `hello.py` e lo passa all'area di lavoro. Come indicato dal nome, è possibile usare questa classe per _configurare_ la modalità di _esecuzione_ dello _script_ in Azure Machine Learning. Specifica inoltre la destinazione di calcolo in cui verrà eseguito lo script. In questo codice la destinazione è il cluster di elaborazione creato nell'[esercitazione relativa alla configurazione](tutorial-1st-experiment-sdk-setup-local.md).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -123,7 +123,7 @@ Ecco come funziona lo script di controllo:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Invia lo script. Questo invio è denominato [run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true). Un oggetto run incapsula una singola esecuzione del codice. Usare un oggetto run per monitorare lo stato dello script, acquisire l'output, analizzare i risultati, visualizzare le metriche e altro ancora.
+       Invia lo script. Questo invio è denominato [run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py). Un oggetto run incapsula una singola esecuzione del codice. Usare un oggetto run per monitorare lo stato dello script, acquisire l'output, analizzare i risultati, visualizzare le metriche e altro ancora.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -139,6 +139,14 @@ Ecco come funziona lo script di controllo:
 
 Eseguire lo script di controllo, che a sua volta esegue `hello.py` nel cluster di elaborazione creato nell'[esercitazione relativa alla configurazione](tutorial-1st-experiment-sdk-setup-local.md).
 
+La prima esecuzione verrà completata in 5 - 10 minuti, per i motivi seguenti:
+
+* Un'immagine Docker viene creata nel cloud
+* Il cluster di elaborazione viene ridimensionato da 0 a 1 nodo
+* L'immagine Docker viene scaricata nel calcolo. 
+
+Le esecuzioni successive sono molto più veloci (circa 15 secondi) perché l'immagine Docker viene memorizzata nella cache nel calcolo. È possibile testarla reinviando il codice seguente dopo il completamento della prima esecuzione.
+
 ```bash
 python 03-run-hello.py
 ```
@@ -150,7 +158,7 @@ python 03-run-hello.py
 
 L'output conterrà un collegamento a Studio simile al seguente: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
 
-Seguire il collegamento e passare alla scheda **Output e log** , in cui è possibile vedere un file `70_driver_log.txt` simile al seguente:
+Seguire il collegamento e passare alla scheda **Output e log**, in cui è possibile vedere un file `70_driver_log.txt` simile al seguente:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.

@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: dde22fe9997e41d6d17fba94e6b9523d82c7b910
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: e22738f1fff813e5a928b76f8049e810847fe548
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456824"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358151"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Esercitazione: Configurare Box per il provisioning utenti automatico
 
@@ -93,17 +93,17 @@ Questa sezione descrive come abilitare il provisioning degli account utente di A
 
 4. Impostare **Modalità di provisioning** su **Automatico**. 
 
-    ![Screenshot della scheda provisioning per box in portale di Azure. La modalità di provisioning è impostata su automatico e l'autorizzazione è evidenziata nelle credenziali di amministratore.](./media/box-userprovisioning-tutorial/provisioning.png)
+    ![Screenshot della scheda Provisioning per Box nel portale di Azure. L'opzione Modalità di provisioning è impostata su Automatico e il pulsante Autorizza è evidenziato in Credenziali amministratore.](./media/box-userprovisioning-tutorial/provisioning.png)
 
 5. Nella sezione **Credenziali amministratore** fare clic su **Autorizza** per aprire una finestra di dialogo di accesso a Box in una nuova finestra del browser.
 
 6. Nella pagina **Log in to grant access to Box** (Accedere per concedere l'accesso a Box) specificare le credenziali richieste e fare clic su **Authorize** (Autorizza). 
    
-    ![Screenshot dell'accesso per concedere l'accesso alla schermata box, che mostra la voce per la posta elettronica e la password e il pulsante autorizza.](./media/box-userprovisioning-tutorial/IC769546.png "Abilita provisioning utenti automatico")
+    ![Screenshot della schermata Log in to grant access to Box, che mostra l'immissione di Email e Password oltre al pulsante Authorize.](./media/box-userprovisioning-tutorial/IC769546.png "Abilita provisioning utenti automatico")
 
 7. Fare clic su **Grant access to Box** (Concedi l'accesso a Box) per autorizzare l'operazione e tornare al portale di Azure. 
    
-    ![Screenshot della schermata autorizza accesso in box, che mostra un messaggio esplicativo e il pulsante Concedi accesso a box.](./media/box-userprovisioning-tutorial/IC769549.png "Abilita provisioning utenti automatico")
+    ![Screenshot della schermata di autorizzazione accesso a Box, che mostra un messaggio esplicativo e il pulsante Grant access to Box.](./media/box-userprovisioning-tutorial/IC769549.png "Abilita provisioning utenti automatico")
 
 8. Nel portale di Azure fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app Box. Se la connessione non riesce, verificare che l'account di Box abbia autorizzazioni di amministratore di team e ripetere il passaggio **"Autorizza"**.
 
@@ -123,7 +123,7 @@ Viene avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi asse
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
-Nel tenant di Box gli utenti sincronizzati sono elencati in **Utenti gestiti** della console di amministrazione ****.
+Nel tenant di Box gli utenti sincronizzati sono elencati in **Utenti gestiti** della console di amministrazione .
 
 ![Integration status](./media/box-userprovisioning-tutorial/IC769556.png "Integration status")
 
@@ -132,4 +132,4 @@ Nel tenant di Box gli utenti sincronizzati sono elencati in **Utenti gestiti** d
 
 * [Gestione del provisioning degli account utente per app aziendali](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-* [Configura accesso Single Sign-on](box-tutorial.md)
+* [Configurare l'accesso Single Sign-On](box-tutorial.md)
