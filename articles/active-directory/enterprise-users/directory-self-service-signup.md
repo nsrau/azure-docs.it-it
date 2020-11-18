@@ -7,20 +7,20 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec578370d32664e36ffcc4bd075c3f6a3ed68ab
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c0edd85ea4478ac95ea854b73717056d52a9098b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378899"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647563"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Informazioni sull'iscrizione self-service per Azure Active Directory.
 
@@ -35,9 +35,9 @@ Questo articolo illustra come usare l'iscrizione self-service per popolare un'or
 
 ## <a name="terms-and-definitions"></a>Termini e definizioni
 
-* **Iscrizione self-service** : si tratta del metodo in base al quale un utente si iscrive a un servizio cloud e ha un'identità creata automaticamente in Azure AD in base al dominio di posta elettronica.
-* **Directory di Azure non gestita** : si tratta della directory in cui viene creata tale identità. È una directory priva di un amministratore globale.
-* **Utente verificato per la posta elettronica** : si tratta di un tipo di account utente in Azure AD. Un utente che dispone di un'identità creata automaticamente a seguito dell'iscrizione per un'offerta self-service è noto come utente di posta elettronica verificato. Un utente di posta elettronica verificato è un membro regolare di una directory contrassegnata con creationmethod=EmailVerified.
+* **Iscrizione self-service**: si tratta del metodo in base al quale un utente si iscrive a un servizio cloud e ha un'identità creata automaticamente in Azure AD in base al dominio di posta elettronica.
+* **Directory di Azure non gestita**: si tratta della directory in cui viene creata tale identità. È una directory priva di un amministratore globale.
+* **Utente verificato per la posta elettronica**: si tratta di un tipo di account utente in Azure AD. Un utente che dispone di un'identità creata automaticamente a seguito dell'iscrizione per un'offerta self-service è noto come utente di posta elettronica verificato. Un utente di posta elettronica verificato è un membro regolare di una directory contrassegnata con creationmethod=EmailVerified.
 
 ## <a name="how-do-i-control-self-service-settings"></a>Come controllare le impostazioni di self-service?
 

@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 07/01/2020
-ms.openlocfilehash: 8c2e7b6a02c0a0fea32fb1effb30b682971c3f6f
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fa7919f54663387ddef811d02137da6d3ffb9d9b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348781"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646628"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>Avvio rapido: Creare un processo di Analisi di flusso di Azure con l'interfaccia della riga di comando di Azure
 
@@ -23,41 +23,11 @@ Questo argomento di avvio rapido illustra come usare l'interfaccia della riga di
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-* Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prepare-your-environment"></a>Preparare l'ambiente
-
-1. Accedere.
-
-   Accedere usando il comando [az login](/cli/azure/reference-index#az-login) se si usa un'installazione locale dell'interfaccia della riga di comando.
-
-    ```azurecli
-    az login
-    ```
-
-    Seguire le istruzioni visualizzate nel terminale per completare il processo di autenticazione.
-
-2. Installare l'estensione dell'interfaccia della riga di comando di Azure.
-
-   Quando si usano riferimenti a estensioni per l'interfaccia della riga di comando di Azure, è prima di tutto necessario installare l'estensione.  Le estensioni dell'interfaccia della riga di comando di Azure offrono l'accesso a comandi sperimentali e non definitivi che non sono stati ancora distribuiti come parte dell'interfaccia della riga di comando di base.  Per altre informazioni sulle estensioni, incluse le procedure di aggiornamento e disinstallazione, vedere [Usare le estensioni con l'interfaccia della riga di comando di Azure](/cli/azure/azure-cli-extensions-overview).
-
-   Eseguire questo comando per installare l'[estensione per Analisi di flusso](/cli/azure/ext/stream-analytics/stream-analytics):
-
-    ```azurecli
-    az extension add --name stream-analytics
-    ```
-
-   Eseguire questo comando per installare l'[estensione per Azure IoT](/cli/azure/ext/azure-iot):
-
-    ```azurecli
-    az extension add --name azure-iot
-    ```
-
-3. Creare un gruppo di risorse.
-
-   Tutte le risorse di Azure devono essere distribuite in un gruppo di risorse. I gruppi di risorse consentono di organizzare e gestire le risorse di Azure correlate.
+- Creare un gruppo di risorse. Tutte le risorse di Azure devono essere distribuite in un gruppo di risorse. I gruppi di risorse consentono di organizzare e gestire le risorse di Azure correlate.
 
    Per questo argomento di avvio rapido, creare un gruppo di risorse denominato *streamanalyticsrg* nell'area *eastus* con il comando [az group create](/cli/azure/group#az-group-create) seguente:
 
@@ -268,9 +238,9 @@ az stream-analytics job start
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, eliminare il gruppo di risorse, il processo di streaming e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming usate dal processo. Se si prevede di usare il processo in futuro, è possibile non eliminarlo e arrestarlo per il momento. Se non si intende continuare a usare il processo, eliminare tutte le risorse create con questo avvio rapido eseguendo il cmdlet seguente:
+Quando non sono più necessari, eliminare il gruppo di risorse, il processo di streaming e tutte le risorse correlate. Eliminando il processo si evita di pagare per le unità di streaming usate dal processo. Se si prevede di usare il processo in futuro, è possibile non eliminarlo e arrestarlo per il momento. Se non si intende continuare a usare il processo, eliminare tutte le risorse create con questa guida introduttiva eseguendo il cmdlet seguente:
 
-```powershell
+```azurecli
 az group delete \
     --name streamanalyticsrg \
     --no-wait

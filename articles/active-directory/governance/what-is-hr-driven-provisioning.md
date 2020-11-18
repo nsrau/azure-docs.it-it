@@ -11,12 +11,12 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45b8ed75a87d1ac638e5ca55058a3d1ad7fcdffa
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: eaf033f7da7a5bd4882d0c78a2321640aa64d8ac
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135008"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94646560"
 ---
 # <a name="what-is-hr-driven-provisioning"></a>Che cos'è il provisioning basato su risorse umane?
 
@@ -46,4 +46,3 @@ Per informazioni su Microsoft Identity Manager e sui sistemi supportati, vedere 
 - [Cos'è il provisioning?](what-is-provisioning.md)
 - [Che cos'è il provisioning di app?](what-is-app-provisioning.md)
 - [Che cos'è il provisioning tra directory?](what-is-inter-directory-provisioning.md)
-- [Che cos'è il provisioning della directory?](what-is-inter-directory-provisioning.md)

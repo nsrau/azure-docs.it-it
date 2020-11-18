@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 7fd52376e6b2d435e3ac6a60243f85ab34e59381
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: bb9efa3fde0ed840589b66db7b28392de67ee8dd
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412949"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635593"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API di Azure Cosmos DB per MongoDB (versione 3.6): funzionalità e sintassi supportate
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -576,7 +576,7 @@ Cosmos DB supporta una durata (TTL) in base al timestamp del documento. La durat
 
 ## <a name="user-and-role-management"></a>Gestione di utenti e ruoli
 
-Cosmos DB non supporta ancora utenti e ruoli. Cosmos DB, tuttavia, supporta il controllo degli accessi in base al ruolo e chiavi/password di lettura/scrittura e sola lettura ottenibili tramite il [portale di Azure](https://portal.azure.com) nella pagina Stringa di connessione.
+Cosmos DB non supporta ancora utenti e ruoli. Cosmos DB, tuttavia, supporta il Controllo degli accessi in base al ruolo di Azure e chiavi/password di lettura/scrittura e sola lettura ottenibili tramite il [portale di Azure](https://portal.azure.com) nella pagina Stringa di connessione.
 
 ## <a name="replication"></a>Replica
 

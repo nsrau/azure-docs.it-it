@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fa15a9134fdc49d87baea48490854c1289a662a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 842cd92e451b8d959dcf04135da504d7cf85a16e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378854"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647206"
 ---
 # <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Impostare la scadenza dei gruppi di Microsoft 365 in Azure Active Directory
 
@@ -45,11 +45,11 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account Amministratore utenti.
 
-2. Selezionare **Gruppi** e quindi selezionare **Generale** .
+2. Selezionare **Gruppi** e quindi selezionare **Generale**.
   
    ![Pagina delle impostazioni dei gruppi self-service](./media/groups-quickstart-expiration/self-service-settings.png)
 
-3. Impostare **Gli utenti possono creare gruppi di Microsoft 365** su **Sì** .
+3. Impostare **Gli utenti possono creare gruppi di Microsoft 365** su **Sì**.
 
 4. Al termine, selezionare **Salva** per salvare le impostazioni dei gruppi.
 
@@ -63,7 +63,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 3. Specificare un indirizzo e-mail per l'invio delle notifiche di scadenza quando un gruppo non ha un proprietario.
 
-4. Per questa guida di avvio rapido impostare **È possibile abilitare la scadenza per questi gruppi di Microsoft 365** su **Tutti** .
+4. Per questa guida di avvio rapido impostare **È possibile abilitare la scadenza per questi gruppi di Microsoft 365** su **Tutti**.
 
 5. Al termine, selezionare **Salva** per salvare le impostazioni di scadenza.
 
@@ -74,13 +74,13 @@ L'operazione è terminata. In questa guida di avvio rapido sono stati impostati 
 ### <a name="to-remove-the-expiration-policy"></a>Per rimuovere i criteri di scadenza
 
 1. Assicurarsi di accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per l'organizzazione di Azure AD.
-2. Selezionare **Azure Active Directory** > **Gruppi** > **Scadenza** .
-3. Impostare **È possibile abilitare la scadenza per questi gruppi di Microsoft 365** su **Nessuno** .
+2. Selezionare **Azure Active Directory** > **Gruppi** > **Scadenza**.
+3. Impostare **È possibile abilitare la scadenza per questi gruppi di Microsoft 365** su **Nessuno**.
 
 ### <a name="to-turn-off-user-creation-for-groups"></a>Per disattivare la creazione dei gruppi da parte degli utenti
 
-1. Selezionare **Azure Active Directory** > **Gruppi** > **Generale** . 
-2. Impostare **Gli utenti possono creare gruppi di Microsoft 365 nei portali di Azure** su **No** .
+1. Selezionare **Azure Active Directory** > **Gruppi** > **Generale**. 
+2. Impostare **Gli utenti possono creare gruppi di Microsoft 365 nei portali di Azure** su **No**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

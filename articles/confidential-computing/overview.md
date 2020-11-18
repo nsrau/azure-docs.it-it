@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 16f45c39a329998f4b4da4ea89315683a0fab790
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 44479db6b29075e87b0d2dcef6f0d9bc1881738c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90967594"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560826"
 ---
 # <a name="confidential-computing-on-azure"></a>Confidential computing in Azure
 
@@ -84,7 +84,7 @@ Creare applicazioni basate sulle offerte IaaS di confidential computing di Azure
 
 ### <a name="azure-security"></a>Sicurezza di Azure 
 Assicurarsi che i carichi di lavoro siano protetti tramite metodi di verifica e gestione delle chiavi associate all'hardware. 
-- Attestazione: [Attestazione di Microsoft Azure (anteprima)](https://docs.microsoft.com/azure/attestation/overview)
+- Attestazione: [Attestazione di Microsoft Azure (anteprima)](../attestation/overview.md)
 - Gestione delle chiavi: modulo di protezione hardware gestito (anteprima)
 
 ### <a name="develop"></a>Sviluppo

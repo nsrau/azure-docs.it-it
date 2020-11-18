@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 092288d320874488cee4d2f097d7406c0757e8a0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e5cec8802fba3852f4600b9fb426ee4c175314b1
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378834"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647121"
 ---
 # <a name="restore-a-deleted-microsoft-365-group-in-azure-active-directory"></a>Ripristinare un gruppo di Microsoft 365 eliminato in Azure Active Directory
 
@@ -45,8 +45,8 @@ Utente | È possibile ripristinare qualsiasi gruppo di Microsoft 365 eliminato d
 
 3. Nel pannello **Gruppi eliminati** è possibile:
 
-   - Ripristinare il gruppo eliminato e il relativo contenuto selezionando **Ripristina gruppo** .
-   - Rimuovere in modo permanente il gruppo eliminato selezionando **Elimina definitivamente** . Per rimuovere definitivamente un gruppo, è necessario essere un amministratore.
+   - Ripristinare il gruppo eliminato e il relativo contenuto selezionando **Ripristina gruppo**.
+   - Rimuovere in modo permanente il gruppo eliminato selezionando **Elimina definitivamente**. Per rimuovere definitivamente un gruppo, è necessario essere un amministratore.
 
 ## <a name="view-the-deleted-microsoft-365-groups-that-are-available-to-restore-using-powershell"></a>Visualizzare i gruppi di Microsoft 365 eliminati disponibili per il ripristino con PowerShell
 

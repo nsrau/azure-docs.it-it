@@ -1,19 +1,19 @@
 ---
 title: 'Avvio rapido: Connettersi con Ruby - Database di Azure per MySQL'
 description: Questa guida introduttiva fornisce diversi esempi di codice Ruby che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: f370794aafb4a5ac0948c219593e7028ff1b2e55
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 20e51100eba595f9261be24e0e3675aa565479cd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93337300"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535555"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare Ruby per connettersi ai dati ed eseguire query in Database di Azure per MySQL
 
@@ -70,7 +70,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 4. Nel sistema operativo Windows, se l'applicazione Ruby non è presente nella variabile di ambiente PATH potrebbe essere necessario usare il percorso completo per avviare l'applicazione Ruby, ad esempio `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
 
 ## <a name="connect-and-create-a-table"></a>Connettersi e creare una tabella
-Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE** , seguita dalle istruzioni SQL **INSERT INTO** per aggiungere righe nella tabella.
+Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE**, seguita dalle istruzioni SQL **INSERT INTO** per aggiungere righe nella tabella.
 
 Il codice usa una classe [mysql2::client](https://www.rubydoc.info/gems/mysql2) per connettersi al server MySQL. Chiama quindi il metodo ```query()``` per eseguire i comandi DROP, CREATE TABLE e INSERT INTO. Chiama infine ```close()``` per chiudere la connessione prima di terminare.
 

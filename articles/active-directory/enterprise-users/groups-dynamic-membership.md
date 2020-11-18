@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: overview
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dc0429ae4507172e95618bc95e6a2c51034d352
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8a448b510662eb2c3c4c8ae5a68c2ebc2ed448dc
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378888"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94647359"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -100,7 +100,7 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 | companyName | Qualsiasi valore di stringa o *null* | (user.companyName -eq "value") |
 | department |Qualsiasi valore di stringa o *null* |(user.department -eq "valore") |
 | displayName |Qualsiasi valore di stringa |(user.displayName -eq "valore") |
-| employeeId |Qualsiasi valore di stringa |(user.employeeId -eq "valore")<br>(user.employeeId -ne *null* ) |
+| employeeId |Qualsiasi valore di stringa |(user.employeeId -eq "valore")<br>(user.employeeId -ne *null*) |
 | facsimileTelephoneNumber |Qualsiasi valore di stringa o *null* |(user.facsimileTelephoneNumber -eq "valore") |
 | givenName |Qualsiasi valore di stringa o *null* |(user.givenName -eq "valore") |
 | jobTitle |Qualsiasi valore di stringa o *null* |(user.jobTitle -eq "valore") |
@@ -190,7 +190,7 @@ Quando si specifica un valore in un'espressione, è importante usare la sintassi
 
 ### <a name="use-of-null-values"></a>Uso dei valori Null
 
-Per specificare un valore Null in una regola, è possibile usare il valore *null* . 
+Per specificare un valore Null in una regola, è possibile usare il valore *null*. 
 
 * Usare -eq o -ne quando si confronta il valore *null* in un'espressione.
 * Racchiudere la parola *null* tra virgolette solo se si vuole che venga interpretata come valore di stringa letterale.
@@ -309,7 +309,7 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 I suggerimenti seguenti sono utili per usare la regola in modo appropriato.
 
-- L' **ID del manager** è l'ID oggetto del manager. È indicato nella sezione **Profilo** del manager.
+- L'**ID del manager** è l'ID oggetto del manager. È indicato nella sezione **Profilo** del manager.
 - Per il corretto funzionamento della regola, verificare che la proprietà **Manager** sia impostata correttamente per gli utenti inclusi nell'organizzazione. È possibile controllare il valore corrente per un utente nella sezione **Profilo** dell'utente.
 - Questa regola supporta solo i dipendenti diretti del manager. In altre parole, non è possibile creare un gruppo con i dipendenti diretti del manager *e* i loro dipendenti diretti.
 - Questa regola non può essere combinata con altre regole di appartenenza.

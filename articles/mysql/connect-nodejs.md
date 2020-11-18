@@ -1,19 +1,19 @@
 ---
 title: 'Avvio rapido: Connettersi con Node.js - Database di Azure per MySQL'
 description: Questa guida introduttiva fornisce diversi esempi di codice Node.js che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 55c352df83e8f72a418452dd28d621556b207e5e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d1291b645e987f33bd2035580587650b843f1771
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332169"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535657"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Guida introduttiva: usare Node.js per connettersi ai dati ed eseguire query nel Database di Azure per MySQL
 
@@ -68,7 +68,7 @@ A seconda della piattaforma, seguire le istruzioni nella sezione appropriata per
 
 ### <a name="macos"></a>macOS
 
-1. Immettere i comandi seguenti per installare **brew** , uno strumento di gestione pacchetti facile da usare per macOS e **Node.js**.
+1. Immettere i comandi seguenti per installare **brew**, uno strumento di gestione pacchetti facile da usare per macOS e **Node.js**.
 
    ```bash
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

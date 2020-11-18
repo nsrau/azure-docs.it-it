@@ -1,18 +1,18 @@
 ---
 title: Panoramica - Database di Azure per MariaDB
 description: Informazioni sul servizio Database di Azure per MariaDB, un servizio di database relazionale in Microsoft Cloud basato su MySQL Community Edition.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
 ms.date: 3/18/2020
-ms.openlocfilehash: 84fd24890495e7278c69c2f83c7182fd65f86791
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8115625099543d378728a6313a8cc4c95fec0cd2
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "79535562"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537000"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Che cos'è Database di Azure per MariaDB?
 
@@ -41,7 +41,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Regolare prestazioni e scalabilità in pochi secondi
 
-Il servizio Database di Azure per MariaDB offre diversi livelli di servizio: Basic, Utilizzo generico e Ottimizzata per la memoria. Ogni livello offre diverse prestazioni e capacità per supportare i carichi di lavoro del database, da quelli leggeri a quelli pesanti. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie. Per informazioni dettagliate, vedere  [Piani tariffari](concepts-pricing-tiers.md).
+Il servizio Database di Azure per MariaDB offre diversi livelli di servizio: Basic, Utilizzo generico e Ottimizzata per la memoria. Ogni livello offre diverse prestazioni e capacità per supportare i carichi di lavoro del database, da quelli leggeri a quelli pesanti. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie. Per informazioni dettagliate, vedere [Piani tariffari](concepts-pricing-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
 

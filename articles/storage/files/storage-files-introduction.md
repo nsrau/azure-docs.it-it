@@ -7,15 +7,15 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2b5fa5211ad8d4de01f2b63e8267e297e13c4485
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 9ce2044f3ee0bff3335f46d8cf712e64394af2d3
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570024"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94628867"
 ---
 # <a name="what-is-azure-files"></a>Informazioni su File di Azure
-File di Azure offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) o il [protocollo NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) standard di settore. Le condivisioni file di Azure possono essere montate simultaneamente da distribuzioni cloud o locali. Le condivisioni file SMB di File di Azure sono accessibili da client Windows, Linux e macOS. Le condivisioni file NFS di File di Azure sono accessibili da client Linux o macOS. Le condivisioni file SMB di File di Azure possono anche essere memorizzate nella cache in Windows Server con Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
+File di Azure offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) o il [protocollo NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) standard di settore. Le condivisioni file di Azure possono essere montate simultaneamente da distribuzioni cloud o locali. Le condivisioni file SMB di File di Azure sono accessibili da client Windows, Linux e macOS. Le condivisioni file NFS di File di Azure sono accessibili da client Linux o macOS. Le condivisioni file SMB di File di Azure possono anche essere memorizzate nella cache in Windows Server con Sincronizzazione file di Azure per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
 
 ## <a name="videos"></a>Video
 | Introduzione a Sincronizzazione file di Azure | File di Azure con sincronizzazione (Ignite 2019)  |
@@ -53,7 +53,7 @@ Le condivisioni file di Azure possono essere usate per:
 * **Soluzione completamente gestita**. È possibile creare condivisioni file di Azure senza dover gestire l'hardware o un sistema operativo. Di conseguenza, non è necessario applicare patch del sistema operativo server con aggiornamenti critici della sicurezza o sostituire dischi rigidi difettosi.
 * **Script e strumenti**. È possibile usare i cmdlet di PowerShell e l'interfaccia della riga di comando di Azure per creare, montare e gestire le condivisioni file di Azure nell'ambito dell'amministrazione delle applicazioni Azure. Le condivisioni file di Azure possono essere create e gestite con il portale di Azure e Azure Storage Explorer. 
 * **Resilienza**. File di Azure è stato progettato per garantire disponibilità costante. Sostituendo le condivisioni file locali con File di Azure non sarà più necessario occuparsi di problemi di rete o interruzioni dell'alimentazione a livello locale. 
-* **Programmabilità nota**. Le applicazioni eseguite in Azure possono accedere ai dati nella condivisione tramite le [API di I/O del file system](https://msdn.microsoft.com/library/system.io.file.aspx). Gli sviluppatori possono quindi riutilizzare il codice esistente e le competenze acquisite per eseguire la migrazione delle applicazioni esistenti. Oltre alle API di I/O di sistema, è possibile usare [librerie client di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dn261237.aspx) o l'[API REST di Archiviazione di Azure](/rest/api/storageservices/file-service-rest-api).
+* **Programmabilità nota**. Le applicazioni eseguite in Azure possono accedere ai dati nella condivisione tramite le [API di I/O del file system](/dotnet/api/system.io.file). Gli sviluppatori possono quindi riutilizzare il codice esistente e le competenze acquisite per eseguire la migrazione delle applicazioni esistenti. Oltre alle API di I/O di sistema, è possibile usare [librerie client di archiviazione di Azure](/previous-versions/azure/dn261237(v=azure.100)) o l'[API REST di Archiviazione di Azure](/rest/api/storageservices/file-service-rest-api).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni sui protocolli di condivisione file disponibili](storage-files-compare-protocols.md)

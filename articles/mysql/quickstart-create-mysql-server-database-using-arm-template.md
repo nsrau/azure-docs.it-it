@@ -1,18 +1,18 @@
 ---
 title: 'Avvio rapido: Creare un database di Azure per MySQL - Modello di Resource Manager'
 description: Questo argomento di avvio rapido illustra come creare un server di Database di Azure per MySQL con integrazione di rete virtuale usando un modello di Azure Resource Manager.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/19/2020
-ms.openlocfilehash: 952bfa7182997511ce072c051d872140c3b907cb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 0e7fcf51d9c663ca4a289f54972f00ef037cb323
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041207"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542270"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Avvio rapido: Usare un modello di Resource Manager per creare un server di Database di Azure per MySQL
 
@@ -70,30 +70,30 @@ Selezionare il collegamento seguente per distribuire il modello di database di A
 
 Nella pagina **Deploy Azure Database for MySQL with VNet** (Distribuisci Database di Azure per MySQL con la rete virtuale):
 
-1. In **Gruppo di risorse** selezionare **Crea nuovo** , immettere un nome per il nuovo gruppo di risorse e quindi fare clic su **OK**.
+1. In **Gruppo di risorse** selezionare **Crea nuovo**, immettere un nome per il nuovo gruppo di risorse e quindi fare clic su **OK**.
 
 2. Se è stato creato un nuovo gruppo di risorse, selezionare un valore per **Località** per il gruppo di risorse e il nuovo server.
 
-3. Immettere i valori per **Nome server** , **Account di accesso amministratore** e **Password di accesso amministratore**.
+3. Immettere i valori per **Nome server**, **Account di accesso amministratore** e **Password di accesso amministratore**.
 
     :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="Finestra Distribuisci Database di Azure per MySQL con la rete virtuale, modello di avvio rapido di Azure, portale di Azure":::
 
 4. Modificare le altre impostazioni predefinite in base alle esigenze:
 
-    * **Sottoscrizione** : sottoscrizione di Azure da usare per il server.
-    * **Capacità SKU** : capacità di vCore, che può essere *2* (impostazione predefinita), *4* , *8* , *16* , *32* o *64*.
-    * **Nome SKU** : prefisso del livello SKU, famiglia SKU e capacità dello SKU, uniti da caratteri di sottolineatura, ad esempio *B_Gen5_1* , *GP_Gen5_2* (impostazione predefinita) o *MO_Gen5_32*.
-    * **Dimensioni SKU (MB)** : dimensioni di archiviazione in megabyte del database di Azure per il server MySQL (impostazione predefinita *5120* ).
-    * **Livello SKU** : livello di distribuzione, ad esempio *Basic* , *Utilizzo generico* (impostazione predefinita) o *Ottimizzato per la memoria*.
-    * **Famiglia SKU** : *Gen4* o *Gen5* (impostazione predefinita), che indica la generazione hardware per la distribuzione del server.
-    * **Versione di MySQL** : versione di MySQL server da distribuire, ad esempio *5.6* o *5.7* (impostazione predefinita).
-    * **Giorni di conservazione backup** : periodo desiderato per la conservazione del backup con ridondanza geografica, in giorni (impostazione predefinita *7* ).
-    * **Backup con ridondanza geografica** : *Abilitato* o *Disabilitato* (impostazione predefinita), a seconda dei requisiti per il ripristino di emergenza geografico.
-    * **Nome rete virtuale** : nome della rete virtuale (impostazione predefinita *azure_mysql_vnet* ).
-    * **Nome subnet** : nome della subnet (impostazione predefinita *azure_mysql_subnet* ).
-    * **Nome regola di rete virtuale** :nome della regola di rete virtuale che consente la subnet (impostazione predefinita *AllowSubnet* ).
-    * **Prefisso dell'indirizzo della rete virtuale** : prefisso dell'indirizzo della rete virtuale (impostazione predefinita *10.0.0.0/16* ).
-    * **Prefisso subnet** : prefisso dell'indirizzo per la subnet (impostazione predefinita *10.0.0.0/16* ).
+    * **Sottoscrizione**: sottoscrizione di Azure da usare per il server.
+    * **Capacità SKU**: capacità di vCore, che può essere *2* (impostazione predefinita), *4*, *8*, *16*, *32* o *64*.
+    * **Nome SKU**: prefisso del livello SKU, famiglia SKU e capacità dello SKU, uniti da caratteri di sottolineatura, ad esempio *B_Gen5_1*, *GP_Gen5_2* (impostazione predefinita) o *MO_Gen5_32*.
+    * **Dimensioni SKU (MB)** : dimensioni di archiviazione in megabyte del database di Azure per il server MySQL (impostazione predefinita *5120*).
+    * **Livello SKU**: livello di distribuzione, ad esempio *Basic*, *Utilizzo generico* (impostazione predefinita) o *Ottimizzato per la memoria*.
+    * **Famiglia SKU**: *Gen4* o *Gen5* (impostazione predefinita), che indica la generazione hardware per la distribuzione del server.
+    * **Versione di MySQL**: versione di MySQL server da distribuire, ad esempio *5.6* o *5.7* (impostazione predefinita).
+    * **Giorni di conservazione backup**: periodo desiderato per la conservazione del backup con ridondanza geografica, in giorni (impostazione predefinita *7*).
+    * **Backup con ridondanza geografica**: *Abilitato* o *Disabilitato* (impostazione predefinita), a seconda dei requisiti per il ripristino di emergenza geografico.
+    * **Nome rete virtuale**: nome della rete virtuale (impostazione predefinita *azure_mysql_vnet*).
+    * **Nome subnet**: nome della subnet (impostazione predefinita *azure_mysql_subnet*).
+    * **Nome regola di rete virtuale**:nome della regola di rete virtuale che consente la subnet (impostazione predefinita *AllowSubnet*).
+    * **Prefisso dell'indirizzo della rete virtuale**: prefisso dell'indirizzo della rete virtuale (impostazione predefinita *10.0.0.0/16*).
+    * **Prefisso subnet**: prefisso dell'indirizzo per la subnet (impostazione predefinita *10.0.0.0/16*).
 
 5. Leggere le condizioni, quindi selezionare **Accetto le condizioni riportate sopra**.
 

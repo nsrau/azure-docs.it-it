@@ -3,12 +3,12 @@ title: "Avvio rapido: Prima query con l'API REST"
 description: Questo argomento di avvio rapido illustra la procedura per chiamare l'endpoint Resource Graph per l'API REST ed eseguire la prima query.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 8be0556b6aa2fd234c0f3e25d83c0239c8f674bb
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: eafbd0b408ab50f901d52e59efcfbd5f89b46fe5
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057230"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566079"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Avvio rapido: Eseguire la prima query di Resource Graph con l'API REST
 
@@ -30,7 +30,7 @@ Per le specifiche di Azure Resource Graph, vedere [API REST di Azure Resource Gr
 
 ### <a name="rest-api-and-powershell"></a>API REST e PowerShell
 
-Se non si ha già uno strumento per effettuare chiamate API REST, provare a usare PowerShell per queste istruzioni. Il codice di esempio seguente consente di recuperare un'intestazione per l'autenticazione con Azure. Generare un'intestazione di autenticazione, talvolta denominata **bearer token**e fornire l'URI dell'API REST cui connettersi con qualsiasi parametro o un **corpo della richiesta**:
+Se non si ha già uno strumento per effettuare chiamate API REST, provare a usare PowerShell per queste istruzioni. Il codice di esempio seguente consente di recuperare un'intestazione per l'autenticazione con Azure. Generare un'intestazione di autenticazione, talvolta denominata **bearer token** e fornire l'URI dell'API REST cui connettersi con qualsiasi parametro o un **corpo della richiesta**:
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if not using Cloud Shell
@@ -76,7 +76,6 @@ Nel corpo della richiesta di ogni chiamata all'API REST è presente una variabil
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5"
-         }
      }
      ```
 
@@ -99,7 +98,6 @@ Nel corpo della richiesta di ogni chiamata all'API REST è presente una variabil
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5 | order by name asc"
-         }
      }
      ```
 
@@ -122,7 +120,6 @@ Nel corpo della richiesta di ogni chiamata all'API REST è presente una variabil
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | order by name asc | limit 5"
-         }
      }
      ```
 

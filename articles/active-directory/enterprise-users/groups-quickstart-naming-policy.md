@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0dcf05f829cfcdc79fcd7be903b96fb601c095a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7a594d42485510a525ce4e3c7f03b432554100f8
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378845"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650598"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Guida introduttiva: Criteri di denominazione per i gruppi in Azure Active Directory
 
@@ -40,18 +40,18 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Visualizzare o modificare i criteri di denominazione prefisso-suffisso
 
-1. Nella pagina **Criteri di denominazione** fare clic su **Criteri di denominazione del gruppo** .
+1. Nella pagina **Criteri di denominazione** fare clic su **Criteri di denominazione del gruppo**.
 1. È possibile visualizzare o modificare singolarmente i criteri di denominazione correnti per il prefisso o il suffisso selezionando gli attributi o le stringhe da applicare come parte dei criteri di denominazione.
-1. Per rimuovere un prefisso o un suffisso dall'elenco, selezionare il prefisso o il suffisso desiderato e quindi fare clic su **Elimina** . È possibile eliminare più elementi contemporaneamente.
+1. Per rimuovere un prefisso o un suffisso dall'elenco, selezionare il prefisso o il suffisso desiderato e quindi fare clic su **Elimina**. È possibile eliminare più elementi contemporaneamente.
 1. Fare clic su **Salva** per rendere effettive le modifiche apportate ai criteri.
 
 ### <a name="view-or-edit-the-custom-blocked-words"></a>Visualizzare o modificare le parole bloccate personalizzate
 
-1. Nella pagina **Criteri di denominazione** fare clic su **Parole bloccate** .
+1. Nella pagina **Criteri di denominazione** fare clic su **Parole bloccate**.
 
     ![modificare e caricare l'elenco delle parole bloccate per i criteri di denominazione](./media/groups-quickstart-naming-policy/blockedwords.png)
 
-1. Visualizzare o modificare l'elenco corrente di parole bloccate personalizzate facendo clic su **Scarica** .
+1. Visualizzare o modificare l'elenco corrente di parole bloccate personalizzate facendo clic su **Scarica**.
 1. Caricare il nuovo elenco di parole bloccate personalizzate facendo clic sull'icona del file.
 1. Fare clic su **Salva** per rendere effettive le modifiche apportate ai criteri.
 
@@ -61,7 +61,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ### <a name="remove-the-naming-policy-using-azure-portal"></a>Rimuovere i criteri di denominazione con il portale di Azure
 
-1. Nella pagina **Criteri di denominazione** fare clic su **Elimina criteri** .
+1. Nella pagina **Criteri di denominazione** fare clic su **Elimina criteri**.
 1. Dopo la conferma dell'eliminazione, i criteri di denominazione vengono rimossi, inclusi tutti i criteri di denominazione prefisso-suffisso e le eventuali parole bloccate personalizzate.
 
 ## <a name="next-steps"></a>Passaggi successivi

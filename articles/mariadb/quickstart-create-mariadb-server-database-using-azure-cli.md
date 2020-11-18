@@ -1,19 +1,19 @@
 ---
 title: 'Guida introduttiva: Creare un server - Interfaccia della riga di comando di Azure - Database di Azure per MariaDB'
 description: Questa guida introduttiva descrive come usare l'interfaccia della riga di comando di Azure per creare un server di Database di Azure per MariaDB in un gruppo di risorse di Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 198a8eee38da2738552bc5e2a2ba52e13a890122
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4d2300e36bd06313cf889f40f37d672d66534db6
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424483"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538394"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Avvio rapido: Creare un server di Database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure
 
@@ -49,14 +49,14 @@ Impostazione | Valore di esempio | Descrizione
 ---|---|---
 name | **mydemoserver** | Immettere un nome univoco per identificare il server di Database di Azure per MariaDB. Il nome del server può contenere solo lettere minuscole, numeri e il segno meno (-) Deve contenere tra 3 e 63 caratteri.
 resource-group | **myresourcegroup** | Immettere il nome del gruppo di risorse di Azure.
-sku-name | **GP_Gen5_2** | Il nome della SKU. Segue la convenzione *piano tariffario*\_*generazione di calcolo*\_*vCore* in sintassi abbreviata. Per altre informazioni sul parametro **sku-name** , vedere la sezione dopo questa tabella.
+sku-name | **GP_Gen5_2** | Il nome della SKU. Segue la convenzione *piano tariffario*\_*generazione di calcolo*\_*vCore* in sintassi abbreviata. Per altre informazioni sul parametro **sku-name**, vedere la sezione dopo questa tabella.
 backup-retention | **7** | Specifica per quanto tempo deve essere conservato un backup. L'unità è giorni. Intervallo: da 7 a 35. 
-geo-redundant-backup | **Disabilitato** | Indica se abilitare i backup con ridondanza geografica per questo server. Valori consentiti: **Enabled** , **Disabled** .
+geo-redundant-backup | **Disabilitato** | Indica se abilitare i backup con ridondanza geografica per questo server. Valori consentiti: **Enabled**, **Disabled**.
 posizione | **westus** | Località di Azure per il server.
-ssl-enforcement | **Enabled** | Indica se abilitare SSL per questo server. Valori consentiti: **Enabled** , **Disabled** .
+ssl-enforcement | **Enabled** | Indica se abilitare SSL per questo server. Valori consentiti: **Enabled**, **Disabled**.
 storage-size | **51200** | Capacità di archiviazione del server (l'unità è MB). Le dimensioni di archiviazione valide partono da un minimo di 5120 MB e aumentano con incrementi di 1024 MB. Per altre informazioni sui limiti delle dimensioni di archiviazione, vedere i [Piani tariffari](./concepts-pricing-tiers.md). 
 version | **10.2** | La versione principale del motore MariaDB.
-admin-user | **myadmin** | Nome utente per l'account di accesso amministratore. Il parametro **admin-user** non può essere **azure_superuser** , **admin** , **administrator** , **root** , **guest** o **public** .
+admin-user | **myadmin** | Nome utente per l'account di accesso amministratore. Il parametro **admin-user** non può essere **azure_superuser**, **admin**, **administrator**, **root**, **guest** o **public**.
 admin-password | *password* | Password dell'utente amministratore. La password deve contenere da 8 a 128 caratteri. Deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri e caratteri non alfanumerici.
 
 Il valore del parametro sku-name segue la convenzione {piano tariffario}\_{generazione calcolo}\_{vCore} come illustrato nell'esempio seguente:
@@ -66,7 +66,7 @@ Il valore del parametro sku-name segue la convenzione {piano tariffario}\_{gener
 
 Per informazioni sui valori validi per aree e livelli, vedere [Piani tariffari](./concepts-pricing-tiers.md).
 
-L'esempio seguente crea un server denominato **mydemoserver** nell'area Stati Uniti occidentali. Il server è nel gruppo di risorse **myresourcegroup** e il nome di accesso dell'amministratore server è **myadmin** . Il server è un server di generazione 5 nel piano tariffario Utilizzo generico e ha 2 vCore. Il nome del server è associato a un nome DNS e deve essere univoco a livello globale. Sostituire `<server_admin_password>` con la password dell'amministratore del server.
+L'esempio seguente crea un server denominato **mydemoserver** nell'area Stati Uniti occidentali. Il server è nel gruppo di risorse **myresourcegroup** e il nome di accesso dell'amministratore server è **myadmin**. Il server è un server di generazione 5 nel piano tariffario Utilizzo generico e ha 2 vCore. Il nome del server è associato a un nome DNS e deve essere univoco a livello globale. Sostituire `<server_admin_password>` con la password dell'amministratore del server.
 
 ```azurecli-interactive
 az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
@@ -106,7 +106,7 @@ Per connettersi al server, è necessario specificare le informazioni sull'host e
 az mariadb server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Il risultato è in formato JSON. Prendere nota dei valori per **fullyQualifiedDomainName** e **administratorLogin** .
+Il risultato è in formato JSON. Prendere nota dei valori per **fullyQualifiedDomainName** e **administratorLogin**.
 
 ```json
 {
@@ -139,7 +139,7 @@ Il risultato è in formato JSON. Prendere nota dei valori per **fullyQualifiedDo
 
 ## <a name="connect-to-the-server-by-using-the-mysql-command-line-tool"></a>Connettersi al server usando lo strumento da riga di comando mysql
 
-Connettersi al server usando lo strumento da riga di comando mysql. È possibile [scaricare](https://dev.mysql.com/downloads/) lo strumento da riga di comando e installarlo nel computer in uso. Si può accedere allo strumento da riga di comando anche selezionando il pulsante **Prova** in un esempio di codice in questo articolo. Un altro modo per accedere allo strumento da riga di comando consiste nel selezionare il pulsante **>_** sulla barra degli strumenti in alto a destra nel portale di Azure per aprire **Azure Cloud Shell** .
+Connettersi al server usando lo strumento da riga di comando mysql. È possibile [scaricare](https://dev.mysql.com/downloads/) lo strumento da riga di comando e installarlo nel computer in uso. Si può accedere allo strumento da riga di comando anche selezionando il pulsante **Prova** in un esempio di codice in questo articolo. Un altro modo per accedere allo strumento da riga di comando consiste nel selezionare il pulsante **>_** sulla barra degli strumenti in alto a destra nel portale di Azure per aprire **Azure Cloud Shell**.
 
 Per connettersi al server usando lo strumento da riga di comando mysql:
 

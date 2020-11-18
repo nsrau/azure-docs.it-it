@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.workload: identity
-ms.subservice: users-groups-roles
-ms.date: 04/29/2020
+ms.subservice: enterprise-users
+ms.date: 11/15/2020
 ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1db812fb9c1503771bec0b1795ee8c15bb70014a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b35c8630f47910c61e169d405c2117e53d0d536e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378805"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94650528"
 ---
 # <a name="understand-how-multiple-azure-active-directory-organizations-interact"></a>Informazioni sull'interazione tra più organizzazioni di Azure Active Directory
 
@@ -47,7 +47,7 @@ Se un utente non amministratore dell'organizzazione "Contoso" crea un'organizzaz
 
 ## <a name="add-an-azure-ad-organization"></a>Aggiungere un'organizzazione di Azure AD
 
-Per aggiungere un'organizzazione di Azure AD nel portale di Azure, accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale per Azure AD e selezionare **Nuova** .
+Per aggiungere un'organizzazione di Azure AD nel portale di Azure, accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale per Azure AD e selezionare **Nuova**.
 
 > [!NOTE]
 > A differenza di altre risorse di Azure, le organizzazioni di Azure AD non sono risorse figlio di una sottoscrizione di Azure. Se si annulla o si lascia scadere la sottoscrizione di Azure, sarà comunque possibile accedere ai dati dell'organizzazione di Azure AD tramite Azure PowerShell, l'API Microsoft Graph o l'interfaccia di amministrazione di Microsoft 365. È anche possibile [associare un'altra sottoscrizione all'organizzazione](../fundamentals/active-directory-how-subscriptions-associated-directory.md).

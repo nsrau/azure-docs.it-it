@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1c4ac7d36b568f68c67a99d078fd65515bbb21b0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 5f6d768e3d863d52cfc91beb799d86fcd854af16
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747718"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517599"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Avvio rapido: Distribuire il primo modulo IoT Edge in un dispositivo Windows virtuale
 
@@ -68,8 +68,8 @@ Dispositivo IoT Edge:
   Dopo l'avvio della macchina virtuale, è possibile scaricare un file RDP da usare per la connessione alla macchina virtuale:
 
   1. Passare alla nuova macchina virtuale Windows nel portale di Azure.
-  1. Selezionare **Connetti** .
-  1. Nella scheda **RDP** selezionare **Scarica file RDP** .
+  1. Selezionare **Connetti**.
+  1. Nella scheda **RDP** selezionare **Scarica file RDP**.
 
   Aprire questo file con Connessione Desktop remoto per connettersi alla macchina di virtuale Windows usando il nome e la password dell'amministratore specificati con il comando `az vm create`.
 
@@ -94,7 +94,7 @@ Il codice seguente crea un hub **F1** gratuito nel gruppo di risorse `IoTEdgeRes
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
-   Se si verifica un errore perché è già presente un hub gratuito nella sottoscrizione, modificare lo SKU in **S1** . Se si verifica un errore che indica che il nome dell'hub IoT non è disponibile, significa che qualcuno ha già un hub con lo stesso nome. Provare con un nuovo nome.
+   Se si verifica un errore perché è già presente un hub gratuito nella sottoscrizione, modificare lo SKU in **S1**. Se si verifica un errore che indica che il nome dell'hub IoT non è disponibile, significa che qualcuno ha già un hub con lo stesso nome. Provare con un nuovo nome.
 
 ## <a name="register-an-iot-edge-device"></a>Registrare un dispositivo IoT Edge
 
@@ -116,7 +116,7 @@ Poiché i dispositivi IoT Edge si comportano e possono essere gestiti in modo di
 2. Visualizzare la stringa di connessione per il dispositivo, che collega il dispositivo fisico alla sua identità nell'hub IoT. Contiene il nome dell'hub IoT, il nome del dispositivo e quindi una chiave condivisa che autentica le connessioni tra i due.
 
    ```azurecli-interactive
-   az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name {hub_name}
+   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
 3. Copiare il valore della chiave `connectionString` dall'output JSON e salvarlo. Questo valore corrisponde alla stringa di connessione che verrà usata per configurare il runtime IoT Edge nella sezione successiva.
@@ -128,7 +128,7 @@ Poiché i dispositivi IoT Edge si comportano e possono essere gestiti in modo di
 Installare il runtime Azure IoT Edge nel dispositivo IoT Edge e configurarlo con una stringa di connessione del dispositivo.
 ![Diagramma - Avviare il runtime nel dispositivo](./media/quickstart/start-runtime.png)
 
-Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. È costituito da tre componenti. Il *daemon di sicurezza IoT Edge* si avvia a ogni avvio di un dispositivo IoT Edge ed esegue il bootstrap del dispositivo avviando l'agente IoT Edge. L' *agente IoT Edge* gestisce la distribuzione e il monitoraggio di moduli nel dispositivo IoT Edge, tra cui l'hub di IoT Edge. L' *hub di IoT Edge* gestisce le comunicazioni tra moduli nel dispositivo IoT Edge e tra il dispositivo e l'hub IoT.
+Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. È costituito da tre componenti. Il *daemon di sicurezza IoT Edge* si avvia a ogni avvio di un dispositivo IoT Edge ed esegue il bootstrap del dispositivo avviando l'agente IoT Edge. L'*agente IoT Edge* gestisce la distribuzione e il monitoraggio di moduli nel dispositivo IoT Edge, tra cui l'hub di IoT Edge. L'*hub di IoT Edge* gestisce le comunicazioni tra moduli nel dispositivo IoT Edge e tra il dispositivo e l'hub IoT.
 
 Lo script di installazione include anche un motore di contenitore denominato Moby, che gestisce le immagini del contenitore nel dispositivo IoT Edge.
 
@@ -169,7 +169,7 @@ Usare PowerShell per scaricare e installare il runtime IoT Edge. Usare la string
    Initialize-IoTEdge -ContainerOs Windows
    ```
 
-6. Quando viene chiesto un elemento **DeviceConnectionString** , fornire la stringa copiata nella sezione precedente. Non racchiudere tra virgolette la stringa di connessione.
+6. Quando viene chiesto un elemento **DeviceConnectionString**, fornire la stringa copiata nella sezione precedente. Non racchiudere tra virgolette la stringa di connessione.
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Visualizzare lo stato del runtime IoT Edge
 
@@ -241,7 +241,7 @@ Se la macchina virtuale e l'hub IoT sono stati creati in un nuovo gruppo di riso
 > [!IMPORTANT]
 > L'eliminazione di un gruppo di risorse è irreversibile.
 
-Rimuovere il gruppo **IoTEdgeResources** . L'eliminazione di un gruppo di risorse potrebbe richiedere alcuni minuti.
+Rimuovere il gruppo **IoTEdgeResources**. L'eliminazione di un gruppo di risorse potrebbe richiedere alcuni minuti.
 
 ```azurecli-interactive
 az group delete --name IoTEdgeResources

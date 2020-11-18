@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 994cf78a9a9b8c418d0f29f5d595f88f021659b4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 95626836afb09ada286cf7e171f97db450167999
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341907"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564345"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>Avvio rapido: Distribuire un cluster del servizio Azure Kubernetes con nodi di confidential computing tramite l'interfaccia della riga di comando di Azure (anteprima)
 
@@ -19,7 +19,7 @@ Questa guida di avvio rapido è rivolta agli sviluppatori o agli operatori clust
 
 ## <a name="overview"></a>Panoramica
 
-Questa guida di avvio rapido illustra come distribuire un cluster del servizio Azure Kubernetes con nodi di confidential computing usando l'interfaccia della riga di comando di Azure ed eseguire un'applicazione Hello World in un'enclave. Il servizio Azure Kubernetes è un servizio Kubernetes gestito che permette di distribuire e gestire rapidamente i cluster. Per altre informazioni sul servizio Azure Kubernetes, leggere [qui](https://docs.microsoft.com/azure/aks/intro-kubernetes).
+Questa guida di avvio rapido illustra come distribuire un cluster del servizio Azure Kubernetes con nodi di confidential computing usando l'interfaccia della riga di comando di Azure ed eseguire un'applicazione Hello World in un'enclave. Il servizio Azure Kubernetes è un servizio Kubernetes gestito che permette di distribuire e gestire rapidamente i cluster. Per altre informazioni sul servizio Azure Kubernetes, leggere [qui](../aks/intro-kubernetes.md).
 
 > [!NOTE]
 > Le macchine virtuali DCsv2 con confidential computing usano hardware specializzato soggetto a prezzi maggiori e alla disponibilità a livello di area. Per altre informazioni sugli SKU disponibili e le aree supportate, vedere [Soluzioni nelle macchine virtuali di Azure](virtual-machine-solutions.md).
@@ -27,17 +27,17 @@ Questa guida di avvio rapido illustra come distribuire un cluster del servizio A
 ### <a name="deployment-pre-requisites"></a>Prerequisiti di distribuzione
 
 1. Avere una sottoscrizione di Azure attiva. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare
-1. Avere l'interfaccia della riga di comando di Azure versione 2.0.64 o successiva installata e configurata nel computer di distribuzione (eseguire `az --version` per trovare la versione). Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli).
+1. Avere l'interfaccia della riga di comando di Azure versione 2.0.64 o successiva installata e configurata nel computer di distribuzione (eseguire `az --version` per trovare la versione). Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](../container-registry/container-registry-get-started-azure-cli.md).
 1. [Estensione aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) versione 0.4.62 o successiva 
-1. Avere almeno sei core **DC<x>s-v2** disponibili per l'uso nella sottoscrizione. Per impostazione predefinita, la quota di core delle VM per il confidential computing per ogni sottoscrizione di Azure è 8 core. Se si prevede di effettuare il provisioning di un cluster che richiede più di 8 core, seguire [queste istruzioni](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) per generare un ticket di aumento della quota
+1. Avere almeno sei core **DC<x>s-v2** disponibili per l'uso nella sottoscrizione. Per impostazione predefinita, la quota di core delle VM per il confidential computing per ogni sottoscrizione di Azure è 8 core. Se si prevede di effettuare il provisioning di un cluster che richiede più di 8 core, seguire [queste istruzioni](../azure-portal/supportability/per-vm-quota-requests.md) per generare un ticket di aumento della quota
 
 ### <a name="confidential-computing-node-features-dcxs-v2"></a>Funzionalità dei nodi di confidential computing (DC<x>s-v2)
 
 1. Nodi di lavoro Linux che supportano solo contenitori Linux
 1. Macchine virtuali Ubuntu 18.04 Gen 2
-1. CPU basata su Intel SGX con memoria EPC (Encrypted Page Cache). Per altre informazioni, leggere [qui](https://docs.microsoft.com/azure/confidential-computing/faq).
+1. CPU basata su Intel SGX con memoria EPC (Encrypted Page Cache). Per altre informazioni, leggere [qui](./faq.md).
 1. Kubernetes versione 1.16 o successiva
-1. Driver DCAP di Intel SGX preinstallato. Per altre informazioni, leggere [qui](https://docs.microsoft.com/azure/confidential-computing/faq).
+1. Driver DCAP di Intel SGX preinstallato. Per altre informazioni, leggere [qui](./faq.md).
 1. Interfaccia della riga di comando distribuita durante l'anteprima
 
 
@@ -75,13 +75,13 @@ az provider register --namespace Microsoft.ContainerService
 
 Se si ha già un cluster del servizio Azure Kubernetes che soddisfa i requisiti elencati sopra, [passare alla sezione relativa al cluster esistente](#existing-cluster) per aggiungere un nuovo pool di nodi di confidential computing.
 
-Creare prima di tutto un gruppo di risorse per il cluster usando il comando az group create. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *westus2* :
+Creare prima di tutto un gruppo di risorse per il cluster usando il comando az group create. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *westus2*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus2
 ```
 
-Creare ora un cluster servizio Azure Kubernetes usando il comando az servizio Azure Kubernetes create. L'esempio seguente crea un cluster con un singolo nodo di dimensione `Standard_DC2s_v2`. È possibile scegliere un altro elenco supportato di SKU DCsv2 [qui](https://docs.microsoft.com/azure/virtual-machines/dcv2-series):
+Creare ora un cluster servizio Azure Kubernetes usando il comando az servizio Azure Kubernetes create. L'esempio seguente crea un cluster con un singolo nodo di dimensione `Standard_DC2s_v2`. È possibile scegliere un altro elenco supportato di SKU DCsv2 [qui](../virtual-machines/dcv2-series.md):
 
 ```azurecli-interactive
 az aks create \
@@ -244,6 +244,3 @@ az aks nodepool delete --cluster-name myAKSCluster --name myNodePoolName --resou
 Eseguire applicazioni Python, Node e altre in modo riservato tramite contenitori riservati visitando gli [esempi di contenitori riservati](https://github.com/Azure-Samples/confidential-container-samples).
 
 Eseguire applicazioni con riconoscimento dell'enclave visitando [Esempi di contenitori con riconoscimento dell'enclave](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/).
-
-
-
