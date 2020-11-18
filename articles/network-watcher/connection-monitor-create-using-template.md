@@ -1,7 +1,7 @@
 ---
-title: Crea anteprima di monitoraggio connessione-ARMClient
+title: Creazione di un monitoraggio della connessione-ARMClient
 titleSuffix: Azure Network Watcher
-description: Informazioni su come creare un monitoraggio connessione (anteprima) usando ARMClient.
+description: Informazioni su come creare un monitoraggio della connessione tramite ARMClient.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 5a351e550cac9edcc8ce1c54fbe5c57d012ee607
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 929a2feeb53e8903d675644dcb72b422eceb2858
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447667"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699101"
 ---
-# <a name="create-a-connection-monitor-preview-using-the-armclient"></a>Creare un monitoraggio connessione (anteprima) usando ARMClient
+# <a name="create-a-connection-monitor-using-the-armclient"></a>Creazione di un monitoraggio della connessione tramite ARMClient
 
-Informazioni su come creare un monitoraggio connessione (anteprima) per monitorare la comunicazione tra le risorse usando ARMClient. Supporta le distribuzioni ibride e cloud di Azure.
+Informazioni su come creare un monitoraggio della connessione per monitorare la comunicazione tra le risorse usando ARMClient. Supporta le distribuzioni ibride e cloud di Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare 
 
-Nei monitoraggi connessione creati in monitoraggio connessione (anteprima) è possibile aggiungere come origini sia i computer locali sia le VM di Azure. Questi monitoraggi di connessione possono inoltre monitorare la connettività agli endpoint. Gli endpoint possono trovarsi in Azure o in qualsiasi altro URL o indirizzo IP.
+Nei monitoraggi connessione creati in monitoraggio connessione è possibile aggiungere sia i computer locali sia le VM di Azure come origini. Questi monitoraggi di connessione possono inoltre monitorare la connettività agli endpoint. Gli endpoint possono trovarsi in Azure o in qualsiasi altro URL o indirizzo IP.
 
-Il monitoraggio connessione (anteprima) include le seguenti entità:
+Il monitoraggio della connessione include le seguenti entità:
 
 * **Risorsa di monitoraggio della connessione** : una risorsa di Azure specifica dell'area. Tutte le entità seguenti sono proprietà di una risorsa di monitoraggio della connessione.
 * **Endpoint** : un'origine o una destinazione che partecipa ai controlli di connettività. Esempi di endpoint includono macchine virtuali di Azure, agenti locali, URL e indirizzi IP.
@@ -359,7 +359,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * Endpoint
     * Nome: nome univoco per ogni endpoint
-    * resourceId: per gli endpoint di Azure, l'ID risorsa fa riferimento all'ID risorsa di Azure Resource Manager per le macchine virtuali. Per gli endpoint non di Azure, l'ID risorsa fa riferimento all'ID risorsa di Azure Resource Manager per l'area di lavoro Log Analytics collegata a agenti non Azure.
+    * resourceId: per gli endpoint di Azure, l'ID risorsa fa riferimento all'ID risorsa Azure Resource Manager per le macchine virtuali. Per gli endpoint non di Azure, l'ID risorsa fa riferimento all'ID di risorsa Azure Resource Manager per l'area di lavoro Log Analytics collegata a agenti non Azure.
     * Address: applicabile solo quando l'ID risorsa non è specificato o se l'ID risorsa è Log Analytics area di lavoro. Se utilizzata con Log Analytics ID risorsa, si riferisce al nome di dominio completo dell'agente che può essere utilizzato per il monitoraggio. Se usato senza ID risorsa, può corrispondere all'URL o all'indirizzo IP di qualsiasi endpoint pubblico.
     * Filter: per gli endpoint non di Azure, usare Filter per selezionare gli agenti dall'area di lavoro Log Analytics che verrà usata per il monitoraggio nella risorsa di monitoraggio della connessione. Se i filtri non sono impostati, tutti gli agenti appartenenti all'area di lavoro Log Analytics possono essere utilizzati per il monitoraggio
         * Tipo: impostare il tipo come "Indirizzo agente"

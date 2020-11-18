@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
-ms.openlocfilehash: 04da4d6466d450d04d7008332e32ea3d59cd0252
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 8d7fde6661a4a133f689016559f010767c662417
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555533"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699747"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Spostare un'area di lavoro Log Analytics in una sottoscrizione o in un gruppo di risorse diverso
 
@@ -30,7 +30,7 @@ Le sottoscrizioni di origine e di destinazione dell'area di lavoro devono esiste
 
 ## <a name="workspace-move-considerations"></a>Considerazioni sullo spostamento dell'area di lavoro
 - Le soluzioni gestite installate nell'area di lavoro verranno spostate con l'operazione di spostamento dell'area di lavoro Log Analytics. 
-- Le chiavi dell'area di lavoro vengono rigenerate con lo spostamento dell'area di lavoro (primario e secondario). Se la chiave dell'area di lavoro è Key, aggiornarla con le nuove chiavi generate. 
+- Le chiavi dell'area di lavoro (primaria e secondaria) vengono rigenerate con l'operazione di spostamento dell'area di lavoro. Se si mantiene una copia delle chiavi dell'area di lavoro in Key Vault, aggiornarle con le nuove chiavi generate dopo lo spostamento dell'area di lavoro. 
 - Gli agenti connessi rimarranno connessi e continueranno a inviare i dati all'area di lavoro dopo lo spostamento. 
 - Poiché l'operazione di spostamento richiede che non siano presenti servizi collegati dall'area di lavoro, è necessario rimuovere le soluzioni che si basano su tale collegamento per consentire lo spostamento dell'area di lavoro. Soluzioni che devono essere rimosse prima di poter scollegare l'account di automazione:
   - Gestione degli aggiornamenti

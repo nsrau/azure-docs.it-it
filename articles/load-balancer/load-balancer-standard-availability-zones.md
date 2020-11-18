@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 541aa7da3e804931c1793e455bcbfca83c809dae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fca6b40f4bd871041d14d119eb44e8366d8562ee
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669184"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700461"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e zone di disponibilità
 
@@ -151,11 +151,11 @@ Le risorse in zone non interessate dall'errore saranno disponibili. È possibile
   - Quando una zona ha esito negativo, il servizio riconosce questo errore e se lo stato viene perso, come verrà ripristinato?
   - Quando una zona viene ripristinata, l'applicazione comprende come eseguire la convergenza in modo sicuro?
 
-Esaminare i [modelli di progettazione cloud di Azure](https://docs.microsoft.com/azure/architecture/patterns/) per migliorare la resilienza dell'applicazione in scenari di errore.
+Esaminare i [modelli di progettazione cloud di Azure](/azure/architecture/patterns/) per migliorare la resilienza dell'applicazione in scenari di errore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni su [zone di disponibilità](../availability-zones/az-overview.md)
-- Altre informazioni su [Load Balancer standard](load-balancer-standard-overview.md)
-- Altre informazioni su come [eseguire il bilanciamento del carico delle macchine virtuali in una zona usando il servizio Load Balancer Standard con un front-end di zona](load-balancer-standard-public-zonal-cli.md)
-- Altre informazioni su come [eseguire il bilanciamento del carico delle macchine virtuali in più zone usando il servizio Load Balancer Standard con un front-end con ridondanza della zona](load-balancer-standard-public-zone-redundant-cli.md)
-- Informazioni sui [modelli di progettazione cloud di Azure](https://docs.microsoft.com/azure/architecture/patterns/) per migliorare la resilienza dell'applicazione in scenari di errore.
+- Altre informazioni su [Load Balancer standard](./load-balancer-overview.md)
+- Altre informazioni su come [eseguire il bilanciamento del carico delle macchine virtuali in una zona usando il servizio Load Balancer Standard con un front-end di zona](./quickstart-load-balancer-standard-public-cli.md)
+- Altre informazioni su come [eseguire il bilanciamento del carico delle macchine virtuali in più zone usando il servizio Load Balancer Standard con un front-end con ridondanza della zona](./quickstart-load-balancer-standard-public-cli.md)
+- Informazioni sui [modelli di progettazione cloud di Azure](/azure/architecture/patterns/) per migliorare la resilienza dell'applicazione in scenari di errore.

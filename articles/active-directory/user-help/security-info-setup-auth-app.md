@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 133e6b533a3d87ef519d0f586ea59db1bbce28b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96be79a349478db7d0452cae1ff07ee1c48aaa3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83744492"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700087"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Configurare l'app Microsoft Authenticator come metodo di verifica
 
@@ -45,6 +45,11 @@ I metodi di gestione delle informazioni di sicurezza vengono usati sia per la ve
 ## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Configurare l'app Microsoft Authenticator dalla pagina Informazioni di sicurezza
 
 A seconda delle impostazioni dell'organizzazione, potrebbe essere possibile usare un'app di autenticazione come metodo per le informazioni di sicurezza. Non è necessario usare l'app Microsoft Authenticator ed è possibile scegliere un'app diversa durante il processo di configurazione. Tuttavia, in questo articolo viene usata l'app Microsoft Authenticator.
+
+>[!Important]
+> Se è stato configurato Microsoft Authenticator app in 5 diversi dispositivi o 5 token hardware, non sarà possibile impostare un sesto e potrebbe essere visualizzato il messaggio di errore seguente.
+> 
+> **Non è possibile configurare Microsoft Authenticator perché sono già presenti cinque app Authenticator o token hardware. Contattare l'amministratore per eliminare una delle app o dei token hardware dell'autenticatore.**
 
 ### <a name="to-set-up-the-microsoft-authenticator-app"></a>Per configurare l'app Microsoft Authenticator
 
@@ -117,7 +122,7 @@ Per non usare più l'app di autenticazione come metodo di gestione delle informa
 
 2. Selezionare **Sì** nella casella di conferma per eliminare l'app di autenticazione. L'app di autenticazione, dopo essere stata eliminata, viene rimossa dalle informazioni di sicurezza e non viene più visualizzata nella pagina **Informazioni di sicurezza**. Se l'app di autenticazione è il metodo predefinito, verrà sostituito con un altro metodo disponibile.
 
-3. Aprire l'app di autenticazione sul dispositivo mobile, selezionare **Modifica account**e quindi eliminare l'account aziendale o dell'istituto di istruzione dall'app di autenticazione.
+3. Aprire l'app di autenticazione sul dispositivo mobile, selezionare **Modifica account** e quindi eliminare l'account aziendale o dell'istituto di istruzione dall'app di autenticazione.
 
     L'account verrà completamente rimosso dall'app di autenticazione per le richieste di verifica a due fattori e reimpostazione della password.
 

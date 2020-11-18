@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: a26228b33a7d90df558de2ecdf4686910e606a54
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 526947c4d2db9fd87727fdd60c33bcaa9e75c6ff
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413293"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699866"
 ---
 # <a name="azure-network-security-overview"></a>Panoramica della sicurezza di rete di Azure
 
@@ -81,7 +81,7 @@ Altre informazioni:
 
 #### <a name="asc-just-in-time-vm-access"></a>Accesso JIT alle macchine virtuali tramite il Centro sicurezza di Azure
 
-Il [Centro sicurezza di Azure](../../security-center/security-center-introduction.md) è in grado di gestire i gruppi di sicurezza di rete nelle macchine virtuali e di bloccare l'accesso alla macchina virtuale fino a quando un utente con autorizzazioni del [controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md) appropriate non richiede l'accesso. Quando l'utente è stato autorizzato, il Centro sicurezza di Azure apporta ai gruppi di sicurezza di rete le modifiche necessarie per consentire l'accesso alle porte selezionate per il tempo specificato. Alla scadenza del tempo specificato, i gruppi di sicurezza di rete vengono ripristinati allo stato protetto precedente.
+Il [Centro sicurezza di Azure](../../security-center/security-center-introduction.md) è in grado di gestire il gruppi delle macchine virtuali e di bloccare l'accesso alla macchina virtuale fino a quando un utente con il controllo degli accessi in base al ruolo [di Azure appropriato](../../role-based-access-control/overview.md) non richiede l'accesso. Quando l'utente è stato autorizzato, il Centro sicurezza di Azure apporta ai gruppi di sicurezza di rete le modifiche necessarie per consentire l'accesso alle porte selezionate per il tempo specificato. Alla scadenza del tempo specificato, i gruppi di sicurezza di rete vengono ripristinati allo stato protetto precedente.
 
 Altre informazioni:
 

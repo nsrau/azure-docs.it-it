@@ -1,6 +1,6 @@
 ---
-title: Monitoraggio connessione (anteprima) | Microsoft Docs
-description: Informazioni su come utilizzare monitoraggio connessione (anteprima) per monitorare le comunicazioni di rete in un ambiente distribuito.
+title: Monitoraggio connessione | Microsoft Docs
+description: Informazioni su come usare il monitoraggio della connessione per monitorare la comunicazione di rete in un ambiente distribuito.
 services: network-watcher
 documentationcenter: na
 author: vinynigam
@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 80934dca73d7f8a205c62a49c418828cab1820e7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5dbb8d508fe824d0264043625c988f43092f3f78
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447685"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699237"
 ---
-# <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoraggio della connettività di rete con monitoraggio connessione (anteprima)
+# <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitoraggio della connettività di rete con monitoraggio connessione
 
-Monitoraggio connessione (anteprima) fornisce il monitoraggio della connessione end-to-end unificato in Azure Network Watcher. La funzionalità di monitoraggio connessione (anteprima) supporta le distribuzioni ibride e cloud di Azure. Network Watcher offre strumenti per monitorare, diagnosticare e visualizzare le metriche relative alla connettività per le distribuzioni di Azure.
+Il monitoraggio della connessione fornisce il monitoraggio della connessione end-to-end unificato in Azure Network Watcher. La funzionalità di monitoraggio della connessione supporta le distribuzioni ibride e cloud di Azure. Network Watcher offre strumenti per monitorare, diagnosticare e visualizzare le metriche relative alla connettività per le distribuzioni di Azure.
 
-Di seguito sono riportati alcuni casi d'uso per monitoraggio connessione (anteprima):
+Di seguito sono riportati alcuni casi d'uso per il monitoraggio della connessione:
 
 - La VM del server Web front-end comunica con una macchina virtuale del server di database in un'applicazione multilivello. Si vuole controllare la connettività di rete tra le due VM.
 - Si vuole che le macchine virtuali nell'area Stati Uniti orientali per il ping delle macchine virtuali nell'area Stati Uniti centrali e si desideri confrontare le latenze di rete tra aree.
@@ -34,9 +34,9 @@ Di seguito sono riportati alcuni casi d'uso per monitoraggio connessione (antepr
 - Per l'applicazione ibrida è necessaria la connettività a un endpoint di archiviazione di Azure. Il sito locale e l'applicazione Azure si connettono allo stesso endpoint di archiviazione di Azure. Si desidera confrontare le latenze del sito locale con le latenze dell'applicazione Azure.
 - Si vuole controllare la connettività tra le installazioni locali e le macchine virtuali di Azure che ospitano l'applicazione cloud.
 
-Nella fase di anteprima, il monitoraggio della connessione combina il meglio di due funzionalità: la funzionalità di monitoraggio della [connessione](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) Network Watcher e il monitoraggio della [connettività del servizio](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity)di monitoraggio prestazioni rete (NPM), il [monitoraggio di ExpressRoute](https://docs.microsoft.com/azure/expressroute/how-to-npm)e le funzionalità di [monitoraggio delle prestazioni](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) .
+Il monitoraggio della connessione combina il meglio di due funzionalità: la funzionalità di [monitoraggio della connessione Network Watcher (classica)](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) e il monitoraggio della [connettività del servizio](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity)di monitoraggio prestazioni rete (NPM), il [monitoraggio di ExpressRoute](https://docs.microsoft.com/azure/expressroute/how-to-npm)e le funzionalità di [monitoraggio delle prestazioni](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) .
 
-Di seguito sono riportati alcuni vantaggi di monitoraggio connessione (anteprima):
+Di seguito sono riportati alcuni vantaggi del monitoraggio della connessione:
 
 * Esperienza unificata e intuitiva per le esigenze di Azure e di monitoraggio ibrido
 * Monitoraggio della connettività tra aree di lavoro
@@ -47,7 +47,7 @@ Di seguito sono riportati alcuni vantaggi di monitoraggio connessione (anteprima
 
 ![Diagramma che illustra il modo in cui il monitoraggio delle connessioni interagisce con le VM di Azure, gli host non Azure, gli endpoint e le posizioni di archiviazione dei dati](./media/connection-monitor-2-preview/hero-graphic.png)
 
-Per iniziare a utilizzare monitoraggio connessione (anteprima) per il monitoraggio, attenersi alla seguente procedura: 
+Per iniziare a utilizzare monitoraggio connessione per il monitoraggio, attenersi alla seguente procedura: 
 
 1. Installare gli agenti di monitoraggio.
 1. Abilitare Network Watcher sulla sottoscrizione.
@@ -59,7 +59,7 @@ Le sezioni seguenti forniscono informazioni dettagliate su questi passaggi.
 
 ## <a name="install-monitoring-agents"></a>Installare gli agenti di monitoraggio
 
-Il monitoraggio della connessione si basa sui file eseguibili leggeri per eseguire i controlli di connettività.  Supporta i controlli di connettività da ambienti Azure e ambienti locali. Il file eseguibile usato varia a seconda che la macchina virtuale sia ospitata in Azure o in locale.
+Il monitoraggio della connessione si basa sui file eseguibili leggeri per eseguire i controlli di connettività. Supporta i controlli di connettività da ambienti Azure e ambienti locali. Il file eseguibile usato varia a seconda che la macchina virtuale sia ospitata in Azure o in locale.
 
 ### <a name="agents-for-azure-virtual-machines"></a>Agenti per macchine virtuali di Azure
 
@@ -89,19 +89,19 @@ Il monitoraggio della connessione monitora la comunicazione a intervalli regolar
 
 Le origini possono essere macchine virtuali di Azure o computer locali in cui è installato un agente di monitoraggio. Gli endpoint di destinazione possono essere Microsoft 365 URL, URL Dynamics 365, URL personalizzati, ID risorsa VM di Azure, IPv4, IPv6, FQDN o qualsiasi nome di dominio.
 
-### <a name="access-connection-monitor-preview"></a>Monitoraggio connessione di accesso (anteprima)
+### <a name="access-connection-monitor"></a>Monitoraggio connessione di accesso
 
 1. Nella home page portale di Azure passare a **Network Watcher**.
-1. Nella sezione **monitoraggio** a sinistra selezionare **monitoraggio connessione (anteprima)**.
-1. Vengono visualizzati tutti i monitoraggi connessione creati in monitoraggio connessione (anteprima). Per visualizzare i monitoraggi connessioni creati nell'esperienza classica di monitoraggio connessione, passare alla scheda **monitoraggio connessione** .
+1. Nella sezione **monitoraggio** a sinistra selezionare **monitoraggio connessione**.
+1. Vengono visualizzati tutti i monitoraggi connessione creati in monitoraggio connessione. Per visualizzare i monitoraggi connessioni creati nell'esperienza classica di monitoraggio connessione, passare alla scheda **monitoraggio connessione** .
     
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot che mostra i monitoraggi connessione creati in monitoraggio connessione (anteprima)" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot che mostra i monitoraggi connessione creati in monitoraggio connessione" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
 
 ### <a name="create-a-connection-monitor"></a>Creare un monitoraggio della connessione
 
-Nei monitoraggi connessione creati in monitoraggio connessione (anteprima) è possibile aggiungere come origini sia i computer locali sia le VM di Azure. Questi monitoraggi di connessione possono inoltre monitorare la connettività agli endpoint. Gli endpoint possono trovarsi in Azure o in qualsiasi altro URL o indirizzo IP.
+Nei monitoraggi connessione creati in monitoraggio connessione è possibile aggiungere sia i computer locali sia le VM di Azure come origini. Questi monitoraggi di connessione possono inoltre monitorare la connettività agli endpoint. Gli endpoint possono trovarsi in Azure o in qualsiasi altro URL o indirizzo IP.
 
-Il monitoraggio connessione (anteprima) include le seguenti entità:
+Il monitoraggio della connessione include le seguenti entità:
 
 * **Risorsa di monitoraggio della connessione** : una risorsa di Azure specifica dell'area. Tutte le entità seguenti sono proprietà di una risorsa di monitoraggio della connessione.
 * **Endpoint** : un'origine o una destinazione che partecipa ai controlli di connettività. Esempi di endpoint includono macchine virtuali di Azure, agenti locali, URL e indirizzi IP.
@@ -111,7 +111,7 @@ Il monitoraggio connessione (anteprima) include le seguenti entità:
 
  ![Diagramma che mostra un monitoraggio della connessione, che definisce la relazione tra i gruppi di test e i test](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-È possibile creare un'anteprima di monitoraggio connessione utilizzando [portale di Azure](connection-monitor-preview-create-using-portal.md) o [ARMClient](connection-monitor-preview-create-using-arm-client.md)
+È possibile creare un monitoraggio della connessione utilizzando [portale di Azure](connection-monitor-preview-create-using-portal.md) o [ARMClient](connection-monitor-preview-create-using-arm-client.md)
 
 Tutte le origini, le destinazioni e le configurazioni di test aggiunte a un gruppo di test vengono suddivise in singoli test. Ecco un esempio di come vengono suddivise le origini e le destinazioni:
 
@@ -151,7 +151,7 @@ Dopo aver creato un monitoraggio della connessione, le origini controllano la co
 
 ### <a name="checks-in-a-test"></a>Verifica in un test
 
-In base al protocollo scelto nella configurazione di test, monitoraggio connessione (anteprima) esegue una serie di controlli per la coppia di origine-destinazione. I controlli vengono eseguiti in base alla frequenza di test scelta.
+In base al protocollo scelto nella configurazione di test, il monitoraggio della connessione esegue una serie di controlli per la coppia di origine-destinazione. I controlli vengono eseguiti in base alla frequenza di test scelta.
 
 Se si usa HTTP, il servizio calcola il numero di risposte HTTP che hanno restituito un codice di risposta valido. I codici di risposta validi possono essere impostati tramite PowerShell e l'interfaccia della riga di comando. Il risultato determina la percentuale di controlli non riusciti. Per calcolare RTT, il servizio misura il tempo tra una chiamata HTTP e la risposta.
 
@@ -164,14 +164,14 @@ In base ai dati restituiti dai controlli, i test possono avere gli Stati seguent
 * **Pass** : i valori effettivi per la percentuale di controlli non riusciti e RTT sono compresi entro le soglie specificate.
 * **Errore** : i valori effettivi per la percentuale di controlli non riusciti o RTT hanno superato le soglie specificate. Se non viene specificata alcuna soglia, un test raggiunge lo stato di errore quando la percentuale di verifiche non riuscite è 100.
 * **Avviso** : 
-     * Se viene specificata la soglia e il monitoraggio della connessione (anteprima) osserva i controlli non riusciti percentuale più del 80% della soglia, il test viene contrassegnato come avviso.
-     * In assenza di soglie specificate, monitoraggio connessione (anteprima) assegna automaticamente una soglia. Quando viene superata tale soglia, lo stato del test passa ad avviso.Per round trip tempo nei test TCP o ICMP, la soglia è 750msec. Per i controlli non riusciti percentuale, la soglia è 10%. 
+     * Se viene specificata la soglia e il monitoraggio della connessione osserva i controlli non riusciti percentuale più del 80% della soglia, il test viene contrassegnato come avviso.
+     * In assenza di soglie specificate, il monitoraggio della connessione assegna automaticamente una soglia. Quando viene superata tale soglia, lo stato del test passa ad avviso.Per round trip tempo nei test TCP o ICMP, la soglia è 750msec. Per i controlli non riusciti percentuale, la soglia è 10%. 
 * **Indeterminato**   -Nessun dato nell'area di lavoro Log Analytics.Controllare la metrica. 
 * **Non in esecuzione**   -Disabilitato disabilitando il gruppo di test  
 
 ### <a name="data-collection-analysis-and-alerts"></a>Raccolta dati, analisi e avvisi
 
-I dati raccolti da monitoraggio connessione (anteprima) vengono archiviati nell'area di lavoro Log Analytics. Questa area di lavoro viene configurata durante la creazione del monitoraggio connessione. 
+I dati raccolti da monitoraggio connessione vengono archiviati nell'area di lavoro Log Analytics. Questa area di lavoro viene configurata durante la creazione del monitoraggio connessione. 
 
 I dati di monitoraggio sono disponibili anche nelle metriche di monitoraggio di Azure. È possibile utilizzare Log Analytics per proteggere i dati di monitoraggio fino a quando si desidera. Monitoraggio di Azure archivia le metriche solo per 30 giorni per impostazione predefinita. 
 
@@ -181,7 +181,7 @@ I dati di monitoraggio sono disponibili anche nelle metriche di monitoraggio di 
 
 Nei dashboard di monitoraggio viene visualizzato un elenco dei monitoraggi connessione a cui è possibile accedere per sottoscrizioni, aree, timestamp, origini e tipi di destinazione.
 
-Quando si passa a monitoraggio connessione (anteprima) da Network Watcher, è possibile visualizzare i dati in base a:
+Quando si passa a monitoraggio connessione da Network Watcher, è possibile visualizzare i dati in base a:
 
 * **Connection Monitor** : elenco di tutti i monitoraggi connessioni creati per sottoscrizioni, aree, timestamp, origini e tipi di destinazione. Questa vista è quella predefinita.
 * **Gruppi di test** : elenco di tutti i gruppi di test creati per le sottoscrizioni, le aree, i timestamp, le origini e i tipi di destinazione. Questi gruppi di test non vengono filtrati in base ai monitoraggi connessione.
@@ -197,20 +197,20 @@ Nel dashboard è possibile espandere ogni monitoraggio della connessione per vis
 * **Filtri basati sullo stato** : filtrare in base allo stato del monitoraggio della connessione, del gruppo di test o del test. Vedere la casella 2 nell'immagine seguente.
 * **Filtro basato su avviso** : consente di filtrare in base agli avvisi generati sulla risorsa di monitoraggio della connessione. Vedere la casella 3 nell'immagine seguente.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Screenshot che illustra come filtrare le visualizzazioni di monitoraggi connessione, gruppi di test e test in Connection Monitor (anteprima)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Screenshot che illustra come filtrare le visualizzazioni dei monitoraggi connessione, i gruppi di test e i test nel monitoraggio della connessione " lightbox="./media/connection-monitor-2-preview/cm-view.png":::
     
-Ad esempio, per esaminare tutti i test in Connection Monitor (anteprima) in cui l'indirizzo IP di origine è 10.192.64.56:
+Ad esempio, per esaminare tutti i test nel monitoraggio della connessione in cui l'indirizzo IP di origine è 10.192.64.56:
 1. Modificare la visualizzazione in **test**.
 1. Nel campo di ricerca digitare *10.192.64.56*
 1. In **ambito** nel filtro di primo livello selezionare **origini**.
 
-Per visualizzare solo i test non superati in monitoraggio connessione (anteprima) in cui l'indirizzo IP di origine è 10.192.64.56:
+Per visualizzare solo i test non superati nel monitoraggio della connessione in cui l'indirizzo IP di origine è 10.192.64.56:
 1. Modificare la visualizzazione in **test**.
 1. Per il filtro basato sullo stato, selezionare **esito negativo**.
 1. Nel campo di ricerca digitare *10.192.64.56*
 1. In **ambito** nel filtro di primo livello selezionare **origini**.
 
-Per visualizzare solo i test non superati in monitoraggio connessione (anteprima) in cui la destinazione è outlook.office365.com:
+Per visualizzare solo i test non superati nel monitoraggio della connessione in cui la destinazione è outlook.office365.com:
 1. Modificare la visualizzazione da **testare**.
 1. Per il filtro basato sullo stato, selezionare **esito negativo**.
 1. Nel campo di ricerca immettere *Outlook.office365.com*
@@ -265,9 +265,9 @@ Usare Log Analytics per creare visualizzazioni personalizzate dei dati di monito
 
 #### <a name="metrics-in-azure-monitor"></a>Metriche in Monitoraggio di Azure
 
-Nei monitoraggi connessioni creati prima dell'esperienza di monitoraggio connessione (anteprima) sono disponibili tutte e quattro le metriche:% probe non riusciti, AverageRoundtripMs, ChecksFailedPercent (anteprima) e RoundTripTimeMs (anteprima). Nei monitoraggi connessioni creati nell'esperienza di monitoraggio connessione (anteprima), i dati sono disponibili solo per le metriche contrassegnate con *(anteprima)*.
+Nei monitoraggi connessioni creati prima dell'esperienza di monitoraggio della connessione sono disponibili tutte e quattro le metriche:% probe non riusciti, AverageRoundtripMs, ChecksFailedPercent (anteprima) e RoundTripTimeMs (anteprima). Nei monitoraggi connessioni creati nell'esperienza di monitoraggio della connessione, i dati sono disponibili solo per le metriche contrassegnate con *(anteprima)*.
 
-  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot che mostra le metriche in monitoraggio connessione (anteprima)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
+  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot che mostra le metriche nel monitoraggio della connessione" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
 Quando si usano le metriche, impostare il tipo di risorsa come Microsoft. Network/networkWatchers/connectionMonitors
 
@@ -282,18 +282,18 @@ Quando si usano le metriche, impostare il tipo di risorsa come Microsoft. Networ
 
 È possibile creare avvisi sulle metriche nei monitoraggi connessione utilizzando i metodi seguenti 
 
-1. Da monitoraggio connessione (anteprima), durante la creazione del monitoraggio connessione [utilizzando portale di Azure](connection-monitor-preview-create-using-portal.md#) 
-1. Da monitoraggio connessione (anteprima), usando "Configura avvisi" nel dashboard 
+1. Da monitoraggio connessione, durante la creazione del monitoraggio connessione [utilizzando portale di Azure](connection-monitor-preview-create-using-portal.md#) 
+1. Dal monitoraggio della connessione, usando "Configura avvisi" nel dashboard 
 1. Da monitoraggio di Azure: per creare un avviso in monitoraggio di Azure: 
-    1. Scegliere la risorsa di monitoraggio della connessione creata in monitoraggio connessione (anteprima).
+    1. Scegliere la risorsa di monitoraggio della connessione creata in monitoraggio connessione.
     1. Assicurarsi che la **metrica** venga visualizzata come tipo di segnale per il monitoraggio della connessione.
     1. In **Aggiungi condizione** per il **nome del segnale** selezionare **ChecksFailedPercent (anteprima)** o **RoundTripTimeMs (anteprima)**.
     1. Per **tipo di segnale** scegliere **metrica**. Ad esempio, selezionare **ChecksFailedPercent (anteprima)**.
     1. Vengono elencate tutte le dimensioni della metrica. Scegliere il nome della dimensione e il valore della dimensione. Selezionare, ad esempio, **indirizzo di origine** e quindi immettere l'indirizzo IP di qualsiasi origine nel monitoraggio della connessione.
     1. In **logica avvisi** compilare i dettagli seguenti:
-        * **Tipo di condizione** : **static**.
+        * **Tipo di condizione**: **static**.
         * **Condizione** e **soglia**.
-        * **Granularità e frequenza di valutazione dell'aggregazione** : monitoraggio connessione (anteprima) aggiorna i dati ogni minuto.
+        * **Granularità e frequenza di valutazione dell'aggregazione**: il monitoraggio della connessione aggiorna i dati ogni minuto.
     1. In **azioni** scegliere il gruppo di azioni.
     1. Fornire i dettagli dell'avviso.
     1. Creare la regola di avviso.
@@ -302,7 +302,7 @@ Quando si usano le metriche, impostare il tipo di risorsa come Microsoft. Networ
 
 ## <a name="diagnose-issues-in-your-network"></a>Diagnosticare i problemi nella rete
 
-Il monitoraggio connessione (anteprima) consente di diagnosticare i problemi nel monitoraggio della connessione e nella rete. I problemi nella rete ibrida vengono rilevati dagli agenti Log Analytics installati in precedenza. I problemi in Azure vengono rilevati dall'estensione Network Watcher. 
+Il monitoraggio delle connessioni consente di diagnosticare i problemi nel monitoraggio della connessione e nella rete. I problemi nella rete ibrida vengono rilevati dagli agenti Log Analytics installati in precedenza. I problemi in Azure vengono rilevati dall'estensione Network Watcher. 
 
 È possibile visualizzare i problemi nella rete di Azure nella topologia di rete.
 
@@ -348,5 +348,5 @@ Per le reti le cui origini sono macchine virtuali di Azure, è possibile rilevar
 
 ## <a name="next-steps"></a>Passaggi successivi
     
-   * Informazioni [su come creare un monitoraggio connessione (anteprima) utilizzando portale di Azure](connection-monitor-preview-create-using-portal.md)  
-   * Informazioni [su come creare un monitoraggio connessione (anteprima) con ARMClient](connection-monitor-preview-create-using-arm-client.md)  
+   * Informazioni [su come creare un monitoraggio connessione utilizzando portale di Azure](connection-monitor-preview-create-using-portal.md)  
+   * Informazioni [su come creare un monitoraggio della connessione tramite ARMClient](connection-monitor-preview-create-using-arm-client.md)  

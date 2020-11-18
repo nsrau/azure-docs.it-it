@@ -3,12 +3,12 @@ title: Uso di PowerShell per la configurazione di Application Insights in Azure 
 description: Automatizzare la configurazione di Diagnostica di Azure per inviare i dati al Application Insights.
 ms.topic: conceptual
 ms.date: 08/06/2019
-ms.openlocfilehash: 3d0b7d1e8d4a164d517834eae877844d85b9a256
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fd69b90ce6329041f96b8e3173f1f17270f68ee
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320358"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699730"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>Uso di PowerShell per configurare Application Insights per i servizi cloud di Azure
 
@@ -126,5 +126,5 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 ## <a name="see-also"></a>Vedere anche
 * [Monitorare le app dei Servizi cloud di Azure con Application Insights](./cloudservices.md)
 * [Inviare i dati del servizio Diagnostica di Azure ad Application Insights](../platform/diagnostics-extension-to-application-insights.md)
-* [Automatizzare la configurazione degli avvisi](powershell-alerts.md)
+
 

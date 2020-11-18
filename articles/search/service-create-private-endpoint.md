@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/19/2020
-ms.openlocfilehash: bbbc79a129ec3140ea6d286cbdce0165e2f6ae7b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 043020abd44bc1f8e671cf386149d6a818136de9
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280402"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700155"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creare un endpoint privato per una connessione sicura ad Azure ricerca cognitiva
 
@@ -58,7 +58,7 @@ In questa sezione si creerà un nuovo servizio ricerca cognitiva di Azure con un
 
 1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa**  >  **Web**  >  **Azure ricerca cognitiva**.
 
-1. In **New servizio di ricerca-nozioni di base**immettere o selezionare queste informazioni:
+1. In **New servizio di ricerca-nozioni di base** immettere o selezionare queste informazioni:
 
     | Impostazione | valore |
     | ------- | ----- |
@@ -75,11 +75,11 @@ In questa sezione si creerà un nuovo servizio ricerca cognitiva di Azure con un
 
 1. Lasciare i valori predefiniti e selezionare **Avanti: rete**.
 
-1. In **nuovo servizio di ricerca-rete**selezionare **privato** per **connettività endpoint (dati)**.
+1. In **nuovo servizio di ricerca-rete** selezionare **privato** per **connettività endpoint (dati)**.
 
-1. In **nuovo servizio di ricerca-rete**selezionare **+ Aggiungi** in **endpoint privato**. 
+1. In **nuovo servizio di ricerca-rete** selezionare **+ Aggiungi** in **endpoint privato**. 
 
-1. In **Crea endpoint privato**immettere o selezionare queste informazioni:
+1. In **Crea endpoint privato** immettere o selezionare queste informazioni:
 
     | Impostazione | Valore |
     | ------- | ----- |
@@ -208,19 +208,19 @@ Quando l'endpoint del servizio di ricerca è privato, alcune funzionalità del p
     Aliases:  [search service name].search.windows.net
     ```
 
-1. Dalla macchina virtuale connettersi al servizio di ricerca e creare un indice. È possibile seguire questa [Guida introduttiva](search-get-started-postman.md) per creare un nuovo indice di ricerca nel servizio in un post con l'API REST. Per la configurazione delle richieste da posting è necessario l'endpoint del servizio di ricerca (https://[nome del servizio di ricerca]. search. Windows. NET) e la chiave API di amministrazione copiata in un passaggio precedente.
+1. Dalla macchina virtuale connettersi al servizio di ricerca e creare un indice. È possibile seguire questa [Guida introduttiva](search-get-started-rest.md) per creare un nuovo indice di ricerca nel servizio usando l'API REST. Per configurare le richieste da uno strumento di test dell'API Web, è necessario l'endpoint del servizio di ricerca (https://[nome del servizio di ricerca]. search. Windows. NET) e la chiave API di amministrazione copiata in un passaggio precedente.
 
 1. Per completare la Guida introduttiva dalla macchina virtuale, è consigliabile confermare che il servizio è completamente operativo.
 
-1. Chiudere la connessione Desktop remoto a *myVM*. 
+1. Chiudere la connessione Desktop remoto a *myVm*. 
 
 1. Per verificare che il servizio non sia accessibile in un endpoint pubblico, aprire il post nella workstation locale e provare le prime attività nella Guida introduttiva. Se viene visualizzato un errore che segnala che il server remoto non esiste, è stato configurato correttamente un endpoint privato per il servizio di ricerca.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
 Al termine dell'operazione, eliminare il gruppo di risorse e tutte le risorse in esso contenute usando l'endpoint privato, il servizio di ricerca e la macchina virtuale:
-1. Immettere *myResourceGroup*   nella casella di **ricerca** nella parte superiore del portale e selezionare *myResourceGroup*nei   Risultati della ricerca. 
+1. Immettere  *myResourceGroup*   nella casella di **ricerca** nella parte superiore del portale e selezionare  *myResourceGroup* nei   Risultati della ricerca. 
 1. Selezionare **Elimina gruppo di risorse**. 
-1. Immettere *myResourceGroup*   per **digitare il nome del gruppo di risorse** e selezionare **Elimina**.
+1. Immettere  *myResourceGroup*   per **digitare il nome del gruppo di risorse** e selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stata creata una VM in una rete virtuale e un servizio di ricerca con un endpoint privato. È stata effettuata la connessione alla macchina virtuale da Internet e la comunicazione protetta con il servizio di ricerca usando un collegamento privato. Per altre informazioni sull'endpoint privato, vedere [che cos'è endpoint privato di Azure?](../private-link/private-endpoint-overview.md).

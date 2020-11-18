@@ -1,7 +1,7 @@
 ---
 title: Interpretazione del modello in Azure Machine Learning (anteprima)
 titleSuffix: Azure Machine Learning
-description: Informazioni su come spiegare il motivo per cui il modello esegue stime usando il Azure Machine Learning SDK. Può essere utilizzato durante il training e l'inferenza per comprendere il modo in cui il modello esegue stime.
+description: Informazioni su come comprendere & spiegare in che modo il modello di Machine Learning esegue stime durante il training & l'inferenza usando Azure Machine Learning Python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 07/09/2020
-ms.openlocfilehash: f98e18abb8ba06ea632ee9c63c1a726879e825d2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: dff0aeaf84ce87ed728d333cb68aee3a349bc111
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311509"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699390"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretazione del modello in Azure Machine Learning (anteprima)
 
@@ -66,7 +66,7 @@ Per informazioni sulle tecniche di interpretazione supportate, sui modelli di ap
 |--|--|--------------------|
 |Spiegazione dell'albero SHAP| [Shap](https://github.com/slundberg/shap)' s Tree Explainer, che è incentrato sull'algoritmo di stima del valore Shap del tempo polinomiale specifico per **alberi ed è costituito da alberi**.|Specifico del modello|
 |SHAP spiegazione approfondita| In base alla spiegazione fornita da SHAP, Deep Explainer "è un algoritmo di approssimazione ad alta velocità per i valori SHAP nei modelli di apprendimento avanzato che si basa su una connessione a DeepLIFT descritta nel [documento Shap pin](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). Sono supportati i modelli **TensorFlow** e i modelli **keras** usando il back-end TensorFlow (è disponibile anche il supporto preliminare per PyTorch) ".|Specifico del modello|
-|SHAP Linear Explainer| Il Explainer lineare di SHAP calcola i valori SHAP per un **modello lineare** , eventualmente tenendo conto delle correlazioni tra funzionalità.|Specifico del modello|
+|SHAP Linear Explainer| Il Explainer lineare di SHAP calcola i valori SHAP per un **modello lineare**, eventualmente tenendo conto delle correlazioni tra funzionalità.|Specifico del modello|
 |Spiegazione del kernel SHAP| Il spiegatore kernel di SHAP usa una regressione lineare locale ponderata in modo specifico per stimare i valori di SHAP per **qualsiasi modello**.|Indipendente dal modello|
 |MIME Explainer (surrogato globale)| Mimic Explainer si basa sul concetto di training dei [modelli surrogati globali](https://christophm.github.io/interpretable-ml-book/global.html) per simulare i modelli blackbox. Un modello di surrogato globale è un modello interpretabile in modo intrinseco che viene sottoposto a training per approssimare le stime di **qualsiasi modello di Black Box** nel modo più accurato possibile. I data scientist possono interpretare il modello surrogato per trarre conclusioni sul modello di black box. È possibile usare uno dei modelli interpretabili seguenti come modello di surrogato: LightGBM (LGBMExplainableModel), regressione lineare (LinearExplainableModel), modello a discesa stocastica a gradiente (SGDExplainableModel) e albero delle decisioni (DecisionTreeExplainableModel).|Indipendente dal modello|
 |Spiegazione dell'importanza della funzionalità di permutazione (PFI)| L'importanza della funzionalità di permutazione è una tecnica usata per spiegare i modelli di classificazione e regressione ispirati dalla [carta delle foreste casuali di Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (vedere la sezione 10). A un livello elevato, il modo in cui funziona è rimescolando in modo casuale i dati una funzionalità alla volta per l'intero set di dati e calcolando la metrica di prestazioni modificata. Maggiore è la modifica, maggiore è l'importanza della funzionalità. PFI può spiegare il comportamento complessivo di **qualsiasi modello sottostante** , ma non spiega le singole stime. |Indipendente dal modello|

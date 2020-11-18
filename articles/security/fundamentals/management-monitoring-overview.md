@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0e74b540610d3b6520f4c8e25ca2df7bf628706f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3520cbafc0e9eebfd6057fe92579a45873b25734
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410335"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698757"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Panoramica su gestione e monitoraggio della sicurezza di Azure
 Questo articolo fornisce una panoramica dei servizi e delle funzionalità di sicurezza forniti da Azure per facilitare la gestione e il monitoraggio delle macchine virtuali e dei servizi cloud di Azure.
 
-## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
+## <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
 
-Il controllo degli accessi in base al ruolo consente la gestione specifica degli accessi per le risorse di Azure. L'uso del controllo degli accessi in base al ruolo consente di concedere agli utenti solo il livello di accesso necessario per le attività che devono svolgere. Il controllo degli accessi in base al ruolo consente anche di assicurarsi che gli utenti non abbiano più accesso alle risorse nel cloud quando lasciano l'organizzazione.
+Il controllo degli accessi in base al ruolo di Azure consente la gestione dettagliata degli accessi per le risorse di Azure. Usando il controllo degli accessi in base al ruolo di Azure, è possibile concedere agli utenti solo la quantità di accesso necessaria per svolgere i propri processi. Il controllo degli accessi in base al ruolo di Azure consente anche di assicurarsi che, quando gli utenti lasciano l'organizzazione, perdano l'accesso alle risorse nel cloud.
 
 Altre informazioni:
 
-* [Blog del team di Active Directory sul controllo degli accessi in base al ruolo](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
+* [Blog del team di Active Directory su RBAC di Azure](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Antimalware
