@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: guybo
-ms.openlocfilehash: 73e07c612486d5f48b1ad3eca8044a561549092b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f35adcc797e903bb44852e9ba52e1a023f51a0d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292124"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659523"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Preparare una macchina virtuale SLES o openSUSE per Azure
 
@@ -32,7 +32,7 @@ In questo articolo si presuppone che l'utente abbia già installato un sistema o
 
 In alternativa alla creazione di un disco rigido virtuale, SUSE pubblica anche immagini BYOS (portare la propria sottoscrizione) per SLES in [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
-## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>Preparare SUSE Linux Enterprise Server 11 SP4
+## <a name="prepare-suse-linux-enterprise-server-for-azure"></a>Preparare SUSE Linux Enterprise Server per Azure
 1. Nel riquadro centrale della console di gestione di Hyper-V selezionare la macchina virtuale.
 2. Fare clic su **Connect** per aprire la finestra della macchina virtuale.
 3. Registrare il sistema SUSE Linux Enterprise per scaricare gli aggiornamenti e installare i pacchetti.
@@ -41,57 +41,53 @@ In alternativa alla creazione di un disco rigido virtuale, SUSE pubblica anche i
     ```console
     # sudo zypper update
     ```
-
-1. Installare l'agente Linux di Azure dal repository SLES (SLE11-Public-Cloud-Module):
+    
+5. Installare l'agente Linux di Azure e cloud-init
 
     ```console
+    # SUSEConnect -p sle-module-public-cloud/15.2/x86_64  (SLES 15 SP2)
     # sudo zypper install python-azure-agent
+    # sudo zypper install cloud-init
     ```
 
-1. Controllare se l'agente waagent è impostato su "on" in chkconfig e, in caso contrario, abilitarlo per l'avvio automatico:
+6. Abilitare waagent & cloud-init per l'avvio all'avvio
 
     ```console
     # sudo chkconfig waagent on
+    # systemctl enable cloud-init-local.service
+    # systemctl enable cloud-init.service
+    # systemctl enable cloud-config.service
+    # systemctl enable cloud-final.service
+    # systemctl daemon-reload
+    # cloud-init clean
     ```
 
-7. Controllare se il servizio waagent è in esecuzione e, in caso contrario, avviarlo: 
+7. Aggiornare la configurazione di waagent e cloud-init
 
     ```console
-    # sudo service waagent start
+    # sudo sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+    # sudo sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+
+    # sudo sh -c 'printf "datasource:\n  Azure:" > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg'
+    # sudo sh -c 'printf "reporting:\n  logging:\n    type: log\n  telemetry:\n    type: hyperv" > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg'
     ```
 
-8. Modificare la riga di avvio del kernel nella configurazione GRUB per includere ulteriori parametri del kernel per Azure. A questo scopo, aprire "/boot/grub/menu.lst" in un editor di testo e verificare che il kernel predefinito includa i parametri seguenti:
+8. Modificare il file/etc/default/grub per assicurarsi che i log della console vengano inviati alla porta seriale e quindi aggiornare il file di configurazione principale con GRUB2-mkconfig-o/boot/GRUB2/grub.cfg
 
     ```config-grub
     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
     ```
-
     In questo modo si garantisce che tutti i messaggi della console vengano inviati alla prima porta seriale, agevolando così il supporto di Azure nella risoluzione dei problemi di debug.
-9. Verificare che /boot/grub/menu.lst e /etc/fstab facciano riferimento al disco tramite il relativo UUID (by-uuid) anziché l'ID disco (by-id). 
-   
-    Ottenere l'UUID disco
-
-    ```console
-    # ls /dev/disk/by-uuid/
-    ```
-
-    Se si usa /dev/disk/by-id/, aggiornare sia /boot/grub/menu.lst sia /etc/fstab con il valore by-uuid corretto
-   
-    Prima della modifica
-   
-    `root=/dev/disk/by-id/SCSI-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx-part1`
-   
-    Dopo la modifica
-   
-    `root=/dev/disk/by-uuid/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-
+    
+9. Verificare che il file/etc/fstab faccia riferimento al disco usando il relativo UUID (by-uuid)
+         
 10. Modificare le regole udev per evitare la generazione di regole statiche per l'interfaccia Ethernet. Le regole seguenti possono provocare problemi quando si clona una macchina virtuale in Microsoft Azure o Hyper-V:
 
     ```console
     # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
     # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
     ```
-
+   
 11. Si consiglia di modificare il file "/etc/sysconfig/network/dhcp" e modificare il parametro `DHCLIENT_SET_HOSTNAME` come segue:
 
     ```config
@@ -105,7 +101,8 @@ In alternativa alla creazione di un disco rigido virtuale, SUSE pubblica anche i
     ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
     ```
 
-13. Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio.  Questo è in genere il valore predefinito.
+13. Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio. Questo è in genere il valore predefinito.
+
 14. Non creare l'area di swap sul disco del sistema operativo.
     
     L'agente Linux di Azure può configurare automaticamente l'area di swap utilizzando il disco risorse locale collegato alla VM dopo il provisioning in Azure. Si noti che il disco risorse locale è un disco *temporaneo* e potrebbe essere svuotato in seguito al deprovisioning della macchina virtuale. Dopo aver installato l'agente Linux di Azure come illustrato nel passaggio precedente, modificare i parametri seguenti in /etc/waagent.conf in modo appropriato:

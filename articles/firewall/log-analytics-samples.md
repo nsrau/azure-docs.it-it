@@ -7,16 +7,16 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: 2d4ed76e849385c4edecb7bd97d58087c8e5b4b3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 86538f6d0467eb15e549179166ca957902a2d0c3
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132789"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659557"
 ---
 # <a name="azure-monitor-logs-for-azure-firewall"></a>Log di monitoraggio di Azure per il firewall di Azure
 
-Gli esempi seguenti di log di monitoraggio di Azure possono essere usati per analizzare i log del firewall di Azure. Il file di esempio è incorporato in Progettazione viste in monitoraggio di Azure. l'articolo progettazione [viste in monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) contiene altre informazioni sul concetto di progettazione della vista.
+Gli esempi seguenti di log di monitoraggio di Azure possono essere usati per analizzare i log del firewall di Azure. Il file di esempio è incorporato in Progettazione viste in monitoraggio di Azure. l'articolo progettazione [viste in monitoraggio di Azure](../azure-monitor/platform/view-designer.md) contiene altre informazioni sul concetto di progettazione della vista.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -40,7 +40,7 @@ E per i dati di log delle regole di rete:
 
 ![Dati di log delle regole di rete]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Il firewall di Azure registra i dati sotto AzureDiagnostics con Category come **AzureFirewallApplicationRule** o **AzureFirewallNetworkRule**. I dati che contengono i dettagli vengono archiviati nel campo msg_s. Usando l'operatore [analizza](https://docs.microsoft.com/azure/kusto/query/parseoperator) è possibile estrarre le varie proprietà interessante dal campo msg_s. Le query seguenti estraggono le informazioni per entrambe le categorie.
+Il firewall di Azure registra i dati sotto AzureDiagnostics con Category come **AzureFirewallApplicationRule** o **AzureFirewallNetworkRule**. I dati che contengono i dettagli vengono archiviati nel campo msg_s. Usando l'operatore [analizza](/azure/kusto/query/parseoperator) è possibile estrarre le varie proprietà interessante dal campo msg_s. Le query seguenti estraggono le informazioni per entrambe le categorie.
 
 ## <a name="application-rules-log-data-query"></a>Query sui dati di log delle regole di applicazione
 
@@ -48,10 +48,10 @@ La query seguente consente di analizzare i dati di log delle regole di applicazi
 
 ```Kusto
 AzureDiagnostics
-| where Category == "AzureFirewallApplicationRule"
+| where Category == "AzureFirewallApplicationRule"
 //using :int makes it easier to pars but later we'll convert to string as we're not interested to do mathematical functions on these fields
 //this first parse statement is valid for all entries as they all start with this format
-| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " " TempDetails
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " " TempDetails
 //case 1: for records that end with: "was denied. Reason: SNI TLS extension was missing."
 | parse TempDetails with "was " Action1 ". Reason: " Rule1
 //case 2: for records that end with
@@ -84,8 +84,8 @@ La stessa query in un formato più ridotto:
 
 ```Kusto
 AzureDiagnostics
-| where Category == "AzureFirewallApplicationRule"
-| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " " TempDetails
+| where Category == "AzureFirewallApplicationRule"
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " " TempDetails
 | parse TempDetails with "was " Action1 ". Reason: " Rule1
 | parse TempDetails with "to " FQDN ":" TargetPortInt:int ". Action: " Action2 "." *
 | parse TempDetails with * ". Rule Collection: " RuleCollection2a ". Rule:" Rule2a
@@ -104,13 +104,13 @@ La query seguente consente di analizzare i dati del log della regola di rete. Ne
 
 ```Kusto
 AzureDiagnostics
-| where Category == "AzureFirewallNetworkRule"
+| where Category == "AzureFirewallNetworkRule"
 //using :int makes it easier to pars but later we'll convert to string as we're not interested to do mathematical functions on these fields
 //case 1: for records that look like this:
 //TCP request from 10.0.2.4:51990 to 13.69.65.17:443. Action: Deny//Allow
 //UDP request from 10.0.3.4:123 to 51.141.32.51:123. Action: Deny/Allow
 //TCP request from 193.238.46.72:50522 to 40.119.154.83:3389 was DNAT'ed to 10.0.2.4:3389
-| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
 //case 1a: for regular network rules
 //TCP request from 10.0.2.4:51990 to 13.69.65.17:443. Action: Deny//Allow
 //UDP request from 10.0.3.4:123 to 51.141.32.51:123. Action: Deny/Allow
@@ -120,7 +120,7 @@ AzureDiagnostics
 | parse msg_s with * " was " Action1b " to " NatDestination
 //case 2: for ICMP records
 //ICMP request from 10.0.2.4 to 10.0.3.4. Action: Allow
-| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
 | extend
 SourcePort = tostring(SourcePortInt),
 TargetPort = tostring(TargetPortInt)
@@ -141,11 +141,11 @@ La stessa query in un formato più ridotto:
 
 ```Kusto
 AzureDiagnostics
-| where Category == "AzureFirewallNetworkRule"
-| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| where Category == "AzureFirewallNetworkRule"
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
 | parse msg_s with * ". Action: " Action1a
 | parse msg_s with * " was " Action1b " to " NatDestination
-| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
 | extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
 | extend Action = case(Action1a == "", case(Action1b == "",Action2,Action1b), Action1a),Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort),NatDestination = case(NatDestination == "", "N/A", NatDestination)
 | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
@@ -172,9 +172,9 @@ Negli esempi di log seguenti vengono illustrati i dati inclusi in una voce di lo
 
 :::image type="content" source="media/log-analytics-samples/log1.png" alt-text="Screenshot di una voce di log. Sono visibili più valori, ad esempio un timestamp, un protocollo, un numero di porta, un'azione, una raccolta regole e una regola." border="false":::
 
-:::image type="content" source="media/log-analytics-samples/log2.png" alt-text="Screenshot di una voce di log. Sono visibili più valori, ad esempio un timestamp, un protocollo, un numero di porta, un'azione, una raccolta regole e una regola." border="false":::
+:::image type="content" source="media/log-analytics-samples/log2.png" alt-text="Screenshot di una voce di log. Sono visibili più valori, ad esempio un timestamp, un protocollo, gli indirizzi I P di origine e di destinazione e un'azione." border="false":::
 
-:::image type="content" source="media/log-analytics-samples/log3.png" alt-text="Screenshot di una voce di log. Sono visibili più valori, ad esempio un timestamp, un protocollo, un numero di porta, un'azione, una raccolta regole e una regola." border="false":::
+:::image type="content" source="media/log-analytics-samples/log3.png" alt-text="Screenshot di una voce di log. Sono visibili più valori, ad esempio un timestamp, un protocollo, l'origine e la destinazione I P indirizzi e porte e un messaggio." border="false":::
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sul monitoraggio e la diagnostica di Firewall di Azure, vedere [Esercitazione: Monitorare i log e le metriche di Firewall di Azure](tutorial-diagnostics.md).
+Per informazioni sul monitoraggio e la diagnostica di Firewall di Azure, vedere [Esercitazione: Monitorare i log e le metriche di Firewall di Azure](./firewall-diagnostics.md).
