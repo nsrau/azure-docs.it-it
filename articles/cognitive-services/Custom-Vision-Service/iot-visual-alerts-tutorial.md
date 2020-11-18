@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: ebc6ca630ea3cabb519805ae8505abf336a2a9ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 833ec0f706786ebb86a54fb3c5b13d9c6e5c6062
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604292"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616230"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Esercitazione: Usare Visione personalizzata con un dispositivo IoT per segnalare gli stati visivi
 
@@ -41,7 +41,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 * Sarà inoltre necessario [creare una risorsa dell'hub IoT](https://ms.portal.azure.com/#create/Microsoft.IotHub) in Azure.
 * [Visual Studio 2015 o versioni successive](https://www.visualstudio.com/downloads/)
 * Facoltativamente, un dispositivo IoT che esegue Windows 10 IoT Core versione 17763 o successiva. È anche possibile eseguire l'app direttamente dal PC.
-   * Per Raspberry Pi 2 e 3, è possibile configurare Windows 10 direttamente dall'app Dashboard IoT. Per altri dispositivi, ad esempio DrangonBoard, è necessario eseguire il flashing del sistema operativo usando il [metodo eMMC](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). Per informazioni sulla configurazione di un nuovo dispositivo, vedere [Configurazione del dispositivo](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) nella documentazione di Windows IoT.
+   * Per Raspberry Pi 2 e 3, è possibile configurare Windows 10 direttamente dall'app Dashboard IoT. Per altri dispositivi, ad esempio DrangonBoard, è necessario eseguire il flashing del sistema operativo usando il [metodo eMMC](/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). Per informazioni sulla configurazione di un nuovo dispositivo, vedere [Configurazione del dispositivo](/windows/iot-core/tutorials/quickstarter/devicesetup) nella documentazione di Windows IoT.
 
 ## <a name="about-the-visual-alerts-app"></a>Informazioni sull'app Visual Alerts
 
@@ -142,5 +142,5 @@ In questa esercitazione è stata configurata ed eseguita un'applicazione che ril
 > [Esempio di IoTVisualAlerts (GitHub)](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/tree/master/IoTVisualAlerts)
 
 * Aggiungere un metodo dell'hub IoT per consentire all'app di passare direttamente allo stato **Waiting For Trained Model** (In attesa del modello sottoposto a training). In questo modo, è possibile eseguire il training del modello con immagini che non vengono acquisite dal dispositivo stesso e quindi eseguire il push del nuovo modello nel dispositivo quando necessario.
-* Seguire l'esercitazione [Visualizzare i dati dei sensori in tempo reale](https://docs.microsoft.com/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi) per creare un dashboard di Power BI per visualizzare gli avvisi dell'hub IoT inviati dall'esempio.
-* Seguire l'esercitazione [Monitoraggio remoto di IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps) per creare un'app per la logica che risponda agli avvisi dell'hub IoT quando vengono rilevati determinati stati visivi.
+* Seguire l'esercitazione [Visualizzare i dati dei sensori in tempo reale](../../iot-hub/iot-hub-live-data-visualization-in-power-bi.md) per creare un dashboard di Power BI per visualizzare gli avvisi dell'hub IoT inviati dall'esempio.
+* Seguire l'esercitazione [Monitoraggio remoto di IoT](../../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md) per creare un'app per la logica che risponda agli avvisi dell'hub IoT quando vengono rilevati determinati stati visivi.

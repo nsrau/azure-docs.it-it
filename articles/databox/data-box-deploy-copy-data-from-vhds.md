@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 28232981d007e7be04d520ec46739408d03d90b4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1394cf6511a65a0e406e51229953e8666d4d4d8d
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124014"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337679"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Esercitazione: Usare Data Box per importare dati come dischi gestiti in Azure
 
@@ -76,11 +76,11 @@ Se si usa un computer host Windows Server, eseguire le operazioni seguenti per c
     > [!NOTE]
     > Le credenziali sono le stesse per tutte le condivisioni di dischi gestiti.
 
-    ![Ottenere le credenziali delle condivisioni](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
+    ![Connetti e copia, recupero delle credenziali della condivisione](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
-2. Nella finestra di dialogo Accedi alla condivisione e copia i dati copiare i valori di **Nome utente** e **Password** per la condivisione. Fare clic su **OK**.
+2. Nella finestra di dialogo **Accedi alla condivisione e copia i dati** copiare i valori di **Nome utente** e **Password** per la condivisione. Fare clic su **OK**.
     
-    ![Ottenere le credenziali delle condivisioni 2](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
+    ![Connetti e copia, copia delle credenziali della condivisione](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
 3. Per accedere alle condivisioni associate alla risorsa (*mydbmdrg1* nell'esempio seguente) dal computer host, aprire una finestra di comando. Al prompt dei comandi digitare:
 
@@ -100,13 +100,13 @@ Se si usa un computer host Windows Server, eseguire le operazioni seguenti per c
     C: \>
     ```
 
-4. Premere WINDOWS+R. Nella finestra **Esegui** specificare `\\<device IP address>\<ShareName>`. Fare clic su **OK** per aprire Esplora file.
+5. Premere WINDOWS+R. Nella finestra **Esegui** specificare `\\<device IP address>\<ShareName>`. Fare clic su **OK** per aprire Esplora file.
     
     ![Connettersi a una condivisione tramite Esplora file](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
     Ora dovrebbero essere visibili le cartelle seguenti, create preventivamente in ogni condivisione.
     
-    ![Connettersi a una condivisione tramite Esplora file 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer2.png)
+    ![Connettersi alla condivisione tramite Esplora file, cartelle per una condivisione](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer2.png)
 
 
 ### <a name="connect-to-data-box-via-nfs"></a>Connettersi a Data Box tramite NFS
@@ -119,7 +119,7 @@ Se si usa un computer host Linux, eseguire la procedura seguente per configurare
 
 2. Specificare l'indirizzo IP del client NFS e fare clic su **Aggiungi**. Per configurare l'accesso per più client NFS, ripetere questa procedura. Fare clic su **OK**.
 
-    ![Configurare l'accesso dei client NFS 2](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
+    ![Configurare l'indirizzo IP del client NFS](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
 
 2. Verificare che nel computer host Linux sia installata una [versione supportata](data-box-system-requirements.md) del client NFS. Usare la versione specifica della distribuzione Linux in uso.
 

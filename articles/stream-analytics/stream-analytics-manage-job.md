@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/03/2019
-ms.openlocfilehash: a265bc2ed131dc0bb69d89f767ab60225d30ee8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/30/2020
+ms.openlocfilehash: fef949e9285264ef46fbaed05a4385a15b27e65e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89612058"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354469"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Esercitazione: Analizzare i dati delle telefonate con Analisi di flusso di Azure e visualizzare i risultati in una dashboard Power BI
 
@@ -39,7 +39,7 @@ Prima di iniziare, eseguire queste azioni:
 
 ## <a name="create-an-azure-event-hub"></a>Creare un Hub di eventi di Azure
 
-Per consentire ad Analisi di flusso di analizzare il flusso di dati delle chiamate fraudolente, è necessario che i dati vengano inviati ad Azure. In questa esercitazione si invieranno i dati ad Azure usando [Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs).
+Per consentire ad Analisi di flusso di analizzare il flusso di dati delle chiamate fraudolente, è necessario che i dati vengano inviati ad Azure. In questa esercitazione si invieranno i dati ad Azure usando [Hub eventi di Azure](../event-hubs/event-hubs-about.md).
 
 Per creare un nuovo hub eventi e inviare i dati delle chiamate, seguire la procedura seguente:
 
@@ -51,17 +51,18 @@ Per creare un nuovo hub eventi e inviare i dati delle chiamate, seguire la proce
 
    |**Impostazione**  |**Valore consigliato** |**Descrizione**  |
    |---------|---------|---------|
-   |Nome     | myEventHubsNS        |  Nome univoco che identifica lo spazio dei nomi dell'hub eventi.       |
+   |Nome     | asaTutorialEventHub        |  Nome univoco che identifica lo spazio dei nomi dell'hub eventi.       |
    |Subscription     |   \<Your subscription\>      |   Selezionare una sottoscrizione di Azure in cui creare l'hub eventi.      |
    |Resource group     |   MyASADemoRG      |  Selezionare **Crea nuovo** e immettere il nome di un nuovo gruppo di risorse per l'account.       |
    |Percorso     |   Stati Uniti occidentali 2      |    Località in cui lo spazio dei nomi dell'hub eventi può essere distribuito.     |
 
-4. Usare le opzioni predefinite per le restanti impostazioni e selezionare **Crea**.
+4. Usare le opzioni predefinite per le restanti impostazioni e selezionare **Rivedi e crea**. Selezionare quindi **Crea** per avviare la distribuzione.
 
    ![Creare lo spazio dei nomi dell'hub eventi nel portale di Azure](media/stream-analytics-manage-job/create-event-hub-namespace.png)
 
-5. Quando la distribuzione dello spazio dei nomi è stata completata, passare a **Tutte le risorse** e individuare *myEventHubsNS* nell'elenco delle risorse di Azure. Selezionare *myEventHubsNS* per aprirlo.
-6. Selezionare quindi **+Hub eventi** e in **Nome** immettere *MyEventHub* o il nome desiderato. Usare le opzioni predefinite per le restanti impostazioni e selezionare **Crea**. Attendere il completamento della distribuzione.
+5. Quando la distribuzione dello spazio dei nomi è stata completata, passare a **Tutte le risorse** e individuare *asaTutorialEventHub* nell'elenco delle risorse di Azure. Selezionare *asaTutorialEventHub* per aprirlo.
+
+6. Selezionare quindi **+ Hub eventi** e immettere un **Nome** per l'hub eventi. Impostare **Conteggio partizioni** su *2*.  Usare le opzioni predefinite per le impostazioni rimanenti e selezionare **Crea**. Attendere il completamento della distribuzione.
 
    ![Configurazione di Hub eventi nel portale di Azure](media/stream-analytics-manage-job/create-event-hub-portal.png)
 
@@ -69,13 +70,13 @@ Per creare un nuovo hub eventi e inviare i dati delle chiamate, seguire la proce
 
 Affinché un'applicazione possa inviare dati ad Hub eventi di Azure, è necessario che l'hub eventi abbia criteri che consentono l'accesso appropriato. I criteri di accesso generano una stringa di connessione che include informazioni di autorizzazione.
 
-1. Passare all'hub eventi MyEventHub creato nel passaggio precedente. Selezionare **Criteri di accesso condivisi** in **Impostazioni** e quindi selezionare **+ Aggiungi**.
+1. Passare all'hub eventi *MyEventHub* creato nel passaggio precedente. Selezionare **Criteri di accesso condivisi** in **Impostazioni** e quindi selezionare **+ Aggiungi**.
 
 2. Assegnare al criterio il nome **MyPolicy** e assicurarsi che **Gestisci** sia selezionato. Selezionare quindi **Crea**.
 
    ![Creare criteri di accesso condiviso dell'hub eventi](media/stream-analytics-manage-job/create-event-hub-access-policy.png)
 
-3. Dopo la creazione del criterio, selezionarlo per aprirlo e individuare **Stringa di connessione - chiave primaria**. Selezionare il pulsante blu **copia** accanto alla stringa di connessione.
+3. Dopo aver creato il criterio, fare clic sul nome del criterio per aprirlo. Trovare il valore di **Stringa di connessione - Chiave primaria**. Selezionare il pulsante **copia** accanto alla stringa di connessione.
 
    ![Salvare la stringa di connessione dei criteri di accesso condiviso](media/stream-analytics-manage-job/save-connection-string.png)
 
@@ -92,7 +93,7 @@ Affinché un'applicazione possa inviare dati ad Hub eventi di Azure, è necessar
 Prima di avviare l'app TelcoGenerator, configurarla per inviare i dati all'istanza di Hub eventi di Azure creata in precedenza.
 
 1. Estrarre il contenuto del file [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip).
-2. Aprire il file `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` in un editor di testo a propria scelta. Ci sono più file con estensione config, quindi assicurarsi di aprire quello giusto.
+2. Aprire il file `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` in un editor di testo a propria scelta. Ci sono più file con estensione config, quindi assicurarsi di aprire quello corretto.
 
 3. Aggiornare l'elemento `<appSettings>` nel file di configurazione con i dettagli seguenti:
 
@@ -128,9 +129,9 @@ Dopo aver creato un flusso di eventi di chiamata, è possibile creare un process
 
 1. Per creare un processo di Analisi di flusso, passare al [portale di Azure](https://portal.azure.com/).
 
-2. Selezionare **Crea una risorsa** > **Internet delle cose** > **Processo di Analisi di flusso**.
+2. Selezionare **Crea una risorsa** e cercare **Processo di Analisi di flusso**. Selezionare il riquadro **Processo di Analisi di flusso** e fare clic su **Crea**.
 
-3. Compilare il riquadro **Nuovo processo di Analisi di flusso** con i valori seguenti:
+3. Compilare il modulo **Nuovo processo di Analisi di flusso** con i valori seguenti:
 
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
@@ -149,17 +150,17 @@ Dopo aver creato un flusso di eventi di chiamata, è possibile creare un process
 
 Il passaggio successivo consiste nel definire un'origine di input da cui il processo può leggere i dati usando l'hub eventi creato nella sezione precedente.
 
-1. Nel portale di Azure aprire il riquadro **Tutte le risorse** e individuare il processo *ASATutorial* di Analisi di flusso.
+1. Nel portale di Azure aprire la pagina **Tutte le risorse** e individuare il processo di Analisi di flusso *ASATutorial*.
 
-2. Nella sezione **Topologia processo** del riquadro del processo di Analisi di flusso selezionare l'opzione **Input**.
+2. Nella sezione **Topologia processo** del processo di Analisi di flusso selezionare **Input**.
 
-3. Selezionare **+ Aggiungi input del flusso** e **Hub eventi**. Compilare il riquadro con i valori seguenti:
+3. Selezionare **+ Aggiungi input del flusso** e **Hub eventi**. Compilare il modulo di input con i valori seguenti:
 
    |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
    |---------|---------|---------|
    |Alias di input     |  CallStream       |  Specificare un nome descrittivo per identificare l'input. L'alias di input può contenere solo caratteri alfanumerici, trattini e caratteri di sottolineatura e deve avere una lunghezza compresa tra 3 e 63 caratteri.       |
    |Sottoscrizione    |   \<Your subscription\>      |   Selezionare la sottoscrizione di Azure in cui è stato creato l'hub eventi. L'hub eventi può trovarsi nella stessa sottoscrizione del processo di Analisi di flusso o in una sottoscrizione diversa.       |
-   |Spazio dei nomi dell'hub eventi    |  myEventHubsNS       |  Selezionare lo spazio dei nomi dell'hub eventi creato nella sezione precedente. Nell'elenco a discesa sono presenti tutti gli spazi dei nomi degli hub eventi disponibili nella sottoscrizione corrente.       |
+   |Spazio dei nomi dell'hub eventi    |  asaTutorialEventHub       |  Selezionare lo spazio dei nomi dell'hub eventi creato nella sezione precedente. Nell'elenco a discesa sono presenti tutti gli spazi dei nomi degli hub eventi disponibili nella sottoscrizione corrente.       |
    |Nome dell'hub eventi    |   MyEventHub      |  Selezionare l'hub eventi creato nella sezione precedente. Nell'elenco a discesa sono presenti tutti gli hub eventi disponibili nella sottoscrizione corrente.       |
    |Nome criteri hub eventi   |  MyPolicy       |  Selezionare i criteri di accesso condiviso dell'hub eventi creati nella sezione precedente. Nell'elenco a discesa sono presenti tutti i criteri degli hub eventi disponibili nella sottoscrizione corrente.       |
 
@@ -169,33 +170,39 @@ Il passaggio successivo consiste nel definire un'origine di input da cui il proc
 
 ## <a name="configure-job-output"></a>Configurare l'output del processo
 
-L'ultimo passaggio consiste nel definire un sink di output per il processo, in cui scrivere i dati trasformati. In questa esercitazione ottenere i dati di output e visualizzarli con Power BI.
+L'ultimo passaggio consiste nel definire un sink di output in cui il processo può scrivere i dati trasformati. In questa esercitazione ottenere i dati di output e visualizzarli con Power BI.
 
-1. Nel portale di Azure aprire il riquadro **Tutte le risorse** e individuare il processo *ASATutorial* di Analisi di flusso.
+1. Nel portale di Azure aprire il riquadro **Tutte le risorse** e selezionare il processo di Analisi di flusso *ASATutorial*.
 
-2. Nella sezione **Topologia processo** del riquadro del processo di Analisi di flusso selezionare l'opzione **Output**.
+2. Nella sezione **Topologia processo** del processo di Analisi di flusso selezionare l'opzione **Output**.
 
-3. Selezionare **+ Aggiungi** > **Power BI**. Compilare quindi il modulo con i dettagli seguenti e selezionare **Autorizza**:
+3. Selezionare **+ Aggiungi** > **Power BI**. Selezionare quindi **Autorizza** e seguire le istruzioni per l'autenticazione di Power BI.
+
+:::image type="content" source="media/stream-analytics-manage-job/authorize-power-bi.png" alt-text="pulsante Autorizza per Power BI":::
+
+4. Compilare il modulo di output con i dettagli seguenti e selezionare **Salva**:
 
    |**Impostazione**  |**Valore consigliato**  |
    |---------|---------|
    |Alias di output  |  MyPBIoutput  |
+   |Area di lavoro del gruppo| Area di lavoro personale |
    |Nome del set di dati  |   ASAdataset  |
    |Nome tabella |  ASATable  |
+   | Modalità di autenticazione | Token utente |
 
    ![Configurare l'output Analisi di flusso di Azure](media/stream-analytics-manage-job/configure-stream-analytics-output.png)
 
-4. Quando si seleziona **Autorizza**, viene visualizzata una finestra popup in cui viene chiesto di fornire le credenziali per l'autenticazione dell'account di Power BI. Una volta completato il processo di autorizzazione, fare clic su **Salva** per salvare le impostazioni. Per usare l'identità gestita, vedere [Usare l'identità gestita per autenticare il processo di Analisi di flusso di Azure per Power BI](powerbi-output-managed-identity.md).
+   Questa esercitazione usa la modalità di autenticazione *Token utente*. Per usare l'identità gestita, vedere [Usare l'identità gestita per autenticare il processo di Analisi di flusso di Azure per Power BI](powerbi-output-managed-identity.md).
 
 ## <a name="define-a-query-to-analyze-input-data"></a>Definire una query per analizzare i dati di input
 
-Il passaggio successivo consiste nel creare una trasformazione che analizzi i dati in tempo reale. Per definire la query di trasformazione, si usa il [linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). La query usata in questa esercitazione consente di rilevare le chiamate fraudolente dai dati delle telefonate.
+Il passaggio successivo consiste nel creare una trasformazione che analizzi i dati in tempo reale. Per definire la query di trasformazione, si usa il [linguaggio di query di Analisi di flusso](/stream-analytics-query/stream-analytics-query-language-reference). La query usata in questa esercitazione consente di rilevare le chiamate fraudolente dai dati delle telefonate.
 
 In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da località diverse e vengono effettuate a cinque secondi di distanza una dall'altra. Ad esempio, lo stesso utente non può eseguire legittimamente una chiamata dagli Stati Uniti e dall'Australia nello stesso momento. Per definire la query di trasformazione per il processo di Analisi di flusso:
 
 1. Nel portale di Azure aprire il riquadro **Tutte le risorse** e passare al processo **ASATutorial** di Analisi di flusso creato in precedenza.
 
-2. Nella sezione **Topologia processo** del riquadro del processo di Analisi di flusso selezionare l'opzione **Query**. La finestra di query elenca gli input e gli output configurati per il processo e consente di creare una query per trasformare il flusso di input.
+2. Nella sezione **Topologia processo** del processo di Analisi di flusso selezionare l'opzione **Query**. La finestra di query elenca gli input e gli output configurati per il processo e consente di creare una query per trasformare il flusso di input.
 
 3. Sostituire la query esistente nell'editor con la query seguente, che esegue un self-join su un intervallo di cinque secondi di dati delle chiamate:
 
@@ -210,7 +217,7 @@ In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da l
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Per controllare le chiamate fraudolente, è possibile eseguire un self-join sui dati di streaming in base al valore di `CallRecTime`. Cercare quindi i record delle chiamate in cui il valore `CallingIMSI` (numero di origine) è lo stesso, ma il valore `SwitchNum` (paese/area di origine) è diverso. Quando si usa un'operazione JOIN con i dati di streaming, il join deve garantire alcuni limiti per la distanza di separazione delle righe corrispondenti nel tempo. Dal momento che i dati di streaming sono infiniti, è necessario specificare i limiti di tempo per la relazione all'interno della clausola **ON** del join usando la funzione [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics).
+   Per controllare le chiamate fraudolente, è possibile eseguire un self-join sui dati di streaming in base al valore di `CallRecTime`. Cercare quindi i record delle chiamate in cui il valore `CallingIMSI` (numero di origine) è lo stesso, ma il valore `SwitchNum` (paese/area di origine) è diverso. Quando si usa un'operazione JOIN con i dati di streaming, il join deve garantire alcuni limiti per la distanza di separazione delle righe corrispondenti nel tempo. Dal momento che i dati di streaming sono infiniti, è necessario specificare i limiti di tempo per la relazione all'interno della clausola **ON** del join usando la funzione [DATEDIFF](/stream-analytics-query/datediff-azure-stream-analytics).
 
    La query è simile a un normale join SQL, ad eccezione della funzione **DATEDIFF**. La funzione **DATEDIFF** usata in questa query è specifica di Analisi di flusso e deve essere inclusa nella clausola `ON...BETWEEN`.
 
@@ -220,25 +227,17 @@ In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da l
 
 ## <a name="test-your-query"></a>Testare la query
 
-È possibile testare una query dall'editor di query usando i dati di esempio. Per testare la query, seguire questa procedura:
+È possibile testare una query dall'editor di query. Per testare la query, seguire questa procedura:
 
 1. Assicurarsi che l'app TelcoGenerator sia in esecuzione e generi record delle telefonate.
 
-2. Nel riquadro **Query** selezionare i puntini di sospensione accanto all'input *CallStream* e quindi selezionare **Dati di esempio da input**.
-
-3. Impostare **Minuti** su 3 e selezionare **OK**. Vengono campionati tre minuti di dati dal flusso di input e viene inviata una notifica quando i dati di esempio sono pronti. È possibile visualizzare lo stato del campionamento sulla barra di notifica.
-
-   I dati di esempio vengono archiviati temporaneamente e sono disponibili finché rimane aperta la finestra di query. Se si chiude la finestra di query, i dati di esempio verranno rimossi e sarà necessario creare un nuovo set di dati se si intende eseguire il test. In alternativa, è possibile usare un file JSON che contiene i dati di esempio da [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) e quindi caricare il file con estensione JSON da usare come dati di esempio per l'input *CallStream*.
-
-   ![Oggetto visivo di come campionare dati di input per Analisi di flusso di Azure](media/stream-analytics-manage-job/sample-input-data-asa.png)
-
-4. Selezionare **Test** per testare la query. I risultati visualizzati sono simili ai seguenti:
+2. Selezionare **Test** per testare la query. I risultati visualizzati sono simili ai seguenti:
 
    ![Output del test di query di Analisi di flusso](media/stream-analytics-manage-job/sample-test-output-restuls.png)
 
 ## <a name="start-the-job-and-visualize-output"></a>Avviare il processo e visualizzare l'output
 
-1. Per avviare il processo, passare al riquadro **Panoramica** del processo e selezionare **Avvia**.
+1. Per avviare il processo, passare al riquadro **Panoramica** del processo e fare clic su **Avvia**.
 
 2. Selezionare **Ora** come orario di avvio per l'output del processo e selezionare **Avvia**. È possibile visualizzare lo stato del processo nella barra di notifica.
 
@@ -246,7 +245,7 @@ In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da l
 
 4. Nell'area di lavoro di Power BI selezionare **+ Crea** per creare un nuovo dashboard denominato *Fraudulent Calls*.
 
-5. Nella parte superiore della finestra selezionare **Aggiungi riquadro**. Selezionare quindi **Dati in streaming personalizzati** e **Avanti**. Scegliere **ASAdataset** in **Set di dati personali**. Selezionare **Scheda** nell'elenco a discesa **Tipo di visualizzazione** e aggiungere **fraudulent calls** a **Campi**. Selezionare **Avanti** per immettere un nome per il riquadro e quindi selezionare **Applica** per creare il riquadro.
+5. Nella parte superiore della finestra selezionare **Modifica** e **Aggiungi riquadro**. Selezionare quindi **Dati in streaming personalizzati** e **Avanti**. Scegliere **ASAdataset** in **Set di dati personali**. Selezionare **Scheda** nell'elenco a discesa **Tipo di visualizzazione** e aggiungere **fraudulent calls** a **Campi**. Selezionare **Avanti** per immettere un nome per il riquadro e quindi selezionare **Applica** per creare il riquadro.
 
    ![Creare i riquadri della dashboard di Power BI](media/stream-analytics-manage-job/create-power-bi-dashboard-tiles.png)
 
@@ -262,9 +261,9 @@ In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da l
 
 ## <a name="embedding-your-power-bi-dashboard-in-a-web-application"></a>Incorporamento del dashboard di Power BI in un'applicazione Web
 
-Per questa parte dell'esercitazione si userà un'applicazione Web [ASP.NET](https://asp.net/) di esempio creata dal team di Power BI per incorporare il dashboard. Per altre informazioni sull'incorporamento di dashboard, vedere l'articolo [Incorporamento con Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
+Per questa parte dell'esercitazione si userà un'applicazione Web [ASP.NET](https://asp.net/) di esempio creata dal team di Power BI per incorporare il dashboard. Per altre informazioni sull'incorporamento di dashboard, vedere l'articolo [Incorporamento con Power BI](/power-bi/developer/embedding).
 
-Per configurare l'applicazione, passare al repository GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) e seguire le istruzioni nella sezione **User Owns Data** (Utente proprietario dei dati). Usare gli URL di reindirizzamento e della home page nella sottosezione **integrate-web-app**. Dal momento che si sta usando l'esempio relativo al dashboard, usare il codice di esempio **integrate-web-app** disponibile nel [repository GitHub](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/integrate-web-app).
+Per configurare l'applicazione, passare al repository GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) e seguire le istruzioni nella sezione **User Owns Data** (Utente proprietario dei dati). Usare gli URL di reindirizzamento e della home page nella sottosezione **integrate-web-app**. Dal momento che si sta usando l'esempio relativo al dashboard, usare il codice di esempio **integrate-web-app** disponibile nel [repository GitHub](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/).
 Una volta che l'applicazione è in esecuzione nel browser, seguire questa procedura per incorporare il dashboard creato in precedenza nella pagina Web:
 
 1. Selezionare **Accedi a Power BI**, per concedere all'applicazione l'accesso ai dashboard nell'account Power BI.

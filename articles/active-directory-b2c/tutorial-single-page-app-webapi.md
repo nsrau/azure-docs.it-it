@@ -11,12 +11,12 @@ ms.custom: mvc, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9fe1363ffc714754c1de333a77d36595ce4223e6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 737810a7d07d0d97b2e42acffa17fdd32986c48b
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442338"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421091"
 ---
 # <a name="tutorial-protect-and-grant-access-to-a-nodejs-web-api-from-a-single-page-application-with-azure-ad-b2c"></a>Esercitazione: Proteggere e concedere l'accesso a un'API Web Node.js da un'applicazione a pagina singola con Azure AD B2C
 
@@ -56,11 +56,11 @@ Prendere nota del valore visualizzato **Ambiti** per l'ambito `demo.read` da usa
 
 Per chiamare un'API Web protetta da un'altra applicazione, è necessario concedere a tale applicazione le autorizzazioni per l'API Web.
 
-Nell'esercitazione preliminare è stata creata un'applicazione Web denominata *webapp1*. In questa esercitazione si configurerà l'applicazione in modo che chiami l'API Web creata in una sezione precedente, *webapi1*.
+Nell'esercitazione preliminare è stata creata un'applicazione a pagina singola denominata *spaapp1*. In questa esercitazione si configurerà l'applicazione in modo che chiami l'API Web creata in una sezione precedente, *spaapp1*.
 
 [!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
-All'applicazione Web a pagina singola sono ora state concesse le autorizzazioni per l'API Web protetta per gli ambiti specificati. Un utente esegue l'autenticazione con Azure AD B2C per usare l'applicazione a pagina singola. L'app a pagina singola usa il flusso di concessione di autorizzazioni per accedere all'API Web protetta con un token di accesso restituito da Azure AD B2C.
+All'applicazione Web a pagina singola sono ora state concesse le autorizzazioni per l'API Web protetta per gli ambiti specificati. Un utente esegue l'autenticazione con Azure AD B2C per usare l'applicazione a pagina singola. L'app a pagina singola ottiene un token di accesso da Azure AD B2C per l'accesso all'API Web protetta.
 
 ## <a name="configure-the-sample"></a>Configurare l'esempio
 
@@ -106,7 +106,7 @@ app.use((req, res, next) => {
 
 ### <a name="configure-the-single-page-application"></a>Configurare l'applicazione a pagina singola
 
-L'applicazione a pagina singola dell' [esercitazione precedente](tutorial-single-page-app.md) della serie usa Azure AD B2C per l'iscrizione e l'accesso degli utenti e, per impostazione predefinita, chiama l'API Web Node.js protetta dal tenant demo *fabrikamb2c*.
+L'applicazione a pagina singola dell'[esercitazione precedente](tutorial-single-page-app.md) della serie usa Azure AD B2C per l'iscrizione e l'accesso degli utenti e, per impostazione predefinita, chiama l'API Web Node.js protetta dal tenant demo *fabrikamb2c*.
 
 In questa sezione l'applicazione Web a pagina singola viene aggiornata per chiamare l'API Web Node.js protetta dal *proprio* tenant di Azure AD B2C in esecuzione nel computer locale.
 
@@ -161,7 +161,7 @@ Anche se entrambe le applicazioni vengono eseguite in locale in questa esercitaz
 1. Aprire un'altra finestra della console e passare alla directory contenente l'esempio di applicazione a pagina singola JavaScript. Ad esempio:
 
     ```console
-    cd active-directory-b2c-javascript-msal-singlepageapp
+    cd ms-identity-b2c-javascript-spa
     ```
 
 1. Eseguire i comandi seguenti:

@@ -7,18 +7,21 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 70ea5ec9ee91fdba8023b9c6af1ce65b691a17fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 291586bc2e34784a7bbf29016ea1da35d51e844b
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006891"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489948"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Esercitazione: Eseguire Funzioni di Azure da processi di Analisi di flusso di Azure 
 
 È possibile eseguire Funzioni di Azure da Analisi di flusso di Azure configurando Funzioni come uno dei sink di output per il processo di Analisi di flusso. Funzioni offre un'esperienza di calcolo on demand guidata dagli eventi che consente di implementare il codice attivato da eventi generati nei servizi di Azure o in servizi di terze parti. La possibilità offerta da Funzioni di rispondere ai trigger la rende l'output naturale per i processi di Analisi di flusso.
 
 Analisi di flusso richiama Funzioni tramite trigger HTTP. L'adattatore di output di Funzioni consente agli utenti di connettere Funzioni ad Analisi di flusso, in modo che gli eventi possano essere attivati in base alle query di Analisi di flusso. 
+
+> [!NOTE]
+> La connessione a Funzioni di Azure all'interno di una rete virtuale da un processo di Analisi di flusso in esecuzione in un cluster multi-tenant non è supportata.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -44,7 +47,7 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
 
 1. Creare una cache in Azure Cache per Redis seguendo la procedura descritta in [Creare una cache](../azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
-2. Dopo aver creato la cache, in **Impostazioni**selezionare **Chiavi di accesso**. Annotare la **Stringa di connessione primaria**.
+2. Dopo aver creato la cache, in **Impostazioni** selezionare **Chiavi di accesso**. Annotare la **Stringa di connessione primaria**.
 
    ![Screenshot della stringa di connessione di Azure Cache per Redis](./media/stream-analytics-with-azure-functions/image2.png)
 
@@ -128,13 +131,13 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
 
    ```
  
-4. Tornare al portale di Azure. Dalla scheda **Funzionalità della piattaforma** passare alla funzione. In **Strumenti di sviluppo**selezionare **Editor del servizio app**. 
+4. Tornare al portale di Azure. Dalla scheda **Funzionalità della piattaforma** passare alla funzione. In **Strumenti di sviluppo** selezionare **Editor del servizio app**. 
  
-   ![Schermata dell'editor del servizio app](./media/stream-analytics-with-azure-functions/image3.png)
+   ![Screenshot che mostra la scheda Funzionalità della piattaforma con l'editor del servizio app selezionato.](./media/stream-analytics-with-azure-functions/image3.png)
 
 5. Nell'editor del servizio app fare clic con il pulsante destro del mouse sulla directory radice e caricare il file **project.json**. Al termine del processo di caricamento, aggiornare la pagina. Verrà ora visualizzato un file generato automaticamente di nome **project.lock.json**. Il file generato automaticamente contiene riferimenti ai file con estensione dll specificati nel file project.json.  
 
-   ![Schermata dell'editor del servizio app](./media/stream-analytics-with-azure-functions/image4.png)
+   ![Screenshot che mostra l'opzione Carica file selezionata nel menu.](./media/stream-analytics-with-azure-functions/image4.png)
 
 ## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>Aggiornare il processo di Analisi di flusso con la funzione come output
 
@@ -198,7 +201,7 @@ Se si verifica un errore durante l'invio di eventi a Funzioni di Azure, Analisi 
 
 Nel portale di Azure, quando si tenta di reimpostare il valore di Dimensioni massime batch/Numero massimo di batch su un valore vuoto (impostazione predefinita), al momento del salvataggio il valore viene reimpostato sul valore immesso in precedenza. In questo caso, immettere manualmente i valori predefiniti per questi campi.
 
-L'uso del [routing HTTP](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) in Funzioni di Azure non è attualmente supportato da Analisi di flusso.
+L'uso del [routing HTTP](/sandbox/functions-recipes/routes?tabs=csharp) in Funzioni di Azure non è attualmente supportato da Analisi di flusso.
 
 Il supporto per la connessione a Funzioni di Azure ospitato in una rete virtuale non è abilitato.
 

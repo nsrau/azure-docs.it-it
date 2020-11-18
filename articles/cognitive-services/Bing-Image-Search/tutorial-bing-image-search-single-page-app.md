@@ -11,17 +11,17 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: a62133737d48a8ebf454b5fab83ef52ef2daad09
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a9dba9222816ef2cc7891ff7f803e6a7409802a4
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098434"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593451"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Esercitazione: Creare un'app di una pagina con l'API Ricerca immagini Bing
 
 > [!WARNING]
-> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020**, è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
 > Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
 > Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
@@ -122,7 +122,7 @@ Per impostazione predefinita, il gestore `onsubmit` restituisce `false`, che imp
 
 ![[Modulo di Ricerca immagini Bing]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-L'API Ricerca immagini Bing offre diversi [parametri di filtro delle query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) per restringere e filtrare i risultati della ricerca. Il modulo HTML in questa applicazione usa e visualizza le opzioni di parametri seguenti:
+L'API Ricerca immagini Bing offre diversi [parametri di filtro delle query](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) per restringere e filtrare i risultati della ricerca. Il modulo HTML in questa applicazione usa e visualizza le opzioni di parametri seguenti:
 
 | Opzione | Descrizione |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

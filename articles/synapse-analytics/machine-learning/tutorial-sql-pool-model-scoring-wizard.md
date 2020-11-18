@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Procedura guidata di assegnazione di punteggi a modelli di Machine Learning per pool SQL'
-description: Esercitazione su come usare la procedura guidata di assegnazione di punteggi a modelli di Machine Learning nei pool Synapse SQL
+title: 'Esercitazione: Procedura guidata di assegnazione di punteggi al modello di Machine Learning per i pool SQL dedicati'
+description: Esercitazione su come usare la procedura guidata di assegnazione di punteggi a modelli di Machine Learning nei pool SQL dedicati.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
@@ -9,29 +9,29 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 8e92ff75bb6a9757c06de3561a385cbcbb7f75ba
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: f5c5edc067b3f7b525fd129462c48ca50fdafc8f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019971"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314045"
 ---
-# <a name="tutorial-machine-learning-model-scoring-wizard-for-synapse-sql-pools"></a>Esercitazione: Procedura guidata di assegnazione di punteggi a modelli di Machine Learning per pool Synapse SQL
+# <a name="tutorial-machine-learning-model-scoring-wizard-for-dedicated-sql-pools"></a>Esercitazione: Procedura guidata di assegnazione di punteggi al modello di Machine Learning per i pool SQL dedicati
 
-Informazioni su come arricchire facilmente i dati nei pool SQL con modelli predittivi di Machine Learning.  I modelli creati dai data scientist sono ora facilmente accessibili ai professionisti dei dati per l'analisi predittiva. Un professionista dei dati in Synapse può semplicemente selezionare un modello dal registro di modelli di Azure Machine Learning per la distribuzione nei pool Synapse SQL e avviare le previsioni per arricchire i dati.
+Informazioni su come arricchire facilmente i dati nei pool SQL dedicati con modelli predittivi di Machine Learning.  I modelli creati dai data scientist sono ora facilmente accessibili ai professionisti dei dati per l'analisi predittiva. Un professionista dei dati in Synapse può semplicemente selezionare un modello dal registro di modelli di Azure Machine Learning per la distribuzione nei pool Synapse SQL e avviare le previsioni per arricchire i dati.
 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > - Eseguire il training di un modello di Machine Learning e registrarlo nel registro di modelli di Azure Machine Learning
-> - Usare la procedura guidata di assegnazione di punteggi di SQL per avviare previsioni nel pool Synapse SQL
+> - Usare la procedura guidata di assegnazione di punteggi di SQL per avviare previsioni nel pool SQL dedicato
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito prima di iniziare](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Area di lavoro di Synapse Analytics](../get-started-create-workspace.md) con un account di archiviazione di ADLS Gen2 configurato come archiviazione predefinita. È necessario essere il **collaboratore dei dati del BLOB di archiviazione** del file system di ADLS Gen2 che si vuole usare.
-- Pool Synapse SQL nell'area di lavoro di Synapse Analytics. Per i dettagli, vedere [Creare un pool Synapse SQL](../quickstart-create-sql-pool-studio.md).
+- Pool SQL dedicato nell'area di lavoro di Synapse Analytics. Per informazioni dettagliate, vedere [Creare un pool SQL dedicato](../quickstart-create-sql-pool-studio.md).
 - Servizio collegato di Azure Machine Learning nell'area di lavoro di Synapse Analytics. Per i dettagli, vedere [Creare un servizio collegato di Azure Machine Learning in Synapse](quickstart-integrate-azure-machine-learning.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
@@ -62,7 +62,7 @@ Prima di eseguire tutte le celle del notebook, controllare se l'istanza di calco
 1. Il notebook eseguirà il training di un modello ONNX e lo registrerà con MLFlow. Passare a **Modelli** per verificare se il nuovo modello è stato registrato correttamente.
    ![Modello nel registro](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00c.png)
 
-1. L'esecuzione del notebook comporta anche l'esportazione dei dati di test in un file CSV. Scaricare il file CSV nel sistema locale. Più avanti il file CSV verrà importato nel pool SQL e i dati verranno usati per testare il modello.
+1. L'esecuzione del notebook comporta anche l'esportazione dei dati di test in un file CSV. Scaricare il file CSV nel sistema locale. Più avanti il file CSV verrà importato nel pool SQL dedicato e i dati verranno usati per testare il modello.
 
    Il file CSV viene creato nella stessa cartella del file del notebook. Se non è immediatamente visibile, fare clic su "Aggiorna" in Esplora file.
 
@@ -76,7 +76,7 @@ Prima di eseguire tutte le celle del notebook, controllare se l'istanza di calco
 
    ![Caricare i dati](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00a.png)
 
-1. Passare a **Sviluppo** -> **Script SQL**. Creare un nuovo script SQL per caricare `test_data.csv` nel pool SQL.
+1. Passare a **Sviluppo** -> **Script SQL**. Creare un nuovo script SQL per caricare `test_data.csv` nel pool SQL dedicato.
 
    > [!NOTE]
    > Aggiornare l'URL del file in questo script prima di eseguirlo.
@@ -117,9 +117,9 @@ Prima di eseguire tutte le celle del notebook, controllare se l'istanza di calco
    GO
    ```
 
-   ![Caricare i dati nel pool SQL](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
+   ![Caricare i dati nel pool SQL dedicato](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00b.png)
 
-1. Passare a **Dati** -> **Area di lavoro**. Aprire la procedura guidata di assegnazione di punteggi di SQL facendo clic con il pulsante destro del mouse sulla tabella Pool SQL. Scegliere **Machine Learning** -> **Enrich with existing model** (Arricchisci con il modello esistente).
+1. Passare a **Dati** -> **Area di lavoro**. Aprire la procedura guidata di assegnazione di punteggi di SQL facendo clic con il pulsante destro del mouse sulla tabella Pool SQL dedicato. Scegliere **Machine Learning** -> **Enrich with existing model** (Arricchisci con il modello esistente).
 
    > [!NOTE]
    > L'opzione Machine Learning viene visualizzata solo se è stato creato un servizio collegato per Azure Machine Learning. Vedere **Prerequisiti** all'inizio di questa esercitazione.
@@ -138,7 +138,7 @@ Prima di eseguire tutte le celle del notebook, controllare se l'istanza di calco
 
    ![Mapping tra tabelle e modello](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00e.png)
 
-1. Il codice T-SQL generato viene sottoposto a wrapping all'interno di una stored procedure. Questo è il motivo per cui è necessario fornire un nome per la stored procedure. Il file binario del modello che include i metadati (versione, descrizione e così via) verrà copiato fisicamente da Azure Machine Learning in una tabella del pool SQL. Quindi, è necessario specificare la tabella in cui salvare il modello. È possibile scegliere "Usa una tabella esistente" oppure "Crea nuova tabella". Al termine, fare clic su **Distribuisci modello + Apri editor** per distribuire il modello e generare uno script di previsione T-SQL.
+1. Il codice T-SQL generato viene sottoposto a wrapping all'interno di una stored procedure. Questo è il motivo per cui è necessario fornire un nome per la stored procedure. Il file binario del modello che include i metadati (versione, descrizione e così via) verrà copiato fisicamente da Azure Machine Learning in una tabella del pool SQL dedicato. Quindi, è necessario specificare la tabella in cui salvare il modello. È possibile scegliere "Usa una tabella esistente" oppure "Crea nuova tabella". Al termine, fare clic su **Distribuisci modello + Apri editor** per distribuire il modello e generare uno script di previsione T-SQL.
 
    ![Creare la procedura](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00f.png)
 

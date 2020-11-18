@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 17fa361fa4cef194d910d08d4a0afe075b119109
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: cb0a90db0595c655191006969071bc5b9cceaa75
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91742520"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337594"
 ---
 # <a name="tutorial-use-rest-apis-to-copy-data-to-azure-data-box-blob-storage"></a>Esercitazione: Usare le API REST per copiare dati nell'archiviazione BLOB di Azure Data Box  
 
@@ -111,15 +111,15 @@ Seguire questa procedura per importare il file `.cer` nell'archivio radice di un
 1. Fare clic con il pulsante destro del mouse sul file `.cer` e scegliere **Installa certificato**. Questa azione avvia l'Importazione guidata certificati.
 2. Per **Percorso archivio**, selezionare **Computer locale**, quindi fare clic su **Avanti**.
 
-    ![Importare il certificato tramite PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
+    ![Importazione guidata certificati, Windows Server](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
 
 3. Selezionare **Colloca tutti i certificati nel seguente archivio**, quindi fare clic su **Sfoglia**. Passare all'archivio radice dell'host remoto, quindi fare clic su **Avanti**.
 
-    ![Importare il certificato tramite PowerShell 2](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
+    ![Importazione guidata certificati, Archivio certificati](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
 4. Fare clic su **Fine**. Viene visualizzato un messaggio indicante che l'importazione è avvenuta correttamente.
 
-    ![Importare il certificato tramite PowerShell 3](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
+    ![Importazione guidata certificati, fine importazione](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
 #### <a name="use-a-linux-system"></a>Usare un sistema Linux
 
@@ -173,7 +173,7 @@ Il primo passaggio consiste nel creare un contenitore, in quanto i BLOB devono s
 2. Nel riquadro sinistro espandere l'account di archiviazione all'interno del quale si vuole creare il contenitore BLOB.
 3. Fare clic con il pulsante destro del mouse su **Contenitori BLOB** e scegliere **Crea contenitore BLOB** dal menu di scelta rapida.
 
-   ![Menu di scelta rapida Crea contenitore BLOB](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
+   ![Menu di scelta rapida Contenitori BLOB, Crea contenitore BLOB](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
 4. Sotto la cartella **BLOB Containers** (Contenitori BLOB) viene visualizzata una casella di testo. Immettere il nome per il contenitore BLOB. Per informazioni sulle regole e sulle restrizioni relative alla denominazione dei contenitori BLOB, vedere [Creare il contenitore e impostare le autorizzazioni](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 5. Premere **INVIO** al termine della creazione del contenitore BLOB o **ESC** per annullare. Dopo la creazione, il contenitore BLOB viene visualizzato all'interno della cartella **BLOB Containers** (Contenitori BLOB) per l'account di archiviazione selezionato.

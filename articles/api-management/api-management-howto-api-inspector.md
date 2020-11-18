@@ -1,76 +1,86 @@
 ---
-title: Eseguire il debug delle API con la traccia delle richieste in Gestione API di Azure | Microsoft Docs
-description: Eseguire le procedure di questa esercitazione per esaminare l'elaborazione delle richieste con Gestione API di Azure.
+title: 'Esercitazione: Eseguire il debug delle API in Gestione API di Azure con la traccia delle richieste'
+description: Seguire le procedure di questa esercitazione per abilitare la traccia ed esaminare i passaggi di elaborazione delle richieste in Gestione API di Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: cfowler
 editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 10/30/2020
 ms.author: apimpm
-ms.openlocfilehash: fc5e8c7a7aa0d4693d96c3405ec0e180a6d13f8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 531e346569b85ababc382f997fd7764a92b3d05f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75768529"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542315"
 ---
-# <a name="debug-your-apis-using-request-tracing"></a>Eseguire il debug delle API con la traccia delle richieste
+# <a name="tutorial-debug-your-apis-using-request-tracing"></a>Esercitazione: Eseguire il debug delle API con la traccia delle richieste
 
-Questa esercitazione descrive come esaminare l'elaborazione delle richieste per aiutare gli sviluppatori a eseguire il debug e la risoluzione dei problemi correlati alle API. 
+Questa esercitazione descrive come esaminare (tracciare) l'elaborazione delle richieste in Gestione API di Azure per semplificare il debug e la risoluzione dei problemi dell'API. 
 
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Tenere traccia di una chiamata
+> * Tracciare una chiamata di esempio
+> * Rivedere i passaggi di elaborazione delle richieste
 
-![Controllo API](media/api-management-howto-api-inspector/api-inspector001.PNG)
+:::image type="content" source="media/api-management-howto-api-inspector/api-inspector-001.png" alt-text="Controllo API":::
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 + Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
-+ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
-+ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
++ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md)
+
+## <a name="verify-allow-tracing-setting"></a>Verificare l'impostazione Consenti traccia 
+
+L'impostazione **Consenti traccia** per la sottoscrizione usata per l'API deve essere abilitata. Se si usa la sottoscrizione con accesso completo predefinita, è abilitata per impostazione predefinita. Per eseguire la verifica nel portale, passare all'istanza di Gestione API e selezionare **Sottoscrizioni**.
+
+   :::image type="content" source="media/api-management-howto-api-inspector/allow-tracing.png" alt-text="Consentire la traccia per la sottoscrizione":::
 
 ## <a name="trace-a-call"></a>Tenere traccia di una chiamata
 
-![Tenere traccia delle API](media/api-management-howto-api-inspector/06-DebugYourAPIs-01-TraceCall.png)
-
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'istanza di Gestione API.
 1. Selezionare **API**.
-2. Fare clic su **Demo Conference API** (API Demo Conference) nell'elenco di API.
-3. Passare alla scheda **Test**.
-4. Selezionare l'operazione **GetSpeakers**.
-5. Includere un'impostazione HTTP denominata **Ocp-Apim-Trace** con valore impostato su **true**.
+1. Fare clic su **Demo Conference API** nell'elenco di API.
+1. Selezionare la scheda **Test**.
+1. Selezionare l'operazione **GetSpeakers**.
+1. Verificare che l'intestazione della richiesta HTTP includa **Ocp-Apim-Trace: True** e un valore valido per **Ocp-Apim-Subscription-Key**. In caso contrario, selezionare **+ Aggiungi intestazione** per aggiungere l'intestazione.
+1. Fare clic su **Invia** per effettuare una chiamata API.
 
-   > [!NOTE]
-   > * Se l'intestazione Ocp-Apim-Subscription-Key non viene popolata automaticamente, può essere recuperata passando al portale per sviluppatori ed esponendo le chiavi nella pagina del profilo.
-   > * Per ottenere una traccia dell'uso dell'intestazione HTTP Ocp-Apim-Trace, è necessario abilitare l'impostazione **Consenti traccia** per la chiave della sottoscrizione. Per configurare l'impostazione **Consenti traccia**, in **Gestione API** nel menu a sinistra selezionare **sottoscrizioni**.
-   >   ![Consenti traccia nel riquadro Sottoscrizioni di Gestione API](media/api-management-howto-api-inspector/allowtracing.png)
+  :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call.png" alt-text="Configurare la traccia API":::
 
-6. Fare clic su **Invia** per effettuare una chiamata API. 
-7. Attendere il completamento della chiamata. 
-8. Passare alla scheda **Traccia** della **console API**. Fare clic su uno dei collegamenti seguenti per visualizzare informazioni di traccia dettagliate: **inbound**, **backend**, **outbound**.
+> [!TIP]
+> Se il campo **Ocp-Apim-Subscription-Key** non viene popolato automaticamente nella richiesta HTTP, è possibile recuperarlo nel portale. Selezionare **Sottoscrizioni** e aprire il menu di scelta rapida ( **...** ) per la sottoscrizione. Selezionare **Mostra/Nascondi chiavi**. Se necessario, è possibile rigenerare le chiavi. Aggiungere quindi una chiave all'intestazione.
 
-    Nella sezione **inbound** vengono visualizzate le richieste originali che Gestione API ha ricevuto dal chiamante e tutti i criteri applicati alla richiesta, inclusi i criteri rate-limit e set-header aggiunti al passaggio 2.
+## <a name="review-trace-information"></a>Rivedere le informazioni di traccia
 
-    Nella sezione **backend** vengono visualizzate le richieste che Gestione API ha inviato al back-end dell'API e la risposta che ha ricevuto.
+1. Al termine della chiamata, passare alla scheda **Tracia** nella **Risposta HTTP**.
+1. Fare clic su uno dei collegamenti seguenti per passare alle informazioni di traccia dettagliate: **In ingresso**, **Back-end**, **In uscita**.
 
-    Nella sezione **outbound** vengono visualizzati tutti i criteri applicati alla risposta prima di restituirla al chiamante.
+     :::image type="content" source="media/api-management-howto-api-inspector/response-trace.png" alt-text="Rivedere la traccia della risposta":::
+
+    * **In ingresso**: mostra la richiesta originale che Gestione API ha ricevuto dal chiamante e i criteri applicati alla richiesta. Ad esempio, se sono stati aggiunti criteri in [Esercitazione: Trasformare e proteggere l'API](transform-api.md), questi verranno visualizzati qui.
+
+    * **Back-end**: mostra le richieste che Gestione API ha inviato al back-end dell'API e la risposta che ha ricevuto.
+
+    * **In uscita**: mostra tutti i criteri applicati alla risposta prima di restituirla al chiamante.
 
     > [!TIP]
     > Ogni passaggio mostra inoltre il tempo trascorso da quando la richiesta è stata ricevuta da Gestione API.
 
+1. Nella scheda **Messaggio** l'intestazione **ocp-apim-trace-location** mostra la posizione dei dati di traccia archiviati nell'archivio BLOB di Azure. Se necessario, passare a questa posizione per recuperare la traccia.
+
+     :::image type="content" source="media/api-management-howto-api-inspector/response-message.png" alt-text="Posizione della traccia in Archiviazione di Azure":::
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Tenere traccia di una chiamata
+> * Tracciare una chiamata di esempio
+> * Rivedere i passaggi di elaborazione delle richieste
 
 Passare all'esercitazione successiva:
 

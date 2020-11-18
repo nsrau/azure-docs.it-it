@@ -16,12 +16,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
-ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6716d2ad4252169cfbbf611b0dadc5b077cd362
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74186363"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042563"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Esercitazione: Limitare l'accesso di rete alle risorse PaaS con gli endpoint servizio di rete virtuale usando il portale di Azure
 
@@ -195,13 +195,13 @@ Per impostazione predefinita, gli account di archiviazione accettano connessioni
     |Reti virtuali|Selezionare **myVirtualNetwork** in **Reti virtuali**|
     |Subnet| Selezionare **Privata** in **Subnet**|
 
-    ![Firewall e reti virtuali](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
+    ![Screenshot che mostra il riquadro Aggiungi reti in cui è possibile immettere i valori specificati.](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
 
 5. Selezionare **Salva**.
 6. Chiudere la finestra di dialogo **Firewall e reti virtuali**.
 7. In **IMPOSTAZIONI** per l'account di archiviazione selezionare **Chiavi di accesso**, come illustrato nell'immagine seguente:
 
-      ![Firewall e reti virtuali](./media/tutorial-restrict-network-access-to-resources/storage-access-key.png)
+      ![Screenshot mostra la voce Chiavi di accesso selezionata In Impostazioni per ottenere una chiave.](./media/tutorial-restrict-network-access-to-resources/storage-access-key.png)
 
 8. Prendere nota del valore di **Chiave**, perché sarà necessario immetterlo manualmente in un passaggio successivo quando si eseguirà il mapping della condivisione file a una lettera di unità in una macchina virtuale.
 

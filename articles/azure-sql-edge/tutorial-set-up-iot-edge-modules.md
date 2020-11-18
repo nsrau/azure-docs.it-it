@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sourabha, sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 7b2432fda70e8f9a5fa8bc64ede846d977672e9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75e6ebaea4c5ba883820d2309212b35fed128142
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886477"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422128"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Configurare i moduli e le connessioni IoT Edge
 
@@ -49,27 +49,30 @@ A questo punto, specificare le credenziali del contenitore nel modulo IoT Edge.
    Nome utente|Username
    Password|Password
   
-## <a name="deploy-the-data-generator-module"></a>Distribuire il modulo per la generazione di dati
+## <a name="build-push-and-deploy-the-data-generator-module"></a>Compilare, eseguire il push e distribuire il modulo Generatore di dati
 
-1. Nella sezione **IoT Edge** sotto **Gestione dispositivi automatica** fare clic su **ID dispositivo**. Per questa esercitazione, l'ID è `IronOrePredictionDevice`, quindi fare clic su **Imposta moduli**.
-
-2.  Nella sezione **Moduli IoT Edge** della pagina **Imposta moduli nel dispositivo** fare clic su **+ AGGIUNGI** e selezionare **Moduli IoT Edge**.
-
-3. Specificare un nome valido e l'URI dell'immagine per il modulo IoT Edge.
-   È possibile trovare l'URI dell'immagine nel registro contenitori nel gruppo di risorse creato nella prima parte dell'esercitazione. Selezionare la sezione **Repository** in **Servizi**. Per questa esercitazione, scegliere il repository denominato `silicaprediction`. Selezionare il tag appropriato. Il formato dell'URI dell'immagine sarà il seguente:
-
-   *server di accesso del registro contenitori*/*nome del repository*:*nome del tag*
-
-   Ad esempio:
-
+1. Clonare i [file di progetto](https://github.com/microsoft/sqlsourabh/tree/main/SQLEdgeSamples/IoTEdgeSamples/IronOreSilica) nel computer.
+2. Aprire il file **IronOre_Silica_Predict.sln** con Visual Studio 2019
+3. Aggiornare i dettagli del registro contenitori nel file **deployment.template.json** 
+   ```json
+   "registryCredentials":{
+        "RegistryName":{
+            "username":"",
+            "password":""
+            "address":""
+        }
+    }
    ```
-   ASEdemocontregistry.azurecr.io/silicaprediction:amd64
+4. Aggiornare il file **modules.json** per specificare il registro contenitori di destinazione (o il repository per il modulo)
+   ```json
+   "image":{
+        "repository":"samplerepo.azurecr.io/ironoresilicapercent",
+        "tag":
+    }
    ```
-
-4. Lasciare i campi *Criteri di riavvio* e *Stato desiderato* così come sono.
-
-5. Scegliere **Aggiungi**.
-
+5. Eseguire il progetto in modalità di debug o versione per assicurarsi che il progetto venga eseguito senza problemi 
+6. Eseguire il push del progetto nel registro contenitori facendo clic con il pulsante destro del mouse sul nome del progetto e quindi scegliendo **Build and Push IoT Edge Modules** (Compila ed esegui il push dei moduli IoT Edge).
+7. Distribuire il modulo Generatore di dati come modulo IoT Edge nel dispositivo perimetrale. 
 
 ## <a name="deploy-the-azure-sql-edge-module"></a>Distribuire il modulo SQL Edge di Azure
 
@@ -77,7 +80,7 @@ A questo punto, specificare le credenziali del contenitore nel modulo IoT Edge.
 
 2. Nel pannello **Marketplace dei moduli IoT Edge** cercare *SQL Edge di Azure* e selezionare *SQL Edge di Azure Edge Developer*. 
 
-3. Fare clic sul modulo *SQL Edge di Azure* appena aggiunto in **Moduli IoT Edge** per configurarlo. Per altre informazioni sulle opzioni di configurazione, vedere [Distribuire SQL Edge di Azure](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal).
+3. Fare clic sul modulo *SQL Edge di Azure* appena aggiunto in **Moduli IoT Edge** per configurarlo. Per altre informazioni sulle opzioni di configurazione, vedere [Distribuire SQL Edge di Azure](./deploy-portal.md).
 
 4. Aggiungere la variabile di ambiente `MSSQL_PACKAGE` alla distribuzione del modulo *SQL Edge di Azure* e specificare l'URL di firma di accesso condiviso del file dacpac del database creato nel passaggio 8 della [prima parte](tutorial-deploy-azure-resources.md) di questa esercitazione.
 

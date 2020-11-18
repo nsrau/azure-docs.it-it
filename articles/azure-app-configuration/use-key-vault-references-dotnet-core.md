@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 3e6403f41d8e4b52ca64e9fa452524fa25efe870
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff11546225a3b07cbe9f8773dab2139636af787e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213256"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124799"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Esercitazione: Usare i riferimenti a Key Vault in un'app ASP.NET Core
 
@@ -51,7 +51,7 @@ Prima di iniziare questa esercitazione, installare [.NET Core SDK](https://dotne
 
 1. Selezionare l'opzione **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure:
 
-    ![Output dopo la creazione dell'insieme di credenziali delle chiavi](./media/quickstarts/search-services.png)
+    ![Screenshot mostra l'opzione Crea una risorsa nel portale di Azure.](./media/quickstarts/search-services.png)
 1. Nella casella di ricerca immettere **Insieme di credenziali delle chiavi**.
 1. Nell'elenco dei risultati scegliere **Insiemi di credenziali delle chiavi** a sinistra.
 1. In **Insiemi di credenziali delle chiavi** selezionare **Aggiungi**.
@@ -65,7 +65,7 @@ Prima di iniziare questa esercitazione, installare [.NET Core SDK](https://dotne
 
 A questo punto, l'account Azure è l'unico autorizzato ad accedere a questo nuovo insieme di credenziali.
 
-![Output dopo la creazione dell'insieme di credenziali delle chiavi](./media/quickstarts/vault-properties.png)
+![Screenshot che mostra l'insieme di credenziali delle chiavi.](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Aggiungere un segreto all'istanza di Key Vault
 

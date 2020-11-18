@@ -12,17 +12,17 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1cdcf6a7aeee6618177440aaef6f488a31870b49
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1240c717f0e0fe086be81ed27837c224bc683218
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087843"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593468"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Che cos'è l'API Ricerca immagini Bing?
 
 > [!WARNING]
-> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020**, è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
 > Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
 > Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
@@ -34,18 +34,18 @@ Anche se l'API Ricerca immagini Bing fornisce solo immagini come risultati della
 
 | Funzionalità                                                                                                                                                                                 | Descrizione                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Suggerimento dei termini di ricerca in tempo reale](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) | È possibile migliorare l'esperienza dell'app con l'[API Suggerimenti automatici Bing](../bing-autosuggest/get-suggested-search-terms.md) per visualizzare suggerimenti sui termini di ricerca durante la digitazione. |
-| [Filtro e limitazione delle immagini restituite come risultato](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)                       | È possibile filtrare le immagini restituite da Bing modificando i parametri di query.                                                                                                       |
-| [Ritaglio, ridimensionamento e visualizzazione anteprime](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails)                                                | È possibile modificare e visualizzare le anteprime delle immagini restituite dalla Ricerca immagini Bing.                                                                                      |
-| [Espansione e trasformazione tramite pivot delle query di ricerca utente](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)               | È possibile espandere le funzionalità di ricerca includendo e visualizzando i termini di ricerca suggeriti da Bing per le query.                                                                    |
+| [Suggerimento dei termini di ricerca in tempo reale](./concepts/bing-image-search-sending-queries.md) | È possibile migliorare l'esperienza dell'app con l'[API Suggerimenti automatici Bing](../bing-autosuggest/get-suggested-search-terms.md) per visualizzare suggerimenti sui termini di ricerca durante la digitazione. |
+| [Filtro e limitazione delle immagini restituite come risultato](./concepts/bing-image-search-get-images.md)                       | È possibile filtrare le immagini restituite da Bing modificando i parametri di query.                                                                                                       |
+| [Ritaglio, ridimensionamento e visualizzazione anteprime](../bing-web-search/resize-and-crop-thumbnails.md)                                                | È possibile modificare e visualizzare le anteprime delle immagini restituite dalla Ricerca immagini Bing.                                                                                      |
+| [Espansione e trasformazione tramite pivot delle query di ricerca utente](./concepts/bing-image-search-sending-queries.md)               | È possibile espandere le funzionalità di ricerca includendo e visualizzando i termini di ricerca suggeriti da Bing per le query.                                                                    |
 | [Ricerca di immagini di tendenza](trending-images.md)                                                                     | È possibile personalizzare una ricerca per trovare immagini di tendenza da tutto il mondo.                                                                                                          |
 
 ## <a name="workflow"></a>Flusso di lavoro
 
-L'API Ricerca immagini Bing è un servizio Web RESTful, facile da chiamare da qualsiasi linguaggio di programmazione in grado di effettuare richieste HTTP e analizzare codice JSON. È possibile usare il servizio mediante l'[API REST](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/quickstarts/csharp?) o il [Software Development Kit](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart).
+L'API Ricerca immagini Bing è un servizio Web RESTful, facile da chiamare da qualsiasi linguaggio di programmazione in grado di effettuare richieste HTTP e analizzare codice JSON. È possibile usare il servizio mediante l'[API REST](./quickstarts/csharp.md) o il [Software Development Kit](./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp).
 
-1. Creare un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con accesso alle API di ricerca Bing. Se non si ha una sottoscrizione di Azure, è possibile [creare un account](https://azure.microsoft.com/free/cognitive-services/) gratuito.
-2. Inviare una richiesta all'API con una [query di ricerca](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) valida.
+1. Creare un [account API Servizi cognitivi](../cognitive-services-apis-create-account.md) con accesso alle API di ricerca Bing. Se non si ha una sottoscrizione di Azure, è possibile [creare un account](https://azure.microsoft.com/free/cognitive-services/) gratuito.
+2. Inviare una richiesta all'API con una [query di ricerca](./concepts/bing-image-search-sending-queries.md) valida.
 3. Elaborare la risposta dell'API tramite l'analisi del messaggio JSON restituito.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -55,19 +55,19 @@ Questa demo illustra come personalizzare rapidamente una query di ricerca e perl
 
 Per iniziare rapidamente con la prima richiesta all'API, vedere le istruzioni relative a:
 
-* [Inviare query di ricerca a Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/quickstarts/csharp) con l'API REST, oppure
-* [Richiedere e filtrare](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart) le immagini restituite da Bing usando l'SDK.
+* [Inviare query di ricerca a Bing](./quickstarts/csharp.md) con l'API REST, oppure
+* [Richiedere e filtrare](./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) le immagini restituite da Bing usando l'SDK.
 
 ## <a name="see-also"></a>Vedere anche
 
 * [Dettagli sui prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) delle API Ricerca Bing. 
 
-* La sezione di riferimento dell'[API Ricerca immagini Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) contiene informazioni su endpoint dell'API, intestazioni, risposte dell'API e parametri di query.
+* La sezione di riferimento dell'[API Ricerca immagini Bing v7](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) contiene informazioni su endpoint dell'API, intestazioni, risposte dell'API e parametri di query.
 
-* I [requisiti per l'uso e la visualizzazione di Bing](./useanddisplayrequirements.md) specificano gli usi accettabili dei contenuti e delle informazioni ottenute tramite le API di ricerca di Bing.
+* I [requisiti per l'uso e la visualizzazione di Bing](../bing-web-search/use-display-requirements.md) specificano gli usi accettabili dei contenuti e delle informazioni ottenute tramite le API di ricerca di Bing.
 
-* L'articolo [Acquisizione di immagini dal Web con l'API Ricerca immagini Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) descrive come eseguire ricerche e ottenere immagini dal Web.
+* L'articolo [Acquisizione di immagini dal Web con l'API Ricerca immagini Bing](./concepts/bing-image-search-get-images.md) descrive come eseguire ricerche e ottenere immagini dal Web.
 
-* L'articolo [Invio e uso di query di ricerca](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) descrive come creare, personalizzare e trasformare tramite Pivot le query di ricerca.
+* L'articolo [Invio e uso di query di ricerca](./concepts/bing-image-search-sending-queries.md) descrive come creare, personalizzare e trasformare tramite Pivot le query di ricerca.
 
-* Per esplorare le altre API disponibili, visitare la [pagina dell'hub dell'API Ricerca Bing](../bing-web-search/search-the-web.md).
+* Per esplorare le altre API disponibili, visitare la [pagina dell'hub dell'API Ricerca Bing](../bing-web-search/overview.md).

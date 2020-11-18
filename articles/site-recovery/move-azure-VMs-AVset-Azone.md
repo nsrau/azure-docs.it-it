@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: fd541e551102b205acff28b6bc06bc88abd14763
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8224ae4a48bb4915492240c414b90edb86a4c258
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605108"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393133"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Spostare macchine virtuali di Azure nelle zone di disponibilità
 
@@ -62,7 +62,7 @@ Se le macchine virtuali sono distribuite come *istanza singola* in un'area speci
 4. Per le macchine virtuali Linux, seguire le indicazioni fornite dal distributore di Linux per ottenere i certificati radice trusted più recenti e l'elenco di revoche di certificati nella macchina virtuale.
 5. Assicurarsi di non usare un proxy di autenticazione per controllare la connettività di rete per le macchine virtuali da spostare.
 
-6. Se la macchina virtuale che si intende spostare non ha accesso a Internet o usa un proxy firewall per controllare l'accesso in uscita, controllare i requisiti in [Configurare la connettività di rete in uscita](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+6. Verificare i [requisiti per la connettività in uscita per le macchine virtuali](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 
 7. Identificare il layout di rete di origine e le risorse attualmente in uso per la verifica, tra cui i servizi di bilanciamento del carico, i gruppi di sicurezza di rete e gli indirizzi IP pubblici.
 
@@ -99,16 +99,12 @@ La procedura seguente illustra come usare Azure Site Recovery per abilitare la r
 1. Nel portale di Azure selezionare **Macchine virtuali** e quindi la macchina virtuale che si vuole spostare nelle zone di disponibilità.
 2. In **Operazioni** selezionare **Ripristino di emergenza**.
 3. In **Configura ripristino di emergenza** > **Area di destinazione** selezionare l'area di destinazione in cui si eseguirà la replica. Assicurarsi che quest'area [supporti](../availability-zones/az-region.md) le zone di disponibilità.
-
-    ![Selezione dell'area di destinazione](media/azure-vms-to-zones/enable-rep-1.PNG)
-
 4. Selezionare **Avanti: Impostazioni avanzate**.
 5. Scegliere i valori appropriati per la sottoscrizione di destinazione, il gruppo di risorse della macchina virtuale di destinazione e la rete virtuale.
 6. Nella sezione **Disponibilità** scegliere la zona di disponibilità in cui si vuole spostare la macchina virtuale. 
    > [!NOTE]
    > Se non è presente un'opzione per il set o la zona di disponibilità, verificare che i [prerequisiti](#prepare-the-source-vms) siano soddisfatti e che la [preparazione](#prepare-the-source-vms) delle macchine virtuali di origine sia stata completata.
   
-    ![Selezioni per la scelta di una zona di disponibilità](media/azure-vms-to-zones/enable-rep-2.PNG)
 
 7. Selezionare **Abilita replica**. Verrà avviato un processo per abilitare la replica per la macchina virtuale.
 
@@ -119,7 +115,6 @@ Al termine del processo di replica, è possibile controllare lo stato di replica
 1. Nel menu della macchina virtuale selezionare **Ripristino di emergenza**.
 2. È possibile verificare l'integrità della replica, i punti di ripristino creati, nonché le aree di origine e di destinazione sulla mappa.
 
-   ![Stato della replica](media/azure-to-azure-quickstart/replication-status.png)
 
 ## <a name="test-the-configuration"></a>Testare la configurazione
 

@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa9fa036f86fc822a4bb2175f404cdff1ca81d7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9e6b03a2f9dd0089b1112000804e46f3d214cd3c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362570"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131293"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Esercitazione: Configurare la procedura guidata di Log Analytics
 
@@ -96,11 +96,11 @@ La configurazione di un'area di lavoro Log Analytics è costituita da due passag
 
 7. Cercare **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Screenshot che mostra Azure Active Directory nella ricerca di Azure.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 8. Nella sezione **Monitoraggio** fare clic su **Impostazioni di diagnostica**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
+    ![Screenshot che mostra le impostazioni di diagnostica selezionate in Monitoraggio.](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
 
 9. Nella pagina **Impostazioni di diagnostica** fare clic su **Aggiungi impostazione di diagnostica**.
 
@@ -128,7 +128,7 @@ Questa procedura mostra come eseguire le query con il **linguaggio di query Kust
 
 2. Cercare **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Screenshot che mostra Azure Active Directory nella ricerca di Azure.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. Nella sezione **Monitoraggio** fare clic su **Log**.
 
@@ -210,7 +210,7 @@ Questa procedura illustra come inviare avvisi quando viene usato l'account Break
 
 2. Cercare **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Screenshot che mostra Azure Active Directory nella ricerca di Azure.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. Nella sezione **Monitoraggio** fare clic su **Log**.
 
@@ -301,7 +301,7 @@ Questa procedura illustra come creare una nuova cartella di lavoro con il modell
 
 2. Cercare **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Screenshot che mostra Azure Active Directory nella ricerca di Azure.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. Nella sezione **Monitoraggio** fare clic su **Cartelle di lavoro**.
 
@@ -332,7 +332,7 @@ Questa procedura illustra come creare una nuova cartella di lavoro con il modell
 
 10. Fare clic su **Esegui query**.
 
-    ![Esegui query](./media/tutorial-log-analytics-wizard/run-workbook-query.png)
+    ![Screenshot che mostra il pulsante Esegui query.](./media/tutorial-log-analytics-wizard/run-workbook-query.png)
 
 11. Nella barra degli strumenti, in **Visualizzazione**, fare clic su **Grafico a torta**.
 
@@ -353,7 +353,7 @@ Questa procedura illustra come aggiungere una query a un modello di cartella di 
 
 2. Cercare **Azure Active Directory**.
 
-    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Screenshot che mostra Azure Active Directory nella ricerca di Azure.](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. Nella sezione **Monitoraggio** fare clic su **Cartelle di lavoro**.
 
@@ -361,11 +361,11 @@ Questa procedura illustra come aggiungere una query a un modello di cartella di 
 
 4. Nella sezione **Accesso condizionale** fare clic su **Informazioni dettagliate e report sull'accesso condizionale**.
 
-    ![Modello di accesso condizionale](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
+    ![Screenshot che mostra l'opzione Informazioni dettagliate e report sull'accesso condizionale.](./media/tutorial-log-analytics-wizard/conditional-access-template.png)
 
 5. Nella barra degli strumenti fare clic su **Modifica**.
 
-    ![Modello di accesso condizionale](./media/tutorial-log-analytics-wizard/edit-workbook-template.png)
+    ![Screenshot che mostra il pulsante Modifica.](./media/tutorial-log-analytics-wizard/edit-workbook-template.png)
 
 6. Nella barra degli strumenti fare clic sui tre puntini, quindi fare clic su **Aggiungi** e infine selezionare **Aggiungi query**.
 
@@ -375,7 +375,7 @@ Questa procedura illustra come aggiungere una query a un modello di cartella di 
 
 8. Fare clic su **Esegui query**.
 
-    ![Esegui query](./media/tutorial-log-analytics-wizard/run-workbook-insights-query.png)
+    ![Screenshot che mostra il pulsante Esegui query per eseguire questa query.](./media/tutorial-log-analytics-wizard/run-workbook-insights-query.png)
 
 9. Fare clic su **Intervallo di tempo** e quindi selezionare **Imposta nella query**.
 

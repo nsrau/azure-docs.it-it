@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 078d9548b4fd7e2a73fc4b71cd4774986ccceaee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c80ce3e6c98bf09f727604281469b86b6f43a862
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67180578"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93353905"
 ---
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -27,4 +27,4 @@ Se l'acceleratore della soluzione non è più necessario, eliminarlo dalla pagin
 
 ![Eliminare la soluzione](media/iot-accelerators-tutorial-cleanup/deletesolution.png)
 
-![Eliminare la soluzione](media/iot-accelerators-tutorial-cleanup/deletesolution-provision.png)
+![Eliminare la soluzione 2](media/iot-accelerators-tutorial-cleanup/deletesolution-provision.png)

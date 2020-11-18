@@ -12,18 +12,18 @@ ms.date: 09/14/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: riconoscimento delle immagini, identificatore di immagini, app per il riconoscimento delle immagini, visione personalizzata
-ms.openlocfilehash: 47227a60b1ed45499afdb42fbc062abc5ae51ff9
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: aa338bf708abaa49d65b6a817009224973f3fb29
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605463"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616910"
 ---
 # <a name="what-is-custom-vision"></a>Informazioni su Visione personalizzata
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Visione personalizzata di Azure è un servizio di riconoscimento delle immagini che consente di creare, distribuire e migliorare identificatori di immagini personalizzati. Un identificatore di immagini applica etichette (che rappresentano classi oppure oggetti) alle immagini, in base alle relative caratteristiche visive. A differenza del servizio [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), il servizio Visione personalizzata consente di specificare le etichette e di eseguire il training di modelli personalizzati per il rilevamento.
+Visione personalizzata di Azure è un servizio di riconoscimento delle immagini che consente di creare, distribuire e migliorare identificatori di immagini personalizzati. Un identificatore di immagini applica etichette (che rappresentano classi oppure oggetti) alle immagini, in base alle relative caratteristiche visive. A differenza del servizio [Visione artificiale](../computer-vision/overview.md), il servizio Visione personalizzata consente di specificare le etichette e di eseguire il training di modelli personalizzati per il rilevamento.
 
 ## <a name="what-it-does"></a>Funzione
 

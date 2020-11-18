@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Creare e gestire un set di scalabilità di macchine virtuali di Azure - Interfaccia della riga di comando di Azure'
+title: 'Esercitazione: Creare e gestire un set di scalabilità di macchine virtuali - Interfaccia della riga di comando di Azure'
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per creare un set di scalabilità di macchine virtuali, con alcune attività di gestione comuni come l'avvio e l'arresto di un'istanza o la modifica della capacità del set di scalabilità.
 author: ju-shim
 ms.author: jushiman
@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: e7267ca90ea11e63c5523dec0a3ee414f7b655b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f94823b958ae5f95789dd4ef9a62057bdf764a8
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501645"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517462"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Creare e gestire un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. Nel ciclo di vita del set di scalabilità di una macchina virtuale potrebbe essere necessario eseguire una o più attività di gestione. In questa esercitazione si apprenderà come:
@@ -26,11 +26,11 @@ Un set di scalabilità di macchine virtuali consente di distribuire e gestire un
 > * Ridimensionare manualmente un set di scalabilità
 > * Eseguire attività comuni per la gestione dei set di scalabilità
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.29 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
+- Questo articolo richiede la versione 2.0.29 dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata. 
 
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
@@ -122,7 +122,7 @@ exit
 
 
 ## <a name="understand-vm-instance-images"></a>Informazioni sulle immagini delle istanze di VM
-Quando è stato creato un set di scalabilità all'inizio dell'esercitazione, per le istanze di VM è stata specificata un'immagine (`--image`) *UbuntuLTS*. Azure Marketplace include molte immagini utilizzabili per creare istanze di VM. Per visualizzare un elenco delle immagini più usate, eseguire il comando [az vm image list](/cli/azure/vm/image).
+Quando è stato creato un set di scalabilità all'inizio dell'esercitazione, per le istanze di VM è stata specificata un'immagine (`--image`) *UbuntuLTS*. Azure Marketplace include molte immagini che possono essere usate per creare istanze di macchina virtuale. Per visualizzare un elenco delle immagini più usate, eseguire il comando [az vm image list](/cli/azure/vm/image).
 
 ```azurecli-interactive
 az vm image list --output table

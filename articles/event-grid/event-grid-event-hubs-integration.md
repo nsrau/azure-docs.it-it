@@ -4,12 +4,12 @@ description: 'Esercitazione: Informazioni su come usare Griglia di eventi di Azu
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 64d4b9769e1a228294bd7d8741f6f4b1260fb0dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fb26bf92e6af1fd9e97f3b9434b4ab5e76316b3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270560"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305277"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Esercitazione: Trasmettere Big Data a un data warehouse
 [Griglia di eventi](overview.md) di Azure è un servizio intelligente di routing di eventi che consente di rispondere alle notifiche (eventi) inviate da applicazioni e servizi. Per esempio, può attivare una Funzione di Azure per elaborare i dati di Hub eventi che sono stati acquisiti in un archivio BLOB di Azure o Azure Data Lake Store ed eseguire la migrazione dei dati su altri repository di dati. Questo [esempio di integrazione di Hub eventi e di Griglia di eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra come usare Hub eventi con Griglia di eventi per migrare facilmente i dati di Hub eventi acquisiti da una risorsa di archiviazione BLOB a un'istanza di Azure Synapse Analytics (in precedenza SQL Data Warehouse).
@@ -165,7 +165,7 @@ Chiudere la shell cloud selezionando il pulsante **Cloud Shell** nel portale (op
 ### <a name="create-a-table-in-azure-synapse-analytics"></a>Creare una tabella in Azure Synapse Analytics
 Creare una tabella nel data warehouse mediante l'esecuzione dello script [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql). Per eseguire lo script, è possibile usare Visual Studio o l'Editor di query nel portale. I passaggi seguenti mostrano come usare l'Editor di query: 
 
-1. Nell'elenco di risorse nel gruppo di risorse, selezionare il **Pool Synapse SQL (data warehouse)** . 
+1. Nell'elenco di risorse nel gruppo di risorse selezionare il **pool SQL dedicato**. 
 2. Nella pagina Azure Synapse Analytics selezionare **Editor di query (anteprima)** nel menu sinistro. 
 
     ![Pagina Azure Synapse Analytics](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)

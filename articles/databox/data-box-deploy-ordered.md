@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: f36836681e338c597c068a91a6d4bc011cce3511
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a73005580c9b7ddeae17e3e0490aa586bd9b0fbb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206798"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335798"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Esercitazione: Ordinare Azure Data Box
 
@@ -123,7 +123,7 @@ Se l'installazione dell'estensione è riuscita, verrà visualizzato l'output seg
 
 È possibile usare [Azure Cloud Shell](https://shell.azure.com/), un ambiente shell interattivo ospitato in Azure, tramite il browser per eseguire i comandi dell'interfaccia della riga di comando. Azure Cloud Shell supporta Bash o Windows PowerShell con i servizi di Azure. L'interfaccia della riga di comando di Azure è preinstallata e configurata per l'uso con l'account corrente. Selezionare il pulsante Cloud Shell nel menu nella sezione in alto a destra del portale di Azure:
 
-![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
+![Selezione del menu Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
 
 Il pulsante avvia una shell interattiva che è possibile usare per eseguire i passaggi riportati in questo articolo della guida pratica.
 
@@ -213,31 +213,31 @@ Per informazioni dettagliate su come accedere ad Azure con Windows PowerShell, v
 Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
 1. Usare le credenziali di Microsoft Azure per accedere all'URL [https://portal.azure.com](https://portal.azure.com).
-2. Selezionare **+ Crea una risorsa** e cercare *Azure Data Box* . Selezionare **Azure Data Box** .
+2. Selezionare **+ Crea una risorsa** e cercare *Azure Data Box*. Selezionare **Azure Data Box**.
 
-   ![Screenshot della sezione Nuovo con Azure Data Box nel campo di ricerca.](media/data-box-deploy-ordered/select-data-box-import-02.png)
+   ![Screenshot della sezione Nuovo con Azure Data Box nel campo di ricerca](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
-3. Selezionare **Crea** .
+3. Selezionare **Crea**.
 
-   ![Screenshot della sezione Azure Data Box con l'opzione Crea evidenziata.](media/data-box-deploy-ordered/select-data-box-import-03.png)
+   ![Screenshot della sezione Azure Data Box con l'opzione Crea evidenziata](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
-4. Controllare se il servizio Data Box è disponibile nella propria area. Immettere o selezionare le informazioni seguenti e quindi selezionare **Applica** .
+4. Controllare se il servizio Data Box è disponibile nella propria area. Immettere o selezionare le informazioni seguenti e quindi selezionare **Applica**.
 
     |Impostazione  |valore  |
     |---------|---------|
-    |Tipo di trasferimento     | Selezionare **Importa in Azure** .        |
+    |Tipo di trasferimento     | Selezionare **Importa in Azure**.        |
     |Subscription     | Selezionare una sottoscrizione di tipo Contratto Enterprise, CSP o Azure Sponsorship per il servizio Data Box. <br> La sottoscrizione viene collegata all'account di fatturazione.       |
     |Gruppo di risorse | Selezionare un gruppo di risorse esistente. Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme. |
     |Paese/area geografica di origine    |    Selezionare il paese/area in cui si trovano attualmente i dati.         |
     |Area di Azure di destinazione     |     Selezionare l'area di Azure in cui si vogliono trasferire i dati. <br> Per altre informazioni, vedere [Disponibilità a livello di area](data-box-overview.md#region-availability).            |
 
-    [![Ordine di importazione di Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
+    [![Avvio di un ordine di importazione di Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
 
-5. Selezionare **Data Box** . La capacità massima che è possibile usare per un singolo ordine è di 80 TB. È possibile creare più ordini per volumi di dati maggiori.
+5. Selezionare **Data Box**. La capacità massima che è possibile usare per un singolo ordine è di 80 TB. È possibile creare più ordini per volumi di dati maggiori.
 
-    ![Screenshot delle diverse dimensioni dei dati disponibili per la selezione: Data Box Disk 40 terabyte, Data Box 100 terabyte, Data Box Heavy 1000 terabyte e Send your own disks 1 terabyte.](media/data-box-deploy-ordered/select-data-box-import-05.png)
+    ![Dimensioni dei dati disponibili: Data Box Disk 40 terabyte, Data Box 100 terabyte, Data Box Heavy 1000 terabyte e Invio dei propri dischi 1 terabyte](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
-6. In **Ordine** passare alla scheda **Informazioni di base** . Immettere o selezionare le informazioni seguenti e quindi selezionare **Avanti: Destinazione dei dati>** .
+6. In **Ordine** passare alla scheda **Informazioni di base**. Immettere o selezionare le informazioni seguenti e quindi selezionare **Avanti: Destinazione dei dati>** .
 
     |Impostazione  |valore  |
     |---------|---------|
@@ -245,17 +245,17 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     |Resource group    | Il gruppo di risorse selezionato in precedenza. |
     |Nome ordine di importazione | Specificare un nome descrittivo per tenere traccia dell'ordine. <br> Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero.    |
 
-    ![Screenshot della procedura guidata per la creazione di un ordine che mostra il passaggio relativo alle informazioni di base, con le informazioni corrette specificate.](media/data-box-deploy-ordered/select-data-box-import-06.png)
+    ![Importazione guidata ordine di Data Box, schermata Informazioni di base con le informazioni corrette compilate](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
     Per impostazione predefinita, la password di sblocco del dispositivo è crittografata con una chiave gestita da Microsoft. Dopo aver completato l'ordine, è possibile aggiungere una chiave gestita dal cliente. Questo tipo di chiave consente di usare la propria chiave di Azure Key Vault per proteggere la password di sblocco del dispositivo. Per altre informazioni, vedere [Usare chiavi gestite dal cliente in Azure Key Vault per Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
-7. Nella scheda **Destinazione dei dati** selezionare **Destinazione dei dati** .
+7. Nella scheda **Destinazione dei dati** selezionare **Destinazione dei dati**.
 
     Se si usano uno o più **account di archiviazione** come destinazione di archiviazione, viene visualizzato lo screenshot seguente:
 
-    ![Destinazione dei dati di Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-07.png)
+    ![Importazione guidata ordine di Data Box, schermata Destinazione dati con gli account di archiviazione selezionati](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    In base all'area di Azure specificata, selezionare uno o più account di archiviazione nell'elenco filtrato di un account di archiviazione esistente. Il Data Box può essere collegato a un massimo di 10 account di archiviazione. È anche possibile creare un nuovo account **Utilizzo generico v1** , **Utilizzo generico v2** o un **account di archiviazione BLOB** .
+    In base all'area di Azure specificata, selezionare uno o più account di archiviazione nell'elenco filtrato di un account di archiviazione esistente. Il Data Box può essere collegato a un massimo di 10 account di archiviazione. È anche possibile creare un nuovo account **Utilizzo generico v1**, **Utilizzo generico v2** o un **account di archiviazione BLOB**.
 
     Sono supportati gli account di archiviazione con reti virtuali. Per consentire al servizio Data Box di lavorare con gli account di archiviazione protetti, abilitare i servizi attendibili all'interno delle impostazioni del firewall di rete dell'account di archiviazione. Per altre informazioni, vedere come [Aggiungere Azure Data Box come servizio attendibile](../storage/common/storage-network-security.md#exceptions).
 
@@ -265,7 +265,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     |---------|---------|
     |Gruppi di risorse     | Se si prevede la creazione di dischi gestiti da dischi rigidi virtuali in locale, creare nuovi gruppi di risorse. È possibile usare un gruppo di risorse solo se questo è stato creato in precedenza durante la creazione di un ordine di Data Box per il disco gestito dal servizio Data Box. <br> Specificare più gruppi di risorse separati da punti e virgola. Vengono supportati un massimo di 10 gruppi di risorse.|
 
-    ![Screenshot della procedura guidata per la creazione di un ordine che mostra il passaggio relativo alla destinazione dei dati, con le informazioni corrette specificate.](media/data-box-deploy-ordered/select-data-box-import-07b.png)
+    ![Importazione guidata ordine di Data Box, schermata Destinazione dati con l'opzione Managed Disks selezionata](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     L'account di archiviazione specificato per i dischi gestiti viene usato come account di archiviazione di staging. Il servizio Data Box carica i dischi rigidi virtuali come BLOB di pagine per l'account di archiviazione di staging prima di convertirli in dischi gestiti e spostarli nei gruppi di risorse. Per altre informazioni, vedere [Verificare il caricamento dei dati in Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
    > [!NOTE]
@@ -277,35 +277,35 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
     Tutte le impostazioni nella schermata **Sicurezza** sono facoltative. Se non si modifica alcuna impostazione, vengono applicate le impostazioni predefinite.
 
-    ![Schermata Sicurezza per un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
+    ![Schermata sicurezza in Importazione guidata ordine di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
 
-1. Se non si vogliono usare le password generate dal sistema usate da Azure Data Box per impostazione predefinita, espandere **Bring your own password** (Usa la password personalizzata).
+8. Se non si vogliono usare le password generate dal sistema usate da Azure Data Box per impostazione predefinita, espandere **Bring your own password** (Usa la password personalizzata).
 
    Le password generate dal sistema sono sicure e sono consigliate, a meno che l'organizzazione non abbia altri requisiti.
 
-   ![Opzioni di Bring your own password (Usa la password personalizzata) per un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
+   ![Opzioni espanse per Usa la password personalizzata nella schermata Sicurezza di un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-02.png)
 
    - Per usare la propria password per il nuovo dispositivo, per **Set preference for the device password** (Imposta preferenza per la password del dispositivo) selezionare **Use your own password** (Usa password personale) e digitare una password che soddisfi i requisiti di sicurezza.
    
-     ![Schermata Sicurezza per l'importazione di Data Box, opzioni per l'uso della propria password del dispositivo](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
+     ![Opzioni per l'uso di una password del dispositivo personalizzata nella schermata Sicurezza per un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
    - Per usare le proprie password per le condivisioni:
 
      1. Per **Set preference for share passwords** (Imposta preferenze per le password delle condivisioni) selezionare **Use your own passwords** (Usa password personali) e quindi **Select passwords for the shares** (Seleziona password per le condivisioni).
      
-        ![Schermata Sicurezza per l'importazione di Data Box, opzioni per l'uso delle proprie password per le condivisioni](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+        ![Opzioni per l'uso di una password personalizzata per la condivisione nella schermata Sicurezza per un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
      1. Digitare una password per ogni account di archiviazione incluso nell'ordine. La password verrà usata in tutte le condivisioni per l'account di archiviazione.
      
-        Per usare la stessa password per tutti gli account di archiviazione, selezionare **Copia in tutte** . Al termine, selezionare **Salva** .
+        Per usare la stessa password per tutti gli account di archiviazione, selezionare **Copia in tutte**. Al termine, selezionare **Salva**.
      
         ![Schermata per l'immissione delle password per le condivisioni per un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
 
        Nella schermata **Sicurezza** è possibile usare **View or change passwords** (Visualizza o cambia password) per cambiare le password.
 
-1. In **Sicurezza** , se si vuole abilitare la crittografia doppia basata su software, espandere **Double-encryption (for highly secure environments)** (Crittografia doppia per ambienti altamente sicuri) e selezionare **Abilita crittografia doppia per l'ordine** .
+9. In **Sicurezza**, se si vuole abilitare la crittografia doppia basata su software, espandere **Double-encryption (for highly secure environments)** (Crittografia doppia per ambienti altamente sicuri) e selezionare **Abilita crittografia doppia per l'ordine**.
 
-   ![Schermata Sicurezza per l'importazione di Data Box con l'opzione per abilitare la crittografia basata su software per un ordine di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
+   ![Opzioni per abilitare la crittografia basata su software nella schermata Sicurezza per un ordine di importazione di Data Box](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
    La crittografia basata su software viene eseguita oltre alla crittografia AES a 256 bit dei dati nel Data Box.
 
@@ -314,29 +314,29 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
    Selezionare **Avanti: Dettagli contatto** per continuare.
 
-8. In **Dettagli contatto** selezionare **+ Aggiungi indirizzo di spedizione** .
+10. In **Dettagli contatto** selezionare **+ Aggiungi indirizzo di spedizione**.
 
-    ![Screenshot della procedura guidata per la creazione di un ordine che mostra il passaggio relativo ai dettagli del contatto, con l'opzione per l'aggiunta dell'indirizzo di spedizione evidenziata.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+    ![Dalla schermata Dettagli contatto aggiungere gli indirizzi di spedizione all'ordine di importazione Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
-9. In **Indirizzo di spedizione** specificare nome e cognome, nome e indirizzo postale della società e un numero di telefono valido. Selezionare **Convalida indirizzo** . Il servizio convalida l'indirizzo di spedizione per la disponibilità del servizio. Se il servizio è disponibile per l'indirizzo di spedizione specificato, si riceve una notifica in tal senso.
+11. In **Indirizzo di spedizione** specificare nome e cognome, nome e indirizzo postale dell'azienda e un numero di telefono valido. Selezionare quindi **Convalida indirizzo**. Il servizio verifica la disponibilità del servizio per l'indirizzo specificato. Se il servizio è disponibile per l'indirizzo di spedizione specificato, si riceverà una notifica in tal senso.
 
-   ![Screenshot della finestra di dialogo per l'aggiunta dell'indirizzo di spedizione, con le opzioni di spedizione e il pulsante per l'aggiunta dell'indirizzo evidenziati.](media/data-box-deploy-ordered/select-data-box-import-10.png)
+     ![Finestra di dialogo Aggiungi indirizzo di spedizione, con le opzioni Spedisci con e l'opzione Aggiungi indirizzo di spedizione evidenziate](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
-   Se è stata selezionata l'opzione di spedizione autogestita, al completamento dell'ordine si riceverà una notifica tramite posta elettronica. Per altre informazioni sulla spedizione autogestita, vedere [Usare la spedizione autogestita](data-box-portal-customer-managed-shipping.md).
+    Se è stata selezionata l'opzione di spedizione autogestita, al completamento dell'ordine si riceverà una notifica tramite posta elettronica. Per altre informazioni sulla spedizione autogestita, vedere [Usare la spedizione autogestita](data-box-portal-customer-managed-shipping.md).
 
-10. Dopo la convalida riuscita dei dettagli della spedizione, selezionare **Aggiungi indirizzo di spedizione** . Si tornerà nella scheda **Dettagli contatto** .
+12. Dopo la convalida riuscita dei dettagli della spedizione, selezionare **Aggiungi indirizzo di spedizione**. Si tornerà nella scheda **Dettagli contatto**.
 
-11. Nella scheda **Dettagli contatto** aggiungere uno o più indirizzi di posta elettronica. Il servizio invia notifiche tramite posta elettronica per qualsiasi aggiornamento dello stato dell'ordine agli indirizzi di posta elettronica specificati.
+13. Nella scheda **Dettagli contatto** aggiungere uno o più indirizzi di posta elettronica. Il servizio invia notifiche tramite posta elettronica per qualsiasi aggiornamento dello stato dell'ordine agli indirizzi di posta elettronica specificati.
 
     È consigliabile usare un indirizzo di posta elettronica di gruppo in modo da continuare a ricevere le notifiche anche se un amministratore del gruppo non è disponibile.
 
-    ![Screenshot della procedura guidata per la creazione di un ordine che mostra la sezione per la posta elettronica nel passaggio relativo ai dettagli del contatto, con la casella di testo della posta elettronica e il pulsante per la revisione e l'esecuzione dell'ordine evidenziati.](media/data-box-deploy-ordered/select-data-box-import-08c.png)
+    ![Sezione Posta elettronica dei Dettagli contatto nella procedura guidata per l'ordine](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
 12. In **Rivedi e ordina** rivedere le informazioni relative a ordine, contatto, notifica e informativa sulla privacy. Selezionare la casella corrispondente per accettare le condizioni per la privacy.
 
-13. Selezionare **Ordina** . Per la creazione dell'ordine sono richiesti pochi minuti.
+13. Selezionare **Ordina**. Per la creazione dell'ordine sono richiesti pochi minuti.
 
-    ![Screenshot della procedura guidata per la creazione di un ordine che mostra il passaggio relativo alla revisione e all'esecuzione dell'ordine, con il pulsante per l'esecuzione dell'ordine evidenziato.](media/data-box-deploy-ordered/select-data-box-import-11.png)
+    ![Schermata Rivedi e ordina della procedura guidata per l'ordine](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -515,7 +515,7 @@ Seguire questa procedura usando Azure PowerShell per ordinare un dispositivo:
 
 # <a name="portal"></a>[Portale](#tab/portal)
 
-Dopo aver inserito l'ordine, è possibile monitorare lo stato dell'ordine dal portale di Azure. Passare all'ordine del Data Box e quindi a **Panoramica** per visualizzare lo stato. Il portale mostra l'ordine con stato **Ordinato** .
+Dopo aver inserito l'ordine, è possibile monitorare lo stato dell'ordine dal portale di Azure. Passare all'ordine del Data Box e quindi a **Panoramica** per visualizzare lo stato. Il portale mostra l'ordine con stato **Ordinato**.
 
 Se il dispositivo non è disponibile, si riceverà una notifica. Se il dispositivo è disponibile, Microsoft identifica il dispositivo per la spedizione e lo prepara. Durante la preparazione del dispositivo vengono eseguite le azioni seguenti:
 
@@ -524,13 +524,13 @@ Se il dispositivo non è disponibile, si riceverà una notifica. Se il dispositi
 * Viene generata anche una password per il dispositivo che consente di sbloccare il dispositivo.
 * Il Data Box viene bloccato per impedire qualsiasi accesso non autorizzato al dispositivo.
 
-Una volta completata la preparazione del dispositivo, lo stato dell'ordine nel portale diventa **Elaborato** .
+Una volta completata la preparazione del dispositivo, lo stato dell'ordine nel portale diventa **Elaborato**.
 
-![Ordine del Data Box elaborato](media/data-box-overview/data-box-order-status-processed.png)
+![Ordine di Data Box elaborato](media/data-box-overview/data-box-order-status-processed.png)
 
-Microsoft prepara e spedisce quindi il dispositivo tramite un corriere locale. Si riceverà un numero di tracciabilità dopo la spedizione del dispositivo. Il portale mostra l'ordine con lo stato **Spedito** .
+Microsoft prepara e spedisce quindi il dispositivo tramite un corriere locale. Si riceverà un numero di tracciabilità dopo la spedizione del dispositivo. Il portale mostra l'ordine con lo stato **Spedito**.
 
-![Ordine del Data Box spedito](media/data-box-overview/data-box-order-status-dispatched.png)
+![Ordine di Data Box spedito](media/data-box-overview/data-box-order-status-dispatched.png)
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 

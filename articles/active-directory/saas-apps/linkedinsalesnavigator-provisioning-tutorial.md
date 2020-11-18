@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: provisioning utenti-LinkedIn Sales Navigator, Azure AD'
+title: 'Esercitazione: Provisioning utenti - LinkedIn Sales Navigator, Azure AD'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in LinkedIn Sales Navigator.
 services: active-directory
 author: ArvindHarinder1
@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: e908c8d19a4640995c536580b6584558212ada3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 458b527194c1123e266bd6abedf25de18e0cee09
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361573"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359358"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Esercitazione: Configurare LinkedIn Sales Navigator per il provisioning utenti automatico
 
@@ -71,12 +71,12 @@ Il primo passaggio consiste nel recuperare il token di accesso di LinkedIn. Un a
     > [!NOTE]
     > Se l'opzione di assegnazione automatica delle licenze non è abilitata, vengono sincronizzati solo i dati degli utenti.
 
-    ![Screenshot mostra le impostazioni globali del centro account di LinkedIn.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_1.PNG)
+    ![Screenshot che mostra la scheda Global Settings di LinkedIn Account Center.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_1.PNG)
 
     > [!NOTE]
     > Quando l'opzione di assegnazione automatica delle licenze è abilitata, è necessario prendere nota dell'istanza dell'applicazione e del tipo di licenza. Le licenze vengono assegnate in ordine di arrivo degli utenti fino a esaurimento di tutte le licenze.
 
-    ![Screenshot che mostra la pagina di installazione di S C I M.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_2.PNG)
+    ![Screenshot che mostra la pagina SCIM Setup.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_2.PNG)
 
 5. Fare clic su **Generate token** (Genera token). Il token di accesso dovrebbe essere visualizzato sotto il campo **Access token** (Token di accesso).
 
@@ -90,7 +90,7 @@ Il primo passaggio consiste nel recuperare il token di accesso di LinkedIn. Un a
 
 10. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot che mostra la pagina di provisioning di LinkedIn elevate.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
+    ![Screenshot che mostra la pagina di provisioning di LinkedIn Elevate.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
 
 11. Compilare i campi seguenti in **Credenziali amministratore**:
 
@@ -102,15 +102,15 @@ Il primo passaggio consiste nel recuperare il token di accesso di LinkedIn. Un a
 
 12. Immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo seguente.
 
-13. Fare clic su **Save**.
+13. Fare clic su **Salva**.
 
 14. Nella sezione **Mapping degli attributi** esaminare gli attributi utente e gruppo che verranno sincronizzati da Azure AD a LinkedIn Sales Navigator. Si noti che gli attributi selezionati come proprietà **corrispondenti** verranno usati per trovare le corrispondenze con gli account utente e i gruppi in LinkedIn Sales Navigator per le operazioni di aggiornamento. Selezionare il pulsante Salva per eseguire il commit delle modifiche.
 
-    ![Screenshot mostra i mapping, inclusi i mapping degli attributi.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_4.PNG)
+    ![Screenshot che mostra la pagina Mapping con la sezione Mapping attributi.](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_4.PNG)
 
 15. Per abilitare il servizio di provisioning di Azure AD per LinkedIn Sales Navigator, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
-16. Fare clic su **Save**.
+16. Fare clic su **Salva**.
 
 Verrà avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a LinkedIn Sales Navigator nella sezione Utenti e gruppi. La sincronizzazione iniziale richiederà più tempo delle sincronizzazioni successive, che saranno eseguite ogni 40 minuti circa per tutto il tempo in cui il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning sull'app LinkedIn Sales Navigator.
 

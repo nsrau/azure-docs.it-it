@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Usare SQL su richiesta (anteprima) per analizzare i set di dati aperti di Azure in Azure Synapse Studio (anteprima)'
-description: Questa esercitazione illustra come eseguire facilmente l'analisi esplorativa dei dati combinando diversi set di dati aperti di Azure con SQL su richiesta (anteprima) e visualizzare i risultati in Azure Synapse Studio.
+title: 'Esercitazione: Usare un pool SQL serverless (anteprima) per analizzare i set di dati aperti di Azure in Azure Synapse Studio (anteprima)'
+description: Questa esercitazione illustra come eseguire facilmente l'analisi esplorativa dei dati combinando diversi set di dati aperti di Azure con un pool SQL serverless (anteprima) e visualizzare i risultati in Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0471bd594dcf1b0654d6b4c496e5d39ade2739fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec16041edd10a57088df4ae9cfe0587906919eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539521"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309281"
 ---
-# <a name="tutorial-use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Esercitazione: Usare SQL su richiesta per analizzare i set di dati aperti di Azure e visualizzare i risultati in Azure Synapse Studio
+# <a name="tutorial-use-serverless-sql-pool-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Esercitazione: Usare un pool SQL serverless per analizzare i set di dati aperti di Azure e visualizzare i risultati in Azure Synapse Studio
 
-Questa esercitazione illustra come eseguire l'analisi esplorativa dei dati combinando diversi set di dati aperti di Azure con SQL su richiesta e visualizzare i risultati in Azure Synapse Studio.
+Questa esercitazione illustra come eseguire l'analisi esplorativa dei dati combinando diversi set di dati aperti di Azure con un pool SQL serverless e visualizzare i risultati in Azure Synapse Studio.
 
 In particolare, si analizza il [set di dati del taxi di New York](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) che include:
 
@@ -213,9 +213,9 @@ I risultati della query indicano che il calo del numero di corse di taxi è stat
 - Una temperatura particolarmente fredda, inferiore a zero gradi Celsius.
 - Un vento forte (circa 10 m/s).
 
-Questa esercitazione ha illustrato come gli analisti dati possono eseguire rapidamente l'analisi esplorativa dei dati, combinare facilmente set di dati diversi usando SQL su richiesta e visualizzare i risultati con Azure Synapse Studio.
+Questa esercitazione ha illustrato come gli analisti dei dati possono eseguire rapidamente l'analisi esplorativa dei dati, combinare facilmente set di dati diversi usando un pool SQL serverless e visualizzare i risultati con Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come connettere SQL su richiesta a Power BI Desktop e creare report, vedere l'articolo [Connettere SQL su richiesta a Power BI Desktop e creare report](tutorial-connect-power-bi-desktop.md).
+Per informazioni su come connettere il pool SQL serverless a Power BI Desktop e creare report, vedere l'articolo [Connettere un pool SQL serverless a Power BI Desktop e creare report](tutorial-connect-power-bi-desktop.md).
  

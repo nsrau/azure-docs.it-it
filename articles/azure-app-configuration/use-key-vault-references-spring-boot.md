@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 849f25f6fdd3fef2e1ebca7dae397d96e6849f10
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 921c3b8afdb6b196e001cdb7c190529e6238c1f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748847"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127094"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Esercitazione: Usare i riferimenti a Key Vault in un'app Java Spring
 
@@ -51,46 +51,46 @@ In questa esercitazione verranno illustrate le procedure per:
 
 1. Selezionare l'opzione **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure:
 
-    ![Output dopo la creazione dell'insieme di credenziali delle chiavi](./media/quickstarts/search-services.png)
-1. Nella casella di ricerca immettere **Insieme di credenziali delle chiavi** .
+    ![Screenshot mostra l'opzione Crea una risorsa nel portale di Azure.](./media/quickstarts/search-services.png)
+1. Nella casella di ricerca immettere **Insieme di credenziali delle chiavi**.
 1. Nell'elenco dei risultati scegliere **Insiemi di credenziali delle chiavi** a sinistra.
-1. In **Insiemi di credenziali delle chiavi** selezionare **Aggiungi** .
+1. In **Insiemi di credenziali delle chiavi** selezionare **Aggiungi**.
 1. Alla destra di **Crea un insieme di credenziali delle chiavi** specificare le informazioni seguenti:
     * Selezionare **Sottoscrizione** per scegliere una sottoscrizione.
     * In **Gruppo di risorse** selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse.
-    * In **Nome dell'insieme di credenziali delle chiavi** è necessario un nome univoco. Per questa esercitazione immettere **Contoso-vault2** .
+    * In **Nome dell'insieme di credenziali delle chiavi** è necessario un nome univoco. Per questa esercitazione immettere **Contoso-vault2**.
     * Nell'elenco a discesa **Area** scegliere una località.
-1. Lasciare invariati i valori predefiniti delle altre opzioni di **Crea un insieme di credenziali delle chiavi** .
+1. Lasciare invariati i valori predefiniti delle altre opzioni di **Crea un insieme di credenziali delle chiavi**.
 1. Selezionare **Create** (Crea).
 
 A questo punto, l'account Azure è l'unico autorizzato ad accedere a questo nuovo insieme di credenziali.
 
-![Output dopo la creazione dell'insieme di credenziali delle chiavi](./media/quickstarts/vault-properties.png)
+![Screenshot che mostra l'insieme di credenziali delle chiavi.](./media/quickstarts/vault-properties.png)
 
 ## <a name="add-a-secret-to-key-vault"></a>Aggiungere un segreto all'istanza di Key Vault
 
-Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni passaggi aggiuntivi. In questo caso aggiungere un messaggio da usare per testare il recupero da Key Vault. Nel messaggio, denominato **Message** , viene archiviato il valore "Hello from Key Vault".
+Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni passaggi aggiuntivi. In questo caso aggiungere un messaggio da usare per testare il recupero da Key Vault. Nel messaggio, denominato **Message**, viene archiviato il valore "Hello from Key Vault".
 
-1. Nella pagina delle proprietà di Key Vault selezionare **Segreti** .
-1. Selezionare **Genera/Importa** .
+1. Nella pagina delle proprietà di Key Vault selezionare **Segreti**.
+1. Selezionare **Genera/Importa**.
 1. Nel riquadro **Crea un segreto** immettere i valori seguenti:
-    * **Opzioni di caricamento** : immettere **Manual** .
-    * **Name** : immettere **Message** .
-    * **Value** : immettere **Hello from Key Vault** .
-1. Lasciare invariati i valori predefiniti delle altre proprietà di **Crea un segreto** .
+    * **Opzioni di caricamento**: immettere **Manual**.
+    * **Name**: immettere **Message**.
+    * **Value**: immettere **Hello from Key Vault**.
+1. Lasciare invariati i valori predefiniti delle altre proprietà di **Crea un segreto**.
 1. Selezionare **Create** (Crea).
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Aggiungere a Configurazione app un riferimento a Key Vault
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Tutte le risorse** e quindi l'istanza di archivio di Configurazione app creata nell'argomento di avvio rapido.
 
-1. Selezionare **Esplora configurazioni** .
+1. Selezionare **Esplora configurazioni**.
 
 1. Selezionare **+ Crea** > **Riferimento all'insieme di credenziali delle chiavi** e quindi specificare i valori seguenti:
-    * **Chiave** : selezionare **/application/config.keyvaultmessage**
-    * **Etichetta** : lasciare vuoto questo valore.
-    * **Sottoscrizione** , **Gruppo di risorse** e **Insieme di credenziali delle chiavi** : immettere i valori corrispondenti ai valori dell'insieme di credenziali delle chiavi creati nella sezione precedente.
-    * **Segreto** : selezionare il segreto denominato **Message** creato nella sezione precedente.
+    * **Chiave**: selezionare **/application/config.keyvaultmessage**
+    * **Etichetta**: lasciare vuoto questo valore.
+    * **Sottoscrizione**, **Gruppo di risorse** e **Insieme di credenziali delle chiavi**: immettere i valori corrispondenti ai valori dell'insieme di credenziali delle chiavi creati nella sezione precedente.
+    * **Segreto**: selezionare il segreto denominato **Message** creato nella sezione precedente.
 
 ## <a name="connect-to-key-vault"></a>Connettersi a Key Vault
 
@@ -129,7 +129,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
     az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
-1. Creare le variabili di ambiente **AZURE_CLIENT_ID** , **AZURE_CLIENT_SECRET** e **AZURE_TENANT_ID** . Usare i valori dell'entità servizio visualizzati nel passaggio precedente. Al prompt dei comandi eseguire questi comandi e riavviare il prompt per rendere effettiva la modifica:
+1. Creare le variabili di ambiente **AZURE_CLIENT_ID**, **AZURE_CLIENT_SECRET** e **AZURE_TENANT_ID**. Usare i valori dell'entità servizio visualizzati nel passaggio precedente. Al prompt dei comandi eseguire questi comandi e riavviare il prompt per rendere effettiva la modifica:
 
     ```cmd
     setx AZURE_CLIENT_ID "clientId"
@@ -159,16 +159,16 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Aggiornare il codice per usare un riferimento a Key Vault
 
-1. Creare una variabile di ambiente denominata **APP_CONFIGURATION_ENDPOINT** . Impostarne il valore sull'endpoint dell'archivio di Configurazione app. È possibile trovare l'endpoint nel pannello **Chiavi di accesso** nel portale di Azure. Riavviare il prompt dei comandi per rendere effettiva la modifica. 
+1. Creare una variabile di ambiente denominata **APP_CONFIGURATION_ENDPOINT**. Impostarne il valore sull'endpoint dell'archivio di Configurazione app. È possibile trovare l'endpoint nel pannello **Chiavi di accesso** nel portale di Azure. Riavviare il prompt dei comandi per rendere effettiva la modifica. 
 
 
-1. Aprire *bootstrap.properties* nella cartella *resources* . Aggiornare questo file per usare il valore **APP_CONFIGURATION_ENDPOINT** . Rimuovere tutti i riferimenti a una stringa di connessione in questo file. 
+1. Aprire *bootstrap.properties* nella cartella *resources*. Aggiornare questo file per usare il valore **APP_CONFIGURATION_ENDPOINT**. Rimuovere tutti i riferimenti a una stringa di connessione in questo file. 
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
     ```
 
-1. Aprire *MessageProperties.java* . Aggiungere una nuova variabile denominata *keyVaultMessage* :
+1. Aprire *MessageProperties.java*. Aggiungere una nuova variabile denominata *keyVaultMessage*:
 
     ```java
     private String keyVaultMessage;
@@ -182,7 +182,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
     }
     ```
 
-1. Aprire *HelloController.java* . Aggiornare il metodo *getMessage* per includere il messaggio recuperato da Key Vault.
+1. Aprire *HelloController.java*. Aggiornare il metodo *getMessage* per includere il messaggio recuperato da Key Vault.
 
     ```java
     @GetMapping
@@ -220,7 +220,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
     }
     ```
 
-1. Creare un nuovo file denominato *AppConfiguration.java* . E aggiungere il codice seguente.
+1. Creare un nuovo file denominato *AppConfiguration.java*. E aggiungere il codice seguente.
 
     ```java
     package com.example.demo;
@@ -252,7 +252,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
     mvn spring-boot:run
     ```
 
-1. Quando l'applicazione è in esecuzione, è possibile testarla usando *curl* , ad esempio:
+1. Quando l'applicazione è in esecuzione, è possibile testarla usando *curl*, ad esempio:
 
       ```shell
       curl -X GET http://localhost:8080/

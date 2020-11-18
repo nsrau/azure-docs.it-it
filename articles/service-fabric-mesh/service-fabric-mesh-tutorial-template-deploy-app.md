@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 3727e9a83827261bf9e8a526ffedb6d3fc644afa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b02c16c63d83fc33be5512d26eafb0ca0d6c9b98
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745973"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145889"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Esercitazione: Distribuire un'applicazione in Service Fabric Mesh usando un modello
 
@@ -61,7 +61,7 @@ az account set --subscription "<subscriptionName>"
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Usare il comando seguente per creare un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* .
+Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Usare il comando seguente per creare un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -69,7 +69,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-the-container-registry"></a>Creare il registro contenitori
 
-Creare un'istanza di Registro Azure Container usando il comando `az acr create`. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Nell'esempio seguente viene usato il nome *myContainerRegistry* . Se un errore segnala che il nome del registro è già usato, scegliere un nome diverso.
+Creare un'istanza di Registro Azure Container usando il comando `az acr create`. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Nell'esempio seguente viene usato il nome *myContainerRegistry*. Se un errore segnala che il nome del registro è già usato, scegliere un nome diverso.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry --sku Basic
@@ -103,6 +103,11 @@ Quando viene creato il registro, l'output generato sarà simile al seguente:
 Questa esercitazione usa l'applicazione di esempio To Do List come esempio.  Le immagini del contenitore per i servizi [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) sono disponibili nell'hub Docker. Vedere [come creare un'app Web di Azure Service Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md) per informazioni su come compilare l'applicazione in Visual Studio. Service Fabric Mesh supporta l'esecuzione di contenitori Docker Windows o Linux.  Se si utilizzano contenitori Linux, selezionare **Switch to Linux containers** (Passa a contenitori Linux) in Docker.  Se si utilizzano contenitori Windows, selezionare **Switch to Windows containers** (Passa a contenitori Windows) in Docker.
 
 Per eseguire il push di un'immagine in un'istanza di Registro Azure Container, è prima necessario avere un'immagine del contenitore. Se non sono ancora disponibili immagini del contenitore locale, usare il comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per eseguire il pull delle immagini [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) dall'hub Docker.
+
+>[!NOTE]
+> A partire dal 2 novembre 2020, i [limiti della frequenza di download si applicano](https://docs.docker.com/docker-hub/download-rate-limit/) a richieste anonime e autenticate inviate a Docker Hub da account con il piano Docker Free vengono imposti in base all'indirizzo IP. 
+> 
+> Questi comandi usano le immagini pubbliche di Docker Hub. Si noti che è possibile che la frequenza sia limitata. Per altre informazioni, vedere [Eseguire l'autenticazione con Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
 
 Eseguire il pull di immagini di Windows:
 
@@ -156,7 +161,7 @@ seabreeze/azure-mesh-todo-webfrontend
 seabreeze/azure-mesh-todo-service
 ```
 
-L'esempio seguente elenca i tag nel repository **azure-mesh-todo-service** .
+L'esempio seguente elenca i tag nel repository **azure-mesh-todo-service**.
 
 ```azurecli
 az acr repository show-tags --name myContainerRegistry --repository seabreeze/azure-mesh-todo-service --output table
@@ -196,9 +201,9 @@ Un'applicazione Service Fabric Mesh è una risorsa di Azure che è possibile dis
 Questa esercitazione usa l'applicazione di esempio To Do List come esempio.  Invece di creare nuovi file per il modello e i parametri, scaricare il file del [modello di distribuzione mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) e il file dei [parametri mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 ### <a name="parameters"></a>Parametri
-Quando sono presenti valori nel modello che si prevede di dover cambiare una volta che l'applicazione viene distribuita, oppure si vuole avere la possibilità di cambiare in base alla distribuzione (se si prevede di riusare questo modello per altre distribuzioni), la procedura consigliata consiste nel parametrizzare i valori. Il modo migliore per eseguire questa operazione consiste nel creare una sezione "parameters" all'inizio del modello di distribuzione, in cui è possibile specificare i nomi dei parametri e le proprietà, a cui si farà poi riferimento in seguito nel modello di distribuzione. Ogni definizione di parametro include *type* , *defaultValue* e una sezione *metadata* facoltativa con un valore *description* .
+Quando sono presenti valori nel modello che si prevede di dover cambiare una volta che l'applicazione viene distribuita, oppure si vuole avere la possibilità di cambiare in base alla distribuzione (se si prevede di riusare questo modello per altre distribuzioni), la procedura consigliata consiste nel parametrizzare i valori. Il modo migliore per eseguire questa operazione consiste nel creare una sezione "parameters" all'inizio del modello di distribuzione, in cui è possibile specificare i nomi dei parametri e le proprietà, a cui si farà poi riferimento in seguito nel modello di distribuzione. Ogni definizione di parametro include *type*, *defaultValue* e una sezione *metadata* facoltativa con un valore *description*.
 
-La sezione dei parametri è definita all'inizio del modello di distribuzione, subito prima della sezione *resources* :
+La sezione dei parametri è definita all'inizio del modello di distribuzione, subito prima della sezione *resources*:
 
 ```json
 {
@@ -342,8 +347,8 @@ Nel file di parametri aggiornare i valori dei parametri seguenti:
 |registryPassword|La password ottenuta in precedenza in [Recuperare le credenziali per il registro](#retrieve-credentials-for-the-registry). Questo parametro nel modello è una stringa sicura e non verrà visualizzata nello stato di distribuzione o nei comandi `az mesh service show`.|
 |registryUserName|Il nome utente ottenuto in [Recuperare le credenziali per il registro](#retrieve-credentials-for-the-registry).|
 |registryServer|Il nome del server del registro ottenuto in [Recuperare le credenziali per il registro](#retrieve-credentials-for-the-registry).|
-|frontEndImage|L'immagine del contenitore per il servizio front-end.  Ad esempio: `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`.|
-|serviceImage|L'immagine del contenitore per il servizio back-end.  Ad esempio: `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`.|
+|frontEndImage|L'immagine del contenitore per il servizio front-end.  Ad esempio, `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`|
+|serviceImage|L'immagine del contenitore per il servizio back-end.  Ad esempio, `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`|
 
 Per distribuire l'applicazione, eseguire il comando seguente:
 

@@ -3,13 +3,13 @@ title: Distribuire e configurare la soluzione Azure VMware
 description: Informazioni su come usare le informazioni raccolte nella fase di pianificazione per distribuire il cloud privato della soluzione Azure VMware.
 ms.topic: tutorial
 ms.author: tredavis
-ms.date: 10/02/2020
-ms.openlocfilehash: 0839048c2d0ad5944566a48f54cca07a4daeb754
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.date: 11/09/2020
+ms.openlocfilehash: 264ad99b21150f391c367eba2da31f0d08f4ab08
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152036"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336336"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Distribuire e configurare la soluzione Azure VMware
 
@@ -35,7 +35,7 @@ Usare le informazioni raccolte nell'articolo [Pianificazione della distribuzione
 ## <a name="create-the-jump-box"></a>Creare una jump box
 
 >[!IMPORTANT]
->Se l'opzione **Rete virtuale** è stata lasciata vuota durante il passaggio di provisioning iniziale nella schermata **Crea un cloud privato** , completare l'esercitazione [Configurare la rete per il cloud privato VMware](tutorial-configure-networking.md) **prima** di continuare con questa sezione.  
+>Se l'opzione **Rete virtuale** è stata lasciata vuota durante il passaggio di provisioning iniziale nella schermata **Crea un cloud privato**, completare l'esercitazione [Configurare la rete per il cloud privato VMware](tutorial-configure-networking.md) **prima** di continuare con questa sezione.  
 
 Dopo la distribuzione della soluzione Azure VMware, verrà creata la jump box della rete virtuale che si connette a vCenter e NSX. Dopo la configurazione dei circuiti ExpressRoute e di Copertura globale ExpressRoute, la jump box non è necessaria.  Risulta tuttavia utile per raggiungere vCenter e NSX nella soluzione Azure VMware.  
 
@@ -59,7 +59,7 @@ La jump box si trova nella rete virtuale in cui la soluzione Azure VMware si con
 
 Nell'elenco di route valide dovrebbero essere visualizzate le reti create come parte della distribuzione della soluzione Azure VMware. Verranno visualizzate più reti derivate dalla rete [`/22` definita](production-ready-deployment-steps.md#ip-address-segment) durante il [passaggio di distribuzione](#deploy-azure-vmware-solution) disponibile in precedenza in questo articolo.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Creare la jump box della soluzione Azure VMware" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Verificare le route di rete annunciate dalla soluzione Azure VMware nella Rete virtuale di Azure" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
 In questo esempio la rete 10.74.72.0/22 specificata come input durante la distribuzione deriva le reti /24.  Se vengono visualizzati valori analoghi, è possibile connettersi a vCenter nella soluzione Azure VMware.
 
@@ -97,10 +97,10 @@ Poiché il server DNS è obbligatorio, identificare il server DNS da usare.
 
 Se si prevede di usare DHCP in uno o più segmenti NSX-T, continuare con questa sezione. In caso contrario, passare alla sezione [Aggiungere una VM nel segmento di rete NSX-T](#add-a-vm-on-the-nsx-t-network-segment).  
 
-Dopo avere creato il segmento di rete NSX-T, è possibile eseguire UNA delle operazioni seguenti:
+Ora che è stato creato il segmento di rete NSX-T, è possibile creare e gestire il protocollo DHCP nella soluzione Azure VMware in due modi:
 
-* Usare NSX-T come server DHCP per uno o più segmenti creati. Per questa opzione si vuole [creare un server DHCP in NSX-T](manage-dhcp.md#create-dhcp-server) ed [eseguire l'inoltro a tale server](manage-dhcp.md#create-dhcp-relay-service).
-* Inoltrare le richieste DHCP da uno o più segmenti NSX-T a un server DHCP che si trova in una posizione diversa nell'ambiente. Per questa opzione [eseguire solo la configurazione dell'inoltro](manage-dhcp.md#create-dhcp-relay-service).
+* Se si usa NSX-T per ospitare il server DHCP, sarà necessario [creare un server DHCP](manage-dhcp.md#create-a-dhcp-server) e impostare l'[inoltro a tale server](manage-dhcp.md#create-dhcp-relay-service). 
+* Se si usa un server DHCP esterno di terze parti nella rete, sarà necessario [creare il servizio di inoltro DHCP](manage-dhcp.md#create-dhcp-relay-service).  Per questa opzione [eseguire solo la configurazione dell'inoltro](manage-dhcp.md#create-dhcp-relay-service).
 
 
 ## <a name="add-a-vm-on-the-nsx-t-network-segment"></a>Aggiungere una VM nel segmento di rete NSX-T

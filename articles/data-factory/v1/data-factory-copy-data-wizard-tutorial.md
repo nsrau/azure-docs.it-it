@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d1b17a3e4556f6a963f3ecacd31472ce3f75b0fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93360e48dad13b9ec57175d31ecb61d32974f066
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85248548"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128403"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
        È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore `Data factory name “ADFTutorialDataFactory” is not available`, modificare il nome della data factory, ad esempio, nomeutenteADFTutorialDataFactoryAAAAMMGG, e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .  
       
        ![Nome di data factory non disponibile](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-not-available.png)    
-   2. Selezionare la **sottoscrizione**di Azure.
+   2. Selezionare la **sottoscrizione** di Azure.
    3. In Gruppo di risorse eseguire una di queste operazioni: 
       
       - Selezionare **Usa esistente** per scegliere un gruppo di risorse esistente.
@@ -91,7 +91,7 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
    
    1. Immettere **AzureStorageLinkedService** per **Nome del servizio collegato**.
    2. Verificare che in **Account selection method** (Metodo di selezione dell'account) sia selezionata l'opzione **From Azure subscriptions** (Da sottoscrizioni di Azure).
-   3. Selezionare la **sottoscrizione**di Azure.  
+   3. Selezionare la **sottoscrizione** di Azure.  
    4. Selezionare un **Account di archiviazione di Azure** nell'elenco di quelli disponibili nella sottoscrizione selezionata. È anche possibile scegliere di immettere manualmente le impostazioni dell'account di archiviazione, selezionando l'opzione **Immetti manualmente** per **Account selection method** (Metodo di selezione dell'account), quindi fare clic su **Avanti**. 
       
       ![Strumento di copia - Specificare l'account di archiviazione BLOB di Azure](./media/data-factory-copy-data-wizard-tutorial/copy-tool-specify-azure-blob-storage-account.png)
@@ -100,10 +100,10 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
    1. Fare doppio clic sulla cartella **adftutorial**.
    2. Selezionare **emp.txt** e fare clic su **Scegli**.
       
-      ![Strumento di copia - Scegliere il file o la cartella di input](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
+      ![Screenshot mostra l'opzione Scegli per il file di input.](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
 6. Nella pagina **Choose the input file or folder** (Scegliere il file o la cartella di input) fare clic su **Next** (Avanti). Non selezionare **Binary copy**(Copia binaria). 
    
-    ![Strumento di copia - Scegliere il file o la cartella di input](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+    ![Screenshot mostra l'opzione Copia binario per l'input.](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
 7. Nella pagina **File format settings** (Impostazioni di formato file) vengono visualizzati i delimitatori e lo schema rilevati automaticamente dalla procedura guidata analizzando il file. È anche possibile immettere i delimitatori manualmente per sostituirli o interrompere il rilevamento automatico nella Copia guidata. Dopo aver esaminato i delimitatori e i dati di anteprima, fare clic su **Next** (Avanti). 
    
     ![Strumento di copia - Impostazioni di formattazioni del file](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
@@ -114,7 +114,7 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
    
    1. Immettere **AzureSqlLinkedService** nel campo **Connection name** (Nome connessione).
    2. Verificare che in **Server / database selection method** (Metodo di selezione del server/database) sia selezionata l'opzione **From Azure subscriptions** (Da sottoscrizioni di Azure).
-   3. Selezionare la **sottoscrizione**di Azure.  
+   3. Selezionare la **sottoscrizione** di Azure.  
    4. Selezionare **Nome server** e **Database**.
    5. Immettere un **Nome utente** e una **Password**.
    6. Fare clic su **Avanti**.  
@@ -128,10 +128,10 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
     ![Strumento di copia - Mapping dello schema](./media/data-factory-copy-data-wizard-tutorial/schema-mapping-page.png)
 12. Nella pagina **Prestazioni** fare clic su **Avanti**. 
     
-    ![Strumento di copia - Impostazioni relative alle prestazioni](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
+    ![Screenshot che mostra la pagina Impostazioni prestazioni in cui è possibile selezionare Avanti.](./media/data-factory-copy-data-wizard-tutorial/performance-settings.png)
 13. Verificare le informazioni nella pagina **Riepilogo** e fare clic su **Fine**. La procedura guidata crea due servizi collegati, due set di dati (input e output) e una pipeline nella data factory da cui è stata avviata la Copia guidata. 
     
-    ![Strumento di copia - Impostazioni relative alle prestazioni](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
+    ![Screenshot che mostra il riquadro Riepilogo in cui è possibile selezionare Avanti.](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## <a name="launch-monitor-and-manage-application"></a>Avviare l'applicazione di monitoraggio e gestione
 1. Nella pagina **Distribuzione** fare clic sul collegamento: `Click here to monitor copy pipeline`.

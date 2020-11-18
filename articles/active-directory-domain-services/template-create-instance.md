@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
 ms.author: joflore
-ms.openlocfilehash: f257a186f05dc94923d1d39829b5ed68b518f20c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 30fc6b0b7eae6b3dd3477944a5d9ddacf83c677a
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967631"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041690"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Creare un dominio gestito di Azure Active Directory Domain Services usando un modello di Azure Resource Manager
 
@@ -71,10 +71,10 @@ Per iniziare, registrare il provider di risorse Azure Active Directory Domain Se
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
-Creare un'entità servizio di Azure AD per Azure AD Domain Services per comunicare ed eseguire l'autenticazione usando il cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal]. Viene usato un ID applicazione specifico denominato *Domain Controller Services* con ID *2565bd9d-da50-47d4-8b85-4c97f669dc36*. Non modificare questo ID applicazione.
+Creare un'entità servizio di Azure AD per Azure AD Domain Services per comunicare ed eseguire l'autenticazione usando il cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal]. Viene usato un ID applicazione specifico denominato *Domain Controller Services* con ID *6ba9a5d4-8456-4118-b521-9c5ca10cdf84*. Non modificare questo ID applicazione.
 
 ```powershell
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
 Ora creare un gruppo di Azure AD denominato *AAD DC Administrators* usando il cmdlet [New-AzureADGroup][New-AzureADGroup]. Agli utenti aggiunti a questo gruppo vengono concesse le autorizzazioni per eseguire attività di amministrazione nel dominio gestito.

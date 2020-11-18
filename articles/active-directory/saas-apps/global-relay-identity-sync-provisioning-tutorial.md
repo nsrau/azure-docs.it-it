@@ -1,6 +1,6 @@
 ---
-title: "Esercitazione: configurare la sincronizzazione dell'identità di inoltro globale per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs"
-description: Informazioni su come effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Global Relay Identity Sync.
+title: 'Esercitazione: Configurare Global Relay Identity Sync per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+description: Informazioni su come eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Global Relay Identity Sync.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -12,31 +12,31 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9445004170fb06a3d563982da51f89535464e328
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
-ms.translationtype: MT
+ms.openlocfilehash: bdbda77c45e3b1f1533326483ee19aa8ff4af515
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927992"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358338"
 ---
-# <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Esercitazione: configurare la sincronizzazione dell'identità di inoltro globale per il provisioning utenti automatico
+# <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Esercitazione: Configurare Global Relay Identity Sync per il provisioning utenti automatico
 
-Questa esercitazione descrive i passaggi da eseguire sia nella sincronizzazione delle identità di inoltro globale sia nella Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Quando è configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning di utenti e gruppi in sincronizzazione identità inoltro globale usando il servizio di provisioning Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
+Questa esercitazione descrive le procedure da eseguire sia in Global Relay Identity Sync che in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Una volta configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning di utenti e gruppi per Global Relay Identity Sync usando il servizio di provisioning di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funzionalità supportate
 > [!div class="checklist"]
-> * Creare utenti nella sincronizzazione dell'identità dell'inoltro globale
-> * Rimuovere gli utenti nella sincronizzazione dell'identità dell'inoltro globale quando non richiedono più l'accesso
-> * Mantieni gli attributi utente sincronizzati tra Azure AD e sincronizzazione identità inoltro globale
-> * Effettuare il provisioning di gruppi e appartenenze a gruppi in Global Relay Identity Sync
+> * Creazione di utenti in Global Relay Identity Sync
+> * Rimozione di utenti in Global Relay Identity Sync quando l'accesso non è più necessario
+> * Mantenimento della sincronizzazione degli attributi utente tra Azure AD e Global Relay Identity Sync
+> * Provisioning di gruppi e appartenenze a gruppi in Global Relay Identity Sync
 
 
 > [!NOTE]
-> Il connettore di provisioning di sincronizzazione identità globale di inoltro usa un metodo di autorizzazione SCIM che non è più supportato a causa di problemi di sicurezza. Gli sforzi sono in corso con l'inoltro globale per passare a un metodo di autorizzazione più sicuro.
+> Il connettore per il provisioning di Global Relay Identity Sync usa un metodo di autorizzazione SCIM che non è più supportato a causa di problemi di sicurezza. In Global Relay sono in corso le attività necessarie per passare a un metodo di autorizzazione più sicuro.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -48,15 +48,15 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
 1. Vedere le informazioni su [come funziona il servizio di provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determinare quali dati eseguire il [mapping tra Azure ad e la sincronizzazione dell'identità dell'inoltro globale](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+3. Determinare quali dati [mappare tra Azure AD e Global Relay Identity Sync](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-global-relay-identity-sync-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare la sincronizzazione dell'identità dell'inoltro globale per supportare il provisioning con Azure AD
+## <a name="step-2-configure-global-relay-identity-sync-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Global Relay Identity Sync per supportare il provisioning con Azure AD
 
-Per ricevere l'URL del tenant, contattare il rappresentante del Global Relay Identity Sync. Questo valore verrà immesso nel campo **URL tenant** nella scheda provisioning dell'applicazione Global Relay Identity Sync nel portale di Azure.
+Contattare il rappresentante di Global Relay Identity Sync per ricevere l'URL del tenant che verrà immesso nel campo **URL tenant** nella scheda Provisioning dell'applicazione Global Relay Identity Sync nel portale di Azure.
 
-## <a name="step-3-add-global-relay-identity-sync-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere sincronizzazione identità inoltro globale dalla raccolta di applicazioni di Azure AD
+## <a name="step-3-add-global-relay-identity-sync-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere Global Relay Identity Sync dalla raccolta di applicazioni di Azure AD
 
-Aggiungere la sincronizzazione dell'identità del relè globale dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning nella sincronizzazione delle identità del relay globale. Altre informazioni sull'aggiunta di un'applicazione dalla raccolta sono disponibili [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Aggiungere Global Relay Identity Sync dalla raccolta di applicazioni di Azure AD per iniziare a gestire il provisioning in Global Relay Identity Sync. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning 
 
@@ -65,41 +65,41 @@ Il servizio di provisioning di Azure AD consente di definire l'ambito per gli ut
 * Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti e gruppi prima di eseguire la distribuzione a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-global-relay-identity-sync"></a>Passaggio 5. Configurare il provisioning utenti automatico in sincronizzazione identità inoltro globale 
+## <a name="step-5-configure-automatic-user-provisioning-to-global-relay-identity-sync"></a>Passaggio 5. Configurare il provisioning utenti automatico per Global Relay Identity Sync 
 
-Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi nell'App Global Relay Identity Sync in base alle assegnazioni di utenti e/o gruppi in Azure AD.
+Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Global Relay Identity Sync in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Per configurare il provisioning utenti automatico per la sincronizzazione dell'identità dell'inoltro globale in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Global Relay Identity Sync in Azure AD:
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Global Relay Identity Sync** .
+2. Nell'elenco delle applicazioni selezionare **Global Relay Identity Sync**.
 
-    ![Collegamento Global Relay Identity Sync nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento per Global Relay Identity Sync nell'elenco delle applicazioni](common/all-applications.png)
 
-3. Selezionare la scheda **Provisioning** .
+3. Selezionare la scheda **Provisioning**.
 
     ![Scheda Provisioning](common/provisioning.png)
 
-4. Impostare **Modalità di provisioning** su **Automatico** .
+4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning automatica](common/provisioning-automatic.png)
+    ![Automatico nella scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere l' **URL del tenant** di Global Relay Identity Sync. Fare clic su **Test connessione** per assicurarsi che Azure ad possibile connettersi a Global Relay Identity Sync. Se la connessione non riesce, verificare che l'account di sincronizzazione delle identità di inoltro globale disponga delle autorizzazioni di amministratore e contattare il rappresentante del relè globale per risolvere il problema.
+5. Nella sezione **Credenziali amministratore** immettere l'**URL tenant** di Global Relay Identity Sync. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Global Relay Identity Sync. Se la connessione non riesce, verificare che l'account Global Relay Identity Sync disponga delle autorizzazioni di amministratore e contattare il rappresentante di Global Relay per risolvere il problema.
 
-    ![Pulsante autorizzazione](media/global-relay-identity-sync-provisioning-tutorial/authorization.png)
+    ![Pulsante Autorizzazione](media/global-relay-identity-sync-provisioning-tutorial/authorization.png)
 
-6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore** .
+6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Selezionare **Salva** .
+7. Selezionare **Salva**.
 
-8. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory Users to Global Relay Identity Sync** .
+8. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to Global Relay Identity Sync** (Sincronizza utenti di Azure Active Directory in Global Relay Identity Sync).
 
-9. Esaminare gli attributi utente sincronizzati da Azure AD a Global Relay Identity Sync nella sezione **attribute-mapping** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente nella sincronizzazione dell'identità dell'inoltro globale per le operazioni di aggiornamento. Se si sceglie di modificare l' [attributo di destinazione corrispondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), è necessario assicurarsi che l'API di sincronizzazione delle identità di inoltro globale supporti il filtraggio degli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+9. Esaminare gli attributi utente sincronizzati da Azure AD a Global Relay Identity Sync nella sezione **Mapping attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Global Relay Identity Sync per le operazioni di aggiornamento. Se si sceglie di modificare l'[attributo di destinazione corrispondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), sarà necessario assicurarsi che l'API Global Relay Identity Sync supporti il filtro degli utenti basato su tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
    |Attributo|Type|
    |---|---|
@@ -118,35 +118,35 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
    |addresses[type eq "work"].region|string|
    |addresses[type eq "work"].postalCode|string|
    |addresses[type eq "work"].country|string|
-   |indirizzi [tipo EQ "other"]. formattato|string|
+   |addresses[type eq "other"].formatted|string|
    |phoneNumbers[type eq "work"].value|string|
    |phoneNumbers[type eq "mobile"].value|string|
    |phoneNumbers[type eq "fax"].value|string|
    |externalId|string|
    |name.honorificPrefix|string|
-   |nome. honorificSuffix|string|
+   |name.honorificSuffix|string|
    |nickName|string|
    |userType|string|
    |locale|string|
    |timezone|string|
-   |messaggi di posta elettronica [digitare EQ "Home"]. valore|string|
-   |messaggi di posta elettronica [digitare EQ "other"]. Value|string|
-   |phoneNumbers [digitare EQ "Home"]. valore|string|
-   |phoneNumbers [digitare EQ "other"]. Value|string|
-   |phoneNumbers [digitare EQ "pager"]. valore|string|
-   |indirizzi [digitare EQ "Home"]. streetAddress|string|
-   |indirizzi [digitare EQ "Home"]. località|string|
-   |indirizzi [digitare EQ "Home"]. Region|string|
-   |indirizzi [digitare EQ "Home"]. postalCode|string|
-   |indirizzi [digitare EQ "Home"]. Country|string|
-   |indirizzi [digitare EQ "Home"]. formattato|string|
-   |indirizzi [digitare EQ "other"]. streetAddress|string|
-   |indirizzi [digitare EQ "other"]. località|string|
-   |indirizzi [digitare EQ "other"]. Region|string|
-   |indirizzi [tipo EQ "other"]. postalCode|string|
-   |indirizzi [digitare EQ "other"]. Country|string|
-   |ruoli [Primary EQ "true"]. display|string|
-   |ruoli [Primary EQ "true"]. Type|string|
+   |emails[type eq "home"].value|string|
+   |emails[type eq "other"].value|string|
+   |phoneNumbers[type eq "home"].value|string|
+   |phoneNumbers[type eq "other"].value|string|
+   |phoneNumbers[type eq "pager"].value|string|
+   |addresses[type eq "home"].streetAddress|string|
+   |addresses[type eq "home"].locality|string|
+   |addresses[type eq "home"].region|string|
+   |addresses[type eq "home"].postalCode|string|
+   |addresses[type eq "home"].country|string|
+   |addresses[type eq "home"].formatted|string|
+   |addresses[type eq "other"].streetAddress|string|
+   |addresses[type eq "other"].locality|string|
+   |addresses[type eq "other"].region|string|
+   |addresses[type eq "other"].postalCode|string|
+   |addresses[type eq "other"].country|string|
+   |roles[primary eq "True"].display|string|
+   |roles[primary eq "True"].type|string|
    |roles[primary eq "True"].value|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|string|
@@ -154,28 +154,28 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informazioni di riferimento|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: utente: proxyAddresses|string|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: utente: extensionAttribute1|string|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: utente: extensionAttribute2|string|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: utente: extensionAttribute3|string|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: utente: extensionAttribute4|string|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: utente: extensionAttribute5|string|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: utente: extensionAttribute6|string|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: utente: extensionAttribute7|string|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: utente: extensionAttribute8|string|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: utente: extensionAttribute9|string|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: utente: extensionAttribute10|string|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: utente: extensionAttribute11|string|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: utente: extensionAttribute12|string|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: utente: extensionAttribute13|string|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: utente: extensionAttribute14|string|
-   |urn: IETF: params: SCIM: schemas: Extension: GlobalRelay: 2.0: utente: extensionAttribute15|string|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:proxyAddresses|string|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute1|string|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute2|string|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute3|string|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute4|string|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute5|string|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute6|string|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute7|string|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute8|string|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute9|string|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute10|string|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute11|string|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute12|string|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute13|string|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute14|string|
+   |urn:ietf:params:scim:schemas:extension:GlobalRelay:2.0:User:extensionAttribute15|string|
 
 
 
-10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to Global Relay Identity Sync** .
+10. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Groups to Global Relay Identity Sync** (Sincronizza gruppi di Azure Active Directory in Global Relay Identity Sync).
 
-11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a Global Relay Identity Sync nella sezione **attribute-mapping** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in sincronizzazione identità inoltro globale per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+11. Esaminare gli attributi gruppo sincronizzati da Azure AD a Global Relay Identity Sync nella sezione **Mapping attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in Global Relay Identity Sync per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
       |Attributo|Type|
       |---|---|
@@ -184,19 +184,19 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 12. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Per abilitare il servizio di provisioning Azure AD per la sincronizzazione dell'identità dell'inoltro globale, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+13. Per abilitare il servizio di provisioning di Azure AD per Global Relay Identity Sync, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-14. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in sincronizzazione identità inoltro globale scegliendo i valori desiderati in **ambito** nella sezione **Impostazioni** .
+14. Definire gli utenti e/o i gruppi di cui effettuare il provisioning in Global Relay Identity Sync scegliendo i valori appropriati in **Ambito** nella sezione **Impostazioni**.
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
-15. Quando si è pronti per eseguire il provisioning, fare clic su **Salva** .
+15. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i gruppi definiti in **Ambito** nella sezione **Impostazioni** . Il ciclo di sincronizzazione iniziale richiede più tempo dei cicli successivi, che verranno eseguiti ogni 40 minuti circa quando il servizio di provisioning di Azure AD è in esecuzione. 
+L'operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i gruppi definiti in **Ambito** nella sezione **Impostazioni**. Il ciclo di sincronizzazione iniziale richiede più tempo dei cicli successivi, che verranno eseguiti ogni 40 minuti circa quando il servizio di provisioning di Azure AD è in esecuzione. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Passaggio 6. Monitorare la distribuzione
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:

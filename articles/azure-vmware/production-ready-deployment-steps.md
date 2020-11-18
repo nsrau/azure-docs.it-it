@@ -3,12 +3,12 @@ title: Pianificazione della distribuzione della soluzione Azure VMware
 description: Questo articolo illustra un flusso di lavoro di distribuzione della soluzione Azure VMware.  Il risultato finale è un ambiente pronto per la creazione e la migrazione di macchine virtuali.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: e30692f26af786097f3cdb81690be617bfea0c79
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9b6d04e1e7a60bf812ca2b1e370c5075d306c432
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517362"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287059"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Pianificazione della distribuzione della soluzione Azure VMware
 
@@ -17,7 +17,7 @@ Questo articolo illustra il processo di pianificazione per identificare e raccog
 I processi di questa guida di avvio rapido consentono di ottenere un ambiente pronto per la produzione per la creazione di macchine virtuali e la migrazione. 
 
 >[!IMPORTANT]
->Prima di creare la risorsa della soluzione Azure VMware, seguire l'articolo [Come abilitare la risorsa della soluzione Azure VMware](enable-azure-vmware-solution.md) per inviare un ticket di supporto per ottenere l'allocazione dei nodi. Dopo la ricezione della richiesta da parte del team di supporto, sono necessari fino a cinque giorni per completare la richiesta e allocare i nodi. Se è disponibile un cloud privato della soluzione Azure VMware ed è necessaria l'allocazione di altri nodi, sarà necessario seguire lo stesso processo. 
+>Prima di creare la risorsa della soluzione Azure VMware, seguire l'articolo [Come abilitare la risorsa della soluzione Azure VMware](enable-azure-vmware-solution.md) per inviare un ticket di supporto e ottenere l'allocazione degli host. Dopo la ricezione della richiesta da parte del team di supporto, sono necessari fino a cinque giorni per completare la richiesta e allocare gli host. Se è disponibile un cloud privato della soluzione Azure VMware ed è necessaria l'allocazione di altri host, sarà necessario seguire lo stesso processo. 
 
 
 ## <a name="subscription"></a>Subscription
@@ -39,9 +39,9 @@ Identificare l'area in cui si vuole distribuire la soluzione Azure VMware.  Per 
 
 Definire il nome della risorsa da usare durante la distribuzione.  Il nome della risorsa è un nome descrittivo usato per il cloud privato della soluzione Azure VMware.
 
-## <a name="size-nodes"></a>Nodi dimensioni
+## <a name="size-hosts"></a>Host dimensioni
 
-Identificare i nodi dimensioni da usare durante la distribuzione della soluzione Azure VMware.  Per un elenco completo, vedere la documentazione dei [cloud privati e dei cluster della soluzione Azure VMware](concepts-private-clouds-clusters.md#hosts).
+Identificare gli host dimensioni da usare durante la distribuzione della soluzione Azure VMware.  Per un elenco completo, vedere la documentazione dei [cloud privati e dei cluster della soluzione Azure VMware](concepts-private-clouds-clusters.md#hosts).
 
 ## <a name="number-of-hosts"></a>Numero di host
 
@@ -111,8 +111,8 @@ Se si vuole connettere il circuito ExpressRoute dalla soluzione Azure VMware a u
 
 Per riepilogare, si vuole connettere la soluzione Azure VMware a un gateway ExpressRoute esistente?  
 
-* **Sì** : identificare la rete virtuale che non viene usata durante la distribuzione.
-* **No** : identificare una rete virtuale esistente o crearne una nuova durante la distribuzione.
+* **Sì**: identificare la rete virtuale che non viene usata durante la distribuzione.
+* **No**: identificare una rete virtuale esistente o crearne una nuova durante la distribuzione.
 
 In entrambi i casi, è necessario documentare le operazioni da eseguire in questo passaggio.
 

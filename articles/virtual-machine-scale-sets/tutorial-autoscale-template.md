@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: f94a68833347d662f427fa0944dd83d33458bd14
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7e727d06670c9d07ec1aa18b92504433f6c519d6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746001"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518295"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Esercitazione: Ridimensionare automaticamente un set di scalabilità di macchine virtuali con un modello di Azure
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app. In questa esercitazione si apprenderà come:
@@ -25,15 +25,15 @@ Quando si crea un set di scalabilità, definire il numero di istanze di macchine
 > * Sottoporre a test di stress le istanze di VM e attivare le regole di scalabilità automatica
 > * Ridurre automaticamente il numero di istanze con la riduzione delle esigenze
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.29 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
+- Questo articolo richiede la versione 2.0.29 dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata. 
 
 
 ## <a name="define-an-autoscale-profile"></a>Definire un profilo di scalabilità automatica
-Per definire un profilo di scalabilità automatica in un modello di Azure si usa il provider di risorse *Microsoft.insights/autoscalesettings* . Un *profilo* specifica in dettaglio la capacità del set di scalabilità e tutte le eventuali regole associate. L'esempio seguente definisce un profilo denominato *Autoscale by percentage based on CPU usage* e imposta la capacità minima e predefinita di *2* istanze di VM e un massimo di *10* :
+Per definire un profilo di scalabilità automatica in un modello di Azure si usa il provider di risorse *Microsoft.insights/autoscalesettings*. Un *profilo* specifica in dettaglio la capacità del set di scalabilità e tutte le eventuali regole associate. L'esempio seguente definisce un profilo denominato *Autoscale by percentage based on CPU usage* e imposta la capacità minima e predefinita di *2* istanze di VM e un massimo di *10*:
 
 ```json
 {
@@ -137,13 +137,13 @@ L'esempio seguente definisce una regola per ridurre il numero di istanze di VM d
 ## <a name="create-an-autoscaling-scale-set"></a>Creare un set di scalabilità con scalabilità automatica
 Verrà ora usato un modello di esempio per creare un set di scalabilità e applicare regole di scalabilità automatica. È possibile [esaminare il modello completo](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json) oppure [vedere la sezione del provider di risorse *Microsoft.insights/autoscalesettings*](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220) all'interno del modello.
 
-Creare prima un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus* :
+Creare prima un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare ora un set di scalabilità di macchine virtuali con [az group deployment create](/cli/azure/group/deployment). Quando richiesto, specificare il nome utente, ad esempio *azureuser* , e la password usati come credenziali per ogni istanza di VM:
+Creare ora un set di scalabilità di macchine virtuali con [az group deployment create](/cli/azure/group/deployment). Quando richiesto, specificare il nome utente, ad esempio *azureuser*, e la password usati come credenziali per ogni istanza di VM:
 
 ```azurecli-interactive
 az group deployment create \
@@ -180,7 +180,7 @@ Connettersi tramite SSH alla prima istanza di VM. Specificare l'indirizzo IP pub
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-Dopo aver effettuato l'accesso, installare l'utilità **stress** . Avviare *10* ruoli di lavoro di **stress** che generano carico della CPU. Questi ruoli di lavoro vengono eseguiti per *420* secondi, che costituiscono un intervallo di tempo sufficiente affinché le regole di scalabilità automatica implementino l'azione desiderata.
+Dopo aver effettuato l'accesso, installare l'utilità **stress**. Avviare *10* ruoli di lavoro di **stress** che generano carico della CPU. Questi ruoli di lavoro vengono eseguiti per *420* secondi, che costituiscono un intervallo di tempo sufficiente affinché le regole di scalabilità automatica implementino l'azione desiderata.
 
 ```console
 sudo apt-get update
@@ -190,7 +190,7 @@ sudo stress --cpu 10 --timeout 420 &
 
 Quando **stress** visualizza un output simile a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* premere *INVIO* per tornare al prompt.
 
-Per verificare che **stress** generi carico della CPU, esaminare il carico di sistema attivo con l'utilità **top** :
+Per verificare che **stress** generi carico della CPU, esaminare il carico di sistema attivo con l'utilità **top**:
 
 ```console
 top
@@ -225,7 +225,7 @@ exit
 ```
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Monitorare le regole di scalabilità automatica attive
-Per monitorare il numero di istanze di VM nel set di scalabilità, usare **watch** . Le regole di scalabilità automatica impiegano 5 minuti ad avviare il processo di aumento del numero di istanze in risposta al carico della CPU generato da **stress** in ognuna delle istanze di VM:
+Per monitorare il numero di istanze di VM nel set di scalabilità, usare **watch**. Le regole di scalabilità automatica impiegano 5 minuti ad avviare il processo di aumento del numero di istanze in risposta al carico della CPU generato da **stress** in ognuna delle istanze di VM:
 
 ```azurecli-interactive
 watch az vmss list-instances \

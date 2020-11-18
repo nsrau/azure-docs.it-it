@@ -9,12 +9,12 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8b4b86656e7b1b4dfd8b69cbc8386f5b6ff6a8c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 791b50f1458ba7ee127d45ee374b5589ade588e0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674941"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308198"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Esercitazione: Implementare il modello di acquisizione data lake per aggiornare una tabella di Databricks Delta
 
@@ -37,7 +37,7 @@ Questa soluzione verrà compilata in ordine inverso, a partire dall'area di lavo
 
 * Creare un account di archiviazione con uno spazio dei nomi gerarchico (Azure Data Lake Storage Gen2). Questa esercitazione usa un account di archiviazione denominato `contosoorders`. Verificare che all'account utente sia assegnato il [ruolo di collaboratore ai dati del BLOB di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac).
 
-  Vedere [Creare un account di Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
+   Vedere [Creare un account di archiviazione da usare con Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
 * Creare un'entità servizio. Vedere [Procedura: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -287,13 +287,13 @@ Creare una funzione di Azure che esegue il processo.
 
 8. Scegliere **Trigger griglia di eventi**.
 
-   Installare l'estensione **Microsoft.Azure.WebJobs.Extensions.EventGrid** , se viene chiesto di farlo. Se è necessario installarla, scegliere di nuovo **Trigger griglia di eventi** per creare la funzione.
+   Installare l'estensione **Microsoft.Azure.WebJobs.Extensions.EventGrid**, se viene chiesto di farlo. Se è necessario installarla, scegliere di nuovo **Trigger griglia di eventi** per creare la funzione.
 
    Viene visualizzato il riquadro **Nuova funzione**.
 
 9. Nel riquadro **Nuova funzione** assegnare alla funzione il nome **UpsertOrder** e quindi fare clic sul pulsante **Crea**.
 
-10. Sostituire il contenuto del file di codice con questo codice e quindi fare clic sul pulsante **Salva** :
+10. Sostituire il contenuto del file di codice con questo codice e quindi fare clic sul pulsante **Salva**:
 
     ```cs
     using "Microsoft.Azure.EventGrid"

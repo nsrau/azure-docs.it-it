@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ace58bd3bb89f9e8545bf125f272e62c3a134061
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: f327749d1bdfb8cf2cba00cf4c5f68b4b2b77999
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949831"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379554"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Esercitazione: Creare un'applicazione gestita con azioni e risorse personalizzate
 
@@ -41,7 +41,7 @@ Per completare questa esercitazione, è necessario sapere come:
 
 In questa esercitazione verrà creata un'applicazione gestita e il relativo gruppo di risorse gestite conterrà un'istanza del provider personalizzato, un account di archiviazione e una funzione. La funzione di Azure usata in questo esempio implementa un'API che gestisce le operazioni del provider personalizzato per azioni e risorse. L'account di archiviazione di Azure viene usato come risorsa di archiviazione di base per le risorse del provider personalizzato.
 
-La definizione dell'interfaccia utente per la creazione di un'istanza di applicazione gestita include gli elementi di input `funcname` e `storagename`. Il nome dell'account di archiviazione e il nome della funzione devono essere globalmente univoci. Per impostazione predefinita, i file della funzione verranno distribuiti dal [pacchetto di funzioni di esempio](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), che è tuttavia possibile cambiare aggiungendo un elemento di input per il collegamento a un pacchetto in *createUIDefinition.json*:
+La definizione dell'interfaccia utente per la creazione di un'istanza di applicazione gestita include gli elementi di input `funcname` e `storagename`. Il nome dell'account di archiviazione e il nome della funzione devono essere globalmente univoci. Per impostazione predefinita, i file della funzione verranno distribuiti dal [pacchetto di funzioni di esempio](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), che è tuttavia possibile cambiare aggiungendo un elemento di input per il collegamento a un pacchetto in *createUiDefinition.json*:
 
 ```json
 {
@@ -82,13 +82,13 @@ Con l'output in *createUiDefinition.json*:
   "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
 ```
 
-L'esempio *createUIDefinition.json* completo è disponibile in [Informazioni di riferimento: Artefatti degli elementi dell'interfaccia utente](reference-createuidefinition-artifact.md).
+L'esempio *createUiDefinition.json* completo è disponibile in [Informazioni di riferimento: Artefatti degli elementi dell'interfaccia utente](reference-createuidefinition-artifact.md).
 
 ## <a name="template-with-custom-provider"></a>Modello con provider personalizzato
 
 Per creare un'istanza di applicazione gestita con un provider personalizzato, è necessario definire una risorsa provider personalizzato con il nome **public** e il tipo **Microsoft.CustomProviders/resourceProviders** nel file **mainTemplate.json**. In tale risorsa si definiscono i tipi di risorse e le azioni per il servizio. Per distribuire le istanze della funzione di Azure e dell'account di archiviazione di Azure, definire rispettivamente le risorse di tipo `Microsoft.Web/sites` e `Microsoft.Storage/storageAccounts`.
 
-In questa esercitazione verranno creati un tipo di risorsa `users`, un'azione personalizzata `ping`e un'azione personalizzata `users/contextAction` da eseguire nel contesto di una risorsa personalizzata `users`. Per ogni tipo di risorsa e azione fornire un endpoint che punta alla funzione con il nome specificato in [createUIDefinition.json](#user-interface-definition). Specificare **routingType** come `Proxy,Cache` per i tipi di risorsa e `Proxy` per le azioni:
+In questa esercitazione verranno creati un tipo di risorsa `users`, un'azione personalizzata `ping`e un'azione personalizzata `users/contextAction` da eseguire nel contesto di una risorsa personalizzata `users`. Per ogni tipo di risorsa e azione fornire un endpoint che punta alla funzione con il nome specificato in [createUiDefinition.json](#user-interface-definition). Specificare **routingType** come `Proxy,Cache` per i tipi di risorsa e `Proxy` per le azioni:
 
 ```json
 {
@@ -339,11 +339,11 @@ Dopo la distribuzione dell'istanza di applicazione del catalogo di servizi, sono
 
 * Passare alla pagina "Users" e fare clic sul pulsante "Add". Specificare gli input per la creazione di una risorsa e inviare il modulo:
 
-![Creare una risorsa personalizzata](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
+![Screenshot mostra il pulsante Aggiungi selezionato in Utenti.](./media/tutorial-create-managed-app-with-custom-provider/create-custom-resource.png)
 
 * Passare alla pagina "Users", selezionare una risorsa "users" e fare clic su "Custom Context Action":
 
-![Creare una risorsa personalizzata](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
+![Screenshot che mostra l'azione del contesto personalizzata selezionata.](./media/tutorial-create-managed-app-with-custom-provider/perform-custom-resource-action.png)
 
 [!INCLUDE [clean-up-section-portal](../../../includes/clean-up-section-portal.md)]
 

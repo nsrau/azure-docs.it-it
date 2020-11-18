@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: 2e1f94b5a8e361a6bbd34f3f12756377dd1713f4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 62cf7c979be83454ae2433befcdbf4f5d8e5524f
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518713"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516544"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Esercitazione: Creare e usare un'immagine personalizzata per i set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Quando si crea un set di scalabilità, si specifica un'immagine da usare quando vengono distribuite le istanze di macchina virtuale. Per ridurre il numero di attività dopo la distribuzione delle istanze di macchina virtuale, è possibile usare un'immagine di VM personalizzata. Questa immagine di VM personalizzata include le installazioni o le configurazioni delle applicazioni necessarie. Le istanze di macchina virtuale create nel set di scalabilità usano l'immagine di VM personalizzata e sono pronte per gestire il traffico delle applicazioni. In questa esercitazione si apprenderà come:
@@ -27,11 +27,11 @@ Quando si crea un set di scalabilità, si specifica un'immagine da usare quando 
 > * Condividere una raccolta di immagini
 
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questa esercitazione è necessario eseguire la versione 2.4.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+- Questo articolo richiede la versione 2.4.0 dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="overview"></a>Panoramica
 
@@ -41,7 +41,7 @@ La raccolta di immagini condivise consente di condividere le immagini di VM pers
 
 ## <a name="create-and-configure-a-source-vm"></a>Creare e configurare una macchina virtuale di origine
 
-Creare prima un gruppo di risorse con il comando [az group create](/cli/azure/group), quindi creare una VM con [az vm create](/cli/azure/vm). Questa macchina virtuale viene quindi usata come origine per l'immagine. L'esempio seguente crea una VM denominata *myVM* nel gruppo di risorse denominato *myResourceGroup* :
+Creare prima un gruppo di risorse con il comando [az group create](/cli/azure/group), quindi creare una VM con [az vm create](/cli/azure/vm). Questa macchina virtuale viene quindi usata come origine per l'immagine. L'esempio seguente crea una VM denominata *myVM* nel gruppo di risorse denominato *myResourceGroup*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -55,7 +55,7 @@ az vm create \
 ```
 
 > [!IMPORTANT]
-> L' **ID** della VM viene mostrato nell'output del comando [az vm create](/cli/azure/vm). Copiare questo valore in un posto sicuro, in modo da poterlo usare più avanti in questa esercitazione.
+> L'**ID** della VM viene mostrato nell'output del comando [az vm create](/cli/azure/vm). Copiare questo valore in un posto sicuro, in modo da poterlo usare più avanti in questa esercitazione.
 
 Anche l'indirizzo IP pubblico della VM viene mostrato nell'output del comando [az vm create](/cli/azure/vm). Connettersi all'indirizzo IP pubblico della macchina virtuale tramite SSH, come segue:
 
@@ -111,14 +111,14 @@ az sig image-definition create \
 ```
 
 > [!IMPORTANT]
-> L' **ID** della definizione di immagine viene mostrato nell'output del comando. Copiare questo valore in un posto sicuro, in modo da poterlo usare più avanti in questa esercitazione.
+> L'**ID** della definizione di immagine viene mostrato nell'output del comando. Copiare questo valore in un posto sicuro, in modo da poterlo usare più avanti in questa esercitazione.
 
 
 ## <a name="create-the-image-version"></a>Creare una versione di immagine
 
 Creare una versione di immagine dalla VM usando [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
 
-I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
+I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
 In questo esempio la versione dell'immagine è *1.0.0* e verranno create una replica nell'area *Stati Uniti centro-meridionali* e una replica nell'area *Stati Uniti orientali 2*. Le aree di replica devono includere l'area in cui si trova la macchina virtuale di origine.
 
@@ -150,7 +150,7 @@ Creare il set di scalabilità usando [`az vmss create`](/cli/azure/vmss#az-vmss-
 
 Usare l'ID definizione immagine per `--image` per creare le istanze del set di scalabilità dalla versione più recente dell'immagine disponibile. È anche possibile creare le istanze del set di scalabilità da una versione specifica fornendo l'ID versione dell'immagine per `--image`. 
 
-Creare un set di scalabilità denominato *myScaleSet* , la versione più recente dell'immagine *myImageDefinition* creata in precedenza.
+Creare un set di scalabilità denominato *myScaleSet*, la versione più recente dell'immagine *myImageDefinition* creata in precedenza.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -165,7 +165,7 @@ La creazione e la configurazione di tutte le macchine virtuali e risorse del set
 
 
 ## <a name="test-your-scale-set"></a>Testare il set di scalabilità
-Per consentire al traffico di raggiungere il set di scalabilità e verificare che il server Web funzioni correttamente, creare una regola del servizio di bilanciamento del carico con [az network lb rule create](/cli/azure/network/lb/rule). Nell'esempio seguente viene creata una regola denominata *myLoadBalancerRuleWeb* che consente il traffico sulla porta *TCP* *80* :
+Per consentire al traffico di raggiungere il set di scalabilità e verificare che il server Web funzioni correttamente, creare una regola del servizio di bilanciamento del carico con [az network lb rule create](/cli/azure/network/lb/rule). Nell'esempio seguente viene creata una regola denominata *myLoadBalancerRuleWeb* che consente il traffico sulla porta *TCP* *80*:
 
 ```azurecli-interactive
 az network lb rule create \

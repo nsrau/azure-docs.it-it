@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: markvi
 ms.custom: include file
-ms.openlocfilehash: ab6e3426096f6fbaf7dfa44984a26c939f3b91fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0bc51fcd3a56af2f836377da736af3a1976463e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75971870"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136192"
 ---
 L'abilitazione di un'identità gestita assegnata dal sistema si esegue con un semplice clic del mouse. È possibile abilitarla durante la creazione di una macchina virtuale o nelle proprietà di una VM esistente.
 
-![Creare un nuovo account di archiviazione](./media/active-directory-msi-tut-enable/identity.png)
+![Screenshot che mostra la scheda Assegnata dal sistema per una macchina virtuale in cui è possibile attivare lo stato Assegnata dal sistema.](./media/active-directory-msi-tut-enable/identity.png)
 
 
 **Per abilitare l'identità gestita assegnata dal sistema in una nuova VM:** 

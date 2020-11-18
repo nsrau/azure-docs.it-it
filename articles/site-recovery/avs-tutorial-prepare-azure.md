@@ -1,5 +1,5 @@
 ---
-title: Preparare le risorse di Azure per il ripristino di emergenza della soluzione Azure VMware con Azure Site Recovery
+title: Preparare le risorse di Azure Site Recovery per il ripristino di emergenza delle macchine virtuali della soluzione Azure VMware
 description: Informazioni su come preparare le risorse di Azure per il ripristino di emergenza delle macchine della soluzione Azure VMware con Azure Site Recovery.
 services: site-recovery
 author: Harsha-CS
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: harshacs
 ms.custom: MVC
-ms.openlocfilehash: 83e2c46e1ce1977d0dd136e821c90843ce2de481
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 2bd305e3760a8c3d743037e7d90b71f5e9579eda
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91814268"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395479"
 ---
-# <a name="prepare-azure-resources-for-disaster-recovery-of-azure-vmware-solution-to-azure"></a>Preparare le risorse di Azure per il ripristino di emergenza della soluzione Azure VMware in Azure
+# <a name="prepare-azure-site-recovery-resources-for-disaster-recovery-of-azure-vmware-solution-vms"></a>Preparare le risorse di Azure Site Recovery per il ripristino di emergenza delle macchine virtuali della soluzione Azure VMware
 
 Questo articolo descrive come preparare risorse e componenti di Azure per poter configurare il ripristino di emergenza di macchine virtuali della soluzione Azure VMware con il servizio [Azure Site Recovery](site-recovery-overview.md). La [soluzione Azure VMware](../azure-vmware/introduction.md) fornisce cloud privati in Azure. Questi cloud privati contengono cluster vSphere, creati da un'infrastruttura di Azure bare metal dedicata.
 

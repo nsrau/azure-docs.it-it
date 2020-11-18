@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: dd055eecaef00a2f3b555034f44f3c04684a1722
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 461fabd0dd9948e8967ac61919f77e3e23a981b9
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171863"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331958"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Esplorare il Knowledge Center di Synapse
 
@@ -37,7 +37,7 @@ Nel **Knowledge Center** sono disponibili tre opzioni:
 * **Browse available samples** (Sfoglia gli esempi disponibili). Questa opzione consente di collegare i set di dati di esempio e di aggiungere il codice di esempio sotto forma di script SQL, notebook e pipeline.
 * **Tour Synapse studio** (Esplora Synapse Studio). Questa opzione consente di esplorare rapidamente gli elementi di base di Synapse Studio. È utile se non si è mai usato Synapse Studio prima.
 
-## <a name="exploring-blob-storage-with-sql-on-demand"></a>Esplorazione dell'archivio BLOB con SQL su richiesta
+## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Esplorare l'archivio BLOB con il pool SQL serverless
 
 1. Nel **Knowledge Center** fare clic su **Use samples immediately** (Usa immediatamente gli esempi)
 1. Selezionare **Query data with SQL** (Esegui query sui dati con SQL) 
@@ -47,7 +47,7 @@ Nel **Knowledge Center** sono disponibili tre opzioni:
 1. Fare clic su Esegui. Il testo selezionato verrà eseguito.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Caricamento di altri dati di NYC Taxi
-1. Nel **Knowledge Center** fare clic su **Browse available samples** (Sfoglia gli esempi disponibili) 
+1. Nel **Knowledge Center** fare clic su **Browse available samples** (Esplora gli esempi disponibili) 
 1. Selezionare la scheda **Script SQL** nella parte superiore
 1. Selezionare **Load the New York Taxicab dataset** (Carica il set di dati relativi ai taxi di New York)
 1. In **Input** scegliere **Seleziona un pool esistente** e selezionare **SQLDB1**
@@ -60,4 +60,4 @@ Nel **Knowledge Center** sono disponibili tre opzioni:
 
 * [Introduzione ad Azure Synapse Analytics](get-started.md)
 * [Creare un'area di lavoro](quickstart-create-workspace.md)
-* [Usare SQL su richiesta](quickstart-sql-on-demand.md)
+* [Usare i pool SQL serverless](quickstart-sql-on-demand.md)

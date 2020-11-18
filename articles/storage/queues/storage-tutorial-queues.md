@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 23684dbbc5cb8c2d5fc4880ae8fe1999450928e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d661800c53cc0795efde1f411675d17661fb968
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400571"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345534"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>Esercitazione: Usare le code di archiviazione di Azure in .NET
 
@@ -94,6 +94,8 @@ Creare un'applicazione .NET Core denominata **QueueApp**. Per semplicità, quest
 
    C:\Tutorials\QueueApp>_
    ```
+
+<!-- markdownlint-disable MD023 -->
 
 ## <a name="add-the-azure-client-libraries"></a>Aggiungere le librerie client di Azure
 

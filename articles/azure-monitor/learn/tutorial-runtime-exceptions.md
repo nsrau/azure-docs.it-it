@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: af8479f6460a6cc555d7ea67dcfe65c779878624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 057b211179c6932d4214e6118e3fa97b95145ba0
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357863"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926632"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rilevare e diagnosticare le eccezioni di runtime con Azure Application Insights
 
@@ -81,7 +81,7 @@ Il debugger di snapshot raccoglie gli snapshot delle eccezioni più frequenti ne
 
 3. La prima chiamata con valori validi è **ValidZipCode** e si può notare che è stato fornito un codice postale contenente lettere che non può essere convertito in un numero intero.  Si tratta dell'errore nel codice che deve essere corretto.
 
-    ![Snapshot di debug](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
+    ![Screenshot che mostra un errore nel codice che deve essere corretto.    ](media/tutorial-runtime-exceptions/debug-snapshot-02.png)
 
 4. È quindi possibile scaricare questo snapshot in Visual Studio dove è possibile individuare il codice effettivo che deve essere corretto. A tale scopo, fare clic su **Scarica Snapshot**.
 5. Lo snapshot viene caricato in Visual Studio.

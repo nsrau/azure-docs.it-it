@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 10/15/2020
-ms.openlocfilehash: d497ff1a829902c0623740f01a457e6496db2401
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2970bb58bb73d52c75729b00a8209a9c576d4ec0
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744952"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427412"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Monitorare l'area di lavoro Synapse
 
-In questa esercitazione viene illustrato come monitorare le attività nell'area di lavoro Synapse. È possibile monitorare le attività correnti e cronologiche per SQL, Apache Spark e Pipelines. 
+In questa esercitazione viene illustrato come monitorare le attività nell'area di lavoro Synapse. È possibile monitorare le attività correnti e cronologiche per SQL, Apache Spark e pipeline. 
 
 ## <a name="introduction-to-the-monitor-hub"></a>Introduzione all'hub Monitoraggio
 
@@ -31,8 +31,7 @@ Aprire Synapse Studio e passare all'hub **Monitoraggio**. Qui è possibile visua
 ## <a name="integration"></a>Integrazione
 
 1. Passare a **Integrazione > Pipeline**. Questa vista mostra quante volte una pipeline è stata eseguita nell'area di lavoro. 
-1. Trovare la pipeline eseguita nel passaggio precedente e fare clic sul relativo **Nome della pipeline**.
-1. Ora è possibile vedere come vengono eseguite le singole attività all'interno della pipeline.
+1. Trovare la pipeline eseguita nel passaggio precedente e fare clic su **Nome della pipeline** per visualizzare i dettagli.
 1. Fare clic su **Barra di navigazione** nella parte superiore di Synapse Studio e quindi fare clic su **Tutte le esecuzioni della pipeline** per tornare alla vista precedente.
 
 ## <a name="apache-spark-activities"></a>Attività di Apache Spark

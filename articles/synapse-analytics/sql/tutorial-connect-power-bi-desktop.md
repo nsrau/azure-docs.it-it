@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Connettere SQL su richiesta a Power BI Desktop e creare report'
-description: Questa esercitazione illustra come connettere SQL su richiesta in Azure Synapse Analytics a Power BI Desktop e creare un report demo in base a una vista.
+title: 'Esercitazione: Connettere un pool SQL serverless a Power BI Desktop e creare report'
+description: Questa esercitazione illustra come connettere un pool SQL serverless in Azure Synapse Analytics a Power BI Desktop e creare un report demo in base a una visualizzazione.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c86825d6dce8681e114ec930add751b6beae085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc2b068dd7c5e7fb3f9e3505f93245515d90ae23
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539555"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317187"
 ---
-# <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Esercitazione: Usare SQL su richiesta con Power BI Desktop e creare un report
+# <a name="tutorial-use-serverless-sql-pool-with-power-bi-desktop--create-a-report"></a>Esercitazione: Usare un pool SQL serverless con Power BI Desktop e creare un report
 
 In questa esercitazione si apprenderà come:
 
@@ -24,7 +24,7 @@ In questa esercitazione si apprenderà come:
 >
 > - Creare un database demo
 > - Creare la visualizzazione usata per il report
-> - Connettere Power BI Desktop a SQL su richiesta
+> - Connettere Power BI Desktop a un pool SQL serverless
 > - Creare report in base alla visualizzazione
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -42,8 +42,8 @@ Valori per i parametri seguenti:
 
 | Parametro                                 | Descrizione                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Indirizzo dell'endpoint di servizio di SQL su richiesta    | Usato come nome del server                                   |
-| Area dell'endpoint servizio di SQL su richiesta     | Usato per determinare la risorsa di archiviazione usata negli esempi |
+| Indirizzo dell'endpoint servizio del pool SQL serverless    | Usato come nome del server                                   |
+| Area dell'endpoint servizio del pool SQL serverless     | Usato per determinare la risorsa di archiviazione usata negli esempi |
 | Nome utente e password per l'accesso all'endpoint | Usati per accedere all'endpoint                               |
 | Database che verrà usato per creare le visualizzazioni     | Database usato come punto di partenza negli esempi       |
 
@@ -65,7 +65,7 @@ GO
 
 ## <a name="2---create-data-source"></a>2 - Creare l'origine dati
 
-Il servizio SQL su richiesta necessita di un'origine dati per accedere ai file nella risorsa di archiviazione. Creare l'origine dati per un account di archiviazione che si trova nella stessa area dell'endpoint. Sebbene SQL su richiesta possa accedere agli account di archiviazione di aree diverse, l'account di archiviazione e l'endpoint nella stessa area garantiranno prestazioni migliori.
+Il servizio del pool SQL serverless necessita di un'origine dati per accedere ai file nella risorsa di archiviazione. Creare l'origine dati per un account di archiviazione che si trova nella stessa area dell'endpoint. Sebbene il pool SQL serverless possa accedere agli account di archiviazione di aree diverse, l'account di archiviazione e l'endpoint nella stessa area garantiranno prestazioni migliori.
 
 Creare l'origine dati eseguendo lo script Transact-SQL (T-SQL) seguente:
 
