@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d9a7d7db93e00b9fcccab08522b3363935badf26
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 003203ef1a25102f9fd3c50001603dbd5d33ce5a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203841"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565971"
 ---
 # <a name="tutorial-manipulating-models"></a>Esercitazione: Manipolazione dei modelli
 
@@ -308,7 +308,7 @@ Il metodo di `OnPointerClicked` di **RemoteRayCastPointerHandler** viene chiamat
 
 L'invio di richieste di raycasting al clic è una strategia efficace per l'esecuzione di query sugli oggetti remoti. Tuttavia, non si tratta di un'esperienza utente ideale perché il cursore entra in collisione con BoxCollider, non con il modello stesso.
 
-È anche possibile creare un nuovo puntatore MRTK che esegue il raycasting nella sessione remota con maggiore frequenza. Anche se è un approccio più complesso, l'esperienza utente sarà più soddisfacente. Questa strategia esula dall'ambito di questa esercitazione, ma è possibile vedere un esempio di questo approccio nell'app di presentazione disponibile nel [repository di esempi di Rendering remoto di Azure](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase).
+È anche possibile creare un nuovo puntatore MRTK che esegue il raycasting nella sessione remota con maggiore frequenza. Anche se è un approccio più complesso, l'esperienza utente sarà più soddisfacente. Questa strategia esula dall'ambito di questa esercitazione, ma è possibile vedere un esempio di questo approccio nell'app di presentazione disponibile nel [repository di esempi di Rendering remoto di Azure](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase).
 
 Al termine di un raycast in **RemoteRayCastPointerHandler**, il risultato `Entity` viene emesso dall'evento `OnRemoteEntityClicked` di Unity. Per rispondere a tale evento, viene creato uno script helper che accetta `Entity` ed esegue un'azione. Per iniziare, ottenere lo script per stampare il nome di `Entity` nel log di debug.
 
