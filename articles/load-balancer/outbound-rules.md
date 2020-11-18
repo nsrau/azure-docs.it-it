@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 947ecaa2efbfb013f1f3e8203d1c4296b9ca329f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 645be03df3c8ee2a1451b4bfea0327542c29aa38
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422162"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683115"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Azure Load Balancer regole in uscita
 
@@ -106,7 +106,7 @@ Se un NSG blocca le richieste di probe di integrità dal AZURE_LOADBALANCER tag 
 
 
 * Configurare le connessioni in uscita a un set specifico di indirizzi IP pubblici o prefisso.
-* Modificare l'allocazione della porta [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) .
+* Modificare l'allocazione della porta [SNAT](load-balancer-outbound-connections.md) .
 * Abilita solo in uscita.
 * NAT in uscita solo per le macchine virtuali (nessun in ingresso).
 * NAT in uscita per il servizio di bilanciamento del carico standard interno.
@@ -135,28 +135,28 @@ Per usare un indirizzo IP pubblico o un prefisso diverso da quello usato da una 
 5. Configurare una regola in uscita per il servizio di bilanciamento del carico pubblico per abilitare la NAT in uscita per le macchine virtuali usando il front-end. Non è consigliabile usare una regola di bilanciamento del carico per le connessioni in uscita, disabilitare SNAT in uscita nella regola di bilanciamento del carico.
 
 
-### <a name="scenario-2-modify-snat-port-allocation"></a><a name="scenario2out"></a>Scenario 2: modifica dell'allocazione delle porte [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources)
+### <a name="scenario-2-modify-snatport-allocation"></a><a name="scenario2out"></a>Scenario 2: modifica dell'allocazione delle porte [SNAT](load-balancer-outbound-connections.md)
 
 
 #### <a name="details"></a>Dettagli
 
 
-È possibile usare le regole in uscita per ottimizzare l'[allocazione automatica delle porte SNAT in base alle dimensioni del pool back-end](load-balancer-outbound-connections.md#preallocatedports). 
+È possibile usare le regole in uscita per ottimizzare l' [allocazione automatica delle porte SNAT in base alle dimensioni del pool back-end](load-balancer-outbound-connections.md#preallocatedports). 
 
 
-Se si verifica l'esaurimento SNAT, aumentare il numero di porte [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) specificate dal valore predefinito 1024. 
+Se si verifica l'esaurimento SNAT, aumentare il numero di porte [SNAT](load-balancer-outbound-connections.md)specificate dal valore predefinito 1024. 
 
 
-Ogni indirizzo IP pubblico contribuisce fino a 64.000 porte effimere. Il numero di macchine virtuali nel pool back-end determina il numero di porte distribuite a ogni macchina virtuale. Una macchina virtuale nel pool back-end ha accesso al numero massimo di 64.000 porte. Per due macchine virtuali, è possibile assegnare un massimo di 32.000 porte [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) con una regola in uscita (2x 32.000 = 64.000). 
+Ogni indirizzo IP pubblico contribuisce fino a 64.000 porte effimere. Il numero di macchine virtuali nel pool back-end determina il numero di porte distribuite a ogni macchina virtuale. Una macchina virtuale nel pool back-end ha accesso al numero massimo di 64.000 porte. Per due macchine virtuali, è possibile assegnare un massimo di 32.000 porte [SNAT](load-balancer-outbound-connections.md)con una regola in uscita (2x 32.000 = 64.000). 
 
 
-È possibile utilizzare le regole in uscita per ottimizzare le porte SNAT specificate per impostazione predefinita. È possibile assegnare più o meno rispetto all'allocazione di porta [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) predefinita. Ogni indirizzo IP pubblico da un front-end di una regola in uscita contribuisce fino a 64.000 porte effimere da usare come porte [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) . 
+È possibile utilizzare le regole in uscita per ottimizzare le porte SNAT specificate per impostazione predefinita. È possibile assegnare più o meno rispetto all'allocazione di porta [SNAT](load-balancer-outbound-connections.md)predefinita. Ogni indirizzo IP pubblico da un front-end di una regola in uscita contribuisce fino a 64.000 porte effimere da usare come porte [SNAT](load-balancer-outbound-connections.md). 
 
 
-Il servizio di bilanciamento del carico fornisce porte [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) in multipli di 8. Se si specifica un valore non divisibile per 8, l'operazione di configurazione viene rifiutata. Ogni regola di bilanciamento del carico e regola NAT in ingresso utilizzerà un intervallo di 8 porte. Se una regola NAT di bilanciamento del carico o in ingresso condivide lo stesso intervallo di 8 come un altro, non verranno utilizzate porte aggiuntive.
+Il servizio di bilanciamento del carico fornisce porte [SNAT](load-balancer-outbound-connections.md)in multipli di 8. Se si specifica un valore non divisibile per 8, l'operazione di configurazione viene rifiutata. Ogni regola di bilanciamento del carico e regola NAT in ingresso utilizzerà un intervallo di 8 porte. Se una regola NAT di bilanciamento del carico o in ingresso condivide lo stesso intervallo di 8 come un altro, non verranno utilizzate porte aggiuntive.
 
 
-Se si tenta di assegnare più porte [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) rispetto a quelle disponibili in base al numero di indirizzi IP pubblici, l'operazione di configurazione viene rifiutata. Ad esempio, se si assegnano 10.000 porte per macchina virtuale e sette macchine virtuali in un pool back-end condividono un solo indirizzo IP pubblico, la configurazione viene rifiutata. 7 moltiplicato per 10.000 supera il limite di 64.000 porte. Aggiungere altri indirizzi IP pubblici al front-end della regola in uscita per abilitare lo scenario. 
+Se si tenta di assegnare più porte [SNAT](load-balancer-outbound-connections.md)rispetto a quelle disponibili in base al numero di indirizzi IP pubblici, l'operazione di configurazione viene rifiutata. Ad esempio, se si assegnano 10.000 porte per macchina virtuale e sette macchine virtuali in un pool back-end condividono un solo indirizzo IP pubblico, la configurazione viene rifiutata. 7 moltiplicato per 10.000 supera il limite di 64.000 porte. Aggiungere altri indirizzi IP pubblici al front-end della regola in uscita per abilitare lo scenario. 
 
 
 Ripristinare l' [allocazione di porte predefinita](load-balancer-outbound-connections.md#preallocatedports) specificando 0 per il numero di porte. La prima istanza di VM 50 otterrà 1024 porte, 51-100 istanze di VM otterranno 512 fino al numero massimo di istanze. Per ulteriori informazioni sull'allocazione di porte SNAT predefinite, vedere [tabella di allocazione delle porte SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
@@ -195,7 +195,7 @@ Per questo scenario: Azure Load Balancer regole in uscita e NAT della rete virtu
 
 
 
-Usare un prefisso o un indirizzo IP pubblico per scalare le porte [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) . Aggiungere l'origine delle connessioni in uscita a un elenco Consenti o nega.
+Usare un prefisso o un indirizzo IP pubblico per scalare le porte [SNAT](load-balancer-outbound-connections.md). Aggiungere l'origine delle connessioni in uscita a un elenco Consenti o nega.
 
 
 
@@ -225,7 +225,7 @@ Per altre informazioni, vedere Configurazione del servizio di [bilanciamento del
 Quando si usa un servizio di bilanciamento del carico standard pubblico, il valore NAT in uscita automatico corrisponde al protocollo di trasporto della regola di bilanciamento del carico. 
 
 
-1. Disabilitare [SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#-sharing-ports-across-resources) in uscita nella regola di bilanciamento del carico. 
+1. Disabilitare [SNAT](load-balancer-outbound-connections.md)in uscita nella regola di bilanciamento del carico. 
 2. Configurare una regola in uscita nello stesso servizio di bilanciamento del carico.
 3. Riutilizzare il pool back-end già usato dalle macchine virtuali. 
 4. Specificare "protocol": "All" come parte della regola in uscita. 

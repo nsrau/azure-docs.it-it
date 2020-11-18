@@ -1,39 +1,36 @@
 ---
-title: Connettersi a Office 365 Outlook
+title: Eseguire l'integrazione con Office 365 Outlook
 description: Automatizzare le attività e i flussi di lavoro che gestiscono la posta elettronica, i contatti e i calendari in Office 365 Outlook usando app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 9b10778e665675e9e033953e2a8b9df16dd636d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9caf69a7f78c7872f0a5f8a2ed07bdc749a29023
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400775"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682996"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gestire posta elettronica, contatti e calendari con Outlook di Office 365 usando App per la logica di Azure
 
-Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il [connettore Outlook per Office 365](/connectors/office365connector/)è possibile creare attività e flussi di lavoro automatizzati che gestiscono l'account aziendale o dell'Istituto di istruzione creando app per la logica. Ad esempio, è possibile automatizzare queste attività:
+Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il [connettore Outlook per Office 365](/connectors/office365connector/)è possibile creare attività e flussi di lavoro automatizzati che gestiscono l'account aziendale o dell'Istituto di istruzione creando app per la logica. È ad esempio possibile automatizzare queste attività:
 
-* Ottenere, inviare e rispondere alla posta elettronica. 
+* Ottenere, inviare e rispondere alla posta elettronica.
 * Pianifica riunioni nel calendario.
-* Aggiungere e modificare i contatti. 
+* Aggiungere e modificare i contatti.
 
-È possibile usare qualsiasi trigger per avviare il flusso di lavoro, ad esempio quando arriva un nuovo messaggio di posta elettronica, quando viene aggiornato un elemento del calendario o quando si verifica un evento in un servizio di differenza, ad esempio Salesforce. È possibile usare azioni che rispondono all'evento trigger, ad esempio, inviare un messaggio di posta elettronica o creare un nuovo evento del calendario. 
-
-> [!NOTE]
-> Per automatizzare le attività per @outlook.com un @hotmail.com account o, usare il [connettore Outlook.com](../connectors/connectors-create-api-outlook.md).
+È possibile usare qualsiasi trigger per avviare il flusso di lavoro, ad esempio quando arriva un nuovo messaggio di posta elettronica, quando viene aggiornato un elemento del calendario o quando si verifica un evento in un servizio di differenza, ad esempio Salesforce. È possibile usare azioni che rispondono all'evento trigger, ad esempio, inviare un messaggio di posta elettronica o creare un nuovo evento del calendario.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+* Un account di Outlook a cui si accede con un [account aziendale o dell'Istituto di istruzione](https://www.office.com/). Se si dispone di @outlook.com un @hotmail.com account o, usare invece il [connettore Outlook.com](../connectors/connectors-create-api-outlook.md) . Per connettersi a Outlook con un account utente diverso, ad esempio un account del servizio, vedere [connettersi con altri account](#connect-using-other-accounts).
 
-* Un [account aziendale o dell'Istituto di istruzione](https://www.office.com/)
+* Un account e una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* App per la logica in cui si vuole accedere all'account aziendale o dell'Istituto di istruzione. Per avviare il flusso di lavoro con un trigger Office 365 Outlook, è necessario disporre di un'app per la [logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per aggiungere un'azione di Office 365 Outlook al flusso di lavoro, l'app per la logica deve avere già un trigger.
+* App per la logica in cui si vuole accedere all'account di Outlook. Per avviare il flusso di lavoro con un trigger Office 365 Outlook, è necessario disporre di un'app per la [logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per aggiungere un'azione di Office 365 Outlook al flusso di lavoro, l'app per la logica deve avere già un trigger.
 
 ## <a name="add-a-trigger"></a>Aggiungere un trigger
 
@@ -45,7 +42,7 @@ Un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un even
    
    ![Selezionare trigger per avviare l'app per la logica](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. Se viene richiesto di eseguire l'accesso, fornire le credenziali aziendali o dell'Istituto di istruzione in modo che l'app per la logica possa connettersi all'account. In caso contrario, se la connessione esiste già, fornire le informazioni per le proprietà del trigger.
+1. Se non si ha una connessione attiva con l'account Outlook, viene chiesto di eseguire l'accesso e creare tale connessione. Per connettersi a Outlook con un account utente diverso, ad esempio un account del servizio, vedere [connettersi con altri account](#connect-using-other-accounts). In caso contrario, fornire le informazioni per le proprietà del trigger.
 
    > [!NOTE]
    > La connessione non scade fino alla revoca, anche se si modificano le credenziali di accesso. Per altre informazioni, vedere [Durata dei token configurabili in Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -56,7 +53,7 @@ Un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un even
 
 1. Nel trigger impostare i valori di **frequenza** e **intervallo** . Per aggiungere altre proprietà del trigger disponibili, ad esempio il **fuso orario**, selezionare le proprietà dall'elenco **Aggiungi nuovo parametro** .
 
-   Ad esempio, se si desidera che il trigger verifichi il calendario ogni 15 minuti, impostare **frequenza** su **minuto**e impostare **intervallo** su `15` . 
+   Ad esempio, se si desidera che il trigger verifichi il calendario ogni 15 minuti, impostare **frequenza** su **minuto** e impostare **intervallo** su `15` . 
 
    ![Impostare la frequenza e l'intervallo per il trigger](./media/connectors-create-api-office365-outlook/calendar-settings.png)
 
@@ -78,7 +75,7 @@ Un' [azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un'oper
 
    ![Selezionare l'azione da eseguire nell'app per la logica](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. Se viene richiesto di eseguire l'accesso, fornire le credenziali aziendali o dell'Istituto di istruzione in modo che l'app per la logica possa connettersi all'account. In caso contrario, se la connessione esiste già, fornire le informazioni per le proprietà dell'azione.
+1. Se non si ha una connessione attiva con l'account Outlook, viene chiesto di eseguire l'accesso e creare tale connessione. Per connettersi a Outlook con un account utente diverso, ad esempio un account del servizio, vedere [connettersi con altri account](#connect-using-other-accounts). In caso contrario, fornire le informazioni per le proprietà dell'azione.
 
    > [!NOTE]
    > La connessione non scade fino alla revoca, anche se si modificano le credenziali di accesso. Per altre informazioni, vedere [Durata dei token configurabili in Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -90,6 +87,28 @@ Un' [azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un'oper
    Per aggiungere altre proprietà dell'azione disponibili, selezionare le proprietà dall'elenco **Aggiungi nuovo parametro** .
 
 1. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
+
+<a name="connect-using-other-accounts"></a>
+
+## <a name="connect-using-other-accounts"></a>Connetti con altri account
+
+Se si prova a connettersi a Outlook usando un account diverso da quello attualmente connesso ad Azure, è possibile che vengano visualizzati errori di [Single Sign-on (SSO)](../active-directory/manage-apps/what-is-single-sign-on.md) . Questo problema si verifica quando si accede al portale di Azure con un account, ma si usa un account diverso per creare la connessione. La finestra di progettazione dell'app per la logica prevede di usare l'account che ha eseguito l'accesso ad Azure. Per risolvere il problema, sono disponibili le opzioni seguenti:
+
+* Configurare l'altro account come **collaboratore** per il gruppo di risorse dell'app per la logica.
+
+  1. Nel menu del gruppo di risorse dell'app per la logica selezionare **controllo di accesso (IAM)**. Configurare l'altro account con il ruolo **collaboratore** . Per altre informazioni, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md).
+
+  1. Se è stato effettuato l'accesso al portale di Azure con l'account aziendale o dell'Istituto di istruzione, disconnettersi ed eseguire di nuovo l'accesso con il proprio account. È ora possibile creare una connessione a Outlook usando l'altro account.
+
+* Configurare l'altro account in modo che l'account aziendale o dell'Istituto di istruzione disponga delle autorizzazioni "Invia come".
+
+   Se si dispone delle autorizzazioni di amministratore, nella cassetta postale dell'account del servizio configurare l'account aziendale o dell'Istituto di istruzione con l'opzione **Invia come** o **Invia per conto delle** autorizzazioni. Per ulteriori informazioni, vedere [concedere le autorizzazioni per le cassette postali alla guida dell'amministratore di un altro utente](/microsoft-365/admin/add-users/give-mailbox-permissions-to-another-user). È quindi possibile creare la connessione con l'account aziendale o dell'Istituto di istruzione. A questo punto, in trigger o azioni in cui è possibile specificare il mittente, è possibile usare l'indirizzo di posta elettronica dell'account del servizio.
+
+   Ad esempio, l'azione **Invia un messaggio di posta elettronica** ha un parametro facoltativo, **da (Send As)**, che è possibile aggiungere all'azione e usare l'indirizzo di posta elettronica dell'account del servizio come mittente. Per aggiungere questo parametro, attenersi alla procedura seguente:
+
+   1. Nell'azione **Invia un messaggio di posta elettronica** aprire l'elenco **Aggiungi un parametro** e selezionare il parametro **from (Invia come)** .
+
+   1. Dopo aver visualizzato il parametro sull'azione, immettere l'indirizzo di posta elettronica dell'account del servizio.
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 

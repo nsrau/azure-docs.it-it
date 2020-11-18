@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8a762cfd1ecb4e290417b5d24b0ae75f6e10baf1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3d199ae202cbe99176f3ca5d0ae82ecdeec84ca4
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973701"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684509"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -171,7 +171,7 @@ No, è supportato solo per dischi rigidi e dischi rigidi SSD Premium.
 
 **Quali aree supportano i dischi condivisi?**
 
-Per informazioni internazionali, vedere l' [articolo concettuale](./linux/disks-shared.md).
+Per informazioni internazionali, vedere l' [articolo concettuale](disks-shared.md).
 
 **I dischi condivisi possono essere usati come disco del sistema operativo?**
 
@@ -179,7 +179,7 @@ No, i dischi condivisi sono supportati solo per i dischi dati.
 
 **Quali dimensioni dei dischi supportano i dischi condivisi?**
 
-Per informazioni sulle dimensioni supportate, vedere l' [articolo concettuale](./linux/disks-shared.md).
+Per informazioni sulle dimensioni supportate, vedere l' [articolo concettuale](disks-shared.md).
 
 **Se si dispone di un disco esistente, è possibile abilitare I dischi condivisi?**
 

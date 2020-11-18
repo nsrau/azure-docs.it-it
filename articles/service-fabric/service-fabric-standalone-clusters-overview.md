@@ -3,12 +3,12 @@ title: Panoramica di cluster Service Fabric autonomo
 description: I cluster di Service Fabric vengono eseguiti in Windows Server e Linux, per poter distribuire e ospitare le applicazioni di Service Fabric in qualsiasi ambiente che esegue Windows Server o Linux.
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: c57d1ef6db295400ad986adadb804fb942a723e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3162a3d02510ce8efab6c5bcac0f1fdd2b2539b
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841068"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683999"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Panoramica dei cluster di Service Fabric autonomi
 
@@ -43,10 +43,10 @@ Oltre ai certificati client, è possibile configurare Azure Active Directory anc
 
 Per altre informazioni, vedere [Sicurezza da client a nodo](service-fabric-cluster-security.md#client-to-node-security)
 
-### <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
+### <a name="service-fabric-role-based-access-control"></a>Controllo degli accessi in base al ruolo Service Fabric
 Service Fabric supporta anche il controllo di accesso per limitare l'accesso a determinate operazioni di cluster per gruppi di utenti diversi. In questo modo il cluster è più sicuro. Per i client che si connettono a un cluster, sono supportati due tipi di controllo di accesso diversi: il ruolo di amministratore e il ruolo utente.  
 
-Per altre informazioni, vedere [Controllo degli accessi in base al ruolo](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Per altre informazioni, vedere [Service Fabric controllo degli accessi in base al ruolo](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
 ## <a name="scaling"></a>Scalabilità
 
@@ -64,7 +64,7 @@ Per altre informazioni, vedere [Aggiornamento dei cluster autonomi](service-fabr
 
 È possibile creare cluster in macchine virtuali o in computer che eseguono questi sistemi operativi (Linux non è ancora supportato):
 
-* R2 per Windows Server 2012
+* Windows Server 2012 R2
 * Windows Server 2016 
 * Windows Server 2019
 

@@ -3,13 +3,13 @@ title: Aggiornare un cluster del servizio Azure Kubernetes
 description: Informazioni su come aggiornare un cluster di Azure Kubernetes Service (AKS) per ottenere le funzionalità più recenti e gli aggiornamenti della sicurezza.
 services: container-service
 ms.topic: article
-ms.date: 10/21/2020
-ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 11/17/2020
+ms.openlocfilehash: 262905c9f840850795ba9555912e81eca61369d1
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461448"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683234"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Aggiornare un cluster del servizio Azure Kubernetes
 
@@ -51,7 +51,7 @@ Se non è disponibile alcun aggiornamento, si otterrà quanto segue:
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
-## <a name="customize-node-surge-upgrade-preview"></a>Personalizzare l'aggiornamento del sovraccarico del nodo (anteprima)
+## <a name="customize-node-surge-upgrade"></a>Personalizzare l'aggiornamento del sovraccarico del nodo
 
 > [!Important]
 > I picchi di nodo richiedono una quota di sottoscrizione per il numero massimo di picchi richiesti per ogni operazione di aggiornamento. Ad esempio, un cluster con 5 pool di nodi, ognuno con un conteggio di 4 nodi, ha un totale di 20 nodi. Se ogni pool di nodi ha un valore di picco massimo del 50%, per completare l'aggiornamento è necessaria una quota di calcolo e di IP aggiuntiva di 10 nodi (2 nodi * 5 pool).
@@ -66,21 +66,7 @@ AKS accetta sia valori integer che un valore percentuale per il numero massimo d
 
 Durante un aggiornamento, il valore max Surge può essere un minimo di 1 e un valore massimo uguale al numero di nodi nel pool di nodi. È possibile impostare valori più grandi, ma il numero massimo di nodi usati per il picco massimo non sarà superiore al numero di nodi nel pool al momento dell'aggiornamento.
 
-### <a name="set-up-the-preview-feature-for-customizing-node-surge-upgrade"></a>Configurare la funzionalità di anteprima per la personalizzazione dell'aggiornamento del sovraccarico del nodo
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "MaxSurgePreview"
-```
-
-La registrazione potrebbe richiedere diversi minuti. Usare il comando seguente per verificare che la funzionalità sia registrata:
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MaxSurgePreview')].{Name:name,State:properties.state}"
-```
-
-Durante l'anteprima, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* per usare il picco massimo. Usare il comando [AZ Extension Add][az-extension-add] , quindi verificare la presenza di eventuali aggiornamenti disponibili usando il comando [AZ Extension Update][az-extension-update] :
+Fino a quando non si usa l'interfaccia della riga di comando versione 2.16.0 + è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* Usare il comando [AZ Extension Add][az-extension-add] , quindi verificare la presenza di eventuali aggiornamenti disponibili usando il comando [AZ Extension Update][az-extension-update] :
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -107,7 +93,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Aggiornare un cluster del servizio Azure Container
 
-Con un elenco di versioni disponibili per il cluster del servizio Azure Kubernetes, usare il comando [az aks upgrade][az-aks-upgrade] per eseguire l'aggiornamento. Durante il processo di aggiornamento, AKS aggiunge un nuovo nodo buffer (o tutti i nodi configurati in un [picco massimo](#customize-node-surge-upgrade-preview)) al cluster che esegue la versione specificata di Kubernetes. Quindi, eseguirà il [cordoning e lo svuotamento][kubernetes-drain] di uno dei nodi obsoleti per ridurre al minimo le problematiche di esecuzione delle applicazioni. Se si usa il sovraccarico massimo, il numero di nodi [e lo svuotamento verrà svuotato][kubernetes-drain] contemporaneamente al numero di nodi del buffer specificati. Quando il nodo precedente viene svuotato completamente, verrà ricreata l'immagine per ricevere la nuova versione e diventerà il nodo del buffer per il nodo seguente da aggiornare. Questo processo si ripete fino a quando tutti i nodi del cluster non sono stati aggiornati. Al termine del processo, l'ultimo nodo svuotato verrà eliminato, mantenendo il numero di nodi agente esistente.
+Con un elenco di versioni disponibili per il cluster del servizio Azure Kubernetes, usare il comando [az aks upgrade][az-aks-upgrade] per eseguire l'aggiornamento. Durante il processo di aggiornamento, AKS aggiunge un nuovo nodo buffer (o tutti i nodi configurati in un [picco massimo](#customize-node-surge-upgrade)) al cluster che esegue la versione specificata di Kubernetes. Quindi, eseguirà il [cordoning e lo svuotamento][kubernetes-drain] di uno dei nodi obsoleti per ridurre al minimo le problematiche di esecuzione delle applicazioni. Se si usa il sovraccarico massimo, il numero di nodi [e lo svuotamento verrà svuotato][kubernetes-drain] contemporaneamente al numero di nodi del buffer specificati. Quando il nodo precedente viene svuotato completamente, verrà ricreata l'immagine per ricevere la nuova versione e diventerà il nodo del buffer per il nodo seguente da aggiornare. Questo processo si ripete fino a quando tutti i nodi del cluster non sono stati aggiornati. Al termine del processo, l'ultimo nodo svuotato verrà eliminato, mantenendo il numero di nodi agente esistente.
 
 ```azurecli-interactive
 az aks upgrade \

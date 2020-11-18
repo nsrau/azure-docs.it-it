@@ -4,12 +4,12 @@ description: Informazioni su come individuare e risolvere i problemi comuni quan
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: aefb33325c1a5bf8e94d47106147d4c7c4f0f1ca
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286766"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684169"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -46,7 +46,7 @@ I tre (3) casi seguenti generano un errore di dimensione della subnet insufficie
    1. Se si usa Kubenet, questo errore si verifica quando `number of free IPs in the subnet` è **minore di** `number of buffer nodes needed to upgrade` .
    1. Se si usa Azure CNI, questo errore si verifica quando `number of free IPs in the subnet` è **minore di** `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value` .
    
-   Per impostazione predefinita, i cluster AKS impostano un valore max Surge (buffer di aggiornamento) pari a uno (1), ma questo comportamento di aggiornamento può essere personalizzato impostando il [valore di picco massimo di un pool di nodi](upgrade-cluster.md#customize-node-surge-upgrade-preview) che aumenterà il numero di IP disponibili necessari per completare un aggiornamento.
+   Per impostazione predefinita, i cluster AKS impostano un valore max Surge (buffer di aggiornamento) pari a uno (1), ma questo comportamento di aggiornamento può essere personalizzato impostando il [valore di picco massimo di un pool di nodi](upgrade-cluster.md#customize-node-surge-upgrade) che aumenterà il numero di IP disponibili necessari per completare un aggiornamento.
 
 1. AKS create o AKS Nodepool Add
    1. Se si usa Kubenet, questo errore si verifica quando `number of free IPs in the subnet` è **minore di** `number of nodes requested for the node pool` .
@@ -86,13 +86,13 @@ AKS dispone di piani di controllo a disponibilità elevata che si ridimensionano
 
 Questi timeout possono essere correlati al traffico interno tra i nodi bloccati. Verificare che il traffico non venga bloccato, ad esempio da [gruppi di sicurezza di rete](concepts-security.md#azure-network-security-groups) nella subnet per i nodi del cluster.
 
-## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Qual è la procedura per abilitare il controllo degli accessi in base al ruolo (RBAC) in un cluster esistente?
+## <a name="im-trying-to-enable-kubernetes-role-based-access-control-kubernetes-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Si sta tentando di abilitare il controllo degli accessi in base al ruolo Kubernetes (Kubernetes RBAC) in un cluster esistente. in un cluster esistente?
 
-L'abilitazione del controllo degli accessi in base al ruolo (RBAC) nei cluster esistenti non è al momento supportata. Deve essere impostata durante la creazione di nuovi cluster. Il controllo degli accessi in base al ruolo è abilitato per impostazione predefinita quando si usa l'interfaccia della riga di comando, il portale o una versione API successiva alla `2020-03-01`.
+L'abilitazione del controllo degli accessi in base al ruolo Kubernetes (Kubernetes RBAC) sui cluster esistenti non è supportata in questo momento, ma deve essere impostata quando si creano nuovi cluster. Kubernetes RBAC è abilitato per impostazione predefinita quando si usa l'interfaccia della riga di comando, il portale o una versione API successiva a `2020-03-01` .
 
-## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>È stato creato un cluster con il controllo degli accessi in base al ruolo abilitato e ora vengono visualizzati molti avvisi nel dashboard di Kubernetes. Il dashboard non generava avvisi. Cosa devo fare?
+## <a name="i-created-a-cluster-with-kubernetes-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>È stato creato un cluster con il controllo degli accessi in base al ruolo abilitato e sono ora visualizzati molti avvisi nel dashboard di Kubernetes. Il dashboard non generava avvisi. Cosa devo fare?
 
-Il motivo degli avvisi è che il cluster è abilitato per il controllo degli accessi in base al ruolo e l'accesso al dashboard è ora limitato per impostazione predefinita. In generale, questo approccio è considerato una procedura appropriata perché l'esposizione predefinita del dashboard a tutti gli utenti del cluster può comportare rischi per la sicurezza. Se si vuole comunque abilitare il dashboard, seguire le indicazioni riportate in questo [post di blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
+Il motivo degli avvisi è che nel cluster è abilitato il controllo degli accessi in base al ruolo Kubernetes e l'accesso al dashboard è ora limitato per impostazione predefinita. In generale, questo approccio è considerato una procedura appropriata perché l'esposizione predefinita del dashboard a tutti gli utenti del cluster può comportare rischi per la sicurezza. Se si vuole comunque abilitare il dashboard, seguire le indicazioni riportate in questo [post di blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Non è possibile ottenere i log usando i log di kubectl o non è possibile connettersi al server API. Viene visualizzato un errore simile a "Errore del server: errore durante il contatto con il back-end: contattare tcp…". Cosa devo fare?
 
@@ -167,7 +167,7 @@ Le operazioni del cluster sono limitate quando è ancora in corso un'operazione 
 
 In base all'output dello stato del cluster:
 
-* Se il cluster si trova in uno stato di provisioning diverso da *Riuscito* o *Non riuscito* , attendere il completamento dell'operazione ( *aggiornamento/creazione/ridimensionamento/eliminazione/migrazione* ). Al termine dell'operazione precedente, ripetere l'ultima operazione del cluster.
+* Se il cluster si trova in uno stato di provisioning diverso da *Riuscito* o *Non riuscito*, attendere il completamento dell'operazione (*aggiornamento/creazione/ridimensionamento/eliminazione/migrazione*). Al termine dell'operazione precedente, ripetere l'ultima operazione del cluster.
 
 * Se l'aggiornamento del cluster ha esito negativo, seguire i passaggi descritti in [Errori relativi al fatto che il cluster è in stato di errore e che l'aggiornamento o il ridimensionamento non funzioneranno finché il problema non verrà risolto](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
@@ -365,7 +365,7 @@ Impostazioni consigliate:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 e successive | 0777 |
 
-È possibile specificare le opzioni di montaggio nell'oggetto della classe di archiviazione. L'esempio seguente imposta *0777* :
+È possibile specificare le opzioni di montaggio nell'oggetto della classe di archiviazione. L'esempio seguente imposta *0777*:
 
 ```yaml
 kind: StorageClass
@@ -385,10 +385,10 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Di seguito sono riportate altre impostazioni utili di *mountOptions* :
+Di seguito sono riportate altre impostazioni utili di *mountOptions*:
 
 * *mfsymlinks* consente che il montaggio di File di Azure (cifs) supporti i collegamenti simbolici
-* *nobrl* impedisce l'invio di richieste di blocco di intervalli di byte al server. Questa impostazione è necessaria per alcune applicazioni che si interrompono con blocchi di intervallo di byte obbligatori in stile cifs. La maggior parte dei server cifs non supporta ancora la richiesta di blocchi di intervallo di byte di avviso. Se non si usa *nobrl* , le applicazioni che si interrompono con blocchi di intervallo di byte obbligatori in stile cifs possono causare messaggi di errore simili al seguente:
+* *nobrl* impedisce l'invio di richieste di blocco di intervalli di byte al server. Questa impostazione è necessaria per alcune applicazioni che si interrompono con blocchi di intervallo di byte obbligatori in stile cifs. La maggior parte dei server cifs non supporta ancora la richiesta di blocchi di intervallo di byte di avviso. Se non si usa *nobrl*, le applicazioni che si interrompono con blocchi di intervallo di byte obbligatori in stile cifs possono causare messaggi di errore simili al seguente:
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
@@ -476,7 +476,7 @@ Questo errore è dovuto a una race condition di scalabilità automatica del clus
 
 ### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Collegamento lento del disco, GetAzureDiskLun richiede da 10 a 15 minuti e viene visualizzato un errore
 
-Nelle versioni di Kubernetes **precedenti a 1.15.0** , è possibile che venga visualizzato un errore simile a **Errore WaitForAttach non riesce a trovare il numero di unità logica per il disco**.  La soluzione alternativa per questo problema consiste nell'attendere circa 15 minuti e riprovare.
+Nelle versioni di Kubernetes **precedenti a 1.15.0**, è possibile che venga visualizzato un errore simile a **Errore WaitForAttach non riesce a trovare il numero di unità logica per il disco**.  La soluzione alternativa per questo problema consiste nell'attendere circa 15 minuti e riprovare.
 
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Perché gli aggiornamenti a Kubernetes 1,16 hanno esito negativo quando si usano etichette di nodo con un prefisso kubernetes.io

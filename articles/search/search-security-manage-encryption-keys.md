@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7f2df005a8d3211ba53aadb16370624c4f530eb3
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 95ac4ed83a4486665ce378972ea7d6423c2482d5
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575867"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682911"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati in Azure ricerca cognitiva
 
@@ -46,7 +46,7 @@ Se si usa un'area diversa o un servizio creato prima del 1 ° agosto, la crittog
 In questo scenario vengono usati gli strumenti e i servizi seguenti.
 
 + [Azure ricerca cognitiva](search-create-service-portal.md) su un [livello fatturabile](search-sku-tier.md#tiers) (Basic o superiore, in qualsiasi area).
-+ [Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) nella stessa sottoscrizione di Azure ricerca cognitiva. Per l'insieme di credenziali delle chiavi deve essere abilitata la protezione **eliminazione** temporanea e **ripulitura** .
++ [Azure Key Vault](../key-vault/general/overview.md)è possibile creare un insieme di credenziali delle chiavi usando [portale di Azure](../key-vault//general/quick-create-portal.md), l'interfaccia della riga di comando di [Azure](../key-vault//general/quick-create-cli.md)o [Azure PowerShell](../key-vault//general/quick-create-powershell.md). nella stessa sottoscrizione di Azure ricerca cognitiva. Per l'insieme di credenziali delle chiavi deve essere abilitata la protezione **eliminazione** temporanea e **ripulitura** .
 + [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). Se non si dispone di un [nuovo tenant, configurare un nuovo tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
 È necessario disporre di un'applicazione di ricerca in grado di creare l'oggetto crittografato. In questo codice si farà riferimento a una chiave dell'insieme di credenziali delle chiavi e Active Directory informazioni di registrazione. Questo codice può essere un'app funzionante o un codice del prototipo, ad esempio il codice [C# DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
@@ -116,7 +116,7 @@ Ignorare questo passaggio se si dispone già di una chiave in Azure Key Vault.
 
 1. Selezionare **Crea** per avviare la distribuzione.
 
-1. Prendere nota dell'identificatore di chiave, composto dall'URI del valore della **chiave** , dal nome della **chiave** e dalla versione della **chiave**. È necessario l'identificatore per definire un indice crittografato in ricerca cognitiva di Azure.
+1. Prendere nota dell'identificatore di chiave, composto dall'URI del valore della **chiave**, dal nome della **chiave** e dalla versione della **chiave**. È necessario l'identificatore per definire un indice crittografato in ricerca cognitiva di Azure.
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="Creare una nuova chiave di Key Vault":::
 
@@ -124,7 +124,7 @@ Ignorare questo passaggio se si dispone già di una chiave in Azure Key Vault.
 
 1. In [portale di Azure](https://portal.azure.com)trovare la risorsa Azure Active Directory per la sottoscrizione.
 
-1. A sinistra, in **Gestisci** selezionare **registrazioni app** , quindi selezionare **nuova registrazione**.
+1. A sinistra, in **Gestisci** selezionare **registrazioni app**, quindi selezionare **nuova registrazione**.
 
 1. Assegnare un nome alla registrazione, ad esempio un nome simile al nome dell'applicazione di ricerca. Selezionare **Registra**.
 
@@ -158,7 +158,7 @@ In questo passaggio verrà creato un criterio di accesso in Key Vault. Questo cr
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="Selezionare l'entità criteri di accesso dell'insieme di credenziali delle chiavi":::
 
-1. In **autorizzazioni chiave** scegliere *Get* , *Unwrap Key* e *Wrap Key*.
+1. In **autorizzazioni chiave** scegliere *Get*, *Unwrap Key* e *Wrap Key*.
 
 1. In **autorizzazioni segrete** selezionare *Get*.
 

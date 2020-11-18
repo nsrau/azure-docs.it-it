@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 69541ec652188bc3826b7829fbc5c182193d6ba9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d66f3099ba225fbdd2bfc3d54db56ffd8ed2c43f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670947"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684033"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Usare il routing intelligente e le versioni canary con Istio nel servizio Azure Container (AKS)
 
@@ -33,13 +33,13 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > [!NOTE]
 > Questo scenario è stato testato con Istio versione `1.3.2`.
 
-I passaggi descritti in questo articolo presuppongono che sia stato creato un cluster del servizio Azure Kubernetes (Kubernetes `1.13` e versioni successive, con RBAC abilitato) e che sia stata stabilita una connessione `kubectl` al cluster. Sarà anche necessario installare Istio nel cluster.
+I passaggi descritti in questo articolo presuppongono che sia stato creato un cluster AKS (Kubernetes `1.13` e versioni successive, con KUBERNETES RBAC abilitato) e che sia stata stabilita una `kubectl` connessione con il cluster. Sarà anche necessario installare Istio nel cluster.
 
 Se occorre assistenza con uno di questi elementi, vedere le indicazioni nella [guida introduttiva per il servizio Azure Kubernetes][aks-quickstart] e per [installare Istio nel servizio Azure Kubernetes][istio-install].
 
 ## <a name="about-this-application-scenario"></a>Informazioni su questo scenario di applicazione
 
-L'app di voto di esempio del servizio Azure Kubernetes offre due opzioni di voto ( **gatti** o **cani** ) agli utenti. È presente un componente di archiviazione che rende persistente il numero di voti per ogni opzione. Inoltre, è presente un componente di analitica che fornisce i dettagli per i voti per ogni opzione.
+L'app di voto di esempio del servizio Azure Kubernetes offre due opzioni di voto (**gatti** o **cani**) agli utenti. È presente un componente di archiviazione che rende persistente il numero di voti per ogni opzione. Inoltre, è presente un componente di analitica che fornisce i dettagli per i voti per ogni opzione.
 
 In questo scenario applicativo si inizia distribuendo la versione `1.0` dell'app di voto e la versione `1.0` del componente di analisi. Il componente di analitica fornisce semplici conteggi per il numero di voti. L'app di voto e il componente di analisi interagiscono con la versione `1.0` del componente di archiviazione supportato da Redis.
 

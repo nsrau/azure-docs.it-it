@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: 33aed32c30f298fd3432f4cebcc28b9c20974545
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ed436336b9b1f9f5815938d13315e821694e5f1c
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309063"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685186"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Monitorare le metriche di servizi multimediali e i log di diagnostica con monitoraggio di Azure
 
@@ -67,8 +67,8 @@ Sono supportate le metriche seguenti per gli [endpoint di streaming](/rest/api/m
 |Requests|Requests|Specifica il numero totale di richieste HTTP gestite dall'endpoint di streaming.|
 |Egress|Egress|Byte in uscita totali al minuto per endpoint di streaming.|
 |SuccessE2ELatency|Success end to end Latency (Latenza end-to-end riuscita)|Durata del periodo di tempo durante il quale l'endpoint di streaming ha ricevuto la richiesta al momento dell'invio dell'ultimo byte della risposta.|
-|Utilizzo della CPU| Utilizzo della CPU per gli endpoint di streaming Premium. Questi dati non sono disponibili per gli endpoint di streaming standard. |
-|Larghezza di banda in uscita | Larghezza di banda in uscita in bit al secondo.|
+|Utilizzo della CPU| | Utilizzo della CPU per gli endpoint di streaming Premium. Questi dati non sono disponibili per gli endpoint di streaming standard. |
+|Larghezza di banda in uscita | | Larghezza di banda in uscita in bit al secondo.|
 
 ### <a name="metrics-are-useful"></a>Le metriche sono utili
 

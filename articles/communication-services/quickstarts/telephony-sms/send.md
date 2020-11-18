@@ -11,12 +11,12 @@ ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: c70028319fc0ed148fe7d102a925c4a07f2ab0f0
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 52cec861ba81a804081c4b879ab73333a3281e61
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757148"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360293"
 ---
 # <a name="quickstart-send-an-sms-message"></a>Avvio rapido: Inviare un messaggio SMS
 
@@ -37,6 +37,10 @@ ms.locfileid: "91757148"
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Send SMS with Java client library](./includes/send-sms-java.md)]
 ::: zone-end
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Per la risoluzione dei problemi correlati al recapito di SMS, è possibile [abilitare la creazione di report di recapito con Griglia di eventi](./handle-sms-events.md) per acquisire i dettagli di recapito.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

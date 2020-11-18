@@ -4,12 +4,12 @@ description: Informazioni sugli scenari di sicurezza per un cluster di Azure Ser
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 8d6f3e94a735a6a8880d726890f1eb7ac346c755
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 642356f08a946cae5d2b2d395aaddd8e4dad27ed
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946196"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682792"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenari di sicurezza di un cluster di Service Fabric
 
@@ -19,7 +19,7 @@ In questo articolo viene fornita una panoramica degli scenari di sicurezza per i
 
 * Sicurezza da nodo a nodo
 * Sicurezza da client a nodo
-* Controllo degli accessi in base al ruolo
+* Controllo degli accessi in base al ruolo Service Fabric
 
 ## <a name="node-to-node-security"></a>Sicurezza da nodo a nodo
 
@@ -60,7 +60,7 @@ I cluster in esecuzione in Azure e i cluster autonomi eseguiti in Windows posson
 
 Impostare la sicurezza basata su certificati da client a nodo durante la creazione del cluster tramite il portale di Azure usando un modello di Resource Manager o un modello JSON autonomo. Per creare il certificato, specificare un certificato client di amministrazione o un certificato client utente. Come procedura consigliata, i certificati client di amministrazione e i certificati client utente specificati devono essere diversi dai certificati primario e secondario specificati per la [sicurezza da nodo a nodo](#node-to-node-security). I certificati del cluster hanno gli stessi diritti dei certificati di amministrazione client. Tuttavia, devono essere usati solo dal cluster e non dagli utenti amministratori come procedura di sicurezza consigliata.
 
-I client che si connettono al cluster con il certificato amministratore hanno accesso completo alle funzionalità di gestione. I client che si connettono al cluster con il certificato client utente di sola lettura hanno solo l'accesso in lettura alle funzionalità di gestione. Questi certificati vengono usati per il controllo degli accessi in base al ruolo descritto più avanti in questo articolo.
+I client che si connettono al cluster con il certificato amministratore hanno accesso completo alle funzionalità di gestione. I client che si connettono al cluster con il certificato client utente di sola lettura hanno solo l'accesso in lettura alle funzionalità di gestione. Questi certificati vengono usati per la Service Fabric RBAC descritta più avanti in questo articolo.
 
 Per informazioni su come impostare la sicurezza basata su certificati in un cluster per Azure, vedere [Configurare un cluster di Service Fabric usando un modello di Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) .
 
@@ -85,13 +85,13 @@ Per i cluster di Service Fabric distribuiti in una rete pubblica ospitata in Azu
 
 Per i cluster di Windows Server autonomi, se sono presenti Windows Server 2012 R2 e Active Directory è consigliabile usare la sicurezza di Windows con account del servizio gestito del gruppo. In caso contrario, usare la sicurezza di Windows con account di Windows.
 
-## <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
+## <a name="service-fabric-role-based-access-control"></a>Controllo degli accessi in base al ruolo Service Fabric
 
 È possibile usare il controllo di accesso per limitare l'accesso a determinate operazioni di cluster per gruppi di utenti diversi. In questo modo il cluster è più sicuro. Per i client che si connettono a un cluster, sono supportati due tipi di controllo di accesso diversi: il ruolo di amministratore e il ruolo utente.
 
 Gli utenti assegnati al ruolo di amministratore hanno accesso completo alle funzionalità  di gestione, incluse funzionalità  di lettura/scrittura. Gli utenti assegnati al ruolo di utente, per impostazione predefinita, hanno solo l'accesso in lettura alle funzionalità di gestione, ad esempio funzionalità di query, e la possibilità di risolvere applicazioni e servizi.
 
-Impostare i ruoli del client di amministratore e utente quando si crea il cluster. Assegnare i ruoli fornendo identità separate (ad esempio, tramite certificati o Azure AD) per ogni tipo di ruolo. Per altre informazioni sulle impostazioni predefinite del controllo di accesso e su come modificarle, vedere [Controllo di accesso basato sui ruoli per i client di Service Fabric](service-fabric-cluster-security-roles.md).
+Impostare i ruoli del client di amministratore e utente quando si crea il cluster. Assegnare i ruoli fornendo identità separate (ad esempio, tramite certificati o Azure AD) per ogni tipo di ruolo. Per ulteriori informazioni sulle impostazioni predefinite del controllo di accesso e su come modificare le impostazioni predefinite, vedere [Service Fabric il controllo degli accessi in base al ruolo per i client Service Fabric](service-fabric-cluster-security-roles.md).
 
 ## <a name="x509-certificates-and-service-fabric"></a>Certificati X.509 e Service Fabric
 

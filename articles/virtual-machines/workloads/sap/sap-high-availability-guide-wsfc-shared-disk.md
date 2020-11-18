@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3dc49e3e2d8492882507918a59edb0b9da41fcf
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f9bfcaa1299f4aacbc11110308ba14093b09f7d5
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167254"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684305"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Clustering di un'istanza SAP ASCS/SCS in un cluster di failover Windows tramite un disco condiviso del cluster in Azure
 
@@ -122,7 +122,7 @@ _Architettura a disponibilità elevata di SAP ASC/SCS con disco condiviso_
 
 Sono disponibili due opzioni per il disco condiviso in un cluster di failover di Windows in Azure:
 
-- [Azure Shared disks](../../windows/disks-shared.md) : funzionalità che consente di aggiungere il disco gestito di Azure a più macchine virtuali contemporaneamente. 
+- [Azure Shared disks](../../disks-shared.md) : funzionalità che consente di aggiungere il disco gestito di Azure a più macchine virtuali contemporaneamente. 
 - Uso del software di terze parti [Datakeeper cluster Edition](https://us.sios.com/products/datakeeper-cluster) per creare una risorsa di archiviazione con mirroring che simula l'archiviazione condivisa del cluster. 
 
 Quando si seleziona la tecnologia per il disco condiviso, tenere presenti le considerazioni seguenti:
@@ -131,7 +131,7 @@ Quando si seleziona la tecnologia per il disco condiviso, tenere presenti le con
 - Consente di alleghi il disco gestito di Azure a più macchine virtuali contemporaneamente senza la necessità di software aggiuntivo per la manutenzione e il funzionamento 
 - Si funzionerà con un singolo disco condiviso di Azure in un cluster di archiviazione. Ciò influisca sull'affidabilità della soluzione SAP.
 - Attualmente, l'unica distribuzione supportata è il disco Premium condiviso di Azure in un set di disponibilità. Il disco condiviso di Azure non è supportato nella distribuzione di zona.     
-- Assicurarsi di eseguire il provisioning di un disco Premium di Azure con dimensioni minime del disco come specificato in [SSD Premium intervalli](../../windows/disks-shared.md#disk-sizes) per potersi associare al numero di VM necessario simultaneamente (in genere 2 per il cluster di failover di SAP ASC Windows). 
+- Assicurarsi di eseguire il provisioning di un disco Premium di Azure con dimensioni minime del disco come specificato in [SSD Premium intervalli](../../disks-shared.md#disk-sizes) per potersi associare al numero di VM necessario simultaneamente (in genere 2 per il cluster di failover di SAP ASC Windows). 
 - Il disco Ultra condiviso di Azure non è supportato per i carichi di lavoro SAP, perché non supporta la distribuzione nel set di disponibilità o nella distribuzione di zona.  
  
 **SIOS**
@@ -142,19 +142,19 @@ Quando si seleziona la tecnologia per il disco condiviso, tenere presenti le con
 
 ### <a name="shared-disk-using-azure-shared-disk"></a>Disco condiviso con il disco condiviso di Azure
 
-Microsoft offre [dischi condivisi di Azure](../../windows/disks-shared.md), che possono essere usati per implementare la disponibilità elevata di SAP ASC/SCS con un'opzione di disco condiviso.
+Microsoft offre [dischi condivisi di Azure](../../disks-shared.md), che possono essere usati per implementare la disponibilità elevata di SAP ASC/SCS con un'opzione di disco condiviso.
 
 #### <a name="prerequisites-and-limitations"></a>Prerequisiti e limiti
 
 Attualmente è possibile usare i dischi di Azure SSD Premium come disco condiviso di Azure per l'istanza di SAP ASC/SCS. Sono attualmente disponibili le seguenti limitazioni:
 
 -  Il [disco Azure ultra](../../disks-types.md#ultra-disk) non è supportato come disco condiviso di Azure per i carichi di lavoro SAP. Attualmente non è possibile inserire macchine virtuali di Azure usando il disco Ultra di Azure in un set di disponibilità
--  Il [disco condiviso di Azure](../../windows/disks-shared.md) con dischi SSD Premium è supportato solo con le VM nel set di disponibilità. Non è supportata nella distribuzione di zone di disponibilità. 
+-  Il [disco condiviso di Azure](../../disks-shared.md) con dischi SSD Premium è supportato solo con le VM nel set di disponibilità. Non è supportata nella distribuzione di zone di disponibilità. 
 -  Il valore [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) del disco condiviso di Azure determina il numero di nodi del cluster che possono usare il disco condiviso. In genere, per l'istanza di SAP ASC/SCS verranno configurati due nodi nel cluster di failover di Windows, pertanto il valore di `maxShares` deve essere impostato su due.
 -  Tutte le macchine virtuali del cluster SAP ASC/SCS devono essere distribuite nello stesso [gruppo di posizionamento di prossimità di Azure](../../windows/proximity-placement-groups.md).   
    Sebbene sia possibile distribuire le macchine virtuali del cluster Windows nel set di disponibilità con il disco condiviso di Azure senza PPG, PPG assicurerà la vicinanza fisica dei dischi condivisi di Azure e delle macchine virtuali del cluster, ottenendo quindi una latenza inferiore tra le macchine virtuali e il livello di archiviazione.    
 
-Per altri dettagli sulle limitazioni per il disco condiviso di Azure, vedere la sezione [limitazioni](../../linux/disks-shared.md#limitations) della documentazione relativa ai dischi condivisi di Azure.
+Per altri dettagli sulle limitazioni per il disco condiviso di Azure, vedere la sezione [limitazioni](../../disks-shared.md#limitations) della documentazione relativa ai dischi condivisi di Azure.
 
 > [!IMPORTANT]
 > Quando si distribuisce un cluster di failover di Windows SAP ASC/SCS con disco condiviso di Azure, tenere presente che la distribuzione funzionerà con un singolo disco condiviso in un cluster di archiviazione. L'istanza di SAP ASC/SCS potrebbe avere un effetto, in caso di problemi con il cluster di archiviazione, in cui viene distribuito il disco condiviso di Azure.    

@@ -2,15 +2,15 @@
 title: Creare e distribuire una specifica di modello
 description: Informazioni su come creare una specifica di modello da un modello di Resource Manager e quindi distribuire la specifica di modello in un gruppo di risorse nella sottoscrizione.
 author: tfitzmac
-ms.date: 10/02/2020
+ms.date: 11/10/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: e1bd2f3da8204cf5947d0cf423cd57b023674608
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 96ef5796aac1d0ee02e6bbafc40b7d3bcdea4e2f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728778"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506363"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Avvio rapido: Creare e distribuire una specifica di modello (anteprima)
 
@@ -88,7 +88,7 @@ Queste opzioni sono mostrate di seguito.
 1. Quando si usa un modello di Resource Manager per creare la specifica di modello, il modello viene incorporato nella definizione della risorsa. Copiare il modello seguente e salvarlo in locale con il nome **azuredeploy.json**. In questo argomento di avvio rapido si presuppone di aver salvato il modello nel percorso **c:\Templates\azuredeploy.json**, ma è possibile usare un percorso qualsiasi.
 
     > [!NOTE]
-    > Nel modello incorporato tutte le parentesi quadre aperte devono essere precedute da un carattere di escape costituito da una seconda parentesi quadra aperta. Usare `[[` invece di `[`.
+    > Nel modello incorporato tutte le [espressioni del modello](template-expressions.md) devono essere precedute da un carattere di escape costituito da una seconda parentesi quadra aperta. Usare `"[[` invece di `"[`. Le matrici JSON usano ancora un'unica parentesi quadra aperta.
 
     ```json
     {

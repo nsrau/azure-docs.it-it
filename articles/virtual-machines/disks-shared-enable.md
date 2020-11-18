@@ -8,22 +8,18 @@ ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 1efd4baf80c9ba30b1d1ea35390386bc4e7659d3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 661d4ba575eafa4e261a1c92c1112a259b95eac7
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747784"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683592"
 ---
 # <a name="enable-shared-disk"></a>Abilitare il disco condiviso
 
 Questo articolo illustra come abilitare la funzionalità dischi condivisi per Azure Managed Disks. Azure Shared disks è una nuova funzionalità di Azure Managed disks che consente di aggiungere contemporaneamente un disco gestito a più macchine virtuali (VM). Collegando un disco gestito a più macchine virtuali è possibile distribuire nuove applicazioni in cluster o eseguire la migrazione di quelle esistenti in Azure. 
 
-Per informazioni concettuali sui dischi gestiti in cui sono abilitati i dischi condivisi, vedere:
-
-* Per Linux: [dischi condivisi di Azure](linux/disks-shared.md)
-
-* Per Windows: [dischi condivisi di Azure](windows/disks-shared.md)
+Per informazioni concettuali sui dischi gestiti in cui sono abilitati i dischi condivisi, vedere [dischi condivisi di Azure](disks-shared.md).
 
 ## <a name="limitations"></a>Limitazioni
 

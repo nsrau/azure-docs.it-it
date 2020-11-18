@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1af2e741b2ab8a6a0aa6257272798961f5962c43
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 4538654b255aad99ff00477134c9eeb5845e50d6
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167339"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682758"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e dischi condivisi per SAP ASCS/SCS
 
@@ -165,7 +165,7 @@ ms.locfileid: "92167339"
 Questo articolo descrive i passaggi necessari per preparare l'infrastruttura di Azure per l'installazione e la configurazione di un'istanza di SAP ASC/SCS a disponibilità elevata in un cluster di failover Windows tramite un *disco condiviso del cluster* come opzione per il clustering di un'istanza di SAP ASC.
 Nella documentazione vengono presentate due alternative per i *dischi condivisi del cluster* :
 
-- [Dischi condivisi di Azure](../../windows/disks-shared.md)
+- [Dischi condivisi di Azure](../../disks-shared.md)
 - Uso di il [clustering Datakeeper cluster Edition](https://us.sios.com/products/datakeeper-cluster/) per creare l'archiviazione con mirroring, che simula il disco condiviso del cluster 
 
 La configurazione presentata si basa sui [gruppi di posizionamento di prossimità (PPG) di Azure](./sap-proximity-placement-scenarios.md) per ottenere una latenza di rete ottimale per i carichi di lavoro SAP. La documentazione non copre il livello di database.  
@@ -188,7 +188,7 @@ Per il cluster SAP ASC/SCS distribuire due VM nel set di disponibilità di Azure
 
 I nomi host e gli indirizzi IP per lo scenario presentato sono:
 
-| Ruolo nome host | Nome dell'host | Indirizzo IP statico | Set di disponibilità | Gruppo posizionamento prossimità |
+| Ruolo nome host | Nome host | Indirizzo IP statico | Set di disponibilità | Gruppo posizionamento prossimità |
 | --- | --- | --- |---| ---|
 | primo cluster ASC/SCS del nodo cluster |PR1-ASC-10 |10.0.0.4 |PR1-ASC-avset |PR1PPG |
 | 2 ° nodo cluster ASC/SCS cluster |PR1-ASC-11 |10.0.0.5 |PR1-ASC-avset |PR1PPG |
@@ -213,17 +213,17 @@ Nell'elenco seguente viene illustrata la configurazione del servizio di bilancia
 - Configurazione back-end  
     Aggiungere tutte le macchine virtuali che devono far parte del cluster (A) SCS/ERS. In questo esempio VM **Pr1-ASC-10** e **Pr1-ASC-11**.
 - Porta probe
-    - Porta 620**Nr** lasciare l'opzione predefinita per protocollo (TCP), intervallo (5), soglia non integro (2)
+    - Porta 620 **Nr** lasciare l'opzione predefinita per protocollo (TCP), intervallo (5), soglia non integro (2)
 - Regole di bilanciamento del carico
     - Se si usa Load Balancer Standard, selezionare Porte a disponibilità elevata
     - Se si usa Load Balancer Basic, creare regole di bilanciamento del carico per le porte seguenti
-        - 32**nr** TCP
-        - 36**nr** TCP
-        - 39**nr** TCP
-        - 81**nr** TCP
-        - 5**nr**13 TCP
-        - 5**nr**14 TCP
-        - 5**nr**16 TCP
+        - 32 **nr** TCP
+        - 36 **nr** TCP
+        - 39 **nr** TCP
+        - 81 **nr** TCP
+        - 5 **nr** 13 TCP
+        - 5 **nr** 14 TCP
+        - 5 **nr** 16 TCP
 
     - Verificare che il timeout di inattività (minuti) sia impostato sul valore max 30 e che l'indirizzo IP mobile (Direct Server Return) sia abilitato.
 
@@ -237,17 +237,17 @@ Poiché il server di replica di Accodamento 2 (ERS2) è anche in cluster, è nec
   Le macchine virtuali sono già state aggiunte al pool back-end ILB.  
 
 - seconda porta Probe
-    - Porta 621**nr**  
+    - Porta 621 **nr**  
     Lasciare l'opzione predefinita per protocollo (TCP), intervallo (5), soglia non integro (2)
 
 - seconda regola di bilanciamento del carico
     - Se si usa Load Balancer Standard, selezionare Porte a disponibilità elevata
     - Se si usa Load Balancer Basic, creare regole di bilanciamento del carico per le porte seguenti
-        - 32**nr** TCP
-        - 33**nr** TCP
-        - 5**nr**13 TCP
-        - 5**nr**14 TCP
-        - 5**nr**16 TCP
+        - 32 **nr** TCP
+        - 33 **nr** TCP
+        - 5 **nr** 13 TCP
+        - 5 **nr** 14 TCP
+        - 5 **nr** 16 TCP
 
     - Verificare che il timeout di inattività (minuti) sia impostato sul valore max 30 e che l'indirizzo IP mobile (Direct Server Return) sia abilitato.
 

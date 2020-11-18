@@ -4,18 +4,18 @@ description: Informazioni su come controllare l'accesso al file di configurazion
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: c73c4a0ae46c3d2ac3a64543473bd6639d03b434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 371628b02ebecee23697e996ee0d484688167875
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009291"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684815"
 ---
 # <a name="use-azure-role-based-access-control-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Usare il controllo degli accessi in base al ruolo di Azure per definire l'accesso al file di configurazione Kubernetes in Azure Kubernetes Service (AKS)
 
 È possibile interagire con i cluster Kubernetes tramite lo strumento `kubectl`. L'interfaccia della riga di comando di Azure offre un modo semplice per ottenere le credenziali di accesso e le informazioni di configurazione per la connessione ai cluster del servizio Azure Kubernetes tramite `kubectl`. Per limitare gli utenti che possono ottenere le informazioni sulla configurazione Kubernetes (*kubeconfig*) e per limitare le autorizzazioni che hanno a disposizione, è possibile usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 
-Questo articolo illustra come assegnare ruoli di controllo degli accessi in base al ruolo che limitano gli utenti in grado di ottenere le informazioni di configurazione per un cluster del servizio Azure Kubernetes.
+Questo articolo illustra come assegnare i ruoli di Azure che limitano chi può ottenere le informazioni di configurazione per un cluster AKS.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -38,7 +38,7 @@ I due ruoli predefiniti sono:
   * Consente l'accesso alla chiamata API *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action*. Questa chiamata API [elenca le credenziali di utente del cluster][api-cluster-user].
   * Scarica *kubeconfig* per il ruolo *clusterUser*.
 
-Questi ruoli RBAC possono essere applicati a un utente o a un gruppo di Azure Active Directory (AD).
+Questi ruoli di Azure possono essere applicati a un utente o a un gruppo di Azure Active Directory (AD).
 
 > [!NOTE]
 > Nei cluster che usano Azure AD, gli utenti con il ruolo *clusterUser* hanno un file *kubeconfig* vuoto che richiede un accesso. Una volta effettuato l'accesso, gli utenti possono accedere in base alle impostazioni Azure AD utente o gruppo. Gli utenti con il ruolo *clusterAdmin* hanno accesso amministrativo.
@@ -92,7 +92,7 @@ L'output di esempio seguente mostra che l'assegnazione di ruolo è stata creata 
 
 ## <a name="get-and-verify-the-configuration-information"></a>Ottenere e verificare le informazioni di configurazione
 
-Dopo aver assegnato i ruoli di controllo degli accessi in base al ruolo, usare il comando [az aks get-credentials][az-aks-get-credentials] per ottenere la definizione *kubeconfig* per il cluster del servizio Azure Kubernetes. L'esempio seguente ottiene le credenziali *--admin*, che funzionano correttamente se all'utente è stato assegnato il *Ruolo amministratore del cluster*:
+Con i ruoli di Azure assegnati, usare il comando [AZ AKS Get-credentials][az-aks-get-credentials] per ottenere la definizione *kubeconfig* per il cluster AKS. L'esempio seguente ottiene le credenziali *--admin*, che funzionano correttamente se all'utente è stato assegnato il *Ruolo amministratore del cluster*:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin

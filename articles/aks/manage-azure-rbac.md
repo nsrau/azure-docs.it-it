@@ -1,5 +1,5 @@
 ---
-title: Gestisci RBAC in Kubernetes da Azure
+title: Gestisci RBAC di Azure in Kubernetes da Azure
 titleSuffix: Azure Kubernetes Service
 description: Informazioni su come usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione Kubernetes con il servizio Azure Kubernetes.
 services: container-service
@@ -7,23 +7,23 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 3f878389f22f3928bc1fc8c89b04353583326da6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: a2a385b2be4e1005a7aabd76261b3190ecd2a506
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346044"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684220"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione di Kubernetes (anteprima)
 
 Oggi è già possibile sfruttare [l'autenticazione integrata tra Azure Active Directory (Azure ad) e AKS](managed-aad.md). Se abilitata, questa integrazione consente ai clienti di usare Azure AD utenti, gruppi o entità servizio come argomenti in Kubernetes RBAC. vedere altre informazioni [qui](azure-ad-rbac.md).
-Questa funzionalità non consente di gestire separatamente le identità e le credenziali degli utenti per Kubernetes. Tuttavia, è comunque necessario configurare e gestire il controllo degli accessi in base al ruolo di Azure e Kubernetes RBAC separatamente. Per ulteriori informazioni sull'autenticazione, l'autorizzazione e il controllo degli accessi in base al ruolo in AKS vedere [qui](concepts-identity.md)
+Questa funzionalità non consente di gestire separatamente le identità e le credenziali degli utenti per Kubernetes. Tuttavia, è comunque necessario configurare e gestire il controllo degli accessi in base al ruolo di Azure e Kubernetes RBAC separatamente. Per altri dettagli sull'autenticazione e sull'autorizzazione con RBAC in AKS, vedere [qui](concepts-identity.md).
 
 Questo documento illustra un nuovo approccio che consente il controllo di accesso e gestione unificato tra risorse di Azure, AKS e risorse Kubernetes.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-La possibilità di gestire il controllo degli accessi in base al ruolo per le risorse Kubernetes da Azure consente di gestire il controllo degli accessi in base al ruolo per le risorse del cluster usando i meccanismi Kubernetes nativi Quando questa funzionalità è abilitata, le entità Azure AD verranno convalidate esclusivamente da controllo degli accessi in base al ruolo di Azure, mentre gli utenti Kubernetes e gli account del servizio normali vengono convalidati Per ulteriori informazioni sull'autenticazione, l'autorizzazione e il controllo degli accessi in base al ruolo in AKS vedere [qui](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview)
+La possibilità di gestire il controllo degli accessi in base al ruolo per le risorse Kubernetes da Azure consente di gestire il controllo degli accessi in base al ruolo per le risorse del cluster usando i meccanismi Kubernetes nativi Quando questa funzionalità è abilitata, le entità Azure AD verranno convalidate esclusivamente da controllo degli accessi in base al ruolo di Azure, mentre gli utenti Kubernetes e gli account del servizio normali vengono convalidati Per altri dettagli sull'autenticazione e sull'autorizzazione con RBAC in AKS, vedere [qui](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -272,7 +272,7 @@ az group delete -n MyResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni, vedere autenticazione, autorizzazione e controllo degli accessi in base al [ruolo.](concepts-identity.md)
+- Altre informazioni sull'autenticazione, l'autorizzazione, il controllo degli accessi in [here](concepts-identity.md)base al ruolo e il controllo di Kubernetes di Azure
 - Scopri di più sul controllo [here](../role-based-access-control/overview.md)degli accessi in base al ruolo
 - Scopri di più su tutte le azioni che puoi usare per definire in modo granulare i ruoli personalizzati di Azure per l'autorizzazione Kubernetes [qui](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
 

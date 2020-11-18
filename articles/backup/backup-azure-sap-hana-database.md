@@ -3,12 +3,12 @@ title: Eseguire il backup di un database SAP HANA in Azure con Backup di Azure
 description: Questo articolo illustra come eseguire il backup di un database SAP HANA in macchine virtuali di Azure con il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 28c9716bfb2dd0a6ac380d9ffd6dcd7fd5eb4978
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f7957670b3ba98c640ebc53c6427273ca75a4e6d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94649440"
+ms.locfileid: "94682850"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Eseguire il backup di database SAP HANA nelle VM di Azure
 
@@ -144,7 +144,7 @@ Specificare le impostazioni del criterio come segue:
 1. In **Nome criterio** immettere un nome per il nuovo criterio.
 
    ![Immettere il nome dei criteri](./media/backup-azure-sap-hana-database/policy-name.png)
-2. Nel criterio **Backup completo** selezionare una **frequenza di backup** scegliendo **Giornaliero** o **Settimanale**.
+1. Nel criterio **Backup completo** selezionare una **frequenza di backup** scegliendo **Giornaliero** o **Settimanale**.
    * **Giornaliera**: Scegliere l'ora e il fuso orario per l'inizio del processo di backup.
        * È necessario eseguire un backup completo. Non è possibile disattivare questa opzione.
        * Selezionare **Backup completo** per visualizzare il criterio.
@@ -153,16 +153,16 @@ Specificare le impostazioni del criterio come segue:
 
    ![Selezionare una frequenza di backup](./media/backup-azure-sap-hana-database/backup-frequency.png)
 
-3. In **Intervallo conservazione** configurare le impostazioni di conservazione per il backup completo.
+1. In **Intervallo conservazione** configurare le impostazioni di conservazione per il backup completo.
     * Per impostazione predefinita, sono selezionate tutte le opzioni. Deselezionare gli eventuali limiti dell'intervallo di conservazione che non si vogliono usare e impostare quelli da usare.
     * Il periodo di conservazione minimo di qualsiasi tipo di backup (completo/differenziale/del log) è di sette giorni.
     * I punti di recupero vengono contrassegnati per la conservazione, in base al relativo intervallo. Ad esempio, se si seleziona un backup completo giornaliero, viene attivato solo un backup completo ogni giorno.
     * Il backup di un giorno specifico viene contrassegnato e conservato in base all'intervallo e all'impostazione di conservazione settimanale.
     * L'intervallo di conservazione mensile e annuale si comporta allo stesso modo.
 
-4. Nel menu del **criterio Backup completo** selezionare **OK** per accettare le impostazioni.
-5. Selezionare **Backup differenziale** per aggiungere un criterio differenziale.
-6. Nel **criterio Backup differenziale** selezionare **Abilita** per accedere alle opzioni di frequenza e conservazione.
+1. Nel menu del **criterio Backup completo** selezionare **OK** per accettare le impostazioni.
+1. Selezionare **Backup differenziale** per aggiungere un criterio differenziale.
+1. Nel **criterio Backup differenziale** selezionare **Abilita** per accedere alle opzioni di frequenza e conservazione.
     * Al massimo, è possibile attivare un backup differenziale al giorno.
     * I backup differenziali possono essere conservati al massimo per 180 giorni. Se è necessario conservarli più a lungo, usare i backup completi.
 
@@ -170,22 +170,22 @@ Specificare le impostazioni del criterio come segue:
 
     > [!NOTE]
     > I backup incrementali sono ora supportati nell'anteprima pubblica. È possibile scegliere un backup differenziale o incrementale come backup giornaliero, ma non entrambi.
-7. In **criterio di backup incrementale** selezionare **Abilita** per aprire la frequenza e i controlli di conservazione.
+1. In **criterio di backup incrementale** selezionare **Abilita** per aprire la frequenza e i controlli di conservazione.
     * Al massimo, è possibile attivare un backup incrementale al giorno.
     * I backup incrementali possono essere conservati per un massimo di 180 giorni. Se è necessario conservarli più a lungo, usare i backup completi.
 
     ![Criteri di backup incrementale](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
 
-7. Selezionare **OK** per salvare il criterio e tornare al menu principale **Criteri di backup**.
-8. Selezionare **Backup del log** per aggiungere un criterio per i backup del log delle transazioni.
+1. Selezionare **OK** per salvare il criterio e tornare al menu principale **Criteri di backup**.
+1. Selezionare **Backup del log** per aggiungere un criterio per i backup del log delle transazioni.
     * In **Backup del log** selezionare **Abilita**.  Questa operazione non può essere disabilitata, dal momento che SAP HANA gestisce tutti i backup del log.
     * Impostare la frequenza e i controlli di conservazione.
 
     > [!NOTE]
     > I backup del log iniziano a fluire solo dopo il corretto completamento di un backup completo.
 
-9. Selezionare **OK** per salvare il criterio e tornare al menu principale **Criteri di backup**.
-10. Dopo aver completato la definizione dei criteri di backup, selezionare **OK**.
+1. Selezionare **OK** per salvare il criterio e tornare al menu principale **Criteri di backup**.
+1. Dopo aver completato la definizione dei criteri di backup, selezionare **OK**.
 
 > [!NOTE]
 > Ogni backup del log viene concatenato al backup completo precedente per formare una catena di recupero. Questo backup completo verrà mantenuto fino alla scadenza della conservazione dell'ultimo backup del log. Questo potrebbe significare che il backup completo viene mantenuto per un periodo aggiuntivo per assicurarsi che tutti i log possano essere ripristinati. Si supponga che un utente disponga di un backup completo settimanale, dei registri differenziali giornalieri e di 2 ore. Vengono tutti conservati per 30 giorni. Tuttavia, la versione settimanale completa può essere effettivamente eliminata o eliminata solo dopo i successivi backup completi, ovvero dopo 30 + 7 giorni. Ad esempio, un backup completo settimanale si verifica il 16 novembre. In base ai criteri di conservazione, deve essere mantenuto fino al 16 dicembre. L'ultimo backup del log per questa versione completa si verifica prima del successivo completo in programma, il 22 novembre. Questo log è disponibile fino al 22 dicembre e fino a quel momento non sarà possibile eliminare il backup completo del 16 novembre. Il backup completo del 16 novembre, quindi, viene mantenuto fino al 22 dicembre.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6f819d9b6ba4d74612da304aafea0118f9094bde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7831eaaa478a3f28ff158d5c9599abaf8a107c15
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91451492"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684432"
 ---
 Azure Shared disks è una nuova funzionalità di Azure Managed disks che consente di aggiungere contemporaneamente un disco gestito a più macchine virtuali (VM). Collegando un disco gestito a più macchine virtuali è possibile distribuire nuove applicazioni in cluster o eseguire la migrazione di quelle esistenti in Azure.
 
@@ -54,9 +54,9 @@ Tra le applicazioni più comuni in esecuzione su WSFC ci sono:
 ### <a name="linux"></a>Linux
 
 I dischi condivisi di Azure sono supportati in:
-- [SUSE SLE per SAP e SUSE SLE HA 15 SP1 e versioni successive](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
+- [SUSE SLE per SAP e SUSE SLE HA 15 SP1 e versioni successive](https://www.suse.com/c/azure-shared-disks-excercise-w-sles-for-sap-or-sle-ha/)
 - [Ubuntu 18,04 e versioni successive](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
-- [RHEL Developer Preview in qualsiasi versione RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
+- [RHEL Developer Preview in qualsiasi versione RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/deploying_red_hat_enterprise_linux_8_on_public_cloud_platforms/index?lb_target=production#azure-configuring-shared-block-storage_configuring-rhel-high-availability-on-azure)
 - [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
 I cluster Linux possono sfruttare gli strumenti di gestione cluster, ad esempio [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker si basa su [Corosync](http://corosync.github.io/corosync/), abilitando le comunicazioni del cluster per le applicazioni distribuite in ambienti a disponibilità elevata. Alcuni file system in cluster comuni includono [ocfs2](https://oss.oracle.com/projects/ocfs2/) e [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Per l'accesso arbitrali al disco è possibile usare modelli di clustering basati su SCSI Persistent Reservation (SCSI PR) e/o STONITH Block Device (SBD). Quando si usa la richiesta pull SCSI, è possibile modificare prenotazioni e registrazioni usando utilità quali [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) e [sg_persist](https://linux.die.net/man/8/sg_persist).
@@ -131,19 +131,19 @@ Gli esempi seguenti illustrano alcuni scenari che mostrano come funziona la limi
 
 Di seguito è riportato un esempio di un cluster WSFC a 2 nodi che usa volumi condivisi del cluster. Con questa configurazione, entrambe le macchine virtuali hanno accesso in scrittura simultaneo al disco, il che comporta la `ReadWrite` suddivisione della limitazione tra le due macchine virtuali e la `ReadOnly` limitazione non in uso.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Immagine di una tabella che rappresenta l'accesso &quot;ReadOnly&quot; o &quot;lettura/scrittura&quot; per il titolare della prenotazione, registrato e altro.":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Esempio di disco Ultra a due nodi che usa volumi condivisi del cluster":::
 
 ##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Cluster a due nodi senza volumi condivisi del cluster
 
 Di seguito è riportato un esempio di un cluster WSFC a 2 nodi che non usa volumi condivisi del cluster. Con questa configurazione, solo una macchina virtuale ha accesso in scrittura al disco. Ciò comporta la `ReadWrite` limitazione dell'utilizzo esclusivo della macchina virtuale primaria e della `ReadOnly` limitazione utilizzata solo dal database secondario.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Immagine di una tabella che rappresenta l'accesso &quot;ReadOnly&quot; o &quot;lettura/scrittura&quot; per il titolare della prenotazione, registrato e altro.":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Esempio di disco Ultra a due nodi che non usa volumi condivisi del cluster":::
 
 ##### <a name="four-node-linux-cluster"></a>Cluster Linux a quattro nodi
 
 Di seguito è riportato un esempio di cluster Linux a 4 nodi con una sola macchina virtuale con accesso in scrittura e tre macchine virtuali con accesso in lettura con scalabilità orizzontale. Con questa configurazione, solo una macchina virtuale ha accesso in scrittura al disco. Ciò comporta la `ReadWrite` limitazione dell'uso esclusivo della macchina virtuale primaria e della limitazione delle `ReadOnly` richieste da parte delle VM secondarie.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Immagine di una tabella che rappresenta l'accesso &quot;ReadOnly&quot; o &quot;lettura/scrittura&quot; per il titolare della prenotazione, registrato e altro.":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Esempio di limitazione di disco Ultra a quattro nodi":::
 
 #### <a name="ultra-pricing"></a>Prezzi ultra
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 856c5f106f164a98b60fdb3eeda31d6099d5b7bd
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5025c4ad81433b6eb18f5beded860625791ffce5
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932006"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445099"
 ---
 # <a name="about-azure-key-vault"></a>Informazioni su Azure Key Vault
 
@@ -39,7 +39,7 @@ Le applicazioni possono accedere in modo sicuro alle informazioni necessarie tra
 
 L'accesso di un chiamante (utente o applicazione) a un'istanza di Key Vault richiede opportune procedure di autenticazione e autorizzazione. L'autenticazione stabilisce l'identità del chiamante, mentre l'autorizzazione determina le operazioni che il chiamante è autorizzato a eseguire.
 
-L'autenticazione avviene tramite Azure Active Directory. L'autorizzazione può essere eseguita tramite il controllo degli accessi in base al ruolo o i criteri di accesso di Key Vault. Il controllo degli accessi in base al ruolo viene usato per la gestione degli insiemi di credenziali e vengono usati criteri di accesso di Key Vault quando si tenta di accedere ai dati archiviati in un insieme di credenziali.
+L'autenticazione avviene tramite Azure Active Directory. L'autorizzazione può essere eseguita tramite il controllo degli accessi in base al ruolo di Azure o i criteri di accesso di Key Vault. Il controllo degli accessi in base al ruolo di Azure viene usato per la gestione degli insiemi di credenziali e vengono usati criteri di accesso di Key Vault quando si tenta di accedere ai dati archiviati in un insieme di credenziali.
 
 Gli insiemi di credenziali delle chiavi di Azure possono essere protetti tramite software o, con il livello Premium di Azure Key Vault, tramite hardware per mezzo dei moduli di protezione hardware (HSM). Le chiavi, i segreti e i certificati protetti tramite software sono protetti da Azure con algoritmi standard del settore e lunghezze delle chiavi.  Per le situazioni in cui è necessaria una maggiore sicurezza, è possibile importare o generare le chiavi in moduli di protezione hardware che non escono mai dai limiti del modulo di protezione hardware. Azure Key Vault usa moduli di protezione hardware nCipher, con convalida di tipo FIPS (Federal Information Processing Standards) 140-2 Livello 2. È possibile usare gli strumenti nCipher per spostare una chiave dal modulo di protezione hardware ad Azure Key Vault.
 

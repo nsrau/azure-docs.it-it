@@ -4,12 +4,12 @@ description: Questo articolo descrive come configurare la visualizzazione in tem
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: 4966ab0d64745c36ee53f27ba4063714f18e35da
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6fdd2d0a97357a2126ff37c0840b1f7da2859da5
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94648107"
+ms.locfileid: "94682673"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Come configurare la funzionalità dati in tempo reale (anteprima)
 
@@ -136,7 +136,7 @@ Per accedere alla funzionalità dei dati in tempo reale (anteprima), è necessar
 >[!IMPORTANT]
 >Se l'utente che si concede l'associazione RBAC per si trova nello stesso tenant Azure AD, assegnare le autorizzazioni in base a userPrincipalName. Se l'utente si trova in un tenant Azure AD diverso, eseguire una query per e utilizzare la proprietà objectId.
 
-Per ulteriori informazioni sulla configurazione del **ClusterRoleBinding** del cluster AKS, vedere [creare un'associazione RBAC](../../aks/azure-ad-integration-cli.md#create-rbac-binding).
+Per ulteriori informazioni sulla configurazione del **ClusterRoleBinding** del cluster AKS, vedere [create Kubernetes RBAC binding](../../aks/azure-ad-integration-cli.md#create-kubernetes-rbac-binding).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

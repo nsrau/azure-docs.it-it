@@ -1,19 +1,19 @@
 ---
-title: Interagire con un dispositivo Plug and Play IoT connesso alla soluzione Azure IoT (Node.js) | Microsoft Docs
-description: Usare Node.js per connettersi e interagire con un dispositivo Plug and Play IoT connesso alla soluzione Azure IoT.
+title: 'Avvio rapido: Interagire con un dispositivo Plug and Play IoT connesso alla soluzione Azure IoT (Node.js) | Microsoft Docs'
+description: 'Avvio rapido: Usare Node.js per connettersi e interagire con un dispositivo Plug and Play IoT connesso alla soluzione Azure IoT.'
 author: elhorton
 ms.author: elhorton
 ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 9a71a45f69f7a2bd2fbc198292526a6928e421a2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 814221997bc927cf411e531b523d693f3ef5854c
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736002"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421516"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>Avvio rapido: Interagire con un dispositivo Plug and Play IoT connesso alla soluzione (Node.js)
 
@@ -69,8 +69,8 @@ In questa guida di avvio rapido come dispositivo Plug and Play IoT verrà usato 
 
 In [Configurare l'ambiente per le esercitazioni e le guide di avvio rapido di Plug and Play IoT](set-up-environment.md) sono state create due variabili di ambiente per configurare l'esempio da connettere all'hub IoT e al dispositivo:
 
-* **IOTHUB_CONNECTION_STRING** : stringa di connessione dell'hub IoT annotata in precedenza.
-* **IOTHUB_DEVICE_ID** : `"my-pnp-device"`.
+* **IOTHUB_CONNECTION_STRING**: stringa di connessione dell'hub IoT annotata in precedenza.
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
 
 In questa guida di avvio rapido si userà una soluzione IoT di esempio in Node.js per interagire con il dispositivo di esempio appena configurato.
 
@@ -84,7 +84,7 @@ In questa guida di avvio rapido si userà una soluzione IoT di esempio in Node.j
 
 ### <a name="read-a-property"></a>Leggere una proprietà
 
-1. Quando è stato eseguito il dispositivo termostato di esempio nel terminale del **dispositivo** , sono stati visualizzati i messaggi seguenti che ne indicano lo stato online:
+1. Quando è stato eseguito il dispositivo termostato di esempio nel terminale del **dispositivo**, sono stati visualizzati i messaggi seguenti che ne indicano lo stato online:
 
     ```cmd/sh
     properties have been reported for component
@@ -214,7 +214,7 @@ In questo scenario restituisce come output `Model Id: dtmi:com:example:Thermosta
     node twin.js
     ```
 
-1. Nell'output del terminale del **servizio** , nella sezione delle proprietà `reported`, verrà visualizzata la temperatura di destinazione aggiornata segnalata. L'aggiornamento del dispositivo potrebbe richiedere tempo. Ripetere questo passaggio fino a quando il dispositivo non ha elaborato l'aggiornamento della proprietà:
+1. Nell'output del terminale del **servizio**, nella sezione delle proprietà `reported`, verrà visualizzata la temperatura di destinazione aggiornata segnalata. L'aggiornamento del dispositivo potrebbe richiedere tempo. Ripetere questo passaggio fino a quando il dispositivo non ha elaborato l'aggiornamento della proprietà:
 
     ```json
     "reported": {

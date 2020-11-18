@@ -2,13 +2,13 @@
 title: Concetti-monitoraggio e ripristino di cloud privati della soluzione VMware di Azure
 description: Scopri in che modo la soluzione VMware di Azure monitora e ripristina VMware ESXi Server in un cloud privato della soluzione VMware di Azure.
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: bee08304cd14f2aeec6995203638b5a37d9a861c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 11a3c53bff7ce7b67b677977eddb9829f336672d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343903"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684696"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Monitorare e ripristinare i cloud privati della soluzione VMware di Azure
 
@@ -42,4 +42,10 @@ Il processo di monitoraggio e aggiornamento dell'host inizia con l'aggiunta di u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sugli [aggiornamenti del cloud privato della soluzione VMware di Azure](concepts-upgrades.md).  
+Di seguito sono riportati alcuni argomenti per cui è possibile ottenere ulteriori informazioni su:
+
+- [Aggiornamenti del cloud privato della soluzione VMware di Azure](concepts-upgrades.md)
+- [Gestione del ciclo di vita delle VM della soluzione VMware di Azure](lifecycle-management-of-azure-vmware-solution-vms.md)
+- [Proteggi le VM della soluzione VMware di Azure con l'integrazione del Centro sicurezza di Azure](azure-security-integration.md)
+- [Eseguire il backup di macchine virtuali della soluzione VMware di Azure con server di Backup di Azure](backup-azure-vmware-solution-virtual-machines.md)
+- [Completare il ripristino di emergenza di macchine virtuali con la soluzione VMware di Azure](disaster-recovery-for-virtual-machines.md)

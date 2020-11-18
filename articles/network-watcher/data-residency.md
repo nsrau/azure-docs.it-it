@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: damendo
-ms.openlocfilehash: 9451b6636f2f87806e3d1e39fec4e9e4d4390485
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6be3a7fd19b43bd1b18af05d0dbfaf5053fb181
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706823"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682962"
 ---
 # <a name="data-residency-for-azure-network-watcher"></a>Residenza dei dati per Azure Network Watcher
 Fatta eccezione per il servizio monitoraggio connessione (anteprima), Azure Network Watcher non archivia i dati dei clienti.
@@ -27,9 +27,8 @@ Fatta eccezione per il servizio monitoraggio connessione (anteprima), Azure Netw
 ## <a name="connection-monitor-preview-data-residency"></a>Residenza dei dati di monitoraggio connessione (anteprima)
 Il servizio di monitoraggio connessione (anteprima) archivia i dati dei clienti. Questi dati vengono archiviati automaticamente da Network Watcher in una singola area. Quindi, monitoraggio connessione (anteprima) soddisfa automaticamente i requisiti di residenza dei dati in area, inclusi i requisiti specificati nel [Centro protezione](https://azuredatacentermap.azurewebsites.net/).
 
-## <a name="singapore-data-residency"></a>Residenza dei dati per Singapore
-
-In Azure, la funzionalità che consente l'archiviazione dei dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sudorientale (Singapore) del Asia Pacifico geografico. Per tutte le altre aree, i dati dei clienti vengono archiviati in geografico. Per ulteriori informazioni, vedere [Centro protezione](https://azuredatacentermap.azurewebsites.net/).
+## <a name="data-residency"></a>Residenza dei dati
+In Azure, la funzionalità che consente l'archiviazione dei dati dei clienti in una singola area è attualmente disponibile solo nell'area Asia sudorientale (Singapore) dell'area geografica di Asia Pacifico geografica e del Brasile meridionale (stato di San Paolo) del Brasile. Per tutte le altre aree i dati dei clienti vengono archiviati in Geo. Per ulteriori informazioni, vedere [Centro protezione](https://azuredatacentermap.azurewebsites.net/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

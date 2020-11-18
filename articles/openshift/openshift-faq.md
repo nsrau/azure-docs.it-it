@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09f741b37e06010a0bfbab40317980793240e29
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816236"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683506"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Domande frequenti su Azure Red Hat OpenShift
 
@@ -186,13 +186,13 @@ Per ulteriori informazioni, vedere la documentazione di OpenShift sulla disabili
 
 ### <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>Quali diritti UNIX (in IaaS) sono disponibili per i nodi master/infra/app?
 
-Per i cluster 4. x, l'accesso al nodo è disponibile tramite il ruolo di amministratore del cluster. Per altre informazioni, vedere [Cenni preliminari sui RBAC](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+Per i cluster 4. x, l'accesso al nodo è disponibile tramite il ruolo di amministratore del cluster. Per altre informazioni, vedere [KUBERNETES RBAC Overview](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
 Per i cluster 3,11, l'accesso ai nodi non è consentito.
 
 ### <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>Quali sono i diritti di OCP? Amministrazione cluster Project-amministratore?
 
-Per i cluster 4. x, è disponibile il ruolo di amministratore del cluster. Per altre informazioni, vedere [Cenni preliminari sui RBAC](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+Per i cluster 4. x, è disponibile il ruolo di amministratore del cluster. Per altre informazioni, vedere [KUBERNETES RBAC Overview](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
 
 Per i cluster 3,11, vedere [Cenni preliminari sull'amministrazione del cluster](https://docs.openshift.com/aro/admin_guide/index.html) .
 

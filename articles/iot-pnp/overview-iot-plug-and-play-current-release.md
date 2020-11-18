@@ -8,14 +8,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4bd1bb93c9ce0f491c5bf1153917491b88d55109
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5e9d9e762568c01d31f0c3a29be809a5f90b6b44
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043715"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421652"
 ---
-# <a name="whats-in-the-current-iot-plug-and-play-release"></a>Cosa include la versione di Plug and Play IoT corrente
+# <a name="what-is-in-the-current-iot-plug-and-play-release"></a>Cosa include la versione di Plug and Play IoT corrente
 
 In questo articolo vengono riepilogati gli strumenti, gli SDK e le API che supportano la versione di Plug and Play IoT corrente. I numeri di versione visualizzati riflettono il numero di versione nel momento in cui il prodotto Plug and Play IoT è diventato disponibile a livello generale. I numeri di versione possono incrementare in seguito al rilascio.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5126ae94d8c751952964aaf4df0736a5e546ff36
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c914afb3a72ccac4753a1942b6c4303850654a2e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963636"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682639"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Installare la disponibilità elevata di SAP NetWeaver in un cluster di failover Windows e nel disco condiviso per un'istanza ASCS/SCS di SAP in Azure
 
@@ -149,7 +149,7 @@ ms.locfileid: "91963636"
 
 Questo articolo descrive come installare e configurare un sistema SAP a disponibilità elevata in Azure usando un cluster di failover Windows Server e un disco condiviso del cluster per il clustering di un'istanza ASCS/SCS di SAP. Come descritto in [Guida all'architettura: cluster di un'istanza di SAP ASC/SCS in un cluster di failover Windows tramite un disco condiviso del cluster][sap-high-availability-guide-wsfc-shared-disk], sono disponibili due alternative per il *disco condiviso del cluster*:
 
-- [Dischi condivisi di Azure](../../windows/disks-shared.md)
+- [Dischi condivisi di Azure](../../disks-shared.md)
 - Uso di il [clustering Datakeeper cluster Edition](https://us.sios.com/products/datakeeper-cluster/) per creare l'archiviazione con mirroring, che simula il disco condiviso del cluster 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -250,7 +250,7 @@ Usare la funzionalità probe del servizio di bilanciamento del carico interno pe
 Questa operazione non funziona tuttavia in alcune configurazioni di cluster perché è attiva una sola istanza. L'altra istanza è passiva e non può accettare carico di lavoro. Una funzionalità Probe aiuta quando il servizio di bilanciamento del carico interno di Azure rileva quale istanza è attiva e ha come destinazione solo l'istanza attiva.  
 
 > [!IMPORTANT]
-> In questa configurazione di esempio, **ProbePort** è impostato su 620**Nr**. Per l'istanza di SAP ASC con numero **00** , è 620**00**. Sarà necessario modificare la configurazione in modo che corrisponda ai numeri di istanza di SAP e al SID SAP.
+> In questa configurazione di esempio, **ProbePort** è impostato su 620 **Nr**. Per l'istanza di SAP ASC con numero **00** , è 620 **00**. Sarà necessario modificare la configurazione in modo che corrisponda ai numeri di istanza di SAP e al SID SAP.
 
 Per aggiungere una porta Probe, eseguire questo modulo di PowerShell in una delle macchine virtuali del cluster:
 

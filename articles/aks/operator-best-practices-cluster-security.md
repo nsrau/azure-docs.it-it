@@ -5,12 +5,12 @@ description: Procedure consigliate per l'operatore del cluster per la gestione d
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 9cb51cb0f5b902553bda0b881c8392d74905c4bc
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 9ef019e682511e13af46194d26aec48c1555f70e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073632"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683302"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e gli aggiornamenti dei cluster nel servizio Azure Kubernetes
 
@@ -19,7 +19,7 @@ La sicurezza dei carichi di lavoro e dei dati è un fattore fondamentale da tene
 Questo articolo illustra in particolare come proteggere il cluster del servizio Azure Kubernetes (AKS). Si apprenderà come:
 
 > [!div class="checklist"]
-> * Usare Azure Active Directory e il controllo degli accessi in base al ruolo (RBAC) per proteggere l'accesso al server API
+> * Usare il controllo degli accessi in base al ruolo Azure Active Directory e Kubernetes (Kubernetes RBAC) per proteggere l'accesso al server API
 > * Proteggere l'accesso del contenitore alle risorse dei nodi
 > * Aggiornare un cluster del servizio Azure Kubernetes alla versione più recente di Kubernetes
 > * Mantieni i nodi aggiornati e applica automaticamente le patch di sicurezza
@@ -30,7 +30,7 @@ Questo articolo illustra in particolare come proteggere il cluster del servizio 
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Proteggere l'accesso al server dell'API e ai nodi del cluster
 
-**Indicazioni sulle procedure consigliate** - La protezione dell'accesso al server dell'API Kubernetes è una delle cose più importanti da fare per proteggere il cluster. Integrare il controllo degli accessi in base al ruolo di Kubernetes con Azure Active Directory per controllare l'accesso al server dell'API. Questi controlli consentono di proteggere il servizio Azure Kubernetes allo stesso modo in cui si protegge l'accesso alle sottoscrizioni di Azure.
+**Indicazioni sulle procedure consigliate** - La protezione dell'accesso al server dell'API Kubernetes è una delle cose più importanti da fare per proteggere il cluster. Integrare il controllo degli accessi in base al ruolo Kubernetes (Kubernetes RBAC) con Azure Active Directory per controllare l'accesso al server API. Questi controlli consentono di proteggere il servizio Azure Kubernetes allo stesso modo in cui si protegge l'accesso alle sottoscrizioni di Azure.
 
 Il server dell'API Kubernetes fornisce un singolo punto di connessione per le richieste di esecuzione di azioni all'interno di un cluster. Per proteggere e controllare l'accesso al server dell'API, limitare l'accesso e concedere le autorizzazioni di accesso con privilegi minime necessarie. Questo approccio non è esclusivo di Kubernetes, ma è particolarmente importante quando il cluster del servizio Azure Kubernetes è isolato logicamente per l'uso in più tenant.
 
@@ -38,11 +38,11 @@ Azure Active Directory (AD) offre una soluzione di gestione delle identità di l
 
 ![Integrazione di Azure Active Directory per i cluster del servizio Azure Kubernetes](media/operator-best-practices-cluster-security/aad-integration.png)
 
-Usare il controllo degli accessi in base al ruolo di Kubernetes e l'integrazione con Azure AD per proteggere il server dell'API e concedere il minor numero di autorizzazioni necessarie a un set di risorse con ambito, ad esempio un singolo spazio dei nomi. A utenti o gruppi diversi in Azure AD possono essere concessi ruoli di controllo degli accessi in base al ruolo diversi. Queste autorizzazioni granulari consentono di limitare l'accesso al server dell'API e forniscono un chiaro audit trail delle azioni eseguite.
+Usare il controllo degli accessi in base al ruolo di Kubernetes e l'integrazione con Azure AD per proteggere il server dell'API e concedere il minor numero di autorizzazioni necessarie a un set di risorse con ambito, ad esempio un singolo spazio dei nomi. A diversi utenti o gruppi in Azure AD possono essere concessi ruoli Kubernetes diversi. Queste autorizzazioni granulari consentono di limitare l'accesso al server dell'API e forniscono un chiaro audit trail delle azioni eseguite.
 
-Come procedura consigliata, per fornire l'accesso a file e cartelle usare gruppi invece di singole identità e usare l'appartenenza ai *gruppi* di Azure AD invece dei singoli *utenti* per associare gli utenti ai ruoli di controllo degli accessi in base al ruolo. Se cambia l'appartenenza a un gruppo di un utente, cambiano di conseguenza anche le sue autorizzazioni di accesso nel cluster del servizio Azure Kubernetes. Se si associa l'utente direttamente a un ruolo, la relativa funzione lavorativa può cambiare. L'appartenenza ai gruppi di Azure AD verrebbe aggiornata, ma le autorizzazioni nel cluster del servizio Azure Kubernetes non verrebbero aggiornate di conseguenza. In uno scenario di questo tipo l'utente finisce per avere più autorizzazioni del necessario.
+La procedura consigliata consiste nell'usare i gruppi per fornire l'accesso a file e cartelle rispetto a singole identità, usare Azure AD appartenenza al *gruppo* per associare gli utenti ai ruoli Kubernetes anziché ai singoli *utenti*. Se cambia l'appartenenza a un gruppo di un utente, cambiano di conseguenza anche le sue autorizzazioni di accesso nel cluster del servizio Azure Kubernetes. Se si associa l'utente direttamente a un ruolo, la relativa funzione lavorativa può cambiare. L'appartenenza ai gruppi di Azure AD verrebbe aggiornata, ma le autorizzazioni nel cluster del servizio Azure Kubernetes non verrebbero aggiornate di conseguenza. In uno scenario di questo tipo l'utente finisce per avere più autorizzazioni del necessario.
 
-Per altre informazioni sull'integrazione con Azure AD e sul controllo degli accessi in base al ruolo, vedere [Opzioni di accesso e identità per il servizio Azure Kubernetes][aks-best-practices-identity].
+Per altre informazioni sull'integrazione di Azure AD, Kubernetes RBAC e il controllo degli accessi in base al ruolo di Azure, vedere [procedure consigliate per l'autenticazione e l'autorizzazione in AKS][aks-best-practices-identity]
 
 ## <a name="secure-container-access-to-resources"></a>Proteggere l'accesso del contenitore alle risorse
 
@@ -53,7 +53,7 @@ Così come è opportuno concedere a utenti o gruppi il minor numero di privilegi
 Per un controllo più granulare delle azioni dei contenitori, è anche possibile usare funzionalità di sicurezza predefinite di Linux, come *AppArmor* e *seccomp*. Queste funzionalità vengono definite a livello di nodo e quindi implementate tramite un manifesto pod. Le funzionalità di sicurezza Linux predefinite sono disponibili solo nei nodi e nei Pod Linux.
 
 > [!NOTE]
-> Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, non sono totalmente sicuri per l'utilizzo di multi-tenant ostili. Funzionalità di sicurezza aggiuntive, ad esempio *AppArmor*, *Seccomp*, i *criteri di sicurezza Pod*o il controllo degli accessi in base al ruolo con granularità fine per i nodi, rendono più complessi gli exploit. Tuttavia, per una vera sicurezza durante l'esecuzione di carichi di lavoro multi-tenant ostili, un hypervisor è il solo livello di sicurezza da considerare attendibile. Il dominio di sicurezza per Kubernetes diventa l'intero cluster, non un singolo nodo. Per questi tipi di carichi di lavoro multi-tenant ostili è consigliabile usare cluster fisicamente isolati.
+> Gli ambienti Kubernetes, nel servizio Azure Kubernetes o altrove, non sono totalmente sicuri per l'utilizzo di multi-tenant ostili. Funzionalità di sicurezza aggiuntive, ad esempio *AppArmor*, *Seccomp*, i *criteri di sicurezza Pod* o il controllo degli accessi in base al ruolo KUBERNETES più accurato (Kubernetes RBAC) per i nodi rendono più difficile l'utilizzo di exploit. Tuttavia, per una vera sicurezza durante l'esecuzione di carichi di lavoro multi-tenant ostili, un hypervisor è il solo livello di sicurezza da considerare attendibile. Il dominio di sicurezza per Kubernetes diventa l'intero cluster, non un singolo nodo. Per questi tipi di carichi di lavoro multi-tenant ostili è consigliabile usare cluster fisicamente isolati.
 
 ### <a name="app-armor"></a>AppArmor
 
@@ -117,7 +117,7 @@ Per altre informazioni su AppArmor, vedere [AppArmor][k8s-apparmor] nella docume
 
 ### <a name="secure-computing"></a>seccomp
 
-Mentre AppArmor funziona con qualsiasi applicazione Linux, [seccomp (*sec*ure *comp*uting, elaborazione sicura)][seccomp] funziona a livello di processo. Anche seccomp è un modulo di protezione del kernel di Linux ed è supportato in modo nativo dal runtime Docker usato dai nodi del servizio Azure Kubernetes. seccomp limita le chiamate ai processi che possono essere eseguite dai contenitori. Occorre creare dei filtri che definiscano le azioni da consentire o negare e quindi usare annotazioni all'interno di un manifesto YAML pod da associare al filtro seccomp. Questo approccio rispecchia la procedura consigliata che indica di concedere al contenitore solo le autorizzazioni minime necessarie per l'esecuzione.
+Mentre AppArmor funziona con qualsiasi applicazione Linux, [seccomp (*sec* ure *comp* uting, elaborazione sicura)][seccomp] funziona a livello di processo. Anche seccomp è un modulo di protezione del kernel di Linux ed è supportato in modo nativo dal runtime Docker usato dai nodi del servizio Azure Kubernetes. seccomp limita le chiamate ai processi che possono essere eseguite dai contenitori. Occorre creare dei filtri che definiscano le azioni da consentire o negare e quindi usare annotazioni all'interno di un manifesto YAML pod da associare al filtro seccomp. Questo approccio rispecchia la procedura consigliata che indica di concedere al contenitore solo le autorizzazioni minime necessarie per l'esecuzione.
 
 Per una dimostrazione di seccomp in azione, creare un filtro che impedisce di cambiare le autorizzazioni su un file. Accedere tramite [SSH][aks-ssh] a un nodo del servizio Azure Kubernetes, quindi creare un filtro seccomp denominato */var/lib/kubelet/seccomp/prevent-chmod* e incollare il contenuto seguente:
 

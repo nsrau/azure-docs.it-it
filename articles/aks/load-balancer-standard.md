@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: b42a952b096f533f916879a11fdb6b6583fa8592
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5da7f2a11be7562313b709a8af72ccd709165cfa
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660356"
+ms.locfileid: "94684203"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un Load Balancer Standard pubblico in Azure Kubernetes Service (AKS)
 
@@ -225,7 +225,7 @@ az aks update \
     --load-balancer-outbound-ports 4000
 ```
 
-Questo esempio darebbe 4000 porte in uscita allocate per ogni nodo nel cluster e con 7 indirizzi IP sono disponibili *4000 porte per nodo * 100 nodes = 400.000 Total ports < = 448K Total Ports = 7 IPS * 64K Ports per IP*. Questo consentirebbe di ridimensionare in modo sicuro fino a 100 nodi e di avere un'operazione di aggiornamento predefinita. È fondamentale allocare porte sufficienti per i nodi aggiuntivi necessari per l'aggiornamento e altre operazioni. Per impostazione predefinita, AKS è un nodo buffer per l'aggiornamento. in questo esempio sono necessarie 4000 porte gratuite in un dato momento. Se si usano [valori maxSurge](upgrade-cluster.md#customize-node-surge-upgrade-preview), moltiplicare le porte in uscita per nodo in base al valore di maxSurge.
+Questo esempio darebbe 4000 porte in uscita allocate per ogni nodo nel cluster e con 7 indirizzi IP sono disponibili *4000 porte per nodo * 100 nodes = 400.000 Total ports < = 448K Total Ports = 7 IPS * 64K Ports per IP*. Questo consentirebbe di ridimensionare in modo sicuro fino a 100 nodi e di avere un'operazione di aggiornamento predefinita. È fondamentale allocare porte sufficienti per i nodi aggiuntivi necessari per l'aggiornamento e altre operazioni. Per impostazione predefinita, AKS è un nodo buffer per l'aggiornamento. in questo esempio sono necessarie 4000 porte gratuite in un dato momento. Se si usano [valori maxSurge](upgrade-cluster.md#customize-node-surge-upgrade), moltiplicare le porte in uscita per nodo in base al valore di maxSurge.
 
 Per superare in modo sicuro oltre 100 nodi, è necessario aggiungere altri indirizzi IP.
 

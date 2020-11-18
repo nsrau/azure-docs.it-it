@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: c37c0e9b914854ff41053526740d3454c5c23f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b75c85b85674def84d9fcee62549a6458abf9174
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628996"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684842"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Risoluzione degli errori delle connessioni in uscita
 
@@ -63,7 +63,7 @@ Ad esempio, due macchine virtuali nel pool back-end devono avere 1024 porte SNAT
 Se si aumenta il numero di istanze fino al successivo livello più alto delle dimensioni del pool back-end, è possibile che si verifichi il timeout di alcune connessioni in uscita se le porte allocate devono essere riallocate.  Se si usano solo alcune delle porte SNAT, la scalabilità orizzontale fino al successivo livello più alto delle dimensioni del pool back-end non è rilevante.  Metà delle porte esistenti verranno riallocate ogni volta che si passerà al successivo livello del pool back-end.  Se non si vuole che questo avvenga, è necessario definire la distribuzione in base alle dimensioni del livello.  In alternativa, assicurarsi che l'applicazione possa eseguire il rilevamento delle porte e nuovi tentativi in base alle esigenze.  I keep-alive TCP possono aiutare a rilevare i casi in cui le porte SNAT non funzionano più a causa della riallocazione.
 
 ## <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>Usare keep-alive per reimpostare il timeout di inattività per le connessioni uscita
-Il timeout di inattività delle connessioni in uscita è di 4 minuti. Questo timeout è regolabile tramite [Regole in uscita](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). È anche possibile usare keep-alive del livello trasporto (ad esempio, keep-alive TCP) o del livello applicazione per aggiornare un flusso inattivo e reimpostare il timeout di inattività, se necessario.  
+Il timeout di inattività delle connessioni in uscita è di 4 minuti. Questo timeout è regolabile tramite [Regole in uscita](outbound-rules.md). È anche possibile usare keep-alive del livello trasporto (ad esempio, keep-alive TCP) o del livello applicazione per aggiornare un flusso inattivo e reimpostare il timeout di inattività, se necessario.  
 
 Quando si usano keep-alive TCP, è sufficiente abilitarli sul lato della connessione. Ad esempio, è sufficiente abilitarli sul lato server solo per reimpostare il timer di inattività del flusso, mentre questo non è necessario per entrambi i lati per i keep-alive TCP avviati.  Si applicano concetti simili anche per il livello dell'applicazione, tra cui le configurazioni client-server di database.  Controllare il lato server per individuare le opzioni disponibili per i Keep-Alive specifici dell'applicazione.
 
