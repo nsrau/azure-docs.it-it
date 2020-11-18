@@ -5,12 +5,12 @@ description: Informazioni su come installare e configurare un controller di ingr
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 50e3e052915b6bcc1f6dee89f5ed5e2acf13dd78
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: eb58bbe127349aaebed3b1eb00281cf2938c1933
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124357"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681585"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso con un indirizzo IP pubblico statico nel servizio Azure Kubernetes
 
@@ -50,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> I comandi precedenti creano un indirizzo IP che verrà eliminato se si elimina il cluster AKS. In alternativa, è possibile creare un indirizzo IP in un gruppo di risorse diverso, che può essere gestito separatamente dal cluster AKS. Se si crea un indirizzo IP in un gruppo di risorse diverso, assicurarsi che l'entità servizio usata dal cluster AKS disponga di autorizzazioni delegate per l'altro gruppo di risorse, ad esempio *collaboratore rete* . Per altre informazioni, vedere [usare un indirizzo IP pubblico statico e un'etichetta DNS con il servizio di bilanciamento del carico AKS][aks-static-ip].
+> I comandi precedenti creano un indirizzo IP che verrà eliminato se si elimina il cluster AKS. In alternativa, è possibile creare un indirizzo IP in un gruppo di risorse diverso, che può essere gestito separatamente dal cluster AKS. Se si crea un indirizzo IP in un gruppo di risorse diverso, assicurarsi che l'entità servizio usata dal cluster AKS disponga di autorizzazioni delegate per l'altro gruppo di risorse, ad esempio *collaboratore rete*. Per altre informazioni, vedere [usare un indirizzo IP pubblico statico e un'etichetta DNS con il servizio di bilanciamento del carico AKS][aks-static-ip].
 
 A questo punto distribuire il grafico *ingress nginx* con Helm. Per maggiore ridondanza, vengono distribuite due repliche dei controller di ingresso NGINX con il parametro `--set controller.replicaCount`. Per sfruttare appieno le repliche del controller di ingresso in esecuzione, assicurarsi che nel cluster servizio Azure Kubernetes siano presenti più nodi.
 
@@ -62,10 +62,10 @@ A questo punto distribuire il grafico *ingress nginx* con Helm. Per maggiore rid
 Il controller di ingresso deve anche essere pianificato in un nodo Linux. I nodi di Windows Server non devono eseguire il controller di ingresso. Un selettore di nodo viene specificato con il parametro `--set nodeSelector` per indicare all'utilità di pianificazione Kubernetes di eseguire il controller di ingresso NGINX in un nodo basato su Linux.
 
 > [!TIP]
-> L'esempio seguente crea uno spazio dei nomi Kubernetes per le risorse in ingresso denominate *ingress-Basic* . Specificare uno spazio dei nomi per il proprio ambiente in base alle esigenze. Se il cluster AKS non è abilitato per il controllo degli accessi in base al ruolo, aggiungere `--set rbac.create=false` ai comandi Helm.
+> L'esempio seguente crea uno spazio dei nomi Kubernetes per le risorse in ingresso denominate *ingress-Basic*. Specificare uno spazio dei nomi per il proprio ambiente in base alle esigenze. Se il cluster AKS non è Kubernetes RBAC abilitato, aggiungere `--set rbac.create=false` ai comandi Helm.
 
 > [!TIP]
-> Per abilitare la [conservazione dell'indirizzo IP di origine client][client-source-ip] per le richieste ai contenitori nel cluster, aggiungere `--set controller.service.externalTrafficPolicy=Local` al comando Helm install. L'IP di origine del client viene archiviato nell'intestazione della richiesta sotto *X-inoltred-for* . Quando si usa un controller di ingresso con la conservazione IP dell'origine client abilitata, il pass-through TLS non funzionerà.
+> Per abilitare la [conservazione dell'indirizzo IP di origine client][client-source-ip] per le richieste ai contenitori nel cluster, aggiungere `--set controller.service.externalTrafficPolicy=Local` al comando Helm install. L'IP di origine del client viene archiviato nell'intestazione della richiesta sotto *X-inoltred-for*. Quando si usa un controller di ingresso con la conservazione IP dell'origine client abilitata, il pass-through TLS non funzionerà.
 
 Aggiornare lo script seguente con l' **indirizzo IP** del controller di ingresso e un **nome univoco** che si vuole usare per il prefisso FQDN.
 
@@ -115,7 +115,7 @@ Il controller di ingresso NGINX supporta la terminazione TLS. Il recupero e la c
 > [!NOTE]
 > Nell'articolo viene usato l'ambiente `staging` per Let's Encrypt. Nelle distribuzioni di produzione usare `letsencrypt-prod` e `https://acme-v02.api.letsencrypt.org/directory` nella definizione delle risorse e durante l'installazione del grafico Helm.
 
-Per installare il controller cert-manager in un cluster abilitato per il controllo degli accessi in base al ruolo, usare il comando `helm install` seguente:
+Per installare il controller Cert-Manager in un cluster abilitato per RBAC Kubernetes, usare il `helm install` comando seguente:
 
 ```console
 # Label the cert-manager namespace to disable resource validation
@@ -378,7 +378,7 @@ L'applicazione demo viene visualizzata nel Web browser:
 
 ![Esempio di applicazione 1](media/ingress/app-one.png)
 
-A questo punto aggiungere il percorso */hello-world-two* al nome FQDN, ad esempio *`https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two`* . Viene visualizzata la seconda applicazione demo con il titolo personalizzato:
+A questo punto aggiungere il percorso */hello-world-two* al nome FQDN, ad esempio *`https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two`*. Viene visualizzata la seconda applicazione demo con il titolo personalizzato:
 
 ![Esempio di applicazione 2](media/ingress/app-two.png)
 
@@ -435,7 +435,7 @@ Eliminare lo spazio dei nomi stesso. Usare il `kubectl delete` comando e specifi
 kubectl delete namespace ingress-basic
 ```
 
-Rimuovere infine l'indirizzo IP pubblico statico creato per il controller di ingresso. Specificare il nome del gruppo di risorse cluster *MC_* ottenuto nel primo passaggio di questo articolo, ad esempio *MC_myResourceGroup_myAKSCluster_eastus* :
+Rimuovere infine l'indirizzo IP pubblico statico creato per il controller di ingresso. Specificare il nome del gruppo di risorse cluster *MC_* ottenuto nel primo passaggio di questo articolo, ad esempio *MC_myResourceGroup_myAKSCluster_eastus*:
 
 ```azurecli-interactive
 az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP

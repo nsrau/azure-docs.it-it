@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 164b3f9e0426db1f36360fee8f836216d4cad86a
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: d425853b04a1d6f3b1f818e63154eadd1c7b3a2d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918732"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681033"
 ---
 > [!IMPORTANT]
 > Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità.
@@ -25,12 +25,14 @@ ms.locfileid: "92918732"
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
 * [IDE di Visual Studio](https://visualstudio.microsoft.com/vs/) o la versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Un BLOB di Archiviazione di Azure contenente un set di dati di training. Consultare [Compilare un training set per un modello personalizzato](../../build-training-data-set.md) per suggerimenti e opzioni per la creazione di un set di dati di training. Per questo argomento di avvio rapido, è possibile usare i file inclusi nella cartella **Train** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) (scaricare ed estrarre *sample_data.zip* ).
+* Un BLOB di Archiviazione di Azure contenente un set di dati di training. Consultare [Compilare un training set per un modello personalizzato](../../build-training-data-set.md) per suggerimenti e opzioni per la creazione di un set di dati di training. Per questo argomento di avvio rapido, è possibile usare i file inclusi nella cartella **Train** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) (scaricare ed estrarre *sample_data.zip*).
 * Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="creare una risorsa di Riconoscimento modulo"  target="_blank">creare una risorsa di Riconoscimento modulo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
     * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Riconoscimento modulo. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
     * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
 ## <a name="setting-up"></a>Configurazione
+
+### <a name="create-a-new-c-application"></a>Creare una nuova applicazione C#
 
 #### <a name="visual-studio-ide"></a>[IDE di Visual Studio](#tab/visual-studio)
 
@@ -38,7 +40,7 @@ Creare un'applicazione .NET Core con Visual Studio.
 
 ### <a name="install-the-client-library"></a>Installare la libreria client 
 
-Dopo aver creato un nuovo progetto, installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione del progetto in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia** , **Includi versione preliminare** e cercare `Azure.AI.FormRecognizer`. Selezionare la versione `3.0.0`, quindi **Installa**. 
+Dopo aver creato un nuovo progetto, installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione del progetto in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia**, **Includi versione preliminare** e cercare `Azure.AI.FormRecognizer`. Selezionare la versione `3.0.0`, quindi **Installa**. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -63,15 +65,15 @@ Build succeeded.
  0 Error(s)
 ...
 ```
----
 
 ### <a name="install-the-client-library"></a>Installare la libreria client 
 
-Nella directory dell'applicazione installare la libreria client di [Nome prodotto] per .NET con il comando seguente:
+Nella directory dell'applicazione installare la libreria client di Riconoscimento modulo per .NET con il comando seguente:
 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 ```
+---
 
 > [!TIP]
 > Si vuole visualizzare l'intero file di codice dell'argomento di avvio rapido? È possibile trovarlo [in GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md), che contiene gli esempi di codice di questo argomento.
@@ -157,7 +159,7 @@ Sarà inoltre necessario aggiungere riferimenti agli URL per i dati di training 
 
 ## <a name="recognize-form-content"></a>Riconoscere il contenuto di un modulo
 
-È possibile usare Riconoscimento modulo per riconoscere tabelle, righe e parole nei documenti, senza dover eseguire il training di un modello. Il valore restituito è una raccolta di oggetti **FormPage** : uno per ogni pagina nel documento inviato. 
+È possibile usare Riconoscimento modulo per riconoscere tabelle, righe e parole nei documenti, senza dover eseguire il training di un modello. Il valore restituito è una raccolta di oggetti **FormPage**: uno per ogni pagina nel documento inviato. 
 
 Per riconoscere il contenuto di un file all'interno di un URL specifico, usare il metodo `StartRecognizeContentFromUri`.
 

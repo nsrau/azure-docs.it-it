@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 4b0d2c6c3d70e73be25038c763f05ef572b56ebe
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 8e73ea3650e631bed277ab95092b714eef7596d4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515680"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359158"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guida dell'amministratore per Atlassian Jira e Confluence per Azure Active Directory
 
@@ -91,7 +91,7 @@ Per installare il plug-in, seguire questa procedura:
 
 2. Passare alla console di amministrazione di Jira/Confluence e selezionare **Add-ons** (Componenti aggiuntivi).
 
-3. Dall'area download Microsoft, scaricare il plug-in Microsoft [SAML SSO per JIRA](https://www.microsoft.com/download/details.aspx?id=56506) /  [Microsoft SAML SSO plug-in per la convergenza](https://www.microsoft.com/download/details.aspx?id=56503).
+3. Dall'Area download Microsoft scaricare il [plug-in Microsoft SAML SSO per Jira](https://www.microsoft.com/download/details.aspx?id=56506)/ [plug-in Microsoft SAML SSO per Confluence](https://www.microsoft.com/download/details.aspx?id=56503).
 
    Nei risultati della ricerca viene visualizzata la versione appropriata del plug-in.
 
@@ -109,11 +109,11 @@ L'immagine seguente mostra la schermata di configurazione in Jira e Confluence:
 
 * **Metadata URL** (URL dei metadati): URL per ottenere i metadati di federazione da Azure Active Directory.
 
-* **Identifiers** (Identificatori): URL usato da Azure Active Directory per convalidare l'origine della richiesta. È associato all'elemento **Identificatore** di Azure Active Directory. Il plug-in deriva automaticamente questo URL come https:// *\<domain:port>* /.
+* **Identifiers** (Identificatori): URL usato da Azure Active Directory per convalidare l'origine della richiesta. È associato all'elemento **Identificatore** di Azure Active Directory. Questo valore viene generato automaticamente dal plug-in come https:// *\<domain:port>* /.
 
-* **Reply URL** (URL di risposta): URL di risposta nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **URL di risposta** di Azure Active Directory. Il plug-in deriva automaticamente questo URL come https:// *\<domain:port>* /plugins/servlet/SAML/auth.
+* **Reply URL** (URL di risposta): URL di risposta nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **URL di risposta** di Azure Active Directory. Questo valore viene generato automaticamente dal plug-in come https:// *\<domain:port>* /plugins/servlet/saml/auth.
 
-* **Sign On URL** (URL di accesso): URL di accesso nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **Accesso** di Azure Active Directory. Il plug-in deriva automaticamente questo URL come https:// *\<domain:port>* /plugins/servlet/SAML/auth.
+* **Sign On URL** (URL di accesso): URL di accesso nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **Accesso** di Azure Active Directory. Questo valore viene generato automaticamente dal plug-in come https:// *\<domain:port>* /plugins/servlet/saml/auth.
 
 * **IdP Entity ID** (ID entità provider di identità): l'ID entità usato dal provider di identità. Questo campo viene popolato quando viene risolto l'URL dei metadati.
 

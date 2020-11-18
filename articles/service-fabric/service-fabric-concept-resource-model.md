@@ -4,12 +4,12 @@ description: Questo articolo fornisce una panoramica della gestione di un'applic
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 7ad0d4f6d92ba8d85383df281bd14681f43bb6d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3968fde0222dcee8047e7490dba78879ab6110e2
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258744"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681687"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modello di risorsa dell'applicazione Service Fabric
 
@@ -55,7 +55,7 @@ Dopo aver creato l'account di archiviazione, si crea un contenitore BLOB in cui 
 Le risorse del cluster possono essere protette impostando il livello di accesso pubblico su **privato**. È possibile concedere l'accesso in diversi modi:
 
 * Autorizzare l'accesso a BLOB e code usando [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Concedere l'accesso ai dati di Accodamento e BLOB di Azure usando [RBAC nel portale di Azure](../storage/common/storage-auth-aad-rbac-portal.md).
+* Concedere l'accesso ai dati di Accodamento e BLOB di Azure usando [RBAC di Azure nel portale di Azure](../storage/common/storage-auth-aad-rbac-portal.md).
 * Delegare l'accesso usando una [firma di accesso condiviso](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 L'esempio nella schermata seguente usa l'accesso in lettura anonimo per i BLOB.
@@ -76,7 +76,7 @@ In questa esercitazione viene usata l' [applicazione di voto di esempio](https:/
    ![Applicazione zip][ZipApplication]  
 1. Rinominare il file per modificare l'estensione da zip a *. sfpkg*.
 
-1. Nel portale di Azure, nel contenitore **app** per l'account di archiviazione, selezionare **carica**e quindi carica **Voto. sfpkg**. 
+1. Nel portale di Azure, nel contenitore **app** per l'account di archiviazione, selezionare **carica** e quindi carica **Voto. sfpkg**. 
 
    ![Carica pacchetto dell'app][UploadAppPkg]
 

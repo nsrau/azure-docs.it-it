@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 2bcd919629eb03581c35a2090d53e451141d94a4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f307ff9e7d609628bc22374fc5874dcbf993e4c2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487112"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661189"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connettere reti virtuali da modelli di distribuzione diversi usando il portale
 
@@ -75,7 +75,7 @@ Per questa configurazione si crea una connessione gateway VPN tramite un tunnel 
 
 La tabella seguente illustra un esempio di come sono definiti le reti virtuali e i siti locali:
 
-| Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |
+| Rete virtuale | Spazio di indirizzi | Area | Si connette al sito della rete locale |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Stati Uniti occidentali | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |Stati Uniti orientali |ClassicVNetLocal (10.0.0.0/24) |
@@ -86,7 +86,7 @@ In questa sezione vengono creati il gateway di rete virtuale classica, il gatewa
 
 ### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"></a> creare una VNet classica
 
-Se si eseguono questi passaggi come esercizio e non si dispone di una rete virtuale classica, è possibile creare una rete virtuale usando [questo articolo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e i valori delle impostazioni dell'[Esempio](#values) riportati sopra.
+Se si eseguono questi passaggi come esercizio e non si dispone di una rete virtuale classica, è possibile creare una rete virtuale usando [questo articolo](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) e i valori delle impostazioni dell'[Esempio](#values) riportati sopra.
 
 Se si dispone già di una rete virtuale con un gateway VPN, verificare che il gateway sia dinamico. Se è statico, è prima necessario eliminare il gateway VPN, quindi procedere a [configurare il sito locale](#local).
 
@@ -170,7 +170,7 @@ Questo passaggio illustra come creare il gateway di rete virtuale per la rete vi
 
 **Valori di esempio:** Gateway di rete locale = ClassicVNetLocal
 
-| Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |Indirizzo IP pubblico del gateway|
+| Rete virtuale | Spazio di indirizzi | Area | Si connette al sito della rete locale |Indirizzo IP pubblico del gateway|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Stati Uniti occidentali | RMVNetLocal (192.168.0.0/16) |L'indirizzo IP pubblico assegnato al gateway ClassicVNet|
 | RMVNet | (192.168.0.0/16) |Stati Uniti orientali |ClassicVNetLocal (10.0.0.0/24) |L'indirizzo IP pubblico assegnato al gateway RMVNet.|

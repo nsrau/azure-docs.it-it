@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: Configurare Salesforce Sandbox per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
-description: Informazioni sui passaggi da eseguire in sandbox di Salesforce e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Salesforce Sandbox.
+description: Informazioni sulle procedure da eseguire in Salesforce Sandbox e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Salesforce Sandbox.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: cc094376ed6d5a183b65a598ca9d0a55670be70e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: MT
+ms.openlocfilehash: 7e3f8e5e975468b468712ae8907cdca0e80a5f9f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676723"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352609"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Esercitazione: Configurare Salesforce Sandbox per il provisioning utenti automatico
 
@@ -55,15 +55,15 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 In questa sezione viene descritto come abilitare il provisioning utente degli account utente di Active Directory in Salesforce Sandbox.
 
-1. Nel [portale di Azure](https://portal.azure.com) passare alla sezione **Azure Active Directory > App aziendali > Tutte le applicazioni** .
+1. Nel [portale di Azure](https://portal.azure.com) passare alla sezione **Azure Active Directory > App aziendali > Tutte le applicazioni**.
 
 1. Se è già stato configurato Salesforce Sandbox per l'accesso Single Sign-On, cercare l'istanza di Salesforce Sandbox usando il campo di ricerca. In caso contrario, selezionare **Aggiungi** e cercare **Salesforce Sandbox** nella raccolta di applicazioni. Selezionare Salesforce Sandbox nei risultati della ricerca e aggiungerlo all'elenco delle applicazioni.
 
-1. Selezionare l'istanza di Salesforce Sandbox e quindi la scheda **Provisioning** .
+1. Selezionare l'istanza di Salesforce Sandbox e quindi la scheda **Provisioning**.
 
-1. Impostare **Modalità di provisioning** su **Automatico** .
+1. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot mostra la pagina di provisioning di Salesforce Sandbox con la modalità di provisioning impostata su automatico e altri valori che è possibile impostare.](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
+    ![Screenshot che mostra la pagina di provisioning di Salesforce Sandbox, con l'opzione Modalità di provisioning impostata su Automatica e altri valori che è possibile impostare.](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
 1. Nella sezione **Credenziali di amministratore** specificare le impostazioni di configurazione seguenti:
    
@@ -71,27 +71,27 @@ In questa sezione viene descritto come abilitare il provisioning utente degli ac
    
     b. Nella casella di testo **Password amministratore** digitare la password per questo account.
 
-1. Per ottenere il token di sicurezza di Salesforce Sandbox, aprire una nuova scheda e accedere allo stesso account amministratore di Salesforce Sandbox. Nell'angolo superiore destro della pagina fare clic sul proprio nome e quindi su **Impostazioni** .
+1. Per ottenere il token di sicurezza di Salesforce Sandbox, aprire una nuova scheda e accedere allo stesso account amministratore di Salesforce Sandbox. Nell'angolo superiore destro della pagina fare clic sul proprio nome e quindi su **Impostazioni**.
 
-     ![Screenshot Visualizza il collegamento impostazioni selezionato.](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Abilita provisioning utenti automatico")
+     ![Screenshot che mostra il collegamento Impostazioni selezionato.](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Abilita provisioning utenti automatico")
 
 1. Nel pannello di navigazione sinistro fare clic su **My Personal Information** (Informazioni personali) per espandere la sezione corrispondente e quindi fare clic su **Reset My Security Token** (Reimposta token di sicurezza personale).
   
-    ![Screenshot Visualizza Reimposta il token di sicurezza selezionato da informazioni personali.](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Abilita provisioning utenti automatico")
+    ![Screenshot che mostra Reset My Security Token (Reimposta token di sicurezza personale) selezionato in Personal Information (Informazioni personali).](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Abilita provisioning utenti automatico")
 
 1. Nella pagina **Reset Security Token** (Reimposta token di sicurezza) fare clic sul pulsante **Reset Security Token** (Reimposta token di sicurezza).
 
-    ![Screenshot mostra la pagina token di sicurezza Rest, con testo esplicativo e l'opzione per reimpostare il token di sicurezza](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Abilita provisioning utenti automatico")
+    ![Screenshot che mostra la pagina Reset Security Token (Reimposta token di sicurezza), con testo esplicativo e l'opzione Reset Security Token (Reimposta token di sicurezza)](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Abilita provisioning utenti automatico")
 
 1. Controllare la casella di posta elettronica associata a questo account di amministratore. Cercare un messaggio di posta elettronica da Salesforce Sandbox.com contenente il nuovo token di sicurezza.
 
-1. Copiare il token, passare alla finestra di Azure AD e incollarlo nel campo **Token segreto** .
+1. Copiare il token, passare alla finestra di Azure AD e incollarlo nel campo **Token segreto**.
 
 1. Nel portale di Azure fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app Salesforce Sandbox.
 
 1. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo.
 
-1. Fare clic su **Salva** .  
+1. Fare clic su **Salva**.  
     
 1.  Nella sezione Mapping selezionare **Synchronize Azure Active Directory Users to Salesforce Sandbox** (Sincronizza utenti di Azure Active Directory in Salesforce Sandbox).
 
@@ -99,7 +99,7 @@ In questa sezione viene descritto come abilitare il provisioning utente degli ac
 
 1. Per abilitare il servizio di provisioning di Azure AD per Salesforce Sandbox, impostare **Stato del provisioning** su **Sì** nella sezione Impostazioni
 
-1. Fare clic su **Salva** .
+1. Fare clic su **Salva**.
 
 Viene avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a Salesforce Sandbox nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning sull'app Salesforce Sandbox.
 
@@ -109,4 +109,4 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 * [Gestione del provisioning degli account utente per app aziendali](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-* [Configura accesso Single Sign-on](./salesforce-sandbox-tutorial.md)
+* [Configurare l'accesso Single Sign-On](./salesforce-sandbox-tutorial.md)

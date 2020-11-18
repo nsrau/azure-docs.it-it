@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: a89ff56eb9e0f0a29b5b1fed7543c5f718425e51
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a56922c972efeb21c188413522bd05f83b74ca12
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92326035"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681823"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Bring your own key (chiavi gestite dal cliente) con servizi multimediali
 
@@ -37,9 +37,11 @@ La chiave può essere una chiave di 2048, 3072 o una chiave RSA 4096, mentre le 
 > [!WARNING]
 > Servizi multimediali monitora l'accesso alla chiave del cliente. Se la chiave del cliente diventa inaccessibile, ad esempio se la chiave è stata eliminata o se la Key Vault è stata eliminata o se la concessione di accesso è stata rimossa, servizi multimediali eseguirà la transizione dell'account allo stato inaccessibile della chiave del cliente (disabilitando in modo efficace l'account). Tuttavia, l'account può essere eliminato in questo stato. Le uniche operazioni supportate sono GET, LIST e DELETE per l'account. tutte le altre richieste (codifica, streaming e così via) avranno esito negativo fino a quando non viene ripristinato l'accesso alla chiave dell'account.
 
-## <a name="tutorial"></a>Esercitazione
-Provare l'esercitazione [usare chiavi gestite dal cliente o BYOK (Bring your own key) con servizi multimediali](tutorial-byok.md) per informazioni sulla configurazione e l'uso delle chiavi gestite dal cliente con l'API REST e l'API REST di Azure.
+## <a name="tutorials"></a>Esercitazioni
+
+- [Usare la portale di Azure per usare chiavi gestite dal cliente o BYOK con servizi multimediali](tutorial-byok-portal.md)
+- [Usare chiavi gestite dal cliente o BYOK con l'API REST di servizi multimediali](tutorial-byok-postman.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione: usare chiavi gestite dal cliente o BYOK (Bring your own key) con servizi multimediali](tutorial-byok.md)
+[Proteggi i tuoi contenuti con la crittografia dinamica di servizi multimediali](content-protection-overview.md)

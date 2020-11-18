@@ -3,12 +3,12 @@ title: Scopri di più su Azure Service Fabric
 description: Informazioni sui concetti di base e sulle aree principali di Azure Service Fabric. Offre una panoramica approfondita di Service Fabric e della creazione di microservizi.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 6cbc99b56df18448add47a70b42742aa8dabbeb5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 07b41f10430592e6035bfe0179cb717d0bc5c8b0
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461499"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681738"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Informazioni su Service Fabric
 Azure Service Fabric è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili.  Service Fabric ha una struttura molto estesa e richiede un apprendimento completo.  Questo articolo offre un riepilogo di Service Fabric e descrive i concetti di base, i modelli di programmazione, il ciclo di vita dell'applicazione, i test, i cluster e il monitoraggio dell'integrità. Leggere [Panoramica](service-fabric-overview.md) e [Cosa sono i microservizi?](service-fabric-overview-microservices.md) per la presentazione di Service Fabric e per informazioni su come usarlo per creare microservizi. Questo articolo non offre un elenco completo dei contenuti ma include collegamenti ad articoli di panoramica e introduttivi su tutte le aree di Service Fabric. 
@@ -131,7 +131,7 @@ Per impedire a utenti non autorizzati di connettersi ai cluster, è necessario p
 Gli scenari di sicurezza del cluster sono:
 * Sicurezza da nodo a nodo
 * Sicurezza da client a nodo
-* Controllo degli accessi in base al ruolo
+* Controllo degli accessi in base al ruolo Service Fabric
 
 Per altre informazioni, vedere [Proteggere un cluster](service-fabric-cluster-security.md).
 

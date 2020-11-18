@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: configurare il fusibile per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
-description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in fusibile.
+title: 'Esercitazione: Configurare Fuze per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Fuze.
 services: active-directory
 author: zchia
 writer: zchia
@@ -8,19 +8,19 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: c92d7afb4c1de2596b4c98f50a003fe31176fbb7
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: 130bb108af5e44ddf61b639c666cb0dba64d69cb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92449792"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356893"
 ---
-# <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>Esercitazione: configurare il fusibile per il provisioning utenti automatico
+# <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>Esercitazione: Configurare Fuze per il provisioning utenti automatico
 
-Questa esercitazione descrive i passaggi da eseguire in spoletta e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in un [fusibile](https://www.fuze.com/). Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
+Questa esercitazione descrive la procedura da eseguire in Fuze e Azure Active Directory (Azure AD) per configurare Azure AD in modo da effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in [Fuze](https://www.fuze.com/). Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 > [!NOTE]
 > Questo connettore è attualmente disponibile in anteprima pubblica. Per altre informazioni sulle condizioni per l'utilizzo di Microsoft Azure relative alle funzionalità di anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -28,10 +28,10 @@ Questa esercitazione descrive i passaggi da eseguire in spoletta e Azure Active 
 
 ## <a name="capabilities-supported"></a>Funzionalità supportate
 > [!div class="checklist"]
-> * Creare utenti in spoletta
-> * Rimuovere gli utenti in spoletta quando non richiedono più l'accesso
-> * Mantieni gli attributi utente sincronizzati tra Azure AD e fusibile
-> * [Single Sign-on](./fuze-tutorial.md) per la spoletta (scelta consigliata)
+> * Creare utenti in Fuze
+> * Rimuovere utenti da Fuze quando non richiedono più l'accesso
+> * Mantenere gli attributi utente sincronizzati tra Azure AD e Fuze
+> * [Accesso Single Sign-On](./fuze-tutorial.md) a Fuze (scelta consigliata)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,46 +39,46 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 * [Un tenant di Azure AD](../develop/quickstart-create-new-tenant.md).
 * Un account utente in Azure AD con l'[autorizzazione](../users-groups-roles/directory-assign-admin-roles.md) per configurare il provisioning, ad esempio amministratore applicazione, amministratore applicazione cloud, proprietario dell'applicazione o amministratore globale.
-* [Tenant di spoletta](https://www.fuze.com/).
-* Un account utente in fusibile con autorizzazioni di amministratore.
+* [Un tenant di Fuze](https://www.fuze.com/).
+* Un account utente in Fuze con autorizzazioni di amministratore.
 
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
 1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determinare quali dati eseguire il [mapping tra Azure ad e fusibile](../app-provisioning/customize-application-attributes.md). 
+3. Determinare quali dati [mappare tra Azure AD e Fuze](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-fuze-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare la spoletta per supportare il provisioning con Azure AD
+## <a name="step-2-configure-fuze-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Fuze per supportare il provisioning con Azure AD
 
-Prima di configurare la funzione di provisioning utenti automatico con Azure AD, è necessario abilitare il provisioning di SCIM in spoletta. 
+Prima di configurare Fuze per il provisioning utenti automatico con Azure AD, è necessario abilitare il provisioning SCIM in Fuze. 
 
-1. Per iniziare, contattare il rappresentante del fusibile per le seguenti informazioni obbligatorie:
+1. Per iniziare, contattare il rappresentante Fuze per ottenere le informazioni necessarie seguenti:
 
-    * Elenco degli SKU del prodotto di spoletta attualmente in uso nell'azienda.
-    * Elenco dei codici di località per le località della società.
-    * Elenco dei codici di reparto per l'azienda.
+    * Elenco degli SKU del prodotto Fuze attualmente in uso nella società.
+    * Elenco dei codici località per le sedi della società.
+    * Elenco dei codici reparto della società.
 
-2. Questi SKU e codici sono disponibili nei documenti di contratto e di configurazione di fusibili oppure contattando il rappresentante del fusibile.
+2. Questi SKU e codici si trovano nei documenti di contratto e configurazione di Fuze oppure è possibile ottenerli contattando il rappresentante Fuze.
 
-3. Una volta ricevuti i requisiti, il rappresentante del fusibile fornirà il token di autenticazione del fusibile necessario per abilitare l'integrazione. Questo valore verrà immesso nel campo token segreto nella scheda provisioning dell'applicazione di spoletta nella portale di Azure.
+3. Una volta ricevuti i requisiti, il rappresentante Fuze fornirà il token di autenticazione Fuze necessario per abilitare l'integrazione. Questo valore verrà immesso nel campo Token segreto nella scheda Provisioning dell'applicazione Fuze nel portale di Azure.
 
-## <a name="step-3-add-fuze-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere il fusibile dalla raccolta di applicazioni Azure AD
+## <a name="step-3-add-fuze-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere Fuze dalla raccolta di applicazioni di Azure AD
 
-Aggiungere il fusibile dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in spoletta. Se è stato precedentemente configurato il fusibile per SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md).
+Aggiungere Fuze dalla raccolta di applicazioni di Azure AD per iniziare a gestire il provisioning in Fuze. Se Fuze è stato configurato in precedenza per l'accesso SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md).
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning 
 
 Il servizio di provisioning di Azure AD consente di definire l'ambito per gli utenti di cui verrà eseguito il provisioning in base all'assegnazione all'applicazione e/o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile seguire questa [procedura](../manage-apps/assign-user-or-group-access-portal.md) per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning esclusivamente in base agli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Quando si assegnano utenti a Spolett, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli. 
+* Quando si assegnano utenti a Fuze, è necessario selezionare un ruolo diverso da **Accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli. 
 
-* Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti prima di distribuirlo a tutti. Quando l'ambito per il provisioning è impostato su utenti assegnati, è possibile controllarlo assegnando uno o due utenti all'app. Quando l'ambito è impostato su tutti gli utenti, è possibile specificare un [filtro di ambito basato su attributi](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti prima di procedere alla distribuzione generale. Quando l'ambito per il provisioning è impostato su utenti assegnati, è possibile mantenere il controllo assegnando uno o due utenti all'app. Quando l'ambito è impostato su tutti gli utenti, è possibile specificare un [filtro di definizione dell'ambito basato su attributi](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-## <a name="step-5-configuring-automatic-user-provisioning-to-fuze"></a>Passaggio 5. Configurazione del provisioning utenti automatico in fusibile 
+## <a name="step-5-configuring-automatic-user-provisioning-to-fuze"></a>Passaggio 5. Configurazione del provisioning utenti automatico in Fuze 
 
-Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in spoletta in base alle assegnazioni di utenti e/o gruppi in Azure AD.
+Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e/o gruppi in Fuze in base alle assegnazioni di utenti e/o gruppi in Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-fuze-in-azure-ad"></a>Per configurare il provisioning utenti automatico per il fusibile in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-fuze-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Fuze in Azure AD:
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
@@ -90,15 +90,15 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
+    ![Screenshot delle opzioni disponibili in Gestisci con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatico evidenziata.](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere l'URL di **base scim 2,0 e** il valore del token di autenticazione scim recuperato in precedenza dal rappresentante di spoletta in **URL tenant** e **token segreto**. Fare clic su **Test connessione** per assicurarsi che Azure ad possibile connettersi a spolett. Se la connessione non riesce, verificare che l'account di fusibile disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **Credenziali amministratore** immettere il valore dell'**URL di base di SCIM 2.0 e del token di autenticazione SCIM** recuperato in precedenza dal rappresentante Fuze nei campi **URL tenant** e **Token segreto**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Fuze. Se la connessione non riesce, verificare che l'account Fuze abbia autorizzazioni di amministratore e riprovare.
 
-    ![Token URL tenant](common/provisioning-testconnection-tenanturltoken.png)
+    ![Token dell'URL del tenant](common/provisioning-testconnection-tenanturltoken.png)
 
 6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
@@ -106,9 +106,9 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 7. Fare clic su **Salva**.
 
-8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti per eseguire il fusibile**.
+8. Nella sezione **Mapping** selezionare **Sincronizza utenti di Azure Active Directory in Fuze**.
 
-9. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a spoletta nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in fusibile per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+9. Esaminare gli attributi utente sincronizzati da Azure AD a Fuze nella sezione **Mapping attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Fuze per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
    |Attributo|Type|
    |---|---|
@@ -120,11 +120,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Per abilitare il servizio di provisioning Azure AD per il fusibile, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+11. Per abilitare il servizio di provisioning di Azure AD per Fuze, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-12. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in spoletta selezionando i valori desiderati in **ambito** nella sezione **Impostazioni** .
+12. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in Fuze selezionando i valori desiderati in **Ambito** nella sezione **Impostazioni**.
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
@@ -143,11 +143,11 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 
-* Il fusibile supporta attributi SCIM personalizzati, denominati **diritti**. Questi attributi possono essere creati e non aggiornati. 
+* Fuze supporta attributi SCIM personalizzati denominati **Entitlement**. Questi attributi possono solo essere creati ma non aggiornati. 
 
 ## <a name="change-log"></a>Registro delle modifiche
 
-* 06/15/2020-limite di frequenza di integrazione regolato a 10 richieste al secondo.
+* 15/06/2020: limite di frequenza di integrazione modificato a 10 richieste al secondo.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

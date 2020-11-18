@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 65db3bcbad905626a47b617c3c34935ec5cd0e88
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: edb21287b30f8ba77d6312ec6b456e20aa260598
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455421"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358212"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Esercitazione: Configurare Concur per il provisioning utenti automatico
 
@@ -96,7 +96,7 @@ Per i seguenti motivi è consigliabile non eseguire questa operazione con il pro
 
 9. Impostare **Modalità di provisioning** su **Automatico**. 
  
-    ![Screenshot della scheda provisioning per l'accordo portale di Azure. La modalità di provisioning è impostata su automatico e il pulsante Test connessione è evidenziato.](./media/concur-provisioning-tutorial/provisioning.png)
+    ![Screenshot della scheda Provisioning per Concur nel portale di Azure. L'opzione Modalità di provisioning è impostata su Automatico e il pulsante Test connessione è evidenziato.](./media/concur-provisioning-tutorial/provisioning.png)
 
 10. Nella sezione **Credenziali amministratore** immettere il **nome utente** e la **password** dell'amministratore di Concur.
 
@@ -120,4 +120,4 @@ Per i seguenti motivi è consigliabile non eseguire questa operazione con il pro
 
 * [Gestione del provisioning degli account utente per app aziendali](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-* [Configura accesso Single Sign-on](concur-tutorial.md)
+* [Configurare l'accesso Single Sign-On](concur-tutorial.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 086f79239fd4f6b01f4b76d1385598bac52bb471
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9a7c19e30c6c26d7bf7f11d6f03a0acaee160c9a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358970"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94578615"
 ---
 # <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>Esercitazione: Configurare AlertMedia per il provisioning utenti automatico
 
@@ -95,9 +95,9 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
     ![Automatico nella scheda Provisioning](common/provisioning-automatic.png)
 
 5. Nella sezione **Credenziali amministratore** immettere l'**URL tenant** di AlertMedia in uno dei formati seguenti.
-      * https://dashboard.alertmedia.com/api/scim/v3 (nessun dominio personalizzato)
+      * `https://dashboard.alertmedia.com/api/scim/v3` (nessun dominio personalizzato)
 
-      * https://subdomain.alertmedia.com/api/scim/v3 (dominio personalizzato)
+      * `https://subdomain.alertmedia.com/api/scim/v3` (dominio personalizzato)
 
       Immettere il valore di **Token segreto** recuperato in precedenza nel passaggio 2. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a AlertMedia. Se la connessione non riesce, verificare che l'account AlertMedia abbia autorizzazioni di amministratore e riprovare.
 

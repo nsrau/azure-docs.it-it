@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: provisioning utenti per asana-Azure AD'
+title: 'Esercitazione: Provisioning utenti per Asana - Azure AD'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Asana.
 services: active-directory
 author: ArvindHarinder1
@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.reviewer: celested
-ms.openlocfilehash: 11e0606568fdaad20f996a7ae20a622576acea15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 4abc117ae0e983cf684f0e70a363758f9be196aa
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549467"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359427"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Esercitazione: Configurare Asana per il provisioning utenti automatico
 
@@ -35,7 +35,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="assign-users-to-asana"></a>Assegnare utenti ad Asana
 
-Azure AD usa un concetto denominato *assegnazioni* per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning automatico degli account utente, vengono sincronizzati solo gli utenti assegnati a un'applicazione in Azure AD.
+Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure AD usa il concetto delle *assegnazioni*. Nel contesto del provisioning automatico degli account utente, vengono sincronizzati solo gli utenti assegnati a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il servizio di provisioning, è necessario stabilire quali utenti in Azure AD devono accedere all'app Asana. È quindi possibile assegnare tali utenti all'app Asana seguendo le istruzioni riportate nell'articolo seguente:
 
@@ -82,9 +82,9 @@ Questa sezione descrive la connessione di Azure AD all'API di provisioning degli
 
 1. Selezionare **Salva**.
 
-1. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a asana**.
+1. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to Asana** (Sincronizza utenti di Azure Active Directory in Asana).
 
-1. Nella sezione **Mapping degli attributi** esaminare gli attributi utente da sincronizzare da Azure AD ad Asana. Gli attributi selezionati come proprietà**corrispondenti **vengono usati per trovare le corrispondenze con gli account utente in Asana per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche. Per altre informazioni, vedere [Personalizzazione dei mapping degli attributi del provisioning](../app-provisioning/customize-application-attributes.md).
+1. Nella sezione **Mapping degli attributi** esaminare gli attributi utente da sincronizzare da Azure AD ad Asana. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Asana per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche. Per altre informazioni, vedere [Personalizzazione dei mapping degli attributi del provisioning](../app-provisioning/customize-application-attributes.md).
 
 1. Per abilitare il servizio di provisioning di Azure AD per Asana, nella sezione **Impostazioni** impostare **Stato del provisioning** su **Sì**.
 
@@ -96,6 +96,6 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestire il provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 * [Configurare l'accesso Single Sign-On](asana-tutorial.md)

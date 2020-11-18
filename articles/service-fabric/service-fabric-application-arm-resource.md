@@ -3,12 +3,12 @@ title: Distribuire e aggiornare con Azure Resource Manager
 description: Informazioni su come distribuire applicazioni e servizi in un cluster di Service Fabric usando un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: a849bdff0d2719f02b6b5f2d7159b87ce664c13f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb866eb24fb1b286f496bad9845d1ee557baa221
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256510"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94681670"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gestire applicazioni e servizi come risorse di Azure Resource Manager
 
@@ -18,7 +18,7 @@ ms.locfileid: "86256510"
 
 Se possibile, gestire le applicazioni come risorse di Resource Manager in modo da usufruire dei vantaggi seguenti.
 * Audit trail: Resource Manager controlla ogni operazione e mantiene un *log attività* dettagliato che consente di tenere traccia di tutte le modifiche apportate a queste applicazioni e al cluster.
-* Controllo degli accessi in base al ruolo: è possibile gestire l'accesso ai cluster e alle applicazioni distribuite nel cluster tramite lo stesso modello di Resource Manager.
+* Controllo degli accessi in base al ruolo di Azure (RBAC di Azure): la gestione dell'accesso ai cluster e alle applicazioni distribuite nel cluster può essere eseguita tramite lo stesso modello di Gestione risorse.
 * Azure Resource Manager, tramite il portale di Azure, diventa un punto di accesso centralizzato per la gestione del cluster e delle distribuzioni di applicazioni critiche.
 
 Il frammento seguente illustra le diverse tipologie di risorse che è possibile gestire tramite un modello:
