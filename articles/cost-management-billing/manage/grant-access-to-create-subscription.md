@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: 02919cf2e35fdd4d981f3fde53085c2174f11bd1
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: c13670df26e5d0f7774b5a2aac81f656de94c960
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132568"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844711"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Concedere l'accesso per creare sottoscrizioni di Azure Enterprise (anteprima)
 
@@ -23,7 +23,7 @@ Come cliente di Azure, in [Enterprise Agreement (EA)](https://azure.microsoft.co
 
 ## <a name="grant-access"></a>Concedere l'accesso
 
-Per [creare sottoscrizioni in un account di registrazione](programmatically-create-subscription.md), gli utenti devono avere il [ruolo Proprietario](../../role-based-access-control/built-in-roles.md#owner) di Controllo degli accessi in base al ruolo di Azure in tale account. È possibile concedere a un utente o a un gruppo di utenti il ruolo Proprietario di Controllo degli accessi in base al ruolo di Azure in un account di registrazione seguendo questa procedura:
+Per [creare sottoscrizioni in un account di registrazione](programmatically-create-subscription-enterprise-agreement.md), gli utenti devono avere il [ruolo Proprietario](../../role-based-access-control/built-in-roles.md#owner) di Controllo degli accessi in base al ruolo di Azure in tale account. È possibile concedere a un utente o a un gruppo di utenti il ruolo Proprietario di Controllo degli accessi in base al ruolo di Azure in un account di registrazione seguendo questa procedura:
 
 1. Ottenere l'ID oggetto dell'account di registrazione a cui si vuole concedere l'accesso
 
@@ -174,7 +174,7 @@ Per [creare sottoscrizioni in un account di registrazione](programmatically-crea
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Quando un utente diventa Proprietario di Controllo degli accessi in base al ruolo di Azure per l'account di registrazione, può [creare sottoscrizioni a livello di codice](programmatically-create-subscription.md) in tale account. In una sottoscrizione creata da un utente delegato il proprietario dell'account originale è ancora amministratore del servizio, ma anche l'utente delegato è un Proprietario di Controllo degli accessi in base al ruolo di Azure per impostazione predefinita.
+    Quando un utente diventa Proprietario di Controllo degli accessi in base al ruolo di Azure per l'account di registrazione, può [creare sottoscrizioni a livello di codice](programmatically-create-subscription-enterprise-agreement.md) in tale account. In una sottoscrizione creata da un utente delegato il proprietario dell'account originale è ancora amministratore del servizio, ma anche l'utente delegato è un Proprietario di Controllo degli accessi in base al ruolo di Azure per impostazione predefinita.
 
     ---
 
@@ -193,7 +193,7 @@ Per chiamare correttamente questa API dalla riga di comando, provare [ARMClient]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Ora che l'utente o l'entità servizio dispone delle autorizzazioni necessarie per creare una sottoscrizione, è possibile usare tale identità per [creare sottoscrizioni di Azure Enterprise a livello di codice](programmatically-create-subscription.md).
+* Ora che l'utente o l'entità servizio dispone delle autorizzazioni necessarie per creare una sottoscrizione, è possibile usare tale identità per [creare sottoscrizioni di Azure Enterprise a livello di codice](programmatically-create-subscription-enterprise-agreement.md).
 * Per un esempio su come creare le sottoscrizioni che usano .NET, vedere l'[esempio di codice su GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Per altre informazioni su Azure Resource Manager e le relative API, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 * Per altre informazioni come gestire un numero elevato di sottoscrizioni usando i gruppi di gestione, vedere [Organizzare le risorse con i gruppi di gestione di Azure](../../governance/management-groups/overview.md)
