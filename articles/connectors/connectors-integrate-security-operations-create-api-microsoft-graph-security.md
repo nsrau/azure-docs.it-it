@@ -9,12 +9,12 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 0f121caddc6b629920479a34bef7b284dea117a4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: ea861dce23e50bc5fcae50116a3e71793d402f8f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677497"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873319"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Migliorare la protezione dalle minacce integrando le operazioni di sicurezza con Microsoft Graph Security e le app per la logica di Azure
 
@@ -30,7 +30,7 @@ Con le [app per la logica di Azure](../logic-apps/logic-apps-overview.md) e il c
 
 Il flusso di lavoro dell'app per la logica può usare azioni per ottenere risposte dal connettore di Microsoft Graph Security e rendere disponibile l'output per altre azioni nel flusso di lavoro. L'output delle azioni del connettore di Microsoft Graph Security può anche essere usato da altre azioni nel flusso di lavoro. Se ad esempio si ricevono avvisi con gravità alta tramite il connettore di Microsoft Graph Security, è possibile inviare tali avvisi in un messaggio di posta elettronica mediante il connettore di Outlook. 
 
-Per altre informazioni su Microsoft Graph Security, vedere [Microsoft Graph Security API overview](/graph/security-concept-overview) (Panoramica dell'API di Microsoft Graph Security). Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la logica di Azure](../logic-apps/logic-apps-overview.md). Se si sta cercando Microsoft Flow o PowerApps, vedere [che cos'è Flow?](https://flow.microsoft.com/) o [che cos'è PowerApps?](https://powerapps.microsoft.com/)
+Per altre informazioni su Microsoft Graph Security, vedere [Microsoft Graph Security API overview](/graph/security-concept-overview) (Panoramica dell'API di Microsoft Graph Security). Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la logica di Azure](../logic-apps/logic-apps-overview.md). Se si sta cercando Power Automate o PowerApps, vedere [che cos'è Power automatizzate?](https://flow.microsoft.com/) o [che cos'è PowerApps?](https://powerapps.microsoft.com/)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,7 +38,7 @@ Per altre informazioni su Microsoft Graph Security, vedere [Microsoft Graph Secu
 
 * Per usare il connettore di Microsoft Graph Security, è necessario *fornire in modo esplicito* il consenso dell'amministratore del tenant di Azure Active Directory (AD), come previsto dai [requisiti di autenticazione di Microsoft Graph Security](/graph/security-authorization). Questo consenso richiede l'ID applicazione e il nome del connettore di Microsoft Graph Security, che è anche possibile trovare nel [portale di Azure](https://portal.azure.com):
 
-  | Proprietà | valore |
+  | Proprietà | Valore |
   |----------|-------|
   | **Nome dell'applicazione** | `MicrosoftGraphSecurityConnector` |
   | **ID applicazione** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
@@ -64,11 +64,11 @@ Per altre informazioni su Microsoft Graph Security, vedere [Microsoft Graph Secu
 
    -oppure-
 
-   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione di sicurezza Microsoft Graph selezionare **nuovo passaggio** .
+   Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione di sicurezza Microsoft Graph selezionare **nuovo passaggio**.
 
    -oppure-
 
-   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più (+) visualizzato e selezionare **Aggiungi un'azione** .
+   Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più (+) visualizzato e selezionare **Aggiungi un'azione**.
 
 1. Nella casella di ricerca immettere "microsoft graph security" come filtro. Nell'elenco delle azioni scegliere l'azione desiderata.
 
@@ -94,12 +94,12 @@ Questo esempio illustra come è possibile avviare un flusso di lavoro dell'app p
    | Proprietà | Proprietà (JSON) | Obbligatoria | Type | Descrizione |
    |----------|-----------------|----------|------|-------------|
    | **Interval** | `interval` | Sì | Integer | Numero intero positivo che indica l'intervallo con cui viene eseguito il flusso di lavoro in base alla frequenza. Ecco gli intervalli minimo e massimo: <p><p>- Mese: 1-16 mesi <br>- Giorno: 1-500 giorni <br>- Ora: 1-12.000 ore <br>- Minuto: 1-72.000 minuti <br>- Secondo: 1-9.999.999 secondi <p>Ad esempio, se l'intervallo è 6 e la frequenza è "Mese", la ricorrenza è ogni 6 mesi. |
-   | **Frequenza** | `frequency` | Sì | string | L'unità di tempo per la ricorrenza: **Secondo** , **Minuto** , **Ora** , **Giorno** , **Settimana** o **Mese** |
+   | **Frequenza** | `frequency` | Sì | string | L'unità di tempo per la ricorrenza: **Secondo**, **Minuto**, **Ora**, **Giorno**, **Settimana** o **Mese** |
    | **Fuso orario** | `timeZone` | No | string | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Selezionare il fuso orario che si desidera applicare. |
    | **Ora di inizio** | `startTime` | No | string | Specificare una data e un'ora di inizio nel formato seguente: <p><p>AAAA-MM-GGThh:mm:ss se si seleziona un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si seleziona un fuso orario <p>Ad esempio, se si desidera il 18 settembre 2017 alle 2:00 PM, specificare "2017-09-18T14:00:00" e selezionare un fuso orario, ad esempio ora solare Pacifico. In alternativa, specificare "2017-09-18T14:00:00Z" senza un fuso orario. <p>**Nota:** Questa ora di inizio ha un numero massimo di 49 anni nel futuro e deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza [offset UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si seleziona un fuso orario, è necessario aggiungere la lettera "Z" alla fine, senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici, l'ora di inizio è la prima occorrenza, mentre per le pianificazioni complesse il trigger non viene attivato prima dell'ora di inizio. [*In quali modi posso usare la data e l'ora di inizio?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
-1.  Al termine, sulla barra degli strumenti della finestra di progettazione selezionare **Salva** .
+1.  Al termine, sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
 1.  Continuare ad aggiungere una o più azioni all'app per la logica per le attività da eseguire con i risultati del trigger.
 

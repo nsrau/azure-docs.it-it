@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7819c934ab97d597d52d4809c11e5c59fb87c89a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4fa0f4d87567bd77faacfd2373dba0d2b8996446
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840669"
+ms.locfileid: "94873370"
 ---
 # <a name="localization-string-ids"></a>ID della stringa di localizzazione
 
@@ -64,7 +64,7 @@ Gli ID seguenti vengono utilizzati per una definizione di contenuto con un ID `a
 
 L'esempio seguente illustra l'uso di alcuni elementi dell'interfaccia utente nella pagina per l'iscrizione o l'accesso:
 
-![Elementi dell'esperienza utente della pagina per l'iscrizione o l'accesso](./media/localization-string-ids/localization-susi-2.png)
+:::image type="content" source="./media/localization-string-ids/localization-susi-2.png" alt-text="Screenshot che Mostra gli elementi della pagina di iscrizione o di accesso U X.":::
 
 ### <a name="sign-up-or-sign-in-identity-providers"></a>Provider di identità di iscrizione o accesso
 

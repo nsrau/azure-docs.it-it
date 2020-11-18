@@ -4,15 +4,15 @@ description: Informazioni su come usare trigger timer in Funzioni di Azure.
 author: craigshoemaker
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 09/08/2018
+ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6baebdab06a72d3a4af05b4d2e04bc9eee6acb60
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0d9852659801040d64fe4143f024fd52ffec16ee
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833011"
+ms.locfileid: "94874084"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure
 
@@ -299,11 +299,11 @@ Ogni campo può avere uno dei tipi di valori seguenti:
 
 |Type  |Esempio  |Quando viene attivato  |
 |---------|---------|---------|
-|Valore specifico |<nobr>"0 5 * * * *"</nobr>|Alle hh.05.00, dove hh corrisponde a ogni ora (una volta all'ora)|
-|Tutti i valori (`*`)|<nobr>"0 * 5 * * *"</nobr>|alle 5: mm: 00 ogni giorno, dove mm è ogni minuto dell'ora (60 volte nell'ora specificata)|
-|Intervallo (operatore `-`)|<nobr>"5-7 * * * * *"</nobr>|Alle hh.mm.05, hh.mm.06 e hh.mm.07, dove hh.mm è ogni minuto di ogni ora (3 volte al minuto)|
-|Set di valori (operatore `,`)|<nobr>"5,8,10 * * * * *"</nobr>|Alle hh.mm.05, hh.mm.08 e hh.mm.10, dove hh.mm è ogni minuto di ogni ora (3 volte al minuto)|
-|Valore di intervallo (operatore `/`)|<nobr>"0 */5 * * * *"</nobr>|alle HH: 00:00, HH: 05:00, HH: 10:00 e così via fino a HH: 55:00 dove HH è ogni ora (12 volte un'ora)|
+|Valore specifico |<nobr>`0 5 * * * *`</nobr>| Una volta ogni ora del giorno al minuto 5 di ogni ora |
+|Tutti i valori (`*`)|<nobr>`0 * 5 * * *`</nobr>| Ogni minuto nell'ora, a partire dall'ora 5 |
+|Intervallo (operatore `-`)|<nobr>`5-7 * * * * *`</nobr>| Tre volte al minuto, in secondi da 5 a 7 per ogni minuto di ogni ora di ogni giorno |
+|Set di valori (operatore `,`)|<nobr>`5,8,10 * * * * *`</nobr>| Tre volte al minuto-a secondi 5, 8 e 10 durante ogni minuto di ogni ora di ogni giorno |
+|Valore di intervallo (operatore `/`)|<nobr>`0 */5 * * * *`</nobr>| 12 volte un'ora, al secondo 0 di ogni 5 minuti di ogni ora di ogni giorno |
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -311,18 +311,18 @@ Ogni campo può avere uno dei tipi di valori seguenti:
 
 Di seguito sono riportati alcuni esempi di espressioni NCRONTAB che è possibile usare per il trigger timer in funzioni di Azure.
 
-|Esempio|Quando viene attivato  |
-|---------|---------|
-|`"0 */5 * * * *"`|Una volta ogni cinque minuti|
-|`"0 0 * * * *"`|Una volta all'inizio di ogni ora|
-|`"0 0 */2 * * *"`|Una volta ogni due ore|
-|`"0 0 9-17 * * *"`|Una volta ogni ora dalle 9 alle 17|
-|`"0 30 9 * * *"`|Alle 9.30 di ogni giorno|
-|`"0 30 9 * * 1-5"`|Alle 9.30 di ogni giorno feriale|
-|`"0 30 9 * Jan Mon"`|Alle 9.30 di ogni lunedì di gennaio|
+| Esempio            | Quando viene attivato                     |
+|--------------------|------------------------------------|
+| `0 */5 * * * *`    | Una volta ogni cinque minuti            |
+| `0 0 * * * *`      | Una volta all'inizio di ogni ora      |
+| `0 0 */2 * * *`    | Una volta ogni due ore               |
+| `0 0 9-17 * * *`   | Una volta ogni ora dalle 9 alle 17  |
+| `0 30 9 * * *`     | Alle 9.30 di ogni giorno               |
+| `0 30 9 * * 1-5`   | Alle 9.30 di ogni giorno feriale           |
+| `0 30 9 * Jan Mon` | Alle 9.30 di ogni lunedì di gennaio |
 
 > [!NOTE]
-> L'espressione NCRONTAB richiede sei formati di **campo** . Cinque espressioni cron del campo non sono supportate in Azure.
+> L'espressione NCRONTAB richiede un formato di **campo sei** . Il sesto campo posizione è un valore per i secondi posizionato all'inizio dell'espressione. Cinque espressioni cron del campo non sono supportate in Azure.
 
 ### <a name="ncrontab-time-zones"></a>Fusi orari NCRONTAB
 

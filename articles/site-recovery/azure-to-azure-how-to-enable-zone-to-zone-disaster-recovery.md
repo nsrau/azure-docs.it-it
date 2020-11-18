@@ -5,14 +5,14 @@ author: sideeksh
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 001ac4918ed5d87bdb801d1bf918a4450e7cf8e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a7d29d8487c6be6915ae4171b3759f0980f5448
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90007792"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874357"
 ---
 # <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Abilitare il ripristino di emergenza delle VM di Azure tra le zone di disponibilità
 
@@ -69,14 +69,14 @@ Prima di distribuire il ripristino di emergenza da zona a zona per le macchine v
 
 |Funzionalità  | Informativa sul supporto  |
 |---------|---------|
-|Macchine virtuali classiche   |     Non supportato    |
-|VM ARM    |    Supportato    |
-|Crittografia dischi di Azure V1 (doppio passaggio, con Azure Active Directory (Azure AD))     |     Supportato   |
-|Crittografia dischi di Azure V2 (Single Pass, senza Azure AD)    |    Supportato    |
-|Dischi non gestiti    |    Non supportato    |
-|Dischi gestiti    |    Supportato    |
-|Chiavi gestite dal cliente    |    Supportato    |
-|Gruppi di selezione host di prossimità    |    Supportato    |
+|Macchine virtuali classiche   |     Non supportate    |
+|VM ARM    |    Funzionalità supportata    |
+|Crittografia dischi di Azure V1 (doppio passaggio, con Azure Active Directory (Azure AD))     |     Funzionalità supportata   |
+|Crittografia dischi di Azure V2 (Single Pass, senza Azure AD)    |    Funzionalità supportata    |
+|Dischi non gestiti    |    Non supportate    |
+|Dischi gestiti    |    Funzionalità supportata    |
+|Chiavi gestite dal cliente    |    Funzionalità supportata    |
+|Gruppi di selezione host di prossimità    |    Funzionalità supportata    |
 |Interoperabilità di backup    |    Il backup e il ripristino a livello di file sono supportati. Backup e ripristino a livello di disco e VM e non supportati.    |
 |Aggiunta/rimozione a caldo    |    È possibile aggiungere dischi dopo aver abilitato la replica da zona a zona. La rimozione dei dischi dopo l'abilitazione della replica da zona a zona non è supportata.    | 
 

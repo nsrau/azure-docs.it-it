@@ -3,12 +3,12 @@ title: Concetti-cloud privati e cluster
 description: Informazioni sulle funzionalità principali dei data center e dei cluster vSphere definiti dal software della soluzione VMware di Azure.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: daa712a722ca3252a49e4f54e0cc9e42de4ffc73
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0454ade503ce40de46363f65d36a64340219c0b1
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337322"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874016"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Concetti relativi ai cluster e al cloud privato della soluzione VMware di Azure
 
@@ -59,7 +59,7 @@ Le versioni software correnti del software VMware usato nei cluster di cloud pri
 
 Per qualsiasi nuovo cluster in un cloud privato, la versione del software corrisponde a quella attualmente in esecuzione. Per ogni nuovo cloud privato in una sottoscrizione, viene installata la versione più recente dello stack di software.
 
-È possibile trovare i criteri e i processi di aggiornamento generali per il software della piattaforma della soluzione VMware di Azure descritto nell'articolo [concetti relativi agli aggiornamenti](concepts-upgrades.md) .
+È possibile trovare i criteri e i processi di aggiornamento generali per il software della piattaforma della soluzione VMware di Azure descritta in [aggiornamenti e aggiornamenti del cloud privato](concepts-upgrades.md).
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Gestione del ciclo di vita e manutenzione dell'host
 

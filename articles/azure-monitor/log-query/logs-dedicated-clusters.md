@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 293a3fc10920a29cd41e4bdb946e5bb06762eb52
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: d261640dfdb59b2b06cfe3066fca26640a0bed54
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427497"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874645"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Il monitoraggio di Azure registra i cluster dedicati
 
@@ -36,6 +36,8 @@ I cluster dedicati vengono gestiti tramite una risorsa di Azure che rappresenta 
 
 Una volta creato, il cluster può essere configurato e le aree di lavoro collegate. Quando un'area di lavoro è collegata a un cluster, i nuovi dati inviati all'area di lavoro si trovano nel cluster. Solo le aree di lavoro che si trovano nella stessa area del cluster possono essere collegate al cluster. Le aree di lavoro possono essere diversamente da un cluster con alcune limitazioni. Altre informazioni su queste limitazioni sono incluse in questo articolo. 
 
+I dati inseriti in cluster dedicati vengono crittografati due volte, una volta a livello di servizio usando chiavi gestite da Microsoft o chiavi [gestite dal cliente](../platform/customer-managed-keys.md)e una volta a livello di infrastruttura usando due algoritmi di crittografia diversi e due chiavi diverse. La [crittografia doppia](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protegge da uno scenario in cui uno degli algoritmi o delle chiavi di crittografia può essere compromesso. In questo caso, il livello di crittografia aggiuntivo continua a proteggere i dati. Il cluster dedicato consente inoltre di proteggere i dati con il controllo dell' [archivio protetto](../platform/customer-managed-keys.md#customer-lockbox-preview) .
+
 Per tutte le operazioni a livello di cluster è necessaria l' `Microsoft.OperationalInsights/clusters/write` autorizzazione azione per il cluster. Questa autorizzazione può essere concessa tramite il proprietario o il collaboratore che contiene l' `*/write` azione o tramite il ruolo di collaboratore log Analytics che contiene l' `Microsoft.OperationalInsights/*` azione. Per altre informazioni sulle autorizzazioni di Log Analytics, vedere [gestire l'accesso ai dati e alle aree di lavoro di log in monitoraggio di Azure](../platform/manage-access.md). 
 
 
@@ -47,9 +49,9 @@ Il livello di prenotazione della capacità del cluster viene configurato tramite
 
 Sono disponibili due modalità di fatturazione per l'utilizzo in un cluster. Questi possono essere specificati dal `billingType` parametro durante la configurazione del cluster. 
 
-1. **Cluster** : in questo caso (impostazione predefinita), la fatturazione per i dati inseriti viene eseguita a livello di cluster. Le quantità di dati inseriti da ogni area di lavoro associata a un cluster vengono aggregate per calcolare la fattura giornaliera per il cluster. 
+1. **Cluster**: in questo caso (impostazione predefinita), la fatturazione per i dati inseriti viene eseguita a livello di cluster. Le quantità di dati inseriti da ogni area di lavoro associata a un cluster vengono aggregate per calcolare la fattura giornaliera per il cluster. 
 
-2. **Aree di lavoro** : i costi di prenotazione della capacità per il cluster sono attribuiti proporzionalmente alle aree di lavoro del cluster, dopo aver tenuto conto delle allocazioni per nodo dal [Centro sicurezza di Azure](../../security-center/index.yml) per ogni area di lavoro.
+2. **Aree di lavoro**: i costi di prenotazione della capacità per il cluster sono attribuiti proporzionalmente alle aree di lavoro del cluster, dopo aver tenuto conto delle allocazioni per nodo dal [Centro sicurezza di Azure](../../security-center/index.yml) per ogni area di lavoro.
 
 Si noti che se l'area di lavoro usa il piano tariffario per nodo Legacy, quando è collegato a un cluster, verrà fatturato in base ai dati inseriti per la prenotazione di capacità del cluster e non più per nodo. Le allocazioni di dati per nodo dal centro sicurezza di Azure continueranno a essere applicate.
 
@@ -62,19 +64,19 @@ Creare innanzitutto risorse cluster per iniziare a creare un cluster dedicato.
 
 È necessario specificare le proprietà seguenti:
 
-- **Clustername** : usato a scopo amministrativo. Gli utenti non sono esposti a questo nome.
-- **ResourceGroupName** : come per qualsiasi risorsa di Azure, i cluster appartengono a un gruppo di risorse. Si consiglia di usare un gruppo di risorse IT centrale perché i cluster sono in genere condivisi da molti team dell'organizzazione. Per altre considerazioni sulla progettazione, vedere [progettazione della distribuzione dei log di monitoraggio di Azure](../platform/design-logs-deployment.md)
-- **Località** : un cluster si trova in una determinata area di Azure. Solo le aree di lavoro situate in questa area possono essere collegate a questo cluster.
-- **SkuCapacity** : è necessario specificare il livello di *prenotazione della capacità* (SKU) quando si crea una risorsa *cluster* . Il livello di *prenotazione della capacità* può essere compreso tra 1.000 gb e 3.000 GB al giorno. Se necessario, è possibile aggiornarlo nei passaggi 100 in un secondo momento. Se è necessario un livello di prenotazione di capacità superiore a 3.000 GB al giorno, contattare Microsoft all'indirizzo LAIngestionRate@microsoft.com . Per altre informazioni sui costi del cluster, vedere [gestire i costi per i cluster log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- **Clustername**: usato a scopo amministrativo. Gli utenti non sono esposti a questo nome.
+- **ResourceGroupName**: come per qualsiasi risorsa di Azure, i cluster appartengono a un gruppo di risorse. Si consiglia di usare un gruppo di risorse IT centrale perché i cluster sono in genere condivisi da molti team dell'organizzazione. Per altre considerazioni sulla progettazione, vedere [progettazione della distribuzione dei log di monitoraggio di Azure](../platform/design-logs-deployment.md)
+- **Località**: un cluster si trova in una determinata area di Azure. Solo le aree di lavoro situate in questa area possono essere collegate a questo cluster.
+- **SkuCapacity**: è necessario specificare il livello di *prenotazione della capacità* (SKU) quando si crea una risorsa *cluster* . Il livello di *prenotazione della capacità* può essere compreso tra 1.000 gb e 3.000 GB al giorno. Se necessario, è possibile aggiornarlo nei passaggi 100 in un secondo momento. Se è necessario un livello di prenotazione di capacità superiore a 3.000 GB al giorno, contattare Microsoft all'indirizzo LAIngestionRate@microsoft.com . Per altre informazioni sui costi del cluster, vedere [gestire i costi per i cluster log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
 
-Dopo aver creato la risorsa *cluster* , è possibile modificare proprietà aggiuntive, ad esempio *SKU* , * keyVaultProperties o *billingType*. Per altri dettagli, vedere di seguito.
+Dopo aver creato la risorsa *cluster* , è possibile modificare proprietà aggiuntive, ad esempio *SKU*, * keyVaultProperties o *billingType*. Per altri dettagli, vedere di seguito.
 
 > [!WARNING]
 > La creazione del cluster attiva l'allocazione delle risorse e il provisioning. Il completamento di questa operazione può richiedere fino a un'ora. È consigliabile eseguirlo in modo asincrono.
 
 L'account utente che crea i cluster deve avere l'autorizzazione standard per la creazione di risorse `Microsoft.Resources/deployments/*` di Azure: e l'autorizzazione di scrittura del cluster `(Microsoft.OperationalInsights/clusters/write)` .
 
-### <a name="create"></a>Crea 
+### <a name="create"></a>Creazione 
 
 **PowerShell**
 
@@ -87,7 +89,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 
 **REST**
 
-*Call* 
+*Chiamata* 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
 Authorization: Bearer <token>
@@ -162,7 +164,7 @@ Il GUID *PrincipalId* viene generato dal servizio di gestione delle identità ge
 
 Dopo aver creato la risorsa *cluster* ed è stato effettuato il provisioning completo, è possibile modificare le proprietà aggiuntive a livello di cluster usando PowerShell o l'API REST. Oltre alle proprietà disponibili durante la creazione del cluster, è possibile impostare proprietà aggiuntive solo dopo il provisioning del cluster:
 
-- **keyVaultProperties** : usato per configurare il Azure Key Vault usato per effettuare il provisioning di una [chiave gestita dal cliente di monitoraggio di Azure](../platform/customer-managed-keys.md#customer-managed-key-provisioning-procedure). Contiene i parametri seguenti:  *KeyVaultUri* , *nome di codice* , *versione della versione*. 
+- **keyVaultProperties**: usato per configurare il Azure Key Vault usato per effettuare il provisioning di una [chiave gestita dal cliente di monitoraggio di Azure](../platform/customer-managed-keys.md#customer-managed-key-provisioning-procedure). Contiene i parametri seguenti:  *KeyVaultUri*, *nome di codice*, *versione della versione*. 
 - **billingType** : la proprietà *billingType* determina l'attribuzione della fatturazione per la risorsa *cluster* e i relativi dati:
   - **Cluster** (impostazione predefinita): i costi di prenotazione della capacità per il cluster sono attribuiti alla risorsa *cluster* .
   - **Aree di lavoro** : i costi di prenotazione della capacità per il cluster sono attribuiti proporzionalmente alle aree di lavoro del cluster, con la fatturazione della risorsa *cluster* di parte dell'utilizzo se il totale dei dati inseriti per la giornata è inferiore alla prenotazione della capacità. Per ulteriori informazioni sul modello di determinazione prezzi del cluster, vedere [log Analytics cluster dedicati](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) . 
@@ -184,7 +186,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 
 Ad esempio: 
 
-*Call*
+*Chiamata*
 
 ```rst
 PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2468bde9dd969ad604f96835a3dc0bfad06c1cd2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8f2498dbb3a555db262c591c9badacbe0e4e2548
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844660"
+ms.locfileid: "94874662"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Baseline della sicurezza di Azure per Azure Machine Learning
 
@@ -462,7 +462,7 @@ Usare Azure Active Directory (Azure AD) Privileged Identity Management (PIM) per
 
 **Responsabilità**: non applicabile
 
-## <a name="data-protection"></a>Protezione dei dati
+## <a name="data-protection"></a>Protezione dati
 
 *Per altre informazioni, vedere [benchmark di sicurezza di Azure: protezione dei dati](../security/benchmarks/security-control-data-protection.md).*
 
@@ -529,6 +529,7 @@ Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti 
 **Linee guida**: Azure Machine Learning supporta l'uso di Azure Active Directory (Azure ad) per autorizzare le richieste alle risorse Machine Learning. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione.
 
 - [Gestire gli accessi all'area di lavoro di Azure Machine Learning](how-to-assign-roles.md)
+- [Usa RBAC di Azure per l'autorizzazione Kubernetes](../aks/manage-azure-rbac.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -911,6 +912,8 @@ Azure Machine Learning supporta completamente i repository Git per tenere tracci
 - [Come configurare RBAC di Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [Panoramica sulla raccolta di immagini condivise](../virtual-machines/windows/shared-image-galleries.md)
+
+- [Usa RBAC di Azure per l'autorizzazione Kubernetes](../aks/manage-azure-rbac.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 

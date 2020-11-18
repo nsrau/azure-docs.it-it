@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 11/09/2020
-ms.openlocfilehash: 62621a36955808ec3f2c796681fe660e6e8524bc
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.date: 11/18/2020
+ms.openlocfilehash: 7bfd951d7cec27e0b8264aaabf9bc3a17875256a
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443382"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873523"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -21,11 +21,13 @@ Questo articolo fornisce informazioni generali e procedure per configurare le ch
 
 ## <a name="customer-managed-key-overview"></a>Panoramica della chiave gestita dal cliente
 
-La [crittografia di](../../security/fundamentals/encryption-atrest.md) dati inattivi è un requisito comune per la privacy e la sicurezza nelle organizzazioni. È possibile lasciare che Azure gestisca completamente la crittografia inattiva, mentre sono disponibili diverse opzioni per gestire le chiavi di crittografia o crittografia.
+La [crittografia di](../../security/fundamentals/encryption-atrest.md) dati inattivi è un requisito comune per la privacy e la sicurezza nelle organizzazioni. È possibile lasciare che Azure gestisca completamente la crittografia inattiva, mentre sono disponibili diverse opzioni per la gestione delle chiavi di crittografia e crittografia.
 
-Monitoraggio di Azure garantisce che tutti i dati e le query salvate siano crittografati a riposo usando chiavi gestite da Microsoft (MMK). Monitoraggio di Azure offre anche un'opzione per la crittografia usando una chiave personalizzata archiviata nel [Azure Key Vault](../../key-vault/general/overview.md) e usata dall'archiviazione per la crittografia dei dati. La chiave può essere [software o hardware-HSM protetto](../../key-vault/general/overview.md). L'uso della crittografia da parte di monitoraggio di Azure è identico a quello di [Azure Storage Encryption](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) .
+Monitoraggio di Azure garantisce che tutti i dati e le query salvate siano crittografati a riposo usando chiavi gestite da Microsoft (MMK). Monitoraggio di Azure offre anche un'opzione per la crittografia usando la propria chiave archiviata nel [Azure Key Vault](../../key-vault/general/overview.md) e fornire il controllo per revocare l'accesso ai dati in qualsiasi momento. L'uso della crittografia da parte di monitoraggio di Azure è identico a quello di [Azure Storage Encryption](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) .
 
-La funzionalità della chiave gestita dal cliente viene fornita su cluster Log Analytics dedicati. Consente di proteggere i dati con il controllo dell' [archivio protetto](#customer-lockbox-preview) e fornisce il controllo per revocare l'accesso ai dati in qualsiasi momento. I dati inseriti negli ultimi 14 giorni vengono anche mantenuti nella cache ad accesso frequente (con supporto SSD) per un efficace funzionamento del motore di query. Questi dati rimangono crittografati con le chiavi di Microsoft indipendentemente dalla configurazione della chiave gestita dal cliente, ma il controllo sui dati SSD rispetta la [revoca](#key-revocation)delle chiavi. Si sta lavorando per crittografare i dati SSD con Customer-Managed chiave nella prima metà del 2021.
+Customer-Managed chiave viene fornita in cluster Log Analytics dedicati che forniscono un livello di protezione e un controllo più elevati. I dati inseriti in cluster dedicati vengono crittografati due volte, una volta a livello di servizio usando chiavi gestite da Microsoft o chiavi gestite dal cliente e una volta a livello di infrastruttura usando due algoritmi di crittografia diversi e due chiavi diverse. La [crittografia doppia](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protegge da uno scenario in cui uno degli algoritmi o delle chiavi di crittografia può essere compromesso. In questo caso, il livello di crittografia aggiuntivo continua a proteggere i dati. Il cluster dedicato consente inoltre di proteggere i dati con il controllo dell' [archivio protetto](#customer-lockbox-preview) .
+
+I dati inseriti negli ultimi 14 giorni vengono anche mantenuti nella cache ad accesso frequente (con supporto SSD) per un efficace funzionamento del motore di query. Questi dati rimangono crittografati con le chiavi di Microsoft indipendentemente dalla configurazione della chiave gestita dal cliente, ma il controllo sui dati SSD rispetta la [revoca](#key-revocation)delle chiavi. Si sta lavorando per crittografare i dati SSD con Customer-Managed chiave nella prima metà del 2021.
 
 Il [modello di determinazione dei prezzi per i cluster log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) usa le prenotazioni di capacità a partire da un livello di 1000 GB/giorno.
 
@@ -74,77 +76,18 @@ La configurazione della chiave Customer-Managed non è supportata in portale di 
 
 ### <a name="asynchronous-operations-and-status-check"></a>Operazioni asincrone e controllo dello stato
 
-Alcuni passaggi di configurazione vengono eseguiti in modo asincrono perché non possono essere completati rapidamente. Quando si usano richieste REST nella configurazione, la risposta restituisce inizialmente un codice di stato HTTP 200 (OK) e un'intestazione con la proprietà *Azure-AsyncOperation* quando accettata:
+Alcuni passaggi di configurazione vengono eseguiti in modo asincrono perché non possono essere completati rapidamente. Quando si usa REST, la risposta restituisce inizialmente un codice di stato HTTP 200 (OK) e un'intestazione con la proprietà *Azure-AsyncOperation* quando accettata:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
 
-È quindi possibile controllare lo stato dell'operazione asincrona inviando una richiesta GET al valore dell'intestazione *Azure-AsyncOperation* :
+È possibile controllare lo stato dell'operazione asincrona inviando una richiesta GET al valore dell'intestazione *Azure-AsyncOperation*:
 ```rst
 GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
-La risposta contiene informazioni sull'operazione e il relativo *stato*. I possibili valori sono i seguenti:
-
-L'operazione è in corso
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "InProgress", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-}
-```
-
-L'operazione di aggiornamento dell'identificatore di chiave è in corso
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Updating", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-L'eliminazione del cluster è in corso: quando si elimina un cluster con aree di lavoro collegate, viene eseguita un'operazione di scollegamento per ciascuna area di lavoro in modo asincrono e l'operazione può richiedere alcuni minuti.
-Questo non è pertinente quando si elimina un cluster senza area di lavoro collegata, in questo caso il cluster viene eliminato immediatamente.
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Deleting", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-Operazione completata
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Succeeded", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-}
-```
-
-Operazione non riuscita
-```json
-{
-    "id": "Azure-AsyncOperation URL value from the GET operation",
-    "name": "operation-id", 
-    "status" : "Failed", 
-    "startTime": "2017-01-06T20:56:36.002812+00:00",
-    "endTime": "2017-01-06T20:56:56.002812+00:00",
-    "error" : { 
-        "code": "error-code",  
-        "message": "error-message" 
-    }
-}
-```
+Il `status` contenuto della risposta può essere uno dei seguenti:' InProgress ',' Updating ',' deleting ',' SUCCEEDED o ' failed ', incluso il codice di errore.
 
 ### <a name="allowing-subscription"></a>Concessione della sottoscrizione
 
@@ -474,9 +417,9 @@ Altre informazioni su [Customer Lockbox per Microsoft Azure](../../security/fund
 
   La proprietà *billingType* determina l'attribuzione della fatturazione per il cluster e i relativi dati:
   - *cluster* (impostazione predefinita): la fatturazione viene attribuita alla sottoscrizione che ospita la risorsa Cluster
-  - *workspaces* : la fatturazione viene attribuita alle sottoscrizioni che ospitano le aree di lavoro in modo proporzionale
+  - *workspaces*: la fatturazione viene attribuita alle sottoscrizioni che ospitano le aree di lavoro in modo proporzionale
   
-  Seguire il [cluster di aggiornamento](#update-cluster-with-key-identifier-details) e fornire il nuovo valore billingType. Si noti che non è necessario fornire il corpo completo della richiesta REST ed è necessario includere *billingType* :
+  Seguire il [cluster di aggiornamento](#update-cluster-with-key-identifier-details) e fornire il nuovo valore billingType. Si noti che non è necessario fornire il corpo completo della richiesta REST ed è necessario includere *billingType*:
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -595,7 +538,7 @@ Altre informazioni su [Customer Lockbox per Microsoft Azure](../../security/fund
   1. Quando si usa REST, copiare il valore di Azure-AsyncOperation URL dalla risposta e seguire la [Verifica dello stato delle operazioni asincrone](#asynchronous-operations-and-status-check).
   2. Inviare una richiesta GET a un cluster o a un'area di lavoro e osservare la risposta. Ad esempio, l'area di lavoro scollegata non avrà *clusterResourceId* in *funzionalità*.
 
-- Per il supporto e l'assistenza relativi alla chiave gestita dal cliente, usare i contatti di Microsoft.
+- La [crittografia doppia](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) viene configurata automaticamente per i cluster creati a partire dall'ottobre 2020 quando la crittografia doppia si trova nell'area. Se si crea un cluster e si riceve un errore "<Region-Name> non supporta la crittografia doppia per i cluster". è comunque possibile creare il cluster ma con la crittografia doppia disabilitata. Non può essere abilitata o disabilitata dopo la creazione del cluster. Per creare un cluster quando la crittografia doppia non è supportata nell'area, aggiungere il `"properties": {"isDoubleEncryptionEnabled": false}` corpo della richiesta REST.
 
 - messaggi di errore
   

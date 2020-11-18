@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 29c378d40e3a4f92852f433677125a9e8a6d1133
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1a7204fea1a77dbca57ffc7d512f81e46c4d3b5f
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540128"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873394"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Creare e gestire aree di lavoro Azure Machine Learning 
 
@@ -131,8 +131,12 @@ In caso di problemi di accesso alla sottoscrizione, vedere [configurare l'autent
    Subscription |Selezionare la sottoscrizione di Azure da usare.
    Resource group | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. Per usare un gruppo di risorse esistente, è necessario un ruolo di *collaboratore* o *proprietario* .  Per ulteriori informazioni sull'accesso, vedere [gestire l'accesso a un'area di lavoro Azure Machine Learning](how-to-assign-roles.md).
    Area | Per creare l'area di lavoro, selezionare l'area di Azure più vicina agli utenti e alle risorse di dati.
+   | Account di archiviazione | Account di archiviazione predefinito per l'area di lavoro. Per impostazione predefinita, ne viene creato uno nuovo. |
+   | Key Vault | Azure Key Vault utilizzata dall'area di lavoro. Per impostazione predefinita, ne viene creato uno nuovo. |
+   | Application Insights | Istanza di Application Insights per l'area di lavoro. Per impostazione predefinita, ne viene creato uno nuovo. |
+   | Registro contenitori | Container Registry di Azure per l'area di lavoro. Per impostazione predefinita, un nuovo _non_ viene creato inizialmente per l'area di lavoro. Viene invece creato quando necessario durante la creazione di un'immagine Docker durante il training o la distribuzione. |
 
-    ![Configurare l'area di lavoro](./media/how-to-manage-workspace/create-workspace-form.png)
+   :::image type="content" source="media/how-to-manage-workspace/create-workspace-form.png" alt-text="Configurare l'area di lavoro.":::
 
 1. Al termine della configurazione dell'area di lavoro, selezionare **Verifica + crea**. Facoltativamente, usare le sezioni [rete](#networking) e [Avanzate](#advanced) per configurare altre impostazioni per l'area di lavoro.
 
@@ -181,7 +185,7 @@ Quando si crea un endpoint privato, viene creata una nuova zona DNS privato deno
 
 1. Nella [portale di Azure](https://portal.azure.com)selezionare il gruppo di risorse che contiene l'area di lavoro. Selezionare quindi la risorsa di zona DNS privato denominata __privatelink.API.azureml.ms__
 2. In __Impostazioni__ selezionare collegamenti alla __rete virtuale__.
-3. Selezionare __Aggiungi__. Nella pagina __Aggiungi collegamento rete virtuale__ specificare un nome univoco per il __collegamento__ , quindi selezionare la __rete virtuale__ da aggiungere. Selezionare __OK__ per aggiungere il collegamento di rete.
+3. Selezionare __Aggiungi__. Nella pagina __Aggiungi collegamento rete virtuale__ specificare un nome univoco per il __collegamento__, quindi selezionare la __rete virtuale__ da aggiungere. Selezionare __OK__ per aggiungere il collegamento di rete.
 
 Per altre informazioni, vedere [configurazione DNS dell'endpoint privato di Azure](../private-link/private-endpoint-dns.md).
 
@@ -238,7 +242,7 @@ from azureml.core import Workspace
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-1. Selezionare __chiavi gestite dal cliente__ , quindi selezionare __fare clic per selezionare la chiave__.
+1. Selezionare __chiavi gestite dal cliente__, quindi selezionare __fare clic per selezionare la chiave__.
 
     :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Chiavi gestite dal cliente":::
 
@@ -376,7 +380,7 @@ L'area di lavoro di Azure Machine Learning usa il Registro Azure Container (ACR)
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 Esempi di creazione di un'area di lavoro:
 * Usare portale di Azure per [creare un'istanza di calcolo e un'area di lavoro](tutorial-1st-experiment-sdk-setup.md)

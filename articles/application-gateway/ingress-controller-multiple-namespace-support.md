@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: cffc15974bf5a016a4584f5c5f3dcc8a185c9824
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: c13c4410852d97f0bf4548578f40a5cc560804d7
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397332"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874594"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Abilitare più supporto dello spazio dei nomi in un cluster AKS con il controller di ingresso del gateway applicazione
 
@@ -90,7 +90,7 @@ Nonostante le due risorse in ingresso che richiedono che il traffico `www.contos
   - Impostazioni HTTP: `bp-production-contoso-web-service-80-80-websocket-ingress`
   - Probe di integrità: `pb-production-contoso-web-service-80-websocket-ingress`
 
-Si noti che, ad eccezione del *listener* e della *regola di routing* , le risorse del gateway applicazione create includono il nome dello spazio dei nomi ( `production` ) per il quale sono state create.
+Si noti che, ad eccezione del *listener* e della *regola di routing*, le risorse del gateway applicazione create includono il nome dello spazio dei nomi ( `production` ) per il quale sono state create.
 
 Se le due risorse in ingresso vengono introdotte nel cluster AKS in momenti diversi, è probabile che AGIC si trovi in uno scenario in cui riconfigura il gateway applicazione e reindirizza il traffico da `namespace-B` a `namespace-A` .
 
@@ -147,7 +147,7 @@ Per impostazione predefinita, AGIC configurerà il gateway applicazione in base 
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
     
     ################################################################################
-    # Specify if the cluster is RBAC enabled or not
+    # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
     

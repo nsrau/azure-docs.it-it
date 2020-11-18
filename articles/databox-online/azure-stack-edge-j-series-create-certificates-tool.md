@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 544625fe9fd2dbd87ad7330d7277494cbfbe6eb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e5cb077868a224620d1a23e1ff1aac9c8d9f095
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891087"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874475"
 ---
 # <a name="create-certificates-for-your-azure-stack-edge-pro-using-azure-stack-hub-readiness-checker-tool"></a>Creare certificati per il Azure Stack Edge Pro usando lo strumento di controllo della conformità dell'hub Azure Stack 
 
@@ -42,7 +42,7 @@ Per richiedere i certificati seguenti, è possibile usare lo strumento di contro
 Per creare I CSR per la distribuzione di dispositivi Pro Azure Stack Edge, verificare che: 
 
 - È disponibile un client che esegue Windows 10 o Windows Server 2016 o versione successiva. 
-- È stato scaricato lo strumento di controllo della conformità dell'Hub Microsoft Azure Stack 1.2002.1133.85 [dall'PowerShell Gallery](https://aka.ms/AzsReadinessChecker) nel sistema. Potrebbe essere necessario cercare il pacchetto. Solo questa versione dello strumento può creare certificati per i dispositivi Pro Azure Stack Edge.
+- È stato scaricato lo strumento di controllo dello stato di preparazione dell'Hub Microsoft Azure Stack [dal PowerShell Gallery](https://aka.ms/AzsReadinessChecker) nel sistema.
 - Per i certificati sono disponibili le informazioni seguenti:
   - Nome del dispositivo
   - Numero di serie del nodo
@@ -56,7 +56,7 @@ Seguire questa procedura per preparare i certificati del dispositivo Azure Stack
 2. Installare lo strumento di controllo dello stato di preparazione dell'hub Azure Stack. Al prompt di PowerShell digitare: 
 
     ```azurepowershell
-    Install-Module -Name Microsoft.AzureStack.ReadinessChecker -RequiredVersion 1.2002.1133.85 -Force
+    Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
     Per verificare la versione installata, digitare:  

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: fb1f1d098970927ba04c840e77ec0a0b8d76ca02
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: a9ad018980784a1f809ad28a77dacf9f0328fffa
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561319"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873897"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Sicurezza e governance aziendale per Azure Machine Learning
 
@@ -30,8 +30,8 @@ Quando si usa un servizio cloud, è consigliabile limitare l'accesso solo agli u
 
 La maggior parte dell'autenticazione per Azure Machine Learning risorse USA Azure Active Directory (Azure AD) per l'autenticazione e il controllo degli accessi in base al ruolo (RBAC di Azure) per l'autorizzazione. Le eccezioni sono le seguenti:
 
-* __SSH__ : è possibile abilitare l'accesso SSH ad alcune risorse di calcolo, ad esempio Azure Machine Learning istanza di calcolo. L'accesso SSH usa l'autenticazione basata su chiavi. Per altre informazioni sulla creazione di chiavi SSH, vedere [creare e gestire chiavi SSH](../virtual-machines/linux/create-ssh-keys-detailed.md). Per informazioni sull'abilitazione dell'accesso SSH, vedere [creare e gestire Azure Machine Learning istanza di calcolo](how-to-create-manage-compute-instance.md).
-* __Modelli distribuiti come servizi Web__ : le distribuzioni di servizi Web possono usare il controllo di accesso basato su __chiavi__ o __token__. Le chiavi sono stringhe statiche. I token vengono recuperati usando un account Azure AD. Per altre informazioni, vedere [configurare l'autenticazione per i modelli distribuiti come servizio Web](how-to-authenticate-web-service.md).
+* __SSH__: è possibile abilitare l'accesso SSH ad alcune risorse di calcolo, ad esempio Azure Machine Learning istanza di calcolo. L'accesso SSH usa l'autenticazione basata su chiavi. Per altre informazioni sulla creazione di chiavi SSH, vedere [creare e gestire chiavi SSH](../virtual-machines/linux/create-ssh-keys-detailed.md). Per informazioni sull'abilitazione dell'accesso SSH, vedere [creare e gestire Azure Machine Learning istanza di calcolo](how-to-create-manage-compute-instance.md).
+* __Modelli distribuiti come servizi Web__: le distribuzioni di servizi Web possono usare il controllo di accesso basato su __chiavi__ o __token__. Le chiavi sono stringhe statiche. I token vengono recuperati usando un account Azure AD. Per altre informazioni, vedere [configurare l'autenticazione per i modelli distribuiti come servizio Web](how-to-authenticate-web-service.md).
 
 I servizi specifici su cui si basa Azure Machine Learning, ad esempio i servizi di archiviazione dei dati di Azure, dispongono di metodi di autenticazione e autorizzazione personalizzati. Per ulteriori informazioni sull'autenticazione dei servizi di archiviazione, vedere [connettersi ai servizi di archiviazione](how-to-access-data.md).
 
@@ -75,6 +75,8 @@ La tabella seguente elenca alcune delle principali operazioni di Azure Machine L
 | Chiamare un servizio Web | ✓ | ✓ | ✓ |
 
 Se i ruoli predefiniti non soddisfano le esigenze personali, è possibile creare ruoli personalizzati. I ruoli personalizzati controllano tutte le operazioni all'interno di un'area di lavoro, ad esempio la creazione di un calcolo, l'invio di un'esecuzione, la registrazione di un archivio dati o la distribuzione di un modello. I ruoli personalizzati possono disporre di autorizzazioni di lettura, scrittura o eliminazione per le varie risorse di un'area di lavoro, ad esempio cluster, archivi dati, modelli ed endpoint. È possibile rendere il ruolo disponibile per un livello di area di lavoro specifico, per un livello di gruppo di risorse specifico o per un livello di sottoscrizione specifico. Per altre informazioni, vedere [Gestire gli utenti e i ruoli in un'area di lavoro di Azure Machine Learning](how-to-assign-roles.md).
+
+Per altre informazioni sull'uso di RBAC con Kubernetes, vedere il [controllo di accesso di Azure Role-Based per l'autorizzazione Kubernetes](../aks/manage-azure-rbac.md).
 
 > [!IMPORTANT]
 > Azure Machine Learning dipende da altri servizi di Azure, come l'archiviazione BLOB di Azure e i servizi Kubernetes di Azure. Ogni servizio di Azure ha le proprie configurazioni RBAC di Azure. Per ottenere il livello di controllo di accesso desiderato, potrebbe essere necessario applicare entrambe le configurazioni RBAC di Azure per Azure Machine Learning e quelle per i servizi usati con Azure Machine Learning.
@@ -146,7 +148,7 @@ Esistono diversi scenari di monitoraggio con Azure Machine Learning, a seconda d
 
 ### <a name="azure-monitor"></a>Monitoraggio di Azure
 
-È possibile usare le metriche di Monitoraggio di Azure per visualizzare e monitorare le metriche per l'area di lavoro Azure Machine Learning. Nel [portale di Azure](https://portal.azure.com) selezionare l'area di lavoro e quindi **Metrica** :
+È possibile usare le metriche di Monitoraggio di Azure per visualizzare e monitorare le metriche per l'area di lavoro Azure Machine Learning. Nel [portale di Azure](https://portal.azure.com) selezionare l'area di lavoro e quindi **Metrica**:
 
 [![Screenshot che illustra le metriche di esempio per un'area di lavoro](media/concept-enterprise-security/workspace-metrics.png)](media/concept-enterprise-security/workspace-metrics-expanded.png#lightbox)
 
@@ -185,8 +187,8 @@ Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la
 
 [Criteri di Azure](../governance/policy/index.yml) è uno strumento di governance che consente di garantire che le risorse di Azure siano conformi ai criteri. Con Azure Machine Learning è possibile assegnare i seguenti criteri:
 
-* **Chiave gestita dal cliente** : controlla o impone se le aree di lavoro devono usare una chiave gestita dal cliente.
-* **Collegamento privato** : controllare se le aree di lavoro usano un endpoint privato per comunicare con una rete virtuale.
+* **Chiave gestita dal cliente**: controlla o impone se le aree di lavoro devono usare una chiave gestita dal cliente.
+* **Collegamento privato**: controllare se le aree di lavoro usano un endpoint privato per comunicare con una rete virtuale.
 
 Per altre informazioni sui criteri di Azure, vedere la [documentazione di criteri di Azure](../governance/policy/overview.md).
 

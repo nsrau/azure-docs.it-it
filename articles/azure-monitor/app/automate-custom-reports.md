@@ -4,12 +4,12 @@ description: Automatizzare i report personalizzati giornalieri/settimanali/mensi
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f35b7cbde7b719a91b23b19481ab704c445485cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d465666ce5d631a234644d1adc85afcf6e3c1e27
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827735"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873711"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizzare i report personalizzati con i dati di Azure Application Insights
 
@@ -31,7 +31,7 @@ Ogni azienda ha esigenze di report univoche, ad esempio:
 
 È possibile [eseguire una query a livello di codice sui dati di Application Insights](https://dev.applicationinsights.io/) per generare report personalizzati in base alla pianificazione scelta. Le opzioni seguenti consentono di essere subito operativi:
 
-* [Automatizzare i report con Microsoft Flow](../platform/logicapp-flow-connector.md)
+* [Automatizzare i report con Power automatici](../platform/logicapp-flow-connector.md)
 * [Automatizzare i report con App per la logica](automate-with-logic-apps.md)
 * Usare il modello di [funzione di Azure](../../azure-functions/functions-create-first-azure-function.md) del digest pianificato di Application Insights nello scenario di monitoraggio. Questa funzione usa SendGrid per recapitare il messaggio di posta elettronica. 
 
@@ -74,7 +74,7 @@ availabilityResults
 
    Vedere la documentazione di funzioni di Azure per informazioni su come [creare un'app](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app) per le funzioni
 
-2. Dopo avere completato la distribuzione dell'app per le funzioni, selezionare **Vai alla risorsa **.
+2. Dopo avere completato la distribuzione dell'app per le funzioni, selezionare **Vai alla risorsa**.
 
 3. Selezionare **Nuova funzione**.
 
@@ -91,7 +91,7 @@ availabilityResults
 
    ![Screenshot delle impostazioni dell'app per le funzioni](./media/automate-custom-reports/scheduled-digest.png)
 
-6. Selezionare la **Function App**  >  configurazione delle**funzionalità della piattaforma**app per le funzioni  >  **Configuration**.
+6. Selezionare la **Function App**  >  configurazione delle **funzionalità della piattaforma** app per le funzioni  >  **Configuration**.
 
     ![Screenshot delle impostazioni dell'app per le funzioni di Azure](./media/automate-custom-reports/config.png)
 

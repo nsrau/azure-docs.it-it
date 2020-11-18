@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 09/29/2020
+ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e90bcfe7238ae998ac677a9d7eebef0ffa8939
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568353"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94874254"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Risoluzione degli errori relativi ai certificati
 
@@ -46,6 +46,7 @@ La tabella seguente illustra gli errori comuni relativi ai certificati e le info
 | CertificateManagement_MissingServerOid | Il certificato con nome soggetto non {0} dispone dell'OID di autenticazione server. Controllare le proprietà del certificato e, se necessario, importare un nuovo certificato.|
 | CertificateManagement_NameMismatch | Tipo di certificato non corrispondente. Ambito previsto: {0} , trovato {1} . Caricare il certificato appropriato.|
 | CertificateManagement_NoPrivateKeyPresent | Per il certificato con nome soggetto {0} non è presente alcuna chiave privata. Caricare un certificato con estensione pfx con chiave privata.|
+| CertificateManagement_NoRSACryptoPrivateKey | La chiave privata per il certificato con nome soggetto {0} non è accessibile. Assicurarsi di usare un certificato supportato. È supportato solo il provider di crittografia Microsoft RSA/SChannel. |
 | CertificateManagement_NotSelfSignedCertificate | Il certificato con nome soggetto {0} non è firmato autonomamente. I certificati radice devono essere autofirmati |
 | CertificateManagement_NotSupportedOnVirtualAppliance | Questa operazione non è supportata nel dispositivo virtuale. Questo errore indica che la firma si verificherà solo con Data Box Gateway in esecuzione nell'appliance cloud tattica. Questo errore si verifica durante la gestione del dispositivo tramite Windows PowerShell.|
 | CertificateManagement_SelfSignedCertificate | Il certificato con nome soggetto {0} è autofirmato. Caricare un certificato firmato correttamente.|
@@ -57,6 +58,8 @@ La tabella seguente illustra gli errori comuni relativi ai certificati e le info
 | CertificateImportFailure | Il certificato con identificazione personale {0} non è stato importato nel nodo {1} . Se il problema persiste, contattare il supporto tecnico Microsoft. |
 | CertificateApplyFailure | Il certificato con identificazione personale {0} non è stato applicato al nodo {1} . Se il problema persiste, contattare il supporto tecnico Microsoft.|
 | NodeNotReachable | Non è stato possibile convalidare il certificato {0} . Verificare l'integrità del software e dell'hardware del sistema.|
+| OTTENERE IL CODICE DI ERRORE | La chiave privata per questo certificato non è accessibile. Assicurarsi di usare un certificato supportato. È supportato solo il provider di crittografia Microsoft RSA/SChannel. |
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

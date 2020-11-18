@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 9b14ba12c9f9b679d1d63008d31825647f42619d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c8b3ab965c5a85bd6f25e5325fdca24026aec787
+ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318064"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94873829"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Creare e alleghi un cluster di servizi Kubernetes di Azure
 
@@ -54,12 +54,12 @@ Azure Machine Learning possibile distribuire modelli di apprendimento automatico
    
  - Se si desidera distribuire modelli a nodi **GPU** o a nodi **FPGA** (o a qualsiasi SKU specifico), è necessario creare un cluster con lo SKU specifico. Non è disponibile alcun supporto per la creazione di un pool di nodi secondari in un cluster esistente e la distribuzione di modelli nel pool di nodi secondari.
  
-- Quando si crea o si connette un cluster, è possibile scegliere se creare il cluster per __sviluppo/test__ o __produzione__. Se si vuole creare un cluster AKS per __lo sviluppo__ , __la convalida__ e il __test__ anziché la produzione, impostare lo __scopo del cluster__ su __dev-test__. Se non si specifica lo scopo del cluster, viene creato un cluster di __produzione__ . 
+- Quando si crea o si connette un cluster, è possibile scegliere se creare il cluster per __sviluppo/test__ o __produzione__. Se si vuole creare un cluster AKS per __lo sviluppo__, __la convalida__ e il __test__ anziché la produzione, impostare lo __scopo del cluster__ su __dev-test__. Se non si specifica lo scopo del cluster, viene creato un cluster di __produzione__ . 
 
     > [!IMPORTANT]
     > Un cluster di __sviluppo e test__ non è adatto per il traffico a livello di produzione e può aumentare i tempi di inferenza. Anche i cluster di sviluppo/test non garantiscono la tolleranza di errore.
 
-- Quando si crea o si collega un cluster, se il cluster verrà usato per la __produzione__ , deve contenere almeno 12 __CPU virtuali__. Il numero di CPU virtuali può essere calcolato moltiplicando il __numero di nodi__ nel cluster per il __numero di core__ fornito dalle dimensioni della macchina virtuale selezionate. Se ad esempio si usano le dimensioni della macchina virtuale "Standard_D3_v2" con 4 core virtuali, è necessario selezionare 3 o una versione successiva come numero di nodi.
+- Quando si crea o si collega un cluster, se il cluster verrà usato per la __produzione__, deve contenere almeno 12 __CPU virtuali__. Il numero di CPU virtuali può essere calcolato moltiplicando il __numero di nodi__ nel cluster per il __numero di core__ fornito dalle dimensioni della macchina virtuale selezionate. Se ad esempio si usano le dimensioni della macchina virtuale "Standard_D3_v2" con 4 core virtuali, è necessario selezionare 3 o una versione successiva come numero di nodi.
 
     Per un cluster di __sviluppo e test__ , si riordinano almeno 2 CPU virtuali.
 
@@ -124,7 +124,7 @@ Result
 1.16.13
 ```
 
-Per controllare a livello di **codice le versioni disponibili** , usare l'API REST degli agenti di [orchestrazione dell'elenco client del servizio contenitore](/rest/api/container-service/container%20service%20client/listorchestrators) . Per trovare le versioni disponibili, esaminare le voci in cui `orchestratorType` è `Kubernetes` . Le `orchestrationVersion` voci associate contengono le versioni disponibili che possono essere **collegate** all'area di lavoro.
+Per controllare a livello di **codice le versioni disponibili**, usare l'API REST degli agenti di [orchestrazione dell'elenco client del servizio contenitore](/rest/api/container-service/container%20service%20client/listorchestrators) . Per trovare le versioni disponibili, esaminare le voci in cui `orchestratorType` è `Kubernetes` . Le `orchestrationVersion` voci associate contengono le versioni disponibili che possono essere **collegate** all'area di lavoro.
 
 Per trovare la versione predefinita utilizzata durante la **creazione** di un cluster tramite Azure Machine Learning, trovare la voce in cui `orchestratorType` è `Kubernetes` e `default` è `true` . Il `orchestratorVersion` valore associato è la versione predefinita. Il frammento di codice JSON seguente mostra una voce di esempio:
 
@@ -147,7 +147,7 @@ Per trovare la versione predefinita utilizzata durante la **creazione** di un cl
 
 ## <a name="create-a-new-aks-cluster"></a>Creare un nuovo cluster del servizio Azure Kubernetes
 
-**Tempo stimato** : circa 10 minuti.
+**Tempo stimato**: circa 10 minuti.
 
 La creazione o il fissaggio di un cluster AKS è un processo di tipo One-Time per l'area di lavoro. È possibile riutilizzare questo cluster per più distribuzioni. Se si elimina il cluster o il gruppo di risorse che lo contiene, è necessario creare un nuovo cluster la volta successiva che è necessario distribuire. È possibile collegare più cluster AKS all'area di lavoro.
 
@@ -302,9 +302,10 @@ az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-In Azure Machine Learning Studio selezionare __calcolo__ , __inferenza cluster__ e il cluster che si vuole rimuovere. Usare il collegamento __Scollega__ per scollegare il cluster.
+In Azure Machine Learning Studio selezionare __calcolo__, __inferenza cluster__ e il cluster che si vuole rimuovere. Usare il collegamento __Scollega__ per scollegare il cluster.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Usa RBAC di Azure per l'autorizzazione Kubernetes](../aks/manage-azure-rbac.md)
 * [Come e dove distribuire un modello](how-to-deploy-and-where.md)
 * [Distribuire un modello in un cluster del servizio Kubernetes di Azure](how-to-deploy-azure-kubernetes-service.md)
