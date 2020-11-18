@@ -1,30 +1,42 @@
 ---
 title: Elemento ServicePrincipalSelector dell'interfaccia utente
-description: Descrive l'elemento Microsoft. Common. ServicePrincipalSelector dell'interfaccia utente per portale di Azure. Fornisce un elenco a discesa per scegliere un identificatore dell'applicazione e una casella di testo per inserire una password o un'identificazione personale del certificato.
+description: Descrive l'elemento Microsoft. Common. ServicePrincipalSelector dell'interfaccia utente per portale di Azure. Fornisce un controllo per scegliere un'applicazione e una casella di testo per l'immissione di una password o di un'identificazione personale del certificato.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 11/17/2020
 ms.author: tomfitz
-ms.openlocfilehash: 73b242754bfae53b6df5abd9c2c8dee33b973dad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d41e41f110e927f436b38d6291719c138defa53
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575997"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745763"
 ---
 # <a name="microsoftcommonserviceprincipalselector-ui-element"></a>Elemento Microsoft. Common. ServicePrincipalSelector dell'interfaccia utente
 
-Controllo che consente agli utenti di selezionare un'entità servizio esistente o di registrarne una nuova. Quando si seleziona **Crea nuovo**, vengono eseguiti i passaggi per registrare una nuova applicazione. Quando si seleziona un'applicazione esistente, il controllo fornisce una casella di testo per l'immissione di una password o di un'identificazione personale del certificato.
+Controllo che consente agli utenti di selezionare un' [entità servizio](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) esistente o di registrare una nuova applicazione. Quando si seleziona **Crea nuovo**, seguire i passaggi per registrare una nuova applicazione. Quando si seleziona un'applicazione esistente, il controllo fornisce una casella di testo per l'immissione di una password o di un'identificazione personale del certificato.
 
-## <a name="ui-sample"></a>Esempio di interfaccia utente
+## <a name="ui-samples"></a>Esempi di interfaccia utente
 
-La visualizzazione predefinita è determinata dai valori nella `defaultValue` Proprietà. Se la `principalId` proprietà contiene un identificatore univoco globale (Guid) valido, il controllo Cerca l'ID oggetto dell'applicazione. Il valore predefinito viene applicato se l'utente non effettua una selezione dall'elenco a discesa.
+È possibile usare un'applicazione predefinita, creare una nuova applicazione o usare un'applicazione esistente.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-initial.png" alt-text="Visualizzazione iniziale Microsoft. Common. ServicePrincipalSelector":::
+### <a name="use-default-application-or-create-new"></a>USA applicazione predefinita o Crea nuovo
 
-Quando si seleziona **Crea nuovo** o un identificatore dell'applicazione esistente nell'elenco a discesa, viene visualizzato il **tipo di autenticazione** per immettere una password o un'identificazione personale del certificato nella casella di testo.
+La visualizzazione predefinita è determinata dai valori nella `defaultValue` proprietà e il tipo di **entità servizio** è impostato su **Crea nuovo**. Se la `principalId` proprietà contiene un identificatore univoco globale (Guid) valido, il controllo Cerca l'oggetto dell'applicazione `objectId` . Il valore predefinito viene applicato se l'utente non effettua una selezione dal controllo.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-selection.png" alt-text="Visualizzazione iniziale Microsoft. Common. ServicePrincipalSelector":::
+Se si desidera registrare una nuova applicazione, selezionare **Cambia selezione** e visualizzare la finestra di dialogo **registra un'applicazione** . Immettere il **nome**, il **tipo di account supportato** e selezionare il pulsante **Register (registra** ).
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-default.png" alt-text="Visualizzazione iniziale Microsoft. Common. ServicePrincipalSelector.":::
+
+Dopo la registrazione di una nuova applicazione, utilizzare il **tipo di autenticazione** per immettere una password o un'identificazione personale del certificato.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-authenticate.png" alt-text="Autenticazione Microsoft. Common. ServicePrincipalSelector.":::
+
+### <a name="use-existing-application"></a>USA applicazione esistente
+
+Per usare un'applicazione esistente, scegliere **Seleziona esistente** , quindi selezionare **Crea selezione**. Utilizzare la finestra di dialogo **Seleziona un'applicazione** per cercare il nome dell'applicazione. Nei risultati selezionare l'applicazione e quindi il pulsante **Seleziona** . Dopo aver selezionato un'applicazione, il controllo Visualizza il **tipo di autenticazione** per immettere una password o un'identificazione personale del certificato.
+
+:::image type="content" source="./media/managed-application-elements/microsoft-common-serviceprincipal-existing.png" alt-text="Microsoft. Common. ServicePrincipalSelector selezionare applicazione esistente.":::
 
 ## <a name="schema"></a>SCHEMA
 
@@ -33,14 +45,12 @@ Quando si seleziona **Crea nuovo** o un identificatore dell'applicazione esisten
   "name": "ServicePrincipal",
   "type": "Microsoft.Common.ServicePrincipalSelector",
   "label": {
-    "principalId": "App Id",
     "password": "Password",
     "certificateThumbprint": "Certificate thumbprint",
     "authenticationType": "Authentication Type",
     "sectionHeader": "Service Principal"
   },
   "toolTip": {
-    "principalId": "App Id",
     "password": "Password",
     "certificateThumbprint": "Certificate thumbprint",
     "authenticationType": "Authentication Type"
@@ -63,13 +73,13 @@ Quando si seleziona **Crea nuovo** o un identificatore dell'applicazione esisten
 
 ## <a name="remarks"></a>Commenti
 
-- Le proprietà obbligatorie sono:
+- Di seguito sono riportate le proprietà obbligatorie:
   - `name`
   - `type`
   - `label`
   - `defaultValue`: Specifica i valori predefiniti `principalId` e `name` .
 
-- Le proprietà facoltative sono:
+- Le proprietà facoltative sono le seguenti:
   - `toolTip`: Connette una descrizione comando `infoBalloon` a ogni etichetta.
   - `visible`: Nascondere o visualizzare il controllo.
   - `options`: Specifica se l'opzione di identificazione personale del certificato deve essere resa disponibile.
@@ -95,14 +105,12 @@ Di seguito è riportato un esempio del `Microsoft.Common.ServicePrincipalSelecto
             "name": "ServicePrincipal",
             "type": "Microsoft.Common.ServicePrincipalSelector",
             "label": {
-              "principalId": "App Id",
               "password": "Password",
               "certificateThumbprint": "Certificate thumbprint",
               "authenticationType": "Authentication Type",
               "sectionHeader": "Service Principal"
             },
             "toolTip": {
-              "principalId": "App Id",
               "password": "Password",
               "certificateThumbprint": "Certificate thumbprint",
               "authenticationType": "Authentication Type"
@@ -138,9 +146,9 @@ Di seguito è riportato un esempio del `Microsoft.Common.ServicePrincipalSelecto
 
 ## <a name="example-output"></a>Output di esempio
 
-`appId`È l'ID della registrazione dell'applicazione selezionata o creata. `objectId`È una matrice di ObjectID per le entità servizio configurate per la registrazione dell'applicazione selezionata.
+`appId`È l'ID della registrazione dell'applicazione selezionata o creata. `objectId`È una matrice di ID oggetto per le entità servizio configurate per la registrazione dell'applicazione selezionata.
 
-Quando non viene effettuata alcuna selezione dall'elenco a discesa, il `newOrExisting` valore della proprietà è **nuovo**:
+Quando non viene effettuata alcuna selezione dal controllo, il `newOrExisting` valore della proprietà è **nuovo**:
 
 ```json
 {
@@ -165,7 +173,7 @@ Quando non viene effettuata alcuna selezione dall'elenco a discesa, il `newOrExi
 }
 ```
 
-Quando si seleziona **Crea nuovo** o un identificatore applicazione esistente dall'elenco a discesa `newOrExisting` , il valore della proprietà è **esistente**:
+Quando si seleziona **Crea nuovo** o un'applicazione esistente dal controllo, il `newOrExisting` valore della proprietà è **esistente**:
 
 ```json
 {

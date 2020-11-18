@@ -10,12 +10,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: f5523c513cc0bdd08c43bdbed5046bf662f1a3e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f3aa2d727805d3843e07c524bc36878df55eebb
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206586"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743560"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Trigger di riscaldamento di funzioni di Azure
 
@@ -96,8 +96,6 @@ Ecco il file *function.json*:
 ```
 
 Queste proprietà sono descritte nella sezione [configuration](#trigger---configuration).
-
-Ecco il codice script C# associato a un oggetto `HttpRequest`:
 
 ```cs
 public static void Run(ILogger log)

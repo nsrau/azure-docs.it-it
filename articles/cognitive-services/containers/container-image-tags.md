@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 11/06/2020
+ms.date: 11/17/2020
 ms.author: aahi
-ms.openlocfilehash: 0efb278c217ede94f67b47250633622501a24414
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: ba51776942ad28fc8d4b0db7dd2d0e162e5322b5
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412545"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743338"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Tag di immagine del contenitore di servizi cognitivi di Azure e note sulla versione
 
@@ -574,6 +574,39 @@ L'immagine del contenitore [di sintesi vocale neurale][sp-ntts] è disponibile n
 
 Questa immagine del contenitore include i seguenti tag disponibili. È anche possibile trovare un elenco completo di [tag per la](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/neural-text-to-speech/tags/list)versione.
 
+
+# <a name="latest-version"></a>[Versione più recente](#tab/current)
+
+Note sulla versione per `v1.3.0` :
+* Il contenitore da testo a voce neurale è ora disponibile a livello generale. 
+
+| Tag immagine                                  | Note                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `latest`                                    | Immagine del contenitore con le `en-US` impostazioni locali e la `en-US-AriaNeural` voce.      |
+| `1.3.0-amd64-<locale-and-voice>`    | Sostituire `<locale>` con una delle impostazioni locali disponibili, elencate di seguito. Ad esempio `1.3.0-amd64-en-us-arianeural`. |
+
+
+| v 1.3.0 impostazioni locali e voci           | Note                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `de-de-katjaneural`                 | Immagine del contenitore con le `de-DE` impostazioni locali e la `de-DE-KatjaNeural` voce.     |
+| `en-au-natashaneural`               | Immagine del contenitore con le `en-AU` impostazioni locali e la `en-AU-NatashaNeural` voce.   |
+| `en-ca-claraneural`                 | Immagine del contenitore con le `en-CA` impostazioni locali e la `en-CA-ClaraNeural` voce.     |
+| `en-gb-libbyneural`                 | Immagine del contenitore con le `en-GB` impostazioni locali e la `en-GB-LibbyNeural` voce.     |
+| `en-gb-mianeural`                   | Immagine del contenitore con le `en-GB` impostazioni locali e la `en-GB-MiaNeural` voce.       |
+| `en-us-arianeural`                  | Immagine del contenitore con le `en-US` impostazioni locali e la `en-US-AriaNeural` voce.      |
+| `en-us-guyneural`                   | Immagine del contenitore con le `en-US` impostazioni locali e la `en-US-GuyNeural` voce.       |
+| `es-es-elviraneural`                | Immagine del contenitore con le `es-ES` impostazioni locali e la `es-ES-ElviraNeural` voce.    |
+| `es-mx-dalianeural`                 | Immagine del contenitore con le `es-MX` impostazioni locali e la `es-MX-DaliaNeural` voce.     |
+| `fr-ca-sylvieneural`                | Immagine del contenitore con le `fr-CA` impostazioni locali e la `fr-CA-SylvieNeural` voce.    |
+| `fr-fr-deniseneural`                | Immagine del contenitore con le `fr-FR` impostazioni locali e la `fr-FR-DeniseNeural` voce.    |
+| `it-it-elsaneural`                  | Immagine del contenitore con le `it-IT` impostazioni locali e la `it-IT-ElsaNeural` voce.      |
+| `ja-jp-nanamineural`                | Immagine del contenitore con le `ja-JP` impostazioni locali e la `ja-JP-NanamiNeural` voce.    |
+| `ko-kr-sunhineural`                 | Immagine del contenitore con le `ko-KR` impostazioni locali e la `ko-KR-SunHiNeural` voce.     |
+| `pt-br-franciscaneural`             | Immagine del contenitore con le `pt-BR` impostazioni locali e la `pt-BR-FranciscaNeural` voce. |
+| `zh-cn-xiaoxiaoneural`              | Immagine del contenitore con le `zh-CN` impostazioni locali e la `zh-CN-XiaoxiaoNeural` voce.  |
+
+# <a name="previous-version"></a>[Versione precedente](#tab/previous)
+
 | Tag immagine                                  | Note                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Immagine del contenitore con le `en-US` impostazioni locali e la `en-US-AriaNeural` voce.      |
@@ -599,6 +632,8 @@ Questa immagine del contenitore include i seguenti tag disponibili. È anche pos
 | `ko-kr-sunhineural-preview`                 | Immagine del contenitore con le `ko-KR` impostazioni locali e la `ko-KR-SunHiNeural` voce.     |
 | `pt-br-franciscaneural-preview`             | Immagine del contenitore con le `pt-BR` impostazioni locali e la `pt-BR-FranciscaNeural` voce. |
 | `zh-cn-xiaoxiaoneural-preview`              | Immagine del contenitore con le `zh-CN` impostazioni locali e la `zh-CN-XiaoxiaoNeural` voce.  |
+
+---
 
 ## <a name="speech-language-detection"></a>Rilevamento della lingua parlata
 

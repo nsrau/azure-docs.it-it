@@ -3,14 +3,14 @@ title: Informazioni di riferimento per sviluppatori JavaScript per funzioni di A
 description: Informazioni su come sviluppare funzioni con JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 9b920dc8a31967c9d8e1f05a6101fdfcc7a1304e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: d32c63332c530ec05eb9f93661a8f2a0c5d8264c
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628833"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94743321"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -325,10 +325,10 @@ Oltre al livello predefinito, sono disponibili i seguenti metodi di registrazion
 
 | Metodo                 | Descrizione                                |
 | ---------------------- | ------------------------------------------ |
-| **errore ( _messaggio_ )**   | Scrive un evento a livello di errore nei log.   |
-| **warn( _messaggio_ )**    | Scrive un evento a livello di avviso nei log. |
-| **info( _messaggio_ )**    | Scrive nella registrazione a livello di informazioni o inferiore.    |
-| **verbose( _messaggio_ )** | Scrive nella registrazione a livello dettagliato.           |
+| **errore (_messaggio_)**   | Scrive un evento a livello di errore nei log.   |
+| **warn(_messaggio_)**    | Scrive un evento a livello di avviso nei log. |
+| **info(_messaggio_)**    | Scrive nella registrazione a livello di informazioni o inferiore.    |
+| **verbose(_messaggio_)** | Scrive nella registrazione a livello dettagliato.           |
 
 Nell'esempio seguente viene scritto lo stesso log a livello di traccia di avviso, anziché il livello info:
 
@@ -563,21 +563,42 @@ Esistono due modi per installare pacchetti nell'app per le funzioni:
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 
-In Funzioni, le [impostazioni dell'app](functions-app-settings.md), come le stringhe di connessione al servizio, vengono esposte come variabili di ambiente durante l'esecuzione. È possibile accedere a queste impostazioni usando `process.env` , come illustrato di seguito nella seconda e terza chiamata a `context.log()` dove si registrano le `AzureWebJobsStorage` variabili di ambiente e `WEBSITE_SITE_NAME` :
+Aggiungere le proprie variabili di ambiente a un'app per le funzioni, sia negli ambienti locali che nel cloud, ad esempio i segreti operativi (stringhe di connessione, chiavi ed endpoint) o le impostazioni ambientali, ad esempio le variabili di profilatura. Accedere a queste impostazioni usando `process.env` nel codice della funzione.
+
+### <a name="in-local-development-environment"></a>Nell'ambiente di sviluppo locale
+
+Quando viene eseguito in locale, il progetto di funzioni include un [ `local.settings.json` file](/functions-run-local.md?tabs=node#local-settings-file), in cui archiviare le variabili di ambiente nell' `Values` oggetto. 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "translatorTextEndPoint": "https://api.cognitive.microsofttranslator.com/",
+    "translatorTextKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "languageWorkers__node__arguments": "--prof"
+  }
+}
+```
+
+### <a name="in-azure-cloud-environment"></a>Nell'ambiente cloud di Azure
+
+Quando è in esecuzione in Azure, l'app per le funzioni consente di impostare Usa [le impostazioni dell'applicazione](functions-app-settings.md), ad esempio le stringhe di connessione del servizio, ed espone queste impostazioni come variabili di ambiente durante l'esecuzione. 
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+### <a name="access-environment-variables-in-code"></a>Accedere alle variabili di ambiente nel codice
+
+Accedere alle impostazioni dell'applicazione come variabili di ambiente usando `process.env` , come illustrato di seguito nella seconda e terza chiamata a `context.log()` dove si registrano le `AzureWebJobsStorage` variabili di `WEBSITE_SITE_NAME` ambiente e:
 
 ```javascript
 module.exports = async function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
 ```
-
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
-
-Per l'esecuzione in locale, le impostazioni dell'app vengono lette dal file di progetto [local.settings.json](functions-run-local.md#local-settings-file).
 
 ## <a name="configure-function-entry-point"></a>Configurare il punto di ingresso della funzione
 

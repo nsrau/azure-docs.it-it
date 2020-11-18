@@ -7,15 +7,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc4262d0190084064103aeabe48bec806213ea7f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7ab6d6511d1e2cec82b321003c9d663249ddcf49
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321224"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740227"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Attività del responsabile del gruppo in un processo di data science per i team
 
@@ -43,7 +43,7 @@ Nell'esercitazione riportata di seguito vengono illustrati i passaggi dettagliat
    
    ![Effettuare l'accesso con l'account Microsoft.](./media/group-manager-tasks/signinvs.png)
    
-   Se non si dispone di un account Microsoft, selezionare **Iscriviti adesso** , creare una account Microsoft e accedere con questo account. Se l'organizzazione ha una sottoscrizione di Visual Studio, accedere con le credenziali per la sottoscrizione.
+   Se non si dispone di un account Microsoft, selezionare **Iscriviti adesso**, creare una account Microsoft e accedere con questo account. Se l'organizzazione ha una sottoscrizione di Visual Studio, accedere con le credenziali per la sottoscrizione.
    
 1. Dopo aver eseguito l'accesso, nella parte superiore destra della pagina Azure DevOps selezionare **Crea nuova organizzazione**.
    
@@ -53,7 +53,7 @@ Nell'esercitazione riportata di seguito vengono illustrati i passaggi dettagliat
    
 1. Nella finestra di dialogo di iscrizione assegnare un nome all'organizzazione DevOps di Azure e accettare l'assegnazione dell'area host oppure fare clic su elenco a discesa e selezionare un'area diversa. Selezionare quindi **Continua**. 
 
-1. In **Crea un progetto per** iniziare immettere *GroupCommon* , quindi selezionare **Crea progetto**. 
+1. In **Crea un progetto per** iniziare immettere *GroupCommon*, quindi selezionare **Crea progetto**. 
    
    ![Crea progetto](./media/group-manager-tasks/create-project.png)
 
@@ -65,9 +65,9 @@ Verrà visualizzata la pagina di **Riepilogo** del progetto **GroupCommon** . L'
 
 Azure Repos ospita i seguenti tipi di repository per il gruppo:
 
-- **Repository comuni di gruppo** : repository di uso generico che possono essere adottati da più team all'interno di un'unità Data Science per molti progetti di Data Science. 
-- **Repository del team** : repository per team specifici all'interno di un'unità Data Science. Questi repository sono specifici per le esigenze di un team e possono essere usati per più progetti all'interno del team, ma non sono sufficientemente generici da essere usati in più team all'interno di un'unità data science.
-- **Repository di progetto** : repository per progetti specifici. Tali repository potrebbero non essere sufficientemente generici per più progetti all'interno di un team o per altri team in un'unità data science.
+- **Repository comuni di gruppo**: repository di uso generico che possono essere adottati da più team all'interno di un'unità Data Science per molti progetti di Data Science. 
+- **Repository del team**: repository per team specifici all'interno di un'unità Data Science. Questi repository sono specifici per le esigenze di un team e possono essere usati per più progetti all'interno del team, ma non sono sufficientemente generici da essere usati in più team all'interno di un'unità data science.
+- **Repository di progetto**: repository per progetti specifici. Tali repository potrebbero non essere sufficientemente generici per più progetti all'interno di un team o per altri team in un'unità data science.
 
 Per configurare i repository comuni del gruppo nel progetto, è necessario: 
 - Rinominare il repository **GroupCommon** predefinito in **GroupProjectTemplate**
@@ -75,7 +75,7 @@ Per configurare i repository comuni del gruppo nel progetto, è necessario:
 
 ### <a name="rename-the-default-project-repository-to-groupprojecttemplate"></a>Rinominare il repository del progetto predefinito in GroupProjectTemplate
 
-Per rinominare il repository del progetto **GroupCommon** predefinito in **GroupProjectTemplate** :
+Per rinominare il repository del progetto **GroupCommon** predefinito in **GroupProjectTemplate**:
 
 1. Nella pagina di **Riepilogo** del progetto **GroupCommon** selezionare **repository**. Questa azione consente di eseguire il repository **GroupCommon** predefinito del progetto GroupCommon, che attualmente è vuoto.
    
@@ -83,7 +83,7 @@ Per rinominare il repository del progetto **GroupCommon** predefinito in **Group
    
    ![Gestisci repository](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
    
-1. Nella pagina **Impostazioni progetto** selezionare il **...** accanto a **GroupCommon** , quindi selezionare **Rinomina repository**. 
+1. Nella pagina **Impostazioni progetto** selezionare il **...** accanto a **GroupCommon**, quindi selezionare **Rinomina repository**. 
    
    ![Seleziona... e quindi selezionare Rinomina repository](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
    
@@ -101,7 +101,7 @@ Per creare il repository **GroupUtilities** :
    
    ![Seleziona nuovo repository](./media/group-manager-tasks/create-grouputilities-repo-1.png)
    
-1. Nella finestra di dialogo **Crea un nuovo repository** selezionare **git** come **tipo** , immettere *GroupUtilities* come nome del **repository** e quindi selezionare **Crea**.
+1. Nella finestra di dialogo **Crea un nuovo repository** selezionare **git** come **tipo**, immettere *GroupUtilities* come nome del **repository** e quindi selezionare **Crea**.
    
    ![Creare un repository GroupUtilities](./media/group-manager-tasks/create-grouputilities-repo-2.png)
    
@@ -117,7 +117,7 @@ Per importare i repository del team TDSP:
 
 1. Dal progetto **GroupCommon** Home page selezionare **repository** nel percorso di spostamento a sinistra. Viene aperto il repository **GroupProjectTemplate** predefinito. 
    
-1. Nella pagina **GroupProjectTemplate è vuota** selezionare Import ( **Importa** ). 
+1. Nella pagina **GroupProjectTemplate è vuota** selezionare Import ( **Importa**). 
    
    ![Selezionare Importa](./media/group-manager-tasks/import-repo.png)
    
@@ -126,8 +126,6 @@ Per importare i repository del team TDSP:
    ![Importa repository Microsoft TDSP team](./media/group-manager-tasks/import-repo-2.png)
    
 1. Nella parte superiore **della pagina repository** , a discesa e selezionare il repository **GroupUtilities** .
-   
-1. Ripetere il processo di importazione per importare il contenuto del repository Microsoft TDSP Team **Utilities** , *https: \/ /github.com/Azure/Azure-TDSP-Utilities.git* , nel repository **GroupUtilities** . 
    
 Ognuno dei due repository di gruppo contiene ora tutti i file, ad eccezione di quelli nella directory *. git* , dal repository corrispondente del team di Microsoft TDSP. 
 
@@ -151,7 +149,7 @@ Per personalizzare il contenuto del repository:
      
    - Per caricare i file, selezionare **Carica file/i**. 
      
-     ![Caricare i file](./media/group-manager-tasks/upload-files.png)
+     ![Caricare file](./media/group-manager-tasks/upload-files.png)
      
    - Per modificare i file esistenti, passare al file e quindi fare clic su **modifica**. 
      
@@ -229,7 +227,7 @@ Per aggiungere membri al gruppo:
 
 1. In Azure DevOps, dal progetto **GroupCommon** Home page selezionare **Impostazioni progetto** nel percorso di spostamento a sinistra. 
    
-1. Dal percorso di spostamento a sinistra **Impostazioni progetto** selezionare **Team** , quindi nella pagina **Team** selezionare il **Team GroupCommon**. 
+1. Dal percorso di spostamento a sinistra **Impostazioni progetto** selezionare **Team**, quindi nella pagina **Team** selezionare il **Team GroupCommon**. 
    
    ![Configurare i team](./media/group-manager-tasks/teams.png)
    
@@ -248,7 +246,7 @@ Per configurare le autorizzazioni per i membri:
    
 1. Nella pagina **autorizzazioni** selezionare il gruppo al quale si desidera aggiungere membri. 
    
-1. Nella pagina del gruppo selezionare **membri** , quindi selezionare **Aggiungi**. 
+1. Nella pagina del gruppo selezionare **membri**, quindi selezionare **Aggiungi**. 
    
 1. Nella finestra popup **invita membri** cercare e selezionare i membri da aggiungere al gruppo, quindi selezionare **Salva**. 
    

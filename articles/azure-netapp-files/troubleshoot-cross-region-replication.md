@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/16/2020
+ms.date: 11/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 3aaa5d2bc6fdbda0d1db212539c719aa65cae61b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fbb9b054433905d41d0171ab08b4647618be466
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90709016"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94745684"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>Risolvere i problemi relativi alla replica tra più aree
 
@@ -27,7 +27,7 @@ Questo articolo descrive i messaggi di errore e le risoluzioni che consentono di
 
 ## <a name="errors-creating-replication"></a>Errori durante la creazione della replica  
 
-|     Messaggio di errore    |     Soluzione    |
+|     Messaggio di errore    |     Risoluzione    |
 |-|-|
 |     `Volume {0} cannot   be used as source because it is already in replication`    |     Non è possibile creare una replica con un volume di origine già presente in una relazione di replica dei dati.    |
 |     `Peered region   '{0}' is not accepted`    |     Si sta tentando di creare una replica tra le aree senza peering.    |
@@ -35,7 +35,7 @@ Questo articolo descrive i messaggi di errore e le risoluzioni che consentono di
 
 ## <a name="errors-authorizing-volume"></a>Errori di autorizzazione del volume  
 
-|     Messaggio di errore    |     Soluzione    |
+|     Messaggio di errore    |     Risoluzione    |
 |-|-|
 |     `Missing value   for 'AuthorizeSourceReplication'`    |     `RemoteResourceID`Manca o non è valido dall'interfaccia utente o dalla richiesta API (correzione del messaggio di errore).    |
 |     `Missing value   for 'RemoteVolumeResourceId'`    |     L'oggetto   `RemoteResourceID` è mancante o non valido dall'interfaccia utente o dalla richiesta dell'API.    |
@@ -46,20 +46,21 @@ Questo articolo descrive i messaggi di errore e le risoluzioni che consentono di
 
 ## <a name="errors-deleting-replication"></a>Errori durante l'eliminazione della replica
 
-|     Messaggio di errore    |     Soluzione    |
+|     Messaggio di errore    |     Risoluzione    |
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Verificare che la replica sia stata interruppe oppure che sia non inizializzata e inattiva (inizializzazione non riuscita).    |
 |     `Cannot delete   source replication`    |     L'eliminazione della replica dal lato di origine non è consentita. Assicurarsi di eliminare la replica dal lato di destinazione.    |
+| `Volume with replication cannot be deleted`  |  Eliminare la replica prima di eliminare il volume. Vedere [eliminare le repliche](cross-region-replication-delete.md). Per questa operazione è necessario interrompere il peering prima di eliminare la replica per il volume. 
 
 ## <a name="errors-resyncing-volume"></a>Errori di risincronizzazione del volume
 
-|     Messaggio di errore    |     Soluzione    |
+|     Messaggio di errore    |     Risoluzione    |
 |-|-|
 |     `Volume Replication is in invalid status: (Mirrored|Uninitialized) for operation: 'ResyncReplication'`     |     Verificare che la replica del volume sia in stato "interruppe".    |
 
 ## <a name="errors-deleting-snapshot"></a>Errori durante l'eliminazione dello snapshot 
 
-|     Messaggio di errore    |     Soluzione    |
+|     Messaggio di errore    |     Risoluzione    |
 |-|-|
 |     `Snapshot   cannot be deleted, parent volume is a Data Protection volume with a   replication object`    |     Verificare che la replica del volume sia stata interruppe se si desidera eliminare questo snapshot.    |
 |     `Cannot delete   volume replication generated snapshot`    |     L'eliminazione degli snapshot della linea di base della replica non è consentita.    |

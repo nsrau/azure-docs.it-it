@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3845c5e5d7cf6bb372744fb3c740c44aa2b94236
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4719bd21bc6299373f9dabfe4733541c6fa27b94
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305613"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94740182"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Fase di modellazione del ciclo di vita del processo di data science per i team
 
@@ -41,8 +41,8 @@ Ecco una rappresentazione visiva del ciclo di vita del processo TDSP:
 ## <a name="how-to-do-it"></a>Come eseguirla
 Questa fase comprende tre attività principali:
 
-  * **Progettazione delle funzionalità** : creare le funzionalità dei dati dai dati non elaborati per facilitare il training del modello.
-  * **Training del modello** : trovare il modello che risponde alla domanda in modo più accurato confrontando le metriche di successo.
+  * **Progettazione delle funzionalità**: creare le funzionalità dei dati dai dati non elaborati per facilitare il training del modello.
+  * **Training del modello**: trovare il modello che risponde alla domanda in modo più accurato confrontando le metriche di successo.
   * Determinare se il modello è **adatto per la produzione.**
 
 ### <a name="feature-engineering"></a>Progettazione delle funzioni
@@ -59,22 +59,20 @@ Il processo di training del modello include i passaggi seguenti:
 
    * **Suddividere i dati di input** in modo casuale per la modellazione in un set di dati di training e un set di dati di test.
    * **Compilare i modelli** usando il set di dati di training.
-   * **Valutare** il set di dati di test e di training. Usare una serie di algoritmi di Machine Learning concorrenti insieme a diversi parametri di regolazione associati (noti come *sweep parametrico* ), pensati per rispondere alle domande di interesse con i dati correnti.
+   * **Valutare** il set di dati di test e di training. Usare una serie di algoritmi di Machine Learning concorrenti insieme a diversi parametri di regolazione associati (noti come *sweep parametrico*), pensati per rispondere alle domande di interesse con i dati correnti.
    * **Determinare la soluzione "migliore"** per rispondere alla domanda confrontando la metrica di riuscita tra metodi alternativi.
 
 > [!NOTE]
-> **Evitare perdite** : la perdita di dati può essere causata dall'inclusione di dati dall'esterno del set di dati di training che consente a un modello o a un algoritmo di Machine Learning di eseguire stime estremamente valide. La perdita è il motivo comune che infastidisce gli esperti di dati quando ottengono risultati predittivi che appaiono troppo validi per essere reali. Queste dipendenze possono essere difficili da rilevare. Per evitare la perdita, spesso è necessaria l'iterazione della compilazione di un set di dati di analisi, della creazione di un modello e della valutazione dell'accuratezza dei risultati. 
+> **Evitare perdite**: la perdita di dati può essere causata dall'inclusione di dati dall'esterno del set di dati di training che consente a un modello o a un algoritmo di Machine Learning di eseguire stime estremamente valide. La perdita è il motivo comune che infastidisce gli esperti di dati quando ottengono risultati predittivi che appaiono troppo validi per essere reali. Queste dipendenze possono essere difficili da rilevare. Per evitare la perdita, spesso è necessaria l'iterazione della compilazione di un set di dati di analisi, della creazione di un modello e della valutazione dell'accuratezza dei risultati. 
 > 
 > 
-
-Con il processo TDSP è disponibile uno [strumento di creazione di report e modellazione automatizzato](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling), da eseguire in diversi algoritmi e sweep parametrici per produrre un modello di base. Lo strumento produce anche un report di modellazione di base che riepiloga le prestazioni di ogni combinazione di modello e parametro, inclusa l'importanza delle variabili. Anche questo processo è iterativo poiché potrebbe risultare in una nuova progettazione di funzionalità. 
 
 ## <a name="artifacts"></a>Artifacts
 Gli elementi generati in questa fase includono:
 
    * [Set di funzionalità](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): le funzionalità sviluppate per la modellazione sono descritte nella sezione **set di funzionalità** del report di **definizione dei dati** . Il report contiene i puntatori al codice per generare le funzionalità e una descrizione della modalità di generazione della funzionalità.
    * [Report dei modelli](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): per ogni modello provato, viene generato un report standard basato su modelli che fornisce dettagli su ogni esperimento.
-   * **Decisione di checkpoint** : valutare se il modello viene eseguito in modo sufficiente per la produzione. Alcune domande chiave da porsi:
+   * **Decisione di checkpoint**: valutare se il modello viene eseguito in modo sufficiente per la produzione. Alcune domande chiave da porsi:
      * Il modello risponde alla domanda con sufficiente certezza rispetto ai dati del test? 
      * È consigliabile tentare approcci alternativi? È consigliabile raccogliere dati aggiuntivi, eseguire nuove progettazioni di funzionalità o provare con altri algoritmi?
 
@@ -82,7 +80,7 @@ Gli elementi generati in questa fase includono:
 
 Ecco i collegamenti a ogni passaggio del ciclo di vita del processo di data science per i team:
 
-   1. [Informazioni commerciali](lifecycle-business-understanding.md)
+   1. [Informazioni aziendali](lifecycle-business-understanding.md)
    2. [Acquisizione e comprensione dei dati](lifecycle-data.md)
    3. [Modellazione](lifecycle-modeling.md)
    4. [Distribuzione](lifecycle-deployment.md)

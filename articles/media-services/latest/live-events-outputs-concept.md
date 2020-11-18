@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: f7f73efff266e012616ac68d956abd921afaac2a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: a74dcb3cae74605e747a63f8fbb102404d8cc80e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337424"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94741825"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventi live e output live in Servizi multimediali
 
@@ -38,9 +38,9 @@ Servizi multimediali di Azure ti permette di offrire eventi live ai tuoi clienti
 
 Un [evento Live](/rest/api/media/liveevents) può essere impostato su un *pass-through* (un codificatore Live locale invia un flusso a più velocità in bit) o la *codifica live* (un codificatore Live locale invia un flusso a bitrate singolo). I tipi vengono impostati durante la creazione con [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType. None** : un codificatore Live locale invia un flusso a più velocità in bit. Il flusso inserito passa attraverso l'evento live senza ulteriori elaborazioni. Viene anche chiamata la modalità pass-through.
-* **LiveEventEncodingType. standard** : un codificatore Live locale invia un flusso a bitrate singolo all'evento Live e servizi multimediali crea più flussi a bitrate multipli. Se il feed di contributo è di risoluzione 720p o superiore, il set di impostazioni **Default720p** codifica un set di 6 coppie di risoluzione/velocità in bit.
-* **LiveEventEncodingType. Premium1080p** : un codificatore Live locale invia un flusso a bitrate singolo all'evento Live e servizi multimediali crea più flussi a bitrate multipli. Il set di impostazioni Default1080p specifica il set di output di coppie di risoluzione/velocità in bit.
+* **LiveEventEncodingType. None**: un codificatore Live locale invia un flusso a più velocità in bit. Il flusso inserito passa attraverso l'evento live senza ulteriori elaborazioni. Viene anche chiamata la modalità pass-through.
+* **LiveEventEncodingType. standard**: un codificatore Live locale invia un flusso a bitrate singolo all'evento Live e servizi multimediali crea più flussi a bitrate multipli. Se il feed di contributo è di risoluzione 720p o superiore, il set di impostazioni **Default720p** codifica un set di 6 coppie di risoluzione/velocità in bit.
+* **LiveEventEncodingType. Premium1080p**: un codificatore Live locale invia un flusso a bitrate singolo all'evento Live e servizi multimediali crea più flussi a bitrate multipli. Il set di impostazioni Default1080p specifica il set di output di coppie di risoluzione/velocità in bit.
 
 ### <a name="pass-through"></a>Pass-through
 
@@ -136,7 +136,7 @@ Una volta creato l'evento Live, è possibile ottenere gli URL di inserimento da 
     La modalità Vanity è preferibile ai broadcaster multimediali di grandi dimensioni che usano codificatori broadcast hardware e non vogliono riconfigurare i codificatori quando avviano l'evento Live. Questi broadcast vogliono un URL di inserimento predittivo che non cambia nel tempo.
 
     > [!NOTE]
-    > Nell'portale di Azure l'URL di Vanity è denominato " *prefisso nome host statico* ".
+    > Nell'portale di Azure l'URL di Vanity è denominato "*prefisso nome host statico*".
 
     Per specificare questa modalità nell'API, impostare `useStaticHostName` su `true` al momento della creazione (il valore predefinito è `false` ). Quando `useStaticHostname` è impostato su true, `hostnamePrefix` specifica la prima parte del nome host assegnato all'anteprima dell'evento Live e gli endpoint di inserimento. Il nome host finale è una combinazione di questo prefisso, il nome dell'account di servizi multimediali e un breve codice per i servizi multimediali di Azure data center.
 
@@ -150,13 +150,13 @@ Una volta creato l'evento Live, è possibile ottenere gli URL di inserimento da 
     |---|---|---|
     |REST|[Properties. vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--Vanity-URL](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--Access-token](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[Live. VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |.NET|[Live. VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent.md?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>Regole di denominazione degli URL di inserimento live
 
 * La stringa *casuale* sottostante è un numero esadecimale a 128 bit (costituito da 32 caratteri 0-9 a-f).
-* il *token di accesso* : la stringa GUID valida impostata quando si usa la modalità Vanity. Ad esempio, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`
-* *Nome flusso* : indica il nome del flusso per una connessione specifica. Il valore del nome del flusso viene in genere aggiunto dal codificatore Live usato. È possibile configurare il codificatore Live in modo che usi qualsiasi nome per descrivere la connessione, ad esempio: "video1_audio1", "video2_audio1", "Stream".
+* il *token di accesso*: la stringa GUID valida impostata quando si usa la modalità Vanity. Ad esempio, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`
+* *Nome flusso*: indica il nome del flusso per una connessione specifica. Il valore del nome del flusso viene in genere aggiunto dal codificatore Live usato. È possibile configurare il codificatore Live in modo che usi qualsiasi nome per descrivere la connessione, ad esempio: "video1_audio1", "video2_audio1", "Stream".
 
 #### <a name="non-vanity-url"></a>URL di non reindirizzamento a microsito
 

@@ -5,18 +5,18 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f4238035a6fccb0addb9a481287b31732bd2662
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333121"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94744536"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Domande frequenti sui modelli ARM
 
 Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure Resource Manager (ARM).
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 * **Che cosa sono i modelli ARM e perché è consigliabile usarli?**
 
@@ -68,7 +68,7 @@ Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure
 
 * **È possibile creare una sottoscrizione in un modello ARM?**
 
-  Non ancora, ma stiamo lavorando.
+  Sì. per altre informazioni, vedere [creare sottoscrizioni di Azure a livello di codice con le API più recenti](../../cost-management-billing/manage/programmatically-create-subscription.md).
 
 * **Come è possibile testare il modello prima di distribuirlo?**
 
@@ -104,13 +104,13 @@ Questo articolo fornisce le risposte alle domande frequenti sui modelli di Azure
 
 ## <a name="template-specs"></a>Specifiche di modello
 
-* **Come si può partecipare alla versione di anteprima delle specifiche dei modelli?**
+* **Come è possibile iniziare a usare la versione di anteprima delle specifiche dei modelli?**
 
-  [Aggiungere l'elenco di attesa per le specifiche del](https://aka.ms/templateSpecsWaitlist) modello.
+  Installare la versione più recente di PowerShell o dell'interfaccia della riga di comando di Azure. Per Azure PowerShell, usare la [versione 5.0.0 o successiva](/powershell/azure/install-az-ps). Per l'interfaccia della riga di comando di Azure, usare la [versione 2.14.2 o successiva](/cli/azure/install-azure-cli).
 
 * **Come sono correlate le specifiche di modello e i progetti di Azure?**
 
-  I progettisti di Azure utilizzeranno le specifiche dei modelli nell'implementazione sostituendo la `blueprint definition` risorsa con una `template spec` risorsa. Verrà fornito un percorso di migrazione per convertire la definizione del progetto in una specifica del modello, ma le API di definizione del progetto saranno ancora supportate. Non sono state apportate modifiche alla `blueprint assignment` risorsa. I progetti rimarranno un'esperienza utente per comporre un ambiente governato in Azure.
+  I progettisti di Azure utilizzeranno le specifiche dei modelli nell'implementazione sostituendo la `blueprint definition` risorsa con una `template spec` risorsa. Verrà fornito un percorso di migrazione per convertire la definizione del progetto in una specifica del modello, ma le API di definizione del progetto sono ancora supportate. Non sono state apportate modifiche alla `blueprint assignment` risorsa. I progetti rimarranno un'esperienza utente per comporre un ambiente governato in Azure.
 
 * **Le specifiche di modello sostituiscono i modelli collegati?**
 
