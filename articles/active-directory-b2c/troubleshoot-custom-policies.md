@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ea77540e5fcaac0c4231403473d25ebae46aac
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85384958"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840254"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Risoluzione dei problemi del framework di esperienza di gestione delle identità e criteri personalizzati di Azure AD B2C
 
@@ -43,7 +43,7 @@ Gli errori di convalida comuni includono i seguenti:
 
 * Il valore ClaimType potrebbe non essere scritto correttamente oppure non esiste nello schema.
 * I valori ClaimType devono essere definiti in almeno uno dei file nei criteri.
-    ad esempio `<ClaimType Id="issuerUserId">`
+    Ad esempio: `<ClaimType Id="issuerUserId">`
 * Se ClaimType è definito nel file delle estensioni, ma è usato anche in un valore TechnicalProfile nel file di base, il caricamento del file di base restituirà un errore.
 
 > Frammento con errore: `...makes a reference to a ClaimsTransformation with id...`
@@ -64,7 +64,7 @@ Gli errori di convalida comuni includono i seguenti:
 
 * Per tracciare lo scambio di messaggi tra il browser client e Azure AD B2C usare [Fiddler](https://www.telerik.com/fiddler). Consente di ottenere un'indicazione del punto in cui il percorso utente genera errori nei passaggi di orchestrazione.
 
-* In **Modalità sviluppo** usare [Application Insights](troubleshoot-with-application-insights.md) per tracciare l'attività del percorso utente nel framework di esperienza di gestione delle identità. In **modalità di sviluppo**è possibile osservare lo scambio di attestazioni tra il Framework dell'esperienza di identità e i diversi provider di attestazioni definiti da profili tecnici, ad esempio provider di identità, servizi basati su API, Azure ad B2C directory utente e altri servizi, ad esempio Azure multi-factor authentication.
+* In **Modalità sviluppo** usare [Application Insights](troubleshoot-with-application-insights.md) per tracciare l'attività del percorso utente nel framework di esperienza di gestione delle identità. In **modalità di sviluppo** è possibile osservare lo scambio di attestazioni tra il Framework dell'esperienza di identità e i diversi provider di attestazioni definiti da profili tecnici, ad esempio provider di identità, servizi basati su API, la directory utente Azure ad B2C e altri servizi, ad esempio Azure ad multi-factor authentication.
 
 ## <a name="recommended-practices"></a>Procedure consigliate
 

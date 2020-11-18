@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7417e2d39371066a5c5e8576040cbe22e7632043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d61471e07dda8fcf0c715dcffe85ad3e39ed8ac3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562877"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840373"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui profili tecnici nei criteri personalizzati di Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Un profilo tecnico supporta i tipi di scenario riportati di seguito.
 
 - [Application Insights](application-insights-technical-profile.md) l'invio di dati di evento a [Application Insights](../azure-monitor/app/app-insights-overview.md).
 - [Azure Active Directory](active-directory-technical-profile.md): supporto della gestione degli utenti di Azure Active Directory B2C.
-- [Azure multi-factor authentication](multi-factor-auth-technical-profile.md) : fornisce il supporto per la verifica di un numero di telefono tramite Azure multi-factor authentication (multi-factor authentication). 
+- [Azure AD multi-factor authentication](multi-factor-auth-technical-profile.md) : viene fornito il supporto per la verifica di un numero di telefono utilizzando Azure ad multi-factor authentication (multi-factor authentication). 
 - [Trasformazione delle attestazioni](claims-transformation-technical-profile.md): chiamata di trasformazioni delle attestazioni di output per convalidare le attestazioni, modificarne i valori o impostare valori predefiniti per un set di attestazioni di output.
 - [Hint token ID](id-token-hint.md) : convalida la `id_token_hint` firma del token JWT, il nome dell'autorità emittente e il destinatario del token ed estrae l'attestazione dal token in ingresso.
 - [Autorità emittente di token JWT](jwt-issuer-technical-profile.md): rilascio di un token JWT che viene restituito all'applicazione relying party.

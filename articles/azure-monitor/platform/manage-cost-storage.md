@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 71a4fba177f5bbbaf9f8d991222b071d0da66d4d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b66d0f20959d196fddeb8356d8171573f1243b58
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660390"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842278"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure    
 
@@ -627,7 +627,7 @@ Quando si riceve un avviso, attenersi alla procedura illustrata nelle sezioni pr
 
 ## <a name="data-transfer-charges-using-log-analytics"></a>Addebiti per il trasferimento dei dati tramite Log Analytics
 
-L'invio di dati a Log Analytics potrebbe comportare addebiti per la larghezza di banda dei dati. Come descritto nella [pagina dei prezzi per la larghezza di banda di Azure](https://azure.microsoft.com/pricing/details/bandwidth/), il trasferimento dei dati tra i servizi di Azure in due aree viene addebitato come trasferimento dati in uscita alla tariffa normale. Il trasferimento di dati in entrata è gratuito. Tuttavia, questo addebito è minimo (% ridotta) rispetto ai costi per l'inserimento dei dati Log Analytics. Il controllo dei costi per Log Analytics deve quindi concentrarsi sul [volume di dati](#understanding-ingested-data-volume)inserito. 
+L'invio di dati a Log Analytics può comportare addebiti per la larghezza di banda dei dati, tuttavia è limitato alle macchine virtuali in cui è installato un agente di Log Analytics e non si applica quando si usano le impostazioni di diagnostica o altri connettori incorporati in Sentinel di Azure. Come descritto nella [pagina dei prezzi per la larghezza di banda di Azure](https://azure.microsoft.com/pricing/details/bandwidth/), il trasferimento dei dati tra i servizi di Azure in due aree viene addebitato come trasferimento dati in uscita alla tariffa normale. Il trasferimento di dati in entrata è gratuito. Tuttavia, questo addebito è minimo (% ridotta) rispetto ai costi per l'inserimento dei dati Log Analytics. Il controllo dei costi per Log Analytics deve quindi concentrarsi sul [volume di dati](#understanding-ingested-data-volume)inserito. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Risoluzione dei problemi se Log Analytics non sta più raccogliendo dati

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 32ff5a73494bac2cabcb9488f946673435173dd0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 517de5c4003655c5fea2f2e7949fb513b1a3c381
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489439"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842431"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse
 I [log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Le [metriche della piattaforma](data-platform-metrics.md) vengono raccolte per impostazione predefinita e vengono in genere archiviate nel database di metriche di monitoraggio di Azure. Questo articolo fornisce informazioni dettagliate sulla creazione e la configurazione delle impostazioni di diagnostica per inviare le metriche della piattaforma e i log della piattaforma a destinazioni diverse.
@@ -40,7 +40,7 @@ Il video seguente illustra i log della piattaforma di routing con le impostazion
 > Per aggirare queste limitazioni per metriche specifiche, è consigliabile estrarle manualmente usando l' [API REST delle metriche](/rest/api/monitor/metrics/list) e importarle nei log di monitoraggio di Azure usando l' [API dell'agente di raccolta dati di monitoraggio di Azure](data-collector-api.md).  
 
 
-## <a name="destinations"></a>Destinations
+## <a name="destinations"></a>Destinazioni
 Le metriche e i log della piattaforma possono essere inviati alle destinazioni nella tabella seguente. 
 
 | Destination | Descrizione |
@@ -99,7 +99,7 @@ Prima di creare le impostazioni di diagnostica, è necessario creare tutte le de
 
 4. **Dettagli categoria (cosa da indirizzare)** : selezionare la casella per ogni categoria di dati che si vuole inviare alle destinazioni specificate in un secondo momento. L'elenco di categorie varia per ogni servizio di Azure.
 
-     - **AllMetrics** instrada le metriche della piattaforma di una risorsa nell'archivio dei log di Azure, ma in forma di log. Queste metriche vengono in genere inviate solo al database di serie temporali delle metriche di monitoraggio di Azure. Inviarli all'archivio dei log di monitoraggio di Azure (ricercabile tramite Log Analytics) per integrarli in query che effettuano ricerche negli altri log. Questa opzione potrebbe non essere disponibile per tutti i tipi di risorsa. Quando è supportato, le [metriche supportate da monitoraggio di Azure](metrics-supported.md) elencano le metriche raccolte per i tipi di risorse.
+     - **AllMetrics** instrada le metriche della piattaforma di una risorsa nell'archivio dei log di Azure, ma in forma di log. Queste metriche vengono in genere inviate solo al database di serie temporali delle metriche di monitoraggio di Azure. Inviarli all'archivio dei log di monitoraggio di Azure (ricercabile tramite Log Analytics) consente di integrarli in query che effettuano ricerche negli altri log. Questa opzione potrebbe non essere disponibile per tutti i tipi di risorsa. Quando è supportato, le [metriche supportate da monitoraggio di Azure](metrics-supported.md) elencano le metriche raccolte per i tipi di risorse.
 
        > [!NOTE]
        > Vedere limitazioni per il routing delle metriche ai log di monitoraggio di Azure più indietro in questo articolo.  
@@ -130,7 +130,7 @@ Prima di creare le impostazioni di diagnostica, è necessario creare tutte le de
         >
         > Se, ad esempio, si impostano i criteri di conservazione per *WorkflowRuntime* su 180 giorni e le 24 ore successive lo si imposta su 365 giorni, i log archiviati durante le prime 24 ore verranno eliminati automaticamente dopo 180 giorni, mentre tutti i registri successivi del tipo verranno eliminati automaticamente dopo 365 giorni. Se si modifica il criterio di conservazione in un secondo momento, le prime 24 ore di log rimaneranno per 365 giorni.
 
-6. Fare clic su **Save**.
+6. Fare clic su **Salva**.
 
 Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa risorsa e i log vengono trasmessi alle destinazioni specificate quando vengono generati nuovi dati degli eventi. Potrebbero essere necessari fino a 15 minuti tra il momento in cui viene generato un evento e quando questo viene [visualizzato in un'area di lavoro log Analytics](data-ingestion-time.md).
 

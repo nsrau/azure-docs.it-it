@@ -13,19 +13,19 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 3b81572266f6ee5bd90662a98988d41479f399cc
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 9afad44bcf67478a81e75c17d0ff8ffc6d8c65aa
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675007"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841131"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Uso dell'autenticazione a più fattori Azure Active Directory
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Il database SQL di Azure, Azure SQL Istanza gestita e Azure sinapsi Analytics supportano le connessioni da [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) usando *Azure Active Directory universale con autenticazione a* più fattori. Questo articolo descrive le differenze tra le varie opzioni di autenticazione e anche le limitazioni associate all'uso dell'autenticazione universale in Azure Active Directory (Azure AD) per Azure SQL.
 
-**Scaricare la versione più recente di SSMS** : nel computer client scaricare la versione più recente di SSMS da [Scaricare SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
+**Scaricare la versione più recente di SSMS**: nel computer client scaricare la versione più recente di SSMS da [Scaricare SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
 
 [!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
 
@@ -41,13 +41,13 @@ Esistono due modelli di autenticazione non interattiva per Azure AD, che possono
 - `Azure Active Directory - Password`
 - `Azure Active Directory - Integrated`
 
-Il metodo interattivo che supporta anche Azure Multi-Factor Authentication (multi-factor authentication) è: 
+Il metodo interattivo che supporta anche Azure AD Multi-Factor Authentication (multi-factor authentication) è: 
 
 - `Azure Active Directory - Universal with MFA`
 
-Azure MFA consente di salvaguardare l'accesso a dati e applicazioni soddisfacendo l'aspettativa dell'utente all'uso di un processo di accesso semplice. Offre funzionalità avanzate di autenticazione con una serie di semplici opzioni di verifica, tra cui telefonata, SMS, smart card con pin o notifica tramite app per dispositivi mobili, in modo che ogni utente possa scegliere il metodo che preferisce. La convalida di MFA interattiva con Azure AD può avvenire attraverso una finestra popup.
+Azure AD autenticazione a più fattori consente di proteggere l'accesso ai dati e alle applicazioni, garantendo al tempo stesso agli utenti una procedura di accesso semplice. Offre funzionalità avanzate di autenticazione con una serie di semplici opzioni di verifica, tra cui telefonata, SMS, smart card con pin o notifica tramite app per dispositivi mobili, in modo che ogni utente possa scegliere il metodo che preferisce. La convalida di MFA interattiva con Azure AD può avvenire attraverso una finestra popup.
 
-Per una descrizione del Multi-Factor Authentication di Azure, vedere [multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+Per una descrizione di Azure AD Multi-Factor Authentication, vedere [multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 Per la procedura di configurazione, vedere [Configurare Multi-Factor Authentication con database SQL di Azure per SQL Server Management Studio](authentication-mfa-ssms-configure.md).
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Parametro nome di dominio o ID tenant di Azure AD
@@ -58,7 +58,7 @@ Tutti gli utenti guest che vogliono essere autenticati tramite l'autenticazione 
 
 
 1. Aprire una connessione in SSMS. Immettere il nome del server e selezionare **Azure Active Directory universale con autenticazione a** più fattori. Aggiungere il **nome utente** con cui si vuole accedere.
-1. Selezionare la casella **Opzioni** e passare alla scheda **Proprietà connessione** . Nella finestra di dialogo **Connetti al database** completare la finestra di dialogo per il database. Selezionare la casella **ID tenant o nome di dominio AD** e specificare l'autorità di autenticazione, ad esempio il nome di dominio ( **contosotest.onmicrosoft.com** ) o il GUID dell'ID tenant. 
+1. Selezionare la casella **Opzioni** e passare alla scheda **Proprietà connessione** . Nella finestra di dialogo **Connetti al database** completare la finestra di dialogo per il database. Selezionare la casella **ID tenant o nome di dominio AD** e specificare l'autorità di autenticazione, ad esempio il nome di dominio (**contosotest.onmicrosoft.com**) o il GUID dell'ID tenant. 
 
    ![Screenshot della scheda delle proprietà della connessione che evidenzia le impostazioni per Connetti al database e al nome di dominio di Active Directory o all'ID tenant.](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
@@ -69,7 +69,7 @@ Se si esegue SSMS 18. x o versione successiva, l'ID tenant o il nome di dominio 
 ### <a name="azure-ad-business-to-business-support"></a>Supporto per Azure AD business-to-business
 
 > [!IMPORTANT]
-> Il supporto per gli utenti guest per la connessione al database SQL di Azure, a SQL Istanza gestita e a sinapsi di Azure senza che sia necessario far parte di un gruppo è attualmente disponibile in **anteprima pubblica** . Per altre informazioni, vedere [creare Azure ad utenti guest e impostare come amministratore Azure ad](authentication-aad-guest-users.md).
+> Il supporto per gli utenti guest per la connessione al database SQL di Azure, a SQL Istanza gestita e a sinapsi di Azure senza che sia necessario far parte di un gruppo è attualmente disponibile in **anteprima pubblica**. Per altre informazioni, vedere [creare Azure ad utenti guest e impostare come amministratore Azure ad](authentication-aad-guest-users.md).
 
 Azure AD gli utenti supportati per Azure AD scenari B2B come utenti Guest (vedere informazioni su [collaborazione B2B di Azure](../../active-directory/external-identities/what-is-b2b.md)) possono connettersi al database SQL e alla sinapsi di Azure solo come parte dei membri di un gruppo creato nel Azure ad associato ed essere mappati manualmente usando l'istruzione [Create User (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) in un database specifico. Se ad esempio `steve@gmail.com` viene invitato in `contosotest` di Azure AD (con dominio di Azure AD `contosotest.onmicrosoft.com`), è necessario creare un gruppo, ad esempio `usergroup`, nell'istanza di Azure AD che contiene il membro `steve@gmail.com`. Questo gruppo deve quindi essere creato per un database specifico, ad esempio, `MyDatabase` da un Azure ad amministratore SQL o Azure ad dbo, eseguendo l'istruzione Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` . 
 
@@ -100,4 +100,4 @@ Dopo aver creato l'utente del database, l'utente `steve@gmail.com` può accedere
 - [Importare un file BACPAC in un nuovo database](database-import.md)  
 - [Esportare un database in un file BACPAC](database-export.md)  
 - Interfaccia C# [IUniversalAuthProvider](/dotnet/api/microsoft.sqlserver.dac.iuniversalauthprovider)  
-- Quando si usa **Azure Active Directory universale con autenticazione a** più fattori, la traccia adal è disponibile a partire da [SSMS 17,3](/sql/ssms/download-sql-server-management-studio-ssms). Disattivata per impostazione predefinita, la traccia ADAL può essere attivata usando il menu **Strumenti** , **Opzioni** in **Servizi di Azure** , **Cloud di Azure** , **Livello di traccia della finestra di output di ADAL** e quindi abilitando **Output** nel menu **Visualizza** . Le tracce sono disponibili nella finestra di output quando si seleziona l' **opzione Azure Active Directory** .
+- Quando si usa **Azure Active Directory universale con autenticazione a** più fattori, la traccia adal è disponibile a partire da [SSMS 17,3](/sql/ssms/download-sql-server-management-studio-ssms). Disattivata per impostazione predefinita, la traccia ADAL può essere attivata usando il menu **Strumenti**, **Opzioni** in **Servizi di Azure**, **Cloud di Azure**, **Livello di traccia della finestra di output di ADAL** e quindi abilitando **Output** nel menu **Visualizza**. Le tracce sono disponibili nella finestra di output quando si seleziona l'**opzione Azure Active Directory**.

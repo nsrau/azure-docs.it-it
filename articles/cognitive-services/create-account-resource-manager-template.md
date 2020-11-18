@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.custom: subject-armqs
-ms.openlocfilehash: 9ca92bf81acd72260d89404051f941b317ee3e1d
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.custom: subject-armqs, devx-track-azurecli
+ms.openlocfilehash: 4afaad77fdff7a1ba80a385e9f2c3d8ddef8ab96
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363392"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842108"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Avvio rapido: Creare una risorsa di Servizi cognitivi con un modello di Resource Manager
 
@@ -60,7 +60,7 @@ Nel modello è definita una risorsa di Azure:
     |valore  |Descrizione  |
     |---------|---------|
     | **Sottoscrizione** | Selezionare una sottoscrizione di Azure. |
-    | **Gruppo di risorse** | Selezionare **Crea nuovo** , immettere un nome univoco per il gruppo di risorse e quindi fare clic su **OK**. |
+    | **Gruppo di risorse** | Selezionare **Crea nuovo**, immettere un nome univoco per il gruppo di risorse e quindi fare clic su **OK**. |
     | **Area** | Scegliere un'area,  ad esempio **Stati Uniti orientali 2** |
     | **Nome del servizio cognitivo** | Sostituire con un nome univoco per la risorsa. Il nome sarà necessario nella sezione successiva quando si convalida la distribuzione. |
     | **Posizione** | Sostituire con l'area usata in precedenza. |

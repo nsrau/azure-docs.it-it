@@ -11,16 +11,16 @@ ms.date: 10/15/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e328caa80a0e63f68f2563bc91a6405341ad064e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c0ab4d367d2ca9fd59c26ce8d36b5f80dcb832c8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102069"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840628"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Abilitare l'autenticazione a più fattori in Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) si integra direttamente con [multi-factor authentication di Azure](../active-directory/authentication/multi-factor-authentication.md) , in modo che sia possibile aggiungere un secondo livello di sicurezza per l'iscrizione e l'accesso alle proprie applicazioni. È possibile abilitare l'autenticazione a più fattori senza scrivere una singola riga di codice. Se i flussi utente di iscrizione e accesso sono già stati creati, è ancora possibile abilitare l'autenticazione a più fattori.
+Azure Active Directory B2C (Azure AD B2C) si integra direttamente con [Azure AD multi-factor authentication](../active-directory/authentication/multi-factor-authentication.md) in modo che sia possibile aggiungere un secondo livello di sicurezza per le esperienze di iscrizione e accesso nelle applicazioni. È possibile abilitare l'autenticazione a più fattori senza scrivere una singola riga di codice. Se i flussi utente di iscrizione e accesso sono già stati creati, è ancora possibile abilitare l'autenticazione a più fattori.
 
 Questa funzionalità consente alle applicazioni di gestire scenari come:
 
@@ -35,7 +35,7 @@ Questa funzionalità consente alle applicazioni di gestire scenari come:
 1. Selezionare **Flussi utente**.
 1. Selezionare il flusso utente per il quale si desidera abilitare l'autenticazione a più fattori. Ad esempio, *B2C_1_signinsignup*.
 1. Selezionare **Proprietà**.
-1. Nella sezione **autenticazione** a più fattori selezionare il **Metodo**di autenticazione a più fattori desiderato, quindi in **applicazione** dell'autenticazione a più fattori selezionare **Always on**oppure ** [condizionale](conditional-access-user-flow.md) (scelta consigliata)**. Per condizionale, creare un criterio di [criteri di accesso condizionale](conditional-access-identity-protection-setup.md) e specificare le app a cui si vuole applicare il criterio. 
+1. Nella sezione **autenticazione** a più fattori selezionare il **Metodo** di autenticazione a più fattori desiderato, quindi in **applicazione** dell'autenticazione a più fattori selezionare **Always on** oppure **[condizionale](conditional-access-user-flow.md) (scelta consigliata)**. Per condizionale, creare un criterio di [criteri di accesso condizionale](conditional-access-identity-protection-setup.md) e specificare le app a cui si vuole applicare il criterio. 
 1. Selezionare Salva. L'autenticazione a più fattori è ora abilitata per questo flusso utente.
 
 È possibile usare **Esegui ora** per verificare l'esperienza. Confermare lo scenario seguente:

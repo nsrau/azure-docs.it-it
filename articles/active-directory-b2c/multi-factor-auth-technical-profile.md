@@ -1,7 +1,7 @@
 ---
-title: Profili tecnici dell'autenticazione a più fattori di Azure nei criteri personalizzati
+title: Azure AD i profili tecnici dell'autenticazione a più fattori nei criteri personalizzati
 titleSuffix: Azure AD B2C
-description: Informazioni di riferimento sui criteri personalizzati per i profili tecnici di Azure Multi-Factor Authentication (AMF) in Azure AD B2C.
+description: Riferimento ai criteri personalizzati per i profili tecnici di Azure AD Multi-Factor Authentication (AMF) in Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,23 +11,23 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 71040f831ed7a64f2bc7be7f3a75218976fc2559
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e81ac35555e6653cecb602e5af2f19aa3e2f05e9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385944"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840594"
 ---
-# <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definire un profilo tecnico dell'autenticazione a più fattori di Azure in un Azure AD B2C criteri personalizzati
+# <a name="define-an-azure-ad-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definire un profilo tecnico Azure AD multi-factor authentication in un criterio personalizzato Azure AD B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) fornisce il supporto per la verifica di un numero di telefono tramite Azure Multi-Factor Authentication (multi-factor authentication). Usare questo profilo tecnico per generare e inviare un codice a un numero di telefono e quindi verificare il codice. Il profilo tecnico dell'autenticazione a più fattori di Azure può anche restituire un messaggio di errore.  Il profilo tecnico di convalida consente la convalida i dati specificati dall'utente prima che il percorso utente proceda. Con il profilo tecnico di convalida, viene visualizzato un messaggio di errore in una pagina autocertificata.
+Azure Active Directory B2C (Azure AD B2C) fornisce il supporto per la verifica di un numero di telefono utilizzando Azure AD Multi-Factor Authentication (multi-factor authentication). Usare questo profilo tecnico per generare e inviare un codice a un numero di telefono e quindi verificare il codice. Il profilo tecnico Azure AD autenticazione a più fattori può inoltre restituire un messaggio di errore.  Il profilo tecnico di convalida consente la convalida i dati specificati dall'utente prima che il percorso utente proceda. Con il profilo tecnico di convalida, viene visualizzato un messaggio di errore in una pagina autocertificata.
 
 Questo profilo tecnico:
 
 - Non fornisce un'interfaccia per interagire con l'utente. Al contrario, l'interfaccia utente viene chiamata da un profilo tecnico [autocertificato](self-asserted-technical-profile.md) o da un [controllo di visualizzazione](display-controls.md) come [profilo tecnico di convalida](validation-technical-profile.md).
-- Usa il Servizio autenticazione a più fattori di Azure per generare e inviare un codice a un numero di telefono e quindi verifica il codice.  
+- Usa il servizio di Azure AD autenticazione a più fattori per generare e inviare un codice a un numero di telefono e quindi verifica il codice.  
 - Convalida un numero di telefono tramite SMS.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
@@ -40,7 +40,7 @@ L'attributo **Nome** dell'elemento **Protocollo** deve essere impostato su `Prop
 Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
-L'esempio seguente illustra un profilo tecnico dell'autenticazione a più fattori di Azure:
+Nell'esempio seguente viene illustrato un profilo tecnico Azure AD multi-factor authentication:
 
 ```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
@@ -55,7 +55,7 @@ La prima modalità di questo profilo tecnico consiste nel generare un codice e i
 
 ### <a name="input-claims"></a>Attestazioni di input
 
-L'elemento **InputClaims** contiene un elenco di attestazioni da inviare all'autenticazione a più fattori di Azure. È anche possibile mappare il nome dell'attestazione al nome definito nel profilo tecnico dell'autenticazione a più fattori.
+L'elemento **InputClaims** contiene un elenco di attestazioni da inviare a Azure ad autenticazione a più fattori. È anche possibile mappare il nome dell'attestazione al nome definito nel profilo tecnico dell'autenticazione a più fattori.
 
 | ClaimReferenceId | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
@@ -64,11 +64,11 @@ L'elemento **InputClaims** contiene un elenco di attestazioni da inviare all'aut
 | companyName | No |Nome della società in SMS. Se non viene specificato, viene usato il nome dell'applicazione. |
 | locale | No | Impostazioni locali dell'SMS. Se non viene specificato, vengono usate le impostazioni locali del browser dell'utente. |
 
-L'elemento **InputClaimsTransformations** può contenere una raccolta di elementi **InputClaimsTransformation** usati per modificare le attestazioni di input o generarne di nuovi prima dell'invio al servizio Azure multi-factor authentication.
+L'elemento **InputClaimsTransformations** può contenere una raccolta di elementi **InputClaimsTransformation** usati per modificare le attestazioni di input o generarne di nuovi prima dell'invio al servizio Azure ad multi-factor authentication.
 
 ### <a name="output-claims"></a>Attestazioni di output
 
-Il provider del protocollo di autenticazione a più fattori di Azure non restituisce alcun **OutputClaims**, pertanto non è necessario specificare le attestazioni di output. È tuttavia possibile includere le attestazioni che non vengono restituite dal provider di identità di autenticazione a più fattori di Azure, purché si imposti l' `DefaultValue` attributo.
+Il provider del protocollo di Azure AD autenticazione a più fattori non restituisce alcun **OutputClaims**, pertanto non è necessario specificare le attestazioni di output. È tuttavia possibile includere le attestazioni che non vengono restituite dal provider di identità Azure AD di autenticazione a più fattori, purché si imposti l' `DefaultValue` attributo.
 
 L'elemento **OutputClaimsTransformations** può contenere una raccolta di elementi **OutputClaimsTransformation** che vengono usati per modificare le attestazioni di output o per generarne di nuove.
 
@@ -80,7 +80,7 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 #### <a name="ui-elements"></a>Elementi dell'interfaccia utente
 
-I metadati seguenti possono essere utilizzati per configurare i messaggi di errore visualizzati durante l'invio di errori SMS. I metadati devono essere configurati nel profilo tecnico [autocertificato](self-asserted-technical-profile.md) . I messaggi di errore possono essere [localizzati](localization-string-ids.md#azure-mfa-error-messages).
+I metadati seguenti possono essere utilizzati per configurare i messaggi di errore visualizzati durante l'invio di errori SMS. I metadati devono essere configurati nel profilo tecnico [autocertificato](self-asserted-technical-profile.md) . I messaggi di errore possono essere [localizzati](localization-string-ids.md#azure-ad-mfa-error-messages).
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
@@ -91,7 +91,7 @@ I metadati seguenti possono essere utilizzati per configurare i messaggi di erro
 
 ### <a name="example-send-an-sms"></a>Esempio: inviare un SMS
 
-L'esempio seguente illustra un profilo tecnico dell'autenticazione a più fattori di Azure usato per inviare un codice tramite SMS.
+Nell'esempio seguente viene illustrato un profilo tecnico Azure AD multi-factor authentication utilizzato per inviare un codice tramite SMS.
 
 ```xml
 <TechnicalProfile Id="AzureMfa-SendSms">
@@ -117,18 +117,18 @@ La seconda modalità di questo profilo tecnico consiste nel verificare un codice
 
 ### <a name="input-claims"></a>Attestazioni di input
 
-L'elemento **InputClaims** contiene un elenco di attestazioni da inviare all'autenticazione a più fattori di Azure. È anche possibile mappare il nome dell'attestazione al nome definito nel profilo tecnico dell'autenticazione a più fattori.
+L'elemento **InputClaims** contiene un elenco di attestazioni da inviare a Azure ad autenticazione a più fattori. È anche possibile mappare il nome dell'attestazione al nome definito nel profilo tecnico dell'autenticazione a più fattori.
 
 | ClaimReferenceId | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- | ----------- |
 | phoneNumber| Sì | Lo stesso numero di telefono usato in precedenza per inviare un codice. Viene anche usato per individuare una sessione di verifica telefonica. |
 | verificationCode  | Sì | Codice di verifica fornito dall'utente da verificare |
 
-L'elemento **InputClaimsTransformations** può contenere una raccolta di elementi **InputClaimsTransformation** usati per modificare le attestazioni di input o generarne di nuovi prima di chiamare il servizio Azure multi-factor authentication.
+L'elemento **InputClaimsTransformations** può contenere una raccolta di elementi **InputClaimsTransformation** usati per modificare le attestazioni di input o generarne di nuovi prima di chiamare il servizio di Azure ad autenticazione a più fattori.
 
 ### <a name="output-claims"></a>Attestazioni di output
 
-Il provider del protocollo di autenticazione a più fattori di Azure non restituisce alcun **OutputClaims**, pertanto non è necessario specificare le attestazioni di output. È tuttavia possibile includere le attestazioni che non vengono restituite dal provider di identità di autenticazione a più fattori di Azure, purché si imposti l' `DefaultValue` attributo.
+Il provider del protocollo di Azure AD autenticazione a più fattori non restituisce alcun **OutputClaims**, pertanto non è necessario specificare le attestazioni di output. È tuttavia possibile includere le attestazioni che non vengono restituite dal provider di identità Azure AD di autenticazione a più fattori, purché si imposti l' `DefaultValue` attributo.
 
 L'elemento **OutputClaimsTransformations** può contenere una raccolta di elementi **OutputClaimsTransformation** che vengono usati per modificare le attestazioni di output o per generarne di nuove.
 
@@ -140,7 +140,7 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 #### <a name="ui-elements"></a>Elementi dell'interfaccia utente
 
-I metadati seguenti possono essere utilizzati per configurare i messaggi di errore visualizzati quando si verifica un errore di verifica del codice. I metadati devono essere configurati nel profilo tecnico [autocertificato](self-asserted-technical-profile.md) . I messaggi di errore possono essere [localizzati](localization-string-ids.md#azure-mfa-error-messages).
+I metadati seguenti possono essere utilizzati per configurare i messaggi di errore visualizzati quando si verifica un errore di verifica del codice. I metadati devono essere configurati nel profilo tecnico [autocertificato](self-asserted-technical-profile.md) . I messaggi di errore possono essere [localizzati](localization-string-ids.md#azure-ad-mfa-error-messages).
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
@@ -151,7 +151,7 @@ I metadati seguenti possono essere utilizzati per configurare i messaggi di erro
 
 ### <a name="example-verify-a-code"></a>Esempio: verifica di un codice
 
-L'esempio seguente illustra un profilo tecnico dell'autenticazione a più fattori di Azure usato per verificare il codice.
+Nell'esempio seguente viene illustrato un profilo tecnico Azure AD multi-factor authentication utilizzato per verificare il codice.
 
 ```xml
 <TechnicalProfile Id="AzureMfa-VerifySms">

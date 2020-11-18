@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e2ebc0033f2d2d55571ba45a38b5e0061716673d
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 04852e3081807930ced9fdacc75c956d9a15ff23
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94532478"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840730"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Note per gli sviluppatori relative ai criteri personalizzati in Azure Active Directory B2C
 
@@ -98,7 +98,7 @@ Le funzionalità dei criteri personalizzati o di Identity Experience Framework s
 | Funzionalità | Sviluppo | Anteprima | GA | Note |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Autenticazione fattore telefono](phone-factor-technical-profile.md) |  |  | X |  |
-| [Autenticazione Azure MFA](multi-factor-auth-technical-profile.md) |  | X |  |  |
+| [Autenticazione a più fattori Azure AD](multi-factor-auth-technical-profile.md) |  | X |  |  |
 | [Password monouso](one-time-password-technical-profile.md) |  | X |  |  |
 | [Azure Active Directory](active-directory-technical-profile.md) come directory locale |  |  | X |  |
 | Sottosistema posta elettronica di Azure per la verifica della posta elettronica |  |  | X |  |

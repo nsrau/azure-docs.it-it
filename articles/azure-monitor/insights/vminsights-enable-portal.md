@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ba6ae9262fb0e55c53e1b1421c075e555fae8d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55e5ff2af62c903efeab5c4932eae0c9dc9b535c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87328237"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842312"
 ---
 # <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>Abilitare Monitoraggio di Azure per una singola macchina virtuale o un set di scalabilità di macchine virtuali nel portale di Azure
 Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale o un set di scalabilità di macchine virtuali usando il portale di Azure. Questa procedura può essere utilizzata per gli elementi seguenti:
@@ -27,7 +27,7 @@ Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine vi
 
 ## <a name="enable-azure-monitor-for-vms"></a>Abilita Monitoraggio di Azure per le macchine virtuali
 
-Dal portale di Azure selezionare **macchine virtuali**, set di **scalabilità**di macchine virtuali o **computer-Azure Arc** e selezionare una risorsa nell'elenco. Nella sezione **monitoraggio** del menu selezionare **Insights** e quindi **Enable**. L'esempio seguente mostra una macchina virtuale di Azure, ma il menu è simile per il set di scalabilità di macchine virtuali di Azure o Azure Arc.
+Dal portale di Azure selezionare **macchine virtuali**, set di **scalabilità di macchine virtuali** o **Server-Azure Arc** e selezionare una risorsa nell'elenco. Nella sezione **monitoraggio** del menu selezionare **Insights** e quindi **Enable**. L'esempio seguente mostra una macchina virtuale di Azure, ma il menu è simile per il set di scalabilità di macchine virtuali di Azure o Azure Arc.
 
 ![Abilitare Monitoraggio di Azure per le macchine virtuali per una macchina virtuale](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Accesso protetto alle VM remote in Azure AD Domain Services | Microsoft Docs
-description: Informazioni su come proteggere l'accesso remoto alle macchine virtuali usando server dei criteri di rete e Azure Multi-Factor Authentication con una distribuzione di Servizi Desktop remoto in un dominio gestito da Azure Active Directory Domain Services.
+description: Informazioni su come proteggere l'accesso remoto alle macchine virtuali tramite server dei criteri di rete e Azure AD Multi-Factor Authentication con una distribuzione Servizi Desktop remoto in un dominio gestito Azure Active Directory Domain Services.
 services: active-directory-ds
 author: MicrosoftGuyJFlo
 manager: daveba
@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: joflore
-ms.openlocfilehash: 2964ca74a05ccbc61646f8a289fc950b46cdad47
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a08b5bf4fb575f0cd2098b3ef180860bb8fbd6e0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967784"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840237"
 ---
 # <a name="secure-remote-access-to-virtual-machines-in-azure-active-directory-domain-services"></a>Proteggere l'accesso remoto alle macchine virtuali in Azure Active Directory Domain Services
 
-Per proteggere l'accesso remoto alle macchine virtuali (VM) in esecuzione in un dominio gestito Azure Active Directory Domain Services (Azure AD DS), è possibile utilizzare Servizi Desktop remoto (RDS) e server dei criteri di rete. Azure AD DS autentica gli utenti durante la richiesta di accesso tramite l'ambiente RDS. Per una maggiore sicurezza, è possibile integrare Azure Multi-Factor Authentication per fornire una richiesta di autenticazione aggiuntiva durante gli eventi di accesso. Azure Multi-Factor Authentication usa un'estensione per NPS per fornire questa funzionalità.
+Per proteggere l'accesso remoto alle macchine virtuali (VM) in esecuzione in un dominio gestito Azure Active Directory Domain Services (Azure AD DS), è possibile utilizzare Servizi Desktop remoto (RDS) e server dei criteri di rete. Azure AD DS autentica gli utenti durante la richiesta di accesso tramite l'ambiente RDS. Per una maggiore sicurezza, è possibile integrare Azure AD Multi-Factor Authentication per fornire una richiesta di autenticazione aggiuntiva durante gli eventi di accesso. Azure AD Multi-Factor Authentication utilizza un'estensione per NPS per fornire questa funzionalità.
 
 > [!IMPORTANT]
 > Per connettersi in modo sicuro alle VM in un dominio gestito di Azure AD DS, è consigliabile usare Azure Bastion, un servizio PaaS completamente gestito dalla piattaforma di cui si esegue il provisioning all'interno della rete virtuale. Un host Bastion fornisce connettività di Remote Desktop Protocol (RDP) protetta e senza problemi alle VM direttamente nella portale di Azure tramite SSL. Quando ci si connette tramite un host Bastion, le macchine virtuali non necessitano di un indirizzo IP pubblico e non è necessario usare i gruppi di sicurezza di rete per esporre l'accesso a RDP sulla porta TCP 3389.
@@ -28,7 +28,7 @@ Per proteggere l'accesso remoto alle macchine virtuali (VM) in esecuzione in un 
 >
 > Per altre informazioni, vedere [che cos'è Azure Bastion?][bastion-overview].
 
-Questo articolo illustra come configurare Servizi Desktop remoto in Azure AD DS e, facoltativamente, come usare l'estensione NPS Multi-Factor Authentication Azure.
+In questo articolo viene illustrato come configurare Servizi Desktop remoto in Azure AD DS e, facoltativamente, utilizzare l'Azure AD Multi-Factor Authentication estensione NPS.
 
 ![Panoramica di Servizi Desktop remoto (RDS)](./media/enable-network-policy-server/remote-desktop-services-overview.png)
 
@@ -66,32 +66,32 @@ La distribuzione dell'ambiente desktop remoto contiene una serie di passaggi. La
 
 Con il servizio desktop remoto distribuito nel dominio gestito, è possibile gestire e usare il servizio come si farebbe con un dominio di servizi di dominio Active Directory locale.
 
-## <a name="deploy-and-configure-nps-and-the-azure-mfa-nps-extension"></a>Distribuire e configurare NPS e l'estensione NPS di Azure per l'autenticazione a più fattori
+## <a name="deploy-and-configure-nps-and-the-azure-ad-mfa-nps-extension"></a>Distribuire e configurare server dei criteri di server e l'estensione NPS di Azure AD
 
-Se si vuole aumentare la sicurezza dell'esperienza di accesso degli utenti, è possibile integrare facoltativamente l'ambiente desktop remoto con Azure Multi-Factor Authentication. Con questa configurazione, gli utenti ricevono un messaggio di richiesta aggiuntivo durante l'accesso per confermare la propria identità.
+Se si desidera aumentare la sicurezza dell'esperienza di accesso dell'utente, è possibile integrare facoltativamente l'ambiente desktop remoto con Azure AD Multi-Factor Authentication. Con questa configurazione, gli utenti ricevono un messaggio di richiesta aggiuntivo durante l'accesso per confermare la propria identità.
 
-Per fornire questa funzionalità, nel proprio ambiente viene installato un server dei criteri di rete (NPS) aggiuntivo con l'estensione server dei criteri di rete Multi-Factor Authentication di Azure. Questa estensione si integra con Azure AD per richiedere e restituire lo stato dei prompt di autenticazione a più fattori.
+Per fornire questa funzionalità, nel proprio ambiente viene installato un server dei criteri di rete (NPS) aggiuntivo insieme al Azure AD Multi-Factor Authentication estensione NPS. Questa estensione si integra con Azure AD per richiedere e restituire lo stato dei prompt di autenticazione a più fattori.
 
-Gli utenti devono essere [registrati per usare Azure multi-factor authentication][user-mfa-registration], che potrebbe richiedere licenze Azure ad aggiuntive.
+Gli utenti devono essere [registrati per usare Azure AD multi-factor authentication][user-mfa-registration], che potrebbero richiedere licenze Azure ad aggiuntive.
 
-Per integrare Multi-Factor Authentication di Azure nell'ambiente di Desktop remoto di Azure AD DS, creare un server NPS e installare l'estensione:
+Per integrare Azure AD Multi-Factor Authentication nell'ambiente di Desktop remoto di Azure AD DS, creare un server NPS e installare l'estensione:
 
 1. Creare una VM Windows Server 2016 o 2019 aggiuntiva, ad esempio *NPSVM01*, connessa a una subnet dei *carichi di lavoro* nella rete virtuale Azure AD DS. Aggiungere la macchina virtuale al dominio gestito.
 1. Accedere alla macchina virtuale NPS come account che fa parte del gruppo *amministratori di Azure ad DC* , ad esempio *ContosoAdmin*.
-1. Da **Server Manager**selezionare **Aggiungi ruoli e funzionalità**, quindi installare il ruolo *servizi di accesso e criteri di rete* .
-1. Usare l'articolo sulle procedure per [installare e configurare l'estensione server dei criteri][nps-extension]di autenticazione a più fattori di Azure.
+1. Da **Server Manager** selezionare **Aggiungi ruoli e funzionalità**, quindi installare il ruolo *servizi di accesso e criteri di rete* .
+1. Usare l'articolo procedure esistente per [installare e configurare l'estensione NPS di Azure ad][nps-extension].
 
-Con il server NPS e l'estensione NPS di Azure Multi-Factor Authentication installata, completare la sezione successiva per configurarla per l'uso con l'ambiente desktop remoto.
+Con il server NPS e Azure AD Multi-Factor Authentication estensione NPS installata, completare la sezione successiva per configurarla per l'utilizzo con l'ambiente desktop remoto.
 
-## <a name="integrate-remote-desktop-gateway-and-azure-multi-factor-authentication"></a>Integrare Desktop remoto Gateway e Azure Multi-Factor Authentication
+## <a name="integrate-remote-desktop-gateway-and-azure-ad-multi-factor-authentication"></a>Integrare Desktop remoto Gateway e Azure AD Multi-Factor Authentication
 
-Per integrare l'estensione server dei criteri di rete Multi-Factor Authentication di Azure, usare l'articolo sulle procedure esistenti per [integrare l'infrastruttura di desktop remoto Gateway usando l'estensione NPS (Network Policy Server) e Azure ad][azure-mfa-nps-integration].
+Per integrare l'estensione di server dei criteri di rete Azure AD Multi-Factor Authentication, usare l'articolo sulle procedure esistenti per [integrare l'infrastruttura del Gateway Desktop remoto usando l'estensione NPS (Network Policy Server) e Azure ad][azure-mfa-nps-integration].
 
 Per l'integrazione con un dominio gestito sono necessarie le seguenti opzioni di configurazione aggiuntive:
 
 1. Non [registrare il server NPS in Active Directory][register-nps-ad]. Questo passaggio ha esito negativo in un dominio gestito.
 1. Nel [passaggio 4 per configurare i criteri di rete][create-nps-policy], selezionare anche la casella per **ignorare le proprietà di connessione remota dell'account utente**.
-1. Se si usa Windows Server 2019 per il server dei criteri di rete e Azure Multi-Factor Authentication Server dei criteri di rete, eseguire il comando seguente per aggiornare il canale sicuro per consentire al server dei criteri di rete di comunicare correttamente:
+1. Se si usa Windows Server 2019 per il server dei criteri di rete e Azure AD Multi-Factor Authentication estensione server dei criteri di rete, eseguire il comando seguente per aggiornare il canale sicuro per consentire al server dei criteri di rete di comunicare correttamente:
 
     ```powershell
     sc sidtype IAS unrestricted
@@ -103,7 +103,7 @@ Agli utenti viene ora richiesto un fattore di autenticazione aggiuntivo al momen
 
 Per altre informazioni sul miglioramento della resilienza della distribuzione, vedere [disponibilità elevata Servizi Desktop remoto][rds-high-availability].
 
-Per altre informazioni sulla protezione dell'accesso utente, vedere [come funziona: Azure multi-factor authentication][concepts-mfa].
+Per altre informazioni sulla protezione dell'accesso utente, vedere [come funziona: Azure AD multi-factor authentication][concepts-mfa].
 
 <!-- INTERNAL LINKS -->
 [bastion-overview]: ../bastion/bastion-overview.md

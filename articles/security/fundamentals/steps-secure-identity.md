@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 4fa5ba935e77055936b2abc4faab49b5d10cb5c0
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 4703a76ff0a0b55a438f9f0d164cd7f2d3242a02
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410063"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842023"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
@@ -48,7 +48,7 @@ I consigli riportati in questo documento sono allineati con [Identity Secure Sco
 
 Prima di iniziare questo elenco di controllo, verificare che l'account non venga compromesso durante la lettura. È innanzitutto necessario proteggere gli account con privilegi.
 
-Gli utenti malintenzionati che ottengono il controllo di account con privilegi possono causare enormi danni, pertanto è fondamentale proteggere questi account prima di tutto. Abilitare e richiedere [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) per tutti gli amministratori nell'organizzazione usando le [impostazioni predefinite per la sicurezza di Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) o l’[accesso condizionale](../../active-directory/conditional-access/plan-conditional-access.md). Implementare MFA, se non è stato già fatto. È davvero importante.
+Gli utenti malintenzionati che ottengono il controllo di account con privilegi possono causare enormi danni, pertanto è fondamentale proteggere questi account prima di tutto. Abilitare e richiedere [Azure AD multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (multi-factor authentication) per tutti gli amministratori dell'organizzazione usando [Azure ad impostazioni predefinite di sicurezza](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) o [l'accesso condizionale](../../active-directory/conditional-access/plan-conditional-access.md). Implementare MFA, se non è stato già fatto. È davvero importante.
 
 Tutto pronto? Iniziamo con l'elenco di controllo.
 
@@ -59,9 +59,9 @@ La maggior parte delle violazioni della sicurezza delle organizzazioni ha origin
 
 ### <a name="make-sure-your-organization-uses-strong-authentication"></a>Assicurarsi che l'organizzazione usi l'autenticazione avanzata
 
-Poiché le password vengono individuate, sottoposte a phishing, sottratte con malware o riusate con una certa frequenza, è fondamentale supportarle con un tipo di credenziali avanzate: altre informazioni su [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+Data la frequenza delle password indovinate, phishing, rubate con malware o riutilizzate, è fondamentale eseguire il backup della password con una forma di credenziali complesse. altre informazioni su [Azure AD multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
-Per abilitare facilmente il livello di base della sicurezza delle identità, è possibile usare l'abilitazione con un solo clic con le [impostazioni predefinite per la sicurezza di Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Queste impostazioni applicano l'autenticazione MFA di Azure per tutti gli utenti in un tenant e bloccano gli accessi dai protocolli legacy a livello di tenant.
+Per abilitare facilmente il livello di base della sicurezza delle identità, è possibile usare l'abilitazione con un solo clic con le [impostazioni predefinite per la sicurezza di Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Le impostazioni predefinite di sicurezza impongono Azure AD autenticazione a più fattori per tutti gli utenti in un tenant e bloccano gli accessi dai protocolli legacy a livello di tenant.
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>Iniziare a vietare le password attaccate più spesso e disattivare le regole di complessità e scadenza tradizionali.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: a75dd24769a4f1af018981ffcec279afc2a88b5a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: f7980ca7bc6f23c383ea013c2b017b3bd61e2d25
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682419"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842295"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](./itsmc-overview.md).
@@ -41,6 +41,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 - Connessione ibrida è stata creata e configurata. Altre informazioni: [Configurazione della connessione ibrida](#configure-the-hybrid-connection).
 - Versioni supportate di Service Manager:  2012 R2 o 2016.
 - Ruolo utente:  [Operatore avanzato](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
+- Attualmente gli avvisi inviati da monitoraggio di Azure possono creare in System Center Service Manager eventi imprevisti.
 
 > [!NOTE]
 > 
@@ -186,7 +187,7 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 - Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](./itsmc-overview.md#add-it-service-management-connector).
 - Versioni supportate di ServiceNow: Orlando, New York, Madrid, Londra, Kingston, Jakarta, Istanbul, Helsinki, Ginevra.
-- Attualmente gli avvisi inviati da monitoraggio di Azure possono creare in ServiceNow uno dei seguenti elementi: eventi, incedents o avvisi.
+- Attualmente gli avvisi inviati da monitoraggio di Azure possono creare in ServiceNow uno dei seguenti elementi: eventi, eventi imprevisti o avvisi.
 > [!NOTE]
 > Attualmente Gestione dei servizi IT supporta solo l'offerta SaaS ufficiale di ServiceNow. Le distribuzioni private di ServiceNow non sono attualmente supportate. 
 

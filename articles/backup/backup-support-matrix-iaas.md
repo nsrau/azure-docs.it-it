@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limitazioni del suppor
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5988cc7bdc34521bfa75e9f179f88bfbe881b882
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 650c239423db23bcd4329ab38080b82809fa4f09
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925646"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842176"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -27,7 +27,7 @@ Di seguito viene illustrato come è possibile eseguire il backup e il ripristino
 
 **Scenario** | **Backup** | **Agent** |**Restore**
 --- | --- | --- | ---
-backup diretto di macchine virtuali di Azure  | Backup dell'intera macchina virtuale.  | Non è necessario alcun agente aggiuntivo nella macchina virtuale di Azure. Backup di Azure installa e usa un'estensione per l' [agente di macchine virtuali di Azure](../virtual-machines/extensions/agent-windows.md) in esecuzione nella macchina virtuale. | È possibile eseguire il ripristino nel modo seguente:<br/><br/> - **Creare una macchina virtuale di base** . Questa operazione è utile se la macchina virtuale non ha configurazioni speciali, ad esempio più indirizzi IP.<br/><br/> - **Ripristinare il disco della macchina virtuale** . Ripristinare il disco e quindi collegarlo a una macchina virtuale esistente oppure creare una nuova macchina virtuale dal disco con PowerShell.<br/><br/> - **Sostituire il disco della macchina virtuale** . Se è presente una macchina virtuale che usa dischi gestiti (non crittografati), è possibile ripristinare un disco e usarlo per sostituire un disco esistente nella macchina virtuale.<br/><br/> - **Ripristinare cartelle e file specifici** . È possibile ripristinare cartelle e file specifici di una macchina virtuale, anziché dell'intera macchina virtuale.
+backup diretto di macchine virtuali di Azure  | Backup dell'intera macchina virtuale.  | Non è necessario alcun agente aggiuntivo nella macchina virtuale di Azure. Backup di Azure installa e usa un'estensione per l' [agente di macchine virtuali di Azure](../virtual-machines/extensions/agent-windows.md) in esecuzione nella macchina virtuale. | È possibile eseguire il ripristino nel modo seguente:<br/><br/> - **Creare una macchina virtuale di base**. Questa operazione è utile se la macchina virtuale non ha configurazioni speciali, ad esempio più indirizzi IP.<br/><br/> - **Ripristinare il disco della macchina virtuale**. Ripristinare il disco e quindi collegarlo a una macchina virtuale esistente oppure creare una nuova macchina virtuale dal disco con PowerShell.<br/><br/> - **Sostituire il disco della macchina virtuale**. Se è presente una macchina virtuale che usa dischi gestiti (non crittografati), è possibile ripristinare un disco e usarlo per sostituire un disco esistente nella macchina virtuale.<br/><br/> - **Ripristinare cartelle e file specifici**. È possibile ripristinare cartelle e file specifici di una macchina virtuale, anziché dell'intera macchina virtuale.
 Backup diretto di macchine virtuali di Azure (solo Windows)  | Backup di file, cartelle e volumi specifici. | Installare l'[agente di Servizi di ripristino di Azure](backup-azure-file-folder-backup-faq.md).<br/><br/> È possibile eseguire l'agente di Servizi di ripristino di Microsoft Azure insieme all'estensione di backup per l'agente di macchine virtuali di Azure per eseguire il backup della macchina virtuale a livello di file o di cartella. | Ripristino di cartelle e file specifici.
 Backup di una macchina virtuale di Azure nel server di backup  | Backup di file, cartelle e volumi; file dello stato del sistema/bare metal; dati delle app in System Center DPM o nel server di Backup di Microsoft Azure.<br/><br/> DPM o il server di Backup di Microsoft Azure esegue quindi il backup nell'insieme di credenziali di backup. | Installare l'agente protezione DPM o del server di Backup di Microsoft Azure nella macchina virtuale. L'agente di Servizi di ripristino di Microsoft Azure viene installato in DPM o nel server di Backup di Microsoft Azure.| Ripristino di file, cartelle e volumi; file dello stato del sistema/bare metal; dati delle app.
 
@@ -109,7 +109,7 @@ Punti di ripristino su disco DPM/MABS | 64 per i file server, 448 per i server a
 
 **Restore** | **Supportato**
 --- | ---
-Ripristino dei file nei sistemi operativi | È possibile ripristinare i file in qualsiasi computer che abbia un sistema operativo uguale (o compatibile) a quello della macchina virtuale sottoposta a backup. Vedere la [tabella dei sistemi operativi compatibili](backup-azure-restore-files-from-vm.md#system-requirements).
+Ripristino dei file nei sistemi operativi | È possibile ripristinare i file in qualsiasi computer che abbia un sistema operativo uguale (o compatibile) a quello della macchina virtuale sottoposta a backup. Vedere la [tabella dei sistemi operativi compatibili](backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).
 Ripristino dei file da macchine virtuali crittografate | Non supportato.
 Ripristino dei file da account di archiviazione con limitazioni di rete | Non supportato.
 Ripristino dei file nelle macchine virtuali con spazi di archiviazione di Windows | Il ripristino nella stessa macchina virtuale non è supportato.<br/><br/> Ripristinare invece i file in una macchina virtuale compatibile.
@@ -160,7 +160,7 @@ Dimensioni del disco dati | Le dimensioni possono raggiungere i 32 TB per un dis
 Tipo di archiviazione | HDD Standard, SDD Standard, SDD Premium.
 Dischi gestiti | Supportato.
 Dischi crittografati | Supportato.<br/><br/> Le macchine virtuali di Azure abilitate con Crittografia dischi di Azure possono essere sottoposte a backup (con o senza l'app Azure AD).<br/><br/> Le macchine virtuali crittografate non possono essere ripristinate a livello di file/cartella. È necessario ripristinare l'intera macchina virtuale.<br/><br/> È possibile abilitare la crittografia nelle macchine virtuali che sono già protette dal servizio Backup di Azure.
-Dischi con l'acceleratore di scrittura abilitato | Non supportato.<br/><br/> Backup di Azure esclude automaticamente i dischi con acceleratore di scrittura (WA) abilitati durante il backup. Poiché non vengono sottoposti a backup, non è possibile ripristinare questi dischi dai punti di ripristino della macchina virtuale. <br><br> **Nota importante** : per la riuscita del backup delle macchine virtuali con dischi con acceleratore di scrittura è necessaria la connettività Internet (anche se tali dischi sono esclusi dal backup).
+Dischi con l'acceleratore di scrittura abilitato | Non supportato.<br/><br/> Backup di Azure esclude automaticamente i dischi con acceleratore di scrittura (WA) abilitati durante il backup. Poiché non vengono sottoposti a backup, non è possibile ripristinare questi dischi dai punti di ripristino della macchina virtuale. <br><br> **Nota importante**: per la riuscita del backup delle macchine virtuali con dischi con acceleratore di scrittura è necessaria la connettività Internet (anche se tali dischi sono esclusi dal backup).
 Backup e ripristino di macchine virtuali o dischi deduplicati | Backup di Azure non supporta la deduplicazione. Per altre informazioni, vedere questo [articolo](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  -Backup di Azure non viene deduplicato tra le macchine virtuali nell'insieme di credenziali di servizi di ripristino <br/> <br/>  -Se sono presenti macchine virtuali in stato di deduplicazione durante il ripristino, i file non possono essere ripristinati perché l'insieme di credenziali non comprende il formato. Tuttavia, è possibile eseguire correttamente il ripristino completo della macchina virtuale.
 Aggiunta di un disco a una macchina virtuale protetta | Supportato.
 Ridimensionamento di un disco in una macchina virtuale protetta | Supportato.

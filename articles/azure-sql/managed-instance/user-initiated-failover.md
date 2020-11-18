@@ -3,19 +3,19 @@ title: Avviare manualmente un failover in SQL Istanza gestita
 description: Informazioni su come eseguire manualmente il failover delle repliche primarie e secondarie in Azure SQL Istanza gestita.
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: ebf36c99e6c4dd636c41086d4c72fd6761f6d5ca
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7bcdabdb4e49d198b9acb7a1c57312b31a5b4fff
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791631"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842227"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manuale avviato dall'utente in SQL Istanza gestita
 
@@ -46,7 +46,7 @@ Per avviare un failover, l'utente deve avere uno dei ruoli RBAC seguenti:
 - Ruolo personalizzato con l'autorizzazione seguente:
   - `Microsoft.Sql/managedInstances/failover/action`
 
-### <a name="using-powershell"></a>Uso di PowerShell
+### <a name="using-powershell"></a>Utilizzo di PowerShell
 
 La versione minima di AZ. SQL deve essere [v 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0). Si consiglia di usare [Azure cloud Shell](../../cloud-shell/overview.md) dal portale di Azure in cui è sempre disponibile la versione più recente di PowerShell. 
 
@@ -140,7 +140,7 @@ Non sarà possibile visualizzare lo stesso output con il livello di servizio di 
 
 > [!IMPORTANT]
 > Limitazioni funzionali del failover manuale avviato dall'utente:
-> - Potrebbe essere stato avviato un failover (1) nella stessa Istanza gestita ogni **30 minuti** .
+> - Potrebbe essere stato avviato un failover (1) nella stessa Istanza gestita ogni **30 minuti**.
 > - Per le istanze BC è necessario che esista il quorum delle repliche affinché venga accettata la richiesta di failover.
 > - Per le istanze BC non è possibile specificare la replica secondaria leggibile su cui avviare il failover.
 

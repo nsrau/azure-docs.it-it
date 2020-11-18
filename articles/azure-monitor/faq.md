@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 0812716ab9d952969ccfc14fc0a1e833fae1c9e1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b52cc38c40d8b6a39961ab28d9f0600ea7ee2201
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94653794"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841904"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure
 
@@ -81,7 +81,7 @@ Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilit�
 
 ### <a name="how-do-i-retrieve-log-data"></a>Come si recuperano i dati di log?
 Tutti i dati vengono recuperati da un'area di lavoro Log Analytics tramite una query di log scritta nel linguaggio di query Kusto (KQL). È possibile scrivere query personalizzate o usare soluzioni e informazioni dettagliate che includono query di log per un'applicazione o un servizio specifico. Vedere [Panoramica delle query di log in Monitoraggio di Azure](log-query/log-query-overview.md).
-
+p
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>È possibile eliminare dati da un'area di lavoro Log Analytics?
 I dati vengono rimossi da un'area di lavoro in base al [periodo di conservazione](platform/manage-cost-storage.md#change-the-data-retention-period). È possibile eliminare dati specifici per motivi di privacy o di conformità. Per ulteriori informazioni [, vedere come esportare ed eliminare dati privati](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) .
 
@@ -594,10 +594,6 @@ L'agente di raccolta OpenTelemetry è descritto nel [file Leggimi di GitHub](htt
 
 
 ## <a name="azure-monitor-for-containers"></a>Monitoraggio di Azure per contenitori
-
-### <a name="health-feature-is-in-private-preview"></a>Questa funzionalità è in anteprima privata.
-
-Intendiamo apportare una serie di modifiche per aggiungere funzionalità e soddisfare i commenti e suggerimenti ricevuti dagli utenti. La funzionalità di integrità passerà a un'anteprima privata alla fine di giugno 2020 e per altre informazioni, vedere il seguente [annuncio di aggiornamenti ad Azure](https://azure.microsoft.com/updates/ci-health-limited-preview/).
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>Che cosa rappresenta *Altri processi* nella visualizzazione Nodo?
 

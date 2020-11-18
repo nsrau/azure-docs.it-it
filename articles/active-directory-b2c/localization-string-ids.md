@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 45357092784bd9c8821a81b07ce3c381c4ce7989
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7819c934ab97d597d52d4809c11e5c59fb87c89a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410505"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840669"
 ---
 # <a name="localization-string-ids"></a>ID della stringa di localizzazione
 
@@ -27,33 +27,44 @@ L'elemento **Localizzazione** consente di supportare più impostazioni locali o 
 
 Gli ID seguenti vengono utilizzati per una definizione di contenuto con un ID `api.signuporsignin` e un [profilo tecnico autocertificato](self-asserted-technical-profile.md).
 
-| ID | Valore predefinito |
-| -- | ------------- |
-| **local_intro_email** | Accesso con l'account esistente |
-| **logonIdentifier_email** | Indirizzo di posta elettronica |
-| **requiredField_email** | Immettere l'indirizzo di posta elettronica |
-| **invalid_email** | Immettere un indirizzo di posta elettronica valido |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&'' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
-| **local_intro_username** | Accesso con il nome utente |
-| **logonIdentifier_username** | Username |
-| **requiredField_username** | Immettere il nome utente |
-| **password** | Password |
-| **requiredField_password** | Immettere la password |
-| **invalid_password** | Il formato della password immessa non è quello previsto. |
-| **forgotpassword_link** | Password dimenticata? |
-| **createaccount_intro** | Non si dispone di un account? |
-| **createaccount_link** | Effettua l'iscrizione ora |
-| **divider_title** | OR |
-| **cancel_message** | L'utente ha dimenticato la password |
-| **button_signin** | Accesso |
-| **social_intro** | Accedere con l'account di social networking |
-  **remember_me** |Mantieni l'accesso. |
-| **unknown_error** | Si è verificato un errore durante l'accesso. Riprovare più tardi. |
+| ID | Valore predefinito | Versione del layout di pagina |
+| -- | ------------- | ------ |
+| **forgotpassword_link** | Password dimenticata? | `All` |
+| **createaccount_intro** | Non si dispone di un account? | `All` |
+| **button_signin** | Accesso | `All` |
+| **social_intro** | Accedere con l'account di social networking | `All` |
+| **remember_me** |Mantieni l'accesso. | `All` |
+| **unknown_error** | Si è verificato un errore durante l'accesso. Riprovare più tardi. | `All` |
+| **divider_title** | OR | `All` |
+| **local_intro_email** | Accesso con l'account esistente | `< 2.0.0` |
+| **logonIdentifier_email** | Indirizzo di posta elettronica | `< 2.0.0` |
+| **requiredField_email** | Immettere l'indirizzo di posta elettronica | `< 2.0.0` |
+| **invalid_email** | Immettere un indirizzo di posta elettronica valido | `< 2.0.0` |
+| **email_pattern** | ^ [a-zA-Z0-9.! # $% &'' \* +/=? ^ \_ \` { \| } ~-] + @ [a-Za-z0-9-] + (?: \\ . [ a-zA-Z0-9-] +) \* $ |`< 2.0.0` |
+| **local_intro_username** | Accesso con il nome utente | `< 2.0.0` |
+| **logonIdentifier_username** | Username | `< 2.0.0` |
+| **requiredField_username** | Immettere il nome utente | `< 2.0.0` |
+| **password** | Password | `< 2.0.0` |
+| **requiredField_password** | Immettere la password | `< 2.0.0` |
+| **createaccount_link** | Effettua l'iscrizione ora | `< 2.0.0` |
+| **cancel_message** | L'utente ha dimenticato la password | `< 2.0.0` |
+| **invalid_password** | Il formato della password immessa non è quello previsto. | `< 2.0.0` |
+| **createaccount_one_link** | Effettua l'iscrizione ora | `>= 2.0.0` |
+| **createaccount_two_links** | Iscriversi con {0} o {1} | `>= 2.0.0` |
+| **createaccount_three_links** | Iscriversi con {0} , {1} o {2} | `>= 2.0.0` |
+| **local_intro_generic** | Accedi con {0} | `>= 2.1.0` |
+| **requiredField_generic** | Immettere il {0} | `>= 2.1.0` |
+| **invalid_generic** | Immettere un valore valido per {0} | `>= 2.1.1` |
+| **intestazione** | Accedi | `>= 2.1.1` |
+
+
+> [!NOTE]
+> * I segnaposto come {0} verranno compilati automaticamente con il `DisplayName` valore di `ClaimType` . 
+> * Per informazioni su come localizzare `ClaimType` , vedere [esempio di iscrizione o di accesso](#signupsigninexample).
 
 L'esempio seguente illustra l'uso di alcuni elementi dell'interfaccia utente nella pagina per l'iscrizione o l'accesso:
 
-![Elementi dell'esperienza utente della pagina per l'iscrizione o l'accesso](./media/localization-string-ids/localization-susi.png)
-
+![Elementi dell'esperienza utente della pagina per l'iscrizione o l'accesso](./media/localization-string-ids/localization-susi-2.png)
 
 ### <a name="sign-up-or-sign-in-identity-providers"></a>Provider di identità di iscrizione o accesso
 
@@ -95,32 +106,28 @@ L'esempio seguente localizza il provider di identità Facebook sull'arabo:
 | **UserMessageIfUserAccountLocked** | L'account è stato temporaneamente bloccato per impedirne l'uso non autorizzato. Riprovare più tardi. |
 | **AADRequestsThrottled** | In questo momento sono presenti troppe richieste. Attendere qualche minuto e riprovare. |
 
+<a name="signupsigninexample"></a>
 ### <a name="sign-up-or-sign-in-example"></a>Esempio di iscrizione o accesso
 
 ```xml
 <LocalizedResources Id="api.signuporsignin.en">
   <LocalizedStrings>
-    <LocalizedString ElementType="UxElement" StringId="logonIdentifier_email">Email Address</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="requiredField_email">Please enter your email</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="logonIdentifier_username">Username</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="password">Password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="createaccount_link">Sign up now</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="requiredField_username">Please enter your user name</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="createaccount_intro">Don't have an account?</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="cancel_message">The user has forgotten their password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="heading">Sign in</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="social_intro">Sign in with your social account</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Sign in with your {0}</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="requiredField_password">Please enter your password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="invalid_password">The password you entered is not in the expected format.</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="local_intro_username">Sign in with your user name</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="local_intro_email">Sign in with your existing account</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="invalid_email">Please enter a valid email address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Please enter your {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_one_link">Sign up now</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_two_links">Sign up with {0} or {1}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_three_links">Sign up with {0}, {1}, or {2}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="unknown_error">We are having trouble signing you in. Please try again later.</LocalizedString>
     <!-- Uncomment the remember_me only if the keep me signed in is activated. 
     <LocalizedString ElementType="UxElement" StringId="remember_me">Keep me signed in</LocalizedString> -->
-    <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;’'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$</LocalizedString>
     <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
@@ -433,9 +440,9 @@ Di seguito sono riportati gli ID dei messaggi di errore relativi al [profilo tec
 </LocalizedResources>
 ```
 
-## <a name="azure-mfa-error-messages"></a>Messaggi di errore relativi ad Azure MFA
+## <a name="azure-ad-mfa-error-messages"></a>Azure AD messaggi di errore multi-factor authentication
 
-Di seguito sono elencati gli ID relativi ai messaggi di errore di un [profilo tecnico Azure MFA](multi-factor-auth-technical-profile.md):
+Di seguito sono riportati gli ID per un Azure AD i messaggi di errore del [profilo tecnico](multi-factor-auth-technical-profile.md) di autenticazione a più fattori:
 
 | ID | Valore predefinito |
 | -- | ------------- |
@@ -446,7 +453,7 @@ Di seguito sono elencati gli ID relativi ai messaggi di errore di un [profilo te
 |UserMessageIfThrottled | La richiesta è stata limitata. Riprovare più tardi.|
 |UserMessageIfWrongCodeEntered|È stato immesso un codice errato. Riprovare.|
 
-### <a name="azure-mfa-example"></a>Esempio di autenticazione a più fattori di Azure
+### <a name="azure-ad-mfa-example"></a>Esempio di Azure AD dell'autenticazione a più fattori
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">

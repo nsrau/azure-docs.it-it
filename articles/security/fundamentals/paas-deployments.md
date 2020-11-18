@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 0429eec2a84c22f3d998baa4dde4f543d4927f16
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 77a2a32b9a6358c39a14cfe37eeb44f7cb90af0a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695334"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841989"
 ---
 # <a name="securing-paas-deployments"></a>Protezione delle distribuzioni PaaS
 
@@ -82,14 +82,14 @@ Di seguito sono illustrate le procedure consigliate per la gestione del perimetr
 **Procedura consigliata**: proteggere le interfacce di gestione della macchina virtuale nei servizi ibridi PaaS e IaaS usando un'interfaccia di gestione che consenta all'utente di gestire direttamente in remoto le macchine virtuali.   
 **Dettagli**: possono essere usati i protocolli di gestione remota come [SSH](https://en.wikipedia.org/wiki/Secure_Shell), [RDP](https://support.microsoft.com/kb/186607) e [Comunicazione remota di PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting). In generale, è consigliabile non abilitare l'accesso remoto diretto alle macchine virtuali da Internet.
 
-Se possibile, usare approcci alternativi come l'uso di reti private virtuali in una rete virtuale di Azure. Se non sono disponibili soluzioni alternative, assicurarsi di usare passphrase complesse e l'autenticazione a due fattori (ad esempio [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)).
+Se possibile, usare approcci alternativi come l'uso di reti private virtuali in una rete virtuale di Azure. Se non sono disponibili approcci alternativi, assicurarsi di usare passphrase complesse e l'autenticazione a due fattori, ad esempio [Azure AD multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 **Procedura consigliata**: usare piattaforme di autenticazione e autorizzazione robuste.   
 **Dettagli**: usare le identità federate in Azure AD invece degli archivi utente personalizzati. Quando si usano identità federate, è possibile sfruttare un approccio basato sulla piattaforma e delegare ai partner la gestione delle identità autorizzate. Un approccio con identità federate è particolarmente importante quando i dipendenti vengono rimossi e le modifiche devono essere applicate in più sistemi di identità e autorizzazioni.
 
 Usare i meccanismi di autenticazione e autorizzazione forniti dalla piattaforma invece di un codice personalizzato. poiché sviluppare un codice di autenticazione personalizzato può dare luogo a errori. La maggior parte degli sviluppatori non sarà esperta in sicurezza e probabilmente non conoscerà tutte le sfaccettature e gli ultimi sviluppi legati ad autenticazione e autorizzazione. Il codice commerciale, ad esempio quello di Microsoft, è spesso soggetto a rigorose analisi di sicurezza.
 
-Usare l'autenticazione a due fattori. L'autenticazione a due fattori è lo standard attuale per l'autenticazione e l'autorizzazione, in quanto permette di evitare le lacune di sicurezza intrinseche nei tipi di autenticazione basati su nome utente e password. L'accesso a entrambe le interfacce di gestione di Azure, ovvero il portale e PowerShell da remoto e ai servizi per i clienti deve essere progettato e configurato per l'uso di [Azure Multi-Factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md).
+Usare l'autenticazione a due fattori. L'autenticazione a due fattori è lo standard attuale per l'autenticazione e l'autorizzazione, in quanto permette di evitare le lacune di sicurezza intrinseche nei tipi di autenticazione basati su nome utente e password. L'accesso alle interfacce di gestione di Azure (portale/PowerShell remota) e ai servizi per i clienti deve essere progettato e configurato per l'uso di [Azure AD multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 Usare protocolli di autenticazione standard come OAuth2 e Kerberos. Questi protocolli sono stati ampiamente analizzati e sono probabilmente implementati come parte delle librerie della piattaforma per autenticazione e autorizzazione.
 

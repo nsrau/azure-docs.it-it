@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: fcc0538dfef1581a244ae5fd9a3515be3470026c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09a5632f969117e69e68bbe0df2bfbab9a8a102b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850932"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842136"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Creare un pool di Azure Batch senza indirizzi IP pubblici
 
@@ -34,7 +34,7 @@ Per limitare l'accesso a questi nodi e ridurre l'individuabilità di questi nodi
 - **Una rete virtuale di Azure**. Se si sta creando il pool in una [rete virtuale](batch-virtual-network.md), attenersi ai requisiti e alle configurazioni seguenti. Per preparare una rete virtuale con una o più subnet, è possibile usare il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o altri metodi.
   - La rete virtuale deve essere nella stessa sottoscrizione e area dell'account Batch usato per creare il pool.
   - La subnet specificata per il pool deve disporre di indirizzi IP non assegnati sufficienti per contenere il numero di macchine virtuali usate come destinazione per il pool; questo valore corrisponde alla somma delle proprietà `targetDedicatedNodes` e `targetLowPriorityNodes` del pool. Se la subnet non dispone di sufficienti indirizzi IP non assegnati, il pool alloca parzialmente i nodi di calcolo e si verifica un errore di ridimensionamento.
-  - È necessario disabilitare il servizio di collegamento privato e i criteri di rete dell'endpoint. Questa operazione può essere eseguita usando l'interfaccia della riga di comando di Azure: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+  - È necessario disabilitare il servizio di collegamento privato e i criteri di rete dell'endpoint. Questa operazione può essere eseguita usando l'interfaccia della riga di comando di Azure: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resouce-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > Per ogni 100 di nodi dedicati o con priorità bassa, batch alloca un servizio di collegamento privato e un servizio di bilanciamento del carico. Queste risorse sono limitate in base alle [quote delle risorse](../azure-resource-manager/management/azure-subscription-service-limits.md) della sottoscrizione. Per i pool di grandi dimensioni, potrebbe essere necessario [richiedere un aumento della quota](batch-quota-limit.md#increase-a-quota) per una o più di queste risorse. Inoltre, non deve essere applicato alcun blocco di risorsa a qualsiasi risorsa creata da batch, perché ciò impedisce la pulizia delle risorse in seguito ad azioni avviate dall'utente, ad esempio l'eliminazione di un pool o il ridimensionamento a zero.
@@ -52,9 +52,9 @@ Per limitare l'accesso a questi nodi e ridurre l'individuabilità di questi nodi
 1. Nella finestra **pool** selezionare **Aggiungi**.
 1. Nella finestra **Aggiungi pool** selezionare l'opzione desiderata nell'elenco a discesa **Tipo di immagine**.
 1. Selezionare il **server di pubblicazione/offerta/SKU** corretto dell'immagine.
-1. Specificare le impostazioni obbligatorie rimanenti, tra cui le **dimensioni del nodo**, i **nodi dedicati di destinazione**e i nodi con **priorità bassa**, nonché le impostazioni facoltative desiderate.
+1. Specificare le impostazioni obbligatorie rimanenti, tra cui le **dimensioni del nodo**, i **nodi dedicati di destinazione** e i nodi con **priorità bassa**, nonché le impostazioni facoltative desiderate.
 1. Facoltativamente, selezionare una rete virtuale e una subnet che si desidera utilizzare. Questa rete virtuale deve trovarsi nello stesso gruppo di risorse del pool che si sta creando.
-1. In **tipo di provisioning indirizzi IP**selezionare **NoPublicIPAddresses**.
+1. In **tipo di provisioning indirizzi IP** selezionare **NoPublicIPAddresses**.
 
 ![Screenshot della schermata Aggiungi pool con NoPublicIPAddresses selezionato.](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d044be923e5d7a621b72a926db0b4ce9a09b72
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 096d771cbf6e02a67903da7d5ce495890cc6828d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122725"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840492"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurare l'iscrizione e l'accesso tramite telefono con criteri personalizzati in Azure AD B2C
 
@@ -35,7 +35,7 @@ Con l'iscrizione e l'accesso tramite telefono, l'utente può iscriversi all'app 
 > [!NOTE]
 > È consigliabile includere le informazioni sul consenso nell'esperienza di iscrizione e accesso, in modo analogo al testo di esempio riportato di seguito. Questo testo di esempio è esclusivamente a scopo informativo. Per informazioni sul testo finale e sulla configurazione delle funzionalità per soddisfare le esigenze di conformità, vedere il breve manuale di monitoraggio del codice nel [sito Web CTIA](https://www.ctia.org/programs) e consultare i propri esperti legali o di conformità.
 >
-> *Specificando il numero di telefono, si acconsente alla ricezione di un codice di accesso monouso inviato da un SMS per consentire l'accesso a *&lt; Insert: &gt; nome dell'applicazione* . Potrebbero essere applicate le tariffe standard per i messaggi e i dati.*
+> *Specificando il numero di telefono, si acconsente alla ricezione di un codice di accesso monouso inviato da un SMS per consentire l'accesso a *&lt; Insert: &gt; nome dell'applicazione*. Potrebbero essere applicate le tariffe standard per i messaggi e i dati.*
 >
 > *&lt;Inserisci: un collegamento all'informativa sulla privacy&gt;*<br/>*&lt;Inserisci: un collegamento alle condizioni per il servizio&gt;*
 
@@ -56,27 +56,27 @@ Per aggiungere le proprie informazioni di consenso, personalizzare l'esempio seg
 
 ### <a name="phone-sign-up-experience"></a>Esperienza di iscrizione tramite telefono
 
-Se l'utente non dispone già di un account per l'applicazione, è possibile crearne uno scegliendo il collegamento **Iscriviti ora** . Viene visualizzata una pagina di iscrizione, in cui l'utente seleziona il **paese** , immette il numero di telefono e seleziona **Invia codice** .
+Se l'utente non dispone già di un account per l'applicazione, è possibile crearne uno scegliendo il collegamento **Iscriviti ora** . Viene visualizzata una pagina di iscrizione, in cui l'utente seleziona il **paese**, immette il numero di telefono e seleziona **Invia codice**.
 
 ![L'utente avvia l'iscrizione tramite telefono](media/phone-authentication/phone-signup-start.png)
 
-Viene inviato un codice di verifica monouso al numero di telefono dell'utente. L'utente immette il **codice di verifica** nella pagina di iscrizione, quindi seleziona **Verifica codice** . Se l'utente non è stato in grado di recuperare il codice, è possibile selezionare **Invia nuovo codice** .
+Viene inviato un codice di verifica monouso al numero di telefono dell'utente. L'utente immette il **codice di verifica** nella pagina di iscrizione, quindi seleziona **Verifica codice**. Se l'utente non è stato in grado di recuperare il codice, è possibile selezionare **Invia nuovo codice**.
 
 ![L'utente verifica il codice durante l'iscrizione tramite telefono](media/phone-authentication/phone-signup-verify-code.png)
 
- L'utente immette tutte le altre informazioni richieste nella pagina di iscrizione, ad esempio il **nome visualizzato** , il **nome** e il **Cognome** (paese e numero di telefono rimangono popolati). Se l'utente vuole usare un numero di telefono diverso, può scegliere **Cambia numero** per riavviare l'iscrizione. Al termine, l'utente seleziona **continua** .
+ L'utente immette tutte le altre informazioni richieste nella pagina di iscrizione, ad esempio il **nome visualizzato**, il **nome** e il **Cognome** (paese e numero di telefono rimangono popolati). Se l'utente vuole usare un numero di telefono diverso, può scegliere **Cambia numero** per riavviare l'iscrizione. Al termine, l'utente seleziona **continua**.
 
 ![L'utente fornisce informazioni aggiuntive](media/phone-authentication/phone-signup-additional-info.png)
 
-Successivamente, all'utente viene richiesto di fornire un messaggio di posta elettronica di ripristino. L'utente immette il proprio indirizzo di posta elettronica e quindi seleziona **Invia codice di verifica** . Viene inviato un codice alla posta in arrivo dell'utente, che è possibile recuperare e immettere nella casella **codice di verifica** . L'utente seleziona quindi **Verifica codice** . 
+Successivamente, all'utente viene richiesto di fornire un messaggio di posta elettronica di ripristino. L'utente immette il proprio indirizzo di posta elettronica e quindi seleziona **Invia codice di verifica**. Viene inviato un codice alla posta in arrivo dell'utente, che è possibile recuperare e immettere nella casella **codice di verifica** . L'utente seleziona quindi **Verifica codice**. 
 
-Una volta verificato il codice, l'utente seleziona **Crea** per creare il proprio account. In alternativa, se l'utente vuole usare un indirizzo di posta elettronica diverso, può scegliere **modifica messaggio di posta elettronica** .
+Una volta verificato il codice, l'utente seleziona **Crea** per creare il proprio account. In alternativa, se l'utente vuole usare un indirizzo di posta elettronica diverso, può scegliere **modifica messaggio di posta elettronica**.
 
 ![L'utente crea un account](media/phone-authentication/email-verification.png)
 
 ### <a name="phone-sign-in-experience"></a>Esperienza di accesso tramite telefono
 
-Se l'utente dispone di un account esistente con numero di telefono come identificatore, l'utente immette il proprio numero di telefono e seleziona **continua** . Per confermare il paese e il numero di telefono, selezionare **continue (continua** ). verrà inviato un codice di verifica una sola volta al telefono. L'utente immette il codice di verifica e seleziona **continua** per accedere.
+Se l'utente dispone di un account esistente con numero di telefono come identificatore, l'utente immette il proprio numero di telefono e seleziona **continua**. Per confermare il paese e il numero di telefono, selezionare **continue (continua**). verrà inviato un codice di verifica una sola volta al telefono. L'utente immette il codice di verifica e seleziona **continua** per accedere.
 
 ![Esperienza utente per l'accesso tramite telefono](media/phone-authentication/phone-signin-screens.png)
 
@@ -106,15 +106,15 @@ Nei passaggi seguenti si presuppone che siano stati completati i [prerequisiti](
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
 
-1. In ogni file sostituire la stringa `yourtenant` con il nome del tenant del Azure ad B2C. Ad esempio, se il nome del tenant B2C è *contosob2c* , tutte le istanze di `yourtenant.onmicrosoft.com` diventano `contosob2c.onmicrosoft.com` .
+1. In ogni file sostituire la stringa `yourtenant` con il nome del tenant del Azure ad B2C. Ad esempio, se il nome del tenant B2C è *contosob2c*, tutte le istanze di `yourtenant.onmicrosoft.com` diventano `contosob2c.onmicrosoft.com` .
 
-1. Completare i passaggi della sezione [aggiungere ID applicazione ai criteri personalizzati](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) di [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md). In questo caso, aggiornare `/phone-number-passwordless/` **`Phone_Email_Base.xml`** con gli **ID dell'applicazione (client)** delle due applicazioni registrate quando si completano i prerequisiti, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework* .
+1. Completare i passaggi della sezione [aggiungere ID applicazione ai criteri personalizzati](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) di [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md). In questo caso, aggiornare `/phone-number-passwordless/` **`Phone_Email_Base.xml`** con gli **ID dell'applicazione (client)** delle due applicazioni registrate quando si completano i prerequisiti, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework*.
 
 ## <a name="upload-the-policy-files"></a>Caricare i file dei criteri
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare al tenant di Azure ad B2C.
-1. In **Criteri** selezionare **Identity Experience Framework** .
-1. Selezionare **Carica criteri personalizzati** .
+1. In **Criteri** selezionare **Identity Experience Framework**.
+1. Selezionare **Carica criteri personalizzati**.
 1. Caricare i file dei criteri nell'ordine seguente:
     1. *Phone_Email_Base.xml*
     1. *SignUpOrSignInWithPhone.xml*
@@ -128,7 +128,7 @@ Quando si carica ogni file, Azure aggiunge il prefisso `B2C_1A_` .
 
 ## <a name="test-the-custom-policy"></a>Testare i criteri personalizzati
 
-1. In **criteri personalizzati** selezionare **B2C_1A_SignUpOrSignInWithPhone** .
+1. In **criteri personalizzati** selezionare **B2C_1A_SignUpOrSignInWithPhone**.
 1. In **Seleziona applicazione** selezionare l'applicazione *app Web 1* registrata al termine dei prerequisiti.
 1. Per **Seleziona URL di risposta** scegliere `https://jwt.ms` .
 1. Selezionare **Esegui adesso** e iscriversi usando un indirizzo di posta elettronica o un numero di telefono.
@@ -153,7 +153,7 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 ## <a name="next-steps"></a>Passaggi successivi
 
 È possibile trovare il pacchetto Starter Pack per l'iscrizione e l'accesso tramite telefono (e altri Starter Pack) su GitHub: [Azure-Samples/Active-Directory-B2C-Custom-Policy-Starterpack/Scenarios/Phone-number-password][starter-pack-phone] i file dei criteri dello Starter Pack usano i profili tecnici di autenticazione a più fattori e le trasformazioni delle attestazioni del numero di telefono:
-* [Definire un profilo tecnico Multi-Factor Authentication di Azure](multi-factor-auth-technical-profile.md)
+* [Definire un profilo tecnico Multi-Factor Authentication Azure AD](multi-factor-auth-technical-profile.md)
 * [Definire le trasformazioni delle attestazioni del numero di telefono](phone-number-claims-transformations.md)
 
 <!-- LINKS - External -->

@@ -5,19 +5,19 @@ keywords: crittografia dei dati, chiave di crittografia, crittografia del cloud
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 11/02/2020
-ms.openlocfilehash: 45aca00adab8ef5b33a376af34642261c5e73255
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 257abf03994c7006b1c3789174f550515dcd309a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321624"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841462"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configurare Always Encrypted tramite Azure Key Vault 
 
@@ -51,11 +51,11 @@ Seguire la procedura descritta in questo articolo per informazioni su come confi
 
 È necessario abilitare l'applicazione client per accedere al database nel database SQL impostando un'applicazione Azure Active Directory (Azure AD) e copiando l'ID e la *chiave* *dell'applicazione* necessarie per autenticare l'applicazione.
 
-Per ottenere l' *ID applicazione* e la *chiave* , eseguire la procedura descritta in [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](../../active-directory/develop/howto-create-service-principal-portal.md).
+Per ottenere l'*ID applicazione* e la *chiave*, eseguire la procedura descritta in [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Creare un insieme di credenziali delle chiavi per archiviare le chiavi
 
-Quando l'app client è configurata e si dispone dell'ID applicazione, è necessario creare un insieme di credenziali delle chiavi e configurare il criterio di accesso per consentire all'utente e all'applicazione di accedere alle chiavi private dell'insieme di credenziali, ovvero le chiavi Always Encrypted. Sono necessarie le autorizzazioni *create* , *get* , *list* , *sign* , *verify* , *wrapKey* e *unwrapKey* per creare una nuova chiave master di colonna e per configurare la crittografia con SQL Server Management Studio.
+Quando l'app client è configurata e si dispone dell'ID applicazione, è necessario creare un insieme di credenziali delle chiavi e configurare il criterio di accesso per consentire all'utente e all'applicazione di accedere alle chiavi private dell'insieme di credenziali, ovvero le chiavi Always Encrypted. Sono necessarie le autorizzazioni *create*, *get*, *list*, *sign*, *verify*, *wrapKey* e *unwrapKey* per creare una nuova chiave master di colonna e per configurare la crittografia con SQL Server Management Studio.
 
 È possibile creare rapidamente un insieme di credenziali delle chiavi eseguendo lo script seguente. Per una spiegazione dettagliata di questi comandi e per altre informazioni sulla creazione e sulla configurazione di un insieme di credenziali delle chiavi, vedere [che cos'è Azure Key Vault?](../../key-vault/general/overview.md).
 
@@ -151,7 +151,7 @@ SSMS offre una procedura guidata per configurare facilmente la crittografia semp
 
     ![Screenshot che evidenzia le colonne Encrypt... opzione di menu.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
-La procedura guidata Always Encrypted include le sezioni seguenti: **Selezione colonne** , **Configurazione della chiave master** , **Convalida** e **Riepilogo**.
+La procedura guidata Always Encrypted include le sezioni seguenti: **Selezione colonne**, **Configurazione della chiave master**, **Convalida** e **Riepilogo**.
 
 ### <a name="column-selection"></a>Selezione colonne
 
@@ -576,7 +576,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
    ![Screenshot che indica che le colonne crittografate non contengono dati in testo non crittografato.](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
 
-Per usare SSMS per accedere ai dati di testo non crittografato, è prima necessario assicurarsi che l'utente abbia le autorizzazioni appropriate per Azure Key Vault: *get* , *unwrapKey* e *verify*. Per informazioni dettagliate, vedere [Creare e archiviare chiavi master della colonna (Always Encrypted)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
+Per usare SSMS per accedere ai dati di testo non crittografato, è prima necessario assicurarsi che l'utente abbia le autorizzazioni appropriate per Azure Key Vault: *get*, *unwrapKey* e *verify*. Per informazioni dettagliate, vedere [Creare e archiviare chiavi master della colonna (Always Encrypted)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
 Aggiungere quindi il parametro *Column Encryption Setting=enabled* durante la connessione.
 

@@ -4,25 +4,28 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 654ed7467410743e0db1abc2e51f1304b4f91a5d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b9d5c90634dac3229e756ad93c10db91b268080c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093719"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841163"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
 Backup di Azure offre la possibilità di ripristinare [dischi e macchine virtuali (VM) di Azure](./backup-azure-arm-restore-vms.md) dai backup di VM di Azure, detti anche punti di recupero. Questo articolo illustra come ripristinare file e cartelle da un backup di VM di Azure. Il ripristino di file e cartelle è disponibile solo per le VM di Azure distribuite usando il modello di Gestione risorse e protette in un insieme di credenziali di servizi di ripristino.
+
 
 > [!NOTE]
 > Questa funzionalità è disponibile per le VM di Azure distribuite usando il modello Resource Manager e protette in un insieme di credenziali di Servizi di ripristino.
 > Il ripristino di file da un backup di VM crittografato non è supportato.
 >
 
-## <a name="mount-the-volume-and-copy-files"></a>Montare il volume e copiare i file
+![Flusso di lavoro ripristino cartella file](./media/backup-azure-restore-files-from-vm/file-recovery-1.png)
 
-Per ripristinare file o cartelle dal punto di recupero, passare alla macchina virtuale e scegliere il punto di recupero desiderato.
+## <a name="step-1-generate-and-download-script-to-browse-and-recover-files"></a>Passaggio 1: generare e scaricare lo script per cercare e ripristinare i file
+
+Per ripristinare i file o le cartelle dal punto di ripristino, passare alla macchina virtuale ed eseguire la procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.Azure.com) e nel riquadro sinistro selezionare **macchine virtuali**. Nell'elenco delle macchine virtuali selezionare la macchina virtuale per aprirne il dashboard.
 
@@ -30,7 +33,7 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
 
     ![Aprire la voce di backup dell'insieme di credenziali di Servizi di ripristino](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. Scegliere **ripristino file**dal menu Dashboard di backup.
+3. Scegliere **ripristino file** dal menu Dashboard di backup.
 
     ![Seleziona ripristino file](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
@@ -40,7 +43,7 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
 
 4. Nel menu a discesa **Selezionare il punto di ripristino**, selezionare il punto di ripristino contenente i file desiderati. Per impostazione predefinita, il punto di ripristino più recente è già selezionato.
 
-5. Per scaricare il software usato per copiare i file dal punto di ripristino, selezionare **Scarica eseguibile** (per le macchine virtuali di Windows Azure) o **Scarica script** (per le macchine virtuali Linux di Azure, viene generato uno script Python).
+5. Selezionare **Scarica eseguibile** (per le macchine virtuali di Windows Azure) o **Scarica script** (per le macchine virtuali Linux di Azure, viene generato uno script Python) per scaricare il software usato per copiare i file dal punto di ripristino.
 
     ![Scarica eseguibile](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
@@ -54,79 +57,145 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
 
     ![Password generata](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
-7. Assicurarsi di [disporre di un computer appropriato](#selecting-the-right-machine-to-run-the-script) per eseguire lo script. Se il computer idoneo è lo stesso in cui è stato scaricato lo script, è possibile passare alla sezione del download. Nel percorso di download (in genere la cartella *Download*) fare clic con il pulsante destro del mouse sul file eseguibile o sullo script ed eseguirlo con credenziali di amministratore. Quando richiesto, digitare la password o incollarla dalla memoria e premere **INVIO**. Dopo l'immissione della password valida, lo script si connette al punto di ripristino.
 
-    ![Output eseguibile](./media/backup-azure-restore-files-from-vm/executable-output.png)
+## <a name="step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script"></a>Passaggio 2: verificare che il computer soddisfi i requisiti prima di eseguire lo script
 
-8. Per i computer Linux, viene generato uno script Python. È necessario scaricare lo script e copiarlo nel server Linux pertinente/compatibile. Potrebbe essere necessario modificare le autorizzazioni per eseguirlo con ```chmod +x <python file name>```. Eseguire quindi il file Python con ```./<python file name>```.
+Al termine del download dello script, assicurarsi di disporre del computer corretto per l'esecuzione dello script. La macchina virtuale in cui si intende eseguire lo script non deve avere una delle seguenti configurazioni non supportate. In caso contrario, scegliere una macchina alternativa preferibilmente dalla stessa area che soddisfa i requisiti.  
 
-Per assicurarsi che lo script venga eseguito correttamente, fare riferimento alla sezione [Requisiti di accesso](#access-requirements).
+### <a name="dynamic-disks"></a>Dischi dinamici
 
-### <a name="identifying-volumes"></a>Identificazione di volumi
+Non è possibile eseguire lo script eseguibile nella macchina virtuale con le caratteristiche seguenti:
 
-#### <a name="for-windows"></a>Per Windows
+- Volumi che si estendono su più dischi (volumi con spanning e con striping).
+- Volumi a tolleranza di errore (volumi con mirroring e RAID-5) sui dischi dinamici.
+
+### <a name="windows-storage-spaces"></a>Spazi di archiviazione di Windows
+
+Non è possibile eseguire il file eseguibile scaricato nella macchina virtuale configurata per spazi di archiviazione Windows.
+
+### <a name="virtual-machine-backups-having-large-disks"></a>Backup di macchine virtuali con dischi di grandi dimensioni
+
+Se il computer di cui è stato eseguito il backup ha un numero elevato di dischi (>16) o dischi di grandi dimensioni (> 4 TB ciascuno), non è consigliabile eseguire lo script nello stesso computer per il ripristino, poiché avrà un impatto significativo sulla macchina virtuale. È invece consigliabile avere una macchina virtuale separata solo per il ripristino dei file (VM D2v3 VM di Azure) e quindi arrestarla quando non è necessario. 
+
+## <a name="step-3-os-requirements-to-successfully-run-the-script"></a>Passaggio 3: requisiti del sistema operativo per eseguire correttamente lo script
+
+La macchina virtuale in cui si vuole eseguire lo script scaricato deve soddisfare i requisiti seguenti.
+
+### <a name="for-windows-os"></a>Per il sistema operativo Windows
+
+La tabella seguente illustra la compatibilità tra i sistemi operativi del server e del computer. Quando si esegue il ripristino di file, non è possibile ripristinare i file in una versione precedente o successiva del sistema operativo. Ad esempio, non è possibile ripristinare un file da una VM Windows Server 2016 a un computer Windows Server 2012 o Windows 8. È possibile ripristinare i file da una VM allo stesso sistema operativo server o al sistema operativo client compatibile.
+
+|Sistema operativo del server | Sistema operativo compatibile del client  |
+| --------------- | ---- |
+| Windows Server 2019    | Windows 10 |
+| Windows Server 2016    | Windows 10 |
+| Windows Server 2012 R2 | Windows 8.1 |
+| Windows Server 2012    | Windows 8  |
+| Windows Server 2008 R2 | Windows 7   |
+
+### <a name="for-linux-os"></a>Per il sistema operativo Linux
+
+In Linux, il sistema operativo del computer usato per ripristinare i file deve supportare il file system della macchina virtuale protetta. Quando si seleziona un computer per l'esecuzione dello script, assicurarsi che abbia un sistema operativo compatibile e che usi una delle versioni indicate nella tabella seguente:
+
+|Sistema operativo Linux | Versioni  |
+| --------------- | ---- |
+| Ubuntu | 12.04 e versioni successive |
+| CentOS | 6.5 e versioni successive  |
+| RHEL | 6.7 e versioni successive |
+| Debian | 7 e versioni successive |
+| Oracle Linux | 6.4 e versioni successive |
+| SLES | 12 e versioni successive |
+| openSUSE | 42.2 e versioni successive |
+
+> [!NOTE]
+> Sono stati rilevati alcuni problemi nell'esecuzione dello script di ripristino del file nei computer con sistema operativo SLES 12 SP4 ed è in corso l'analisi del team SLES.
+> Attualmente, l'esecuzione dello script di ripristino dei file funziona sui computer con i sistemi operativi SLES 12 SP2 e SP3.
+>
+
+Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richiede anche componenti bash e Python.
+
+|Componente | Versione  |
+| --------------- | ---- |
+| bash | 4 e versioni successive |
+| python | 2.6.6 e versioni successive  |
+| TLS | 1.2 dovrebbe essere supportata  |
+
+## <a name="step-4-access-requirements-to-successfully-run-the-script"></a>Passaggio 4: accedere ai requisiti per eseguire correttamente lo script
+
+Se si esegue lo script in un computer con accesso limitato, verificare che sia disponibile l'accesso a:
+
+- `download.microsoft.com`
+- URL del servizio di ripristino (nome geografico si riferisce all'area in cui risiede l'insieme di credenziali dei servizi di ripristino)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (Per le aree pubbliche di Azure)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (per Azure China (21Vianet))
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (Per Azure US Gov)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (Per Azure Germania)
+- Porte in uscita 53 (DNS), 443, 3260
+
+> [!NOTE]
+>
+> Il file di script scaricato nel passaggio 1 [precedente](#step-1-generate-and-download-script-to-browse-and-recover-files) avrà il **nome geografico** nel nome del file. Usare tale **nome geografico** per inserire l'URL. Il nome dello script scaricato inizierà con: \' VMName \' \_ \' geoname \' _ \' GUID \' .<br><br>
+> Se, ad esempio, il nome del file di script è *ContosoVM_wcus_12345678*, il **nome geografico** è *wcus* e l'URL sarà:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
+>
+
+Per Linux, lo script richiede i componenti "open-iscsi" e "lshw" per la connessione al punto di ripristino. Se i componenti non sono presenti nel computer in cui viene eseguito, lo script chiede l'autorizzazione per installarli. Acconsentire all'installazione dei componenti necessari.
+
+È necessario accedere a `download.microsoft.com` per scaricare i componenti usati per creare un canale sicuro tra il computer in cui viene eseguito lo script e i dati nel punto di ripristino.
+
+
+## <a name="step-5-running-the-script-and-identifying-volumes"></a>Passaggio 5: esecuzione dello script e identificazione dei volumi
+
+### <a name="for-windows"></a>Per Windows
+
+Una volta soddisfatti tutti i requisiti elencati nel passaggio 2, passaggio 3 e passaggio 4, copiare lo script dal percorso scaricato, in genere la cartella Downloads, fare clic con il pulsante destro del mouse sul file eseguibile o sullo script ed eseguirlo con le credenziali di amministratore. Quando richiesto, digitare la password o incollarla dalla memoria e premere INVIO. Dopo l'immissione della password valida, lo script si connette al punto di ripristino.
+
+  ![Output eseguibile](./media/backup-azure-restore-files-from-vm/executable-output.png)
+
 
 Quando si esegue il file eseguibile, il sistema operativo monta i nuovi volumi e assegna lettere di unità. È possibile usare Esplora risorse o Esplora file per individuare queste unità. Le lettere di unità assegnate ai volumi potrebbero non essere le stesse lettere della macchina virtuale originale. Il nome del volume viene tuttavia mantenuto. Il volume della macchina virtuale originale "Disco dati (E:`\`)", ad esempio, può essere collegato nel computer locale come "Disco dati ('Qualsiasi lettera':`\`)". Esplorare tutti i volumi indicati nell'output dello script fino a individuare i file o la cartella.  
 
    ![Volumi di ripristino collegati](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
-#### <a name="for-linux"></a>Per Linux
+**Per le macchine virtuali di cui è stato eseguito il backup con dischi di grandi dimensioni (Windows)**
+
+Se il processo di ripristino dei file si blocca dopo l'esecuzione dello script di ripristino del file, ad esempio se i dischi non sono mai montati o se sono montati ma i volumi non vengono visualizzati, seguire questa procedura:
+  
+1. Verificare che il sistema operativo sia WS 2012 o versione successiva.
+2. Verificare che le chiavi del Registro di sistema siano impostate come indicato di seguito nel server di ripristino e assicurarsi di riavviare il server. Il numero accanto al GUID può essere compreso tra 0001 e 0005. Nell'esempio seguente è 0004. Passare al percorso della chiave del Registro di sistema fino alla sezione Parameters.
+
+    ![Modifiche della chiave del registro di sistema](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+
+```registry
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\EnableNOPOut – change this from 0 to 1
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200
+```
+
+### <a name="for-linux"></a>Per Linux
+
+Per i computer Linux, viene generato uno script Python. Scaricare lo script e copiarlo nel server Linux pertinente/compatibile. Potrebbe essere necessario modificare le autorizzazioni per eseguirlo con ```chmod +x <python file name>```. Eseguire quindi il file Python con ```./<python file name>```.
+
 
 In Linux i volumi del punto di ripristino sono montati nella cartella in cui viene eseguito lo script. I dischi collegati, i volumi e i percorsi di montaggio corrispondenti vengono visualizzati di conseguenza. Questi percorsi di montaggio sono visibili agli utenti con accesso a livello radice. Esplorare i volumi indicati nell'output dello script.
 
   ![Menu Ripristino file per Linux](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
 
-## <a name="closing-the-connection"></a>Chiusura della connessione
 
-Dopo avere identificato i file e averli copiati in un percorso di archiviazione locale, rimuovere o smontare le unità aggiuntive. Per smontare le unità, nel menu **ripristino file** della portale di Azure selezionare **smontare i dischi**.
+**Per le macchine virtuali di cui è stato eseguito il backup con dischi di grandi dimensioni (Linux)**
 
-![Smontare i dischi](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
+Se il processo di ripristino dei file si blocca dopo l'esecuzione dello script di ripristino del file, ad esempio se i dischi non sono mai montati o se sono montati ma i volumi non vengono visualizzati, seguire questa procedura:
 
-Dopo che i dischi sono stati smontati, viene visualizzato un messaggio. L'aggiornamento della connessione in modo che sia possibile rimuovere i dischi potrebbe richiedere alcuni minuti.
+1. Nel file /etc/iscsi/iscsid.conf modificare l'impostazione da:
+    - `node.conn[0].timeo.noop_out_timeout = 5`  A `node.conn[0].timeo.noop_out_timeout = 30`
+2. Dopo aver apportato le modifiche precedenti, eseguire di nuovo lo script. Se sono presenti errori temporanei, verificare che siano presenti da 20 a 30 minuti tra i riesecuzioni per evitare picchi successivi di richieste che incidono sulla preparazione della destinazione. Questo intervallo tra le esecuzioni garantisce che la destinazione sia pronta per la connessione dallo script.
+3. Dopo il ripristino del file, assicurarsi di tornare al portale e selezionare **smontare i dischi** per i punti di ripristino in cui non è stato possibile montare i volumi. In pratica, questo passaggio elimina eventuali processi/sessioni esistenti e aumenta le probabilità di ripristino.
 
-In Linux, dopo che la connessione al punto di ripristino viene interrotta, il sistema operativo non rimuove automaticamente i percorsi di montaggio corrispondenti, che rimangono come volumi "orfani" visibili, ma generano un errore in caso di accesso/scrittura di file. Questi percorsi possono essere rimossi manualmente. Quando viene eseguito, lo script identifica tutti i volumi di questo tipo esistenti da eventuali punti di ripristino precedenti e li elimina dopo avere ottenuto il consenso.
 
-> [!NOTE]
-> Assicurarsi che la connessione venga chiusa dopo il ripristino dei file necessari. Si tratta di un aspetto importante, soprattutto nello scenario in cui il computer in cui viene eseguito lo script è configurato anche per il backup. Se la connessione è ancora aperta, il backup successivo potrebbe non riuscire con l'errore "UserErrorUnableToOpenMount". Questo problema si verifica perché si presuppone che le unità o i volumi montati siano disponibili e quando vi si accede potrebbero avere esito negativo perché l'archiviazione sottostante, ovvero il server di destinazione iSCSI potrebbe non essere disponibile. Se si pulisce la connessione, queste unità/volumi verranno rimossi e pertanto non saranno disponibili durante il backup.
+#### <a name="lvmraid-arrays-for-linux-vms"></a>Matrici LVM/RAID (per VM Linux)
 
-## <a name="selecting-the-right-machine-to-run-the-script"></a>Selezione del computer corretto per l'esecuzione dello script
-
-Se lo script viene scaricato correttamente, il passaggio successivo consiste nel verificare se il computer in cui si intende eseguire lo script è il computer corretto. Di seguito sono riportati i requisiti da soddisfare nel computer.
-
-### <a name="original-backed-up-machine-versus-another-machine"></a>Computer originale sottoposto a backup rispetto a un altro computer
-
-1. Se il computer sottoposto a backup è una macchina virtuale su dischi di grandi dimensioni, ovvero il numero di dischi è superiore a 16 oppure ogni disco ha una dimensione maggiore di 4 TB, lo script **deve essere eseguito in un altro computer** ed è necessario soddisfare [questi requisiti](#file-recovery-from-virtual-machine-backups-having-large-disks).
-1. Anche se il computer sottoposto a backup non è una macchina virtuale su un disco di grandi dimensioni, in [questi scenari](#special-configurations) lo script non può essere eseguito nella stessa macchina virtuale sottoposta a backup.
-
-### <a name="os-requirements-on-the-machine"></a>Requisiti del sistema operativo nel computer
-
-Il computer in cui deve essere eseguito lo script deve soddisfare [questi requisiti del sistema operativo](#system-requirements).
-
-### <a name="access-requirements-for-the-machine"></a>Requisiti di accesso nel computer
-
-Il computer in cui deve essere eseguito lo script deve soddisfare [questi requisiti di accesso](#access-requirements).
-
-## <a name="special-configurations"></a>Configurazioni speciali
-
-### <a name="dynamic-disks"></a>Dischi dinamici
-
-Se la VM di Azure protetta ha volumi con una o entrambe le caratteristiche seguenti, non è possibile eseguire lo script eseguibile nella stessa VM.
-
-- Volumi che includono più dischi (volumi con spanning e con striping)
-- Volumi a tolleranza di errore (volume RAID-5 e con mirroring) in dischi dinamici
-
-Eseguire invece lo script eseguibile in qualsiasi altro computer con un sistema operativo compatibile.
-
-### <a name="windows-storage-spaces"></a>Spazi di archiviazione di Windows
-
-Spazi di archiviazione Windows è una tecnologia Windows che consente di virtualizzare le risorse di archiviazione. Con Spazi di archiviazione Windows è possibile raggruppare dischi standard di settore in pool di archiviazione e quindi usare lo spazio disponibile in tali pool per creare dischi virtuali, detti spazi di archiviazione.
-
-Se la VM di Azure protetta usa Spazi di archiviazione Windows, non è possibile eseguire lo script eseguibile nella stessa VM. Eseguire invece lo script eseguibile in qualsiasi altro computer con un sistema operativo compatibile.
-
-### <a name="lvmraid-arrays"></a>LVM/matrici RAID
-
-In Linux vengono usati la gestione dei volumi logici (LVM) e/o le matrici RAID software per gestire i volumi logici su più dischi. Se la VM Linux protetta usa array RAID e/o LVM, non è possibile eseguire lo script nella stessa VM. Eseguire invece lo script in qualsiasi altro computer con sistema operativo compatibile che supporti il file system della VM protetta.
-
+In Linux, Logical Volume Manager (LVM) e/o array RAID software vengono usati per gestire i volumi logici su più dischi. Se la VM Linux protetta usa array RAID e/o LVM, non è possibile eseguire lo script nella stessa VM.<br>
+Eseguire invece lo script in qualsiasi altro computer con sistema operativo compatibile che supporti il file system della VM protetta.<br>
 L'output dello script seguente mostra dischi e volumi di array RAID e/o LVM con il tipo di partizione.
 
    ![Menu dell'output per LVM in Linux](./media/backup-azure-restore-files-from-vm/linux-LVMOutput.png)
@@ -256,111 +325,18 @@ mount [RAID Disk Path] [/mountpath]
 
 Se nel disco RAID è configurata un'altra LVM, seguire la procedura precedente per le partizioni LVM usando il nome del volume invece del nome del disco RAID.
 
-## <a name="system-requirements"></a>Requisiti di sistema
+## <a name="step-6-closing-the-connection"></a>Passaggio 6: chiusura della connessione
 
-### <a name="for-windows-os"></a>Per il sistema operativo Windows
+Dopo avere identificato i file e averli copiati in un percorso di archiviazione locale, rimuovere o smontare le unità aggiuntive. Per smontare le unità, nel menu **ripristino file** della portale di Azure selezionare **smontare i dischi**.
 
-La tabella seguente illustra la compatibilità tra i sistemi operativi del server e del computer. Quando si esegue il ripristino di file, non è possibile ripristinare i file in una versione precedente o successiva del sistema operativo. Ad esempio, non è possibile ripristinare un file da una VM Windows Server 2016 a un computer Windows Server 2012 o Windows 8. È possibile ripristinare i file da una VM allo stesso sistema operativo server o al sistema operativo client compatibile.
+![Smontare i dischi](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
-|Sistema operativo del server | Sistema operativo compatibile del client  |
-| --------------- | ---- |
-| Windows Server 2019    | Windows 10 |
-| Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
-| Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
+Una volta che i dischi sono stati smontati, si riceverà un messaggio. L'aggiornamento della connessione in modo che sia possibile rimuovere i dischi potrebbe richiedere alcuni minuti.
 
-### <a name="for-linux-os"></a>Per il sistema operativo Linux
-
-In Linux, il sistema operativo del computer usato per ripristinare i file deve supportare il file system della macchina virtuale protetta. Quando si seleziona un computer per l'esecuzione dello script, assicurarsi che abbia un sistema operativo compatibile e che usi una delle versioni indicate nella tabella seguente:
-
-|Sistema operativo Linux | Versioni  |
-| --------------- | ---- |
-| Ubuntu | 12.04 e versioni successive |
-| CentOS | 6.5 e versioni successive  |
-| RHEL | 6.7 e versioni successive |
-| Debian | 7 e versioni successive |
-| Oracle Linux | 6.4 e versioni successive |
-| SLES | 12 e versioni successive |
-| openSUSE | 42.2 e versioni successive |
+In Linux, dopo che la connessione al punto di ripristino viene interrotta, il sistema operativo non rimuove automaticamente i percorsi di montaggio corrispondenti, che rimangono come volumi "orfani" visibili, ma generano un errore in caso di accesso/scrittura di file. Questi percorsi possono essere rimossi manualmente. Quando viene eseguito, lo script identifica tutti i volumi di questo tipo esistenti da eventuali punti di ripristino precedenti e li elimina dopo avere ottenuto il consenso.
 
 > [!NOTE]
-> Sono stati rilevati alcuni problemi nell'esecuzione dello script di ripristino del file nei computer con sistema operativo SLES 12 SP4 ed è in corso l'analisi del team SLES.
-> Attualmente, l'esecuzione dello script di ripristino dei file funziona sui computer con i sistemi operativi SLES 12 SP2 e SP3.
->
-
-Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richiede anche componenti bash e Python.
-
-|Componente | Versione  |
-| --------------- | ---- |
-| bash | 4 e versioni successive |
-| python | 2.6.6 e versioni successive  |
-| TLS | 1.2 dovrebbe essere supportata  |
-
-## <a name="access-requirements"></a>Requisiti di accesso
-
-Se si esegue lo script in un computer con accesso limitato, verificare che sia disponibile l'accesso a:
-
-- `download.microsoft.com`
-- URL del servizio di ripristino (nome geografico si riferisce all'area in cui risiede l'insieme di credenziali dei servizi di ripristino)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (Per le aree pubbliche di Azure)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (per Azure China (21Vianet))
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (Per Azure US Gov)
-  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (Per Azure Germania)
-- Porte in uscita 53 (DNS), 443, 3260
-
-> [!NOTE]
->
-> Il file di script scaricato nel passaggio 5 [precedente](#mount-the-volume-and-copy-files) avrà il **nome geografico** nel nome del file. Usare tale **nome geografico** per inserire l'URL. Il nome dello script scaricato inizierà con: \' VMName \' \_ \' geoname \' _ \' GUID \' .<br><br>
-> Se, ad esempio, il nome del file di script è *ContosoVM_wcus_12345678*, il **nome geografico** è *wcus* e l'URL sarà:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
->
-
-Per Linux, lo script richiede i componenti "open-iscsi" e "lshw" per la connessione al punto di ripristino. Se i componenti non sono presenti nel computer in cui viene eseguito, lo script chiede l'autorizzazione per installarli. Acconsentire all'installazione dei componenti necessari.
-
-È necessario accedere a `download.microsoft.com` per scaricare i componenti usati per creare un canale sicuro tra il computer in cui viene eseguito lo script e i dati nel punto di ripristino.
-
-## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Ripristino di file dai backup di macchine virtuali con dischi di grandi dimensioni
-
-Questa sezione illustra come eseguire il ripristino di file da backup di macchine virtuali di Azure con più di 16 dischi o ogni dimensione di disco superiore a 4 TB.
-
-Poiché il processo di recupero file connette tutti i dischi dal backup, quando vengono usati un numero elevato di dischi (>16) o dischi di grandi dimensioni (> 4 TB ciascuno), sono consigliati i punti di azione seguenti:
-
-- Mantenere un server di ripristino distinto (VM D2v3 di Azure) per il ripristino dei file. È possibile usarlo solo per il ripristino dei file e quindi arrestarlo quando non è necessario. Il ripristino nel computer originale non è consigliato, poiché avrà un impatto significativo sulla macchina virtuale stessa.
-- Eseguire quindi lo script una volta per verificare se l'operazione di ripristino dei file riesce.
-- Se il processo di ripristino dei file si blocca (i dischi non vengono mai montati oppure vengono montati ma i volumi non vengono visualizzati), seguire questa procedura.
-  - Se il server di ripristino è una macchina virtuale Windows:
-    - Verificare che il sistema operativo sia WS 2012 o versione successiva.
-    - Verificare che le chiavi del Registro di sistema siano impostate come indicato di seguito nel server di ripristino e assicurarsi di riavviare il server. Il numero accanto al GUID può essere compreso tra 0001 e 0005. Nell'esempio seguente è 0004. Passare al percorso della chiave del Registro di sistema fino alla sezione Parameters.
-
-    ![Modifiche della chiave del registro di sistema](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
-
-```registry
-- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\EnableNOPOut – change this from 0 to 1
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200
-```
-
-- Se il server di ripristino è una macchina virtuale Linux:
-  - Nel file /etc/iscsi/iscsid.conf modificare l'impostazione da:
-    - `node.conn[0].timeo.noop_out_timeout = 5`  A `node.conn[0].timeo.noop_out_timeout = 30`
-- Dopo avere apportato la modifica precedente, eseguire di nuovo lo script. Con queste modifiche, è molto probabile che il ripristino del file venga eseguito correttamente.
-- Ogni volta che un utente scarica uno script, Backup di Azure avvia il processo di preparazione del punto di ripristino per il download. Con dischi di grandi dimensioni, questo processo richiede molto tempo. In caso di picchi di richieste successivi, la preparazione della destinazione entra in una spirale di download. È quindi consigliabile scaricare uno script da Portal/PowerShell/CLI, attendere 20-30 minuti (approccio euristico) e quindi eseguirlo. A questo punto, la destinazione dovrebbe essere pronta per la connessione dallo script.
-- Dopo il ripristino del file, assicurarsi di tornare al portale e selezionare **smontare i dischi** per i punti di ripristino in cui non è stato possibile montare i volumi. In pratica, questo passaggio elimina eventuali processi/sessioni esistenti e aumenta le probabilità di ripristino.
-
-## <a name="troubleshooting"></a>Risoluzione dei problemi
-
-Se si verificano problemi durante il ripristino di file dalle macchine virtuali, controllare la tabella seguente per informazioni aggiuntive.
-
-| Messaggio di errore/scenario | Possibile causa | Azione consigliata |
-| ------------------------ | -------------- | ------------------ |
-| Output del file EXE: *Exception caught while connecting to target (Eccezione rilevata durante la connessione alla destinazione)* | Lo script non è in grado di accedere al punto di ripristino    | Controllare se il computer soddisfa i [requisiti di accesso indicati in precedenza](#access-requirements). |  
-| Output del file EXE: *Accesso alla destinazione già eseguito mediante una sessione iSCSI.* | Lo script è stato già eseguito nella stessa macchina virtuale e le unità sono state associate | I volumi del punto di ripristino sono già stati associati. Potrebbero non essere montati con le stesse lettere di unità della macchina virtuale originale. Esplorare tutti i volumi disponibili in Esplora file per il file. |
-| Output del file EXE: *Questo script non è valido perché è stato necessario smontare i dischi tramite il portale o è stato superato il limite di 12 ore. Scaricare un nuovo script dal portale.* |    I dischi sono stati smontati dal portale o è stato superato il limite di 12 ore | Non è possibile eseguire questo specifico file con estensione exe perché non è più valido. Se si vuole accedere ai file di questo punto di ripristino, visitare il portale per ottenere un nuovo file con estensione exe.|
-| Nella macchina virtuale in cui viene eseguito il file con estensione EXE: i nuovi volumi non vengono smontati dopo avere selezionato il pulsante di smontaggio | L'iniziatore iSCSI nel computer non sta rispondendo/aggiornando la connessione alla destinazione ed eseguendo la manutenzione della cache. |  Dopo aver fatto clic **Smontare**, attendere qualche minuto. Se i nuovi volumi non vengono smontati, sfogliare tutti i volumi. In questo modo l'iniziatore deve aggiornare la connessione e il volume viene smontato con un messaggio di errore indicante che il disco non è disponibile.|
-| Output del file EXE: lo script viene eseguito correttamente ma l’indicazione di nuovi volumi associati non viene visualizzata nell'output dello script |    Si tratta di un errore temporaneo    | I volumi sono stati già associati. Aprire Explorer per visualizzare lo stato. Se si usa lo stesso computer per eseguire gli script ogni volta, è consigliabile riavviarlo; l'elenco verrà visualizzato nelle successive esecuzioni del file eseguibile. |
-| Specifico per Linux: non è possibile visualizzare i volumi desiderati | Il sistema operativo del computer in cui viene eseguito lo script potrebbe non riconoscere il file system sottostante della VM protetta | Controllare se il punto di ripristino è coerente con l'arresto anomalo del sistema o a livello di file. Se è coerente a livello di file, eseguire lo script in un altro computer il cui sistema operativo riconosce il file system della VM protetta. |
-| Specifico per Windows: non è possibile visualizzare i volumi desiderati | I dischi possono essere stati collegati, ma i volumi non sono stati configurati | Dalla schermata Gestione disco, identificare i dischi aggiuntivi correlati al punto di recupero. Se uno di questi dischi è in uno stato offline, provare a portarli online facendo clic con il pulsante destro del mouse sul disco e selezionando **online**.|
+> Assicurarsi che la connessione venga chiusa dopo il ripristino dei file necessari. Si tratta di un aspetto importante, soprattutto nello scenario in cui il computer in cui viene eseguito lo script è configurato anche per il backup. Se la connessione è ancora aperta, il backup successivo potrebbe non riuscire con l'errore "UserErrorUnableToOpenMount". Questo problema si verifica perché si presuppone che le unità o i volumi montati siano disponibili e quando vi si accede potrebbero avere esito negativo perché l'archiviazione sottostante, ovvero il server di destinazione iSCSI potrebbe non essere disponibile. Se si pulisce la connessione, queste unità/volumi verranno rimossi e pertanto non saranno disponibili durante il backup.
 
 ## <a name="security"></a>Sicurezza
 
@@ -394,15 +370,15 @@ Per esplorare file e cartelle, lo script usa l'iniziatore iSCSI nel computer e s
 
 Viene usato un meccanismo di autenticazione CHAP reciproca, in modo che ogni componente esegua l'autenticazione dell'altro. Ciò significa che è molto difficile per un iniziatore fittizio connettersi alla destinazione iSCSI e per una destinazione fittizia connettersi al computer in cui viene eseguito lo script.
 
-Il flusso di dati tra il servizio di ripristino e il computer è protetto dalla compilazione di un tunnel TLS sicuro su TCP ([TLS 1.2 dovrebbe essere supportato](#system-requirements) nel computer in cui viene eseguito lo script).
+Il flusso di dati tra il servizio di ripristino e il computer è protetto dalla compilazione di un tunnel TLS sicuro su TCP ([TLS 1.2 dovrebbe essere supportato](#step-3-os-requirements-to-successfully-run-the-script) nel computer in cui viene eseguito lo script).
 
 Anche tutti gli elenchi di controllo di accesso (ACL) dei file presenti nella macchina virtuale padre/di cui è stato eseguito il backup vengono conservati nel file system montato.
 
 Lo script concede l'accesso in sola lettura a un punto di ripristino ed è valido solo per 12 ore. Se si vuole rimuovere l'accesso in precedenza, accedere portale di Azure/PowerShell/CLI ed eseguire lo **smontaggio dei dischi** per quel particolare punto di ripristino. Lo script verrà immediatamente invalidato.
 
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per eventuali problemi durante il ripristino di file, vedere la sezione [Risoluzione dei problemi](#troubleshooting)
 - Informazioni su come [ripristinare i file tramite PowerShell](./backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
 - Informazioni su come [ripristinare i file tramite l'interfaccia della riga di comando di Azure](./tutorial-restore-files.md)
 - Informazioni su come [gestire i backup](./backup-azure-manage-vms.md) dopo il ripristino di una macchina virtuale

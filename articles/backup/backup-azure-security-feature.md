@@ -4,12 +4,12 @@ description: Informazioni su come usare le funzionalità di sicurezza in Backup 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 5a408dc07e83e790a63f8a252d4ed3f84bf66be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c671b1b54b937f518f7179bb6940f31a28a78d4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89181681"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841019"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funzionalità di sicurezza per la protezione dei backup ibridi che usano Backup di Azure
 
@@ -43,15 +43,15 @@ Se si sta creando un insieme di credenziali di servizi di ripristino, è possibi
 3. Nell'elenco di elementi visualizzato sotto l'insieme di credenziali, in **Impostazioni**, selezionare **Proprietà**.
 
     ![Screenshot delle opzioni per l'insieme di credenziali di Servizi di ripristino](./media/backup-azure-security-feature/vault-list-properties.png)
-4. In **impostazioni di sicurezza**selezionare **Aggiorna**.
+4. In **impostazioni di sicurezza** selezionare **Aggiorna**.
 
     ![Screenshot delle proprietà dell'insieme di credenziali di Servizi di ripristino](./media/backup-azure-security-feature/security-settings-update.png)
 
     Il collegamento aggiornamento apre il riquadro **impostazioni di sicurezza** , che fornisce un riepilogo delle funzionalità e consente di abilitarle.
-5. Dall'elenco a discesa **sono stati configurati multi-factor authentication di Azure?** selezionare un valore per confermare se è stata abilitata la [multi-factor authentication di Azure](../active-directory/authentication/concept-mfa-howitworks.md). Se è abilitata, viene richiesto di eseguire l'autenticazione da un altro dispositivo, ad esempio un telefono cellulare, durante l'accesso al portale di Azure.
+5. Nell'elenco a discesa **è stato configurato Azure AD multi-factor authentication?** selezionare un valore per confermare se è stato abilitato [Azure ad multi-factor authentication](../active-directory/authentication/concept-mfa-howitworks.md). Se è abilitata, viene richiesto di eseguire l'autenticazione da un altro dispositivo, ad esempio un telefono cellulare, durante l'accesso al portale di Azure.
 
-   Quando si eseguono operazioni critiche in Backup, è necessario immettere il PIN di sicurezza, disponibile nel portale di Azure. L'abilitazione di Azure Multi-Factor Authentication aggiunge un livello di sicurezza. Solo gli utenti autorizzati con credenziali di Azure valide e autenticati da un secondo dispositivo potranno accedere al portale di Azure.
-6. Per salvare le impostazioni di sicurezza, selezionare **Abilita** e selezionare **Salva**. È possibile selezionare **Abilita** solo dopo aver selezionato un valore nell'elenco **È stata eseguita la configurazione di Azure Multi-Factor Authentication?** nel passaggio precedente.
+   Quando si eseguono operazioni critiche in Backup, è necessario immettere il PIN di sicurezza, disponibile nel portale di Azure. L'abilitazione di Azure AD Multi-Factor Authentication aggiunge un livello di sicurezza. Solo gli utenti autorizzati con credenziali di Azure valide e autenticati da un secondo dispositivo potranno accedere al portale di Azure.
+6. Per salvare le impostazioni di sicurezza, selezionare **Abilita** e selezionare **Salva**. È possibile selezionare **Abilita** solo dopo aver selezionato un valore dall'elenco **Azure ad multi-factor authentication? è stato configurato** nel passaggio precedente.
 
     ![Screenshot delle impostazioni di sicurezza](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
@@ -89,8 +89,8 @@ Nell'ambito dell'aggiunta di un ulteriore livello di autenticazione per le opera
 Per ricevere questo PIN:
 
 1. Accedere al portale di Azure.
-2. Individuare **Recovery Services vault**  >  **le proprietà delle impostazioni**dell'insieme di credenziali dei servizi di ripristino  >  **Properties**.
-3. In **pin di sicurezza**selezionare **genera**. Verrà aperto un riquadro che contiene il PIN da immettere nell'interfaccia utente dell'agente di servizi di ripristino di Azure.
+2. Individuare **Recovery Services vault**  >  **le proprietà delle impostazioni** dell'insieme di credenziali dei servizi di ripristino  >  **Properties**.
+3. In **pin di sicurezza** selezionare **genera**. Verrà aperto un riquadro che contiene il PIN da immettere nell'interfaccia utente dell'agente di servizi di ripristino di Azure.
     Questo PIN è valido solo per cinque minuti e viene generato automaticamente dopo questo periodo.
 
 ### <a name="maintain-a-minimum-retention-range"></a>Mantenimento di un intervallo minimo di conservazione
@@ -110,7 +110,7 @@ Le funzionalità di sicurezza descritte in questo articolo offrono meccanismi di
 
 ## <a name="troubleshooting-errors"></a>Risoluzione dei problemi
 
-| Operazione | Dettagli errore | Soluzione |
+| Operazione | Dettagli errore | Risoluzione |
 | --- | --- | --- |
 | Modifica dei criteri |Non è possibile modificare i criteri di backup. Errore: Impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x29834]. Ripetere l'operazione in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft. |**Causa:**<br/>Questo errore viene visualizzato quando sono abilitate le impostazioni di sicurezza, si tenta di ridurre il periodo di mantenimento dati al di sotto dei valori minimi specificati in precedenza e si usa una versione non supportata. le versioni supportate sono specificate nella prima nota di questo articolo. <br/>**Azione consigliata:**<br/> In questo caso, per procedere con gli aggiornamenti relativi ai criteri è consigliabile impostare un periodo di memorizzazione maggiore del valore minimo specificato (sette giorni per il backup giornaliero, quattro settimane per il backup settimanale, tre settimane per il backup mensile e un anno per il backup annuale). Facoltativamente, un approccio consigliato consiste nell'aggiornare l'agente di backup, server di Backup di Azure e/o DPM UR per sfruttare tutti gli aggiornamenti della sicurezza. |
 | Modificare la passphrase |Il PIN di sicurezza immesso non è corretto. (ID: 100130) Specificare il PIN di sicurezza corretto per completare questa operazione. |**Causa:**<br/> Questo errore si verifica quando si immette un PIN di sicurezza non valido o scaduto durante l'esecuzione di operazioni critiche, ad esempio la modifica della passphrase. <br/>**Azione consigliata:**<br/> Per completare l'operazione, è necessario immettere un PIN di sicurezza valido. Per ottenere il PIN, accedere a portale di Azure e passare a insieme di credenziali di servizi di ripristino > impostazioni > proprietà > genera PIN di sicurezza. Usare questo PIN per modificare la passphrase. |

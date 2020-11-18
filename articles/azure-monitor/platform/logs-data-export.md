@@ -3,16 +3,16 @@ title: Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio
 description: Log Analytics esportazione dei dati consente di esportare continuamente i dati delle tabelle selezionate dall'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta.
 ms.subservice: logs
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 19d464f0148572f30ecd0c3ab1dcee7bd0315b87
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: adac986cfa1a975ced7ef579c088ed2739778bf5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427803"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841808"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)
 Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure consente di esportare in modo continuativo i dati dalle tabelle selezionate nell'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta. Questo articolo fornisce informazioni dettagliate su questa funzionalità e i passaggi per configurare l'esportazione dei dati nelle aree di lavoro.
@@ -100,7 +100,7 @@ Per abilitare l'esportazione dei dati Log Analytics, è necessario registrare il
 
 - Microsoft.Insights
 
-Questo provider di risorse probabilmente sarà già registrato per la maggior parte degli utenti di monitoraggio di Azure. Per verificare, passare a **sottoscrizioni** nella portale di Azure. Selezionare la sottoscrizione e quindi fare clic su **provider di risorse** nella sezione **Impostazioni** del menu. Individuare **Microsoft. Insights**. Se lo stato è **registrato** , è già registrato. In caso contrario, fare clic su **registra** per registrarlo.
+Questo provider di risorse probabilmente sarà già registrato per la maggior parte degli utenti di monitoraggio di Azure. Per verificare, passare a **sottoscrizioni** nella portale di Azure. Selezionare la sottoscrizione e quindi fare clic su **provider di risorse** nella sezione **Impostazioni** del menu. Individuare **Microsoft. Insights**. Se lo stato è **registrato**, è già registrato. In caso contrario, fare clic su **registra** per registrarlo.
 
 È anche possibile usare uno dei metodi disponibili per registrare un provider di risorse, come descritto in [tipi e provider di risorse di Azure](../../azure-resource-manager/management/resource-providers-and-types.md). Di seguito è riportato un comando di esempio con PowerShell:
 
@@ -342,7 +342,7 @@ Le tabelle supportate sono attualmente limitate a quelle specificate di seguito.
 | DnsEvents | |
 | : Inventario DNS | |
 | Dynamics365Activity | |
-| Evento | Supporto parziale. Alcuni dati di questa tabella vengono inseriti tramite un account di archiviazione. Questi dati non sono attualmente esportati. |
+| Event | Supporto parziale. Alcuni dati di questa tabella vengono inseriti tramite un account di archiviazione. Questi dati non sono attualmente esportati. |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |

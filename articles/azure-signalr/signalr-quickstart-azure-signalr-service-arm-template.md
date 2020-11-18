@@ -4,15 +4,15 @@ description: Questo argomento di avvio rapido illustra come creare un servizio A
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.author: zhshang
 ms.date: 10/02/2020
-ms.openlocfilehash: a7e8183f21ab49fe4662470d30e52977dd89153a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 4ab029048b37a4dcb44ef405249dcb9e20de70cf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289908"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94841616"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>Avvio rapido: Usare un modello di Resource Manager per distribuire un servizio Azure SignalR
 
@@ -66,16 +66,16 @@ Nella pagina **Deploy an Azure SignalR service** (Distribuisci un servizio Azure
 
 1. Facoltativamente, cambiare il valore predefinito di **Sottoscrizione**.
 
-2. In **Gruppo di risorse** selezionare **Crea nuovo** , immettere un nome per il nuovo gruppo di risorse e quindi fare clic su **OK**.
+2. In **Gruppo di risorse** selezionare **Crea nuovo**, immettere un nome per il nuovo gruppo di risorse e quindi fare clic su **OK**.
 
 3. Se è stato creato un nuovo gruppo di risorse, in **Area** selezionare un valore per il gruppo di risorse.
 
-4. Se si vuole, immettere nuovi valori per **Nome** e **Località** (ad esempio **eastus2** ) del servizio Azure SignalR. Se non specificato, il nome viene generato automaticamente. La località per il servizio Azure SignalR può corrispondere o meno all'area del gruppo di risorse. Se non specificata, la località viene impostata sulla stessa area del gruppo di risorse.
+4. Se si vuole, immettere nuovi valori per **Nome** e **Località** (ad esempio **eastus2**) del servizio Azure SignalR. Se non specificato, il nome viene generato automaticamente. La località per il servizio Azure SignalR può corrispondere o meno all'area del gruppo di risorse. Se non specificata, la località viene impostata sulla stessa area del gruppo di risorse.
 
-5. Scegliere un valore per **Piano tariffario** ( **Free_F1** o **Standard_S1** ), immettere un valore per **Capacità** (numero di unità SignalR) e quindi per **Modalità servizio** scegliere **Predefinita** (richiede un server di hub), **Serverless** (non consente alcuna connessione server) o **Classica** (con il routing al server di hub solo se l'hub ha una connessione server). Quindi scegliere se abilitare **Enable Connectivity Logs** (Abilita log di connettività) o **Enable Messaging Logs** (Abilita log di messaggistica).
+5. Scegliere un valore per **Piano tariffario** (**Free_F1** o **Standard_S1**), immettere un valore per **Capacità** (numero di unità SignalR) e quindi per **Modalità servizio** scegliere **Predefinita** (richiede un server di hub), **Serverless** (non consente alcuna connessione server) o **Classica** (con il routing al server di hub solo se l'hub ha una connessione server). Quindi scegliere se abilitare **Enable Connectivity Logs** (Abilita log di connettività) o **Enable Messaging Logs** (Abilita log di messaggistica).
 
     > [!NOTE]
-    > Per il piano tariffario **Free_F1** , la capacità è limitata a una unità.
+    > Per il piano tariffario **Free_F1**, la capacità è limitata a una unità.
 
     :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="Screenshot del modello di Resource Manager per la creazione di un servizio Azure SignalR nel portale di Azure.":::
 
@@ -92,12 +92,12 @@ Usare il codice seguente per distribuire il servizio Azure SignalR tramite il mo
 
 * Il nome e l'area del nuovo servizio Azure SignalR
 * Il nome e l'area del nuovo gruppo di risorse
-* Il piano tariffario di Azure ( **Free_F1** o **Standard_S1** )
+* Il piano tariffario di Azure (**Free_F1** o **Standard_S1**)
 * La capacità di unità SignalR (1, 2, 5, 10, 20, 50 o 100)
   > [!NOTE]
-  > Per il piano tariffario **Free_F1** , la capacità è limitata a una unità.
+  > Per il piano tariffario **Free_F1**, la capacità è limitata a una unità.
 * La modalità di servizio: **Predefinita** per richiedere un server di hub, **Serverless** per non consentire alcuna connessione server o **Classica** per il routing a un server di hub solo se l'hub ha una connessione server
-* Se abilitare i log per la connettività o per la messaggistica ( **true** o **false** )
+* Se abilitare i log per la connettività o per la messaggistica (**true** o **false**)
 
 ```azurepowershell-interactive
 $serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR Service"
@@ -137,12 +137,12 @@ Usare il codice seguente per distribuire il servizio Azure SignalR tramite il mo
 
 * Il nome e l'area del nuovo servizio Azure SignalR
 * Il nome e l'area del nuovo gruppo di risorse
-* Il piano tariffario di Azure ( **Free_F1** o **Standard_S1** )
+* Il piano tariffario di Azure (**Free_F1** o **Standard_S1**)
 * La capacità di unità SignalR (1, 2, 5, 10, 20, 50 o 100)
     > [!NOTE]
-    > Per il piano tariffario **Free_F1** , la capacità è limitata a una unità.
+    > Per il piano tariffario **Free_F1**, la capacità è limitata a una unità.
 * La modalità di servizio: **Predefinita** per richiedere un server di hub, **Serverless** per non consentire alcuna connessione server o **Classica** per il routing a un server di hub solo se l'hub ha una connessione server
-* Se abilitare i log per la connettività o per la messaggistica ( **true** o **false** )
+* Se abilitare i log per la connettività o per la messaggistica (**true** o **false**)
 
 ```azurecli-interactive
 read -p "Enter a name for the new Azure SignalR Service: " serviceName &&

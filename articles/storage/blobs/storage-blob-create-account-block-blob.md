@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 53033226702ea1033fe4ae94f60c62cacbae6596
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 65a60425f09e9cd7a3e06ca1624621ed8b9fdcbd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124969"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842074"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Creare un account BlockBlobStorage
 
@@ -88,9 +88,9 @@ az login
 ## <a name="portal"></a>[Portale](#tab/azure-portal)
 Per creare un account BlockBlobStorage nel portale di Azure, seguire questa procedura:
 
-1. Nella portale di Azure selezionare tutti i **servizi** > la categoria **archiviazione** > **account di archiviazione** .
+1. Nella portale di Azure selezionare tutti i **servizi** > la categoria **archiviazione** > **account di archiviazione**.
 
-2. In **account di archiviazione** selezionare **Aggiungi** .
+2. In **account di archiviazione** selezionare **Aggiungi**.
 
 3. Nel campo **sottoscrizione** selezionare la sottoscrizione in cui creare l'account di archiviazione.
 
@@ -108,19 +108,19 @@ Per creare un account BlockBlobStorage nel portale di Azure, seguire questa proc
 
    |Campo     |Valore  |
    |---------|---------|
-   |**Prestazioni**    |  Selezionare **Premium** .   |
-   |**Tipo di account**    | Selezionare **BlockBlobStorage** .      |
-   |**Replica**    |  Lasciare l'impostazione predefinita di **archiviazione con ridondanza locale (con ridondanza locale)** .      |
+   |**Prestazioni**    |  Selezionare **Premium**.   |
+   |**Tipo di account**    | Selezionare **BlockBlobStorage**.      |
+   |**Replica**    |  Lasciare l'impostazione predefinita di **archiviazione con ridondanza locale (con ridondanza locale)**.      |
 
    ![Mostra l'interfaccia utente del portale per creare un account di archiviazione BLOB in blocchi](media/storage-blob-create-account-block-blob/create-block-blob-storage-account.png)
 
 8. Scegliere la scheda **Avanzate** .
 
-9. Se si vuole ottimizzare l'account di archiviazione per l'analisi dei dati, impostare **spazio dei nomi gerarchico** su **abilitato** . In caso contrario, lasciare questa opzione impostata sul valore predefinito. L'abilitazione di questa impostazione con l'account BlockBlobStorage offre il [livello Premium per data Lake storage](premium-tier-for-data-lake-storage.md).  Per ulteriori informazioni su Data Lake Storage, vedere [Introduzione a Azure Data Lake storage Gen2](data-lake-storage-introduction.md).
+9. Se si vuole ottimizzare l'account di archiviazione per l'analisi dei dati, impostare **spazio dei nomi gerarchico** su **abilitato**. In caso contrario, lasciare questa opzione impostata sul valore predefinito. L'abilitazione di questa impostazione con l'account BlockBlobStorage offre il [livello Premium per data Lake storage](premium-tier-for-data-lake-storage.md).  Per ulteriori informazioni su Data Lake Storage, vedere [Introduzione a Azure Data Lake storage Gen2](data-lake-storage-introduction.md).
 
 8. Selezionare **Verifica + crea** per verificare le impostazioni dell'account di archiviazione.
 
-9. Selezionare **Crea** .
+9. Selezionare **Crea**.
 
 ## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 

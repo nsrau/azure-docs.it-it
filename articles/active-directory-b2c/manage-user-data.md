@@ -11,12 +11,12 @@ ms.date: 05/06/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b7cc772e2a2e44a72af5e47a794c8b0f36aa9786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48c79306d376c2faa1089886881a7b5e9a792c86
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387644"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840547"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gestire i dati utente in Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ I dati utente in Azure Active Directory B2C sono limitati ai seguenti:
 
 Nell'esempio di flusso di esportazione di dati seguente i passaggi descritti come eseguiti dall'applicazione possono essere eseguiti anche da un processo back-end o da un utente con ruolo di amministratore nella directory:
 
-1. L'utente accede all'applicazione. Azure Active Directory B2C applica l'autenticazione con Azure Multi-Factor Authentication, se necessario.
+1. L'utente accede all'applicazione. Azure AD B2C impone l'autenticazione con Azure AD Multi-Factor Authentication se necessario.
 2. L'applicazione usa le credenziali utente per chiamare un'operazione API Microsoft Graph per recuperare gli attributi utente. L'API Microsoft Graph fornisce i dati dell'attributo in formato JSON. In base allo schema, è possibile impostare il contenuto del token ID in modo da includere tutti i dati personali su un utente.
 3. L'applicazione recupera l'attività di controllo dell'utente. L'API Microsoft Graph fornisce i dati dell'evento all'applicazione.
 4. L'applicazione aggrega i dati e li rende disponibili all'utente.

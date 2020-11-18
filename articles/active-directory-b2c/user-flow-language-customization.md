@@ -11,12 +11,12 @@ ms.date: 08/13/2019
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a5bfdada12229070568bb9b0556471ea5aab306f
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: a2c39d9809204328a6eba30c073b1fa81795924a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575952"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840288"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalizzazione della lingua in Azure AD B2C
 
@@ -28,9 +28,9 @@ La personalizzazione della lingua consente di selezionare le lingue in cui è di
 
 Potrebbe non essere necessario un tale livello di controllo sulle lingue visualizzate dal cliente. Se non si specifica un parametro `ui_locales`, l'esperienza del cliente è determinata dalle impostazioni del browser. È comunque possibile controllare le lingue in cui il flusso utente è tradotto aggiungendole come lingue supportate. Se il browser del cliente è impostato su una lingua che non si vuole supportare, viene visualizzata la lingua selezionata come predefinita nelle impostazioni cultura supportate.
 
-* **UI-impostazioni locali lingua specificata** : dopo aver abilitato la personalizzazione della lingua, il flusso utente viene convertito nella lingua specificata qui.
-* **Lingua richiesta dal browser** : se non `ui_locales` è stato specificato alcun parametro, il flusso utente viene convertito nella lingua richiesta dal browser, *se la lingua è supportata*.
-* **Lingua predefinita dei criteri** : se il browser non specifica una lingua o ne specifica una non supportata, il flusso utente viene convertito nella lingua predefinita del flusso utente.
+* **UI-impostazioni locali lingua specificata**: dopo aver abilitato la personalizzazione della lingua, il flusso utente viene convertito nella lingua specificata qui.
+* **Lingua richiesta dal browser**: se non `ui_locales` è stato specificato alcun parametro, il flusso utente viene convertito nella lingua richiesta dal browser, *se la lingua è supportata*.
+* **Lingua predefinita dei criteri**: se il browser non specifica una lingua o ne specifica una non supportata, il flusso utente viene convertito nella lingua predefinita del flusso utente.
 
 > [!NOTE]
 > Se si fa uso di attributi utente personalizzati, è necessario fornire le traduzioni. Per altre informazioni, vedere [Personalizzazione delle stringhe](#customize-your-strings).
@@ -200,7 +200,7 @@ Chrome e Firefox richiedono entrambi la relativa lingua preimpostata. Se è supp
 
 ## <a name="supported-languages"></a>Lingue supportate
 
-Azure AD B2C include il supporto per le lingue seguenti. Le lingue dei flussi utente sono fornite da Azure AD B2C. Le lingue di notifica dell'autenticazione a più fattori (MFA, Multi-Factor Authentication) sono fornite da [Azure MFA](../active-directory/authentication/concept-mfa-howitworks.md).
+Azure AD B2C include il supporto per le lingue seguenti. Le lingue dei flussi utente sono fornite da Azure AD B2C. I linguaggi di notifica dell'autenticazione a più fattori (multi-factor authentication) sono forniti da [Azure ad](../active-directory/authentication/concept-mfa-howitworks.md)autenticazione a più fattori.
 
 | Linguaggio              | Codice lingua | Flussi degli utenti         | Notifiche MFA  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
@@ -237,7 +237,7 @@ Azure AD B2C include il supporto per le lingue seguenti. Le lingue dei flussi ut
 | Malese                 | ms            | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) |
 | Norvegese Bokmål      | nb            | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) | ![X che indica No.](./media/user-flow-language-customization/no.png) |
 | Olandese                 | nl            | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) |
-| Norvegese             | no            | ![X che indica No.](./media/user-flow-language-customization/no.png) | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) |
+| Norvegese             | No            | ![X che indica No.](./media/user-flow-language-customization/no.png) | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) |
 | Punjabi               | pa            | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) | ![X che indica No.](./media/user-flow-language-customization/no.png) |
 | Polacco                | pl            | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) |
 | Portoghese (Brasile)   | pt-br         | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) | ![Segno di spunta verde.](./media/user-flow-language-customization/yes.png) |

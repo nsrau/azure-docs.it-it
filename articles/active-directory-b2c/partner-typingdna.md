@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: f7d89942ad5209b854b8df486ad3e59a3976edfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edbc944e77d2483d32574f8044c72fc3d1292e2a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259052"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840435"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di TypingDNA con Azure Active Directory B2C
 
 Questa procedura dettagliata illustra come integrare un'app di pagamento online di esempio in Azure Active Directory B2C con l'APP TypingDNA. Usando l'app TypingDNA, i clienti Azure AD B2C possono conformarsi ai requisiti delle transazioni PSD2 ( [Payment Services Directive 2](https://www.typingdna.com/use-cases/sca-strong-customer-authentication) ) tramite la dinamica della sequenza di tasti e l'autenticazione avanzata del cliente. Altre informazioni su TypingDNA sono disponibili [qui](https://www.typingdna.com/).
 
- Azure AD B2C usa le tecnologie di TypingDNA per acquisire le caratteristiche di digitazione degli utenti e registrarle e analizzarle per familiarizzare con ogni autenticazione. In questo modo viene aggiunto un livello di protezione correlato all'rischiosità di un'autenticazione e vengono valutati i livelli di rischio. Azure AD B2C possibile richiamare altri meccanismi per fornire ulteriore confidenza all'utente che affermano di essere richiamando l'autenticazione a più fattori di Azure, forzando la verifica tramite posta elettronica o qualsiasi altra logica personalizzata per lo scenario.
+ Azure AD B2C usa le tecnologie di TypingDNA per acquisire le caratteristiche di digitazione degli utenti e registrarle e analizzarle per familiarizzare con ogni autenticazione. In questo modo viene aggiunto un livello di protezione correlato all'rischiosità di un'autenticazione e vengono valutati i livelli di rischio. Azure AD B2C possibile richiamare altri meccanismi per fornire una maggiore fiducia all'utente per quanto riguarda il fatto che richiamano Azure AD autenticazione a più fattori, forzando la verifica tramite posta elettronica o qualsiasi altra logica personalizzata per lo scenario.
 
 >[!NOTE]
 > Questo criterio di esempio è basato su [SocialAndLocalAccountsWithMfa](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa) Starter Pack.
@@ -113,7 +113,7 @@ Queste soglie devono essere modificate in caso di utilizzo.
 
 - Dopo che l'API ha valutato `net_score` , deve restituire un'attestazione booleana a B2C- `promptMFA` .
 
-- L' `promptMFA` attestazione viene usata in una condizione preliminare per eseguire in modo condizionale l'autenticazione a più fattori di Azure.
+- L' `promptMFA` attestazione viene usata all'interno di una condizione preliminare per eseguire in modo condizionale Azure ad multi-factor authentication.
 
 ```xml
 
@@ -170,7 +170,7 @@ Queste soglie devono essere modificate in caso di utilizzo.
 ## <a name="test-the-user-flow"></a>Testare il flusso utente
 
 1. Aprire il tenant B2C e scegliere Framework dell'esperienza di identità.
-2. Selezionare il **flusso utente**creato in precedenza.
+2. Selezionare il **flusso utente** creato in precedenza.
 3. Selezionare **Esegui** flusso utente
 
     a. **Applicazione** : selezionare l'app registrata (l'esempio è JWT)

@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 6da91248c197eae12fbc59f2da8c5294d95117b6
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 343ad80a6b68de352424fa8f16686fcece921954
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173829"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840917"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -102,7 +102,7 @@ L'operazione di backup non è riuscita a causa di un problema con il servizio di
 Codice errore: ExtensionFailedVssWriterInBadState <br/>
 Messaggio di errore: L'operazione di creazione snapshot non è riuscita perché lo stato di VSS writer non è valido.
 
-Questo errore si verifica perché i writer del servizio Copia Shadow del volume sono in uno stato non valido. Le estensioni di backup di Azure interagiscono con i writer VSS per creare snapshot dei dischi. Per risolvere il problema, seguire questa procedura:
+Questo errore si verifica perché i writer del servizio Copia Shadow del volume sono in uno stato non valido. Le estensioni di backup di Azure interagiscono con i writer VSS per creare snapshot dei dischi. Per risolvere questo problema, seguire questa procedura:
 
 Passaggio 1: riavviare i writer VSS in uno stato non valido.
 
@@ -124,8 +124,8 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 
 Passaggio 3: se i passaggi 1 e 2 non hanno risolto il problema, l'errore potrebbe essere dovuto a un timeout dei writer VSS a causa di IOPS limitati.<br>
 
-Per verificare, passare a ***sistema e Visualizzatore eventi registri applicazioni*** e verificare la presenza del seguente messaggio di errore:<br>
-*Si è verificato un timeout del provider della copia shadow durante la scrittura del volume da replicare. Questa operazione è probabilmente dovuta a un'attività eccessiva del volume da parte di un'applicazione o di un servizio di sistema. Riprovare più tardi quando l'attività sul volume è ridotta.*<br>
+Per verificare, passare a ***System e Visualizzatore eventi log applicazioni** _ e verificare la presenza del seguente messaggio di errore:<br>
+Si è verificato un timeout del provider della copia shadow _The durante l'esecuzione delle scritture nel volume da replicare. Questa operazione è probabilmente dovuta a un'attività eccessiva del volume da parte di un'applicazione o di un servizio di sistema. Riprovare più tardi quando l'attività sul volume è ridotta. *<br>
 
 Soluzione:
 
@@ -138,7 +138,7 @@ Soluzione:
 Codice di errore: ExtensionFailedVssServiceInBadState <br/>
 Messaggio di errore: l'operazione di snapshot non è riuscita a causa di un servizio VSS (copia shadow del volume) in stato non valido.
 
-Questo errore si verifica perché il servizio VSS è in uno stato non valido. Le estensioni di backup di Azure interagiscono con il servizio VSS per creare snapshot dei dischi. Per risolvere il problema, seguire questa procedura:
+Questo errore si verifica perché il servizio VSS è in uno stato non valido. Le estensioni di backup di Azure interagiscono con il servizio VSS per creare snapshot dei dischi. Per risolvere questo problema, seguire questa procedura:
 
 Riavviare il servizio VSS (copia shadow del volume).
 
@@ -321,8 +321,8 @@ Se si dispone di un'istanza di Criteri di Azure che [governa i tag all'interno d
 
 Se dopo il ripristino si nota che i dischi sono offline:
 
-* Verificare che il computer in cui viene eseguito lo script soddisfi i requisiti del sistema operativo. [Altre informazioni](./backup-azure-restore-files-from-vm.md#system-requirements)  
-* Assicurarsi di non eseguire il ripristino nella stessa origine, [altre informazioni](./backup-azure-restore-files-from-vm.md#original-backed-up-machine-versus-another-machine).
+* Verificare che il computer in cui viene eseguito lo script soddisfi i requisiti del sistema operativo. [Altre informazioni](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script)  
+* Assicurarsi di non eseguire il ripristino nella stessa origine, [altre informazioni](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>UserErrorInstantRpNotFound-il ripristino non è riuscito perché non è stato possibile trovare lo snapshot della macchina virtuale
 

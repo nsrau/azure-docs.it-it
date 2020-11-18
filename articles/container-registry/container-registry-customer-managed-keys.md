@@ -4,12 +4,12 @@ description: Informazioni sulla crittografia al resto del registro contenitori d
 ms.topic: article
 ms.date: 09/30/2020
 ms.custom: ''
-ms.openlocfilehash: 6eaae5266277a6a65c7cecaa761b75e3a41ebe87
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: ad81a94910cb1ed09634801f8706182e17947225
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940668"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842567"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Crittografare il registro usando una chiave gestita dal cliente
 
@@ -210,7 +210,7 @@ Il nome dell'identità verrà usato nei passaggi successivi.
 
 ### <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
-Per i passaggi necessari per creare un insieme di credenziali delle chiavi, vedere [Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure](../key-vault/secrets/quick-create-portal.md).
+Per i passaggi necessari per creare un insieme di credenziali delle chiavi, vedere [Guida introduttiva: creare un Azure Key Vault con il portale di Azure](../key-vault/general/quick-create-portal.md).
 
 Quando si crea un insieme di credenziali delle chiavi per una chiave gestita dal cliente, abilitare le impostazioni di protezione seguenti nella scheda **Nozioni di base**: **Eliminazione temporanea** e **Protezione dall'eliminazione**. Queste impostazioni consentono di evitare la perdita di dati causata da eliminazioni accidentali delle chiavi o dell'insieme di credenziali delle chiavi.
 
@@ -525,7 +525,7 @@ Se si tenta di rimuovere un'identità assegnata dall'utente da un registro di si
 Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry' does not have access to identity 'xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx' Try forcibly adding the identity to the registry <registry name>. For more information on bring your own key, please visit 'https://aka.ms/acr/cmk'.
 ```
  
-Non sarà possibile modificare (ruotare) la chiave di crittografia. Se si verifica questo problema, prima di tutto riassegnare l'identità utilizzando il GUID visualizzato nel messaggio di errore. Esempio:
+Non sarà possibile modificare (ruotare) la chiave di crittografia. Se si verifica questo problema, prima di tutto riassegnare l'identità utilizzando il GUID visualizzato nel messaggio di errore. Ad esempio:
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
