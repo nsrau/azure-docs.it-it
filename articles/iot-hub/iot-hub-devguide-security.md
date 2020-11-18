@@ -16,12 +16,13 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 93b692574588396f776c4d62bd24072382ae8471
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+- devx-track-azurecli
+ms.openlocfilehash: 8627681d843d15658882529424375486a4cdb1b9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912141"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845170"
 ---
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
 
@@ -43,7 +44,7 @@ Questo articolo descrive:
 
 Per concedere le [autorizzazioni](#iot-hub-permissions) è possibile procedere nei modi seguenti:
 
-* **Criteri di accesso condivisi a livello di hub IoT** . I criteri di accesso condiviso possono concedere qualsiasi combinazione di [autorizzazioni](#iot-hub-permissions). È possibile definire i criteri nel [portale di Azure](https://portal.azure.com) a livello di codice tramite le [API REST di risorsa dell'hub IoT](/rest/api/iothub/iothubresource) o tramite il comando dell'interfaccia della riga di comando [az iot hub policy](/cli/azure/iot/hub/policy). Un hub IoT appena creato ha i criteri predefiniti seguenti:
+* **Criteri di accesso condivisi a livello di hub IoT**. I criteri di accesso condiviso possono concedere qualsiasi combinazione di [autorizzazioni](#iot-hub-permissions). È possibile definire i criteri nel [portale di Azure](https://portal.azure.com) a livello di codice tramite le [API REST di risorsa dell'hub IoT](/rest/api/iothub/iothubresource) o tramite il comando dell'interfaccia della riga di comando [az iot hub policy](/cli/azure/iot/hub/policy). Un hub IoT appena creato ha i criteri predefiniti seguenti:
   
   | Criterio di accesso condiviso | Autorizzazioni |
   | -------------------- | ----------- |
@@ -53,7 +54,7 @@ Per concedere le [autorizzazioni](#iot-hub-permissions) è possibile procedere n
   | registryRead | Autorizzazioni **RegistryRead** |
   | registryReadWrite | Autorizzazioni **RegistryRead** e **RegistryWrite** |
 
-* **Credenziali di sicurezza specifiche del dispositivo** . Ogni hub IoT contiene un [registro delle identità](iot-hub-devguide-identity-registry.md). Per ogni dispositivo presente in questo registro delle identità è possibile configurare credenziali di sicurezza che concedono autorizzazioni **DeviceConnect** con ambito agli endpoint di dispositivo corrispondenti.
+* **Credenziali di sicurezza specifiche del dispositivo**. Ogni hub IoT contiene un [registro delle identità](iot-hub-devguide-identity-registry.md). Per ogni dispositivo presente in questo registro delle identità è possibile configurare credenziali di sicurezza che concedono autorizzazioni **DeviceConnect** con ambito agli endpoint di dispositivo corrispondenti.
 
 Ad esempio, in una soluzione IoT tipica:
 
@@ -116,7 +117,7 @@ Quando si usa SASL PLAIN con AMQP, un client che si connette a un hub IoT potrà
 
 ## <a name="scope-iot-hub-level-credentials"></a>Definire l'ambito delle credenziali a livello di hub IoT
 
-È possibile definire l'ambito dei criteri di sicurezza a livello di hub IoT creando token con URI di risorsa con limitazioni. L'endpoint per l'invio di messaggi da dispositivo a cloud da un dispositivo, ad esempio, è **/devices/{deviceId}/messages/events** . È anche possibile usare criteri di accesso condiviso a livello di hub IoT con autorizzazioni **DeviceConnect** per firmare un token il cui valore resourceURI è **/devices/{deviceId}** . Questo approccio crea un token che può essere usato solo per l'invio di messaggi per conto del dispositivo **deviceId** .
+È possibile definire l'ambito dei criteri di sicurezza a livello di hub IoT creando token con URI di risorsa con limitazioni. L'endpoint per l'invio di messaggi da dispositivo a cloud da un dispositivo, ad esempio, è **/devices/{deviceId}/messages/events**. È anche possibile usare criteri di accesso condiviso a livello di hub IoT con autorizzazioni **DeviceConnect** per firmare un token il cui valore resourceURI è **/devices/{deviceId}** . Questo approccio crea un token che può essere usato solo per l'invio di messaggi per conto del dispositivo **deviceId**.
 
 Questo meccanismo è simile ai [criteri dell'entità di pubblicazione di Hub eventi](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) e consente di implementare metodi di autenticazione personalizzati.
 
@@ -144,13 +145,13 @@ I valori previsti sono i seguenti:
 
 | valore | Descrizione |
 | --- | --- |
-| {signature} |Stringa della firma HMAC-SHA256 nel formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante** : la chiave viene decodificata dalla codifica Base64 e usata come chiave per eseguire il calcolo di HMAC-SHA256. |
+| {signature} |Stringa della firma HMAC-SHA256 nel formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: la chiave viene decodificata dalla codifica Base64 e usata come chiave per eseguire il calcolo di HMAC-SHA256. |
 | {resourceURI} |Prefisso URI (per segmento) degli endpoint a cui è possibile accedere tramite questo token e che inizia con il nome host dell'hub IoT senza il protocollo. Ad esempio, usare `myHub.azure-devices.net/devices/device1` |
 | {expiry} |Stringhe UTF8 per il numero di secondi trascorsi dalle 00:00:00 UTC dell'1 gennaio 1970. |
 | {URL-encoded-resourceURI} |Codifica URL con lettere minuscole dell'URI della risorsa con lettere minuscole |
 | {policyName} |Nome del criterio di accesso condiviso a cui fa riferimento il token. Assente se il token fa riferimento a credenziali del registro dei dispositivi. |
 
-**Nota sul prefisso** : il prefisso dell'URI viene calcolato in base al segmento e non in base al carattere. Ad esempio `/a/b` è un prefisso per `/a/b/c` ma non per `/a/bc`.
+**Nota sul prefisso**: il prefisso dell'URI viene calcolato in base al segmento e non in base al carattere. Ad esempio `/a/b` è un prefisso per `/a/b/c` ma non per `/a/bc`.
 
 Il frammento seguente di Node.js mostra una funzione denominata **generateSasToken** che calcola il token dagli input `resourceUri, signingKey, policyName, expiresInMins`. Nelle sezioni successive viene illustrato nel dettaglio come inizializzare gli input a seconda del caso d'uso.
 
@@ -307,7 +308,7 @@ Il risultato, che concede l'accesso a tutte le funzionalità per device1, sarà:
 
 ### <a name="use-a-shared-access-policy"></a>Usare criteri di accesso condiviso
 
-Quando si crea un token da criteri di accesso condiviso, impostare il campo `skn` sul nome dei criteri. Questi criteri devono concedere l'autorizzazione **DeviceConnect** .
+Quando si crea un token da criteri di accesso condiviso, impostare il campo `skn` sul nome dei criteri. Questi criteri devono concedere l'autorizzazione **DeviceConnect**.
 
 I due scenari principali per l'uso di criteri di accesso condiviso per accedere alla funzionalità dei dispositivi sono:
 
@@ -377,11 +378,11 @@ Il risultato, che concede l'accesso in lettura a tutte le identità dispositivo,
 
 I certificati supportati includono:
 
-* **Un certificato X.509 esistente** . Un dispositivo potrebbe già avere un certificato X.509 associato. Il dispositivo può usare questo certificato per autenticarsi con hub IoT. È compatibile sia con l'autenticazione tramite identificazione personale che con l'autenticazione tramite autorità di certificazione. 
+* **Un certificato X.509 esistente**. Un dispositivo potrebbe già avere un certificato X.509 associato. Il dispositivo può usare questo certificato per autenticarsi con hub IoT. È compatibile sia con l'autenticazione tramite identificazione personale che con l'autenticazione tramite autorità di certificazione. 
 
-* **Certificato X.509 firmato da un'autorità di certificazione** . Per identificare un dispositivo e autenticarlo con l'hub IoT, è possibile usare un certificato X.509 generato e firmato da un'autorità di certificazione (CA). È compatibile sia con l'autenticazione tramite identificazione personale che con l'autenticazione tramite autorità di certificazione.
+* **Certificato X.509 firmato da un'autorità di certificazione**. Per identificare un dispositivo e autenticarlo con l'hub IoT, è possibile usare un certificato X.509 generato e firmato da un'autorità di certificazione (CA). È compatibile sia con l'autenticazione tramite identificazione personale che con l'autenticazione tramite autorità di certificazione.
 
-* **Un certificato X-509 auto-generato e auto-firmato** . Un produttore di dispositivi o un distributore interno può generare questi certificati e archiviare la chiave privata corrispondente (e il certificato) nel dispositivo. È possibile usare strumenti come [OpenSSL](https://www.openssl.org/) e l'utilità [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) per questo scopo. È compatibile solo con l'autenticazione tramite identificazione personale.
+* **Un certificato X-509 auto-generato e auto-firmato**. Un produttore di dispositivi o un distributore interno può generare questi certificati e archiviare la chiave privata corrispondente (e il certificato) nel dispositivo. È possibile usare strumenti come [OpenSSL](https://www.openssl.org/) e l'utilità [Windows SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) per questo scopo. È compatibile solo con l'autenticazione tramite identificazione personale.
 
 Un dispositivo può usare un certificato X.509 o un token di sicurezza per l'autenticazione, ma non per entrambi. Con l'autenticazione del certificato X. 509, assicurarsi di disporre di una strategia per gestire il rollover del certificato quando un certificato esistente scade.
 
@@ -439,7 +440,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 È possibile usare il [registro delle identità](iot-hub-devguide-identity-registry.md) dell'hub IoT per configurare il controllo dell'accesso e le credenziali di sicurezza per ogni dispositivo/modulo usando i [token](iot-hub-devguide-security.md#security-tokens). Se una soluzione IoT ha già un registro personalizzato delle identità e/o uno schema di autenticazione, valutare la possibilità di creare un *servizio token* per integrare l'infrastruttura con l'hub IoT. In questo modo, è possibile usare altre funzionalità IoT nella soluzione.
 
-Un servizio token è un servizio cloud personalizzato. Usa i *criteri di accesso condiviso* dell'hub IoT con autorizzazioni **DeviceConnect** o **ModuleConnect** per creare token *basati sul dispositivo* o *basati sul modulo* . Questi token abilitano la connessione di un dispositivo e un modulo all'hub IoT.
+Un servizio token è un servizio cloud personalizzato. Usa i *criteri di accesso condiviso* dell'hub IoT con autorizzazioni **DeviceConnect** o **ModuleConnect** per creare token *basati sul dispositivo* o *basati sul modulo*. Questi token abilitano la connessione di un dispositivo e un modulo all'hub IoT.
 
 ![Passaggi del modello di servizio token](./media/iot-hub-devguide-security/tokenservice.png)
 

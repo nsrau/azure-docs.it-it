@@ -3,13 +3,13 @@ title: Usa pool dedicato per eseguire attività-attività
 description: Configurare un pool di risorse di calcolo dedicato (pool di agenti) nel registro di sistema per eseguire un'attività Container Registry di Azure.
 ms.topic: article
 ms.date: 10/12/2020
-ms.custom: references_regions
-ms.openlocfilehash: 86c539c3b34ca0e54d65f15c4d9d01a99f9b31c6
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 94956af14aad2b62e6455f443329bcd3232095c0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997366"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844915"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>Eseguire un'attività ACR in un pool di agenti dedicato
 
@@ -44,7 +44,7 @@ Questa funzionalità è disponibile per il livello di servizio **Premium** del r
 
 I livelli del pool di agenti forniscono le risorse seguenti per ogni istanza nel pool.
 
-|Livello    | Tipo  |  CPU  |Memoria (GB)  |
+|Livello    | Type  |  CPU  |Memoria (GB)  |
 |---------|---------|---------|---------|
 |S1     |  standard    | 2       |    3     |
 |S2     |  standard    | 4       |    8     |

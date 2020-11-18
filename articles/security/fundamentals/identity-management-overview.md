@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 48d0483247f610a1e8c7491e13ea86883bf8f341
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 2c7d51da361816841ff556c1da696a48d2ce6a06
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410369"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843690"
 ---
 # <a name="azure-identity-management-security-overview"></a>Informazioni generali sulla sicurezza della gestione delle identità di Azure
 
@@ -79,13 +79,13 @@ Altre informazioni:
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Azure Multi-Factor Authentication è un metodo di autenticazione che richiede l'uso di più metodi di verifica e aggiunge un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. Multi-Factor Authentication permette di proteggere l'accesso ai dati e alle applicazioni, garantendo al tempo stesso agli utenti una procedura di accesso semplice. Offre l'autenticazione avanzata tramite diverse opzioni di verifica, ad esempio una telefonata, un SMS, una notifica o un codice di verifica dell'app per dispositivi mobili e token OAuth di terze parti.
+Azure AD Multi-Factor Authentication è un metodo di autenticazione che richiede l'uso di più di un metodo di verifica e aggiunge un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. Multi-Factor Authentication permette di proteggere l'accesso ai dati e alle applicazioni, garantendo al tempo stesso agli utenti una procedura di accesso semplice. Offre l'autenticazione avanzata tramite diverse opzioni di verifica, ad esempio una telefonata, un SMS, una notifica o un codice di verifica dell'app per dispositivi mobili e token OAuth di terze parti.
 
 Altre informazioni:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Informazioni su Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Come funziona Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Che cos'è Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Funzionamento di Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="azure-rbac"></a>Controllo degli accessi in base al ruolo di Azure
 
@@ -107,11 +107,11 @@ Monitoraggio della sicurezza, avvisi e report basati su Machine Learning che ide
 
 Nel portale di Azure i report rientrano nelle seguenti categorie:
 
-* **Report anomalie** : contengono eventi di accesso individuati come anomali. L'obiettivo è rendere gli utenti consapevoli di tali attività e consentire di stabilire se un evento è sospetto.
-* **Report applicazioni integrate** : offrono informazioni dettagliate sull'uso delle applicazioni cloud nell'organizzazione. Azure AD offre l'integrazione con migliaia di applicazioni cloud.
-* **Report di errori** : segnalano gli errori che possono verificarsi durante il provisioning di account in applicazioni esterne.
-* **Report specifici dell'utente** : visualizzano i dati dell'attività di accesso del dispositivo per un utente specifico.
-* **Log attività** : contengono un record di tutti gli eventi controllati nelle ultime 24 ore, negli ultimi 7 giorni o negli ultimi 30 giorni, oltre alle modifiche alle attività del gruppo e alle attività di registrazione e di reimpostazione password.
+* **Report anomalie**: contengono eventi di accesso individuati come anomali. L'obiettivo è rendere gli utenti consapevoli di tali attività e consentire di stabilire se un evento è sospetto.
+* **Report applicazioni integrate**: offrono informazioni dettagliate sull'uso delle applicazioni cloud nell'organizzazione. Azure AD offre l'integrazione con migliaia di applicazioni cloud.
+* **Report di errori**: segnalano gli errori che possono verificarsi durante il provisioning di account in applicazioni esterne.
+* **Report specifici dell'utente**: visualizzano i dati dell'attività di accesso del dispositivo per un utente specifico.
+* **Log attività**: contengono un record di tutti gli eventi controllati nelle ultime 24 ore, negli ultimi 7 giorni o negli ultimi 30 giorni, oltre alle modifiche alle attività del gruppo e alle attività di registrazione e di reimpostazione password.
 
 Altre informazioni:
 

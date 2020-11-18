@@ -11,23 +11,23 @@ ms.subservice: core
 ms.date: 11/05/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
-ms.openlocfilehash: adc0547e36e9cf996a87c2683b4830541b8cd360
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 7fa6beacf4456145e312494a72dad321dfef3754
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442107"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843928"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurare l'autenticazione per le risorse e i flussi di lavoro di Azure Machine Learning
 
 
 Informazioni su come configurare l'autenticazione per l'area di lavoro Azure Machine Learning. L'autenticazione per l'area di lavoro Azure Machine Learning è basata sulla __Azure Active Directory__ (Azure ad) per la maggior parte delle operazioni. In generale, sono disponibili tre flussi di lavoro di autenticazione che è possibile usare per la connessione all'area di lavoro:
 
-* __Interattivo__ : è possibile usare l'account Azure Active Directory per l'autenticazione diretta o per ottenere un token usato per l'autenticazione. L'autenticazione interattiva viene utilizzata durante la _sperimentazione e lo sviluppo iterativo_. L'autenticazione interattiva consente di controllare l'accesso alle risorse, ad esempio un servizio Web, per ogni singolo utente.
+* __Interattivo__: è possibile usare l'account Azure Active Directory per l'autenticazione diretta o per ottenere un token usato per l'autenticazione. L'autenticazione interattiva viene utilizzata durante la _sperimentazione e lo sviluppo iterativo_. L'autenticazione interattiva consente di controllare l'accesso alle risorse, ad esempio un servizio Web, per ogni singolo utente.
 
-* __Entità servizio__ : è possibile creare un account dell'entità servizio in Azure Active Directory e usarlo per autenticare o ottenere un token. Un'entità servizio viene utilizzata quando è necessario un _processo automatizzato per l'autenticazione_ al servizio senza richiedere l'interazione dell'utente. Ad esempio, uno script di integrazione e distribuzione continua che esegue il training e il test di un modello ogni volta che viene modificato il codice di training.
+* __Entità servizio__: è possibile creare un account dell'entità servizio in Azure Active Directory e usarlo per autenticare o ottenere un token. Un'entità servizio viene utilizzata quando è necessario un _processo automatizzato per l'autenticazione_ al servizio senza richiedere l'interazione dell'utente. Ad esempio, uno script di integrazione e distribuzione continua che esegue il training e il test di un modello ogni volta che viene modificato il codice di training.
 
-* __Identità gestita__ : quando si usa Azure Machine Learning SDK _in una macchina virtuale di Azure_ , è possibile usare un'identità gestita per Azure. Questo flusso di lavoro consente alla macchina virtuale di connettersi all'area di lavoro usando l'identità gestita, senza archiviare le credenziali nel codice Python o richiedere all'utente di eseguire l'autenticazione. I cluster di calcolo Azure Machine Learning possono anche essere configurati per usare un'identità gestita per accedere all'area di lavoro durante il _training dei modelli_.
+* __Identità gestita__: quando si usa Azure Machine Learning SDK _in una macchina virtuale di Azure_, è possibile usare un'identità gestita per Azure. Questo flusso di lavoro consente alla macchina virtuale di connettersi all'area di lavoro usando l'identità gestita, senza archiviare le credenziali nel codice Python o richiedere all'utente di eseguire l'autenticazione. I cluster di calcolo Azure Machine Learning possono anche essere configurati per usare un'identità gestita per accedere all'area di lavoro durante il _training dei modelli_.
 
 > [!IMPORTANT]
 > Indipendentemente dal flusso di lavoro di autenticazione usato, il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) viene usato per definire l'ambito del livello di accesso (autorizzazione) consentito per le risorse. Ad esempio, un processo di amministrazione o automazione potrebbe avere accesso per creare un'istanza di calcolo, ma non utilizzarla, mentre un data scientist può utilizzarla, ma non eliminarla o crearla. Per altre informazioni, vedere [gestire l'accesso all'area di lavoro Azure Machine Learning](how-to-assign-roles.md).
@@ -141,7 +141,7 @@ Il modo più semplice per creare un SP e concedere l'accesso all'area di lavoro 
 
 1. Abilitare un' [identità gestita assegnata dal sistema per le risorse di Azure nella macchina virtuale](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
 
-1. Dal [portale di Azure](https://portal.azure.com)selezionare l'area di lavoro, quindi selezionare __controllo di accesso (IAM)__ , __Aggiungi assegnazione ruolo__ e selezionare __macchina virtuale__ dall'elenco __a discesa assegna accesso a__ . Infine, selezionare l'identità della macchina virtuale.
+1. Dal [portale di Azure](https://portal.azure.com)selezionare l'area di lavoro, quindi selezionare __controllo di accesso (IAM)__, __Aggiungi assegnazione ruolo__ e selezionare __macchina virtuale__ dall'elenco __a discesa assegna accesso a__ . Infine, selezionare l'identità della macchina virtuale.
 
 1. Consente di selezionare il ruolo da assegnare a questa identità. Ad esempio, collaboratore o ruolo personalizzato. Per ulteriori informazioni, vedere [controllo dell'accesso alle risorse](how-to-assign-roles.md).
 
@@ -154,7 +154,7 @@ Per altre informazioni, vedere [configurare l'identità gestita per il cluster d
 ## <a name="use-interactive-authentication"></a>Usa autenticazione interattiva
 
 > [!IMPORTANT]
-> L'autenticazione interattiva usa il browser e richiede cookie, inclusi i cookie di terze parti. Se i cookie sono stati disabilitati, è possibile che venga visualizzato un errore, ad esempio "non è stato possibile accedere". Questo errore può verificarsi anche se è stata abilitata [l'autenticazione a più fattori di Azure](../active-directory/authentication/concept-mfa-howitworks.md).
+> L'autenticazione interattiva usa il browser e richiede cookie, inclusi i cookie di terze parti. Se i cookie sono stati disabilitati, è possibile che venga visualizzato un errore, ad esempio "non è stato possibile accedere". Questo errore può verificarsi anche se è stata abilitata [Azure AD multi-factor authentication](../active-directory/authentication/concept-mfa-howitworks.md).
 
 Per la maggior parte degli esempi nella documentazione e negli esempi viene usata l'autenticazione interattiva. Ad esempio, quando si usa l'SDK sono presenti due chiamate di funzione che richiederanno automaticamente un flusso di autenticazione basato sull'interfaccia utente:
 

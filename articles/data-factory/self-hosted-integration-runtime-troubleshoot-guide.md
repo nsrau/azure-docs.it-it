@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/29/2020
+ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: ca8d359638d97f77377f02d47d824fa216acdcc8
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: e3a517497a480995b8ce63d36d0427e3bfadfe43
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928111"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844098"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Risolvere i problemi relativi al runtime di integrazione self-hosted
 
@@ -34,7 +34,7 @@ Per le attività non riuscite in esecuzione sul runtime di integrazione self-hos
 
     ![Inviare i log](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
 
-1. È possibile scegliere i log da inviare. Per il runtime di integrazione *self-hosted* , è possibile caricare i log relativi all'attività non riuscita o a tutti i log nel nodo IR self-hosted. Per il runtime di integrazione *condiviso* , è possibile caricare solo i log relativi alle attività non riuscite.
+1. È possibile scegliere i log da inviare. Per il runtime di integrazione *self-hosted*, è possibile caricare i log relativi all'attività non riuscita o a tutti i log nel nodo IR self-hosted. Per il runtime di integrazione *condiviso*, è possibile caricare solo i log relativi alle attività non riuscite.
 
     ![Selezione dei log](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
 
@@ -48,11 +48,26 @@ Per le attività non riuscite in esecuzione sul runtime di integrazione self-hos
 
 ## <a name="self-hosted-ir-general-failure-or-error"></a>Errore generale del runtime di integrazione self-hosted
 
+### <a name="out-of-memory-issue"></a>Problema di memoria insufficiente
+
+#### <a name="symptoms"></a>Sintomi
+
+Il problema "OutOfMemoryException" si verifica quando si tenta di eseguire l'attività di ricerca con IR collegato o il runtime di integrazione self-hosted.
+
+#### <a name="cause"></a>Causa
+
+Le nuove attività possono essere soddisfatte con il problema di memoria insufficiente (OutOfMemory) se il computer IR ha un utilizzo elevato della memoria al momento. Il problema potrebbe essere causato da una vasta scala di esecuzione di attività simultanee e l'errore si verifica in base alla progettazione.
+
+#### <a name="resolution"></a>Risoluzione
+
+Controllare l'utilizzo delle risorse e l'esecuzione di attività simultanee nel nodo IR. Modificare il tempo interno e il trigger delle esecuzioni di attività per evitare una quantità eccessiva di esecuzione nello stesso nodo IR nello stesso momento.
+
+
 ### <a name="tlsssl-certificate-issue"></a>Problemi per i certificati TLS/SSL
 
 #### <a name="symptoms"></a>Sintomi
 
-Durante il tentativo di abilitazione dei certificati TLS/SSL (avanzati) dalla **Gestione configurazione del runtime di integrazione self-hosted** -> **Accesso remoto da intranet** , dopo aver selezionato i certificati TLS/SSL, viene visualizzato l'errore seguente:
+Durante il tentativo di abilitazione dei certificati TLS/SSL (avanzati) dalla **Gestione configurazione del runtime di integrazione self-hosted** -> **Accesso remoto da intranet**, dopo aver selezionato i certificati TLS/SSL, viene visualizzato l'errore seguente:
 
 `Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
 
@@ -65,14 +80,14 @@ Questo è un problema noto in WCF: La verifica TLS/SSL di WCF controlla solo l'u
 #### <a name="resolution"></a>Risoluzione
 
 Il certificato con carattere jolly è supportato dal runtime di integrazione self-hosted Azure Data Factory v2. Questo problema avviene generalmente a causa di un certificato SSL errato. È necessario che l'ultimo DNSName in SAN sia valido. Seguire i passaggi seguenti per verificarlo. 
-1.  Aprire Management Console, controllare il nome del *soggetto* e il *nome alternativo del soggetto* dai dettagli del certificato. Nel caso precedente, ad esempio, l'ultimo elemento nel *nome alternativo del soggetto* , ovvero "DNS Name = Microsoft.com.com", non è legittimo.
+1.  Aprire Management Console, controllare il nome del *soggetto* e il *nome alternativo del soggetto* dai dettagli del certificato. Nel caso precedente, ad esempio, l'ultimo elemento nel *nome alternativo del soggetto*, ovvero "DNS Name = Microsoft.com.com", non è legittimo.
 2.  Per rimuovere il nome DNS errato, contattare la società di emissione del certificato.
 
 ### <a name="concurrent-jobs-limit-issue"></a>Problemi nelle limiti dei processi simultanei
 
 #### <a name="symptoms"></a>Sintomi
 
-Durante il tentativo di aumentare il limite dei processi simultanei dall'interfaccia utente di Azure Data Factory, si blocca su *aggiornamento in corso* .
+Durante il tentativo di aumentare il limite dei processi simultanei dall'interfaccia utente di Azure Data Factory, si blocca su *aggiornamento in corso*.
 Il valore massimo di processi simultanei è stato impostato su 24 e si desidera aumentare il numero per ottenere processi più rapidi. Il valore minimo che può essere inserito è pari a 3 e il valore massimo è pari a 32. È stato aumentato il valore da 24 a 32 e viene visualizzato il pulsante *Aggiorna* nell'interfaccia utente che si è bloccato durante l' *aggiornamento* , come si può vedere di seguito. Dopo aver aggiornato, il cliente vede ancora il valore 24 e non viene aggiornato a 32.
 
 ![Aggiornamento dello stato](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
@@ -102,7 +117,7 @@ Quando vengono gestiti casi relativi all'handshake SSL/TLS, è possibile riscont
 
 - Ecco un modo rapido e intuitivo per risolvere gli errori di compilazione della catena di certificati X. 509.
  
-    1. Esportare il certificato, che deve essere verificato. Andare in gestione certificati computer, trovare il certificato che si desidera controllare e fare clic con il tasto destro su **Tutte le attività** -> **Esporta** .
+    1. Esportare il certificato, che deve essere verificato. Andare in gestione certificati computer, trovare il certificato che si desidera controllare e fare clic con il tasto destro su **Tutte le attività** -> **Esporta**.
     
         ![Esporta attività](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
@@ -138,7 +153,7 @@ Quando vengono gestiti casi relativi all'handshake SSL/TLS, è possibile riscont
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. Quindi verrà aperto lo **strumento di recupero URL** . È possibile verificare i certificati da AIA, CDP e OCSP facendo clic sul pulsante **Recuperare** .
+    1. Quindi verrà aperto lo **strumento di recupero URL**. È possibile verificare i certificati da AIA, CDP e OCSP facendo clic sul pulsante **Recuperare**.
 
         ![Pulsante recupero](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
@@ -152,7 +167,7 @@ Quando vengono gestiti casi relativi all'handshake SSL/TLS, è possibile riscont
 
 `Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
  
-Esempio: 
+Ad esempio: 
 
 `Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
 
@@ -165,7 +180,7 @@ Se si esegue monitoraggio processi, è possibile visualizzare i risultati seguen
 > [!TIP] 
 > È possibile impostare il filtro come illustrato nello screenshot seguente.
 > Indica che la dll **System. ValueTuple** non si trova nella cartella correlata alla GAC oppure in *c:\Programmi\Microsoft Integration Runtime\4.0\Gateway* o nella cartella c:\Programmi\Microsoft *Integration Runtime\4.0\Shared*
-> In sostanza, caricherà prima di tutto la dll dalla cartella *GAC* , quindi da *Condivisi* e infine dalla cartella *Gateway* . Pertanto, è possibile inserire l'estensione .dll in qualsiasi percorso che può essere utile.
+> In sostanza, caricherà prima di tutto la dll dalla cartella *GAC*, quindi da *Condivisi* e infine dalla cartella *Gateway*. Pertanto, è possibile inserire l'estensione .dll in qualsiasi percorso che può essere utile.
 
 ![Configurare i filtri](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
@@ -179,7 +194,7 @@ Se si esegue monitoraggio processi, è possibile visualizzare i risultati seguen
 
 Il motivo per cui viene visualizzato il System.ValueTuple.dll in *%windir%\Microsoft.NET\assembly* e *%windir%\assembly* è che si tratta di un comportamento .NET. 
 
-Dall'errore riportato di seguito, è possibile vedere chiaramente che l'assembly *System. ValueTuple* non è presente. Questo problema si verifica quando l'applicazione tenta di controllare l'assembly *System.ValueTuple.dll* .
+Dall'errore riportato di seguito, è possibile vedere chiaramente che l'assembly *System. ValueTuple* non è presente. Questo problema si verifica quando l'applicazione tenta di controllare l'assembly *System.ValueTuple.dll*.
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
@@ -210,7 +225,7 @@ Se nessuna delle cause precedenti si applica, è possibile passare alla cartella
 
 #### <a name="symptoms"></a>Sintomi
 
-Dopo aver creato i runtime di integrazione self-hosted per gli archivi dati di origine e di destinazione, è necessario connettere i due runtime di integrazione insieme per completare una copia. Se gli archivi dati sono configurati in reti virtuali diversi o non riescono a comprendere il meccanismo del gateway, si verificano errori simili ai seguenti: *Impossibile trovare il driver dell'origine nel* runtime di integrazione di destinazione. *non è possibile accedere all'origine dal runtime di integrazione di destinazione* .
+Dopo aver creato i runtime di integrazione self-hosted per gli archivi dati di origine e di destinazione, è necessario connettere i due runtime di integrazione insieme per completare una copia. Se gli archivi dati sono configurati in reti virtuali diversi o non riescono a comprendere il meccanismo del gateway, si verificano errori simili ai seguenti: *Impossibile trovare il driver dell'origine nel* runtime di integrazione di destinazione. *non è possibile accedere all'origine dal runtime di integrazione di destinazione*.
  
 #### <a name="cause"></a>Causa
 
@@ -288,14 +303,14 @@ Per verificare l'errore, passare al registro eventi Integration Runtime.
 
 ![Registro eventi IR](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
 
-Se l'errore si presenta come sopra *UnauthorizedAccessException* , seguire le istruzioni seguenti:
+Se l'errore si presenta come sopra *UnauthorizedAccessException*, seguire le istruzioni seguenti:
 
 
 1. Controllare l'account del servizio di accesso *DIAHostService* nel pannello del servizio Windows.
 
     ![Account del servizio di accesso](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-2. Controllare se l'account del servizio di accesso dispone dell'autorizzazione R/W per la cartella: *%ProgramData%\Microsoft\DataTransfer\DataManagementGateway* .
+2. Controllare se l'account del servizio di accesso dispone dell'autorizzazione R/W per la cartella: *%ProgramData%\Microsoft\DataTransfer\DataManagementGateway*.
 
     - Per impostazione predefinita, se l'account di accesso al servizio non è stato modificato, deve disporre dell'autorizzazione di R/W.
 
@@ -305,7 +320,7 @@ Se l'errore si presenta come sopra *UnauthorizedAccessException* , seguire le is
         1. Pulisci Disinstalla il runtime di integrazione self-hosted corrente.
         1. Installare i bit del runtime di integrazione self-hosted.
         1. Per modificare l'account del servizio, seguire le istruzioni seguenti: 
-            1. Passare alla cartella di installazione di selfhosted IR, passare alla cartella: *Microsoft Integration Runtime\4.0\Shared* .
+            1. Passare alla cartella di installazione di selfhosted IR, passare alla cartella: *Microsoft Integration Runtime\4.0\Shared*.
             1. Avviare una riga di comando utilizzando privilegi elevati. Sostituire *\<user>* e *\<password>* con il nome utente e la password e quindi eseguire il comando seguente:
                        
                 ```
@@ -325,7 +340,7 @@ Se l'errore si presenta come sopra *UnauthorizedAccessException* , seguire le is
             1. È possibile usare l'utente locale/di dominio per l'account di accesso del servizio IR.            
         1. Registrare il Integration Runtime.
 
-Se l'errore viene visualizzato come, *non è stato possibile avviare il servizio ' Integration Runtime Service ' (DIAHostService). Verificare di disporre di privilegi sufficienti per avviare i servizi di sistema* , seguire le istruzioni seguenti:
+Se l'errore viene visualizzato come, *non è stato possibile avviare il servizio ' Integration Runtime Service ' (DIAHostService). Verificare di disporre di privilegi sufficienti per avviare i servizi di sistema*, seguire le istruzioni seguenti:
 
 1. Controllare l'account del servizio di accesso *DIAHostService* nel pannello del servizio Windows.
    
@@ -351,7 +366,7 @@ Non è stato possibile trovare il pulsante **Register** nell'interfaccia utente 
 
 #### <a name="cause"></a>Causa
 
-Dal rilascio del *Integration Runtime 3,0* , il pulsante **registra** in un nodo Integration Runtime esistente è stato rimosso per consentire un ambiente più pulito e sicuro. Se un nodo è stato registrato in alcuni Integration Runtime (online o meno), per registrarlo di nuovo in un altro Integration Runtime è necessario disinstallare il nodo precedente, quindi installare e registrare il nodo.
+Dal rilascio del *Integration Runtime 3,0*, il pulsante **registra** in un nodo Integration Runtime esistente è stato rimosso per consentire un ambiente più pulito e sicuro. Se un nodo è stato registrato in alcuni Integration Runtime (online o meno), per registrarlo di nuovo in un altro Integration Runtime è necessario disinstallare il nodo precedente, quindi installare e registrare il nodo.
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -402,6 +417,47 @@ L'installazione dipende dal servizio Windows Installer. Esistono motivi Variant 
 - L'utilizzo della CPU è troppo elevato
 - Il file MSI è ospitato in un percorso di rete lento
 - Alcuni file di sistema o registri sono stati modificati inavvertitamente
+
+
+### <a name="ir-service-account-failed-to-fetch-certificate-access"></a>L'account del servizio IR non è riuscito a recuperare l'accesso al certificato
+
+#### <a name="symptoms"></a>Sintomi
+
+Quando si installa il runtime di integrazione self-hosted tramite il Microsoft Integration Runtime Configuration Manager, viene generato un certificato con una CA attendibile. Non è stato possibile applicare il certificato per crittografare la comunicazione tra due nodi. 
+
+Le informazioni sull'errore sono indicate di seguito: 
+
+`Failed to change Intranet communication encryption mode: Failed to grant Integration Runtime service account the access of to the certificate 'XXXXXXXXXX'. Error code 103`
+
+![Non è stato possibile concedere l'accesso al certificato dell'account del servizio IR](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-account-certificate-error.png)
+
+#### <a name="cause"></a>Causa
+
+Il certificato usa KSP (provider di archiviazione chiavi), che non è ancora supportato. Per questo motivo, è supportato solo il certificato CSP (provider del servizio di crittografia).
+
+#### <a name="resolution"></a>Risoluzione
+
+Per questo caso è consigliato il certificato CSP.
+
+**Soluzione 1:** Usare il comando seguente per importare il certificato:
+
+```
+Certutil.exe -CSP "CSP or KSP" -ImportPFX FILENAME.pfx 
+```
+
+![Usare certutil](media/self-hosted-integration-runtime-troubleshoot-guide/use-certutil.png)
+
+**Soluzione 2:** Conversione di certificati:
+
+openssl PKCS12-in .\XXXX.pfx-out. \ xxxx_new. pem-pass password:*\<EnterPassword>*
+
+openssl PKCS12-export-in. \ xxxx_new. pem-out xxxx_new. pfx
+
+Prima e dopo la conversione:
+
+![Prima della modifica del certificato](media/self-hosted-integration-runtime-troubleshoot-guide/before-certificate-change.png)
+
+![Dopo la modifica del certificato](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
 
 ## <a name="self-hosted-ir-connectivity-issues"></a>Problemi di connettività IR self-hosted
@@ -476,7 +532,7 @@ La risposta prevista è la seguente:
 
 #### <a name="cause"></a>Causa 
 
-Il nodo del runtime di integrazione self-hosted potrebbe essere in uno stato **inattivo** , come illustrato nello screenshot seguente:
+Il nodo del runtime di integrazione self-hosted potrebbe essere in uno stato **inattivo**, come illustrato nello screenshot seguente:
 
 ![Nodo del runtime di integrazione self-hosted inattivo](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
 
@@ -569,7 +625,7 @@ Eseguire la traccia Netmon e analizzarla ulteriormente.
  
     *Pacchetto di rete dal sistema Linux A con TTL 64-> B TTL 64 meno 1 = 63-> C TTL 63 meno 1 = 62-> TTL 62 meno 1 = 61 runtime di integrazione self-hosted*
 
-- In una situazione ideale, la durata (TTL) sarà 128, il che significa che Windows System esegue il Data Factory. Come illustrato nell'esempio seguente, *128 – 107 = 21 hop* , vale a dire che 21 hop per il pacchetto sono stati inviati da Data Factory al runtime di integrazione self-hosted durante l'handshake TCP 3.
+- In una situazione ideale, la durata (TTL) sarà 128, il che significa che Windows System esegue il Data Factory. Come illustrato nell'esempio seguente, *128 – 107 = 21 hop*, vale a dire che 21 hop per il pacchetto sono stati inviati da Data Factory al runtime di integrazione self-hosted durante l'handshake TCP 3.
  
     ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
@@ -587,11 +643,11 @@ Quando si prova a usare telnet **8.8.8.8 888** con la traccia Netmon raccolta, s
 ![traccia Netmon 2](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-2.png)
  
 
-Ciò significa che non è stato possibile eseguire la connessione TCP al lato server **8.8.8.8** in base alla porta **888** , quindi vengono visualizzati due pacchetti aggiuntivi **SynReTransmit** . Poiché l'origine **self-HOST2** non è in grado di eseguire la connessione a **8.8.8.8** al primo pacchetto, la connessione verrà mantenuta.
+Ciò significa che non è stato possibile eseguire la connessione TCP al lato server **8.8.8.8** in base alla porta **888**, quindi vengono visualizzati due pacchetti aggiuntivi **SynReTransmit** . Poiché l'origine **self-HOST2** non è in grado di eseguire la connessione a **8.8.8.8** al primo pacchetto, la connessione verrà mantenuta.
 
 > [!TIP]
-> - È possibile fare clic su **Carica filtro**  ->  **standard**  ->  **indirizzi**  ->  **IPv4 indirizzi** .
-> - Input **IPv4. Address = = 8.8.8.8** come filtro, quindi fare clic su **applica** . Successivamente, si vedrà solo la comunicazione dal computer locale al **8.8.8.8** di destinazione.
+> - È possibile fare clic su **Carica filtro**  ->  **standard**  ->  **indirizzi**  ->  **IPv4 indirizzi**.
+> - Input **IPv4. Address = = 8.8.8.8** come filtro, quindi fare clic su **applica**. Successivamente, si vedrà solo la comunicazione dal computer locale al **8.8.8.8** di destinazione.
 
 ![filtra indirizzi 1](media/self-hosted-integration-runtime-troubleshoot-guide/filter-addresses-1.png)
         

@@ -3,12 +3,12 @@ title: Creare e clonare notebook Jupyter-anteprima Azure Notebooks
 description: Azure Notebooks progetti di anteprima gestiscono una raccolta di notebook e file correlati, che è possibile creare nuovi o clonare da un'altra origine.
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.openlocfilehash: 4a51f9b12ca24d16858b41357627ff26d233357f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e5930178b7951ff5f701228cee4ea7cb5f0e6da
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86181498"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844387"
 ---
 # <a name="create-and-clone-projects-in-azure-notebooks-preview"></a>Creare e clonare progetti in Azure Notebooks anteprima
 
@@ -29,7 +29,7 @@ Le operazioni che è possibile eseguire in un dashboard variano a seconda che si
 | Comando | Disponibile per | Descrizione |
 | --- | --- | --- |
 | **Esegui** | Proprietario | Avvia il server di progetto e apre la cartella di progetto in Jupyter. In genere, prima si accede alla cartella del progetto e quindi si avvia un notebook da questa posizione. |
-| **Download** | Chiunque | Scarica una copia del progetto selezionato come file ZIP. |
+| **Scaricare** | Chiunque | Scarica una copia del progetto selezionato come file ZIP. |
 | **Condividi** | Chiunque | Visualizza la finestra popup di condivisione mediante la quale è possibile ottenere l'URL di un progetto, condividerlo sui social media, inviare un messaggio di posta elettronica con l'URL e ottenere il codice HTML o Markdown con un badge "notebook di avvio" (vedere [Ottenere un badge di avvio](#obtain-a-launch-badge)) con l'URL. |
 | **Elimina** | Proprietario | Elimina il progetto selezionato. Questa operazione non può essere annullata. |
 | **Terminale** | Proprietario | Avvia il server del progetto e quindi apre una nuova finestra del browser con il terminale Bash per il server. |
@@ -138,4 +138,4 @@ Per clonare un progetto:
 - [Procedura: presentare una presentazione](present-jupyter-notebooks-slideshow.md)
 - [Procedura: utilizzare file di dati](work-with-project-data-files.md)
 - [Procedura: accedere alle risorse di dati](access-data-resources-jupyter-notebooks.md)
-- [Procedura: utilizzare Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Procedura: utilizzare Azure Machine Learning](../machine-learning/samples-notebooks.md)

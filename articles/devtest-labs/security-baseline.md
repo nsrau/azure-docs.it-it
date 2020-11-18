@@ -3,12 +3,12 @@ title: Baseline della sicurezza di Azure per Azure DevTest Labs
 description: Baseline della sicurezza di Azure per Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 64e5ac46fbeb71706f7b1ae2d3682260e3cbc651
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207292"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843197"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Baseline della sicurezza di Azure per Azure DevTest Labs
 
@@ -34,7 +34,7 @@ Vedere l'articolo seguente per informazioni sulla configurazione della sincroniz
 ### <a name="22-configure-central-security-log-management"></a>2.2: configurare la gestione dei log di sicurezza centralizzata
 **Linee guida:** Abilitare le impostazioni di diagnostica del log attività di Azure e inviare i log a un'area di lavoro Log Analytics, a hub eventi di Azure o all'account di archiviazione di Azure per l'archiviazione. I log attività forniscono informazioni approfondite sulle operazioni eseguite nelle istanze di Azure DevTest Labs a livello di piano di gestione. Usando i dati del log attività di Azure, è possibile determinare "cosa, chi e quando" per qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita a livello del piano di gestione per le istanze di DevTest Labs.
 
-Per altre informazioni, vedere [creare le impostazioni di diagnostica per inviare i log e le metriche della piattaforma a destinazioni diverse](../azure-monitor/platform/diagnostic-settings.md).
+Per altre informazioni, vedere [Creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse](../azure-monitor/platform/diagnostic-settings.md).
 
 **Monitoraggio del Centro sicurezza di Azure:** Attualmente non disponibile
 
@@ -43,7 +43,7 @@ Per altre informazioni, vedere [creare le impostazioni di diagnostica per inviar
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: abilitare la registrazione di controllo per le risorse di Azure
 **Linee guida:** Abilitare le impostazioni di diagnostica del log attività di Azure e inviare i log a un'area di lavoro Log Analytics, a hub eventi di Azure o all'account di archiviazione di Azure per l'archiviazione. I log attività forniscono informazioni approfondite sulle operazioni eseguite nelle istanze di Azure DevTest Labs a livello di piano di gestione. Usando i dati del log attività di Azure, è possibile determinare il "cosa, chi e quando" per qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita a livello del piano di gestione per le istanze di DevTest Labs.
 
-Per altre informazioni, vedere [creare le impostazioni di diagnostica per inviare i log e le metriche della piattaforma a destinazioni diverse](../azure-monitor/platform/diagnostic-settings.md).
+Per altre informazioni, vedere [Creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse](../azure-monitor/platform/diagnostic-settings.md).
 
 **Monitoraggio del Centro sicurezza di Azure:** Attualmente non disponibile
 
@@ -62,7 +62,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 **Responsabilità:** Cliente
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: configurare la conservazione dell'archiviazione dei log di sicurezza
-***Linee guida:** In monitoraggio di Azure impostare il periodo di conservazione del log per le aree di lavoro Log Analytics associate alle istanze di Azure DevTest Labs in base alle normative di conformità dell'organizzazione.
+**_Linee guida:_* In monitoraggio di Azure impostare il periodo di conservazione del log per le aree di lavoro Log Analytics associate alle istanze di Azure DevTest Labs in base alle normative di conformità dell'organizzazione.
 
 Per altre informazioni, vedere l'articolo seguente: [come impostare i parametri di conservazione dei log](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -175,9 +175,9 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 - [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
 - [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
-**Monitoraggio del Centro sicurezza di Azure:*** Sì
+**Monitoraggio del Centro sicurezza di Azure:** _ Sì
 
-**Responsabilità:** Cliente
+_ *Responsabilità:** cliente
 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: usare computer dedicati (workstation con accesso con privilegi) per tutte le attività amministrative
@@ -387,7 +387,7 @@ Microsoft esegue la gestione delle vulnerabilità sulle risorse sottostanti che 
 **Responsabilità:** Cliente
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: distribuire una soluzione di gestione delle patch automatizzata per il software di terze parti
-***Linee guida:*** In qualità di amministratore del Lab, è possibile usare gli [elementi di DevTest Labs](add-artifact-vm.md) per automatizzare gli aggiornamenti per le immagini personalizzate del Lab, incluse le patch di sicurezza e altri aggiornamenti. 
+**_Indicazioni:_* _ come amministratore del Lab, è possibile usare gli [elementi di DevTest Labs](add-artifact-vm.md) per automatizzare gli aggiornamenti per le immagini personalizzate del Lab, incluse le patch di sicurezza e altri aggiornamenti. 
 
 Scopri di più su [DevTest Labs Image Factory](image-factory-create.md), una soluzione di configurazione come codice che compila e distribuisce automaticamente le immagini a intervalli regolari con tutte le configurazioni desiderate. 
 
@@ -396,7 +396,7 @@ In qualità di amministratore della sottoscrizione, è anche possibile usare la 
 - [Soluzione Gestione aggiornamenti in Azure](../automation/update-management/update-mgmt-overview.md)
 - [Gestire gli aggiornamenti e le patch per le macchine virtuali](../automation/update-management/update-mgmt-overview.md)
 
-**Monitoraggio del Centro sicurezza di Azure:** Non applicabile
+_ *Monitoraggio del Centro sicurezza di Azure:** non applicabile
 
 **Responsabilità:** Cliente
 
@@ -692,7 +692,7 @@ Inoltre, le immagini di macchine virtuali di Azure Marketplace pubblicate da Mic
 
 - [Configurare l'identità gestita per distribuire ambienti Azure Resource Manager in DevTest Labs](use-managed-identities-environments.md)
 - [Configurare l'identità gestita per la distribuzione di macchine virtuali in DevTest Labs](enable-managed-identities-lab-vms.md)
-- [Come creare un insieme di credenziali delle chiavi](../key-vault/secrets/quick-create-portal.md)
+- [Come creare un insieme di credenziali delle chiavi](../key-vault/general/quick-create-portal.md)
 - [Come eseguire l'autenticazione a Key Vault](../key-vault/general/authentication.md)
 - [Come assegnare un criterio di accesso Key Vault](../key-vault/general/assign-access-policy-portal.md)
 

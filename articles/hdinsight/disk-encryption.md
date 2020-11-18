@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 9afab87e0d7f0e7a9e5c05b36ace1dfc09c9aa9f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a9a90fbb2eedd6db2873d4ac2a5fea94c05c7eed
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548031"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844745"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Crittografia doppia di Azure HDInsight per dati inattivi
 
@@ -71,17 +71,17 @@ Per i passaggi specifici, vedere [creare un'identità gestita assegnata dall'ute
 
 ### <a name="create-azure-key-vault"></a>Creare un Azure Key Vault
 
-Creare un insieme di credenziali delle chiavi. Per i passaggi specifici, vedere [creare Azure Key Vault](../key-vault/secrets/quick-create-portal.md) .
+Creare un insieme di credenziali delle chiavi. Per i passaggi specifici, vedere [creare Azure Key Vault](../key-vault/general/quick-create-portal.md) .
 
 In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di credenziali delle chiavi, è possibile importare le chiavi in Azure Key Vault. Tenere presente che l'insieme di credenziali delle chiavi deve avere l' **eliminazione** temporanea abilitata. Per altre informazioni sull'importazione delle chiavi esistenti, vedere [Informazioni su chiavi, segreti e certificati](../key-vault/general/about-keys-secrets-certificates.md).
 
 ### <a name="create-key"></a>Creare la chiave
 
-1. Dal nuovo insieme di credenziali delle chiavi passare a **Impostazioni**  >  **chiavi**  >  **+ genera/importa** .
+1. Dal nuovo insieme di credenziali delle chiavi passare a **Impostazioni**  >  **chiavi**  >  **+ genera/importa**.
 
     ![Generare una nuova chiave in Azure Key Vault](./media/disk-encryption/create-new-key.png "Generare una nuova chiave in Azure Key Vault")
 
-1. Specificare un nome e quindi selezionare **Crea** . Mantenere il **tipo di chiave** predefinito di **RSA** .
+1. Specificare un nome e quindi selezionare **Crea**. Mantenere il **tipo di chiave** predefinito di **RSA**.
 
     ![genera il nome della chiave](./media/disk-encryption/create-key.png "Genera nome chiave")
 
@@ -89,13 +89,13 @@ In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di 
 
     ![Elenco chiavi Key Vault](./media/disk-encryption/key-vault-key-list.png)
 
-1. Selezionare la versione per aprire la pagina della **versione della chiave** . Quando si usa una chiave personalizzata per la crittografia del cluster HDInsight, è necessario specificare l'URI della chiave. Copiare l' **identificatore di chiave** e salvarlo in qualunque posizione fino a quando non si è pronti per creare il cluster.
+1. Selezionare la versione per aprire la pagina della **versione della chiave** . Quando si usa una chiave personalizzata per la crittografia del cluster HDInsight, è necessario specificare l'URI della chiave. Copiare l'**identificatore di chiave** e salvarlo in qualunque posizione fino a quando non si è pronti per creare il cluster.
 
     ![ottenere l'identificatore di chiave](./media/disk-encryption/get-key-identifier.png)
 
 ### <a name="create-access-policy"></a>Crea criteri di accesso
 
-1. Dal nuovo insieme di credenziali delle chiavi passare a **Impostazioni** criteri di  >  **accesso** e  >  **Aggiungi criteri di accesso** .
+1. Dal nuovo insieme di credenziali delle chiavi passare a **Impostazioni** criteri di  >  **accesso** e  >  **Aggiungi criteri di accesso**.
 
     ![Creare il nuovo criterio di accesso di Azure Key Vault](./media/disk-encryption/key-vault-access-policy.png)
 
@@ -103,15 +103,15 @@ In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di 
 
     |Proprietà |Descrizione|
     |---|---|
-    |Autorizzazioni chiave|Selezionare **Get** , **Unwrap Key** e **Wrap Key** .|
-    |Autorizzazioni segrete|Selezionare **Get** , **set** ed **Delete** .|
+    |Autorizzazioni chiave|Selezionare **Get**, **Unwrap Key** e **Wrap Key**.|
+    |Autorizzazioni segrete|Selezionare **Get**, **set** ed **Delete**.|
     |Selezionare un'entità|Selezionare l'identità gestita assegnata dall'utente creata in precedenza.|
 
     ![Impostare Selezionare un'entità per il criterio di accesso di Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
 
-1. Selezionare **Aggiungi** .
+1. Selezionare **Aggiungi**.
 
-1. Selezionare **Salva** .
+1. Selezionare **Salva**.
 
     ![Salva i criteri di accesso Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
@@ -121,7 +121,7 @@ In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di 
 
 #### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
-Durante la creazione del cluster, specificare l' **identificatore di chiave** completo, inclusa la versione della chiave. Ad esempio: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. È anche necessario assegnare l'identità gestita al cluster e fornire l'URI della chiave.
+Durante la creazione del cluster, specificare l' **identificatore di chiave** completo, inclusa la versione della chiave. Ad esempio, `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4` È anche necessario assegnare l'identità gestita al cluster e fornire l'URI della chiave.
 
 ![Crea nuovo cluster](./media/disk-encryption/create-cluster-portal.png)
 
@@ -359,7 +359,7 @@ Potrebbero esserci scenari in cui potrebbe essere necessario modificare le chiav
 
 #### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
-Per ruotare la chiave, è necessario l'URI dell'insieme di credenziali delle chiavi di base. Al termine, passare alla sezione proprietà del cluster HDInsight nel portale e fare clic su **cambia chiave** in **URL chiave di crittografia del disco** . Immettere l'URL della nuova chiave e inviare per ruotare la chiave.
+Per ruotare la chiave, è necessario l'URI dell'insieme di credenziali delle chiavi di base. Al termine, passare alla sezione proprietà del cluster HDInsight nel portale e fare clic su **cambia chiave** in **URL chiave di crittografia del disco**. Immettere l'URL della nuova chiave e inviare per ruotare la chiave.
 
 ![ruotare la chiave di crittografia del disco](./media/disk-encryption/change-key.png)
 

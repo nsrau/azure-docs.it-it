@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 8dc99cda4128635e619afec5ed725da16bbd81ed
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 5357a1f2d1f042f9dab01edf205926992e4225d0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629887"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843826"
 ---
 # <a name="monitoring-azure-files"></a>File di Azure di monitoraggio
 
@@ -52,7 +52,7 @@ Le metriche della piattaforma e il log attività vengono raccolti automaticament
 
 Per raccogliere i log delle risorse, è necessario creare un'impostazione di diagnostica. Quando si crea l'impostazione, scegliere **file** come tipo di archiviazione per cui si vuole abilitare i log. Specificare quindi una delle seguenti categorie di operazioni per le quali si desidera raccogliere i log. 
 
-| Category | Descrizione |
+| Categoria | Descrizione |
 |:---|:---|
 | StorageRead | Operazioni di lettura sugli oggetti. |
 | StorageWrite | Operazioni di scrittura su oggetti. |
@@ -470,7 +470,7 @@ Le voci di registro vengono create solo se esistono richieste effettuate per l'e
 - Richieste riuscite
 - Richieste non riuscite, tra cui errori di timeout, limitazione, rete, autorizzazione e di altro tipo
 - Richieste che usano una firma di accesso condiviso o OAuth, incluse le richieste riuscite e non riuscite
-- Richieste ai dati di analisi (dati di log classici nel contenitore **$logs** e dati di metrica della classe nelle tabelle **$metric** )
+- Richieste ai dati di analisi (dati di log classici nel contenitore **$logs** e dati di metrica della classe nelle tabelle **$metric**)
 
 Le richieste effettuate dal servizio File di Azure stesso, ad esempio la creazione o l'eliminazione di log, non vengono registrate. Per un elenco completo delle richieste SMB e REST registrate, vedere [operazioni registrate di archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [file di Azure riferimento ai dati di monitoraggio](storage-files-monitoring-reference.md).
 
@@ -575,7 +575,7 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 
 2. Fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
 
-3. Fare clic su **Modifica risorsa** , selezionare il **tipo di risorsa file** e quindi fare clic su **fine**. 
+3. Fare clic su **Modifica risorsa**, selezionare il **tipo di risorsa file** e quindi fare clic su **fine**. 
 
 4. Fare clic su **Seleziona condizione** e fornire le informazioni seguenti per l'avviso: 
 
@@ -596,14 +596,14 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 
 1. Passare all' **account di archiviazione** nell' **portale di Azure**.
 2. Nella sezione **monitoraggio** fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
-3. Fare clic su **Modifica risorsa** , selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è `contoso` , selezionare la `contoso/file` risorsa.
+3. Fare clic su **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è `contoso` , selezionare la `contoso/file` risorsa.
 4. Fare clic su **Seleziona condizione** per aggiungere una condizione.
 5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica **transazioni** .
 6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **tipo di risposta**.
 7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare **SUCCESSWITHTHROTTLING** (per SMB) o **ClientThrottlingError** (per REST).
 
    > [!NOTE]
-   > Se il valore della dimensione SuccessWithThrottling o ClientThrottlingError non è elencato, significa che la risorsa non è stata limitata. Per aggiungere il valore della dimensione, fare clic su **Aggiungi valore personalizzato** accanto all'elenco a discesa **valori dimensione** , digitare **SuccessWithThrottling** o **ClientThrottlingError** , fare clic su **OK** , quindi ripetere il passaggio #7.
+   > Se il valore della dimensione SuccessWithThrottling o ClientThrottlingError non è elencato, significa che la risorsa non è stata limitata. Per aggiungere il valore della dimensione, fare clic su **Aggiungi valore personalizzato** accanto all'elenco a discesa **valori dimensione** , digitare **SuccessWithThrottling** o **ClientThrottlingError**, fare clic su **OK** , quindi ripetere il passaggio #7.
 
 8. Fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
 9. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
@@ -617,14 +617,14 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
     > Se si utilizza una soglia statica, il grafico delle metriche consente di determinare un valore soglia ragionevole se la condivisione file è attualmente in fase di limitazione. Se si utilizza una soglia dinamica, nel grafico delle metriche verranno visualizzate le soglie calcolate in base ai dati recenti.
 
 11. Fare clic su **Seleziona gruppo di azioni** per aggiungere un **gruppo di azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
-12. Immettere i **Dettagli dell'avviso** , ad esempio nome della **regola di avviso** , * * descrizione e **gravità**.
+12. Immettere i **Dettagli dell'avviso** , ad esempio nome della **regola di avviso**, * * descrizione e **gravità**.
 13. Fare clic su **Crea regola di avviso** per creare l'avviso.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Come creare un avviso se le dimensioni della condivisione file di Azure sono pari al 80% della capacità
 
 1. Passare all' **account di archiviazione** nell' **portale di Azure**.
 2. Nella sezione **monitoraggio** fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
-3. Fare clic su **Modifica risorsa** , selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è `contoso` , selezionare la `contoso/file` risorsa.
+3. Fare clic su **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è `contoso` , selezionare la `contoso/file` risorsa.
 4. Fare clic su **Seleziona condizione** per aggiungere una condizione.
 5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica della **capacità del file** .
 6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
@@ -636,14 +636,14 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 8. Immettere il **valore soglia** in byte. Se ad esempio la dimensione della condivisione file è 100 TiB e si desidera ricevere un avviso quando la dimensione della condivisione file è 80% di capacità, il valore soglia in byte è 87960930222080.
 9. Definire il resto dei **parametri di avviso** (granularità di aggregazione e frequenza di valutazione) e fare clic su **fine**.
 10. Fare clic su Seleziona gruppo di azioni per aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
-11. Immettere i **Dettagli dell'avviso** , ad esempio nome della **regola di avviso** , * * descrizione e **gravità**.
+11. Immettere i **Dettagli dell'avviso** , ad esempio nome della **regola di avviso**, * * descrizione e **gravità**.
 12. Fare clic su **Crea regola di avviso** per creare l'avviso.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Come creare un avviso se l'uscita dalla condivisione file di Azure ha superato 500 GiB in un giorno
 
 1. Passare all' **account di archiviazione** nell' **portale di Azure**.
 2. Nella sezione Monitoraggio fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
-3. Fare clic su **Modifica risorsa** , selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è contoso, selezionare la risorsa Contoso/file.
+3. Fare clic su **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è contoso, selezionare la risorsa Contoso/file.
 4. Fare clic su **Seleziona condizione** per aggiungere una condizione.
 5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica in **uscita** .
 6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
@@ -656,7 +656,7 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 9. Fare clic sull'elenco a discesa **granularità aggregazione** e selezionare **24 ore**.
 10. Selezionare la **frequenza di valutazione** e **fare clic su fine**.
 11. Fare clic su **Seleziona gruppo di azioni** per aggiungere un **gruppo di azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
-12. Immettere i **Dettagli dell'avviso** , ad esempio nome della **regola di avviso** , * * descrizione e **gravità**.
+12. Immettere i **Dettagli dell'avviso** , ad esempio nome della **regola di avviso**, * * descrizione e **gravità**.
 13. Fare clic su **Crea regola di avviso** per creare l'avviso.
 
 ## <a name="next-steps"></a>Passaggi successivi

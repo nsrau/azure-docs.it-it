@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f5ed221cfdd48ebbe20ea30e0b11e4fc2d23f359
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 003bf5241611df450fa6d0ecadff264c4d5de243
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547317"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842856"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Baseline della sicurezza di Azure per l'hub Azure
 
@@ -24,7 +24,7 @@ La linea di base di sicurezza di Azure per Microsoft Azure hub Internet è conte
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteggere le risorse di Azure nelle reti virtuali
 
-**Linee guida** : per impostazione predefinita, i nomi host dell'hub degli indirizzi IP vengono mappati a un endpoint pubblico con un indirizzo IP instradabile pubblicamente tramite Internet. Diversi clienti possono condividere questo endpoint pubblico dell'hub IoT e consentire l'accesso a tutti i dispositivi IoT su reti WAN (Wide Area Network) e su reti locali.
+**Linee guida**: per impostazione predefinita, i nomi host dell'hub degli indirizzi IP vengono mappati a un endpoint pubblico con un indirizzo IP instradabile pubblicamente tramite Internet. Diversi clienti possono condividere questo endpoint pubblico dell'hub IoT e consentire l'accesso a tutti i dispositivi IoT su reti WAN (Wide Area Network) e su reti locali.
 
 Le funzionalità dell'hub IoT, tra cui routing dei messaggi, caricamento dei file e importazione/esportazione in blocco dei dispositivi, richiedono anche la connettività dall'hub IoT a una risorsa di Azure di proprietà del cliente tramite il rispettivo endpoint pubblico. Questi percorsi di connettività generano collettivamente il traffico in uscita dall'hub IoT alle risorse dei clienti.
 
@@ -37,13 +37,13 @@ Per evitare l'accesso indesiderato, è necessario lasciare le porte hardware ape
 - [Panoramica del collegamento privato di Azure](../private-link/private-link-overview.md)
 - [Gruppo di sicurezza di rete di Azure](../virtual-network/network-security-groups-overview.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : Sì
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1,2: monitorare e registrare la configurazione e il traffico di reti virtuali, subnet e NIC
 
-**Linee guida** : usare il Centro sicurezza di Azure e seguire le raccomandazioni per la protezione della rete per proteggere le risorse di rete di Azure. Abilitare i log di flusso del gruppo di sicurezza di rete e inviare i log a un account di archiviazione di Azure per il controllo. È anche possibile inviare i log di flusso a un'area di lavoro Log Analytics e quindi usare Analisi del traffico per fornire informazioni dettagliate sui modelli di traffico nel cloud di Azure. Alcuni vantaggi di Analisi del traffico sono la possibilità di visualizzare l'attività di rete, identificare le aree sensibili e le minacce per la sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni di rete non configurate.
+**Linee guida**: usare il Centro sicurezza di Azure e seguire le raccomandazioni per la protezione della rete per proteggere le risorse di rete di Azure. Abilitare i log di flusso del gruppo di sicurezza di rete e inviare i log a un account di archiviazione di Azure per il controllo. È anche possibile inviare i log di flusso a un'area di lavoro Log Analytics e quindi usare Analisi del traffico per fornire informazioni dettagliate sui modelli di traffico nel cloud di Azure. Alcuni vantaggi di Analisi del traffico sono la possibilità di visualizzare l'attività di rete, identificare le aree sensibili e le minacce per la sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni di rete non configurate.
  
 - [Come abilitare i log dei flussi dei gruppi di sicurezza di rete](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -51,21 +51,21 @@ Per evitare l'accesso indesiderato, è necessario lasciare le porte hardware ape
  
 - [Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure](../security-center/security-center-network-recommendations.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : Sì
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: proteggere le applicazioni Web critiche
 
-**Indicazioni** : non applicabile; questa raccomandazione riguarda le applicazioni Web in esecuzione in Servizio app di Azure o le risorse di calcolo.
+**Indicazioni**: non applicabile; questa raccomandazione riguarda le applicazioni Web in esecuzione in Servizio app di Azure o le risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: negare le comunicazioni con indirizzi IP dannosi noti
 
-**Linee guida** : bloccare gli IP dannosi noti con le regole del filtro IP dell'hub Internet. Anche i tentativi dannosi vengono registrati e segnalati tramite il Centro sicurezza di Azure.
+**Linee guida**: bloccare gli IP dannosi noti con le regole del filtro IP dell'hub Internet. Anche i tentativi dannosi vengono registrati e segnalati tramite il Centro sicurezza di Azure.
 
 Protezione DDoS di Azure Basic è già abilitata e disponibile senza costi aggiuntivi come parte dell'hub Internet delle cose. Il monitoraggio del traffico always on e la mitigazione in tempo reale di attacchi comuni a livello di rete forniscono le stesse difese usate dai Servizi online di Microsoft. L'intera scala della rete globale di Azure può essere usata per distribuire e mitigare il traffico degli attacchi tra le aree.
 
@@ -77,21 +77,21 @@ Protezione DDoS di Azure Basic è già abilitata e disponibile senza costi aggiu
 
 - [Protezione dalle minacce nel Centro sicurezza di Azure](../security-center/azure-defender.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : Sì
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="15-record-network-packets"></a>1,5: registrare i pacchetti di rete
 
-**Linee guida** : non applicabile; Questa raccomandazione è destinata alle offerte che producono pacchetti di rete che possono essere registrati e visualizzati dai clienti. L'hub Internet delle cose non produce pacchetti di rete rivolti ai clienti e non è progettato per la distribuzione diretta in reti virtuali di Azure.
+**Linee guida**: non applicabile; Questa raccomandazione è destinata alle offerte che producono pacchetti di rete che possono essere registrati e visualizzati dai clienti. L'hub Internet delle cose non produce pacchetti di rete rivolti ai clienti e non è progettato per la distribuzione diretta in reti virtuali di Azure.
 
-**Monitoraggio del Centro sicurezza di Azure** : No
+**Monitoraggio del Centro sicurezza di Azure**: No
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: distribuire sistemi di rilevamento intrusioni/intrusioni basati su rete (ID/IP)
 
-**Linee guida** : selezionare un'offerta da Azure Marketplace che supporta la funzionalità di ID/IP con funzionalità di ispezione del payload.  Quando l'ispezione del payload non è un requisito, è possibile usare l'Intelligence per le minacce del firewall di Azure. Il filtro basato su Intelligence per le minacce del firewall di Azure viene usato per segnalare e/o bloccare il traffico da e verso domini e indirizzi IP dannosi noti. Gli indirizzi IP e i domini sono originati dal feed Intelligence sulle minacce Microsoft.
+**Linee guida**: selezionare un'offerta da Azure Marketplace che supporta la funzionalità di ID/IP con funzionalità di ispezione del payload.  Quando l'ispezione del payload non è un requisito, è possibile usare l'Intelligence per le minacce del firewall di Azure. Il filtro basato su Intelligence per le minacce del firewall di Azure viene usato per segnalare e/o bloccare il traffico da e verso domini e indirizzi IP dannosi noti. Gli indirizzi IP e i domini sono originati dal feed Intelligence sulle minacce Microsoft.
 
 Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazione per rilevare e/o bloccare il traffico dannoso. 
 
@@ -101,60 +101,60 @@ Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazio
 
 - [Come configurare gli avvisi con il firewall di Azure](../firewall/threat-intel.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7: gestire il traffico verso le applicazioni Web
 
-**Indicazioni** : non applicabile; questa raccomandazione riguarda le applicazioni Web in esecuzione in Servizio app di Azure o le risorse di calcolo.
+**Indicazioni**: non applicabile; questa raccomandazione riguarda le applicazioni Web in esecuzione in Servizio app di Azure o le risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: ridurre al minimo la complessità e il sovraccarico amministrativo delle regole di sicurezza di rete
 
-**Linee guida** : per le risorse che richiedono l'accesso all'hub di Azure, usare i tag del servizio di rete virtuale per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete o nel firewall di Azure. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, AzureIoTHub) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che lo aggiorna automaticamente in caso di modifica degli indirizzi.
+**Linee guida**: per le risorse che richiedono l'accesso all'hub di Azure, usare i tag del servizio di rete virtuale per definire i controlli di accesso alla rete nei gruppi di sicurezza di rete o nel firewall di Azure. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, AzureIoTHub) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che lo aggiorna automaticamente in caso di modifica degli indirizzi.
 
 - [Come usare i tag di servizio per Azure](iot-hub-understand-ip-address.md)
 - [Per ulteriori informazioni sull'utilizzo dei tag di servizio](../virtual-network/service-tags-overview.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: gestire le configurazioni di sicurezza standard per i dispositivi di rete
 
-**Linee guida** : definire e implementare configurazioni di sicurezza standard per le risorse di rete associate agli spazi dei nomi dell'hub Azure Internet con criteri di Azure. Usare gli alias di criteri di Azure negli spazi dei nomi "Microsoft. Devices" e "Microsoft. Network" per creare criteri personalizzati per controllare o applicare la configurazione di rete degli spazi dei nomi Machine Learning. 
+**Linee guida**: definire e implementare configurazioni di sicurezza standard per le risorse di rete associate agli spazi dei nomi dell'hub Azure Internet con criteri di Azure. Usare gli alias di criteri di Azure negli spazi dei nomi "Microsoft. Devices" e "Microsoft. Network" per creare criteri personalizzati per controllare o applicare la configurazione di rete degli spazi dei nomi Machine Learning. 
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: documentare le regole di configurazione del traffico
 
-**Linee guida** : usare i tag per le risorse di rete associate alla distribuzione dell'hub Azure Internet per organizzarle in modo logico in una tassonomia.
+**Linee guida**: usare i tag per le risorse di rete associate alla distribuzione dell'hub Azure Internet per organizzarle in modo logico in una tassonomia.
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: usare strumenti automatizzati per monitorare le configurazioni delle risorse di rete e rilevare le modifiche
 
-**Linee guida** : usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate all'hub Azure. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
+**Linee guida**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate all'hub Azure. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
 - [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
@@ -162,26 +162,26 @@ Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazio
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: usare origini di sincronizzazione ora approvate
 
-**Linee guida** : Microsoft gestisce l'origine dell'ora usata per le risorse di Azure, ad esempio l'hub Azure Internet per i timestamp nei log.
+**Linee guida**: Microsoft gestisce l'origine dell'ora usata per le risorse di Azure, ad esempio l'hub Azure Internet per i timestamp nei log.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Microsoft
+**Responsabilità**: Microsoft
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: configurare la gestione dei log di sicurezza centralizzata
 
-**Linee guida** : inserire i log tramite monitoraggio di Azure per aggregare i dati di sicurezza generati dall'hub Azure. In monitoraggio di Azure usare le aree di lavoro Log Analytics per eseguire query ed eseguire analisi e usare gli account di archiviazione per l'archiviazione a lungo termine/archivio. In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o in un evento di sicurezza e gestione degli eventi di terze parti (SIEM).
+**Linee guida**: inserire i log tramite monitoraggio di Azure per aggregare i dati di sicurezza generati dall'hub Azure. In monitoraggio di Azure usare le aree di lavoro Log Analytics per eseguire query ed eseguire analisi e usare gli account di archiviazione per l'archiviazione a lungo termine/archivio. In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o in un evento di sicurezza e gestione degli eventi di terze parti (SIEM).
 
 - [Configurare i log degli eventi di Azure](monitor-iot-hub-reference.md#resource-logs)
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : Sì
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: abilitare la registrazione di controllo per le risorse di Azure
 
-**Linee guida** : abilitare le impostazioni di diagnostica di Azure per le risorse di Azure per l'accesso ai log di controllo, sicurezza e risorse. I log attività, che sono automaticamente disponibili, includono origine evento, data, utente, timestamp, indirizzi di origine, indirizzi di destinazione e altri elementi utili.
+**Linee guida**: abilitare le impostazioni di diagnostica di Azure per le risorse di Azure per l'accesso ai log di controllo, sicurezza e risorse. I log attività, che sono automaticamente disponibili, includono origine evento, data, utente, timestamp, indirizzi di origine, indirizzi di destinazione e altri elementi utili.
 
 - [Configurare i log dell'hub Azure](monitor-iot-hub-reference.md#resource-logs)
 
@@ -189,31 +189,31 @@ Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazio
 
 - [Informazioni sulla registrazione e sui diversi tipi di log in Azure](../azure-monitor/platform/platform-logs-overview.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : Sì
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: raccogliere i log di sicurezza dai sistemi operativi
 
-**Indicazioni** : non applicabile; questa raccomandazione riguarda le risorse di calcolo.
+**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: configurare la conservazione dell'archiviazione dei log di sicurezza
 
-**Linee guida** : in monitoraggio di Azure impostare il periodo di conservazione dei log per le aree di lavoro log Analytics associate alle istanze dell'hub Azure Internet in base alle normative di conformità dell'organizzazione.
+**Linee guida**: in monitoraggio di Azure impostare il periodo di conservazione dei log per le aree di lavoro log Analytics associate alle istanze dell'hub Azure Internet in base alle normative di conformità dell'organizzazione.
 
 - [Come impostare i parametri di conservazione dei log](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: monitorare ed esaminare i log
 
-**Linee guida** : analizzare e monitorare i log per un comportamento anomalo ed esaminare periodicamente i risultati dall'hub Azure. Usare monitoraggio di Azure e un'area di lavoro Log Analytics per esaminare i log ed eseguire query sui dati di log.
+**Linee guida**: analizzare e monitorare i log per un comportamento anomalo ed esaminare periodicamente i risultati dall'hub Azure. Usare monitoraggio di Azure e un'area di lavoro Log Analytics per esaminare i log ed eseguire query sui dati di log.
 
 In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o in un SIEM di terze parti. 
 
@@ -224,13 +224,13 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
    
 - [ Come eseguire query personalizzate in monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2,7: abilitare gli avvisi per le attività anomale
 
-**Linee guida** : usare il Centro sicurezza di Azure per le cose con un'area di lavoro log Analytics per il monitoraggio e l'invio di avvisi su attività anomale riscontrate in registri di sicurezza ed eventi In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure. È anche possibile definire avvisi operativi con monitoraggio di Azure che possono avere implicazioni di sicurezza, ad esempio quando il traffico si interrompe in modo imprevisto.
+**Linee guida**: usare il Centro sicurezza di Azure per le cose con un'area di lavoro log Analytics per il monitoraggio e l'invio di avvisi su attività anomale riscontrate in registri di sicurezza ed eventi In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure. È anche possibile definire avvisi operativi con monitoraggio di Azure che possono avere implicazioni di sicurezza, ad esempio quando il traffico si interrompe in modo imprevisto.
 
 - [Monitorare l'integrità dell'hub Azure](monitor-iot-hub.md)
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
@@ -238,33 +238,33 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/learn/tutorial-response.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : Sì
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8: centralizzare la registrazione antimalware
 
-**Linee guida** : non applicabile; L'hub Azure Internet non elabora o produce log correlati all'anti-malware.
+**Linee guida**: non applicabile; L'hub Azure Internet non elabora o produce log correlati all'anti-malware.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="29-enable-dns-query-logging"></a>2.9: abilitare la registrazione delle query DNS
 
-**Linee guida** : non applicabile; L'hub Azure Internet non elabora o produce log correlati a DNS.
+**Linee guida**: non applicabile; L'hub Azure Internet non elabora o produce log correlati a DNS.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10: abilitare la registrazione di controllo da riga di comando
 
-**Indicazioni** : non applicabile; questa raccomandazione riguarda le risorse di calcolo.
+**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ## <a name="identity-and-access-control"></a>Identità e controllo di accesso
 
@@ -272,107 +272,107 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
-**Linee guida** : il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente di gestire l'accesso all'hub delle cose di Azure tramite assegnazioni di ruolo. È possibile assegnare questi ruoli a utenti, gruppi di entità servizio e identità gestite. Sono disponibili ruoli predefiniti predefiniti per determinate risorse, che possono essere sottoposti a inventario o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure o Azure PowerShell o l'portale di Azure. 
+**Linee guida**: il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente di gestire l'accesso all'hub delle cose di Azure tramite assegnazioni di ruolo. È possibile assegnare questi ruoli a utenti, gruppi di entità servizio e identità gestite. Sono disponibili ruoli predefiniti predefiniti per determinate risorse, che possono essere sottoposti a inventario o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure o Azure PowerShell o l'portale di Azure. 
 
 - [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
 - [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-**Monitoraggio del Centro sicurezza di Azure** : Sì
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: modificare le password predefinite, ove applicabile
 
-**Linee guida** : la gestione degli accessi alle risorse dell'hub Azure è controllata tramite Azure Active Directory (Azure ad). Azure AD non è il concetto di password predefinite.
+**Linee guida**: la gestione degli accessi alle risorse dell'hub Azure è controllata tramite Azure Active Directory (Azure ad). Azure AD non è il concetto di password predefinite.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: usare account amministrativi dedicati
 
-**Indicazioni** : creare procedure operative standard per l'utilizzo di account amministrativi dedicati.
+**Indicazioni**: creare procedure operative standard per l'utilizzo di account amministrativi dedicati.
 
 È anche possibile abilitare l'accesso just-in-time agli account amministrativi usando Azure AD Privileged Identity Management e Azure Resource Manager.
 
 - [Altre informazioni su Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
-**Monitoraggio del Centro sicurezza di Azure** : Sì
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: usare Single Sign-On (SSO) con Azure Active Directory
 
-**Linee guida** : per gli utenti che accedono all'hub Internet, usare Azure Active Directory SSO. Usare le raccomandazioni per l'identità e l'accesso del Centro sicurezza di Azure. 
+**Linee guida**: per gli utenti che accedono all'hub Internet, usare Azure Active Directory SSO. Usare le raccomandazioni per l'identità e l'accesso del Centro sicurezza di Azure. 
 
 - [Informazioni su SSO con Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: usare l'autenticazione a più fattori per tutti gli accessi basati su Azure Active Directory
 
-**Indicazioni** : abilitare l'autenticazione a più fattori Azure ad per proteggere il tenant di Azure globale, sfruttando i vantaggi di tutti i servizi. Il servizio hub Internet non dispone del supporto dell'autenticazione a più fattori.  
+**Indicazioni**: abilitare l'autenticazione a più fattori Azure ad per proteggere il tenant di Azure globale, sfruttando i vantaggi di tutti i servizi. Il servizio hub Internet non dispone del supporto dell'autenticazione a più fattori.  
 
 - [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md) 
 
 - [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : Sì
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: usare computer dedicati (workstation con accesso con privilegi) per tutte le attività amministrative
 
-**Linee guida** : usare una workstation protetta gestita da Azure (nota anche come workstation di accesso con privilegi o Paw) per le attività amministrative che richiedono privilegi elevati.
+**Linee guida**: usare una workstation protetta gestita da Azure (nota anche come workstation di accesso con privilegi o Paw) per le attività amministrative che richiedono privilegi elevati.
 
 - [Informazioni sulle workstation sicure gestite da Azure](../active-directory/devices/concept-azure-managed-workstation.md)
 
 - [Come abilitare l'autenticazione a più fattori Azure AD](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3,7: registrare e inviare avvisi sulle attività sospette dagli account amministrativi
 
-**Indicazioni** : usare Azure Active Directory report di sicurezza e il monitoraggio per rilevare quando si verificano attività sospette o non sicure nell'ambiente. Usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso.
+**Indicazioni**: usare Azure Active Directory report di sicurezza e il monitoraggio per rilevare quando si verificano attività sospette o non sicure nell'ambiente. Usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso.
 
 - [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](../active-directory/identity-protection/overview-identity-protection.md)
 - [Come monitorare l'identità e le attività di accesso degli utenti nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : Sì
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="38-manage-azure-resources-only-from-approved-locations"></a>3,8: gestire le risorse di Azure solo dalle località approvate
 
-**Linee guida** : per gli utenti che accedono all'hub Internet, l'accesso condizionale non è supportato. Per attenuare questo problema, usare Azure AD località denominate per consentire l'accesso solo da specifici raggruppamenti logici di intervalli di indirizzi IP o paesi/aree geografiche per il tenant di Azure globale, beneficiando di tutti i servizi tra cui l'hub Internet. 
+**Linee guida**: per gli utenti che accedono all'hub Internet, l'accesso condizionale non è supportato. Per attenuare questo problema, usare Azure AD località denominate per consentire l'accesso solo da specifici raggruppamenti logici di intervalli di indirizzi IP o paesi/aree geografiche per il tenant di Azure globale, beneficiando di tutti i servizi tra cui l'hub Internet. 
 
 - [Come configurare Azure AD località denominate](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Usare Azure Active Directory
 
-**Linee guida** : per l'accesso utente all'hub Internet, usare Azure Active Directory (Azure ad) come sistema di autenticazione e autorizzazione centrale. Azure AD protegge i dati usando la crittografia avanzata per i dati inattivi e in transito. Azure AD effettua anche il salting, aggiunge hash e archivia in modo sicuro le credenziali utente.
+**Linee guida**: per l'accesso utente all'hub Internet, usare Azure Active Directory (Azure ad) come sistema di autenticazione e autorizzazione centrale. Azure AD protegge i dati usando la crittografia avanzata per i dati inattivi e in transito. Azure AD effettua anche il salting, aggiunge hash e archivia in modo sicuro le credenziali utente.
 
 Per l'accesso ai dispositivi e ai servizi, l'hub Internet usa i token di sicurezza e i token di firma di accesso condiviso per autenticare i dispositivi e i servizi per evitare di inviare chiavi sulla rete. 
 
 - [Come creare e configurare un'istanza di Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 - [Token di sicurezza dell'hub IoT](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: controllare e riconciliare regolarmente l'accesso utente
 
-**Indicazioni** : Azure AD mette a disposizione i log necessari per individuare gli account obsoleti. Inoltre, utilizzare Azure AD le verifiche di identità e accesso per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. L'accesso utente può essere esaminato a intervalli regolari per assicurarsi che solo gli utenti corretti abbiano accesso continuo. 
+**Indicazioni**: Azure AD mette a disposizione i log necessari per individuare gli account obsoleti. Inoltre, utilizzare Azure AD le verifiche di identità e accesso per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. L'accesso utente può essere esaminato a intervalli regolari per assicurarsi che solo gli utenti corretti abbiano accesso continuo. 
 
 Usare Azure AD Privileged Identity Management (PIM) per la generazione di log e avvisi quando si verificano attività sospette o non sicure nell'ambiente.
 
@@ -380,13 +380,13 @@ Usare Azure AD Privileged Identity Management (PIM) per la generazione di log e 
 - [Come usare Azure AD le verifiche di identità e accesso](../active-directory/governance/access-reviews-overview.md)
 - [Distribuire Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : Sì
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3,11: il monitoraggio tenta di accedere alle credenziali disattivate
 
-**Linee guida** : è possibile accedere alle origini del registro eventi di Azure ad, controllo e attività di accesso, che consentono di integrarsi con qualsiasi strumento Siem/Monitoring. 
+**Linee guida**: è possibile accedere alle origini del registro eventi di Azure ad, controllo e attività di accesso, che consentono di integrarsi con qualsiasi strumento Siem/Monitoring. 
 
 È possibile semplificare questo processo creando impostazioni di diagnostica per Azure AD account utente e inviando i log di controllo e i log di accesso a un'area di lavoro di Log Analytics. È possibile configurare gli avvisi desiderati nell'area di lavoro Log Analytics. 
 
@@ -396,13 +396,13 @@ Utenti log delle risorse di monitoraggio di Azure per monitorare i tentativi di 
 
 - [Configurare i log delle risorse per l'hub Internet](monitor-iot-hub.md#collection-and-routing)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: avvisare in caso di deviazione dal comportamento di accesso dell'account
 
-**Indicazioni** : usare le funzionalità di Azure ad Identity Protection per configurare risposte automatiche per rilevare azioni sospette correlate alle identità utente. È anche possibile inserire i dati in Azure Sentinel per un'analisi più approfondita.
+**Indicazioni**: usare le funzionalità di Azure ad Identity Protection per configurare risposte automatiche per rilevare azioni sospette correlate alle identità utente. È anche possibile inserire i dati in Azure Sentinel per un'analisi più approfondita.
   
 - [ Come visualizzare Azure AD accessi a rischio](../active-directory/identity-protection/overview-identity-protection.md)
   
@@ -410,17 +410,17 @@ Utenti log delle risorse di monitoraggio di Azure per monitorare i tentativi di 
   
 - [ Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: fornire a Microsoft l'accesso ai dati dei clienti pertinenti durante gli scenari di supporto
 
-**Indicazioni** : in scenari di supporto in cui Microsoft deve accedere ai dati dei clienti, viene richiesta direttamente dal cliente. 
+**Indicazioni**: in scenari di supporto in cui Microsoft deve accedere ai dati dei clienti, viene richiesta direttamente dal cliente. 
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ## <a name="data-protection"></a>Protezione dei dati
 
@@ -428,90 +428,90 @@ Utenti log delle risorse di monitoraggio di Azure per monitorare i tentativi di 
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: gestire un inventario delle informazioni riservate
 
-**Indicazioni** : usare i tag per rilevare più facilmente le risorse di Azure che memorizzano o elaborano informazioni riservate.
+**Indicazioni**: usare i tag per rilevare più facilmente le risorse di Azure che memorizzano o elaborano informazioni riservate.
  
 - [ Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
-**Indicazioni** : implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite RBAC di Azure.
+**Indicazioni**: implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite RBAC di Azure.
   
 - [ Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 - [ Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 - [ Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: monitorare e bloccare il trasferimento non autorizzato di informazioni riservate
 
-**Indicazioni** : usare una soluzione di terze parti da Azure Marketplace in perimetri di rete per monitorare il trasferimento non autorizzato di informazioni riservate e bloccare tali trasferimenti mentre si inviano avvisi ai professionisti della sicurezza delle informazioni.
+**Indicazioni**: usare una soluzione di terze parti da Azure Marketplace in perimetri di rete per monitorare il trasferimento non autorizzato di informazioni riservate e bloccare tali trasferimenti mentre si inviano avvisi ai professionisti della sicurezza delle informazioni.
 
 Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e protegge dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
 
 - [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: crittografare tutte le informazioni riservate in transito
 
-**Linee guida** : l'hub internet usa Transport Layer Security (TLS) per proteggere le connessioni da dispositivi e servizi Internet. Attualmente sono supportate tre versioni del protocollo TLS, ovvero le versioni 1.0, 1.1 e 1.2. È consigliabile usare TLS 1.2 come versione preferita di TLS durante la connessione all'hub IoT.
+**Linee guida**: l'hub internet usa Transport Layer Security (TLS) per proteggere le connessioni da dispositivi e servizi Internet. Attualmente sono supportate tre versioni del protocollo TLS, ovvero le versioni 1.0, 1.1 e 1.2. È consigliabile usare TLS 1.2 come versione preferita di TLS durante la connessione all'hub IoT.
 
 Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei dati inattivi e la crittografia in transito, ove applicabile.
 
 - [Supporto TLS nell'hub IoT](iot-hub-tls-support.md)
 - [Informazioni sulla crittografia in transito con Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: usare uno strumento di individuazione attivo per identificare i dati sensibili
 
-**Linee guida** : identificazione dei dati, classificazione e funzionalità di prevenzione della perdita non ancora disponibili per l'hub Azure. Implementare una soluzione di terze parti, se necessario ai fini della conformità.
+**Linee guida**: identificazione dei dati, classificazione e funzionalità di prevenzione della perdita non ancora disponibili per l'hub Azure. Implementare una soluzione di terze parti, se necessario ai fini della conformità.
 
 Per la piattaforma Azure sottostante gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e passa a grandi lunghezze per difendersi dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
 
 - [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: usare RBAC di Azure per gestire l'accesso alle risorse
 
-**Linee guida** : per l'accesso utente del piano di controllo all'hub Internet, usare il controllo degli accessi in base al ruolo di Azure Per l'accesso del piano dati all'hub Internet, usare i criteri di accesso condiviso per l'hub Internet.
+**Linee guida**: per l'accesso utente del piano di controllo all'hub Internet, usare il controllo degli accessi in base al ruolo di Azure Per l'accesso del piano dati all'hub Internet, usare i criteri di accesso condiviso per l'hub Internet.
 
 - [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md)
 
 - [Controllare l'accesso all'hub IoT](iot-hub-devguide-security.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: usare la prevenzione della perdita dei dati basata su host per applicare il controllo di accesso
 
-**Indicazioni** : non applicabile; queste linee guida sono destinate alle risorse di calcolo.
+**Indicazioni**: non applicabile; queste linee guida sono destinate alle risorse di calcolo.
 
 Microsoft gestisce l'infrastruttura sottostante per l'hub Azure e ha implementato controlli severi per evitare la perdita o l'esposizione dei dati del cliente.
 
 - [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Microsoft
+**Responsabilità**: Microsoft
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: crittografare le informazioni riservate inattive
 
-**Linee guida** : l'hub delle cose supporta la crittografia dei dati inattivi con chiavi gestite dal cliente (CMK), note anche come BYOK (Bring your own key).
+**Linee guida**: l'hub delle cose supporta la crittografia dei dati inattivi con chiavi gestite dal cliente (CMK), note anche come BYOK (Bring your own key).
 
 L'hub Internet degli Azure è la crittografia dei dati inattivi e in transito, perché vengono scritti nei data center e vengono decrittografati per l'utente durante l'accesso. Per impostazione predefinita, l'hub Internet usa chiavi gestite da Microsoft per crittografare i dati inattivi.
 
@@ -519,19 +519,19 @@ L'hub Internet degli Azure è la crittografia dei dati inattivi e in transito, p
 
 - [Informazioni sulla crittografia inattiva in Azure](../security/fundamentals/encryption-atrest.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Microsoft
+**Responsabilità**: Microsoft
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: registrare e inviare avvisi per le modifiche alle risorse di Azure critiche
 
-**Linee guida** : usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle istanze di produzione dell'hub Azure e ad altre risorse critiche o correlate.
+**Linee guida**: usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle istanze di produzione dell'hub Azure e ad altre risorse critiche o correlate.
 
 - [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ## <a name="vulnerability-management"></a>Gestione vulnerabilità
 
@@ -539,43 +539,43 @@ L'hub Internet degli Azure è la crittografia dei dati inattivi e in transito, p
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: eseguire strumenti di analisi della vulnerabilità automatizzati
 
-**Linee guida** : non applicabile; Microsoft esegue la gestione delle vulnerabilità nei sistemi sottostanti che supportano l'hub Azure.
+**Linee guida**: non applicabile; Microsoft esegue la gestione delle vulnerabilità nei sistemi sottostanti che supportano l'hub Azure.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Microsoft
+**Responsabilità**: Microsoft
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: distribuire una soluzione di gestione delle patch automatizzata per il sistema operativo
 
-**Linee guida** : non applicabile; Microsoft esegue la gestione delle patch nei sistemi sottostanti che supportano l'hub Azure. 
+**Linee guida**: non applicabile; Microsoft esegue la gestione delle patch nei sistemi sottostanti che supportano l'hub Azure. 
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Microsoft
+**Responsabilità**: Microsoft
 
 ### <a name="53-deploy-an-automated-patch-management-solution-for-third-party-software-titles"></a>5,3: distribuire una soluzione di gestione delle patch automatizzata per i titoli software di terze parti
 
-**Indicazioni** : non applicabile; queste linee guida sono destinate alle risorse di calcolo.
+**Indicazioni**: non applicabile; queste linee guida sono destinate alle risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4 Confrontare le analisi di vulnerabilità back-to-back
 
-**Indicazioni** : non applicabile; queste linee guida sono destinate alle risorse di calcolo.
+**Indicazioni**: non applicabile; queste linee guida sono destinate alle risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: usare un processo di classificazione dei rischi per classificare in ordine di priorità la correzione delle vulnerabilità individuate
 
-**Indicazioni** : non applicabile; queste linee guida sono destinate alle risorse di calcolo.
+**Indicazioni**: non applicabile; queste linee guida sono destinate alle risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ## <a name="inventory-and-asset-management"></a>Gestione di asset e inventario
 
@@ -583,25 +583,25 @@ L'hub Internet degli Azure è la crittografia dei dati inattivi e in transito, p
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: usare la soluzione automazione Asset Discovery
 
-**Indicazioni** : non applicabile; queste linee guida sono destinate alle risorse di calcolo.
+**Indicazioni**: non applicabile; queste linee guida sono destinate alle risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="62-maintain-asset-metadata"></a>6.2: gestire i metadati degli asset
 
-**Linee guida** : applicare i tag alle risorse di Azure (non tutte le risorse supportano i tag, ma la maggior parte delle operazioni) per organizzarle logicamente in una tassonomia.
+**Linee guida**: applicare i tag alle risorse di Azure (non tutte le risorse supportano i tag, ma la maggior parte delle operazioni) per organizzarle logicamente in una tassonomia.
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: eliminare le risorse di Azure non autorizzate
 
-**Indicazioni** : usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate laddove appropriato per organizzare e tenere traccia degli asset. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
+**Indicazioni**: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate laddove appropriato per organizzare e tenere traccia degli asset. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
   
 - [ Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
   
@@ -609,25 +609,25 @@ L'hub Internet degli Azure è la crittografia dei dati inattivi e in transito, p
   
 - [ Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6,4: definire e gestire un inventario delle risorse di Azure approvate
 
-**Linee guida** : creare un inventario delle risorse di Azure approvate e del software approvato per le risorse di calcolo in base alle esigenze dell'organizzazione.
+**Linee guida**: creare un inventario delle risorse di Azure approvate e del software approvato per le risorse di calcolo in base alle esigenze dell'organizzazione.
 
 Ogni hub delle cose ha un registro delle identità che può essere usato per creare risorse per ogni dispositivo nel servizio. Le identità dei dispositivi, singolarmente o in gruppo, possono essere aggiunte a un elenco Consenti o Blocca, favorendo il controllo completo dell'accesso al dispositivo.
 
 - [Registro delle identità dell'hub Internet](iot-hub-devguide-identity-registry.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: monitorare la presenza di risorse di Azure non approvate
 
-**Linee guida** : usare i criteri di Azure per applicare restrizioni al tipo di risorse che è possibile creare nelle sottoscrizioni. 
+**Linee guida**: usare i criteri di Azure per applicare restrizioni al tipo di risorse che è possibile creare nelle sottoscrizioni. 
 
 Usare Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni.  Verificare che tutte le risorse di Azure presenti nell'ambiente siano approvate. 
 
@@ -635,37 +635,37 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 - [Come creare query con Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6: monitorare le applicazioni software non approvate nelle risorse di calcolo
 
-**Indicazioni** : non applicabile; questa raccomandazione riguarda le risorse di calcolo.
+**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: rimuovere le risorse di Azure e le applicazioni software non approvate
 
-**Indicazioni** : non applicabile; questa raccomandazione riguarda le risorse di calcolo.
+**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="68-use-only-approved-applications"></a>6.8: usare solo applicazioni approvate
 
-**Indicazioni** : non applicabile; questa raccomandazione riguarda le risorse di calcolo.
+**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: usare solo servizi di Azure approvati
 
-**Linee guida** : usare i criteri di Azure per limitare il tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni di criteri predefinite seguenti:
+**Linee guida**: usare i criteri di Azure per limitare il tipo di risorse che è possibile creare nelle sottoscrizioni dei clienti usando le definizioni di criteri predefinite seguenti:
 
 * Tipi di risorse non consentiti
 * Tipi di risorse consentiti
@@ -675,43 +675,43 @@ Usare inoltre il grafico risorse di Azure per eseguire query e individuare le ri
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 - [Come creare query con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6,10: gestire un inventario dei titoli software approvati
 
-**Indicazioni** : non applicabile; questa raccomandazione riguarda le risorse di calcolo.
+**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6,11: limitare la capacità degli utenti di interagire con Azure Resource Manager
 
-**Indicazioni** : usare l'accesso condizionale Azure ad per limitare la capacità degli utenti di interagire con Azure Resource Manager configurando "blocca l'accesso" per l'App "Microsoft Azure Management".
+**Indicazioni**: usare l'accesso condizionale Azure ad per limitare la capacità degli utenti di interagire con Azure Resource Manager configurando "blocca l'accesso" per l'App "Microsoft Azure Management".
   
 - [ Come configurare l'accesso condizionale per bloccare l'accesso ai Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="612-limit-users-ability-to-execute-scripts-in-compute-resources"></a>6,12: limitare la capacità degli utenti di eseguire gli script nelle risorse di calcolo
 
-**Indicazioni** : non applicabile; questa raccomandazione riguarda le risorse di calcolo.
+**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: separare fisicamente o logicamente le applicazioni ad alto rischio
 
-**Indicazioni** : non applicabile; questa raccomandazione riguarda le applicazioni Web in esecuzione in Servizio app di Azure o le risorse di calcolo.
+**Indicazioni**: non applicabile; questa raccomandazione riguarda le applicazioni Web in esecuzione in Servizio app di Azure o le risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ## <a name="secure-configuration"></a>Configurazione sicura
 
@@ -719,7 +719,7 @@ Usare inoltre il grafico risorse di Azure per eseguire query e individuare le ri
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Definire configurazioni sicure per tutte le risorse di Azure
 
-**Linee guida** : definire e implementare configurazioni di sicurezza standard per il servizio Hub Azure Internet con criteri di Azure. Usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. Devices" per creare criteri personalizzati per controllare o applicare la configurazione dei servizi dell'hub Azure.
+**Linee guida**: definire e implementare configurazioni di sicurezza standard per il servizio Hub Azure Internet con criteri di Azure. Usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. Devices" per creare criteri personalizzati per controllare o applicare la configurazione dei servizi dell'hub Azure.
 
 Azure Resource Manager è in grado di esportare il modello in JavaScript Object Notation (JSON), che deve essere esaminato per assicurarsi che le configurazioni soddisfino i requisiti di sicurezza per l'organizzazione.
 
@@ -733,132 +733,132 @@ Azure Resource Manager è in grado di esportare il modello in JavaScript Object 
 
 - [Raccomandazioni sulla sicurezza: una guida di riferimento](../security-center/recommendations-reference.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2: definire configurazioni sicure del sistema operativo
 
-**Indicazioni** : non applicabile; queste linee guida sono destinate alle risorse di calcolo.
+**Indicazioni**: non applicabile; queste linee guida sono destinate alle risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: garantire la sicurezza delle configurazioni delle risorse di Azure
 
-**Indicazioni** : usare i criteri di Azure [deny] e [deploy if not exist] per applicare impostazioni sicure per le risorse di Azure. Inoltre, è possibile usare i modelli di Azure Resource Manager per gestire la configurazione di sicurezza delle risorse di Azure richieste dall'organizzazione.  
+**Indicazioni**: usare i criteri di Azure [deny] e [deploy if not exist] per applicare impostazioni sicure per le risorse di Azure. Inoltre, è possibile usare i modelli di Azure Resource Manager per gestire la configurazione di sicurezza delle risorse di Azure richieste dall'organizzazione.  
  
 - [Informazioni sugli effetti di Criteri di Azure](../governance/policy/concepts/effects.md)
 - [Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md)
 - [Panoramica sui modelli di Azure Resource Manager](../azure-resource-manager/templates/overview.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: garantire la sicurezza delle configurazioni del sistema operativo
 
-**Indicazioni** : non applicabile; queste linee guida sono destinate alle risorse di calcolo.
+**Indicazioni**: non applicabile; queste linee guida sono destinate alle risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: archiviare in modo sicuro la configurazione delle risorse di Azure
 
-**Linee guida** : se si usano definizioni di criteri di Azure personalizzate per l'hub Azure o le risorse correlate, usare Azure Repos per archiviare e gestire il codice in modo sicuro.
+**Linee guida**: se si usano definizioni di criteri di Azure personalizzate per l'hub Azure o le risorse correlate, usare Azure Repos per archiviare e gestire il codice in modo sicuro.
 
 - [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 - [Documentazione di Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: archiviare in modo sicuro immagini personalizzate del sistema operativo
 
-**Indicazioni** : non applicabile; queste linee guida sono destinate alle risorse di calcolo.
+**Indicazioni**: non applicabile; queste linee guida sono destinate alle risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: distribuire gli strumenti di gestione della configurazione per le risorse di Azure
 
-**Linee guida** : usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. Devices" per creare criteri personalizzati per avvisare, controllare e applicare le configurazioni di sistema. Sviluppare inoltre un processo e una pipeline per la gestione delle eccezioni relative ai criteri.
+**Linee guida**: usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. Devices" per creare criteri personalizzati per avvisare, controllare e applicare le configurazioni di sistema. Sviluppare inoltre un processo e una pipeline per la gestione delle eccezioni relative ai criteri.
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 - [Come usare gli alias](../governance/policy/concepts/definition-structure.md#aliases)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7,8: distribuire gli strumenti di gestione della configurazione per i sistemi operativi
 
-**Indicazioni** : non applicabile; queste linee guida sono destinate alle risorse di calcolo.
+**Indicazioni**: non applicabile; queste linee guida sono destinate alle risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7,9: implementare il monitoraggio della configurazione automatizzata per le risorse di Azure
 
-**Linee guida** : usare il Centro sicurezza di Azure per eseguire analisi di base per le risorse di Azure. Usare inoltre i criteri di Azure per inviare avvisi e controllare le configurazioni delle risorse di Azure. 
+**Linee guida**: usare il Centro sicurezza di Azure per eseguire analisi di base per le risorse di Azure. Usare inoltre i criteri di Azure per inviare avvisi e controllare le configurazioni delle risorse di Azure. 
  
 - [ Come correggere le raccomandazioni nel centro sicurezza di Azure](../security-center/security-center-remediate-recommendations.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : Sì
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: implementare il monitoraggio automatizzato della configurazione per i sistemi operativi
 
-**Indicazioni** : non applicabile; queste linee guida sono destinate alle risorse di calcolo.
+**Indicazioni**: non applicabile; queste linee guida sono destinate alle risorse di calcolo.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : non applicabile
+**Responsabilità**: non applicabile
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: gestire i segreti di Azure in modo sicuro
 
-**Linee guida** : l'hub Internet usa i token di sicurezza e i token di firma di accesso condiviso per autenticare i dispositivi e i servizi per evitare di inviare chiavi sulla rete. 
+**Linee guida**: l'hub Internet usa i token di sicurezza e i token di firma di accesso condiviso per autenticare i dispositivi e i servizi per evitare di inviare chiavi sulla rete. 
 
 Usare identità gestite insieme a Azure Key Vault per semplificare la gestione dei segreti per le applicazioni cloud.
 
 - [Token di sicurezza dell'hub IoT](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
 - [Come usare le identità gestite per l'hub Internet](virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
-- [Come creare un insieme di credenziali delle chiavi](../key-vault/secrets/quick-create-portal.md)
+- [Come creare un insieme di credenziali delle chiavi](../key-vault/general/quick-create-portal.md)
 - [Come fornire l'autenticazione Key Vault con un'identità gestita](../key-vault/general/assign-access-policy-portal.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : Sì
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: gestire le identità in modo sicuro e automatico
 
-**Linee guida** : l'hub Internet usa i token di sicurezza e i token di firma di accesso condiviso per autenticare i dispositivi e i servizi per evitare di inviare chiavi sulla rete. 
+**Linee guida**: l'hub Internet usa i token di sicurezza e i token di firma di accesso condiviso per autenticare i dispositivi e i servizi per evitare di inviare chiavi sulla rete. 
 
 Usare identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure AD. Le identità gestite consentono di eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione Azure AD, incluso Key Vault, senza credenziali nel codice.
 
 - [Token di sicurezza dell'hub IoT](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
 - [Come configurare le identità gestite per l'hub Internet](virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: eliminare l'esposizione involontaria delle credenziali
 
-**Indicazioni** : implementare Credential Scanner per identificare le credenziali all'interno del codice. Tale strumento inoltre incoraggerà a spostare le credenziali rilevate in posizioni più sicure, ad esempio Azure Key Vault. 
+**Indicazioni**: implementare Credential Scanner per identificare le credenziali all'interno del codice. Tale strumento inoltre incoraggerà a spostare le credenziali rilevate in posizioni più sicure, ad esempio Azure Key Vault. 
  
 - [  Come configurare Credential scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ## <a name="malware-defense"></a>Difesa da malware
 
@@ -866,31 +866,31 @@ Usare identità gestite per fornire ai servizi di Azure un'identità gestita aut
 
 ### <a name="81-use-centrally-managed-antimalware-software"></a>8,1: usare il software antimalware gestito centralmente
 
-**Indicazioni** : non applicabile; questa raccomandazione riguarda le risorse di calcolo.
+**Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse di calcolo.
 
 Il software antimalware Microsoft è abilitato nell'host sottostante che supporta i servizi di Azure (ad esempio, Servizio app di Azure), ma non viene eseguito sui contenuti del cliente.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsibilità** : Microsoft
+**Responsibilità**: Microsoft
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: eseguire l'analisi preliminare dei file da caricare in risorse di Azure non di calcolo
 
-**Linee guida** : Microsoft anti-malware è abilitato nell'host sottostante che supporta i servizi di Azure (ad esempio, l'hub Azure,), ma non viene eseguito sui contenuti del cliente.
+**Linee guida**: Microsoft anti-malware è abilitato nell'host sottostante che supporta i servizi di Azure (ad esempio, l'hub Azure,), ma non viene eseguito sui contenuti del cliente.
 
 È responsabilità dell'utente eseguire la pre-analisi di tutti i contenuti caricati in risorse di Azure non di calcolo. Microsoft non può accedere ai dati dei clienti e pertanto non può eseguire analisi antimalware dei contenuti del cliente per conto dell'utente.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="83-ensure-antimalware-software-and-signatures-are-updated"></a>8,3: assicurarsi che il software e le firme antimalware siano aggiornati
 
-**Linee guida** : non applicabile; questo benchmark è destinato alle risorse di calcolo. Microsoft antimalware è abilitato nell'host sottostante che supporta i servizi di Azure, ma non viene eseguito sui contenuti del cliente.
+**Linee guida**: non applicabile; questo benchmark è destinato alle risorse di calcolo. Microsoft antimalware è abilitato nell'host sottostante che supporta i servizi di Azure, ma non viene eseguito sui contenuti del cliente.
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Microsoft
+**Responsabilità**: Microsoft
 
 ## <a name="data-recovery"></a>Recupero dati
 
@@ -898,15 +898,15 @@ Il software antimalware Microsoft è abilitato nell'host sottostante che support
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: garantire l'esecuzione regolare di backup automatizzati
 
-**Linee guida** : il servizio Hub di Azure è in linea con metodi e Framework per rendere i servizi dell'hub Internet a disponibilità elevata e recuperabili da emergenze in base a obiettivi aziendali specifici. 
+**Linee guida**: il servizio Hub di Azure è in linea con metodi e Framework per rendere i servizi dell'hub Internet a disponibilità elevata e recuperabili da emergenze in base a obiettivi aziendali specifici. 
 
 - [Disponibilità elevata e ripristino di emergenza dell'hub IoT](iot-hub-ha-dr.md)
 
 - [Come clonare l'hub](iot-hub-how-to-clone.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: eseguire backup completi del sistema ed eseguire il backup di tutte le chiavi gestite dal cliente
 
@@ -916,9 +916,9 @@ Materiale sussidiario: l'hub degli **indirizzi** Internet Azure suggerisce che l
 
 - [Esportazione dell'identità del dispositivo dell'hub Internet](iot-hub-bulk-identity-mgmt.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: convalidare tutti i backup, incluse le chiavi gestite dal cliente
 
@@ -930,21 +930,21 @@ Eseguire periodicamente il ripristino dei dati del contenuto nel backup. Assicur
 
 - [Esportazione dell'identità del dispositivo dell'hub Internet](iot-hub-bulk-identity-mgmt.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: garantire la protezione dei backup e delle chiavi gestite dal cliente
 
-**Linee guida** : abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose. Se si usa archiviazione di Azure per archiviare i backup, abilitare l'eliminazione temporanea per salvare e ripristinare i dati quando vengono eliminati BLOB o snapshot BLOB.
+**Linee guida**: abilitare l'eliminazione temporanea e ripulire la protezione in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose. Se si usa archiviazione di Azure per archiviare i backup, abilitare l'eliminazione temporanea per salvare e ripristinare i dati quando vengono eliminati BLOB o snapshot BLOB.
  
  
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 - [Eliminazione temporanea per archiviazione BLOB di Azure](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
 
@@ -952,7 +952,7 @@ Eseguire periodicamente il ripristino dei dati del contenuto nel backup. Assicur
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: creare un piano di risposta agli eventi imprevisti
 
-**Guida** : sviluppare una guida alla risposta agli eventi imprevisti per la propria organizzazione. Assicurarsi che siano stati scritti piani di risposta agli eventi imprevisti che definiscono tutti i ruoli del personale, nonché le fasi della gestione e della gestione degli eventi imprevisti dal rilevamento alla revisione post-evento imprevisto. 
+**Guida**: sviluppare una guida alla risposta agli eventi imprevisti per la propria organizzazione. Assicurarsi che siano stati scritti piani di risposta agli eventi imprevisti che definiscono tutti i ruoli del personale, nonché le fasi della gestione e della gestione degli eventi imprevisti dal rilevamento alla revisione post-evento imprevisto. 
   
 - [ Linee guida per la creazione di un processo di risposta agli eventi imprevisti di sicurezza](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
   
@@ -960,13 +960,13 @@ Eseguire periodicamente il ripristino dei dati del contenuto nel backup. Assicur
  
 - [  Usare la guida alla gestione degli eventi imprevisti di sicurezza del computer NIST per semplificare la creazione del piano di risposta agli eventi imprevisti](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: creare una procedura per l'assegnazione di punteggi e la classificazione in ordine di priorità per gli eventi imprevisti
 
-**Linee guida** : il Centro sicurezza di Azure assegna una gravità a ogni avviso per facilitare la priorità degli avvisi che devono essere analizzati per primi. La gravità è basata sul livello di attendibilità del Centro sicurezza nell'individuazione o sull'utilizzo analitico per emettere l'avviso, oltre al livello di confidenza che ha causato l'intento dannoso dietro l'attività che ha portato all'avviso.
+**Linee guida**: il Centro sicurezza di Azure assegna una gravità a ogni avviso per facilitare la priorità degli avvisi che devono essere analizzati per primi. La gravità è basata sul livello di attendibilità del Centro sicurezza nell'individuazione o sull'utilizzo analitico per emettere l'avviso, oltre al livello di confidenza che ha causato l'intento dannoso dietro l'attività che ha portato all'avviso.
 
   
  Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di denominazione per identificare e classificare le risorse di Azure, in particolare quelle che elaborano i dati sensibili. È responsabilità dell'utente classificare in ordine di priorità la correzione degli avvisi in base alla criticità delle risorse e dell'ambiente di Azure in cui si è verificato l'evento imprevisto.
@@ -975,51 +975,51 @@ Eseguire periodicamente il ripristino dei dati del contenuto nel backup. Assicur
   
 - [ Usare i tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : Sì
+**Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="103-test-security-response-procedures"></a>10.3: testare le procedure di risposta per la sicurezza
 
-**Linee guida** : eseguire esercitazioni per testare le funzionalità di risposta agli eventi imprevisti dei sistemi a cadenza regolare per proteggere le risorse di Azure. Identificare punti deboli e Gap, quindi rivedere il piano di risposta in base alle esigenze.
+**Linee guida**: eseguire esercitazioni per testare le funzionalità di risposta agli eventi imprevisti dei sistemi a cadenza regolare per proteggere le risorse di Azure. Identificare punti deboli e Gap, quindi rivedere il piano di risposta in base alle esigenze.
   
 - [ Pubblicazione del NIST: Guida ai programmi di test, formazione e esercizio per piani e funzionalità IT](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: specificare i dettagli di contatto e configurare le notifiche di avviso per gli eventi imprevisti della sicurezza
 
-**Indicazioni** : le informazioni di contatto per gli eventi imprevisti della sicurezza verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai propri dati. Esaminare gli eventi imprevisti dopo il fatto per assicurarsi che i problemi siano stati risolti.
+**Indicazioni**: le informazioni di contatto per gli eventi imprevisti della sicurezza verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai propri dati. Esaminare gli eventi imprevisti dopo il fatto per assicurarsi che i problemi siano stati risolti.
   
 - [ Come impostare il contatto di sicurezza del Centro sicurezza di Azure](../security-center/security-center-provide-security-contact-details.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporare gli avvisi di sicurezza nel sistema di risposta agli eventi imprevisti
 
-**Linee guida** : esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando la funzionalità di esportazione continua per identificare i rischi per le risorse di Azure. L'esportazione continua consente di esportare avvisi e consigli manualmente o in modo continuo e continuo. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi ad Azure Sentinel.
+**Linee guida**: esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando la funzionalità di esportazione continua per identificare i rischi per le risorse di Azure. L'esportazione continua consente di esportare avvisi e consigli manualmente o in modo continuo e continuo. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi ad Azure Sentinel.
   
 - [ Come configurare l'esportazione continua](../security-center/continuous-export.md)
  
 - [ Come trasmettere avvisi in Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: automatizzare la risposta agli avvisi di sicurezza
 
-**Linee guida** : usare l'automazione del flusso di lavoro funzionalità del Centro sicurezza di Azure per attivare automaticamente le risposte agli avvisi e alle raccomandazioni di sicurezza per proteggere le risorse di Azure.
+**Linee guida**: usare l'automazione del flusso di lavoro funzionalità del Centro sicurezza di Azure per attivare automaticamente le risposte agli avvisi e alle raccomandazioni di sicurezza per proteggere le risorse di Azure.
   
 - [ Come configurare l'automazione del flusso di lavoro nel centro sicurezza](../security-center/workflow-automation.md)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Customer
+**Responsabilità**: Customer
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Test di penetrazione ed esercizi Red Team
 
@@ -1027,15 +1027,15 @@ Eseguire periodicamente il ripristino dei dati del contenuto nel backup. Assicur
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
-**Linee guida** : seguire le regole di test di penetrazione Microsoft Cloud di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usa la strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestite da Microsoft.
+**Linee guida**: seguire le regole di test di penetrazione Microsoft Cloud di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usa la strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestite da Microsoft.
 
 - [Regole di coinvolgimento dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
 - [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Monitoraggio del Centro sicurezza di Azure** : non applicabile
+**Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
-**Responsabilità** : Condiviso
+**Responsabilità**: Condiviso
 
 ## <a name="next-steps"></a>Passaggi successivi
 

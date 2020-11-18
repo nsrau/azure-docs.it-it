@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: a1166874ed743efa599743fa6db8341e94c0fe1f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 969ae6dc1e3667bc360890c292371a0a9b1ba2dc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747660"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844592"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Avvio rapido: controllare un dispositivo connesso a un hub IoT (Android)
 
@@ -41,15 +41,7 @@ In questa guida di avvio rapido si usa un metodo diretto per controllare un disp
 
 * Porta 8883 aperta nel firewall. L'esempio di dispositivo di questo argomento di avvio rapido usa il protocollo MQTT, che comunica tramite la porta 8883. Questa porta potrebbe essere bloccata in alcuni ambienti di rete aziendali e didattici. Per altre informazioni e soluzioni alternative per questo problema, vedere [Connettersi all'hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### <a name="add-azure-iot-extension"></a>Aggiungere l'estensione Azure IoT
-
-Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici dell'hub IoT, di IoT Edge e del servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -67,9 +59,9 @@ Se è stata completata la precedente [Guida introduttiva: inviare dati di teleme
 
 1. Eseguire questo comando in Azure Cloud Shell per creare l'identità del dispositivo.
 
-   **YourIoTHubName** : sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+   **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
-   **MyAndroidDevice** : nome del dispositivo da registrare. È consigliabile usare **MyAndroidDevice** , come illustrato. Se si sceglie un altro nome per il dispositivo, è necessario usare tale nome anche nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
+   **MyAndroidDevice**: nome del dispositivo da registrare. È consigliabile usare **MyAndroidDevice**, come illustrato. Se si sceglie un altro nome per il dispositivo, è necessario usare tale nome anche nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
     az iot hub device-identity create \
@@ -78,7 +70,7 @@ Se è stata completata la precedente [Guida introduttiva: inviare dati di teleme
 
 2. Eseguire il comando seguente in Azure Cloud Shell per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato.
 
-   **YourIoTHubName** : sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+   **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -97,7 +89,7 @@ Se è stata completata la precedente [Guida introduttiva: inviare dati di teleme
 
 È necessaria anche una _stringa di connessione del servizio_ per consentire all'applicazione di servizio di connettersi all'hub IoT per eseguire i metodi e recuperare i messaggi. Il comando seguente recupera la stringa di connessione del servizio per l'hub IoT:
 
-**YourIoTHubName** : sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+**YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
 ```azurecli-interactive
 az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
@@ -115,7 +107,7 @@ Entrambi gli esempi di questa guida di avvio rapido sono inclusi nel repository 
 
 L'applicazione di esempio degli SDK per dispositivi può essere eseguita su un dispositivo Android fisico o un emulatore Android. L'esempio si connette a un endpoint specifico del dispositivo nell'hub IoT, invia dati di telemetria simulati e ascolta le chiamate dei metodi diretti dall'hub. In questa guida introduttiva la chiamata dei metodi diretti dall'hub indica al dispositivo di modificare l'intervallo di invio dei dati di telemetria. Il dispositivo simulato invia un acknowledgement all'hub dopo l'esecuzione del metodo diretto.
 
-1. Aprire il progetto Android di esempio di GitHub in Android Studio. Il progetto si trova nella directory seguente della copia clonata o scaricata del repository [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java): *\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample* .
+1. Aprire il progetto Android di esempio di GitHub in Android Studio. Il progetto si trova nella directory seguente della copia clonata o scaricata del repository [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java): *\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample*.
 
 2. In Android Studio aprire *gradle.properties* per il progetto di esempio e sostituire il segnaposto **Device_Connection_String** con la stringa di connessione del dispositivo annotata in precedenza.
 
@@ -123,7 +115,7 @@ L'applicazione di esempio degli SDK per dispositivi può essere eseguita su un d
     DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
     ```
 
-3. In Android Studio fare clic su **File** > **Sync Project with Gradle Files** . Verificare il completamento della compilazione.
+3. In Android Studio fare clic su **File** > **Sync Project with Gradle Files**. Verificare il completamento della compilazione.
 
    > [!NOTE]
    > L'esito negativo della sincronizzazione del progetto può essere dovuto a uno dei motivi seguenti:
@@ -145,7 +137,7 @@ In questa sezione si eseguirà il monitoraggio dei messaggi inviati dal disposit
 
 1. Tramite Azure Cloud Shell, eseguire il comando seguente per connettersi e leggere i messaggi dall'hub IoT:
 
-   **YourIoTHubName** : sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+   **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name {YourIoTHubName} --output table
@@ -165,7 +157,7 @@ Eseguire questa app su un dispositivo Android fisico o un emulatore Android.
 
 Un'applicazione di servizio back-end dell'hub IoT in genere viene eseguita nel cloud, dove è più facile attenuare i rischi associati alla stringa di connessione sensibile che controlla tutti i dispositivi in un hub IoT. In questo esempio, viene eseguita come un'app Android unicamente a scopo dimostrativo. Le altre versioni di linguaggio di questo argomento di avvio rapido forniscono esempi che si allineano in modo più preciso con una tipica applicazione di servizio back-end.
 
-1. Aprire il progetto Android di esempio del servizio GitHub in Android Studio. Il progetto si trova nella directory seguente della copia clonata o scaricata del repository [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) *\azure-iot-samples-java\iot-hub\Samples\service\AndroidSample* .
+1. Aprire il progetto Android di esempio del servizio GitHub in Android Studio. Il progetto si trova nella directory seguente della copia clonata o scaricata del repository [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) *\azure-iot-samples-java\iot-hub\Samples\service\AndroidSample*.
 
 2. In Android Studio aprire *gradle.properties*  per il progetto di esempio. Sostituire il valore delle proprietà **ConnectionString** e **DeviceId** con la stringa di connessione di servizio annotata in precedenza e l'ID del dispositivo Android registrato.
 
@@ -174,7 +166,7 @@ Un'applicazione di servizio back-end dell'hub IoT in genere viene eseguita nel c
     DeviceId=MyAndroidDevice
     ```
 
-3. In Android Studio fare clic su **File** > **Sync Project with Gradle Files** . Verificare il completamento della compilazione.
+3. In Android Studio fare clic su **File** > **Sync Project with Gradle Files**. Verificare il completamento della compilazione.
 
    > [!NOTE]
    > L'esito negativo della sincronizzazione del progetto può essere dovuto a uno dei motivi seguenti:
@@ -184,7 +176,7 @@ Un'applicazione di servizio back-end dell'hub IoT in genere viene eseguita nel c
 
 4. Una volta completata la compilazione, fare clic su **Esegui** > **Esegui "app"** . Configurare l'app in modo da eseguirla su un dispositivo Android fisico o un emulatore Android separato. Per altre informazioni sull'esecuzione di un'app Android in un dispositivo fisico o un emulatore, vedere [Eseguire l'app](https://developer.android.com/training/basics/firstapp/running-app).
 
-5. Una volta caricata l'app, aggiornare il valore **Set Messaging Interval** su **1000** e fare clic su **Invoke** .
+5. Una volta caricata l'app, aggiornare il valore **Set Messaging Interval** su **1000** e fare clic su **Invoke**.
 
     L'intervallo di messaggistica dei dati di telemetria è espresso in millisecondi. L'intervallo dei dati di telemetria predefinito dell'esempio di dispositivo è impostato per 5 secondi. Questa modifica aggiornerà il dispositivo IoT Android in modo che i dati di telemetria vengano inviati ogni secondo.
 

@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperfq1, deploy
+ms.custom: how-to, contperfq1, deploy, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: b98d3ea69286fe7c23b6c2978b71699ba7eb0e00
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f2ac565b8c6dfce52daeadd20cf3357bc22cd281
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325194"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843809"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 
@@ -87,7 +87,7 @@ In Azure Machine Learning, "distribuzione" viene usato nel senso più generale d
 Il componente front-end (azureml-Fe) che instrada le richieste di inferenza in ingresso ai servizi distribuiti viene ridimensionato automaticamente in base alle esigenze. Il ridimensionamento di azureml-Fe è basato sullo scopo e sulle dimensioni del cluster AKS (numero di nodi). Lo scopo e i nodi del cluster vengono configurati quando si [Crea o si connette un cluster AKS](how-to-create-attach-kubernetes.md). È disponibile un servizio azureml-Fe per ogni cluster, che potrebbe essere in esecuzione su più POD.
 
 > [!IMPORTANT]
-> Quando si usa un cluster configurato come __dev-test__ , lo scaler automatico è **disabilitato**.
+> Quando si usa un cluster configurato come __dev-test__, lo scaler automatico è **disabilitato**.
 
 Azureml-Fe scala sia verso l'alto (verticalmente) per usare più core, sia orizzontalmente per usare più baccelli. Quando si decide di eseguire la scalabilità verticale, viene usato il tempo necessario per instradare le richieste di inferenza in ingresso. Se questo tempo supera la soglia, viene eseguita una scalabilità verticale. Se il tempo di instradamento delle richieste in ingresso continua a superare la soglia, si verificherà una scalabilità orizzontale.
 
@@ -95,7 +95,7 @@ Quando si esegue il ridimensionamento in basso e in, viene utilizzato l'utilizzo
 
 ## <a name="deploy-to-aks"></a>Distribuire in servizio Azure Kubernetes
 
-Per distribuire un modello nel servizio Azure Kubernetes, creare una __configurazione di distribuzione__ che descriva le risorse di calcolo necessarie. Ad esempio, numero di core e memoria. È inoltre necessaria una __configurazione di inferenza__ , che descrive l'ambiente necessario per ospitare il modello e il servizio Web. Per ulteriori informazioni sulla creazione della configurazione di inferenza, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
+Per distribuire un modello nel servizio Azure Kubernetes, creare una __configurazione di distribuzione__ che descriva le risorse di calcolo necessarie. Ad esempio, numero di core e memoria. È inoltre necessaria una __configurazione di inferenza__, che descrive l'ambiente necessario per ospitare il modello e il servizio Web. Per ulteriori informazioni sulla creazione della configurazione di inferenza, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
 > [!NOTE]
 > Il numero di modelli da distribuire è limitato a 1.000 modelli per distribuzione (per contenitore).
@@ -154,7 +154,7 @@ Il componente che gestisce la scalabilità automatica per le distribuzioni di mo
 > [!IMPORTANT]
 > * Non **abilitare Kubernetes Horizontal Pod AutoScaler (hPa) per le distribuzioni di modelli**. Questa operazione causerebbe la competizione tra i due componenti di ridimensionamento automatico. Azureml-Fe è progettato per la scalabilità automatica dei modelli distribuiti da Azure ML, in cui HPA dovrebbe indovinare o approssimarsi all'utilizzo del modello da una metrica generica, ad esempio l'utilizzo della CPU o una configurazione della metrica personalizzata.
 > 
-> * **Azureml-Fe non ridimensiona il numero di nodi in un cluster AKS** , perché ciò potrebbe causare un aumento imprevisto dei costi. Ridimensiona invece **il numero di repliche per il modello** all'interno dei limiti del cluster fisico. Se è necessario ridimensionare il numero di nodi all'interno del cluster, è possibile ridimensionare manualmente il cluster o [configurare il servizio di scalabilità automatica del cluster AKS](../aks/cluster-autoscaler.md).
+> * **Azureml-Fe non ridimensiona il numero di nodi in un cluster AKS**, perché ciò potrebbe causare un aumento imprevisto dei costi. Ridimensiona invece **il numero di repliche per il modello** all'interno dei limiti del cluster fisico. Se è necessario ridimensionare il numero di nodi all'interno del cluster, è possibile ridimensionare manualmente il cluster o [configurare il servizio di scalabilità automatica del cluster AKS](../aks/cluster-autoscaler.md).
 
 La scalabilità automatica può essere controllata impostando `autoscale_target_utilization` , `autoscale_min_replicas` e `autoscale_max_replicas` per il servizio Web AKS. Nell'esempio seguente viene illustrato come abilitare la scalabilità automatica:
 

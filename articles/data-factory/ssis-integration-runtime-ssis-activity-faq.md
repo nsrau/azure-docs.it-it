@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 4c817194bbe0e4cf211992920bad9deb40bf05f4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b4902e1fb7a2a181d3d5b2ce2ac6d1d458500fce
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632210"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844183"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Risolvere i problemi di esecuzione del pacchetto in SSIS Integration Runtime
 
@@ -121,14 +121,14 @@ Questo errore si verifica quando SSIS Integration Runtime non è in grado di acc
 
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Messaggio di errore: "provider Microsoft OLE DB per Analysis Services. ' HRESULT: 0x80004005 Descrizione:' errore COM: errore COM: mscorlib; Eccezione generata dalla destinazione di una chiamata "
 
-Una delle possibili cause è che il nome utente o la password con Azure Multi-Factor Authentication abilitato è configurato per l'autenticazione Azure Analysis Services. Questa autenticazione non è supportata in SSIS Integration Runtime. Provare a usare un'entità servizio per l'autenticazione Azure Analysis Services:
+Una delle possibili cause è che il nome utente o la password con Azure AD Multi-Factor Authentication abilitato è configurato per l'autenticazione di Azure Analysis Services. Questa autenticazione non è supportata in SSIS Integration Runtime. Provare a usare un'entità servizio per l'autenticazione Azure Analysis Services:
 
 1. Preparare un'entità servizio come descritto in [automazione con entità servizio](../analysis-services/analysis-services-service-principal.md).
-2. In gestione connessione configurare **Usa nome utente e password specifici** : impostare **AppID** come nome utente e **clientSecret** come password.
+2. In gestione connessione configurare **Usa nome utente e password specifici**: impostare **AppID** come nome utente e **clientSecret** come password.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Messaggio di errore: "l'origine ADONET non è riuscita ad acquisire la connessione {GUID} con il seguente messaggio di errore: accesso non riuscito per l'utente ' NT AUTHORITY\ANONYMOUS LOGON '" quando si usa un'identità gestita
 
-Assicurarsi di non configurare il metodo di autenticazione di gestione connessione come **Active Directory autenticazione della password** quando il parametro *ConnectUsingManagedIdentity* è **true** . In alternativa, è possibile configurarlo come **autenticazione SQL** , che viene ignorato se è impostato *ConnectUsingManagedIdentity* .
+Assicurarsi di non configurare il metodo di autenticazione di gestione connessione come **Active Directory autenticazione della password** quando il parametro *ConnectUsingManagedIdentity* è **true**. In alternativa, è possibile configurarlo come **autenticazione SQL** , che viene ignorato se è impostato *ConnectUsingManagedIdentity* .
 
 ### <a name="error-message-0xc020801f-at--odata-source--cannot-acquire-a-managed-connection-from-the-run-time-connection-manager"></a>Messaggio di errore: "0xC020801F at..., origine OData [...]: Impossibile acquisire una connessione gestita dalla gestione connessione di run-time"
 

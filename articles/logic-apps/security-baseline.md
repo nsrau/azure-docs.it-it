@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9630919b71afd0219a2e82a86e0f89106e8a0ac2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ccfc290df64417bf0504849a83dbe68efcbddefe
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424055"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843707"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Baseline della sicurezza di Azure per app per la logica
 
@@ -384,7 +384,7 @@ Se si usa l'infrastruttura come codice, evitare di archiviare le password nel co
 
 - [Come proteggere e accedere ai dati nelle app per la logica](logic-apps-securing-a-logic-app.md)
 
-- [Come impostare e recuperare un segreto da Azure Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [Come impostare e recuperare un segreto da Azure Key Vault](../key-vault/general/quick-create-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -486,7 +486,7 @@ Ogni endpoint di richiesta in un'app per la logica dispone inoltre di una firma 
 
 Quando è disponibile il supporto per le app per la logica, usare un'identità gestita per accedere facilmente ad altre risorse protette da Azure Active Directory (Azure AD) e autenticare l'identità senza accedere, anziché con credenziali o segreti. Azure gestisce questa identità per l'utente e consente di proteggere le proprie credenziali perché non è necessario fornire o ruotare i segreti.
 
-App per la logica di Azure supporta le identità gestite sia assegnate dal sistema che dall'utente. L'app per la logica può usare l'identità assegnata dal sistema o una singola identità assegnata dall'utente che è possibile condividere in un gruppo di app per la logica, ma non entrambe. Attualmente, solo trigger e azioni predefiniti specifici supportano le identità gestite, non i connettori gestiti o le connessioni, ad esempio:
+App per la logica di Azure supporta sia le identità gestite assegnate dal sistema che quelle assegnate dall'utente. L'app per la logica può usare l'identità assegnata dal sistema o una singola identità assegnata dall'utente che è possibile condividere in un gruppo di app per la logica, ma non entrambe. Attualmente, solo trigger e azioni predefiniti specifici supportano le identità gestite, non i connettori gestiti o le connessioni, ad esempio:
 
 -  HTTP
 

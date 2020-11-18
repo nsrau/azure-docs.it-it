@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 11/17/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ab554f45de30bb676d2933a4a1268b6831ae4f5
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: ffd72ffb02e4875305177cf12fd19f538735b7d6
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659921"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844234"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Impostare gli elenchi di controllo di accesso (ACL) in modo ricorsivo per Azure Data Lake Storage Gen2
 
@@ -386,9 +386,11 @@ except Exception as e:
 
 ## <a name="set-an-acl-recursively"></a>Impostare un ACL in modo ricorsivo
 
-Quando si *imposta* un ACL, si **sostituisce** l'intero ACL, incluse tutte le voci. Se si desidera modificare il livello di autorizzazione di un'entità di sicurezza o aggiungere una nuova entità di sicurezza all'ACL senza influire sulle altre voci esistenti, è necessario *aggiornare* invece l'ACL. Per aggiornare un ACL anziché sostituirlo, vedere la sezione [aggiornare un ACL in modo ricorsivo](#update-an-acl-recursively) di questo articolo.   
+Quando si *imposta* un ACL, si **sostituisce** l'intero ACL, incluse tutte le voci. Se si desidera modificare il livello di autorizzazione di un'entità di sicurezza o aggiungere una nuova entità di sicurezza all'ACL senza influire sulle altre voci esistenti, è necessario *aggiornare* invece l'ACL. Per aggiornare un ACL anziché sostituirlo, vedere la sezione [aggiornare un ACL in modo ricorsivo](#update-an-acl-recursively) di questo articolo.  
 
-Questa sezione contiene esempi su come impostare un ACL 
+Se si sceglie di *impostare* l'ACL, è necessario aggiungere una voce per l'utente proprietario, una voce per il gruppo proprietario e una voce per tutti gli altri utenti. Per ulteriori informazioni sull'utente proprietario, il gruppo proprietario e tutti gli altri utenti, vedere [utenti e identità](data-lake-storage-access-control.md#users-and-identities). 
+
+Questa sezione contiene esempi su come impostare un ACL.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

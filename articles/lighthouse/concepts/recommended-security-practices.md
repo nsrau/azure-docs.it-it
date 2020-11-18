@@ -3,12 +3,12 @@ title: Procedure di sicurezza consigliate
 description: Quando si usa Azure Lighthouse, è importante prendere in considerazione la sicurezza e il controllo degli accessi.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 097611837e3bba2d1a44ec521862e03cc467d707
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef2c41cf052e5f79ecf4abf01c8f3fab3dd1de14
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399381"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843724"
 ---
 # <a name="recommended-security-practices"></a>Procedure di sicurezza consigliate
 
@@ -17,11 +17,11 @@ Quando si usa [Azure Lighthouse](../overview.md), è importante prendere in cons
 > [!TIP]
 > Queste raccomandazioni sono valide anche per le [aziende che gestiscono più tenant](enterprise.md) con Azure Lighthouse.
 
-## <a name="require-azure-multi-factor-authentication"></a>Richiedere Azure Multi-Factor Authentication
+## <a name="require-azure-ad-multi-factor-authentication"></a>Richiedi Azure AD Multi-Factor Authentication
 
-[Azure multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (anche noto come verifica in due passaggi) aiuta a impedire agli utenti malintenzionati di accedere a un account richiedendo più passaggi di autenticazione. È necessario richiedere Multi-Factor Authentication per tutti gli utenti del tenant di gestione, inclusi gli utenti che avranno accesso alle risorse dei clienti Delegate.
+[Azure AD multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (anche noto come verifica in due passaggi) consente agli utenti malintenzionati di accedere a un account richiedendo più passaggi di autenticazione. È necessario richiedere Multi-Factor Authentication per tutti gli utenti del tenant di gestione, inclusi gli utenti che avranno accesso alle risorse dei clienti Delegate.
 
-Si consiglia di chiedere ai clienti di implementare Azure Multi-Factor Authentication anche nei propri tenant.
+Si consiglia di richiedere ai clienti di implementare Azure AD Multi-Factor Authentication anche nei propri tenant.
 
 ## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Assegnare le autorizzazioni ai gruppi, usando il principio dei privilegi minimi
 
@@ -47,5 +47,5 @@ Tenere presente che, quando si [esegue l'onboarding di clienti tramite un'offert
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Distribuire Azure Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
+- [Distribuire Azure AD multi-factor authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Informazioni sulle [esperienze di gestione tra tenant](cross-tenant-management-experience.md).

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: cdd5a8b518a374340af35d5f866d51d016e5ac79
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: cb6680482466018f86779d9c0318bbfe4e749be1
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745157"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843146"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Monitoraggio dell'archiviazione BLOB di Azure
 
@@ -56,7 +56,7 @@ Le metriche della piattaforma e il log attività vengono raccolti automaticament
 
 Per raccogliere i log delle risorse, è necessario creare un'impostazione di diagnostica. Quando si crea l'impostazione, scegliere **BLOB** come tipo di archiviazione per cui si vuole abilitare i log. Specificare quindi una delle seguenti categorie di operazioni per le quali si desidera raccogliere i log. 
 
-| Category | Descrizione |
+| Categoria | Descrizione |
 |:---|:---|
 | StorageRead | Operazioni di lettura sugli oggetti. |
 | StorageWrite | Operazioni di scrittura su oggetti. |
@@ -80,14 +80,14 @@ Per istruzioni generali, vedere [creare un'impostazione di diagnostica per racco
 
 2. Passare all'account di archiviazione.
 
-3. Nella sezione **monitoraggio** fare clic su **impostazioni di diagnostica (anteprima)** .
+3. Nella sezione **monitoraggio** fare clic su **impostazioni di diagnostica (anteprima)**.
 
    > [!div class="mx-imgBorder"]
    > ![portale - Log di diagnostica](media/monitor-blob-storage/diagnostic-logs-settings-pane.png)   
 
 4. Scegliere **BLOB** come tipo di archiviazione per cui si vuole abilitare i log.
 
-5. Fare clic su **Aggiungi impostazione di diagnostica** .
+5. Fare clic su **Aggiungi impostazione di diagnostica**.
 
    > [!div class="mx-imgBorder"]
    > ![Portale-log delle risorse-Aggiungi impostazione di diagnostica](media/monitor-blob-storage/diagnostic-logs-settings-pane-2.png)
@@ -255,13 +255,13 @@ Per visualizzare un modello di Azure Resource Manager che crea un'impostazione d
 
 ## <a name="analyzing-metrics"></a>Analisi delle metriche
 
-È possibile analizzare le metriche di Archiviazione di Azure con metriche di altri servizi di Azure usando Esplora metriche. Aprire Esplora metriche selezionando **Metrica** dal menu di **Monitoraggio di Azure** . Per informazioni dettagliate sull'uso di questo strumento, vedere [Introduzione a Esplora metriche di Azure](../../azure-monitor/platform/metrics-getting-started.md). 
+È possibile analizzare le metriche di Archiviazione di Azure con metriche di altri servizi di Azure usando Esplora metriche. Aprire Esplora metriche selezionando **Metrica** dal menu di **Monitoraggio di Azure**. Per informazioni dettagliate sull'uso di questo strumento, vedere [Introduzione a Esplora metriche di Azure](../../azure-monitor/platform/metrics-getting-started.md). 
 
 L'esempio seguente mostra come visualizzare le **transazioni** a livello di account.
 
 ![Screenshot dell'accesso alle metriche nel portale di Azure](./media/monitor-blob-storage/access-metrics-portal.png)
 
-Per le metriche che supportano le dimensioni, è possibile applicare un filtro specificando il valore di dimensione desiderato. L'esempio seguente mostra come visualizzare le **transazioni** a livello di account su un'operazione specifica selezionando valori per la dimensione **API Name** .
+Per le metriche che supportano le dimensioni, è possibile applicare un filtro specificando il valore di dimensione desiderato. L'esempio seguente mostra come visualizzare le **transazioni** a livello di account su un'operazione specifica selezionando valori per la dimensione **API Name**.
 
 ![Screenshot dell'accesso alle metriche con dimensioni nel portale di Azure](./media/monitor-blob-storage/access-metrics-portal-with-dimension.png)
 
@@ -485,7 +485,7 @@ Le voci di registro vengono create solo se esistono richieste effettuate per l'e
 - Richieste riuscite
 - Richieste non riuscite, tra cui errori di timeout, limitazione, rete, autorizzazione e di altro tipo
 - Richieste che usano una firma di accesso condiviso o OAuth, incluse le richieste riuscite e non riuscite
-- Richieste ai dati di analisi (dati di log classici nel contenitore **$logs** e dati di metrica della classe nelle tabelle **$metric** )
+- Richieste ai dati di analisi (dati di log classici nel contenitore **$logs** e dati di metrica della classe nelle tabelle **$metric**)
 
 Le richieste effettuate dal servizio di archiviazione BLOB, ad esempio la creazione o l'eliminazione di log, non vengono registrate. Per un elenco completo dei dati registrati vedere [Operazioni registrate di Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [Formato del log di Analisi archiviazione](monitor-blob-storage-reference.md).
 

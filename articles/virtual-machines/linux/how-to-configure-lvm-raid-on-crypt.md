@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
-ms.custom: seodec18
-ms.openlocfilehash: c8ffe78e885eedd84c4cf6948954a7d3477a5cff
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 46d2c039806e4e6a72e091458d44e7b21b3dfa70
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911818"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843520"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configurare LVM e RAID nei dispositivi crittografati
 
@@ -298,7 +298,7 @@ echo "y" | pvcreate /dev/mapper/4159c60a-a546-455b-985f-92865d51158c
 ![Verifica della creazione di un volume fisico](./media/disk-encryption/lvm-raid-on-crypt/014-lvm-raid-pvcreate.png)
 
 >[!NOTE] 
->È necessario sostituire i nomi di/dev/mapper/Device per i valori effettivi in base all'output di **lsblk** .
+>È necessario sostituire i nomi di/dev/mapper/Device per i valori effettivi in base all'output di **lsblk**.
 
 #### <a name="verify-the-information-for-physical-volumes"></a>Verificare le informazioni per i volumi fisici
 ```bash
@@ -406,7 +406,7 @@ mdadm --create /dev/md10 \
 ![Informazioni per il RAID configurato tramite il comando mdadm](./media/disk-encryption/lvm-raid-on-crypt/019-lvm-raid-md-creation.png)
 
 >[!NOTE] 
->I nomi di/dev/mapper/Device devono essere sostituiti con i valori effettivi, in base all'output di **lsblk** .
+>I nomi di/dev/mapper/Device devono essere sostituiti con i valori effettivi, in base all'output di **lsblk**.
 
 ### <a name="checkmonitor-raid-creation"></a>Esegui controllo/monitoraggio creazione RAID
 ```bash

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 28b3bc5adfc3c2e83de658947193b6046a455c32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00594c3ec060076ad249af7e93e0a3d5a1eccdb4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231504"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845153"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Baseline della sicurezza di Azure per Network Watcher
 
@@ -291,11 +291,11 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: usare computer dedicati (workstation con accesso con privilegi) per tutte le attività amministrative
 
-**Linee guida**: usare una workstation con accesso con privilegi (Paw) con Azure multi-factor authentication (multi-factor authentication) abilitata per l'accesso e la configurazione delle risorse correlate a Sentinel di Azure.
+**Indicazioni**: usare una workstation con accesso con privilegi (Paw) con Azure ad multi-factor authentication (multi-factor authentication) abilitata per l'accesso e la configurazione delle risorse correlate a Sentinel di Azure.
 
 * [Workstation con accesso con privilegi](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Pianificazione di una distribuzione di Multi-Factor Authentication Azure AD basata sul cloud](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

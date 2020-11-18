@@ -3,12 +3,12 @@ title: Configurare la propria chiave per la crittografia dei dati inattivi di hu
 description: Questo articolo fornisce informazioni su come configurare la propria chiave per la crittografia dei dati REST di hub eventi di Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 18a59b74897b074fea9ee56947c78635f2a3509d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f073c42373e75fc1cb34d1c752350f9d2c61872
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537259"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843214"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure usando il portale di Azure
 Hub eventi di Azure fornisce la crittografia dei dati inattivi con crittografia del servizio di archiviazione di Azure (SSE di Azure). Hub eventi si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati usando le chiavi gestite da Microsoft. 
@@ -23,7 +23,7 @@ L'abilitazione della funzionalità BYOK è un processo di configurazione una vol
 
 È possibile usare Azure Key Vault per gestire le chiavi e controllare l'utilizzo della chiave. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API Azure Key Vault per generare chiavi. Per altre informazioni sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](../key-vault/general/overview.md)
 
-Questo articolo illustra come configurare un insieme di credenziali delle chiavi con chiavi gestite dal cliente usando il portale di Azure. Per informazioni su come creare un insieme di credenziali delle chiavi usando il portale di Azure, vedere [Guida introduttiva: impostare e recuperare un segreto da Azure Key Vault tramite il portale di Azure](../key-vault/secrets/quick-create-portal.md).
+Questo articolo illustra come configurare un insieme di credenziali delle chiavi con chiavi gestite dal cliente usando il portale di Azure. Per informazioni su come creare un insieme di credenziali delle chiavi usando il portale di Azure, vedere [Guida introduttiva: creare un Azure Key Vault usando il portale di Azure](../key-vault/general/quick-create-portal.md).
 
 > [!IMPORTANT]
 > Per usare chiavi gestite dal cliente con hub eventi di Azure, è necessario che nell'insieme di credenziali delle chiavi siano configurate due proprietà obbligatorie. Sono:  **eliminazione** temporanea e **non ripulitura**. Queste proprietà sono abilitate per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi nel portale di Azure. Tuttavia, se è necessario abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure.
@@ -102,7 +102,7 @@ Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogn
 | resourceId | ID della risorsa Azure Resource Manager |
 | keyVault | Nome completo dell'insieme di credenziali delle chiavi. |
 | Key | Nome della chiave usato per crittografare lo spazio dei nomi di hub eventi. |
-| version | Versione della chiave usata. |
+| Versione | Versione della chiave usata. |
 | operation | Operazione eseguita sulla chiave nell'insieme di credenziali delle chiavi. Ad esempio, disabilitare/abilitare la chiave, eseguire il wrapping o annullare il wrapping |
 | codice | Codice associato all'operazione. Esempio: codice errore 404 indica che la chiave non è stata trovata. |
 | message | Qualsiasi messaggio di errore associato all'operazione |
@@ -400,7 +400,7 @@ Come procedura consigliata, abilitare sempre i log, come illustrato nella sezion
 
 Di seguito sono riportati i codici di errore comuni da cercare quando è abilitata la crittografia BYOK.
 
-| Azione | Codice di errore | Stato risultante dei dati |
+| Azione | Codice errore | Stato risultante dei dati |
 | ------ | ---------- | ----------------------- | 
 | Rimuovere l'autorizzazione wrap/unwrap da un insieme di credenziali delle chiavi | 403 |    Inaccessible |
 | Rimuovere l'appartenenza al ruolo AAD da un'entità AAD che ha concesso l'autorizzazione wrap/unwrap | 403 |  Inaccessible |

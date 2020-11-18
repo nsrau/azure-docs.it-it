@@ -6,12 +6,12 @@ manager: andneil
 ms.author: getroyer
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 291f1ac093568f50ad6146b70fa1ef69263b7b5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d65a39c1a1d302e565b59db1644af2c08befb6b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85830308"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843163"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Usare macchine virtuali di Data Science di Azure
 
@@ -24,7 +24,7 @@ Per impostazione predefinita, i progetti vengono eseguiti nel livello di **calco
 
 ## <a name="create-a-dsvm-instance"></a>Creare un'istanza di DSVM
 
-Per creare una nuova istanza di DSVM, seguire le istruzioni in [Creare una macchina virtuale data science Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Per altre informazioni, inclusi i dettagli sui prezzi, vedere [macchine virtuali di Data Science](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
+Per creare una nuova istanza di DSVM, seguire le istruzioni in [Creare una macchina virtuale data science Ubuntu](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md). Per altre informazioni, inclusi i dettagli sui prezzi, vedere [macchine virtuali di Data Science](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
 ## <a name="connect-to-the-dsvm"></a>Connettersi a DSVM
 
@@ -68,4 +68,4 @@ Se più utenti condividono un DSVM, è possibile evitare di bloccarsi reciprocam
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Dsvm, vedere [Introduzione alle macchine virtuali di Data Science di Azure](/azure/machine-learning/data-science-virtual-machine/overview).
+Per altre informazioni su Dsvm, vedere [Introduzione alle macchine virtuali di Data Science di Azure](../machine-learning/data-science-virtual-machine/overview.md).

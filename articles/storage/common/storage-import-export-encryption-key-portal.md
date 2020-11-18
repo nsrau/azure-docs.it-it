@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4362b579b7f01570a2b5fd072bf53ad495797cd8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: fb91a490083629101470565a630b659c090e071b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783777"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843367"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Usare chiavi gestite dal cliente in Azure Key Vault per il servizio di importazione/esportazione
 
@@ -33,7 +33,7 @@ Prima di iniziare, verificare che:
     - [Creare un processo di importazione per i file](storage-import-export-data-to-files.md).
     - [Creare un processo di esportazione per i BLOB](storage-import-export-data-from-blobs.md)
 
-2. Si dispone di un Azure Key Vault esistente con una chiave che è possibile utilizzare per proteggere la chiave BitLocker. Per informazioni su come creare un insieme di credenziali delle chiavi usando il portale di Azure, vedere [Guida introduttiva: impostare e recuperare un segreto da Azure Key Vault tramite il portale di Azure](../../key-vault/secrets/quick-create-portal.md).
+2. Si dispone di un Azure Key Vault esistente con una chiave che è possibile utilizzare per proteggere la chiave BitLocker. Per informazioni su come creare un insieme di credenziali delle chiavi usando il portale di Azure, vedere [Guida introduttiva: creare un Azure Key Vault usando il portale di Azure](../../key-vault/general/quick-create-portal.md).
 
     - Le operazioni di **eliminazione** temporanea e **non ripulitura** sono impostate sul Key Vault esistente. Queste proprietà non sono abilitate per impostazione predefinita. Per abilitare queste proprietà, vedere le sezioni intitolate abilitazione dell' **eliminazione** temporanea e **Abilitazione della protezione ripulitura** in uno degli articoli seguenti:
 
@@ -48,7 +48,7 @@ Prima di iniziare, verificare che:
 La configurazione della chiave gestita dal cliente per il servizio di importazione/esportazione è facoltativa. Per impostazione predefinita, il servizio di importazione/esportazione usa una chiave gestita da Microsoft per proteggere la chiave di BitLocker. Per abilitare le chiavi gestite dal cliente nel portale di Azure, attenersi alla procedura seguente:
 
 1. Passare al pannello **Panoramica** per il processo di importazione.
-2. Nel riquadro di destra selezionare scegliere la **modalità di crittografia delle chiavi BitLocker** .
+2. Nel riquadro di destra selezionare scegliere la **modalità di crittografia delle chiavi BitLocker**.
 
     ![Scegliere l'opzione di crittografia](./media/storage-import-export-encryption-key-portal/encryption-key-1.png)
 
@@ -56,7 +56,7 @@ La configurazione della chiave gestita dal cliente per il servizio di importazio
 
     ![Visualizza chiave BitLocker](./media/storage-import-export-encryption-key-portal/encryption-key-2.png)
 
-4. È possibile specificare una chiave gestita dal cliente. Dopo aver selezionato la chiave gestita dal cliente, **selezionare Key Vault e una chiave** .
+4. È possibile specificare una chiave gestita dal cliente. Dopo aver selezionato la chiave gestita dal cliente, **selezionare Key Vault e una chiave**.
 
     ![Selezionare la chiave gestita dal cliente](./media/storage-import-export-encryption-key-portal/encryption-key-3.png)
 
@@ -64,11 +64,11 @@ La configurazione della chiave gestita dal cliente per il servizio di importazio
 
     ![Selezionare o creare Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-4.png)
 
-6. È anche possibile selezionare **Crea nuovo** per creare un nuovo insieme di credenziali delle chiavi. Nel pannello **Create Key Vault** immettere il gruppo di risorse e il nome dell'insieme di credenziali delle chiavi. Accettare tutte le altre impostazioni predefinite. Selezionare **Rivedi e crea** .
+6. È anche possibile selezionare **Crea nuovo** per creare un nuovo insieme di credenziali delle chiavi. Nel pannello **Create Key Vault** immettere il gruppo di risorse e il nome dell'insieme di credenziali delle chiavi. Accettare tutte le altre impostazioni predefinite. Selezionare **Rivedi e crea**.
 
     ![Crea nuovo Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-5.png)
 
-7. Esaminare le informazioni associate all'insieme di credenziali delle chiavi e selezionare **Crea** . Attendere un paio di minuti per il completamento della creazione dell'insieme di credenziali delle chiavi.
+7. Esaminare le informazioni associate all'insieme di credenziali delle chiavi e selezionare **Crea**. Attendere un paio di minuti per il completamento della creazione dell'insieme di credenziali delle chiavi.
 
     ![Creare un Azure Key Vault](./media/storage-import-export-encryption-key-portal/encryption-key-6.png)
 
@@ -80,11 +80,11 @@ La configurazione della chiave gestita dal cliente per il servizio di importazio
 
     Se la protezione eliminazione temporanea e ripulitura non è abilitata quando si crea l'insieme di credenziali delle chiavi, l'insieme di credenziali delle chiavi verrà aggiornato in modo che sia abilitata la protezione eliminazione temporanea e ripulitura.
 
-10. Specificare il nome della chiave, accettare le altre impostazioni predefinite e selezionare **Crea** .
+10. Specificare il nome della chiave, accettare le altre impostazioni predefinite e selezionare **Crea**.
 
     ![Crea nuova chiave](./media/storage-import-export-encryption-key-portal/encryption-key-8.png)
 
-11. Selezionare la **versione** e quindi scegliere **Seleziona** . Si riceve una notifica che indica che è stata creata una chiave nell'insieme di credenziali delle chiavi.
+11. Selezionare la **versione** e quindi scegliere **Seleziona**. Si riceve una notifica che indica che è stata creata una chiave nell'insieme di credenziali delle chiavi.
 
     ![Nuova chiave creata nell'insieme di credenziali delle chiavi](./media/storage-import-export-encryption-key-portal/encryption-key-9.png)
 

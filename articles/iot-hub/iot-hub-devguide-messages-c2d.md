@@ -8,13 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.custom: mqtt
-ms.openlocfilehash: daf4fb2ab9650c3a68b8862fd391817d5ff626b0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: mqtt, devx-track-azurecli
+ms.openlocfilehash: ba58f7897827cf7ce7f6156df1434733d89d7f42
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147761"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844455"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Inviare messaggi da cloud a dispositivo da un hub Internet delle cose
 
@@ -81,7 +81,7 @@ Quando si invia un messaggio da cloud a dispositivo, il servizio può richiedere
 | negativo | Se il messaggio da cloud a dispositivo raggiunge lo stato non *recapitabile* , l'hub Internet genera un messaggio di feedback. |
 | completi     | In entrambi i casi l'hub Internet genera un messaggio di feedback. |
 
-Se il valore **ACK** è *pieno*e non si riceve un messaggio di feedback, significa che il messaggio di feedback è scaduto. Il servizio non può sapere cosa è successo al messaggio originale. In pratica, un servizio deve garantire che sia possibile elaborare i commenti prima della scadenza. Il tempo di scadenza massimo è di due giorni, che lascia il tempo per riportare il servizio in caso di errore.
+Se il valore **ACK** è *pieno* e non si riceve un messaggio di feedback, significa che il messaggio di feedback è scaduto. Il servizio non può sapere cosa è successo al messaggio originale. In pratica, un servizio deve garantire che sia possibile elaborare i commenti prima della scadenza. Il tempo di scadenza massimo è di due giorni, che lascia il tempo per riportare il servizio in caso di errore.
 
 Come illustrato negli [endpoint](iot-hub-devguide-endpoints.md), l'hub Internet delle cose fornisce feedback tramite un endpoint per il servizio, */messages/servicebound/feedback*, come messaggi. La semantica di ricezione per i commenti è uguale a quella dei messaggi da cloud a dispositivo. Quando è possibile, i commenti sui messaggio vengono riuniti in batch in un unico messaggio con il formato seguente:
 
@@ -147,7 +147,7 @@ Ogni hub IoT espone le opzioni di configurazione seguenti per la messaggistica d
 
     ![Impostare le opzioni di configurazione per la messaggistica da cloud a dispositivo nel portale](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
 
-* **Interfaccia**della riga di comando di Azure: usare il comando [AZ all hub Update](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) :
+* **Interfaccia** della riga di comando di Azure: usare il comando [AZ all hub Update](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) :
 
     ```azurecli
     az iot hub update --name {your IoT hub name} \

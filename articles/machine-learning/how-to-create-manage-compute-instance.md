@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: bdae8d77dc5e51cf4a181459ab2e159f31f06e31
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 40882f2a0c1a65650d633d0784214afbeef9ae63
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543103"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842890"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creare e gestire un'istanza di calcolo Azure Machine Learning
 
@@ -40,9 +40,9 @@ Le istanze di calcolo possono eseguire processi in modo sicuro in un [ambiente d
 
 * Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
 
-## <a name="create"></a>Create
+## <a name="create"></a>Creare
 
-**Tempo stimato** : circa 5 minuti.
+**Tempo stimato**: circa 5 minuti.
 
 La creazione di un'istanza di calcolo è un processo una volta per l'area di lavoro. È possibile riutilizzare questo calcolo come una workstation di sviluppo o come destinazione di calcolo per il training. È possibile avere più istanze di calcolo collegate all'area di lavoro.
 
@@ -154,7 +154,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
     instance.start(wait_for_completion=True, show_output=True)
     ```
 
-* Riavvia
+* Riavvio
 
     ```python
     # restart() is used to restart the ComputeInstance
@@ -188,7 +188,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
 
     Per altre informazioni, vedere [AZ ml computetarget Start computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
 
-* Riavvia 
+* Riavvio 
 
     ```azurecli-interactive
     az ml computetarget restart computeinstance -n instance -v
@@ -206,7 +206,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
-Nell'area di lavoro in Azure Machine Learning Studio selezionare **Calcolo** , quindi selezionare **Istanza di calcolo** nella parte superiore.
+Nell'area di lavoro in Azure Machine Learning Studio selezionare **Calcolo**, quindi selezionare **Istanza di calcolo** nella parte superiore.
 
 ![Gestire un'istanza di calcolo](./media/concept-compute-instance/manage-compute-instance.png)
 
@@ -258,7 +258,7 @@ Usare la finestra del terminale per installare i pacchetti e creare kernel aggiu
 In alternativa, è possibile eseguire l'installazione da una finestra del terminale. Installare i pacchetti Python nell'ambiente **python 3,6-AzureML** .  Installare i pacchetti R nell'ambiente **R**.
 
 > [!NOTE]
-> Per la gestione dei pacchetti in un notebook, usare le funzioni **% PIP** o **% conda** Magic per installare automaticamente i pacchetti nel **kernel attualmente in esecuzione** , anziché **! PIP** o **! conda** , che fa riferimento a tutti i pacchetti (inclusi i pacchetti all'esterno del kernel attualmente in esecuzione)
+> Per la gestione dei pacchetti in un notebook, usare le funzioni **% PIP** o **% conda** Magic per installare automaticamente i pacchetti nel **kernel attualmente in esecuzione**, anziché **! PIP** o **! conda** , che fa riferimento a tutti i pacchetti (inclusi i pacchetti all'esterno del kernel attualmente in esecuzione)
 
 ## <a name="add-new-kernels"></a>Aggiungere nuovi kernel
 

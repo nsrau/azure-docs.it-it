@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5e52c09e6fc3d5e3d4210e213e0eb6af4e473559
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 385f747999bbdb408dd1c5d2f5f12717834e94da
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205031"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844217"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Baseline della sicurezza di Azure per macchine virtuali Windows
 
@@ -72,7 +72,7 @@ In alternativa, se si dispone di un caso d'uso specifico per un firewall central
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: negare le comunicazioni con indirizzi IP dannosi noti
 
-Materiale sussidiario **: abilitare**la protezione standard DDoS (Distributed Denial of Service) nelle reti virtuali per proteggersi da attacchi DDoS. Usando l'Intelligence per le minacce integrata nel centro sicurezza di Azure, è possibile monitorare le comunicazioni con indirizzi IP dannosi noti. Configurare il firewall di Azure in modo appropriato in ogni segmento di rete virtuale, con l'Intelligence per le minacce abilitata e configurata per "avviso e negazione" per il traffico di rete dannoso.
+Materiale sussidiario **: abilitare** la protezione standard DDoS (Distributed Denial of Service) nelle reti virtuali per proteggersi da attacchi DDoS. Usando l'Intelligence per le minacce integrata nel centro sicurezza di Azure, è possibile monitorare le comunicazioni con indirizzi IP dannosi noti. Configurare il firewall di Azure in modo appropriato in ogni segmento di rete virtuale, con l'Intelligence per le minacce abilitata e configurata per "avviso e negazione" per il traffico di rete dannoso.
 
 È possibile usare l'accesso just-in-time alla rete del Centro sicurezza di Azure per limitare l'esposizione delle macchine virtuali Windows agli indirizzi IP approvati per un periodo di tempo limitato. Usare inoltre la protezione avanzata della rete adattiva del Centro sicurezza di Azure per consigliare configurazioni NSG che limitano le porte e gli indirizzi IP di origine in base al traffico effettivo e all'Intelligence per le minacce.
 
@@ -596,7 +596,7 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 * [Come creare avvisi per gli eventi del log attività di Azure](../../azure-monitor/platform/alerts-activity-log.md)
 
-* [Registrazione di Analisi archiviazione di Azure](../../storage/common/storage-analytics-logging.md)
+* [Registrazione di Analisi di archiviazione di Azure](../../storage/common/storage-analytics-logging.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non disponibile
 
@@ -971,7 +971,7 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 * [Come eseguire l'integrazione con Azure-Managed identità](../../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-* [Come creare una Key Vault](../../key-vault/secrets/quick-create-portal.md)
+* [Come creare una Key Vault](../../key-vault/general/quick-create-portal.md)
 
 * [Come eseguire l'autenticazione a Key Vault](../../key-vault/general/authentication.md)
 

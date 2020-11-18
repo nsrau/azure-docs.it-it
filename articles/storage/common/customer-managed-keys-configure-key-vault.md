@@ -1,5 +1,5 @@
 ---
-title: Configurare la crittografia con chiavi gestite dal cliente archiviate in Azure Key Vault
+title: Configurare la crittografia con le chiavi gestite dal cliente archiviate in Azure Key Vault
 titleSuffix: Azure Storage
 description: Informazioni su come configurare la crittografia di archiviazione di Azure con chiavi gestite dal cliente archiviate in Azure Key Vault usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 services: storage
@@ -10,15 +10,15 @@ ms.date: 09/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 219fe82f16dd9bbc887c9b17b067c706230c63dd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 02661c9c2a581ab21a2ae9dc31e5da95426c0edd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782383"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843384"
 ---
-# <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configurare la crittografia con chiavi gestite dal cliente archiviate in Azure Key Vault
+# <a name="configure-encryption-with-customer-managed-keys-stored-in-azure-key-vault"></a>Configurare la crittografia con le chiavi gestite dal cliente archiviate in Azure Key Vault
 
 Archiviazione di Azure crittografa tutti i dati in un account di archiviazione inattivo. Per impostazione predefinita, i dati vengono crittografati con chiavi gestite da Microsoft. Per un maggiore controllo sulle chiavi di crittografia, è possibile gestire le proprie chiavi. Le chiavi gestite dal cliente devono essere archiviate in Azure Key Vault o Key Vault modello di protezione hardware (HSM) gestito (anteprima).
 
@@ -35,15 +35,15 @@ Per usare le chiavi gestite dal cliente con la crittografia di archiviazione di 
 
 # <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
-Per informazioni su come creare un insieme di credenziali delle chiavi con il portale di Azure, vedere [Guida introduttiva: creare un insieme di credenziali delle chiavi usando il portale di Azure](../../key-vault/general/quick-create-portal.md). Quando si crea l'insieme di credenziali delle chiavi, selezionare **Abilita Ripulisci protezione** , come illustrato nella figura seguente.
+Per informazioni su come creare un insieme di credenziali delle chiavi con il portale di Azure, vedere [Guida introduttiva: creare un insieme di credenziali delle chiavi usando il portale di Azure](../../key-vault/general/quick-create-portal.md). Quando si crea l'insieme di credenziali delle chiavi, selezionare **Abilita Ripulisci protezione**, come illustrato nella figura seguente.
 
 :::image type="content" source="media/customer-managed-keys-configure-key-vault/configure-key-vault-portal.png" alt-text="Screenshot che illustra come abilitare la ripulitura della protezione durante la creazione di un insieme di credenziali delle chiavi":::
 
 Per abilitare la ripulitura della protezione in un insieme di credenziali delle chiavi esistente, seguire questa procedura:
 
 1. Passare all'insieme di credenziali delle chiavi nella portale di Azure.
-1. In **Impostazioni** scegliere **Proprietà** .
-1. Nella sezione **Ripulisci protezione** scegliere **Abilita Ripulisci protezione** .
+1. In **Impostazioni** scegliere **Proprietà**.
+1. Nella sezione **Ripulisci protezione** scegliere **Abilita Ripulisci protezione**.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -175,12 +175,12 @@ Archiviazione di Azure può aggiornare automaticamente la chiave gestita dal cli
 Per configurare le chiavi gestite dal cliente con l'aggiornamento automatico della versione della chiave nella portale di Azure, attenersi alla procedura seguente:
 
 1. Passare all'account di archiviazione.
-1. Nel pannello **Impostazioni** relativo all'account di archiviazione fare clic su **Crittografia** . Selezionare l'opzione **chiavi gestite dal cliente** , come illustrato nella figura seguente.
+1. Nel pannello **Impostazioni** relativo all'account di archiviazione fare clic su **Crittografia**. Selezionare l'opzione **chiavi gestite dal cliente** , come illustrato nella figura seguente.
 
     ![Screenshot del portale che mostra l'opzione di crittografia](./media/customer-managed-keys-configure-key-vault/portal-configure-encryption-keys.png)
 
-1. Scegliere l'opzione **Selezionare la chiave dall'insieme di credenziali delle chiavi** .
-1. Selezionare **selezionare un insieme di credenziali delle chiavi e una chiave** .
+1. Scegliere l'opzione **Selezionare la chiave dall'insieme di credenziali delle chiavi**.
+1. Selezionare **selezionare un insieme di credenziali delle chiavi e una chiave**.
 1. Selezionare l'insieme di credenziali delle chiavi contenente la chiave che si vuole usare.
 1. Selezionare la chiave dall'insieme di credenziali delle chiavi.
 
@@ -190,7 +190,7 @@ Per configurare le chiavi gestite dal cliente con l'aggiornamento automatico del
 
 Dopo aver specificato la chiave, il portale di Azure indica che l'aggiornamento automatico della versione della chiave è abilitato e visualizza la versione della chiave attualmente in uso per la crittografia.
 
-:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Screenshot che illustra come abilitare la ripulitura della protezione durante la creazione di un insieme di credenziali delle chiavi":::
+:::image type="content" source="media/customer-managed-keys-configure-key-vault/portal-auto-rotation-enabled.png" alt-text="Screenshot che illustra l'aggiornamento automatico della versione della chiave abilitata":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

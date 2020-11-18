@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 233ba17e1ae1b554eff092151ad9f05fd660beb3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e9476b7278cbe64bf90911c3b85a09922a1afbf1
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970011"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843945"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager
 
@@ -48,7 +48,7 @@ Prima di iniziare la migrazione:
 * Pianificare la migrazione in orari non lavorativi, per gestire eventuali errori imprevisti durante la migrazione.
 * Scaricare la configurazione corrente delle VM usando PowerShell, i comandi dell'interfaccia della riga di comando o le API REST per semplificare la convalida dopo la procedura di preparazione.
 * Aggiornare gli script di automazione e messa in funzione per gestire il modello di distribuzione Resource Manager prima di avviare la migrazione. È possibile eseguire facoltativamente operazioni GET quando lo stato delle risorse è Prepared.
-* Valutare i criteri di controllo degli accessi in base al ruolo configurati nelle risorse IaaS del modello di distribuzione classica e preparare un piano per la fase successiva al completamento della migrazione.
+* Valutare i criteri di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) configurati nelle risorse IaaS nel modello di distribuzione classica e pianificare il completamento della migrazione.
 
 Il flusso di lavoro della migrazione è il seguente:
 

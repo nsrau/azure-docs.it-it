@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31219fda04095d48b55165f59c27f3dee85485a9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88009257"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843639"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Creazione di tenant e pool host in un desktop virtuale di Windows (versione classica)
 
@@ -20,13 +20,13 @@ ms.locfileid: "88009257"
 
 In questo articolo vengono illustrati i problemi durante la configurazione iniziale del tenant di desktop virtuale Windows e l'infrastruttura del pool di host sessione correlata.
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Acquisizione dell'immagine multisessione Enterprise di Windows 10
 
-Per usare l'immagine multisessione Enterprise di Windows 10, passare a Azure Marketplace, selezionare **Introduzione**a  >  **Microsoft Windows 10** > e [Windows 10 Enterprise per desktop virtuali, versione 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Per usare l'immagine multisessione Enterprise di Windows 10, passare a Azure Marketplace, selezionare **Introduzione** a  >  **Microsoft Windows 10** > e [Windows 10 Enterprise per desktop virtuali, versione 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot della selezione di Windows 10 Enterprise per desktop virtuali, versione 1809.](../media/AzureMarketPlace.png)
@@ -375,7 +375,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Errore: L'utente richiede la funzionalità Microsoft Azure Multi-Factor Authentication (Azure MFA)
+### <a name="error-user-requires-azure-ad-multi-factor-authentication-mfa"></a>Errore: l'utente richiede Azure AD Multi-Factor Authentication (autenticazione a più fattori)
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot della distribuzione non riuscita a causa della mancanza di Multi-Factor Authentication (autenticazione a più fattori)](../media/MFARequiredError.png)
@@ -386,7 +386,7 @@ Esempio di errore non elaborato:
 "message": "{\r\n  \"status\": \"Failed\",\r\n  \"error\": {\r\n    \"code\": \"ResourceDeploymentFailure\",\r\n    \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n    \"details\": [\r\n      {\r\n        \"code\": \"VMExtensionProvisioningError\",\r\n        \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource  failed to execute Set-TargetResource functionality with error message: One or more errors occurred.  The SendConfigurationApply function did not succeed.\\\".\"\r\n      }\r\n    ]\r\n  }\r\n}"
 ```
 
-**Motivo:** L'amministratore del tenant desktop virtuale Windows specificato richiede l'accesso a Azure Multi-Factor Authentication (multi-factor authentication).
+**Motivo:** L'amministratore del tenant desktop virtuale Windows specificato richiede l'accesso Azure AD Multi-Factor Authentication (multi-factor authentication).
 
 **Correzione:** Creare un'entità servizio e assegnarle un ruolo per il tenant di desktop virtuale Windows seguendo la procedura descritta in [esercitazione: creare entità servizio e assegnazioni di ruolo con PowerShell](create-service-principal-role-powershell.md). Dopo aver verificato che sia possibile accedere a desktop virtuale Windows con l'entità servizio, eseguire di nuovo l'offerta di Azure Marketplace o il modello di Azure Resource Manager di GitHub, a seconda del metodo in uso. Seguire le istruzioni riportate di seguito per immettere i parametri corretti per il metodo.
 

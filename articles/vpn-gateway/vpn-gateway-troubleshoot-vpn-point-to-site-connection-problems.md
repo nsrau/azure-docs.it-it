@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 908602dff3be2f392bc595f0074db7f95b8936a9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c316aaf02979008b9d2ebc691d54c0fb95a5a52d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660985"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845034"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Risoluzione dei problemi: problemi di connessione da punto a sito di Azure
 
@@ -317,7 +317,7 @@ Questo errore si verifica se il server RADIUS usato per l'autenticazione del cli
 
 ### <a name="solution"></a>Soluzione
 
-Assicurarsi che il server RADIUS sia configurato correttamente. Per altre informazioni, vedere [Integrare l'autenticazione con il server Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfaserver-dir-radius.md).
+Assicurarsi che il server RADIUS sia configurato correttamente. Per ulteriori informazioni, vedere [integrazione dell'autenticazione RADIUS con Azure AD server multi-factor authentication](../active-directory/authentication/howto-mfaserver-dir-radius.md).
 
 ## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>"Errore 405" quando si scarica il certificato radice dal gateway VPN
 

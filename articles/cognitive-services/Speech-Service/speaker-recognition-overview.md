@@ -12,14 +12,14 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: riconoscimento del parlante, biometria vocale
-ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5001ac166b37f3a3852bc14261a5b5d199d778cd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397260"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844567"
 ---
-# <a name="what-is-speaker-recognition"></a>Che cos’è il Riconoscimento del parlante?
+# <a name="what-is-speaker-recognition-preview"></a>Che cos'è Riconoscimento del parlante (anteprima)?
 
 Il servizio Riconoscimento del parlante fornisce algoritmi che verificano e identificano gli speaker con le proprie caratteristiche vocali univoche usando la biometria vocale. Il servizio Riconoscimento del parlante consente di rispondere alla domanda "chi parla?" Si forniscono dati di training audio per un singolo altoparlante, che consente di creare un profilo di registrazione in base alle caratteristiche univoche della voce del parlante. È quindi possibile eseguire il controllo incrociato degli esempi di voce audio in base a questo profilo per verificare che il relatore sia la stessa persona (verifica del parlante) o gli esempi di voce audio di controllo incrociato per un *gruppo* di profili speaker registrati, per vedere se corrisponde a qualsiasi profilo nel gruppo (identificazione del parlante). Al contrario, la messa in funzione del [relatore](batch-transcription.md#speaker-separation-diarization) raggruppa i segmenti di audio per altoparlante in un'operazione batch.
 
@@ -67,7 +67,7 @@ Come per tutte le risorse di servizi cognitivi, gli sviluppatori che usano il se
 | Qual è la differenza tra la verifica dipendente dal testo e la verifica indipendente dal testo? | Per la verifica dipendente dal testo è necessario un pass-phrase specifico per la registrazione e il riconoscimento. Per la verifica indipendente dal testo è necessario un campione vocale più lungo per la registrazione, ma è possibile pronunciare qualsiasi cosa, incluso durante il riconoscimento.|
 | Quali lingue sono supportate? | Inglese, francese, spagnolo, cinese, tedesco, italiano, giapponese e portoghese |
 | Quali aree di Azure sono supportate? | Riconoscimento del parlante è un servizio di anteprima e attualmente disponibile solo nell'area Stati Uniti occidentali.|
-| Quali formati audio sono supportati? | Mono a 16 bit, WAV con codifica PCM 16kHz |
+| Quali sono i formati audio supportati? | Mono a 16 bit, WAV con codifica PCM 16kHz |
 | Le risposte **Accept** e **Reject** non sono accurate, come si ottimizza la soglia? | Poiché la soglia ottimale varia in base agli scenari, l'API decide se "accettare" o "rifiutare" semplicemente in base a una soglia predefinita di 0,5. Si consiglia agli utenti avanzati di sostituire la decisione predefinita e di ottimizzare il risultato in base al proprio scenario. |
 | È possibile registrare un altoparlante più volte? | Sì, per la verifica dipendente dal testo è possibile registrare un altoparlante per un massimo di 50 volte. Per la verifica indipendente dal testo o l'identificazione del parlante, è possibile eseguire la registrazione con un massimo di 300 secondi di audio. |
 | Quali dati vengono archiviati in Azure? | L'audio di registrazione viene archiviato nel servizio fino a quando non viene [eliminato](speaker-recognition-basics.md#deleting-voice-profile-enrollments)il profilo vocale. Gli esempi di riconoscimento audio non vengono conservati o archiviati. |

@@ -3,13 +3,13 @@ title: Distribuire un'istanza del contenitore da un'azione GitHub
 description: Configurare un'azione GitHub che consente di automatizzare i passaggi per compilare, inserire e distribuire un'immagine del contenitore in istanze di contenitore di Azure
 ms.topic: article
 ms.date: 08/20/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: c01075bcb64aa9b91869daba2e995957da74daf4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: github-actions-azure, devx-track-azurecli
+ms.openlocfilehash: 221ecbe5fbe2cdea4105362c43a5765bcc298d46
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019189"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843656"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurare un'azione GitHub per creare un'istanza di contenitore
 
@@ -45,7 +45,7 @@ Questo articolo illustra due modi per configurare il flusso di lavoro:
 
   ![Screenshot del pulsante Fork (evidenziato) in GitHub](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
 
-* Assicurarsi che le azioni siano abilitate per il repository. Passare al repository con fork e selezionare **Impostazioni**  >  **azioni**. In **azioni autorizzazioni**verificare che sia selezionata l'opzione **Abilita azioni locali e di terze parti per questo repository** .
+* Assicurarsi che le azioni siano abilitate per il repository. Passare al repository con fork e selezionare **Impostazioni**  >  **azioni**. In **azioni autorizzazioni** verificare che sia selezionata l'opzione **Abilita azioni locali e di terze parti per questo repository** .
 
 ## <a name="configure-github-workflow"></a>Configurare il flusso di lavoro GitHub
 
@@ -128,7 +128,7 @@ az role assignment create \
 
 1. Nell'interfaccia utente di GitHub selezionare **azioni**  >  **nuovo flusso di lavoro**.
 1. Selezionare **configura un flusso di lavoro**.
-1. In **modifica nuovo file**incollare il contenuto YAML seguente per sovrascrivere il codice di esempio. Accettare il nome file predefinito `main.yml` o specificare un nome file scelto.
+1. In **modifica nuovo file** incollare il contenuto YAML seguente per sovrascrivere il codice di esempio. Accettare il nome file predefinito `main.yml` o specificare un nome file scelto.
 1. Selezionare **Avvia commit**, facoltativamente fornire descrizioni brevi ed estese del commit e selezionare **commit nuovo file**.
 
 ```yml

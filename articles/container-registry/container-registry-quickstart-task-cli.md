@@ -3,13 +3,13 @@ title: Avvio rapido - Creare un'immagine del contenitore su richiesta in Azure
 description: Usare i comandi di Registro Azure Container per svolgere rapidamente attività di creazione, push ed esecuzione di un'immagine del contenitore Docker su richiesta nel cloud Azure.
 ms.topic: quickstart
 ms.date: 09/25/2020
-ms.custom: contperfq1
-ms.openlocfilehash: 1b4dcc05747ceae52c649c366c3faf437e77b560
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: contperfq1, devx-track-azurecli
+ms.openlocfilehash: adb63b716172c979ca31f1ef70bf1523ff1ad5cc
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098910"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845068"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Avvio rapido: Compilare ed eseguire un'immagine del contenitore con Attività del Registro Azure Container
 
@@ -42,7 +42,7 @@ az acr create --resource-group myResourceGroup \
   --name myContainerRegistry008 --sku Basic
 ```
 
-In questo esempio viene creato un registro *Basic* , ovvero un'opzione ottimizzata in termini di costo per sviluppatori che iniziano a usare Registro Azure Container. Per informazioni dettagliate sui livelli di servizio disponibili, vedere [Livelli di servizio del registro contenitori][container-registry-skus].
+In questo esempio viene creato un registro *Basic*, ovvero un'opzione ottimizzata in termini di costo per sviluppatori che iniziano a usare Registro Azure Container. Per informazioni dettagliate sui livelli di servizio disponibili, vedere [Livelli di servizio del registro contenitori][container-registry-skus].
 
 ## <a name="build-and-push-image-from-a-dockerfile"></a>Compilare un'immagine da un Dockerfile ed eseguirne il push
 

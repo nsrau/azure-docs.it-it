@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 3141d9937591467870ee4a88d16a96cbdb24a05b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c06fb0830ae709918b668ed60efbaaf47a63ce84
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696218"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842839"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 
@@ -90,7 +90,7 @@ Altre funzionalità di Azure Active Directory includono:
 
 - Azure AD fornisce l'identità come servizio usando la federazione (con [Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)), la sincronizzazione e la replica con le directory locali.
 
-- [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) è il servizio di autenticazione a più fattori che richiede agli utenti di verificare l'accesso usando un'app mobile, una chiamata telefonica o un SMS. Può essere usato con Azure AD per la protezione delle risorse locali con il server Azure Multi-Factor Authentication e anche con applicazioni e directory personalizzate che usano l'SDK.
+- [Azure AD multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) è il servizio di autenticazione a più fattori che richiede agli utenti di verificare gli accessi tramite un'app per dispositivi mobili, una telefonata o un SMS. Può essere usato con Azure AD per la protezione delle risorse locali con il server Azure Multi-Factor Authentication e anche con applicazioni e directory personalizzate che usano l'SDK.
 
 - [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) consente di aggiungere le macchine virtuali di Azure a un dominio di Active Directory senza distribuire controller di dominio. È possibile accedere a queste macchine virtuali con le credenziali di Active Directory aziendali e amministrare le macchine virtuali aggiunte a un dominio usando Criteri di gruppo per applicare le baseline della sicurezza in tutte le macchine virtuali di Azure.
 

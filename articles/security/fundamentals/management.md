@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: 779330d7881040026f45a031f95f44d770f39a56
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: e9eabc73c244526f0ea15b9c72b5377545f662b2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412766"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844864"
 ---
 # <a name="security-management-in-azure"></a>Gestione della sicurezza in Azure
 I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispositivi, tra cui workstation di gestione, PC per sviluppatori e dispositivi di utenti finali con privilegi elevati con autorizzazioni specifiche per le attività. In alcuni casi, le funzioni amministrative vengono eseguite tramite console basate sul Web, ad esempio la [portale di Azure](https://azure.microsoft.com/features/azure-portal/). In altri casi è possibile che vengano usate connessioni dirette ad Azure da sistemi locali su reti private virtuali (VPN), Servizi terminal, protocolli applicativi client oppure, a livello di codice, l'API Gestione dei servizi di Azure (SMAPI). Gli endpoint client possono essere inoltre aggiunti a un dominio o isolati e non gestiti, ad esempio tablet o smartphone.
@@ -112,7 +112,7 @@ Un Gateway Desktop remoto è un servizio proxy RDP basato su criteri che applica
 * Aggiungere il Gateway Desktop remoto allo stesso [dominio di gestione](/previous-versions/windows/it-pro/windows-2000-server/bb727085(v=technet.10)) delle workstation dell'amministratore. Questa operazione è necessaria quando si usa una VPN IPsec da sito a sito o ExpressRoute in un dominio con un trust unidirezionale verso Azure AD oppure se si esegue la federazione di credenziali tra l'istanza locale di Servizi di dominio Active Directory e Azure AD.
 * Configurare un [criterio di autorizzazione di connessione client](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753324(v=ws.11)) per consentire al Gateway Desktop remoto di verificare che il nome del computer client sia valido (aggiunto al dominio) e che sia autorizzato ad accedere al portale di Azure.
 * Usare IPsec per la [VPN di Azure](https://azure.microsoft.com/documentation/services/vpn-gateway/) per una maggiore protezione del traffico di gestione da intercettazioni e furto di token oppure prendere in considerazione un collegamento Internet isolato tramite [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
-* Abilitare l'autenticazione a più fattori tramite [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) oppure l'autenticazione tramite smart card per gli amministratori che accedono tramite il Gateway Desktop remoto.
+* Abilitare l'autenticazione a più fattori (tramite [Azure AD multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md)) o l'autenticazione con smart card per gli amministratori che accedono tramite Gateway Desktop remoto.
 * Configurare [restrizioni per l'indirizzo IP](https://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) di origine o [gruppi di sicurezza di rete](../../virtual-network/network-security-groups-overview.md) in Azure per ridurre al minimo il numero di endpoint di gestione consentiti.
 
 ## <a name="security-guidelines"></a>Linee guida sulla sicurezza

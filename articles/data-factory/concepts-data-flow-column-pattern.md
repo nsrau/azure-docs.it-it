@@ -6,28 +6,28 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: dab065f4d2b025fa15966d81b66b41acb12c54b3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.date: 11/17/2020
+ms.openlocfilehash: 68c211608cfceedaa9d13a595be6d1e5de17f1d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027126"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94845007"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Utilizzo di modelli di colonna nel flusso di dati di mapping
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Diverse trasformazioni del flusso di dati di mapping consentono di fare riferimento a colonne modello basate su modelli anziché nomi di colonna hardcoded. Questa corrispondenza è nota come *modelli di colonna* . È possibile definire criteri per la corrispondenza delle colonne in base al nome, al tipo di dati, al flusso, all'origine o alla posizione anziché richiedere nomi di campo esatti. Esistono due scenari in cui i modelli di colonna sono utili:
+Diverse trasformazioni del flusso di dati di mapping consentono di fare riferimento a colonne modello basate su modelli anziché nomi di colonna hardcoded. Questa corrispondenza è nota come *modelli di colonna*. È possibile definire criteri per la corrispondenza delle colonne in base al nome, al tipo di dati, al flusso, all'origine o alla posizione anziché richiedere nomi di campo esatti. Esistono due scenari in cui i modelli di colonna sono utili:
 
 * Se i campi di origine in ingresso cambiano spesso, ad esempio se si modificano le colonne nei file di testo o nei database NoSQL. Questo scenario è noto come [Drift dello schema](concepts-data-flow-schema-drift.md).
 * Se si desidera eseguire un'operazione comune su un gruppo di colonne di grandi dimensioni. Ad esempio, se si desidera eseguire il cast di ogni colonna con ' Total ' nel nome della colonna in un valore Double.
 
-I criteri di colonna sono attualmente disponibili nelle trasformazioni Colonna derivata, aggregazione, selezione e sink.
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4Iui1]
 
 ## <a name="column-patterns-in-derived-column-and-aggregate"></a>Modelli di colonna in colonna derivata e aggregazione
 
-Per aggiungere un modello di colonna in una colonna derivata, un'aggregazione o una trasformazione finestra, fare clic su **Aggiungi** sopra l'elenco di colonne o sull'icona a forma di segno più accanto a una colonna derivata esistente. Scegliere **Aggiungi modello di colonna** .
+Per aggiungere un modello di colonna in una colonna derivata, un'aggregazione o una trasformazione finestra, fare clic su **Aggiungi** sopra l'elenco di colonne o sull'icona a forma di segno più accanto a una colonna derivata esistente. Scegliere **Aggiungi modello di colonna**.
 
 ![Screenshot mostra l'icona a forma di segno più per aggiungere il modello di colonna.](media/data-flow/add-column-pattern.png "Criteri delle colonne")
 
@@ -43,11 +43,17 @@ Per verificare che la condizione di corrispondenza sia corretta, è possibile co
 
 ![Screenshot mostra la scheda Schema di output.](media/data-flow/columnpattern3.png "Criteri delle colonne")
 
+### <a name="hierarchical-pattern-matching"></a>Criteri di ricerca gerarchici
+
+È anche possibile compilare criteri di ricerca all'interno di strutture gerarchiche complesse. Espandere la sezione `Each MoviesStruct that matches` in cui verrà richiesto di immettere ogni gerarchia nel flusso di dati. È quindi possibile compilare modelli corrispondenti per le proprietà all'interno della gerarchia scelta.
+
+![Screenshot che mostra il modello di colonna gerarchico.](media/data-flow/patterns-hierarchy.png "Modelli di colonna nelle gerarchie")
+
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Mapping basato su regole in Select e sink
 
 Quando si esegue il mapping delle colonne nell'origine e si selezionano le trasformazioni, è possibile aggiungere mapping fissi o basati su regole. Corrispondenza basata sulle `name` colonne, `type` , `stream` , `origin` e `position` . È possibile avere qualsiasi combinazione di mapping corretti e basati su regole. Per impostazione predefinita, tutte le proiezioni con colonne maggiori di 50 vengono predefinite in un mapping basato su regole che corrisponde a ogni colonna e restituisce il nome inputted. 
 
-Per aggiungere un mapping basato su regole, fare clic su **Aggiungi mapping** e selezionare **mapping basato su regole** .
+Per aggiungere un mapping basato su regole, fare clic su **Aggiungi mapping** e selezionare **mapping basato su regole**.
 
 ![Screenshot che mostra il mapping basato su regole selezionato da Aggiungi mapping.](media/data-flow/rule2.png "mapping basato su regole")
 
@@ -77,7 +83,7 @@ L'esempio precedente corrisponde a tutte le sottocolonne della colonna complessa
 
 ## <a name="pattern-matching-expression-values"></a>Criteri di ricerca dei valori di espressione.
 
-* `$$` viene convertito nel nome o nel valore di ogni corrispondenza in fase di esecuzione
+* `$$` viene convertito nel nome o nel valore di ogni corrispondenza in fase di esecuzione. Si pensi `$$` a come equivalente a `this` .
 * `name` rappresenta il nome di ogni colonna in ingresso
 * `type` rappresenta il tipo di dati di ogni colonna in ingresso
 * `stream` rappresenta il nome associato a ogni flusso o trasformazione nel flusso

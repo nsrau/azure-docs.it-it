@@ -10,13 +10,13 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6f5eab8f53fb4c9e15606223707292261b4615e0
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 228595bf633ef0545a13abe19308e49da82cf75a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330292"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844013"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modificare la modalità di replica di un account di archiviazione
 
@@ -125,16 +125,16 @@ Sebbene Microsoft gestisca tempestivamente la richiesta di migrazione in tempo r
 
 1. Selezionare **nuova richiesta di supporto**.
 2. Completare le **nozioni** di base in base alle informazioni sull'account: 
-    - **Tipo di problema** : selezionare **tecnico**.
-    - **Servizio** : selezionare **servizi personali** e **Gestione account di archiviazione**.
-    - **Risorsa** : selezionare la risorsa che si vuole convertire in ZRS.
+    - **Tipo di problema**: selezionare **tecnico**.
+    - **Servizio**: selezionare **servizi personali** e **Gestione account di archiviazione**.
+    - **Risorsa**: selezionare la risorsa che si vuole convertire in ZRS.
 3. Selezionare **Avanti**.
-4. Specificare i valori seguenti nella sezione **Problema** :
-    - **Gravità** : lasciare il valore predefinito.
-    - **Tipo di problema** : selezionare **Migrazione dei dati**.
-    - **Category** : selezionare **migrate to ZRS**.
-    - **Titolo** : digitare un titolo descrittivo, ad esempio **migrazione di account con archiviazione con ridondanza della zona**.
-    - **Dettagli** : digitare ulteriori dettagli nella casella **Dettagli** , ad esempio, si desidera eseguire la migrazione a ZRS da [con ridondanza locale, GRS] nell' \_ \_ area.
+4. Specificare i valori seguenti nella sezione **Problema**:
+    - **Gravità**: lasciare il valore predefinito.
+    - **Tipo di problema**: selezionare **Migrazione dei dati**.
+    - **Category**: selezionare **migrate to ZRS**.
+    - **Titolo**: digitare un titolo descrittivo, ad esempio **migrazione di account con archiviazione con ridondanza della zona**.
+    - **Dettagli**: digitare ulteriori dettagli nella casella **Dettagli** , ad esempio, si desidera eseguire la migrazione a ZRS da [con ridondanza locale, GRS] nell' \_ \_ area.
 5. Selezionare **Avanti**.
 6. Verificare che le informazioni di contatto nel pannello **Informazioni contatto** siano corrette.
 7. Selezionare **Crea**.
@@ -165,7 +165,7 @@ Per eseguire manualmente la migrazione dei dati dell'account ZRS a o da un accou
 
 # <a name="portal"></a>[Portale](#tab/portal)
 
-Per eseguire l'aggiornamento a ZRS nel portale di Azure, passare alle impostazioni di **configurazione** dell'account e scegliere **Aggiorna** :
+Per eseguire l'aggiornamento a ZRS nel portale di Azure, passare alle impostazioni di **configurazione** dell'account e scegliere **Aggiorna**:
 
 ![Eseguire l'aggiornamento da ZRS classico a ZRS nel portale](media/redundancy-migration/portal-zrs-classic-upgrade.png)
 

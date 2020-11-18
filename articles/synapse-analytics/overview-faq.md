@@ -2,19 +2,19 @@
 title: Domande frequenti - Azure Synapse Analytics (anteprima delle aree di lavoro)
 description: Domande frequenti su Azure Synapse Analytics (anteprima delle aree di lavoro)
 services: synapse-analytics
-author: ArnoMicrosoft
+author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 04/15/2020
-ms.author: acomet
+ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d7e8ea231dd6db9eab6cf9115f6ce2e62893371a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 530ebe09ee0ca44b0a5fbd4b8da2784e2c7ae7ea
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305417"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843894"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Domande frequenti su Azure Synapse Analytics (anteprima delle aree di lavoro)
 
@@ -101,8 +101,6 @@ A: Sì, è possibile usare applicazioni aziendali di terze parti, come Tableau e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare un'area di lavoro](quickstart-create-workspace.md)
-- [Usare Synapse Studio](quickstart-synapse-studio.md)
-- [Creare un pool SQL dedicato](quickstart-create-sql-pool-portal.md)
-- [Usare i pool SQL serverless](quickstart-sql-on-demand.md)
-- [Creare un pool di Apache Spark serverless](quickstart-create-apache-spark-pool-portal.md) 
+* [Introduzione ad Azure Synapse Analytics](get-started.md)
+* [Creare un'area di lavoro](quickstart-create-workspace.md)
+* [Usare i pool SQL serverless](quickstart-sql-on-demand.md)

@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/22/2020
-ms.custom: mvc
-ms.openlocfilehash: 75d76c64c10bf3ecc28c32452618048119bb9a59
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: d43fab43b05ccfd88308390f58ba48ff9111b295
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547623"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842822"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-flexible-server-using-azure-cli"></a>Avvio rapido: Creare un server flessibile di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
 
@@ -32,7 +32,7 @@ Se si preferisce installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario accedere all'account con il comando [az login](/cli/azure/reference-index#az-login). Annotare la proprietà **id** che fa riferimento all' **ID sottoscrizione** per l'account Azure.
+È necessario accedere all'account con il comando [az login](/cli/azure/reference-index#az-login). Annotare la proprietà **id** che fa riferimento all'**ID sottoscrizione** per l'account Azure.
 
 ```azurecli-interactive
 az login
@@ -64,7 +64,7 @@ Il server creato ha gli attributi seguenti:
 - Il metodo di connettività predefinito è l'accesso privato (integrazione rete virtuale) con una rete virtuale e una subnet generate automaticamente
 
 > [!NOTE] 
-> Il metodo di connettività non può essere modificato dopo la creazione del server. Ad esempio, se è stata selezionata l'opzione per l' *accesso privato (integrazione rete virtuale)* durante la creazione, non è possibile passare all' *accesso pubblico (indirizzi IP consentiti)* dopo la creazione. È consigliabile creare un server con accesso privato per accedere in modo sicuro al server tramite l'integrazione rete virtuale. Altre informazioni sull'accesso privato sono disponibili nell'[articolo sui concetti](./concepts-networking.md).
+> Il metodo di connettività non può essere modificato dopo la creazione del server. Ad esempio, se è stata selezionata l'opzione per l'*accesso privato (integrazione rete virtuale)* durante la creazione, non è possibile passare all'*accesso pubblico (indirizzi IP consentiti)* dopo la creazione. È consigliabile creare un server con accesso privato per accedere in modo sicuro al server tramite l'integrazione rete virtuale. Altre informazioni sull'accesso privato sono disponibili nell'[articolo sui concetti](./concepts-networking.md).
 
 Per modificare le impostazioni predefinite, vedere la documentazione di riferimento dell'interfaccia della riga di comando di Azure <!--FIXME --> per avere l'elenco completo dei parametri configurabili dell'interfaccia della riga di comando. 
 
@@ -79,7 +79,7 @@ Per connettersi al server, è necessario specificare le informazioni sull'host e
 az postgres flexible-server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l' **administratorLogin** .
+Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l'**administratorLogin**.
 
 <!--FIXME-->
 ```json
@@ -112,7 +112,7 @@ Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l' *
 
 ## <a name="connect-using-postgresql-command-line-client"></a>Connettersi tramite il client della riga di comando PostgreSQL
 
-Poiché il server flessibile è stato creato con l'opzione per l' *accesso privato (integrazione rete virtuale)* , sarà necessario connettersi al server da una risorsa all'interno della stessa rete virtuale usata dal server. È possibile creare una macchina virtuale e aggiungerla alla rete virtuale creata. 
+Poiché il server flessibile è stato creato con l'opzione per l'*accesso privato (integrazione rete virtuale)* , sarà necessario connettersi al server da una risorsa all'interno della stessa rete virtuale usata dal server. È possibile creare una macchina virtuale e aggiungerla alla rete virtuale creata. 
 
 Dopo aver creato la macchina virtuale, è possibile usare SSH per accedervi e installare lo strumento da riga di comando **[psql](https://www.postgresql.org/download/)** .
 

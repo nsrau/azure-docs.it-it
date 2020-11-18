@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
-ms.openlocfilehash: 06d71713075b401c876edd87f0ec884bcb252589
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 83d291ae72e79ec3600015fac07ee4ab80fe5df4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977749"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843554"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Applicare la sicurezza e usare criteri in macchine virtuali in Azure
 
@@ -43,7 +43,7 @@ La crittografia non influisca sulle prestazioni dei dischi gestiti. Non sono pre
 
 Per altre informazioni sulla crittografia lato server, vedere gli articoli per [Windows](windows/disk-encryption.md) o [Linux](linux/disk-encryption.md).
 
-### <a name="azure-disk-encryption"></a>Azure Disk Encryption
+### <a name="azure-disk-encryption"></a>Crittografia dischi di Azure
 
 Per migliorare la sicurezza e la conformità delle [macchine virtuali Windows](windows/disk-encryption-overview.md) e delle [macchine virtuali Linux](linux/disk-encryption-overview.md), i dischi virtuali in Azure possono essere crittografati. I dischi virtuali delle VM di Windows vengono crittografati a riposo mediante BitLocker. I dischi virtuali delle VM Linux vengono crittografati quando sono inattivi usando dm-crypt. 
 
@@ -67,7 +67,7 @@ La funzionalità delle identità gestite per le risorse di Azure in Azure Active
 
 È possibile usare [criteri di Azure](../governance/policy/overview.md) per definire il comportamento desiderato per le [macchine virtuali Windows](./windows/policy.md) e le [macchine virtuali Linux](./linux/policy.md) dell'organizzazione. Tramite i criteri è possibile imporre diverse convenzioni e regole in tutta l'organizzazione. L'imposizione del comportamento desiderato consente di attenuare i rischi, contribuendo nello stesso tempo al successo dell'organizzazione.
 
-## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
+## <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
 
 Usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md), è possibile separare i compiti all'interno del team e concedere solo la quantità di accesso agli utenti della macchina virtuale necessaria per svolgere i propri processi. Invece di concedere a tutti autorizzazioni senza restrizioni per la macchina virtuale, è possibile consentire solo determinate azioni. È possibile configurare il controllo di accesso per la macchina virtuale nel [portale di Azure](../role-based-access-control/role-assignments-portal.md), nell'[interfaccia della riga di comando di Azure](/cli/azure/role) o con [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 

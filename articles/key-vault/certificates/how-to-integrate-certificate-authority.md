@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d36c6e8ebbb86f9027a4822daa4481b5481523c2
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 50f2515cee92ead8018ffaaf4b4574905f8007d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289547"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844506"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrazione di Key Vault con l'autorità di certificazione DigiCert
 
@@ -31,9 +31,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per completare questa guida, sono necessarie le risorse seguenti.
 * Un insieme di credenziali delle chiavi. È possibile usare un insieme di credenziali delle chiavi esistente o crearne uno nuovo seguendo le procedure illustrate in una di queste guide di avvio rapido:
-   - [Creare un insieme di credenziali delle chiavi con l'interfaccia della riga di comando di Azure](../secrets/quick-create-cli.md)
-   - [Creare un insieme di credenziali delle chiavi con Azure PowerShell](../secrets/quick-create-powershell.md)
-   - [Creare un insieme di credenziali delle chiavi con il portale di Azure](../secrets/quick-create-portal.md).
+   - [Creare un insieme di credenziali delle chiavi con l'interfaccia della riga di comando di Azure](../general/quick-create-cli.md)
+   - [Creare un insieme di credenziali delle chiavi con Azure PowerShell](../general/quick-create-powershell.md)
+   - [Creare un insieme di credenziali delle chiavi con il portale di Azure](../general/quick-create-portal.md).
 *   È necessario attivare l'account CertCentral di DigiCert. [Iscriversi](https://www.digicert.com/account/signup/) per ricevere un account CertCentral.
 *   Autorizzazioni a livello di amministratore negli account.
 
@@ -56,11 +56,11 @@ Dopo aver raccolto le informazioni sopra riportate dall'account CertCentral di D
 4.  Selezionare l'opzione **Aggiungi**.
  ![Aggiungere autorità di certificazione](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  Nella schermata **Crea un'autorità di certificazione** scegliere i valori seguenti:
-    -   **Name** : aggiungere un nome di autorità emittente identificabile. Esempio: DigicertCA
-    -   **Provider** : scegliere DigiCert dal menu.
-    -   **ID account** : immettere l'ID dell'account CertCentral di DigiCert
-    -   **Password account** : immettere la chiave API generata nell'account CertCentral di DigiCert
-    -   **ID organizzazione** : immettere l'ID organizzazione raccolto dall'account CertCentral di DigiCert 
+    -   **Name**: aggiungere un nome di autorità emittente identificabile. Esempio: DigicertCA
+    -   **Provider**: scegliere DigiCert dal menu.
+    -   **ID account**: immettere l'ID dell'account CertCentral di DigiCert
+    -   **Password account**: immettere la chiave API generata nell'account CertCentral di DigiCert
+    -   **ID organizzazione**: immettere l'ID organizzazione raccolto dall'account CertCentral di DigiCert 
     -   Fare clic su **Crea**.
    
 6.  Si noterà che DigicertCA è stata aggiunta all'elenco delle autorità di certificazione.

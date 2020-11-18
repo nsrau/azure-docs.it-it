@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
-ms.openlocfilehash: e10b1955d50450e43d1dbb180f4d533b6b6ae8b9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 57cebed8ac229ed54945d75786b84b3cd2a36252
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978055"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844200"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Creare una raccolta di immagini condivise di Azure con il portale
 
@@ -21,7 +21,7 @@ La [raccolta di immagini condivise](shared-image-galleries.md) semplifica la con
 
 La raccolta di immagini condivise consente di condividere le immagini personalizzate delle macchine virtuali con altri all'interno dell'organizzazione, della propria area o tra aree e all'interno di un tenant AAD. Scegliere le immagini che si intende condividere, le aree nelle quali si vuole renderle disponibili e i destinatari. È possibile creare più raccolte così da raggruppare in maniera logica le immagini condivise. 
 
-La raccolta è una risorsa di primo livello che offre un completo controllo degli accessi in base al ruolo (RBAC). Le immagini possono essere con versioni ed è possibile scegliere di eseguire la replica di ogni versione dell'immagine in un diverso set di aree di Azure. La raccolta funziona solo con le immagini gestite.
+La raccolta è una risorsa di livello superiore che fornisce il controllo completo degli accessi in base al ruolo di Azure (RBAC di Azure). Le immagini possono essere con versioni ed è possibile scegliere di eseguire la replica di ogni versione dell'immagine in un diverso set di aree di Azure. La raccolta funziona solo con le immagini gestite.
 
 La funzionalità di raccolta di immagini condivise presenta più tipi di risorse. Verranno usate o compilate le seguenti contenute in questo articolo:
 
@@ -42,14 +42,14 @@ A questo punto è possibile creare una o più nuove macchine virtuali. Questo es
 
 1. Passare alla definizione dell'immagine. È possibile usare il filtro delle risorse per mostrare tutte le definizioni di immagine disponibili.
 1. Nella pagina relativa alla definizione dell'immagine selezionare **Crea macchina virtuale** dal menu nella parte superiore della pagina.
-1. Per **gruppo di risorse**selezionare **Crea nuovo** e digitare *myResourceGroup* per nome.
-1. In **nome macchina virtuale**digitare *myVM*.
+1. Per **gruppo di risorse** selezionare **Crea nuovo** e digitare *myResourceGroup* per nome.
+1. In **nome macchina virtuale** digitare *myVM*.
 1. In **Area** selezionare *Stati Uniti orientali*.
 1. Per le **Opzioni di disponibilità**, lasciare l'impostazione predefinita *nessuna ridondanza dell'infrastruttura richiesta*.
 1. Il valore per **Image** viene compilato automaticamente con la `latest` versione dell'immagine se è stato avviato dalla pagina per la definizione dell'immagine.
-1. Per **dimensione**scegliere una dimensione di macchina virtuale dall'elenco delle dimensioni disponibili, quindi scegliere **Seleziona**.
+1. Per **dimensione** scegliere una dimensione di macchina virtuale dall'elenco delle dimensioni disponibili, quindi scegliere **Seleziona**.
 1. In **account amministratore**, se l'immagine è stata generalizzata, è necessario specificare un nome utente, ad esempio *azureuser* e una password. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](faq.md#what-are-the-password-requirements-when-creating-a-vm). Se l'immagine è stata specializzata, i campi nome utente e password verranno disattivati perché vengono usati il nome utente e la password per la macchina virtuale di origine.
-1. Se si vuole consentire l'accesso remoto alla macchina virtuale, in **porte in ingresso pubbliche**scegliere **Consenti porte selezionate** , quindi selezionare **RDP (3389)** nell'elenco a discesa. Se non si vuole consentire l'accesso remoto alla macchina virtuale, lasciare selezionata l'opzione **Nessuna** per le **porte in ingresso pubbliche**.
+1. Se si vuole consentire l'accesso remoto alla macchina virtuale, in **porte in ingresso pubbliche** scegliere **Consenti porte selezionate** , quindi selezionare **RDP (3389)** nell'elenco a discesa. Se non si vuole consentire l'accesso remoto alla macchina virtuale, lasciare selezionata l'opzione **Nessuna** per le **porte in ingresso pubbliche**.
 1. Al termine, selezionare il pulsante **Verifica e crea** nella parte inferiore della pagina.
 1. Dopo che la macchina virtuale ha superato la convalida, selezionare **Crea** nella parte inferiore della pagina per avviare la distribuzione.
 

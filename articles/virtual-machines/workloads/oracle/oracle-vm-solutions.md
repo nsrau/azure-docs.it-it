@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/12/2020
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 32e79e12eae9997df8163401d2abc5f06bc02fc0
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 739245a8a17c97f3a8081cfee7e7bb31e4135952
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993494"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843979"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Immagini delle macchine virtuali Oracle e rispettiva distribuzione in Microsoft Azure
 
@@ -109,10 +109,6 @@ Microsoft Azure è un ambiente cloud autorizzato per l'esecuzione di Oracle Data
 I database Oracle richiedono in genere una maggiore quantità di memoria e I/O. Per questo motivo, per questi carichi di lavoro sono consigliabili [macchine virtuali ottimizzate per la memoria](../../sizes-memory.md). Per ottimizzare ulteriormente i carichi di lavoro, sono consigliabili [vCPU core vincolate](../../constrained-vcpu.md) per carichi di lavoro Oracle Database che richiedono memoria, archiviazione e larghezza di banda I/O elevate, ma non un numero elevato di core.
 
 Quando si esegue la migrazione di carichi di lavoro e software Oracle dall'ambiente locale a Microsoft Azure, Oracle fornisce la mobilità delle licenze come indicato nelle [Domande frequenti su Oracle in Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
-
-## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle Real Application Cluster (Oracle RAC)
-
-Oracle Real Application cluster (Oracle RAC) è progettato per ridurre l'errore di un singolo nodo in una configurazione cluster a più nodi locale. Si basa su due tecnologie locali, non native agli ambienti cloud pubblici su vasta scala, ovvero il multicast di rete e i dischi condivisi. Se per la soluzione di database è necessario Oracle RAC in Azure, è necessario un software di terze parti per abilitare tali tecnologie. Per altre informazioni su Oracle Real Application Cluster, vedere la [pagina relativa alla soluzione SkyCluster ](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Considerazioni sulla disponibilità elevata e sul ripristino di emergenza
 

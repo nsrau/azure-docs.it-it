@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: b6828571499631ae08b077a4b7e3120f599e5b8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d135c6fe4e867a9b270e2a5c1b986e1957e7012
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84673752"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94843843"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Creare una raccolta di immagini condivise con Azure PowerShell 
 
@@ -22,7 +22,7 @@ La [raccolta di immagini condivise](./windows/shared-image-galleries.md) semplif
 
 La raccolta di immagini condivise consente di condividere le immagini personalizzate delle macchine virtuali con altri all'interno dell'organizzazione, della propria area o tra aree e all'interno di un tenant AAD. Scegliere le immagini che si intende condividere, le aree nelle quali si vuole renderle disponibili e i destinatari. È possibile creare più raccolte così da raggruppare in maniera logica le immagini condivise. 
 
-La raccolta è una risorsa di primo livello che offre un completo controllo degli accessi in base al ruolo (RBAC). Le immagini possono essere con versioni ed è possibile scegliere di eseguire la replica di ogni versione dell'immagine in un diverso set di aree di Azure. La raccolta funziona solo con le immagini gestite.
+La raccolta è una risorsa di livello superiore che fornisce il controllo completo degli accessi in base al ruolo di Azure (RBAC di Azure). Le immagini possono essere con versioni ed è possibile scegliere di eseguire la replica di ogni versione dell'immagine in un diverso set di aree di Azure. La raccolta funziona solo con le immagini gestite.
 
 La funzionalità di raccolta di immagini condivise presenta più tipi di risorse. 
 
