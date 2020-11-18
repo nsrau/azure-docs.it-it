@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99d57e084a6a765b8598ba7f8eebbd7ddb34d74
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7d9c4dff1e4a3ba7c7a2b11311e97eb5e66a1585
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964639"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839302"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Abilitare l'accesso senza password per la chiave di sicurezza (anteprima)
 
@@ -29,7 +29,7 @@ Questo documento è incentrato sull'abilitazione dell'autenticazione senza passw
 
 ## <a name="requirements"></a>Requisiti
 
-- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
 - Abilita l' [Anteprima di registrazione delle informazioni di sicurezza combinate](concept-registration-mfa-sspr-combined.md)
 - [Chiavi di sicurezza FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibili
 - Webauthn richiede Windows 10 versione 1903 o successiva * *
@@ -51,19 +51,19 @@ Le funzionalità di registrazione per i metodi di autenticazione con password si
 ### <a name="enable-fido2-security-key-method"></a>Abilitare il metodo della chiave di sicurezza FIDO2
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory**  >  metodi di autenticazione di**sicurezza**  >  **Authentication methods**  >  **criteri metodo di autenticazione (anteprima)**.
-1. Sotto il metodo **FIDO2 Security Key**scegliere le opzioni seguenti:
+1. Passare a **Azure Active Directory**  >  metodi di autenticazione di **sicurezza**  >  **Authentication methods**  >  **criteri metodo di autenticazione (anteprima)**.
+1. Sotto il metodo **FIDO2 Security Key** scegliere le opzioni seguenti:
    1. **Abilita** -Sì o no
    1. **Destinazione** -tutti gli utenti o utenti selezionati
 1. **Salvare** la configurazione.
 
 ## <a name="user-registration-and-management-of-fido2-security-keys"></a>Registrazione e gestione degli utenti delle chiavi di sicurezza FIDO2
 
-1. Passare a [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
+1. Passare a [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 1. Accedere se non è già stato fatto.
 1. Fare clic su **info di sicurezza**.
-   1. Se l'utente ha già registrato almeno un metodo di Multi-Factor Authentication di Azure, può registrare immediatamente una chiave di sicurezza FIDO2.
-   1. Se non hanno almeno un metodo di Multi-Factor Authentication di Azure registrato, è necessario aggiungerne uno.
+   1. Se l'utente dispone già di almeno un Azure AD Multi-Factor Authentication metodo registrato, può registrare immediatamente una chiave di sicurezza FIDO2.
+   1. Se non hanno almeno un Azure AD Multi-Factor Authentication metodo registrato, è necessario aggiungerne uno.
 1. Aggiungere una chiave di sicurezza FIDO2 facendo clic su **Aggiungi metodo** e scegliendo **chiave di sicurezza**.
 1. Scegliere **dispositivo USB** o **dispositivo NFC**.
 1. Preparare la chiave e scegliere **Avanti**.
@@ -105,4 +105,4 @@ Si sta lavorando per supportare una funzionalità che consente la modifica dell'
 
 [Altre informazioni sulla registrazione del dispositivo](../devices/overview.md)
 
-[Altre informazioni su Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Altre informazioni su Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

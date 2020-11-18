@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05f3d422c9a504a0089290f3c2e1e68d809366ac
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 9da0c00bd8498e3f43d5f8258308fbc010a6a274
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592958"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839523"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Abilitare l'accesso senza password con l'app Microsoft Authenticator (anteprima)
 
@@ -36,7 +36,7 @@ Gli utenti che hanno abilitato l'accesso tramite telefono dall'app Microsoft Aut
 
 Per usare l'accesso tramite telefono senza password con l'app Microsoft Authenticator, è necessario soddisfare i prerequisiti seguenti:
 
-- Azure Multi-Factor Authentication, con notifiche push consentite come metodo di verifica.
+- Azure AD Multi-Factor Authentication, con notifiche push consentite come metodo di verifica.
 - Accertarsi che sia installata la versione più recente di Microsoft Authenticator nei dispositivi che eseguono iOS 8.0 o versione successiva oppure Android 6.0 o versione successiva.
 
 > [!NOTE]
@@ -57,7 +57,7 @@ Azure AD consente di scegliere i metodi di autenticazione che possono essere usa
 Per abilitare il metodo di autenticazione per l'accesso tramite telefono senza password, completare i passaggi seguenti:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account *amministratore globale* .
-1. Cercare e selezionare *Azure Active Directory* , quindi passare a metodi di autenticazione **sicurezza**  >  **Authentication methods**  >  **criteri metodo di autenticazione (anteprima)**
+1. Cercare e selezionare *Azure Active Directory*, quindi passare a metodi di autenticazione **sicurezza**  >  **Authentication methods**  >  **criteri metodo di autenticazione (anteprima)**
 1. In **accesso con telefono senza password** scegliere le opzioni seguenti:
    1. **Abilita** -Sì o no
    1. **Destinazione** -tutti gli utenti o utenti selezionati
@@ -68,7 +68,7 @@ Per abilitare il metodo di autenticazione per l'accesso tramite telefono senza p
 Gli utenti si registrano per il metodo di autenticazione con password di Azure AD usando la procedura seguente:
 
 1. Passare a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo).
-1. Accedere, quindi aggiungere l'app Authenticator selezionando **Aggiungi metodo > app Authenticator** , quindi **Aggiungi**.
+1. Accedere, quindi aggiungere l'app Authenticator selezionando **Aggiungi metodo > app Authenticator**, quindi **Aggiungi**.
 1. Seguire le istruzioni per installare e configurare l'app Microsoft Authenticator nel dispositivo.
 1. Selezionare **fine** per completare la configurazione dell'autenticatore.
 1. In **Microsoft Authenticator** scegliere **Abilita l'accesso tramite telefono** dal menu a discesa per l'account registrato.
@@ -141,4 +141,4 @@ Per informazioni sull'autenticazione Azure AD e sui metodi con password, vedere 
 
 - [Informazioni sul funzionamento dell'autenticazione con password](concept-authentication-passwordless.md)
 - [Informazioni sulla registrazione dei dispositivi](../devices/overview.md#getting-devices-in-azure-ad)
-- [Informazioni su Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Informazioni sulle Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

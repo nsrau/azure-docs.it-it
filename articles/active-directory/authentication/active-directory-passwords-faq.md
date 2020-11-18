@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 078b24e7fc3668e9b5832f0bfa46024db9b33848
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c154952d41db742c4d33899094a49a65fae72f26
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965557"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840101"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Domande frequenti sulla reimpostazione della password self-service
 
@@ -38,7 +38,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 
   > **R:** Sì. Se la reimpostazione della password è abilitata, gli utenti con licenza possono accedere al portale di registrazione per la reimpostazione della password (https://aka.ms/ssprsetup) per registrare le proprie informazioni di autenticazione. La registrazione può essere eseguita anche tramite il pannello di accesso (https://myapps.microsoft.com). Per la registrazione tramite il pannello di accesso, gli utenti devono selezionare la propria immagine del profilo, quindi **Profilo** e infine l'opzione **Registrazione per reimpostazione password**.
   >
-  > Se si Abilita la [registrazione combinata](concept-registration-mfa-sspr-combined.md), gli utenti possono registrarsi sia per SSPR che per Azure multi-factor authentication nello stesso momento.
+  > Se si Abilita la [registrazione combinata](concept-registration-mfa-sspr-combined.md), gli utenti possono registrarsi sia per SSPR che per Azure ad multi-factor authentication nello stesso momento.
 * **D:  Se si abilita la reimpostazione della password per un gruppo e quindi si decide di abilitare questa funzionalità per tutti gli utenti, è necessario che gli utenti ripetano la registrazione?**
 
   > **R:** No. Gli utenti che hanno inserito i dati di autenticazione non devono ripetere la registrazione.

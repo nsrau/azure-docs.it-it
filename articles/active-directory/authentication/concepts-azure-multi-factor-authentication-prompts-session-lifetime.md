@@ -1,6 +1,6 @@
 ---
-title: Richieste di Multi-Factor Authentication di Azure e durata della sessione
-description: Informazioni sulla configurazione consigliata per i prompt di riautenticazione con Multi-Factor Authentication di Azure e su come viene applicata la durata della sessione.
+title: Richieste di Azure AD Multi-Factor Authentication e durata della sessione
+description: Informazioni sulla configurazione consigliata per i prompt di riautenticazione con Azure AD Multi-Factor Authentication e sul modo in cui viene applicata la durata della sessione.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a759d4e686f43133716cc1c40237db74a015210
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 87b30b12e75a583ccee9780f97a6492961365cca
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964945"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839676"
 ---
-# <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Ottimizzare le richieste di riautenticazione e comprendere la durata della sessione per Azure Multi-Factor Authentication
+# <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-ad-multi-factor-authentication"></a>Ottimizzare le richieste di riautenticazione e comprendere la durata della sessione per Azure AD Multi-Factor Authentication
 
 Azure Active Directory (Azure AD) dispone di più impostazioni che determinano la frequenza con cui gli utenti devono eseguire nuovamente l'autenticazione. Questa riautenticazione può avere un primo fattore, ad esempio password, FIDO o senza Microsoft Authenticator password, oppure per eseguire multi-factor authentication. È possibile configurare queste impostazioni di riautenticazione in base alle esigenze per il proprio ambiente e l'esperienza utente desiderata.
 
@@ -53,7 +53,7 @@ Senza alcuna impostazione di durata della sessione, non sono presenti cookie per
 
 Un utente potrebbe visualizzare più richieste di autenticazione a più fattori in un dispositivo che non ha un'identità in Azure AD. Vengono restituiti più messaggi di richiesta quando ogni applicazione dispone di un proprio token di aggiornamento OAuth che non è condiviso con altre app client. In questo scenario, l'autenticazione a più fattori richiede più volte poiché ogni applicazione richiede che un token di aggiornamento OAuth venga convalidato con l'autenticazione a più fattori.
 
-In Azure AD, i criteri più restrittivi per la durata della sessione determinano quando l'utente deve ripetere l'autenticazione. Si consideri lo scenario seguente:
+In Azure AD, i criteri più restrittivi per la durata della sessione determinano quando l'utente deve ripetere l'autenticazione. Considerare lo scenario seguente:
 
 * Si Abilita l' *accesso rimanente*, che usa un cookie del browser persistente e
 * È anche possibile abilitare l'autenticazione a più fattori *per 14 giorni*
@@ -111,9 +111,9 @@ Per configurare o rivedere l'opzione Mantieni l' *accesso* , completare i passag
 Per memorizzare le impostazioni di autenticazione a più fattori, attenersi alla procedura seguente:
 
 1. Nel portale di Azure AD cercare e selezionare *Azure Active Directory*.
-1. Selezionare **sicurezza** **, quindi autenticazione**a più fattori.
-1. In **Configura**selezionare altre impostazioni di autenticazione a più fattori **basate sul cloud**.
-1. Nella pagina *impostazioni del servizio di autenticazione* a più fattori scorrere per **memorizzare le impostazioni di autenticazione**a più fattori. Disabilitare l'impostazione deselezionando la casella di controllo.
+1. Selezionare **sicurezza** **, quindi autenticazione** a più fattori.
+1. In **Configura** selezionare altre impostazioni di autenticazione a più fattori **basate sul cloud**.
+1. Nella pagina *impostazioni del servizio di autenticazione* a più fattori scorrere per **memorizzare le impostazioni di autenticazione** a più fattori. Disabilitare l'impostazione deselezionando la casella di controllo.
 
 Per configurare i criteri di accesso condizionale per la frequenza di accesso e la sessione del browser persistente, attenersi alla procedura seguente:
 
@@ -136,4 +136,4 @@ Nella tabella seguente sono riepilogate le raccomandazioni basate sulle licenze:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare, completare l'esercitazione per [proteggere gli eventi di accesso utente con azure multi-factor authentication](tutorial-enable-azure-mfa.md) o [usare i rilevamenti dei rischi per gli accessi degli utenti per attivare multi-factor authentication di Azure](tutorial-risk-based-sspr-mfa.md).
+Per iniziare, completare l'esercitazione per [proteggere gli eventi di accesso utente con Azure AD multi-factor authentication](tutorial-enable-azure-mfa.md) o [usare i rilevamenti dei rischi per gli accessi utente per attivare Azure ad multi-factor authentication](tutorial-risk-based-sspr-mfa.md).

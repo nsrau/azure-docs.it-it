@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b308b47ff813237bdf90637334f20ac6b5490a19
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: dbe22a1af8fbf61629fa9df1267416ca3822884b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992822"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94840084"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opzioni di autenticazione con password per Azure Active Directory
 
@@ -62,7 +62,7 @@ La [Guida alla pianificazione](/windows/security/identity-protection/hello-for-b
 
 L'app Authenticator converte qualsiasi telefono iOS o Android in una credenziale complessa senza password. Gli utenti possono accedere a qualsiasi piattaforma o browser inviando una notifica al telefono, associando un numero visualizzato sullo schermo a quello sul telefono e quindi usando la relativa biometrica (tocco o viso) o PIN per confermare. Per informazioni dettagliate [sull'installazione, vedere scaricare e installare l'app Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) .
 
-L'accesso senza password con l'app Microsoft Authenticator Azure AD è attualmente in anteprima. L'uso dell'app Microsoft Authenticator per l'autenticazione secondaria per l'Multi-Factor Authentication di Azure, la reimpostazione della password self-service (SSPR) o i token software per il GIURAmento sono GA. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+L'accesso senza password con l'app Microsoft Authenticator Azure AD è attualmente in anteprima. L'uso dell'app Microsoft Authenticator per l'autenticazione secondaria per Azure AD Multi-Factor Authentication, la reimpostazione della password self-service (SSPR) o i token software per il GIURAmento sono GA. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 L'autenticazione con password con l'app Authenticator segue lo stesso modello di base di Windows Hello for business. È un po' più complicato perché l'utente deve essere identificato in modo che Azure AD possa trovare la versione dell'app Microsoft Authenticator usata:
 
@@ -174,7 +174,7 @@ Di seguito sono riportati alcuni fattori da considerare quando si sceglie la tec
 
 Usare la tabella seguente per scegliere il metodo che supporterà i requisiti e gli utenti.
 
-|Utente tipo|Scenario|Environment|Tecnologia con password|
+|Utente tipo|Scenario|Ambiente|Tecnologia con password|
 |:-|:-|:-|:-|
 |**Admin**|Proteggere l'accesso a un dispositivo per le attività di gestione|Dispositivo Windows 10 assegnato|Chiave di sicurezza di Windows Hello for business e/o FIDO2|
 |**Admin**|Attività di gestione su dispositivi non Windows| Dispositivo mobile o non Windows|Accesso senza password con l'app Microsoft Authenticator|

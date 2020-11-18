@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b88b2ca0a420295a7a53608f02923e72045e1c44
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8fba2610b3343744c448e390bc2d713b38da481d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964741"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839472"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Abilitare la chiave di sicurezza senza password accesso ai dispositivi Windows 10 con Azure Active Directory (anteprima)
 
@@ -29,17 +29,17 @@ Questo documento è incentrato sull'abilitazione dell'autenticazione senza passw
 
 | Tipo di dispositivo | Aggiunta ad Azure AD | Aggiunta a Azure AD ibrido |
 | --- | --- | --- |
-| [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
+| [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
 | [Anteprima di registrazione delle informazioni di sicurezza combinata](concept-registration-mfa-sspr-combined.md) | X | X |
 | [Chiavi di sicurezza FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibili | X | X |
 | Webauthn richiede Windows 10 versione 1903 o successiva | X | X |
-| [Azure ad dispositivi aggiunti](../devices/concept-azure-ad-join.md) richiedono Windows 10 versione 1909 o successiva | X |   |
-| [Azure ad ibrido dispositivi aggiunti](../devices/concept-azure-ad-join-hybrid.md) richiedono Windows 10 versione 2004 o successiva |   | X |
-| Controller di dominio Windows Server 2016/2019 con patch complete. |   | X |
-| [Azure ad Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) versione 1.4.32.0 o successiva |   | X |
+| [Azure ad dispositivi aggiunti](../devices/concept-azure-ad-join.md) richiedono Windows 10 versione 1909 o successiva | x |   |
+| [Azure ad ibrido dispositivi aggiunti](../devices/concept-azure-ad-join-hybrid.md) richiedono Windows 10 versione 2004 o successiva |   | x |
+| Controller di dominio Windows Server 2016/2019 con patch complete. |   | x |
+| [Azure ad Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) versione 1.4.32.0 o successiva |   | x |
 | [Microsoft Intune](/intune/fundamentals/what-is-intune) (facoltativo) | X | X |
 | Pacchetto di provisioning (facoltativo) | X | X |
-| Criteri di gruppo (facoltativo) |   | X |
+| Criteri di gruppo (facoltativo) |   | x |
 
 ### <a name="unsupported-scenarios"></a>Scenari non supportati
 
@@ -80,7 +80,7 @@ Per abilitare l'uso delle chiavi di sicurezza con Intune, completare i passaggi 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Passare a **Microsoft Intune**  >  **registrazione del dispositivo registrazione**  >  **Windows**  >  **Proprietà Windows Hello for business**  >  **Properties**.
-1. In **Impostazioni**impostare **Usa chiavi di sicurezza per l'accesso** su **abilitato**.
+1. In **Impostazioni** impostare **Usa chiavi di sicurezza per l'accesso** su **abilitato**.
 
 La configurazione delle chiavi di sicurezza per l'accesso non dipende dalla configurazione di Windows Hello for business.
 
@@ -125,11 +125,11 @@ Per i dispositivi non gestiti da Intune, è possibile installare un pacchetto di
 1. Per applicare il pacchetto di provisioning creato, vedere [applicare un pacchetto di provisioning](/windows/configuration/provisioning-packages/provisioning-apply-package).
 
 > [!NOTE]
-> I dispositivi che eseguono Windows 10 versione 1903 devono abilitare anche la modalità*EnableSharedPCMode*(Shared PC Mode). Per ulteriori informazioni sull'abilitazione di questa funzionalità, vedere [configurare un PC condiviso o Guest con Windows 10](/windows/configuration/set-up-shared-or-guest-pc).
+> I dispositivi che eseguono Windows 10 versione 1903 devono abilitare anche la modalità *EnableSharedPCMode*(Shared PC Mode). Per ulteriori informazioni sull'abilitazione di questa funzionalità, vedere [configurare un PC condiviso o Guest con Windows 10](/windows/configuration/set-up-shared-or-guest-pc).
 
 ### <a name="enable-with-group-policy"></a>Abilita con Criteri di gruppo
 
-Per i **dispositivi ibridi Azure ad aggiunti**, le organizzazioni possono configurare la seguente impostazione di criteri di gruppo per abilitare l'accesso alla chiave di sicurezza di fido. L'impostazione si trova in **Configurazione computer**  >  **modelli amministrativi**  >  accesso al**sistema**  >  attiva l'**accesso**  >  **alla chiave di sicurezza**:
+Per i **dispositivi ibridi Azure ad aggiunti**, le organizzazioni possono configurare la seguente impostazione di criteri di gruppo per abilitare l'accesso alla chiave di sicurezza di fido. L'impostazione si trova in **Configurazione computer**  >  **modelli amministrativi**  >  accesso al **sistema**  >  attiva l'**accesso**  >  **alla chiave di sicurezza**:
 
 - L'impostazione di questo criterio su **abilitato** consente agli utenti di accedere con chiavi di sicurezza.
 - L'impostazione di questo criterio su **disabilitato** o **non configurato** impedisce agli utenti di accedere con le chiavi di sicurezza.
@@ -164,4 +164,4 @@ Per condividere commenti e suggerimenti o riscontrare problemi durante l'antepri
 
 [Altre informazioni sulla registrazione del dispositivo](../devices/overview.md)
 
-[Altre informazioni su Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Altre informazioni su Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

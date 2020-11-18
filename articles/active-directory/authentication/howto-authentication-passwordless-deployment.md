@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f0c19e33ab6f91e69f9c7dbc5bc29fef1fd53bb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0143da9c1961b4123467120210135f7db2c582c8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964877"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839574"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Pianificare una distribuzione di autenticazione con password in Azure Active Directory
 
@@ -67,9 +67,9 @@ Prima di iniziare una distribuzione con password non è necessario che le organi
 
 | Prerequisito | App di autenticazione | Chiavi di sicurezza FIDO2 |
 | --- | --- | --- |
-| È stata abilitata la [registrazione combinata per Azure Multifactor Authentication e la reimpostazione della password self-service (SSPR)](howto-registration-mfa-sspr-combined.md) | √ | √ |
-| [Gli utenti possono eseguire l'autenticazione a più fattori di Azure](howto-mfa-getstarted.md) | √ | √ |
-| [Utenti registrati per Azure Multifactor Authentication e SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
+| È stata abilitata [la registrazione combinata per Azure AD multi-factor authentication e la reimpostazione della password self-service (SSPR)](howto-registration-mfa-sspr-combined.md) | √ | √ |
+| [Gli utenti possono eseguire Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md) | √ | √ |
+| [Utenti registrati per Azure AD Multi-Factor Authentication e SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [Gli utenti hanno registrato i dispositivi mobili in Azure Active Directory](../devices/overview.md) | √ |   |
 | Windows 10 versione 1809 o successiva con un browser supportato come Microsoft Edge o Mozilla Firefox <br> (versione 67 o successiva). <br> *Microsoft consiglia la versione 1903 o una versione successiva per il supporto nativo*. |   | √ |
 | Chiavi di sicurezza FIDO2 compatibili. Assicurarsi di usare un dispositivo di sicurezza FIDO2 [testato e verificato da Microsoft](./concept-authentication-passwordless.md) o un altro dispositivo di sicurezza FIDO2 compatibile. |   | √ |
@@ -78,9 +78,9 @@ Prima di iniziare una distribuzione con password non è necessario che le organi
 
 I prerequisiti per Windows Hello dipendono fortemente dal fatto che la distribuzione sia in una configurazione locale, ibrida o solo cloud. Per ulteriori informazioni, vedere l' [elenco completo dei prerequisiti per Windows Hello for business](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
-### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
+### <a name="azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication
 
-Gli utenti registrano il proprio metodo con password come parte del flusso di registrazione di Azure Multifactor Authentication. L'autenticazione a più fattori con un nome utente e una password insieme a un altro metodo registrato può essere usata come fallback nel caso in cui non possano usare il telefono o la chiave di sicurezza in alcuni scenari.
+Gli utenti registrano il proprio metodo con password come parte della Azure AD Multi-Factor Authentication flusso di registrazione. L'autenticazione a più fattori con un nome utente e una password insieme a un altro metodo registrato può essere usata come fallback nel caso in cui non possano usare il telefono o la chiave di sicurezza in alcuni scenari.
 
 ### <a name="licensing"></a>Gestione delle licenze 
 Non sono previsti costi aggiuntivi per l'autenticazione senza password, sebbene alcuni prerequisiti possano richiedere una sottoscrizione Premium. Per informazioni dettagliate sulle funzionalità e sulle licenze nella [pagina Azure Active Directory Licensing](https://azure.microsoft.com/pricing/details/active-directory/). 
@@ -140,7 +140,7 @@ Ogni telefono iOS o Android viene trasformato in una credenziale complessa senza
 
 **Integrazione di ad FS** : quando un utente abilita le credenziali Microsoft Authenticator con password, l'autenticazione per tale utente viene impostata per impostazione predefinita sull'invio di una notifica per l'approvazione. Agli utenti di un tenant ibrido viene impedito di essere indirizzati ad ADFS per l'accesso, a meno che non selezioni "usa la password". Questo processo ignora anche tutti i criteri di accesso condizionale locali e i flussi di autenticazione pass-through. Tuttavia, se si specifica un *login_hint* , l'utente viene inoltrato ad ADFS e ignora l'opzione per utilizzare le credenziali con password.
 
-**Server Azure multi-factor authentication** : gli utenti finali abilitati per multi-factor authentication tramite il server di autenticazione a più fattori locale di un'organizzazione possono creare e usare una sola credenziale di accesso con telefono senza password. Se l'utente tenta di aggiornare più installazioni (5 o più) del Microsoft Authenticator con le credenziali, questa modifica può causare un errore.
+**Azure AD multi-factor authentication server** : gli utenti finali abilitati per multi-factor authentication tramite il server di autenticazione a più fattori locale di un'organizzazione possono creare e usare una sola credenziale di accesso con telefono senza password. Se l'utente tenta di aggiornare più installazioni (5 o più) del Microsoft Authenticator con le credenziali, questa modifica può causare un errore.
 
 **Registrazione del dispositivo** : per usare l'app Authenticator per l'autenticazione con password, il dispositivo deve essere registrato nel tenant Azure ad e non può essere un dispositivo condiviso. Un dispositivo può essere registrato solo in un singolo tenant. Questo limite indica che è supportato un solo account aziendale o dell'Istituto di istruzione per l'accesso tramite telefono tramite l'app Authenticator.
 
@@ -171,7 +171,7 @@ Per un elenco completo dei requisiti, vedere [abilitare la chiave di sicurezza s
 
 Le chiavi di sicurezza consentono l'accesso alle risorse ed è necessario pianificare la gestione di tali dispositivi fisici.
 
-1. **Distribuzione**delle chiavi: pianificare il provisioning delle chiavi per l'organizzazione. È possibile disporre di un processo di provisioning centralizzato o consentire agli utenti finali di acquistare chiavi compatibili con FIDO 2,0.
+1. **Distribuzione** delle chiavi: pianificare il provisioning delle chiavi per l'organizzazione. È possibile disporre di un processo di provisioning centralizzato o consentire agli utenti finali di acquistare chiavi compatibili con FIDO 2,0.
 1. **Attivazione chiave**: gli utenti finali devono attivare autonomamente la chiave di sicurezza. Gli utenti finali registrano le chiavi di sicurezza in [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) e abilitano il secondo fattore (PIN o biometrico) al primo utilizzo.
 1. **Disabilitazione di una chiave**: mentre la funzionalità chiave di sicurezza si trova nella fase di anteprima, non è possibile che un amministratore rimuova una chiave da un account utente. L'utente deve rimuoverlo. Se un tasto viene smarrito o rubato:
    1. Rimuovere l'utente da qualsiasi gruppo abilitato per l'autenticazione senza password.

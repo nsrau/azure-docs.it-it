@@ -1,6 +1,6 @@
 ---
-title: Proteggere le risorse con Azure multi-factor authentication e ADFS-Azure Active Directory
-description: Questa è la pagina su Multi-Factor Authentication di Azure in cui viene descritto come iniziare a utilizzare questa tipologia di autenticazione di Azure nel cloud.
+title: Proteggere le risorse con Azure AD multi-factor authentication e ADFS-Azure Active Directory
+description: Questo è il Azure AD Multi-Factor Authentication pagina che descrive come iniziare a usare Azure AD multi-factor authentication e AD FS nel cloud.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5167d9041e8edfd6e829bdd1a78f826f73eea4d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 999fb350aaa5f11510db0d4ecc036e188d76e20f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964588"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839336"
 ---
-# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS
+# <a name="securing-cloud-resources-with-azure-ad-multi-factor-authentication-and-ad-fs"></a>Protezione delle risorse cloud con Azure AD Multi-Factor Authentication e AD FS
 
-Se l'organizzazione è federata con Azure Active Directory, usare Azure Multi-Factor Authentication o Active Directory Federation Services (AD FS) per proteggere le risorse accessibili da Azure AD. Usare le procedure seguenti per proteggere le risorse di Azure Active Directory con Azure Multi-Factor Authentication o Active Directory Federation Services.
+Se l'organizzazione è federata con Azure Active Directory, utilizzare Azure AD Multi-Factor Authentication o Active Directory Federation Services (AD FS) per proteggere le risorse a cui si accede per Azure AD. Utilizzare le procedure seguenti per proteggere le risorse di Azure Active Directory con Azure AD Multi-Factor Authentication o Active Directory Federation Services.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Proteggere le risorse Azure AD con ADFS
 
@@ -48,7 +48,7 @@ Per proteggere le risorse cloud, configurare una regola attestazioni in modo che
 
 ## <a name="trusted-ips-for-federated-users"></a>Indirizzi IP attendibili per utenti federati
 
-Gli indirizzi IP attendibili consentono agli amministratori di ignorare la verifica in due passaggi per specifici indirizzi IP o utenti federati con richieste provenienti dalla propria rete Intranet. Le sezioni seguenti descrivono come configurare gli indirizzi IP attendibili di Azure Multi-Factor Authentication con utenti federati e ignorare la verifica in due passaggi quando una richiesta proviene da una Intranet di utenti federati. Questo avviene configurando ADFS in modo da applicare la funzione di pass-through o filtro a un modello di attestazione in ingresso con il tipo di attestazione All'interno della rete aziendale.
+Gli indirizzi IP attendibili consentono agli amministratori di ignorare la verifica in due passaggi per specifici indirizzi IP o utenti federati con richieste provenienti dalla propria rete Intranet. Le sezioni seguenti descrivono come configurare Azure AD Multi-Factor Authentication indirizzi IP attendibili con gli utenti federati e la verifica in due passaggi quando una richiesta proviene da una Intranet di utenti federati. Questo avviene configurando ADFS in modo da applicare la funzione di pass-through o filtro a un modello di attestazione in ingresso con il tipo di attestazione All'interno della rete aziendale.
 
 Questo esempio usa Microsoft 365 per i trust della relying party.
 
@@ -84,7 +84,7 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Creare due regole
 15. Fare clic su **OK**.
 16. Chiudere Gestione ADFS.
 
-### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configurare gli indirizzi IP attendibili di Azure Multi-Factor Authentication con utenti federati
+### <a name="configure-azure-ad-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configurare Azure AD Multi-Factor Authentication indirizzi IP attendibili con gli utenti federati
 
 Ora che le attestazioni sono configurate, è possibile procedere alla configurazione degli indirizzi IP attendibili.
 

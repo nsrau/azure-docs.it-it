@@ -1,6 +1,6 @@
 ---
-title: Configurare le password dell'app per Azure Multi-Factor Authentication-Azure Active Directory
-description: Informazioni su come configurare e usare le password dell'app per le applicazioni legacy in Azure Multi-Factor Authentication
+title: Configurare le password dell'app per Azure AD Multi-Factor Authentication-Azure Active Directory
+description: Informazioni su come configurare e usare le password dell'app per le applicazioni legacy in Azure AD Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85031896a196dd742868466243dd401345b0bc97
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 282bf6a30d8ff70440999ff3763c0d5544ef428d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964503"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839268"
 ---
-# <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Abilitare e usare Multi-Factor Authentication di Azure con le applicazioni legacy usando le password dell'app
+# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Abilitare e usare Azure AD Multi-Factor Authentication con le applicazioni legacy usando le password dell'app
 
-Alcune app meno recenti non basate su browser, come Office 2010 o versioni precedenti e Apple Mail, prima di iOS 11, non comprendono pause o interruzioni nel processo di autenticazione. Se un utente è abilitato per Multi-Factor Authentication di Azure e tenta di usare una di queste app non basate su browser, non è possibile eseguire correttamente l'autenticazione. Per usare queste applicazioni in modo sicuro con Azure Multi-Factor Authentication abilitato per gli account utente, è possibile usare le password dell'app. Queste password dell'app hanno sostituito la password tradizionale per consentire a un'app di ignorare l'autenticazione a più fattori e di funzionare correttamente.
+Alcune app meno recenti non basate su browser, come Office 2010 o versioni precedenti e Apple Mail, prima di iOS 11, non comprendono pause o interruzioni nel processo di autenticazione. Se un utente è abilitato per Azure AD Multi-Factor Authentication e tenta di usare una di queste app non basate su browser, non è possibile eseguire correttamente l'autenticazione. Per usare queste applicazioni in modo sicuro con Azure AD Multi-Factor Authentication abilitata per gli account utente, è possibile usare le password dell'app. Queste password dell'app hanno sostituito la password tradizionale per consentire a un'app di ignorare l'autenticazione a più fattori e di funzionare correttamente.
 
 L'autenticazione moderna è supportata per i client di Microsoft Office 2013 e versioni successive. I client Office 2013, tra cui Outlook, supportano i protocolli di autenticazione moderni e possono essere abilitati per lavorare con la verifica in due passaggi. Dopo averlo abilitato, il client non richiede le password dell'app.
 
@@ -31,7 +31,7 @@ Questo articolo illustra come abilitare e usare le password dell'app per le appl
 
 ## <a name="overview-and-considerations"></a>Panoramica e considerazioni
 
-Quando un account utente è abilitato per Azure Multi-Factor Authentication, il prompt di accesso normale viene interrotto da una richiesta di verifica aggiuntiva. Alcune applicazioni meno recenti non comprendono questa pausa nel processo di accesso, quindi l'autenticazione ha esito negativo. Per gestire la sicurezza degli account utente e lasciare abilitata la Multi-Factor Authentication di Azure, è possibile usare le password dell'app anziché il nome utente e la password normali dell'utente. Quando si usa una password dell'app durante l'accesso, non c'è alcuna richiesta di verifica aggiuntiva, quindi l'autenticazione ha esito positivo.
+Quando un account utente è abilitato per Azure AD Multi-Factor Authentication, il prompt di accesso normale viene interrotto da una richiesta di verifica aggiuntiva. Alcune applicazioni meno recenti non comprendono questa pausa nel processo di accesso, quindi l'autenticazione ha esito negativo. Per gestire la sicurezza degli account utente e lasciare Azure AD Multi-Factor Authentication abilitata, è possibile usare le password dell'app anziché il nome utente e la password normali dell'utente. Quando si usa una password dell'app durante l'accesso, non c'è alcuna richiesta di verifica aggiuntiva, quindi l'autenticazione ha esito positivo.
 
 Le password dell'app vengono generate automaticamente, non specificate dall'utente. Questa password generata automaticamente rende più difficile l'individuazione di un utente malintenzionato, quindi è più sicura. Gli utenti non devono tenere traccia delle password o immetterle ogni volta che le password dell'app vengono immesse una sola volta per ogni applicazione.
 
@@ -39,7 +39,7 @@ Quando si usano le password dell'app, si applicano le considerazioni seguenti:
 
 * È previsto un limite di 40 password di app per utente.
 * Le applicazioni che memorizzano le password nella cache e le usano in scenari locali possono avere esito negativo perché la password dell'app non è nota all'esterno dell'account aziendale o dell'Istituto di istruzione Un esempio di questo scenario è rappresentato dai messaggi di posta elettronica di Exchange in locale, mentre la posta archiviata si trova nel cloud. In questo scenario non funziona la stessa password.
-* Dopo l'abilitazione di Azure Multi-Factor Authentication sull'account di un utente, le password dell'app possono essere usate con la maggior parte dei client non basati su browser, ad esempio Outlook e Microsoft Skype for business. Tuttavia, non è possibile eseguire azioni amministrative usando password di app tramite applicazioni non basate su browser, ad esempio Windows PowerShell. Tali azioni non possono essere eseguite anche se l'utente dispone di un account amministrativo.
+* Dopo l'abilitazione di Azure AD Multi-Factor Authentication sull'account di un utente, le password dell'app possono essere usate con la maggior parte dei client non basati su browser, ad esempio Outlook e Microsoft Skype for business. Tuttavia, non è possibile eseguire azioni amministrative usando password di app tramite applicazioni non basate su browser, ad esempio Windows PowerShell. Tali azioni non possono essere eseguite anche se l'utente dispone di un account amministrativo.
     * Per eseguire gli script di PowerShell, creare un account di servizio con una password complessa e non abilitare l'account per la verifica in due passaggi.
 * Se si sospetta che un account utente sia compromesso e revocare o reimpostare la password dell'account, è necessario aggiornare anche le password dell'app. Le password dell'app non vengono revocate automaticamente quando viene revocata o reimpostata una password dell'account utente. L'utente deve eliminare le password dell'app esistenti e crearne di nuove.
    * Per altre informazioni, vedere [creare ed eliminare password di app dalla pagina verifica aggiuntiva di sicurezza](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
@@ -55,7 +55,7 @@ Per le password dell'app è consigliabile usare nomi che riflettano il dispositi
 
 ## <a name="federated-or-single-sign-on-app-passwords"></a>Password dell'app Single Sign-On o federate
 
-Azure AD supporta la Federazione, o Single Sign-On (SSO), con Active Directory Domain Services locale (AD DS). Se l'organizzazione è federata con Azure AD e si usa Azure Multi-Factor Authentication, si applicano le seguenti considerazioni sulle password per le app:
+Azure AD supporta la Federazione, o Single Sign-On (SSO), con Active Directory Domain Services locale (AD DS). Se l'organizzazione è federata con Azure AD e si usa Azure AD Multi-Factor Authentication, si applicano le seguenti considerazioni sulle password per le app:
 
 >[!NOTE]
 > I punti seguenti si applicano solo ai clienti federati (SSO).
@@ -72,7 +72,7 @@ Ad esempio, si supponga di disporre dell'architettura seguente:
 * Si esegue la federazione dell'istanza locale di Active Directory con Azure AD.
 * Si usa Exchange Online.
 * Usi Skype for business in locale.
-* Usare Multi-Factor Authentication di Azure.
+* Usare Azure AD Multi-Factor Authentication.
 
 In questo scenario usare le credenziali seguenti:
 
@@ -99,10 +99,10 @@ Per impostazione predefinita, gli utenti non possono creare password dell'app. L
 
 ## <a name="create-an-app-password"></a>Creare una password di app
 
-Quando gli utenti completano la registrazione iniziale per Azure Multi-Factor Authentication, è possibile creare password di app al termine del processo di registrazione.
+Quando gli utenti completano la registrazione iniziale per Azure AD Multi-Factor Authentication, è possibile creare password di app al termine del processo di registrazione.
 
-Gli utenti possono creare password delle app anche dopo la registrazione. Per altre informazioni e procedure dettagliate per gli utenti, vedere [Che cosa sono le password per le app in Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Gli utenti possono creare password delle app anche dopo la registrazione. Per altre informazioni e procedure dettagliate per gli utenti, vedere [che cosa sono le password per le app in Azure AD multi-factor authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su come consentire agli utenti di registrarsi rapidamente per Multi-Factor Authentication di Azure, vedere [Cenni preliminari sulla registrazione delle informazioni di sicurezza combinata](concept-registration-mfa-sspr-combined.md).
+Per altre informazioni su come consentire agli utenti di registrarsi rapidamente per Azure AD Multi-Factor Authentication, vedere [Cenni preliminari sulla registrazione delle informazioni di sicurezza combinata](concept-registration-mfa-sspr-combined.md).

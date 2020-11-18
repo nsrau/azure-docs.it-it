@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4da1066166a3384ffb5f0f94599452829faed1b
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 026f45e715f6d442b27cdd0274f029a68330f7ee
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356587"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839829"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminare le password non valide usando la protezione Azure Active Directory password
 
@@ -24,7 +24,7 @@ Molte linee guida sulla sicurezza consigliano di non usare la stessa password in
 
 Con Azure AD la protezione con password, gli elenchi di password Global Banned globali vengono applicati automaticamente a tutti gli utenti in un tenant di Azure AD. Per supportare le esigenze aziendali e di sicurezza, è possibile definire le voci in un elenco di password vietate personalizzate. Quando gli utenti modificano o reimpostano le password, vengono controllati gli elenchi delle password vietate per imporre l'utilizzo di password complesse.
 
-È consigliabile usare funzionalità aggiuntive come [Azure multi-factor authentication](concept-mfa-howitworks.md), non solo basarsi sulle password complesse applicate da Azure ad la protezione delle password. Per altre informazioni sull'uso di più livelli di sicurezza per gli eventi di accesso, vedere la pagina relativa a [PA $ $Word non è rilevante](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+È consigliabile utilizzare funzionalità aggiuntive, ad esempio [Azure AD multi-factor authentication](concept-mfa-howitworks.md), non basarsi solo su password complesse applicate da Azure ad la protezione delle password. Per altre informazioni sull'uso di più livelli di sicurezza per gli eventi di accesso, vedere la pagina relativa a [PA $ $Word non è rilevante](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
 > [!IMPORTANT]
 > Questo articolo concettuale spiega a un amministratore come funziona Azure AD la protezione delle password. Se si è un utente finale già registrato per la reimpostazione della password self-service ed è necessario tornare al proprio account, passare a [https://aka.ms/sspr](https://aka.ms/sspr) .

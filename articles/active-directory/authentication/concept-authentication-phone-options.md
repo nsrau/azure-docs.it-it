@@ -10,47 +10,47 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65c8baa101df5e24780e5e68b5a21b86985608a6
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 39555c5b396e8a8fd3449331cd2fd68b96ad2087
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628119"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839999"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Metodi di autenticazione nelle opzioni del telefono Azure Active Directory
 
 Per l'autenticazione diretta tramite SMS, è possibile [configurare e abilitare gli utenti per l'autenticazione basata su SMS (anteprima)](howto-authentication-sms-signin.md). L'accesso basato su SMS è ideale per chi lavora a contatto con il pubblico. Con l'accesso basato su SMS, non è necessario che l'utente conosca nome utente e password per accedere alle applicazioni e ai servizi. Può immettere invece il numero di telefono cellulare registrato, ricevere un SMS con un codice di verifica e inserirlo nell'interfaccia di accesso.
 
-Gli utenti possono autenticarsi anche usando un telefono cellulare o un telefono dell'ufficio come forma di autenticazione secondaria durante l'autenticazione a più fattori di Azure o la reimpostazione della password self-service.
+Gli utenti possono inoltre verificare se stessi utilizzando un telefono cellulare o un telefono dell'ufficio come forma secondaria di autenticazione utilizzata durante Azure AD Multi-Factor Authentication o la reimpostazione della password self-service (SSPR).
 
-Per garantirne il corretto funzionamento, i numeri di telefono devono essere nel formato *+PrefissoInternazionale NumeroTelefonico* , ad esempio *+1 4251234567*.
+Per garantirne il corretto funzionamento, i numeri di telefono devono essere nel formato *+PrefissoInternazionale NumeroTelefonico*, ad esempio *+1 4251234567*.
 
 > [!NOTE]
 > È necessario uno spazio tra il prefisso internazionale o della regione e il numero di telefono.
 >
-> La reimpostazione della password non supporta le estensioni del telefono. Anche nel formato *+1 4251234567X12345* , le estensioni vengono rimosse prima della chiamata.
+> La reimpostazione della password non supporta le estensioni del telefono. Anche nel formato *+1 4251234567X12345*, le estensioni vengono rimosse prima della chiamata.
 
 ## <a name="mobile-phone-verification"></a>Verifica tramite telefono cellulare
 
-Per Multi-Factor Authentication di Azure o SSPR, gli utenti possono scegliere di ricevere un SMS con un codice di verifica da immettere nell'interfaccia di accesso o ricevere una telefonata.
+Per Azure AD Multi-Factor Authentication o SSPR, gli utenti possono scegliere di ricevere un SMS con un codice di verifica da immettere nell'interfaccia di accesso o ricevere una telefonata.
 
 Se gli utenti non desiderano che il numero di telefono cellulare sia visibile nella directory, ma vogliono comunque usarlo per la reimpostazione della password, gli amministratori non devono inserirlo nella directory. Gli utenti devono invece popolare il proprio attributo **Telefono per l'autenticazione** tramite la registrazione delle informazioni di sicurezza combinate all'indirizzo [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo). Gli amministratori possono visualizzare queste informazioni nel profilo dell'utente, ma non vengono pubblicate altrove.
 
 :::image type="content" source="media/concept-authentication-methods/user-authentication-methods.png" alt-text="Screenshot del portale di Azure che mostra i metodi di autenticazione con un numero di telefono inserito":::
 
-Microsoft non garantisce l'invio coerente di prompt Azure Multi-Factor Authentication via SMS o tramite messaggio vocale allo stesso numero. Nell'interesse degli utenti, Microsoft può aggiungere o rimuovere codici brevi in qualsiasi momento per eseguire modifiche di route e migliorare il recapito degli SMS. Microsoft non supporta i codici brevi in paesi o aree geografiche diversi da Stati Uniti e Canada.
+Microsoft non garantisce Azure AD coerenti di SMS o basate su Voice Multi-Factor Authentication il recapito con lo stesso numero. Nell'interesse degli utenti, Microsoft può aggiungere o rimuovere codici brevi in qualsiasi momento per eseguire modifiche di route e migliorare il recapito degli SMS. Microsoft non supporta i codici brevi in paesi o aree geografiche diversi da Stati Uniti e Canada.
 
 ### <a name="text-message-verification"></a>Verifica tramite SMS
 
-Con la verifica tramite SMS durante la reimpostazione della password self-service o l'uso di Azure Multi-Factor Authentication, viene inviato un SMS al numero di telefono cellulare contenente un codice di verifica. Per completare il processo di accesso, il codice di verifica inviato viene immesso nell'interfaccia di accesso.
+Con la verifica dei messaggi di testo durante SSPR o Azure AD Multi-Factor Authentication, viene inviato un SMS al numero di telefono cellulare contenente un codice di verifica. Per completare il processo di accesso, il codice di verifica inviato viene immesso nell'interfaccia di accesso.
 
 ### <a name="phone-call-verification"></a>Verifica tramite telefonata
 
-Con la verifica tramite telefonata durante la reimpostazione della password self-service o l'uso di Azure Multi-Factor Authentication, viene eseguita una chiamata vocale automatica al numero di telefono registrato dall'utente. Per completare il processo di accesso, all'utente viene richiesto di premere # sulla tastiera.
+Con la verifica tramite telefonata durante SSPR o Azure AD Multi-Factor Authentication viene effettuata una chiamata vocale automatizzata al numero di telefono registrato dall'utente. Per completare il processo di accesso, all'utente viene richiesto di premere # sulla tastiera.
 
 ## <a name="office-phone-verification"></a>Verifica tramite telefono dell'ufficio
 
-Con la verifica tramite telefonata durante la reimpostazione della password self-service o l'uso di Azure Multi-Factor Authentication, viene eseguita una chiamata vocale automatica al numero di telefono registrato dall'utente. Per completare il processo di accesso, all'utente viene richiesto di premere # sulla tastiera.
+Con la verifica tramite telefonata durante SSPR o Azure AD Multi-Factor Authentication viene effettuata una chiamata vocale automatizzata al numero di telefono registrato dall'utente. Per completare il processo di accesso, all'utente viene richiesto di premere # sulla tastiera.
 
 ## <a name="troubleshooting-phone-options"></a>Risoluzione dei problemi delle opzioni che si servono del telefono
 
@@ -75,11 +75,11 @@ In caso di problemi con l'autenticazione tramite telefono in Azure AD, esaminare
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare, vedere l'[esercitazione sulla reimpostazione della password self-service][tutorial-sspr] e [Azure Multi-Factor Authentication][tutorial-azure-mfa].
+Per iniziare, vedere l' [esercitazione per la reimpostazione della password self-service (SSPR)][tutorial-sspr] e [Azure ad multi-factor authentication][tutorial-azure-mfa].
 
 Per altre informazioni sui concetti di reimpostazione della password self-service, vedere [Come funziona la reimpostazione della password self-service di Azure AD][concept-sspr].
 
-Per altre informazioni sui concetti di MFA, vedere [Come funziona Azure Multi-Factor Authentication][concept-mfa].
+Per altre informazioni sui concetti relativi a multi-factor authentication, vedere funzionamento di [Azure AD multi-factor authentication][concept-mfa].
 
 Altre informazioni sulla configurazione dei metodi di autenticazione con l' [API REST di Microsoft Graph beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 

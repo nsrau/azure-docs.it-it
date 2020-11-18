@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03989e37ac05228dade2fdcda43856e8a5240865
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fe8a916f4c3ce8869b6b487e33dcdecc061f8cbf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964911"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839591"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Metodi di autenticazione utilizzo & Insights (anteprima)
 
-L'utilizzo & Insights consente di comprendere in che modo i metodi di autenticazione per funzionalità quali Azure Multi-Factor Authentication e la reimpostazione della password self-service sono in esecuzione nell'organizzazione. Questa funzionalità di creazione di report consente all'organizzazione di individuare i metodi registrati e il modo in cui vengono usati.
+Usage & Insights consente di comprendere in che modo i metodi di autenticazione per funzionalità quali Azure AD Multi-Factor Authentication e la reimpostazione della password self-service sono in esecuzione nell'organizzazione. Questa funzionalità di creazione di report consente all'organizzazione di individuare i metodi registrati e il modo in cui vengono usati.
 
 ## <a name="permissions-and-licenses"></a>Autorizzazioni e licenze
 
@@ -31,14 +31,14 @@ I ruoli seguenti possono accedere all'utilizzo e alle informazioni dettagliate:
 - Amministratore della protezione
 - Lettore di report
 
-Non è necessaria alcuna licenza aggiuntiva per accedere all'utilizzo e alle informazioni dettagliate. Le informazioni sulle licenze per la reimpostazione della password self-service (SSPR) e Multi-Factor Authentication di Azure sono reperibili nel [sito dei prezzi Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Non è necessaria alcuna licenza aggiuntiva per accedere all'utilizzo e alle informazioni dettagliate. Azure AD Multi-Factor Authentication e le informazioni sulle licenze per la reimpostazione della password self-service (SSPR) sono disponibili nel [Azure Active Directory sito dei prezzi](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="how-it-works"></a>Funzionamento
 
 Per accedere all'utilizzo del metodo di autenticazione e alle informazioni dettagliate:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory**  >  uso della**reimpostazione della password**  >  **& Insights**.
+1. Passare a **Azure Active Directory**  >  uso della **reimpostazione della password**  >  **& Insights**.
 1. Dalle panoramiche sulla **registrazione** o **sull'utilizzo** , è possibile scegliere di aprire i report pre-filtrati per filtrare in base alle esigenze.
 
 ![Panoramica sull'utilizzo di & Insights](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
@@ -61,7 +61,7 @@ Utilizzando il controllo nell'angolo superiore destro, è possibile modificare l
 
 ### <a name="registration-details"></a>Dettagli registrazione
 
-Se si fa clic sugli **utenti registrati**, **gli utenti abilitati**o i riquadri abilitati per **gli** utenti o le informazioni dettagliate, sarà possibile visualizzare i dettagli di registrazione.
+Se si fa clic sugli **utenti registrati**, **gli utenti abilitati** o i riquadri abilitati per **gli** utenti o le informazioni dettagliate, sarà possibile visualizzare i dettagli di registrazione.
 
 Il report Dettagli registrazione Mostra le informazioni seguenti per ogni utente:
 
@@ -92,7 +92,7 @@ Utilizzando i controlli nella parte superiore dell'elenco, è possibile cercare 
 
 I dati visualizzati in questi report verranno posticipati di un massimo di 60 minuti. Nel portale di Azure è presente un campo "Ultimo aggiornamento" per identificare il modo in cui i dati sono recenti.
 
-I dati relativi all'utilizzo e alle informazioni dettagliate non sono sostitutivi per i report delle attività di Azure Multi-Factor Authentication o le informazioni contenute nel report degli accessi Azure AD.
+I dati relativi all'utilizzo e alle informazioni dettagliate non sono sostitutivi per il Azure AD Multi-Factor Authentication report attività o le informazioni contenute nel report Azure AD accessi.
 
 Attualmente non è possibile filtrare il report per escludere gli utenti esterni.
 

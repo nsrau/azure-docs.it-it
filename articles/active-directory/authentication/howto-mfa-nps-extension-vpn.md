@@ -1,6 +1,6 @@
 ---
-title: VPN con Azure MFA usando l'estensione NPS - Azure Active Directory
-description: Integrare l'infrastruttura VPN con Azure MFA usando l'estensione Server dei criteri di rete per Microsoft Azure.
+title: VPN con Azure AD multi-factor authentication usando l'estensione NPS-Azure Active Directory
+description: Integrare l'infrastruttura VPN con Azure AD autenticazione a più fattori usando l'estensione del server dei criteri di rete per Microsoft Azure.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7243857db9a3726bb42815ac4c9eef661f52e47
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 73fa82c3f162b546517ce40ef1447c002351d5b4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964724"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94839540"
 ---
-# <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrare l'infrastruttura VPN con Azure MFA usando l'estensione Server dei criteri di rete per Azure
+# <a name="integrate-your-vpn-infrastructure-with-azure-ad-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrare l'infrastruttura VPN con Azure AD autenticazione a più fattori usando l'estensione del server dei criteri di rete per Azure
 
-L'estensione Server dei criteri di rete per Azure consente alle organizzazioni di proteggere l'autenticazione client Remote Authentication Dial-In User Service tramite il servizio [Azure Multi-Factor Authentication](howto-mfaserver-nps-rdg.md) basato sul cloud, che offre la verifica in due passaggi.
+L'estensione NPS (Network Policy Server) per Azure consente alle organizzazioni di salvaguardare l'autenticazione client Remote Authentication Dial-In User Service (RADIUS) usando il [multi-factor authentication di Azure ad](howto-mfaserver-nps-rdg.md)basato sul cloud, che offre la verifica in due passaggi.
 
 Questo articolo contiene istruzioni dettagliate per l'integrazione dell'infrastruttura Server dei criteri di rete con Multi-Factor Authentication tramite l'estensione Server dei criteri di rete per Azure. Questo processo consente di proteggere la verifica in due passaggi per gli utenti che tentano di connettersi alla rete tramite una VPN.
 
@@ -43,7 +43,7 @@ Servizi di accesso e criteri di rete consente alle organizzazioni di:
 * Indicare un modo per imporre l'autenticazione e l'autorizzazione per l'accesso a commutatori Ethernet e punti di accesso wireless che supportano 802.1x.
   Per altre informazioni, vedere [Network Policy Server](/windows-server/networking/technologies/nps/nps-top) (Server dei criteri di rete).
 
-Per migliorare la sicurezza e offrire un elevato livello di conformità, le organizzazioni possono integrare Server dei criteri di rete con Azure Multi-Factor Authentication per garantire che gli utenti usino la verifica in due passaggi per connettersi alla porta virtuale sul server VPN. Affinché venga concesso loro l'accesso, gli utenti devono specificare la combinazione di nome utente e password con informazioni sotto il controllo dell'utente. Queste informazioni devono essere attendibili e non facilmente duplicabili. Possono includere un numero di cellulare, un numero di rete fissa o un'applicazione su un dispositivo mobile.
+Per migliorare la sicurezza e offrire un livello di conformità elevato, le organizzazioni possono integrare server dei criteri di rete con Azure AD Multi-Factor Authentication per assicurarsi che gli utenti usino la verifica in due passaggi per connettersi alla porta virtuale nel server VPN. Affinché venga concesso loro l'accesso, gli utenti devono specificare la combinazione di nome utente e password con informazioni sotto il controllo dell'utente. Queste informazioni devono essere attendibili e non facilmente duplicabili. Possono includere un numero di cellulare, un numero di rete fissa o un'applicazione su un dispositivo mobile.
 
 Prima che fosse disponibile l'estensione Server dei criteri di rete per Azure, i clienti che volevano implementare la verifica in due passaggi per ambienti Server dei criteri di rete e Multi-Factor Authentication integrati dovevano configurare e gestire un server Multi-Factor Authentication distinto nell'ambiente locale. Questo tipo di autenticazione viene offerta da Gateway Desktop remoto e server Azure Multi-Factor Authentication tramite RADIUS.
 
@@ -66,9 +66,9 @@ Quando l'estensione Server dei criteri di rete per Azure è integrata con Server
 1. Il server VPN riceve da un utente VPN una richiesta di autenticazione che include il nome utente e la password per la connessione a una risorsa, ad esempio una sessione Desktop remoto.
 2. Fungendo da client RADIUS, il server VPN converte la richiesta in un messaggio di *richiesta di accesso* RADIUS e invia il messaggio, con password crittografata, al server RADIUS in cui è installata l'estensione Server dei criteri di rete.
 3. La combinazione di nome utente e password viene verificata in Active Directory. Se il nome di utente o la password sono errati, il server RADIUS invia un messaggio di *rifiuto di accesso*.
-4. Se vengono soddisfatte tutte le condizioni specificate nella richiesta di connessione Server dei criteri di rete e nei criteri di rete, ad esempio le restrizioni relative all'ora del giorno o all'appartenenza a gruppi, l'estensione Server dei criteri di rete attiva una richiesta di autenticazione secondaria con Azure Multi-Factor Authentication.
-5. Azure Multi-Factor Authentication comunica con Azure Active Directory, recupera i dettagli dell'utente ed esegue l'autenticazione secondaria usando il metodo configurato dall'utente (chiamata a telefono cellulare, SMS o app per dispositivi mobili).
-6. Quando la richiesta di verifica di Multi-Factor Authentication ha esito positivo, Azure Multi-Factor Authentication comunica il risultato all'estensione Server dei criteri di rete.
+4. Se vengono soddisfatte tutte le condizioni specificate nella richiesta di connessione NPS e nei criteri di rete, ad esempio le restrizioni relative all'ora del giorno o all'appartenenza a un gruppo, l'estensione NPS attiva una richiesta di autenticazione secondaria con Azure AD Multi-Factor Authentication.
+5. Azure AD Multi-Factor Authentication comunica con Azure Active Directory, recupera i dettagli dell'utente ed esegue l'autenticazione secondaria usando il metodo configurato dall'utente (chiamata telefono cellulare, messaggio di testo o app per dispositivi mobili).
+6. Quando la richiesta di autenticazione a più fattori ha esito positivo, Azure AD Multi-Factor Authentication comunica il risultato all'estensione NPS.
 7. Dopo che il tentativo di connessione è stato autenticato e autorizzato, il Server dei criteri di rete in cui è installata l'estensione invia un messaggio di *autorizzazione di accesso* RADIUS al server VPN, ovvero al client RADIUS.
 8. All'utente viene concesso l'accesso alla porta virtuale nel server VPN e viene stabilito un tunnel VPN crittografato.
 
@@ -78,7 +78,7 @@ Questa sezione illustra in dettaglio i prerequisiti da soddisfare per poter inte
 
 * Infrastruttura VPN
 * Ruolo Servizi di accesso e criteri di rete
-* Licenza di Azure Multi-Factor Authentication
+* Licenza di Azure AD Multi-Factor Authentication
 * Software Windows Server
 * Librerie
 * Azure Active Directory con sincronizzazione con Active Directory locale
@@ -96,9 +96,9 @@ Servizi di accesso e criteri di rete offre le funzionalità di client e server R
 
 Per informazioni sull'installazione del servizio ruolo Servizi di accesso e criteri di rete di Windows Server 2012 o versioni successive, vedere [Install a NAP Health Policy Server](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)) (Installare un server criteri di integrità Protezione accesso alla rete). Lo strumento Protezione accesso alla rete è deprecato in Windows Server 2016. Per una descrizione delle procedure consigliate per Server dei criteri di rete, inclusi i consigli sull'installazione di Server dei criteri di rete in un controller di dominio, vedere [Best Practices for NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)) (Procedure consigliate per Server dei criteri di rete).
 
-### <a name="azure-mfa-license"></a>Licenza di Azure MFA
+### <a name="azure-ad-mfa-license"></a>Azure AD licenza multi-factor authentication
 
-È necessaria una licenza di Azure Multi-Factor Authentication, disponibile tramite una licenza autonoma di Azure AD Premium, Enterprise Mobility + Security o di Multi-Factor Authentication. Le licenze in base al consumo per Azure MFA, ad esempio le licenze per utente o per autenticazione, non sono compatibili con l'estensione Server dei criteri di rete. Per altre informazioni, vedere [Come ottenere Azure Multi-Factor Authentication](concept-mfa-licensing.md). A scopo di test, è possibile usare una sottoscrizione della versione di valutazione gratuita.
+Per Azure AD Multi-Factor Authentication è necessaria una licenza ed è disponibile tramite un Azure AD Premium, Enterprise Mobility + Security o una licenza autonoma di Multi-Factor Authentication. Le licenze basate sul consumo per Azure AD autenticazione a più fattori, ad esempio per utente o licenze per autenticazione, non sono compatibili con l'estensione NPS. Per ulteriori informazioni, vedere [come ottenere Azure AD multi-factor authentication](concept-mfa-licensing.md). A scopo di test, è possibile usare una sottoscrizione della versione di valutazione gratuita.
 
 ### <a name="windows-server-software"></a>Software Windows Server
 
@@ -228,9 +228,9 @@ In questa sezione si configura il server VPN per l'uso dell'autenticazione RADIU
 
 2. In Gestione server selezionare **Strumenti** e quindi scegliere **Routing e Accesso remoto**.
 
-3. Nella finestra **routing e accesso remoto** , fare clic con il pulsante destro del mouse su ** \<server name> (locale)**, quindi scegliere **Proprietà**.
+3. Nella finestra **routing e accesso remoto** , fare clic con il pulsante destro del mouse su **\<server name> (locale)**, quindi scegliere **Proprietà**.
 
-4. Nella finestra delle ** \<server name> Proprietà (locale)** Selezionare la scheda **sicurezza** .
+4. Nella finestra delle **\<server name> Proprietà (locale)** Selezionare la scheda **sicurezza** .
 
 5. Nella scheda **Sicurezza**, in **Provider di autenticazione** selezionare **Autenticazione RADIUS** e quindi **Configura**.
 
@@ -302,7 +302,7 @@ Per risolvere questi problemi, è consigliabile iniziare esaminando i log eventi
 
 ## <a name="configure-multi-factor-authentication"></a>Configurare Multi-Factor Authentication
 
-Per informazioni sulla configurazione degli utenti per Multi-Factor Authentication, vedere gli articoli [Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud](howto-mfa-getstarted.md#create-conditional-access-policy) e [Configurare l'account per la verifica in due passaggi](../user-help/multi-factor-authentication-end-user-first-time.md).
+Per assistenza nella configurazione degli utenti per Multi-Factor Authentication vedere gli articoli [pianificazione di un Azure ad basato sul cloud multi-factor authentication distribuzione](howto-mfa-getstarted.md#create-conditional-access-policy) e [configurazione dell'account per la verifica in due passaggi](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="install-and-configure-the-nps-extension"></a>Installare e configurare l'estensione Server dei criteri di rete
 
@@ -312,17 +312,17 @@ Questa sezione contiene istruzioni per configurare la rete VPN al fine di usare 
 > La chiave del registro di sistema REQUIRE_USER_MATCH distingue tra maiuscole e minuscole Tutti i valori devono essere impostati in formato MAIUSCOLo.
 >
 
-Dopo aver installato e configurato l'estensione Server dei criteri di rete, tutte le autenticazioni client basate su RADIUS elaborate da questo server devono usare Multi-Factor Authentication. Se non tutti gli utenti VPN vengono registrati in Azure Multi-Factor Authentication, è possibile eseguire una delle operazioni seguenti:
+Dopo aver installato e configurato l'estensione Server dei criteri di rete, tutte le autenticazioni client basate su RADIUS elaborate da questo server devono usare Multi-Factor Authentication. Se tutti gli utenti VPN non sono registrati in Azure AD Multi-Factor Authentication, è possibile eseguire una delle operazioni seguenti:
 
 * Configurare un altro server RADIUS per autenticare gli utenti che non sono configurati al fine di usare Multi-Factor Authentication.
 
-* Creare una voce del registro di sistema che consenta agli utenti che hanno inviato la richiesta di offrire un secondo fattore di autenticazione se sono registrati in Azure Multi-Factor Authentication.
+* Creare una voce del registro di sistema che consenta agli utenti con richiesta di fornire un secondo fattore di autenticazione se vengono registrati in Azure AD Multi-Factor Authentication.
 
-Creare un nuovo valore stringa denominato _REQUIRE_USER_MATCH in HKLM\SOFTWARE\Microsoft\AzureMfa_e impostare il valore su *true* o *false*.
+Creare un nuovo valore stringa denominato _REQUIRE_USER_MATCH in HKLM\SOFTWARE\Microsoft\AzureMfa_ e impostare il valore su *true* o *false*.
 
 ![Impostazioni della "Richiesta di corrispondenza utente"](./media/howto-mfa-nps-extension-vpn/image34.png)
 
-Se il valore è impostato su *true* o è vuoto, tutte le richieste di autenticazione sono soggette a una richiesta di autenticazione a più fattori. Se il valore è impostato su *false*, le richieste di autenticazione a più fattori vengono rilasciate solo agli utenti registrati in Azure multi-factor authentication. Usare l'impostazione *false* solo nei test o negli ambienti di produzione durante un periodo di onboarding.
+Se il valore è impostato su *true* o è vuoto, tutte le richieste di autenticazione sono soggette a una richiesta di autenticazione a più fattori. Se il valore è impostato su *false*, le richieste di autenticazione a più fattori vengono rilasciate solo agli utenti registrati in Azure ad multi-factor authentication. Usare l'impostazione *false* solo nei test o negli ambienti di produzione durante un periodo di onboarding.
 
 
 
@@ -332,7 +332,7 @@ Come parte della configurazione dell'estensione Server dei criteri di rete, è n
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale del tenant di Azure.
 1. Nel menu del portale di Azure selezionare **Azure Active Directory** oppure cercare e selezionare **Azure Active Directory** da qualsiasi pagina.
-1. Nella pagina **Panoramica** vengono visualizzate le *informazioni sul tenant* . Accanto all' *ID tenant*selezionare l'icona di **copia** , come illustrato nella schermata di esempio seguente:
+1. Nella pagina **Panoramica** vengono visualizzate le *informazioni sul tenant* . Accanto all' *ID tenant* selezionare l'icona di **copia** , come illustrato nella schermata di esempio seguente:
 
    ![Recupero dell'ID tenant dal portale di Azure](./media/howto-mfa-nps-extension-vpn/azure-active-directory-tenant-id-portal.png)
 
@@ -346,11 +346,11 @@ L'estensione Server dei criteri di rete deve essere installata in un server con 
 
 3. In Server dei criteri di rete fare doppio clic su **NpsExtnForAzureMfaInstaller.exe** e, se viene richiesto, selezionare **Esegui**.
 
-4. Nella finestra **NPS Extension For Azure MFA Setup** (Estensione Server dei criteri di rete per la configurazione di Azure MFA) leggere le condizioni di licenza del software, selezionare la casella di testo **Accetto i termini e le condizioni di licenza** e fare clic su **Installa**.
+4. Nella finestra di **configurazione dell'estensione NPS per Azure ad** autenticazione a più fattori, rivedere le condizioni di licenza software, selezionare la casella di controllo Accetto **i termini e le condizioni di licenza** e quindi selezionare **Installa**.
 
-    ![Finestra "NPS Extension For Azure MFA Setup" (Estensione Server dei criteri di rete per la configurazione di Azure MFA)](./media/howto-mfa-nps-extension-vpn/image36.png)
+    ![Finestra "estensione NPS per Azure AD configurazione dell'autenticazione a più fattori"](./media/howto-mfa-nps-extension-vpn/image36.png)
 
-5. Nella finestra **NPS Extension For Azure MFA Setup** (Estensione Server dei criteri di rete per la configurazione di Azure MFA) selezionare **Chiudi**.  
+5. Nella finestra di **configurazione dell'estensione NPS per Azure ad** autenticazione a **più** fattori fare clic su Chiudi.  
 
     ![Finestra di conferma "Installazione completata"](./media/howto-mfa-nps-extension-vpn/image37.png)
 
@@ -402,7 +402,7 @@ Per verificare la configurazione, è necessario stabilire una nuova connessione 
 
 ![Finestra delle Impostazioni VPN di Windows](./media/howto-mfa-nps-extension-vpn/image42.png)
 
-Se l'autenticazione con il metodo di verifica secondario configurato in precedenza in Azure MFA avviene correttamente, viene stabilita una connessione alla risorsa. Se invece l'autenticazione secondaria non ha esito positivo, l'accesso alla risorsa viene negato.
+Se si esegue correttamente l'autenticazione con il metodo di verifica secondario configurato in precedenza in Azure AD autenticazione a più fattori, si è connessi alla risorsa. Se invece l'autenticazione secondaria non ha esito positivo, l'accesso alla risorsa viene negato.
 
 Nell'esempio seguente viene usata l'app Microsoft Authenticator su un dispositivo Windows Phone per eseguire l'autenticazione secondaria:
 
@@ -424,7 +424,7 @@ Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
 
 ![Log di Server dei criteri di rete di esempio](./media/howto-mfa-nps-extension-vpn/image45.png)
 
-Nel server in cui è installata l'estensione Server dei criteri di rete per Azure Multi-Factor Authentication è possibile trovare i log applicazioni del Visualizzatore eventi specifici per l'estensione in *Registri applicazioni e servizi\Microsoft\AzureMfa*.
+Nel server in cui è stata installata l'estensione NPS per Azure AD Multi-Factor Authentication, è possibile trovare Visualizzatore eventi registri applicazioni specifici dell'estensione in *Application and Services servizi\microsoft\azuremfa*.
 
 ```powershell
 Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
@@ -436,15 +436,15 @@ Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
 
 Se la configurazione non funziona come previsto, iniziare la risoluzione dei problemi verificando che l'utente sia configurato per l'uso di Azure MFA. Chiedere all'utente di connettersi al [portale di Azure](https://portal.azure.com). Se viene richiesta l'autenticazione secondaria ed possibile eseguire correttamente l'autenticazione, è possibile eliminare una configurazione errata di Multi-Factor Authentication come un problema.
 
-Se Multi-Factor Authentication funziona correttamente, esaminare i log del Visualizzatore eventi pertinenti. I log includo i log operativi del gateway e quelli relativi a eventi di sicurezza, nonché i log di Azure MFA illustrati nella sezione precedente.
+Se Multi-Factor Authentication funziona correttamente, esaminare i log del Visualizzatore eventi pertinenti. I log includono l'evento di sicurezza, il gateway operativo e i log di Multi-Factor Authentication Azure AD descritti nella sezione precedente.
 
 Di seguito è riportato un esempio di registro di protezione che consente di visualizzare un evento di accesso non riuscito, ID evento 6273:
 
 ![Registro di protezione che mostra un evento di accesso non riuscito](./media/howto-mfa-nps-extension-vpn/image47.png)
 
-Un evento correlato dal log di Azure Multi-Factor Authentication è illustrato di seguito:
+Di seguito è riportato un evento correlato da Azure AD Multi-Factor Authentication log:
 
-![Log di Azure Multi-Factor Authentication](./media/howto-mfa-nps-extension-vpn/image48.png)
+![Log di Multi-Factor Authentication Azure AD](./media/howto-mfa-nps-extension-vpn/image48.png)
 
 Per la risoluzione dei problemi avanzata, consultare i file di log in formato database di Server dei criteri di rete nella posizione in cui è installato il servizio Server dei criteri di rete. I file di log vengono creati nella cartella _%SystemRoot%\System32\Logs_ come file di testo con valori delimitati da virgole. Per una descrizione dei file di log, vedere [Interpret NPS Database Format Log Files](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)) (Interpretare i file di log in formato database di Server dei criteri di rete).
 
@@ -456,11 +456,11 @@ Per altre opzioni di risoluzione dei problemi, è possibile usare uno strumento 
 
 ![Visualizzazione del traffico filtrato in Microsoft Message Analyzer](./media/howto-mfa-nps-extension-vpn/image50.png)
 
-Per altre informazioni, vedere [Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication](howto-mfa-nps-extension.md).
+Per ulteriori informazioni, vedere [integrare l'infrastruttura NPS esistente con Azure AD multi-factor authentication](howto-mfa-nps-extension.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Ottenere Azure Multi-Factor Authentication](concept-mfa-licensing.md)
+[Ottenere Azure AD Multi-Factor Authentication](concept-mfa-licensing.md)
 
 [Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS](howto-mfaserver-nps-rdg.md)
 
