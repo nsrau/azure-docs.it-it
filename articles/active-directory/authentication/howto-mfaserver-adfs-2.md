@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dc11faa502e5a6d8ede761d35d1ba24305b7688
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 13cfed6bf378ff9dacc4b6446cdfc246a87949bb
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964180"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838792"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configurare il server Azure Multi-Factor Authentication per lavorare con AD FS 2.0
 
@@ -25,11 +25,11 @@ Questo articolo è rivolto alle organizzazioni che vengono federate con Azure Ac
 In questa documentazione viene illustrato l'utilizzo di Server Azure multi-Factor Authentication con ADFS 2.0. Per altre informazioni su AD FS, vedere [Protezione delle risorse cloud e locali tramite il server Azure Multi-Factor Authentication con Windows Server 2012 R2 AD FS](howto-mfaserver-adfs-2012.md).
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offre più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che vogliono richiedere l'autenticazione a più fattori durante gli eventi di accesso devono usare Azure Multi-Factor Authentication basato sul cloud.
+> A partire dal 1 ° luglio 2019, Microsoft non offre più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che vogliono richiedere l'autenticazione a più fattori durante gli eventi di accesso devono usare Multi-Factor Authentication di Azure AD basati sul cloud.
 >
-> Per iniziare a usare l'autenticazione a più fattori basata sul cloud, vedere [esercitazione: proteggere gli eventi di accesso utente con multi-factor authentication di Azure](tutorial-enable-azure-mfa.md).
+> Per iniziare a usare l'autenticazione a più fattori basata sul cloud, vedere [esercitazione: proteggere gli eventi di accesso utente con Azure AD multi-factor authentication](tutorial-enable-azure-mfa.md).
 >
-> Se si usa l'autenticazione a più fattori basata sul cloud, vedere [proteggere le risorse cloud con multi-factor authentication e ad FS di Azure](howto-mfa-adfs.md).
+> Se si usa l'autenticazione a più fattori basata sul cloud, vedere [proteggere le risorse cloud con Azure AD multi-factor authentication e ad FS](howto-mfa-adfs.md).
 >
 > I clienti esistenti che hanno attivato il server multi-factor authentication prima del 1 ° luglio 2019 possono scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
@@ -63,7 +63,7 @@ Per proteggere AD FS 2.0 con un proxy, installare il server Azure Multi-Factor A
 
 12. Poiché il server proxy AD FS non è destinato a essere aggiunto al dominio, è possibile usare LDAP per connettersi al controller di dominio per l'importazione utente e la preautenticazione. Nella finestra di dialogo sito Web avanzato Form-Based fare clic sulla scheda **autenticazione primaria** e selezionare **binding LDAP** per il tipo di autenticazione di pre-autenticazione.
 13. Al termine, fare clic su **OK** per tornare alla finestra di dialogo Aggiungi sito Web basato su form.
-14. Fare clic su **OK** per chiudere la finestra di dialogo.
+14. Scegliere **OK** per chiudere la finestra di dialogo.
 15. Dopo aver rilevato o immesso le variabili di pagina e URL, i dati del sito Web vengono visualizzati nel pannello Basata su form.
 16. Fare clic sulla scheda **modulo nativo** e selezionare il server, il sito Web in cui viene eseguito il proxy di ad FS (ad esempio "sito Web predefinito") o l'applicazione proxy ad FS (ad esempio "ls" in "ADFS") per abilitare il plug-in di IIS al livello desiderato.
 17. Scegliere la casella **Abilita autenticazione IIS** nella parte superiore della schermata.

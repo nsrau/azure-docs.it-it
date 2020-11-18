@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 261a7033737e0d7be9974ca80ca6844b50a19973
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9959ce1c88fb595dedd4174a9185f801168ecb0d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968617"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838332"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS
 
@@ -27,9 +27,9 @@ Dato che l'autenticazione di Windows per Servizi terminal non è supportata per 
 Installare il server Multi-Factor Authentication in un server separato, che trasmetterà tramite proxy la richiesta RADIUS al server dei criteri di rete nel server Gateway Desktop remoto. Dopo aver convalidato il nome utente e la password, il server dei criteri di rete restituisce una risposta al server Multi-Factor Authentication. Il server MFA esegue quindi il secondo fattore dell'autenticazione e restituisce un risultato al gateway.
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offre più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che vogliono richiedere l'autenticazione a più fattori durante gli eventi di accesso devono usare Azure Multi-Factor Authentication basato sul cloud.
+> A partire dal 1 ° luglio 2019, Microsoft non offre più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che vogliono richiedere l'autenticazione a più fattori durante gli eventi di accesso devono usare Multi-Factor Authentication di Azure AD basati sul cloud.
 >
-> Per iniziare a usare l'autenticazione a più fattori basata sul cloud, vedere [esercitazione: proteggere gli eventi di accesso utente con multi-factor authentication di Azure](tutorial-enable-azure-mfa.md).
+> Per iniziare a usare l'autenticazione a più fattori basata sul cloud, vedere [esercitazione: proteggere gli eventi di accesso utente con Azure AD multi-factor authentication](tutorial-enable-azure-mfa.md).
 >
 > Se si usa l'autenticazione a più fattori basata sul cloud, vedere come eseguire [l'integrazione con l'autenticazione RADIUS per Azure multi-factor authentication](howto-mfa-nps-extension.md).
 >

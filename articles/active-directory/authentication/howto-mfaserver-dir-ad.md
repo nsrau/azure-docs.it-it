@@ -12,21 +12,21 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9d8970387982e293d3c8495079e7529fac2ccaa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2ab61fb57f98f62f2e8e5ca697bb5ef8301cada2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966934"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838502"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integrazione di directory tra il server Azure MFA e Active Directory
 
 Usare la sezione Integrazione directory del server Azure MFA per l'integrazione con Active Directory o un'altra directory LDAP. È possibile configurare attributi corrispondenti allo schema di directory e impostare la sincronizzazione automatica degli utenti.
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offre più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che vogliono richiedere l'autenticazione a più fattori durante gli eventi di accesso devono usare Azure Multi-Factor Authentication basato sul cloud.
+> A partire dal 1 ° luglio 2019, Microsoft non offre più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che vogliono richiedere l'autenticazione a più fattori durante gli eventi di accesso devono usare Multi-Factor Authentication di Azure AD basati sul cloud.
 >
-> Per iniziare a usare l'autenticazione a più fattori basata sul cloud, vedere [esercitazione: proteggere gli eventi di accesso utente con multi-factor authentication di Azure](tutorial-enable-azure-mfa.md).
+> Per iniziare a usare l'autenticazione a più fattori basata sul cloud, vedere [esercitazione: proteggere gli eventi di accesso utente con Azure AD multi-factor authentication](tutorial-enable-azure-mfa.md).
 >
 > I clienti esistenti che hanno attivato il server multi-factor authentication prima del 1 ° luglio 2019 possono scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
@@ -72,7 +72,7 @@ Azure Multi-Factor Authentication offre le tre opzioni di filtro seguenti:
 * **Filtro gruppo di sicurezza** : specificare i criteri di filtro usati per qualificare record gruppi di sicurezza quando si esegue una ricerca di directory.  Per Active Directory e ADAM, in genere si usa (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)).  Per altre directory LDAP, usare criteri di filtro che qualificano ogni tipo di oggetto gruppo di sicurezza, a seconda dello schema di directory.  <br>Nota: se viene lasciato vuoto, per impostazione predefinita viene usato (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)).
 * **Filtro utente** : specificare i criteri di filtro usati per qualificare record utenti quando si esegue una ricerca di directory.  Per Active Directory e ADAM, in genere si usa (&(objectClass=user)(objectCategory=person)).  Per altre directory LDAP, usare (objectClass=inetOrgPerson) o un criterio simile, a seconda dello scherma di directory. <br>Nota: se viene lasciato vuoto, per impostazione predefinita viene usato (&(objectCategory=person)(objectClass=user)).
 
-## <a name="attributes"></a>Attributes
+## <a name="attributes"></a>Attributi
 
 È possibile personalizzare gli attributi per una directory specifica in base alle necessità.  Questo permette di aggiungere attributi personalizzati e perfezionare la sincronizzazione per limitarla solo agli attributi necessari. Usare il nome dell'attributo come definito nello schema di directory per il valore di ogni campo attributo. La tabella seguente contiene informazioni aggiuntive su ognuna delle funzionalità.
 

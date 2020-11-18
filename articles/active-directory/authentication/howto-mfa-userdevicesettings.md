@@ -1,6 +1,6 @@
 ---
-title: Gestire i metodi di autenticazione per Azure Multi-Factor Authentication-Azure Active Directory
-description: Informazioni su come configurare Azure Active Directory impostazioni utente per Azure Multi-Factor Authentication
+title: Gestire i metodi di autenticazione per Azure AD Multi-Factor Authentication-Azure Active Directory
+description: Informazioni su come configurare Azure Active Directory impostazioni utente per Azure AD Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6309ef6793858051ceaf3c3b33edb9f830b26710
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 1117b5194dae92a8025594ed71fc629670d875cf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378046"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838928"
 ---
-# <a name="manage-user-authentication-methods-for-azure-multi-factor-authentication"></a>Gestire i metodi di autenticazione utente per Azure Multi-Factor Authentication
+# <a name="manage-user-authentication-methods-for-azure-ad-multi-factor-authentication"></a>Gestire i metodi di autenticazione utente per Azure AD Multi-Factor Authentication
 
 Gli utenti in Azure AD hanno due set distinti di informazioni di contatto:  
 
 - Informazioni di contatto del profilo pubblico, che viene gestito nel profilo utente e visibile ai membri dell'organizzazione. Per gli utenti sincronizzati da Active Directory locali, queste informazioni vengono gestite in Active Directory Domain Services Windows Server locale.
 - Metodi di autenticazione, che vengono sempre mantenuti privati e utilizzati solo per l'autenticazione, incluso multi-factor authentication. Gli amministratori possono gestire questi metodi nel pannello del metodo di autenticazione di un utente e gli utenti possono gestire i metodi nella pagina delle informazioni di sicurezza dell'account.
 
-Quando si gestiscono i metodi di Azure Multi-Factor Authentication per gli utenti, gli amministratori dell'autenticazione possono: 
+Quando si gestiscono Azure AD metodi Multi-Factor Authentication per gli utenti, gli amministratori dell'autenticazione possono: 
 
 1. Aggiungere i metodi di autenticazione per un utente specifico, inclusi i numeri di telefono usati per l'autenticazione a più fattori.
 1. Reimposta la password di un utente.
@@ -111,11 +111,11 @@ Per eliminare le password dell'app di un utente, attenersi alla procedura seguen
 1. Sul lato sinistro selezionare **Azure Active Directory**  >  **utenti**  >  **tutti gli utenti**.
 1. Selezionare **Multi-Factor Authentication**. Potrebbe essere necessario scorrere verso destra per visualizzare l'opzione del menu. Selezionare la schermata di esempio seguente per visualizzare la finestra di portale di Azure completa e il percorso del menu: [ ![ selezionare multi-factor authentication dalla finestra utenti in Azure ad.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Selezionare la casella accanto a uno o più utenti che si desidera gestire. A destra viene visualizzato un elenco di opzioni di passaggio rapido.
-1. Selezionare **Gestisci impostazioni utente** , quindi selezionare la casella **Elimina tutte le password dell'app esistenti generate dagli utenti selezionati** , come illustrato nell'esempio seguente: ![ eliminare tutte le password dell'app esistenti](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
-1. Selezionare **Save (Salva** ) e quindi **Close (Chiudi** ).
+1. Selezionare **Gestisci impostazioni utente**, quindi selezionare la casella **Elimina tutte le password dell'app esistenti generate dagli utenti selezionati**, come illustrato nell'esempio seguente: ![ eliminare tutte le password dell'app esistenti](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+1. Selezionare **Save (Salva**) e quindi **Close (Chiudi**).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato illustrato come configurare le singole impostazioni utente. Per configurare le impostazioni complessive di Azure Multi-Factor Authentication Service, vedere [configurare le impostazioni di azure multi-factor authentication](howto-mfa-mfasettings.md).
+In questo articolo è stato illustrato come configurare le singole impostazioni utente. Per configurare le impostazioni generali del servizio Multi-Factor Authentication Azure AD, vedere [configurare le impostazioni di multi-factor authentication di Azure ad](howto-mfa-mfasettings.md).
 
-Se gli utenti necessitano di assistenza, vedere il [manuale dell'utente per Azure multi-factor authentication](../user-help/multi-factor-authentication-end-user-first-time.md).
+Se gli utenti necessitano di assistenza, vedere la [Guida dell'utente per Azure AD multi-factor authentication](../user-help/multi-factor-authentication-end-user-first-time.md).

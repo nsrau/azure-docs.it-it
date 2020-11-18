@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5361460f7816dd4a3b2b53deecd9d360f98ad1d3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 74e4ca34a69b121ce5b92ad52125dc317e3aea43
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145363"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837669"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creazione di un criterio di accesso condizionale
 
@@ -101,7 +101,7 @@ Blocca l'accesso consente di bloccare l'accesso in base alle assegnazioni specif
 
 Il controllo Grant può attivare l'applicazione di uno o più controlli. 
 
-- Richiedi autenticazione a più fattori (Multi-Factor Authentication di Azure)
+- Richiedi autenticazione a più fattori (Azure AD Multi-Factor Authentication)
 - Richiedi che il dispositivo sia contrassegnato come conforme (Intune)
 - Richiedi dispositivo aggiunto ad Azure AD ibrido
 - Richiedere app client approvata
@@ -150,7 +150,7 @@ L'articolo [criteri di accesso condizionale comuni](concept-conditional-access-p
 
 [Simulare il comportamento di accesso usando lo strumento What If per l'accesso condizionale](troubleshoot-conditional-access-what-if.md)
 
-[Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud](../authentication/howto-mfa-getstarted.md)
+[Pianificazione di una distribuzione di Multi-Factor Authentication Azure AD basata sul cloud](../authentication/howto-mfa-getstarted.md)
 
 [Gestione della conformità dei dispositivi con Intune](/intune/device-compliance-get-started)
 

@@ -11,19 +11,19 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee0c5093fc1dab69e0502b8ed1efe42fa63f1eb9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 06c37eaf63b79b171e5a21d807262cfb359d416c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363726"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838078"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Pianificare una distribuzione della reimpostazione della password self-service di Azure Active Directory
 
 > [!IMPORTANT]
 > Questo piano di distribuzione illustra le linee guida e le procedure consigliate per la distribuzione della reimpostazione della password self-service di Azure AD.
 >
-> **Se si è un utente finale ed è necessario tornare al proprio account, passare a [https://aka.ms/sspr](https://aka.ms/sspr) **.
+> **Se si è un utente finale ed è necessario tornare al proprio account, passare a [https://aka.ms/sspr](https://aka.ms/sspr)**.
 
 La [reimpostazione della password self-service](https://www.youtube.com/watch?v=tnb2Qf4hTP8) è una funzionalità di Azure Active Directory (AD) che consente agli utenti di reimpostare le proprie password senza l'assistenza del personale IT. Gli utenti possono sbloccare l'account rapidamente e continuare a lavorare indipendentemente da dove si trovano o dall'ora del giorno. Consentendo ai dipendenti di sbloccare autonomamente l'account, l'organizzazione può ridurre il tempo non produttivo e i costi di supporto elevati legati ai problemi più comuni correlati alle password.
 
@@ -115,7 +115,7 @@ Prima di distribuire la reimpostazione della password self-service, è possibile
 
 Microsoft consiglia alle organizzazioni di abilitare l'esperienza di registrazione combinata per la reimpostazione della password self-service e l'autenticazione a più fattori. Quando si abilita questa esperienza di registrazione combinata, gli utenti devono selezionare le informazioni di registrazione una sola volta per abilitare entrambe le funzionalità.
 
-L'esperienza di registrazione combinata non richiede alle organizzazioni di abilitare sia la reimpostazione della password self-service che Azure Multi-Factor Authentication. La registrazione combinata consente alle organizzazioni di migliorare l'esperienza utente. Per altre informazioni, vedere [Panoramica della registrazione delle informazioni di sicurezza combinata](concept-registration-mfa-sspr-combined.md)
+L'esperienza di registrazione combinata non richiede che le organizzazioni consentano l'abilitazione sia di SSPR che di Azure AD Multi-Factor Authentication. La registrazione combinata consente alle organizzazioni di migliorare l'esperienza utente. Per altre informazioni, vedere [Panoramica della registrazione delle informazioni di sicurezza combinata](concept-registration-mfa-sspr-combined.md)
 
 ## <a name="plan-the-deployment-project"></a>Pianificare il progetto di distribuzione
 
@@ -321,7 +321,7 @@ I log di controllo per la registrazione e la reimpostazione della password sono 
 
 ### <a name="authentication-methods--usage-and-insights"></a>Metodi di autenticazione - Utilizzo e informazioni dettagliate
 
-La pagina [Utilizzo e informazioni dettagliate](./howto-authentication-methods-usage-insights.md) consente di comprendere come funzionano i metodi di autenticazione per funzionalità come Azure MFA e la reimpostazione della password self-service nell'organizzazione. Questa funzionalità di creazione di report consente all'organizzazione di capire quali metodi registrare e come usarli.
+L' [utilizzo e le informazioni dettagliate](./howto-authentication-methods-usage-insights.md) consentono di comprendere in che modo i metodi di autenticazione per le funzionalità come Azure ad multi-factor authentication e SSPR sono in esecuzione nell'organizzazione. Questa funzionalità di creazione di report consente all'organizzazione di capire quali metodi registrare e come usarli.
 
 ### <a name="troubleshoot"></a>Risolvere problemi
 

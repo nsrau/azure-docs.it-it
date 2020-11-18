@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e44cb38435ca86ad7cd4709d5e99f5cf41fcf91
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 20b51cc747d3a24b1437eda988397a2e999f6ab3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366327"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837482"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Pianificare una distribuzione dell'accesso condizionale
 
@@ -73,7 +73,7 @@ Le seguenti risorse possono essere utili per acquisire familiarità con l'access
 * [Distribuzione dell'accesso condizionale](https://youtu.be/c_izIRNJNuk)
 * [Distribuzione dei criteri dell'accesso condizionale agli utenti finali](https://youtu.be/0_Fze7Zpyvc)
 * [Accesso condizionale con controlli dispositivo](https://youtu.be/NcONUf-jeS4)
-* [Accesso condizionale con Microsoft Azure Multi-Factor Authentication](https://youtu.be/Tbc-SU97G-w)
+* [Accesso condizionale con Azure AD multi-factor authentication](https://youtu.be/Tbc-SU97G-w)
 * [Accesso condizionale in Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc)
 
 

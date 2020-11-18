@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da68e21aa279ea2503a21ce35eee52f8e49d1434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81f4407ee7721332a4143952d1720151bb70d8c9
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049095"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837539"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Accesso condizionale: protezione della registrazione delle informazioni di sicurezza
 
-È ora possibile proteggere i tempi e il modo in cui gli utenti eseguono la registrazione per Azure Multi-Factor Authentication e per la reimpostazione della password self-service con le azioni dell'utente nei criteri di accesso condizionale. Questa funzionalità in anteprima è disponibile per le organizzazioni che hanno abilitato l'[anteprima della registrazione combinata](../authentication/concept-registration-mfa-sspr-combined.md). Questa funzionalità può essere abilitata nelle organizzazioni che vogliono usare condizioni come un percorso di rete attendibile per limitare l'accesso per la registrazione per Azure Multi-Factor Authentication e la reimpostazione della password self-service. Per altre informazioni sulle condizioni utilizzabili, vedere l'articolo [Accesso condizionale: condizioni](concept-conditional-access-conditions.md).
+È ora possibile proteggere quando e come gli utenti si registrano per Azure AD Multi-Factor Authentication e la reimpostazione della password self-service con le azioni dell'utente nei criteri di accesso condizionale. Questa funzionalità in anteprima è disponibile per le organizzazioni che hanno abilitato l'[anteprima della registrazione combinata](../authentication/concept-registration-mfa-sspr-combined.md). Questa funzionalità può essere abilitata nelle organizzazioni in cui si desidera utilizzare condizioni come il percorso di rete attendibile per limitare l'accesso per la registrazione Azure AD Multi-Factor Authentication e la reimpostazione della password self-service (SSPR). Per altre informazioni sulle condizioni utilizzabili, vedere l'articolo [Accesso condizionale: condizioni](concept-conditional-access-conditions.md).
 
 ## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Creare criteri per richiedere la registrazione da un percorso attendibile
 

@@ -1,6 +1,6 @@
 ---
-title: Dettagli dell'evento di accesso per Azure Multi-Factor Authentication - Azure Active Directory
-description: Informazioni su come visualizzare l'attività di accesso per gli eventi e i messaggi di stato di Azure Multi-Factor Authentication.
+title: Dettagli dell'evento di accesso per Azure AD Multi-Factor Authentication-Azure Active Directory
+description: Informazioni su come visualizzare l'attività di accesso per Azure AD eventi Multi-Factor Authentication e i messaggi di stato.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 676b8b6fbb56536ec3a49100f5de1419ac417bb6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6a103f1f518a838e0746d363ee613dd1625b0bd4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964146"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838979"
 ---
-# <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Usare il report delle attività di accesso per esaminare gli eventi di Azure Multi-Factor Authentication
+# <a name="use-the-sign-ins-report-to-review-azure-ad-multi-factor-authentication-events"></a>Usare il report accessi per esaminare Azure AD Multi-Factor Authentication eventi
 
-Per esaminare e comprendere gli eventi di Azure Multi-Factor Authentication, è possibile usare il report delle attività di accesso di Azure Active Directory (Azure AD). In tale report sono contenuti i dettagli relativi all'autenticazione per gli eventi quando a un utente viene richiesta l'autenticazione a più fattori e quando sono in uso criteri di accesso condizionale. Per informazioni dettagliate sul report delle attività di accesso, vedere [Panoramica dei report sulle attività di accesso in Azure AD](../reports-monitoring/concept-sign-ins.md).
+Per esaminare e comprendere Azure AD eventi Multi-Factor Authentication, è possibile usare il report degli accessi Azure Active Directory (Azure AD). In tale report sono contenuti i dettagli relativi all'autenticazione per gli eventi quando a un utente viene richiesta l'autenticazione a più fattori e quando sono in uso criteri di accesso condizionale. Per informazioni dettagliate sul report delle attività di accesso, vedere [Panoramica dei report sulle attività di accesso in Azure AD](../reports-monitoring/concept-sign-ins.md).
 
 Questo articolo illustra come visualizzare il report delle attività di accesso di Azure AD nel portale di Azure e quindi il modulo MSOnline v1 PowerShell.
 
@@ -121,34 +121,34 @@ La tabella seguente consente di risolvere i problemi relativi agli eventi usando
 
 | Risultato chiamata | Descrizione | Descrizione generale |
 | --- | --- | --- |
-| SUCCESS_WITH_PIN | PIN immesso | L'utente ha immesso un PIN.  Se l'autenticazione ha esito positivo, l'utente ha immesso il PIN corretto.  Se l'autenticazione viene negata, è stato immesso un PIN errato o l'utente è impostato sulla modalità standard. |
+| SUCCESS_WITH_PIN | PIN immesso | L'utente ha immesso un PIN.   Se l'autenticazione ha esito positivo, l'utente ha immesso il PIN corretto.   Se l'autenticazione viene negata, è stato immesso un PIN errato o l'utente è impostato sulla modalità standard. |
 | SUCCESS_NO_PIN | Immesso solo il carattere # | Se l'utente è impostato in modalità PIN e l'autenticazione viene negata, l'utente non ha immesso il PIN e ha immesso solo #.  Se l'utente è impostato in modalità Standard e l'autenticazione ha esito positivo, l'utente ha immesso solo #, come richiesto in modalità Standard. |
-| SUCCESS_WITH_PIN_BUT_TIMEOUT | # non premuto dopo l'immissione | L'utente non ha inviato le cifre DTMF poiché # non è stato immesso.  Le altre cifre immesse non vengono inviate a meno che non venga immesso # che indica il completamento dell'inserimento. |
-|SUCCESS_NO_PIN_BUT_TIMEOUT | Nessun input telefono - Timeout | La chiamata è stata risposta, ma non c'è stata alcuna risposta vocale.  Indica in genere che la risposta proveniva dalla segreteria telefonica. |
+| SUCCESS_WITH_PIN_BUT_TIMEOUT | # non premuto dopo l'immissione | L'utente non ha inviato le cifre DTMF poiché # non è stato immesso.   Le altre cifre immesse non vengono inviate a meno che non venga immesso # che indica il completamento dell'inserimento. |
+|SUCCESS_NO_PIN_BUT_TIMEOUT | Nessun input telefono - Timeout | La chiamata è stata risposta, ma non c'è stata alcuna risposta vocale.   Indica in genere che la risposta proveniva dalla segreteria telefonica. |
 | SUCCESS_PIN_EXPIRED | PIN scaduto e non modificato | Il PIN dell'utente è scaduto ed è stato richiesto di modificarlo, ma non è stata completata la modifica del PIN. |
 | SUCCESS_USED_CACHE | Cache usata | L'autenticazione è riuscita senza una chiamata dell'autenticazione a più fattori perché per lo stesso nome utente un'autenticazione precedente è riuscita nell'intervallo di tempo della cache configurato. |
-| SUCCESS_BYPASSED_AUTH | Autenticazione ignorata | L'autenticazione ha avuto esito positivo mediante un bypass monouso avviato per l'utente.  Per ulteriori informazioni sul bypass, vedere Report cronologia utenti bypass. |
+| SUCCESS_BYPASSED_AUTH | Autenticazione ignorata | L'autenticazione ha avuto esito positivo mediante un bypass monouso avviato per l'utente.  Per ulteriori informazioni sul bypass, vedere Report cronologia utenti bypass. |
 | SUCCESS_USED_IP_BASED_CACHE | Cache basata su IP usata | L'autenticazione è riuscita senza una chiamata all'autenticazione a più fattori perché per lo stesso nome utente, tipo di autenticazione, nome dell'applicazione e IP un'autenticazione precedente è riuscita nell'intervallo di tempo della cache configurato. |
 | SUCCESS_USED_APP_BASED_CACHE | Cache basata su app usata | L'autenticazione è riuscita senza una chiamata all'autenticazione a più fattori perché per lo stesso nome utente, tipo di autenticazione e nome dell'applicazione un'autenticazione precedente è riuscita nell'intervallo di tempo della cache configurato. |
-| SUCCESS_INVALID_INPUT | Input telefono non valido | La risposta inviata dal telefono non è valida.  Potrebbe provenire da un fax o un modem oppure l'utente potrebbe aver immesso * come parte del PIN. |
-| SUCCESS_USER_BLOCKED | L'utente è bloccato | Il numero di telefono dell'utente è bloccato.  Un numero bloccato può essere inizializzato dall'utente durante una chiamata di autenticazione o da un amministratore che usa il portale di Azure. <br> NOTA:   un numero bloccato è anche una conseguenza collaterale di un avviso di illecito. |
+| SUCCESS_INVALID_INPUT | Input telefono non valido | La risposta inviata dal telefono non è valida.   Potrebbe provenire da un fax o un modem oppure l'utente potrebbe aver immesso * come parte del PIN. |
+| SUCCESS_USER_BLOCKED | L'utente è bloccato | Il numero di telefono dell'utente è bloccato.   Un numero bloccato può essere inizializzato dall'utente durante una chiamata di autenticazione o da un amministratore che usa il portale di Azure. <br> NOTA:   un numero bloccato è anche una conseguenza collaterale di un avviso di illecito. |
 | SUCCESS_SMS_AUTHENTICATED | SMS autenticato | Per SMS bidirezionale, l'utente ha risposto correttamente con il passcode monouso (OTP) oppure OTP + PIN. |
-| SUCCESS_SMS_SENT | SMS inviato | Per SMS, è stato inviato il messaggio SMS contenente il passcode monouso (OTP).  L'utente immette l'OTP oppure OTP + PIN nell'applicazione per completare l'autenticazione. |
+| SUCCESS_SMS_SENT | SMS inviato | Per SMS, è stato inviato il messaggio SMS contenente il passcode monouso (OTP).   L'utente immette l'OTP oppure OTP + PIN nell'applicazione per completare l'autenticazione. |
 | SUCCESS_PHONE_APP_AUTHENTICATED | App mobile autenticata | L'utente ha eseguito l'autenticazione tramite l'app mobile. |
 | SUCCESS_OATH_CODE_PENDING | Codice OATH in sospeso | All'utente è stato chiesto il codice OATH, ma non è stata fornita una risposta. |
 | SUCCESS_OATH_CODE_VERIFIED | Codice OATH verificato | L'utente ha immesso un codice OATH valido quando richiesto. |
 | SUCCESS_FALLBACK_OATH_CODE_VERIFIED | Codice OATH di fallback verificato | L'autenticazione è stata negata quando è stato usato il metodo primario di Multi-Factor Authentication e quindi l'utente ha fornito un codice OATH per il fallback. |
 | SUCCESS_FALLBACK_SECURITY_QUESTIONS_ANSWERED | Domande di sicurezza di fallback risolte | L'autenticazione è stata negata quando è stato usato il metodo primario di Multi-Factor Authentication e quindi l'utente ha risposto correttamente alle domande di sicurezza per il fallback. |
-| FAILED_PHONE_BUSY | Autenticazione già in corso | È già incorso un'autenticazione per questo utente.  Questo è spesso causato dai client RADIUS che inviano più richieste di autenticazione durante lo stesso accesso. |
-| CONFIG_ISSUE | Telefono irraggiungibile | La chiamata è stata tentata, ma non è stato possibile completarla o non è stata ricevuta alcuna risposta.  Ciò include il segnale di occupato, il segnale di occupato veloce (disconnesso), un segnale a tre toni (numero non più in servizio), timeout durante lo squillo e così via. |
-| FAILED_INVALID_PHONENUMBER | Formato numero di telefono non valido | Il formato del numero di telefono non è valido.  I numeri di telefono devono essere numerici e devono essere costituiti da 10 cifre per il codice paese +1 (Stati Uniti e Canada). |
+| FAILED_PHONE_BUSY | Autenticazione già in corso | È già incorso un'autenticazione per questo utente.   Questo è spesso causato dai client RADIUS che inviano più richieste di autenticazione durante lo stesso accesso. |
+| CONFIG_ISSUE | Telefono irraggiungibile | La chiamata è stata tentata, ma non è stato possibile completarla o non è stata ricevuta alcuna risposta.   Ciò include il segnale di occupato, il segnale di occupato veloce (disconnesso), un segnale a tre toni (numero non più in servizio), timeout durante lo squillo e così via. |
+| FAILED_INVALID_PHONENUMBER | Formato numero di telefono non valido | Il formato del numero di telefono non è valido.   I numeri di telefono devono essere numerici e devono essere costituiti da 10 cifre per il codice paese +1 (Stati Uniti e Canada). |
 | FAILED_USER_HUNGUP_ON_US | Chiamata disconnessa da utente | L'utente ha risposto al telefono, ma ha riappeso senza premere alcun pulsante. |
-| FAILED_INVALID_EXTENSION | Interno non valido | L'interno contiene caratteri non validi.  Sono consentiti solo numeri, virgole, * e #.  È inoltre possibile usare un prefisso @. |
+| FAILED_INVALID_EXTENSION | Interno non valido | L'interno contiene caratteri non validi.   Sono consentiti solo numeri, virgole, * e #.   È inoltre possibile usare un prefisso @. |
 | FAILED_FRAUD_CODE_ENTERED | Codice illecito immesso | L'utente ha scelto di segnalare un illecito durante la chiamata, pertanto l'autenticazione è stata negata e il numero di telefono bloccato.| 
 | FAILED_SERVER_ERROR | Impossibile effettuare chiamate | Il servizio Multi-Factor Authentication non è stato in grado di effettuare la chiamata. |
-| FAILED_SMS_NOT_SENT | Impossibile inviare SMS. | Impossibile inviare il messaggio SMS.  Autenticazione negata. |
-| FAILED_SMS_OTP_INCORRECT | OTP SMS non corretto | L'utente ha immesso un passcode monouso (OTP) errato dal messaggio SMS ricevuto.  Autenticazione negata. |
-| FAILED_SMS_OTP_PIN_INCORRECT | OTP + PIN SMS non corretti | L'utente ha immesso un passcode monouso (OTP) errato e/o un PIN utente errato.  Autenticazione negata. |
+| FAILED_SMS_NOT_SENT | Impossibile inviare SMS. | Impossibile inviare il messaggio SMS.   Autenticazione negata. |
+| FAILED_SMS_OTP_INCORRECT | OTP SMS non corretto | L'utente ha immesso un passcode monouso (OTP) errato dal messaggio SMS ricevuto.   Autenticazione negata. |
+| FAILED_SMS_OTP_PIN_INCORRECT | OTP + PIN SMS non corretti | L'utente ha immesso un passcode monouso (OTP) errato e/o un PIN utente errato.   Autenticazione negata. |
 | FAILED_SMS_MAX_OTP_RETRY_REACHED | È stato superato il numero massimo di tentativi OTP per SMS | L'utente ha superato il numero massimo di tentativi di inserire un passcode monouso. |
 | FAILED_PHONE_APP_DENIED | App mobile negata | L'utente ha negato l'autenticazione nell'app mobile facendo clic sul pulsante Nega. |
 | FAILED_PHONE_APP_INVALID_PIN | PIN app mobile non valido | L'utente ha immesso un PIN non valido durante l'autenticazione nell'app mobile. |

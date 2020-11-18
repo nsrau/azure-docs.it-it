@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ea9117d3cce2eec4c143e9fb3df76710a93a664
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: eca3b8f1cd8f27c193e8f8235887e21230f60611
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966968"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838621"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introduzione al server Azure Multi-Factor Authentication
 
@@ -27,9 +27,9 @@ ms.locfileid: "91966968"
 Questa pagina include una nuova installazione del server che include l'impostazione di Active Directory locale. Se il server MFA è già installato e lo si vuole aggiornare, vedere [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md) (Eseguire l'aggiornamento al server Azure Multi-Factor Authentication più recente). Per informazioni sull'installazione solo del servizio Web, vedere [Distribuzione del servizio Web App Mobile di Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-mobileapp.md).
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offre più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che vogliono richiedere l'autenticazione a più fattori durante gli eventi di accesso devono usare Azure Multi-Factor Authentication basato sul cloud.
+> A partire dal 1 ° luglio 2019, Microsoft non offre più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che vogliono richiedere l'autenticazione a più fattori durante gli eventi di accesso devono usare Multi-Factor Authentication di Azure AD basati sul cloud.
 >
-> Per iniziare a usare l'autenticazione a più fattori basata sul cloud, vedere [esercitazione: proteggere gli eventi di accesso utente con multi-factor authentication di Azure](tutorial-enable-azure-mfa.md).
+> Per iniziare a usare l'autenticazione a più fattori basata sul cloud, vedere [esercitazione: proteggere gli eventi di accesso utente con Azure AD multi-factor authentication](tutorial-enable-azure-mfa.md).
 >
 > I clienti esistenti che hanno attivato il server multi-factor authentication prima del 1 ° luglio 2019 possono scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
@@ -112,15 +112,15 @@ Se non si usa la funzionalità di conferma dell'evento e gli utenti non usano ap
 Seguire questi passaggi per scaricare il server Azure Multi-Factor Authentication dal portale di Azure:
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offre più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori (multi-factor authentication) dagli utenti devono usare Azure Multi-Factor Authentication basato sul cloud.
+> A partire dal 1 ° luglio 2019, Microsoft non offre più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori (multi-factor authentication) dagli utenti devono usare Multi-Factor Authentication di Azure AD basati sul cloud.
 >
-> Per iniziare a usare l'autenticazione a più fattori basata sul cloud, vedere [esercitazione: proteggere gli eventi di accesso utente con multi-factor authentication di Azure](tutorial-enable-azure-mfa.md).
+> Per iniziare a usare l'autenticazione a più fattori basata sul cloud, vedere [esercitazione: proteggere gli eventi di accesso utente con Azure AD multi-factor authentication](tutorial-enable-azure-mfa.md).
 >
 > I clienti esistenti che hanno attivato il server multi-factor authentication prima del 1 ° luglio 2019 possono scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto. I passaggi seguenti funzionano solo se si è un cliente del server multi-factor authentication esistente.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
 2. Cercare e selezionare *Azure Active Directory*. Selezionare autenticazione a più fattori di **sicurezza**  >  **MFA**.
-3. In **Manager Server**di autenticazione a più fattori selezionare **Impostazioni server**.
+3. In **Manager Server** di autenticazione a più fattori selezionare **Impostazioni server**.
 4. Selezionare **Scarica** e seguire le istruzioni nella pagina di download per salvare il programma di installazione. 
 
    ![Scaricare il server di autenticazione a più fattori dal portale di Azure](./media/howto-mfaserver-deploy/downloadportal.png)

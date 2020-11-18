@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66df1bbe531c072ff5aa2bebe7b197201e6931a2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0b0b34ce55a0896fb804a48779c9c1007c8c340f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077728"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838213"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Pianificare e distribuire la protezione Azure Active Directory password locale
 
@@ -142,8 +142,8 @@ Il servizio Microsoft Azure AD Connect Agent Updater è installato side-by-side 
 
 Sono disponibili due programmi di installazione necessari per una distribuzione di protezione Azure AD password locale:
 
-* Agente di controller di dominio Azure AD Password Protection ( *AzureADPasswordProtectionDCAgentSetup.msi* )
-* Proxy di protezione Azure AD password ( *AzureADPasswordProtectionProxySetup.exe* )
+* Agente di controller di dominio Azure AD Password Protection (*AzureADPasswordProtectionDCAgentSetup.msi*)
+* Proxy di protezione Azure AD password (*AzureADPasswordProtectionProxySetup.exe*)
 
 Scaricare entrambi i programmi di installazione dall' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -193,7 +193,7 @@ Per installare il servizio proxy Azure AD Password Protection, attenersi alla pr
     Get-Service AzureADPasswordProtectionProxy | fl
     ```
 
-    Il risultato dovrebbe mostrare **lo stato** *in esecuzione* .
+    Il risultato dovrebbe mostrare **lo stato** *in esecuzione*.
 
 1. Il servizio proxy è in esecuzione nel computer, ma non ha le credenziali per comunicare con Azure AD. Registrare il server proxy Azure AD Password Protection con Azure AD utilizzando il `Register-AzureADPasswordProtectionProxy` cmdlet.
 
@@ -201,7 +201,7 @@ Per installare il servizio proxy Azure AD Password Protection, attenersi alla pr
 
     Quando il comando ha esito positivo una volta per un servizio proxy Azure AD Password Protection, le chiamate aggiuntive hanno esito positivo, ma non sono necessarie.
 
-    Il `Register-AzureADPasswordProtectionProxy` cmdlet supporta le tre modalità di autenticazione seguenti. Le prime due modalità supportano Azure Multi-Factor Authentication ma la terza modalità non lo è.
+    Il `Register-AzureADPasswordProtectionProxy` cmdlet supporta le tre modalità di autenticazione seguenti. Le prime due modalità supportano Azure AD Multi-Factor Authentication ma la terza modalità non lo è.
 
     > [!TIP]
     > È possibile che si verifichi un ritardo notevole prima del completamento la prima volta che questo cmdlet viene eseguito per un tenant di Azure specifico. A meno che non venga segnalato un errore, non preoccuparti di questo ritardo.
@@ -231,11 +231,11 @@ Per installare il servizio proxy Azure AD Password Protection, attenersi alla pr
         ```
 
         > [!NOTE]
-        > Questa modalità ha esito negativo se per l'account è necessario Azure Multi-Factor Authentication. In tal caso, usare una delle due modalità di autenticazione precedenti o usare invece un account diverso che non richiede l'autenticazione a più fattori.
+        > Questa modalità non riesce se è necessario Azure AD Multi-Factor Authentication per l'account. In tal caso, usare una delle due modalità di autenticazione precedenti o usare invece un account diverso che non richiede l'autenticazione a più fattori.
         >
         > È anche possibile vedere l'autenticazione a più fattori necessaria se la registrazione del dispositivo di Azure, che viene usata dietro le quinte da Azure AD la protezione delle password, è stata configurata in modo da richiedere a livello globale Per ovviare a questo requisito, è possibile usare un account diverso che supporta l'autenticazione a più fattori con una delle due modalità di autenticazione precedenti oppure è possibile anche disattivare temporaneamente il requisito di autenticazione a più fattori di registrazione dei dispositivi di Azure.
         >
-        > Per apportare questa modifica, cercare e selezionare **Azure Active Directory** nel portale di Azure, quindi selezionare **dispositivi > impostazioni dispositivo** . Impostare **Richiedi autenticazione a più fattori per aggiungere dispositivi** a *No* . Assicurarsi di riconfigurare nuovamente questa impostazione su *Sì* al termine della registrazione.
+        > Per apportare questa modifica, cercare e selezionare **Azure Active Directory** nel portale di Azure, quindi selezionare **dispositivi > impostazioni dispositivo**. Impostare **Richiedi autenticazione a più fattori per aggiungere dispositivi** a *No*. Assicurarsi di riconfigurare nuovamente questa impostazione su *Sì* al termine della registrazione.
         >
         > È consigliabile ignorare i requisiti dell'autenticazione a più fattori solo a scopo di test.
 
@@ -252,7 +252,7 @@ Per installare il servizio proxy Azure AD Password Protection, attenersi alla pr
     
     Questo passaggio viene eseguito una volta per ogni foresta.
 
-    Il `Register-AzureADPasswordProtectionForest` cmdlet supporta le tre modalità di autenticazione seguenti. Le prime due modalità supportano Azure Multi-Factor Authentication ma la terza modalità non lo è.
+    Il `Register-AzureADPasswordProtectionForest` cmdlet supporta le tre modalità di autenticazione seguenti. Le prime due modalità supportano Azure AD Multi-Factor Authentication ma la terza modalità non lo è.
 
     > [!TIP]
     > È possibile che si verifichi un ritardo notevole prima del completamento la prima volta che questo cmdlet viene eseguito per un tenant di Azure specifico. A meno che non venga segnalato un errore, non preoccuparti di questo ritardo.
@@ -282,11 +282,11 @@ Per installare il servizio proxy Azure AD Password Protection, attenersi alla pr
         ```
 
         > [!NOTE]
-        > Questa modalità ha esito negativo se per l'account è necessario Azure Multi-Factor Authentication. In tal caso, usare una delle due modalità di autenticazione precedenti o usare invece un account diverso che non richiede l'autenticazione a più fattori.
+        > Questa modalità non riesce se è necessario Azure AD Multi-Factor Authentication per l'account. In tal caso, usare una delle due modalità di autenticazione precedenti o usare invece un account diverso che non richiede l'autenticazione a più fattori.
         >
         > È anche possibile vedere l'autenticazione a più fattori necessaria se la registrazione del dispositivo di Azure, che viene usata dietro le quinte da Azure AD la protezione delle password, è stata configurata in modo da richiedere a livello globale Per ovviare a questo requisito, è possibile usare un account diverso che supporta l'autenticazione a più fattori con una delle due modalità di autenticazione precedenti oppure è possibile anche disattivare temporaneamente il requisito di autenticazione a più fattori di registrazione dei dispositivi di Azure.
         >
-        > Per apportare questa modifica, cercare e selezionare **Azure Active Directory** nel portale di Azure, quindi selezionare **dispositivi > impostazioni dispositivo** . Impostare **Richiedi autenticazione a più fattori per aggiungere dispositivi** a *No* . Assicurarsi di riconfigurare nuovamente questa impostazione su *Sì* al termine della registrazione.
+        > Per apportare questa modifica, cercare e selezionare **Azure Active Directory** nel portale di Azure, quindi selezionare **dispositivi > impostazioni dispositivo**. Impostare **Richiedi autenticazione a più fattori per aggiungere dispositivi** a *No*. Assicurarsi di riconfigurare nuovamente questa impostazione su *Sì* al termine della registrazione.
         >
         > È consigliabile ignorare i requisiti dell'autenticazione a più fattori solo a scopo di test.
 

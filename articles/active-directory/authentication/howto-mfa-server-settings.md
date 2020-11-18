@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70777c80cdee99f13050d7cd342f22d59da13d73
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3da7c3afa6b414e3d7df3bb58766d1ab7657dbc4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964111"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838962"
 ---
 # <a name="configure-mfa-server-settings"></a>Configurare le impostazioni del server multi-factor authentication
 
 Questo articolo illustra come gestire le impostazioni del server Azure multi-factor authentication nel portale di Azure.
 
 > [!IMPORTANT]
-> A partire dal 1° luglio 2019, Microsoft non offrirà più il server MFA per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori per gli utenti dovranno usare il servizio Azure Multi-Factor Authentication basato sul cloud. Gli attuali clienti che anno attivato il server MFA prima del 1° luglio potranno scaricare la versione più recente e gli aggiornamenti futuri, oltre a generare le credenziali di attivazione come di consueto.
+> A partire dal 1° luglio 2019, Microsoft non offrirà più il server MFA per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Multi-Factor Authentication di Azure AD basati sul cloud. Gli attuali clienti che anno attivato il server MFA prima del 1° luglio potranno scaricare la versione più recente e gli aggiornamenti futuri, oltre a generare le credenziali di attivazione come di consueto.
 
 Sono disponibili le seguenti impostazioni del server di autenticazione a più fattori:
 
@@ -41,7 +41,7 @@ La funzionalità di bypass monouso consente a un utente di eseguire l'autenticaz
 Per creare un bypass monouso, completare i passaggi seguenti:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-1. Cercare e selezionare **Azure Active Directory**, quindi passare a **sicurezza**autenticazione a più fattori per  >  **MFA**  >  **bypass**monouso.
+1. Cercare e selezionare **Azure Active Directory**, quindi passare a **sicurezza** autenticazione a più fattori per  >  **MFA**  >  **bypass** monouso.
 1. Selezionare **Aggiungi**.
 1. Se necessario, selezionare il gruppo di replica per il bypass.
 1. Immettere il nome utente come `username\@domain.com`. Immettere il numero di secondi di durata del bypass e il motivo del bypass.

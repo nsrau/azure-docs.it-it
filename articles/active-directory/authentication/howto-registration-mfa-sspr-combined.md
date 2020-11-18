@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e22e4cdbfaf90eb9bba30fc26dc3495f767216f1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c8c67f72a7f0d77284dbb34104754793b36bb8d4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968340"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94838145"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Abilitare la registrazione delle informazioni di sicurezza combinate in Azure Active Directory
 
-Prima della registrazione combinata, gli utenti dovevano registrare i metodi di autenticazione per Azure Multi-Factor Authentication e la reimpostazione della password self-service separatamente. Ciò creava confusione negli utenti in quanto si trovavano a dover eseguire la registrazione sia per Multi-Factor Authentication di Azure sia per la reimpostazione della password self-service, con metodi molto simili. Ora, con la registrazione combinata, gli utenti possono registrarsi una sola volta e sfruttare i vantaggi di Azure Multi-Factor Authentication e della reimpostazione della password self-service.
+Prima della registrazione combinata, gli utenti registravano metodi di autenticazione per Azure AD Multi-Factor Authentication e la reimpostazione della password self-service (SSPR) separatamente. Gli utenti erano confusi che venivano usati metodi simili per Azure AD Multi-Factor Authentication e SSPR, ma dovevano registrarsi per entrambe le funzionalità. Ora, con la registrazione combinata, gli utenti possono registrarsi una sola volta e sfruttare i vantaggi di entrambi Azure AD Multi-Factor Authentication e SSPR.
 
 > [!NOTE]
 > A partire dal 15 agosto 2020, tutti i nuovi tenant di Azure AD verranno automaticamente abilitati per la registrazione combinata.
@@ -40,7 +40,7 @@ Per abilitare la registrazione combinata, completare i passaggi seguenti:
    ![Abilitare l'esperienza combinata per le informazioni di sicurezza per gli utenti](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info.png)
 
 > [!NOTE]
-> Dopo avere abilitato la registrazione combinata, gli utenti che registrano o confermano il numero di telefono o l'app per dispositivi mobili tramite la nuova esperienza potranno usare Azure Multi-Factor Authentication e la reimpostazione della password self-service, se tali metodi sono abilitati nei criteri di Azure Multi-Factor Authentication e di reimpostazione della password self-service.
+> Dopo aver abilitato la registrazione combinata, gli utenti che registrano o confermano il numero di telefono o l'app per dispositivi mobili tramite la nuova esperienza possono usarli per Azure AD Multi-Factor Authentication e SSPR, se tali metodi sono abilitati nei criteri Azure AD Multi-Factor Authentication e SSPR.
 >
 > Se si disabilita questa esperienza, gli utenti che accedono alla pagina di registrazione di SSPR precedente in `https://aka.ms/ssprsetup` sono tenuti a eseguire l'autenticazione a più fattori prima di poter accedere alla pagina.
 
@@ -52,7 +52,7 @@ Se è stato configurato l' *elenco di assegnazione da sito a zona* in Internet E
 
 ## <a name="conditional-access-policies-for-combined-registration"></a>Criteri di accesso condizionale per la registrazione combinata
 
-Per proteggere quando e come gli utenti registrano per Azure Multi-Factor Authentication e la reimpostazione della password self-service, è possibile usare le azioni dell'utente nei criteri di accesso condizionale. Questa funzionalità può essere abilitata nelle organizzazioni che vogliono che gli utenti si registrino per Multi-Factor Authentication di Azure e SSPR da una posizione centrale, ad esempio un percorso di rete attendibile durante l'onboarding delle risorse umane.
+Per proteggere quando e come gli utenti registrano per Azure AD Multi-Factor Authentication e la reimpostazione della password self-service, è possibile usare le azioni dell'utente nei criteri di accesso condizionale. Questa funzionalità può essere abilitata nelle organizzazioni che vogliono che gli utenti si registrino per Azure AD Multi-Factor Authentication e SSPR da una posizione centrale, ad esempio un percorso di rete attendibile durante l'onboarding delle risorse umane.
 
 > [!NOTE]
 > Questo criterio si applica solo quando un utente accede a una pagina di registrazione combinata. Questo criterio non impone la registrazione dell'autenticazione a più fattori quando un utente accede ad altre applicazioni.
@@ -80,7 +80,7 @@ Completare i passaggi seguenti per creare un criterio applicabile a tutti gli ut
 1. In **Condizioni** > **Posizioni** configurare le opzioni seguenti:
    1. Configurare **Sì**.
    1. Includere **Tutte le località**.
-   1. Escludere**tutti i percorsi attendibili**.
+   1. Escludere **tutti i percorsi attendibili**.
 1. Selezionare **Fatto** nella finestra *Posizioni*, quindi selezionare **Fatto** nella finestra *Condizioni*.
 1. In **Controlli di accesso** > **Concedi** selezionare **Blocca accesso**, quindi **Seleziona**.
 1. Impostare **Abilita criteri** su **On**.
@@ -90,6 +90,6 @@ Completare i passaggi seguenti per creare un criterio applicabile a tutti gli ut
 
 Per assistenza, vedere la pagina relativa alla [risoluzione dei problemi di registrazione delle informazioni di sicurezza combinate](howto-registration-mfa-sspr-combined-troubleshoot.md) o informazioni [sulla condizione di posizione in Azure ad l'accesso condizionale?](../conditional-access/location-condition.md)
 
-Dopo che gli utenti sono stati abilitati per la registrazione combinata, è possibile [abilitare la reimpostazione della password self-service](tutorial-enable-sspr.md) e [abilitare multi-factor authentication di Azure](tutorial-enable-azure-mfa.md).
+Dopo che gli utenti sono stati abilitati per la registrazione combinata, è possibile [abilitare la reimpostazione della password self-service](tutorial-enable-sspr.md) e [abilitare Azure ad multi-factor authentication](tutorial-enable-azure-mfa.md).
 
 Se necessario, informazioni su come [forzare gli utenti a registrare nuovamente i metodi di autenticazione](howto-mfa-userdevicesettings.md#manage-user-authentication-options).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ca23c1503b01c1aa9523edc2576599d7b6ab458
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: daa3f3b1687b01005f32cbd2665c84b933c993b8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992803"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837618"
 ---
 # <a name="continuous-access-evaluation"></a>Valutazione continua dell'accesso
 
@@ -126,7 +126,7 @@ Nell'esempio seguente, un amministratore dell'accesso condizionale ha configurat
 ## <a name="enable-or-disable-cae-preview"></a>Abilitare o disabilitare CAE (anteprima)
 
 1. Accedere al **portale di Azure** come amministratore dell'accesso condizionale, amministratore della sicurezza o amministratore globale.
-1. Passare a **Azure Active Directory**  >  **Security**  >  **valutazione dell'accesso continuo**alla sicurezza.
+1. Passare a **Azure Active Directory**  >  **Security**  >  **valutazione dell'accesso continuo** alla sicurezza.
 1. Scegliere **Abilita anteprima**.
 
 Da questa pagina, facoltativamente è possibile limitare gli utenti e i gruppi che saranno soggetti all'anteprima.
@@ -140,7 +140,7 @@ Da questa pagina, facoltativamente è possibile limitare gli utenti e i gruppi c
 Per CAE sono disponibili solo informazioni dettagliate sulle località denominate basate su IP. Non sono disponibili informazioni approfondite sulle altre impostazioni di località, ad esempio gli [IP attendibili](../authentication/howto-mfa-mfasettings.md#trusted-ips) a più fattori o i percorsi basati su paesi. Quando l'utente deriva da un indirizzo IP attendibile dell'autenticazione a più fattori o da percorsi attendibili che includono indirizzi IP attendibili a più fattori o località del paese, CAE non verrà applicato dopo lo spostamento dell'utente in un percorso diverso. In questi casi, viene emesso un token CAE di 1 ora senza controllo di imposizione dell'IP immediato.
 
 > [!IMPORTANT]
-> Quando si configurano i percorsi per la valutazione dell'accesso continuo, usare solo la [condizione di percorso di accesso condizionale basato su IP](../conditional-access/location-condition.md#preview-features) e configurare tutti gli indirizzi IP, **inclusi IPv4 e IPv6**, che possono essere visualizzati dal provider di identità e dal provider di risorse. Non usare le condizioni di località del paese o la funzionalità indirizzi IP attendibili disponibile nella pagina delle impostazioni del servizio Multi-Factor Authentication di Azure.
+> Quando si configurano i percorsi per la valutazione dell'accesso continuo, usare solo la [condizione di percorso di accesso condizionale basato su IP](../conditional-access/location-condition.md#preview-features) e configurare tutti gli indirizzi IP, **inclusi IPv4 e IPv6**, che possono essere visualizzati dal provider di identità e dal provider di risorse. Non usare le condizioni di località del paese o la funzionalità indirizzi IP attendibili disponibile nella pagina delle impostazioni del servizio Azure AD Multi-Factor Authentication.
 
 ### <a name="ip-address-configuration"></a>Configurazione dell'indirizzo IP
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3781a87bde283de3b798f840274db1dd5ea3ac7e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9c1b07534c702e509b2b664fbee585aa2cff69f6
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366497"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837601"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory le condizioni per l'utilizzo
 
@@ -41,7 +41,7 @@ Azure AD condizioni per l'utilizzo sono disponibili le seguenti funzionalità:
 - Richiedere ai dipendenti o ai guest di accettare le condizioni per l'utilizzo prima di ottenere l'accesso.
 - Richiedere ai dipendenti o ai guest di accettare le condizioni per l'utilizzo in ogni dispositivo prima di ottenere l'accesso.
 - Richiedere ai dipendenti o ai guest di accettare le condizioni per l'utilizzo in base a una pianificazione ricorrente.
-- Richiedere a dipendenti o Guest di accettare le condizioni per l'utilizzo prima di registrare le informazioni di sicurezza in Azure Multi-Factor Authentication (multi-factor authentication).
+- Richiedere a dipendenti o Guest di accettare le condizioni per l'utilizzo prima di registrare le informazioni di sicurezza in Azure AD Multi-Factor Authentication (multi-factor authentication).
 - Richiedere ai dipendenti di accettare le condizioni per l'utilizzo prima di registrare le informazioni di sicurezza in Azure AD la reimpostazione della password self-service (SSPR).
 - Presentare le condizioni per l'utilizzo generali per tutti gli utenti dell'organizzazione.
 - Presentare le condizioni per l'utilizzo specifiche in base a attributi utente (ad esempio medici o infermieri oppure dipendenti nazionali o internazionali, tramite [gruppi dinamici](../enterprise-users/groups-dynamic-membership.md)).
@@ -61,7 +61,7 @@ Per usare e configurare Azure AD condizioni per l'utilizzo, è necessario dispor
 - Uno dei seguenti account di amministratore per la directory da configurare:
    - Amministratore globale
    - Amministratore della protezione
-   - Amministratore di accesso condizionale
+   - Amministratore accesso condizionale
 
 ## <a name="terms-of-use-document"></a>Documento sulle condizioni per l'utilizzo
 
@@ -94,8 +94,8 @@ Dopo aver completato il documento relativo alle condizioni per l'utilizzo, atten
 
    | Scadenza a partire da | Frequenza | Risultato |
    | --- | --- | --- |
-   | Data odierna  | Mensile | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo e quindi riaccettarle ogni mese. |
-   | Data nel futuro  | Mensile | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo. Quando si verifica la data futura, scadono i consensi e quindi gli utenti devono riaccettare ogni mese.  |
+   | Data odierna  | Ogni mese | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo e quindi riaccettarle ogni mese. |
+   | Data nel futuro  | Ogni mese | A partire da oggi, gli utenti devono accettare le condizioni per l'utilizzo. Quando si verifica la data futura, scadono i consensi e quindi gli utenti devono riaccettare ogni mese.  |
 
    Ad esempio, se si imposta la scadenza a partire dalla data **1 gen** e la frequenza su **Mensile**, ecco come le scadenze potrebbero verificarsi per i due utenti:
 
@@ -113,7 +113,7 @@ Dopo aver completato il documento relativo alle condizioni per l'utilizzo, atten
 
    È possibile usare le impostazioni **Scadenza consensi** e **Durata prima di una nuova accettazione richiede (giorni)** insieme, ma in genere si usa o l'una o l'altra.
 
-1. In **accesso condizionale**usare l'elenco **applica con i modelli di criteri di accesso condizionale** per selezionare il modello per applicare le condizioni per l'utilizzo.
+1. In **accesso condizionale** usare l'elenco **applica con i modelli di criteri di accesso condizionale** per selezionare il modello per applicare le condizioni per l'utilizzo.
 
    ![Elenco a discesa accesso condizionale per selezionare un modello di criteri](./media/terms-of-use/conditional-access-templates.png)
 
@@ -151,7 +151,7 @@ Nel pannello delle condizioni per l'utilizzo è visualizzato il numero di utenti
 
    ![Condizioni per l'utilizzo riquadro consentiti in cui sono elencati gli utenti che hanno accettato](./media/terms-of-use/accepted-tou.png)
 
-1. Per visualizzare la cronologia per un singolo utente, fare clic sui puntini di sospensione (**... **) e quindi **Visualizza cronologia**.
+1. Per visualizzare la cronologia per un singolo utente, fare clic sui puntini di sospensione (**...**) e quindi **Visualizza cronologia**.
 
    ![Menu di scelta rapida Visualizza cronologia per un utente](./media/terms-of-use/view-history-menu.png)
 
