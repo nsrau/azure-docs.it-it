@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-dotnet
-ms.openlocfilehash: 52241972e283db1c5e000e1e9f5d655dfdd9c8a3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ce75b5465d18f988d9dfd2b329c4157bab41ded9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88928191"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534518"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-20-rest-api-ocr-operation-and-c"></a>Avvio rapido: Estrarre testo con l'operazione OCR dell'API REST Visione artificiale 2.0 e C#
 
 > [!IMPORTANT]
 > Se si estrae testo in inglese, olandese, francese, tedesco, italiano, portoghese, spagnolo o cinese semplificato (anteprima), è consigliabile usare l'[operazione Read](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) più recente. È disponibile un [avvio rapido per C# ](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text). 
 
-In questo argomento di avvio rapido si estrarrà testo stampato e scritto a mano da un'immagine usando l'[operazione OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) dell'API REST Visione artificiale. Con questa operazione è possibile rilevare il testo stampato in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile dal computer.
+In questo argomento di avvio rapido si estrarrà testo stampato e scritto a mano da un'immagine usando l'[operazione OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) dell'API REST Visione artificiale. Con questa operazione è possibile rilevare il testo stampato in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile dal computer.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

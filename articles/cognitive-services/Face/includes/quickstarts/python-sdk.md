@@ -7,24 +7,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 10/26/2020
+ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: ec23ec58a020cc314f301e33b72b4787f4e32e14
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: cf7b82ec1da660ac68c6031434c0e0748ee67b3d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918722"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523776"
 ---
 Introduzione al riconoscimento facciale con la libreria client di Viso per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
 
 Usare la libreria client dell'API Viso per Python per:
 
-* Rilevare i visi in un'immagine
-* Individuazione di visi simili
-* Creare ed eseguire il training di un gruppo di persone
-* Identificare un viso
-* Verificare i visi
+* [Rilevare i visi in un'immagine](#detect-faces-in-an-image)
+* [Individuare visi simili](#find-similar-faces)
+* [Creare ed eseguire il training di un gruppo di persone](#create-and-train-a-person-group)
+* [Identificare un viso](#identify-a-face)
+* [Verificare i visi](#verify-faces)
 
 [Documentazione di riferimento](/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Pacchetto (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Esempi](/samples/browse/?products=azure&term=face)
 
@@ -167,20 +167,20 @@ Una volta assegnati i visi, è necessario eseguire il training di **PersonGroup*
 
 ## <a name="identify-a-face"></a>Identificare un viso
 
-L'operazione di identificazione acquisisce un'immagine di una persona (o di più persone) e cerca di individuare l'identità di ogni viso nell'immagine (ricerca basata su riconoscimento facciale). Confronta ogni viso rilevato con un **PersonGroup** , un database di oggetti **Person** diversi le cui caratteristiche del viso sono note.
+L'operazione di identificazione acquisisce un'immagine di una persona (o di più persone) e cerca di individuare l'identità di ogni viso nell'immagine (ricerca basata su riconoscimento facciale). Confronta ogni viso rilevato con un **PersonGroup**, un database di oggetti **Person** diversi le cui caratteristiche del viso sono note.
 
 > [!IMPORTANT]
 > Prima di eseguire questo esempio occorre eseguire il codice in [Creare ed eseguire il training di un gruppo di persone](#create-and-train-a-person-group).
 
 ### <a name="get-a-test-image"></a>Ottenere un'immagine di test
 
-Il codice seguente cerca nella radice del progetto l'immagine _test-image-person-group.jpg_ e rileva i visi nell'immagine. Questa immagine è reperibile con le immagini usate per la gestione di **PersonGroup** : https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+Il codice seguente cerca nella radice del progetto l'immagine _test-image-person-group.jpg_ e rileva i visi nell'immagine. Questa immagine è reperibile con le immagini usate per la gestione di **PersonGroup**: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify_testimage)]
 
 ### <a name="identify-faces"></a>Identificare visi
 
-Il metodo **identify** confronta una matrice di visi rilevati con un **PersonGroup**. Se riesce a stabilire una corrispondenza tra un viso rilevato e un oggetto **Person** , salva il risultato. Questo codice visualizza i risultati dettagliati delle corrispondenze nella console.
+Il metodo **identify** confronta una matrice di visi rilevati con un **PersonGroup**. Se riesce a stabilire una corrispondenza tra un viso rilevato e un oggetto **Person**, salva il risultato. Questo codice visualizza i risultati dettagliati delle corrispondenze nella console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify)]
 
