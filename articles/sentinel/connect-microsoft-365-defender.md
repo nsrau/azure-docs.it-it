@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: e9e892ae08c65ee5c5008bbdc1b419d8dec30183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 756c245fe06ae81545a125dd98f30fb27fdff2dd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938482"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655580"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Connettere i dati da Microsoft 365 Defender ad Azure Sentinel
 
@@ -31,11 +31,11 @@ ms.locfileid: "90938482"
 >
 > È possibile visualizzare i nomi precedenti ancora in uso per un certo periodo di tempo.
 
-## <a name="background"></a>Background
+## <a name="background"></a>Sfondo
 
-Il nuovo [Microsoft 365 Defender](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-threat-protection) Connector consente di trasmettere i log di **caccia avanzati** , ovvero un tipo di dati di eventi non elaborati, da Microsoft 365 Defender ad Azure Sentinel. 
+Il nuovo [Microsoft 365 Defender](/microsoft-365/security/mtp/microsoft-threat-protection) Connector consente di trasmettere i log di **caccia avanzati** , ovvero un tipo di dati di eventi non elaborati, da Microsoft 365 Defender ad Azure Sentinel. 
 
-Con l'integrazione di [Microsoft Defender for endpoint (MDATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) nel Microsoft 365 Defender Security Umbrella, è ora possibile raccogliere gli eventi di [caccia avanzati](https://aka.ms/mdatpAH) di Microsoft Defender per l'endpoint usando il connettore Microsoft 365 Defender e trasmetterli direttamente nelle nuove tabelle create per lo scopo nell'area di lavoro di Sentinel di Azure. Queste tabelle sono basate sullo stesso schema usato nel portale di Microsoft 365 Defender, offrendo l'accesso completo al set completo di log di caccia avanzati e consentendo di eseguire le operazioni seguenti:
+Con l'integrazione di [Microsoft Defender for endpoint (MDATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) nel Microsoft 365 Defender Security Umbrella, è ora possibile raccogliere gli eventi di [caccia avanzati](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview) di Microsoft Defender per l'endpoint usando il connettore Microsoft 365 Defender e trasmetterli direttamente nelle nuove tabelle create per lo scopo nell'area di lavoro di Sentinel di Azure. Queste tabelle sono basate sullo stesso schema usato nel portale di Microsoft 365 Defender, offrendo l'accesso completo al set completo di log di caccia avanzati e consentendo di eseguire le operazioni seguenti:
 
 - Copia con facilità le query di caccia avanzate di Microsoft Defender ATP in Azure Sentinel.
 
@@ -49,7 +49,7 @@ Con l'integrazione di [Microsoft Defender for endpoint (MDATP)](https://docs.mic
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- È necessario disporre di una licenza valida per Microsoft Defender per endpoint, come descritto in [configurare Microsoft Defender per la distribuzione degli endpoint](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/licensing). 
+- È necessario disporre di una licenza valida per Microsoft Defender per endpoint, come descritto in [configurare Microsoft Defender per la distribuzione degli endpoint](/windows/security/threat-protection/microsoft-defender-atp/licensing). 
 
 - All'utente deve essere assegnato il ruolo di amministratore globale nel tenant (in Azure Active Directory).
 
@@ -101,4 +101,4 @@ Nella scheda **passaggi successivi** sono disponibili alcune query di esempio ch
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come ottenere dati di eventi non elaborati da Microsoft Defender for endpoint in Azure Sentinel, usando il connettore Microsoft 365 Defender. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats.md).
+- Iniziare a [rilevare minacce con Azure Sentinel](./tutorial-detect-threats-built-in.md).

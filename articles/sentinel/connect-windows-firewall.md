@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
-ms.openlocfilehash: 5518da7d22d14de105c07e88b14e94d4b184269b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf7e389fc4a8a8dfa88691dc034611cae3471731
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883812"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655341"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>Connettere Windows Defender Firewall con sicurezza avanzata ad Azure Sentinel
 
-[Windows Defender Firewall con connettore di sicurezza avanzata](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) consente a Azure Sentinel di inserire facilmente Windows Defender Firewall con log di sicurezza avanzati da qualsiasi computer Windows nell'area di lavoro. Questa connessione consente di visualizzare e analizzare gli eventi Windows Firewall nelle cartelle di lavoro, di usarli per la creazione di avvisi personalizzati e di incorporarli nelle indagini di sicurezza, consentendo di ottenere informazioni più dettagliate sulla rete dell'organizzazione e sul miglioramento delle funzionalità di sicurezza. 
+[Windows Defender Firewall con connettore di sicurezza avanzata](/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) consente a Azure Sentinel di inserire facilmente Windows Defender Firewall con log di sicurezza avanzati da qualsiasi computer Windows nell'area di lavoro. Questa connessione consente di visualizzare e analizzare gli eventi Windows Firewall nelle cartelle di lavoro, di usarli per la creazione di avvisi personalizzati e di incorporarli nelle indagini di sicurezza, consentendo di ottenere informazioni più dettagliate sulla rete dell'organizzazione e sul miglioramento delle funzionalità di sicurezza. 
 
 La soluzione raccoglie gli eventi di Windows Firewall dai computer Windows in cui è installato un agente Log Analytics. 
 
@@ -67,7 +67,7 @@ La soluzione raccoglie gli eventi di Windows Firewall dai computer Windows in cu
 
     1. Nel riquadro **Gestione agenti** selezionare **Scarica agente Windows (64 bit)** o **Scarica agente Windows (32 bit)**, in base alle esigenze.
 
-    1. Copiare le stringhe di **ID dell'area di lavoro**, **chiave primaria**e **chiave secondaria** in un file di testo. Copiare il file e il file di installazione scaricato nel computer Windows. Eseguire il file di installazione e, quando richiesto, immettere le stringhe di ID e chiave nel file di testo durante l'installazione.
+    1. Copiare le stringhe di **ID dell'area di lavoro**, **chiave primaria** e **chiave secondaria** in un file di testo. Copiare il file e il file di installazione scaricato nel computer Windows. Eseguire il file di installazione e, quando richiesto, immettere le stringhe di ID e chiave nel file di testo durante l'installazione.
 
     1. Tornare al riquadro **Windows Firewall** .
 
@@ -81,10 +81,9 @@ La soluzione raccoglie gli eventi di Windows Firewall dai computer Windows in cu
 
 ## <a name="validate-connectivity"></a>Convalidare la connettività
  
-Poiché i log di Windows Firewall vengono inviati ad Azure Sentinel solo quando il file di log locale raggiunge la capacità, lasciando il log con le dimensioni predefinite 4096 KB è molto probabile che si verifichi una latenza di raccolta elevata. È possibile ridurre la latenza abbassando le dimensioni del file di log. Vedere le istruzioni per [configurare il registro Windows Firewall](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Si noti che durante la definizione delle dimensioni minime del log (1 KB) si elimina praticamente la latenza di raccolta, potrebbe anche influire negativamente sulle prestazioni del computer locale. 
+Poiché i log di Windows Firewall vengono inviati ad Azure Sentinel solo quando il file di log locale raggiunge la capacità, lasciando il log con le dimensioni predefinite 4096 KB è molto probabile che si verifichi una latenza di raccolta elevata. È possibile ridurre la latenza abbassando le dimensioni del file di log. Vedere le istruzioni per [configurare il registro Windows Firewall](/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Si noti che durante la definizione delle dimensioni minime del log (1 KB) si elimina praticamente la latenza di raccolta, potrebbe anche influire negativamente sulle prestazioni del computer locale. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere Windows Firewall ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
-

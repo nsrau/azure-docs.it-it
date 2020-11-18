@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: ae33d763bda49756e9f90a05feda5089b63ef28b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad4f42d0e33f6d70c75abfcd1daab4f5aa9a515f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400163"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94654984"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Usare Firewall di Azure per proteggere distribuzioni di desktop virtuali Windows
 
@@ -36,7 +36,7 @@ Per ulteriori informazioni sugli ambienti desktop virtuali Windows, vedere [ambi
 Per il corretto funzionamento delle macchine virtuali di Azure create per desktop virtuale Windows deve essere possibile accedere a diversi nomi di dominio completi (FQDN). Il firewall di Azure fornisce un tag FQDN del desktop virtuale Windows per semplificare questa configurazione. Per consentire il traffico della piattaforma desktop virtuale Windows in uscita, attenersi alla procedura seguente:
 
 - Distribuire il firewall di Azure e configurare la route del pool di host per desktop virtuali Windows (UDR) per indirizzare tutto il traffico attraverso il firewall di Azure. La route predefinita ora punta al firewall.
-- Creare una raccolta di regole dell'applicazione e aggiungere una regola per abilitare il tag FQDN *WindowsVirtualDesktop* . L'intervallo di indirizzi IP di origine è la rete virtuale del pool host, il protocollo è **https**e la destinazione è **WindowsVirtualDesktop**.
+- Creare una raccolta di regole dell'applicazione e aggiungere una regola per abilitare il tag FQDN *WindowsVirtualDesktop* . L'intervallo di indirizzi IP di origine è la rete virtuale del pool host, il protocollo è **https** e la destinazione è **WindowsVirtualDesktop**.
 
 - Il set di account di archiviazione e del bus di servizio necessari per il pool host del desktop virtuale di Windows è specifico della distribuzione, quindi non è ancora acquisito nel tag FQDN WindowsVirtualDesktop. È possibile risolvere il problema in uno dei modi seguenti:
 
@@ -63,7 +63,7 @@ Per il corretto funzionamento delle macchine virtuali di Azure create per deskto
 
 A seconda delle esigenze dell'organizzazione, può essere necessario abilitare l'accesso a Internet in uscita sicuro per gli utenti finali. Nei casi in cui l'elenco di destinazioni consentite sia ben definito, ad esempio [Microsoft 365 accesso](/microsoft-365/enterprise/microsoft-365-ip-web-service), è possibile usare le regole di rete e l'applicazione del firewall di Azure per configurare l'accesso richiesto. In questo modo il traffico dell'utente finale viene indirizzato direttamente a Internet per ottenere prestazioni ottimali.
 
-Se si vuole filtrare il traffico Internet degli utenti in uscita usando un gateway Web protetto locale esistente, è possibile configurare browser Web o altre applicazioni in esecuzione nel pool di host di desktop virtuali Windows con una configurazione proxy esplicita. Vedere ad esempio [come usare le opzioni della riga di comando di Microsoft Edge per configurare le impostazioni del proxy](https://docs.microsoft.com/deployedge/edge-learnmore-cmdline-options-proxy-settings). Queste impostazioni proxy incidono solo sull'accesso a Internet dell'utente finale, consentendo al traffico in uscita della piattaforma desktop virtuale Windows di accedere direttamente tramite il firewall di Azure.
+Se si vuole filtrare il traffico Internet degli utenti in uscita usando un gateway Web protetto locale esistente, è possibile configurare browser Web o altre applicazioni in esecuzione nel pool di host di desktop virtuali Windows con una configurazione proxy esplicita. Vedere ad esempio [come usare le opzioni della riga di comando di Microsoft Edge per configurare le impostazioni del proxy](/deployedge/edge-learnmore-cmdline-options-proxy-settings). Queste impostazioni proxy incidono solo sull'accesso a Internet dell'utente finale, consentendo al traffico in uscita della piattaforma desktop virtuale Windows di accedere direttamente tramite il firewall di Azure.
 
 ## <a name="additional-considerations"></a>Altre considerazioni
 

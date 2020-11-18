@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 5ac72c9861e06773ffab87dcbf4e730562b798fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5140bcd85606213f00185d4ba1f50dbe70dba63
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91344113"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655495"
 ---
 # <a name="connect-alerts-from-microsoft-defender-for-office-365"></a>Connettere avvisi da Microsoft Defender per Office 365 
 
@@ -31,7 +31,7 @@ ms.locfileid: "91344113"
 >
 > - L'inserimento di avvisi di Microsoft Defender per Office 365 è attualmente disponibile in anteprima pubblica. Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
-[Microsoft Defender per Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-advanced-threat-protection-service-description) protegge la tua organizzazione da minacce zero e altre minacce avanzate poste da malware sconosciuti nei messaggi di posta elettronica, nei collegamenti di URL dannosi e negli strumenti di collaborazione. Inserendo gli avvisi di Microsoft Defender per Office 365 in Azure Sentinel, sarà possibile usare le informazioni relative alla posta elettronica, alla condivisione di file e alle minacce basate su URL nelle operazioni di sicurezza. Puoi quindi analizzare più dettagliatamente gli eventi di sicurezza nell'intera organizzazione e creare PlayBook per una risposta efficace e immediata.
+[Microsoft Defender per Office 365](/office365/servicedescriptions/office-365-advanced-threat-protection-service-description) protegge la tua organizzazione da minacce zero e altre minacce avanzate poste da malware sconosciuti nei messaggi di posta elettronica, nei collegamenti di URL dannosi e negli strumenti di collaborazione. Inserendo gli avvisi di Microsoft Defender per Office 365 in Azure Sentinel, sarà possibile usare le informazioni relative alla posta elettronica, alla condivisione di file e alle minacce basate su URL nelle operazioni di sicurezza. Puoi quindi analizzare più dettagliatamente gli eventi di sicurezza nell'intera organizzazione e creare PlayBook per una risposta efficace e immediata.
 
 Il connettore importa gli avvisi seguenti:
 
@@ -55,7 +55,7 @@ Questi avvisi possono essere visualizzati dai clienti di Office nel **Centro sic
 
 - È necessario essere un amministratore globale o un amministratore della sicurezza nel tenant dell'area di lavoro di Azure Sentinel.
 
-- È necessario disporre di una licenza valida per [office 365 ATP piano 2](https://docs.microsoft.com/microsoft-365/security/office-365-security/office-365-atp#office-365-atp-plan-1-and-plan-2) (inclusa con le licenze Office 365 E5, Office 365 A5 e Microsoft 365 E5 e disponibile per l'acquisto separatamente). 
+- È necessario disporre di una licenza valida per [office 365 ATP piano 2](/microsoft-365/security/office-365-security/office-365-atp#office-365-atp-plan-1-and-plan-2) (inclusa con le licenze Office 365 E5, Office 365 A5 e Microsoft 365 E5 e disponibile per l'acquisto separatamente). 
 
 ## <a name="connect-to-microsoft-defender-for-office-365"></a>Connettersi a Microsoft Defender per Office 365
 
@@ -77,4 +77,4 @@ Se Microsoft Defender per Office 365 è distribuito e se i criteri sono stati co
 
 In questo documento si è appreso come connettere Microsoft Defender per Office 365 ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats.md).
+- Iniziare a [rilevare minacce con Azure Sentinel](./tutorial-detect-threats-built-in.md).

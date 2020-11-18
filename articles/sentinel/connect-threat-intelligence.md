@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: d794b0a33eabedd3e6e309f291543ba23bc40f79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 223f3e45f25e3aed3ed6fa15e5b9ea04b17f6c59
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362747"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655324"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Connettere i dati dai provider di intelligence per le minacce
 
@@ -36,7 +36,7 @@ Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'
 
 - I **notebook** possono usare gli indicatori di minaccia quando si esaminano le anomalie e si cercano comportamenti dannosi.
 
-È possibile trasmettere gli indicatori di minaccia ad Azure Sentinel usando uno dei prodotti integrati della piattaforma di intelligence per le minacce (TIP) elencati nella sezione successiva, connessione ai server TAXI o usando l'integrazione diretta con l' [API tiIndicators di sicurezza di Microsoft Graph](https://aka.ms/graphsecuritytiindicators).
+È possibile trasmettere gli indicatori di minaccia ad Azure Sentinel usando uno dei prodotti integrati della piattaforma di intelligence per le minacce (TIP) elencati nella sezione successiva, connessione ai server TAXI o usando l'integrazione diretta con l' [API tiIndicators di sicurezza di Microsoft Graph](/graph/api/resources/tiindicator).
 
 ## <a name="integrated-threat-intelligence-platform-products"></a>Prodotti integrati della piattaforma di intelligence per le minacce
 
@@ -71,7 +71,7 @@ Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'
 
 2. [Configurare le autorizzazioni dell'API](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) per l'applicazione registrata: aggiungere l'autorizzazione dell'applicazione Microsoft Graph **ThreatIndicators. ReadWrite. OwnedBy** all'applicazione registrata.
 
-3. Chiedere al Azure Active Directory amministratore tenant di concedere il consenso dell'amministratore all'applicazione registrata per l'organizzazione. Dalla portale di Azure: **Azure Active Directory**  >  **registrazioni app**  >  **\<_app name_>**  >  **visualizzare le autorizzazioni dell'API**  >  **per concedere il \<_tenant name_> consenso dell'amministratore per **.
+3. Chiedere al Azure Active Directory amministratore tenant di concedere il consenso dell'amministratore all'applicazione registrata per l'organizzazione. Dalla portale di Azure: **Azure Active Directory**  >  **registrazioni app**  >  **\<_app name_>**  >  **visualizzare le autorizzazioni dell'API**  >  **per concedere il \<_tenant name_> consenso dell'amministratore per**.
 
 4. Configurare il prodotto TIP o l'app che usa l'integrazione diretta con Microsoft Graph Security tiIndicators API per inviare indicatori ad Azure Sentinel specificando quanto segue:
     
@@ -114,4 +114,4 @@ Azure Sentinel consente di importare gli indicatori di minaccia utilizzati dall'
 In questo documento si è appreso come connettere il provider di intelligence per le minacce ad Azure Sentinel. Per altre informazioni su Sentinel di Azure, vedere gli articoli seguenti.
 
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats.md).
+- Iniziare a [rilevare minacce con Azure Sentinel](./tutorial-detect-threats-built-in.md).

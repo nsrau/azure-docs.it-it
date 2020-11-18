@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: e9e97aec66d99d149320938540c48b9ad68eaf0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 714cbb06506cc3e0dffe74007712d9cbad072284
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90068031"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655069"
 ---
 # <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Risolvere i problemi comuni relativi all'aggiunta o alla rimozione di un'applicazione Azure Active Directory
 Questo articolo consente di comprendere i problemi comuni che si verificano quando si aggiunge o rimuove un'app per Azure Active Directory.
@@ -31,9 +31,9 @@ In alcuni casi, a causa di problemi temporanei, problemi di rete o un bug, l'agg
 Se si verifica un errore quando si fa clic sul pulsante **Aggiungi**, viene visualizzata una **Notifica** con stato **Errore**. Se si desidera visualizzare altri dettagli sull'errore per saperne di più o per effettuarne la condivisione con un tecnico del supporto, è possibile visualizzare altre informazioni sull'errore seguendo i passaggi illustrati nella sezione [Come visualizzare i dettagli di una notifica del portale](#how-to-see-the-details-of-a-portal-notification).
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Non si sa come configurare l'applicazione dopo averla aggiunta
-Per assistenza sull'apprendimento delle applicazioni, l' [elenco delle esercitazioni su come integrare le app Saas con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) articolo è un punto di partenza valido.
+Per assistenza sull'apprendimento delle applicazioni, l' [elenco delle esercitazioni su come integrare le app Saas con Azure Active Directory](../saas-apps/tutorial-list.md) articolo è un punto di partenza valido.
 
-Vedere anche la [raccolta di documenti sulle applicazioni di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) che include informazioni sull'accesso Single Sign-On con Azure AD e ne illustra il funzionamento.
+Vedere anche la [raccolta di documenti sulle applicazioni di Azure AD](./what-is-application-management.md) che include informazioni sull'accesso Single Sign-On con Azure AD e ne illustra il funzionamento.
 
 ## <a name="i-want-to-delete-an-application-but-the-delete-button-is-disabled"></a>Si vuole eliminare un'applicazione, ma il pulsante Elimina è disabilitato
 
@@ -43,7 +43,7 @@ Il pulsante Elimina sarà disabilitato negli scenari seguenti:
 
 - Per l'applicazione Microsoft, non sarà possibile eliminarli dall'interfaccia utente indipendentemente dal ruolo.
 
-- Per entità servizio che corrispondono a un'identità gestita. Le entità servizio delle identità gestite non possono essere eliminate nel pannello app aziendali. È necessario passare alla risorsa di Azure per gestirla. Altre informazioni sull' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+- Per entità servizio che corrispondono a un'identità gestita. Le entità servizio delle identità gestite non possono essere eliminate nel pannello app aziendali. È necessario passare alla risorsa di Azure per gestirla. Altre informazioni sull' [identità gestita](../managed-identities-azure-resources/overview.md)
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Come visualizzare i dettagli di una notifica del portale
 È possibile visualizzare i dettagli di qualsiasi notifica del portale seguendo questa procedura:
@@ -51,7 +51,7 @@ Il pulsante Elimina sarà disabilitato negli scenari seguenti:
 2.  Selezionare una notifica con stato **Errore** contrassegnata con un punto esclamativo (!) rosso.
     >[!NOTE]
     >Non è possibile fare clic sulle notifiche con stato **Operazione completata** o **In corso**.
-4.  Usare le informazioni in **Dettagli notifica**per ottenere maggiori dettagli sul problema.
+4.  Usare le informazioni in **Dettagli notifica** per ottenere maggiori dettagli sul problema.
 5.  In caso sia ancora necessaria assistenza sul problema, è possibile condividere queste informazioni con un tecnico di supporto o con il gruppo del prodotto.
 6.  Selezionare l' **icona copia** a destra della casella di testo **copia errore** per copiare tutti i dettagli della notifica da condividere con un tecnico del supporto o del gruppo di prodotti.
 
@@ -74,7 +74,7 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
   -   Esempio: **2017-03-23T19:50:43.7583681Z**
 - **ID transazione interna** : ID interno che è possibile usare per cercare l'errore nei sistemi
   -   Esempio: **71a2f329-ca29-402f-aa72-bc00a7aca603**
-- **UPN **: l'utente che ha eseguito l'operazione
+- **UPN**: l'utente che ha eseguito l'operazione
   -   Esempio: **tperkins \@ F128.info**
 - **ID tenant**: ID univoco del tenant di cui è membro l'utente che ha eseguito l'operazione
   -   Esempio: **7918d4b5-0442-4a97-be2d-36f9f9962ece**

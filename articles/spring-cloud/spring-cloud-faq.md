@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: f034cd07b481f9d72cb3f753b30e1779bf672ac2
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: a8180088e5a0db613d5f04106fe102f58594bf72
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491937"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655052"
 ---
 # <a name="azure-spring-cloud-faq"></a>Domande frequenti su Azure Spring cloud
 
@@ -93,6 +93,21 @@ Attualmente sono supportati tre servizi:
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>È possibile visualizzare, aggiungere o spostare volumi permanenti dall'interno delle applicazioni?
 
 Sì.
+
+### <a name="how-many-outbound-public-ip-addresses-does-an-azure-spring-cloud-instance-have"></a>Quanti indirizzi IP pubblici in uscita sono presenti in un'istanza di Azure Spring cloud?
+
+Il numero di indirizzi IP pubblici in uscita può variare in base ai livelli e ad altri fattori. 
+
+| Tipo di istanza cloud Spring di Azure | Numero predefinito di indirizzi IP pubblici in uscita |
+| -------------------------------- | ---------------------------------------------- |
+| Istanze del livello Basic             | 1                                              |
+| Istanze del livello standard          | 2                                              |
+| Istanze di VNet Injection         | 1                                              |
+
+
+### <a name="can-i-increase-the-number-of-outbound-public-ip-addresses"></a>È possibile aumentare il numero di indirizzi IP pubblici in uscita?
+
+Sì, è possibile aprire un [ticket di supporto](https://azure.microsoft.com/support/faq/)  per richiedere altri indirizzi IP pubblici in uscita.
 
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Quando si elimina o si sposta un'istanza del servizio cloud di Azure Spring, le risorse di estensione verranno eliminate o spostate?
 

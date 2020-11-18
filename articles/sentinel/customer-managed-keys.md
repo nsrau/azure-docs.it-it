@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: ecb4203c822f5b72068e11d0ad4b988d294aab0d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: bd85936c86656a8ae59a04ccdf53a62bd852368f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427055"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655273"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configurare una chiave gestita dal cliente in Azure Sentinel
 
@@ -59,7 +59,7 @@ Per effettuare il provisioning di CMK, seguire questa procedura:
 
 ### <a name="step-1-create-an-azure-key-vault-and-storing-key"></a>PASSAGGIO 1: creare un'istanza di Azure Key Vault e una chiave di archiviazione
 
-1.  [Creare una risorsa Azure Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal) e generare o importare una chiave da usare per la crittografia dei dati.
+1.  [Creare una risorsa Azure Key Vault](/azure-stack/user/azure-stack-key-vault-manage-portal) e generare o importare una chiave da usare per la crittografia dei dati.
     > [!NOTE]
     >  L'istanza di Azure Key Vault deve essere configurata come recuperabile per proteggere la chiave e l'accesso.
 
@@ -132,6 +132,5 @@ Se si usa la stessa chiave in Azure Sentinel e in Log Analytics, è necessario e
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come configurare una chiave gestita dal cliente in Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
-- Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats.md).
+- Iniziare a [rilevare minacce con Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Usare le cartelle di lavoro](tutorial-monitor-your-data.md) per monitorare i dati.
-
