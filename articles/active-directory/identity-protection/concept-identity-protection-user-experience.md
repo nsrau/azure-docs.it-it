@@ -11,25 +11,25 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3315a8d6bca9406461d0082ed85bbefc9459f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d4897b9187caab50be4db75bbc0af03e3d35aa4
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88950205"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835986"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Esperienze utente con Azure AD Identity Protection
 
 Con Azure Active Directory Identity Protection è possibile:
 
-* Richiedi agli utenti di registrarsi per Azure Multi-Factor Authentication (autenticazione a più fattori)
+* Richiedi agli utenti di registrarsi per Azure AD Multi-Factor Authentication (autenticazione a più fattori)
 * Automatizzare la correzione di accessi a rischio e utenti compromessi
 
-Tutti i criteri di Identity Protection hanno un effetto sull'esperienza di accesso per gli utenti. Consentire agli utenti di registrarsi e usare strumenti come l'autenticazione a più fattori di Azure e la reimpostazione della password self-service può ridurre l'effetto. Questi strumenti con le scelte appropriate per i criteri forniscono agli utenti un'opzione di correzione automatica quando necessario.
+Tutti i criteri di Identity Protection hanno un effetto sull'esperienza di accesso per gli utenti. Consentire agli utenti di effettuare la registrazione e usare strumenti come Azure AD autenticazione a più fattori e la reimpostazione della password self-service possono ridurre l'effetto. Questi strumenti con le scelte appropriate per i criteri forniscono agli utenti un'opzione di correzione automatica quando necessario.
 
 ## <a name="multi-factor-authentication-registration"></a>Registrazione per l'autenticazione a più fattori
 
-L'abilitazione dei criteri di Identity Protection che richiedono la registrazione dell'autenticazione a più fattori e la destinazione di tutti gli utenti garantisce la possibilità di usare l'autenticazione a più fattori di Azure per la correzione automatica in futuro. La configurazione di questo criterio consente agli utenti di effettuare la registrazione per un periodo di 14 giorni. L'esperienza per gli utenti è illustrata di seguito. Altre informazioni sono disponibili nella documentazione dell'utente finale nell'articolo [Panoramica per la verifica a due fattori e l'account aziendale o dell'Istituto di istruzione](../user-help/multi-factor-authentication-end-user-first-time.md).
+L'abilitazione dei criteri di Identity Protection che richiedono la registrazione di multi-factor authentication e la destinazione di tutti gli utenti garantisce la possibilità di usare Azure AD autenticazione a più fattori per la correzione automatica in futuro. La configurazione di questo criterio consente agli utenti di effettuare la registrazione per un periodo di 14 giorni. L'esperienza per gli utenti è illustrata di seguito. Altre informazioni sono disponibili nella documentazione dell'utente finale nell'articolo [Panoramica per la verifica a due fattori e l'account aziendale o dell'Istituto di istruzione](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 ### <a name="registration-interrupt"></a>Interrompi registrazione
 
@@ -37,7 +37,7 @@ L'abilitazione dei criteri di Identity Protection che richiedono la registrazion
    
     ![Richiesta di altre informazioni](./media/concept-identity-protection-user-experience/identity-protection-experience-more-info-mfa.png)
 
-1. Completare i passaggi guidati per eseguire la registrazione per Azure Multi-Factor Authentication e completare l'accesso.
+1. Completare i passaggi guidati per registrare Azure AD Multi-Factor Authentication e completare l'accesso.
 
 ## <a name="risky-sign-in-remediation"></a>Monitoraggio e aggiornamento a rischio per l'accesso
 
@@ -49,7 +49,7 @@ Quando un amministratore ha configurato un criterio per i rischi di accesso, gli
    
     ![Un messaggio insolito](./media/concept-identity-protection-user-experience/120.png)
 
-1. L'utente deve dimostrare la propria identità completando l'autenticazione a più fattori di Azure con uno dei metodi precedentemente registrati. 
+1. Per dimostrare l'identità dell'utente, è necessario completare Azure AD autenticazione a più fattori con uno dei metodi precedentemente registrati. 
 
 ### <a name="risky-sign-in-administrator-unblock"></a>Sblocco dell'amministratore di accesso rischioso
 
@@ -69,7 +69,7 @@ Quando è stato configurato un criterio di rischio utente, gli utenti che soddis
    
     ![Soluzione](./media/concept-identity-protection-user-experience/101.png)
 
-1. L'utente deve dimostrare la propria identità completando l'autenticazione a più fattori di Azure con uno dei metodi precedentemente registrati. 
+1. Per dimostrare l'identità dell'utente, è necessario completare Azure AD autenticazione a più fattori con uno dei metodi precedentemente registrati. 
 1. Infine, l'utente deve modificare la password usando la reimpostazione della password self-service perché qualcun altro potrebbe avere accesso al proprio account.
 
 ## <a name="risky-sign-in-administrator-unblock"></a>Sblocco dell'amministratore di accesso rischioso

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 4a397a67c0e40de8be1d42ee56618357cf36c55f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 96c0242414c67d97fc324977b1259f63c27c3a26
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017727"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696813"
 ---
 # <a name="what-is-azure-load-balancer"></a>Informazioni su Azure Load Balancer
 
@@ -44,29 +44,29 @@ Load Balancer Standard consente di ridimensionare le applicazioni e di creare se
 
 I principali scenari in cui è possibile usare Load Balancer Standard includono:
 
-- Bilanciare il carico del traffico **[interno](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-internal-portal)** ed **[esterno](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-manage-portal)** inviato alle macchine virtuali di Azure.
+- Bilanciare il carico del traffico **[interno](./quickstart-load-balancer-standard-internal-portal.md)** ed **[esterno](./tutorial-load-balancer-standard-manage-portal.md)** inviato alle macchine virtuali di Azure.
 
-- Aumentare la disponibilità distribuendo le risorse **[all'interno](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal)** e **[tra](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal)** zone.
+- Aumentare la disponibilità distribuendo le risorse **[all'interno](./tutorial-load-balancer-standard-public-zonal-portal.md)** e **[tra](./tutorial-load-balancer-standard-public-zone-redundant-portal.md)** zone.
 
-- Configurare la **[connettività in uscita](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)** per le macchine virtuali di Azure.
+- Configurare la **[connettività in uscita](./load-balancer-outbound-connections.md)** per le macchine virtuali di Azure.
 
-- Usare **[probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)** per monitorare le risorse con carico bilanciato.
+- Usare **[probe di integrità](./load-balancer-custom-probe-overview.md)** per monitorare le risorse con carico bilanciato.
 
-- Adottare il **[port forwarding](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** per accedere alle macchine virtuali in una rete virtuale tramite indirizzo IP pubblico e porta.
+- Adottare il **[port forwarding](./tutorial-load-balancer-port-forwarding-portal.md)** per accedere alle macchine virtuali in una rete virtuale tramite indirizzo IP pubblico e porta.
 
-- Abilitare il supporto per il **[bilanciamento del carico](https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell)** di **[IPv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)** .
+- Abilitare il supporto per il **[bilanciamento del carico](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** di **[IPv6](../virtual-network/ipv6-overview.md)** .
 
-- Load Balancer Standard fornisce le metriche multidimensionali tramite [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview).  Queste metriche possono essere filtrate, raggruppate e suddivise in una determinata dimensione.  Forniscono informazioni dettagliate sulle prestazioni presenti e passate e sullo stato di integrità del servizio.  Integrità risorse di Azure è supportato. Per altre informazioni, vedere **[Diagnostica di Load Balancer Standard con metriche, avvisi e integrità delle risorse](load-balancer-standard-diagnostics.md)** .
+- Load Balancer Standard fornisce le metriche multidimensionali tramite [Monitoraggio di Azure](../azure-monitor/overview.md).  Queste metriche possono essere filtrate, raggruppate e suddivise in una determinata dimensione.  Forniscono informazioni dettagliate sulle prestazioni presenti e passate e sullo stato di integrità del servizio.  Integrità risorse di Azure è supportato. Per altre informazioni, vedere **[Diagnostica di Load Balancer Standard con metriche, avvisi e integrità delle risorse](load-balancer-standard-diagnostics.md)** .
 
-- Bilanciare il carico dei servizi in **[più porte, più indirizzi IP o entrambi](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview)** .
+- Bilanciare il carico dei servizi in **[più porte, più indirizzi IP o entrambi](./load-balancer-multivip-overview.md)** .
 
-- Spostare le risorse di Load Balancer **[interne](https://docs.microsoft.com/azure/load-balancer/move-across-regions-internal-load-balancer-portal)** ed **[esterne](https://docs.microsoft.com/azure/load-balancer/move-across-regions-external-load-balancer-portal)** tra le aree di Azure.
+- Spostare le risorse di Load Balancer **[interne](./move-across-regions-internal-load-balancer-portal.md)** ed **[esterne](./move-across-regions-external-load-balancer-portal.md)** tra le aree di Azure.
 
-- Bilanciare il carico del flusso TCP e UDP in tutte le porte contemporaneamente usando **[porte a disponibilità elevata](https://docs.microsoft.com/azure/load-balancer/load-balancer-ha-ports-overview)** .
+- Bilanciare il carico del flusso TCP e UDP in tutte le porte contemporaneamente usando **[porte a disponibilità elevata](./load-balancer-ha-ports-overview.md)** .
 
 ### <a name="secure-by-default"></a><a name="securebydefault"></a>Protezione per impostazione predefinita
 
-Alla base di Load Balancer Standard c'è il modello di sicurezza di rete Zero Trust. Load Balancer Standard è sicuro per impostazione predefinita ed è parte della rete virtuale. La rete virtuale è una rete privata e isolata.  Questo significa che le istanze di Load Balancer Standard e gli indirizzi IP pubblici standard sono chiusi ai flussi in ingresso, a meno che non vengano aperti da gruppi di sicurezza di rete. I gruppi di sicurezza di rete vengono usati per permettere esplicitamente il traffico consentito.  Se non si ha un gruppo di sicurezza di rete su una subnet o sulla scheda di rete della risorsa macchina virtuale, non è consentito al traffico di raggiungere questa risorsa. Per altre informazioni sui gruppi di sicurezza di rete e su come applicarli allo scenario, vedere [Gruppi di sicurezza di rete](../virtual-network/security-overview.md).
+Alla base di Load Balancer Standard c'è il modello di sicurezza di rete Zero Trust. Load Balancer Standard è sicuro per impostazione predefinita ed è parte della rete virtuale. La rete virtuale è una rete privata e isolata.  Questo significa che le istanze di Load Balancer Standard e gli indirizzi IP pubblici standard sono chiusi ai flussi in ingresso, a meno che non vengano aperti da gruppi di sicurezza di rete. I gruppi di sicurezza di rete vengono usati per permettere esplicitamente il traffico consentito.  Se non si ha un gruppo di sicurezza di rete su una subnet o sulla scheda di rete della risorsa macchina virtuale, non è consentito al traffico di raggiungere questa risorsa. Per altre informazioni sui gruppi di sicurezza di rete e su come applicarli allo scenario, vedere [Gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md).
 Load Balancer Basic è aperto a Internet per impostazione predefinita. Load Balancer, inoltre, non archivia i dati dei clienti.
 
 ## <a name="pricing-and-sla"></a>Prezzi e contratto di servizio
@@ -84,4 +84,3 @@ Sottoscrivere il feed RSS e visualizzare gli aggiornamenti più recenti di Azure
 Per iniziare a usare un servizio di bilanciamento del carico, vedere [Creare un servizio di bilanciamento del carico Standard pubblico](quickstart-load-balancer-standard-public-portal.md).
 
 Per altre informazioni su componenti e limiti di Azure Load Balancer, vedere [Componenti di Azure Load Balancer](./components.md) e [Concetti di Azure Load Balancer](./concepts.md).
-

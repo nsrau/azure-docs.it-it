@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4337d6bb108042a909250b3d87d13ab60357cfec
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4239b5400e919621dfff001ca7e6cb9de1626658
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311130"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686209"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Connettersi a Synapse SQL con SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -50,13 +50,13 @@ Prima di iniziare, verificare di aver soddisfatto i prerequisiti seguenti:
 Per connettersi a Synapse SQL tramite il pool SQL dedicato, seguire questa procedura: 
 
 1. Aprire SQL Server Management Studio (SSMS). 
-1. Nella finestra di dialogo **Connetti al server** compilare i campi e quindi selezionare **Connetti** : 
+1. Nella finestra di dialogo **Connetti al server** compilare i campi e quindi selezionare **Connetti**: 
   
     ![Connettersi al server 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
-   * **Nome server** : Immettere il **nome server** identificato in precedenza.
-   * **Autenticazione** :  scegliere un tipo di autenticazione, ad esempio **Autenticazione di SQL Server** o **Autenticazione integrata di Active Directory**.
-   * **Nome utente** e **Password** : se è stata selezionata l'autenticazione di SQL Server, immettere il nome utente e la password.
+   * **Nome server**: Immettere il **nome server** identificato in precedenza.
+   * **Autenticazione**:  scegliere un tipo di autenticazione, ad esempio **Autenticazione di SQL Server** o **Autenticazione integrata di Active Directory**.
+   * **Nome utente** e **Password**: se è stata selezionata l'autenticazione di SQL Server, immettere il nome utente e la password.
 
 1. Espandere Azure SQL Server in **Esplora oggetti**. È possibile visualizzare i database associati al server, come il database di esempio AdventureWorksDW. Per vedere le tabelle, espandere il database:
    
@@ -68,13 +68,13 @@ Per connettersi a Synapse SQL tramite il pool SQL dedicato, seguire questa proce
 Per connettersi a Synapse SQL tramite il pool SQL serverless, seguire questa procedura: 
 
 1. Aprire SQL Server Management Studio (SSMS).
-1. Nella finestra di dialogo **Connetti al server** compilare i campi e quindi selezionare **Connetti** : 
+1. Nella finestra di dialogo **Connetti al server** compilare i campi e quindi selezionare **Connetti**: 
    
     ![Connettersi al server 2](./media/get-started-ssms/connect-object-explorer1.png)
    
-   * **Nome server** : Immettere il **nome server** identificato in precedenza.
-   * **Autenticazione** : scegliere un tipo di autenticazione, ad esempio **Autenticazione di SQL Server** o **Autenticazione integrata di Active Directory** :
-   * **Nome utente** e **Password** : se è stata selezionata l'autenticazione di SQL Server, immettere il nome utente e la password.
+   * **Nome server**: Immettere il **nome server** identificato in precedenza.
+   * **Autenticazione**: scegliere un tipo di autenticazione, ad esempio **Autenticazione di SQL Server** o **Autenticazione integrata di Active Directory**:
+   * **Nome utente** e **Password**: se è stata selezionata l'autenticazione di SQL Server, immettere il nome utente e la password.
    * Selezionare **Connetti**.
 
 4. Per l'esplorazione, espandere il server SQL Azure. È possibile visualizzare i database associati al server. Espandere *demo* per visualizzare il contenuto nel database di esempio.

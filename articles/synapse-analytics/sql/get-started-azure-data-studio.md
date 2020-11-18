@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: fb4c7f8ba49cf701ef13cb57ab2b323a94c928cc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3af28ef575f770a5b8c3fb73ade1f9c53be66843
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323831"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685750"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Connettersi a Synapse SQL con Azure Data Studio (anteprima)
 
@@ -46,11 +46,11 @@ Per la connessione sono necessari i parametri seguenti:
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >
-> Se si preferisce usare il **pool SQL dedicato** , l'URL sarà simile al seguente:
+> Se si preferisce usare il **pool SQL dedicato**, l'URL sarà simile al seguente:
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
-Scegliere **Autenticazione di Windows** , **Azure Active Directory** o **Account di accesso SQL** per **Tipo di autenticazione**.
+Scegliere **Autenticazione di Windows**, **Azure Active Directory** o **Account di accesso SQL** per **Tipo di autenticazione**.
 
 Per usare **Account di accesso SQL** come tipo di autenticazione, aggiungere i parametri nome utente/password:
 
@@ -61,11 +61,11 @@ Per usare Azure Active Directory, è necessario scegliere il tipo di autenticazi
 
 ![Autenticazione AAD](./media/get-started-azure-data-studio/3-aad-auth.png)
 
-Lo screenshot seguente mostra l'opzione **Dettagli connessione** per **Autenticazione di Windows** :
+Lo screenshot seguente mostra l'opzione **Dettagli connessione** per **Autenticazione di Windows**:
 
 ![Autenticazione di Windows](./media/get-started-azure-data-studio/3-windows-auth.png)
 
-Lo screenshot seguente mostra l'opzione **Dettagli connessione** per **Account di accesso SQL** :
+Lo screenshot seguente mostra l'opzione **Dettagli connessione** per **Account di accesso SQL**:
 
 ![Account di accesso SQL](./media/get-started-azure-data-studio/2-database-details.png)
 

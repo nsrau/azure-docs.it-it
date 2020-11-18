@@ -7,15 +7,15 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4d1488d6dd2e5d08ae774ca88b7ab41b2020efe5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d47935f76347b2d5272b386942a85643a732e643
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998390"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831753"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>Avvio rapido: Creare un modulo di protezione hardware gestito usando un modello di Azure Resource Manager
 
@@ -79,7 +79,6 @@ Potrebbe essere necessario anche l'ID tenant. Per trovarlo, usare il comando [az
     - **Gruppo di risorse**: Selezionare **Crea nuovo**, immettere un nome univoco per il gruppo di risorse e quindi fare clic su **OK**.
     - **Località**: Selezionare una località. Ad esempio, **Stati Uniti centro-meridionali**.
     - **managedHSMName**: immettere un nome per il modulo di protezione hardware gestito.
-    - **SKU**: immettere il nome e la famiglia del modulo di protezione hardware gestito da creare.  Per questo avvio rapido immettere "Standard_B1" per il nome e "B" per la famiglia.
     - **ID tenant**: viene recuperato automaticamente dalla funzione del modello. Non cambiare il valore predefinito.  Se non è specificato alcun valore, immettere l'ID tenant recuperato in [Prerequisiti](#prerequisites).
     * **initialAdminObjectIds**: immettere l'ID oggetto recuperato in [Prerequisiti](#prerequisites).
 

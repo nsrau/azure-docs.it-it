@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 44f6ba313ab57933a1078e96533c88cc4b4b59b3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6ac76b3d3cc8fb27734730275836fba0dbfb08fe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490850"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700308"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Avvio rapido: Creare un servizio di bilanciamento del carico interno per le macchine virtuali mediante il portale di Azure
 
@@ -55,7 +55,7 @@ In questa sezione si crea una rete virtuale e una subnet.
 
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa > Rete > Rete virtuale** o cercare **Rete virtuale** nella casella di ricerca.
 
-2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale** :
+2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale**:
 
     | **Impostazione**          | **Valore**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -202,7 +202,7 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
 4. Accettare tutte le impostazioni predefinite e quindi selezionare **OK**.
 
 >[!NOTE]
->Le macchine virtuali nel pool back-end non avranno connettività Internet in uscita con questa configurazione. </br> Per altre informazioni su come fornire la connettività in uscita, vedere: </br> **[Connessioni in uscita in Azure](load-balancer-outbound-connections.md)**</br> Opzioni per fornire la connettività: </br> **[Configurazione del servizio di bilanciamento del carico solo in uscita](egress-only.md)** </br> **[Che cos'è NAT di rete virtuale?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+>Le macchine virtuali nel pool back-end non avranno connettività Internet in uscita con questa configurazione. </br> Per altre informazioni su come fornire la connettività in uscita, vedere: </br> **[Connessioni in uscita in Azure](load-balancer-outbound-connections.md)**</br> Opzioni per fornire la connettività: </br> **[Configurazione del servizio di bilanciamento del carico solo in uscita](egress-only.md)** </br> **[Che cos'è NAT di rete virtuale?](../virtual-network/nat-overview.md)**
 
 ## <a name="create-backend-servers"></a>Creare i server back-end
 
@@ -213,13 +213,13 @@ In questa sezione verrà illustrato come:
 
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
 
-In questa sezione verranno create due macchine virtuali ( **myVM1** e **myVM2** ).
+In questa sezione verranno create due macchine virtuali (**myVM1** e **myVM2**).
 
 Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilanciamento del carico creato in precedenza.
 
 1. Nella parte superiore sinistra del portale selezionare **Crea una risorsa** > **Calcolo** > **Macchina virtuale**. 
    
-2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base** :
+2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
 
     | Impostazione | valore                                          |
     |-----------------------|----------------------------------|
@@ -239,7 +239,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
     | Password | Immettere una password |
     | Conferma password | Reimmettere la password |
 
-3. Selezionare la scheda **Rete** , oppure selezionare **Avanti: Dischi** , quindi **Avanti: Rete**.
+3. Selezionare la scheda **Rete**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**.
   
 4. Nella scheda Rete selezionare o immettere:
 
@@ -262,7 +262,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
   
 6. Rivedere le impostazioni e quindi selezionare **Crea**.
 
-7. Seguire i passaggi da 1 a 8 per creare un'altra macchina virtuale con i valori seguenti e tutte le altre impostazioni identiche a **myVM1** :
+7. Seguire i passaggi da 1 a 8 per creare un'altra macchina virtuale con i valori seguenti e tutte le altre impostazioni identiche a **myVM1**:
 
     | Impostazione | VM 2|
     | ------- | ----- |
@@ -290,7 +290,7 @@ In questa sezione si crea una rete virtuale e una subnet.
 
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa > Rete > Rete virtuale** o cercare **Rete virtuale** nella casella di ricerca.
 
-2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale** :
+2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale**:
 
     | **Impostazione**          | **Valore**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -451,7 +451,7 @@ In questa sezione verrà illustrato come:
 
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
 
-In questa sezione verranno create due macchine virtuali ( **myVM1** e **myVM2** ).
+In questa sezione verranno create due macchine virtuali (**myVM1** e **myVM2**).
 
 Le due macchine virtuali verranno aggiunte a un set di disponibilità denominato **myAvailabilitySet**.
 
@@ -459,7 +459,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
 
 1. Nella parte superiore sinistra del portale selezionare **Crea una risorsa** > **Calcolo** > **Macchina virtuale**. 
    
-2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base** :
+2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
 
     | Impostazione | valore                                          |
     |-----------------------|----------------------------------|
@@ -479,7 +479,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
     | Password | Immettere una password |
     | Conferma password | Reimmettere la password |
 
-3. Selezionare la scheda **Rete** , oppure selezionare **Avanti: Dischi** , quindi **Avanti: Rete**.
+3. Selezionare la scheda **Rete**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**.
   
 4. Nella scheda Rete selezionare o immettere:
 
@@ -498,7 +498,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
   
 6. Rivedere le impostazioni e quindi selezionare **Crea**.
 
-7. Seguire i passaggi da 1 a 8 per creare un'altra macchina virtuale con i valori seguenti e tutte le altre impostazioni identiche a **myVM1** :
+7. Seguire i passaggi da 1 a 8 per creare un'altra macchina virtuale con i valori seguenti e tutte le altre impostazioni identiche a **myVM1**:
 
     | Impostazione | VM 2 |
     | ------- | ----- |
@@ -531,7 +531,7 @@ In questa sezione si creerà una VM denominata **myTestVM**.  Questa VM verrà u
 
 1. Nella parte superiore sinistra del portale selezionare **Crea una risorsa** > **Calcolo** > **Macchina virtuale**. 
    
-2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base** :
+2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
 
     | Impostazione | valore                                          |
     |-----------------------|----------------------------------|
@@ -550,7 +550,7 @@ In questa sezione si creerà una VM denominata **myTestVM**.  Questa VM verrà u
     | Password | Immettere una password |
     | Conferma password | Reimmettere la password |
 
-3. Selezionare la scheda **Rete** , oppure selezionare **Avanti: Dischi** , quindi **Avanti: Rete**.
+3. Selezionare la scheda **Rete**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**.
   
 4. Nella scheda Rete selezionare o immettere:
 
@@ -569,9 +569,9 @@ In questa sezione si creerà una VM denominata **myTestVM**.  Questa VM verrà u
 
 ## <a name="install-iis"></a>Installare IIS
 
-1. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine nell'elenco di risorse selezionare **myVM1** , che si trova nel gruppo di risorse **CreateIntLBQS-rg**.
+1. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine nell'elenco di risorse selezionare **myVM1**, che si trova nel gruppo di risorse **CreateIntLBQS-rg**.
 
-2. Nella pagina **Panoramica** selezionare **Connetti** , quindi **Bastion**.
+2. Nella pagina **Panoramica** selezionare **Connetti**, quindi **Bastion**.
 
 4. Immettere il nome utente e la password specificati durante la creazione della VM.
 
@@ -607,9 +607,9 @@ In questa sezione si creerà una VM denominata **myTestVM**.  Questa VM verrà u
 
 2. Annotare o copiare l'indirizzo accanto a **Indirizzo IP privato** nella pagina **Panoramica** di **myLoadBalancer**.
 
-3. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine nell'elenco di risorse selezionare **myTestVM** , che si trova nel gruppo di risorse **CreateIntLBQS-rg**.
+3. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine nell'elenco di risorse selezionare **myTestVM**, che si trova nel gruppo di risorse **CreateIntLBQS-rg**.
 
-4. Nella pagina **Panoramica** selezionare **Connetti** , quindi **Bastion**.
+4. Nella pagina **Panoramica** selezionare **Connetti**, quindi **Bastion**.
 
 6. Immettere il nome utente e la password specificati durante la creazione della VM.
 
@@ -635,4 +635,4 @@ In questo argomento di avvio rapido:
 
 Per altre informazioni su Azure Load Balancer, passare a...
 > [!div class="nextstepaction"]
-> [Informazioni su Azure Load Balancer](load-balancer-overview.md) 
+> [Informazioni su Azure Load Balancer](load-balancer-overview.md)

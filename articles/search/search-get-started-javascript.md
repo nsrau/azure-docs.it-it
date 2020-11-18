@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/26/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 5ccbe1035c5cc73993e069c7683d6b15ae18e21c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 0e1b7aa0eb56d5668b6561b36a0f63e719974573
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795534"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698897"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure con JavaScript SDK
 > [!div class="op_single_selector"]
@@ -24,10 +24,10 @@ ms.locfileid: "92795534"
 > * [Portale](search-get-started-portal.md)
 > * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
-> * [Postman](search-get-started-postman.md)
+> * [REST](search-get-started-rest.md)
 
 
-Usare [Javascript/Typscript SDK per Ricerca cognitiva di Azure](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest) per creare un'applicazione Node.js in JavaScript che crea, carica ed esegue query su un indice di ricerca.
+Usare [Javascript/Typscript SDK per Ricerca cognitiva di Azure](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme) per creare un'applicazione Node.js in JavaScript che crea, carica ed esegue query su un indice di ricerca.
 
 Questo articolo descrive in modo dettagliato come creare l'applicazione. In alternativa, è possibile [scaricare il codice sorgente e i dati](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) ed eseguire l'applicazione dalla riga di comando.
 
@@ -58,7 +58,7 @@ Le chiamate al servizio richiedono un URL endpoint e una chiave di accesso per o
 
 2. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per avere diritti completi sul servizio, necessari in caso di creazione o eliminazione di oggetti. Vengono visualizzate due chiavi intercambiabili: la chiave primaria e quella secondaria. È possibile usare una qualsiasi delle due.
 
-   ![Ottenere un endpoint HTTP e una chiave di accesso](media/search-get-started-postman/get-url-key.png "Ottenere un endpoint HTTP e una chiave di accesso")
+   ![Ottenere un endpoint HTTP e una chiave di accesso](media/search-get-started-rest/get-url-key.png "Ottenere un endpoint HTTP e una chiave di accesso")
 
 Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
@@ -80,7 +80,7 @@ Per iniziare, aprire VS Code e il relativo [terminale integrato](https://code.vi
     ```
      Accettare i valori predefiniti, ad eccezione della licenza (license), che deve essere impostata su "MIT". 
 
-3. Installare `@azure/search-documents`, ossia [Javascript/Typscript SDK per Ricerca cognitiva di Azure](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest).
+3. Installare `@azure/search-documents`, ossia [Javascript/Typscript SDK per Ricerca cognitiva di Azure](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme).
 
     ```cmd
     npm install @azure/search-documents
@@ -126,7 +126,7 @@ Sostituire il valore `<search-service-name>` con il nome del servizio di ricerca
 
 ### <a name="create-indexjs-file"></a>Creare il file index.js
 
-A questo punto si creerà un file **index.js** , ovvero il file principale che ospiterà il codice.
+A questo punto si creerà un file **index.js**, ovvero il file principale che ospiterà il codice.
 
 All'inizio del file importare la libreria `@azure/search-documents`:
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: c8b4102968e4b6b633216e29d5e993a1c98fa1c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 478f3454a728871040cdbbf9f817394cffe6b82f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89071721"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660254"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Avvio rapido: Distribuire Firewall di Azure con zone di disponibilità - Modello di Resource Manager
 
@@ -93,4 +93,4 @@ Non rimuovere il gruppo di risorse e il firewall se si prevede di continuare con
 È possibile ora monitorare i log di Firewall di Azure.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: monitorare i log del Firewall di Azure](tutorial-diagnostics.md)
+> [Esercitazione: monitorare i log del Firewall di Azure](./firewall-diagnostics.md)

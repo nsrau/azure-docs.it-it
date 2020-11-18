@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49f3e082969b7483601088cd976d8cc30d500017
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 366d68be1a7f115980973015e363da6095876754
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367466"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835918"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Procedura: configurare e abilitare i criteri di rischio
 
@@ -33,7 +33,7 @@ Entrambi i criteri funzionano per automatizzare la risposta ai rilevamenti dei r
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
-Se l'organizzazione desidera consentire agli utenti di eseguire autonomamente la correzione quando vengono rilevati rischi, gli utenti devono essere registrati per la reimpostazione della password self-service e per Azure Multi-Factor Authentication. Per un'esperienza ottimale, è consigliabile [abilitare l'esperienza di registrazione delle informazioni di sicurezza combinata](../authentication/howto-registration-mfa-sspr-combined.md) . Consentire agli utenti di eseguire autonomamente il monitoraggio e l'aggiornamento a uno stato produttivo più rapidamente senza richiedere l'intervento dell'amministratore. Gli amministratori possono comunque visualizzare questi eventi ed esaminarli dopo il fatto. 
+Se l'organizzazione desidera consentire agli utenti di eseguire autonomamente la correzione quando vengono rilevati rischi, gli utenti devono essere registrati per la reimpostazione della password self-service e Azure AD Multi-Factor Authentication. Per un'esperienza ottimale, è consigliabile [abilitare l'esperienza di registrazione delle informazioni di sicurezza combinata](../authentication/howto-registration-mfa-sspr-combined.md) . Consentire agli utenti di eseguire autonomamente il monitoraggio e l'aggiornamento a uno stato produttivo più rapidamente senza richiedere l'intervento dell'amministratore. Gli amministratori possono comunque visualizzare questi eventi ed esaminarli dopo il fatto. 
 
 ## <a name="choosing-acceptable-risk-levels"></a>Scelta di livelli di rischio accettabili
 
@@ -54,7 +54,7 @@ I [percorsi di rete](../conditional-access/location-condition.md) attendibili co
 Per abilitare il rischio utente e i criteri di rischio di accesso, completare i passaggi seguenti.
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory**  >  Panoramica di**Security**  >  **Identity Protection**  >  **Overview**.
+1. Passare a **Azure Active Directory**  >  Panoramica di **Security**  >  **Identity Protection**  >  **Overview**.
 1. Selezionare **criteri di rischio utente**.
    1. In **assegnazioni**
       1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.
@@ -70,13 +70,13 @@ Per abilitare il rischio utente e i criteri di rischio di accesso, completare i 
          1. Facoltativamente, è possibile scegliere di escludere gli utenti dai criteri.
       1. **Condizioni**  -  di **Rischio di accesso** Microsoft consiglia di impostare questa opzione su **media e versioni successive**.
    1. Sotto **controlli**
-      1. **Accesso** : Microsoft consiglia di **consentire l'accesso** e **richiedere l'autenticazione**a più fattori.
+      1. **Accesso** : Microsoft consiglia di **consentire l'accesso** e **richiedere l'autenticazione** a più fattori.
    1. **Imponi criteri**  -  **Il**
    1. **Salva**
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitare i criteri di registrazione per l'autenticazione a più fattori di Azure](howto-identity-protection-configure-mfa-policy.md)
+- [Abilita Azure AD Multi-Factor Authentication i criteri di registrazione](howto-identity-protection-configure-mfa-policy.md)
 
 - [Che cosa sono i rischi?](concept-identity-protection-risks.md)
 

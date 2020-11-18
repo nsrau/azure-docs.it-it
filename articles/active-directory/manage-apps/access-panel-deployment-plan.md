@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 8e345b27fdb2604c0c3264d6935cb9cff8aeec9c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 7edb7b498450625faf90f0601e19745ad632635a
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656735"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835663"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Pianificare un Azure Active Directory la distribuzione di app personali
 
@@ -26,7 +26,7 @@ Utilizzando Azure AD app personali, è possibile:
 * Individuare e accedere a tutte le risorse Azure AD connesse della propria azienda, ad esempio le applicazioni
 * Richiedere l'accesso alle nuove app e ai gruppi
 * Gestire l'accesso a queste risorse per altri utenti
-* Gestire le impostazioni di reimpostazione delle password self-service e di Azure Multi-Factor Authentication
+* Gestire le impostazioni di reimpostazione della password self-service e Azure AD Multi-Factor Authentication
 * Gestire i dispositivi
 
 Consente inoltre agli amministratori di gestire:
@@ -54,7 +54,7 @@ Azure AD le mie app sono utili per le aziende nei modi seguenti:
 
 Le mie app sono gratuite e non richiedono licenze da usare a livello di base. Tuttavia, il numero di oggetti nella directory e le funzionalità aggiuntive che si desidera distribuire possono richiedere licenze aggiuntive. Alcuni scenari comuni di Azure AD con requisiti di licenza includono le funzionalità di sicurezza seguenti:
 
-* [Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 * [Appartenenza basata sui gruppi](../fundamentals/active-directory-manage-groups.md)
 * [Reimpostazione della password self-service](../authentication/tutorial-enable-sspr.md)
 * [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
@@ -312,4 +312,4 @@ Utilizzare il ruolo con privilegi minimi per eseguire un'attività obbligatoria 
 È possibile usare [Privileged Identity Management](../privileged-identity-management/pim-configure.md) per gestire i ruoli per fornire controllo, controllo e verifica di accesso aggiuntivi per gli utenti con autorizzazioni di directory.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Pianificare una distribuzione di Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Pianificare una distribuzione di Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

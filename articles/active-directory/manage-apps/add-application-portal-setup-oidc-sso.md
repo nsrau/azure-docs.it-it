@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 0a25d910b694968802e853a81c16e34dd0539f7a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 9ea4ec748ca37f93e9711970b10746a009543d00
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203501"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656599"
 ---
 # <a name="quickstart-set-up-oidc-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Configurare l'accesso Single Sign-On (SSO) basato su OIDC per un'applicazione nel tenant di Azure Active Directory (Azure AD)
 
@@ -52,15 +52,15 @@ Per configurare l'accesso Single Sign-On per un'applicazione:
    > [!IMPORTANT]
     > Se si ha già una sottoscrizione dell'applicazione, verrà eseguita la convalida dei dettagli dell'utente e delle informazioni relative a tenant/directory. Se l'applicazione non è in grado di verificare l'utente, quest'ultimo verrà reindirizzato alla pagina di iscrizione al servizio dell'applicazione o alla pagina di errore.
 
-3. Al termine dell'autenticazione, viene visualizzata una finestra di dialogo che chiede il consenso dell'amministratore. Selezionare **Acconsenti per conto dell'organizzazione** e quindi **Accetta** . 
+3. Al termine dell'autenticazione, viene visualizzata una finestra di dialogo che chiede il consenso dell'amministratore. Selezionare **Acconsenti per conto dell'organizzazione** e quindi **Accetta**. 
 
-    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Screenshot che mostra l'opzione Single Sign-On e il pulsante per l'iscrizione." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
+    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Screenshot che mostra la schermata di consenso per un'app." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
 
 4. L'applicazione viene aggiunta al tenant e viene visualizzata la relativa home page.
 
 
 > [!TIP]
-> È possibile automatizzare la gestione delle app usando l'API Graph. Vedere [Automatizzare la gestione delle app con l'API Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> È possibile automatizzare la gestione delle app usando l'API Graph. Vedere [Automatizzare la gestione delle app con l'API Microsoft Graph](/graph/application-saml-sso-configure-api).
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5c9b47bf5d638f3c15416416a435653eeb68505
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 46ab1df1b776bf8dc9d6d917e5394c3efeec0de4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172048"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659387"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Avvio rapido: Creare un'area di lavoro di Azure Synapse con l'interfaccia della riga di comando di Azure
 
@@ -22,7 +22,7 @@ L'interfaccia della riga di comando di Azure è l'esperienza della riga di coman
 
 Questa guida di avvio rapido illustra come creare un'area di lavoro di Synapse con l'interfaccia della riga di comando di Azure.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito prima di iniziare](https://azure.microsoft.com/free/).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,28 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito prima di i
     > [!IMPORTANT]
     > L'area di lavoro di Azure Synapse deve essere in grado di leggere e scrivere nell'account di ADLS Gen2 selezionato. Per qualsiasi account di archiviazione collegato come account di archiviazione primario, inoltre, è necessario aver abilitato lo **spazio dei nomi gerarchico** durante la creazione dell'account di archiviazione, come descritto nella pagina [Creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal#create-a-storage-account). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="install-the-azure-cli-locally"></a>Installare l'interfaccia della riga di comando di Azure in locale
-
-Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-
-Se si esegue l'interfaccia della riga di comando di Azure in locale, è necessario effettuare l'accesso e l'autenticazione. Se si usa Azure Cloud Shell, questo passaggio non è necessario. Per accedere all'interfaccia della riga di comando di Azure, eseguire `az login` e quindi l'autenticazione nella finestra del browser:
-
-```azurecli
-az login
-```
-
-Per altre informazioni sull'autenticazione con l'interfaccia della riga di comando di Azure, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
-
-## <a name="install-azure-synapse-extension-for-azure-cli"></a>Installare l'estensione Azure Synapse per l'interfaccia della riga di comando di Azure
-
-```azurecli
-az extension add --name synapse
-```
-
-> [!WARNING]
-> L'estensione Azure Synapse per l'interfaccia della riga di comando di Azure è in anteprima.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-an-azure-synapse-workspace-using-the-azure-cli"></a>Creare un'area di lavoro di Azure Synapse con l'interfaccia della riga di comando di Azure
 

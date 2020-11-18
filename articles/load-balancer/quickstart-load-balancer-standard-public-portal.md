@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f7d9389eb0a0118f2c1be8375531f58b6bed94b6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 5f19b55a955b8e3e1500cf14fa221b46808ac857
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488096"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698292"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Avvio rapido: Creare un servizio di bilanciamento del carico pubblico per bilanciare il carico delle macchine virtuali con il portale di Azure
 
@@ -60,7 +60,7 @@ Quando si crea un servizio di bilanciamento del carico pubblico, viene creato un
     | Indirizzo IP pubblico | Selezionare **Crea nuovo**. Se si vuole usare un indirizzo IP pubblico esistente, selezionare **Usa esistente**. |
     | Nome dell'indirizzo IP pubblico | Digitare **myPublicIP** nella casella di testo.|
     | Zona di disponibilità | Selezionare **Con ridondanza della zona** per creare un servizio di bilanciamento del carico resiliente. Per creare un servizio di bilanciamento del carico di zona, selezionare una zona specifica tra 1, 2 o 3 |
-    | Aggiungi un indirizzo IPv6 pubblico | Selezionare **No**. </br> Per altre informazioni sugli indirizzi IPv6 e il servizio di bilanciamento del carico, vedere [Che cos'è IPv6 per la rete virtuale di Azure?](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)  |
+    | Aggiungi un indirizzo IPv6 pubblico | Selezionare **No**. </br> Per altre informazioni sugli indirizzi IPv6 e il servizio di bilanciamento del carico, vedere [Che cos'è IPv6 per la rete virtuale di Azure?](../virtual-network/ipv6-overview.md)  |
 
 3. Accettare i valori predefiniti per le impostazioni rimanenti e quindi selezionare **Rivedi e crea**.
 
@@ -158,7 +158,7 @@ In questa sezione si crea una rete virtuale e una subnet.
 
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa > Rete > Rete virtuale** o cercare **Rete virtuale** nella casella di ricerca.
 
-2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale** :
+2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale**:
 
     | **Impostazione**          | **Valore**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -205,13 +205,13 @@ In questa sezione si crea una rete virtuale e una subnet.
 
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
 
-In questa sezione verranno create tre macchine virtuali ( **myVM1** , **myVM2** e **myVM3** ) in tre zone diverse ( **Zona 1** , **Zona 2** e **Zona 3** ). 
+In questa sezione verranno create tre macchine virtuali (**myVM1**, **myVM2** e **myVM3**) in tre zone diverse (**Zona 1**, **Zona 2** e **Zona 3**). 
 
 Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilanciamento del carico creato in precedenza.
 
 1. Nella parte superiore sinistra del portale selezionare **Crea una risorsa** > **Calcolo** > **Macchina virtuale**. 
    
-2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base** :
+2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
 
     | Impostazione | valore                                          |
     |-----------------------|----------------------------------|
@@ -233,7 +233,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
     | **Regole porta in ingresso** |  |
     | Porte in ingresso pubbliche | Selezionare **Nessuno** |
 
-3. Selezionare la scheda **Rete** , oppure selezionare **Avanti: Dischi** , quindi **Avanti: Rete**.
+3. Selezionare la scheda **Rete**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**.
   
 4. Nella scheda Rete selezionare o immettere:
 
@@ -265,7 +265,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
   
 8. Rivedere le impostazioni e quindi selezionare **Crea**.
 
-9. Seguire i passaggi da 1 a 8 per creare due macchine virtuali aggiuntive con i valori seguenti e tutte le altre impostazioni identiche a **myVM1** :
+9. Seguire i passaggi da 1 a 8 per creare due macchine virtuali aggiuntive con i valori seguenti e tutte le altre impostazioni identiche a **myVM1**:
 
     | Impostazione | VM 2| VM 3|
     | ------- | ----- |---|
@@ -311,7 +311,7 @@ Per altre informazioni sulle connessioni in uscita, vedere [Connessioni in uscit
 
 5. In **Macchine virtuali** selezionare **+ Aggiungi**.
 
-6. Selezionare le caselle accanto a **myVM1** , **myVM2** e **myVM3**. 
+6. Selezionare le caselle accanto a **myVM1**, **myVM2** e **myVM3**. 
 
 7. Selezionare **Aggiungi**.
 
@@ -341,7 +341,7 @@ Quando si crea un servizio di bilanciamento del carico pubblico, viene creato un
     | Indirizzo IP pubblico | Selezionare **Crea nuovo**. Se si vuole usare un indirizzo IP pubblico esistente, selezionare **Usa esistente**. |
     | Nome dell'indirizzo IP pubblico | Digitare **myPublicIP** nella casella di testo.|
     | Assegnazione | Selezionare **Dinamica** |
-    | Aggiungi un indirizzo IPv6 pubblico | Selezionare **No**. </br> Per altre informazioni sugli indirizzi IPv6 e il servizio di bilanciamento del carico, vedere [Che cos'è IPv6 per la rete virtuale di Azure?](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)  |
+    | Aggiungi un indirizzo IPv6 pubblico | Selezionare **No**. </br> Per altre informazioni sugli indirizzi IPv6 e il servizio di bilanciamento del carico, vedere [Che cos'è IPv6 per la rete virtuale di Azure?](../virtual-network/ipv6-overview.md)  |
 
 3. Accettare i valori predefiniti per le impostazioni rimanenti e quindi selezionare **Rivedi e crea**.
 
@@ -364,7 +364,7 @@ In questa sezione si crea una rete virtuale e una subnet.
 
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa > Rete > Rete virtuale** o cercare **Rete virtuale** nella casella di ricerca.
 
-2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale** :
+2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale**:
 
     | **Impostazione**          | **Valore**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -490,7 +490,7 @@ In questa sezione verrà illustrato come:
 
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
 
-In questa sezione verranno create tre macchine virtuali ( **myVM1** , **myVM2** e **myVM3** ) con un indirizzo IP pubblico di base.  
+In questa sezione verranno create tre macchine virtuali (**myVM1**, **myVM2** e **myVM3**) con un indirizzo IP pubblico di base.  
 
 Le tre macchine virtuali verranno aggiunte a un set di disponibilità denominato **myAvailabilitySet**.
 
@@ -498,7 +498,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
 
 1. Nella parte superiore sinistra del portale selezionare **Crea una risorsa** > **Calcolo** > **Macchina virtuale**. 
    
-2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base** :
+2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
 
     | Impostazione | valore                                          |
     |-----------------------|----------------------------------|
@@ -518,7 +518,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
     | Password | Immettere una password |
     | Conferma password | Reimmettere la password |
 
-3. Selezionare la scheda **Rete** , oppure selezionare **Avanti: Dischi** , quindi **Avanti: Rete**.
+3. Selezionare la scheda **Rete**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**.
   
 4. Nella scheda Rete selezionare o immettere:
 
@@ -546,7 +546,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
   
 8. Rivedere le impostazioni e quindi selezionare **Crea**.
 
-9. Seguire i passaggi da 1 a 8 per creare due macchine virtuali aggiuntive con i valori seguenti e tutte le altre impostazioni identiche a **myVM1** :
+9. Seguire i passaggi da 1 a 8 per creare due macchine virtuali aggiuntive con i valori seguenti e tutte le altre impostazioni identiche a **myVM1**:
 
     | Impostazione | VM 2| VM 3|
     | ------- | ----- |---|
@@ -566,7 +566,7 @@ Le VM create nei passaggi precedenti devono essere aggiunte al pool back-end **m
 
 4. Nella sezione **Macchine virtuali** selezionare **+ Aggiungi**.
 
-5. Selezionare le caselle accanto a **myVM1** , **myVM2** e **myVM3**.
+5. Selezionare le caselle accanto a **myVM1**, **myVM2** e **myVM3**.
 
 6. Selezionare **Aggiungi**.
 
@@ -576,9 +576,9 @@ Le VM create nei passaggi precedenti devono essere aggiunte al pool back-end **m
 
 ## <a name="install-iis"></a>Installare IIS
 
-1. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine nell'elenco di risorse selezionare **myVM1** , che si trova nel gruppo di risorse **CreateStdLBQS-rg**.
+1. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine nell'elenco di risorse selezionare **myVM1**, che si trova nel gruppo di risorse **CreateStdLBQS-rg**.
 
-2. Nella pagina **Panoramica** selezionare **Connetti** , quindi **Bastion**.
+2. Nella pagina **Panoramica** selezionare **Connetti**, quindi **Bastion**.
 
 4. Immettere il nome utente e la password specificati durante la creazione della VM.
 

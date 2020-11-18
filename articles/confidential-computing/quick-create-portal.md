@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 4723bce8f3721833ae80b233f7b346fe69363b0b
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 1e417563b463d7033072b27bec505d10ef1adb47
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409545"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695742"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Avvio rapido: Distribuire una macchina virtuale di confidential computing di Azure nel portale di Azure
 
@@ -62,7 +62,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.micr
 
     * **Scegliere l'immagine**: per questa esercitazione, selezionare Ubuntu 18.04 LTS. È anche possibile selezionare Windows Server 2019, Windows Server 2016 o Ubuntu 16.04 LTS. In questo caso, si verrà reindirizzati alla procedura appropriata dell'esercitazione.
     
-    * **Attivare l'immagine per Gen 2**: le macchine virtuali di confidential computing vengono eseguite solo in immagini di [generazione 2](../virtual-machines/linux/generation-2.md). Assicurarsi che l'immagine selezionata sia di generazione 2. Fare clic sulla scheda **Avanzate** in cui si configura la macchina virtuale. Scorrere verso il basso fino a trovare la sezione "Generazione macchina virtuale". Selezionare Gen 2 e tornare nella scheda **Informazioni di base**.
+    * **Attivare l'immagine per Gen 2**: le macchine virtuali di confidential computing vengono eseguite solo in immagini di [generazione 2](../virtual-machines/generation-2.md). Assicurarsi che l'immagine selezionata sia di generazione 2. Fare clic sulla scheda **Avanzate** in cui si configura la macchina virtuale. Scorrere verso il basso fino a trovare la sezione "Generazione macchina virtuale". Selezionare Gen 2 e tornare nella scheda **Informazioni di base**.
     
 
         ![Avanzate - scheda](media/quick-create-portal/advanced-tab-virtual-machine.png)
@@ -144,7 +144,7 @@ Per altre informazioni sulla connessione alle VM Linux, vedere l'articolo su com
 > [!NOTE]
 > Se viene visualizzato un avviso di sicurezza PuTTY relativo alla mancata memorizzazione nella cache della chiave host del server, scegliere tra le opzioni seguenti. Se si considera attendibile l'host, selezionare **Sì** per aggiungere la chiave nella cache di PuTTy e continuare a la procedura di connessione. Se si vuole eseguire la connessione una sola volta, senza aggiungere la chiave nella cache, selezionare **No**. Se non si considera attendibile l'host, selezionare **Annulla** per abbandonare la connessione.
 
-## <a name="install-the-open-enclave-sdk-oe-sdk"></a>Installare Open Enclave SDK (OE SDK) <a id="Install"></a>
+## <a name="install-the-open-enclave-sdk-oe-sdk"></a>Installare Open enclave SDK (OE SDK) <a id="Install"></a>
 
 Seguire le istruzioni dettagliate per installare [OE SDK](https://github.com/openenclave/openenclave) nella macchina virtuale serie DCsv2 che esegue un'immagine Ubuntu 18.04 LTS Gen 2. 
 
@@ -168,7 +168,7 @@ wget -qO - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add 
 ```bash
 sudo apt update
 sudo apt -y install dkms
-wget https://download.01.org/intel-sgx/sgx-dcap/1.4/linux/distro/ubuntuServer18.04/sgx_linux_x64_driver_1.21.bin -O sgx_linux_x64_driver.bin
+wget https://download.01.org/intel-sgx/sgx-dcap/1.9/linux/distro/ubuntu18.04-server/sgx_linux_x64_driver_1.36.2.bin -O sgx_linux_x64_driver.bin
 chmod +x sgx_linux_x64_driver.bin
 sudo ./sgx_linux_x64_driver.bin
 ```

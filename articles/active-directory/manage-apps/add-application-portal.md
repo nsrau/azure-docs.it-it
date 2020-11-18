@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 2946590cbb4c5e8f495a1f6ee4aac65929cd4d0e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fd81e5f87aaf4a28676b79863df60b71707849e9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305743"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656514"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Aggiungere un'applicazione al tenant di Azure Active Directory (Azure AD)
 
@@ -55,10 +55,10 @@ Per aggiungere un'applicazione al tenant di Azure AD:
     :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="Screenshot che mostra il selettore dei tipi di SSO." lightbox="media/add-application-portal/sso-types.png":::
 
     - Se lo sviluppatore dell'app ha usato lo **standard OIDC** per l'accesso SSO, selezionare **Iscrizione**. Viene visualizzata una pagina di configurazione. Passare quindi alla guida di avvio rapido sulla configurazione dell'accesso Single Sign-On basato su OIDC.
-    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Screenshot che mostra il selettore dei tipi di SSO.":::
+    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="Screenshot che mostra l'aggiunta di un'app con accesso SSO basato su OIDC.":::
 
     - Se lo sviluppatore dell'app ha usato lo **standard SAML** per l'accesso SSO, selezionare **Crea**. Verrà visualizzata una pagina Attività iniziali con le opzioni per configurare l'applicazione per l'organizzazione. Nel modulo è possibile modificare il nome dell'applicazione in base alle esigenze dell'organizzazione. Passare quindi alla guida di avvio rapido sulla configurazione dell'accesso Single Sign-On basato su SAML.
-    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Screenshot che mostra il selettore dei tipi di SSO.":::
+    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="Screenshot che mostra l'aggiunta di un'app con accesso SSO basato su SAML.":::
 
 
 > [!IMPORTANT]
@@ -69,7 +69,7 @@ Se l'applicazione che si cerca non si trova nella raccolta, è possibile selezio
 L'aggiunta di un'applicazione è stata completata. L'argomento di avvio rapido successivo illustra come modificare il logo e altre proprietà dell'applicazione.
 
 > [!TIP]
-> È possibile automatizzare la gestione delle app usando l'API Graph. Vedere [Automatizzare la gestione delle app con l'API Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> È possibile automatizzare la gestione delle app usando l'API Graph. Vedere [Automatizzare la gestione delle app con l'API Microsoft Graph](/graph/application-saml-sso-configure-api).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

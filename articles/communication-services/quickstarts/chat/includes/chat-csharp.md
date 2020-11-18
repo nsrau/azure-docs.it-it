@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 994f2829d260223567dcb5aed859812aa1fef3d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: a76c6467dac69fd3d21aa659c52227046c166938
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829227"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816683"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, assicurarsi di:
@@ -46,7 +46,7 @@ dotnet build
 Installare la libreria client di chat per la comunicazione di Azure per .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.2
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.3
 ``` 
 
 ## <a name="object-model"></a>Modello a oggetti
@@ -77,7 +77,7 @@ ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
 
 Usare il metodo `createChatThread` per creare un thread di chat.
 - Usare `topic` per specificare un argomento per questa chat. L'argomento può essere aggiornato dopo la creazione del thread di chat usando la funzione `UpdateThread`.
-- Usare la proprietà `members` per passare un elenco di oggetti `ChatThreadMember` da aggiungere al thread di chat. L'oggetto `ChatThreadMember` viene inizializzato con un oggetto `CommunicationUser`. Per ottenere un oggetto `CommunicationUser`, sarà necessario passare un ID di accesso creato seguendo le istruzioni in [Creare un utente](../../access-tokens.md#create-a-user).
+- Usare la proprietà `members` per passare un elenco di oggetti `ChatThreadMember` da aggiungere al thread di chat. L'oggetto `ChatThreadMember` viene inizializzato con un oggetto `CommunicationUser`. Per ottenere un oggetto `CommunicationUser`, sarà necessario passare un ID di accesso creato seguendo le istruzioni in [Creare un utente](../../access-tokens.md#create-an-identity).
 
 Il `chatThreadClient` di risposta viene usato per eseguire operazioni sul thread di chat creato: aggiunta di membri al thread di chat, invio di un messaggio, eliminazione di un messaggio e così via. Contiene l'attributo `Id` che rappresenta l'ID univoco del thread di chat. 
 

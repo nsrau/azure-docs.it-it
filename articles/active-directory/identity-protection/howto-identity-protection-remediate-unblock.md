@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c297e1a4f6443e584f04914712314d33df23b119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd918aef85deefc23771413c3eb7b92f1189d39
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776103"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835799"
 ---
 # <a name="remediate-risks-and-unblock-users"></a>Correggere i rischi e sbloccare gli utenti
 
@@ -37,7 +37,7 @@ Gli amministratori hanno le opzioni seguenti per correggere:
 
 ### <a name="self-remediation-with-risk-policy"></a>Correzione automatica con criteri di rischio
 
-Se si consente agli utenti di eseguire autonomamente la correzione, con Azure Multi-Factor Authentication (autenticazione a più fattori) e la reimpostazione della password self-service (SSPR) nei criteri di rischio, possono sbloccarsi quando viene rilevato il rischio. Questi rilevamenti vengono quindi considerati chiusi. Gli utenti devono essere registrati in precedenza per l'autenticazione a più fattori di Azure e SSPR per poter usare quando viene rilevato il rischio.
+Se si consente agli utenti di eseguire autonomamente la correzione, con Azure AD Multi-Factor Authentication (autenticazione a più fattori) e la reimpostazione della password self-service (SSPR) nei criteri di rischio, possono sbloccarsi quando viene rilevato il rischio. Questi rilevamenti vengono quindi considerati chiusi. È necessario che gli utenti siano stati registrati in precedenza per Azure AD multi-factor authentication e SSPR per poter usare quando viene rilevato il rischio.
 
 Alcuni rilevamenti potrebbero non generare rischi per il livello in cui è necessaria una correzione automatica degli utenti, ma gli amministratori dovrebbero comunque valutare questi rilevamenti. Gli amministratori possono determinare che sono necessarie misure aggiuntive, ad esempio il [blocco dell'accesso dalle posizioni](../conditional-access/howto-conditional-access-policy-location.md) o la riduzione del rischio accettabile nei criteri.
 
@@ -49,7 +49,7 @@ Agli amministratori vengono concesse due opzioni per la reimpostazione di una pa
 
 - **Generare una password provvisoria**: generando una password provvisoria, è possibile ripristinare immediatamente un'identità a uno stato sicuro. Questo metodo richiede il contatto con gli utenti interessati perché è necessario conoscere la password temporanea. Poiché la password è temporanea, all'utente viene richiesto di modificare la password in un nuovo elemento durante il successivo accesso.
 
-- **Richiedere all'utente di reimpostare la password**: richiedendo agli utenti di reimpostare le password, è possibile eseguire il ripristino in modo autonomo, senza contattare l'help desk o l'amministratore. Questo metodo si applica solo agli utenti registrati per l'autenticazione a più fattori di Azure e SSPR. Questa opzione non è disponibile per gli utenti che non sono stati registrati.
+- **Richiedere all'utente di reimpostare la password**: richiedendo agli utenti di reimpostare le password, è possibile eseguire il ripristino in modo autonomo, senza contattare l'help desk o l'amministratore. Questo metodo si applica solo agli utenti registrati per Azure AD multi-factor authentication e SSPR. Questa opzione non è disponibile per gli utenti che non sono stati registrati.
 
 ### <a name="dismiss-user-risk"></a>Ignorare il rischio utente
 

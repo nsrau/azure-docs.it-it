@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8776ad915ff215eef143f62aaa9e242ff0354f3e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 28a9080ce878e262573adf0b3c79394079c09ca2
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368792"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835969"
 ---
 # <a name="identity-protection-policies"></a>Criteri di Identity Protection
 
@@ -24,11 +24,11 @@ Azure Active Directory Identity Protection include tre criteri predefiniti che g
 
 ![Criteri di Identity Protection](./media/concept-identity-protection-policies/identity-protection-policies.png)
 
-## <a name="azure-mfa-registration-policy"></a>Criteri di registrazione Azure MFA
+## <a name="azure-ad-mfa-registration-policy"></a>Criteri di registrazione di Azure AD multi-factor authentication
 
-Identity Protection consente alle organizzazioni di implementare Azure Multi-Factor Authentication (MFA) usando criteri di accesso condizionale che richiedono la registrazione al momento dell'accesso. L'abilitazione di questi criteri è un ottimo modo per garantire che i nuovi utenti dell'organizzazione abbiano effettuato la registrazione per MFA il primo giorno. L'autenticazione a più fattori è uno dei metodi di correzione automatica per gli eventi di rischio all'interno di Identity Protection. La correzione automatica consente agli utenti di agire autonomamente per ridurre il volume di chiamate del supporto tecnico.
+Identity Protection può aiutare le organizzazioni a implementare Azure AD Multi-Factor Authentication (multi-factor authentication) usando criteri di accesso condizionale che richiedono la registrazione all'accesso. L'abilitazione di questi criteri è un ottimo modo per garantire che i nuovi utenti dell'organizzazione abbiano effettuato la registrazione per MFA il primo giorno. L'autenticazione a più fattori è uno dei metodi di correzione automatica per gli eventi di rischio all'interno di Identity Protection. La correzione automatica consente agli utenti di agire autonomamente per ridurre il volume di chiamate del supporto tecnico.
 
-Per altre informazioni su Azure Multi-Factor Authentication, vedere l'articolo [Funzionamento di Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md).
+Altre informazioni su Azure AD Multi-Factor Authentication sono disponibili nell'articolo relativo al [funzionamento: Azure AD multi-factor authentication](../authentication/concept-mfa-howitworks.md).
 
 ## <a name="sign-in-risk-policy"></a>Criteri di rischio di accesso
 
@@ -37,7 +37,7 @@ Identity Protection analizza i segnali di ogni accesso, sia in tempo reale che o
 Se viene rilevato un rischio, gli utenti possono eseguire l'autenticazione a più fattori per eseguire autonomamente la correzione e chiudere l'evento di accesso rischioso per evitare inutili problemi per gli amministratori.
 
 > [!NOTE] 
-> Prima di attivare i criteri di rischio di accesso, è necessario che gli utenti abbiano già effettuato la registrazione per Azure Multi-Factor Authentication.
+> Prima di attivare i criteri di rischio di accesso, gli utenti devono essere registrati in precedenza per Azure AD Multi-Factor Authentication.
 
 ### <a name="custom-conditional-access-policy"></a>Criteri di accesso condizionale personalizzati
 
@@ -58,8 +58,8 @@ Se viene rilevato un rischio, gli utenti possono eseguire la reimpostazione dell
 
 - [Abilitare la reimpostazione della password self-service di Azure AD](../authentication/howto-sspr-deployment.md)
 
-- [Abilitare Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+- [Abilita Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
 
-- [Abilitare i criteri di registrazione per l'autenticazione a più fattori di Azure](howto-identity-protection-configure-mfa-policy.md)
+- [Abilita Azure AD Multi-Factor Authentication i criteri di registrazione](howto-identity-protection-configure-mfa-policy.md)
 
 - [Abilitare i criteri di rischio di accesso e utente](howto-identity-protection-configure-risk-policies.md)

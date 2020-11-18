@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 86b5c1dc396a755d898f0c3c332ab59933236afe
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 0d98f3c61191d5d5b333072682abe740761901f0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747448"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831889"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Guida introduttiva: Abilitare SSH e RDP su un flusso del dispositivo dell'hub IoT con un'applicazione proxy Node.js (anteprima)
 
@@ -30,13 +30,15 @@ In questa guida di avvio rapido si abilita l'invio di traffico SSH (Secure Shell
 
 * [Node.js 10+](https://nodejs.org).
 
+    È possibile verificare la versione corrente di Node.js installata nel computer di sviluppo con il comando seguente:
+
+    ```cmd/sh
+    node --version
+    ```
+
 * [Un progetto Node.js di esempio](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
-È possibile verificare la versione corrente di Node.js installata nel computer di sviluppo con il comando seguente:
-
-```cmd/sh
-node --version
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 L'hub IoT di Microsoft Azure supporta attualmente i flussi dispositivo come [funzionalità in anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -47,8 +49,6 @@ L'hub IoT di Microsoft Azure supporta attualmente i flussi dispositivo come [fun
 > * Stati Uniti centrali EUAP
 > * Europa settentrionale
 > * Asia sud-orientale
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ### <a name="add-azure-iot-extension"></a>Aggiungere l'estensione Azure IoT
 
@@ -82,7 +82,7 @@ Se è stata completato l'argomento [Avvio rapido: Inviare dati di telemetria da 
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
-1. Per consentire all'applicazione back-end di connettersi all'hub IoT e recuperare i messaggi, è necessaria anche una *stringa di connessione del servizio* . Il comando seguente recupera la stringa per l'hub IoT:
+1. Per consentire all'applicazione back-end di connettersi all'hub IoT e recuperare i messaggi, è necessaria anche una *stringa di connessione del servizio*. Il comando seguente recupera la stringa per l'hub IoT:
 
    > [!NOTE]
    > Sostituire il segnaposto *YourIoTHubName* con il nome scelto per l'hub IoT.

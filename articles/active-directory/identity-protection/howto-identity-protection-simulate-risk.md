@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbcc2351b7ead3714cfd21aa30b031cec75074a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eafeaf59757fcda978fa89b4bc2f9882b769e48
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84463757"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94835901"
 ---
 # <a name="simulating-risk-detections-in-identity-protection"></a>Simulazione del rilevamento del rischio in Identity Protection
 
@@ -40,7 +40,7 @@ Altre informazioni su ogni rilevamento dei rischi sono disponibili nell'articolo
 Per completare la procedura seguente, sono necessari:
 
 - [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) per simulare indirizzi IP anonimi. Potrebbe essere necessario usare una macchina virtuale, se l'organizzazione limita l'uso di Tor Browser.
-- Un account di test non ancora registrato per Multi-Factor Authentication di Azure.
+- Un account di test non ancora registrato per Azure AD Multi-Factor Authentication.
 
 **Per simulare un accesso da un IP anonimo, seguire questa procedura**:
 
@@ -61,7 +61,7 @@ Con la procedura seguente si usano gli elementi seguenti, appena creati:
 Per completare la procedura seguente, è necessario usare un account utente con:
 
 - Una cronologia di accesso di almeno 30 giorni.
-- Multi-Factor Authentication di Azure abilitato.
+- Azure AD Multi-Factor Authentication abilitata.
 
 **Per simulare un accesso da una posizione non nota, seguire questa procedura**:
 
@@ -93,7 +93,7 @@ Questa sezione illustra i passaggi per testare l'utente e i criteri di rischio d
 Per testare i criteri di sicurezza per il rischio utente, seguire questa procedura:
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory**  >  **Security**  >  **Panoramica**della sicurezza.
+1. Passare a **Azure Active Directory**  >  **Security**  >  **Panoramica** della sicurezza.
 1. Selezionare **Configura criteri di rischio utente**.
    1. In **assegnazioni**
       1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.
@@ -113,14 +113,14 @@ Per testare i criteri di sicurezza per il rischio utente, seguire questa procedu
 Per testare i criteri di rischio di accesso, seguire questa procedura:
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory**  >  **Security**  >  **Panoramica**della sicurezza.
+1. Passare a **Azure Active Directory**  >  **Security**  >  **Panoramica** della sicurezza.
 1. Selezionare **Configura criteri di rischio di accesso**.
    1. In **assegnazioni**
       1. **Utenti** : scegliere **tutti gli utenti** o **selezionare singoli utenti e gruppi** in caso di limitazione dell'implementazione.
          1. Facoltativamente, è possibile scegliere di escludere gli utenti dai criteri.
       1. **Condizioni**  -  di **Rischio di accesso** Microsoft consiglia di impostare questa opzione su **media e versioni successive**.
    1. Sotto **controlli**
-      1. **Accesso** : Microsoft consiglia di **consentire l'accesso** e **richiedere l'autenticazione**a più fattori.
+      1. **Accesso** : Microsoft consiglia di **consentire l'accesso** e **richiedere l'autenticazione** a più fattori.
    1. **Imponi criteri**  -  **Il**
    1. **Salva** : questa azione consente di tornare alla pagina **Panoramica** .
 1. È ora possibile testare l'accesso condizionale basato sul rischio di accesso eseguendo l'accesso con una sessione rischiosa (ad esempio, usando il browser Tor). 

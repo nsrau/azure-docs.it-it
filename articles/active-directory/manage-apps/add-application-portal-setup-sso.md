@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 2e5c588db6f372a50b2a80afd8a2a023ece34502
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 235c5c19c9a6e587106b3fd41691a3f775caa84f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203621"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656616"
 ---
 # <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Configurare l'accesso Single Sign-On (SSO) basato su SAML per un'applicazione nel tenant di Azure Active Directory (Azure AD)
 
@@ -43,7 +43,7 @@ Una volta completata l'aggiunta di un'applicazione al tenant di Azure AD, viene 
 
 Per configurare l'accesso Single Sign-On per un'applicazione:
 
-1. Nel portale di Azure AD selezionare **Applicazioni aziendali** . Quindi trovare e selezionare l'applicazione da configurare per l'accesso Single Sign-On.
+1. Nel portale di Azure AD selezionare **Applicazioni aziendali**. Quindi trovare e selezionare l'applicazione da configurare per l'accesso Single Sign-On.
 1. Nella sezione **Gestisci** selezionare **Single Sign-On** per aprire il riquadro **Single Sign-On** per la modifica.
 
     > [!IMPORTANT]
@@ -53,17 +53,17 @@ Per configurare l'accesso Single Sign-On per un'applicazione:
 
 1. Selezionare **SAML** per aprire la pagina di configurazione dell'accesso SSO. In questo esempio l'applicazione configurata per l'accesso SSO è GitHub. Dopo aver configurato GitHub, gli utenti potranno accedere a GitHub usando le proprie credenziali del tenant di Azure AD.
 
-    :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="Screenshot che mostra la pagina di configurazione dell'accesso Single Sign-On nel portale di Azure AD.":::
+    :::image type="content" source="media/add-application-portal-setup-sso/github-sso.png" alt-text="Screenshot che mostra la pagina di configurazione dell'accesso Single Sign-On in GitHub.":::
 
-1. Il processo di configurazione di un'applicazione per l'uso di Azure AD per l'accesso SSO basato su SAML varia a seconda dell'applicazione. È disponibile un collegamento alle indicazioni per GitHub. Per trovare le guide per altre app, vedere [Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/).
+1. Il processo di configurazione di un'applicazione per l'uso di Azure AD per l'accesso SSO basato su SAML varia a seconda dell'applicazione. È disponibile un collegamento alle indicazioni per GitHub. Per trovare le guide per altre app, vedere [Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](/azure/active-directory/saas-apps/).
 1. Seguire la guida per configurare l'accesso SSO per l'applicazione. Molte applicazioni prevedono requisiti specifici della sottoscrizione per la funzionalità SSO. GitHub richiede, ad esempio, una sottoscrizione Enterprise.
     > [!TIP]
     > Per altre informazioni sulle opzioni di configurazione SAML, vedere [Configurare l'accesso Single Sign-On basato su SAML](configure-saml-single-sign-on.md).
 
-    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Screenshot che mostra la pagina di configurazione dell'accesso Single Sign-On nel portale di Azure AD.":::
+    :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="Screenshot che mostra l'opzione Single Sign-On nella sottoscrizione aziendale della pagina di prezzi di GitHub.":::
 
 > [!TIP]
-> È possibile automatizzare la gestione delle app usando l'API Graph. Vedere [Automatizzare la gestione delle app con l'API Microsoft Graph](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+> È possibile automatizzare la gestione delle app usando l'API Graph. Vedere [Automatizzare la gestione delle app con l'API Microsoft Graph](/graph/application-saml-sso-configure-api).
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

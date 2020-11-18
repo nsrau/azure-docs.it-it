@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: a0fbcab194b90bbe89948fee1efb604266dbbb0f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7c6de17e4ed4f5666554908e9b13fb9e299b027a
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311756"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94682061"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gestire l'accesso ad aree di lavoro, dati e pipeline
 
@@ -62,7 +62,7 @@ Quando è stato effettuato il provisioning dell'area di lavoro, è stato necessa
 
 ### <a name="step-3-configure-the-workspace-admin-list"></a>Passaggio 3: Configurare l'elenco di amministratori dell'area di lavoro
 
-1. Passare all' [**interfaccia utente Web di Azure Synapse**](https://web.azuresynapse.net)
+1. Passare all'[**interfaccia utente Web di Azure Synapse**](https://web.azuresynapse.net)
 2. Passare a **Gestisci**  > **sicurezza** > **Controllo di accesso**
 3. Selezionare **Aggiungi amministratore** e quindi `Synapse_WORKSPACENAME_Admins`
 

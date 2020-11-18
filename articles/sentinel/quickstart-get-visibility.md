@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: affefb302d602e9069a903fa5f6a0fbae78992b9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 26a29524e0bf329a368b3cd2281dd9b070b42a14
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516954"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660815"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Avvio rapido: Introduzione ad Azure Sentinel
 
@@ -44,7 +44,7 @@ Il corpo principale della pagina di panoramica offre informazioni dettagliate a 
 
    ![Mappa del traffico dannoso](./media/qs-get-visibility/map.png)
 
-- **Eventi imprevisti recenti** : per visualizzare gli eventi imprevisti recenti, la relativa gravità e il numero di avvisi associati all'evento imprevisto. La comparsa di un picco improvviso di un tipo specifico di avviso potrebbe indicare un attacco attivo in corso. Ad esempio, se è visibile un picco improvviso di 20 eventi Pass-the-Hash da Microsoft Defender for Identity (in precedenza Azure ATP), l'organizzazione potrebbe essere sotto attacco.
+- **Eventi imprevisti recenti**: per visualizzare gli eventi imprevisti recenti, la relativa gravità e il numero di avvisi associati all'evento imprevisto. La comparsa di un picco improvviso di un tipo specifico di avviso potrebbe indicare un attacco attivo in corso. Ad esempio, se è visibile un picco improvviso di 20 eventi Pass-the-Hash da Microsoft Defender for Identity (in precedenza Azure ATP), l'organizzazione potrebbe essere sotto attacco.
 
 - **Data source anomalies** (Anomalie dell'origine dati): gli analisti di dati di Microsoft hanno creato modelli che cercano continuamente anomalie nei dati provenienti dalle origini dati. Se non sono presenti anomalie, non compare nulla. Se vengono rilevate anomalie, è necessario approfondire per capire cosa è successo. Ad esempio, fare clic sul picco nelle attività di Azure. È possibile fare clic su **Chart** (Grafico) per vedere quando si è verificato il picco e quindi filtrare le attività che si sono verificate in quel periodo di tempo per vedere cosa ha causato il picco.
 
@@ -57,7 +57,7 @@ Le cartelle di lavoro predefinite offrono dati integrati provenienti dalle origi
 1. In **Impostazioni** selezionare **Cartelle di lavoro**. In **Installate** è possibile visualizzare tutte le cartelle di lavoro installate. In **Tutte** è possibile visualizzare l'intera raccolta di cartelle di lavoro predefinite disponibili per l'installazione. 
 2. Cercare una cartella di lavoro specifica per visualizzare l'elenco completo e una descrizione delle caratteristiche di ognuna. 
 3. Supponendo che si usi Azure AD, per iniziare a usare Azure Sentinel è consigliabile installare almeno le cartelle di lavoro seguenti:
-   - **Azure AD** : usare uno dei seguenti o entrambi:
+   - **Azure AD**: usare uno dei seguenti o entrambi:
        - **Azure AD sign-ins** (Accessi ad Azure AD) analizza gli accessi nel tempo per verificare se esistono anomalie. Questa cartella di lavoro segnala i tentativi di accesso non riusciti da parte di applicazioni, dispositivi e posizioni in modo, permettendo di notare immediatamente eventuali attività insolite. Prestare attenzione alla presenza di più accessi non riusciti. 
        - **Azure AD audit logs** (Log di controllo di Azure AD) analizza le attività di amministrazione, ad esempio modifiche agli utenti, come aggiunte rimozioni e così via, creazione di gruppi e modifiche.  
 
@@ -66,7 +66,7 @@ Le cartelle di lavoro predefinite offrono dati integrati provenienti dalle origi
       ![Dashboard Palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-È possibile personalizzare le cartelle di lavoro modificando la query principale ![pulsante di modifica query](./media/qs-get-visibility/edit-query-button.png). È possibile fare clic sul pulsante ![pulsante Log Analytics](./media/qs-get-visibility/go-to-la-button.png) per passare a [Log Analytics e modificarvi la query](../azure-monitor/log-query/get-started-portal.md) ed è possibile selezionare i puntini di sospensione (...) e quindi **Personalizza dati riquadro** , che consente di modificare il filtro temporale principale o rimuovere i riquadri specifici dalla cartella di lavoro.
+È possibile personalizzare le cartelle di lavoro modificando la query principale ![pulsante di modifica query](./media/qs-get-visibility/edit-query-button.png). È possibile fare clic sul pulsante ![pulsante Log Analytics](./media/qs-get-visibility/go-to-la-button.png) per passare a [Log Analytics e modificarvi la query](../azure-monitor/log-query/log-analytics-tutorial.md) ed è possibile selezionare i puntini di sospensione (...) e quindi **Personalizza dati riquadro**, che consente di modificare il filtro temporale principale o rimuovere i riquadri specifici dalla cartella di lavoro.
 
 Per altre informazioni sull'uso delle query, vedere [Esercitazione: Visualizzare i dati in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
@@ -129,4 +129,3 @@ Per altre informazioni su come ottenere rilevamenti predefiniti, vedere [Esercit
 In questo argomento di avvio rapido si è appreso come iniziare a usare Azure Sentinel. Continuare con l'esercitazione su [come rilevare le minacce](tutorial-detect-threats-built-in.md).
 > [!div class="nextstepaction"]
 > [Creare regole personalizzate di rilevamento delle minacce](tutorial-detect-threats-custom.md) per automatizzare le risposte alle minacce.
-
