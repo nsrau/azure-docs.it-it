@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8116f3e00d13c0bd1e5f075a7fbe3264f337079
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: df611e01fefacd22f4dc026a819d4c71ede6e7e3
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970402"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686090"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Disponibilità elevata a più SID dell'istanza di SAP ASC/SCS con Windows Server failover clustering e dischi condivisi di Azure
 
@@ -35,12 +35,12 @@ Questo articolo è incentrato su come passare da un'installazione di ASC/SCS sin
 Attualmente è possibile usare i dischi di Azure SSD Premium come disco condiviso di Azure per l'istanza di SAP ASC/SCS. Sono disponibili le seguenti limitazioni:
 
 -  Il [disco Azure ultra](../../disks-types.md#ultra-disk) non è supportato come disco condiviso di Azure per i carichi di lavoro SAP. Attualmente non è possibile inserire macchine virtuali di Azure usando il disco Ultra di Azure in un set di disponibilità
--  Il [disco condiviso di Azure](../../windows/disks-shared.md) con dischi SSD Premium è supportato solo con le VM nel set di disponibilità. Non è supportata nella distribuzione di zone di disponibilità. 
+-  Il [disco condiviso di Azure](../../disks-shared.md) con dischi SSD Premium è supportato solo con le VM nel set di disponibilità. Non è supportata nella distribuzione di zone di disponibilità. 
 -  Il valore [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) del disco condiviso di Azure determina il numero di nodi del cluster che possono usare il disco condiviso. In genere, per l'istanza di SAP ASC/SCS verranno configurati due nodi nel cluster di failover di Windows, pertanto il valore di `maxShares` deve essere impostato su due.
 -  Tutte le macchine virtuali del cluster SAP ASC/SCS devono essere distribuite nello stesso [gruppo di posizionamento di prossimità di Azure](../../windows/proximity-placement-groups.md).   
    Sebbene sia possibile distribuire le macchine virtuali del cluster Windows nel set di disponibilità con il disco condiviso di Azure senza PPG, PPG assicurerà la vicinanza fisica dei dischi condivisi di Azure e delle macchine virtuali del cluster, ottenendo pertanto una latenza più bassa tra le macchine virtuali e il livello di archiviazione.    
 
-Per altri dettagli sulle limitazioni per il disco condiviso di Azure, vedere attentamente la sezione [limitazioni](../../linux/disks-shared.md#limitations) della documentazione su dischi condivisi di Azure.  
+Per altri dettagli sulle limitazioni per il disco condiviso di Azure, vedere attentamente la sezione [limitazioni](../../disks-shared.md#limitations) della documentazione su dischi condivisi di Azure.  
 
 > [!IMPORTANT]
 > Quando si distribuisce un cluster di failover di Windows SAP ASC/SCS con disco condiviso di Azure, tenere presente che la distribuzione funzionerà con un singolo disco condiviso in un cluster di archiviazione. L'istanza di SAP ASC/SCS avrà un effetto, in caso di problemi con il cluster di archiviazione, in cui viene distribuito il disco condiviso di Azure.  
@@ -99,7 +99,7 @@ Verrà installato un nuovo SID SAP **Pr2**, oltre all'istanza di SAP **Pr1** ASC
 
 ### <a name="host-names-and-ip-addresses"></a>Nomi host e indirizzi IP
 
-| Ruolo nome host | Nome dell'host | Indirizzo IP statico | Set di disponibilità | Gruppo posizionamento prossimità |
+| Ruolo nome host | Nome host | Indirizzo IP statico | Set di disponibilità | Gruppo posizionamento prossimità |
 | --- | --- | --- |---| ---|
 | primo cluster ASC/SCS del nodo cluster |PR1-ASC-10 |10.0.0.4 |PR1-ASC-avset |PR1PPG |
 | 2 ° nodo cluster ASC/SCS cluster |PR1-ASC-11 |10.0.0.5 |PR1-ASC-avset |PR1PPG |
@@ -121,17 +121,17 @@ Sarà necessario aggiungere la configurazione al servizio di bilanciamento del c
 - Configurazione back-end  
     Già presente: le macchine virtuali sono già state aggiunte al pool back-end, durante la configurazione di SAP SID **Pr1**
 - Porta probe
-    - Porta 620**Nr** [**62002**] lasciare l'opzione predefinita per protocollo (TCP), intervallo (5), soglia non integro (2)
+    - Porta 620 **Nr** [**62002**] lasciare l'opzione predefinita per protocollo (TCP), intervallo (5), soglia non integro (2)
 - Regole di bilanciamento del carico
     - Se si usa Load Balancer Standard, selezionare Porte a disponibilità elevata
     - Se si usa Load Balancer Basic, creare regole di bilanciamento del carico per le porte seguenti
-        - 32**Nr** TCP [**3202**]
-        - 36**Nr** TCP [**3602**]
-        - 39**Nr** TCP [**3902**]
-        - 81**Nr** TCP [**8102**]
-        - 5**Nr**13 TCP [**50213**]
-        - 5**Nr**14 TCP [**50214**]
-        - 5**Nr**16 TCP [**50216**]
+        - 32 **Nr** TCP [**3202**]
+        - 36 **Nr** TCP [**3602**]
+        - 39 **Nr** TCP [**3902**]
+        - 81 **Nr** TCP [**8102**]
+        - 5 **Nr** 13 TCP [**50213**]
+        - 5 **Nr** 14 TCP [**50214**]
+        - 5 **Nr** 16 TCP [**50216**]
         - Associare l'indirizzo IP front-end ASC di **Pr2** , il probe di integrità e il pool back-end esistente.  
 
     - Verificare che il timeout di inattività (minuti) sia impostato sul valore massimo 30 e che l'indirizzo IP mobile (Direct Server Return) sia abilitato.
@@ -146,16 +146,16 @@ Poiché il server di replica di Accodamento 2 (ERS2) è anche in cluster, è nec
   Le macchine virtuali sono già state aggiunte al pool back-end ILB.  
 
 - Nuova porta Probe
-    - Porta 621**Nr**  [**62112**] lasciare l'opzione predefinita per protocollo (TCP), intervallo (5), soglia non integro (2)
+    - Porta 621 **Nr**  [**62112**] lasciare l'opzione predefinita per protocollo (TCP), intervallo (5), soglia non integro (2)
 
 - Nuove regole di bilanciamento del carico
     - Se si usa Load Balancer Standard, selezionare Porte a disponibilità elevata
     - Se si usa Load Balancer Basic, creare regole di bilanciamento del carico per le porte seguenti
-        - 32**Nr** TCP [**3212**]
-        - 33**Nr** TCP [**3312**]
-        - 5**Nr**13 TCP [**51212**]
-        - 5**Nr**14 TCP [**51212**]
-        - 5**Nr**16 TCP [**51212**]
+        - 32 **Nr** TCP [**3212**]
+        - 33 **Nr** TCP [**3312**]
+        - 5 **Nr** 13 TCP [**51212**]
+        - 5 **Nr** 14 TCP [**51212**]
+        - 5 **Nr** 16 TCP [**51212**]
         - Associare l'indirizzo IP front-end ERS2 di **Pr2** , il probe di integrità e il pool back-end esistente.  
 
     - Verificare che il timeout di inattività (minuti) sia impostato sul valore massimo, ad esempio 30, e che l'indirizzo IP mobile (Direct Server Return) sia abilitato.
@@ -293,7 +293,7 @@ Usare la funzionalità probe del servizio di bilanciamento del carico interno pe
 Questa operazione non funziona tuttavia in alcune configurazioni di cluster perché è attiva una sola istanza. L'altra istanza è passiva e non può accettare carico di lavoro. Una funzionalità Probe aiuta quando il servizio di bilanciamento del carico interno di Azure rileva quale istanza è attiva e ha come destinazione solo l'istanza attiva.  
 
 > [!IMPORTANT]
-> In questa configurazione di esempio, **ProbePort** è impostato su 620**Nr**. Per l'istanza di SAP ASC con numero **02** è 620**02**.
+> In questa configurazione di esempio, **ProbePort** è impostato su 620 **Nr**. Per l'istanza di SAP ASC con numero **02** è 620 **02**.
 > Sarà necessario modificare la configurazione in modo che corrisponda ai numeri di istanza di SAP e al SID SAP.
 
 Per aggiungere una porta Probe, eseguire questo modulo di PowerShell in una delle macchine virtuali del cluster:

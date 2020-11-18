@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f06c5f2b2938505380ea668a7c4113015c852b1d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 7c5c536b95360c536998a5de87e9307918b15630
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913960"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685988"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Estensione di macchina virtuale Key Vault per Windows
 
@@ -27,7 +27,7 @@ L'estensione della macchina virtuale Key Vault supporta le versioni seguenti di 
 - Windows Server 2016
 - Windows Server 2012
 
-Il extensio della macchina virtuale Key Vault è supportato anche in una macchina virtuale locale personalizzata che viene caricata e convertita in un'immagine specializzata da usare in Azure con l'installazione di Windows Server 2019 core.
+L'estensione della macchina virtuale Key Vault è supportata anche in una macchina virtuale locale personalizzata che viene caricata e convertita in un'immagine specializzata da usare in Azure con l'installazione di Windows Server 2019 core.
 
 ### <a name="supported-certificate-content-types"></a>Tipi di contenuto del certificato supportati
 
@@ -81,7 +81,7 @@ Il codice JSON seguente mostra lo schema per l'estensione di macchina virtuale K
 > Ciò è dovuto al fatto che il percorso `/secrets` restituisce il certificato completo, inclusa la chiave privata, mentre il percorso `/certificates` non lo restituisce. Altre informazioni sui certificati sono disponibili qui: [Certificati Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> La proprietà' authenticationSettings ' è **obbligatoria** solo per le macchine virtuali con **identità assegnate dall'utente** .
+> La proprietà' authenticationSettings ' è **obbligatoria** solo per le macchine virtuali con **identità assegnate dall'utente**.
 > Specifica l'identità da usare per l'autenticazione Key Vault.
 
 

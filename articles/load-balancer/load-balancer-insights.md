@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 2168ee05ab93655cc0ad87221bff29c1b6b1035d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d57dfd0a496e71c1f0e6ddea839723da35bc5f76
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897593"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686243"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Uso di Insights per monitorare e configurare la Azure Load Balancer
 
-Tramite [monitoraggio di Azure per le reti](https://docs.microsoft.com/azure/azure-monitor/insights/insights-overview#azure-monitor-for-networks-preview)sono disponibili visualizzazioni delle dipendenze funzionali e dashboard delle metriche preconfigurate per i bilanciamenti del carico. Questi oggetti visivi consentono di prendere decisioni di progettazione informate e di localizzare, diagnosticare e risolvere rapidamente eventuali errori.
+Tramite monitoraggio di Azure per le reti sono disponibili visualizzazioni delle dipendenze funzionali e dashboard delle metriche preconfigurate per i bilanciamenti del carico. Questi oggetti visivi consentono di prendere decisioni di progettazione informate e di localizzare, diagnosticare e risolvere rapidamente eventuali errori.
 
 >[!NOTE] 
 >Si noti che questa funzionalità è in anteprima e la visualizzazione dipendenza funzionale e il dashboard preconfigurato possono cambiare per migliorare questa esperienza

@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: abc0a9f6fa6baefc7cc4b29c84ff179f0851dc30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ec59b7cc124a87b3939d095d03ee4a8bae9070f
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90028917"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685767"
 ---
 # <a name="assign-variables-with-synapse-sql"></a>Assegnare variabili con sinapsi SQL
 
@@ -37,7 +37,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Non è possibile inizializzare e usare una variabile nella stessa istruzione DECLARE. Per illustrare, l'esempio seguente non è consentito perché * \@ P1* è inizializzato e usato nella stessa istruzione Declare. L'esempio seguente restituisce un errore.
+Non è possibile inizializzare e usare una variabile nella stessa istruzione DECLARE. Per illustrare, l'esempio seguente non è consentito perché *\@ P1* è inizializzato e usato nella stessa istruzione Declare. L'esempio seguente restituisce un errore.
 
 ```sql
 DECLARE @p1 int = 0

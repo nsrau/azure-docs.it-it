@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 402fc1b0b436e7e2061cb2e1a922a75c82ac5235
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 082408f357e97a2ed2153d43dbea459ff09ba704
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408057"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693184"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Procedure consigliate per la protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Archiviazione di Azure
 Questo articolo illustra un insieme di procedure consigliate di sicurezza in Archiviazione di Azure per la protezione delle applicazioni PaaS Web e per applicazioni mobili. Le procedure consigliate si basano sull'esperienza di tecnici e clienti con Azure.
@@ -33,8 +33,8 @@ La [Guida alla sicurezza di Archiviazione di Azure](../../storage/blobs/security
 
 In questo articolo vengono illustrate le seguenti procedure consigliate:
 
-- Firme di accesso condiviso (SAS)
-- Controllo degli accessi in base al ruolo
+- Firme di accesso condiviso
+- Controllo degli accessi in base al ruolo di Azure
 - Crittografia lato client per i dati di valore elevato
 - Crittografia del servizio di archiviazione
 
@@ -55,16 +55,16 @@ La firma di accesso condiviso consente di condividere il contenuto nel modo in c
 
 Per altre informazioni sulle firme di accesso condiviso vedere [Uso delle firme di accesso condiviso](../../storage/common/storage-sas-overview.md). 
 
-## <a name="use-role-based-access-control"></a>Usare il controllo degli accessi in base al ruolo
-Un altro modo per gestire l'accesso consiste nell'usare il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md). Nel controllo degli accessi in base al ruolo l'aspetto principale è concedere ai dipendenti esattamente le autorizzazioni di cui necessitano, in base ai principi dei privilegi minimi e sapere solo quando è necessario. un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero di autorizzazioni insufficiente ostacola l'efficienza del lavoro dei dipendenti. Il controllo degli accessi in base al ruolo di Azure consente di risolvere questo problema offrendo una gestione granulare degli accessi per Azure. Questo è fondamentale per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati.
+## <a name="use-azure-role-based-access-control"></a>Usare il controllo degli accessi in base al ruolo di Azure
+Un altro modo per gestire l'accesso consiste nell'usare il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md). Con il controllo degli accessi in base al ruolo di Azure, l'utente si concentra sulla concessione delle autorizzazioni esatte necessarie per i dipendenti, in base ai principi di sicurezza con necessità di conoscenza un numero eccessivo di autorizzazioni può esporre un account agli attacchi. Un numero di autorizzazioni insufficiente ostacola l'efficienza del lavoro dei dipendenti. Il controllo degli accessi in base al ruolo di Azure consente di risolvere questo problema offrendo una gestione con granularità fine per Azure. Questo è fondamentale per le organizzazioni che intendono applicare criteri di sicurezza per l'accesso ai dati.
 
 È possibile usare i ruoli predefiniti di Azure in Azure per assegnare privilegi agli utenti. Si consiglia di usare Collaboratore Account di archiviazione per gli operatori cloud che devono gestire gli account di archiviazione e il ruolo Collaboratore Account di archiviazione classico per gestire gli account di archiviazione classici. Per gli operatori cloud che hanno necessità di gestire le VM ma non la rete virtuale o l'account di archiviazione a cui sono connesse, è possibile aggiungere il ruolo di Collaboratore Macchina virtuale.
 
-Le organizzazioni che non applicano il controllo di accesso ai dati con funzionalità come il controllo degli accessi in base al ruolo potrebbero concedere più privilegi del necessario ai propri utenti. Questo può comportare la compromissione dei dati perché ad alcuni utenti potrebbe essere concesso l'accesso a dati di cui non dovrebbero disporre.
+Le organizzazioni che non applicano il controllo di accesso ai dati usando funzionalità come il controllo degli accessi in base al ruolo di Azure possono fornire più privilegi del necessario per gli utenti. Questo può comportare la compromissione dei dati perché ad alcuni utenti potrebbe essere concesso l'accesso a dati di cui non dovrebbero disporre.
 
-Per altre informazioni sul controllo degli accessi in base al ruolo, vedere:
+Per ulteriori informazioni su RBAC di Azure, vedere:
 
-- [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
 - [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md)
 - [Guida alla sicurezza di Archiviazione di Azure](../../storage/blobs/security-recommendations.md) 
 

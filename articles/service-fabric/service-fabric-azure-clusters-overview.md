@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 25e6854491f35dd0aa46b5de218d312f57854760
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320515"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685818"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Panoramica dei cluster di Service Fabric in Azure
 Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una VM che fa parte di un cluster è chiamato nodo del cluster. I cluster possono essere ridimensionati fino a migliaia di nodi. Se si aggiungono nuovi nodi al cluster, Service Fabric ribilancia le repliche e le istanze di partizione del servizio nel numero incrementato di nodi. Le prestazioni complessive dell'applicazione migliorano e la contesa per l'accesso alla memoria si riduce. Se i nodi del cluster non vengono usati in modo efficiente, è possibile ridurre il numero di nodi del cluster. Service Fabric ribilancia di nuovo le repliche e le istanze di partizione nel numero ridotto di nodi per usare al meglio l'hardware in ogni nodo.
@@ -46,9 +46,9 @@ I set di scalabilità possono essere usati per distribuire e gestire una raccolt
 Per altre informazioni, vedere [Tipi di nodo di Azure Service Fabric e set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Le istanze di macchine virtuali vengono aggiunte dietro un servizio [Azure Load Balancer](../load-balancer/load-balancer-overview.md), che è associato a un [indirizzo IP pubblico](../virtual-network/public-ip-addresses.md) e a un'etichetta DNS.  Quando si esegue il provisioning di un cluster con * &lt; clustername &gt; *, il nome DNS, * &lt; clustername &gt; . &lt; location &gt; . cloudapp.Azure.com* è l'etichetta DNS associata al servizio di bilanciamento del carico davanti al set di scalabilità.
+Le istanze di macchine virtuali vengono aggiunte dietro un servizio [Azure Load Balancer](../load-balancer/load-balancer-overview.md), che è associato a un [indirizzo IP pubblico](../virtual-network/public-ip-addresses.md) e a un'etichetta DNS.  Quando si esegue il provisioning di un cluster con *&lt; clustername &gt;*, il nome DNS, *&lt; clustername &gt; . &lt; location &gt; . cloudapp.Azure.com* è l'etichetta DNS associata al servizio di bilanciamento del carico davanti al set di scalabilità.
 
-Le macchine virtuali in un cluster hanno solo [indirizzi IP privati](../virtual-network/private-ip-addresses.md).  Il traffico di gestione e il traffico dei servizi vengono instradati attraverso il servizio di bilanciamento del carico pubblico.  Il traffico di rete viene instradato a queste macchine tramite regole NAT (i client si connettono a specifici nodi/istanze) o regole di bilanciamento del carico (il traffico viene indirizzato alle macchine virtuali tramite round robin).  Un servizio di bilanciamento del carico ha un indirizzo IP pubblico associato con un nome DNS nel formato: * &lt; clustername &gt; . &lt; location &gt; . cloudapp.Azure.com*.  Un IP pubblico è un'altra risorsa di Azure nel gruppo di risorse.  Se si definiscono più tipi di nodo in un cluster, viene creato un servizio di bilanciamento del carico per ogni tipo di nodo/set di scalabilità. In alternativa è possibile configurare un singolo servizio di bilanciamento del carico per più tipi di nodo.  Il tipo di nodo primario ha l'etichetta DNS * &lt; clustername &gt; . &lt; location &gt; . cloudapp.Azure.com*, altri tipi di nodo hanno l'etichetta DNS * &lt; clustername &gt; - &lt; NodeType &gt; . &lt; location &gt; . cloudapp.Azure.com*.
+Le macchine virtuali in un cluster hanno solo [indirizzi IP privati](../virtual-network/private-ip-addresses.md).  Il traffico di gestione e il traffico dei servizi vengono instradati attraverso il servizio di bilanciamento del carico pubblico.  Il traffico di rete viene instradato a queste macchine tramite regole NAT (i client si connettono a specifici nodi/istanze) o regole di bilanciamento del carico (il traffico viene indirizzato alle macchine virtuali tramite round robin).  Un servizio di bilanciamento del carico ha un indirizzo IP pubblico associato con un nome DNS nel formato: *&lt; clustername &gt; . &lt; location &gt; . cloudapp.Azure.com*.  Un IP pubblico è un'altra risorsa di Azure nel gruppo di risorse.  Se si definiscono più tipi di nodo in un cluster, viene creato un servizio di bilanciamento del carico per ogni tipo di nodo/set di scalabilità. In alternativa è possibile configurare un singolo servizio di bilanciamento del carico per più tipi di nodo.  Il tipo di nodo primario ha l'etichetta DNS *&lt; clustername &gt; . &lt; location &gt; . cloudapp.Azure.com*, altri tipi di nodo hanno l'etichetta DNS *&lt; clustername &gt; - &lt; NodeType &gt; . &lt; location &gt; . cloudapp.Azure.com*.
 
 ### <a name="storage-accounts"></a>Account di archiviazione
 Ogni tipo di nodo del cluster è supportato da un [account di archiviazione di Azure](../storage/common/storage-introduction.md) e da dischi gestiti.
@@ -69,11 +69,11 @@ Oltre ai certificati client, è possibile configurare Azure Active Directory anc
 Per altre informazioni, vedere [Sicurezza da client a nodo](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
-Il controllo degli accessi in base al ruolo consente di assegnare controlli di accesso dettagliati sulle risorse di Azure.  È possibile assegnare regole di accesso diverse a sottoscrizioni, gruppi di risorse e risorse.  Le regole di controllo degli accessi in base al ruolo vengono ereditate lungo la gerarchia delle risorse, a meno che non ne venga eseguito l'override a un livello inferiore.  È possibile assegnare regole di controllo degli accessi in base al ruolo a qualsiasi utente o gruppo utenti in Azure Active Directory, per consentire agli utenti e ai gruppi designati di modificare il cluster.  Per altre informazioni, vedere [Che cos'è il controllo degli accessi in base al ruolo?](../role-based-access-control/overview.md)
+Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente di assegnare controlli di accesso con granularità fine alle risorse di Azure.  È possibile assegnare regole di accesso diverse a sottoscrizioni, gruppi di risorse e risorse.  Le regole di controllo degli accessi in base al ruolo di Azure vengono ereditate lungo la gerarchia delle risorse, a meno che non venga  È possibile assegnare qualsiasi utente o gruppo di utenti in AAD con regole RBAC di Azure in modo che gli utenti e i gruppi designati possano modificare il cluster.  Per altre informazioni, vedere [Che cos'è il controllo degli accessi in base al ruolo?](../role-based-access-control/overview.md)
 
 Service Fabric supporta anche il controllo di accesso per limitare l'accesso a determinate operazioni di cluster per gruppi di utenti diversi. In questo modo il cluster è più sicuro. Per i client che si connettono a un cluster, sono supportati due tipi di controllo di accesso diversi: il ruolo di amministratore e il ruolo utente.  
 
-Per altre informazioni, vedere [Controllo degli accessi in base al ruolo](service-fabric-cluster-security.md#role-based-access-control-rbac).
+Per altre informazioni, vedere [Service Fabric controllo degli accessi in base al ruolo](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
 ### <a name="network-security-groups"></a>Gruppi di sicurezza di rete 
 I gruppi di sicurezza di rete (NSG) controllano il traffico in ingresso e in uscita di una subnet, una macchina virtuale o una scheda di interfaccia di rete specifica.  Per impostazione predefinita, quando più macchine virtuali si trovano nella stessa rete virtuale, possono comunicare tra loro attraverso qualsiasi porta.  Se si vogliono limitare le comunicazioni tra le macchine virtuali, è possibile definire gruppi di sicurezza di rete per segmentare la rete o isolare le macchine virtuali l'una dall'altra.  Se un cluster contiene più tipi di nodo, è possibile applicare gruppi di sicurezza di rete alle subnet per impedire alle macchine virtuali che appartengono a tipi di nodo diversi di comunicare tra loro.  

@@ -5,16 +5,19 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/23/2020
-ms.openlocfilehash: be469ab3b05c54ebc5afa6bd6d129efd8d4ba692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/10/2020
+ms.openlocfilehash: f582f0dc7547a607351fcfc4ff9d39e8c5a077df
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254806"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686178"
 ---
 # <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Come creare avvisi da Monitoraggio di Azure per le macchine virtuali
 Gli [avvisi in monitoraggio di Azure](../platform/alerts-overview.md) notificano in modo proattivo i dati e i modelli interessanti nei dati di monitoraggio. Monitoraggio di Azure per le macchine virtuali non include regole di avviso preconfigurate, ma è possibile crearne di personalizzate in base ai dati raccolti. Questo articolo fornisce indicazioni sulla creazione di regole di avviso, incluso un set di query di esempio.
+
+> [!IMPORTANT]
+> Gli avvisi descritti in questo articolo si basano sulle query di log dei dati raccolti Monitoraggio di Azure per le macchine virtuali. Questa operazione è diversa rispetto agli avvisi creati da [monitoraggio di Azure per l'integrità Guest della VM](vminsights-health-overview.md) , una funzionalità attualmente disponibile in anteprima pubblica. Poiché questa funzionalità è vicina alla disponibilità generale, verranno consolidate le linee guida per gli avvisi.
 
 
 ## <a name="alert-rule-types"></a>Tipi di regole di avviso
@@ -29,11 +32,11 @@ Sono disponibili due tipi di avvisi del log in monitoraggio di Azure:
 ## <a name="alert-rule-walkthrough"></a>Procedura dettagliata della regola di avviso
 Questa sezione illustra la creazione di una regola di avviso di misurazione delle metriche usando i dati sulle prestazioni da Monitoraggio di Azure per le macchine virtuali. È possibile usare questo processo di base con una serie di query di log per inviare avvisi su contatori di prestazioni diversi.
 
-Per iniziare, creare una nuova regola di avviso seguendo la procedura descritta in [creare, visualizzare e gestire gli avvisi del log mediante monitoraggio di Azure](../platform/alerts-log.md). Per la **risorsa**selezionare l'area di lavoro log Analytics utilizzata dalle macchine virtuali di monitoraggio di Azure nella sottoscrizione. Poiché la risorsa di destinazione per le regole di avviso del log è sempre un'area di lavoro Log Analytics, la query di log deve includere qualsiasi filtro per determinate macchine virtuali o set di scalabilità di macchine virtuali. 
+Per iniziare, creare una nuova regola di avviso seguendo la procedura descritta in [creare, visualizzare e gestire gli avvisi del log mediante monitoraggio di Azure](../platform/alerts-log.md). Per la **risorsa** selezionare l'area di lavoro log Analytics utilizzata dalle macchine virtuali di monitoraggio di Azure nella sottoscrizione. Poiché la risorsa di destinazione per le regole di avviso del log è sempre un'area di lavoro Log Analytics, la query di log deve includere qualsiasi filtro per determinate macchine virtuali o set di scalabilità di macchine virtuali. 
 
 Per la **condizione** della regola di avviso, usare una delle query nella [sezione seguente](#sample-alert-queries) come **query di ricerca**. La query deve restituire una proprietà numerica denominata *AggregatedValue*. Dovrebbe riepilogare i dati in base al computer, in modo da poter creare un avviso separato per ogni macchina virtuale che supera la soglia.
 
-Nella **logica di avviso**selezionare **misurazione metrica** e quindi specificare un **valore soglia**. In **attiva l'avviso in base a**specificare il numero di volte in cui deve essere superata la soglia prima che venga creato un avviso. È possibile, ad esempio, non preoccuparsi se il processore supera una soglia una sola volta e quindi torna alla normalità, ma se continua a superare la soglia rispetto a più misurazioni consecutive.
+Nella **logica di avviso** selezionare **misurazione metrica** e quindi specificare un **valore soglia**. In **attiva l'avviso in base a** specificare il numero di volte in cui deve essere superata la soglia prima che venga creato un avviso. È possibile, ad esempio, non preoccuparsi se il processore supera una soglia una sola volta e quindi torna alla normalità, ma se continua a superare la soglia rispetto a più misurazioni consecutive.
 
 La sezione **valutata in base a** definisce la frequenza con cui viene eseguita la query e l'intervallo di tempo per la query. Nell'esempio riportato di seguito, la query viene eseguita ogni 15 minuti e valuta i valori delle prestazioni raccolti nei 15 minuti precedenti.
 

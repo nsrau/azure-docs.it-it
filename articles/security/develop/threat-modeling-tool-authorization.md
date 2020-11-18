@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d99295fbb355b3efa22a64c9adc04311508e474
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: b2ad38e518fa4b924992355990ea3eb06a338ebe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517564"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693159"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Infrastruttura di sicurezza: autorizzazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -32,11 +32,11 @@ ms.locfileid: "94517564"
 | **Gateway IoT cloud** | <ul><li>[Connettersi al gateway nel cloud usando token con privilegi minimi](#cloud-least-privileged)</li></ul> |
 | **Hub eventi di Azure** | <ul><li>[Usare una chiave di firma di accesso condiviso per autorizzazioni di solo invio per la generazione di token di dispositivo](#sendonly-sas)</li><li>[Non usare token di accesso che forniscono accesso diretto all'hub eventi](#access-tokens-hub)</li><li>[Connettersi all'hub eventi tramite chiavi di firma di accesso condiviso aventi solo le autorizzazioni minime necessarie](#sas-minimum-permissions)</li></ul> |
 | **Azure Document DB** | <ul><li>[Usare i token delle risorse per la connessione ad Azure Cosmos DB, quando possibile](#resource-docdb)</li></ul> |
-| **Limite di trust di Azure** | <ul><li>[Abilitare la gestione degli accessi con granularità fine per la sottoscrizione di Azure usando il controllo degli accessi in base al ruolo](#grained-rbac)</li></ul> |
-| **Limite di trust di Service Fabric** | <ul><li>[Limitare l'accesso del client alle operazioni del cluster usando RBAC](#cluster-rbac)</li></ul> |
+| **Limite di trust di Azure** | <ul><li>[Abilitare la gestione degli accessi con granularità fine per la sottoscrizione di Azure usando RBAC di Azure](#grained-rbac)</li></ul> |
+| **Limite di trust di Service Fabric** | <ul><li>[Limitare l'accesso del client alle operazioni del cluster usando RBAC di Azure](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Eseguire la modellazione di sicurezza e usare la sicurezza a livello di campo, se necessario](#modeling-field)</li></ul> |
 | **Portale di Dynamics CRM** | <ul><li>[Eseguire la modellazione di sicurezza degli account del portale tenendo presente che il modello di sicurezza per il portale è diverso dagli altri componenti di CRM](#portal-security)</li></ul> |
-| **Archiviazione di Azure** | <ul><li>[Concedere l'autorizzazione con granularità fine in un intervallo di entità nell'archiviazione tabelle di Azure](#permission-entities)</li><li>[Abilitare il controllo degli accessi in base al ruolo per l'account di archiviazione di Azure usando Azure Resource Manager](#rbac-azure-manager)</li></ul> |
+| **Archiviazione di Azure** | <ul><li>[Concedere l'autorizzazione con granularità fine in un intervallo di entità nell'archiviazione tabelle di Azure](#permission-entities)</li><li>[Abilitare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) nell'account di archiviazione di Azure usando Azure Resource Manager](#rbac-azure-manager)</li></ul> |
 | **Client per dispositivi mobili** | <ul><li>[Implementare il rilevamento implicito di jailbreak o rooting](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Riferimento di classe debole in WCF](#weak-class-wcf)</li><li>[WCF-implementare il controllo di autorizzazione](#wcf-authz)</li></ul> |
 | **API Web** | <ul><li>[Implementare il meccanismo di autorizzazione appropriato in API Web ASP.NET](#authz-aspnet)</li></ul> |
@@ -229,7 +229,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Riferimenti**              | N/D  |
 | **Passaggi** | Un token di risorsa è associato a una risorsa autorizzazione di Azure Cosmos DB e acquisisce la relazione tra l'utente di un database e l'autorizzazione dell'utente per una risorsa applicazione di Azure Cosmos DB specifica (ad esempio, raccolta o documento). Usare sempre un token di risorsa per accedere ad Azure Cosmos DB se il client non è attendibile per quanto riguarda la gestione delle chiavi master o di sola lettura, ad esempio un'applicazione per l'utente finale come un client desktop o mobile. Usare la chiave master o le chiavi di sola lettura di applicazioni back-end in grado di archiviare queste chiavi in modo sicuro.|
 
-## <a name="enable-fine-grained-access-management-to-azure-subscription-using-rbac"></a><a id="grained-rbac"></a>Abilitare la gestione degli accessi con granularità fine per la sottoscrizione di Azure usando il controllo degli accessi in base al ruolo
+## <a name="enable-fine-grained-access-management-to-azure-subscription-using-azure-rbac"></a><a id="grained-rbac"></a>Abilitare la gestione degli accessi con granularità fine per la sottoscrizione di Azure usando RBAC di Azure
 
 | Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
@@ -237,10 +237,10 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../../role-based-access-control/role-assignments-portal.md)  |
-| **Passaggi** | Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente una gestione degli accessi con granularità fine per Azure. L'uso del Controllo degli accessi in base al ruolo permette di concedere agli utenti solo il livello di accesso necessario per lavorare.|
+| **Riferimenti**              | [Aggiungere o rimuovere assegnazioni di ruolo di Azure per gestire l'accesso alle risorse della sottoscrizione di Azure](../../role-based-access-control/role-assignments-portal.md)  |
+| **Passaggi** | Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente una gestione degli accessi con granularità fine per Azure. Con il controllo degli accessi in base al ruolo di Azure, è possibile concedere solo la quantità di accesso necessario agli utenti per eseguire i propri processi.|
 
-## <a name="restrict-clients-access-to-cluster-operations-using-rbac"></a><a id="cluster-rbac"></a>Limitare l'accesso del client alle operazioni di cluster con il controllo degli accessi in base al ruolo
+## <a name="restrict-clients-access-to-cluster-operations-using-service-fabric-rbac"></a><a id="cluster-rbac"></a>Limitare l'accesso del client alle operazioni del cluster usando Service Fabric RBAC
 
 | Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
@@ -248,7 +248,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Fase SDL**               | Distribuzione |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | Ambiente: Azure |
-| **Riferimenti**              | [Controllo degli accessi in base al ruolo per i client di Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md) |
+| **Riferimenti**              | [Service Fabric il controllo degli accessi in base al ruolo per i client Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md) |
 | **Passaggi** | <p>Azure Service Fabric supporta due tipi di controllo di accesso diversi per i client connessi a un cluster di Service Fabric: amministratore e utente. Il Controllo di accesso consente all'amministratore del cluster di limitare l'accesso a determinate operazioni del cluster per diversi gruppi di utenti, rendendo più sicuro il cluster.</p><p>Gli amministratori hanno accesso completo alle funzionalità di gestione, incluse funzionalità di lettura/scrittura. Gli utenti, per impostazione predefinita, hanno solo l'accesso in lettura alle funzionalità di gestione, ad esempio funzionalità di query, e la possibilità di risolvere applicazioni e servizi.</p><p>I due ruoli di client, amministratore o client, vengono specificati al momento della creazione del cluster fornendo certificati separati per ognuno di essi.</p>|
 
 ## <a name="perform-security-modeling-and-use-field-level-security-where-required"></a><a id="modeling-field"></a>Eseguire la modellazione di sicurezza e usare la sicurezza a livello di campo quando richiesto
@@ -284,7 +284,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Riferimenti**              | [Come delegare l'accesso agli oggetti nell'account di archiviazione di Azure con la firma di accesso condiviso](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **Passaggi** | In alcuni scenari di business, l'archiviazione tabelle di Azure potrebbe essere necessaria per archiviare dati sensibili per diverse parti, Ad esempio, dati sensibili relativi a paesi/aree geografiche diverse. In questi casi, le firme SAS possono essere costruite specificando gli intervalli di chiavi di partizione e di riga, in modo che un utente possa accedere ai dati specifici di un determinato paese/area geografica.| 
 
-## <a name="enable-role-based-access-control-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Abilitare il controllo degli accessi in base al ruolo per l'account di archiviazione di Azure usando Azure Resource Manager
+## <a name="enable-azure-role-based-access-control-azure-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Abilitare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) nell'account di archiviazione di Azure usando Azure Resource Manager
 
 | Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
@@ -292,7 +292,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [Come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo](../../storage/blobs/security-recommendations.md) |
+| **Riferimenti**              | [Come proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../storage/blobs/security-recommendations.md) |
 | **Passaggi** | <p>Quando si crea un nuovo account di archiviazione, si seleziona un modello di distribuzione classica o di Azure Resource Manager. Il modello di distribuzione classica per la creazione di risorse in Azure consente solo l'accesso di tipo "tutto o niente" alla sottoscrizione e, di conseguenza, all'account di archiviazione.</p><p>Con il modello di Azure Resource Manager si inserisce l'account di archiviazione in un gruppo di risorse e si controlla l'accesso al piano di gestione di quello specifico account di archiviazione tramite Azure Active Directory. Ad esempio, è possibile concedere a utenti specifici la possibilità di accedere alle chiavi dell'account di archiviazione, mentre altri utenti possono visualizzare le informazioni sull'account di archiviazione, ma non accedere alle relative chiavi.</p>|
 
 ## <a name="implement-implicit-jailbreak-or-rooting-detection"></a><a id="rooting-detection"></a>Implementare il rilevamento implicito di jailbreak o rooting

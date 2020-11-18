@@ -4,12 +4,12 @@ description: Informazioni sul ridimensionamento nel servizio Azure Kubernetes, t
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 1a14615e96d5be4fbc8994073d66677997281131
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b72ed7cefc6a16eb484e1337dbd64e5f069a2201
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86499886"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686039"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di ridimensionamento per le applicazioni nel servizio Azure Kubernetes
 
@@ -50,7 +50,7 @@ Attualmente, non è possibile ottimizzare i valori di cooldown dal valore predef
 
 ## <a name="cluster-autoscaler"></a>Utilità di scalabilità automatica dei cluster
 
-Per rispondere alle mutevoli richieste di Pod, Kubernetes dispone di un cluster AutoScaler, che regola il numero di nodi in base alle risorse di calcolo richieste nel pool di nodi. Per impostazione predefinita, il servizio di scalabilità automatica del cluster controlla il server API metrica ogni 10 secondi per eventuali modifiche necessarie nel numero di nodi. Se il ridimensionamento automatico del cluster determina che è necessaria una modifica, il numero di nodi nel cluster servizio Azure Kubernetes viene aumentato o ridotto di conseguenza. Il ridimensionamento automatico del cluster funziona con i cluster servizio Azure Kubernetes abilitati per RBAC che eseguono Kubernetes 1.10.x o versione successiva.
+Per rispondere alle mutevoli richieste di Pod, Kubernetes dispone di un cluster AutoScaler, che regola il numero di nodi in base alle risorse di calcolo richieste nel pool di nodi. Per impostazione predefinita, il servizio di scalabilità automatica del cluster controlla il server API metrica ogni 10 secondi per eventuali modifiche necessarie nel numero di nodi. Se il ridimensionamento automatico del cluster determina che è necessaria una modifica, il numero di nodi nel cluster servizio Azure Kubernetes viene aumentato o ridotto di conseguenza. Il servizio di scalabilità automatica del cluster funziona con i cluster AKS abilitati per RBAC Kubernetes che eseguono Kubernetes 1.10. x o versione successiva.
 
 ![Ridimensionamento automatico del cluster Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 

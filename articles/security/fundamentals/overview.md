@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: db7d9e99de8a4ee67e49f8b7568700fc07b1e2fd
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 749c32091ed10d5bb39d7b67c8b737e002fc9909
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536532"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693733"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza di Azure
 ## <a name="overview"></a>Panoramica
@@ -60,7 +60,7 @@ A seconda del modello di servizio cloud, la responsabilità per le persone incar
 
 Le funzionalità predefinite sono organizzate in sei aree funzionali: operazioni, applicazioni, archiviazione, rete, calcolo e identità. Ulteriori dettagli sulle funzionalità e sulle funzionalità disponibili nella piattaforma Azure in queste sei aree sono fornite tramite le informazioni di riepilogo.
 
-## <a name="operations"></a>Gestione operativa
+## <a name="operations"></a>Operazioni
 Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali per le operazioni di sicurezza e informazioni di riepilogo su tali funzionalità.
 
 ### <a name="security-and-audit-dashboard"></a>Dashboard Sicurezza e controllo
@@ -141,8 +141,8 @@ In Diagnostica applicazioni è possibile visualizzare gli eventi raggruppandoli 
 ## <a name="storage"></a>Archiviazione
 Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali per la sicurezza delle risorse di archiviazione di Azure e informazioni di riepilogo su tali funzionalità.
 
-### <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
-È possibile proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo. Per le organizzazioni che desiderano applicare criteri di sicurezza per l'accesso ai dati è fondamentale limitare l'accesso in base ai principi di sicurezza di cui è [necessario essere a conoscenza](https://en.wikipedia.org/wiki/Need_to_know) e ai [privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege) . Questi diritti di accesso vengono concessi assegnando il ruolo di Azure appropriato a gruppi e applicazioni in un determinato ambito. È possibile usare i [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md), ad esempio collaboratore account di archiviazione, per assegnare privilegi agli utenti. L'accesso alle chiavi di archiviazione per un account di archiviazione con il modello [Azure Resource Manager](../../storage/blobs/security-recommendations.md) può essere controllato tramite il controllo degli accessi in base al ruolo.
+### <a name="azure-role-based-access-control-azure-rbac"></a>Controllo degli accessi in base al ruolo di Azure
+È possibile proteggere l'account di archiviazione con il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per le organizzazioni che desiderano applicare criteri di sicurezza per l'accesso ai dati è fondamentale limitare l'accesso in base ai principi di sicurezza di cui è [necessario essere a conoscenza](https://en.wikipedia.org/wiki/Need_to_know) e ai [privilegi minimi](https://en.wikipedia.org/wiki/Principle_of_least_privilege) . Questi diritti di accesso vengono concessi assegnando il ruolo di Azure appropriato a gruppi e applicazioni in un determinato ambito. È possibile usare i [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md), ad esempio collaboratore account di archiviazione, per assegnare privilegi agli utenti. L'accesso alle chiavi di archiviazione per un account di archiviazione con il modello di [Azure Resource Manager](../../storage/blobs/security-recommendations.md) può essere controllato tramite il controllo degli accessi in base al ruolo.
 
 ### <a name="shared-access-signature"></a>Firma di accesso condiviso
 Una [firma di accesso condiviso (SAS)](../../storage/common/storage-sas-overview.md) fornisce accesso delegato alle risorse nell'account di archiviazione. La firma di accesso condiviso consente di concedere a un client autorizzazioni limitate per gli oggetti nell'account di archiviazione per un periodo di tempo e con un set di autorizzazioni specificati. È possibile concedere queste autorizzazioni limitate senza la necessità di condividere le chiavi di accesso all'account.
@@ -322,7 +322,7 @@ Le patch di aggiornamento offrono la base per trovare e correggere potenziali pr
 ### <a name="security-policy-management-and-reporting"></a>Gestione e reporting dei criteri di sicurezza
 Il [Centro sicurezza](../../security-center/security-center-introduction.md) consente di prevenire, rilevare e rispondere alle minacce e offre un livello maggiore di visibilità e controllo della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri nelle sottoscrizioni di Azure, consente di rilevare minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.
 
-## <a name="identity-and-access-management"></a>Gestione di identità e accessi
+## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
 I controlli di accesso basati sull'identità sono il punto di partenza della protezione di sistemi, applicazioni e dati. Le funzionalità di gestione delle identità e dell'accesso incorporate nei prodotti e nei servizi aziendali Microsoft consentono di proteggere le informazioni personali e dell'organizzazione dall'accesso non autorizzato rendendole al tempo stesso disponibili per gli utenti legittimi ovunque e in qualsiasi momento ne abbiano bisogno.
 
 ### <a name="secure-identity"></a>Proteggere l'identità
@@ -336,7 +336,7 @@ Per gestire le identità e l'accesso, Microsoft usa più procedure e tecnologie 
 
 -   L'[autenticazione basata su token](../../active-directory/develop/authentication-vs-authorization.md) consente l'autenticazione tramite Azure Active Directory.
 
--   Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/built-in-roles.md) consente di concedere l'accesso in base al ruolo assegnato all'utente, semplificando la concessione agli utenti solo della quantità di accesso necessaria per svolgere le proprie mansioni. È possibile personalizzare il controllo degli accessi in base al ruolo per il modello aziendale e la tolleranza al rischio dell'organizzazione.
+-   Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/built-in-roles.md) consente di concedere l'accesso in base al ruolo assegnato all'utente, semplificando la concessione agli utenti solo della quantità di accesso necessaria per svolgere le proprie mansioni. Puoi personalizzare il controllo degli accessi in base al ruolo di Azure per il modello aziendale e la tolleranza al rischio.
 
 -   La [soluzione ibrida (integrata) di gestione delle identità](../../active-directory/hybrid/plan-hybrid-identity-design-considerations-overview.md) consente di mantenere il controllo sull'accesso degli utenti nei data center interni e nelle piattaforme cloud creando una singola identità utente per l'autenticazione e l'autorizzazione in tutte le risorse.
 

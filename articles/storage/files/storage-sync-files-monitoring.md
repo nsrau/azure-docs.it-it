@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 785a63d695f7c615ce21fa5714b76988b5e281c4
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 59c489fac8bf02263cc51833675af414d5de6a52
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629377"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686005"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorare Sincronizzazione file di Azure
 
@@ -45,7 +45,7 @@ Le metriche seguenti per la Sincronizzazione file di Azure sono disponibili in M
 | Nome metrica | Descrizione |
 |-|-|
 | Byte sincronizzati | Dimensioni dei dati trasferiti (caricamento e scaricamento).<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensioni applicabili: nome endpoint server, direzione sincronizzazione, nome gruppo di sincronizzazione |
-| Richiamo cloud a livelli | Dimensioni dei dati richiamati.<br><br>**Nota** : questa metrica verrà rimossa in futuro. Usare la metrica dimensione di richiamo di suddivisione in livelli nel cloud per monitorare le dimensioni dei dati richiamati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome del server |
+| Richiamo cloud a livelli | Dimensioni dei dati richiamati.<br><br>**Nota**: questa metrica verrà rimossa in futuro. Usare la metrica dimensione di richiamo di suddivisione in livelli nel cloud per monitorare le dimensioni dei dati richiamati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome del server |
 | Cloud tiering recall size (Dimensioni richiamo cloud a livelli) | Dimensioni dei dati richiamati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome del server, nome del gruppo di sincronizzazione |
 | Cloud tiering recall size by application (Dimensioni richiamo cloud a livelli per applicazione) | Dimensioni dei dati richiamati dall'applicazione.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome dell'applicazione, nome del server, nome del gruppo di sincronizzazione |
 | Cloud tiering recall throughput (Velocità effettiva richiamo cloud a livelli) | Dimensioni della velocità effettiva di richiamo dei dati.<br><br>Unità: Byte<br>Tipo di aggregazione: Sum<br>Dimensione applicabile: nome del server, nome del gruppo di sincronizzazione |
@@ -83,7 +83,7 @@ Per istruzioni su come creare avvisi per questi scenari, vedere la sezione relat
 
 ## <a name="storage-sync-service"></a>Servizio di sincronizzazione archiviazione
 
-Per visualizzare l'integrità della distribuzione Sincronizzazione file di Azure nella **portale di Azure** , passare al **servizio di sincronizzazione archiviazione** e sono disponibili le informazioni seguenti:
+Per visualizzare l'integrità della distribuzione Sincronizzazione file di Azure nella **portale di Azure**, passare al **servizio di sincronizzazione archiviazione** e sono disponibili le informazioni seguenti:
 
 - Stato server registrato
 - Integrità endpoint server
@@ -100,8 +100,8 @@ Per visualizzare l' **integrità del server registrato** nel portale, passare al
 
 ![Screenshot dello stato dei server registrati](media/storage-sync-files-troubleshoot/file-sync-registered-servers.png)
 
-- Se lo stato del **server registrato** è **online** , il server comunica correttamente con il servizio.
-- Se lo stato del **server registrato** è **offline** , il processo di monitoraggio della sincronizzazione archiviazione (AzureStorageSyncMonitor.exe) non è in esecuzione o il server non è in grado di accedere al servizio sincronizzazione file di Azure. Per informazioni aggiuntive, vedere la [documentazione relativa alla risoluzione dei problemi](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity) .
+- Se lo stato del **server registrato** è **online**, il server comunica correttamente con il servizio.
+- Se lo stato del **server registrato** è **offline**, il processo di monitoraggio della sincronizzazione archiviazione (AzureStorageSyncMonitor.exe) non è in esecuzione o il server non è in grado di accedere al servizio sincronizzazione file di Azure. Per informazioni aggiuntive, vedere la [documentazione relativa alla risoluzione dei problemi](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity) .
 
 ### <a name="server-endpoint-health"></a>Integrità endpoint server
 
@@ -109,7 +109,7 @@ Per visualizzare l'integrità di un **endpoint server** nel portale, passare all
 
 ![Screenshot dello stato dell'endpoint server](media/storage-sync-files-troubleshoot/file-sync-server-endpoint-health.png)
 
-- L' **attività di sincronizzazione** e **integrità degli endpoint server** nel portale si basa sugli eventi di sincronizzazione registrati nel registro eventi di telemetria sul server (ID 9102 e 9302). Se una sessione di sincronizzazione ha esito negativo a causa di un errore temporaneo, ad esempio l'errore è stato annullato, l'endpoint server sarà comunque visualizzato come **integro** nel portale, purché la sessione di sincronizzazione corrente stia procedendo (i file vengono applicati). L'ID evento 9302 è l'evento dello stato di avanzamento della sincronizzazione e l'ID evento 9102 viene registrato al termine di una sessione di sincronizzazione.  Per ulteriori informazioni, vedere [Sync Health](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) and [Sync Progress](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Se l'integrità dell'endpoint server Visualizza un **errore** o **Nessuna attività** , vedere la documentazione relativa alla [risoluzione dei problemi](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#common-sync-errors) per informazioni aggiuntive.
+- L' **attività di sincronizzazione** e **integrità degli endpoint server** nel portale si basa sugli eventi di sincronizzazione registrati nel registro eventi di telemetria sul server (ID 9102 e 9302). Se una sessione di sincronizzazione ha esito negativo a causa di un errore temporaneo, ad esempio l'errore è stato annullato, l'endpoint server sarà comunque visualizzato come **integro** nel portale, purché la sessione di sincronizzazione corrente stia procedendo (i file vengono applicati). L'ID evento 9302 è l'evento dello stato di avanzamento della sincronizzazione e l'ID evento 9102 viene registrato al termine di una sessione di sincronizzazione.  Per ulteriori informazioni, vedere [Sync Health](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) and [Sync Progress](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Se l'integrità dell'endpoint server Visualizza un **errore** o **Nessuna attività**, vedere la documentazione relativa alla [risoluzione dei problemi](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#common-sync-errors) per informazioni aggiuntive.
 - Il numero di **file non sincronizzati** nel portale è basato sull'ID evento 9121 registrato nel registro eventi di telemetria sul server. Questo evento viene registrato per ogni errore per elemento al termine della sessione di sincronizzazione. Per risolvere gli errori per elemento, vedere [ricerca per categorie verificare se sono presenti file o cartelle specifici che non sono sincronizzati](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 - Per visualizzare l' **efficienza** di suddivisione in livelli nel cloud nel portale, passare alle **proprietà dell'endpoint server** e passare alla sezione suddivisione in **livelli nel cloud** . I dati forniti per l'efficienza di suddivisione in livelli nel cloud si basano sull'ID evento 9071 registrato nel registro eventi di telemetria sul server. Per altre informazioni, vedere [Suddivisione in livelli cloud](./storage-sync-cloud-tiering.md).
 - Per visualizzare **i file senza** suddivisione in livelli e **richiamare gli errori** nel portale, passare alle **proprietà dell'endpoint server** e passare alla sezione suddivisione in **livelli nel cloud** . La suddivisione in **livelli dei file non** è basata sull'id evento 9003 registrato nel registro eventi di telemetria sul server e gli **errori di richiamo** si basano sull'ID evento 9006. Per esaminare i file che non riescono a eseguire il livello o richiamare, vedere [come risolvere i problemi dei file che non riescono a livello](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) e [come risolvere i problemi dei file che non vengono richiamati](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
@@ -141,18 +141,18 @@ Usare il registro eventi di telemetria nel server per monitorare l'integrità de
 
 Integrità sincronizzazione
 
-- L'ID evento 9102 viene registrato una volta completata una sessione di sincronizzazione. Utilizzare questo evento per determinare se le sessioni di sincronizzazione hanno esito positivo ( **HRESULT = 0** ) e se sono presenti errori di sincronizzazione per elemento ( **PerItemErrorCount** ). Per ulteriori informazioni, vedere la documentazione sull' [integrità della sincronizzazione](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) e sugli  [errori per elemento](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) .
+- L'ID evento 9102 viene registrato una volta completata una sessione di sincronizzazione. Utilizzare questo evento per determinare se le sessioni di sincronizzazione hanno esito positivo (**HRESULT = 0**) e se sono presenti errori di sincronizzazione per elemento (**PerItemErrorCount**). Per ulteriori informazioni, vedere la documentazione sull' [integrità della sincronizzazione](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) e sugli  [errori per elemento](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) .
 
   > [!Note]  
   > A volte le sessioni di sincronizzazione hanno esito negativo globale o hanno un PerItemErrorCount diverso da zero. Tuttavia, continuano a avanzare e alcuni file vengono sincronizzati correttamente. È possibile visualizzarlo nei campi applicati, ad esempio AppliedFileCount, AppliedDirCount, AppliedTombstoneCount e AppliedSizeBytes. Questi campi indicano la parte della sessione completata. Se più sessioni di sincronizzazione hanno esito negativo in una riga e hanno un conteggio applicato crescente, fornire tempo di sincronizzazione per riprovare prima di aprire un ticket di supporto.
 
-- Al termine della sessione di sincronizzazione, viene registrato l'ID evento 9121 per ogni singolo elemento. Utilizzare questo evento per determinare il numero di file che non riescono a eseguire la sincronizzazione con questo errore ( **PersistentCount** e **TransientCount** ). Per esaminare gli errori persistenti degli elementi, vedere [ricerca per categorie verificare se sono presenti file o cartelle specifici che non sono sincronizzati](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+- Al termine della sessione di sincronizzazione, viene registrato l'ID evento 9121 per ogni singolo elemento. Utilizzare questo evento per determinare il numero di file che non riescono a eseguire la sincronizzazione con questo errore (**PersistentCount** e **TransientCount**). Per esaminare gli errori persistenti degli elementi, vedere [ricerca per categorie verificare se sono presenti file o cartelle specifici che non sono sincronizzati](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
-- L'ID evento 9302 viene registrato ogni 5-10 minuti se è presente una sessione di sincronizzazione attiva. Utilizzare questo evento per determinare il numero di elementi da sincronizzare ( **TotalItemCount** ), il numero di elementi sincronizzati fino a questo punto ( **AppliedItemCount** ) e il numero di elementi che non sono stati sincronizzati a causa di un errore per elemento ( **PerItemErrorCount** ). Se la sincronizzazione non sta procedendo ( **AppliedItemCount = 0** ), la sessione di sincronizzazione avrà esito negativo e verrà registrato un ID evento 9102 con l'errore. Per ulteriori informazioni, vedere la [documentazione sullo stato di avanzamento della sincronizzazione](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- L'ID evento 9302 viene registrato ogni 5-10 minuti se è presente una sessione di sincronizzazione attiva. Utilizzare questo evento per determinare il numero di elementi da sincronizzare (**TotalItemCount**), il numero di elementi sincronizzati fino a questo punto (**AppliedItemCount**) e il numero di elementi che non sono stati sincronizzati a causa di un errore per elemento (**PerItemErrorCount**). Se la sincronizzazione non sta procedendo (**AppliedItemCount = 0**), la sessione di sincronizzazione avrà esito negativo e verrà registrato un ID evento 9102 con l'errore. Per ulteriori informazioni, vedere la [documentazione sullo stato di avanzamento della sincronizzazione](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 Stato server registrato
 
-- L'ID evento 9301 viene registrato ogni 30 secondi quando un server esegue query sul servizio per i processi. Se GetNextJob termina con **status = 0** , il server è in grado di comunicare con il servizio. Se GetNextJob termina con un errore, vedere la [documentazione relativa alla risoluzione dei problemi](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity) per informazioni aggiuntive.
+- L'ID evento 9301 viene registrato ogni 30 secondi quando un server esegue query sul servizio per i processi. Se GetNextJob termina con **status = 0**, il server è in grado di comunicare con il servizio. Se GetNextJob termina con un errore, vedere la [documentazione relativa alla risoluzione dei problemi](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#server-endpoint-noactivity) per informazioni aggiuntive.
 
 Integrità di suddivisione in livelli cloud
 
@@ -229,7 +229,7 @@ In questa sezione vengono forniti alcuni avvisi di esempio per Sincronizzazione 
 7. Passare alla **logica di avviso** e completare le operazioni seguenti: 
      - Soglia impostata su **statica** 
      - Operatore: **maggiore di** 
-     - Tipo di aggregazione: **totale**  
+     - Tipo di aggregazione: **media**  
      - Valore soglia: **100** 
      - Valutato in base a: granularità di aggregazione = **5 minuti** | Frequenza di valutazione = **ogni 5 minuti** 
      - Fare clic su **fine.** 

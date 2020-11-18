@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2786a45ef779b9c66edda4c765a1cf2140f1bf9f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 37db72b2b5dadfba930ca003121140fd99c4736d
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425290"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686073"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Baseline della sicurezza di Azure per Azure Load Balancer
 
@@ -30,7 +30,7 @@ Azure offre due tipi di Load Balancer offerte, standard e Basic. Usare il Load B
 
 L'uso di un Load Balancer Standard è consigliato per i carichi di lavoro di produzione e in genere il Load Balancer di base viene usato solo per i test, poiché il tipo di base è aperto per le connessioni da Internet per impostazione predefinita e non richiede gruppi di sicurezza di rete per l'operazione. 
 
-- [Connessioni in uscita in Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#outboundrule)
+- [Connessioni in uscita in Azure](load-balancer-outbound-connections.md)
 
 - [Aggiornare Load Balancer pubblico di Azure](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard)
 

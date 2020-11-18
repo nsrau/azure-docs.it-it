@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/20/2020
+ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: a5e7e46041e339646e4813a4cce61046f2a57e5e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2102ea1ef4afb6d7f3ce96e4cd7ead0e7af08bf0
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319057"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129440"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con 8x8
 
@@ -25,8 +25,6 @@ Questa esercitazione descrive come integrare 8x8 con Azure Active Directory (Azu
 * Controllare in Azure AD chi può accedere a 8x8.
 * Abilitare gli utenti per l'accesso automatico a 8x8 con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
-
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,8 +42,6 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * 8x8 supporta l'accesso Single Sign-On avviato da **SP e IDP**
 
-* Dopo aver configurato 8x8, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
 > [!NOTE]
 > Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
 
@@ -53,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 Per configurare l'integrazione di 8x8 in Azure AD è necessario aggiungere 8x8 dalla raccolta all'elenco di app SaaS gestite.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
 1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
@@ -64,7 +60,7 @@ Per configurare l'integrazione di 8x8 in Azure AD è necessario aggiungere 8x8 d
 
 Configurare e testare l'accesso SSO di Azure AD con 8x8 usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in 8x8.
 
-Per configurare e testare l'accesso SSO di Azure AD con 8x8, completare le procedure di base seguenti:
+Per configurare e testare l'accesso SSO di Azure AD con 8x8, completare la procedura seguente:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
     1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
@@ -77,7 +73,7 @@ Per configurare e testare l'accesso SSO di Azure AD con 8x8, completare le proce
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **8x8** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **8x8** del portale di Azure individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
@@ -130,10 +126,10 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 La parte successiva dell'esercitazione dipende dal tipo di sottoscrizione 8x8 scelta.
 
-* I clienti di 8x8 Editions e X Series che usano Configuration Manager per l'amministrazione possono fare riferimento a [Configurare Configuration Manager per 8x8](#configure-8x8-configuration-manager).
+* I clienti di 8x8 Editions e X Series che usano Configuration Manager per l'amministrazione possono fare riferimento a [Configurare la console di amministrazione di 8x8](#configure-8x8-admin-console).
 * I clienti di Virtual Office che usano Account Manager per l'amministrazione possono fare riferimento a [Configurare Account Manager per 8x8](#configure-8x8-account-manager).
 
-### <a name="configure-8x8-configuration-manager"></a>Configurare Configuration Manager per 8x8
+### <a name="configure-8x8-admin-console"></a>Configurare la console di amministrazione di 8x8
 
 1. Per automatizzare la configurazione all'interno di 8x8, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
@@ -143,7 +139,7 @@ La parte successiva dell'esercitazione dipende dal tipo di sottoscrizione 8x8 sc
 
     ![Eseguire la configurazione](common/setup-sso.png)
 
-1. Se si vuole configurare 8x8 manualmente, accedere alla pagina [Configuration Manager](https://vo-cm.8x8.com/) di 8x8 come amministratore.
+1. Se si vuole configurare 8x8 manualmente, accedere alla [console di amministrazione](https://admin.8x8.com/) di 8x8 come amministratore.
 
 1. Nella home page fare clic su **Identity Management** (Gestione identità).
 
@@ -153,9 +149,9 @@ La parte successiva dell'esercitazione dipende dal tipo di sottoscrizione 8x8 sc
 
     ![Screenshot con le opzioni Single Sign-on (SSO) e Microsoft Azure AD evidenziate.](./media/8x8virtualoffice-tutorial/configure2.png)
 
-1. Copiare i tre URL e il certificato di firma dalla pagina **Configura l'accesso Single Sign-On con SAML** nella sezione **Microsoft Azure AD SAML Settings** (Impostazioni SAML di Microsoft Azure AD) in Configuration Manager di 8x8.
+1. Copiare i tre URL e il certificato di firma dalla pagina **Configura l'accesso Single Sign-On con SAML** nella sezione **Microsoft Azure AD SAML Settings** (Impostazioni SAML di Microsoft Azure AD) nella console di amministrazione di 8x8.
 
-    ![Configuration Manager per 8x8](./media/8x8virtualoffice-tutorial/configure3.png)
+    ![Console di amministrazione di 8x8](./media/8x8virtualoffice-tutorial/configure3.png)
 
     a. Copiare il valore di **URL di accesso** in **IDP Login URL** (URL di accesso IDP).
 
@@ -211,20 +207,21 @@ In questa sezione viene creato un utente di nome Britta Simon in 8x8. Collaborar
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
 
-Quando si fa clic sul riquadro di 8x8 nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di 8x8 per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Avviato da SP:
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+* Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà eseguito il reindirizzamento all'URL di accesso di 8x8, in cui è possibile avviare il flusso di accesso.  
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
+* Passare direttamente all'URL di accesso di 8x8 e avviare il flusso di accesso da questa posizione.
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Avviato da IDP:
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
+* Dopo aver fatto clic su **Test this application** (Testa questa applicazione) nel portale di Azure, si dovrebbe accedere automaticamente all'istanza di 8x8 per cui si è configurato l'accesso SSO 
 
-- [Provare 8x8 con Azure AD](https://aad.portal.azure.com/)
+È anche possibile usare il pannello di accesso Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro di 8x8 nel pannello di accesso, se è stato configurato in modalità SP, si dovrebbe essere reindirizzati alla pagina di accesso dell'applicazione per avviare il flusso di accesso; se invece è configurato in modalità IDP, si dovrebbe accedere automaticamente all'istanza di 8x8 per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)
 
-- [Come proteggere 8x8 con visibilità e controlli avanzati](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Passaggi successivi
+
+Dopo aver configurato 8x8, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

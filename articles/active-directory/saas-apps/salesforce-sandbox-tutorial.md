@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: bc27b1fea97471e9ca1991467902e666c1451605
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 12a282b1f53dde570f5f6647a45df82808b20350
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675544"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080822"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce-sandbox"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Salesforce Sandbox
 
@@ -49,16 +49,16 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 Per configurare l'integrazione di Salesforce Sandbox in Azure AD, è necessario aggiungere Salesforce Sandbox dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** .
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Salesforce Sandbox** nella casella di ricerca.
 1. Selezionare **Salesforce Sandbox** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-salesforce-sandbox"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Salesforce Sandbox
 
-Configurare e testare l'accesso SSO di Azure AD con Salesforce Sandbox usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Salesforce Sandbox.
+Configurare e testare l'accesso SSO di Azure AD con Salesforce Sandbox usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Salesforce Sandbox.
 
 Per configurare e testare l'accesso SSO di Azure AD con Salesforce Sandbox, completare le procedure di base seguenti:
 
@@ -73,33 +73,33 @@ Per configurare e testare l'accesso SSO di Azure AD con Salesforce Sandbox, comp
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Salesforce Sandbox** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On** .
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
+1. Nella pagina di integrazione dell'applicazione **Salesforce Sandbox** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si dispone del **file di metadati del provider di servizi** e si vuole configurare l'applicazione in modalità avviata da **IDP** :
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si dispone del **file di metadati del provider di servizi** e si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    a. Fare clic su **Carica il file di metadati** .
+    a. Fare clic su **Carica il file di metadati**.
 
     ![Caricare file di metadati](common/upload-metadata.png)
 
-    b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Upload** .
+    b. Fare clic su **logo cartella** per selezionare il file di metadati e fare quindi clic su **Upload**.
 
     ![Scegliere file di metadati](common/browse-upload-metadata.png)
 
     > [!NOTE]
     > Il file di metadati del provider di servizi sarà disponibile nel portale di amministrazione Salesforce Sandbox, come spiegato più avanti nell'esercitazione.
 
-    c. Dopo che è stato caricato il file di metadati, il valore **URL di risposta** viene popolato automaticamente nella casella di testo della sezione **URL di risposta** .
+    c. Dopo che è stato caricato il file di metadati, il valore **URL di risposta** viene popolato automaticamente nella casella di testo della sezione **URL di risposta**.
 
     ![image](common/both-replyurl.png)
 
     > [!Note]
     > Se il valore di **URL di risposta** non viene popolato automaticamente, inserirlo manualmente in base alle esigenze.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **file XML dei metadati** definito dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **file XML dei metadati** definito dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -117,69 +117,69 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
-   1. Fare clic su **Crea** .
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Salesforce Sandbox.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
-1. Nell'elenco di applicazioni selezionare **Salesforce Sandbox** .
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco di applicazioni selezionare **Salesforce Sandbox**.
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ## <a name="configure-salesforce-sandbox-sso"></a>Configurare l'accesso Single Sign-On di Salesforce Sandbox
 
 1. Aprire una nuova scheda del browser e accedere all'account amministratore di Salesforce Sandbox.
 
-2. Fare clic su **Setup** (Configura) sotto l' **icona Settings** (Impostazioni) nell'angolo superiore destro della pagina.
+2. Fare clic su **Setup** (Configura) sotto l'**icona Settings** (Impostazioni) nell'angolo superiore destro della pagina.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![Screenshot che mostra l'icona "Settings" in alto a destra selezionata e l'opzione "Setup" selezionata nell'elenco a discesa.](./media/salesforce-sandbox-tutorial/configure1.png)
 
-3. Scorrere verso il basso fino alla voce **IMPOSTAZIONI** nel riquadro di spostamento a sinistra e fare clic su **Identità** per espandere la sezione corrispondente. Fare quindi clic su **Single Sign-On Settings** .
+3. Scorrere verso il basso fino alla voce **IMPOSTAZIONI** nel riquadro di spostamento a sinistra e fare clic su **Identità** per espandere la sezione corrispondente. Fare quindi clic su **Single Sign-On Settings**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![Screenshot che mostra il menu "Settings" nel riquadro di sinistra e l'opzione "Single Sign-On Settings" selezionata nel menu "Identity".](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
-4. Nella pagina **Single Sign-On Settings** fare clic su **Edit** .
+4. Nella pagina **Single Sign-On Settings** fare clic su **Edit**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure3.png)
+    ![Screenshot che mostra la pagina "Single Sign-On Settings" con il pulsante "Edit" selezionato.](./media/salesforce-sandbox-tutorial/configure3.png)
 
-5. Selezionare **SAML Enabled** , quindi fare clic su **Save** .
+5. Selezionare **SAML Enabled**, quindi fare clic su **Save**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    ![Screenshot che mostra la pagina "Single Sign-On Settings" con la casella di controllo "SAML Enabled" e il pulsante "Save" selezionati.](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 6. Per configurare le impostazioni dell'accesso Single Sign-On SAML, fare clic su **New from Metadata File** (Nuovo da file di metadati).
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    ![Screenshot che mostra la pagina "Single Sign-On Settings" con il pulsante "New from Metadata File" selezionato.](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-7. Fare clic su **Scegli file** per caricare il file XML di metadati scaricato dal portale di Azure e fare clic su **Crea** .
+7. Fare clic su **Scegli file** per caricare il file XML di metadati scaricato dal portale di Azure e fare clic su **Crea**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    ![Screenshot che mostra la pagina "Single Sign-On Settings" con i pulsanti "Choose File" e "Create" selezionati.](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
 8. Nella pagina **SAML Single Sign-On Settings** (Impostazioni SAML Single Sign-On) i campi vengono popolati automaticamente. Quindi fare clic su Salva.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/salesforcexml.png)
+    ![Screenshot che mostra la pagina "Single Sign-On Settings" con i campi precompilati e il pulsante "Save" selezionato.](./media/salesforce-sandbox-tutorial/salesforcexml.png)
 
 9. Nella pagina **Impostazioni Single Sign-on** fare clic su **Scarica metadati** per scaricare il file di metadati del provider di servizi. Usare il file nella sezione **Configurazione SAML di base** del portale di Azure per configurare gli URL necessari come spiegato in precedenza.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure4.png)
+    ![Screenshot che mostra la pagina "Single Sign-On Settings" con il pulsante "Download Metadata" selezionato.](./media/salesforce-sandbox-tutorial/configure4.png)
 
-10. Per configurare l'applicazione in modalità avviata da **SP** , è necessario soddisfare i prerequisiti seguenti:
+10. Per configurare l'applicazione in modalità avviata da **SP**, è necessario soddisfare i prerequisiti seguenti:
 
     a. È necessario un dominio verificato.
 
@@ -200,33 +200,33 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 12. Aprire una nuova scheda del browser e accedere all'account amministratore di Salesforce Sandbox.
 
-13. Fare clic su **Setup** (Configura) sotto l' **icona Settings** (Impostazioni) nell'angolo superiore destro della pagina.
+13. Fare clic su **Setup** (Configura) sotto l'**icona Settings** (Impostazioni) nell'angolo superiore destro della pagina.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![Screenshot che mostra l'icona "Settings" in alto a destra selezionata e l'opzione "Setup" selezionata nel menu a discesa.](./media/salesforce-sandbox-tutorial/configure1.png)
 
-14. Scorrere verso il basso fino alla voce **IMPOSTAZIONI** nel riquadro di spostamento a sinistra e fare clic su **Identità** per espandere la sezione corrispondente. Fare quindi clic su **Single Sign-On Settings** .
+14. Scorrere verso il basso fino alla voce **IMPOSTAZIONI** nel riquadro di spostamento a sinistra e fare clic su **Identità** per espandere la sezione corrispondente. Fare quindi clic su **Single Sign-On Settings**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![Screenshot che mostra il menu "Settings" nel riquadro di spostamento sinistro e l'opzione "Single Sign-On Settings" selezionata nel menu "Identity".](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
-15. Nella pagina **Single Sign-On Settings** fare clic su **Edit** .
+15. Nella pagina **Single Sign-On Settings** fare clic su **Edit**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure3.png)
+    ![Screenshot che mostra la pagina "Single Sign-On Settings" con il pulsante "Edit" selezionato.](./media/salesforce-sandbox-tutorial/configure3.png)
 
-16. Selezionare **SAML Enabled** , quindi fare clic su **Save** .
+16. Selezionare **SAML Enabled**, quindi fare clic su **Save**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    ![Screenshot che mostra la pagina "Single Sign-On Settings" con la casella di controllo "SAML Enabled" e il pulsante "Save" selezionati.](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 17. Per configurare le impostazioni dell'accesso Single Sign-On SAML, fare clic su **New from Metadata File** (Nuovo da file di metadati).
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    ![Screenshot che mostra la pagina "Single Sign-On Settings" e il pulsante "New from Metadata File" selezionato.](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-18. Per caricare il file di metadati, fare clic su **Scegli file** e quindi scegliere **Crea** .
+18. Per caricare il file di metadati, fare clic su **Scegli file** e quindi scegliere **Crea**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    ![Screenshot che mostra la pagina "Single Sign-On Settings" con il pulsante "Choose File" e l'opzione "Create" selezionati.](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-19. Nella pagina **Impostazioni SAML Single Sign-On** i campi vengono popolati automaticamente. Digitare il nome della configurazione (ad esempio, *SPSSOWAAD_Test* ) nella casella di testo **Nome** e quindi fare clic su Salva.
+19. Nella pagina **Impostazioni SAML Single Sign-On** i campi vengono popolati automaticamente. Digitare il nome della configurazione (ad esempio, *SPSSOWAAD_Test*) nella casella di testo **Nome** e quindi fare clic su Salva.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
+    ![Screenshot che mostra la pagina "Single Sign-On Settings" con i campi precompilati (nome di esempio nella casella di testo "Name") e il pulsante "Save" selezionato.](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
 20. Per abilitare il dominio su Salesforce Sandbox, eseguire la procedura seguente:
 
@@ -235,13 +235,13 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 21. Nel pannello di navigazione sinistro in Salesforce Sandbox fare clic su **Company Settings** (Impostazioni aziendali) per espandere la sezione correlata e quindi fare clic su **My Domain** (Dominio personale).
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
+    ![Screenshot che mostra le opzioni "Company Settings" e "My Domain" selezionate nel riquadro di spostamento sinistro.](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
 
-22. Nella sezione **Configurazione autenticazione** fare clic su **Criterio di autenticazione** .
+22. Nella sezione **Configurazione autenticazione** fare clic su **Criterio di autenticazione**.
 
-    ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
+    ![Screenshot che mostra la sezione "Authentication Configuration" con il pulsante "Edit" selezionato.](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
-23. Nella sezione **Configurazione autenticazione** , per **Servizio di autenticazione** selezionare il nome dell'impostazione Single Sign-On SAML definita durante la configurazione SSO in Salesforce Sandbox e quindi fare clic su **Salva** .
+23. Nella sezione **Configurazione autenticazione**, per **Servizio di autenticazione** selezionare il nome dell'impostazione Single Sign-On SAML definita durante la configurazione SSO in Salesforce Sandbox e quindi fare clic su **Salva**.
 
     ![Configure Single Sign-On](./media/salesforce-sandbox-tutorial/configure2.png)
 

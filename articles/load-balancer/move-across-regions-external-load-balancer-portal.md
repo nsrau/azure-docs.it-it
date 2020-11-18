@@ -6,18 +6,18 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83ff3d1d03354daef3466c1f48eaa505e378634
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808719"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94693750"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Spostare un servizio di bilanciamento del carico esterno in un'altra area usando il portale di Azure
 
 Esistono diversi scenari in cui si vuole spostare un servizio di bilanciamento del carico esterno da un'area all'altra. Ad esempio, potrebbe essere necessario creare un altro servizio di bilanciamento del carico esterno con la stessa configurazione per il test. Potrebbe anche essere necessario spostare un servizio di bilanciamento del carico esterno in un'altra area nell'ambito della pianificazione del ripristino di emergenza.
 
-In senso letterale, non è possibile spostare un servizio di bilanciamento del carico esterno di Azure da un'area a un'altra. È tuttavia possibile usare un modello di Azure Resource Manager per esportare la configurazione esistente e l'indirizzo IP pubblico di un servizio di bilanciamento del carico esterno. È quindi possibile organizzare la risorsa in un'altra area esportando il servizio di bilanciamento del carico e l'indirizzo IP pubblico in un modello, modificando i parametri in modo che corrispondano all'area di destinazione e quindi distribuendo il modello nella nuova area. Per altre informazioni su Gestione risorse e sui modelli, vedere [esportare gruppi di risorse nei modelli](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
+In senso letterale, non è possibile spostare un servizio di bilanciamento del carico esterno di Azure da un'area a un'altra. È tuttavia possibile usare un modello di Azure Resource Manager per esportare la configurazione esistente e l'indirizzo IP pubblico di un servizio di bilanciamento del carico esterno. È quindi possibile organizzare la risorsa in un'altra area esportando il servizio di bilanciamento del carico e l'indirizzo IP pubblico in un modello, modificando i parametri in modo che corrispondano all'area di destinazione e quindi distribuendo il modello nella nuova area. Per altre informazioni su Gestione risorse e sui modelli, vedere [esportare gruppi di risorse nei modelli](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -32,7 +32,7 @@ In senso letterale, non è possibile spostare un servizio di bilanciamento del c
 
 - Verificare che la sottoscrizione di Azure consenta di creare bilanciamenti del carico esterni nell'area di destinazione. Contattare il supporto tecnico per abilitare la quota necessaria.
 
-- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta dei bilanciamenti del carico. Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta dei bilanciamenti del carico. Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 ## <a name="prepare-and-move"></a>Preparazione e spostamento
 Le procedure seguenti illustrano come preparare il servizio di bilanciamento del carico esterno per lo spostamento usando un modello di Gestione risorse e spostare la configurazione del servizio di bilanciamento del carico esterno nell'area di destinazione usando il portale di Azure. È necessario prima esportare la configurazione IP pubblico del servizio di bilanciamento del carico esterno.
@@ -110,7 +110,7 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
             },
         ```
 
-        Per informazioni sulle differenze tra gli indirizzi IP pubblici con SKU Basic e standard, vedere [creare, modificare o eliminare un indirizzo IP pubblico](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Per informazioni sulle differenze tra gli indirizzi IP pubblici con SKU Basic e standard, vedere [creare, modificare o eliminare un indirizzo IP pubblico](../virtual-network/virtual-network-public-ip-address.md).
 
     * **Metodo di allocazione IP pubblico** e **timeout di inattività**. È possibile modificare il metodo di allocazione dell'indirizzo IP pubblico modificando la proprietà **publicIPAllocationMethod** da **dinamico** a **statico** o da **statico** a **dinamico**. È possibile modificare il timeout di inattività modificando la proprietà **idleTimeoutInMinutes** con il valore desiderato. Il valore predefinito è **4**.
 
@@ -136,7 +136,7 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
 
         ```
 
-        Per informazioni sui metodi di allocazione e i valori di timeout di inattività, vedere [creare, modificare o eliminare un indirizzo IP pubblico](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Per informazioni sui metodi di allocazione e i valori di timeout di inattività, vedere [creare, modificare o eliminare un indirizzo IP pubblico](../virtual-network/virtual-network-public-ip-address.md).
 
  
 13. Selezionare **Save (Salva** ) nell'editor online.
@@ -145,7 +145,7 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
 
 15. Selezionare **BASICS**  >  **gruppo di risorse** nozioni di base per scegliere il gruppo di risorse in cui verrà distribuito l'IP pubblico di destinazione. È possibile selezionare **Crea nuovo** per creare un nuovo gruppo di risorse per l'indirizzo IP pubblico di destinazione. Verificare che il nome non sia uguale al gruppo di risorse di origine dell'IP pubblico di origine esistente.
 
-16. Verificare che **BASICS**il  >  **percorso** di base sia impostato sul percorso di destinazione in cui si vuole distribuire l'indirizzo IP pubblico.
+16. Verificare che **BASICS** il  >  **percorso** di base sia impostato sul percorso di destinazione in cui si vuole distribuire l'indirizzo IP pubblico.
 
 17. In **Impostazioni**, verificare che il nome corrisponda al nome immesso in precedenza nell'editor dei parametri.
 
@@ -257,7 +257,7 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
                 "tier": "Regional"
             },
         ```
-      Per informazioni sulle differenze tra i bilanciamenti del carico SKU Basic e standard, vedere [Panoramica di Azure Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+      Per informazioni sulle differenze tra i bilanciamenti del carico SKU Basic e standard, vedere [Panoramica di Azure Load Balancer standard](./load-balancer-overview.md).
 
     * **Regole di bilanciamento del carico**. È possibile aggiungere o rimuovere le regole di bilanciamento del carico nella configurazione aggiungendo o rimuovendo le voci nella sezione **loadBalancingRules** del template.jssu file:
 
@@ -385,7 +385,7 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
                 ]
         ```
 
-         Per ulteriori informazioni, vedere [Load Balancer regole in uscita](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).
+         Per ulteriori informazioni, vedere [Load Balancer regole in uscita](./load-balancer-outbound-connections.md#outboundrules).
 
 12. Selezionare **Save (Salva** ) nell'editor online.
 
@@ -393,9 +393,9 @@ Le procedure seguenti illustrano come preparare il servizio di bilanciamento del
 
 15. Selezionare **BASICS**  >  **gruppo di risorse** nozioni di base per scegliere il gruppo di risorse in cui verrà distribuito il servizio di bilanciamento del carico di destinazione. È possibile selezionare **Crea nuovo** per creare un nuovo gruppo di risorse per il servizio di bilanciamento del carico esterno di destinazione. In alternativa, è possibile scegliere il gruppo di risorse esistente creato in precedenza per l'indirizzo IP pubblico. Verificare che il nome non sia uguale al gruppo di risorse di origine del servizio di bilanciamento del carico esterno di origine esistente.
 
-16. Verificare che **BASICS**  >  il**percorso** di base sia impostato sul percorso di destinazione in cui si desidera distribuire il servizio di bilanciamento del carico esterno.
+16. Verificare che **BASICS**  >  il **percorso** di base sia impostato sul percorso di destinazione in cui si desidera distribuire il servizio di bilanciamento del carico esterno.
 
-17. In **Impostazioni**verificare che il nome corrisponda al nome immesso in precedenza nell'editor dei parametri. Verificare che gli ID risorsa siano popolati per tutti gli indirizzi IP pubblici nella configurazione.
+17. In **Impostazioni** verificare che il nome corrisponda al nome immesso in precedenza nell'editor dei parametri. Verificare che gli ID risorsa siano popolati per tutti gli indirizzi IP pubblici nella configurazione.
 
 18. Selezionare la casella di controllo **termini e condizioni** .
 
@@ -414,5 +414,5 @@ Per eseguire il commit delle modifiche e completare lo spostamento dell'IP pubbl
 In questa esercitazione è stato spostato un servizio di bilanciamento del carico esterno di Azure da un'area a un'altra ed è stata eseguita la pulizia delle risorse di origine. Per ulteriori informazioni sullo stato di trasferimento delle risorse tra le aree e il ripristino di emergenza in Azure, vedere:
 
 
-- [Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Spostare macchine virtuali di Azure in un'altra area](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Spostare macchine virtuali di Azure in un'altra area](../site-recovery/azure-to-azure-tutorial-migrate.md)

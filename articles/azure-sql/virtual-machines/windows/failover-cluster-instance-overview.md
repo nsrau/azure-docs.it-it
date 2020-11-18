@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 5845a3bdc4b86fbbe44c92779e5aae95044eb6b2
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: d5bd2fc150ee1d35127eeb9dbf3dc1eeffdc9659
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556370"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685937"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Istanze del cluster di failover con SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +46,7 @@ Nei tradizionali ambienti cluster locali, un cluster di failover Windows usa una
 
 SQL Server in macchine virtuali di Azure offre varie opzioni come soluzione di archiviazione condivisa per una distribuzione di istanze del cluster di failover di SQL Server: 
 
-||[Dischi condivisi di Azure](../../../virtual-machines/windows/disks-shared.md)|[Condivisioni file Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Spazi di archiviazione diretta (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Dischi condivisi di Azure](../../../virtual-machines/disks-shared.md)|[Condivisioni file Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Spazi di archiviazione diretta (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Versione minima del sistema operativo**| Tutti |Windows Server 2012|Windows Server 2016|
 |**Versione minima di SQL Server**|Tutti|SQL Server 2012|SQL Server 2016|
@@ -58,7 +58,7 @@ Il resto di questa sezione illustra i vantaggi e le limitazioni di ogni opzione 
 
 ### <a name="azure-shared-disks"></a>Dischi condivisi di Azure
 
-I [dischi condivisi di Azure](../../../virtual-machines/windows/disks-shared.md) sono una funzionalità di [Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). WSFC (Windows Server Failover Clustering) supporta l'uso di dischi condivisi di Azure con un'istanza del cluster di failover. 
+I [dischi condivisi di Azure](../../../virtual-machines/disks-shared.md) sono una funzionalità di [Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). WSFC (Windows Server Failover Clustering) supporta l'uso di dischi condivisi di Azure con un'istanza del cluster di failover. 
 
 **Sistemi operativi supportati**: Tutti   
 **Versione di SQL supportata**: Tutti     

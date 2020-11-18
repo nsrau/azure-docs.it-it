@@ -7,14 +7,14 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
-ms.author: v-stazar
+ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5dbad07401d77a15cd860a8ae492560c5fced819
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d071bbabf630dd326ae46f4c840f8e60f957f9fe
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310606"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685631"
 ---
 # <a name="query-json-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Eseguire query sui file JSON usando un pool SQL senza server (anteprima) in Azure sinapsi Analytics
 

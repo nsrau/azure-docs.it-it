@@ -3,12 +3,12 @@ title: Domande frequenti - Backup di database SAP HANA in VM di Azure
 description: In questo articolo è possibile trovare le risposte ad alcune domande comuni sul backup di database SAP HANA tramite il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a1d6012ec064b5ec582896ac3484161a6e25f2bf
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 24eb4abaaabe166ceb3e6bdb99f9446d398d03a1
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659965"
+ms.locfileid: "94686107"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Domande frequenti - Backup di database SAP HANA in VM di Azure
 
@@ -26,7 +26,7 @@ No. I processi di backup con esito positivo non generano avvisi. Gli avvisi veng
 
 ### <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>È possibile vedere i processi di backup pianificati nel menu Processi di backup?
 
-Il menu Processi di backup visualizza solo processi di backup ad hoc. Per i processi pianificati, usare [Monitoraggio di Azure](./backup-azure-monitoring-use-azuremonitor.md).
+Il menu processo di backup mostrerà solo i processi di backup su richiesta. Per i processi pianificati, usare [Monitoraggio di Azure](./backup-azure-monitoring-use-azuremonitor.md).
 
 ### <a name="are-future-databases-automatically-added-for-backup"></a>I database futuri vengono aggiunti automaticamente per il backup?
 
@@ -39,7 +39,7 @@ Il modo corretto per interrompere la protezione di questo database consiste nell
 
 ### <a name="if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-the-behavior-be"></a>Se si modifica il nome del database dopo che è stato protetto, quale sarà il comportamento?
 
-Un database rinominato viene considerato come nuovo database. Il servizio considererà pertanto questa situazione come se il database non venisse trovato e con i backup con esito negativo. Il database rinominato verrà visualizzato come nuovo database e dovrà essere configurato per la protezione.
+Un database rinominato viene considerato come nuovo database. Il servizio considererà pertanto questa situazione come se il database non venisse trovato e non riuscirà a eseguire i backup. Il database rinominato verrà visualizzato come nuovo database e dovrà essere configurato per la protezione.
 
 ### <a name="what-are-the-prerequisites-to-back-up-sap-hana-databases-on-an-azure-vm"></a>Quali sono i prerequisiti per il backup dei database SAP HANA in una VM di Azure?
 
@@ -47,7 +47,7 @@ Fare riferimento alle sezioni [Prerequisiti](tutorial-backup-sap-hana-db.md#prer
 
 ### <a name="what-permissions-should-be-set-so-azure-can-back-up-sap-hana-databases"></a>Quali autorizzazioni devono essere impostate per consentire ad Azure di eseguire il backup SAP HANA database?
 
-L'esecuzione dello script di pre-registrazione consente di impostare le autorizzazioni necessarie per consentire ad Azure di eseguire il backup dei database SAP HANA. È possibile trovare altre informazioni sulle funzionalità dello script di pre-registrazione [qui](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
+L'esecuzione dello script di pre-registrazione consente di impostare le autorizzazioni necessarie per consentire ad Azure di eseguire il backup dei database SAP HANA. Altre informazioni sul funzionamento dello script di pre-registrazione sono disponibili [qui](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
 ### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>I backup funzionano dopo la migrazione di SAP HANA da SDC a MDC?
 
@@ -62,13 +62,13 @@ Attualmente non è possibile configurare la soluzione in base a un indirizzo IP 
 1. Attendere il completamento del backup attualmente in esecuzione nel database desiderato (verificare da studio per il completamento).
 1. Disabilitare i backup del log e impostare il backup del catalogo su **File system** per il database desiderato attenendosi alla procedura seguente:
 1. Fare doppio clic su **SYSTEMDB** -> **Configurazione** -> **Seleziona database** -> **Filter (log)** (Filtro (log))
-    1. Impostare enable_auto_log_backup su **No**
-    1. Imposta catalog_backup_using_backint su **false**
+    1. Impostare enable_auto_log_backup su **No**.
+    1. Impostare catalog_backup_using_backint su **false**.
 1. Eseguire un backup su richiesta (completo/differenziale/incrementale) nel database desiderato e attendere il completamento del backup del catalogo e del backup.
-1. Se si desidera spostare anche i backup del log nel file System, impostare enable_auto_log_backup su **Sì**
+1. Se si desidera spostare anche i backup del log nel file System, impostare enable_auto_log_backup su **Sì**.
 1. Ripristinare le impostazioni precedenti per consentire il flusso dei backup all'insieme di credenziali di Azure:
-    1. Impostare enable_auto_log_backup su **sì**
-    1. Imposta catalog_backup_using_backint su **true**
+    1. Impostare enable_auto_log_backup su **Sì**.
+    1. Impostare catalog_backup_using_backint su **true**.
 
 >[!NOTE]
 >Lo spostamento dei backup nel file system locale e il nuovo ritorno nell'insieme di credenziali di Azure possono causare un'interruzione della catena di log dei backup del log nell'insieme di credenziali. Verrà avviato un backup completo che, una volta completato correttamente, avvierà il backup dei log.
@@ -77,7 +77,7 @@ Attualmente non è possibile configurare la soluzione in base a un indirizzo IP 
 
 Attualmente, backup di Azure non è in grado di comprendere la configurazione di un HSR. Ciò significa che i nodi primari e secondari di HSR verranno considerati come due macchine virtuali singole e non correlate. Per prima cosa è necessario configurare il backup nel nodo primario. Quando si verifica un failover, il backup deve essere configurato nel nodo secondario, che ora diventa il nodo primario. Non esiste un failover automatico del backup nell'altro nodo.
 
-Per eseguire il backup dei dati dal nodo attivo (primario) in un determinato momento, è possibile **passare la protezione**  al nodo secondario, che ora diventa primario dopo il failover.
+Per eseguire il backup dei dati dal nodo attivo (primario) in un determinato momento, è possibile **passare la protezione** al nodo secondario, che ora diventa primario dopo il failover.
 
 Per eseguire questa **opzione**, attenersi alla procedura seguente:
 
@@ -85,7 +85,7 @@ Per eseguire questa **opzione**, attenersi alla procedura seguente:
 - Eseguire lo [script di pre-registrazione](https://aka.ms/scriptforpermsonhana) nel nodo secondario
 - [Individuare i database](tutorial-backup-sap-hana-db.md#discover-the-databases) nel nodo secondario e [configurare i backup](tutorial-backup-sap-hana-db.md#configure-backup) su di essi
 
-Questa procedura deve essere eseguita manualmente dopo ogni failover. È possibile eseguire questi passaggi tramite la riga di comando/REST HTTP oltre al portale di Azure. Per automatizzare questi passaggi, è possibile usare una Runbook di Azure.
+Questi passaggi devono essere eseguiti manualmente dopo ogni failover. È possibile eseguire questi passaggi tramite la riga di comando/REST HTTP oltre al portale di Azure. Per automatizzare questi passaggi, è possibile usare una Runbook di Azure.
 
 Di seguito è riportato un esempio dettagliato del modo in cui deve essere eseguita la **protezione del cambio** :
 
@@ -131,28 +131,28 @@ Sì, è possibile usare i backup in streaming attivati in un database HANA in es
 
 Prima di creare un criterio, è necessario chiarire i requisiti di RPO e RTO e le relative implicazioni relative ai costi.
 
-RPO (Recovery-Point-Objective) indica la quantità di perdita di dati accettabile per l'utente e il cliente. Questa operazione è determinata dalla frequenza di backup del log. Più frequenti backup del log indicano una RPO inferiore e il valore minimo supportato dal servizio backup di Azure è 15 minuti, ovvero la frequenza di backup del log può essere di 15 minuti o superiore.
+RPO (Recovery-Point-Objective) indica la quantità di perdita di dati accettabile per l'utente e il cliente. Questa operazione è determinata dalla frequenza di backup del log. Più frequenti backup del log indicano una RPO inferiore e il valore minimo supportato dal servizio backup di Azure è 15 minuti. Quindi, la frequenza di backup del log può essere di 15 minuti o superiore.
 
-RTO (Recovery-Time-Objective) indica la velocità con cui i dati devono essere ripristinati fino all'ultimo punto nel tempo disponibile dopo uno scenario di perdita dei dati. Questo dipende dalla strategia di ripristino utilizzata da HANA, che dipende in genere dal numero di file necessari per il ripristino. Questa operazione comporta anche implicazioni di costo e la tabella seguente dovrebbe aiutare a comprendere tutti gli scenari e le relative implicazioni.
+RTO (Recovery-Time-Objective) indica la velocità con cui i dati devono essere ripristinati fino all'ultimo punto nel tempo disponibile dopo uno scenario di perdita dei dati. Questo dipende dalla strategia di ripristino utilizzata da HANA, che dipende in genere dal numero di file necessari per il ripristino. Questo ha anche implicazioni relative ai costi e la tabella seguente dovrebbe aiutare a comprendere tutti gli scenari e le relative implicazioni.
 
 |Criteri di backup  |RTO  |Cost  |
 |---------|---------|---------|
-|Log completi giornalieri +     |   Più veloce perché è necessaria una sola copia completa + log necessari per il ripristino temporizzato      |    Opzione costliest perché una copia completa viene eseguita giornalmente e un numero sempre maggiore di dati viene accumulato nel back-end fino al periodo di conservazione   |
-|Totale settimanale + differenziale giornaliera + log     |   Più lenta rispetto all'opzione precedente ma più veloce di quanto riportato di seguito poiché è necessaria una copia completa + una copia differenziale + log per il ripristino temporizzato      |    Opzione meno costosa poiché il differenziale giornaliero è in genere inferiore a completo e una copia completa viene eseguita solo una volta alla settimana      |
+|Log completi giornalieri +     |   Più veloce, poiché è necessaria una sola copia completa + log necessari per il ripristino temporizzato      |    Opzione costliest perché una copia completa viene eseguita giornalmente e un numero sempre maggiore di dati viene accumulato nel back-end fino al periodo di conservazione   |
+|Totale settimanale + differenziale giornaliera + log     |   Più lenta dell'opzione precedente, ma più veloce rispetto all'opzione successiva, perché è necessaria una copia completa + una copia differenziale + log per il ripristino temporizzato      |    Opzione meno costosa poiché il differenziale giornaliero è in genere inferiore a completo e una copia completa viene eseguita solo una volta alla settimana      |
 |Settimanale completo + + log giornaliero + incrementale     |  Più lento perché è necessaria una copia completa +' n'incrementali + log per il recupero temporizzato       |     Opzione meno costosa poiché il valore incrementale giornaliero sarà minore del differenziale e una copia completa viene eseguita solo settimanalmente    |
 
 > [!NOTE]
-> Le opzioni precedenti sono le opzioni più comuni ma non le uniche. Ad esempio, uno può avere un backup completo settimanale + differenziali due volte alla settimana + log.
+> Le opzioni precedenti sono le più comuni, ma non le uniche opzioni. Ad esempio, è possibile avere un backup completo settimanale + differenziali due volte alla settimana + log.
 
-Quindi, è possibile selezionare la variante dei criteri in base agli obiettivi RPO e RTO e alle considerazioni sui costi.
+È pertanto possibile selezionare la variante dei criteri in base agli obiettivi RPO e RTO e alle considerazioni sui costi.
 
 ### <a name="impact-of-modifying-a-policy"></a>Effetti della modifica di un criterio
 
-Per determinare l'effetto del cambio di criteri di un elemento di backup da Policy 1 (P1) a Policy 2 (P2) o di modifica dei criteri 1 (P1), è necessario tenere presenti alcuni principi.
+È necessario tenere presente alcuni principi quando si determina l'effetto del cambio di criteri di un elemento di backup da criteri 1 (P1) a criteri 2 (P2) o di modifica dei criteri 1 (P1).
 
 - Tutte le modifiche vengono applicate anche in maniera retroattiva. Il criterio di backup più recente viene applicato anche ai punti di ripristino eseguiti in precedenza. Si supponga, ad esempio, che la conservazione completa giornaliera sia di 30 giorni e che siano stati effettuati 10 punti di ripristino in base ai criteri attualmente attivi. Se la conservazione completa giornaliera viene modificata in 10 giorni, l'ora di scadenza del punto precedente viene ricalcolata anche come ora di inizio + 10 giorni ed eliminata se è scaduta.
-- L'ambito di modifica include anche il giorno del backup, il tipo di backup insieme alla conservazione. Ad esempio, se un criterio viene modificato da giornaliero completo a settimanale completo domenica, tutte le versioni precedenti che non sono di domenica verranno contrassegnate per l'eliminazione.
-- Un elemento padre non viene eliminato fino a quando l'elemento figlio non è attivo o non è scaduto. Ogni tipo di backup ha una data di scadenza in base ai criteri attualmente attivi. Tuttavia, un tipo di backup completo viene considerato come padre per i successivi ' differenziali ',' incrementali ' è logs '. ' Differenziale ' è log ' non sono padre per altri. Un "incrementale" può essere un elemento padre per "incrementale" successivo. Anche se un elemento ' Parent ' è contrassegnato per l'eliminazione, non viene effettivamente eliminato se il ' differenziale ' o ' logs ' figlio non è scaduto. Se, ad esempio, un criterio viene modificato da giornaliero completo a settimanale completo domenica, tutte le versioni precedenti che non sono di domenica verranno contrassegnate per l'eliminazione. Ma non vengono effettivamente eliminati fino alla scadenza dei log che sono stati rilevati al giorno precedente. In altre parole, vengono mantenuti in base alla durata del log più recente. Una volta che i log scadono, verranno eliminati sia i log che questi completi.
+- L'ambito di modifica include anche il giorno del backup, il tipo di backup insieme alla conservazione. Ad esempio, se un criterio viene modificato da giornaliero completo a settimanale completo la domenica, tutte le versioni precedenti complete che non sono di domenica verranno contrassegnate per l'eliminazione.
+- Un elemento padre non viene eliminato fino a quando l'elemento figlio non è attivo o non è scaduto. Ogni tipo di backup ha una data di scadenza in base ai criteri attualmente attivi. Tuttavia, un tipo di backup completo viene considerato come padre per i successivi ' differenziali ',' incrementali ' è logs '. ' Differenziale ' è log ' non sono elementi padre di altri utenti. Un "incrementale" può essere un elemento padre per "incrementale" successivo. Anche se un elemento ' Parent ' è contrassegnato per l'eliminazione, non viene effettivamente eliminato se il ' differenziale ' o ' logs ' figlio non è scaduto. Se, ad esempio, un criterio viene modificato da giornaliero completo a settimanale completo la domenica, tutte le versioni precedenti non sono di domenica verranno contrassegnate per l'eliminazione. Ma non vengono effettivamente eliminati fino alla scadenza dei log che sono stati rilevati al giorno precedente. In altre parole, vengono mantenuti in base alla durata del log più recente. Una volta che i log scadono, verranno eliminati sia i log che questi completi.
 
 Con questi principi, è possibile leggere la tabella seguente per comprendere le implicazioni di una modifica dei criteri.
 

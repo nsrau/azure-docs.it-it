@@ -6,14 +6,14 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2020
-ms.openlocfilehash: 5c3cb13d0b2da9370f402083d82397679f2c9343
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5eaf2d7075ca09aeb3cfaa2dfea81fd0f8d65ad
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022497"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94685308"
 ---
-# <a name="what-is-azure-monitor-for-vms"></a>Descrizione di Monitoraggio di Azure per le macchine virtuali
+# <a name="overview-of-azure-monitor-for-vms"></a>Panoramica di Monitoraggio di Azure per le macchine virtuali
 
 Monitoraggio di Azure per le macchine virtuali monitora le prestazioni e l'integrità delle macchine virtuali e dei set di scalabilità di macchine virtuali, inclusi i processi in esecuzione e le dipendenze da altre risorse. Consente di offrire prestazioni prevedibili e la disponibilità di applicazioni essenziali, identificando i colli di bottiglia delle prestazioni e i problemi di rete, nonché di comprendere se un problema è correlato ad altre dipendenze.
 
@@ -26,8 +26,6 @@ Monitoraggio di Azure per le macchine virtuali supporta i sistemi operativi Wind
 - Macchine virtuali ospitate in un altro ambiente cloud
   
 
-
-
 Monitoraggio di Azure per le macchine virtuali archivia i dati nei log di monitoraggio di Azure, in modo da consentire l'aggregazione e il filtraggio potenti e analizzare le tendenze dei dati nel tempo. È possibile visualizzare i dati in una singola VM direttamente dalla macchina virtuale oppure è possibile usare monitoraggio di Azure per fornire una visualizzazione aggregata di più macchine virtuali.
 
 ![Prospettiva di informazioni dettagliate della macchina virtuale nel portale di Azure](media/vminsights-overview/vminsights-azmon-directvm.png)
@@ -37,6 +35,7 @@ Monitoraggio di Azure per le macchine virtuali archivia i dati nei log di monito
 Non è previsto alcun costo diretto per Monitoraggio di Azure per le macchine virtuali, ma l'attività viene addebitata nell'area di lavoro Log Analytics. Sulla base delle tariffe pubblicate nella [pagina dei prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/), la fatturazione di Monitoraggio di Azure per le macchine virtuali viene effettuata per:
 
 - Dati inseriti dagli agenti e archiviati nell'area di lavoro.
+- Dati sullo stato di integrità raccolti dall'integrità Guest (anteprima)
 - Regole di avviso basate sui dati di log e di integrità.
 - Notifiche inviate dalle regole di avviso.
 

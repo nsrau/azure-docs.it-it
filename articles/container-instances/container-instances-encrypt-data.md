@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: d2cad98267ef1654c4f2d9ad2db75f769dbc0780
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b73ce5c994231a1c7b2f26ad702f2ad5880ba44
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091356"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94686277"
 ---
 # <a name="encrypt-deployment-data"></a>Crittografare i dati della distribuzione
 
@@ -28,7 +28,7 @@ I dati in ACI vengono crittografati e decrittografati usando la crittografia AES
 |----|----|----|
 |    **Operazioni di crittografia/decrittografia**    |    Azure    |    Azure    |
 |    **Archiviazione chiavi**    |    Archivio chiavi Microsoft    |    Azure Key Vault    |
-|    **Responsabilità della rotazione delle chiavi**    |    Microsoft    |    Customer    |
+|    **Responsabilità della rotazione delle chiavi**    |    Microsoft    |    Cliente    |
 |    **Accesso alle chiavi**    |    Solo Microsoft    |    Microsoft, cliente    |
 
 Il resto del documento illustra i passaggi necessari per crittografare i dati di distribuzione ACI con la chiave (chiave gestita dal cliente). 
@@ -59,7 +59,7 @@ Nel caso in cui non sia possibile creare correttamente l'entità servizio:
 
 ### <a name="create-a-key-vault-resource"></a>Creare una risorsa Key Vault
 
-Creare una Azure Key Vault usando [portale di Azure](../key-vault/secrets/quick-create-portal.md#create-a-vault), l' [interfaccia](../key-vault/secrets/quick-create-cli.md)della riga di comando o [PowerShell](../key-vault/secrets/quick-create-powershell.md). 
+Creare una Azure Key Vault usando [portale di Azure](../key-vault/general/quick-create-portal.md), l'interfaccia della riga di comando di [Azure](../key-vault/general/quick-create-cli.md)o [Azure PowerShell](../key-vault/general/quick-create-powershell.md).
 
 Per le proprietà dell'insieme di credenziali delle chiavi, usare le linee guida seguenti: 
 * Name: è necessario un nome univoco. 
@@ -73,7 +73,7 @@ Per le proprietà dell'insieme di credenziali delle chiavi, usare le linee guida
 
 ### <a name="generate-a-new-key"></a>Genera una nuova chiave 
 
-Dopo aver creato l'insieme di credenziali delle chiavi, passare alla risorsa in portale di Azure. Nel menu di spostamento a sinistra del pannello della risorsa, in impostazioni, fare clic su **chiavi** . Nella vista "chiavi", fare clic su "genera/importa" per generare una nuova chiave. Usare un nome univoco per questa chiave e qualsiasi altra preferenza in base ai requisiti. 
+Dopo aver creato l'insieme di credenziali delle chiavi, passare alla risorsa in portale di Azure. Nel menu di spostamento a sinistra del pannello della risorsa, in impostazioni, fare clic su **chiavi**. Nella vista "chiavi", fare clic su "genera/importa" per generare una nuova chiave. Usare un nome univoco per questa chiave e qualsiasi altra preferenza in base ai requisiti. 
 
 ![Genera una nuova chiave](./media/container-instances-encrypt-data/generate-key.png)
 
@@ -81,8 +81,8 @@ Dopo aver creato l'insieme di credenziali delle chiavi, passare alla risorsa in 
 
 Creare nuovi criteri di accesso per consentire al servizio ACI di accedere alla chiave.
 
-* Dopo che la chiave è stata generata, tornare al pannello delle risorse dell'insieme di credenziali delle chiavi, in impostazioni, fare clic su **criteri di accesso** .
-* Nella pagina "criteri di accesso" dell'insieme di credenziali delle chiavi fare clic su **Aggiungi criteri di accesso** .
+* Dopo che la chiave è stata generata, tornare al pannello delle risorse dell'insieme di credenziali delle chiavi, in impostazioni, fare clic su **criteri di accesso**.
+* Nella pagina "criteri di accesso" dell'insieme di credenziali delle chiavi fare clic su **Aggiungi criteri di accesso**.
 * Impostare le *autorizzazioni chiave* per includere le autorizzazioni **Get** e **Unwrap** Key ![ set Key](./media/container-instances-encrypt-data/set-key-permissions.png)
 * Per *Select Principal* selezionare il **servizio istanza di contenitore di Azure**
 * Fare clic su **Aggiungi** nella parte inferiore 
