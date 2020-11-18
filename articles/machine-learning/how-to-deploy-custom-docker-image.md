@@ -1,22 +1,22 @@
 ---
 title: Distribuire modelli con un'immagine Docker personalizzata
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare un'immagine di base Docker personalizzata quando si distribuiscono i modelli di Azure Machine Learning. Mentre Azure Machine Learning fornisce un'immagine di base predefinita, è anche possibile usare un'immagine di base personalizzata.
+description: Informazioni su come usare un'immagine di base Docker personalizzata per distribuire i modelli di Azure Machine Learning. Mentre Azure Machine Learning fornisce un'immagine di base predefinita, è anche possibile usare un'immagine di base personalizzata.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: sagopal
 author: saachigopal
 ms.reviewer: larryfr
-ms.date: 09/09/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 63089e853be825f9399081f2d39845e22b18ed2a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1ff4d7693a7e493ccb736ab9363fd26c93017c79
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325168"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695351"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuire un modello usando un'immagine di base Docker personalizzata
 
@@ -54,12 +54,12 @@ Le informazioni contenute in questa sezione presuppongono che si usi un Containe
 
 * Si userà il Container Registry di Azure creato per l'area di lavoro Azure Machine Learning o un Container Registry Azure autonomo?
 
-    Quando si usano immagini archiviate nel __Registro contenitori per l'area di lavoro__ , non è necessario eseguire l'autenticazione al registro di sistema. L'autenticazione viene gestita dall'area di lavoro.
+    Quando si usano immagini archiviate nel __Registro contenitori per l'area di lavoro__, non è necessario eseguire l'autenticazione al registro di sistema. L'autenticazione viene gestita dall'area di lavoro.
 
     > [!WARNING]
     > Il Container Registry di Azure per l'area di lavoro viene __creato la prima volta che si esegue il training o si distribuisce un modello__ usando l'area di lavoro. Se è stata creata una nuova area di lavoro, ma non è stato eseguito il training o la creazione di un modello, non esiste alcun Container Registry di Azure per l'area di lavoro.
 
-    Quando si usano immagini archiviate in un __Registro contenitori autonomo__ , è necessario configurare un'entità servizio che disponga almeno dell'accesso in lettura. Specificare quindi l'ID dell'entità servizio (username) e la password per chiunque usi immagini dal registro di sistema. L'eccezione si verifica se si rende accessibile pubblicamente il registro contenitori.
+    Quando si usano immagini archiviate in un __Registro contenitori autonomo__, è necessario configurare un'entità servizio che disponga almeno dell'accesso in lettura. Specificare quindi l'ID dell'entità servizio (username) e la password per chiunque usi immagini dal registro di sistema. L'eccezione si verifica se si rende accessibile pubblicamente il registro contenitori.
 
     Per informazioni sulla creazione di un Container Registry di Azure privato, vedere [creare un registro contenitori privato](../container-registry/container-registry-get-started-azure-cli.md).
 
@@ -205,9 +205,9 @@ Per usare un'immagine personalizzata, sono necessarie le informazioni seguenti:
     > [!IMPORTANT]
     > Per le immagini personalizzate create, assicurarsi di includere tutti i tag usati con l'immagine. Ad esempio, se l'immagine è stata creata con un tag specifico, ad esempio `:v1` . Se durante la creazione dell'immagine non è stato usato un tag specifico, `:latest` è stato applicato un tag di.
 
-* Se l'immagine si trova in un __repository privato__ , sono necessarie le informazioni seguenti:
+* Se l'immagine si trova in un __repository privato__, sono necessarie le informazioni seguenti:
 
-    * __Indirizzo__ del registro di sistema. Ad esempio: `myregistry.azureecr.io`.
+    * __Indirizzo__ del registro di sistema. Ad esempio, `myregistry.azureecr.io`
     * __Nome utente__ e __password__ di un'entità servizio con accesso in lettura al registro di sistema.
 
     Se non si dispone di queste informazioni, rivolgersi all'amministratore per il Container Registry di Azure che contiene l'immagine.
@@ -234,7 +234,7 @@ Per altre informazioni, vedere [Azure Machine Learning](https://github.com/Azure
 
 ### <a name="use-an-image-with-the-azure-machine-learning-sdk"></a>Usare un'immagine con l'SDK Azure Machine Learning
 
-Per usare un'immagine archiviata nel **container Registry di Azure per l'area di lavoro** o un **Registro contenitori accessibile pubblicamente** , impostare gli attributi di [ambiente](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) seguenti:
+Per usare un'immagine archiviata nel **container Registry di Azure per l'area di lavoro** o un **Registro contenitori accessibile pubblicamente**, impostare gli attributi di [ambiente](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) seguenti:
 
 + `docker.enabled=True`
 + `docker.base_image`: Impostare sul Registro di sistema e il percorso dell'immagine.

@@ -4,17 +4,17 @@ description: Informazioni su come controllare l'ammissione di pod usando PodSecu
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: a9f6ead7edea7a3a6240e116d3073ea01fa9f6bb
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 77c618429503caf9aa7bb6abda109504bbf68d71
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900107"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695997"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Anteprima-proteggere il cluster usando i criteri di sicurezza pod in Azure Kubernetes Service (AKS)
 
 > [!WARNING]
-> **La funzionalità descritta in questo documento Pod Security Policy (anteprima) è impostata per la deprecazione e non sarà più disponibile dopo il 1 ° febbraio 2021,** a favore di [criteri di Azure per AKS](use-pod-security-on-azure-policy.md). La data di deprecazione è stata estesa dalla data precedente del 15 ottobre 2020.
+> **La funzionalità descritta in questo documento Pod Security Policy (anteprima) è impostata per la deprecazione e non sarà più disponibile dopo il 31 maggio 2021,** a favore di [criteri di Azure per AKS](use-pod-security-on-azure-policy.md). La data di deprecazione è stata estesa dalla data precedente del 15 ottobre 2020.
 >
 > Dopo la deprecazione di Criteri di sicurezza dei pod (anteprima), sarà necessario disabilitare la funzionalità in eventuali cluster esistenti che usano la funzionalità deprecata per eseguire aggiornamenti futuri del cluster e mantenere il supporto tecnico di Azure.
 >
@@ -52,7 +52,7 @@ Per creare o aggiornare un cluster AKS per usare i criteri di sicurezza Pod, abi
 az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
 ```
 
-Sono necessari alcuni minuti per visualizzare lo stato *Registered* . È possibile controllare lo stato di registrazione usando il comando [az feature list][az-feature-list]:
+Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllare lo stato di registrazione usando il comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
@@ -80,7 +80,7 @@ Per mostrare in che modo i criteri predefiniti limitano le distribuzioni Pod, in
 
 ## <a name="enable-pod-security-policy-on-an-aks-cluster"></a>Abilitare i criteri di sicurezza pod in un cluster AKS
 
-È possibile abilitare o disabilitare i criteri di sicurezza pod usando il comando [AZ AKS Update][az-aks-update] . Nell'esempio seguente vengono abilitati i criteri di sicurezza Pod nel nome del cluster *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup* .
+È possibile abilitare o disabilitare i criteri di sicurezza pod usando il comando [AZ AKS Update][az-aks-update] . Nell'esempio seguente vengono abilitati i criteri di sicurezza Pod nel nome del cluster *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*.
 
 > [!NOTE]
 > Per usare il mondo reale, non abilitare i criteri di sicurezza pod fino a quando non sono stati definiti criteri personalizzati. In questo articolo vengono abilitati i criteri di sicurezza pod come primo passaggio per vedere come i criteri predefiniti limitano le distribuzioni pod.
@@ -94,7 +94,7 @@ az aks update \
 
 ## <a name="default-aks-policies"></a>Criteri AKS predefiniti
 
-Quando si abilitano i criteri di sicurezza Pod, AKS crea un criterio predefinito denominato *Privileged* . Non modificare o rimuovere i criteri predefiniti. In alternativa, creare criteri personalizzati che definiscono le impostazioni che si desidera controllare. Per prima cosa si esaminano i criteri predefiniti che influiscano sulle distribuzioni pod.
+Quando si abilitano i criteri di sicurezza Pod, AKS crea un criterio predefinito denominato *Privileged*. Non modificare o rimuovere i criteri predefiniti. In alternativa, creare criteri personalizzati che definiscono le impostazioni che si desidera controllare. Per prima cosa si esaminano i criteri predefiniti che influiscano sulle distribuzioni pod.
 
 Per visualizzare i criteri disponibili, usare il comando [kubectl Get PSP][kubectl-get] , come illustrato nell'esempio seguente
 
@@ -315,7 +315,7 @@ psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    R
 
 ## <a name="allow-user-account-to-use-the-custom-pod-security-policy"></a>Consenti all'account utente di usare i criteri di sicurezza Pod personalizzati
 
-Nel passaggio precedente sono stati creati criteri di sicurezza pod per rifiutare i pod che richiedono l'accesso con privilegi. Per consentire l'utilizzo del criterio, è necessario creare un *ruolo* o un *ClusterRole* . Quindi, associare uno di questi ruoli utilizzando un oggetto *roleName* o *ClusterRoleBinding* .
+Nel passaggio precedente sono stati creati criteri di sicurezza pod per rifiutare i pod che richiedono l'accesso con privilegi. Per consentire l'utilizzo del criterio, è necessario creare un *ruolo* o un *ClusterRole*. Quindi, associare uno di questi ruoli utilizzando un oggetto *roleName* o *ClusterRoleBinding*.
 
 Per questo esempio, creare un ClusterRole che consenta di *usare* il criterio con *privilegi PSP-Deny* creato nel passaggio precedente. Creare un file denominato `psp-deny-privileged-clusterrole.yaml` e incollare il manifesto YAML seguente:
 
@@ -375,7 +375,7 @@ Con i criteri di sicurezza personalizzati di Pod applicati e un binding per l'ac
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 ```
 
-La pianificazione del Pod è stata completata. Quando si controlla lo stato del pod usando il comando [kubectl Get][kubectl-get] pods, il Pod è *in esecuzione* :
+La pianificazione del Pod è stata completata. Quando si controlla lo stato del pod usando il comando [kubectl Get][kubectl-get] pods, il Pod è *in esecuzione*:
 
 ```
 $ kubectl-nonadminuser get pods
@@ -394,7 +394,7 @@ kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per disabilitare i criteri di sicurezza di Pod, usare di nuovo il comando [AZ AKS Update][az-aks-update] . Nell'esempio seguente vengono disabilitati i criteri di sicurezza Pod nel nome del cluster *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup* :
+Per disabilitare i criteri di sicurezza di Pod, usare di nuovo il comando [AZ AKS Update][az-aks-update] . Nell'esempio seguente vengono disabilitati i criteri di sicurezza Pod nel nome del cluster *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*:
 
 ```azurecli-interactive
 az aks update \

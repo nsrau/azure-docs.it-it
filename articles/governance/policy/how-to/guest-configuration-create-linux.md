@@ -4,12 +4,12 @@ description: Informazioni su come creare criteri di Configurazione guest di Crit
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 240f22a076b5f185ebe3028b201b66d187c9bb2d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1e81d1a5157cc5872ba2628c8d6cb408e35ab9c6
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346877"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694243"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di Configurazione guest per Linux
 
@@ -163,10 +163,10 @@ I file di supporto devono essere inclusi in un unico pacchetto. Il pacchetto com
 
 Il cmdlet `New-GuestConfigurationPackage` crea il pacchetto. Parametri del cmdlet `New-GuestConfigurationPackage` durante la creazione del contenuto Linux:
 
-- **Name** : Nome del pacchetto di Configurazione guest.
-- **Configuration** : percorso completo del documento di configurazione compilato.
-- **Path** : percorso della cartella di output. Questo parametro è facoltativo e, Se non viene specificato, il pacchetto viene creato nella directory corrente.
-- **ChefInspecProfilePath** : percorso completo del profilo INSPEC. Questo parametro è supportato solo quando si crea contenuto per il controllo di Linux.
+- **Name**: Nome del pacchetto di Configurazione guest.
+- **Configuration**: percorso completo del documento di configurazione compilato.
+- **Path**: percorso della cartella di output. Questo parametro è facoltativo e, Se non viene specificato, il pacchetto viene creato nella directory corrente.
+- **ChefInspecProfilePath**: percorso completo del profilo INSPEC. Questo parametro è supportato solo quando si crea contenuto per il controllo di Linux.
 
 Eseguire il comando seguente per creare un pacchetto usando la configurazione fornita nel passaggio precedente:
 
@@ -183,9 +183,9 @@ Poiché l'agente valuta effettivamente l'ambiente locale, nella maggior parte de
 
 Parametri del cmdlet `Test-GuestConfigurationPackage`:
 
-- **Name** : nome dei criteri di Configurazione guest.
-- **Parameter** : parametri dei criteri forniti in formato di tabella hash.
-- **Path** : percorso completo del pacchetto di Configurazione guest.
+- **Name**: nome dei criteri di Configurazione guest.
+- **Parameter**: parametri dei criteri forniti in formato di tabella hash.
+- **Path**: percorso completo del pacchetto di Configurazione guest.
 
 Eseguire il comando seguente per testare il pacchetto creato nel passaggio precedente:
 
@@ -210,13 +210,13 @@ Una volta creato e caricato un pacchetto di criteri personalizzati di Configuraz
 
 Parametri del cmdlet `New-GuestConfigurationPolicy`:
 
-- **ContentUri** : URI http(s) pubblico del pacchetto di contenuto di Configurazione guest.
-- **DisplayName** : nome visualizzato dei criteri.
-- **Description** : descrizione dei criteri.
-- **Parameter** : parametri dei criteri forniti in formato di tabella hash.
-- **Version** : versione dei criteri.
-- **Path** : percorso di destinazione in cui vengono create le definizioni dei criteri.
-- **Platform** : piattaforma di destinazione (Windows/Linux) per i criteri e il pacchetto di contenuto di Configurazione guest.
+- **ContentUri**: URI http(s) pubblico del pacchetto di contenuto di Configurazione guest.
+- **DisplayName**: nome visualizzato dei criteri.
+- **Description**: descrizione dei criteri.
+- **Parameter**: parametri dei criteri forniti in formato di tabella hash.
+- **Version**: versione dei criteri.
+- **Path**: percorso di destinazione in cui vengono create le definizioni dei criteri.
+- **Platform**: piattaforma di destinazione (Windows/Linux) per i criteri e il pacchetto di contenuto di Configurazione guest.
 - **Tag** aggiunge uno o più filtri di tag alla definizione dei criteri
 - **Category** imposta il campo dei metadati della categoria nella definizione dei criteri
 
@@ -330,9 +330,9 @@ Per rilasciare un aggiornamento alla definizione dei criteri, sono disponibili t
 > [!NOTE]
 > La `version` proprietà dell'assegnazione di configurazione Guest ha effetto solo sui pacchetti ospitati da Microsoft. La procedura consigliata per il controllo delle versioni del contenuto personalizzato consiste nell'includere la versione nel nome del file.
 
-- **Version** : quando si esegue il cmdlet `New-GuestConfigurationPolicy`, è necessario specificare un numero di versione maggiore di quello attualmente pubblicato.
-- **contentUri** : quando si esegue il `New-GuestConfigurationPolicy` cmdlet, è necessario specificare un URI per il percorso del pacchetto. Se si include una versione del pacchetto nel nome del file, il valore di questa proprietà verrà modificato in ogni versione.
-- **contentHash** : questa proprietà viene aggiornata automaticamente dal cmdlet `New-GuestConfigurationPolicy`. Si tratta di un valore hash del pacchetto creato da `New-GuestConfigurationPackage`. La proprietà deve essere corretta per il file `.zip` da pubblicare. Se viene aggiornata solo la proprietà **contentUri** , l'estensione non accetterà il pacchetto di contenuto.
+- **Version**: quando si esegue il cmdlet `New-GuestConfigurationPolicy`, è necessario specificare un numero di versione maggiore di quello attualmente pubblicato.
+- **contentUri**: quando si esegue il `New-GuestConfigurationPolicy` cmdlet, è necessario specificare un URI per il percorso del pacchetto. Se si include una versione del pacchetto nel nome del file, il valore di questa proprietà verrà modificato in ogni versione.
+- **contentHash**: questa proprietà viene aggiornata automaticamente dal cmdlet `New-GuestConfigurationPolicy`. Si tratta di un valore hash del pacchetto creato da `New-GuestConfigurationPackage`. La proprietà deve essere corretta per il file `.zip` da pubblicare. Se viene aggiornata solo la proprietà **contentUri**, l'estensione non accetterà il pacchetto di contenuto.
 
 Il modo più semplice per rilasciare un pacchetto aggiornato consiste nel ripetere il processo descritto in questo articolo e fornire un numero di versione aggiornato. Questo processo garantisce che tutte le proprietà siano state aggiornate correttamente.
 
@@ -375,8 +375,8 @@ Per usare la funzionalità di convalida della firma, eseguire il cmdlet `Protect
 
 Parametri del cmdlet `Protect-GuestConfigurationPackage`:
 
-- **Percorso** : Percorso completo del pacchetto di Configurazione guest.
-- **PublicGpgKeyPath** : Percorso della chiave GPG pubblica. Questo parametro è supportato solo quando si firma il contenuto per Linux.
+- **Percorso**: Percorso completo del pacchetto di Configurazione guest.
+- **PublicGpgKeyPath**: Percorso della chiave GPG pubblica. Questo parametro è supportato solo quando si firma il contenuto per Linux.
 
 Un utile riferimento per la creazione di chiavi GPG da usare con i computer Linux è fornito da un articolo in GitHub, [Generazione di una nuova chiave GPG](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
@@ -384,12 +384,6 @@ L’agente GuestConfiguration prevede che la chiave pubblica del certificato sia
 I criteri di accesso di Key Vault devono consentire al provider di risorse di calcolo di accedere ai certificati durante le distribuzioni. Per i passaggi dettagliati, vedere [Configurare Key Vault per le macchine virtuali in Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
 
 Una volta pubblicato il contenuto, accodare un tag con il nome `GuestConfigPolicyCertificateValidation` e il valore `enabled` a tutte le macchine virtuali in cui deve essere richiesta la firma del codice. Vedere gli [esempi di tag](../samples/built-in-policies.md#tags) per informazioni sulle modalità di distribuzione dei tag su larga scala usando Criteri di Azure. Una volta che il tag è stato inserito, la definizione dei criteri generata usando il cmdlet `New-GuestConfigurationPolicy` abilita il requisito tramite l'estensione Configurazione guest.
-
-## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Risoluzione dei problemi relativi alle assegnazioni dei criteri di Configurazione guest (anteprima)
-
-È disponibile uno strumento in anteprima per facilitare la risoluzione dei problemi relativi alle assegnazioni di Configurazione guest di Criteri di Azure. Lo strumento è in anteprima ed è stato pubblicato in PowerShell Gallery come modulo denominato [Guest Configuration Troubleshooter](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
-
-Per altre informazioni sui cmdlet in questo strumento, usare il comando Get-Help in PowerShell per visualizzare la guida predefinita. Lo strumento è sottoposto ad aggiornamenti frequenti, quindi questo è il modo migliore per ottenere le informazioni più recenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

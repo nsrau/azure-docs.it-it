@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 2e27b168087966701fb53cc8df19d264861257d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c2072d13cab9839a276c0437747d7075918e78a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448108"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696881"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Più front-end per Azure Load Balancer
 
 Azure Load Balancer consente di eseguire il bilanciamento del carico dei servizi su più porte, più indirizzi IP o entrambi. È possibile usare le definizioni di servizio di bilanciamento del carico interno e pubblico per eseguire il bilanciamento del carico dei flussi in un set di macchine virtuali.
 
-Questo articolo descrive i principi fondamentali di questa funzionalità, i concetti importanti e i vincoli. Se si intende esporre i servizi in un solo indirizzo IP, sono disponibili istruzioni semplificate per le configurazioni di servizi di bilanciamento del carico [pubblici](load-balancer-get-started-internet-portal.md) o [interni](load-balancer-get-started-ilb-arm-portal.md). L'aggiunta di più front-end è un'operazione incrementale rispetto a una configurazione con un solo front-end. Usando i concetti illustrati in questo articolo è possibile espandere una configurazione semplificata in qualsiasi momento.
+Questo articolo descrive i principi fondamentali di questa funzionalità, i concetti importanti e i vincoli. Se si intende esporre i servizi in un solo indirizzo IP, sono disponibili istruzioni semplificate per le configurazioni di servizi di bilanciamento del carico [pubblici](./quickstart-load-balancer-standard-public-portal.md) o [interni](./quickstart-load-balancer-standard-internal-portal.md). L'aggiunta di più front-end è un'operazione incrementale rispetto a una configurazione con un solo front-end. Usando i concetti illustrati in questo articolo è possibile espandere una configurazione semplificata in qualsiasi momento.
 
 Quando si definisce un'istanza di Azure Load Balancer, viene connessa una configurazione di pool front-end e back-end con regole. Il probe di integrità a cui fa riferimento la regola viene usato per determinare il modo in cui i nuovi flussi vengono inviati a un nodo nel pool back-end. Il front-end (noto anche come VIP, indirizzo IP virtuale) è definito da una tupla di 3 elementi costituita da un indirizzo IP (pubblico o interno), un protocollo di trasporto (UDP o TCP) e un numero di porta della regola di bilanciamento del carico. Il pool back-end è una raccolta di configurazioni IP di macchine virtuali (parte della risorsa NIC) cui fa riferimento il pool back-end di bilanciamento del carico.
 

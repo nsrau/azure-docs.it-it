@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 645be03df3c8ee2a1451b4bfea0327542c29aa38
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 98bc962c0c57716cee9339056b0793bfe4bcb0ea
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94683115"
+ms.locfileid: "94694729"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>Azure Load Balancer regole in uscita
 
@@ -60,7 +60,7 @@ Ogni indirizzo IP aggiuntivo fornito da un front-end fornisce altre porte effime
 
 Usare più indirizzi IP per pianificare scenari su larga scala. Usare le regole in uscita per attenuare l' [esaurimento SNAT](troubleshoot-outbound-connection.md#snatexhaust). 
 
-È anche possibile usare un [prefisso IP pubblico](https://aka.ms/lbpublicipprefix) direttamente con una regola in uscita. 
+È anche possibile usare un [prefisso IP pubblico](./load-balancer-outbound-connections.md#outboundrules) direttamente con una regola in uscita. 
 
 Un prefisso IP pubblico aumenta il ridimensionamento della distribuzione. Il prefisso può essere aggiunto all'elenco Consenti dei flussi originati dalle risorse di Azure. È possibile configurare una configurazione IP front-end all'interno del servizio di bilanciamento del carico per fare riferimento a un prefisso di indirizzo IP pubblico.  
 
@@ -74,7 +74,7 @@ Le regole in uscita includono un parametro di configurazione per controllare il 
 
 Il comportamento predefinito del servizio di bilanciamento del carico prevede l'eliminazione invisibile del flusso quando è stato raggiunto il timeout di inattività in uscita. Il `enableTCPReset` parametro abilita un comportamento e un controllo dell'applicazione stimabile. Il parametro determina se inviare la reimpostazione TCP (TCP RST) bidirezionale al timeout del timeout di inattività in uscita. 
 
-Esaminare [il timeout di inattività](https://aka.ms/lbtcpreset) per i dettagli, inclusa la disponibilità dell'area.
+Esaminare [il timeout di inattività](./load-balancer-tcp-reset.md) per i dettagli, inclusa la disponibilità dell'area.
 
 ## <a name="securing-and-controlling-outbound-connectivity-explicitly"></a><a name="preventoutbound"></a>Sicurezza e controllo della connettività in uscita in modo esplicito
 
@@ -91,9 +91,9 @@ L'operazione di configurazione di una regola in uscita avrà esito negativo se s
 >[!IMPORTANT]
 > La macchina virtuale non avrà connettività in uscita se si imposta questo parametro su true e non si dispone di una regola in uscita per definire la connettività in uscita.  Alcune operazioni della macchina virtuale o dell'applicazione possono dipendere dalla disponibilità della connettività in uscita. Assicurarsi di valutare le dipendenze dello scenario e l'impatto di questa modifica.
 
-A volte non è auspicabile che una macchina virtuale crei un flusso in uscita. Potrebbe essere necessario gestire le destinazioni che ricevono i flussi in uscita o le destinazioni che iniziano i flussi in ingresso. Usare i [gruppi di sicurezza di rete](../virtual-network/security-overview.md) per gestire le destinazioni raggiunte dalla macchina virtuale. Usare gruppi per gestire le destinazioni pubbliche che avviano i flussi in ingresso.
+A volte non è auspicabile che una macchina virtuale crei un flusso in uscita. Potrebbe essere necessario gestire le destinazioni che ricevono i flussi in uscita o le destinazioni che iniziano i flussi in ingresso. Usare i [gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md) per gestire le destinazioni raggiunte dalla macchina virtuale. Usare gruppi per gestire le destinazioni pubbliche che avviano i flussi in ingresso.
 
-Quando si applica un gruppo di sicurezza di rete a una macchina virtuale con carico bilanciato, considerare i [tag del servizio](../virtual-network/security-overview.md#service-tags) e le [regole di sicurezza predefinite](../virtual-network/security-overview.md#default-security-rules). 
+Quando si applica un gruppo di sicurezza di rete a una macchina virtuale con carico bilanciato, considerare i [tag del servizio](../virtual-network/network-security-groups-overview.md#service-tags) e le [regole di sicurezza predefinite](../virtual-network/network-security-groups-overview.md#default-security-rules). 
 
 Assicurarsi che la macchina virtuale sia in grado di ricevere richieste di probe di integrità da Azure Load Balancer.
 
@@ -159,7 +159,7 @@ Il servizio di bilanciamento del carico fornisce porte [SNAT](load-balancer-outb
 Se si tenta di assegnare più porte [SNAT](load-balancer-outbound-connections.md)rispetto a quelle disponibili in base al numero di indirizzi IP pubblici, l'operazione di configurazione viene rifiutata. Ad esempio, se si assegnano 10.000 porte per macchina virtuale e sette macchine virtuali in un pool back-end condividono un solo indirizzo IP pubblico, la configurazione viene rifiutata. 7 moltiplicato per 10.000 supera il limite di 64.000 porte. Aggiungere altri indirizzi IP pubblici al front-end della regola in uscita per abilitare lo scenario. 
 
 
-Ripristinare l' [allocazione di porte predefinita](load-balancer-outbound-connections.md#preallocatedports) specificando 0 per il numero di porte. La prima istanza di VM 50 otterrà 1024 porte, 51-100 istanze di VM otterranno 512 fino al numero massimo di istanze. Per ulteriori informazioni sull'allocazione di porte SNAT predefinite, vedere [tabella di allocazione delle porte SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Ripristinare l' [allocazione di porte predefinita](load-balancer-outbound-connections.md#preallocatedports) specificando 0 per il numero di porte. La prima istanza di VM 50 otterrà 1024 porte, 51-100 istanze di VM otterranno 512 fino al numero massimo di istanze. Per ulteriori informazioni sull'allocazione di porte SNAT predefinite, vedere [tabella di allocazione delle porte SNAT](./load-balancer-outbound-connections.md#preallocatedports).
 
 
 ### <a name="scenario-3-enable-outbound-only"></a><a name="scenario3out"></a>Scenario 3: abilitare solo in uscita
@@ -211,7 +211,7 @@ Usare un prefisso o un indirizzo IP pubblico per scalare le porte [SNAT](load-ba
 La connettività in uscita non è disponibile per un servizio di bilanciamento del carico standard interno fino a quando non viene dichiarata in modo esplicito tramite indirizzi IP pubblici a livello di istanza o NAT della rete virtuale oppure associando i membri del pool back-end a una configurazione del servizio di bilanciamento del carico solo in uscita. 
 
 
-Per altre informazioni, vedere Configurazione del servizio di [bilanciamento del carico solo in uscita](https://docs.microsoft.com/azure/load-balancer/egress-only).
+Per altre informazioni, vedere Configurazione del servizio di [bilanciamento del carico solo in uscita](./egress-only.md).
 
 
 
@@ -253,4 +253,3 @@ Quando si usano solo regole NAT in ingresso, non viene fornita alcuna conversion
 
 - Scopri di più su [Azure Load Balancer standard](load-balancer-overview.md)
 - Vedere le [domande frequenti su Azure Load Balancer](load-balancer-faqs.md)
-

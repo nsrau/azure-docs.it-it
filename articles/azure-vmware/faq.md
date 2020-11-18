@@ -4,12 +4,12 @@ description: Fornisce le risposte ad alcune domande comuni sulla soluzione VMwar
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: 99e9e53693e42f907250331894f55ed0160f9e30
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 2d71c30d2fb08629674c352ae812d8890463abfe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577516"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695102"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Domande frequenti sulla soluzione VMware di Azure
 
@@ -253,7 +253,7 @@ VMware HCX Enterprise Edition (EE) è disponibile con la soluzione Azure VMware 
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Ricerca per categorie richiedere un aumento della quota host per la soluzione VMware di Azure?
 
-Per le sottoscrizioni gestite da CSP, il cliente deve eseguire la richiesta al partner e il team partner collaborerà con Microsoft per aumentare la quota per la sottoscrizione. 
+Per le sottoscrizioni gestite da CSP, il cliente deve eseguire la richiesta al partner e il team partner collaborerà con Microsoft per aumentare la quota per la sottoscrizione. Per ulteriori informazioni, vedere l' [articolo come abilitare la risorsa di soluzione VMware di Azure](enable-azure-vmware-solution.md) per informazioni dettagliate. 
 
 Per le sottoscrizioni EA, il cliente deve seguire questa procedura.
 
@@ -299,6 +299,10 @@ Prima di creare la risorsa della soluzione VMware di Azure, è necessario inviar
 #### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
 
 Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
+
+#### Does Azure VMware Solution offer multi-tenancy for hosting CSP partners?
+
+No. Currently Azure VMware Solution does not offer multi-tenancy.
 
 
 ## Customer communication

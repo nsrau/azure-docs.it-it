@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 8b2f8e82cac1d26689659286a5a0f81f06fb68ca
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398012"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695062"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Bilanciamento del carico tra aree (anteprima)
 
@@ -74,7 +74,7 @@ Il servizio di bilanciamento del carico tra aree di Azure usa l'algoritmo di bil
 
 La modalità di distribuzione del carico configurata dei bilanciamenti del carico a livello di area viene usata per stabilire la decisione di routing finale quando vengono usati più bilanciamenti del carico a livello di area per la prossimità
 
-Per altre informazioni, vedere [Configurare la modalità di distribuzione per Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-distribution-mode).
+Per altre informazioni, vedere [Configurare la modalità di distribuzione per Azure Load Balancer](./load-balancer-distribution-mode.md).
 
 
 ### <a name="ability-to-scale-updown-behind-a-single-endpoint"></a>Possibilità di eseguire la scalabilità verticale e verticale dietro un singolo endpoint
@@ -84,7 +84,7 @@ Quando si espone l'endpoint globale di un servizio di bilanciamento del carico t
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
 ### <a name="static-ip"></a>IP statico
-Il servizio di bilanciamento del carico tra aree è dotato di un IP pubblico statico, che garantisce che l'indirizzo IP rimanga invariato. Per altre informazioni sull'IP statico, vedere [qui](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#allocation-method)
+Il servizio di bilanciamento del carico tra aree è dotato di un IP pubblico statico, che garantisce che l'indirizzo IP rimanga invariato. Per altre informazioni sull'IP statico, vedere [qui](../virtual-network/public-ip-addresses.md#allocation-method)
 
 ### <a name="client-ip-preservation"></a>Conservazione IP client
 Il servizio di bilanciamento del carico tra aree è un servizio di bilanciamento del carico di rete pass-through di livello 4. Questo pass-through conserva l'IP originale del pacchetto.  L'IP originale è disponibile per il codice in esecuzione nella macchina virtuale. Questa conservazione consente di applicare la logica specifica di un indirizzo IP.

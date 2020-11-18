@@ -10,12 +10,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.author: anavin
-ms.openlocfilehash: 527f71b1980b5a62d3db94fe89a1bce98142e31a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3899a61e942695fed1e3da5fc543b298a42e24
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84221004"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695555"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Risolvere errori comuni durante la distribuzione di Azure con Azure Load Balancer
 
@@ -35,11 +35,11 @@ Questo argomento descrive alcuni errori comuni che possono verificarsi durante l
 |CannotUseInactiveHealthProbe| Non può esistere un probe che non venga usato da nessuna regola configurata per l'integrità del set di scalabilità di macchine virtuali. Assicurarsi che il probe configurato venga usato attivamente. |
 |VMScaleSetCannotUseMultipleLoadBalancersOfSameType| Non possono esistere più servizi di bilanciamento del carico dello stesso tipo (interno, pubblico). Si può avere un massimo di un bilanciamento del carico interno e uno pubblico. |
 |VMScaleSetCannotReferenceLoadbalancerWhenLargeScaleOrCrossAZ | Load Balancer Basic non è supportato per i set di scalabilità di macchine virtuali con più gruppi di selezione host o i set di scalabilità di macchine virtuali in diverse zone di disponibilità. Usare Load Balancer Standard. |
-|MarketplacePurchaseEligibilityFailed | Passare all'account amministrativo corretto per abilitare gli acquisti in una sottoscrizione con contratto Enterprise. Per altre informazioni, leggere [qui](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase). |
+|MarketplacePurchaseEligibilityFailed | Passare all'account amministrativo corretto per abilitare gli acquisti in una sottoscrizione con contratto Enterprise. Per altre informazioni, leggere [qui](../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase). |
 |ResourceDeploymentFailure| Se il servizio di bilanciamento del carico è in stato di errore, seguire questa procedura per ripristinarlo:<ol><li>Passare a https://resources.azure.com e accedere con le credenziali del portale di Azure.</li><li>Selezionare **Lettura/Scrittura**.</li><li>A sinistra espandere **Sottoscrizioni** e quindi espandere la sottoscrizione con il servizio di bilanciamento del carico da aggiornare.</li><li>Espandere **Gruppi di risorse** e quindi espandere il gruppo di risorse con il servizio di bilanciamento del carico da aggiornare.</li><li>Selezionare **Microsoft.Network** > **LoadBalancers** e quindi selezionare il servizio di bilanciamento del carico da aggiornare, **LoadBalancer_1**.</li><li>Nella pagina di **LoadBalancer_1** selezionare **GET** > **Modifica**.</li><li>Aggiornare il valore di **ProvisioningState** da **Non riuscito** a **Riuscito**.</li><li>Selezionare **PUT**.</li></ol>|
 |  |  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Vedere la [tabella di confronto tra gli SKU](./skus.md) di Azure Load Balancer
-* Informazioni sui [limiti di Azure Load Balancer](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)
+* Informazioni sui [limiti di Azure Load Balancer](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)

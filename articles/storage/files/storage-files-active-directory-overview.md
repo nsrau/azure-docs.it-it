@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 93dd73b5a9149474be771537f47b448c5c4d7d8f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 0493b66928d944e251e6fe4abda4f1d3d8fb7e23
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629326"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695895"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Panoramica delle opzioni di autenticazione File di Azure basate sull'identità per l'accesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -34,7 +34,7 @@ Per informazioni su come abilitare l'autenticazione di Azure AD DS per le condiv
 
 -   **Azure Active Directory (Azure AD)**
 
-    Azure Active Directory (Azure AD) è il servizio Microsoft di gestione di identità e Directory basato sul cloud multi-tenant. Azure AD combina servizi di directory importanti, gestione dell'accesso all'applicazione e protezione dell'identità in un'unica soluzione. Le macchine virtuali Windows (VM) Unite a Azure AD possono accedere alle condivisioni file di Azure con le credenziali Azure AD. Per altre informazioni, vedere [Informazioni su Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
+    Azure Active Directory (Azure AD) è il servizio Microsoft di gestione di identità e Directory basato sul cloud multi-tenant. Azure AD combina servizi di directory importanti, gestione dell'accesso all'applicazione e protezione dell'identità in un'unica soluzione. Le macchine virtuali (VM) Windows Unite a Azure AD non possono accedere alle condivisioni file di Azure con le credenziali Azure AD. Per altre informazioni, vedere [Informazioni su Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
 
 -   **Azure Active Directory Domain Services (Azure AD DS)**
 

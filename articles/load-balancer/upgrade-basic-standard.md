@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 66c56ae6730043022a0d8bf3c94f7c6ce14d9852
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd0617536147787f436e5817f3f2367a19ba6aa4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809346"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696184"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Aggiornare Load Balancer pubblico di Azure
-[Azure Load Balancer standard](load-balancer-overview.md) offre un set completo di funzionalità e disponibilità elevata tramite la ridondanza della zona. Per altre informazioni su Load Balancer SKU, vedere [tabella di confronto](https://docs.microsoft.com/azure/load-balancer/skus#skus).
+[Azure Load Balancer standard](load-balancer-overview.md) offre un set completo di funzionalità e disponibilità elevata tramite la ridondanza della zona. Per altre informazioni su Load Balancer SKU, vedere [tabella di confronto](./skus.md#skus).
 
 In un aggiornamento sono disponibili tre fasi:
 
@@ -34,7 +34,7 @@ Questo articolo illustra la migrazione della configurazione. L'aggiunta di macch
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
-* Lo script supporta solo l'aggiornamento di Load Balancer pubblici. Per l'aggiornamento interno Load Balancer di base, fare riferimento a [Questa pagina](https://docs.microsoft.com/azure/load-balancer/upgrade-basicinternal-standard) per istruzioni.
+* Lo script supporta solo l'aggiornamento di Load Balancer pubblici. Per l'aggiornamento interno Load Balancer di base, fare riferimento a [Questa pagina](./upgrade-basicinternal-standard.md) per istruzioni.
 * Il Load Balancer Standard dispone di un nuovo indirizzo pubblico. Non è possibile spostare facilmente gli indirizzi IP associati a Load Balancer di base esistenti Load Balancer Standard poiché hanno SKU differenti.
 * Se il servizio di bilanciamento del carico standard viene creato in un'area diversa, non sarà possibile associare le macchine virtuali esistenti nell'area precedente alla Load Balancer Standard appena creata. Per ovviare a questa limitazione, assicurarsi di creare una nuova macchina virtuale nella nuova area.
 * Se il Load Balancer non dispone di alcuna configurazione IP front-end o di un pool back-end, probabilmente si verifica un errore durante l'esecuzione dello script. Verificare che non siano vuoti.
@@ -108,11 +108,11 @@ Di seguito sono riportati alcuni scenari in cui è possibile configurare le macc
     >Per le macchine virtuali con indirizzi IP pubblici, è necessario creare prima di tutto indirizzi IP standard in cui lo stesso indirizzo IP non è garantito. Dissociare le VM dagli indirizzi IP di base e associarle agli indirizzi IP standard appena creati. Sarà quindi possibile seguire le istruzioni per aggiungere macchine virtuali nel pool back-end di Load Balancer Standard. 
 
 * **Creazione di nuove macchine virtuali da aggiungere ai pool back-end del Load Balancer pubblico standard appena creato**.
-    * Altre istruzioni su come creare una macchina virtuale e associarla a Load Balancer Standard sono disponibili [qui](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines).
+    * Altre istruzioni su come creare una macchina virtuale e associarla a Load Balancer Standard sono disponibili [qui](./quickstart-load-balancer-standard-public-portal.md#create-virtual-machines).
 
 ### <a name="create-an-outbound-rule-for-outbound-connection"></a>Creare una regola in uscita per la connessione in uscita
 
-Seguire le [istruzioni](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) per creare una regola in uscita, in modo che sia possibile
+Seguire le [istruzioni](./quickstart-load-balancer-standard-public-powershell.md#create-outbound-rule-configuration) per creare una regola in uscita, in modo che sia possibile
 * Definire la NAT in uscita da zero.
 * Ridimensionare e ottimizzare il comportamento del NAT in uscita esistente.
 

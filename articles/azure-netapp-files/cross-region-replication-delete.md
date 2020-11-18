@@ -12,20 +12,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 11/17/2020
 ms.author: b-juche
-ms.openlocfilehash: 0904ac36a9453e51dbb1efc50eee2b9bf3c669c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e08b69271ba9d115c26418bc5e421ee6c94b031d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708819"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695708"
 ---
 # <a name="delete-replications"></a>Eliminare le repliche
 
 È possibile terminare la connessione di replica tra i volumi di origine e di destinazione eliminando la replica del volume. È possibile eseguire l'operazione di eliminazione dal volume di origine o di destinazione. L'operazione Delete rimuove solo l'autorizzazione per la replica. non rimuove il volume di origine o di destinazione. 
 
 ## <a name="steps"></a>Passaggi
+
+1. Verificare che il peering di replica sia stato danneggiato prima di eliminare la replica del volume.    
+    Vedere [visualizzare lo stato di integrità della relazione di replica](cross-region-replication-display-health-status.md) e [interrompere il peering di replica](cross-region-replication-manage-disaster-recovery.md#break-replication-peering-to-activate-the-destination-volume).  
 
 1. Per eliminare la replica del volume, selezionare **replica** dal volume di origine o di destinazione.  
 

@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 3d2172f76faecfc8347d7e0ca13fb506817f25de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae4dd8b82e40b46da52a1b1f396569fda1dfea2b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740701"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694627"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Usare la sintassi di ricerca Lucene "completa" (query avanzate in Azure ricerca cognitiva)
 
@@ -30,7 +30,7 @@ Il parser Lucene supporta costrutti di query complessi, ad esempio query con amb
 
 Negli esempi seguenti viene usato l'indice di ricerca NYC Jobs contenente le opportunità di lavoro disponibili in base a un set di dati fornito dall'iniziativa [City of New York OpenData](https://opendata.cityofnewyork.us/). Questi dati non devono essere considerati attuali o completi. L'indice si trova in un servizio sandbox fornito da Microsoft, il che significa che non è necessaria una sottoscrizione di Azure o un ricerca cognitiva di Azure per provare queste query.
 
-È necessario disporre di Postman o di uno strumento equivalente per rilasciare una richiesta HTTP su GET. Per altre informazioni, vedere [Esplorare con client REST](search-get-started-postman.md).
+È necessario disporre di Postman o di uno strumento equivalente per rilasciare una richiesta HTTP su GET. Per altre informazioni, vedere [Esplorare con client REST](search-get-started-rest.md).
 
 ### <a name="set-the-request-header"></a>Impostare l'intestazione della richiesta
 
@@ -46,7 +46,7 @@ Dopo aver specificato l'intestazione della richiesta, è possibile riusarla per 
 
 Request è un comando GET associato a un URL contenente l'endpoint di Azure ricerca cognitiva e la stringa di ricerca.
 
-  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="GET dell'intestazione della richiesta post" border="false":::
 
 La composizione dell'URL presenta i seguenti elementi:
 
@@ -137,7 +137,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
-  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Espressione di ricerca della risposta di esempio del post" border="false":::
 
 È possibile definire un'operazione di ricerca in campo con la sintassi **FieldName: searchExpression** , in cui l'espressione di ricerca può essere costituita da una singola parola o una frase o da un'espressione più complessa tra parentesi, facoltativamente con operatori booleani. Ecco alcuni esempi:
 
@@ -199,7 +199,7 @@ In questa query per le opportunità di lavoro contenenti il termine "senior anal
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
 ```
-  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Query di prossimità" border="false":::
 
 Riprovare rimuovendo le parole tra il termine "senior analyst". Si noti che vengono restituiti 8 documenti per questa query, rispetto ai 10 per la query precedente.
 
@@ -217,7 +217,7 @@ In questa query "before" cercare le opportunità di lavoro con il termine *compu
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
 ```
-  :::image type="content" source="media/search-query-lucene-examples/termboostingbefore.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/termboostingbefore.png" alt-text="Aumento priorità termini &quot;before&quot;" border="false":::
 
 Nella query "after", ripetere la ricerca, questa volta aumentando la priorità dei risultati con il termine *analyst* rispetto al termine *computer* se nessuna delle due parole esiste. 
 
@@ -226,7 +226,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 ```
 Una versione maggiormente leggibile della query precedente è `search=business_title:computer analyst^2`. Per una query di lavoro `^2` viene codificato come `%5E2`, più difficile da vedere.
 
-  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Aumento priorità termini &quot;after&quot;" border="false":::
 
 L'aumento priorità dei termini si differenzia dai profili di punteggio per il fatto che questi ultimi aumentano la priorità di alcuni campi e non di termini specifici. L'esempio seguente illustra le differenze.
 
@@ -253,7 +253,7 @@ In questa query cercare i processi con il termine senior o Junior: `search=busin
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
 ```
 
-  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Query Regex" border="false":::
 
 > [!Note]
 > Le query Regex non vengono [analizzate](./search-lucene-query-architecture.md#stage-2-lexical-analysis). L'unica trasformazione eseguita per i termini di una query incompleta è la conversione in lettere minuscole.
@@ -275,7 +275,7 @@ In questa query cercare le opportunità di lavoro che contengono il prefisso 'pr
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
 ```
-  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Parametri impostati per l'intestazione della richiesta post" border="false":::
+  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Query con caratteri jolly" border="false":::
 
 > [!Note]
 > Le query con caratteri jolly non vengono [analizzate](./search-lucene-query-architecture.md#stage-2-lexical-analysis). L'unica trasformazione eseguita per i termini di una query incompleta è la conversione in lettere minuscole.
@@ -292,4 +292,4 @@ Un riferimento alla sintassi aggiuntivo, l'architettura di query ed esempi sono 
 + [Esempi di query con sintassi semplice](search-query-simple-examples.md)
 + [Funzionamento della ricerca full-text in Ricerca cognitiva di Azure](search-lucene-query-architecture.md)
 + [Sintassi di query semplice](/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Sintassi completa della query Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Sintassi di query Lucene completa](/rest/api/searchservice/lucene-query-syntax-in-azure-search)

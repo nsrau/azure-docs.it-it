@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: irenehua
-ms.openlocfilehash: a6d2b69b0b498601497c4b33fb6bdfede87002df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59bf5eb22289238633b1f07c29a878bd0a9ae620
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500250"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696167"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Aggiornare Load Balancer interno di Azure-nessuna connessione in uscita necessaria
-[Azure Load Balancer standard](load-balancer-overview.md) offre un set completo di funzionalità e disponibilità elevata tramite la ridondanza della zona. Per altre informazioni su Load Balancer SKU, vedere [tabella di confronto](https://docs.microsoft.com/azure/load-balancer/skus#skus).
+[Azure Load Balancer standard](load-balancer-overview.md) offre un set completo di funzionalità e disponibilità elevata tramite la ridondanza della zona. Per altre informazioni su Load Balancer SKU, vedere [tabella di confronto](./skus.md#skus).
 
 Questo articolo presenta uno script di PowerShell che consente di creare un Load Balancer Standard con la stessa configurazione del Load Balancer di base insieme alla migrazione del traffico da Load Balancer di base a Load Balancer Standard.
 
@@ -23,25 +23,25 @@ Questo articolo presenta uno script di PowerShell che consente di creare un Load
 
 È disponibile uno script Azure PowerShell che esegue le operazioni seguenti:
 
-* Crea uno SKU interno standard Load Balancer nel percorso specificato. Si noti che nessuna [connessione in uscita](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) non verrà fornita dal Load Balancer interno standard.
+* Crea uno SKU interno standard Load Balancer nel percorso specificato. Si noti che nessuna [connessione in uscita](./load-balancer-outbound-connections.md) non verrà fornita dal Load Balancer interno standard.
 * Copia agevolmente le configurazioni dello SKU Basic Load Balancer al Load Balancer Standard appena creato.
 * Spostare facilmente gli indirizzi IP privati dal Load Balancer Basic al Load Balancer Standard appena creato.
 * Spostare facilmente le VM dal pool back-end del Load Balancer di base al pool back-end della Load Balancer Standard
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
-* Lo script supporta solo l'aggiornamento interno del Load Balancer in cui non è richiesta alcuna connessione in uscita. Se è necessaria una [connessione in uscita](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) per alcune macchine virtuali, fare riferimento a questa [pagina](upgrade-InternalBasic-To-PublicStandard.md) per istruzioni. 
+* Lo script supporta solo l'aggiornamento interno del Load Balancer in cui non è richiesta alcuna connessione in uscita. Se è necessaria una [connessione in uscita](./load-balancer-outbound-connections.md) per alcune macchine virtuali, fare riferimento a questa [pagina](upgrade-InternalBasic-To-PublicStandard.md) per istruzioni. 
 * Il Load Balancer di base deve trovarsi nello stesso gruppo di risorse delle macchine virtuali e delle schede di rete di back-end.
 * Se il servizio di bilanciamento del carico standard viene creato in un'area diversa, non sarà possibile associare le macchine virtuali esistenti nell'area precedente alla Load Balancer Standard appena creata. Per ovviare a questa limitazione, assicurarsi di creare una nuova macchina virtuale nella nuova area.
 * Se il Load Balancer non dispone di alcuna configurazione IP front-end o di un pool back-end, probabilmente si verifica un errore durante l'esecuzione dello script. Verificare che non siano vuoti.
 
 ## <a name="change-ip-allocation-method-to-static-for-frontend-ip-configuration-ignore-this-step-if-its-already-static"></a>Modificare il metodo di allocazione IP in statico per la configurazione IP front-end (ignorare questo passaggio se è già statico)
 
-1. Selezionare **tutti i servizi** nel menu a sinistra, selezionare **tutte le risorse**e quindi selezionare il Load Balancer di base dall'elenco delle risorse.
+1. Selezionare **tutti i servizi** nel menu a sinistra, selezionare **tutte le risorse** e quindi selezionare il Load Balancer di base dall'elenco delle risorse.
 
-2. In **Impostazioni**selezionare **configurazione IP**front-end e selezionare la prima configurazione IP front-end. 
+2. In **Impostazioni** selezionare **configurazione IP** front-end e selezionare la prima configurazione IP front-end. 
 
-3. Per **assegnazione**selezionare **static**
+3. Per **assegnazione** selezionare **static**
 
 4. Ripetere il passaggio 3 per tutte le configurazioni IP front-end del Load Balancer di base.
 

@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: 060048bf786f424d5df6eb8fb4813877acb0fea0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d02b46345af13770f77a7dac452127a665e01fd
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823215"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696745"
 ---
 # <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Reimpostazione Load Balancer TCP e timeout di inattività
 
-È possibile usare [Load Balancer Standard](load-balancer-standard-overview.md) per creare un comportamento delle applicazioni più prevedibile per gli scenari abilitando TCP Reset per timeout di inattività per una determinata regola. Il comportamento predefinito di Load Balancer prevede l'eliminazione trasparente dei flussi quando viene raggiunto il timeout di inattività di un flusso.  Se si abilita questa funzionalità, Load Balancer invierà TCP Reset bidirezionali (pacchetto RST TCP) in caso di timeout per inattività.  In questo modo gli endpoint dell'applicazione verranno informati che si è verificato il timeout della connessione e quest'ultima non è più utilizzabile.  Gli endpoint possono stabilire immediatamente una nuova connessione, se necessario.
+È possibile usare [Load Balancer Standard](./load-balancer-overview.md) per creare un comportamento delle applicazioni più prevedibile per gli scenari abilitando TCP Reset per timeout di inattività per una determinata regola. Il comportamento predefinito di Load Balancer prevede l'eliminazione trasparente dei flussi quando viene raggiunto il timeout di inattività di un flusso.  Se si abilita questa funzionalità, Load Balancer invierà TCP Reset bidirezionali (pacchetto RST TCP) in caso di timeout per inattività.  In questo modo gli endpoint dell'applicazione verranno informati che si è verificato il timeout della connessione e quest'ultima non è più utilizzabile.  Gli endpoint possono stabilire immediatamente una nuova connessione, se necessario.
 
 ![TCP Reset di Load Balancer](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
  
-## <a name="tcp-reset"></a>Ripristino TCP
+## <a name="tcp-reset"></a>Reimpostazione TCP
 
-Si modifica questo comportamento predefinito e si abilita l'invio di TCP Reset per timeout di inattività per regole NAT in ingresso, regole di bilanciamento del carico e [regole in uscita](https://aka.ms/lboutboundrules).  Quando questo comportamento viene abilitato per ogni regola, Load Balancer invierà TCP Reset bidirezionali (pacchetti TCP RST) agli endpoint client e server al momento del timeout di inattività per tutti i flussi corrispondenti.
+Si modifica questo comportamento predefinito e si abilita l'invio di TCP Reset per timeout di inattività per regole NAT in ingresso, regole di bilanciamento del carico e [regole in uscita](./load-balancer-outbound-connections.md#outboundrules).  Quando questo comportamento viene abilitato per ogni regola, Load Balancer invierà TCP Reset bidirezionali (pacchetti TCP RST) agli endpoint client e server al momento del timeout di inattività per tutti i flussi corrispondenti.
 
 Gli endpoint che ricevono pacchetti TCP RST chiudono il socket corrispondente immediatamente. Gli endpoint ricevono così una notifica immediata del rilascio della connessione e le eventuali comunicazioni future sulla stessa connessione TCP avranno esito negativo.  Le applicazioni possono ripulire le connessioni alla chiusura del socket e ristabilire le connessioni all'occorrenza senza attendere il timeout della connessione TCP.
 
@@ -48,7 +48,7 @@ Per impostazione predefinita, questa proprietà è impostata su 4 minuti. Se un 
 
 Quando la connessione viene chiusa, l'applicazione client potrebbe ricevere il messaggio di errore seguente: "La connessione sottostante è stata chiusa: una connessione che doveva restare attiva è stata chiusa dal server in modo imprevisto".
 
-Una prassi comune consiste nell'usare una connessione TCP keep-alive per mantenere la connessione attiva per un periodo più lungo. Per altre informazioni, vedere questi [esempi .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Con la connessione keep-alive abilitata, i pacchetti vengono inviati durante i periodi di inattività della connessione. I pacchetti keep-alive garantiscono che il valore del timeout di inattività non venga raggiunto e che la connessione sia mantenuta per un lungo periodo.
+Una prassi comune consiste nell'usare una connessione TCP keep-alive per mantenere la connessione attiva per un periodo più lungo. Per altre informazioni, vedere questi [esempi .NET](/dotnet/api/system.net.servicepoint.settcpkeepalive). Con la connessione keep-alive abilitata, i pacchetti vengono inviati durante i periodi di inattività della connessione. I pacchetti keep-alive garantiscono che il valore del timeout di inattività non venga raggiunto e che la connessione sia mantenuta per un lungo periodo.
 
 L'impostazione funziona solo per le connessioni in entrata. Per evitare di perdere la connessione, configurare l'impostazione keep-alive TCP con un intervallo minore rispetto all'impostazione di timeout di inattività o aumentare il valore del timeout di inattività. Per supportare questi scenari, è stato aggiunto il supporto per un timeout di inattività configurabile.
 
@@ -63,6 +63,6 @@ La connessione TCP keep-alive è adatta per gli scenari non vincolati alla durat
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sulle [Load Balancer standard](load-balancer-standard-overview.md).
-- Informazioni sulle [regole in uscita](load-balancer-outbound-rules-overview.md).
+- Informazioni sulle [Load Balancer standard](./load-balancer-overview.md).
+- Informazioni sulle [regole in uscita](./load-balancer-outbound-connections.md#outboundrules).
 - [Configurare la RST TCP per il timeout di inattività](load-balancer-tcp-idle-timeout.md)

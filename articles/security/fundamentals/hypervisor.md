@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
-ms.openlocfilehash: 1f81285e869bd2c65cce29766de0b2bd39a627f6
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 766266edd663b75b893a5883e30bb48eed7bbfdf
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94557969"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696116"
 ---
 # <a name="hypervisor-security-on-the-azure-fleet"></a>Sicurezza hypervisor sulla flotta di Azure
 
@@ -26,7 +26,7 @@ L'hypervisor di Azure viene creato tenendo presenti gli obiettivi di sicurezza s
 | Isolamento | Un criterio di sicurezza non impone il trasferimento di informazioni tra le macchine virtuali. Questo vincolo richiede funzionalità nell'Virtual Machine Manager (VMM) e nell'hardware per l'isolamento della memoria, dei dispositivi, della rete e delle risorse gestite, ad esempio i dati salvati in modo permanente. |
 | Integrità di VMM | Per ottenere l'integrità complessiva del sistema, viene stabilita e mantenuta l'integrità dei singoli componenti dell'hypervisor. |
 | Integrità della piattaforma | L'integrità dell'hypervisor dipende dall'integrità dell'hardware e del software su cui si basa. Sebbene l'hypervisor non abbia il controllo diretto sull'integrità della piattaforma, Azure si basa su meccanismi hardware e firmware come il chip [Cerberus](project-cerberus.md) per proteggere e rilevare l'integrità della piattaforma sottostante. Non è consentito l'esecuzione di VMM e Guest se l'integrità della piattaforma è compromessa. |
-| Accesso limitato | Le funzioni di gestione vengono esercitate solo dagli amministratori autorizzati connessi tramite connessioni sicure. Un principio dei privilegi minimi viene applicato dai meccanismi di controllo degli accessi in base al ruolo (RBAC). |
+| Accesso limitato | Le funzioni di gestione vengono esercitate solo dagli amministratori autorizzati connessi tramite connessioni sicure. Un principio dei privilegi minimi viene applicato dai meccanismi di controllo degli accessi in base al ruolo di Azure (RBAC di Azure). |
 | Audit | Azure consente alle funzionalità di controllo di acquisire e proteggere i dati relativi a ciò che accade in un sistema, in modo che possa essere ispezionato in un secondo momento. |
 
 L'approccio di Microsoft alla protezione avanzata dell'hypervisor di Azure e del sottosistema di virtualizzazione può essere suddiviso nelle tre categorie seguenti.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcfce06bb158888b56483a73ededd354c229a99b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855256"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696320"
 ---
 # <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Risolvere i problemi di disponibilità di integrità delle risorse, front-end e back-end 
 
@@ -52,7 +52,7 @@ Supponiamo di controllare lo stato del probe di integrità e di scoprire che tut
   * Se si riscontra questo problema NSG, spostare la regola Consenti esistente o creare una nuova regola di priorità alta per consentire il traffico AzureLoadBalancer
 * Controllare il sistema operativo. Verificare che le macchine virtuali siano in ascolto sulla porta Probe ed esaminare le regole del firewall del sistema operativo per assicurarsi che non blocchino il traffico Probe originato da indirizzo IP 168.63.129.16
   * È possibile controllare le porte in ascolto eseguendo netstat-a prompt dei comandi di Windows o netstat-l in un terminale Linux
-* Non inserire una macchina virtuale del firewall appliance virtuale di sistema nel pool back-end del servizio di bilanciamento del carico, usare [route definite dall'utente](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) per instradare il traffico alle istanze back-end attraverso il firewall
+* Non inserire una macchina virtuale del firewall appliance virtuale di sistema nel pool back-end del servizio di bilanciamento del carico, usare [route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md#user-defined) per instradare il traffico alle istanze back-end attraverso il firewall
 * Assicurarsi di usare il protocollo appropriato, se si usa HTTP per eseguire il probe di una porta in ascolto di un'applicazione non HTTP, il probe avrà esito negativo
 
 Se si è passati a questo elenco di controllo e si trovano ancora errori di probe di integrità, potrebbero verificarsi problemi di piattaforma rari che influiscano sul servizio Probe per le istanze. In questo caso, Azure è stato riavviato e viene inviato un avviso automatico al team per risolvere rapidamente tutti i problemi della piattaforma.
@@ -61,5 +61,3 @@ Se si è passati a questo elenco di controllo e si trovano ancora errori di prob
 
 * [Altre informazioni sul Probe di integrità Azure Load Balancer](load-balancer-custom-probe-overview.md)
 * [Altre informazioni sulle metriche di Azure Load Balancer](load-balancer-standard-diagnostics.md)
-
-

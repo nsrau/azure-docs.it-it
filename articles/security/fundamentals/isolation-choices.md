@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: fa2025fa31ac960eb6c61d03bafd582de4f0e55c
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3141d9937591467870ee4a88d16a96cbdb24a05b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410578"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696218"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento nel cloud pubblico di Azure
 
@@ -38,7 +38,7 @@ Ogni directory di Azure AD è distinta e separata dalle altre directory di Azure
 
 ### <a name="azure-tenancy"></a>Tenancy di Azure
 
-Il concetto di tenancy di Azure (sottoscrizione di Azure) si riferisce a una relazione "cliente/fatturazione" e a un [tenant](../../active-directory/develop/quickstart-create-new-tenant.md) univoco in [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). L'isolamento a livello di tenant in Microsoft Azure si ottiene usando Azure Active Directory e i [controlli in base al ruolo](../../role-based-access-control/overview.md) messi a disposizione da questa applicazione. Ogni sottoscrizione di Azure è associata a una directory di Azure Active Directory (AD).
+Il concetto di tenancy di Azure (sottoscrizione di Azure) si riferisce a una relazione "cliente/fatturazione" e a un [tenant](../../active-directory/develop/quickstart-create-new-tenant.md) univoco in [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). L'isolamento a livello di tenant in Microsoft Azure viene eseguito usando Azure Active Directory e il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md) offerto da questo. Ogni sottoscrizione di Azure è associata a una directory di Azure Active Directory (AD).
 
 Gli utenti, i gruppi e le applicazioni da tale directory possono gestire le risorse nella sottoscrizione di Azure. È possibile assegnare questi diritti di accesso tramite il portale di Azure, gli strumenti da riga di comando di Azure o le API Gestione di Azure. Un tenant di Azure AD viene isolato in modo logico usando limiti di sicurezza in modo che nessun cliente possa accedere agli altri tenant e comprometterli, intenzionalmente o accidentalmente. Azure AD viene eseguito nei server "bare metal" isolati in un segmento di rete separato, in cui il filtraggio dei pacchetti a livello di host e Windows Firewall bloccano connessioni e traffico indesiderati.
 
@@ -52,7 +52,7 @@ Gli utenti, i gruppi e le applicazioni da tale directory possono gestire le riso
 
 - L'accesso fisico ai server che comprendono il servizio Azure AD e l'accesso diretto ai sistemi back-end di Azure AD sono limitati.
 
-- Gli utenti di Azure AD non hanno accesso a posizioni o risorse fisiche e non possono quindi ignorare le verifiche dei criteri del controllo degli accessi in base al ruolo indicate di seguito.
+- Azure AD gli utenti non hanno accesso a risorse fisiche o posizioni e pertanto non è possibile ignorare i controlli dei criteri RBAC di Azure logici indicati di seguito.
 
 Per esigenze di diagnostica e manutenzione, è necessario e viene usato un modello operativo che impiega un sistema di elevazione dei privilegi just-in-time. Azure AD Privileged Identity Management (PIM) introduce il concetto di amministratore idoneo. gli [amministratori idonei](../../active-directory/privileged-identity-management/pim-configure.md) devono essere utenti che necessitano di accesso con privilegi ora e quindi, ma non tutti i giorni. Il ruolo è inattivo fino a quando l'utente che necessita dell'accesso non completa un processo di attivazione e diventa amministratore attivo per un periodo di tempo predeterminato.
 
@@ -80,7 +80,7 @@ Il Controllo degli accessi in base al ruolo di Azure include di tre ruoli di bas
 
 Il resto dei ruoli di Azure in Azure consente la gestione di risorse di Azure specifiche. Ad esempio, il ruolo Collaboratore Macchina virtuale consente all'utente di creare e gestire macchine virtuali, ma non concede l'accesso alla rete virtuale di Azure o alla subnet a cui la macchina virtuale si connette.
 
-[Ruoli predefiniti per il controllo degli accessi in base al ruolo](../../role-based-access-control/built-in-roles.md) elenca i ruoli disponibili in Azure. Specifica le operazioni e l'ambito che ogni ruolo predefinito concede agli utenti. Per definire ruoli personalizzati per un maggiore controllo, vedere come creare [ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/custom-roles.md).
+I [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md) elencano i ruoli disponibili in Azure. Specifica le operazioni e l'ambito che ogni ruolo predefinito concede agli utenti. Per definire ruoli personalizzati per un maggiore controllo, vedere come creare [ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/custom-roles.md).
 
 Altre funzionalità di Azure Active Directory includono:
 
@@ -194,7 +194,7 @@ Il **controllo di accesso in Archiviazione di Azure** ha un modello semplice. Og
 
 ![Isolamento tramite il controllo di accesso per l'archiviazione](./media/isolation-choices/azure-isolation-fig9.png)
 
-L' **accesso ai dati di Archiviazione di Azure, incluse le tabelle** , può essere controllato in un token di [firma di accesso condiviso](../../storage/common/storage-sas-overview.md) che concede l'accesso con ambito. La firma di accesso condiviso viene creata tramite un modello di query (URL) firmato con la [chiave dell'account di archiviazione](/previous-versions/azure/reference/ee460785(v=azure.100)). L'[URL firmato](../../storage/common/storage-sas-overview.md) può essere assegnato, ovvero delegato, a un altro processo che può quindi compilare i dettagli della query ed effettuare la richiesta del servizio di archiviazione. Una firma di accesso condiviso consente di concedere l'accesso con scadenza ai client senza rivelare la chiave privata dell'account di archiviazione.
+L'**accesso ai dati di Archiviazione di Azure, incluse le tabelle**, può essere controllato in un token di [firma di accesso condiviso](../../storage/common/storage-sas-overview.md) che concede l'accesso con ambito. La firma di accesso condiviso viene creata tramite un modello di query (URL) firmato con la [chiave dell'account di archiviazione](/previous-versions/azure/reference/ee460785(v=azure.100)). L'[URL firmato](../../storage/common/storage-sas-overview.md) può essere assegnato, ovvero delegato, a un altro processo che può quindi compilare i dettagli della query ed effettuare la richiesta del servizio di archiviazione. Una firma di accesso condiviso consente di concedere l'accesso con scadenza ai client senza rivelare la chiave privata dell'account di archiviazione.
 
 La firma di accesso condiviso consente di concedere a un client autorizzazioni limitate per oggetti nell'account di archiviazione per un periodo di tempo specificato e con un set di autorizzazioni. È possibile concedere queste autorizzazioni limitate senza dover condividere le chiavi di accesso all'account.
 
@@ -227,7 +227,7 @@ Per molte organizzazioni, la [crittografia dei dati](isolation-choices.md) inatt
 - La [crittografia lato client](../../storage/blobs/security-recommendations.md) fornisce anche la funzionalità di crittografia dei componenti inattivi.
 - [Crittografia dischi di Azure](./azure-disk-encryption-vms-vmss.md) consente di crittografare i dischi dati e del sistema operativo usati da una macchina virtuale IaaS.
 
-#### <a name="azure-disk-encryption"></a>Azure Disk Encryption
+#### <a name="azure-disk-encryption"></a>Crittografia dischi di Azure
 
 [Crittografia dischi di Azure](./azure-disk-encryption-vms-vmss.md) per le macchine virtuali consente di soddisfare i requisiti di conformità e sicurezza dell'organizzazione, grazie alla possibilità di crittografare i dischi delle macchine virtuali, inclusi i dischi di avvio e di dati, con chiavi e criteri gestiti in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
@@ -311,7 +311,7 @@ La distribuzione di Azure offre più livelli di isolamento della rete. Il diagra
 
 ![Isolamento della rete](./media/isolation-choices/azure-isolation-fig13.png)
 
-**Isolamento del traffico** : una [rete virtuale](../../virtual-network/virtual-networks-overview.md) è il limite di isolamento del traffico nella piattaforma Azure. Le macchine virtuali (VM) in una rete virtuale non possono comunicare direttamente con le VM in una rete virtuale diversa, anche se entrambe le reti virtuali vengono create dallo stesso cliente. L'isolamento è una proprietà essenziale che assicura che le macchine virtuali e le comunicazioni dei clienti rimangano private entro una rete virtuale.
+**Isolamento del traffico**: una [rete virtuale](../../virtual-network/virtual-networks-overview.md) è il limite di isolamento del traffico nella piattaforma Azure. Le macchine virtuali (VM) in una rete virtuale non possono comunicare direttamente con le VM in una rete virtuale diversa, anche se entrambe le reti virtuali vengono create dallo stesso cliente. L'isolamento è una proprietà essenziale che assicura che le macchine virtuali e le comunicazioni dei clienti rimangano private entro una rete virtuale.
 
 La [subnet](../../virtual-network/virtual-networks-overview.md) offre un livello di isolamento aggiuntivo nella rete virtuale in base a un intervallo di indirizzi IP. È possibile suddividere la rete virtuale in più subnet per una maggiore organizzazione e sicurezza. Le VM e le istanze del ruolo PaaS distribuite nelle subnet (nella stessa o in diverse) in una rete virtuale possono comunicare tra loro senza nessuna configurazione aggiuntiva. È anche possibile configurare un [gruppo di sicurezza di rete (NSG)](../../virtual-network/virtual-networks-overview.md) per consentire o negare il traffico di rete verso un'istanza di macchina virtuale in base alle regole configurate nell'elenco di controllo di accesso (ACL) del gruppo di sicurezza di rete. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze di macchine virtuali in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di macchine virtuali nella subnet.
 

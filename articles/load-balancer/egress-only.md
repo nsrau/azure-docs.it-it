@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2020
 ms.author: allensu
-ms.openlocfilehash: b44f626546b313299701687157b37b7df021bd61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee264a22de5ce094e8a4c1335ace77cbbba49270
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88038258"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94694994"
 ---
 # <a name="outbound-only-load-balancer-configuration"></a>Configurazione del servizio di bilanciamento del carico solo in uscita
 
@@ -220,15 +220,15 @@ Aggiungere la macchina virtuale creata al pool back-end di ogni.  Si configurer�
 
 Creare il pool di indirizzi back-end **myInternalBackendPool**:
 
-1. Selezionare **tutti i servizi** nel menu a sinistra, selezionare **tutte le risorse**e quindi selezionare **myInternalLoadBalancer** nell'elenco delle risorse.
+1. Selezionare **tutti i servizi** nel menu a sinistra, selezionare **tutte le risorse** e quindi selezionare **myInternalLoadBalancer** nell'elenco delle risorse.
 
 2. In **Impostazioni** selezionare **Pool back-end** e quindi selezionare **Aggiungi**.
 
-3. Nella pagina **Aggiungi un pool back-end** digitare **myInternalBackendPool**come nome del pool back-end per nome.
+3. Nella pagina **Aggiungi un pool back-end** digitare **myInternalBackendPool** come nome del pool back-end per nome.
  
 4. In **Rete virtuale** selezionare **myVNet**.
 
-5. In **macchine virtuali**selezionare **Aggiungi** e scegliere **myVM**.
+5. In **macchine virtuali** selezionare **Aggiungi** e scegliere **myVM**.
  
 6. Selezionare **Aggiungi**.
 
@@ -236,21 +236,21 @@ Creare il pool di indirizzi back-end **myInternalBackendPool**:
 
 Creare il pool di indirizzi back-end **myPublicBackendPool**:
 
-1. Selezionare **tutti i servizi** nel menu a sinistra, selezionare **tutte le risorse**e quindi selezionare **myPublicLoadBalancer** nell'elenco delle risorse.
+1. Selezionare **tutti i servizi** nel menu a sinistra, selezionare **tutte le risorse** e quindi selezionare **myPublicLoadBalancer** nell'elenco delle risorse.
 
 2. In **Impostazioni** selezionare **Pool back-end** e quindi selezionare **Aggiungi**.
 
-3. Nella pagina **Aggiungi un pool back-end** digitare **myPublicBackendPool**come nome del pool back-end per nome.
+3. Nella pagina **Aggiungi un pool back-end** digitare **myPublicBackendPool** come nome del pool back-end per nome.
 
 4. In **Rete virtuale** selezionare **myVNet**.
  
-5. In **macchine virtuali**selezionare **Aggiungi** e scegliere **myVM**.
+5. In **macchine virtuali** selezionare **Aggiungi** e scegliere **myVM**.
  
 6. Selezionare **Aggiungi**.
 
 ### <a name="test-connectivity-before-outbound-rule"></a>Testare la connettività prima della regola in uscita
 
-1. Selezionare **tutti i servizi** nel menu a sinistra, selezionare **tutte le risorse**e quindi nell'elenco delle risorse selezionare **myVM** che si trova nel gruppo di risorse **myResourceGroupLB** .
+1. Selezionare **tutti i servizi** nel menu a sinistra, selezionare **tutte le risorse** e quindi nell'elenco delle risorse selezionare **myVM** che si trova nel gruppo di risorse **myResourceGroupLB** .
 
 2. Nella pagina **Panoramica** selezionare **Connetti**, quindi **Bastion**.
 
@@ -266,7 +266,7 @@ Creare il pool di indirizzi back-end **myPublicBackendPool**:
  
 ### <a name="create-a-public-load-balancer-outbound-rule"></a>Creare una regola in uscita del servizio di bilanciamento del carico pubblico
 
-1. Selezionare **tutti i servizi** nel menu a sinistra, selezionare **tutte le risorse**e quindi selezionare **myPublicLoadBalancer** nell'elenco delle risorse.
+1. Selezionare **tutti i servizi** nel menu a sinistra, selezionare **tutte le risorse** e quindi selezionare **myPublicLoadBalancer** nell'elenco delle risorse.
 
 2. In **Impostazioni** selezionare **Regole in uscita** e quindi **Aggiungi**.
 
@@ -285,7 +285,7 @@ Creare il pool di indirizzi back-end **myPublicBackendPool**:
 
 ### <a name="test-connectivity-after-outbound-rule"></a>Testare la connettività dopo la regola in uscita
 
-1. Selezionare **tutti i servizi** nel menu a sinistra, selezionare **tutte le risorse**e quindi nell'elenco delle risorse selezionare **myVM** che si trova nel gruppo di risorse **myResourceGroupLB** .
+1. Selezionare **tutti i servizi** nel menu a sinistra, selezionare **tutte le risorse** e quindi nell'elenco delle risorse selezionare **myVM** che si trova nel gruppo di risorse **myResourceGroupLB** .
 
 2. Nella pagina **Panoramica** selezionare **Connetti**, quindi **Bastion**.
 
@@ -316,4 +316,4 @@ Questa configurazione consente di bilanciare il carico del traffico interno in i
 - Informazioni sulle [Azure Load Balancer](load-balancer-overview.md).
 - Informazioni sulle [connessioni in uscita in Azure](load-balancer-outbound-connections.md).
 - [Domande frequenti](load-balancer-faqs.md)sul servizio di bilanciamento del carico.
-- Scopri di più su [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview)
+- Scopri di più su [Azure Bastion](../bastion/bastion-overview.md)

@@ -16,12 +16,12 @@ ms.date: 06/21/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 001adaff1fed901638276e548ac1d5fdb41bdc53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc12b4cb7e97a0808405baebc64ca83cdb742bf1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87798308"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696949"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gestire l'accesso utente con le verifiche di accesso di Azure AD
 
@@ -44,7 +44,7 @@ A una verifica di accesso possono partecipare uno o più revisori.
 
 2. Decidere se ogni utente dovrà verificare il proprio accesso o se uno o più utenti dovranno verificare l'accesso di tutti.
 
-3. In qualità di amministratore globale o Amministratore utenti, passare alla [pagina governance delle identità](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. In uno dei seguenti ruoli: un amministratore globale, un amministratore utente o (anteprima) un proprietario del gruppo di sicurezza M365 o AAD del gruppo da rivedere, passare alla [pagina governance delle identità](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 4. Creare la verifica di accesso. Per altre informazioni, vedere [creare una verifica di accesso dei gruppi o delle applicazioni](create-access-review.md).
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3113216b2d8a7572bcb864819a379de6823ee444
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 90aafad2a17b9535bde29f811e630112ccbd02e3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409876"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696099"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
 Questo articolo fornisce un'introduzione ai servizi di sicurezza in Azure che consentono di proteggere i dati, le risorse e le applicazioni nel cloud e di soddisfare le esigenze di sicurezza dell'azienda.
@@ -156,9 +156,9 @@ Le aziende orientate sulla sicurezza devono concedere ai propri dipendenti la qu
 
 ![Accesso protetto alle risorse](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
-Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro. Invece di concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, è possibile consentire solo determinate azioni. Ad esempio, usare il Controllo degli accessi in base al ruolo per consentire a un dipendente di gestire le macchine virtuali in una sottoscrizione, mentre un altro utente può gestire i database SQL della stessa sottoscrizione.
+Usando il controllo degli accessi in base al ruolo di Azure, è possibile separare le mansioni all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il loro lavoro. Invece di concedere a tutti autorizzazioni senza restrizioni per la sottoscrizione o le risorse di Azure, è possibile consentire solo determinate azioni. Ad esempio, usare il controllo degli accessi in base al ruolo di Azure per consentire a un dipendente di gestire le macchine virtuali in una sottoscrizione, mentre un altro può gestire i database SQL nella stessa sottoscrizione
 
-![Accesso protetto alle risorse in Azure (controllo degli accessi in base al ruolo)](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
+![Accesso alle risorse protette con RBAC di Azure](./media/technical-capabilities/azure-security-technical-capabilities-fig5.png)
 
 ## <a name="data-security-and-encryption"></a>Sicurezza e crittografia dei dati
 
@@ -386,13 +386,13 @@ Il controllo della sicurezza della rete è fondamentale per rilevare le vulnerab
 
 Esegue il monitoraggio di:
 
-- **Frequenza delle richieste, tempi di risposta e percentuali di errore** : trovare le pagine più visitate, gli orari di visita e la posizione degli utenti. Vedere quali pagine abbiano prestazioni migliori. Se i tempi di risposta e le percentuali di errore aumentano di pari passo con le richieste, è probabile che ci sia un problema di assegnazione delle risorse.
+- **Frequenza delle richieste, tempi di risposta e percentuali di errore**: trovare le pagine più visitate, gli orari di visita e la posizione degli utenti. Vedere quali pagine abbiano prestazioni migliori. Se i tempi di risposta e le percentuali di errore aumentano di pari passo con le richieste, è probabile che ci sia un problema di assegnazione delle risorse.
 
-- **Tassi di dipendenza, tempi di risposta e percentuali di errore** : trovare quali servizi esterni causino un rallentamento.
+- **Tassi di dipendenza, tempi di risposta e percentuali di errore**: trovare quali servizi esterni causino un rallentamento.
 
-- **Eccezioni** : analizzare le statistiche aggregate o selezionare istanze specifiche e approfondire l'analisi dello stack e le richieste correlate. Vengono segnalate eccezioni di server e browser.
+- **Eccezioni**: analizzare le statistiche aggregate o selezionare istanze specifiche e approfondire l'analisi dello stack e le richieste correlate. Vengono segnalate eccezioni di server e browser.
 
-- **Visualizzazioni pagina e prestazioni di carico** , segnalate dai browser degli utenti.
+- **Visualizzazioni pagina e prestazioni di carico**, segnalate dai browser degli utenti.
 
 - **Chiamate AJAX da pagine Web** : tariffe, tempi di risposta e percentuali di errori.
 
@@ -422,7 +422,7 @@ Gestione risorse offre numerosi vantaggi:
 
 - È possibile definire le dipendenze tra le risorse in modo che vengano distribuite nell'ordine corretto.
 
-- è possibile applicare il controllo di accesso a tutti i servizi nel gruppo di risorse perché il controllo di accesso basato sui ruoli (RBAC) è integrato in modo nativo nella piattaforma di gestione.
+- È possibile applicare il controllo di accesso a tutti i servizi nel gruppo di risorse perché il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) è integrato in modo nativo nella piattaforma di gestione.
 
 - È possibile applicare tag alle risorse per organizzare in modo logico tutte le risorse nella sottoscrizione.
 

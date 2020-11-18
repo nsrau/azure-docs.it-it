@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 82763842e6145b3883c46bcb9ddb45b7836c3cf2
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 605692d15a08246dd574b0724a550b4543a237a3
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241821"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695521"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
@@ -121,7 +121,7 @@ Di seguito viene illustrato come è possibile esprimere questo tipo di configura
 ### <a name="http--https-probe"></a><a name="httpprobe"></a> <a name="httpsprobe"></a> Probe HTTP/HTTPS
 
 >[!NOTE]
->Il probe HTTPS è disponibile solo per [Load Balancer Standard](load-balancer-standard-overview.md).
+>Il probe HTTPS è disponibile solo per [Load Balancer Standard](./load-balancer-overview.md).
 
 I probe HTTP e HTTPS si basano sul probe TCP ed emettono una richiesta HTTP GET con il percorso specificato. Entrambi i probe supportano i percorsi relativi per HTTP GET. I probe HTTPS sono uguali ai probe HTTP con l'aggiunta di un wrapper Transport Layer Security (TLS, precedente noto come SSL). Il probe di integrità viene contrassegnato come inattivo quando l'istanza risponde con uno stato HTTP 200 entro il periodo di timeout.  Per impostazione predefinita, il probe di integrità tenta di controllare la porta del probe di integrità configurata ogni 15 secondi. L'intervallo minimo del probe è di 5 secondi. La durata totale di tutti gli intervalli non può superare i 120 secondi.
 
@@ -169,7 +169,7 @@ Per impostazione predefinita, i ruoli del servizio cloud, ovvero i ruoli di lavo
 
 Un probe dell'agente guest è un controllo dell'agente guest all'interno della macchina virtuale. L'agente guest è quindi in ascolto e risponde con HTTP 200 OK solo quando l'istanza è in stato Pronto. Gli altri stati sono Occupato, Riciclo in corso o Arresto.
 
-Per altre informazioni, vedere [Configure the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/ee758710.aspx) (Configurare il file csdef per probe di integrità) o [Get started by creating a public load balancer for cloud services](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services) (Introduzione alla creazione di un servizio di bilanciamento del carico pubblico per i servizi cloud).
+Per altre informazioni, vedere [Configure the service definition file (csdef) for health probes](/previous-versions/azure/reference/ee758710(v=azure.100)) (Configurare il file csdef per probe di integrità) o [Get started by creating a public load balancer for cloud services](/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services) (Introduzione alla creazione di un servizio di bilanciamento del carico pubblico per i servizi cloud).
 
 Se l'agente guest non risponde con un messaggio HTTP 200 OK, il servizio di bilanciamento del carico contrassegna l'istanza come istanza che non risponde. Il servizio smette quindi di inviare flussi all'istanza. Il servizio di bilanciamento del carico continua a controllare l'istanza. 
 
@@ -215,7 +215,7 @@ Se tutti i probe per un pool di back-end hanno esito negativo, i flussi UDP esis
 
 Load Balancer usa un servizio distribuito probe per il suo modello di integrità interno. Ogni host in cui si trovano le macchine virtuali include un servizio di esecuzione del probe che può essere programmato per generare i probe di integrità sulla base della configurazione del cliente. Il traffico probe dell'integrità si trova direttamente tra il servizio di esecuzione del probe che genera il probe di integrità e la macchine virtuale del cliente. Tutti i probe di integrità di Load Balancer sono originati dall'indirizzo IP 168.63.129.16.  È possibile usare lo spazio di indirizzi IP all'interno di una rete virtuale che non sia uno spazio RFC1918.  L'utilizzo di un indirizzo IP di proprietà di Microsoft e riservato a livello globale riduce il rischio di conflitti di indirizzo con lo spazio indirizzi IP usato all'interno della rete virtuale.  Questo indirizzo IP è uguale in tutte le aree e non cambia. Non rappresenta neppure un rischio per la sicurezza poiché solo il componente interno della piattaforma Azure può generare un pacchetto da questo indirizzo IP. 
 
-Il tag del servizio AzureLoadBalancer identifica questo indirizzo IP di origine nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md) e consente il traffico dei probe di integrità per impostazione predefinita.
+Il tag del servizio AzureLoadBalancer identifica questo indirizzo IP di origine nei [gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md) e consente il traffico dei probe di integrità per impostazione predefinita.
 
 Oltre ai Probe di integrità di Load Balancer, le [operazioni seguenti usano questo indirizzo IP](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
@@ -233,15 +233,15 @@ In alcuni casi può essere utile per l'applicazione generare una risposta del pr
 
 Per il bilanciamento del carico UDP, è necessario generare un segnale di probe di integrità personalizzato dall'endpoint back-end e usare un probe di integrità TCP, HTTP o HTTPS destinato al listener corrispondente per riflettere l'integrità dell'applicazione UDP.
 
-Quando si usano [regole di bilanciamento del carico per porte a disponibilità elevata](load-balancer-ha-ports-overview.md) con [Load Balancer Standard](load-balancer-standard-overview.md), viene eseguito il bilanciamento del carico di tutte le porte e una singola risposta del probe di integrità deve riflettere lo stato dell'intera istanza.
+Quando si usano [regole di bilanciamento del carico per porte a disponibilità elevata](load-balancer-ha-ports-overview.md) con [Load Balancer Standard](./load-balancer-overview.md), viene eseguito il bilanciamento del carico di tutte le porte e una singola risposta del probe di integrità deve riflettere lo stato dell'intera istanza.
 
 Bon inviare mediante NAT o proxy un probe di integrità tramite l'istanza che riceve il probe di integrità a un'altra istanza nella rete virtuale, perché questa configurazione può causare errori a catena nello scenario.  Si consideri lo scenario seguente: un set di appliance di terze parti viene distribuito nel pool di back-end di una risorsa di Load Balancer per offrire scalabilità e ridondanza per le appliance; il probe di integrità è configurato per eseguire il probe di una porta usata come proxy dall'appliance di terze parti o convertita da quest'ultima ad altre macchine virtuali dietro il dispositivo.  Se si esegue il probe della stessa porta in uso per la conversione o per le richieste di proxy alle altre macchine virtuali dietro l'appliance, ogni risposta di probe da una singola macchina virtuale dietro l'appliance contrassegnerà quest'ultima come inattiva. Questa configurazione può causare un errore a catena dell'intero scenario dell'applicazione in seguito a un singolo endpoint back-end dietro l'appliance.  Il trigger può essere un errore intermittente del probe che farà sì che Load Balancer contrassegni come inattiva la destinazione originale, ovvero l'istanza dell'appliance, rischiando di disabilitare di conseguenza lo scenario dell'intera applicazione. Eseguire invece il probe dell'integrità dell'appliance stessa. La selezione del probe per determinare il segnale di integrità è una considerazione importante per gli scenari con appliance virtuali di rete ed è necessario consultare il fornitore dell'applicazione per informazioni sulle opzioni di segnali di integrità disponibili per tali scenari.
 
 Se non si consente l'[indirizzo IP di origine](#probesource) nei criteri firewall, il probe di integrità avrà esito negativo, perché non sarà in grado di raggiungere l'istanza.  A sua volta, Load Balancer contrassegnerà l'istanza come inattiva a causa dell'errore del probe di integrità.  Questo errore di configurazione può causare un esito negativo nello scenario dell'applicazione con bilanciamento di carico.
 
-Per consentire al probe di integrità di Load Balancer di contrassegnare l'istanza come attiva, è **necessario** autorizzare questo indirizzo IP in tutti i criteri firewall locali e i [gruppi di sicurezza di rete](../virtual-network/security-overview.md) di Azure.  Per impostazione predefinita, ogni gruppo di sicurezza di rete include il [tag del servizio](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer per consentire il traffico del probe di integrità.
+Per consentire al probe di integrità di Load Balancer di contrassegnare l'istanza come attiva, è **necessario** autorizzare questo indirizzo IP in tutti i criteri firewall locali e i [gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md) di Azure.  Per impostazione predefinita, ogni gruppo di sicurezza di rete include il [tag del servizio](../virtual-network/network-security-groups-overview.md#service-tags) AzureLoadBalancer per consentire il traffico del probe di integrità.
 
-Se si vuole testare un errore del probe di integrità o contrassegnare una singola istanza come inattiva, è possibile usare un [gruppo di sicurezza di rete](../virtual-network/security-overview.md) per bloccare esplicitamente il probe di integrità (porta di destinazione o [indirizzo IP di origine](#probesource)) e simulare l'esito negativo di un probe.
+Se si vuole testare un errore del probe di integrità o contrassegnare una singola istanza come inattiva, è possibile usare un [gruppo di sicurezza di rete](../virtual-network/network-security-groups-overview.md) per bloccare esplicitamente il probe di integrità (porta di destinazione o [indirizzo IP di origine](#probesource)) e simulare l'esito negativo di un probe.
 
 Evitare di configurare la rete virtuale con l'intervallo di indirizzi IP di proprietà di Microsoft, che contiene 168.63.129.16.  Tali configurazioni entreranno in conflitto con l'indirizzo IP del probe di integrità e potrebbero causare un esito negativo dello scenario.
 
@@ -251,7 +251,7 @@ Non abilitare i [timestamp TCP](https://tools.ietf.org/html/rfc1323).  L'abilita
 
 ## <a name="monitoring"></a>Monitoraggio
 
-Sia public che Internal [Load Balancer standard](load-balancer-standard-overview.md) espongono lo stato del probe di integrità per endpoint e endpoint back-end come metriche multidimensionali tramite monitoraggio di Azure. Queste metriche possono essere utilizzate da altri servizi di Azure o da applicazioni partner. 
+Sia public che Internal [Load Balancer standard](./load-balancer-overview.md) espongono lo stato del probe di integrità per endpoint e endpoint back-end come metriche multidimensionali tramite monitoraggio di Azure. Queste metriche possono essere utilizzate da altri servizi di Azure o da applicazioni partner. 
 
 Il Load Balancer pubblico di base espone lo stato del probe di integrità per ogni pool back-end tramite log di monitoraggio di Azure.  I log di monitoraggio di Azure non sono disponibili per i bilanciamenti del carico di base interni.  È possibile usare i [log di monitoraggio di Azure](load-balancer-monitor-log.md) per verificare lo stato di integrità e il numero di probe del servizio di bilanciamento del carico pubblico. La registrazione può essere usata con Power BI o Azure Operational Insights per fornire statistiche sullo stato di integrità del servizio di bilanciamento del carico.
 
@@ -262,7 +262,7 @@ Il Load Balancer pubblico di base espone lo stato del probe di integrità per og
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [Load Balancer standard](load-balancer-standard-overview.md)
+- Altre informazioni su [Load Balancer standard](./load-balancer-overview.md)
 - [Introduzione alla creazione di un servizio di bilanciamento del carico pubblico in Resource Manager con PowerShell](quickstart-load-balancer-standard-public-powershell.md)
-- [API REST per i probe di integrità](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
+- [API REST per i probe di integrità](/rest/api/load-balancer/loadbalancerprobes/)
 - Richiedere nuove funzionalità dei probe di integrità con [Uservoice di Load Balancer](https://aka.ms/lbuservoice)

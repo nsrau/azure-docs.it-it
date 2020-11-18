@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 97fdf55032e92585d723b54e21079098cdc19636
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 75226f92995794221635ced7ee0e285ac824b6e2
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735914"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696864"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Creare un servizio di bilanciamento del carico pubblico con IPv6 tramite l'interfaccia della riga di comando di Azure
 
@@ -48,17 +48,17 @@ La procedura seguente illustra come creare un servizio di bilanciamento del cari
 
 Per distribuire un servizio di bilanciamento del carico, creare e configurare gli oggetti seguenti:
 
-* **Configurazione di IP front-end** : contiene gli indirizzi IP pubblici per il traffico di rete in ingresso.
-* **Pool di indirizzi back-end** : contiene le interfacce di rete (NIC) per le macchine virtuali per la ricezione del traffico di rete dal servizio di bilanciamento del carico.
-* **Regole di bilanciamento del carico** : contiene le regole che eseguono il mapping di una porta pubblica sul servizio di bilanciamento del carico a una porta nel pool di indirizzi back-end.
-* **Regole NAT in ingresso** : contiene le regole NAT (Network Address Translation) che eseguono il mapping di una porta pubblica sul servizio di bilanciamento del carico a una porta per una macchina virtuale specifica nel pool di indirizzi back-end.
-* **Probe** : contiene i probe di integrità usati per verificare la disponibilità di istanze di macchine virtuali nel pool di indirizzi back-end.
+* **Configurazione di IP front-end**: contiene gli indirizzi IP pubblici per il traffico di rete in ingresso.
+* **Pool di indirizzi back-end**: contiene le interfacce di rete (NIC) per le macchine virtuali per la ricezione del traffico di rete dal servizio di bilanciamento del carico.
+* **Regole di bilanciamento del carico**: contiene le regole che eseguono il mapping di una porta pubblica sul servizio di bilanciamento del carico a una porta nel pool di indirizzi back-end.
+* **Regole NAT in ingresso**: contiene le regole NAT (Network Address Translation) che eseguono il mapping di una porta pubblica sul servizio di bilanciamento del carico a una porta per una macchina virtuale specifica nel pool di indirizzi back-end.
+* **Probe**: contiene i probe di integrità usati per verificare la disponibilità di istanze di macchine virtuali nel pool di indirizzi back-end.
 
 ## <a name="set-up-azure-cli"></a>Configurare l'interfaccia della riga di comando di Azure
 
 In questo esempio gli strumenti dell'interfaccia della riga di comando di Azure vengono eseguiti in una finestra di comando di PowerShell. Per migliorare la leggibilità e il riutilizzo non vengono usati i cmdlet di Azure PowerShell, ma le funzionalità di script di PowerShell.
 
-1. [Installare e configurare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) seguendo la procedura riportata nell'articolo collegato e accedere all'account di Azure.
+1. [Installare e configurare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) seguendo la procedura riportata nell'articolo collegato e accedere all'account di Azure.
 
 2. Configurare le variabili di PowerShell per l'uso con i comandi dell'interfaccia della riga di comando di Azure:
 
@@ -122,7 +122,7 @@ In questo esempio gli strumenti dell'interfaccia della riga di comando di Azure 
     > [!IMPORTANT]
     > Il servizio di bilanciamento del carico usa l'etichetta di dominio dell'indirizzo IP pubblico come nome di dominio completo. Si tratta di una differenza rispetto alla distribuzione classica, che usa il nome del servizio cloud come nome di dominio completo del servizio di bilanciamento del carico.
     >
-    > In questo esempio, il nome di dominio completo è *contoso09152016.southcentralus.cloudapp.azure.com* .
+    > In questo esempio, il nome di dominio completo è *contoso09152016.southcentralus.cloudapp.azure.com*.
 
 ## <a name="create-front-end-and-back-end-pools"></a>Creare pool front-end e back-end
 
@@ -284,7 +284,7 @@ Per creare le macchine virtuali è necessario un account di archiviazione. Per i
     ```
 
     > [!WARNING]
-    > Questo esempio usa il nome utente e la password per le macchine virtuali in testo non crittografato. Prestare attenzione quando si usano queste credenziali come testo non crittografato. Per un metodo più sicuro per gestire le credenziali in PowerShell, vedere il [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
+    > Questo esempio usa il nome utente e la password per le macchine virtuali in testo non crittografato. Prestare attenzione quando si usano queste credenziali come testo non crittografato. Per un metodo più sicuro per gestire le credenziali in PowerShell, vedere il [`Get-Credential`](/powershell/module/microsoft.powershell.security/get-credential) cmdlet.
 
 2. Creare il set di disponibilità:
 
@@ -299,5 +299,3 @@ Per creare le macchine virtuali è necessario un account di archiviazione. Per i
 
     az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
-
-

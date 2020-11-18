@@ -7,19 +7,19 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 05/7/2020
 ms.author: errobin
-ms.openlocfilehash: b75c85b85674def84d9fcee62549a6458abf9174
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 516576f4e005cc9fe2303945ecb1a13489908a5d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684842"
+ms.locfileid: "94696354"
 ---
 # <a name="troubleshooting-outbound-connections-failures"></a><a name="obconnecttsg"></a> Risoluzione degli errori delle connessioni in uscita
 
 Questo articolo ha lo scopo di fornire risoluzioni per i problemi comuni che possono verificarsi con le connessioni in uscita da un Azure Load Balancer. La maggior parte dei problemi con la connettività in uscita che i clienti riscontrano sono dovuti all'esaurimento delle porte SNAT e ai timeout di connessione che portano a pacchetti eliminati. Questo articolo illustra la procedura per attenuare ognuno di questi problemi.
 
 ## <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a> Gestione dell'esaurimento delle porte SNAT (PAT)
-Le [porte](load-balancer-outbound-connections.md) temporanee usate per [Pat](load-balancer-outbound-connections.md) sono una risorsa esauribile, come descritto in [macchina virtuale autonoma senza un indirizzo IP pubblico](load-balancer-outbound-connections.md) e una [macchina virtuale con carico bilanciato senza indirizzo IP pubblico](load-balancer-outbound-connections.md). È possibile monitorare l'utilizzo delle porte temporanee e confrontarsi con l'allocazione corrente per determinare il rischio di o per confermare l'esaurimento SNAT con [questa](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guida.
+Le [porte](load-balancer-outbound-connections.md) temporanee usate per [Pat](load-balancer-outbound-connections.md) sono una risorsa esauribile, come descritto in [macchina virtuale autonoma senza un indirizzo IP pubblico](load-balancer-outbound-connections.md) e una [macchina virtuale con carico bilanciato senza indirizzo IP pubblico](load-balancer-outbound-connections.md). È possibile monitorare l'utilizzo delle porte temporanee e confrontarsi con l'allocazione corrente per determinare il rischio di o per confermare l'esaurimento SNAT con [questa](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) guida.
 
 Sono disponibili diverse opzioni di mitigazione generali, se si è certi che verranno avviate numerose connessioni in uscita TCP o UDP allo stesso indirizzo IP e alla stessa porta di destinazione e se si riscontrano connessioni in uscita con errore o se il supporto tecnico ha comunicato il possibile esaurimento delle porte SNAT ([porte temporanee](load-balancer-outbound-connections.md#preallocatedports) preallocate usate da [PAT](load-balancer-outbound-connections.md)). Esaminare queste opzioni e scegliere quella disponibile e ottimale per lo scenario specifico. È possibile che una o più opzioni risultino utili per gestire questo scenario.
 

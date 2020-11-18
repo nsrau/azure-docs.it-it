@@ -1,22 +1,22 @@
 ---
 title: Configurare un ambiente di sviluppo Python
 titleSuffix: Azure Machine Learning
-description: Informazioni su come configurare un ambiente di sviluppo Python per Azure Machine Learning. Usare ambienti conda, creare file di configurazione e configurare il proprio server notebook basato sul cloud, notebook Jupyter, Azure Databricks, IDE, editor di codice e la Data Science Virtual Machine.
+description: Configurare Azure Machine Learning ambienti di sviluppo Python in Jupyter notebook, Visual Studio Code, Azure Databricks e macchine virtuali di Data Science.
 services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 09/30/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 451ad33a9d041635c3f51e323539b423378d02d1
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 03d10f71b585090157eff164cc98246f50608fe1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422903"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94695368"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo Python per Azure Machine Learning
 
@@ -24,7 +24,7 @@ Informazioni su come configurare un ambiente di sviluppo Python per Azure Machin
 
 La tabella seguente illustra tutti gli ambienti di sviluppo trattati in questo articolo, oltre a vantaggi e svantaggi.
 
-| Environment | Vantaggi | Svantaggi |
+| Ambiente | Vantaggi | Svantaggi |
 | --- | --- | --- |
 | [Ambiente locale](#local) | Controllo completo dell'ambiente di sviluppo e delle dipendenze. Eseguire con qualsiasi strumento di compilazione, ambiente o IDE di propria scelta. | Per iniziare, è necessario più tempo. È necessario installare i pacchetti SDK necessari ed è necessario installare anche un ambiente, se non è già presente. |
 | [Il Data Science Virtual Machine (DSVM)](#dsvm) | Analogamente all'istanza di calcolo basata sul cloud (Python e SDK sono preinstallati), ma con gli strumenti di data science e di apprendimento automatico più diffusi pre-installati. Facile da scalare e combinare con altri strumenti e flussi di lavoro personalizzati. | Un'esperienza introduttiva più lenta rispetto all'istanza di calcolo basata sul cloud. |
@@ -61,7 +61,7 @@ Creare un file di configurazione dell'area di lavoro in uno dei metodi seguenti:
 
 * Portale di Azure
 
-    **Scaricare il file** : nella [portale di Azure](https://ms.portal.azure.com)Selezionare  **Scarica config.js** da nella sezione **Panoramica** dell'area di lavoro.
+    **Scaricare il file**: nella [portale di Azure](https://ms.portal.azure.com)Selezionare  **Scarica config.js** da nella sezione **Panoramica** dell'area di lavoro.
 
     ![Portale di Azure](./media/how-to-configure-environment/configure.png)
 

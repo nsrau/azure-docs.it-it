@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 8bdc9d588e89f498b973db7d1de299b0b26a3d02
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 974418a1b3c1e7fe93b2f6839c16169e5bd5abc5
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655732"
+ms.locfileid: "94697000"
 ---
 # <a name="step-3-validate-connectivity"></a>PASSAGGIO 3: convalidare la connettività
 
@@ -44,7 +44,7 @@ Tenere presente che potrebbero essere necessari circa 20 minuti prima che i log 
 1. Eseguire lo script seguente sul server d'avvio del log, applicando l'ID dell'area di lavoro al posto del segnaposto, per verificare la connettività tra la soluzione di sicurezza, il server d'avvio e Azure Sentinel. Questo script verifica che il daemon sia in ascolto sulle porte corrette, che l'invio sia configurato correttamente e che nulla blocchi la comunicazione tra il daemon e l'agente di Log Analytics. Invia anche i messaggi fittizi ' TestCommonEventFormat ' per controllare la connettività end-to-end. <br>
 
     ```bash
-    sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
+    sudo wget -O https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
     ```
 
    - È possibile che venga ricevuto un messaggio che indica di eseguire un comando per correggere un problema relativo al **mapping del campo del *computer***. Per informazioni dettagliate, vedere la [spiegazione nello script di convalida](#mapping-command) .
@@ -245,6 +245,7 @@ Lo script di convalida esegue i controlli seguenti:
 ---
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 In questo documento si è appreso come connettere Appliance CEF ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](./tutorial-detect-threats-built-in.md).
