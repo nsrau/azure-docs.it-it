@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: cfa6dcb0b1fc173bdf3612308227b8309491e9fa
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2953f85a5c21cdd670d6e133d09ffacf06f178ef
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312734"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842703"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurare il collegamento privato di Azure per un'area di lavoro Azure Machine Learning
 
@@ -39,7 +39,7 @@ L'uso di un'area di lavoro Azure Machine Learning con collegamento privato non Ã
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Creare un'area di lavoro che usa un endpoint privato
 
-Usare uno dei metodi seguenti per creare un'area di lavoro con un endpoint privato. Ognuno di questi metodi __richiede una rete virtuale esistente__ :
+Usare uno dei metodi seguenti per creare un'area di lavoro con un endpoint privato. Ognuno di questi metodi __richiede una rete virtuale esistente__:
 
 > [!TIP]
 > Se si desidera creare contemporaneamente un'area di lavoro, un endpoint privato e una rete virtuale, vedere [usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning](how-to-create-workspace-template.md).
@@ -115,8 +115,8 @@ az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint
 
 Dall'area di lavoro Azure Machine Learning nel portale selezionare __connessioni endpoint privato__ e quindi selezionare __+ endpoint privato__. Usare i campi per creare un nuovo endpoint privato.
 
-* Quando si seleziona l' __area__ , selezionare la stessa area della rete virtuale. 
-* Quando si seleziona il __tipo di risorsa__ , utilizzare __Microsoft. MachineLearningServices/Workspaces__. 
+* Quando si seleziona l' __area__, selezionare la stessa area della rete virtuale. 
+* Quando si seleziona il __tipo di risorsa__, utilizzare __Microsoft. MachineLearningServices/Workspaces__. 
 * Impostare la __risorsa__ sul nome dell'area di lavoro.
 
 Infine, selezionare __Crea__ per creare l'endpoint privato.
@@ -146,7 +146,7 @@ L' [estensione dell'interfaccia della riga di comando di Azure per Machine Learn
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Dall'area di lavoro Azure Machine Learning nel portale selezionare __connessioni a endpoint privati__ , quindi selezionare l'endpoint che si vuole rimuovere. Infine, selezionare __Rimuovi__.
+Dall'area di lavoro Azure Machine Learning nel portale selezionare __connessioni a endpoint privati__, quindi selezionare l'endpoint che si vuole rimuovere. Infine, selezionare __Rimuovi__.
 
 ---
 

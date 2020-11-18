@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 82220a63cfe470344951e4276bc9eaccd9600428
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8bfe6f07fead700ae71bba1c28ccb13aa700513c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677348"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842771"
 ---
 # <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Ottimizza Azure Data Lake Storage Gen2 per le prestazioni
 
@@ -57,7 +57,7 @@ Quando i dati vengono archiviati in Data Lake Storage Gen2, le dimensioni dei fi
 
 I motori di analisi come HDInsight e Azure Data Lake Analytics in genere gestiscono il sovraccarico a livello di singolo file. Se quindi si archiviano i dati in molti file di piccole dimensioni, questo può influire negativamente sulle prestazioni. Per ottenere prestazioni migliori, è in genere opportuno organizzare i dati in file di dimensioni più grandi (da 256 MB a 100 GB). Alcuni motori e applicazioni potrebbero riscontrare problemi nell'elaborazione dei file di dimensioni superiori a 100 GB.
 
-Le pipeline di dati hanno talvolta un controllo limitato sui dati non elaborati costituiti da molti file di piccole dimensioni. È pertanto consigliabile prevedere l'esecuzione di un processo che genera file di maggiori dimensioni destinati all'uso da parte delle applicazioni downstream.
+Le pipeline di dati hanno talvolta un controllo limitato sui dati non elaborati costituiti da molti file di piccole dimensioni. In generale, è consigliabile che il sistema disponga di una sorta di processo per aggregare piccoli file in quelli più grandi per l'uso da parte delle applicazioni downstream.
 
 ### <a name="organizing-time-series-data-in-folders"></a>Organizzazione dei dati di serie temporali in cartelle
 

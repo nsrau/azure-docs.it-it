@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc39c1e43580c5cf302e85664783dba4509889af
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88002289"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842635"
 ---
 # <a name="security-best-practices"></a>Procedure consigliate per la sicurezza
 
@@ -70,7 +70,7 @@ Desktop virtuale Windows include molti controlli di sicurezza integrati. In ques
 
 ### <a name="require-multi-factor-authentication"></a>Richiedi autenticazione a più fattori
 
-La richiesta dell'autenticazione a più fattori per tutti gli utenti e gli amministratori in Desktop virtuale Windows migliora la sicurezza dell'intera distribuzione. Per altre informazioni, vedere [Abilitare l'autenticazione a più fattori di Azure per Desktop virtuale Windows](set-up-mfa.md).
+La richiesta dell'autenticazione a più fattori per tutti gli utenti e gli amministratori in Desktop virtuale Windows migliora la sicurezza dell'intera distribuzione. Per altre informazioni, vedere [abilitare Azure AD multi-factor authentication per desktop virtuale di Windows](set-up-mfa.md).
 
 ### <a name="enable-conditional-access"></a>Abilitare l'accesso condizionale
 
