@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8e345b27fdb2604c0c3264d6935cb9cff8aeec9c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372481"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656735"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Pianificare un Azure Active Directory la distribuzione di app personali
 
@@ -54,10 +54,10 @@ Azure AD le mie app sono utili per le aziende nei modi seguenti:
 
 Le mie app sono gratuite e non richiedono licenze da usare a livello di base. Tuttavia, il numero di oggetti nella directory e le funzionalità aggiuntive che si desidera distribuire possono richiedere licenze aggiuntive. Alcuni scenari comuni di Azure AD con requisiti di licenza includono le funzionalità di sicurezza seguenti:
 
-* [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-* [Appartenenza basata sui gruppi](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-* [Reimpostazione della password self-service](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-* [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+* [Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [Appartenenza basata sui gruppi](../fundamentals/active-directory-manage-groups.md)
+* [Reimpostazione della password self-service](../authentication/tutorial-enable-sspr.md)
+* [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
 
 Vedere la [Guida completa alle licenze per Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -65,8 +65,8 @@ Vedere la [Guida completa alle licenze per Azure ad](https://azure.microsoft.com
 
 Prima di iniziare questo progetto, completare i prerequisiti seguenti:
 
-* [Integra applicazione SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-* [Gestire Azure AD infrastruttura di utenti e gruppi](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
+* [Integra applicazione SSO](./plan-sso-deployment.md)
+* [Gestire Azure AD infrastruttura di utenti e gruppi](../fundamentals/active-directory-manage-groups.md)
 
 ## <a name="plan-azure-ad-my-apps-deployment"></a>Pianificare Azure AD la distribuzione di app personali
 
@@ -74,11 +74,11 @@ La tabella seguente descrive i casi d'uso principali per la distribuzione di app
 
 | Area| Descrizione |
 | - | - |
-| Accesso| Il portale delle app è accessibile da dispositivi aziendali e personali all'interno della rete aziendale. |
-|Accesso | Il portale delle app è accessibile dai dispositivi aziendali all'esterno della rete aziendale. |
+| Access| Il portale delle app è accessibile da dispositivi aziendali e personali all'interno della rete aziendale. |
+|Access | Il portale delle app è accessibile dai dispositivi aziendali all'esterno della rete aziendale. |
 | Controllo| I dati di utilizzo vengono scaricati nei sistemi aziendali almeno ogni 29 giorni. |
 | Governance| Il ciclo di vita delle assegnazioni degli utenti a gruppi e applicazioni connesse Azure AD viene definito e monitorato. |
-| Security| L'accesso alle risorse viene controllato tramite le assegnazioni di utenti e gruppi. Solo gli utenti autorizzati possono gestire l'accesso alle risorse. |
+| Sicurezza| L'accesso alle risorse viene controllato tramite le assegnazioni di utenti e gruppi. Solo gli utenti autorizzati possono gestire l'accesso alle risorse. |
 | Prestazioni| Le sequenze temporali di propagazione dell'assegnazione di accesso vengono documentate e monitorate |
 | Esperienza dell'utente| Gli utenti sono a conoscenza delle funzionalità delle app e di come usarle.|
 | Esperienza dell'utente| Gli utenti possono gestire l'accesso alle applicazioni e ai gruppi.|
@@ -166,23 +166,23 @@ Per un'esperienza ottimale con la pagina App personali, iniziare con l'integrazi
 
 Usare SSO federato con Azure AD (OpenID Connect/SAML) quando un'applicazione la supporta, anziché SSO basato su password e ADFS.
 
-Per altre informazioni su come distribuire e configurare le applicazioni SaaS, vedere il [piano di distribuzione SSO Saas](https://aka.ms/deploymentplans/sso).
+Per altre informazioni su come distribuire e configurare le applicazioni SaaS, vedere il [piano di distribuzione SSO Saas](./plan-sso-deployment.md).
 
 #### <a name="plan-to-deploy-the-my-apps-browser-extension"></a>Pianificare la distribuzione dell'estensione del browser My Apps
 
-Quando gli utenti accedono alle applicazioni SSO basate su password, devono installare e usare l'estensione per l'accesso sicuro alle app personali. L'estensione esegue uno script che trasmette la password al modulo di accesso dell'applicazione. Agli utenti viene richiesto di installare l'estensione quando avviano per la prima volta l'applicazione SSO basata su password. Altre informazioni sull'estensione sono disponibili in questa documentazione sull' [installazione dell'estensione del browser app personali](access-panel-extension-problem-installing.md).
+Quando gli utenti accedono alle applicazioni SSO basate su password, devono installare e usare l'estensione per l'accesso sicuro alle app personali. L'estensione esegue uno script che trasmette la password al modulo di accesso dell'applicazione. Agli utenti viene richiesto di installare l'estensione quando avviano per la prima volta l'applicazione SSO basata su password. Altre informazioni sull'estensione sono disponibili in questa documentazione sull' [installazione dell'estensione del browser app personali]().
 
-Se è necessario integrare applicazioni SSO basate su password, è necessario definire un meccanismo per distribuire l'estensione su larga scala con i [browser supportati](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Le opzioni includono:
+Se è necessario integrare applicazioni SSO basate su password, è necessario definire un meccanismo per distribuire l'estensione su larga scala con i [browser supportati](../user-help/my-apps-portal-end-user-access.md). Le opzioni includono:
 
-* [Criteri di gruppo per Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-* [Configuration Manager per Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-* [Download e configurazione basati sull'utente per Chrome, Firefox, Microsoft Edge o IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* [Criteri di gruppo per Internet Explorer]()
+* [Configuration Manager per Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Download e configurazione basati sull'utente per Chrome, Firefox, Microsoft Edge o IE](../user-help/my-apps-portal-end-user-access.md)
 
 Anche gli utenti che non usano applicazioni SSO basate su password traggono vantaggio dall'estensione. Questi vantaggi includono la possibilità di avviare qualsiasi app dalla relativa barra di ricerca, trovare l'accesso alle applicazioni utilizzate di recente e avere un collegamento alla pagina App personali.
 
 #### <a name="plan-for-mobile-access"></a>Pianificare l'accesso mobile
 
-Un browser protetto con i criteri di Intune (Microsoft Edge o Intune Managed Browser) è necessario per gli utenti mobili che avviano applicazioni SSO basate su password. Un browser protetto da criteri consente di trasferire la password salvata per l'applicazione. Microsoft Edge o Managed browser fornisce un set di funzionalità di protezione dei dati Web. È anche possibile usare Microsoft Edge per gli scenari aziendali nei dispositivi iOS e Android. Microsoft Edge supporta gli stessi scenari di gestione del Intune Managed Browser e migliora l'esperienza utente. Altre informazioni: [gestire l'accesso Web usando un browser protetto da criteri Microsoft Intune](https://docs.microsoft.com/intune/app-configuration-managed-browser).
+Un browser protetto con i criteri di Intune (Microsoft Edge o Intune Managed Browser) è necessario per gli utenti mobili che avviano applicazioni SSO basate su password. Un browser protetto da criteri consente di trasferire la password salvata per l'applicazione. Microsoft Edge o Managed browser fornisce un set di funzionalità di protezione dei dati Web. È anche possibile usare Microsoft Edge per gli scenari aziendali nei dispositivi iOS e Android. Microsoft Edge supporta gli stessi scenari di gestione del Intune Managed Browser e migliora l'esperienza utente. Altre informazioni: [gestire l'accesso Web usando un browser protetto da criteri Microsoft Intune](/intune/app-configuration-managed-browser).
 
 ## <a name="plan-your-my-apps-deployment"></a>Pianificare la distribuzione delle app personali
 
@@ -248,7 +248,7 @@ Per il controllo, la creazione di report e i backup di ripristino di emergenza, 
 
 Dopo la configurazione di un'applicazione per SSO, ai gruppi viene assegnato l'accesso. Gli utenti dei gruppi assegnati avranno accesso e vedranno l'applicazione nelle app personali e nell'utilità di avvio dell'app Microsoft 365.
 
-Vedere [assegnare utenti e gruppi a un'applicazione in Active Directory](methods-for-assigning-users-and-groups.md).
+Vedere [assegnare utenti e gruppi a un'applicazione in Active Directory](./assign-user-or-group-access-portal.md).
 
 Se durante il test o la distribuzione si vuole aggiungere i gruppi ma non consentire le applicazioni da visualizzare nelle app personali, vedere [nascondere un'applicazione dall'esperienza utente in Azure Active Directory](hide-application-from-user-portal.md).
 
@@ -294,7 +294,7 @@ I test seguenti devono essere eseguiti con i dispositivi di proprietà dell'azie
 
 ### <a name="rollback-steps"></a>Procedura di ripristino dello stato precedente
 
-È importante pianificare le operazioni da eseguire se la distribuzione non viene completata come previsto. Se la configurazione SSO ha esito negativo durante la distribuzione, è necessario comprendere come [risolvere i problemi relativi a SSO](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) e ridurre l'effetto sugli utenti. In casi estremi, potrebbe essere necessario eseguire il [rollback di SSO](../manage-apps/plan-sso-deployment.md#rollback-process).
+È importante pianificare le operazioni da eseguire se la distribuzione non viene completata come previsto. Se la configurazione SSO ha esito negativo durante la distribuzione, è necessario comprendere come [risolvere i problemi relativi a SSO](../hybrid/tshoot-connect-sso.md) e ridurre l'effetto sugli utenti. In casi estremi, potrebbe essere necessario eseguire il [rollback di SSO](../manage-apps/plan-sso-deployment.md#rollback-process).
 
 
 ## <a name="manage-your-implementation"></a>Gestire l'implementazione
@@ -303,13 +303,13 @@ Utilizzare il ruolo con privilegi minimi per eseguire un'attività obbligatoria 
 
 | Utenti tipo| Ruoli| Ruolo di Azure AD  |
 | - | -| -|
-| Amministratore helpdesk| Supporto di livello 1| nessuno |
+| Amministratore helpdesk| Supporto di livello 1| Nessuno |
 | Amministratore identità| Configurare ed eseguire il debug quando i problemi hanno effetto Azure AD| Amministratore globale |
-| Amministratore applicazione| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| nessuno |
+| Amministratore applicazione| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| Nessuno |
 | Amministratori dell'infrastruttura| Proprietario del rollover del certificato| Amministratore globale |
-| Proprietario/stakeholder aziendale| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| nessuno |
+| Proprietario/stakeholder aziendale| Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni| Nessuno |
 
 È possibile usare [Privileged Identity Management](../privileged-identity-management/pim-configure.md) per gestire i ruoli per fornire controllo, controllo e verifica di accesso aggiuntivi per gli utenti con autorizzazioni di directory.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Pianificare una distribuzione di Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)
+[Pianificare una distribuzione di Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

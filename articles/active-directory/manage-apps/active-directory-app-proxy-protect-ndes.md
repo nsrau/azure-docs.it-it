@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: a385a339122197b7055ef6f54b8e37edea8eae4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0682115727068c928418d97fbf92ed32897c39d4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88078938"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656752"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Eseguire l'integrazione con Azure AD proxy di applicazione in un server del servizio Registrazione dispositivi di rete (registrazione dispositivi)
 
@@ -26,7 +26,7 @@ Il proxy dell'applicazione Azure Active Directory (AD) consente di pubblicare ap
 
 Se non si ha familiarità con Azure AD proxy di applicazione e si desidera ottenere altre informazioni, vedere [accesso remoto alle applicazioni locali tramite Azure ad proxy di applicazione](application-proxy.md).
 
-Azure AD proxy di applicazione si basa su Azure. Offre una notevole quantità di larghezza di banda di rete e di infrastruttura server per una migliore protezione contro gli attacchi di tipo Denial of Service (DDOS) distribuiti e una disponibilità eccezionale. Non è inoltre necessario aprire porte del firewall esterne alla rete locale e non è necessario alcun server DMZ. Tutto il traffico è stato originato in ingresso. Per un elenco completo delle porte in uscita, vedere [esercitazione: aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+Azure AD proxy di applicazione si basa su Azure. Offre una notevole quantità di larghezza di banda di rete e di infrastruttura server per una migliore protezione contro gli attacchi di tipo Denial of Service (DDOS) distribuiti e una disponibilità eccezionale. Non è inoltre necessario aprire porte del firewall esterne alla rete locale e non è necessario alcun server DMZ. Tutto il traffico è stato originato in ingresso. Per un elenco completo delle porte in uscita, vedere [esercitazione: aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](./application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 > Azure AD proxy di applicazione è una funzionalità disponibile solo se si usano le edizioni Premium o Basic di Azure Active Directory. Per altre informazioni, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
 > Se si dispone di licenze Enterprise Mobility Suite (EMS), è possibile usare questa soluzione.
@@ -96,4 +96,4 @@ Azure AD proxy di applicazione si basa su Azure. Offre una notevole quantità di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Con il Azure AD proxy di applicazione integrato con registrazione dispositivi, pubblicare le applicazioni per consentire agli utenti di accedere a. Per altre informazioni, vedere [pubblicare applicazioni con Azure ad proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application).
+Con il Azure AD proxy di applicazione integrato con registrazione dispositivi, pubblicare le applicazioni per consentire agli utenti di accedere a. Per altre informazioni, vedere [pubblicare applicazioni con Azure ad proxy di applicazione](./application-proxy-add-on-premises-application.md).

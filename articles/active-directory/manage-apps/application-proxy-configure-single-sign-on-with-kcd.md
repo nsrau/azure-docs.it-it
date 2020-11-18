@@ -12,12 +12,12 @@ ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 860d29d3fff2187e770a5ff00b7145fc188a497c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: e43ad9dedf4212e9b30a08f0c978cb8d1a86776c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426486"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657415"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-sso-to-your-apps-with-application-proxy"></a>Delega vincolata Kerberos per Single Sign-On (SSO) alle app con il proxy di applicazione
 
@@ -42,9 +42,9 @@ Questo diagramma illustra il flusso quando un utente tenta di accedere a un'appl
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare a usare SSO per le applicazioni IWA, verificare che l'ambiente sia pronto con le impostazioni e configurazioni seguenti:
 
-* Le app, ad esempio le app Web SharePoint, devono essere impostate per usare l'autenticazione integrata di Windows. Per altre informazioni, vedere [Attivare il supporto per l'autenticazione Kerberos](https://technet.microsoft.com/library/dd759186.aspx). Per SharePoint, vedere [Pianificare l'autenticazione Kerberos in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
+* Le app, ad esempio le app Web SharePoint, devono essere impostate per usare l'autenticazione integrata di Windows. Per altre informazioni, vedere [Attivare il supporto per l'autenticazione Kerberos](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759186(v=ws.11)). Per SharePoint, vedere [Pianificare l'autenticazione Kerberos in SharePoint 2013](/SharePoint/security-for-sharepoint-server/kerberos-authentication-planning).
 * Tutte le app hanno [nomi di entità servizio](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spns-setspn-syntax-setspn-exe.aspx).
-* Il server che esegue il connettore e il server che esegue l'app devono essere aggiunti a un dominio e appartenere allo stesso dominio o a domini trusting. Per altre informazioni sull'aggiunta a un dominio, vedere [Aggiungere un computer a un dominio](https://technet.microsoft.com/library/dd807102.aspx).
+* Il server che esegue il connettore e il server che esegue l'app devono essere aggiunti a un dominio e appartenere allo stesso dominio o a domini trusting. Per altre informazioni sull'aggiunta a un dominio, vedere [Aggiungere un computer a un dominio](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807102(v=ws.11)).
 * Il server che esegue il connettore deve avere accesso in lettura all'attributo TokenGroupsGlobalAndUniversal per gli utenti. Questa impostazione predefinita potrebbe essere interessata dalla protezione avanzata dell'ambiente.
 
 ### <a name="configure-active-directory"></a>Configurare Active Directory
@@ -53,7 +53,7 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
 #### <a name="connector-and-application-server-in-the-same-domain"></a>Connettore e server applicazione nello stesso dominio
 1. In Active Directory passare a **strumenti**  >  **utenti e computer**.
 2. Selezionare il server che esegue il connettore.
-3. Fare clic con il pulsante **Properties**destro del mouse e scegliere  >  **delega**proprietà.
+3. Fare clic con il pulsante **Properties** destro del mouse e scegliere  >  **delega** proprietà.
 4. Selezionare **Computer attendibile per la delega solo ai servizi specificati**. 
 5. Selezionare **Utilizza un qualsiasi protocollo di autenticazione**.
 6. In **Servizi ai quali l'account può presentare credenziali delegate** aggiungere il valore per l'identità SPN del server applicazioni. In questo modo il connettore proxy di applicazione può rappresentare gli utenti in AD nei confronti delle applicazioni definite nell'elenco.
@@ -61,7 +61,7 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
    ![Schermata della finestra delle proprietà per Connector-SVR](./media/application-proxy-configure-single-sign-on-with-kcd/properties.jpg)
 
 #### <a name="connector-and-application-server-in-different-domains"></a>Connettore e server applicazione in domini differenti
-1. Per un elenco dei prerequisiti necessari per usare la delega vincolata Kerberos tra domini, vedere [Delega vincolata Kerberos tra domini](https://technet.microsoft.com/library/hh831477.aspx).
+1. Per un elenco dei prerequisiti necessari per usare la delega vincolata Kerberos tra domini, vedere [Delega vincolata Kerberos tra domini](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477(v=ws.11)).
 2. Utilizzare la `principalsallowedtodelegateto` proprietà dell'account del servizio (computer o account utente di dominio dedicato) dell'applicazione Web per abilitare la delega di autenticazione Kerberos dal proxy di applicazione (connettore). Il server applicazioni viene eseguito nel contesto di `webserviceaccount` e il server di delega è `connectorcomputeraccount` . Eseguire i comandi seguenti in un controller di dominio (che esegue Windows Server 2012 R2 o versione successiva) nel dominio di `webserviceaccount` . Usare nomi flat (non UPN) per entrambi gli account.
 
    Se `webserviceaccount` è un account computer, usare i comandi seguenti:
@@ -153,4 +153,3 @@ In alcuni casi, tuttavia, la richiesta viene inviata correttamente all'applicazi
 
 * [Come configurare un'applicazione proxy dell'applicazione per l'uso della delega vincolata Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Risolvere i problemi che si verificano con il proxy di applicazione](application-proxy-troubleshoot.md)
-

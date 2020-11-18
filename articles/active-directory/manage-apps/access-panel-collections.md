@@ -14,19 +14,19 @@ ms.date: 02/10/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f520141d36726e94dc8d49d7e5aa95bb35d5484
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 967ac34ddb736f58f66639181cdf10e4aaa8ffab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85956237"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656786"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Creare le raccolte nel portale App personali
 
 Gli utenti possono usare il portale app personali per visualizzare e avviare le applicazioni basate sul cloud a cui hanno accesso. Per impostazione predefinita, tutte le applicazioni a cui un utente può accedere sono elencate insieme in un'unica pagina. Per organizzare meglio questa pagina per gli utenti, se si dispone di una licenza Azure AD Premium P1 o P2, è possibile configurare le raccolte. Con una raccolta è possibile raggruppare le applicazioni correlate, ad esempio per ruolo, attività o progetto, e visualizzarle in una scheda separata. Una raccolta applica essenzialmente un filtro alle applicazioni a cui un utente può già accedere, in modo che l'utente veda solo le applicazioni nella raccolta che sono state assegnate.
 
 > [!NOTE]
-> Questo articolo illustra come un amministratore può abilitare e creare raccolte. Per informazioni sull'uso del portale e delle raccolte di app personali da parte dell'utente finale, vedere [Access and use Collections](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
+> Questo articolo illustra come un amministratore può abilitare e creare raccolte. Per informazioni sull'uso del portale e delle raccolte di app personali da parte dell'utente finale, vedere [Access and use Collections](../user-help/my-applications-portal-workspaces.md).
 
 ## <a name="enable-the-latest-my-apps-features"></a>Abilita le funzionalità delle app personali più recenti
 
@@ -34,7 +34,7 @@ Gli utenti possono usare il portale app personali per visualizzare e avviare le 
 
 2. Passare a **Azure Active Directory**  >  **impostazioni utente**.
 
-3. In **anteprime funzionalità utente**selezionare **Gestisci impostazioni anteprima funzionalità utente**.
+3. In **anteprime funzionalità utente** selezionare **Gestisci impostazioni anteprima funzionalità utente**.
 
 4. In **utenti possono usare le funzionalità di anteprima per le app personali**, scegliere una delle opzioni seguenti:
    * **Selezionato** : Abilita le funzionalità per un gruppo specifico. Utilizzare l'opzione **Seleziona un gruppo** per selezionare il gruppo per il quale si desidera abilitare le funzionalità.  
@@ -51,7 +51,7 @@ Per creare una raccolta, è necessario disporre di una licenza Azure AD Premium 
 
 2. Passare a **Azure Active Directory**  >  **applicazioni aziendali**.
 
-3. In **Gestisci**selezionare **raccolte**.
+3. In **Gestisci** selezionare **raccolte**.
 
 4. Selezionare **nuova raccolta**. Nella pagina **nuovo insieme** immettere un **nome** per la raccolta. si consiglia di non usare "raccolta" nel nome. Immettere quindi una **Descrizione**.
 
@@ -83,7 +83,7 @@ I log di controllo registrano le operazioni raccolte di app personali, incluse l
 * Aggiunta di applicazioni self-service (utente finale)
 * Eliminazione di applicazioni self-service (utente finale)
 
-È possibile accedere ai log di controllo nel [portale di Azure](https://portal.azure.com) selezionando **Azure Active Directory**  >  log di controllo delle**applicazioni aziendali**  >  **Audit logs** nella sezione attività. Per **servizio**selezionare **app personali**.
+È possibile accedere ai log di controllo nel [portale di Azure](https://portal.azure.com) selezionando **Azure Active Directory**  >  log di controllo delle **applicazioni aziendali**  >  **Audit logs** nella sezione attività. Per **servizio** selezionare **app personali**.
 
 ## <a name="get-support-for-my-account-pages"></a>Ottenere supporto per le pagine account personali
 
@@ -93,7 +93,7 @@ Se è necessario inviare una richiesta di supporto per un problema con la pagina
 
 * Per i problemi relativi alla **Azure ad pagina "account personale"** , aprire una richiesta di supporto dall'interno del portale di Azure. Passare a **portale di Azure**  >  **Azure Active Directory**  >  **nuova richiesta di supporto**.
 
-* Per i problemi relativi alla pagina **"account personale" di Office** , aprire una richiesta di supporto dall'interfaccia di amministrazione di Microsoft 365. Passare a **Microsoft 365**supporto dell'interfaccia di amministrazione  >  **Support**. 
+* Per i problemi relativi alla pagina **"account personale" di Office** , aprire una richiesta di supporto dall'interfaccia di amministrazione di Microsoft 365. Passare a **Microsoft 365** supporto dell'interfaccia di amministrazione  >  **Support**. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Esperienze per gli utenti finali per le applicazioni in Azure Active Directory](end-user-experiences.md)

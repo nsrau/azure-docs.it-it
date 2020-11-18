@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 090e3f93d025fe87ad5b89a98193574595f3d632
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a39b6973767b72e69a82750ab8d0d487c733eda0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614631"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657109"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurare lo spazio dei nomi aggregato
 
@@ -57,7 +57,7 @@ Dalla portale di Azure caricare la pagina impostazioni **spazio dei nomi** . Da 
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurare l'interfaccia della riga di comando di Azure per la cache HPC di Azure](./az-cli-prerequisites.md).
 
 Quando si usa l'interfaccia della riga di comando di Azure è necessario aggiungere un percorso dello spazio dei nomi quando si crea la destinazione di archiviazione. Per informazioni dettagliate, vedere [aggiungere una nuova destinazione di archiviazione BLOB di Azure](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target) .
 
@@ -119,7 +119,7 @@ Immettere questi valori per ogni percorso dello spazio dei nomi:
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurare l'interfaccia della riga di comando di Azure per la cache HPC di Azure](./az-cli-prerequisites.md).
 
 Quando si usa l'interfaccia della riga di comando di Azure, è necessario aggiungere almeno un percorso dello spazio dei nomi quando si crea la destinazione di archiviazione. Per informazioni dettagliate, vedere [aggiungere una nuova destinazione di archiviazione NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) .
 

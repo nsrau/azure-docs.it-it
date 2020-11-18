@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: b81dfec5e8ee828fba202f14967a4583bde32ed3
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 011071c9aa1722b8f1cf81ec8d9ef88e8d91ea03
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503760"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359052"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Esercitazione: Configurare Hootsuite per il provisioning utenti automatico
 
@@ -49,7 +49,7 @@ Contattare dev.support@hootsuite.com per ottenere un token segreto di lunga dura
 
 ## <a name="step-3-add-hootsuite-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere HootSuite dalla raccolta di applicazioni di Azure AD
 
-Aggiungere Hootsuite dalla raccolta di applicazioni di Azure AD per iniziare a gestire il provisioning in Hootsuite. Se in precedenza è stato configurato HootSuite per SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md). 
+Aggiungere Hootsuite dalla raccolta di applicazioni di Azure AD per iniziare a gestire il provisioning in Hootsuite. Se Hootsuite è stato configurato in precedenza per l'accesso Single Sign-On, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning 
 
@@ -78,17 +78,17 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 3. Selezionare la scheda **Provisioning**. Fare clic su **Inizia**.
 
-    ![Screenshot delle opzioni Gestisci con l'opzione di provisioning denominata.](common/provisioning.png)
+    ![Screenshot delle opzioni disponibili in Gestisci con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
     ![Pannello di avvio](./media/hootsuite-provisioning-tutorial/get-started.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot dell'elenco a discesa modalità di provisioning con l'opzione automatica chiamata.](common/provisioning-automatic.png)
+    ![Screenshot dell'elenco a discesa Modalità di provisioning con l'opzione Automatico evidenziata.](common/provisioning-automatic.png)
 
 5. Nella sezione **Credenziali amministratore** immettere `https://platform.hootsuite.com/scim/v2` in URL tenant. Immettere il valore del token segreto di lunga durata recuperato in precedenza in **Passaggio 2**. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Hootsuite. Se la connessione non riesce, verificare che l'account Hootsuite abbia autorizzazioni di amministratore e riprovare.
 
-    ![Screenshot mostra la finestra di dialogo credenziali amministratore, in cui è possibile immettere il tenant U R L e il token segreto.](./media/hootsuite-provisioning-tutorial/provisioning.png)
+    ![Screenshot che mostra la finestra di dialogo Credenziali amministratore, in cui è possibile immettere l'URL del tenant e il token segreto.](./media/hootsuite-provisioning-tutorial/provisioning.png)
 
 6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
@@ -111,9 +111,9 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
    |name.givenName|string|
    |name.familyName|string|
 
-10. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory gruppi**.
+10. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Groups** (Sincronizza gruppi di Azure Active Directory).
 
-11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a HootSuite nella sezione **mapping** degli attributi. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in HootSuite per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+11. Esaminare gli attributi gruppo sincronizzati da Azure AD a Hootsuite nella sezione **Mapping attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per l'abbinamento con i gruppi in Hootsuite per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
       |Attributo|Type|
       |---|---|
@@ -146,8 +146,8 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 
 ## <a name="change-log"></a>Registro delle modifiche
 
-* 10/22/2020-è stato aggiunto il supporto per gli attributi utente "Name. GIVENAME" e "Name. FamilyName". Gli attributi di estensione personalizzati "organizationIds" e "teamIds" sono stati rimossi per gli utenti.
-Aggiunta del supporto per gli attributi di gruppo "displayName", "members" e "externalId".
+* 22/10/2020: è stato aggiunto il supporto per gli attributi utente "name.givenName" e "name.familyName". Gli attributi di estensione personalizzati "organizationIds" e "teamIds" sono stati rimossi per gli utenti.
+È stato aggiunto il supporto per gli attributi di gruppo "displayName", "members" e "externalId".
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

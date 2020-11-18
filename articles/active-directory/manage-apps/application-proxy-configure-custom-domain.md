@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 6688875385d34fcbece964d43827c6d62ae7ced4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bef120e754c84798b2d1b48f4f00fbb8f5fb3c1d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587770"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656378"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurare domini personalizzati con Azure AD Application Proxy
 
@@ -26,7 +26,7 @@ Quando si pubblica un'applicazione tramite Azure AD Application Proxy, si crea u
 
 Quando possibile, è consigliabile configurare domini personalizzati per le app. Di seguito sono indicati alcuni motivi per cui usare domini personalizzati:
 
-- I collegamenti tra le app funzionano anche all'esterno della rete aziendale. Senza un dominio personalizzato, se l'app contiene collegamenti interni hardcoded a destinazioni all'esterno di Application Proxy e i collegamenti non sono risolvibili esternamente, questi si interrompono. Se gli URL interni ed esterni coincidono, si evita questo problema. Se non si è in grado di usare domini personalizzati, vedere [Redirect hardcoded links for apps published with Azure AD Application Proxy](../application-proxy-link-translation.md) (Reindirizzare i collegamenti hardcoded per le app pubblicate con Azure AD Application Proxy) per altri modi per risolvere questo problema. 
+- I collegamenti tra le app funzionano anche all'esterno della rete aziendale. Senza un dominio personalizzato, se l'app contiene collegamenti interni hardcoded a destinazioni all'esterno di Application Proxy e i collegamenti non sono risolvibili esternamente, questi si interrompono. Se gli URL interni ed esterni coincidono, si evita questo problema. Se non si è in grado di usare domini personalizzati, vedere [Redirect hardcoded links for apps published with Azure AD Application Proxy](./application-proxy-configure-hard-coded-link-translation.md) (Reindirizzare i collegamenti hardcoded per le app pubblicate con Azure AD Application Proxy) per altri modi per risolvere questo problema. 
   
 - Gli utenti possono usufruire di un'esperienza semplificata, perché possono raggiungere l'app con lo stesso URL dall'interno o dall'esterno della rete. Non devono acquisire URL interni ed esterni diversi, né tenere traccia della posizione corrente. 
 

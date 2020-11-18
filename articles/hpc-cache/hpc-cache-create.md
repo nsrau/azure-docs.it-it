@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 867cfa1321106c24354b29ea803a4fb914a6778d
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 77bd5e3b7a258ef83e5de4ec645ea70578fb9dfb
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341381"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657092"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creare una cache HPC di Azure
 
@@ -102,7 +102,7 @@ Al termine dell'operazione di creazione, viene visualizzata una notifica con un 
 
 ## <a name="create-the-cache-with-azure-cli"></a>Creare la cache con l'interfaccia della riga di comando di Azure
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurare l'interfaccia della riga di comando di Azure per la cache HPC di Azure](./az-cli-prerequisites.md).
 
 > [!NOTE]
 > L'interfaccia della riga di comando di Azure attualmente non supporta la creazione di una cache con chiavi di crittografia gestite dal cliente. Usare il portale di Azure.
@@ -132,11 +132,11 @@ nets/<cache_subnet_name>"``
 
   | Dimensioni cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sì         | no          | no          |
-  | 6144 GB    | sì         | sì         | no          |
+  | 3072 GB    | sì         | No          | No          |
+  | 6144 GB    | sì         | sì         | No          |
   | 12288 GB   | sì         | sì         | sì         |
-  | 24576 GB   | no          | sì         | sì         |
-  | 49152 GB   | no          | no          | sì         |
+  | 24576 GB   | No          | sì         | sì         |
+  | 49152 GB   | No          | No          | sì         |
 
   Per informazioni importanti su prezzi, velocità effettiva e come ridimensionare la cache in modo appropriato per il flusso di lavoro, vedere la sezione **impostare la capacità della cache** nella scheda istruzioni del portale.
 
@@ -235,11 +235,11 @@ nets/<cache_subnet_name>"`
 
   | Dimensioni cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sì         | no          | no          |
-  | 6144 GB    | sì         | sì         | no          |
+  | 3072 GB    | sì         | No          | No          |
+  | 6144 GB    | sì         | sì         | No          |
   | 12.288 GB   | sì         | sì         | sì         |
-  | 24.576 GB   | no          | sì         | sì         |
-  | 49.152 GB   | no          | no          | sì         |
+  | 24.576 GB   | No          | sì         | sì         |
+  | 49.152 GB   | No          | No          | sì         |
 
   Per informazioni importanti su prezzi, velocità effettiva e come ridimensionare la cache in modo appropriato per il flusso di lavoro, vedere la sezione **impostare la capacità della cache** nella scheda istruzioni del portale.
 

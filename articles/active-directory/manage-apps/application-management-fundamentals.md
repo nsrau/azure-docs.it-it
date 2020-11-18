@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d32728c1f388e9013b922d1f60d30e65d350bbc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f5aaf4bbff4c093872228d647d3850667fb9777
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642436"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656408"
 ---
 # <a name="application-management-best-practices"></a>Procedure consigliate per la gestione delle applicazioni
 
@@ -30,7 +30,7 @@ Questo articolo contiene indicazioni e procedure consigliate per la gestione del
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>App cloud e consigli Single Sign-On
 | Recommendation | Commenti |
 | --- | --- |
-| Controllare la raccolta di applicazioni Azure AD per le app  | Azure AD dispone di una raccolta che contiene migliaia di applicazioni preintegrate abilitate con Enterprise Single Sign-On (SSO). Per indicazioni sulla configurazione specifiche dell'app, vedere l' [elenco delle esercitazioni sulle app Saas](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).  | 
+| Controllare la raccolta di applicazioni Azure AD per le app  | Azure AD dispone di una raccolta che contiene migliaia di applicazioni preintegrate abilitate con Enterprise Single Sign-On (SSO). Per indicazioni sulla configurazione specifiche dell'app, vedere l' [elenco delle esercitazioni sulle app Saas](../saas-apps/tutorial-list.md).  | 
 | Usa SSO federato basato su SAML  | Quando un'applicazione la supporta, utilizzare SSO federato basato su SAML con Azure AD anziché SSO basato su password e ADFS.  | 
 | Usare SHA-256 per la firma del certificato  | Per impostazione predefinita, Azure AD usa l'algoritmo SHA-256 per firmare la risposta SAML. Usare SHA-256, a meno che l'applicazione non richieda SHA-1 (vedere le [Opzioni di firma del certificato](certificate-signing-options.md) e il [problema di accesso all'applicazione](application-sign-in-problem-application-error.md)).  | 
 | Richiedi assegnazione utente  | Per impostazione predefinita, gli utenti possono accedere alle applicazioni aziendali senza essere loro assegnati. Tuttavia, se l'applicazione espone ruoli o se si vuole che l'applicazione venga visualizzata in app personali di un utente, richiedere l'assegnazione dell'utente. (Vedere [le linee guida per gli sviluppatori per l'integrazione di applicazioni](developer-guidance-for-integrating-applications.md)).  | 
@@ -41,7 +41,7 @@ Questo articolo contiene indicazioni e procedure consigliate per la gestione del
 ## <a name="provisioning-recommendations"></a>Suggerimenti per il provisioning
 | Recommendation | Commenti |
 | --- | --- |
-| Usare le esercitazioni per configurare il provisioning con le app Cloud | Vedere l' [elenco delle esercitazioni sulle app Saas](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/) per istruzioni dettagliate sulla configurazione del provisioning per l'app della raccolta che si vuole aggiungere. |
+| Usare le esercitazioni per configurare il provisioning con le app Cloud | Vedere l' [elenco delle esercitazioni sulle app Saas](../saas-apps/tutorial-list.md) per istruzioni dettagliate sulla configurazione del provisioning per l'app della raccolta che si vuole aggiungere. |
 | Usare i log di provisioning (anteprima) per monitorare lo stato | I [log di provisioning](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) forniscono informazioni dettagliate su tutte le azioni eseguite dal servizio di provisioning, incluso lo stato per i singoli utenti. |
 | Assegnare un gruppo di distribuzione al messaggio di posta elettronica di notifica del provisioning | Per aumentare la visibilità degli avvisi critici inviati dal servizio di provisioning, assegnare un gruppo di distribuzione all'impostazione dei messaggi di posta elettronica di notifica. |
 

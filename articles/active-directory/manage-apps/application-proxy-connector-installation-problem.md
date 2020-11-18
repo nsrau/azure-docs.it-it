@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 7babe23426cafe01cadc7a5557f91896aa9bbae4
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 0b7fee330f93097b561714ecc938eaf3fee8f2b5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108202"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657330"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problemi di installazione del connettore dell'agente proxy dell'applicazione
 
@@ -39,7 +39,7 @@ Quando l'installazione di un connettore non riesce, la causa principale riguarda
 
 **Obiettivo:** Verificare che il computer connettore sia in grado di connettersi all'endpoint di registrazione del proxy di applicazione e alla pagina di accesso di Microsoft.
 
-1.  Sul server del connettore, eseguire un test di porta utilizzando [Telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) o un altro strumento di test della porta per verificare che le porte 443 e 80 siano aperte.
+1.  Sul server del connettore, eseguire un test di porta utilizzando [Telnet](/windows-server/administration/windows-commands/telnet) o un altro strumento di test della porta per verificare che le porte 443 e 80 siano aperte.
 
 2.  Se una di queste porte ha esito negativo, verificare che il firewall o il proxy back-end abbia accesso ai domini e alle porte richiesti. vedere [preparare l'ambiente locale](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
@@ -77,8 +77,8 @@ Verificare l'identificazione personale del certificato client corrente. L'archiv
 I possibili valori di **IsInUserStore** sono **true** e **false**. Il valore **true** indica che il certificato rinnovato automaticamente viene archiviato nel contenitore personale nell'archivio certificati utente del servizio di rete. Il valore **false** indica che il certificato client è stato creato durante l'installazione o la registrazione avviata dal comando Register-AppProxyConnector e viene archiviato nel contenitore personale nell'archivio certificati del computer locale.
 
 Se il valore è **true**, attenersi alla seguente procedura per verificare il certificato:
-1. Scarica [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
-2. Estrarre [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) dal pacchetto ed eseguire **psexec-i-u "NT authority\network Service" cmd.exe** da un prompt dei comandi con privilegi elevati.
+1. Scarica [PsTools.zip](/sysinternals/downloads/pstools)
+2. Estrarre [PsExec](/sysinternals/downloads/psexec) dal pacchetto ed eseguire **psexec-i-u "NT authority\network Service" cmd.exe** da un prompt dei comandi con privilegi elevati.
 3. Eseguire **certmgr. msc** nel prompt dei comandi appena visualizzato
 4. Nella console di gestione espandere il contenitore personale e fare clic su certificati.
 5. Individuare il certificato emesso da **connectorregistrationca.msappproxy.NET**
@@ -101,7 +101,7 @@ Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
 
-Per altre informazioni sul comando Register-AppProxyConnector, vedere [creare uno script di installazione automatica per il connettore del proxy di applicazione Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
+Per altre informazioni sul comando Register-AppProxyConnector, vedere [creare uno script di installazione automatica per il connettore del proxy di applicazione Azure ad](./application-proxy-register-connector-powershell.md)
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Verificare che il connettore venga installato da un utente con il ruolo di amministratore
 

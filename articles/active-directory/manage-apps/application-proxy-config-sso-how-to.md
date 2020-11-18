@@ -1,34 +1,29 @@
 ---
-title: Come configurare Single Sign-On a un'app del proxy di applicazione
-description: "Procedura: Configurazione rapida dell'accesso Single Sign-On all'applicazione Proxy di applicazione"
+title: Informazioni su Single Sign-On con un'app locale con il proxy di applicazione
+description: Informazioni su Single Sign-On con un'app locale che usa il proxy di applicazione.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 03/12/2019
+ms.topic: conceptual
+ms.date: 10/07/2020
 ms.author: kenwith
 ms.reviewer: japere, asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54673e0018f83024d1c01599d0096c71b6b1d0ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7df16a797fe0d7a0fd9a0b3857b1b1c32ba07ed
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88642130"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656293"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Procedura: Configurazione dell'accesso Single Sign-On all'applicazione Proxy di applicazione
 
 L'accesso Single sign-on (SSO) consente agli utenti di accedere a un'applicazione senza effettuare l'autenticazione più volte. Consente di eseguire l'autenticazione solo nel cloud, in Azure Active Directory e consente al servizio o al connettore di rappresentare l'utente per completare eventuali richieste di autenticazione aggiuntive dall'applicazione.
 
 ## <a name="how-to-configure-single-sign-on"></a>Come configurare l'accesso Single Sign-On
-Per configurare SSO, verificare innanzitutto che l'applicazione sia configurata per la preautenticazione tramite Azure Active Directory. Per eseguire questa configurazione, passare a **Azure Active Directory**  - &gt; **applicazioni aziendali**  - &gt; **tutte le applicazioni**  - &gt; del ** - &gt; proxy dell'applicazione**dell'applicazione. Assicurarsi che il campo "Pre-autenticazione" visualizzato in questa pagina sia impostato su Azure Active Directory. 
+Per configurare SSO, verificare innanzitutto che l'applicazione sia configurata per la preautenticazione tramite Azure Active Directory. Per eseguire questa configurazione, passare a **Azure Active Directory**  - &gt; **applicazioni aziendali**  - &gt; **tutte le applicazioni**  - &gt; del **- &gt; proxy dell'applicazione** dell'applicazione. Assicurarsi che il campo "Pre-autenticazione" visualizzato in questa pagina sia impostato su Azure Active Directory. 
 
 Per altre informazioni sui metodi di pre-autenticazione, vedere il passaggio 4 del [documento sulla pubblicazione dell'app](application-proxy-add-on-premises-application.md).
 
@@ -41,7 +36,7 @@ Configurare il tipo specifico di Single Sign-On. I metodi di accesso sono classi
 
 -   **Autenticazione integrata di Windows**: per le applicazioni che usano l'autenticazione integrata di Windows (IWA), l'accesso Single Sign-On è abilitato tramite delega vincolata Kerberos (KCD). Questo metodo consente di connettori Proxy di applicazione in Active Directory di rappresentare gli utenti e inviare e ricevere i token per loro conto. I dettagli relativi alla configurazione della delega vincolata Kerberos sono reperibili nella [documentazione relativa all'accesso Single Sign-On con delega vincolata Kerberos](application-proxy-configure-single-sign-on-with-kcd.md).
 
--   **Accesso basato su intestazione**: l'accesso basato su intestazione viene abilitato mediante una relazione e non richiede un'ulteriore configurazione. Per informazioni dettagliate sulla relazione e istruzioni dettagliate per la configurazione dell'accesso Single Sign-On per un'applicazione che usa le intestazioni per l'autenticazione, vedere la [documentazione di PingAccess per Azure AD](application-proxy-configure-single-sign-on-with-ping-access.md).
+-   **Accesso basato su intestazione**: l'accesso basato su intestazione viene usato per fornire Single Sign-on funzionalità con le intestazioni HTTP. Per altre informazioni, vedere [Single Sign-on basato su intestazione](application-proxy-configure-single-sign-on-with-headers.md).
 
 -   **Saml Single Sign-on**: con Single Sign-on saml, Azure ad esegue l'autenticazione all'applicazione usando l'account Azure ad dell'utente. Azure AD comunica le informazioni di accesso all'applicazione tramite un protocollo di connessione. Con l'accesso Single Sign-On basato su SAML è possibile eseguire il mapping degli utenti a ruoli specifici dell'applicazione in base alle regole definite nelle attestazioni SAML. Per informazioni sulla configurazione di Single Sign-On SAML, vedere [SAML per Single Sign-on con il proxy di applicazione](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -54,5 +49,5 @@ Questa opzione consente a un amministratore di creare un collegamento a una prim
 ## <a name="next-steps"></a>Passaggi successivi
 - [Insieme di credenziali delle password per l'accesso Single Sign-On con il proxy dell'applicazione](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [Delega vincolata Kerberos per l'accesso Single Sign-On con il proxy di applicazione](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione](application-proxy-configure-single-sign-on-with-ping-access.md) 
+- [Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione](application-proxy-configure-single-sign-on-with-headers.md) 
 - [SAML per Single Sign-on con il proxy di applicazione](application-proxy-configure-single-sign-on-on-premises-apps.md).

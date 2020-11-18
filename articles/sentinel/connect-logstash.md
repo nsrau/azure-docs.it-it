@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 7fe47289dcc6b6d6af4d13b36b5c3b1dae3baaf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 247abafd7abec38e43794b76268ee52538aee508
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89664223"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655681"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Usare logstash per connettere le origini dati ad Azure Sentinel
 
@@ -48,8 +48,8 @@ Il motore logstash è costituito da tre componenti:
 
 Il plug-in di output di Azure Sentinel per logstash invia dati in formato JSON all'area di lavoro Log Analytics, usando l'API REST dell'agente di raccolta dati HTTP Log Analytics. I dati vengono inseriti in log personalizzati.
 
-- Altre informazioni sull' [API REST di log Analytics](https://docs.microsoft.com/rest/api/loganalytics/create-request).
-- Altre informazioni sui [log personalizzati](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-custom-logs).
+- Altre informazioni sull' [API REST di log Analytics](/rest/api/loganalytics/create-request).
+- Altre informazioni sui [log personalizzati](../azure-monitor/platform/data-sources-custom-logs.md).
 
 ## <a name="deploy-the-azure-sentinel-output-plugin-in-logstash"></a>Distribuire il plug-in di output di Azure Sentinel in logstash
 
@@ -57,7 +57,7 @@ Il plug-in di output di Azure Sentinel per logstash invia dati in formato JSON a
 
 Il plug-in di output di Azure Sentinel è disponibile nella raccolta logstash.
 
-- Seguire le istruzioni riportate nel documento logstash [uso dei plug](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) -in per installare il plug-in ***Microsoft-logstash-output-Azure-loganalytics*** .
+- Seguire le istruzioni riportate nel documento logstash [uso dei plug](https://www.elastic.co/guide/en/logstash/current/working-with-plugins.html) -in per installare il plug-in **_Microsoft-logstash-output-Azure-loganalytics_* _.
    
 - Se il sistema logstash non dispone di accesso a Internet, seguire le istruzioni nel documento di [gestione dei plug](https://www.elastic.co/guide/en/logstash/current/offline-plugins.html) -in logstash offline per preparare e usare un pacchetto di plug-in offline. Questa operazione richiederà la creazione di un altro sistema logstash con accesso a Internet.
 
@@ -65,17 +65,17 @@ Il plug-in di output di Azure Sentinel è disponibile nella raccolta logstash.
 
 Usare le informazioni nella struttura logstash [di un documento del file di configurazione](https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html) e aggiungere il plug-in di output di Azure Sentinel alla configurazione con le chiavi e i valori seguenti. La sintassi corretta del file di configurazione viene visualizzata dopo la tabella.
 
-| Nome del campo | Tipo di dati | Descrizione |
+| Nome campo | Tipo di dati | Descrizione |
 |----------------|---------------|-----------------|
-| `workspace_id` | string | Immettere il GUID dell'ID dell'area di lavoro. * |
+| `workspace_id` | string | Immettere il GUID dell'ID dell'area di lavoro. _ |
 | `workspace_key` | string | Immettere il GUID della chiave primaria dell'area di lavoro. * |
 | `custom_log_table_name` | string | Consente di impostare il nome della tabella in cui verranno inseriti i log. È possibile configurare solo un nome di tabella per ogni plug-in di output. La tabella dei log verrà visualizzata in Sentinel di Azure in **log**, in **tabelle** nella categoria **log personalizzati** con un `_CL` suffisso. |
 | `endpoint` | string | Campo facoltativo. Per impostazione predefinita, si tratta dell'endpoint Log Analytics. Utilizzare questo campo per impostare un endpoint alternativo. |
 | `time_generated_field` | string | Campo facoltativo. Questa proprietà esegue l'override del campo predefinito **TimeGenerated** in log Analytics. Immettere il nome del campo timestamp nell'origine dati. I dati nel campo devono essere conformi al formato ISO 8601 ( `YYYY-MM-DDThh:mm:ssZ` ) |
 | `key_names` | array | Immettere un elenco di Log Analytics campi dello schema di output. Ogni elemento dell'elenco deve essere racchiuso tra virgolette singole e gli elementi separati da virgole e l'intero elenco racchiuso tra parentesi quadre. Vedi l'esempio seguente. |
-| `plugin_flush_interval` | d'acquisto | Campo facoltativo. Impostare per definire l'intervallo massimo (in secondi) tra le trasmissioni dei messaggi a Log Analytics. Il valore predefinito è 5. |
+| `plugin_flush_interval` | Numero | Campo facoltativo. Impostare per definire l'intervallo massimo (in secondi) tra le trasmissioni dei messaggi a Log Analytics. Il valore predefinito è 5. |
     | `amount_resizing` | boolean | True o false. Abilita o Disabilita il meccanismo di scalabilità automatica, che regola le dimensioni del buffer del messaggio in base al volume dei dati di log ricevuti. |
-| `max_items` | d'acquisto | Campo facoltativo. Si applica solo se è `amount_resizing` impostato su "false". Utilizzare per impostare un limite per le dimensioni del buffer dei messaggi (nei record). Il valore predefinito è 2000.  |
+| `max_items` | Numero | Campo facoltativo. Si applica solo se è `amount_resizing` impostato su "false". Utilizzare per impostare un limite per le dimensioni del buffer dei messaggi (nei record). Il valore predefinito è 2000.  |
 
 \* È possibile trovare l'ID dell'area di lavoro e la chiave primaria nella risorsa dell'area di lavoro, in **Gestione agenti**.
 
@@ -162,7 +162,7 @@ Di seguito sono riportate alcune configurazioni di esempio che usano alcune opzi
 
 1. Per visualizzare i record nella tabella, eseguire una query sulla tabella utilizzando il nome della tabella come schema.
 
-   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Screenshot dei log personalizzati Stash log.":::
+   :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Screenshot di una query dei log personalizzati stash di log.":::
 
 ## <a name="monitor-output-plugin-audit-logs"></a>Monitorare i log di controllo del plug-in di output
 

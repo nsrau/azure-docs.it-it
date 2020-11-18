@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: c1edbaf394a4abd36e47843a6f419eb9d62f08d7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b2497a49703ab675bde50c7845995c92de32f376
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340309"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657177"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -103,9 +103,9 @@ Passaggi per aggiungere i ruoli di Azure:
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
-
 ### <a name="prerequisite-storage-account-access"></a>Prerequisito: accesso all'account di archiviazione
+
+[Configurare l'interfaccia della riga di comando di Azure per la cache HPC di Azure](./az-cli-prerequisites.md).
 
 Prima di aggiungere una destinazione di archiviazione BLOB, verificare che la cache disponga dei ruoli corretti per accedere all'account di archiviazione e che le impostazioni del firewall consentano la creazione della destinazione di archiviazione.
 
@@ -132,7 +132,7 @@ Oltre ai parametri standard del gruppo di risorse e del nome della cache, è nec
 
 * ``--name`` -Impostare un nome che identifichi la destinazione di archiviazione nella cache HPC di Azure.
 
-* ``--storage-account``-Identificatore account, nel formato seguente:/subscriptions/*<subscription_id>*/resourceGroups/*<storage_resource_group *>/Providers/Microsoft.storage/storageAccounts/*<* account_name>
+* ``--storage-account``-Identificatore account, nel formato seguente:/subscriptions/*<subscription_id>*/resourceGroups/*<storage_resource_group*>/Providers/Microsoft.storage/storageAccounts/*<* account_name>
 
   Per informazioni sul tipo di account di archiviazione che è possibile usare, vedere [requisiti di archiviazione BLOB](hpc-cache-prerequisites.md#blob-storage-requirements).
 
@@ -185,9 +185,9 @@ In questa tabella vengono riepilogate le differenze del modello di utilizzo:
 
 | Modello di utilizzo                   | Modalità di memorizzazione nella cache | Verifica del back-end | Ritardo massimo write-back |
 |-------------------------------|--------------|-----------------------|--------------------------|
-| Lettura di scritture complesse e non frequenti | Lettura         | Mai                 | nessuno                     |
+| Lettura di scritture complesse e non frequenti | Lettura         | Mai                 | Nessuno                     |
 | Scritture superiori al 15%       | Lettura/Scrittura   | Mai                 | 1 ora                   |
-| Client che ignorano la cache      | Lettura         | 30 secondi            | nessuno                     |
+| Client che ignorano la cache      | Lettura         | 30 secondi            | Nessuno                     |
 
 ### <a name="create-an-nfs-storage-target"></a>Creare una destinazione di archiviazione NFS
 
@@ -217,7 +217,7 @@ Al termine, fare clic su **OK** per aggiungere la destinazione di archiviazione.
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurare l'interfaccia della riga di comando di Azure per la cache HPC di Azure](./az-cli-prerequisites.md).
 
 Usare il comando dell'interfaccia della riga di comando di Azure [AZ HPC-cache NFS-storage-target Add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add) per creare la destinazione di archiviazione.
 
@@ -301,7 +301,7 @@ Per altre informazioni, vedere [modificare le destinazioni di archiviazione](hpc
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Configurare l'interfaccia della riga di comando di Azure per la cache HPC di Azure](./az-cli-prerequisites.md).
 
 Usare l'opzione [AZ HPC-cache storage-target list](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) per visualizzare le destinazioni di archiviazione esistenti per una cache. Specificare il nome della cache e il gruppo di risorse (a meno che non sia stato impostato globalmente).
 

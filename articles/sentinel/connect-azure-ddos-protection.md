@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: yelevin
-ms.openlocfilehash: e8e44f69965af1987bd5f023644d966b3caf1c77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5d98a834ed4f87fb95a13e666967a7b2d80975d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505848"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656055"
 ---
 # <a name="connect-data-from-azure-ddos-protection"></a>Connettere i dati da protezione DDoS di Azure
 
@@ -22,15 +22,15 @@ ms.locfileid: "89505848"
 > Il connettore di dati di protezione DDoS di Azure in Sentinel di Azure è attualmente disponibile in anteprima pubblica.
 > Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Gli attacchi Distributed Denial of Service (DDoS) tentano di esaurire le risorse di un'applicazione, rendendo l'applicazione non disponibile per gli utenti legittimi. Gli attacchi DDoS possono avere come obiettivo qualsiasi endpoint che è raggiungibile pubblicamente tramite Internet. [Protezione DDoS di Azure](../virtual-network/ddos-protection-overview.md), in combinazione con le procedure consigliate per la progettazione di applicazioni, offre una difesa efficace contro gli attacchi DDoS. È possibile connettere i log di protezione DDoS di Azure ad Azure Sentinel, consentendo di visualizzare i dati di log nelle cartelle di lavoro, usarli per creare avvisi personalizzati e incorporarli per migliorare le indagini. 
+Gli attacchi Distributed Denial of Service (DDoS) tentano di esaurire le risorse di un'applicazione, rendendo l'applicazione non disponibile per gli utenti legittimi. Gli attacchi DDoS possono avere come obiettivo qualsiasi endpoint che è raggiungibile pubblicamente tramite Internet. [Protezione DDoS di Azure](../ddos-protection/ddos-protection-overview.md), in combinazione con le procedure consigliate per la progettazione di applicazioni, offre una difesa efficace contro gli attacchi DDoS. È possibile connettere i log di protezione DDoS di Azure ad Azure Sentinel, consentendo di visualizzare i dati di log nelle cartelle di lavoro, usarli per creare avvisi personalizzati e incorporarli per migliorare le indagini. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario disporre delle autorizzazioni di lettura e scrittura per l'area di lavoro di Azure Sentinel.
 
-- È necessario avere un [piano di protezione standard DDoS di Azure](../virtual-network/manage-ddos-protection.md#create-a-ddos-protection-plan)configurato.
+- È necessario avere un [piano di protezione standard DDoS di Azure](../ddos-protection/manage-ddos-protection.md#create-a-ddos-protection-plan)configurato.
 
-- È necessario disporre di una [rete virtuale configurata con lo standard DDoS di Azure abilitato](../virtual-network/manage-ddos-protection.md#enable-ddos-for-a-new-virtual-network).
+- È necessario disporre di una [rete virtuale configurata con lo standard DDoS di Azure abilitato](../ddos-protection/manage-ddos-protection.md#enable-ddos-protection-for-a-new-virtual-network).
 
 ## <a name="connect-to-azure-ddos-protection"></a>Connettersi ad Azure DDoS Protection
     
@@ -49,7 +49,7 @@ Gli attacchi Distributed Denial of Service (DDoS) tentano di esaurire le risorse
 
        - Contrassegnare la casella **di controllo Invia a log Analytics** . Sotto di essa verranno visualizzati due nuovi campi. Scegliere la **sottoscrizione** pertinente e l' **area di lavoro log Analytics** (in cui risiede Azure Sentinel).
 
-       - Contrassegnare le caselle di controllo dei tipi di regole di cui si desidera inserire i log. È consigliabile usare **DDoSProtectionNotifications**, **DDoSMitigationFlowLogs**e **DDoSMitigationReports**.
+       - Contrassegnare le caselle di controllo dei tipi di regole di cui si desidera inserire i log. È consigliabile usare **DDoSProtectionNotifications**, **DDoSMitigationFlowLogs** e **DDoSMitigationReports**.
 
     1. Fare clic su **Salva** nella parte superiore della schermata. Ripetere questa procedura per eventuali firewall aggiuntivi (indirizzi IP pubblici) per i quali è stata abilitata la protezione DDoS.
 

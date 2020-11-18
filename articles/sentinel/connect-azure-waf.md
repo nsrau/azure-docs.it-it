@@ -9,16 +9,16 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: yelevin
-ms.openlocfilehash: 8f21b415ef36442d6ac1aac518cd1327f70b8927
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c554f3582e67622a5a1739c9e410328c902d491b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88263983"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655902"
 ---
 # <a name="connect-data-from-azure-web-application-firewall-waf"></a>Connettere i dati dal Web Application Firewall (WAF) di Azure
 
-Le applicazioni Web sono sempre più vittime di attacchi che sfruttano le più comuni e note vulnerabilità. Il Web Application Firewall (WAF) di Azure fornisce una protezione centralizzata delle applicazioni Web da exploit e minacce comuni, ad esempio l'inserimento di codice e gli script tra siti. Azure WAF può essere distribuito nel servizio [Gateway applicazione Azure](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) , nel servizio [front](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview) -end di Azure e tramite un criterio WAF rete per la [distribuzione di contenuti (CDN) di Azure](https://docs.microsoft.com/azure/web-application-firewall/cdn/cdn-overview) (il secondo attualmente disponibile in anteprima pubblica).
+Le applicazioni Web sono sempre più vittime di attacchi che sfruttano le più comuni e note vulnerabilità. Il Web Application Firewall (WAF) di Azure fornisce una protezione centralizzata delle applicazioni Web da exploit e minacce comuni, ad esempio l'inserimento di codice e gli script tra siti. Azure WAF può essere distribuito nel servizio [Gateway applicazione Azure](../web-application-firewall/ag/ag-overview.md) , nel servizio [front](../web-application-firewall/afds/afds-overview.md) -end di Azure e tramite un criterio WAF rete per la [distribuzione di contenuti (CDN) di Azure](../web-application-firewall/cdn/cdn-overview.md) (il secondo attualmente disponibile in anteprima pubblica).
 È possibile connettere i log di Azure WAF ad Azure Sentinel, consentendo di visualizzare i dati di log nelle cartelle di lavoro, usarli per creare avvisi personalizzati e incorporarli per migliorare l'analisi.
 
 ## <a name="prerequisites"></a>Prerequisiti

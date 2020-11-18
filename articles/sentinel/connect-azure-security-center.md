@@ -9,16 +9,16 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: yelevin
-ms.openlocfilehash: b1188e533039b0137cebb22652d9921418c41deb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b37675d46d501fc43446eafc83d6c0a02f238177
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659653"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655953"
 ---
 # <a name="connect-azure-defender-alert-data-from-azure-security-center"></a>Connetti i dati di avviso di Azure Defender dal centro sicurezza di Azure
 
-Usare il connettore avvisi di Azure Defender per inserire gli avvisi di Azure Defender dal [Centro sicurezza di Azure](../security-center/security-center-intro.md) ed eseguirne lo streaming in Sentinel di Azure. 
+Usare il connettore avvisi di Azure Defender per inserire gli avvisi di Azure Defender dal [Centro sicurezza di Azure](../security-center/security-center-introduction.md) ed eseguirne lo streaming in Sentinel di Azure. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,9 +32,9 @@ Usare il connettore avvisi di Azure Defender per inserire gli avvisi di Azure De
 
 1. Dalla raccolta di connettori dati selezionare **Azure Defender alerts from ASC** (potrebbe essere ancora chiamato Centro sicurezza di Azure) e fare clic sul pulsante **Apri pagina connettore** .
 
-1. In **configurazione**fare clic su **Connetti** accanto a ogni sottoscrizione i cui avvisi si vuole trasmettere in Azure Sentinel. Il pulsante Connetti sarà disponibile solo se si dispone delle autorizzazioni necessarie.
+1. In **configurazione** fare clic su **Connetti** accanto a ogni sottoscrizione i cui avvisi si vuole trasmettere in Azure Sentinel. Il pulsante Connetti sarà disponibile solo se si dispone delle autorizzazioni necessarie.
 
-1. È possibile scegliere se si desidera che gli avvisi di Azure Defender generino automaticamente gli eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti**selezionare **abilitato** per attivare la regola di analisi predefinita che crea automaticamente gli eventi imprevisti dagli avvisi. È quindi possibile modificare questa regola in **Analytics**, nella scheda  **regole attive** .
+1. È possibile scegliere se si desidera che gli avvisi di Azure Defender generino automaticamente gli eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti** selezionare **abilitato** per attivare la regola di analisi predefinita che crea automaticamente gli eventi imprevisti dagli avvisi. È quindi possibile modificare questa regola in **Analytics**, nella scheda  **regole attive** .
 
 1. Per usare lo schema pertinente in Log Analytics per gli avvisi di Azure Defender, cercare **SecurityAlert**.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 319e0d29ef297f2a675128d498820a2d5b8ac42e
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b0cafcbc9fa6f0fcb31f44b44dfbe4fc3e10c17d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579522"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656072"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Connettere i dati da Microsoft Defender per l'identità (in precedenza Azure Advanced Threat Protection)
 
@@ -27,7 +27,7 @@ ms.locfileid: "94579522"
 > Microsoft Defender for Identity Data Connector in Azure Sentinel è attualmente disponibile in anteprima pubblica.
 > Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-È possibile trasmettere i log da [Microsoft Defender per l'identità](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) in Azure Sentinel con un solo clic.
+È possibile trasmettere i log da [Microsoft Defender per l'identità](/azure-advanced-threat-protection/what-is-atp) in Azure Sentinel con un solo clic.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,7 +36,7 @@ ms.locfileid: "94579522"
 
 ## <a name="connect-to-microsoft-defender-for-identity"></a>Connettersi a Microsoft Defender per l'identità
 
-Verificare che nella [rete sia abilitata](https://docs.microsoft.com/azure-advanced-threat-protection/install-atp-step1)la versione di anteprima di Microsoft Defender for Identity.
+Verificare che nella [rete sia abilitata](/azure-advanced-threat-protection/install-atp-step1)la versione di anteprima di Microsoft Defender for Identity.
 Se Microsoft Defender per l'identità è distribuito e inserisce i dati, gli avvisi sospetti possono essere facilmente trasmessi in Sentinel di Azure. Potrebbero essere necessarie fino a 24 ore prima che gli avvisi avviino lo streaming in Sentinel di Azure.
 
 
@@ -57,4 +57,3 @@ Se Microsoft Defender per l'identità è distribuito e inserisce i dati, gli avv
 In questo documento si è appreso come connettere Microsoft Defender per l'identità a Sentinel di Azure. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a [rilevare minacce con Azure Sentinel](tutorial-detect-threats-built-in.md).
-

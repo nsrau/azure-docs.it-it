@@ -1,6 +1,6 @@
 ---
 title: Connettersi Azure Information Protection ad Azure Sentinel
-description: Trasmettere le informazioni di registrazione da Azure Information Protection in Sentinel di Azure configurando il connettore dati Azure Information Protection. 
+description: Trasmettere le informazioni di registrazione da Azure Information Protection in Sentinel di Azure configurando il connettore dati Azure Information Protection.
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 160912ef53b5c079d026c5d16230f49eadf66366
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82ea47037902ce3a9449f71a9edf62cb80863d4b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88794440"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655987"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Connettere i dati da Azure Information Protection
 
@@ -25,7 +25,7 @@ ms.locfileid: "88794440"
 
 È possibile trasmettere le informazioni di registrazione da [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) in Sentinel di Azure configurando il connettore dati Azure Information Protection. Azure Information Protection consente di controllare e proteggere i dati sensibili, che siano archiviati nel cloud o in locale.
 
-Se la [creazione di rapporti centrali per Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) è già configurata in modo che le informazioni di registrazione da questo servizio siano archiviate nella stessa area di lavoro di log Analytics attualmente selezionata per Azure Sentinel, è possibile ignorare la configurazione di questo connettore dati. Le informazioni di registrazione di Azure Information Protection sono già disponibili per la funzionalità Sentinel di Azure.
+Se la [creazione di rapporti centrali per Azure Information Protection](/azure/information-protection/reports-aip) è già configurata in modo che le informazioni di registrazione da questo servizio siano archiviate nella stessa area di lavoro di log Analytics attualmente selezionata per Azure Sentinel, è possibile ignorare la configurazione di questo connettore dati. Le informazioni di registrazione di Azure Information Protection sono già disponibili per la funzionalità Sentinel di Azure.
 
 Tuttavia, se le informazioni di registrazione da Azure Information Protection passano a un'area di lavoro Log Analytics diversa da quella attualmente selezionata per Azure Sentinel, effettuare una delle operazioni seguenti:
 
@@ -51,7 +51,7 @@ Tuttavia, se le informazioni di registrazione da Azure Information Protection pa
 
 - Le autorizzazioni per la lettura e la scrittura nell'area di lavoro Log Analytics in uso per Azure Sentinel e Azure Information Protection.
 
-- Azure Information Protection è stato aggiunto al portale di Azure. Per informazioni su questo passaggio, vedere [aggiungere Azure Information Protection al portale di Azure](https://docs.microsoft.com/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
+- Azure Information Protection è stato aggiunto al portale di Azure. Per informazioni su questo passaggio, vedere [aggiungere Azure Information Protection al portale di Azure](/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
 
 ## <a name="connect-to-azure-information-protection"></a>Connetti a Azure Information Protection
 
@@ -61,7 +61,7 @@ Utilizzare le istruzioni seguenti se non è stata configurata un'area di lavoro 
 
 2. Selezionare **Apri connettore pagina**.
 
-3. In **configurazione**selezionare **Connetti Azure Information Protection log**.
+3. In **configurazione** selezionare **Connetti Azure Information Protection log**.
 
 4. Nel pannello **Configura analisi (anteprima)** selezionare l'area di lavoro attualmente in uso per Sentinel di Azure. Se si seleziona un'area di lavoro diversa, i dati di report di Azure Information Protection non sono disponibili per Sentinel di Azure.
 
@@ -69,7 +69,7 @@ Utilizzare le istruzioni seguenti se non è stata configurata un'area di lavoro 
 
 6. I dati di report di Azure Information Protection vengono archiviati nella tabella **InformationProtectionLogs_CL** dell'area di lavoro selezionata. 
     
-    Per usare lo schema pertinente in monitoraggio di Azure per i dati di report, cercare **InformationProtectionEvents**. Per informazioni su queste funzioni evento, vedere la sezione [riferimento allo schema descrittivo per le funzioni evento](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) dalla documentazione Azure Information Protection.
+    Per usare lo schema pertinente in monitoraggio di Azure per i dati di report, cercare **InformationProtectionEvents**. Per informazioni su queste funzioni evento, vedere la sezione [riferimento allo schema descrittivo per le funzioni evento](/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) dalla documentazione Azure Information Protection.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

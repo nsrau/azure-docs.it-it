@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 97873c9f59dc0d99293d2b1ebaf87af309dbcf47
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 432104c7e2cb9486dfb47a793ae73829d8705b60
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208295"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655817"
 ---
 # <a name="connect-data-sources"></a>Connettere le origini dati
 
@@ -137,17 +137,17 @@ In alternativa, è possibile distribuire l'agente manualmente in una macchina vi
 | AzureActivity | [Connettere il log attività di Azure](connect-azure-activity.md) e [Panoramica del log attività di Azure](../azure-monitor/platform/platform-logs-overview.md)| &#10003; | |
 | AuditLogs | [Connettere Azure AD](connect-azure-active-directory.md)  | &#10003; | |
 | SigninLogs | [Connettere Azure AD](connect-azure-active-directory.md)  | &#10003; | |
-| AzureFirewall |[Diagnostica di Azure](../firewall/tutorial-diagnostics.md) | &#10003; | |
-| InformationProtectionLogs_CL  | [Report di Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Connettere Azure Information Protection](connect-azure-information-protection.md)  | &#10003; | Oltre al tipo di dati, in genere si usa la funzione **InformationProtectionEvents**. Per altre informazioni, vedere [Come modificare i report e creare query personalizzate](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
+| AzureFirewall |[Diagnostica di Azure](../firewall/firewall-diagnostics.md) | &#10003; | |
+| InformationProtectionLogs_CL  | [Report di Azure Information Protection](/azure/information-protection/reports-aip)<br>[Connettere Azure Information Protection](connect-azure-information-protection.md)  | &#10003; | Oltre al tipo di dati, in genere si usa la funzione **InformationProtectionEvents**. Per altre informazioni, vedere [Come modificare i report e creare query personalizzate](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
 | AzureNetworkAnalytics_CL  | [Schema di analisi del traffico](../network-watcher/traffic-analytics.md) [Analisi del traffico](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [Connettere CEF](connect-common-event-format.md)  | &#10003; | |
 | OfficeActivity | [Connettere Office 365](connect-office-365.md) | &#10003; | |
-| SecurityEvents | [Connettere gli eventi di sicurezza di Windows](connect-windows-security-events.md)  | &#10003; | Per le cartelle di lavoro dei protocolli non sicuri, vedere la pagina relativa alla [configurazione di cartelle di lavoro di protocolli non sicuri](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks).  |
+| SecurityEvents | [Connettere gli eventi di sicurezza di Windows](connect-windows-security-events.md)  | &#10003; | Per le cartelle di lavoro dei protocolli non sicuri, vedere la pagina relativa alla [configurazione di cartelle di lavoro di protocolli non sicuri](./quickstart-get-visibility.md#use-built-in-workbooks).  |
 | syslog | [Connettere Syslog](connect-syslog.md) | &#10003; | |
-| Microsoft Web Application Firewall (WAF) - (AzureDiagnostics) |[Connettere Microsoft web application firewall](connect-microsoft-waf.md) | &#10003; | |
+| Microsoft Web Application Firewall (WAF) - (AzureDiagnostics) |[Connettere Microsoft web application firewall](./connect-azure-waf.md) | &#10003; | |
 | SymantecICDx_CL | [Connettere Symantec](connect-symantec.md) | &#10003; | |
 | ThreatIntelligenceIndicator  | [Connettere Intelligence sulle minacce](connect-threat-intelligence.md)  | &#10003; | |
-| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Elenco dei servizi di Monitoraggio di Azure](../azure-monitor/insights/service-map.md)<br>[Onboarding di Informazioni dettagliate macchina virtuale di Monitoraggio di Azure](../azure-monitor/insights/vminsights-onboard.md) <br> [Abilitare Informazioni dettagliate macchina virtuale di Monitoraggio di Azure](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Uso dell'onboarding di singole macchine virtuali](../azure-monitor/insights/vminsights-enable-single-vm.md)<br>  [Uso dell'onboarding tramite criteri](../azure-monitor/insights/vminsights-enable-at-scale-policy.md)| &#10007; | Cartella di lavoro di Informazioni dettagliate macchina virtuale  |
+| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Elenco dei servizi di Monitoraggio di Azure](../azure-monitor/insights/service-map.md)<br>[Onboarding di Informazioni dettagliate macchina virtuale di Monitoraggio di Azure](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Abilitare Informazioni dettagliate macchina virtuale di Monitoraggio di Azure](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Uso dell'onboarding di singole macchine virtuali](../azure-monitor/insights/vminsights-enable-portal.md)<br>  [Uso dell'onboarding tramite criteri](../azure-monitor/insights/vminsights-enable-policy.md)| &#10007; | Cartella di lavoro di Informazioni dettagliate macchina virtuale  |
 | DnsEvents | [Connettere DNS](connect-dns.md) | &#10003; | |
 | W3CIISLog | [Connettere i log di IIS](../azure-monitor/platform/data-sources-iis-logs.md)  | &#10007; | |
 | WireData | [Connettere Dati in transito](../azure-monitor/insights/wire-data.md) | &#10007; | |
@@ -157,7 +157,7 @@ In alternativa, è possibile distribuire l'agente manualmente in una macchina vi
 | SecurityAlert per Centro sicurezza di Azure  | [Connettere gli avvisi di Azure Defender](connect-azure-security-center.md) dal centro sicurezza di Azure  | &#10003; | |
 | SecurityAlert per Microsoft Cloud App Security  | [Connettere Microsoft Cloud App Security](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
-| Sysmon (evento) | [Connettere Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Connettere Eventi Windows](../azure-monitor/platform/data-sources-windows-events.md) <br> [Ottenere il parser Sysmon](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | La raccolta Sysmon non è installata per impostazione predefinita nelle macchine virtuali. Per altre informazioni su come installare l'agente Sysmon, vedere [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
+| Sysmon (evento) | [Connettere Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Connettere Eventi Windows](../azure-monitor/platform/data-sources-windows-events.md) <br> [Ottenere il parser Sysmon](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | La raccolta Sysmon non è installata per impostazione predefinita nelle macchine virtuali. Per altre informazioni su come installare l'agente Sysmon, vedere [Sysmon](/sysinternals/downloads/sysmon). |
 | ConfigurationData  | [Automatizzare l'inventario delle macchine virtuali](../automation/change-tracking/overview.md)| &#10007; | |
 | ConfigurationChange  | [Automatizzare il rilevamento delle macchine virtuali](../automation/change-tracking/overview.md) | &#10007; | |
 | BIG-IP F5 | [Connettere BIG-IP F5](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10007; | |

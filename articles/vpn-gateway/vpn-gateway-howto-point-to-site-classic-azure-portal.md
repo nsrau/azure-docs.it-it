@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: a66b76350da6f3b3804dac73a7aeb9f54d2e34eb
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 42b0945de55775f55f20cefdeb547cb5d6492c06
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938373"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657075"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurare una connessione da punto a sito usando l'autenticazione del certificato (versione classica)
 
@@ -58,7 +58,7 @@ Usare i valori seguenti per creare un ambiente di test o fare riferimento a ques
 * **Gruppo di risorse:** TestRG
 * **Nome VNet:** VNet1
 * **Spazio di indirizzi:** 192.168.0.0/16 <br>Per questo esempio, viene usato un solo spazio indirizzi. È possibile avere più di uno spazio indirizzi per la rete virtuale.
-* **Nome subnet:** FrontEnd
+* **Nome della subnet:** FrontEnd
 * **Intervallo di indirizzi subnet:** 192.168.1.0/24
 * **GatewaySubnet:** 10.11.255.0/27
 * **Area:** (Stati Uniti) Stati Uniti orientali
@@ -68,7 +68,7 @@ Usare i valori seguenti per creare un ambiente di test o fare riferimento a ques
 
 Prima di iniziare, verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial).
 
-## <a name="create-a-virtual-network"></a><a name="vnet"></a>Crea rete virtuale
+## <a name="create-a-virtual-network"></a><a name="vnet"></a>Creare una rete virtuale
 
 Se si ha già una rete virtuale, verificare che le impostazioni siano compatibili con la progettazione del gateway VPN. Prestare particolare attenzione alle subnet che potrebbero sovrapporsi ad altre reti.
 
@@ -114,7 +114,7 @@ Se usati, i certificati autofirmati devono essere creati con parametri specifici
 Dopo la creazione del gateway, caricare il file con estensione cer, che contiene le informazioni sulla chiave pubblica, per un certificato radice attendibile nel server di Azure. Non caricare la chiave privata per il certificato radice. Una volta caricato un certificato, Azure lo usa per autenticare i client che hanno installato un certificato client generato dal certificato radice attendibile. È possibile caricare in seguito fino a 20 file di certificato radice attendibile aggiuntivi, se necessario.
 
 1. Passare alla rete virtuale creata.
-1. In **Impostazioni**selezionare **connessioni da punto a sito**.
+1. In **Impostazioni** selezionare **connessioni da punto a sito**.
 1. Selezionare **Gestisci certificato**.
 1. Selezionare **Carica**.
 1. Nel riquadro **carica un certificato** selezionare l'icona della cartella e passare al certificato che si vuole caricare.
@@ -202,7 +202,7 @@ La regola generale è quella di usare il certificato radice per gestire l'access
 
 È possibile revocare un certificato client aggiungendo l'identificazione personale all'elenco di revoche di certificati.
 
-1. Ottenere l'identificazione personale del certificato client. Per altre informazioni, vedere [Procedura: recuperare l'identificazione personale di un certificato](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Ottenere l'identificazione personale del certificato client. Per altre informazioni, vedere [Procedura: recuperare l'identificazione personale di un certificato](/dotnet/framework/wcf/feature-details/how-to-retrieve-the-thumbprint-of-a-certificate).
 1. Copiare le informazioni in un editor di testo e rimuovere tutti gli spazi in modo da avere una stringa continua.
 1. Passare a **connessione VPN da punto a sito**, quindi selezionare **Gestisci certificato**.
 1. Selezionare **Elenco di revoche** per aprire la pagina **Elenco di revoche**.
@@ -217,8 +217,8 @@ Dopo aver completato l'aggiornamento, il certificato non può più essere usato 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](https://docs.microsoft.com/azure/).
+* Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](../index.yml).
 
-* Per altre informazioni sulla rete e sulle macchine virtuali Linux, vedere [Panoramica di rete delle macchine virtuali Linux e Azure](../virtual-machines/linux/network-overview.md).
+* Per altre informazioni sulla rete e sulle macchine virtuali Linux, vedere [Panoramica di rete delle macchine virtuali Linux e Azure](../virtual-machines/network-overview.md).
 
 * Per informazioni sulla risoluzione dei problemi della connessione da punto a sito, vedere [Risolvere i problemi di connessione da punto a sito di Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

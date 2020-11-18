@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dc8a23d8cdb923f86d581d1af2967112d226c847
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d61d49fdd90f1f916141ca636e2c2a4dbe0b9bcd
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370628"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657740"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Amministratori della sottoscrizione classica di Azure
 
@@ -58,7 +58,7 @@ Per aggiungere un utente guest come coamministratore, seguire la stessa procedur
 
 - L'utente guest deve essere presente nella directory. Questo significa che l'utente è stato invitato alla directory e ha accettato l'invito.
 
-Per ulteriori informazioni su come aggiungere un utente guest alla directory, vedere [aggiungere Azure Active Directory utenti di collaborazione B2B nel portale di Azure](../active-directory/b2b/add-users-administrator.md).
+Per ulteriori informazioni su come aggiungere un utente guest alla directory, vedere [aggiungere Azure Active Directory utenti di collaborazione B2B nel portale di Azure](../active-directory/external-identities/add-users-administrator.md).
 
 ### <a name="differences-for-guest-users"></a>Differenze per gli utenti Guest
 
@@ -126,7 +126,7 @@ Può essere presente un solo amministratore del servizio per ogni sottoscrizione
 | Account amministratore account | È possibile modificare l'amministratore del servizio in un account Microsoft diverso? | È possibile modificare l'amministratore del servizio in un account Azure AD nella stessa directory? | È possibile modificare l'amministratore del servizio in un account Azure AD in una directory diversa? |
 | --- | --- | --- | --- |
 | Account Microsoft | Sì | No | No |
-| Account di Azure AD | Sì | Sì | No |
+| Account Azure AD | Sì | Sì | No |
 
 Se l'amministratore dell'account è un account di Azure AD, è possibile modificare l'amministratore del servizio in un account di Azure AD nella stessa directory, ma non in una directory diversa. Ad esempio, abby@contoso.com può modificare l'amministratore del servizio in bob@contoso.com , ma non può modificare l'amministratore del servizio in a john@notcontoso.com meno che non john@notcontoso.com abbia una presenza nella directory contoso.com
 

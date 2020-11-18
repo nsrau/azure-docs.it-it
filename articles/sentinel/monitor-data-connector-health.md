@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2020
 ms.author: yelevin
-ms.openlocfilehash: 161e2d424611661619b99ecac3515aac6a8464e0
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 7d52b76601a617f62ae5b10fa38841ef2608bf49
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94428766"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656991"
 ---
 # <a name="monitor-the-health-of-your-data-connectors-with-this-azure-sentinel-workbook"></a>Monitorare l'integrità dei connettori dati con questa cartella di lavoro di Azure Sentinel
 
@@ -42,12 +42,12 @@ Questa cartella di lavoro include tre sezioni a schede:
 
 1. La scheda **Panoramica** Mostra lo stato generale dell'inserimento di dati nell'area di lavoro selezionata: misure del volume, velocità EPS e ora dell'ultimo log ricevuto.
 
-1. La scheda **anomalie raccolta dati** consente di rilevare le anomalie nel processo di raccolta dei dati, in base alla tabella e all'origine dati. Ogni scheda presenta anomalie per una determinata tabella (la scheda **generale** include una raccolta di tabelle). Le anomalie vengono calcolate utilizzando la funzione **series_decompose_anomalies ()** che restituisce un **Punteggio di anomalie**. [Altre informazioni su questa funzione](https://docs.microsoft.com/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Impostare i parametri seguenti per la funzione da valutare:
+1. La scheda **anomalie raccolta dati** consente di rilevare le anomalie nel processo di raccolta dei dati, in base alla tabella e all'origine dati. Ogni scheda presenta anomalie per una determinata tabella (la scheda **generale** include una raccolta di tabelle). Le anomalie vengono calcolate utilizzando la funzione **series_decompose_anomalies ()** che restituisce un **Punteggio di anomalie**. [Altre informazioni su questa funzione](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction?WT.mc_id=Portal-fx). Impostare i parametri seguenti per la funzione da valutare:
 
-    - **AnomaliesTimeRange** : questo selettore di tempo si applica solo alla vista delle anomalie di raccolta dei dati.
-    - **SampleInterval** : intervallo di tempo in cui i dati vengono campionati nell'intervallo di tempo specificato. Il Punteggio di anomalia viene calcolato solo sui dati dell'ultimo intervallo.
-    - **PositiveAlertThreshold** : questo valore definisce la soglia del punteggio delle anomalie positive. Accetta valori decimali.
-    - **NegativeAlertThreshold** : questo valore definisce la soglia di Punteggio anomalia negativa. Accetta valori decimali.
+    - **AnomaliesTimeRange**: questo selettore di data/ora si applica solo alla visualizzazione Anomalie della raccolta dati.
+    - **SampleInterval**: l'intervallo di tempo specifico in cui i dati vengono campionati. Il punteggio di anomalia viene calcolato solo sui dati dell'ultimo intervallo.
+    - **PositiveAlertThreshold**: questo valore definisce la soglia dei punteggi di anomalia. Accetta valori decimali.
+    - **NegativeAlertThreshold**: questo valore definisce la soglia dei punteggi di anomalia negativo. Accetta valori decimali.
 
         :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-2.png" alt-text="Data Connector Monitoraggio integrità cartella di lavoro pagina anomalie" lightbox="media/monitor-data-connector-health/data-health-workbook-2.png":::
 

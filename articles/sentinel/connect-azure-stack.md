@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 9ff70e7c05ca8de49f560fba3d59f0609785b8c4
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 9ac4aa9e93ac296913d7a62e83b182d673015bae
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636776"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655970"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Connettere le macchine virtuali dell'hub Azure Stack ad Azure Sentinel
 
@@ -34,8 +34,8 @@ Dopo la connessione Azure Stack computer hub, scegliere da una raccolta di dashb
 
 Aggiungere l'estensione di macchina virtuale di **monitoraggio, aggiornamento e gestione della configurazione di Azure** alle macchine virtuali in esecuzione nell'hub Azure stack. 
 
-1. In una nuova scheda del browser accedere al [portale dell'Hub Azure stack](https://docs.microsoft.com/azure-stack/user/azure-stack-use-portal#access-the-portal).
-2. Passare alla pagina **macchine virtuali** , selezionare la macchina virtuale che si vuole proteggere con Azure Sentinel. Per informazioni su come creare una macchina virtuale nell'hub Azure Stack, vedere [creare una VM Windows Server con il portale dell'hub Azure stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) o [creare una VM Server Linux usando il portale dell'hub Azure stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
+1. In una nuova scheda del browser accedere al [portale dell'Hub Azure stack](/azure-stack/user/azure-stack-use-portal#access-the-portal).
+2. Passare alla pagina **macchine virtuali** , selezionare la macchina virtuale che si vuole proteggere con Azure Sentinel. Per informazioni su come creare una macchina virtuale nell'hub Azure Stack, vedere [creare una VM Windows Server con il portale dell'hub Azure stack](/azure-stack/user/azure-stack-quick-windows-portal) o [creare una VM Server Linux usando il portale dell'hub Azure stack](/azure-stack/user/azure-stack-quick-linux-portal).
 3. Selezionare **Estensioni**. Viene visualizzato l'elenco delle estensioni macchina virtuale installate in questa macchina virtuale.
 4. Fare clic sulla scheda **Add** (Aggiungi). Viene visualizzato il pannello del menu **Nuova risorsa** che contiene un elenco delle estensioni macchina virtuale disponibili. 
 5. Selezionare l'estensione **monitoraggio di Azure, aggiornamento e gestione della configurazione** e fare clic su **Crea**. Viene visualizzata la finestra di configurazione dell' **estensione di installazione** .
@@ -53,7 +53,7 @@ Per ulteriori informazioni sull'installazione e la configurazione dell'agente pe
 
 Per risolvere i problemi relativi agli agenti Linux, vedere [Risoluzione dei problemi relativi all'agente Linux di Azure Log Analytics](../azure-monitor/platform/agent-linux-troubleshoot.md).
 
-Nel portale di Azure Sentinel in Azure, in **macchine virtuali** , è presente una panoramica di tutte le macchine virtuali e dei computer insieme al relativo stato. 
+Nel portale di Azure Sentinel in Azure, in **macchine virtuali**, è presente una panoramica di tutte le macchine virtuali e dei computer insieme al relativo stato. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Quando non è più necessario, è possibile rimuovere l'estensione dalla macchina virtuale tramite il portale dell'hub Azure Stack.

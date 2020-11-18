@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: 81a735966b2a0ebdd7c8fcd9e9aa467d68aac354
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2d041782e8df795acb120ba1357cec5ef204dc28
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792753"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656328"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Usare server proxy locali esistenti
 
@@ -179,7 +179,7 @@ Per iniziare la risoluzione dei problemi, procedere come segue:
    ![Servizio connettore proxy applicazione di Azure AD in services.msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
 1. Eseguire Message Analyzer come amministratore.
-1. Selezionare l'opzione per l'avvio della **traccia locale** .
+1. Selezionare l'opzione per l'avvio della **traccia locale**.
 1. Avviare il servizio connettore del proxy applicazione di Azure AD.
 1. Arrestare l'acquisizione di rete.
 
@@ -189,7 +189,7 @@ Per iniziare la risoluzione dei problemi, procedere come segue:
 
 Se il connettore del proxy di applicazione è stato configurato per ignorare i server proxy e connettersi direttamente al servizio proxy di applicazione, è necessario individuare nell'acquisizione di rete i tentativi di connessione TCP non riusciti.
 
-Usare il filtro di Message Analyzer per identificare questi tentativi. Immettere `property.TCPSynRetransmit` nella casella del filtro e selezionare **Applica** .
+Usare il filtro di Message Analyzer per identificare questi tentativi. Immettere `property.TCPSynRetransmit` nella casella del filtro e selezionare **Applica**.
 
 Un pacchetto SYN è il primo pacchetto inviato per stabilire una connessione TCP. Se questo pacchetto non restituisce una risposta, il SYN viene ritentato. È possibile usare il filtro precedente per visualizzare qualsiasi SYN ritrasmesso. È quindi possibile vedere se questi SYN corrispondono a traffico correlato al connettore.
 
@@ -208,4 +208,4 @@ Se vengono visualizzati altri codici di risposta, ad esempio 407 o 502, signific
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Comprendere i connettori del proxy applicazione di Azure AD](application-proxy-connectors.md)
-* In caso di problemi di connettività del connettore, porre una domanda nella [Pagina delle domande di Domande e risposte Microsoft per Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html) o creare un ticket per il team di supporto Microsoft.
+* In caso di problemi di connettività del connettore, porre una domanda nella [Pagina delle domande di Domande e risposte Microsoft per Azure Active Directory](/answers/topics/azure-active-directory.html) o creare un ticket per il team di supporto Microsoft.

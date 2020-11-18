@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 05a2869152def0fc9a44defaa21f0643d9fdbb08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dffaac329f1581d9082fd8ab2c314f52b1730ab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504877"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656021"
 ---
 # <a name="connect-data-from-azure-firewall"></a>Connettere i dati dal firewall di Azure
 
@@ -26,7 +26,7 @@ Firewall di Azure è un servizio di sicurezza di rete gestito basato sul cloud c
 
 È possibile connettere i log del firewall di Azure ad Azure Sentinel, consentendo di visualizzare i dati di log nelle cartelle di lavoro, usarli per creare avvisi personalizzati e incorporarli per migliorare l'analisi.
 
-Altre informazioni sul [monitoraggio dei log del firewall di Azure](https://docs.microsoft.com/azure/firewall/tutorial-diagnostics).
+Altre informazioni sul [monitoraggio dei log del firewall di Azure](../firewall/firewall-diagnostics.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

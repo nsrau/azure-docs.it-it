@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: a88696ba69fdf53f5c7e15d174b126d69f4230ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7701fc6d90fd9ebc7ec29f0ffdd7d050c58c036c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85555435"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655664"
 ---
 # <a name="connect-your-domain-name-server"></a>Connetti la Domain Name Server
 
@@ -41,16 +41,16 @@ Quando si Abilita la connessione al log DNS, è possibile:
 
 La tabella seguente descrive le origini connesse che sono supportate da questa soluzione:
 
-| **Origine connessa** | **Supporto** | **Descrizione** |
+| **Origine connessa** | **Supporto tecnico** | **Descrizione** |
 | --- | --- | --- |
 | [Agenti di Windows](../azure-monitor/platform/agent-windows.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti Windows. |
 | [Agenti Linux](../azure-monitor/learn/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni DNS dagli agenti Linux diretti. |
 | [Gruppo di gestione di System Center Operations Manager](../azure-monitor/platform/om-agents.md) | Sì | La soluzione raccoglie le informazioni DNS dagli agenti di un gruppo di gestione di Operations Manager connesso. Non è necessaria una connessione diretta dall'agente Operations Manager a Monitoraggio di Azure. I dati vengono inoltrati dal gruppo di gestione all'area di lavoro Log Analytics. |
-| [Account di archiviazione di Azure](../azure-monitor/platform/collect-azure-metrics-logs.md) | No | La soluzione non usa le risorse di archiviazione di Azure. |
+| [Account di archiviazione di Azure](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) | No | La soluzione non usa le risorse di archiviazione di Azure. |
 
 ### <a name="data-collection-details"></a>Informazioni dettagliate sulla raccolta di dati
 
-La soluzione raccoglie i dati relativi all'inventario e agli eventi DNS dai server DNS in cui è installato un agente Log Analytics. I dati relativi all'inventario, come il numero di server, zone e record di risorse DNS, vengono raccolti eseguendo i cmdlet di PowerShell per DNS. I dati vengono aggiornati ogni due giorni. I dati relativi agli eventi vengono raccolti quasi in tempo reale dai [log di analisi e di controllo](https://technet.microsoft.com/library/dn800669.aspx#enhanc) offerti dalle funzionalità avanzate di registrazione e diagnostica DNS di Windows Server 2012 R2.
+La soluzione raccoglie i dati relativi all'inventario e agli eventi DNS dai server DNS in cui è installato un agente Log Analytics. I dati relativi all'inventario, come il numero di server, zone e record di risorse DNS, vengono raccolti eseguendo i cmdlet di PowerShell per DNS. I dati vengono aggiornati ogni due giorni. I dati relativi agli eventi vengono raccolti quasi in tempo reale dai [log di analisi e di controllo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#enhanc) offerti dalle funzionalità avanzate di registrazione e diagnostica DNS di Windows Server 2012 R2.
 
 
 ## <a name="connect-your-dns-appliance"></a>Connettere il dispositivo DNS
@@ -65,7 +65,7 @@ La soluzione raccoglie i dati relativi all'inventario e agli eventi DNS dai serv
 2. Se il computer DNS non è una macchina virtuale di Azure:
     1. Fare clic su **Installa agente in computer non Azure**.
     1. Nella finestra **agente diretto** selezionare **Scarica agente Windows (64 bit)** o **scarica agente Windows (bit 32)**.
-    1. Installare l'agente nel computer DNS. Copiare l' **ID dell'area di lavoro**, la **chiave primaria**e la **chiave secondaria** e usarli quando richiesto durante l'installazione.
+    1. Installare l'agente nel computer DNS. Copiare l' **ID dell'area di lavoro**, la **chiave primaria** e la **chiave secondaria** e usarli quando richiesto durante l'installazione.
 
 3. Per usare lo schema pertinente in Log Analytics per i log DNS, cercare **: eventi DNS**.
 
@@ -76,7 +76,7 @@ In Log Analytics cercare lo schema **: eventi DNS** e verificare che siano prese
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se le query di ricerca non vengono visualizzate in Azure Sentinel, attenersi alla procedura seguente per visualizzare correttamente le query:
-1. Attivare i [registri analisi DNS nei server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)).
+1. Attivare i [registri analisi DNS nei server](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)).
 2. Verificare che: eventi DNS sia visualizzato nell'elenco Log Analytics raccolta.
 3. Attivare [analisi DNS di Azure](../azure-monitor/insights/dns-analytics.md).
 4. In Azure Analisi DNS, in **configurazione**, modificare le impostazioni, salvarle, quindi modificarle di nuovo, se necessario, e quindi salvarle nuovamente.

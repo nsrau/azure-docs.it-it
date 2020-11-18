@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7680c7ad4b2c5c8b8c1c13fb2344575659eda140
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 346536f5797841a850ef97dc4667110eafa721a4
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91892822"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656957"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Creare una connessione da sito a sito usando il portale di Azure (distribuzione classica)
 
@@ -46,14 +46,14 @@ Gli esempi di questo articolo usano i valori seguenti. È possibile usare questi
 * **Gruppo di risorse:** TestRG1
 * **Nome VNet:** TestVNet1
 * **Spazio di indirizzi:** 10.11.0.0/16
-* **Nome subnet:** FrontEnd
+* **Nome della subnet:** FrontEnd
 * **Intervallo di indirizzi subnet:** 10.11.0.0/24
 * **GatewaySubnet:** 10.11.255.0/27
 * **Area:** (Stati Uniti) Stati Uniti orientali
 * **Nome del sito locale:** Site2
 * **Spazio indirizzi client:** spazio di indirizzi nel sito locale.
 
-## <a name="create-a-virtual-network"></a><a name="CreatVNet"></a>Crea rete virtuale
+## <a name="create-a-virtual-network"></a><a name="CreatVNet"></a>Creare una rete virtuale
 
 Quando si crea una rete virtuale da usare per una connessione da sito a sito, è necessario assicurarsi che gli spazi di indirizzi specificati non si sovrappongano a quelli usati nel client per i siti locali a cui ci si vuole connettere. Se sono presenti subnet che si sovrappongono, la connessione non funziona correttamente.
 
@@ -135,7 +135,7 @@ In caso di problemi di connessione, vedere la sezione relativa alla **risoluzion
 
 ## <a name="how-to-reset-a-vpn-gateway"></a><a name="reset"></a>Come reimpostare un gateway VPN
 
-La reimpostazione del gateway VPN di Azure è utile se si perde la connettività VPN cross-premise in uno o più tunnel VPN da sito a sito. In questa situazione tutti i dispositivi VPN funzionano correttamente, ma non sono in grado di stabilire tunnel IPsec con i gateway VPN di Azure. Per la procedura da seguire, vedere [Reimpostare un gateway VPN](vpn-gateway-resetgw-classic.md#resetclassic).
+La reimpostazione del gateway VPN di Azure è utile se si perde la connettività VPN cross-premise in uno o più tunnel VPN da sito a sito. In questa situazione tutti i dispositivi VPN funzionano correttamente, ma non sono in grado di stabilire tunnel IPsec con i gateway VPN di Azure. Per la procedura da seguire, vedere [Reimpostare un gateway VPN](./reset-gateway.md#resetclassic).
 
 ## <a name="how-to-change-a-gateway-sku"></a><a name="changesku"></a>Come modificare uno SKU del gateway
 
@@ -143,5 +143,5 @@ Per la procedura per modificare uno SKU del gateway, vedere [ridimensionare uno 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](https://docs.microsoft.com/azure/).
+* Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere [Macchine virtuali](../index.yml).
 * Per informazioni sul tunneling forzato, vedere [informazioni sul tunneling forzato](vpn-gateway-about-forced-tunneling.md).

@@ -1,6 +1,6 @@
 ---
 title: Connettere i dati Cloud App Security ad Azure Sentinel | Microsoft Docs
-description: Informazioni su come usare il connettore Microsoft Cloud App Security (MCAS) per trasmettere avvisi e Cloud Discovery log da MCAS in Sentinel di Azure. 
+description: Informazioni su come usare il connettore Microsoft Cloud App Security (MCAS) per trasmettere avvisi e Cloud Discovery log da MCAS in Sentinel di Azure.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 5c67f517ffd3704644fbe8041f3ac1e7b0d1f09c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9827e93f793ef47a835aa0a5fb2005e2830a0824
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904557"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94655715"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Connettere i dati da Microsoft Cloud App Security 
 
-Il connettore [Microsoft cloud app Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) consente di trasmettere avvisi e [cloud Discovery log](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) da MCAS in Sentinel di Azure. Questo consentirà di ottenere visibilità sulle app Cloud, ottenere analisi sofisticate per identificare e combattere Cyberthreats e controllare il modo in cui i dati vengono trasmessi.
+Il connettore [Microsoft cloud app Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) consente di trasmettere avvisi e [cloud Discovery log](/cloud-app-security/tutorial-shadow-it) da MCAS in Sentinel di Azure. Questo consentirà di ottenere visibilità sulle app Cloud, ottenere analisi sofisticate per identificare e combattere Cyberthreats e controllare il modo in cui i dati vengono trasmessi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - L'utente deve disporre delle autorizzazioni di lettura e scrittura per l'area di lavoro.
 - L'utente deve disporre delle autorizzazioni di amministratore globale o di amministratore della sicurezza sul tenant dell'area di lavoro.
-- Per eseguire lo streaming di log Cloud Discovery in Sentinel di Azure, [abilitare Azure Sentinel come Siem in Microsoft cloud app Security](https://aka.ms/AzureSentinelMCAS).
+- Per eseguire lo streaming di log Cloud Discovery in Sentinel di Azure, [abilitare Azure Sentinel come Siem in Microsoft cloud app Security](/cloud-app-security/siem-sentinel).
 
 > [!IMPORTANT]
 > L'inserimento dei log di Cloud Discovery è attualmente disponibile in anteprima pubblica.
@@ -38,7 +38,7 @@ Il connettore [Microsoft cloud app Security](https://docs.microsoft.com/cloud-ap
  
 ## <a name="connect-to-cloud-app-security"></a>Connettersi a Cloud App Security
 
-Se si dispone già di Cloud App Security, assicurarsi che sia [abilitato sulla rete](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security).
+Se si dispone già di Cloud App Security, assicurarsi che sia [abilitato sulla rete](/cloud-app-security/getting-started-with-cloud-app-security).
 Se Cloud App Security viene distribuita e si inseriscono i dati, i dati dell'avviso possono essere facilmente trasmessi in Sentinel di Azure.
 
 
@@ -48,7 +48,7 @@ Se Cloud App Security viene distribuita e si inseriscono i dati, i dati dell'avv
 
 1. Fare clic su **Applica modifiche**.
 
-1. È possibile scegliere se si vuole che gli avvisi di Azure Defender dal centro sicurezza di Azure possano generare automaticamente eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti**selezionare **abilitato** per attivare la regola di analisi predefinita che crea automaticamente gli eventi imprevisti dagli avvisi. È quindi possibile modificare questa regola in **Analytics**, nella scheda  **regole attive** .
+1. È possibile scegliere se si vuole che gli avvisi di Azure Defender dal centro sicurezza di Azure possano generare automaticamente eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti** selezionare **abilitato** per attivare la regola di analisi predefinita che crea automaticamente gli eventi imprevisti dagli avvisi. È quindi possibile modificare questa regola in **Analytics**, nella scheda  **regole attive** .
 
 1. Per utilizzare lo schema pertinente in Log Analytics per gli avvisi di Cloud App Security, digitare `SecurityAlert` nella finestra query. Per lo schema dei log di Cloud Discovery, digitare `McasShadowItReporting` .
 
@@ -60,4 +60,4 @@ Se Cloud App Security viene distribuita e si inseriscono i dati, i dati dell'avv
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere Microsoft Cloud App Security ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere visibilità sui dati e sulle potenziali minacce](quickstart-get-visibility.md).
-- Inizia a rilevare le minacce con Azure Sentinel, usando regole [predefinite](tutorial-detect-threats.md) o [personalizzate](tutorial-detect-threats-custom.md) .
+- Inizia a rilevare le minacce con Azure Sentinel, usando regole [predefinite](./tutorial-detect-threats-built-in.md) o [personalizzate](tutorial-detect-threats-custom.md) .

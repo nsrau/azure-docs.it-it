@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 0c6129a24e6ed083114971df5f254eca54924400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9d2cd48e3b686614f7361d2007f6f8183c2361e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939810"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657024"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalizzazione in Sentinel di Azure
 
@@ -97,7 +97,7 @@ I parser del tempo di query disponibili sono disponibili nel [repository GitHub 
 
     1. **Categoria**: è possibile selezionare una categoria esistente o crearne una nuova, ad esempio *NormalizedNetworkSessionsParsers*
     
-        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Installare un nuovo parser":::
+        :::image type="content" source="./media/normalization/save-new-parser.png" alt-text="Salvare il parser":::
 
 Per utilizzare correttamente i parser, è necessario installare anche il parser dello schema di rete vuoto (che consente di creare una visualizzazione tabulare vuota di tutti i campi dello schema delle sessioni di rete) e il metaparser di rete (che unisce tutti i parser abilitati per creare una singola visualizzazione dei dati da diverse origini nello schema di rete). L'installazione di questi due parser viene eseguita in modo analogo ai passaggi precedenti.
 
@@ -107,13 +107,15 @@ Quando si salva una funzione di query, potrebbe essere necessario chiudere Esplo
 
 Una volta abilitata, è possibile usare il meta-parser per eseguire una query su una visualizzazione unificata su tutti i parser attualmente abilitati. A tale scopo, passare alla pagina dei log di Sentinel ed eseguire una query sul metaparser:
 
-:::image type="content" source="./media/normalization/query-parser.png" alt-text="Installare un nuovo parser":::
+:::image type="content" source="./media/normalization/query-parser.png" alt-text="Eseguire query sul parser":::
  
 È anche possibile accedere al meta-parser o ai singoli parser usando Esplora query nella pagina logs di Sentinel, facendo clic su "Esplora query":
 
-:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Installare un nuovo parser" (o il nome della categoria scelto durante la creazione dei parser):
+:::image type="content" source="./media/normalization/query-explorer.png" alt-text="Esplora query":::
 
-:::image type="content" source="./media/normalization/find-parser.png" alt-text="Installare un nuovo parser":::
+Nel riquadro a destra, espandere la sezione "query salvate" e trovare la cartella "NormalizedNetworkParsers" (o il nome della categoria scelto durante la creazione dei parser):
+
+:::image type="content" source="./media/normalization/find-parser.png" alt-text="Trovare il parser":::
 
 È possibile fare clic su ogni singolo parser e visualizzare la funzione sottostante utilizzata ed eseguirla (o accedervi direttamente tramite il relativo alias, come descritto in precedenza). Si noti che alcuni parser possono mantenere i campi originali affiancati ai campi normalizzati per praticità. Questa operazione può essere facilmente modificata nella query del parser.
 
@@ -122,13 +124,15 @@ Una volta abilitata, è possibile usare il meta-parser per eseguire una query su
 È possibile ripetere i passaggi precedenti (ricerca del parser in Esplora query), fare clic sul parser pertinente e visualizzarne l'implementazione della funzione.
 Ad esempio, è possibile decidere di modificare il metaparser per aggiungere/rimuovere singoli parser.
 
-:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Installare un nuovo parser" e utilizzare lo stesso nome, alias e categoria. Verrà aperta una finestra di dialogo di sostituzione-premere "OK":
+:::image type="content" source="./media/normalization/customize-parser.png" alt-text="Personalizzare il parser":::
+ 
+Una volta modificata la funzione, fare di nuovo clic su "Salva" e utilizzare lo stesso nome, alias e categoria. Verrà aperta una finestra di dialogo di sostituzione-premere "OK":
 
-:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Installare un nuovo parser":::
+:::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Sei sicuro":::
 
-#### <a name="additional-information"></a>Altre informazioni
+#### <a name="additional-information"></a>Informazioni aggiuntive
 
-Altre informazioni sulle [query salvate](../azure-monitor/log-query/saved-queries.md) , ovvero l'implementazione dei parser in fase di query, sono disponibili in log Analytics.
+Altre informazioni sulle [query salvate](../azure-monitor/log-query/example-queries.md) , ovvero l'implementazione dei parser in fase di query, sono disponibili in log Analytics.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

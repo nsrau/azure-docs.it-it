@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: df3ae57652737acc2b23cda75ace361f0bb40340
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 68299bae559d25155dda04a58aa1e4826a188b7f
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518186"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94657840"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>Baseline della sicurezza di Azure per il gateway VPN
 
@@ -32,7 +32,7 @@ Per informazioni sul mapping completo del gateway VPN al benchmark di sicurezza 
 
 - [Come creare una NSG con una configurazione di sicurezza](../virtual-network/tutorial-filter-network-traffic.md) 
 
-- [Creare un gateway VPN basato su route usando il portale di Azure](create-routebased-vpn-gateway-portal.md)
+- [Creare un gateway VPN basato su route usando il portale di Azure](./tutorial-create-gateway-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -66,7 +66,7 @@ Per informazioni sul mapping completo del gateway VPN al benchmark di sicurezza 
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md) 
 
-- [Esempi di criteri di Azure per la rete](/azure/governance/policy/samples/#network) 
+- [Esempi di criteri di Azure per la rete](../governance/policy/samples/built-in-policies.md#network) 
 
 - [Come creare un progetto di Azure](../governance/blueprints/create-blueprint-portal.md)
 
@@ -78,7 +78,7 @@ Per informazioni sul mapping completo del gateway VPN al benchmark di sicurezza 
 
 **Indicazioni**: usare log attività di Azure per monitorare le configurazioni delle risorse e rilevare le modifiche apportate alle risorse della rete virtuale. Creare avvisi in monitoraggio di Azure che verranno attivati quando si verificano modifiche alle risorse critiche correlate al gateway VPN.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -140,7 +140,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Introduzione alle query di Log Analytics](../azure-monitor/log-query/get-started-portal.md) 
+- [Introduzione alle query di Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) 
 
 - [Come eseguire query personalizzate in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 
@@ -180,9 +180,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 **Indicazioni**: il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente di gestire l'accesso alle risorse di Azure tramite assegnazioni di ruolo. È possibile assegnare questi ruoli a utenti, gruppi di entità servizio e identità gestite. Sono disponibili ruoli predefiniti predefiniti per determinate risorse, che possono essere sottoposti a inventario o sottoposti a query tramite strumenti come l'interfaccia della riga di comando di Azure, Azure PowerShell o l'portale di Azure.
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -194,7 +194,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 È anche possibile abilitare l'accesso just-in-Time usando Azure AD Privileged Identity Management e Azure Resource Manager. 
 
-- [Altre informazioni su Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Altre informazioni su Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -238,7 +238,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 **Indicazioni**: usare Azure Active Directory report di sicurezza e il monitoraggio per rilevare quando si verificano attività sospette o non sicure nell'ambiente. Usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso.
 
-- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Come monitorare l'identità e le attività di accesso degli utenti nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
@@ -270,7 +270,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 **Indicazioni**: Azure Active Directory (Azure ad) fornisce i log per individuare gli account obsoleti. Inoltre, utilizzare Azure AD le verifiche di identità e accesso per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. L'accesso utente può essere esaminato a intervalli regolari per assicurarsi che solo gli utenti corretti abbiano accesso continuo. 
 
-- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring/) 
+- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml) 
 
 - [Come usare Azure AD le verifiche di identità e accesso](../active-directory/governance/access-reviews-overview.md)
 
@@ -284,7 +284,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 È possibile semplificare questo processo creando impostazioni di diagnostica per Azure AD account utente e inviando i log di controllo e i log di accesso a un'area di lavoro di Log Analytics. È possibile configurare gli avvisi desiderati nell'area di lavoro Log Analytics. 
 
-- [Come integrare i log attività di Azure con monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Come integrare i log attività di Azure con monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -294,7 +294,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 **Indicazioni**: usare le funzionalità di Azure ad Identity Protection per configurare risposte automatiche per rilevare azioni sospette correlate alle identità utente. È anche possibile inserire i dati in Azure Sentinel per un'analisi più approfondita. 
 
-- [Come visualizzare gli accessi a rischio per Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Come configurare e abilitare i criteri di rischio di Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
@@ -312,11 +312,11 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 **Linee guida**: i gateway VPN hanno istanze di VM dedicate per ogni rete virtuale del cliente. Implementare l'isolamento usando reti virtuali, sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di riservatezza dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -412,9 +412,9 @@ Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei
 
 - [Come creare query con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [INTERFACCIA della riga di comando di Azure per gateway VPN](https://docs.microsoft.com/cli/azure/network/vnet-gateway?view=azure-cli-latest)
+- [INTERFACCIA della riga di comando di Azure per gateway VPN](/cli/azure/network/vnet-gateway?view=azure-cli-latest)
 
-- [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
@@ -426,7 +426,7 @@ Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei
 
 **Linee guida**: applicare i tag alle risorse del gateway VPN per organizzarli in modo logico in base a una tassonomia definita.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -436,11 +436,11 @@ Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei
 
 **Indicazioni**: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate laddove appropriato per organizzare e tenere traccia delle risorse del gateway VPN. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione. 
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription) 
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md) 
 
-- [Come creare gruppi di gestione](/azure/governance/management-groups/create) 
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md) 
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -468,7 +468,7 @@ Usare anche il grafico delle risorse di Azure per eseguire query e individuare l
 
 - [Come creare query con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Esempi di criteri di Azure predefiniti per la rete virtuale](/azure/virtual-network/policy-samples)
+- [Esempi di criteri di Azure predefiniti per la rete virtuale](../virtual-network/policy-reference.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -494,9 +494,9 @@ Usare anche il grafico delle risorse di Azure per eseguire query e individuare l
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/index.md)
 
-- [Esempi di criteri di Azure predefiniti per la rete virtuale](/azure/virtual-network/policy-samples)
+- [Esempi di criteri di Azure predefiniti per la rete virtuale](../virtual-network/policy-reference.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -524,11 +524,11 @@ Azure Resource Manager è in grado di esportare il modello in JSON (Java script 
 
 È anche possibile usare le raccomandazioni del Centro sicurezza di Azure come linea di base di configurazione sicura per le risorse di Azure.
 
-- [Come visualizzare gli alias di Criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Esercitazione: Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md)
 
-- [Esempi di criteri di Azure predefiniti per la rete virtuale](/azure/virtual-network/policy-samples)
+- [Esempi di criteri di Azure predefiniti per la rete virtuale](../virtual-network/policy-reference.md)
 
 - [Esportazione di una singola e più risorse in un modello in portale di Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -550,7 +550,7 @@ Azure Resource Manager è in grado di esportare il modello in JSON (Java script 
 
 - [Esempi di modelli di Azure Resource Manager per la rete virtuale](../virtual-network/template-samples.md)
 
-- [Esempi di criteri di Azure predefiniti per la rete virtuale](/azure/virtual-network/policy-samples)
+- [Esempi di criteri di Azure predefiniti per la rete virtuale](../virtual-network/policy-reference.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -560,7 +560,7 @@ Azure Resource Manager è in grado di esportare il modello in JSON (Java script 
 
 **Linee guida**: usare Azure DevOps per archiviare e gestire in modo sicuro il codice come definizioni di criteri di Azure personalizzate, Azure Resource Manager modelli e gli script di configurazione dello stato desiderato. Per accedere alle risorse gestite in Azure DevOps, è possibile concedere o negare autorizzazioni a utenti specifici, gruppi di sicurezza incorporati o gruppi definiti in Azure Active Directory (Azure AD) se integrati con Azure DevOps oppure Active Directory se integrati con TFS. 
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops) 
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops) 
 
 - [Informazioni sulle autorizzazioni e sui gruppi in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -586,7 +586,7 @@ Azure Resource Manager è in grado di esportare il modello in JSON (Java script 
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Esempi di criteri di Azure predefiniti per la rete virtuale](/azure/virtual-network/policy-samples)
+- [Esempi di criteri di Azure predefiniti per la rete virtuale](../virtual-network/policy-reference.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -674,7 +674,7 @@ Azure AD è consigliabile perché consente di sfruttare le identità gestite.
 
 - [Distribuire le risorse con i modelli ARM e portale di Azure](../azure-resource-manager/templates/deploy-portal.md)
 
-- [Come ripristinare le chiavi di Key Vault in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Come ripristinare le chiavi di Key Vault in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -684,11 +684,11 @@ Azure AD è consigliabile perché consente di sfruttare le identità gestite.
 
 **Linee guida**: usare Azure DevOps per archiviare e gestire in modo sicuro il codice, ad esempio definizioni di criteri di Azure e modelli di Azure Resource Manager personalizzati. Per proteggere le risorse gestite in Azure DevOps, è possibile concedere o negare autorizzazioni a utenti specifici, gruppi di sicurezza incorporati o gruppi definiti in Azure Active Directory (Azure AD) se integrati con Azure DevOps.
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [Informazioni sulle autorizzazioni e sui gruppi in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-- [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -720,7 +720,7 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 - [Avvisi di sicurezza nel Centro sicurezza di Azure](../security-center/security-center-alerts-overview.md) 
 
-- [Usare tag per organizzare le risorse di Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usare tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -786,5 +786,5 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)
