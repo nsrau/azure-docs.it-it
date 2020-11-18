@@ -4,15 +4,15 @@ titleSuffix: Azure Kubernetes Service
 description: Informazioni su come usare un servizio di bilanciamento del carico pubblico con uno SKU standard per esporre i servizi con Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 06/14/2020
+ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 51cb79e942b9d92876bd4d0e2cc27bb5ee0337bf
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: b42a952b096f533f916879a11fdb6b6583fa8592
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94634872"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660356"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un Load Balancer Standard pubblico in Azure Kubernetes Service (AKS)
 
@@ -31,7 +31,7 @@ Questo documento illustra l'integrazione con il servizio di bilanciamento del ca
 
 Azure Load Balancer è disponibile in due SKU: *Basic* e *Standard*. Per impostazione predefinita, lo SKU *standard* viene usato quando si crea un cluster AKS. Usare lo SKU *standard* per avere accesso alle funzionalità aggiunte, ad esempio un pool back-end più ampio, [**più pool di nodi**](use-multiple-node-pools.md)e [**zone di disponibilità**](availability-zones.md). Si tratta della SKU Load Balancer consigliata per AKS.
 
-Per altre informazioni sugli SKU *Basic* e *Standard* , vedere [Confronto tra SKU di Azure Load Balancer][azure-lb-comparison].
+Per altre informazioni sugli SKU *Basic* e *Standard*, vedere [Confronto tra SKU di Azure Load Balancer][azure-lb-comparison].
 
 Questo articolo presuppone che sia presente un cluster AKS con lo SKU *Standard* Azure Load Balancer e illustra come usare e configurare alcune funzionalità e funzionalità del servizio di bilanciamento del carico. Se è necessario un cluster del servizio Azure Kubernetes, vedere la guida di avvio rapido sul servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
@@ -87,6 +87,9 @@ Quando si usa il servizio di bilanciamento del carico pubblico con SKU standard,
 * Personalizzare il numero di porte in uscita allocate per ogni nodo del cluster
 * Configurare l'impostazione di timeout per le connessioni inattive
 
+> [!IMPORTANT]
+> È possibile usare una sola opzione IP in uscita (IP gestiti, Bring your own IP o prefisso IP) in un determinato momento.
+
 ### <a name="scale-the-number-of-managed-outbound-public-ips"></a>Ridimensionare il numero di indirizzi IP pubblici in uscita gestiti
 
 Azure Load Balancer offre connettività in uscita da una rete virtuale oltre alla connettività in ingresso. Le regole in uscita semplificano la configurazione della conversione degli indirizzi di rete in uscita di Load Balancer Standard pubblico.
@@ -120,10 +123,11 @@ Quando si usa un servizio di bilanciamento del carico con SKU *standard* , per i
 
 Un indirizzo IP pubblico creato da AKS è considerato una risorsa gestita da AKS. Ciò significa che il ciclo di vita di tale indirizzo IP pubblico deve essere gestito da AKS e non richiede alcuna azione da parte dell'utente direttamente sulla risorsa IP pubblico. In alternativa, è possibile assegnare un indirizzo IP pubblico o un prefisso IP pubblico personalizzato al momento della creazione del cluster. Gli IP personalizzati possono essere aggiornati anche nelle proprietà del servizio di bilanciamento del carico di un cluster esistente.
 
-> [!NOTE]
-> Gli indirizzi IP pubblici personalizzati devono essere creati e di proprietà dell'utente. Gli indirizzi IP pubblici gestiti creati da AKS non possono essere riutilizzati come IP personalizzato Bring your own perché può causare conflitti di gestione.
+Requisiti per l'uso di un indirizzo IP o prefisso pubblico:
 
-Prima di eseguire questa operazione, assicurarsi di soddisfare i [prerequisiti e i vincoli](../virtual-network/public-ip-address-prefix.md#constraints) necessari per configurare gli indirizzi IP in uscita o i prefissi IP in uscita.
+- Gli indirizzi IP pubblici personalizzati devono essere creati e di proprietà dell'utente. Gli indirizzi IP pubblici gestiti creati da AKS non possono essere riutilizzati come IP personalizzato Bring your own perché può causare conflitti di gestione.
+- È necessario assicurarsi che l'identità del cluster AKS (entità servizio o identità gestita) disponga delle autorizzazioni per accedere all'IP in uscita. In base all' [elenco di autorizzazioni per gli indirizzi IP pubblici richiesti](kubernetes-service-principal.md#networking).
+- Assicurarsi di soddisfare i [prerequisiti e i vincoli](../virtual-network/public-ip-address-prefix.md#constraints) necessari per configurare gli indirizzi IP in uscita o i prefissi IP in uscita.
 
 #### <a name="update-the-cluster-with-your-own-outbound-public-ip"></a>Aggiornare il cluster con il proprio indirizzo IP pubblico in uscita
 
@@ -266,7 +270,7 @@ Se si prevede di avere numerose connessioni di breve durata e non ci sono connes
  
 *Indirizzi IP in uscita* \* 64.000 \> *macchine virtuali del nodo* \* *desiredAllocatedOutboundPorts*.
  
-Se, ad esempio, si dispone di 3 *macchine virtuali del nodo* e di 50.000 *desiredAllocatedOutboundPorts* , è necessario disporre di almeno 3 *indirizzi IP in uscita*. Si consiglia di incorporare una capacità IP in uscita aggiuntiva oltre quella necessaria. Inoltre, è necessario tenere presente il ridimensionamento automatico del cluster e la possibilità di aggiornamenti del pool di nodi quando si calcola la capacità IP in uscita. Per il ridimensionamento automatico del cluster, esaminare il numero di nodi corrente e il numero massimo di nodi e usare il valore più elevato. Per l'aggiornamento, tenere conto di una macchina virtuale del nodo aggiuntiva per ogni pool di nodi che consente l'aggiornamento.
+Se, ad esempio, si dispone di 3 *macchine virtuali del nodo* e di 50.000 *desiredAllocatedOutboundPorts*, è necessario disporre di almeno 3 *indirizzi IP in uscita*. Si consiglia di incorporare una capacità IP in uscita aggiuntiva oltre quella necessaria. Inoltre, è necessario tenere presente il ridimensionamento automatico del cluster e la possibilità di aggiornamenti del pool di nodi quando si calcola la capacità IP in uscita. Per il ridimensionamento automatico del cluster, esaminare il numero di nodi corrente e il numero massimo di nodi e usare il valore più elevato. Per l'aggiornamento, tenere conto di una macchina virtuale del nodo aggiuntiva per ogni pool di nodi che consente l'aggiornamento.
 
 - Quando si imposta *IdleTimeoutInMinutes* su un valore diverso da quello predefinito di 30 minuti, considerare per quanto tempo i carichi di lavoro necessiteranno di una connessione in uscita. Tenere presente anche che il valore di timeout predefinito per un'istanza di bilanciamento del carico con SKU *Standard* usata al di fuori del servizio Azure Kubernetes è di 4 minuti. Un valore di *IdleTimeoutInMinutes* che riflette in modo più accurato il carico di lavoro del servizio Azure Kubernetes specifico può contribuire a ridurre l'esaurimento SNAT causato dal collegamento di connessioni non più utilizzate.
 
@@ -365,9 +369,9 @@ Per altre considerazioni su come eseguire la migrazione dei cluster, vedere la [
 
 ## <a name="limitations"></a>Limitazioni
 
-Quando si creano e si gestiscono cluster del servizio Azure Kubernetes che supportano un'istanza di bilanciamento del carico con SKU *Standard* , si applicano le limitazioni seguenti:
+Quando si creano e si gestiscono cluster del servizio Azure Kubernetes che supportano un'istanza di bilanciamento del carico con SKU *Standard*, si applicano le limitazioni seguenti:
 
-* È necessario almeno un indirizzo IP pubblico o un prefisso dell'indirizzo IP per consentire il traffico in uscita dal cluster del servizio Azure Kubernetes. L'IP pubblico o il prefisso IP è necessario anche per mantenere la connettività tra il piano di controllo e i nodi dell'agente e per mantenere la compatibilità con le versioni precedenti di AKS. Per specificare gli indirizzi IP pubblici o i prefissi degli indirizzi IP con un servizio di bilanciamento del carico con SKU *Standard* , sono disponibili le opzioni seguenti:
+* È necessario almeno un indirizzo IP pubblico o un prefisso dell'indirizzo IP per consentire il traffico in uscita dal cluster del servizio Azure Kubernetes. L'IP pubblico o il prefisso IP è necessario anche per mantenere la connettività tra il piano di controllo e i nodi dell'agente e per mantenere la compatibilità con le versioni precedenti di AKS. Per specificare gli indirizzi IP pubblici o i prefissi degli indirizzi IP con un servizio di bilanciamento del carico con SKU *Standard*, sono disponibili le opzioni seguenti:
     * Specificare gli indirizzi IP pubblici personalizzati.
     * Specificare i prefissi degli indirizzi IP pubblici personalizzati.
     * Specificare un numero massimo di 100 per consentire al cluster del servizio Azure Kubernetes di creare una certa quantità di indirizzi IP pubblici dello SKU *Standard* nello stesso gruppo di risorse creato dal cluster del servizio Azure Kubernetes, che in genere viene denominato con *MC_* all'inizio. Il servizio Azure Kubernetes assegna l'indirizzo IP pubblico all'istanza di bilanciamento del carico con SKU *Standard*. Per impostazione predefinita, un indirizzo IP pubblico verrà creato automaticamente nello stesso gruppo di risorse del cluster del servizio Azure Kubernetes, se non è specificato alcun indirizzo IP pubblico, prefisso di indirizzo IP pubblico o numero di indirizzi IP. È necessario anche consentire gli indirizzi pubblici ed evitare di creare criteri di Azure che vietino la creazione di IP.

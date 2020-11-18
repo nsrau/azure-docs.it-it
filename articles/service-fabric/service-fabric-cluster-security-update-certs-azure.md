@@ -3,12 +3,12 @@ title: Gestire certificati in un cluster di Service Fabric di Azure
 description: Questo articolo descrive come aggiungere nuovi certificati, eseguire il rollover di certificati e rimuovere certificati da o in un cluster di Service Fabric.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: b1ccf83e666f9106a31809ff41d55062826be78c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dd4440d76bed9d110c13baab9f4e67b3a5c64c0
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88869746"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660915"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Aggiungere o rimuovere certificati per un cluster Service Fabric in Azure
 È consigliabile acquisire familiarità con l'uso dei certificati X.509 da parte di Service Fabric e con gli [scenari di sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md). È necessario comprendere cos'è un certificato del cluster e a cosa serve prima di procedere.
@@ -18,7 +18,7 @@ Il comportamento di caricamento del certificato predefinito per Service Fabric S
 Service Fabric consente di specificare due certificati cluster, uno primario e uno secondario, durante la configurazione della sicurezza basata su certificati al momento della creazione del cluster, oltre ai certificati client. Per informazioni dettagliate sulla loro configurazione in fase di creazione, vedere l'argomento relativo alla [creazione di un di cluster Azure tramite il portale](service-fabric-cluster-creation-via-portal.md) o alla [creazione di un cluster di Azure tramite Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Se si specifica un solo certificato cluster in fase di creazione, questo viene usato come certificato primario. Dopo la creazione del cluster è possibile aggiungere un nuovo certificato come secondario.
 
 > [!NOTE]
-> Per un cluster protetto, è sempre necessario almeno un certificato cluster primario o secondario valido, non revocato né scaduto, e distribuito. In caso contrario, il cluster smette di funzionare. 90 giorni prima della scadenza della copertura di tutti i certificati validi il sistema genera una traccia di avviso e anche un evento di integrità dell'avviso nel nodo. Attualmente non sono disponibili messaggi di posta elettronica o altre notifiche inviati da Service Fabric su questo argomento. 
+> Per un cluster protetto, è sempre necessario almeno un certificato cluster primario o secondario valido, non revocato né scaduto, e distribuito. In caso contrario, il cluster smette di funzionare. 90 giorni prima che tutti i certificati validi raggiungano la scadenza, il sistema genera una traccia di avviso e un evento di avviso sullo stato del nodo. Queste sono attualmente le uniche notifiche Service Fabric inviate in merito alla scadenza del certificato.
 > 
 > 
 
@@ -26,7 +26,7 @@ Service Fabric consente di specificare due certificati cluster, uno primario e u
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Aggiungere un certificato cluster secondario tramite il portale
-Non è possibile aggiungere il certificato cluster secondario tramite il portale di Azure, usare Azure PowerShell. Il processo è descritto più avanti in questo documento.
+Non è possibile aggiungere il certificato del cluster secondario tramite il portale di Azure; usare Azure PowerShell. Il processo è descritto più avanti in questo documento.
 
 ## <a name="remove-a-cluster-certificate-using-the-portal"></a>Rimuovere un certificato cluster tramite il portale
 Per un cluster protetto, è sempre necessario almeno un certificato valido (non revocato né scaduto). Verrà usato il certificato distribuito con la data di scadenza più lontana e la rimozione dello stesso interromperà il funzionamento del cluster. Assicurarsi di rimuovere solo il certificato scaduto o un certificato inutilizzato che sta per scadere.
@@ -208,7 +208,7 @@ Distribuire il modello nel gruppo di risorse. Usare lo stesso gruppo di risorse 
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
-Di seguito è riportato un esempio compilato dello stesso in PowerShell.
+Di seguito è riportato un esempio di compilazione dello stesso PowerShell.
 
 ```powershell
 $ResourceGroup2 = "chackosecure5"
@@ -277,7 +277,7 @@ Per rimuovere un certificato secondario perché non venga usato per la sicurezza
 
 ## <a name="adding-application-certificates-to-a-virtual-machine-scale-set"></a>Aggiunta di certificati dell'applicazione a un set di scalabilità di macchine virtuali
 
-Per distribuire un certificato usato per le applicazioni nel cluster, vedere [questo esempio di script di PowerShell](scripts/service-fabric-powershell-add-application-certificate.md).
+Per distribuire un certificato usato per le applicazioni nel cluster, vedere [questo script di PowerShell di esempio](scripts/service-fabric-powershell-add-application-certificate.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni sulla gestione del cluster, leggere questi articoli:

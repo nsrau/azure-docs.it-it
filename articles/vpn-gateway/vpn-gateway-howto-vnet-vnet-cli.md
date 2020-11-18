@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 428c24236aad9a57a9d52eb0a6ff3a7aeb9fe541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9502f3fbd50aad756e15daa4db1badda2abf9ab
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442158"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660067"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurare una connessione gateway VPN tra reti virtuali usando l'interfaccia della riga di comando di Azure
 
@@ -134,7 +134,7 @@ Negli esempi vengono usati i valori seguenti:
    ```azurecli
    az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
    ```
-3. Creare uno spazio indirizzi aggiuntivo per la subnet back-end. Si noti che in questo passaggio vengono specificati sia lo spazio indirizzi creato prima che lo spazio indirizzi aggiuntivo che si vuole aggiungere. Infatti il comando [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet) sovrascrive le impostazioni precedenti. Quando si usa questo comando, assicurarsi di specificare tutti i prefissi degli indirizzi.
+3. Creare uno spazio indirizzi aggiuntivo per la subnet back-end. Si noti che in questo passaggio vengono specificati sia lo spazio indirizzi creato prima che lo spazio indirizzi aggiuntivo che si vuole aggiungere. Infatti il comando [az network vnet update](/cli/azure/network/vnet) sovrascrive le impostazioni precedenti. Quando si usa questo comando, assicurarsi di specificare tutti i prefissi degli indirizzi.
 
    ```azurecli
    az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
@@ -214,10 +214,10 @@ Ora sono disponibili due reti virtuali con i gateway VPN. Il passaggio successiv
    ```
    "activeActive": false, 
    "bgpSettings": { 
-    "asn": 65515, 
-    "bgpPeeringAddress": "10.12.255.30", 
-    "peerWeight": 0 
-   }, 
+    "asn": 65515, 
+    "bgpPeeringAddress": "10.12.255.30", 
+    "peerWeight": 0 
+   }, 
    "enableBgp": false, 
    "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
    "gatewayDefaultSite": null, 
@@ -356,7 +356,7 @@ Questo passaggio è suddiviso in due sessioni dell'interfaccia della riga di com
 
    Copiare l'output per "id:". Inviare l'ID e il nome del gateway della rete virtuale (VNet5GW) all'amministratore della sottoscrizione 1 tramite posta elettronica o un altro metodo.
 
-3. **[Sottoscrizione 1]** In questo passaggio viene creata la connessione da TestVNet1 a TestVNet5. È possibile usare i propri valori per la chiave condivisa che però deve essere la stessa per entrambe le connessioni. Il completamento della creazione di una connessione può richiedere un po' di tempo.Connettersi alla Sottoscrizione 1.
+3. **[Sottoscrizione 1]** In questo passaggio viene creata la connessione da TestVNet1 a TestVNet5. È possibile usare i propri valori per la chiave condivisa che però deve essere la stessa per entrambe le connessioni. Il completamento della creazione di una connessione può richiedere un po' di tempo. Connettersi alla Sottoscrizione 1.
 
    ```azurecli
    az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
@@ -378,5 +378,5 @@ Questo passaggio è suddiviso in due sessioni dell'interfaccia della riga di com
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere la [documentazione sulle macchine virtuali](https://docs.microsoft.com/azure/).
+* Dopo aver completato la connessione, è possibile aggiungere macchine virtuali alle reti virtuali. Per altre informazioni, vedere la [documentazione sulle macchine virtuali](../index.yml).
 * Per informazioni su BGP, vedere [Panoramica di BGP](vpn-gateway-bgp-overview.md) e [Come configurare BGP](vpn-gateway-bgp-resource-manager-ps.md).

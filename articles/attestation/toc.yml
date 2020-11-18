@@ -11,6 +11,8 @@
       href: quickstart-template.md
     - name: PowerShell
       href: quickstart-powershell.md
+    - name: Interfaccia della riga di comando di Azure
+      href: quickstart-azure-cli.md
 - name: Esercitazioni
   items:
     - name: Creazione di un criterio di attestazione

@@ -3,12 +3,12 @@ title: Azure Lab Services - Guida dell'amministratore | Microsoft Docs
 description: Questa guida è rivolta agli amministratori che creano e gestiscono account lab con Azure Lab Services.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 8670a9d56575dbfb6d3e565ec97191581dc612a8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b1fadc58926b00c75ab888dad86e45b181059a38
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491036"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659846"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - Guida dell'amministratore
 Gli amministratori IT che gestiscono le risorse cloud di un'università sono in genere responsabili della configurazione dell'account lab dell'istituto. Una volta configurato un account Lab, gli amministratori o gli educatori creano i Lab contenuti nell'account Lab. Questo articolo fornisce una panoramica generale delle risorse di Azure interessate e le istruzioni per crearle.
@@ -19,7 +19,7 @@ Gli amministratori IT che gestiscono le risorse cloud di un'università sono in 
 - Gli account lab, la raccolta di immagini condivise e le versioni delle immagini sono ospitati all'interno della sottoscrizione.
 - L'account lab e la raccolta di immagini condivise possono essere nello stesso gruppo di risorse. In questo diagramma sono in gruppi di risorse diversi.
 
-Per altri dettagli sull'architettura, vedere l'articolo relativo alle [nozioni di base sull'architettura Labs](https://docs.microsoft.com/azure/lab-services/classroom-labs-fundamentals) .
+Per altri dettagli sull'architettura, vedere l'articolo relativo alle [nozioni di base sull'architettura Labs](./classroom-labs-fundamentals.md) .
 
 ## <a name="subscription"></a>Subscription
 L'Università ha una o più sottoscrizioni di Azure. Una sottoscrizione viene usata per gestire la fatturazione e la sicurezza per tutte le risorse e i servizi di Azure usati al suo interno, inclusi gli account lab.
@@ -58,7 +58,7 @@ Di seguito sono illustrate alcune situazioni in cui avere più account lab può 
 
 - **Separare il budget per account lab**
   
-    Anziché segnalare tutti i costi del Lab tramite un singolo account Lab, potrebbe essere necessario un budget separato più chiaramente. Ad esempio, è possibile creare account lab per il dipartimento di Matematica dell'Università, per il dipartimento di Informatica e così via, in modo da separare il budget tra i dipartimenti.  È quindi possibile visualizzare il costo per ogni singolo account lab usando [Gestione costi di Azure](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
+    Anziché segnalare tutti i costi del Lab tramite un singolo account Lab, potrebbe essere necessario un budget separato più chiaramente. Ad esempio, è possibile creare account lab per il dipartimento di Matematica dell'Università, per il dipartimento di Informatica e così via, in modo da separare il budget tra i dipartimenti.  È quindi possibile visualizzare il costo per ogni singolo account lab usando [Gestione costi di Azure](../cost-management-billing/cost-management-billing-overview.md).
 
 - **Isolare i lab pilota dai lab attivi/di produzione**
   
@@ -141,18 +141,18 @@ Il percorso in cui è presente un Lab varia in base ai fattori seguenti:
 
   - **L'account lab è associato tramite peering a una rete virtuale**
   
-    Un account lab può essere [associato tramite peering a una rete virtuale](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) quando si trovano nella stessa area.  Quando si esegue il peering di un account Lab con una VNet, i Lab vengono creati automaticamente nella stessa area dell'account Lab e di VNet.
+    Un account lab può essere [associato tramite peering a una rete virtuale](./how-to-connect-peer-virtual-network.md) quando si trovano nella stessa area.  Quando si esegue il peering di un account Lab con una VNet, i Lab vengono creati automaticamente nella stessa area dell'account Lab e di VNet.
 
     > [!NOTE]
-    > Quando un account lab è associato tramite peering a una rete virtuale, l'impostazione **Consenti all'autore del lab di selezionare la località del lab** è disabilitata. Per altre informazioni su questa impostazione, vedere [Consentire all'autore del lab di selezionare la località del lab in Azure Lab Services](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location).
+    > Quando un account lab è associato tramite peering a una rete virtuale, l'impostazione **Consenti all'autore del lab di selezionare la località del lab** è disabilitata. Per altre informazioni su questa impostazione, vedere [Consentire all'autore del lab di selezionare la località del lab in Azure Lab Services](./allow-lab-creator-pick-lab-location.md).
     
-  - * * Non è consentito eseguire il peering di VNet * *_e_* _ Lab Creators non è autorizzato a selezionare il Lab location_ *
+  - * * Non è consentito eseguire il peering di VNet **_e_* _ Lab Creators non è autorizzato a selezionare il Lab location_ *
   
-    Quando non è presente **alcun** VNet con peering con l'account Lab *e* gli [autori del Lab **non** sono autorizzati a scegliere la posizione del Lab, i](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location)Lab vengono creati automaticamente in un'area con capacità VM disponibile.  In particolare, Azure Lab Services cerca disponibilità in [aree nella stessa area geografica dell'account lab](https://azure.microsoft.com/global-infrastructure/regions).
+    Quando non è presente **alcun** VNet con peering con l'account Lab *e* gli [autori del Lab **non** sono autorizzati a scegliere la posizione del Lab, i](./allow-lab-creator-pick-lab-location.md)Lab vengono creati automaticamente in un'area con capacità VM disponibile.  In particolare, Azure Lab Services cerca disponibilità in [aree nella stessa area geografica dell'account lab](https://azure.microsoft.com/global-infrastructure/regions).
 
-  - * * Nessun VNet è con peering * *_e_* _ gli autori Lab possono selezionare il Lab location_ *
+  - * * Nessun VNet è con peering **_e_* _ gli autori Lab possono selezionare il Lab location_ *
        
-    Quando **non** esiste alcun peering con una rete virtuale e [agli autori di lab è consentito selezionare la località del lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), le località che possono essere selezionate dall'autore del lab dipendono dalla capacità disponibile.
+    Quando **non** esiste alcun peering con una rete virtuale e [agli autori di lab è consentito selezionare la località del lab](./allow-lab-creator-pick-lab-location.md), le località che possono essere selezionate dall'autore del lab dipendono dalla capacità disponibile.
 
 > [!NOTE]
 > Per assicurarsi di disporre di capacità di VM sufficiente per un'area, è importante richiedere prima la capacità tramite l'account lab o quando si crea il lab.
@@ -169,18 +169,18 @@ Quando gli amministratori o i creatori di Lab creano un Lab, possono scegliere t
 
 | Dimensione | Specifiche | Serie | Uso suggerito |
 | ---- | ----- | ------ | ------------- |
-| Piccolo| <ul><li>2 core</li><li>3,5 GB di RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Queste dimensioni sono più indicate per la riga di comando, l'apertura del Web browser, server Web con traffico ridotto, database di piccole e medie dimensioni. |
-| Media | <ul><li>4 core</li><li>7 GB di RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Queste dimensioni sono più indicate per database relazionali, memorizzazione nella cache in memoria e analisi. |
-| Medium (virtualizzazione annidata) | <ul><li>4 core</li><li>16 GB di RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Queste dimensioni sono più indicate per database relazionali, memorizzazione nella cache in memoria e analisi.
-| large | <ul><li>8 core</li><li>16 GB di RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Queste dimensioni sono più indicate per le applicazioni che richiedono CPU più veloci, prestazioni del disco locale migliori, database di grandi dimensioni, cache di memoria di dimensioni elevate.  Queste dimensioni supportano anche la virtualizzazione annidata. |
-| Grande (virtualizzazione annidata) | <ul><li>8 core</li><li>32 GB di RAM</li></ul>  | [Standard_D8s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Queste dimensioni sono più indicate per le applicazioni che richiedono CPU più veloci, prestazioni del disco locale migliori, database di grandi dimensioni, cache di memoria di dimensioni elevate. |
-| GPU small (visualizzazione) | <ul><li>6 core</li><li>56 GB di RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Queste dimensioni sono più indicate per la visualizzazione remota, lo streaming, i giochi e la codifica con framework quali OpenGL e DirectX. |
-| GPU small (calcolo) | <ul><li>6 core</li><li>56 GB di RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Queste dimensioni sono più indicate per applicazioni a elevato utilizzo di calcolo quali intelligenza artificiale e Deep Learning. |
-| GPU medium (visualizzazione) | <ul><li>12 core</li><li>112 GB di RAM</li></ul>  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Queste dimensioni sono più indicate per la visualizzazione remota, lo streaming, i giochi e la codifica con framework quali OpenGL e DirectX. |
+| Piccolo| <ul><li>2 core</li><li>3,5 GB di RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Queste dimensioni sono più indicate per la riga di comando, l'apertura del Web browser, server Web con traffico ridotto, database di piccole e medie dimensioni. |
+| Media | <ul><li>4 core</li><li>7 GB di RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Queste dimensioni sono più indicate per database relazionali, memorizzazione nella cache in memoria e analisi. |
+| Medium (virtualizzazione annidata) | <ul><li>4 core</li><li>16 GB di RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Queste dimensioni sono più indicate per database relazionali, memorizzazione nella cache in memoria e analisi.
+| large | <ul><li>8 core</li><li>16 GB di RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | Queste dimensioni sono più indicate per le applicazioni che richiedono CPU più veloci, prestazioni del disco locale migliori, database di grandi dimensioni, cache di memoria di dimensioni elevate.  Queste dimensioni supportano anche la virtualizzazione annidata. |
+| Grande (virtualizzazione annidata) | <ul><li>8 core</li><li>32 GB di RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json#dsv3-series) | Queste dimensioni sono più indicate per le applicazioni che richiedono CPU più veloci, prestazioni del disco locale migliori, database di grandi dimensioni, cache di memoria di dimensioni elevate. |
+| GPU small (visualizzazione) | <ul><li>6 core</li><li>56 GB di RAM</li>  | [Standard_NV6](../virtual-machines/nv-series.md) | Queste dimensioni sono più indicate per la visualizzazione remota, lo streaming, i giochi e la codifica con framework quali OpenGL e DirectX. |
+| GPU small (calcolo) | <ul><li>6 core</li><li>56 GB di RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md) |Queste dimensioni sono più indicate per applicazioni a elevato utilizzo di calcolo quali intelligenza artificiale e Deep Learning. |
+| GPU medium (visualizzazione) | <ul><li>12 core</li><li>112 GB di RAM</li></ul>  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%252fazure%252fvirtual-machines%252flinux%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) | Queste dimensioni sono più indicate per la visualizzazione remota, lo streaming, i giochi e la codifica con framework quali OpenGL e DirectX. |
 
 ## <a name="manage-identity"></a>Gestire le identità
 
-Usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview), è possibile assegnare i ruoli seguenti per concedere l'accesso agli account Lab e ai Lab:
+Usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md), è possibile assegnare i ruoli seguenti per concedere l'accesso agli account Lab e ai Lab:
 
 - **Proprietario dell'account lab**
 
@@ -200,7 +200,7 @@ Usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](ht
 
 - **Autore del Lab**
 
-    Per creare Lab in un account Lab, un educatore deve essere un membro del ruolo **Lab Creator** .  Quando un insegnante crea un Lab, viene aggiunto automaticamente come proprietario del Lab.  Per altre informazioni, vedere l'esercitazione che spiega come [aggiungere un utente al ruolo **Autore di lab**](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role). 
+    Per creare Lab in un account Lab, un educatore deve essere un membro del ruolo **Lab Creator** .  Quando un insegnante crea un Lab, viene aggiunto automaticamente come proprietario del Lab.  Per altre informazioni, vedere l'esercitazione che spiega come [aggiungere un utente al ruolo **Autore di lab**](./tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role). 
 
 - **Owner\contributor Lab**
   
@@ -217,7 +217,7 @@ Usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](ht
 Ecco alcuni suggerimenti utili per l'assegnazione dei ruoli:
    - In genere, solo gli amministratori devono essere membri del ruolo **Proprietario** o **Collaboratore** di un account lab. Possono essere assegnati più proprietari e collaboratori.
    - Per consentire a un insegnante di creare nuovi Lab e gestire i Lab creati; è sufficiente assegnare l'accesso al ruolo **Lab Creator** .
-   - Per consentire a un insegnante di gestire laboratori specifici, ma *non* la possibilità di creare nuovi laboratori; è necessario assegnare l'accesso al ruolo **proprietario** o **collaboratore** per ogni Lab che verrà gestito.  Ad esempio, è possibile consentire a un professore e a un assistente didattico di creare un co-proprietario di un Lab.  Vedere la guida su come [aggiungere un utente come proprietario di un Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner).
+   - Per consentire a un insegnante di gestire laboratori specifici, ma *non* la possibilità di creare nuovi laboratori; è necessario assegnare l'accesso al ruolo **proprietario** o **collaboratore** per ogni Lab che verrà gestito.  Ad esempio, è possibile consentire a un professore e a un assistente didattico di creare un co-proprietario di un Lab.  Vedere la guida su come [aggiungere un utente come proprietario di un Lab](./how-to-add-user-lab-owner.md).
 
 ## <a name="pricing"></a>Prezzi
 
@@ -274,4 +274,3 @@ Passaggi successivi comuni per la configurazione di un ambiente lab.
 - [Guida all'installazione di Lab](setup-guide.md)
 - [Gestione costi per i lab](cost-management-guide.md)
 - [Utilizzo di Azure Lab Services all'interno di Team](lab-services-within-teams-overview.md)
-

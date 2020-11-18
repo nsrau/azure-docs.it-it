@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: 17c0ba7306ab4cc51fe8bbe3709d5b6bc85fa487
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a891a301d5869603a7d90d28bb9063d7d5bdb1d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91344647"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660577"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Bring Your Own Machine Learning (ML) in Azure Sentinel
 
@@ -32,7 +32,7 @@ I modelli di rilevamento ML possono adattarsi a singoli ambienti e a modifiche a
 
 ## <a name="what-is-the-bring-your-own-machine-learning-byo-ml-platform"></a>Qual è la piattaforma BYO-ML (Bring Your Own Machine Learning)?
 
-Per le organizzazioni che hanno risorse ML e vogliono creare modelli di Machine Learning personalizzati per le proprie esigenze aziendali esclusive, offriamo la **piattaforma BYO-ml**. La piattaforma usa l'ambiente [Azure Databricks](https://docs.microsoft.com/azure/databricks/scenarios/what-is-azure-databricks) / [Apache Spark](http://spark.apache.org/) e i notebook Jupyter per produrre l'ambiente ml. Fornisce i componenti seguenti:
+Per le organizzazioni che hanno risorse ML e vogliono creare modelli di Machine Learning personalizzati per le proprie esigenze aziendali esclusive, offriamo la **piattaforma BYO-ml**. La piattaforma usa l'ambiente [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) / [Apache Spark](http://spark.apache.org/) e i notebook Jupyter per produrre l'ambiente ml. Fornisce i componenti seguenti:
 
 - un pacchetto BYO-ML, che include librerie che consentono di accedere ai dati ed eseguire il push dei risultati in Log Analytics (LA), in modo che sia possibile integrare i risultati con il rilevamento, l'analisi e la caccia. 
 
@@ -95,7 +95,7 @@ Ora che si conoscono i componenti chiave della piattaforma BYO-ML, di seguito è
 
 ### <a name="setup-the-databricksspark-environment"></a>Configurare l'ambiente databricks/Spark
 
-Se non ne è già presente uno, sarà necessario configurare un ambiente databricks. Per istruzioni, vedere il documento di [avvio rapido di databricks](https://docs.microsoft.com/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) .
+Se non ne è già presente uno, sarà necessario configurare un ambiente databricks. Per istruzioni, vedere il documento di [avvio rapido di databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal?tabs=azure-portal) .
 
 ### <a name="auto-export-instruction"></a>Istruzione di esportazione automatica
 
@@ -103,7 +103,7 @@ Per creare modelli di Machine Learning personalizzati basati sui dati in Sentine
 
 Per questo esempio, è necessario avere i dati di training per il log di accesso alla condivisione file nell'archivio BLOB di Azure. Il formato dei dati è documentato nel notebook e nelle librerie.
 
-È possibile esportare automaticamente i dati da Log Analytics usando l' [interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/monitor/log-analytics). 
+È possibile esportare automaticamente i dati da Log Analytics usando l' [interfaccia della riga di comando di Azure](/cli/azure/monitor/log-analytics). 
 
 Per eseguire i comandi, è necessario disporre del ruolo **collaboratore** nell'area di lavoro log Analytics, nell'account di archiviazione e nella risorsa EventHub. 
 
@@ -159,13 +159,13 @@ Una volta ottenuto il Punteggio pianificato, è possibile usare il modulo nel no
 
 Per visualizzare i risultati con punteggio con i dettagli relativi ai log, tornare al portale di Azure Sentinel. Nei **log** > log personalizzati, i risultati vengono visualizzati nella tabella **AnomalousResourceAccessResult_CL** (o nel nome della tabella personalizzata). È possibile usare questi risultati per migliorare le esperienze di ricerca e caccia.
 
-:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="Framework di Machine Learning":::
+:::image type="content" source="./media/bring-your-own-ml/anomalous-resource-access-logs.png" alt-text="log di accesso alle risorse anomali":::
 
 ### <a name="build-custom-analytics-rule-with-ml-results"></a>Creare una regola di analisi personalizzata con risultati ML
 
 Dopo aver verificato che i risultati di ML si trovano nella tabella dei log personalizzati e si è soddisfatti della fedeltà dei punteggi, è possibile creare un rilevamento in base ai risultati. Passare a **Analytics** dal portale di Azure Sentinel e [creare una nuova regola di rilevamento](tutorial-detect-threats-custom.md). Di seguito è riportato un esempio in cui viene illustrata la query utilizzata per creare il rilevamento.
 
-:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="Framework di Machine Learning":::
+:::image type="content" source="./media/bring-your-own-ml/create-byo-ml-analytics-rule.png" alt-text="creare una regola di analisi personalizzata per i rilevamenti B Y O M L":::
 
 ### <a name="view-and-respond-to-incidents"></a>Visualizzare e rispondere agli eventi imprevisti
 Una volta configurata la regola di analisi in base ai risultati di ML, se sono presenti risultati superiori alla soglia impostata nella query, verrà generato un evento imprevisto che verrà esposto nella pagina **eventi imprevisti** in Sentinel di Azure. 

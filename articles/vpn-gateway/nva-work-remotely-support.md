@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: scottnap
-ms.openlocfilehash: 4783016e472907392f2d379efa0fed2d90ed21bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: beb59674d678ed9c61c9ee0b425da7032794ca64
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595360"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660611"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>Lavorare in remoto: considerazioni sull'appliance virtuale di rete per il lavoro remoto
 
@@ -30,7 +30,7 @@ Tutti i principali fornitori di appliance virtuale di Azure in Azure Marketplace
 
 - **Capacità e numero di utenti simultanei** : questo numero è particolarmente importante per gli utenti VPN da punto a sito poiché ogni utente connesso creerà un tunnel crittografato (VPN IPSec o SSL).  
 - **Velocità effettiva aggregata** : quale sarà la larghezza di banda aggregata necessaria per il numero di utenti necessari per fornire accesso remoto.
-- **Dimensioni della macchina virtuale necessarie** : è consigliabile usare sempre le dimensioni delle VM consigliate dal fornitore dell'appliance virtuale di dispositivo.  Per la VPN da punto a sito, se si dispone di un numero elevato di connessioni utente simultanee, è consigliabile usare dimensioni di VM maggiori, ad esempio macchine virtuali della [serie dv2 e DSv2](https://docs.microsoft.com/azure/virtual-machines/dv2-dsv2-series "Serie dv2 e Dsv2") . Queste VM tendono a avere più vCPU e possono gestire più sessioni VPN simultanee.  Oltre a avere più core virtuali, le dimensioni delle VM più grandi in Azure hanno una capacità di larghezza di banda aggregata superiore rispetto alle dimensioni delle VM più piccole.
+- **Dimensioni della macchina virtuale necessarie** : è consigliabile usare sempre le dimensioni delle VM consigliate dal fornitore dell'appliance virtuale di dispositivo.  Per la VPN da punto a sito, se si dispone di un numero elevato di connessioni utente simultanee, è consigliabile usare dimensioni di VM maggiori, ad esempio macchine virtuali della [serie dv2 e DSv2](../virtual-machines/dv2-dsv2-series.md "Serie dv2 e Dsv2") . Queste VM tendono a avere più vCPU e possono gestire più sessioni VPN simultanee.  Oltre a avere più core virtuali, le dimensioni delle VM più grandi in Azure hanno una capacità di larghezza di banda aggregata superiore rispetto alle dimensioni delle VM più piccole.
     > **Importante:** Ogni fornitore utilizza le risorse in modo diverso.  Se non è chiaro quali dimensioni delle istanze usare per soddisfare il carico utente stimato, è necessario contattare direttamente il fornitore del software e richiedere una raccomandazione.
 - **Numero di istanze** : se si prevede di avere un numero elevato di utenti e connessioni, è possibile che si verifichi la scalabilità delle dimensioni delle istanze di appliance virtuale di dispositivo.  Prendere in considerazione la distribuzione di più istanze di VM.
 - VPN **IPSec rispetto alla VPN SSL** : le implementazioni VPN IPSec generali offrono prestazioni migliori rispetto alle implementazioni VPN SSL.  

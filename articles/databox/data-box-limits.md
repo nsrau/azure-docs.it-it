@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/01/2020
+ms.date: 11/16/2020
 ms.author: alkohli
-ms.openlocfilehash: b193247fee843796da0cb2fcfc1a874b1a1b72fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00ba711661d69bbaf53ff51fb2cb833d9b1c1ae2
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91660922"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660424"
 ---
 # <a name="azure-data-box-limits"></a>Limiti di Azure Data Box
 
@@ -28,7 +28,7 @@ Quando si distribuisce e si usa Microsoft Azure Data Box, tenere presenti i limi
 - Data Box possibile archiviare un massimo di 500 milioni file per l'importazione e l'esportazione.
 - Data Box supporta un massimo di 512 contenitori o condivisioni nel cloud. Le directory di livello superiore all'interno della condivisione utente diventano contenitori o condivisioni file di Azure nel cloud. 
 - Data Box capacità di utilizzo può essere inferiore a 80 TB a causa del consumo dello spazio dei metadati ReFS.
-- Data Box supporta un massimo di 5 connessioni client alla volta in una condivisione NFS. 
+- Data Box supporta un massimo di 10 connessioni client alla volta in una condivisione NFS.
 
 ## <a name="azure-storage-limits"></a>Limiti di Archiviazione di Azure
 

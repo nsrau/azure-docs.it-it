@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 087ee796fbd3c0563b8019a062acab9c7ad80bb1
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 2ffc524c14b9ba281d7e386f7f8c726093f11dbf
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579386"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661019"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Eseguire query sui dati Azure Cosmos DB con pool SQL senza server nel collegamento sinapsi di Azure (anteprima)
 
@@ -25,7 +25,7 @@ Per eseguire query Azure Cosmos DB, la superficie di attacco di [selezione](/sql
 In questo articolo si apprenderà come scrivere una query con un pool SQL senza server che eseguirà query sui dati da contenitori di Azure Cosmos DB che sono abilitati per il collegamento sinapsi. È quindi possibile ottenere altre informazioni sulla creazione di viste del pool SQL senza server su Azure Cosmos DB contenitori e sulla connessione ai modelli di Power BI in [questa](./tutorial-data-analyst.md) esercitazione. 
 
 > [!IMPORTANT]
-> Questa esercitazione usa un contenitore con [Azure Cosmos DB schema ben definito](../../cosmos-db/analytical-store-introduction.md#schema-representation). L'esperienza di query fornita da un pool SQL senza server per [Azure Cosmos DB schema di fedeltà completa](#full-fidelity-schema) è un comportamento temporaneo che verrà modificato in base ai commenti in anteprima. Non fare affidamento sullo schema del set di risultati della `OPENROWSET` funzione senza `WITH` clausola che legge i dati da un contenitore con schema di fedeltà completa perché l'esperienza di query può essere modificata e allineata con uno schema ben definito. Inviare commenti e suggerimenti nel [Forum dei commenti e suggerimenti su Azure sinapsi Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics) o contattare il team del prodotto del [collegamento sinapsi](mailto:cosmosdbsynapselink@microsoft.com) per fornire commenti.
+> Questa esercitazione usa un contenitore con uno [schema Azure Cosmos DB ben definito](../../cosmos-db/analytical-store-introduction.md#schema-representation). L'esperienza di query fornita dal pool SQL senza server per un [Azure Cosmos DB schema di fedeltà completa](#full-fidelity-schema) è un comportamento temporaneo che cambierà in base ai commenti in anteprima. Non fare affidamento sullo schema del set di risultati della `OPENROWSET` funzione senza la `WITH` clausola che legge i dati da un contenitore con uno schema di fedeltà completa perché l'esperienza di query potrebbe essere allineata con e modificare in base allo schema ben definito. Inviare commenti e suggerimenti nel [Forum di commenti e suggerimenti su Azure sinapsi Analytics](https://feedback.azure.com/forums/307516-azure-synapse-analytics) o contattare il [team del prodotto del collegamento sinapsi](mailto:cosmosdbsynapselink@microsoft.com) per fornire commenti e suggerimenti.
 
 ## <a name="overview"></a>Panoramica
 

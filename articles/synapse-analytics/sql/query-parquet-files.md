@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: cc2c40dd0b61f917da86d67188f4b503ca9b9298
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: c8e454f523f081681d359dfd852c5f88d69a99d7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579352"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661053"
 ---
 # <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Eseguire query sui file parquet usando un pool SQL senza server (anteprima) in Azure sinapsi Analytics
 
@@ -35,7 +35,7 @@ from openrowset(
     format = 'parquet') as rows
 ```
 
-Assicurarsi di accedere a questo file. Se il file è protetto con la chiave SAS o con identità Azure personalizzata, è necessario configurare le [credenziali a livello di server per l'accesso SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+Verificare che sia possibile accedere a questo file. Se il file è protetto con la chiave SAS o con identità personalizzata di Azure, è necessario configurare le [credenziali a livello di server per l'accesso SQL](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 > [!IMPORTANT]
 > Assicurarsi di usare le regole di confronto del database UTF-8 (ad esempio `Latin1_General_100_CI_AS_SC_UTF8` ) perché i valori stringa nei file parquet sono codificati usando la codifica UTF-8.

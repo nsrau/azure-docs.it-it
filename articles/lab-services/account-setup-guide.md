@@ -3,12 +3,12 @@ title: Guida alla configurazione dell'account Lab accelerato per Azure Lab Servi
 description: Questa guida consente agli amministratori di configurare rapidamente un account Lab da usare all'interno della scuola.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4d9a64fe23c3e5b74e77e704154f5e74bf2066d9
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: aa3e7b586546b3d87f5c6029b284eeb1402ed171
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490560"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659863"
 ---
 # <a name="lab-account-setup-guide"></a>Guida all'installazione dell'account Lab
 Per configurare l'ambiente di Azure Lab Services, gli amministratori devono prima configurare un **account Lab** nella sottoscrizione di Azure. Un account Lab è un contenitore per i Lab e richiede solo pochi minuti per la configurazione.
@@ -23,14 +23,14 @@ Questa sezione descrive i prerequisiti che è necessario completare prima di pot
 
 ### <a name="obtain-an-azure-subscription"></a>Ottenere una sottoscrizione di Azure
 Per creare un account Lab, è necessario accedere a una sottoscrizione di Azure configurata per la propria scuola. La scuola può avere una o più sottoscrizioni. Si usa una sottoscrizione per gestire la fatturazione e la sicurezza per tutte le risorse e i servizi di Azure, inclusi gli account Lab.  Le sottoscrizioni di Azure sono in genere gestite dal reparto IT.  Per ulteriori informazioni, leggere l'argomento seguente:
- - [Guida dell'amministratore-sottoscrizione](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#subscription)
+ - [Guida dell'amministratore-sottoscrizione](./administrator-guide.md#subscription)
 
 ### <a name="estimate-the-number-of-vms-and-vm-sizes-that-you-need"></a>Stimare il numero di VM e le dimensioni delle VM necessarie
-È necessario stimare il numero di macchine virtuali (VM) e le [dimensioni delle VM](https://docs.microsoft.com/azure/lab-services/administrator-guide#vm-sizing) necessarie per la propria scuola.  Leggere il post di Blog seguente per istruzioni su come strutturare i labs\images.  Questo post di Blog consentirà anche di decidere il numero di VM e le dimensioni delle VM necessarie:
+È necessario stimare il numero di macchine virtuali (VM) e le [dimensioni delle VM](./administrator-guide.md#vm-sizing) necessarie per la propria scuola.  Leggere il post di Blog seguente per istruzioni su come strutturare i labs\images.  Questo post di Blog consentirà anche di decidere il numero di VM e le dimensioni delle VM necessarie:
 - [Passaggio da un Lab fisico a Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931)
 
 Vedere anche questo articolo che illustra le istruzioni aggiuntive su come strutturare i Lab:
-- [Guida dell'amministratore-Lab](https://docs.microsoft.com/azure/lab-services/administrator-guide#classroom-lab)
+- [Guida dell'amministratore-Lab](./administrator-guide.md)
 
 ### <a name="understand-subscription-vm-limits-and-regional-vm-capacity"></a>Informazioni sui limiti delle VM di sottoscrizione e sulla capacità delle macchine virtuali regionali
 Una volta stimato il numero di VM e le dimensioni delle VM per i Lab, è necessario:
@@ -44,9 +44,9 @@ Leggere il post di Blog seguente per altre informazioni: [limiti della sottoscri
 ### <a name="decide-how-many-lab-accounts-to-create"></a>Decidere il numero di account Lab da creare
 
 Per iniziare rapidamente, creare un singolo account Lab all'interno del proprio gruppo di risorse.  Successivamente, è possibile creare altri account Lab (e gruppi di risorse) in base alle esigenze. Ad esempio, si potrebbe avere un account Lab e un gruppo di risorse per reparto come un modo per separare chiaramente i costi.  Leggere gli articoli seguenti per altre informazioni sugli account Lab, i gruppi di risorse e la separazione dei costi:
-- [Guida dell'amministratore-gruppo di risorse](https://docs.microsoft.com/azure/lab-services/administrator-guide#resource-group)
-- [Guida dell'amministratore-account Lab](https://docs.microsoft.com/azure/lab-services/administrator-guide#lab-account) 
-- [Gestione dei costi per Azure Lab Services](https://docs.microsoft.com/azure/lab-services/cost-management-guide)
+- [Guida dell'amministratore-gruppo di risorse](./administrator-guide.md#resource-group)
+- [Guida dell'amministratore-account Lab](./administrator-guide.md#lab-account) 
+- [Gestione dei costi per Azure Lab Services](./cost-management-guide.md)
 
 ## <a name="planning-your-lab-accounts-settings"></a>Pianificazione delle impostazioni dell'account Lab
 
@@ -55,7 +55,7 @@ Per pianificare le impostazioni dell'account Lab, è necessario prendere in cons
 ### <a name="who-should-be-owners-and-contributors-of-the-lab-account"></a>Chi deve essere proprietari e collaboratori dell'account Lab?
 
    Gli amministratori IT della scuola sono in genere i proprietari e i collaboratori di un account Lab. Sono responsabili della gestione dei criteri che si applicano a tutti i Lab contenuti nell'account Lab. La persona che crea l'account Lab è automaticamente un proprietario. È possibile aggiungere altri proprietari e collaboratori dal tenant di Azure Active Directory (AD) associato alla sottoscrizione. Per ulteriori informazioni sul proprietario dell'account Lab e sui ruoli collaboratore, vedere:
-   -  [Guida dell'amministratore-gestione dell'identità](https://docs.microsoft.com/azure/lab-services/administrator-guide#manage-identity).
+   -  [Guida dell'amministratore-gestione dell'identità](./administrator-guide.md#manage-identity).
 
    [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
 
@@ -64,12 +64,12 @@ Per pianificare le impostazioni dell'account Lab, è necessario prendere in cons
 ### <a name="who-will-be-allowed-to-create-labs"></a>Chi sarà autorizzato a creare Lab?
 
    È possibile scegliere di creare Lab per i membri IT e docenti. Quando un utente crea un Lab, viene assegnato automaticamente come proprietario del Lab.  Per creare Lab, gli utenti (in genere dal tenant Azure AD associato alla sottoscrizione) devono essere assegnati al ruolo di autore del Lab nell'account Lab.  Per ulteriori informazioni sul ruolo di autore del Lab, vedere:
-   -  [Guida dell'amministratore-gestione dell'identità](https://docs.microsoft.com/azure/lab-services/administrator-guide#manage-identity)
+   -  [Guida dell'amministratore-gestione dell'identità](./administrator-guide.md#manage-identity)
 
 ### <a name="who-will-be-allowed-to-own-and-manage-labs"></a>Chi sarà autorizzato a gestire i Lab?
 
    È anche possibile scegliere di fare in modo che i membri del personale IT e dei docenti own\manage Labs *senza* la possibilità di creare Lab.  In questo caso, gli utenti del tenant Azure AD della sottoscrizione vengono assegnati al proprietario o al collaboratore dei Lab esistenti.  Per ulteriori informazioni sui ruoli di proprietario e collaboratore di un Lab, vedere:
-   - [Guida dell'amministratore-gestione dell'identità](https://docs.microsoft.com/azure/lab-services/administrator-guide#manage-identity)
+   - [Guida dell'amministratore-gestione dell'identità](./administrator-guide.md#manage-identity)
 
 ### <a name="do-you-want-to-save-images-that-can-be-shared-across-labs"></a>Salvare le immagini che possono essere condivise tra i Lab?
 Una raccolta di immagini condivise è un repository che è possibile usare per salvare e condividere le immagini. Per le classi che necessitano della stessa immagine, i creatori di Lab possono creare l'immagine e quindi esportarla nella raccolta immagini condivise.  Una volta esportate immagini nella raccolta immagini condivise, è possibile usarle per creare nuovi Lab.
@@ -78,14 +78,14 @@ Inoltre, è possibile creare le immagini nell'ambiente fisico e quindi importarl
 - [Importare un'immagine personalizzata in una raccolta di immagini condivise](https://techcommunity.microsoft.com/t5/azure-lab-services/import-custom-image-to-shared-image-gallery/ba-p/1777353)
 
 Se si decide di usare una raccolta di immagini condivise, è necessario creare o alleghiare una raccolta di immagini condivise all'account Lab. È anche possibile rimandare questa decisione fino a un momento successivo, perché può essere collegata a un account Lab in qualsiasi momento.  Per ulteriori informazioni sulla raccolta di immagini condivise, vedere:
-- [Guida dell'amministratore-raccolta di immagini condivise](https://docs.microsoft.com/azure/lab-services/administrator-guide#shared-image-gallery)
-- [Guida dell'amministratore-prezzi della raccolta immagini condivisa](https://docs.microsoft.com/azure/lab-services/administrator-guide#shared-image-gallery-2)
+- [Guida dell'amministratore-raccolta di immagini condivise](./administrator-guide.md#shared-image-gallery)
+- [Guida dell'amministratore-prezzi della raccolta immagini condivisa](./administrator-guide.md#shared-image-gallery-2)
 
 ### <a name="which-images-in-azure-marketplace-will-your-labs-use"></a>Quali immagini in Azure Marketplace useranno i laboratori?
 Azure Marketplace offre centinaia di immagini che è possibile abilitare per consentire ai creatori di Lab di usare l'immagine per creare il proprio Lab. Alcune immagini possono includere tutti gli elementi necessari per un Lab. In altri casi, è possibile utilizzare un'immagine come punto di partenza, quindi l'autore del Lab può personalizzarlo installando applicazioni o strumenti aggiuntivi.
 
 Se non si conoscono le immagini necessarie, è possibile tornare in seguito per abilitarle. Inoltre, il modo migliore per vedere quali immagini sono disponibili è creare innanzitutto un account Lab. In questo modo è possibile accedere a per esaminare l'elenco di immagini disponibili e il relativo contenuto.  Per ulteriori informazioni sulle immagini del Marketplace, leggere:
-- [Specificare le immagini del Marketplace disponibili per gli autori di lab](https://docs.microsoft.com/azure/lab-services/specify-marketplace-images)
+- [Specificare le immagini del Marketplace disponibili per gli autori di lab](./specify-marketplace-images.md)
   
 ### <a name="do-the-labs-vms-need-to-have-access-to-other-azure-or-on-premises-resources"></a>Le macchine virtuali del lab devono poter accedere ad altre risorse di Azure o locali?
 Quando si configura un account Lab, è anche possibile fare il peering dell'account Lab con una rete virtuale (VNet).  Tenere presente che l'account VNet e lab deve trovarsi nella stessa area.  Per decidere se è necessario eseguire il peering con un VNet, considerare gli scenari seguenti:
@@ -105,28 +105,28 @@ Quando si configura un account Lab, è anche possibile fare il peering dell'acco
    Se è necessario accedere alle risorse di Azure *non* protette in una VNet, è possibile accedere a queste risorse attraverso la rete Internet pubblica, senza eseguire alcun peering.
 
 Per ulteriori informazioni sulle reti virtuali, vedere:
-- [Nozioni fondamentali sull'architettura-rete virtuale](https://docs.microsoft.com/azure/lab-services/classroom-labs-fundamentals#virtual-network)
-- [Come connettersi a una rete virtuale](https://docs.microsoft.com/azure/lab-services/how-to-connect-peer-virtual-network)
-- [Come creare un Lab con una risorsa condivisa in Azure Lab Services](https://docs.microsoft.com/azure/lab-services/how-to-create-a-lab-with-shared-resource)
+- [Nozioni fondamentali sull'architettura-rete virtuale](./classroom-labs-fundamentals.md#virtual-network)
+- [Come connettersi a una rete virtuale](./how-to-connect-peer-virtual-network.md)
+- [Come creare un Lab con una risorsa condivisa in Azure Lab Services](./how-to-create-a-lab-with-shared-resource.md)
 
 ## <a name="set-up-your-lab-account"></a>Configurare l'account Lab
 
-Al termine della pianificazione, si è pronti per configurare l'account Lab.  Gli stessi passaggi sono applicabili per la configurazione di un Lab [Azure Lab Services con i team](https://docs.microsoft.com/azure/lab-services/lab-services-within-teams-overview).
+Al termine della pianificazione, si è pronti per configurare l'account Lab.  Gli stessi passaggi sono applicabili per la configurazione di un Lab [Azure Lab Services con i team](./lab-services-within-teams-overview.md).
 
-1. **Creare l'account Lab.** Per istruzioni, vedere l'esercitazione sulla [creazione di un account Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#create-a-lab-account) .
+1. **Creare l'account Lab.** Per istruzioni, vedere l'esercitazione sulla [creazione di un account Lab](./tutorial-setup-lab-account.md#create-a-lab-account) .
    
     Per ulteriori informazioni sulla denominazione, vedere l'articolo seguente:
 
-   - [Linee guida per la denominazione delle risorse](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#naming)
+   - [Linee guida per la denominazione delle risorse](./administrator-guide.md#naming)
 
-2. **Aggiungere utenti al ruolo Lab Creator.** Per istruzioni, vedere [aggiunta di utenti al ruolo Lab Creator](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role).
+2. **Aggiungere utenti al ruolo Lab Creator.** Per istruzioni, vedere [aggiunta di utenti al ruolo Lab Creator](./tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 
-3. **Connettersi a una rete virtuale peer.** Per istruzioni, vedere [connessione della rete del Lab con una rete virtuale peer](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network).
+3. **Connettersi a una rete virtuale peer.** Per istruzioni, vedere [connessione della rete del Lab con una rete virtuale peer](./how-to-connect-peer-virtual-network.md).
 
-   Potrebbe anche essere necessario fare riferimento alle istruzioni sulla [configurazione dell'intervallo di indirizzi delle VM Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-lab-accounts#specify-an-address-range-for-vms-in-the-lab).
+   Potrebbe anche essere necessario fare riferimento alle istruzioni sulla [configurazione dell'intervallo di indirizzi delle VM Lab](./how-to-configure-lab-accounts.md).
 
-4. **Abilitare ed esaminare le immagini.** Per istruzioni, vedere [Abilitazione di immagini di Azure Marketplace per gli autori di Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+4. **Abilitare ed esaminare le immagini.** Per istruzioni, vedere [Abilitazione di immagini di Azure Marketplace per gli autori di Lab](./specify-marketplace-images.md).
 
    Per esaminare il contenuto di ogni immagine di Azure Marketplace, selezionare il nome dell'immagine. Ad esempio, lo screenshot seguente mostra i dettagli per l'immagine di Ubuntu Data Science VM:
 

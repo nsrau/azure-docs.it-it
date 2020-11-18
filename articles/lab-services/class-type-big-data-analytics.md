@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 6ae4e658985a3974b311171e83e6243dfc4a1ae9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5eb9cd00350c41645d4427e30a6f25a6c163358c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444030"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659897"
 ---
 # <a name="set-up-a-lab-for-big-data-analytics-using-docker-deployment-of-hortonworks-data-platform"></a>Configurare un Lab per Big Data Analytics con la distribuzione Docker di HortonWorks Data Platform
 
@@ -28,7 +28,7 @@ Per configurare questo Lab, è necessario disporre di una sottoscrizione di Azur
 
 ### <a name="lab-account-settings"></a>Impostazioni dell'account Lab
 
-Abilitare le impostazioni descritte nella tabella seguente per l'account Lab. Per altre informazioni su come abilitare le immagini del Marketplace, vedere [specificare le immagini del Marketplace disponibili per gli autori del Lab](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
+Abilitare le impostazioni descritte nella tabella seguente per l'account Lab. Per altre informazioni su come abilitare le immagini del Marketplace, vedere [specificare le immagini del Marketplace disponibili per gli autori del Lab](./specify-marketplace-images.md).
 
 | Impostazione dell'account lab | Istruzioni |
 | ------------------- | ------------ |

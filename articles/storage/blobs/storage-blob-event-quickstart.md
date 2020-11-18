@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 19a9abe3a03a384a69950a8ed9b63353e6e36588
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 37dc6d234d243c79fe9bac206caaaa28bb29aa2d
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676257"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659948"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Guida introduttiva: indirizzare gli eventi di archiviazione all'endpoint Web con l'interfaccia della riga
 
@@ -28,11 +28,9 @@ Al termine della procedura descritta in questo articolo, si potrà notare che i 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione più recente dell'interfaccia della riga di comando di Azure (2.0.70 o versione successiva). Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-
-Se non si usa Cloud Shell, prima è necessario accedere usando `az login`.
+- Questo articolo richiede la versione 2.0.70 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -40,7 +38,7 @@ Gli argomenti della griglia di eventi sono risorse di Azure e devono essere inse
 
 Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). 
 
-L'esempio seguente crea un gruppo di risorse denominato `<resource_group_name>` nella località *westcentralus* .  Sostituire `<resource_group_name>` con un nome univoco per il gruppo di risorse.
+L'esempio seguente crea un gruppo di risorse denominato `<resource_group_name>` nella località *westcentralus*.  Sostituire `<resource_group_name>` con un nome univoco per il gruppo di risorse.
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westcentralus

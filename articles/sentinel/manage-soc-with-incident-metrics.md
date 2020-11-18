@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 9d8d0fc46a463bda31595988d807854ef146d333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 408913fed864ee5f966b96c81afbfee4b2dc8678
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88761722"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660730"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>Gestire meglio il Centro operazioni di sicurezza con le metriche degli eventi imprevisti
 
@@ -39,7 +39,7 @@ La tabella **SecurityIncident** è incorporata in Sentinel di Azure. Si troverà
 
 Ogni volta che si crea o si aggiorna un evento imprevisto, viene aggiunta una nuova voce di log alla tabella. In questo modo è possibile tenere traccia delle modifiche apportate agli eventi imprevisti e consentire metriche SOC ancora più potenti, ma è necessario tenere presente questo problema durante la creazione di query per questa tabella, in quanto potrebbe essere necessario rimuovere le voci duplicate per un evento imprevisto (a seconda della query esatta in esecuzione). 
 
-Se, ad esempio, si desidera restituire un elenco di tutti gli eventi imprevisti ordinati in base al numero di evento imprevisto, ma si desidera solo restituire il log più recente per evento imprevisto, è possibile eseguire questa operazione utilizzando l' [operatore di riepilogo](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator) KQL con la `arg_max()` [funzione di aggregazione](https://docs.microsoft.com/azure/data-explorer/kusto/query/arg-max-aggfunction):
+Se, ad esempio, si desidera restituire un elenco di tutti gli eventi imprevisti ordinati in base al numero di evento imprevisto, ma si desidera solo restituire il log più recente per evento imprevisto, è possibile eseguire questa operazione utilizzando l' [operatore di riepilogo](/azure/data-explorer/kusto/query/summarizeoperator) KQL con la `arg_max()` [funzione di aggregazione](/azure/data-explorer/kusto/query/arg-max-aggfunction):
 
 
 ```Kusto
@@ -82,9 +82,9 @@ Per completare la tabella **SecurityIncidents** , è disponibile un modello di c
 
 È possibile trovare questo nuovo modello di cartella di lavoro scegliendo **cartelle di lavoro** dal menu di navigazione di Azure Sentinel e selezionando la scheda **modelli** . Scegliere **sicurezza operazioni di sicurezza** dalla raccolta e fare clic su uno dei pulsanti **Visualizza cartella di lavoro salvata** e **Visualizza modello** .
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Tabella eventi imprevisti della sicurezza":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-incidents-workbooks-gallery.png" alt-text="Raccolta cartelle di lavoro eventi imprevisti di sicurezza":::
 
-:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Tabella eventi imprevisti della sicurezza":::
+:::image type="content" source="./media/manage-soc-with-incident-metrics/security-operations-workbook-1.png" alt-text="Cartella di lavoro eventi imprevisti di sicurezza completata":::
 
 È possibile usare il modello per creare cartelle di lavoro personalizzate in base alle proprie esigenze specifiche.
 

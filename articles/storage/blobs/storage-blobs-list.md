@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ebf383c1a904027d3ff5a1864ea9f50e87a5fa8
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 0bd2b295e5e4d4d5ea6e25869c8c109ff8bbbf38
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093294"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660764"
 ---
 # <a name="list-blobs-with-net"></a>Elencare BLOB con .NET
 
@@ -51,11 +51,7 @@ Gli overload di questi metodi offrono opzioni aggiuntive per la gestione del mod
 
 ### <a name="manage-how-many-results-are-returned"></a>Gestire il numero di risultati restituiti
 
-Per impostazione predefinita, un'operazione di elenco restituisce fino a 5000 risultati alla volta, ma è possibile specificare il numero di risultati che devono essere restituiti da ogni operazione di elenco. Gli esempi presentati in questo articolo illustrano come eseguire questa operazione.
-
-Se un'operazione di elenco restituisce più di 5000 BLOB o se il numero di BLOB disponibili supera il numero specificato, archiviazione di Azure restituisce un *token di continuazione* con l'elenco di BLOB. Un token di continuazione è un valore opaco che è possibile usare per recuperare il set di risultati successivo da Archiviazione di Azure.
-
-Nel codice, controllare il valore del token di continuazione per determinare se è di Null. Se il token di continuazione è Null, il set di risultati è completo. Se il token di continuazione non è Null, chiamare di nuovo l'operazione di elenco, passando il token di continuazione per recuperare il set di risultati successivo, fino a quando il token di continuazione non diventa Null.
+Per impostazione predefinita, un'operazione di elenco restituisce fino a 5000 risultati alla volta, ma è possibile specificare il numero di risultati che devono essere restituiti da ogni operazione di elenco. Gli esempi presentati in questo articolo illustrano come restituire i risultati in pagine.
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrare i risultati con un prefisso
 
@@ -63,7 +59,7 @@ Per filtrare l'elenco di BLOB, specificare una stringa per il `prefix` parametro
 
 ### <a name="return-metadata"></a>Restituire i metadati
 
-È possibile restituire i metadati dei BLOB con i risultati. 
+È possibile restituire i metadati dei BLOB con i risultati.
 
 - Se si usa .NET V12 SDK, specificare il valore **dei metadati** per l'enumerazione [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) .
 
@@ -90,6 +86,10 @@ Se è stata abilitata la funzionalità spazio dei nomi gerarchico nell'account, 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
 # <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
+
+Se un'operazione di elenco restituisce più di 5000 BLOB o se il numero di BLOB disponibili supera il numero specificato, archiviazione di Azure restituisce un *token di continuazione* con l'elenco di BLOB. Un token di continuazione è un valore opaco che è possibile usare per recuperare il set di risultati successivo da Archiviazione di Azure.
+
+Nel codice, controllare il valore del token di continuazione per determinare se è di Null. Se il token di continuazione è Null, il set di risultati è completo. Se il token di continuazione non è Null, chiamare di nuovo l'operazione di elenco, passando il token di continuazione per recuperare il set di risultati successivo, fino a quando il token di continuazione non diventa Null.
 
 ```csharp
 private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container, int? segmentSize)

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: alzam
-ms.openlocfilehash: 09d39acc867124acfd5c3c38d5c26053218972e7
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 7c2c1930b8f801db7f70baa5b713a641606be644
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109103"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94661172"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Autenticazione Azure Active Directory: configurare un client VPN per le connessioni del protocollo OpenVPN P2S
 
@@ -90,7 +90,7 @@ Quando si dispone di un profilo di lavoro ed è necessario distribuirlo ad altri
 
 2. Per procedere all'eliminazione, selezionare **Rimuovi**.
 
-    ![Elimina](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![eliminare](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Creare una connessione
 
@@ -160,7 +160,7 @@ Sì, con l'hotfix [KB4577063](https://support.microsoft.com/help/4577063/windows
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Ricerca per categorie aggiungere suffissi DNS al client VPN?
 
-È possibile modificare il file XML del profilo scaricato e aggiungere ** \<dnssuffixes> \<dnssufix> \</dnssufix> \</dnssuffixes> ** i tag
+È possibile modificare il file XML del profilo scaricato e aggiungere **\<dnssuffixes> \<dnssufix> \</dnssufix> \</dnssuffixes>** i tag
 
 ```
 <azvpnprofile>
@@ -178,7 +178,7 @@ Sì, con l'hotfix [KB4577063](https://support.microsoft.com/help/4577063/windows
 
 ### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Ricerca per categorie aggiungere server DNS personalizzati al client VPN?
 
-È possibile modificare il file XML del profilo scaricato e aggiungere ** \<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers> ** i tag
+È possibile modificare il file XML del profilo scaricato e aggiungere **\<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers>** i tag
 
 ```
 <azvpnprofile>
@@ -194,12 +194,12 @@ Sì, con l'hotfix [KB4577063](https://support.microsoft.com/help/4577063/windows
 ```
 
 > [!NOTE]
-> Il client Azure AD OpenVPN usa le voci della tabella dei criteri di risoluzione dei nomi DNS, che significa che i server DNS non saranno elencati nell'output di `ipconfig /all` . Per confermare le impostazioni DNS in uso, vedere [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps&preserve-view=true) in PowerShell.
+> Il client Azure AD OpenVPN usa le voci della tabella dei criteri di risoluzione dei nomi DNS, che significa che i server DNS non saranno elencati nell'output di `ipconfig /all` . Per confermare le impostazioni DNS in uso, vedere [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy?preserve-view=true&view=win10-ps) in PowerShell.
 >
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Ricerca per categorie aggiungere route personalizzate al client VPN?
 
-È possibile modificare il file XML del profilo scaricato e aggiungere ** \<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes> ** i tag
+È possibile modificare il file XML del profilo scaricato e aggiungere **\<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes>** i tag
 
 ```
 <azvpnprofile>
@@ -217,7 +217,7 @@ Sì, con l'hotfix [KB4577063](https://support.microsoft.com/help/4577063/windows
 
 ### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Ricerca per categorie le route di blocco (escluse) dal client VPN?
 
-È possibile modificare il file XML del profilo scaricato e aggiungere ** \<excluderoutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</excluderoutes> ** i tag
+È possibile modificare il file XML del profilo scaricato e aggiungere **\<excluderoutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</excluderoutes>** i tag
 
 ```
 <azvpnprofile>

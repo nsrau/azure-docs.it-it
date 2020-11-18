@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: c7f71d24ab516044a0ce48ad40f78bc659268866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59aa6f5560917651d8f60c667145b0953bf72ef5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442172"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660866"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Transizione al protocollo OpenVPN o IKEv2 da SSTP
 
@@ -56,11 +56,11 @@ Poiché SSTP e OpenVPN sono entrambi protocolli basati su TLS, non possono coesi
 
 Se lo si desidera, è possibile abilitare OpenVPN lungo il lato con IKEv2. OpenVPN è basato su TLS e usa la porta TCP 443 standard. Per passare a OpenVPN, passare alla scheda "configurazione da punto a sito" sotto il gateway di rete virtuale nel portale e selezionare **OpenVPN (SSL)** o **IKEv2 e OpenVPN (SSL)** dalla casella di riepilogo a discesa.
 
-![da punto a sito](./media/ikev2-openvpn-from-sstp/sstptoopenvpn.png "OpenVPN")
+![Da punto a sito](./media/ikev2-openvpn-from-sstp/sstptoopenvpn.png "OpenVPN")
 
-Una volta configurato il gateway, i client esistenti non saranno in grado di connettersi finché non si [distribuiscono e si configurano i client OpenVPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients).
+Una volta configurato il gateway, i client esistenti non saranno in grado di connettersi finché non si [distribuiscono e si configurano i client OpenVPN](./vpn-gateway-howto-openvpn-clients.md).
 
-Se si usa Windows 10, è anche possibile usare il [client VPN di Azure per Windows](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-client#to-download-the-azure-vpn-client)
+Se si usa Windows 10, è anche possibile usare il [client VPN di Azure per Windows](./openvpn-azure-ad-client.md#to-download-the-azure-vpn-client)
 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti

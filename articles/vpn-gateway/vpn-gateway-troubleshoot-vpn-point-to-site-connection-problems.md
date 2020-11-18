@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: dbf0d096827ec1af16e6d38d405709e48175ae89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 908602dff3be2f392bc595f0074db7f95b8936a9
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035949"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660985"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Risoluzione dei problemi: problemi di connessione da punto a sito di Azure
 
@@ -168,7 +168,7 @@ Estrarre il pacchetto di configurazione del client VPN e trovare il file con est
 1. Aprire mmc.exe.
 2. Aggiungere lo snap-in **Certificati**.
 3. Selezionare l'account **Computer** per il computer locale.
-4. Fare clic con il pulsante destro del mouse sul nodo **Autorità di certificazione radice attendibili**. Fare clic su **All-Task**  >  **Import**e selezionare il file con estensione cer Estratto dal pacchetto di configurazione del client VPN.
+4. Fare clic con il pulsante destro del mouse sul nodo **Autorità di certificazione radice attendibili**. Fare clic su **All-Task**  >  **Import** e selezionare il file con estensione cer Estratto dal pacchetto di configurazione del client VPN.
 5. Riavviare il computer. 
 6. Provare a installare il client VPN.
 
@@ -178,7 +178,7 @@ Estrarre il pacchetto di configurazione del client VPN e trovare il file con est
 
 Quando si prova a salvare le modifiche per il gateway VPN nel portale di Azure, viene visualizzato il messaggio di errore seguente:
 
-**Non è stato possibile salvare il &lt; *nome del gateway*di rete virtuale &gt; . I dati per l' &lt; *ID certificato* del certificato &gt; non sono validi.**
+**Non è stato possibile salvare il &lt; *nome del gateway* di rete virtuale &gt; . I dati per l' &lt; *ID certificato* del certificato &gt; non sono validi.**
 
 ### <a name="cause"></a>Causa 
 
@@ -215,7 +215,7 @@ e8Jcej7mzunzyjz4chN0/WVF94MtxbUkLkqP
 
 Quando si prova a salvare le modifiche per il gateway VPN nel portale di Azure, viene visualizzato il messaggio di errore seguente: 
 
-**Non è stato possibile salvare il &lt; *nome del gateway*di rete virtuale &gt; . Il nome della risorsa il &lt; *nome del certificato che si tenta di caricare* &gt; non è valido**.
+**Non è stato possibile salvare il &lt; *nome del gateway* di rete virtuale &gt; . Il nome della risorsa il &lt; *nome del certificato che si tenta di caricare* &gt; non è valido**.
 
 ### <a name="cause"></a>Causa
 
@@ -274,7 +274,7 @@ Si rimuove la connessione VPN da punto a sito e quindi si reinstalla il client V
 
 ### <a name="solution"></a>Soluzione
 
-Per risolvere il problema, eliminare i file di configurazione del client VPN precedenti da **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId> **, quindi eseguire di nuovo il programma di installazione del client VPN.
+Per risolvere il problema, eliminare i file di configurazione del client VPN precedenti da **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId>**, quindi eseguire di nuovo il programma di installazione del client VPN.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Il client VPN da punto a sito non è in grado di risolvere il nome di dominio completo delle risorse nel dominio locale
 
@@ -298,7 +298,7 @@ Questo problema può verificarsi se il client VPN non ottiene le route dal gatew
 
 ### <a name="solution"></a>Soluzione
 
-Per risolvere questo problema, [reimpostare il gateway VPN di Azure](vpn-gateway-resetgw-classic.md). Per assicurarsi che vengano usate le nuove route, scaricare di nuovo i client VPN da punto a sito dopo la configurazione del peering della rete virtuale.
+Per risolvere questo problema, [reimpostare il gateway VPN di Azure](./reset-gateway.md). Per assicurarsi che vengano usate le nuove route, scaricare di nuovo i client VPN da punto a sito dopo la configurazione del peering della rete virtuale.
 
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Errore: "La funzione di revoca non è in grado di completare il controllo di revoca perché il server di revoca è offline (errore 0x80092013)"
 
@@ -372,7 +372,7 @@ Questo problema può essere causato dalle installazioni di client VPN precedenti
 
 ### <a name="solution"></a>Soluzione
 
-Eliminare i file di configurazione del client VPN precedenti da **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId> ** ed eseguire di nuovo il programma di installazione del client VPN. 
+Eliminare i file di configurazione del client VPN precedenti da **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections \<VirtualNetworkId>** ed eseguire di nuovo il programma di installazione del client VPN. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>Il client VPN entra in stato di ibernazione o va in sospensione dopo un certo periodo di tempo
 

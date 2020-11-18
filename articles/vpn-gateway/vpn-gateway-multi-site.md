@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
-ms.openlocfilehash: 93916bb1eb92447da45ebae7ccb2e61c5af1dd9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 168bb9e06c73ec27ec1304813023889c9549b8e6
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441579"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660696"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Aggiungere una connessione da sito a sito a una rete virtuale con una connessione gateway VPN esistente (modello classico)
 
@@ -71,8 +71,8 @@ Se già si dispone di una VPN da sito a sito con un gateway di routing dinamico,
 2. Configurare il nuovo gateway e creare il proprio tunnel VPN. Per istruzioni vedere [Specificare il tipo di SKU e VPN](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Assicurarsi di specificare il tipo di routing come "dinamico".
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Se non si ha a disposizione una rete virtuale da sito a sito:
-1. Creare una rete virtuale da sito a sito usando le istruzioni seguenti: [Creare una rete virtuale con una connessione VPN da sito a sito](vpn-gateway-site-to-site-create.md).  
-2. Configurare un gateway di routing dinamico usando le istruzioni seguenti: [Configurare un gateway VPN](vpn-gateway-configure-vpn-gateway-mp.md). Assicurarsi di selezionare **routing dinamico** per il tipo di gateway.
+1. Creare una rete virtuale da sito a sito usando le istruzioni seguenti: [Creare una rete virtuale con una connessione VPN da sito a sito](./vpn-gateway-howto-site-to-site-classic-portal.md).  
+2. Configurare un gateway di routing dinamico usando le istruzioni seguenti: [Configurare un gateway VPN](./vpn-gateway-howto-site-to-site-classic-portal.md). Assicurarsi di selezionare **routing dinamico** per il tipo di gateway.
 
 ## <a name="2-export-the-network-configuration-file"></a><a name="export"></a>2. esportare il file di configurazione di rete
 

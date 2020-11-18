@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2020
 ms.author: yelevin
-ms.openlocfilehash: ca60b9350171cee55462c9df28915c811e1cfd25
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: cd52f22004bf72f3328d1e6a0d1ec988c2406317
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94377688"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660849"
 ---
 # <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>Gestire le query di caccia e livestream in Sentinel di Azure con l'API REST
 
 Azure Sentinel, che è integrato in Log Analytics di monitoraggio di Azure, consente di usare Log Analytics API REST per gestire le query di caccia e livestream. Questo documento illustra come creare e gestire le query di caccia usando l'API REST.  Le query create in questo modo verranno visualizzate nell'interfaccia utente di Sentinel di Azure.
 
-Per altri dettagli sull' [API delle ricerche salvate](https://docs.microsoft.com/rest/api/loganalytics/savedsearches), vedere il riferimento all'API REST definitivo.
+Per altri dettagli sull' [API delle ricerche salvate](/rest/api/loganalytics/savedsearches), vedere il riferimento all'API REST definitivo.
 
 ## <a name="api-examples"></a>Esempi di API
 
@@ -46,7 +46,7 @@ Negli esempi seguenti sostituire questi segnaposto con la sostituzione prescritt
 
 ### <a name="example-1"></a>Esempio 1
 
-Questo esempio illustra come creare o aggiornare una query di ricerca per un'area di lavoro di Azure Sentinel specificata.  Per una query Livestream, sostituire *"Category": "Hunting queries"* con *"Category": "livestream queries"* nel **corpo della richiesta** : 
+Questo esempio illustra come creare o aggiornare una query di ricerca per un'area di lavoro di Azure Sentinel specificata.  Per una query Livestream, sostituire *"Category": "Hunting queries"* con *"Category": "livestream queries"* nel **corpo della richiesta**: 
 
 #### <a name="request-header"></a>Intestazione della richiesta
 

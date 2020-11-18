@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Usare GitOps per la configurazione di cluster abilitata per Azure Arc (anteprima)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: 1a8839c2463494ba0e165bf9e1a5d22245fac8df
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ce6c754c308d2979db9b1b8eb36e7858e8a91c3c
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371257"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659795"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Distribuire le configurazioni con GitOps nel cluster Kubernetes abilitato per Arc (anteprima)
 
@@ -99,7 +99,7 @@ Di seguito sono riportati gli scenari supportati per il valore del parametro --r
 | Scenario | Format | Descrizione |
 | ------------- | ------------- | ------------- |
 | Repository Git pubblico | http [s]://server/repo.git o git://server/repo.git   | Repository Git pubblico  |
-| Repository git privato-SSH-chiavi create da Flux | SSH:///[user@] Server/repo. git o [user@] Server: repo. git | La chiave pubblica generata da Flux deve essere aggiunta all'account utente o al repository nel provider di servizi git. Altri dettagli sono disponibili [qui](#apply-configuration-from-a-private-git-repository) |
+| Repository git privato-SSH-chiavi create da Flux | SSH:///[user@] Server/repo. git o [user@] Server: repo. git | È necessario aggiungere la chiave pubblica generata da Flux all'account utente nel provider di servizi git. Se la chiave deploy viene aggiunta al repository anziché all'account utente, usare `git@` al posto di `user@` . Altri dettagli sono disponibili [qui](#apply-configuration-from-a-private-git-repository) |
 
 Questi scenari sono supportati da Flux ma non ancora da sourceControlConfiguration.
 
@@ -222,16 +222,26 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 3. Selezionare la configurazione usata dal repository Git privato.
 4. Nella parte inferiore della finestra di contesto visualizzata, copiare la **chiave pubblica del repository**.
 
-**Aggiungere la chiave pubblica come chiave di distribuzione al repository Git**
+Se si usa GitHub, usare una delle due opzioni seguenti:
 
-1. Aprire GitHub, passare al repository, a **Settings**e quindi per distribuire le **chiavi**
-2. Fare clic su **Add deploy key** (Aggiungi chiave di distribuzione)
+**Opzione 1: aggiungere la chiave pubblica al proprio account utente**
+
+1. Aprire GitHub, fare clic sull'icona del profilo nell'angolo superiore destro della pagina.
+2. Fare clic su **Impostazioni**
+3. Fare clic su **chiavi SSH e GPG**
+4. Fare clic su **nuova chiave SSH**
+5. Fornire un titolo
+6. Incollare la chiave pubblica (escluse le virgolette circostanti)
+7. Fare clic su **Aggiungi chiave SSH**
+
+**Opzione 2: aggiungere la chiave pubblica come chiave di distribuzione al repository git**
+
+1. Aprire GitHub, passare al repository, a **Settings** e quindi per distribuire le **chiavi**
+2. Fare clic su **Aggiungi chiave di distribuzione**
 3. Fornire un titolo
 4. Spuntare **Allow write access** (Consenti accesso in scrittura)
 5. Incollare la chiave pubblica (escluse le virgolette circostanti)
 6. Fare clic su **Aggiungi chiave**
-
-Per altre informazioni su come gestire queste chiavi, vedere la documentazione di GitHub.
 
 **Se si usa un repository Azure DevOps, aggiungere la chiave alle chiavi SSH**
 

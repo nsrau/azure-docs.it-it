@@ -3,12 +3,12 @@ title: Domande frequenti - Backup di database SAP HANA in VM di Azure
 description: In questo articolo è possibile trovare le risposte ad alcune domande comuni sul backup di database SAP HANA tramite il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: dcbf1bf6b39b2afa3fb5aaf2a7f18c5d0e8e4afb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d6012ec064b5ec582896ac3484161a6e25f2bf
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86513507"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659965"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Domande frequenti - Backup di database SAP HANA in VM di Azure
 
@@ -124,6 +124,43 @@ Per informazioni sui tipi di ripristino attualmente supportati, vedere la nota S
 ### <a name="can-i-use-a-backup-of-a-database-running-on-sles-to-restore-to-an-rhel-hana-system-or-vice-versa"></a>È possibile usare un backup di un database in esecuzione su SLES per eseguire il ripristino in un sistema RHEL HANA o viceversa?
 
 Sì, è possibile usare i backup in streaming attivati in un database HANA in esecuzione su SLES per ripristinarlo in un sistema RHEL HANA e viceversa. Ovvero il ripristino tra più sistemi operativi è possibile utilizzando i backup di flusso. Tuttavia, sarà necessario assicurarsi che il sistema HANA in cui si vuole eseguire il ripristino e il sistema HANA usato per il ripristino siano entrambi compatibili per il ripristino in base a SAP. Per informazioni sui tipi di ripristino compatibili, vedere la nota SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148) .
+
+## <a name="policy"></a>Policy
+
+### <a name="different-options-available-during-creation-of-a-new-policy-for-sap-hana-backup"></a>Opzioni diverse disponibili durante la creazione di un nuovo criterio per il backup SAP HANA
+
+Prima di creare un criterio, è necessario chiarire i requisiti di RPO e RTO e le relative implicazioni relative ai costi.
+
+RPO (Recovery-Point-Objective) indica la quantità di perdita di dati accettabile per l'utente e il cliente. Questa operazione è determinata dalla frequenza di backup del log. Più frequenti backup del log indicano una RPO inferiore e il valore minimo supportato dal servizio backup di Azure è 15 minuti, ovvero la frequenza di backup del log può essere di 15 minuti o superiore.
+
+RTO (Recovery-Time-Objective) indica la velocità con cui i dati devono essere ripristinati fino all'ultimo punto nel tempo disponibile dopo uno scenario di perdita dei dati. Questo dipende dalla strategia di ripristino utilizzata da HANA, che dipende in genere dal numero di file necessari per il ripristino. Questa operazione comporta anche implicazioni di costo e la tabella seguente dovrebbe aiutare a comprendere tutti gli scenari e le relative implicazioni.
+
+|Criteri di backup  |RTO  |Cost  |
+|---------|---------|---------|
+|Log completi giornalieri +     |   Più veloce perché è necessaria una sola copia completa + log necessari per il ripristino temporizzato      |    Opzione costliest perché una copia completa viene eseguita giornalmente e un numero sempre maggiore di dati viene accumulato nel back-end fino al periodo di conservazione   |
+|Totale settimanale + differenziale giornaliera + log     |   Più lenta rispetto all'opzione precedente ma più veloce di quanto riportato di seguito poiché è necessaria una copia completa + una copia differenziale + log per il ripristino temporizzato      |    Opzione meno costosa poiché il differenziale giornaliero è in genere inferiore a completo e una copia completa viene eseguita solo una volta alla settimana      |
+|Settimanale completo + + log giornaliero + incrementale     |  Più lento perché è necessaria una copia completa +' n'incrementali + log per il recupero temporizzato       |     Opzione meno costosa poiché il valore incrementale giornaliero sarà minore del differenziale e una copia completa viene eseguita solo settimanalmente    |
+
+> [!NOTE]
+> Le opzioni precedenti sono le opzioni più comuni ma non le uniche. Ad esempio, uno può avere un backup completo settimanale + differenziali due volte alla settimana + log.
+
+Quindi, è possibile selezionare la variante dei criteri in base agli obiettivi RPO e RTO e alle considerazioni sui costi.
+
+### <a name="impact-of-modifying-a-policy"></a>Effetti della modifica di un criterio
+
+Per determinare l'effetto del cambio di criteri di un elemento di backup da Policy 1 (P1) a Policy 2 (P2) o di modifica dei criteri 1 (P1), è necessario tenere presenti alcuni principi.
+
+- Tutte le modifiche vengono applicate anche in maniera retroattiva. Il criterio di backup più recente viene applicato anche ai punti di ripristino eseguiti in precedenza. Si supponga, ad esempio, che la conservazione completa giornaliera sia di 30 giorni e che siano stati effettuati 10 punti di ripristino in base ai criteri attualmente attivi. Se la conservazione completa giornaliera viene modificata in 10 giorni, l'ora di scadenza del punto precedente viene ricalcolata anche come ora di inizio + 10 giorni ed eliminata se è scaduta.
+- L'ambito di modifica include anche il giorno del backup, il tipo di backup insieme alla conservazione. Ad esempio, se un criterio viene modificato da giornaliero completo a settimanale completo domenica, tutte le versioni precedenti che non sono di domenica verranno contrassegnate per l'eliminazione.
+- Un elemento padre non viene eliminato fino a quando l'elemento figlio non è attivo o non è scaduto. Ogni tipo di backup ha una data di scadenza in base ai criteri attualmente attivi. Tuttavia, un tipo di backup completo viene considerato come padre per i successivi ' differenziali ',' incrementali ' è logs '. ' Differenziale ' è log ' non sono padre per altri. Un "incrementale" può essere un elemento padre per "incrementale" successivo. Anche se un elemento ' Parent ' è contrassegnato per l'eliminazione, non viene effettivamente eliminato se il ' differenziale ' o ' logs ' figlio non è scaduto. Se, ad esempio, un criterio viene modificato da giornaliero completo a settimanale completo domenica, tutte le versioni precedenti che non sono di domenica verranno contrassegnate per l'eliminazione. Ma non vengono effettivamente eliminati fino alla scadenza dei log che sono stati rilevati al giorno precedente. In altre parole, vengono mantenuti in base alla durata del log più recente. Una volta che i log scadono, verranno eliminati sia i log che questi completi.
+
+Con questi principi, è possibile leggere la tabella seguente per comprendere le implicazioni di una modifica dei criteri.
+
+|Criterio precedente/nuovo criterio  |Completamenti giornalieri + log  | Completamenti settimanali + differenziali giornalieri + log  |Completamenti settimanali + incrementi giornalieri + log  |
+|---------|---------|---------|---------|
+|Completamenti giornalieri + log     |   -      |    I precedenti completi che non si trovano nello stesso giorno della settimana sono contrassegnati per l'eliminazione, ma conservati fino al periodo di conservazione del log     |    I precedenti completi che non si trovano nello stesso giorno della settimana sono contrassegnati per l'eliminazione, ma conservati fino al periodo di conservazione del log     |
+|Completamenti settimanali + differenziali giornalieri + log     |   Il periodo di conservazione completo settimanale precedente viene ricalcolato in base ai criteri più recenti. I differenziali precedenti vengono eliminati immediatamente      |    -     |    I differenziali precedenti vengono eliminati immediatamente     |
+|Completamenti settimanali + incrementi giornalieri + log     |     Il periodo di conservazione completo settimanale precedente viene ricalcolato in base ai criteri più recenti. Gli incrementi precedenti vengono immediatamente eliminati    |     Gli incrementi precedenti vengono immediatamente eliminati    |    -     |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

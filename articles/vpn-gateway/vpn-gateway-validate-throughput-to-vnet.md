@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: d2347c0688ca58698831019a193d03fe2c6721e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d5b51e8cfbfcb5f771e9da524231f8ddfc40a9e
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398508"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660934"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Come convalidare la velocità effettiva della VPN verso una rete virtuale
 
@@ -119,7 +119,7 @@ Scaricare [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Pe
 1. Dopo aver completato i passaggi precedenti, eseguire gli stessi passaggi con i ruoli invertiti, in modo che il nodo del server sarà il nodo client e viceversa.
 
 > [!Note]
-> Iperf non è l'unico strumento. [NTTTCP è una soluzione alternativa per il testing](https://docs.microsoft.com/azure/virtual-network/virtual-network-bandwidth-testing).
+> Iperf non è l'unico strumento. [NTTTCP è una soluzione alternativa per il testing](../virtual-network/virtual-network-bandwidth-testing.md).
 
 ## <a name="test-vms-running-windows"></a>Testare le VM che eseguono Windows
 
@@ -225,7 +225,7 @@ In particolare, l'analisi delle tracce di acquisizione pacchetti (Wireshark/Netw
 
 Anche se la velocità effettiva complessiva valutata con i passaggi precedenti (iPERF/NTTTCP/e così via) è stata corretta, è possibile che si verifichi un rallentamento dei file quando si usa Esplora risorse oppure si trascina e si elimina una sessione RDP. Questo problema è in genere dovuto a uno o a entrambi i fattori seguenti:
 
-* Le applicazioni di copia dei file, ad esempio Esplora risorse e RDP, non usano più thread durante la copia dei file. Per prestazioni ottimali, usare un'applicazione per la copia dei file multithread, ad esempio [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx), per copiare i file a 16 o 32 thread. Per modificare il numero di thread per la copia dei file in RichCopy, fare clic su **azione**  >  **copia opzioni**  >  **copia file**.
+* Le applicazioni di copia dei file, ad esempio Esplora risorse e RDP, non usano più thread durante la copia dei file. Per prestazioni ottimali, usare un'applicazione per la copia dei file multithread, ad esempio [Richcopy](/previous-versions/technet-magazine/dd547088(v=msdn.10)), per copiare i file a 16 o 32 thread. Per modificare il numero di thread per la copia dei file in RichCopy, fare clic su **azione**  >  **copia opzioni**  >  **copia file**.
 
    ![Problemi di esecuzione lenta della copia dei file](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
@@ -233,7 +233,7 @@ Anche se la velocità effettiva complessiva valutata con i passaggi precedenti (
    > Non tutte le applicazioni funzionano allo stesso tempo e non tutte le applicazioni/processi utilizzano tutti i thread. Se si esegue il test, si noterà che alcuni thread sono vuoti e non forniscono risultati accurati sulla velocità effettiva.
    > Per controllare le prestazioni del trasferimento di file dell'applicazione, usare il multithreading aumentando il numero di thread in successione o riduzione per trovare la velocità effettiva ottimale dell'applicazione o il trasferimento di file.
 
-* Velocità di lettura/scrittura disco macchina virtuale insufficiente. Per altre informazioni, vedere [Risoluzione dei problemi di Archiviazione di Azure](../storage/common/storage-e2e-troubleshooting.md).
+* Velocità di lettura/scrittura disco macchina virtuale insufficiente. Per altre informazioni, vedere [Risoluzione dei problemi di Archiviazione di Azure](/previous-versions/azure/storage/common/storage-e2e-troubleshooting).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Interfaccia con connessione rivolta all'esterno del dispositivo locale
 

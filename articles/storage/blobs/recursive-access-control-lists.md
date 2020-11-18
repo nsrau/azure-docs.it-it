@@ -9,18 +9,18 @@ ms.date: 11/03/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ff86b95f9d6a02c9ea24837b782ce729cdcacded
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 2ab554f45de30bb676d2933a4a1268b6831ae4f5
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577142"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659921"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Impostare gli elenchi di controllo di accesso (ACL) in modo ricorsivo per Azure Data Lake Storage Gen2
 
 L'ereditarietà ACL è già disponibile per i nuovi elementi figlio creati in una directory padre. È anche possibile aggiungere, aggiornare e rimuovere gli ACL in modo ricorsivo per gli elementi figlio esistenti di una directory padre senza dover apportare queste modifiche singolarmente per ogni elemento figlio.
 
-[Librerie](#libraries)  |  di [Esempi](#code-samples)  |  di [Procedure](#best-practice-guidelines)  |  consigliate [Invia commenti e suggerimenti](#provide-feedback)
+[Librerie](#libraries)  |  di [Esempi](#code-samples)  |  di [Procedure consigliate](#best-practice-guidelines)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -1152,12 +1152,6 @@ Per ridurre la latenza, è consigliabile eseguire il processo ACL ricorsivo in u
 #### <a name="acl-limits"></a>Limiti ACL
 
 Il numero massimo di ACL che è possibile applicare a una directory o a un file è 32 ACL di accesso e 32 ACL predefiniti. Per altre informazioni, vedere [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) (Controllo di accesso in Azure Data Lake Storage Gen2).
-
-<a id="provide-feedback"></a>
-
-### <a name="provide-feedback-or-report-issues"></a>Inviare commenti e suggerimenti o segnalare problemi
-
-È possibile fornire commenti e suggerimenti o segnalare un problema all'indirizzo  [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com) .
 
 ## <a name="see-also"></a>Vedere anche
 

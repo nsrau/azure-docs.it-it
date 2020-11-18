@@ -4,15 +4,15 @@ description: Risolvere i problemi di prestazioni noti con le condivisioni file d
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/15/2020
+ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 3e6490babb5a4e68c1ecd931251ea4eb99d6c3f5
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 6e4eb37477a335ae93b9982692c238d05c81000b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630142"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94660288"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Risolvere i problemi di prestazioni delle condivisioni file di Azure
 
@@ -28,15 +28,15 @@ Per verificare se la condivisione è limitata, è possibile accedere alle metric
 
 1. Nel portale di Azure passare all'account di archiviazione.
 
-1. Nel riquadro sinistro, in **monitoraggio** , selezionare **metriche**.
+1. Nel riquadro sinistro, in **monitoraggio**, selezionare **metriche**.
 
 1. Selezionare **file** come spazio dei nomi della metrica per l'ambito dell'account di archiviazione.
 
 1. Selezionare **transazioni** come metrica.
 
 1. Aggiungere un filtro per il **tipo di risposta** e verificare se le richieste hanno uno dei seguenti codici di risposta:
-   * **SuccessWithThrottling** : per SMB (Server Message Block)
-   * **ClientThrottlingError** : per REST
+   * **SuccessWithThrottling**: per SMB (Server Message Block)
+   * **ClientThrottlingError**: per REST
 
    ![Screenshot delle opzioni relative alle metriche per le condivisioni file Premium che mostrano un filtro proprietà "tipo di risposta".](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -52,7 +52,7 @@ Per verificare se la condivisione è limitata, è possibile accedere alle metric
 
 Se la maggior parte delle richieste è incentrata sui metadati, ad esempio CreateFile, OpenFile, CloseFile, QueryInfo o querydirectory, la latenza sarà peggiore rispetto a quella delle operazioni di lettura/scrittura.
 
-Per determinare se la maggior parte delle richieste è incentrata sui metadati, iniziare seguendo i passaggi 1-4, come descritto in precedenza nella prima. Per il passaggio 5, anziché aggiungere un filtro per **tipo di risposta** , aggiungere un filtro proprietà per **nome API**.
+Per determinare se la maggior parte delle richieste è incentrata sui metadati, iniziare seguendo i passaggi 1-4, come descritto in precedenza nella prima. Per il passaggio 5, anziché aggiungere un filtro per **tipo di risposta**, aggiungere un filtro proprietà per **nome API**.
 
 ![Screenshot delle opzioni relative alle metriche per le condivisioni file Premium che mostrano un filtro proprietà "nome API".](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
@@ -83,10 +83,11 @@ La macchina virtuale (VM) client potrebbe trovarsi in un'area diversa dalla cond
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Il client non è in grado di raggiungere la velocità effettiva massima supportata dalla rete
 
 ### <a name="cause"></a>Causa
-Una possibile causa è la mancanza del supporto multicanale SMB. Attualmente, File di Azure supporta solo un canale singolo, quindi è presente una sola connessione dalla macchina virtuale client al server. Questa singola connessione è ancorata a un singolo core nella macchina virtuale client, quindi la velocità effettiva massima ottenibile da una macchina virtuale è vincolata da un singolo core.
+Una delle possibili cause è la mancanza del supporto multicanale SMB per le condivisioni file standard. Attualmente, File di Azure supporta solo un canale singolo, quindi è presente una sola connessione dalla macchina virtuale client al server. Questa singola connessione è ancorata a un singolo core nella macchina virtuale client, quindi la velocità effettiva massima ottenibile da una macchina virtuale è vincolata da un singolo core.
 
 ### <a name="workaround"></a>Soluzione alternativa
 
+- Per le condivisioni file Premium, [abilitare SMB multicanale in un account filestorage](storage-files-enable-smb-multichannel.md).
 - Ottenere una VM con un core più grande può contribuire a migliorare la velocità effettiva.
 - L'esecuzione dell'applicazione client da più macchine virtuali aumenterà la velocità effettiva.
 - Usare le API REST laddove possibile.
@@ -158,7 +159,7 @@ I carichi di lavoro che si basano sulla creazione di un numero elevato di file n
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-- No.
+- Nessuno.
 
 ## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Rallentamento delle prestazioni da Windows 8.1 o Server 2012 R2
 
@@ -170,18 +171,65 @@ Latenza superiore a quella prevista per l'accesso alle condivisioni file di Azur
 
 - Installare l' [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1)disponibile.
 
+## <a name="smb-multichannel-option-not-visible-under-file-share-settings"></a>L'opzione SMB multicanale non è visibile nelle impostazioni della condivisione file. 
+
+### <a name="cause"></a>Causa
+
+La sottoscrizione non è registrata per la funzionalità o l'area e il tipo di account non sono supportati.
+
+### <a name="solution"></a>Soluzione
+
+Assicurarsi che la sottoscrizione sia registrata per la funzionalità SMB multicanale. Vedere [Introduzione](storage-files-enable-smb-multichannel.md#getting-started) assicurarsi che la tipologia di account sia filestorage (account file Premium) nella pagina Panoramica account. 
+
+## <a name="smb-multichannel-is-not-being-triggered"></a>SMB multicanale non viene attivato.
+
+### <a name="cause"></a>Causa
+
+Modifiche recenti apportate alle impostazioni di configurazione di SMB multicanale senza rimontaggio.
+
+### <a name="solution"></a>Soluzione
+ 
+-   Dopo aver apportato le modifiche alle impostazioni di configurazione SMB multicanale per il client SMB o l'account Windows, è necessario smontare la condivisione, attendere 60 secondi e rimontare la condivisione per attivare il multicanale.
+-   Per il sistema operativo client Windows, generare il carico i/o con profondità coda elevata, ad esempio QD = 8, ad esempio copiando un file per attivare SMB multicanale.  Per il sistema operativo del server, SMB multicanale viene attivato con QD = 1, il che significa che non appena si avvia qualsiasi IO nella condivisione.
+
+## <a name="high-latency-on-web-sites-hosted-on-file-shares"></a>Latenza elevata nei siti Web ospitati nelle condivisioni file 
+
+### <a name="cause"></a>Causa  
+
+Il numero elevato di notifiche di modifica file nelle condivisioni file può comportare latenze elevate significative. Questa situazione si verifica in genere con i siti Web ospitati in condivisioni file con struttura di directory annidata approfondita Uno scenario tipico è l'applicazione Web ospitata in IIS in cui la notifica delle modifiche dei file è impostata per ogni directory nella configurazione predefinita. Ogni modifica (ReadDirectoryChangesW) nella condivisione che il client SMB è registrato per inserisce una notifica di modifica dal servizio file al client, che accetta risorse di sistema, e il problema si aggrava con il numero di modifiche. Questo può causare la limitazione delle richieste di condivisione e pertanto causare una latenza lato client superiore. 
+
+Per confermare, è possibile usare le metriche di Azure nel portale- 
+
+1. Nel portale di Azure passare all'account di archiviazione. 
+1. Nel menu a sinistra, in monitoraggio, selezionare metriche. 
+1. Selezionare file come spazio dei nomi della metrica per l'ambito dell'account di archiviazione. 
+1. Selezionare transazioni come metrica. 
+1. Aggiungere un filtro per ResponseType e verificare se le richieste hanno un codice di risposta SuccessWithThrottling (per SMB) o ClientThrottlingError (per REST).
+
+### <a name="solution"></a>Soluzione 
+
+- Se non viene usata la notifica di modifica del file, disabilitare la notifica di modifica del file (scelta consigliata).
+    - [Disabilitare la notifica di modifica del file](https://support.microsoft.com/help/911272/fix-asp-net-2-0-connected-applications-on-a-web-site-may-appear-to-sto) aggiornando FcnMode. 
+    - Aggiornare l'intervallo di polling del processo di lavoro IIS (W3WP) a 0 impostando `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` nel registro di sistema e riavviare il processo w3wp. Per ulteriori informazioni su questa impostazione, vedere [chiavi del registro di sistema comuni utilizzate da molte parti di IIS](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp).
+- Aumentare la frequenza dell'intervallo di polling delle notifiche di modifica file per ridurre il volume.
+    - Aggiornare l'intervallo di polling del processo di lavoro W3WP a un valore superiore, ad esempio 10mins o 30mins, in base ai requisiti. Impostare `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [nel registro di](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) sistema e riavviare il processo w3wp.
+- Se la directory fisica mappata del sito Web ha una struttura di directory nidificata, è possibile tentare di limitare l'ambito della notifica di modifica dei file per ridurre il volume di notifica.
+    - Per impostazione predefinita, IIS utilizza la configurazione dei file Web.config nella directory fisica a cui viene eseguito il mapping della directory virtuale, oltre che in qualsiasi directory figlio della directory fisica. Se non si desidera utilizzare Web.config file nelle directory figlio, specificare false per l'attributo allowSubDirConfig nella directory virtuale. Per informazioni dettagliate, vedere [questo articolo](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
+
+Impostare l'impostazione della directory virtuale IIS "allowSubDirConfig" in Web.Config su false per escludere le directory figlio fisiche mappate dall'ambito.  
+
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Come creare un avviso se una condivisione file è limitata
 
 1. Nel portale di Azure passare all'account di archiviazione.
-1. Nella sezione **monitoraggio** selezionare **avvisi** , quindi selezionare **nuova regola di avviso**.
-1. Selezionare **Modifica risorsa** , selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi **fare** clic su fine. Ad esempio, se il nome dell'account di archiviazione è *Contoso* , selezionare la risorsa Contoso/file.
+1. Nella sezione **monitoraggio** selezionare **avvisi**, quindi selezionare **nuova regola di avviso**.
+1. Selezionare **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi **fare** clic su fine. Ad esempio, se il nome dell'account di archiviazione è *Contoso*, selezionare la risorsa Contoso/file.
 1. Selezionare **Seleziona condizione** per aggiungere una condizione.
 1. Nell'elenco dei segnali supportati per l'account di archiviazione selezionare la metrica **transazioni** .
 1. Nell'elenco a discesa **nome dimensione** del riquadro **Configura logica segnale** selezionare **tipo di risposta**.
 1. Nell'elenco a discesa **valori dimensione** selezionare **SUCCESSWITHTHROTTLING** (per SMB) o **ClientThrottlingError** (per REST).
 
    > [!NOTE]
-   > Se non è elencato né il valore **SuccessWithThrottling** né il valore della dimensione **ClientThrottlingError** , significa che la risorsa non è stata limitata. Per aggiungere il valore della dimensione, accanto all'elenco a discesa **valori dimensione** selezionare **Aggiungi valore personalizzato** , immettere **SuccessWithThrottling** o **ClientThrottlingError** , selezionare **OK** , quindi ripetere il passaggio 7.
+   > Se non è elencato né il valore **SuccessWithThrottling** né il valore della dimensione **ClientThrottlingError** , significa che la risorsa non è stata limitata. Per aggiungere il valore della dimensione, accanto all'elenco a discesa **valori dimensione** selezionare **Aggiungi valore personalizzato**, immettere **SuccessWithThrottling** o **ClientThrottlingError**, selezionare **OK**, quindi ripetere il passaggio 7.
 
 1. Nell'elenco a discesa **nome dimensione** selezionare **condivisione file**.
 1. Nell'elenco a discesa **valori dimensione** selezionare la condivisione file o le condivisioni su cui si vuole inviare l'avviso.
@@ -189,12 +237,12 @@ Latenza superiore a quella prevista per l'accesso alle condivisioni file di Azur
    > [!NOTE]
    > Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri**. Nell'elenco a discesa valori dimensione non sono elencate le condivisioni file, perché le metriche per condivisione non sono disponibili per le condivisioni file standard. La limitazione degli avvisi per le condivisioni file standard viene attivata se una condivisione file all'interno dell'account di archiviazione è limitata e l'avviso non identifica quale condivisione file è stata limitata. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile usare una condivisione file per ogni account di archiviazione.
 
-1. Definire i parametri di avviso immettendo il **valore di soglia** , l' **operatore** , la **granularità di aggregazione** e la **frequenza di valutazione** , quindi selezionare **fine**.
+1. Definire i parametri di avviso immettendo il **valore di soglia**, l' **operatore**, la **granularità di aggregazione** e la **frequenza di valutazione**, quindi selezionare **fine**.
 
     > [!TIP]
     > Se si usa una soglia statica, il grafico delle metriche può essere utile per determinare un valore soglia ragionevole se la condivisione file è attualmente in fase di limitazione. Se si usa una soglia dinamica, nel grafico delle metriche vengono visualizzate le soglie calcolate in base ai dati recenti.
 
-1. Selezionare **Seleziona gruppo di azioni** , quindi aggiungere un gruppo di azione (ad esempio, indirizzo di posta elettronica o SMS) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
+1. Selezionare **Seleziona gruppo di azioni**, quindi aggiungere un gruppo di azione (ad esempio, indirizzo di posta elettronica o SMS) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
 1. Immettere i dettagli dell'avviso, ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
 1. Selezionare **Crea regola di avviso** per creare l'avviso.
 
@@ -203,8 +251,8 @@ Per altre informazioni sulla configurazione degli avvisi in monitoraggio di Azur
 ## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-toward-being-throttled"></a>Come creare avvisi se una condivisione file Premium è in tendenza verso la limitazione
 
 1. Nel portale di Azure passare all'account di archiviazione.
-1. Nella sezione **monitoraggio** selezionare **avvisi** , quindi selezionare **nuova regola di avviso**.
-1. Selezionare **Modifica risorsa** , selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi **fare** clic su fine. Ad esempio, se il nome dell'account di archiviazione è *Contoso* , selezionare la risorsa Contoso/file.
+1. Nella sezione **monitoraggio** selezionare **avvisi**, quindi selezionare **nuova regola di avviso**.
+1. Selezionare **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi **fare** clic su fine. Ad esempio, se il nome dell'account di archiviazione è *Contoso*, selezionare la risorsa Contoso/file.
 1. Selezionare **Seleziona condizione** per aggiungere una condizione.
 1. Nell'elenco dei segnali supportati per l'account di archiviazione selezionare la metrica in **uscita** .
 
@@ -213,28 +261,28 @@ Per altre informazioni sulla configurazione degli avvisi in monitoraggio di Azur
 
 1. Scorrere verso il basso. Nell'elenco a discesa **nome dimensione** selezionare **condivisione file**.
 1. Nell'elenco a discesa **valori dimensione** selezionare la condivisione file o le condivisioni su cui si vuole inviare l'avviso.
-1. Definire i parametri di avviso selezionando i valori negli elenchi a discesa **operatore** , **valore soglia** , **granularità aggregazione** e **frequenza di valutazione** , quindi selezionare **fine**.
+1. Definire i parametri di avviso selezionando i valori negli elenchi a discesa **operatore**, **valore soglia**, **granularità aggregazione** e **frequenza di valutazione** , quindi selezionare **fine**.
 
    Le metriche in uscita, in ingresso e transazioni sono espresse al minuto, anche se si esegue il provisioning in uscita, in ingresso e I/O al secondo. Se, ad esempio, l'uscita di cui è stato effettuato il provisioning è di 90 &nbsp; mebibytes al secondo (MiB/s) e si desidera che la soglia sia pari al 80% dell'uscita sottoposta a &nbsp; provisioning, selezionare i parametri di avviso seguenti: 
-   - Per il **valore soglia** : *75497472* 
-   - Per **operator** : *maggiore o uguale a*
-   - Per **tipo di aggregazione** : *media*
+   - Per il **valore soglia**: *75497472* 
+   - Per **operator**: *maggiore o uguale a*
+   - Per **tipo di aggregazione**: *media*
    
    A seconda della rumorosità dell'avviso, è anche possibile selezionare i valori per la **granularità delle aggregazioni** e la **frequenza di valutazione**. Ad esempio, se si vuole che l'avviso esamini il traffico in ingresso medio nel periodo di tempo di un'ora e si desideri che la regola di avviso venga eseguita ogni ora, selezionare quanto segue:
-   - Per la **granularità di aggregazione** : *1 ora*
-   - Per la **frequenza di valutazione** : *1 ora*
+   - Per la **granularità di aggregazione**: *1 ora*
+   - Per la **frequenza di valutazione**: *1 ora*
 
-1. Selezionare **Seleziona gruppo di azioni** , quindi aggiungere un gruppo di azione (ad esempio, indirizzo di posta elettronica o SMS) all'avviso selezionando un gruppo di azioni esistente o creandone uno nuovo.
+1. Selezionare **Seleziona gruppo di azioni**, quindi aggiungere un gruppo di azione (ad esempio, indirizzo di posta elettronica o SMS) all'avviso selezionando un gruppo di azioni esistente o creandone uno nuovo.
 1. Immettere i dettagli dell'avviso, ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
 1. Selezionare **Crea regola di avviso** per creare l'avviso.
 
     > [!NOTE]
-    > - Per ricevere una notifica che indica che la condivisione file Premium è prossima a essere limitata a *causa del provisioning in ingresso* , seguire le istruzioni precedenti, ma con la seguente modifica:
+    > - Per ricevere una notifica che indica che la condivisione file Premium è prossima a essere limitata a *causa del provisioning in ingresso*, seguire le istruzioni precedenti, ma con la seguente modifica:
     >    - Nel passaggio 5 Selezionare la metrica in **ingresso** anziché in **uscita**.
     >
-    > - Per ricevere una notifica che la condivisione file Premium è vicina a essere limitata a *causa di IOPS con provisioning* , seguire le istruzioni precedenti, ma con le modifiche seguenti:
+    > - Per ricevere una notifica che la condivisione file Premium è vicina a essere limitata a *causa di IOPS con provisioning*, seguire le istruzioni precedenti, ma con le modifiche seguenti:
     >    - Nel passaggio 5 Selezionare la metrica **transazioni** anziché in **uscita**.
-    >    - Nel passaggio 10, l'unica opzione per il **tipo di aggregazione** è *Total*. Il valore soglia dipende pertanto dalla granularità di aggregazione selezionata. Se, ad esempio, si desidera che la soglia sia pari al 80 &nbsp; % di IOPS di base con provisioning e si selezioni *1 ora* per la **granularità di aggregazione** , il **valore di soglia** sarà IOPS di base (in byte) &times; &nbsp; 0,8 &times; &nbsp; 3600. 
+    >    - Nel passaggio 10, l'unica opzione per il **tipo di aggregazione** è *Total*. Il valore soglia dipende pertanto dalla granularità di aggregazione selezionata. Se, ad esempio, si desidera che la soglia sia pari al 80 &nbsp; % di IOPS di base con provisioning e si selezioni *1 ora* per la **granularità di aggregazione**, il **valore di soglia** sarà IOPS di base (in byte) &times; &nbsp; 0,8 &times; &nbsp; 3600. 
 
 Per altre informazioni sulla configurazione degli avvisi in monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 

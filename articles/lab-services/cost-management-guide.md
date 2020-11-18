@@ -5,12 +5,12 @@ author: rbest
 ms.author: rbest
 ms.date: 08/16/2020
 ms.topic: article
-ms.openlocfilehash: 98e04ba6bb1310935c4893a3616dfd68c2e99a55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29f6be5319c5a142ad3ea0d73deb2f95d8cb0d7a
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797633"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659727"
 ---
 # <a name="cost-management-for-azure-lab-services"></a>Gestione dei costi per Azure Lab Services
 
@@ -31,7 +31,7 @@ Questa stima potrebbe non mostrare tutti i costi possibili. Alcune risorse non s
 
 ## <a name="analyze-the-previous-months-usage"></a>Analizza l'utilizzo del mese precedente
 
-L'analisi dei costi è destinata alla revisione dell'utilizzo del mese precedente, che consente di determinare eventuali rettifiche per il Lab. È possibile trovare la suddivisione dei costi passati nell' [analisi dei costi della sottoscrizione](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis). Nella portale di Azure è possibile immettere le **sottoscrizioni** nella casella di ricerca e quindi selezionare l'opzione **sottoscrizioni** . 
+L'analisi dei costi è destinata alla revisione dell'utilizzo del mese precedente, che consente di determinare eventuali rettifiche per il Lab. È possibile trovare la suddivisione dei costi passati nell' [analisi dei costi della sottoscrizione](../cost-management-billing/costs/quick-acm-cost-analysis.md). Nella portale di Azure è possibile immettere le **sottoscrizioni** nella casella di ricerca e quindi selezionare l'opzione **sottoscrizioni** . 
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot che mostra la casella di ricerca e l'opzione sottoscrizioni.](./media/cost-management-guide/subscription-search.png)
@@ -46,7 +46,7 @@ Selezionare **analisi dei costi** nel riquadro sinistro in **Gestione costi**.
 > [!div class="mx-imgBorder"]
 > ![Screenshot che mostra un'analisi dei costi della sottoscrizione in un grafico.](./media/cost-management-guide/subscription-cost-analysis.png)
 
-Questo dashboard consente un'analisi approfondita dei costi, inclusa la possibilità di esportare in diversi tipi di file in base a una pianificazione. Per altre informazioni, vedere [gestione dei costi e panoramica della fatturazione](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
+Questo dashboard consente un'analisi approfondita dei costi, inclusa la possibilità di esportare in diversi tipi di file in base a una pianificazione. Per altre informazioni, vedere [gestione dei costi e panoramica della fatturazione](../cost-management-billing/cost-management-billing-overview.md).
 
 È possibile filtrare per tipo di risorsa. Con `microsoft.labservices/labaccounts` viene visualizzato solo il costo associato a Lab Services.
 
@@ -57,7 +57,7 @@ Lo screenshot seguente è un esempio di analisi dei costi.
 > [!div class="mx-imgBorder"]
 > ![Screenshot che mostra un'analisi dei costi di esempio per una sottoscrizione.](./media/cost-management-guide/cost-analysis.png)
 
-Per impostazione predefinita, sono presenti sei colonne: **risorsa**, **tipo di risorsa**, **percorso**, nome del **gruppo di risorse**, **tag**e **costo**. La colonna **risorsa** contiene le informazioni relative all'account Lab, al nome del Lab e alla macchina virtuale. Le righe che mostrano l'account Lab, il nome del Lab e il valore predefinito (seconda e terza riga) rappresentano il costo del Lab. Le macchine virtuali usate hanno un costo che è possibile visualizzare per le righe che mostrano l'account Lab, il nome del Lab, il valore predefinito e il nome della macchina virtuale. 
+Per impostazione predefinita, sono presenti sei colonne: **risorsa**, **tipo di risorsa**, **percorso**, nome del **gruppo di risorse**, **tag** e **costo**. La colonna **risorsa** contiene le informazioni relative all'account Lab, al nome del Lab e alla macchina virtuale. Le righe che mostrano l'account Lab, il nome del Lab e il valore predefinito (seconda e terza riga) rappresentano il costo del Lab. Le macchine virtuali usate hanno un costo che è possibile visualizzare per le righe che mostrano l'account Lab, il nome del Lab, il valore predefinito e il nome della macchina virtuale. 
 
 In questo esempio, l'aggiunta della prima e della seconda riga (inizia con **aaalab/dockerlab**) fornirà il costo totale per il Lab "dockerlab" nell'account Lab "aaalab".
 
@@ -70,7 +70,7 @@ Per ottenere il costo complessivo per la raccolta immagini, modificare il tipo d
 
 Alcune università hanno usato l'account Lab e il gruppo di risorse come modo per separare le classi. Ogni classe dispone di un proprio account Lab e di un gruppo di risorse. 
 
-Nel riquadro analisi costi aggiungere un filtro in base al nome del gruppo di risorse con il nome del gruppo di risorse appropriato per la classe. Quindi, saranno visibili solo i costi per tale classe. Ciò consente una delineatura più chiara tra le classi quando si visualizzano i costi. È possibile utilizzare la funzionalità di [esportazione pianificata](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) dell'analisi dei costi per scaricare i costi di ogni classe in file distinti.
+Nel riquadro analisi costi aggiungere un filtro in base al nome del gruppo di risorse con il nome del gruppo di risorse appropriato per la classe. Quindi, saranno visibili solo i costi per tale classe. Ciò consente una delineatura più chiara tra le classi quando si visualizzano i costi. È possibile utilizzare la funzionalità di [esportazione pianificata](../cost-management-billing/costs/tutorial-export-acm-data.md) dell'analisi dei costi per scaricare i costi di ogni classe in file distinti.
 
 ## <a name="manage-costs"></a>Gestire i costi
 
@@ -90,7 +90,7 @@ Le funzionalità di arresto automatico consentono di evitare la perdita di ore d
 > [!NOTE]
 > Questa impostazione è disponibile solo per le macchine virtuali Windows.
 
-Quando l'impostazione **Disconnetti utenti quando macchine virtuali è inattiva** è attivata, l'utente viene disconnesso da qualsiasi computer nel Lab quando il sistema operativo Windows ritiene che la sessione sia inattiva (incluse le macchine virtuali modello). La [definizione del sistema operativo Windows di Idle](https://docs.microsoft.com/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) usa due criteri: 
+Quando l'impostazione **Disconnetti utenti quando macchine virtuali è inattiva** è attivata, l'utente viene disconnesso da qualsiasi computer nel Lab quando il sistema operativo Windows ritiene che la sessione sia inattiva (incluse le macchine virtuali modello). La [definizione del sistema operativo Windows di Idle](/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) usa due criteri: 
 
 * Assenza dell'utente: nessun input della tastiera o del mouse.
 * Mancanza di consumo di risorse: tutti i processori e tutti i dischi erano inattivi per una determinata percentuale di tempo.
@@ -122,7 +122,7 @@ L'impostazione **Arresta macchine virtuali quando gli utenti si disconnette** su
 * Per Linux, una connessione SSH è disconnessa.
  
 > [!NOTE]
-> Sono supportate solo [le distribuzioni e le versioni specifiche di Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions) .
+> Sono supportate solo [le distribuzioni e le versioni specifiche di Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions) .
  
 È possibile specificare per quanto tempo le macchine virtuali devono attendere che l'utente si riconnetta prima di arrestarsi automaticamente. 
 
