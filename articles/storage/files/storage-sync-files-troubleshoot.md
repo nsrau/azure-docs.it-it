@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: dd9e67b8cea88421986d4ca9e3545c6dce618672
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: c7405ada800bd5fb9161e9d96bd4c8b0484be620
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626402"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737014"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -21,7 +21,7 @@ L'obiettivo di questo articolo è aiutare l'utente a individuare e risolvere i p
 
 1. [Forum di archiviazione di Azure](/answers/products/azure?product=storage).
 2. [UserVoice per File di Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. Supporto tecnico Microsoft. Per creare una nuova richiesta di supporto, nel portale di Azure, nella scheda **Guida** , selezionare **Guida e supporto** e quindi selezionare **Nuova richiesta di supporto**.
+3. Supporto tecnico Microsoft. Per creare una nuova richiesta di supporto, nel portale di Azure, nella scheda **Guida**, selezionare **Guida e supporto** e quindi selezionare **Nuova richiesta di supporto**.
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Si è verificato un problema di Sincronizzazione file di Azure nel server (sincronizzazione, suddivisione in livelli cloud e così via). È consigliabile rimuovere l'endpoint server e ricrearlo?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -93,7 +93,7 @@ Reset-StorageSyncServer
 > Se il server fa parte di un cluster, è possibile usare il parametro facoltativo *Reset-StorageSyncServer -CleanClusterRegistration* per rimuovere anche la registrazione del cluster.
 
 <a id="web-site-not-trusted"></a>**Perché quando si registra un server si ricevono numerose risposte indicanti che il sito Web non è attendibile. Perché?**  
-Questo errore si verifica perché durante la registrazione del server sono abilitati i criteri **Sicurezza avanzata di Internet Explorer**. Per altre informazioni su come disabilitare correttamente i criteri **Sicurezza avanzata di Internet Explorer** , vedere [Preparare Windows Server per l'uso con Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) e [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
+Questo errore si verifica perché durante la registrazione del server sono abilitati i criteri **Sicurezza avanzata di Internet Explorer**. Per altre informazioni su come disabilitare correttamente i criteri **Sicurezza avanzata di Internet Explorer**, vedere [Preparare Windows Server per l'uso con Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) e [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
 
 <a id="server-registration-missing"></a>**Il server non è elencato in Server registrati nel portale di Azure**  
 Se un server non è presente nell'elenco **Server registrati** per un servizio di sincronizzazione archiviazione, seguire questa procedura:
@@ -529,7 +529,7 @@ Questo errore si verifica quando il limite di archiviazione di condivisione file
 
 5. Selezionare **File** per visualizzare l'elenco delle condivisioni file.
 6. Fare clic sui tre puntini alla fine della riga per la condivisione file di Azure a cui fa riferimento l'endpoint cloud.
-7. Verificare che l' **Utilizzo** si trovi sotto a **Quota**. Nota: a meno che non sia stata specificata una quota alternativa, la quota corrisponderà alle [dimensioni massime della condivisione file di Azure](storage-files-scale-targets.md).
+7. Verificare che l'**Utilizzo** si trovi sotto a **Quota**. Nota: a meno che non sia stata specificata una quota alternativa, la quota corrisponderà alle [dimensioni massime della condivisione file di Azure](storage-files-scale-targets.md).
 
     ![Schermata delle proprietà della condivisione file di Azure.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
@@ -1004,7 +1004,7 @@ if ($fileShare -eq $null) {
 <a id="troubleshoot-rbac"></a>**Garantire che Sincronizzazione file di Azure possa accedere all'account di archiviazione.**  
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 1. Fare clic su **Controllo di accesso (IAM)** nel sommario a sinistra.
-1. Fare clic sulla scheda **Assegnazioni del ruolo** per passare all'elenco di utenti e applicazioni ( *entità servizio* ) che possono accedere all'account di archiviazione.
+1. Fare clic sulla scheda **Assegnazioni del ruolo** per passare all'elenco di utenti e applicazioni (*entità servizio*) che possono accedere all'account di archiviazione.
 1. Verificare che **Microsoft.StorageSync** o il **servizio Sincronizzazione file ibrida** (nome dell'applicazione precedente) venga visualizzato nell'elenco con il ruolo **Lettore e accesso ai dati**. 
 
     ![Una schermata dell'entità servizio del servizio Sincronizzazione file ibrida nella scheda di controllo di accesso dell'account di archiviazione](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
@@ -1013,7 +1013,7 @@ if ($fileShare -eq $null) {
 
     - Scegliere **Aggiungi**.
     - Nel campo **Ruolo** selezionare **Lettore e accesso ai dati**.
-    - Nel campo **Seleziona** digitare **Microsoft.StorageSync** , selezionare il ruolo e fare clic su **Salva**.
+    - Nel campo **Seleziona** digitare **Microsoft.StorageSync**, selezionare il ruolo e fare clic su **Salva**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
@@ -1266,7 +1266,24 @@ Se si verificano problemi con Sincronizzazione file di Azure in un server, per p
 
 Se il problema non è risolto, eseguire lo strumento AFSDiag e inviare l'output del file con estensione zip al tecnico del supporto assegnato al caso per un'ulteriore diagnosi.
 
-Per eseguire AFSDiag, seguire questa procedura:
+Per eseguire AFSDiag, seguire questa procedura.
+
+Per la versione dell'agente V11 e versioni successive:
+1. Aprire una finestra di PowerShell con privilegi elevati ed eseguire i comandi seguenti, premendo INVIO dopo ogni comando:
+
+    > [!NOTE]
+    >AFSDiag creerà la directory di output e una cartella temporanea al suo interno prima di raccogliere i log ed eliminerà la cartella temporanea dopo l'esecuzione. Specificare un percorso di output che non contenga dati.
+    
+    ```powershell
+    cd "c:\Program Files\Azure\StorageSyncAgent"
+    Import-Module .\afsdiag.ps1
+    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
+    ```
+
+2. Riprodurre il problema. Al termine immettere **D**.
+3. Nella directory di output specificata verrà salvato un file con estensione zip contenente i log e i file di traccia. 
+
+Per Agent versione V10 e versioni precedenti:
 1. Creare una directory in cui verranno salvati i risultati di AFSDiag, ad esempio C:\Output.
     > [!NOTE]
     >AFSDiag eliminerà tutto il contenuto nella directory di output prima di raccogliere i log. Specificare un percorso di output che non contenga dati.
@@ -1282,6 +1299,7 @@ Per eseguire AFSDiag, seguire questa procedura:
 4. Per il livello di traccia nella modalità utente di Sincronizzazione file di Azure, immettere **1** (salvo diversamente specificato, per creare tracce più dettagliate) e quindi premere INVIO.
 5. Riprodurre il problema. Al termine immettere **D**.
 6. Nella directory di output specificata verrà salvato un file con estensione zip contenente i log e i file di traccia.
+
 
 ## <a name="see-also"></a>Vedere anche
 - [Monitorare Sincronizzazione file di Azure](storage-sync-files-monitoring.md)

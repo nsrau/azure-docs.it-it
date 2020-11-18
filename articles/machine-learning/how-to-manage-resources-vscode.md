@@ -1,7 +1,7 @@
 ---
 title: Creare e gestire risorse VS Code estensione (anteprima)
 titleSuffix: Azure Machine Learning
-description: Creare e gestire le risorse con l'estensione VS Code
+description: Informazioni su come creare e gestire Azure Machine Learning risorse usando l'estensione Azure Machine Learning Visual Studio Code.
 services: machine-learning
 author: luisquintanilla
 ms.author: luquinta
@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 09/30/2020
-ms.openlocfilehash: 2e410cbc7813031929ea040b2cc4fb2967b99c1b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: f8eb18b190b72381f1a93575eb39b3d19d8d431b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319353"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701416"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gestire le risorse di Azure Machine Learning con l'estensione VS Code (anteprima)
 
@@ -56,8 +56,8 @@ I metodi alternativi per creare un'area di lavoro includono:
 1. Espandere il nodo sottoscrizione che contiene l'area di lavoro.
 1. Fare clic con il pulsante destro del mouse sull'area di lavoro che si desidera rimuovere.
 1. Selezionare se si desidera rimuovere:
-    - *Solo l'area di lavoro* : questa opzione consente di eliminare **solo** la risorsa di Azure dell'area di lavoro. Il gruppo di risorse, gli account di archiviazione e tutte le altre risorse a cui l'area di lavoro è stata collegata sono ancora in Azure.
-    - *Con le risorse associate* : questa opzione consente di eliminare l'area di lavoro **e** tutte le risorse ad esso associate.
+    - *Solo l'area di lavoro*: questa opzione consente di eliminare **solo** la risorsa di Azure dell'area di lavoro. Il gruppo di risorse, gli account di archiviazione e tutte le altre risorse a cui l'area di lavoro è stata collegata sono ancora in Azure.
+    - *Con le risorse associate*: questa opzione consente di eliminare l'area di lavoro **e** tutte le risorse ad esso associate.
 
 ## <a name="datastores"></a>Archivi dati
 
@@ -80,7 +80,7 @@ Per altre informazioni, vedere [datastores](concept-data.md#datastores).
     1. Scegliere il tipo di archivio dati.
     1. Selezionare la risorsa di archiviazione. È possibile scegliere una risorsa di archiviazione associata all'area di lavoro oppure selezionare una risorsa di archiviazione valida nelle sottoscrizioni di Azure.
     1. Scegliere il contenitore in cui si trovino i dati all'interno della risorsa di archiviazione selezionata in precedenza.
-1. Un file di configurazione viene visualizzato in VS Code. Se si è soddisfatti del file di configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code ( **Visualizza > riquadro comandi** ) e digitare **Azure ml: Salva e continua**.
+1. Un file di configurazione viene visualizzato in VS Code. Se si è soddisfatti del file di configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code (**Visualizza > riquadro comandi**) e digitare **Azure ml: Salva e continua**.
 
 ### <a name="manage-a-datastore"></a>Gestire un archivio dati
 
@@ -96,8 +96,8 @@ Per altre informazioni, vedere [datastores](concept-data.md#datastores).
 
 L'estensione supporta attualmente i tipi di set di dati seguenti:
 
-- *Tabular* : consente di materializzare i dati in un frame di dati (Pandas o PySpark).
-- *File* : un file o una raccolta di file. Consente di scaricare o montare i file nel calcolo.
+- *Tabular*: consente di materializzare i dati in un frame di dati (Pandas o PySpark).
+- *File*: un file o una raccolta di file. Consente di scaricare o montare i file nel calcolo.
 
 Per altre informazioni, vedere [DataSets](concept-data.md#datasets)
 
@@ -159,12 +159,12 @@ Per ulteriori informazioni, vedere [ambienti](concept-environments.md).
 1. Nel prompt dei comandi:
     1. Specificare un nome per l'ambiente
     1. Definire la configurazione dell'ambiente:
-        - *Ambienti curati* : ambienti preconfigurati in Azure Machine Learning. È possibile personalizzare ulteriormente l'ambiente modificando la `dependencies` proprietà nel file JSON. Altre informazioni sugli [ambienti curati](resource-curated-environments.md).
-        - *File delle dipendenze conda* : per gli ambienti Anaconda è possibile specificare il file che contiene la definizione dell'ambiente.
-        - *File dei requisiti PIP* : per gli ambienti PIP, è possibile specificare il file che contiene la definizione dell'ambiente.
-        - *Ambiente conda esistente* : questa opzione Cerca gli ambienti conda nel PC locale e tenta di creare un ambiente dall'ambiente selezionato.
-        - *Personalizzata* : definire i propri canali e dipendenze
-    1. Un file di configurazione verrà aperto nell'editor. Se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code ( **visualizzazione > tavolozza comandi** ) e digitare **Azure ml: Salva e continua**.
+        - *Ambienti curati*: ambienti preconfigurati in Azure Machine Learning. È possibile personalizzare ulteriormente l'ambiente modificando la `dependencies` proprietà nel file JSON. Altre informazioni sugli [ambienti curati](resource-curated-environments.md).
+        - *File delle dipendenze conda*: per gli ambienti Anaconda è possibile specificare il file che contiene la definizione dell'ambiente.
+        - *File dei requisiti PIP*: per gli ambienti PIP, è possibile specificare il file che contiene la definizione dell'ambiente.
+        - *Ambiente conda esistente*: questa opzione Cerca gli ambienti conda nel PC locale e tenta di creare un ambiente dall'ambiente selezionato.
+        - *Personalizzata*: definire i propri canali e dipendenze
+    1. Un file di configurazione verrà aperto nell'editor. Se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code (**visualizzazione > tavolozza comandi**) e digitare **Azure ml: Salva e continua**.
 
 ### <a name="view-environment-configurations"></a>Visualizzare le configurazioni dell'ambiente
 
@@ -182,7 +182,7 @@ Per modificare le dipendenze e le configurazioni per un ambiente specifico nell'
 1. Espandere il nodo sottoscrizione che contiene l'area di lavoro.
 1. Espandere il nodo **ambienti** nell'area di lavoro.
 1. Fare clic con il pulsante destro del mouse sull'ambiente che si desidera visualizzare e scegliere **modifica ambiente**.
-1. Dopo aver apportato le modifiche, se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code ( **Visualizza > riquadro comandi** ) e digitare **Azure ml: Salva e continua**.
+1. Dopo aver apportato le modifiche, se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code (**Visualizza > riquadro comandi**) e digitare **Azure ml: Salva e continua**.
 
 ## <a name="experiments"></a>Sperimentazioni
 
@@ -307,7 +307,7 @@ Per altre informazioni, vedere [destinazioni di calcolo](concept-compute-target.
 1. Espandere il nodo sottoscrizione che contiene l'area di lavoro.
 1. Espandere il nodo **cluster di calcolo** all'interno dell'area di lavoro.
 1. Fare clic con il pulsante destro del mouse sul calcolo che si desidera modificare e scegliere **Modifica calcolo**.
-1. Un file di configurazione per il calcolo verrà aperto nell'editor. Se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code ( **visualizzazione > tavolozza comandi** ) e digitare **Azure ml: Salva e continua**.
+1. Un file di configurazione per il calcolo verrà aperto nell'editor. Se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code (**visualizzazione > tavolozza comandi**) e digitare **Azure ml: Salva e continua**.
 
 ### <a name="delete-compute"></a>Elimina calcolo
 
@@ -327,15 +327,15 @@ Per creare una configurazione di esecuzione nell'estensione:
     1. Scegliere o creare un nuovo ambiente.
     1. Digitare il nome dello script che si desidera eseguire oppure premere **invio** al browser per lo script nel computer locale.
     1. Opzionale Scegliere se si desidera creare un riferimento ai dati per l'esecuzione del training. In questo modo verrà richiesto di definire un set di dati nella configurazione di esecuzione.
-        1. Selezionare uno dei set di dati registrati da collegare alla configurazione di esecuzione un file di configurazione per il set di dati verrà aperto nell'editor. Se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code ( **visualizzazione > tavolozza comandi** ) e digitare **Azure ml: Salva e continua**.
-    1. Se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code ( **visualizzazione > tavolozza comandi** ) e digitare **Azure ml: Salva e continua**.
+        1. Selezionare uno dei set di dati registrati da collegare alla configurazione di esecuzione un file di configurazione per il set di dati verrà aperto nell'editor. Se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code (**visualizzazione > tavolozza comandi**) e digitare **Azure ml: Salva e continua**.
+    1. Se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code (**visualizzazione > tavolozza comandi**) e digitare **Azure ml: Salva e continua**.
 
 ### <a name="edit-run-configuration"></a>Modifica configurazione di esecuzione
 
 1. Espandere il nodo sottoscrizione che contiene l'area di lavoro.
 1. Espandere il nodo del cluster di calcolo nel nodo **cluster di calcolo** dell'area di lavoro.
 1. Fare clic con il pulsante destro del mouse sulla configurazione di esecuzione che si desidera modificare e scegliere **modifica configurazione di esecuzione**.
-1. Un file di configurazione per la configurazione di esecuzione viene aperto nell'editor. Se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code ( **visualizzazione > tavolozza comandi** ) e digitare **Azure ml: Salva e continua**.
+1. Un file di configurazione per la configurazione di esecuzione viene aperto nell'editor. Se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code (**visualizzazione > tavolozza comandi**) e digitare **Azure ml: Salva e continua**.
 
 ### <a name="delete-run-configuration"></a>Elimina configurazione di esecuzione
 
@@ -357,7 +357,7 @@ Per ulteriori informazioni, vedere [modelli](concept-azure-machine-learning-arch
     1. Specificare un nome per il modello
     1. Scegliere se il modello è un file o una cartella.
     1. Trovare il modello nel PC locale.
-    1. Un file di configurazione per il modello nell'editor. Se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code ( **visualizzazione > tavolozza comandi** ) e digitare **Azure ml: Salva e continua**.
+    1. Un file di configurazione per il modello nell'editor. Se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code (**visualizzazione > tavolozza comandi**) e digitare **Azure ml: Salva e continua**.
 
 ### <a name="view-model-properties"></a>Visualizzare le proprietà del modello
 
@@ -401,7 +401,7 @@ Per ulteriori informazioni, vedere [endpoint del servizio Web](concept-azure-mac
     1. Consente di specificare un nome per il modello.
     1. Consente di specificare lo script da eseguire quando si assegna un punteggio al modello.
     1. Fornire un file di dipendenze conda.
-    1. Nell'editor verrà visualizzato un file di configurazione per la distribuzione. Se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code ( **visualizzazione > tavolozza comandi** ) e digitare **Azure ml: Salva e continua**.
+    1. Nell'editor verrà visualizzato un file di configurazione per la distribuzione. Se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code (**visualizzazione > tavolozza comandi**) e digitare **Azure ml: Salva e continua**.
 
 > [!NOTE]
 > In alternativa, è possibile fare clic con il pulsante destro del mouse su un modello registrato nel nodo *modelli* e selezionare **Distribuisci servizio dal modello registrato**.
@@ -421,7 +421,7 @@ Oltre a creare ed eliminare le distribuzioni, è possibile visualizzare e modifi
 1. Espandere il nodo **endpoint** all'interno dell'area di lavoro.
 1. Fare clic con il pulsante destro del mouse sulla distribuzione che si desidera gestire:
     - Per modificare le impostazioni, selezionare **modifica servizio**.
-        - Nell'editor verrà visualizzato un file di configurazione per la distribuzione. Se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code ( **visualizzazione > tavolozza comandi** ) e digitare **Azure ml: Salva e continua**.
+        - Nell'editor verrà visualizzato un file di configurazione per la distribuzione. Se si è soddisfatti della configurazione, selezionare **Salva e continua** oppure aprire il riquadro comandi vs code (**visualizzazione > tavolozza comandi**) e digitare **Azure ml: Salva e continua**.
     - Per visualizzare le impostazioni di configurazione della distribuzione, selezionare **Visualizza proprietà del servizio**.
 
 ## <a name="next-steps"></a>Passaggi successivi

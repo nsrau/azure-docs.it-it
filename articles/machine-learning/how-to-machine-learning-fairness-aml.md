@@ -1,26 +1,24 @@
 ---
 title: Valutazione dell'equità dei modelli ML in Python (anteprima)
 titleSuffix: Azure Machine Learning
-description: Informazioni su come valutare l'equità dei modelli in Azure Machine Learning
+description: Informazioni su come valutare e mitigare l'equità dei modelli di apprendimento automatico usando Fairlearn e il Azure Machine Learning Python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 09/01/2020
+ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: bf819e5cff8c6ef008b0e55e156ba3531936b489
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 3fbd4990fd330960bb8dbce2e2a8d1bcb578cf2a
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337883"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701185"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Usare Azure Machine Learning con il pacchetto open source Fairlearn per valutare l'equità dei modelli di Machine Learning (anteprima)
-
-
 
 In questa guida dettagliata si apprenderà come usare il pacchetto python open source di [Fairlearn](https://fairlearn.github.io/) con Azure Machine Learning per eseguire le attività seguenti:
 
@@ -306,7 +304,7 @@ Se si è interessati a confrontare più modelli e a capire in che modo le loro v
     ```
 
 
-    Analogamente alla sezione precedente, è possibile seguire uno dei percorsi descritti in precedenza (tramite **esperimenti** o **modelli** ) in Azure Machine Learning Studio per accedere al dashboard di visualizzazione e confrontare i due modelli in termini di equità e prestazioni.
+    Analogamente alla sezione precedente, è possibile seguire uno dei percorsi descritti in precedenza (tramite **esperimenti** o **modelli**) in Azure Machine Learning Studio per accedere al dashboard di visualizzazione e confrontare i due modelli in termini di equità e prestazioni.
 
 
 ## <a name="upload-unmitigated-and-mitigated-fairness-insights"></a>Caricare informazioni dettagliate sull'equità non mitigate e mitigate

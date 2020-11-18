@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: e1acfc3216ccfaeac035f1ff31e82c7b67c17daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f950cb63b5083a85ab5420434abdd9a720115b1a
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76119619"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734549"
 ---
 # <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Risolvere i problemi di una VM di Azure non funzionante usando la virtualizzazione annidata in Azure
 
@@ -96,7 +96,7 @@ Per montare la macchina virtuale difettosa, è necessario che la macchina virtua
 
     ![immagine relativa all'aggiunta del nuovo disco rigido](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
-14. In **disco rigido fisico**selezionare il disco della macchina virtuale difettosa collegata alla macchina virtuale di Azure. Se nell'elenco non sono presenti dischi, controllare se il disco è impostato su offline usando Gestione disco.
+14. In **disco rigido fisico** selezionare il disco della macchina virtuale difettosa collegata alla macchina virtuale di Azure. Se nell'elenco non sono presenti dischi, controllare se il disco è impostato su offline usando Gestione disco.
 
     ![immagine relativa al montaggio del disco](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
@@ -111,7 +111,7 @@ Per montare la macchina virtuale difettosa, è necessario che la macchina virtua
 
 1.  Dopo aver ripristinato la macchina virtuale online, arrestare la macchina virtuale nella console di gestione di Hyper-V.
 
-2.  [Smontare e scollegare il disco del sistema operativo riparato](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk
+2.  [Smontare e scollegare il disco del sistema operativo riparato](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-the-original-virtual-hard-disk
 ).
 3.  [Sostituire il disco del sistema operativo usato dalla VM con il disco del sistema operativo riparato](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
 ).

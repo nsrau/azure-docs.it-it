@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0bd2b295e5e4d4d5ea6e25869c8c109ff8bbbf38
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 906df01587201561fbbfea0661d0885864042925
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660764"
+ms.locfileid: "94701314"
 ---
 # <a name="list-blobs-with-net"></a>Elencare BLOB con .NET
 
@@ -64,6 +64,10 @@ Per filtrare l'elenco di BLOB, specificare una stringa per il `prefix` parametro
 - Se si usa .NET V12 SDK, specificare il valore **dei metadati** per l'enumerazione [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) .
 
 - Se si usa .NET V11 SDK, specificare il valore **dei metadati** per l'enumerazione [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) . Archiviazione di Azure include i metadati con ogni BLOB restituito, pertanto non è necessario chiamare uno dei metodi **FetchAttributes** in questo contesto per recuperare i metadati dei BLOB.
+
+### <a name="list-blob-versions-or-snapshots"></a>Elencare le versioni o gli snapshot BLOB
+
+Per elencare le versioni o gli snapshot BLOB con la libreria client di .NET V12, specificare il parametro [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) con la **versione** o il campo **snapshot** . Le versioni e gli snapshot sono elencati dal meno recente al più recente. Per altre informazioni sull'elenco delle versioni, vedere [elencare le versioni di BLOB](versioning-enable.md#list-blob-versions).
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>Confronto tra elenco semplice e gerarchico
 

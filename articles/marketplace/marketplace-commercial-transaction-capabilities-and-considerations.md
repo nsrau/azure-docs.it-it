@@ -4,27 +4,27 @@ description: Questo articolo illustra le considerazioni relative a prezzi, fattu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: c6ce256db907589ace7e77157397257732564fb6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 9a975ee863e81a9f542e717d734f12db850f749e
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130324"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738323"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Funzionalità di transazione del marketplace commerciale
 
-Questo articolo descrive le considerazioni sui prezzi, la fatturazione, la fatturazione e i pagamenti per Microsoft Commercial Marketplace. 
+Questo articolo descrive le considerazioni sui prezzi, la fatturazione, la fatturazione e i pagamenti per Microsoft Commercial Marketplace.
 
 ## <a name="transactions-by-listing-option"></a>Opzione Transactions by Listing
 
-L'editore o Microsoft è responsabile della gestione delle transazioni delle licenze software per le offerte nel marketplace commerciale. L'opzione di elenco scelto per l'offerta determina chi gestisce la transazione. Vedere [scegliere un'opzione di elenco](./determine-your-listing-type.md#choose-a-listing-option) per disponibilità e spiegazioni di ogni opzione di pubblicazione.
+L'editore o Microsoft è responsabile della gestione delle transazioni delle licenze software per le offerte nel marketplace commerciale. L'opzione di elenco scelto per l'offerta determina chi gestisce la transazione. Per la disponibilità e le spiegazioni di ogni opzione di pubblicazione, vedere [Introduzione alle opzioni di elenco](determine-your-listing-type.md)
 
 ### <a name="contact-me-free-trial-and-byol-options"></a>Contattaci, versione di valutazione gratuita e opzioni di BYOL
 
-Gli editori possono scegliere il _contatto_ e la _versione di valutazione gratuita_ , le opzioni per scopi promozionali e di acquisizione utente. Per alcuni tipi di offerte, i publisher possono scegliere l'opzione Bring your own License (BYOL) per consentire ai clienti di acquistare una sottoscrizione all'offerta usando una licenza acquistata direttamente dall'utente. Con queste opzioni, Microsoft non partecipa direttamente alle transazioni delle licenze software dell'editore e non sono previsti costi di transazione. 
+Gli editori possono scegliere il _contatto_ e la _versione di valutazione gratuita_, le opzioni per scopi promozionali e di acquisizione utente. Per alcuni tipi di offerte, i publisher possono scegliere l'opzione Bring your own License (BYOL) per consentire ai clienti di acquistare una sottoscrizione all'offerta usando una licenza acquistata direttamente dall'utente. Con queste opzioni, Microsoft non partecipa direttamente alle transazioni delle licenze software dell'editore e non sono previsti costi di transazione.
 
 Gli editori sono responsabili del supporto di tutti gli aspetti della transazione di licenza software. Sono inclusi, ad esempio, l'ordine, l'evasione, la misurazione, la fatturazione, la fatturazione, il pagamento e la raccolta. Con l'opzione Contact me Listing, i Publisher mantengono il 100% dei costi di licenza software dell'editore raccolti dal cliente.
 
@@ -46,9 +46,9 @@ L'opzione di pubblicazione delle transazioni è attualmente supportata per i tip
 
 ### <a name="billing-infrastructure-costs"></a>Fatturazione dei costi per l'infrastruttura
 
-Per le **macchine virtuali** e **le applicazioni Azure** , le tariffe di utilizzo dell'infrastruttura di Azure vengono fatturate alla sottoscrizione di Azure del cliente. Nella fattura del cliente i costi di utilizzo dell'infrastruttura vengono addebitati e visualizzati separatamente dai costi di licenza del provider software.
+Per le **macchine virtuali** e **le applicazioni Azure**, le tariffe di utilizzo dell'infrastruttura di Azure vengono fatturate alla sottoscrizione di Azure del cliente. Nella fattura del cliente i costi di utilizzo dell'infrastruttura vengono addebitati e visualizzati separatamente dai costi di licenza del provider software.
 
-Per le **app SaaS** , l'editore deve contabilizzare i costi di utilizzo dell'infrastruttura di Azure e i costi di licenza software sotto un'unica voce di costo,  presentata al cliente come tariffa mensile fissa. L'utilizzo dell'infrastruttura di Azure viene gestito e fatturato direttamente all'editore. I costi effettivi di utilizzo dell'infrastruttura di Azure non sono visibili al cliente. Gli editori scelgono in genere di accorpare i costi di utilizzo dell'infrastruttura di Azure nei prezzi di licenza software. Le tariffe per le licenze software non vengono misurate o in base al consumo dell'utente.
+Per le **app SaaS**, l'editore deve contabilizzare i costi di utilizzo dell'infrastruttura di Azure e i costi di licenza software sotto un'unica voce di costo,  presentata al cliente come tariffa mensile fissa. L'utilizzo dell'infrastruttura di Azure viene gestito e fatturato direttamente all'editore. I costi effettivi di utilizzo dell'infrastruttura di Azure non sono visibili al cliente. Gli editori scelgono in genere di accorpare i costi di utilizzo dell'infrastruttura di Azure nei prezzi di licenza software. Le tariffe per le licenze software non vengono misurate o in base al consumo dell'utente.
 
 ## <a name="pricing-models"></a>Modelli di determinazione dei prezzi
 
@@ -84,7 +84,15 @@ Per gli scenari di pubblicazione di transazioni, è possibile rendere disponibil
 
 Oltre a usare tipi di offerte e modelli di fatturazione per monetizzare un'offerta, è possibile gestire una versione privata dell'offerta, completa di prezzi negoziati specifici della trattativa e di configurazioni personalizzate. Le offerte private sono supportate da tutte e tre le opzioni di pubblicazione delle transazioni.
 
-Questa opzione consente un prezzo superiore o inferiore rispetto all'offerta pubblicamente disponibile. Le offerte private possono essere usate per applicare uno sconto o un supplemento a un'offerta. Le offerte private possono essere rese disponibili per uno o più clienti aggiungendo all'elenco elementi consentiti la sottoscrizione di Azure a livello di offerta.
+Questa opzione consente un prezzo superiore o inferiore rispetto all'offerta pubblicamente disponibile. È possibile usare offerte private per discount o aggiungere un Premium a un'offerta. È possibile rendere disponibili offerte private a uno o più clienti elencando la sottoscrizione di Azure a livello di offerta.
+
+### <a name="commercial-marketplace-service-fees"></a>Tariffe del servizio Marketplace commerciale
+
+Viene addebitata una tariffa per il servizio di archiviazione standard del 20% quando i clienti acquistano l'offerta di transazione dal Marketplace commerciale. Per informazioni dettagliate su questa tariffa, vedere la sezione 5C del [Contratto Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560).
+
+Per alcune offerte transazionali pubblicate sul Marketplace commerciale, il licenziatario potrà usufruire della tariffa per il servizio di archiviazione ridotta del 10%. Affinché un'offerta venga qualificata, deve essere stata designata da Microsoft come co-selling IP di Azure incentivate. L'idoneità deve essere soddisfatta per almeno cinque giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa per il servizio Marketplace ridotta per il mese.
+
+La tariffa ridotta del servizio Marketplace si applica alle app SaaS incentivate, alle VM, alle app gestite e a qualsiasi altra soluzione IaaS transazionale qualificata resa disponibile tramite il Marketplace commerciale. Le offerte SaaS a pagamento associate a un'app Microsoft teams o almeno due Microsoft 365 componenti aggiuntivi (Excel, PowerPoint, Word, Outlook e SharePoint) e pubblicate per Microsoft AppSource ricevono anche questo sconto.
 
 ### <a name="examples"></a>Esempi
 
@@ -144,19 +152,15 @@ In questo scenario Microsoft fattura $ 100,00 per la licenza software e paga $ 9
 |Microsoft paga l'80% del costo della licenza <br> \* Per le app SaaS idonee, Microsoft paga il 90% del costo di licenza   |   $ 80,00 al mese <br> \* $ 90,00 al mese    |
 |Microsoft trattiene il 20% del costo della licenza <br> \* Per le app SaaS idonee, Microsoft trattiene il 10% del costo di licenza.  |  $ 20,00 al mese <br> \* 10,00 $     |
 
-### <a name="reduced-service-fee"></a>Tariffa ridotta per il servizio
-
-Per alcune offerte pubblicate sul Marketplace commerciale, Microsoft ridurrà il costo del servizio Marketplace dal 20% (come descritto nel [Contratto Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560)) al 10%. Per le offerte idonee, le offerte devono essere state designate da Microsoft come co-selling IP di Azure incentivate. L'idoneità deve essere soddisfatta per almeno cinque giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa per il servizio Marketplace ridotta per il mese. La tariffa ridotta per il servizio Marketplace si applica alle app SaaS incentivate, alle VM, alle app gestite e a qualsiasi altra offerta IaaS transazionale qualificata resa disponibile tramite il Marketplace commerciale. Le offerte SaaS a pagamento associate a un'app Microsoft teams o almeno due Microsoft 365 componenti aggiuntivi (Excel, PowerPoint, Word, Outlook e SharePoint) e pubblicate in AppSource ricevono anche questo sconto.
-
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Fatturazione cliente, pagamento e riscossioni
 
-**Fatturazione e pagamento** : è possibile usare il metodo di fatturazione preferito del cliente per far pervenire i costi di licenza software con pagamento in base al consumo o in abbonamento.
+**Fatturazione e pagamento**: è possibile usare il metodo di fatturazione preferito del cliente per far pervenire i costi di licenza software con pagamento in base al consumo o in abbonamento.
 
-**Contratto Enterprise** : se il metodo di fatturazione preferito del cliente è il contratto Microsoft Enterprise Agreement, le tariffe della licenza software verranno fatturate usando questo metodo di fatturazione come costo dettagliato, separato da eventuali costi di utilizzo specifici di Azure.
+**Contratto Enterprise**: se il metodo di fatturazione preferito del cliente è il contratto Microsoft Enterprise Agreement, le tariffe della licenza software verranno fatturate usando questo metodo di fatturazione come costo dettagliato, separato da eventuali costi di utilizzo specifici di Azure.
 
-**Carte di credito e fattura mensile** : i clienti possono anche pagare con una carta di credito e una fattura mensile. In questo caso, le tariffe della licenza software verranno fatturate come nello scenario Enterprise Agreement, ovvero come costo dettagliato, separato da eventuali costi di utilizzo specifici di Azure.
+**Carte di credito e fattura mensile**: i clienti possono anche pagare con una carta di credito e una fattura mensile. In questo caso, le tariffe della licenza software verranno fatturate come nello scenario Enterprise Agreement, ovvero come costo dettagliato, separato da eventuali costi di utilizzo specifici di Azure.
 
-**Crediti gratuiti e impegno monetario** : alcuni clienti decidono di pagare in anticipo Azure con un impegno monetario nel contratto Enterprise Agreement o dispongono di crediti gratuiti da usare con Azure. Anche se questi crediti possono essere usati per pagare l'utilizzo di Azure, non possono essere usati per pagare costi di licenza del software dell'editore.
+**Crediti gratuiti e impegno monetario**: alcuni clienti decidono di pagare in anticipo Azure con un impegno monetario nel contratto Enterprise Agreement o dispongono di crediti gratuiti da usare con Azure. Anche se questi crediti possono essere usati per pagare l'utilizzo di Azure, non possono essere usati per pagare costi di licenza del software dell'editore.
 
 **Fatturazione e raccolte** : la fatturazione delle licenze software dell'editore viene presentata usando il metodo di fatturazione selezionato dal cliente e segue la sequenza temporale per la fatturazione. Per i clienti senza un contratto Enterprise Agreement appropriato le licenze del software del marketplace vengono fatturate mensilmente. Per i clienti con Enterprise Agreement viene emessa una fattura mensile inviata ogni trimestre.
 

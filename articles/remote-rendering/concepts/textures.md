@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27395fe377972f51c849f8a61f51a628612ed54d
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b951dab1ad01187c7612fad047bc52eb6aa9700e
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202668"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701875"
 ---
 # <a name="textures"></a>Trame
 
@@ -26,7 +26,7 @@ Tipi di trama diversi hanno casi d'uso diversi:
 
 ## <a name="supported-texture-formats"></a>Formati di trama supportati
 
-Tutte le trame fornite ad ARR devono essere in formato [DDS](https://en.wikipedia.org/wiki/DirectDraw_Surface). Preferibilmente con mipmap e la compressione della trama. Se si vuole automatizzare il processo di conversione, vedere lo [strumento da riga di comando TexConv](../resources/tools/tex-conv.md).
+Tutte le trame fornite ad ARR devono essere in formato [DDS](https://en.wikipedia.org/wiki/DirectDraw_Surface). Preferibilmente con mipmap e la compressione della trama.
 
 ## <a name="loading-textures"></a>Caricamento delle trame
 

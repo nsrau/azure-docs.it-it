@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: 3aa4a1917711f8997c282ba577c33e7a7f94472b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa7c06c3bad59bad11fa288631042cca86109706
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932883"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701134"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Creare un indice di ricerca di base in Azure ricerca cognitiva
 
 In ricerca cognitiva di Azure, un *indice di ricerca* archivia contenuto ricercabile usato per le query full-text e filtrate. Un indice viene definito da uno schema e salvato nel servizio, con l'importazione dei dati successiva come secondo passaggio. 
 
-Gli indici contengono *documenti*. A livello concettuale, un documento è un singola unità di dati ricercabili nell'indice. Un rivenditore potrebbe avere un documento per ogni prodotto, un'organizzazione di notizie potrebbe avere un documento per ogni articolo e così via. Mapping di questi concetti a più familiari equivalenti di database: un *indice di ricerca* equivale a una *tabella*e i *documenti* sono approssimativamente equivalenti alle *righe* di una tabella.
+Gli indici contengono *documenti*. A livello concettuale, un documento è un singola unità di dati ricercabili nell'indice. Un rivenditore potrebbe avere un documento per ogni prodotto, un'organizzazione di notizie potrebbe avere un documento per ogni articolo e così via. Mapping di questi concetti a più familiari equivalenti di database: un *indice di ricerca* equivale a una *tabella* e i *documenti* sono approssimativamente equivalenti alle *righe* di una tabella.
 
 La struttura fisica di un indice è determinata dallo schema, con campi contrassegnati come "ricercabili", ottenendo un indice invertito creato per quel campo. 
 
@@ -59,7 +59,7 @@ L'arrivo a un progetto di indice finale è un processo iterativo. È comune iniz
 
    ![Pagina Aggiungi indice con attributi per tipo di dati](media/search-what-is-an-index//field-definitions.png "Pagina Aggiungi indice con attributi per tipo di dati")
 
-1. Scaricare lo schema dell'indice usando [Get index (API REST)](/rest/api/searchservice/get-index) e uno strumento di test Web come il [post](search-get-started-postman.md). Si dispone ora di una rappresentazione JSON dell'indice che è possibile adattare per il codice.
+1. Scaricare lo schema dell'indice usando [Get index (API REST)](/rest/api/searchservice/get-index) e uno strumento di test Web come il [post](search-get-started-rest.md). Si dispone ora di una rappresentazione JSON dell'indice che è possibile adattare per il codice.
 
 1. [Caricare l'indice con i dati](search-what-is-data-import.md). Azure ricerca cognitiva accetta documenti JSON. Per caricare i dati a livello di codice, è possibile usare Postman con i documenti JSON nel payload della richiesta. Se i dati non possono essere facilmente espressi in JSON, questo passaggio sarà più laborioso. 
 
@@ -70,7 +70,7 @@ L'arrivo a un progetto di indice finale è un processo iterativo. È comune iniz
 Durante lo sviluppo, pianificare le frequenti ricompilazioni. Poiché le strutture fisiche vengono create nel servizio, è necessario [eliminare e ricreare gli indici](search-howto-reindex.md) per la maggior parte delle modifiche apportate a una definizione di campo esistente. È possibile prendere in considerazione l'uso di un subset di dati per velocizzare le ricompilazioni. 
 
 > [!Tip]
-> Il codice, anziché un approccio basato su un portale, è consigliato per lavorare simultaneamente sulla progettazione di indici e sull'importazione di dati. In alternativa, strumenti come [Postman e API REST](search-get-started-postman.md) sono utili per eseguire test dei modelli di verifica quando i progetti di sviluppo sono ancora in fase iniziale. È possibile apportare modifiche incrementali a una definizione di indice nel corpo della richiesta e quindi inviare la richiesta al servizio per ricreare un indice usando uno schema aggiornato.
+> Il codice, anziché un approccio basato su un portale, è consigliato per lavorare simultaneamente sulla progettazione di indici e sull'importazione di dati. In alternativa, gli strumenti come i [post e Visual Studio Code](search-get-started-rest.md) sono utili per i test del modello di prova quando i progetti di sviluppo sono ancora in fase iniziale. È possibile apportare modifiche incrementali a una definizione di indice nel corpo della richiesta e quindi inviare la richiesta al servizio per ricreare un indice usando uno schema aggiornato.
 
 ## <a name="index-schema"></a>Schema dell'indice
 
@@ -169,7 +169,7 @@ I campi hanno un nome, un tipo che classifica i dati archiviati e gli attributi 
 
 ### <a name="data-types"></a>Tipi di dati
 
-| Type | Descrizione |
+| Tipo | Descrizione |
 |------|-------------|
 | Edm.String |Testo facoltativamente soggetto a tokenizzazione per la ricerca full-text (suddivisione delle parole, stemming e così via). |
 | Collection(Edm.String) |Elenco di stringhe facoltativamente soggette a tokenizzazione per la ricerca full-text. Non esiste alcun limite superiore teorico al numero di elementi in una raccolta, ma alle raccolte si applica il limite massimo di 16 MB di dimensioni del payload. |
@@ -222,7 +222,7 @@ Per CORS è possibile impostare le opzioni seguenti:
 
 + **allowedOrigins** (obbligatorio): si tratta di un elenco di origini a cui verrà concesso l'accesso all'indice. Questo significa che al codice JavaScript servito da queste origini sarà consentito eseguire query sull'indice, purché fornisca la chiave API corretta. Ogni origine è in genere nel formato `protocol://<fully-qualified-domain-name>:<port>` anche se `<port>` spesso viene omessa. Vedere [Utilizzare la condivisione di risorse tra origini (Wikipedia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) per altre informazioni.
 
-  Per consentire l'accesso a tutte le origini, includere `*` come unico elemento nella matrice**allowedOrigins**. *Non si consiglia questa pratica per i servizi di ricerca della produzione* ma spesso è utile per lo sviluppo e il debug.
+  Per consentire l'accesso a tutte le origini, includere `*` come unico elemento nella matrice **allowedOrigins**. *Non si consiglia questa pratica per i servizi di ricerca della produzione* ma spesso è utile per lo sviluppo e il debug.
 
 + **maxAgeInSeconds** (facoltativo): i browser usano questo valore per determinare la durata (in secondi) di memorizzazione nella cache delle risposte preliminari CORS. Questo valore deve essere un intero non negativo. A un valore più grande corrispondono prestazioni migliori, ma deve trascorrere più tempo prima che le modifiche dei criteri CORS diventino effettive. Se questo valore non è impostato, viene usata una durata predefinita di 5 minuti.
 

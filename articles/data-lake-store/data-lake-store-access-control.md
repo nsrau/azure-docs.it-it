@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d889c82142cda60b920f7b29bd91755cbc34f525
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190152"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701450"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controllo di accesso in Azure Data Lake Storage Gen1
 
@@ -76,7 +76,7 @@ Di seguito sono riportati alcuni scenari comuni che consentono di comprendere qu
 | Lettura      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Accoda a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
 | Elimina    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Crea    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Create    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Elenco      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
 | Elenco      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | Elenco      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
@@ -216,7 +216,7 @@ Quando si crea un nuovo file o una nuova cartella in una cartella esistente, l'A
 
 ### <a name="umask"></a>umask
 
-Quando si crea un file o una cartella, la proprietà umask viene usata per modificare la modalità in cui gli ACL predefiniti vengono impostati sull'elemento figlio. umask è un valore a 9 bit per le cartelle padre che contiene un valore RWX per l' **utente proprietario**, il **gruppo proprietario**e **altro**.
+Quando si crea un file o una cartella, la proprietà umask viene usata per modificare la modalità in cui gli ACL predefiniti vengono impostati sull'elemento figlio. umask è un valore a 9 bit per le cartelle padre che contiene un valore RWX per l' **utente proprietario**, il **gruppo proprietario** e **altro**.
 
 Umask per Azure Data Lake Storage Gen1 è un valore costante impostato su 007. Questo valore viene convertito in
 
@@ -280,7 +280,11 @@ Le voci negli ACL vengono archiviate come GUID che corrispondono agli utenti in 
 
 ### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-im-using-the-azure-portal"></a>Perché a volte negli ACL vengono visualizzati i GUID quando si usa il portale di Azure?
 
-Il GUID viene visualizzato quando l'utente non esiste più in Azure AD. In genere ciò si verifica se l'utente non fa più parte dell'azienda o l'account è stato eliminato in Azure AD.
+Il GUID viene visualizzato quando l'utente non esiste più in Azure AD. In genere ciò si verifica se l'utente non fa più parte dell'azienda o l'account è stato eliminato in Azure AD. Inoltre, assicurarsi di usare l'ID corretto per impostare gli ACL (dettagli in questione di seguito).
+
+### <a name="when-using-service-principal-what-id-should-i-use-to-set-acls"></a>Quando si usa l'entità servizio, quale ID usare per impostare gli ACL?
+
+Nel portale di Azure passare a **Azure Active Directory-> applicazioni aziendali** e selezionare l'applicazione. Nella scheda **Panoramica** dovrebbe essere visualizzato un ID oggetto, che deve essere utilizzato quando si aggiungono ACL per l'accesso ai dati (e non l'ID applicazione).
 
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Data Lake Storage Gen1 supporta l'ereditarietà degli elenchi di controllo di accesso?
 

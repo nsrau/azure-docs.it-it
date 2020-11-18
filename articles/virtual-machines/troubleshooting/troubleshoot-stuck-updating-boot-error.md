@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: a41c1f634c030106dd6936676010fea32da8d436
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe2d444bbdc09ed5ab0205d4139591e3288e3358
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084019"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734566"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>L'avvio della macchina virtuale di Azure si blocca in Windows Update
 
@@ -80,4 +80,4 @@ A seconda del numero di aggiornamenti di cui si sta eseguendo l'installazione o 
     > [!NOTE] 
     > A seconda delle dimensioni del pacchetto, è possibile che, per elaborare la disinstallazione, lo strumento Gestione e manutenzione immagini distribuzione richieda un po' di tempo. In genere, il processo viene completato in 16 minuti.
 
-7. [Scollegare il disco del sistema operativo e ricreare la macchina virtuale](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk). Controllare quindi se il problema è stato risolto.
+7. [Scollegare il disco del sistema operativo e ricreare la macchina virtuale](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-the-original-virtual-hard-disk). Controllare quindi se il problema è stato risolto.

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c6dd64ae8b7b7307d7dcd510d1fdb877365c6f36
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8dc2eb898c12e374bc503c5a05f00eb20667443b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675963"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701841"
 ---
 # <a name="quickstart-create-a-search-index-using-the-legacy-microsoftazuresearch-v10-client-library"></a>Guida introduttiva: creare un indice di ricerca usando la libreria client di Microsoft. Azure. search V10 legacy
 
@@ -55,7 +55,7 @@ Le chiamate al servizio richiedono un URL endpoint e una chiave di accesso per o
 
    Ottenere anche la chiave di query. È consigliabile inviare richieste di query con accesso di sola lettura.
 
-![Ottenere un endpoint HTTP e una chiave di accesso](media/search-get-started-postman/get-url-key.png "Ottenere un endpoint HTTP e una chiave di accesso")
+![Ottenere un endpoint HTTP e una chiave di accesso](media/search-get-started-rest/get-url-key.png "Ottenere un endpoint HTTP e una chiave di accesso")
 
 Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
@@ -69,9 +69,9 @@ Il [pacchetto Microsoft. Azure. search](https://www.nuget.org/packages/Microsoft
 
 Per questo progetto, usare la versione 10 del `Microsoft.Azure.Search` pacchetto NuGet e il `Microsoft.Extensions.Configuration.Json` pacchetto NuGet più recente.
 
-1. In **Strumenti** > **Gestione pacchetti NuGet** , selezionare **Gestisci pacchetti NuGet per la soluzione** . 
+1. In **Strumenti** > **Gestione pacchetti NuGet**, selezionare **Gestisci pacchetti NuGet per la soluzione**. 
 
-1. Fare clic su **Sfoglia** .
+1. Fare clic su **Sfoglia**.
 
 1. Cercare `Microsoft.Azure.Search` e selezionare la versione 10.
 
@@ -82,13 +82,13 @@ Per questo progetto, usare la versione 10 del `Microsoft.Azure.Search` pacchetto
 
 ### <a name="add-azure-cognitive-search-service-information"></a>Aggiungere le informazioni sul servizio Ricerca cognitiva di Azure
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e selezionare **Aggiungi** > **Nuovo elemento** . 
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e selezionare **Aggiungi** > **Nuovo elemento**. 
 
 1. In Aggiungi nuovo elemento cercare "JSON" per restituire un elenco di tipi di elemento correlati a JSON.
 
-1. Scegliere **File JSON** , assegnare al file il nome "appsettings.json" e fare clic su **Aggiungi** . 
+1. Scegliere **File JSON**, assegnare al file il nome "appsettings.json" e fare clic su **Aggiungi**. 
 
-1. Aggiungere il file alla directory di output. Fare clic con il pulsante destro del mouse su appsettings.json e scegliere **Proprietà** . In **Copia nella directory di output** selezionare **Copia se più recente** .
+1. Aggiungere il file alla directory di output. Fare clic con il pulsante destro del mouse su appsettings.json e scegliere **Proprietà**. In **Copia nella directory di output** selezionare **Copia se più recente**.
 
 1. Copiare il codice JSON seguente nel nuovo file JSON. 
 
@@ -201,7 +201,7 @@ L'indice degli alberghi è costituito da campi semplici e complessi, in cui i ca
     > [!NOTE]
     > In .NET SDK i campi devono essere attribuiti in modo esplicito come [`IsSearchable`](/dotnet/api/microsoft.azure.search.models.field.issearchable), [`IsFilterable`](/dotnet/api/microsoft.azure.search.models.field.isfilterable), [`IsSortable`](/dotnet/api/microsoft.azure.search.models.field.issortable) e [`IsFacetable`](/dotnet/api/microsoft.azure.search.models.field.isfacetable). Questo comportamento si differenzia dall'API REST che consente implicitamente l'attribuzione in base al tipo di dati (ad esempio, i campi stringa semplici sono automaticamente disponibili per la ricerca).
 
-    Esattamente un campo di tipo `string` nell'indice deve essere il campo *chiave* , che identifica in modo univoco ogni documento. In questo schema la chiave è `HotelId`.
+    Esattamente un campo di tipo `string` nell'indice deve essere il campo *chiave*, che identifica in modo univoco ogni documento. In questo schema la chiave è `HotelId`.
 
     In questo indice i campi della descrizione usano la proprietà facoltativa [`analyzer`](/dotnet/api/microsoft.azure.search.models.field.analyzer), specificata quando si vuole sostituire l'analizzatore standard predefinito Lucene. Il campo `description_fr` usa l'analizzatore Lucene per il francese ([FrLucene](/dotnet/api/microsoft.azure.search.models.analyzername.frlucene)) perché archivia testo in francese. Il campo `description` usa l'analizzatore di lingua Microsoft facoltativo ([EnMicrosoft](/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft)).
 

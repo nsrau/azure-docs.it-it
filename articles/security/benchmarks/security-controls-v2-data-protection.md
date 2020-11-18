@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bde95006865a2aab2da4a5d6d27ccccc14d74d12
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 8e12a74ee689ba7b013b1c4a6881deac78680be0
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408923"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701049"
 ---
 # <a name="security-control-v2-data-protection"></a>Controllo di sicurezza V2: protezione dei dati
 
@@ -34,9 +34,9 @@ Usare Azure Information Protection (e lo strumento di analisi associato) per inf
 
 - [Come implementare l'individuazione dati SQL di Azure](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-**Responsabilità** : Condiviso
+**Responsabilità**: Condiviso
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -56,13 +56,13 @@ Per garantire un controllo di accesso coerente, tutti i tipi di controllo di acc
 
 Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e protegge dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato alcuni controlli e funzionalità predefiniti per la protezione dei dati.
 
-- [Controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/overview.md)
+- [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md)
 
 - [Informazioni sulla protezione dei dati dei clienti in Azure](../fundamentals/protection-customer-data.md)
 
-**Responsabilità** : Condiviso
+**Responsabilità**: Condiviso
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -88,9 +88,9 @@ Se necessario per la conformità della prevenzione della perdita dei dati (DLP),
 
 - [Abilitare Azure Storage ATP](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
-**Responsabilità** : Condiviso
+**Responsabilità**: Condiviso
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security) 
 
@@ -116,9 +116,9 @@ Per impostazione predefinita, Azure fornisce la crittografia per i dati in trans
 
 - [Crittografia doppia per i dati di Azure in transito](../fundamentals/double-encryption.md#data-in-transit)
 
-**Responsabilità** : Condiviso
+**Responsabilità**: Condiviso
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -146,9 +146,9 @@ Per impostazione predefinita, Azure fornisce la crittografia per i dati inattivi
 
 - [Crittografia doppia dati inattivi in Azure](../fundamentals/double-encryption.md#data-at-rest)
 
-**Responsabilità** : Condiviso
+**Responsabilità**: Condiviso
 
-**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: 6cd696bf0853b1e6bafc06f2e99b2808970fed25
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 6bcdb4a48f71e28514229116c10bd25747b55616
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686857"
+ms.locfileid: "94701824"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Esempi di codice JavaScript per ricerca cognitiva di Azure
 
@@ -38,7 +38,7 @@ Azure SDK per Java include numerosi esempi e una [pagina](https://github.com/Azu
 | [indicizzatori](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexers) |  Viene illustrato come creare, aggiornare, ottenere, elencare, reimpostare ed eliminare gli [indicizzatori](search-indexer-overview.md).|
 | [Competenze](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/skillSets) |   Viene illustrato come creare, aggiornare, ottenere, elencare ed eliminare [skillsets](cognitive-search-working-with-skillsets.md) che sono indicizzatori collegati e che eseguono l'arricchimento basato su intelligenza artificiale durante l'indicizzazione. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/synonymMaps) | Viene illustrato come creare, aggiornare, ottenere, elencare ed eliminare [mappe sinonimo](search-synonyms.md).  |
-| [Query](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Le query sono di sola lettura. Questa query di esempio viene eseguita in base a un indice pubblico ospitato da Microsoft.  |
+| [Query](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Viene illustrata l'esecuzione di query su un indice pubblico di sola lettura ospitato da Microsoft.  |
 
 ## <a name="typescript-samples"></a>Esempi di TypeScript
 
@@ -51,7 +51,7 @@ L'SDK fornisce anche esempi di TypeScript, elencati di seguito per praticità.
 | [indicizzatori](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  Viene illustrato come creare, aggiornare, ottenere, elencare, reimpostare ed eliminare gli [indicizzatori](search-indexer-overview.md).|
 | [Competenze](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/skillSets) |   Viene illustrato come creare, aggiornare, ottenere, elencare ed eliminare [skillsets](cognitive-search-working-with-skillsets.md) che sono indicizzatori collegati e che eseguono l'arricchimento basato su intelligenza artificiale durante l'indicizzazione. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/synonymMaps) | Viene illustrato come creare, aggiornare, ottenere, elencare ed eliminare [mappe sinonimo](search-synonyms.md).  |
-| [Query](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.js) | Viene illustrata l'esecuzione di query su un indice pubblico di sola lettura ospitato da Microsoft.  |
+| [Query](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.ts) | Viene illustrata l'esecuzione di query su un indice pubblico di sola lettura ospitato da Microsoft.  |
 
 ## <a name="documentation-samples"></a>Esempi di documentazione
 
@@ -59,7 +59,7 @@ Gli esempi seguenti includono un articolo associato in [Azure ricerca cognitiva 
 
 | Esempi | Descrizione | 
 |---------|-------------|
-| [QuickStart](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/Quickstart) | Codice sorgente per la [Guida introduttiva: creare un indice di ricerca in JavaScript](search-get-started-javascript.md).  |
+| [QuickStart](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) | Codice sorgente per la [Guida introduttiva: creare un indice di ricerca in JavaScript](search-get-started-javascript.md).  |
 
 ## <a name="standalone-samples"></a>Esempi autonomi
 

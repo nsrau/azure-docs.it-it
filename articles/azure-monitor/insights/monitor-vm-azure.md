@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 84db7f58c292cf0a9d01cf90da4b847691f601fb
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 0c1e84695ce40b489fb1005325d501ea241cdaf1
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491631"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738102"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitoraggio delle macchine virtuali di Azure con Monitoraggio di Azure
 Questo articolo descrive come usare Monitoraggio di Azure per raccogliere e analizzare i dati di monitoraggio generati dalle macchine virtuali di Azure e mantenerne l'integrità. Con Monitoraggio di Azure è possibile monitorare la disponibilità e le prestazioni delle macchine virtuali come per qualsiasi [altra risorsa di Azure](monitor-azure-resource.md). Le macchine virtuali sono però diverse rispetto ad altre risorse perché è necessario monitorare anche il sistema operativo guest e i carichi di lavoro in esecuzione in esso. 
@@ -170,7 +170,7 @@ Monitoraggio di Azure per le macchine virtuali abilita la raccolta di un set pre
 
 
 > [!NOTE]
-> I dati sulle prestazioni raccolti dall'agente di Log Analytics vengono scritti nella tabella *Perf* mentre Monitoraggio di Azure per le macchine virtuali raccoglie i dati nella tabella *InsightsMetrics*. I dati sono gli stessi, ma le tabelle hanno una struttura diversa. Se le query esistenti si basano sulla tabella *Perf* , sarà necessario riscriverle perché possano usare la tabella *InsightsMetrics*.
+> I dati sulle prestazioni raccolti dall'agente di Log Analytics vengono scritti nella tabella *Perf* mentre Monitoraggio di Azure per le macchine virtuali raccoglie i dati nella tabella *InsightsMetrics*. I dati sono gli stessi, ma le tabelle hanno una struttura diversa. Se le query esistenti si basano sulla tabella *Perf*, sarà necessario riscriverle perché possano usare la tabella *InsightsMetrics*.
 
 
 ## <a name="alerts"></a>Avvisi
@@ -207,7 +207,7 @@ Ad esempio, per creare un avviso che controlla se una delle macchine virtuali in
 
 ```kusto
 Heartbeat
-| where TimeGenerated < ago(10m)
+| where TimeGenerated > ago(10m)
 | where ResourceGroup == "my-resource-group"
 | summarize max(TimeGenerated) by Computer
 ```
@@ -218,7 +218,7 @@ Per creare un avviso se si verifica un numero eccessivo di accessi non riusciti 
 
 ```kusto
 Event
-| where TimeGenerated < ago(1hr)
+| where TimeGenerated > ago(1hr)
 | where EventID == 4625
 ```
 

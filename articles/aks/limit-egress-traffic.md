@@ -6,18 +6,18 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: e3b755ca3ca5338acfc1918bd2085d9fba18b8ac
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: a1d045e66771026d2b4cf7ad44fd6943d2d407f4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380212"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701603"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controllare il traffico in uscita per i nodi del cluster nel servizio Azure Kubernetes
 
 Questo articolo fornisce i dettagli necessari che consentono di proteggere il traffico in uscita dal servizio Azure Kubernetes (AKS). Contiene i requisiti del cluster per una distribuzione di base AKS e requisiti aggiuntivi per le funzionalità e gli addons facoltativi. [Verrà fornito un esempio alla fine di come configurare questi requisiti con il firewall di Azure](#restrict-egress-traffic-using-azure-firewall). Tuttavia, è possibile applicare queste informazioni a qualsiasi dispositivo o metodo di restrizione in uscita.
 
-## <a name="background"></a>Background
+## <a name="background"></a>Sfondo
 
 I cluster AKS vengono distribuiti in una rete virtuale. Questa rete può essere gestita (creata da AKS) o personalizzata (precedentemente configurata dall'utente). In entrambi i casi, il cluster ha dipendenze in **uscita** da servizi esterni a tale rete virtuale (il servizio non ha dipendenze in ingresso).
 
@@ -209,8 +209,10 @@ Le regole delle applicazioni e FQDN seguenti sono obbligatorie per i cluster del
 
 | Nome di dominio completo                                          | Porta      | Uso      |
 |-----------------------------------------------|-----------|----------|
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Questo indirizzo viene usato per il corretto funzionamento di Criteri di Azure (attualmente in anteprima nel servizio Azure Kubernetes). |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Questo indirizzo viene usato per eseguire il pull dei criteri predefiniti da GitHub per assicurare il corretto funzionamento di Criteri di Azure (attualmente in anteprima nel servizio Azure Kubernetes). |
+| **`data.policy.core.windows.net`** | **`HTTPS:443`** | Questo indirizzo viene usato per eseguire il pull dei criteri Kubernetes e per segnalare lo stato di conformità del cluster al servizio criteri. |
+| **`store.policy.core.windows.net`** | **`HTTPS:443`** | Questo indirizzo viene usato per eseguire il pull degli elementi Gatekeeper dei criteri predefiniti. |
+| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Questo indirizzo viene usato per il corretto funzionamento di Criteri di Azure  |
+| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Questo indirizzo viene usato per eseguire il pull dei criteri predefiniti da GitHub per assicurare il corretto funzionamento di Criteri di Azure |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Componente aggiuntivo di Criteri di Azure che invia i dati di telemetria all'endpoint di Application Insights. |
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Limitare il traffico in uscita con il firewall di Azure

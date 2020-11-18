@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: aad953483749d676844221f7e519f50c50b63ad4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8f1fa07b94072d37cf83320b6c8956d3b412f12
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948641"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701117"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinonimi in Azure ricerca cognitiva
 
@@ -23,7 +23,7 @@ In Azure ricerca cognitiva l'espansione del sinonimo viene eseguita in fase di q
 
 ## <a name="create-synonyms"></a>Creare sinonimi
 
-Non è disponibile il supporto del portale per la creazione di sinonimi, ma è possibile usare l'API REST o .NET SDK. Per iniziare a usare REST, è consigliabile [usare il post](search-get-started-postman.md) e la formulazione delle richieste usando questa API: [create sinonime Maps](/rest/api/searchservice/create-synonym-map). Per gli sviluppatori C#, è possibile iniziare a [aggiungere sinonimi in ricerca cognitiva di Azure con C#](search-synonyms-tutorial-sdk.md).
+Non è disponibile il supporto del portale per la creazione di sinonimi, ma è possibile usare l'API REST o .NET SDK. Per iniziare a usare REST, si consiglia l' [inserimento o la Visual Studio Code](search-get-started-rest.md) e la formulazione delle richieste tramite questa API: [create sinonime Maps](/rest/api/searchservice/create-synonym-map). Per gli sviluppatori C#, è possibile iniziare a [aggiungere sinonimi in ricerca cognitiva di Azure con C#](search-synonyms-tutorial-sdk.md).
 
 Facoltativamente, se si usano [chiavi gestite dal cliente](search-security-manage-encryption-keys.md) per la crittografia sul lato servizio, è possibile applicare tale protezione al contenuto della mappa di sinonimi.
 

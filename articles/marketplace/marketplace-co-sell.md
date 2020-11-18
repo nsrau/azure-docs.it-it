@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 11/13/2020
-ms.openlocfilehash: ac56aab233c9d07ea7e82a4eefc4918746e3bdbe
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.date: 11/17/2020
+ms.openlocfilehash: 730178d974ba95db968332ac669f701486b513bd
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94592516"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94738527"
 ---
 # <a name="co-sell-partner-engagement"></a>Programma di co-selling per i partner
 
@@ -30,7 +30,7 @@ Il programma di co-selling è disponibile per il **software compilato con la pro
 
 Le offerte che raggiungono lo stato **incentivate di co-selling IP di Azure** ottengono questi vantaggi aggiuntivi per il Marketplace:
 
-- Il costo del servizio Marketplace è ridotto dal 20% al 10%. Questo sconto si applica all'offerta IaaS o SaaS venduta attraverso il Marketplace commerciale. Per ulteriori informazioni, vedere la pagina relativa a una [Tariffa ridotta](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) per i servizi.
+- Il costo del servizio Marketplace è ridotto dal 20% al 10%. Questo sconto si applica all'offerta IaaS o SaaS venduta attraverso il Marketplace commerciale. Per ulteriori informazioni, vedere la pagina relativa alle tariffe per i [servizi del Marketplace commerciale](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees) .
 - I partner Cloud Solution Provider (CSP) ricevono un incentivo del 10% per la vendita dell'offerta IaaS o SaaS. Altre informazioni sul programma CSP sono disponibili nel [programma Cloud Solution Provider](cloud-solution-providers.md).
 - Le vendite dell'offerta tramite il Marketplace commerciale contribuiranno al consumo di Azure per i clienti. I clienti idonei vedranno l'offerta contrassegnata come **"benefici di Azure idonei"** in portale di Azure. Per altri dettagli, vedere il vantaggio relativo all'impegno per il [consumo di Azure](azure-consumption-commitment-benefit.md).
 - Le offerte che raggiungono lo stato di **co-selling IP di Azure incentivate** o **Business Applications incentivate di co-selling** riceveranno una notifica di **"soluzioni preferite"** nelle vetrine. Il badge promuove la qualità, le prestazioni e la capacità di un'offerta di soddisfare le esigenze dei clienti in una determinata area verticale o della soluzione. Scopri di più [sulle soluzioni preferite in Microsoft AppSource e in Azure Marketplace](preferred-solutions.md).
@@ -54,7 +54,7 @@ La tabella seguente elenca i passaggi e i requisiti per l'offerta del Marketplac
 Avviare il percorso di co-selling direttamente nel centro per i partner seguendo questa procedura. Per altri dettagli, vedere [opzione di co-selling nel centro per i partner](./partner-center-portal/commercial-marketplace-co-sell.md).
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
-1. Nel riquadro sinistro selezionare Panoramica sul **Marketplace commerciale**  >  **Overview** , quindi selezionare l'offerta che si vuole co-vendere.
+1. Nel riquadro sinistro selezionare Panoramica sul **Marketplace commerciale**  >  **Overview**, quindi selezionare l'offerta che si vuole co-vendere.
 
     > [!NOTE]
     > È possibile partecipare al programma di co-selling con una nuova offerta non ancora pubblicata o con un'offerta già pubblicata.
@@ -63,15 +63,15 @@ Avviare il percorso di co-selling direttamente nel centro per i partner seguendo
 
     :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="Questa immagine mostra la località della co-selling con la scheda Microsoft.":::
 
-1. Fornire i dettagli di base per elencare i venditori Microsoft e individuare rapidamente l'offerta nella sezione **Listato** . ( *Obbligatorio: tutti i campi).*
+1. Fornire i dettagli di base per elencare i venditori Microsoft e individuare rapidamente l'offerta nella sezione **Listato** . (*Obbligatorio: tutti i campi).*
 
     :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="Questa immagine mostra la sezione relativa all'elenco della scheda co-selling.":::  
 
-1. Fornire dettagli sull'offerta e caricare i dati collaterali nella sezione relativa ai **documenti** . I venditori Microsoft utilizzeranno queste informazioni per consigliare e vendere l'offerta. ( *Obbligatorio: cliente One-pager e Customer Presentation Deck).*
+1. Fornire dettagli sull'offerta e caricare i dati collaterali nella sezione relativa ai **documenti** . I venditori Microsoft utilizzeranno queste informazioni per consigliare e vendere l'offerta. (*Obbligatorio: cliente One-pager e Customer Presentation Deck).*
 
     :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Questa immagine mostra la sezione documenti nella scheda co-selling.":::
 
-1. Caricare le informazioni di contatto sulle vendite nella sezione **contatti** . I venditori Microsoft possono rivolgersi a questi contatti per richiedere informazioni aggiuntive sull'offerta. ( *Obbligatorio: un contatto per ogni area geografica in cui l'offerta è resa disponibile).*
+1. Caricare le informazioni di contatto sulle vendite nella sezione **contatti** . I venditori Microsoft possono rivolgersi a questi contatti per richiedere informazioni aggiuntive sull'offerta. (*Obbligatorio: un contatto per ogni area geografica in cui l'offerta è resa disponibile).*
 
     :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Questa immagine mostra la sezione contatti nella scheda co-selling.":::
 

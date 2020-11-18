@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: fe8f4229a2bc967f1368e263d2c055b153c3717d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bb1f4b5e37cecc33cef115f26c44ad6375c7e327
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369965"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94734379"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configurazione DNS dell'endpoint privato di Azure
 
@@ -25,9 +25,11 @@ Per configurare le impostazioni DNS per gli endpoint privati si può procedere n
 - **Usare il file host (consigliato solo per i test)**. È possibile usare il file host in una macchina virtuale per eseguire l'override del DNS.  
 - **Usare una zona DNS privato**. È possibile usare le [zone DNS private](../dns/private-dns-privatednszone.md) per sostituire la risoluzione DNS per un determinato endpoint privato. Una zona DNS privato può essere collegata alla rete virtuale per risolvere domini specifici.
 - **Usare il server di trasmissione DNS (facoltativo)**. È possibile usare il server di trasmissione DNS per sostituire la risoluzione DNS per una particolare risorsa di collegamento privato. Se il [server DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) è ospitato in una rete virtuale, si può creare una regola di invio DNS in modo da usare una zona DNS privato per semplificare la configurazione per tutte le risorse Collegamento privato.
- 
+
 > [!IMPORTANT]
 > Non è consigliabile eseguire l'override di una zona che viene usata attivamente per risolvere gli endpoint pubblici. Le connessioni alle risorse non potranno essere risolte correttamente senza inoltro DNS al DNS pubblico. Per evitare problemi, creare un nome di dominio diverso o usare il nome suggerito per ogni servizio indicato di seguito. 
+
+
 
 ## <a name="azure-services-dns-zone-configuration"></a>Configurazione della zona DNS dei servizi di Azure
 I servizi di Azure creeranno un record DNS di nome canonico (CNAME) nel servizio DNS pubblico per reindirizzare la risoluzione al nome di dominio privato suggerito. È possibile eseguire l'override della risoluzione con l'indirizzo IP privato degli endpoint privati. 
@@ -93,6 +95,8 @@ In base alle proprie preferenze, con la risoluzione DNS integrata sono disponibi
 - [Carichi di lavoro locali con server d'inoltro DNS](#on-premises-workloads-using-a-dns-forwarder)
 - [Rete virtuale e carichi di lavoro locali usando un server di un server d'invio](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder)
 
+> [!NOTE]
+> Il [proxy DNS del firewall di Azure](../firewall/dns-settings.md#dns-proxy) può essere usato come server d'inoltro DNS per i carichi di lavoro [locali](#on-premises-workloads-using-a-dns-forwarder) e i carichi di [lavoro della rete virtuale usando un server di inoltro DNS](#virtual-network-and-on-premises-workloads-using-a-dns-forwarder).
 
 ## <a name="virtual-network-workloads-without-custom-dns-server"></a>Carichi di lavoro di rete virtuale senza server DNS personalizzato
 
@@ -123,7 +127,7 @@ Questo modello può essere esteso a più reti virtuali con peering associate all
 
 In questo scenario è presente una topologia di rete [hub-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) con le reti spoke che condividono un endpoint privato comune e tutte le reti virtuali spoke sono collegate alla stessa zona DNS privata. 
 
-:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Rete virtuale singola e DNS fornito da Azure":::
+:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Hub-spoke con DNS fornito da Azure":::
 
 ## <a name="on-premises-workloads-using-a-dns-forwarder"></a>Carichi di lavoro locali con server d'inoltro DNS
 
@@ -144,7 +148,7 @@ Per configurare correttamente, sono necessarie le risorse seguenti:
 
 Il diagramma seguente illustra la sequenza di risoluzione DNS da una rete locale che usa un server di destinazione DNS distribuito in Azure, in cui la risoluzione viene eseguita da una zona DNS privata [collegata a una rete virtuale](../dns/private-dns-virtual-network-links.md):
 
-:::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="Rete virtuale singola e DNS fornito da Azure":::
+:::image type="content" source="media/private-endpoint-dns/on-premises-using-azure-dns.png" alt-text="Rete locale che usa DNS di Azure":::
 
 Questa configurazione può essere estesa per una rete locale in cui è già presente una soluzione DNS. La soluzione DNS locale deve essere configurata per l'invio del traffico DNS a DNS di Azure tramite un server d'istruzione [condizionale](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) che fa riferimento al server di distribuzione DNS distribuito in Azure.
 
@@ -164,7 +168,7 @@ Il diagramma seguente illustra la sequenza di risoluzione DNS da una rete locale
 > [!IMPORTANT]
 > L'invio condizionale deve essere eseguito al server d'istruzione [pubblico di zona DNS pubblico](#azure-services-dns-zone-configuration)consigliato. Ad esempio: `database.windows.net` invece di **privatelink**. database.Windows.NET.
 
-:::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Rete virtuale singola e DNS fornito da Azure":::
+:::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Inoltro locale al servizio DNS di Azure":::
 
 ## <a name="virtual-network-and-on-premises-workloads-using-a-dns-forwarder"></a>Rete virtuale e carichi di lavoro locali usando un server di un server d'invio
 
@@ -191,7 +195,7 @@ Per configurare correttamente, sono necessarie le risorse seguenti:
 
 Il diagramma seguente illustra la sequenza di risoluzione DNS da una rete locale e una rete virtuale che usa un server di destinazione DNS distribuito in Azure, in cui la risoluzione viene eseguita da una zona DNS privata [collegata a una rete virtuale](../dns/private-dns-virtual-network-links.md):
 
-:::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Rete virtuale singola e DNS fornito da Azure":::
+:::image type="content" source="media/private-endpoint-dns/hybrid-scenario.png" alt-text="Scenario ibrido":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Informazioni sugli endpoint privati](private-endpoint-overview.md)

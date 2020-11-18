@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/17/2020
-ms.openlocfilehash: babd40e0e3a3b7a254a8410313c5d4e3bb2832f0
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 26e30b42906a3d8d7a3fcdc013537104a85f32fe
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686942"
+ms.locfileid: "94701858"
 ---
 # <a name="java-code-samples-for-azure-cognitive-search"></a>Esempi di codice Java per Azure ricerca cognitiva
 
@@ -47,5 +47,5 @@ Gli esempi seguenti includono un articolo associato in [Azure ricerca cognitiva 
 
 | Esempi | Descrizione | 
 |---------|-------------|
-| [QuickStart](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/Quickstart) | Codice sorgente per la [Guida introduttiva: creare un indice di ricerca](search-get-started-javascript.md). Questo esempio chiama le API REST. |
+| [QuickStart](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/quickstart) | Codice sorgente per la [Guida introduttiva: creare un indice di ricerca in Java](search-get-started-java.md). Questo esempio chiama le API REST. |
 | [ricerca-Java-Indexer-demo](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/search-java-indexer-demo) | Viene illustrato un indicizzatore Azure Cosmos DB in Java. Questo esempio chiama le API REST. |

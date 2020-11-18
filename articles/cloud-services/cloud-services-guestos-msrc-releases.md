@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/13/2020
+ms.date: 11/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: 8919ae8f43cd699b0ff79afc7ac39cbb39d2798e
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 5a5e448660583204d424358e571c4bfb74890e8d
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94626757"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94737830"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Il riporto degli aggiornamenti viene sempre eseguito per la [famiglia][family-explain] specifica in cui sono stati introdotti.
@@ -78,34 +78,31 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 
 ## <a name="october-2020-guest-os"></a>Sistema operativo guest di ottobre 2020
->[!NOTE] 
-
->Il sistema operativo guest di ottobre è in corso di implementazione nelle macchine virtuali del servizio Cloud configurate per gli aggiornamenti automatici. Una volta completata l'implementazione, questa versione sarà resa disponibile per gli aggiornamenti manuali tramite i file di configurazione e il portale di Azure. Le seguenti patch sono incluse nel sistema operativo guest di ottobre. L'elenco è soggetto a variazioni. 
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 20-10 |  [4577010]  |  Aggiornamento cumulativo IE | 2,103, 3,90, 4,83 | 8 settembre 2020 |
-|  Rel 20-10 |  [4580325]  |  Aggiornamento Flash | 3,90, 4,83, 5,48, 6,24 | 13 ottobre 2020 |
-|  Rel 20-10 |  [4577668]  |  Aggiornamento cumulativo più recente | 6,24 | 13 ottobre 2020 |
-|  Rel 20-10 |  [4580346]  |  Aggiornamento cumulativo più recente | 5,48 | 13 ottobre 2020 |
-|  Rel 20-10 |  [4580970]  |  Aggiornamento dello stack di manutenzione | 2,103 | 13 ottobre 2020 |
-|  Rel 20-10 |  [4580345]  |  Rollup mensile | 2,103 | 13 ottobre 2020 |
-|  Rel 20-10 |  [4578952]  |  Rollup sicurezza e qualità .NET Framework 3.5.1 | 2,103 | 13 ottobre 2020 |
-|  Rel 20-10 |  [4578955]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | 2,103 | 13 ottobre 2020 |
-|  Rel 20-10 |  [4566426]  |  Aggiornamento dello stack di manutenzione | 3,90 | 14 luglio 2020 |
-|  Rel 20-10 |  [4580382]  |  Rollup mensile | 3,90 | 13 ottobre 2020 |
-|  Rel 20-10 |  [4578950]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | 3,90 | 13 ottobre 2020 |
-|  Rel 20-10 |  [4578954]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | 3,90 | 13 ottobre 2020 |
-|  Rel 20-10 |  [4566425]  |  Aggiornamento dello stack di manutenzione | 4,83 | 14 luglio 2020 |
-|  Rel 20-10 |  [4580347]  |  Rollup mensile | 4,83 | 13 ottobre 2020 |
-|  Rel 20-10 |  [4578953]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | 4,83 | 13 ottobre 2020 |
-|  Rel 20-10 |  [4578956]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | 4,83 | 13 ottobre 2020 |
-|  Rel 20-10 |  [4578013]  |  Aggiornamento della sicurezza autonomo | 4,83 | 19 agosto 2020 |
-|  Rel 20-10 |  [4576750]  |  Aggiornamento dello stack di manutenzione | 5,48 | 8 settembre 2020 |
-|  Rel 20-10 |  [4494175]  |  Microcodice | 5,48 | 1 ° settembre 2020 |
-|  Rel 20-10 |  [4577667]  |  Aggiornamento dello stack di manutenzione | 6,24 | 13 ottobre 2020 |
-|  Rel 20-10 |  [4578966]  |  Aggiornamento cumulativo .NET Framework 3,5 e 4.7.2 | 6,24 | 13 ottobre 2020 |
-|  Rel 20-10 |  [4494174]  |  Microcodice | 6,24 | 3 settembre 2020 |
+|  Rel 20-10 |  [4577010]  |  Aggiornamento cumulativo IE | [2,103], [3,90], [4,83] | 8 settembre 2020 |
+|  Rel 20-10 |  [4580325]  |  Aggiornamento Flash | [3,90], [4,83], [5,48], [6,24] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4577668]  |  Aggiornamento cumulativo più recente | [6,24] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4580346]  |  Aggiornamento cumulativo più recente | [5,48] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4580970]  |  Aggiornamento dello stack di manutenzione | [2,103] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4580345]  |  Rollup mensile | [2,103] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4578952]  |  Rollup sicurezza e qualità .NET Framework 3.5.1 | [2,103] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4578955]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [2,103] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4566426]  |  Aggiornamento dello stack di manutenzione | [3,90] | 14 luglio 2020 |
+|  Rel 20-10 |  [4580382]  |  Rollup mensile | [3,90] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4578950]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [3,90] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4578954]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [3,90] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4566425]  |  Aggiornamento dello stack di manutenzione | [4,83] | 14 luglio 2020 |
+|  Rel 20-10 |  [4580347]  |  Rollup mensile | [4,83] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4578953]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | [4,83] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4578956]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | [4,83] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4578013]  |  Aggiornamento della sicurezza autonomo | [4,83] | 19 agosto 2020 |
+|  Rel 20-10 |  [4576750]  |  Aggiornamento dello stack di manutenzione | [5,48] | 8 settembre 2020 |
+|  Rel 20-10 |  [4494175]  |  Microcodice | [5,48] | 1 ° settembre 2020 |
+|  Rel 20-10 |  [4577667]  |  Aggiornamento dello stack di manutenzione | [6,24] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4578966]  |  Aggiornamento cumulativo .NET Framework 3,5 e 4.7.2 | [6,24] | 13 ottobre 2020 |
+|  Rel 20-10 |  [4494174]  |  Microcodice | [6,24] | 3 settembre 2020 |
 
 
 [4577010]: https://support.microsoft.com/kb/4577010
@@ -130,6 +127,11 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 [4577667]: https://support.microsoft.com/kb/4577667
 [4578966]: https://support.microsoft.com/kb/4578966
 [4494174]: https://support.microsoft.com/kb/4494174
+[2,103]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,90]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,83]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5,48]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6,24]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="september-2020-guest-os"></a>Sistema operativo guest di settembre 2020
@@ -1885,7 +1887,7 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | MS15-014 |[3004361] |La vulnerabilità in SMB potrebbe consentire il bypass della funzionalità di sicurezza |4.17, 3.24, 2.36 |N/D |
 | MS15-015 |[3031432] |La vulnerabilità in Microsoft Windows potrebbe consentire l'elevazione dei privilegi |4.17, 3.24, 2.36 |N/D |
 | MS15-016 |[3029944] |La vulnerabilità nel componente grafico Microsoft potrebbe consentire la divulgazione di informazioni |4.17, 3.24, 2.36 |N/D |
-| N/D |[3004375] |Aggiornamento per migliorare il controllo della riga di comando di Windows<p/>**Nota** : questo componente è installato, ma la chiave del Registro di sistema per abilitarlo è disattivata |4.17, 3.24, 2.36 |N/D |
+| N/D |[3004375] |Aggiornamento per migliorare il controllo della riga di comando di Windows<p/>**Nota**: questo componente è installato, ma la chiave del Registro di sistema per abilitarlo è disattivata |4.17, 3.24, 2.36 |N/D |
 
 ## <a name="january-2015-guest-os"></a>Sistema operativo guest di gennaio 2015
 | ID bollettino | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |

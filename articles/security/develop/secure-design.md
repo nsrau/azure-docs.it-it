@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e8eab3a1054541b1ef7fc6d2e65089f01f0df3c0
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ad3980db6348867e92664e314326d23b4274abcc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517156"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701569"
 ---
 # <a name="design-secure-applications-on-azure"></a>Progettare applicazioni sicure in Azure
 In questo articolo vengono presentate le attività e i controlli di sicurezza da prendere in considerazione quando si progettano applicazioni per il cloud. Vengono analizzate le risorse di formazione e le domande e i concetti di sicurezza da prendere in considerazione durante i requisiti e le fasi di progettazione di Microsoft [Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) . L'obiettivo è consentire di definire le attività e i servizi di Azure che è possibile usare per progettare un'applicazione più protetta.
@@ -217,7 +217,7 @@ Usare i meccanismi di autenticazione e autorizzazione forniti dalla piattaforma 
 
 Il concetto di [privilegio minimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege) significa fornire agli utenti il livello di accesso e controllo preciso necessari per svolgere il proprio lavoro e nient'altro.
 
-Uno sviluppatore di software necessita di diritti di amministratore di dominio? Un assistente amministrativo deve poter accedere ai controlli amministrativi nei propri personal computer? La valutazione dell'accesso al software non è diversa. Se si usa il [controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/overview.md) per fornire agli utenti diverse capacità e autorità nell'applicazione, non si darebbe accesso a tutti gli elementi. Limitando l'accesso agli elementi necessari per ogni ruolo, si limita il rischio di un problema di sicurezza che si verifica.
+Uno sviluppatore di software necessita di diritti di amministratore di dominio? Un assistente amministrativo deve poter accedere ai controlli amministrativi nei propri personal computer? La valutazione dell'accesso al software non è diversa. Se si usa il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md) per fornire agli utenti diverse capacità e autorità nell'applicazione, non si darebbe accesso a tutti gli elementi. Limitando l'accesso agli elementi necessari per ogni ruolo, si limita il rischio di un problema di sicurezza che si verifica.
 
 Assicurarsi che l'applicazione applichi il [privilegio minimo](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) per tutti i modelli di accesso.
 
@@ -233,7 +233,7 @@ Implementare l'accesso JIT ( *just-in-Time* ) per ridurre ulteriormente il tempo
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Richiedi nuova autenticazione per transazioni importanti
 
-La [richiesta intersito falsificata](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (nota anche come *XSRF* o *CSRF* ) è un attacco contro app ospitate da Web in cui un'app Web dannosa influisce sull'interazione tra un browser client e un'app Web che considera attendibile il browser. Gli attacchi di richiesta intersito falsificazione sono possibili perché i Web browser inviano automaticamente alcuni tipi di token di autenticazione con ogni richiesta a un sito Web.
+La [richiesta intersito falsificata](/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (nota anche come *XSRF* o *CSRF*) è un attacco contro app ospitate da Web in cui un'app Web dannosa influisce sull'interazione tra un browser client e un'app Web che considera attendibile il browser. Gli attacchi di richiesta intersito falsificazione sono possibili perché i Web browser inviano automaticamente alcuni tipi di token di autenticazione con ogni richiesta a un sito Web.
 Questa forma di sfruttamento è nota anche come *attacco con un solo clic* o per la *sessione* , perché l'attacco sfrutta la sessione precedentemente autenticata dell'utente.
 
 Il modo migliore per difendersi da questo tipo di attacco è chiedere all'utente un elemento che solo l'utente può fornire prima di ogni transazione importante, ad esempio un acquisto, la disattivazione dell'account o una modifica della password. È possibile chiedere all'utente di immettere nuovamente la password, completare un CAPTCHA o inviare un token segreto che avrebbe solo l'utente. L'approccio più comune è il token segreto.
@@ -244,7 +244,7 @@ Perdere chiavi e credenziali è un problema comune. un rischio ben peggiore dell
 
 Inserire sempre chiavi, certificati, segreti e stringhe di connessione in una soluzione di gestione delle chiavi. È possibile utilizzare una soluzione centralizzata in cui le chiavi e i segreti sono archiviati in moduli di protezione hardware (HSM). Azure fornisce un modulo di protezione hardware nel cloud con [Azure Key Vault](../../key-vault/general/overview.md).
 
-Key Vault è un *Archivio segreto* : si tratta di un servizio cloud centralizzato per l'archiviazione dei segreti delle applicazioni. Key Vault mantiene i dati riservati in modo sicuro mantenendo i segreti dell'applicazione in un'unica posizione centrale e fornendo accesso sicuro, controllo delle autorizzazioni e registrazione di accesso.
+Key Vault è un *Archivio segreto*: si tratta di un servizio cloud centralizzato per l'archiviazione dei segreti delle applicazioni. Key Vault mantiene i dati riservati in modo sicuro mantenendo i segreti dell'applicazione in un'unica posizione centrale e fornendo accesso sicuro, controllo delle autorizzazioni e registrazione di accesso.
 
 I segreti vengono archiviati in *singoli insiemi* di credenziali. Ogni insieme di credenziali dispone di criteri di configurazione e di sicurezza per controllare l'accesso. È possibile accedere ai dati tramite un'API REST o un SDK client disponibile per la maggior parte dei linguaggi di programmazione.
 

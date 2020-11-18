@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac2690a5f18bb58c29b433f4a07e52096bbd268b
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934889"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701586"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Ricerca fuzzy per correggere errori di ortografia e digitazioni
 
@@ -73,7 +73,7 @@ In ricerca cognitiva di Azure, oltre al termine e alla distanza (massimo 2), non
 
 ## <a name="testing-fuzzy-search"></a>Test della ricerca fuzzy
 
-Per i test semplici, è consigliabile usare [Esplora ricerche](search-explorer.md) [o l'](search-get-started-postman.md) utente per l'iterazione in un'espressione di query. Entrambi gli strumenti sono interattivi, il che significa che è possibile scorrere rapidamente più varianti di un termine e valutare le risposte che vengono restituite.
+Per i test semplici, è consigliabile usare [Esplora ricerche](search-explorer.md) [o l'](search-get-started-rest.md) utente per l'iterazione in un'espressione di query. Entrambi gli strumenti sono interattivi, il che significa che è possibile scorrere rapidamente più varianti di un termine e valutare le risposte che vengono restituite.
 
 Quando i risultati sono ambigui, l' [evidenziazione dei riscontri](search-pagination-page-layout.md#hit-highlighting) consente di identificare la corrispondenza nella risposta. 
 

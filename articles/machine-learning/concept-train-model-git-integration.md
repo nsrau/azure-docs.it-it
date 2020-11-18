@@ -1,20 +1,20 @@
 ---
 title: Integrazione git per Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Informazioni su come Azure Machine Learning si integra con un repository git locale. Quando si invia un'esecuzione di training da una directory locale che è un repository git, le informazioni sul repository, il ramo e il commit corrente vengono rilevate come parte dell'esecuzione.
+description: Scopri in che modo Azure Machine Learning si integra con un repository git locale per tenere traccia delle informazioni di repository, Branch e commit correnti come parte di un'esecuzione di training.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: jordane
 author: jpe316
-ms.date: 03/05/2020
-ms.openlocfilehash: f13773a8e3e78451dfb587e55c40a20d1b4b385c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/16/2020
+ms.openlocfilehash: 989fc7cb66cf5381d174a3aad12f84f5b055aab8
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324759"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94701637"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integrazione git per Azure Machine Learning
 
@@ -153,9 +153,9 @@ Le informazioni git vengono archiviate nelle proprietà di un'esecuzione di trai
 ### <a name="azure-portal"></a>Portale di Azure
 
 1. Dal [portale di studio](https://ml.azure.com)selezionare l'area di lavoro.
-1. Selezionare __esperimenti__ , quindi selezionare uno degli esperimenti.
+1. Selezionare __esperimenti__, quindi selezionare uno degli esperimenti.
 1. Selezionare una delle esecuzioni dalla colonna __numero di esecuzione__ .
-1. Selezionare __output + log__ , quindi espandere i __registri__ e le voci __azureml__ . Selezionare il collegamento che inizia con __### \_ Azure__.
+1. Selezionare __output + log__, quindi espandere i __registri__ e le voci __azureml__ . Selezionare il collegamento che inizia con __### \_ Azure__.
 
 Le informazioni registrate contengono testo simile al seguente JSON:
 
