@@ -15,12 +15,12 @@ ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b87af4a08c5a796d96d853ca63e50e335b9731fb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 18f0627b809f56b813052cc763e6ff961f31aa02
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362774"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697136"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso dei gruppi e delle applicazioni nelle verifiche di accesso Azure AD
 
@@ -36,6 +36,8 @@ Questo articolo descrive come creare una o più verifiche di accesso per i membr
 
 - Azure AD Premium P2
 - Amministratore globale o Amministratore utenti
+- Anteprima I proprietari delle risorse dei gruppi di Microsoft 365 possono creare recensioni nei gruppi di Microsoft 365 di loro proprietà
+- Anteprima I proprietari delle risorse dei gruppi di sicurezza Azure AD possono creare recensioni nei gruppi di sicurezza Azure AD di cui sono proprietari
 
 Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-overview.md#license-requirements).
 
@@ -57,7 +59,7 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-
 
     ![Creare una verifica di accesso - Date di inizio e di fine](./media/create-access-review/start-end-dates.png)
 
-1. Per fare in modo che la verifica di accesso ricorra, modificare l'impostazione della **frequenza** da **una volta a una** **settimana**, ogni **mese**, ogni **trimestre**, **semestrale**o **annuale**. Usare il dispositivo di scorrimento **Durata** o la casella di testo per definire il numero di giorni per cui ogni revisione della serie ricorrente verrà aperta per l'input dai revisori. La durata massima che è possibile impostare per una verifica mensile, ad esempio, è di 27 giorni, per evitare la sovrapposizione delle verifiche.
+1. Per fare in modo che la verifica di accesso ricorra, modificare l'impostazione della **frequenza** da **una volta a una** **settimana**, ogni **mese**, ogni **trimestre**, **semestrale** o **annuale**. Usare il dispositivo di scorrimento **Durata** o la casella di testo per definire il numero di giorni per cui ogni revisione della serie ricorrente verrà aperta per l'input dai revisori. La durata massima che è possibile impostare per una verifica mensile, ad esempio, è di 27 giorni, per evitare la sovrapposizione delle verifiche.
 
 1. Usare l'impostazione **Fine** per specificare come terminare la serie di verifiche di accesso ricorrenti. La serie può terminare in tre modi: 
     1. Viene eseguito continuamente per avviare le verifiche a tempo indefinito
@@ -164,7 +166,7 @@ Se sono stati assegnati Guest come revisori che non hanno accettato l'invito, no
 |Revisione automatica | Le decisioni sono state registrate dal sistema per tutti gli utenti che non sono stati rivisti. Verifica è pronto per procedere con l' **applicazione** se l'applicazione automatica è abilitata. |
 |Applicazione | Non verrà apportata alcuna modifica all'accesso per gli utenti che sono stati approvati. |
 |Applicato | Gli utenti negati, se presenti, sono stati rimossi dalla risorsa o dalla directory. |
-|Operazione non riuscita | Non è stato possibile procedere con la revisione. Questo errore può essere correlato all'eliminazione del tenant, a una modifica nelle licenze o ad altre modifiche interne del tenant. |
+|Non riuscito | Non è stato possibile procedere con la revisione. Questo errore può essere correlato all'eliminazione del tenant, a una modifica nelle licenze o ad altre modifiche interne del tenant. |
 
 ## <a name="create-reviews-via-apis"></a>Creare verifiche tramite API
 

@@ -2,13 +2,13 @@
 title: Provider di risorse per servizi di Azure
 description: Elenca tutti gli spazi dei nomi del provider di risorse per Azure Resource Manager e Mostra il servizio di Azure per lo spazio dei nomi.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: f9e31f902d36cf84fc559337f3c69529cf1c014b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/17/2020
+ms.openlocfilehash: c447a08b4422929f042315370b5888f3db0626e4
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949123"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697731"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
@@ -42,10 +42,10 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.Blockchain | [Servizio Azure Blockchain](../../blockchain/workbench/index.yml) |
 | Microsoft.BlockchainTokens | [Token di blockchain di Azure](https://azure.microsoft.com/services/blockchain-tokens/) |
 | Microsoft.Blueprint | [Azure Blueprint](../../governance/blueprints/index.yml) |
-| Microsoft.BotService | [servizio Azure Bot](/azure/bot-service/) |
+| Microsoft.BotService | [Servizio Azure Bot](/azure/bot-service/) |
 | Microsoft.Cache | [Cache Redis di Azure](../../azure-cache-for-redis/index.yml) |
 | Microsoft.Capacity | core |
-| Microsoft.Cdn | [Rete CDN](../../cdn/index.yml) |
+| Microsoft.Cdn | [Rete per la distribuzione di contenuti](../../cdn/index.yml) |
 | Microsoft.CertificateRegistration | [Certificati del servizio app](../../app-service/configure-ssl-certificate.md#import-an-app-service-certificate) |
 | Microsoft.ChangeAnalysis | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
 | Microsoft.ClassicCompute | Macchina virtuale del modello di distribuzione classica |
@@ -57,7 +57,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft. Commerce<sup>1</sup> | core |
 | Microsoft.Compute | [Macchine virtuali](../../virtual-machines/index.yml)<br />[Set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/index.yml) |
 | Microsoft. consumo<sup>1</sup> | [Gestione costi](/azure/cost-management/) |
-| Microsoft.ContainerInstance | [Istanze di contenitore](../../container-instances/index.yml) |
+| Microsoft.ContainerInstance | [Istanze di Container](../../container-instances/index.yml) |
 | Microsoft.ContainerRegistry | [Registro Container](../../container-registry/index.yml) |
 | Microsoft.ContainerService | [Servizio Azure Kubernetes](../../aks/index.yml) |
 | Microsoft. CostManagement<sup>1</sup> | [Gestione costi](/azure/cost-management/) |
@@ -69,10 +69,10 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.Databricks | [Azure Databricks](/azure/azure-databricks/) |
 | Microsoft.DataCatalog | [Data Catalog](../../data-catalog/index.yml) |
 | Microsoft.DataFactory | [Data Factory](../../data-factory/index.yml) |
-| Microsoft.DataLakeAnalytics | [Data Lake Analytics](../../data-lake-analytics/index.yml) |
+| Microsoft.DataLakeAnalytics | [Analisi Data Lake](../../data-lake-analytics/index.yml) |
 | Microsoft.DataLakeStore | [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md) |
 | Microsoft.DataMigration | [Servizio Migrazione del database di Azure](../../dms/index.yml) |
-| Microsoft.DataProtection | Protezione dati |
+| Microsoft.DataProtection | Protezione dei dati |
 | Microsoft.DataShare | [Condivisione dati di Azure](../../data-share/index.yml) |
 | Microsoft.DBforMariaDB | [Database di Azure per MariaDB](../../mariadb/index.yml) |
 | Microsoft.DBforMySQL | [Database di Azure per MySQL](../../mysql/index.yml) |
@@ -151,7 +151,6 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.Scheduler | [Utilità di pianificazione](../../scheduler/index.yml) |
 | Microsoft.Search | [Ricerca cognitiva di Azure](../../search/index.yml) |
 | Microsoft.Security | [Centro sicurezza](../../security-center/index.yml) |
-| Microsoft.SecurityGraph | [Centro sicurezza](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
 | Microsoft. SerialConsole<sup>1</sup> | [Console seriale di Azure per Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Bus di servizio](/azure/service-bus/) |
@@ -162,10 +161,10 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.SoftwarePlan | Licenza |
 | Microsoft.Solutions | [Applicazioni gestite di Azure](../managed-applications/index.yml) |
 | Microsoft.Sql | [Database SQL di Azure](../../azure-sql/database/index.yml)<br /> [Istanza gestita di database SQL di Azure](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
-| Microsoft.SqlVirtualMachine | [SQL Server in macchine virtuali di Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
-| Microsoft.Storage | [Storage](../../storage/index.yml) |
+| Microsoft.SqlVirtualMachine | [SQL Server in Macchine virtuali di Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
+| Microsoft.Storage | [Archiviazione](../../storage/index.yml) |
 | Microsoft.StorageCache | [Cache HPC di Azure](../../hpc-cache/index.yml) |
-| Microsoft.StorageSync | [Storage](../../storage/index.yml) |
+| Microsoft.StorageSync | [Archiviazione](../../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.StreamAnalytics | [Analisi di flusso di Azure](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |
@@ -174,10 +173,10 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
 | Microsoft.Token | token |
 | Microsoft.VirtualMachineImages | [Azure Image Builder](../../virtual-machines/linux/image-builder-overview.md) |
-| microsoft.visualstudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
+| microsoft.visualstudio | [Azure DevOps](/azure/devops/) |
 | Microsoft.VMware | [Soluzione Azure VMware](../../azure-vmware/index.yml) |
 | Microsoft.VMwareCloudSimple | [Soluzione Azure VMware di CloudSimple](../../vmware-cloudsimple/index.md) |
-| Microsoft.VSOnline | [Azure DevOps](/azure/devops/?view=azure-devops) |
+| Microsoft.VSOnline | [Azure DevOps](/azure/devops/) |
 | Microsoft.Web | [Servizio app](../../app-service/index.yml)<br />[Funzioni di Azure](../../azure-functions/index.yml) |
 | Microsoft.WindowsDefenderATP | [Microsoft Defender Advanced Threat Protection](../../security-center/security-center-wdatp.md) |
 | Microsoft.WindowsESU | Aggiornamenti della sicurezza estesi |

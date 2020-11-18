@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 8eb8be3307cf5e1df987f636be5c01cecaf4ae45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 874ecfc8c1c50816916fb0b04975477a1cbe0a71
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631444"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94698088"
 ---
 # <a name="azure-load-balancer-skus"></a>SKU di Azure Load Balancer
 
@@ -26,7 +26,7 @@ Sono disponibili due SKU di Azure Load Balancer.
 
 Load Balancer supporta SKU Standard e Basic, che variano in termini di scalabilità degli scenari, funzionalità e prezzi. Tutti gli scenari possibili con Load Balancer Basic possono essere creati anche con Load Balancer Standard.
 
-Esaminare la tabella seguente per confrontare e comprendere le differenze. Per altre informazioni, vedere [Azure Panoramica di Load Balancer Standard](load-balancer-standard-overview.md).
+Esaminare la tabella seguente per confrontare e comprendere le differenze. Per altre informazioni, vedere [Azure Panoramica di Load Balancer Standard](./load-balancer-overview.md).
 
 >[!NOTE]
 > Microsoft consiglia di usare Load Balancer Standard.
@@ -34,7 +34,7 @@ Le macchine virtuali autonome, i set di disponibilità e i set di scalabilità d
 
 | | Load Balancer Standard | Load Balancer di base |
 | --- | --- | --- |
-| **[Dimensioni del pool back-end](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)** | Supporta fino a 1000 istanze. | Supporta fino a 300 istanze. |
+| **[Dimensioni del pool back-end](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Supporta fino a 1000 istanze. | Supporta fino a 300 istanze. |
 | **Endpoint del pool back-end** | Tutte le macchine virtuali o tutti i set di scalabilità di macchine virtuali in una singola rete virtuale. | Macchine virtuali in un singolo set di disponibilità o in un set di scalabilità di macchine virtuali. |
 | **[Probe di integrità](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Comportamento in caso di inattività dei probe](./load-balancer-custom-probe-overview.md#probedown)** | Le connessioni TCP restano attive in caso di inattività di un probe dell'istanza __e__ di tutti i probe. | Le connessioni TCP restano attive in caso di inattività di un probe dell'istanza. Tutte le connessioni TCP vengono interrotte quando tutti i probe sono inattivi. |
@@ -42,13 +42,13 @@ Le macchine virtuali autonome, i set di disponibilità e i set di scalabilità d
 | **Diagnostica** | [Metriche multidimensionali di Monitoraggio di Azure](./load-balancer-standard-diagnostics.md) | [Log di Monitoraggio di Azure](./load-balancer-monitor-log.md) |
 | **Porte a disponibilità elevata** | [Disponibile per il Load Balancer interno](./load-balancer-ha-ports-overview.md) | Non disponibile |
 | **Sicurezza per impostazione predefinita** | Chiuso nei flussi in ingresso, a meno che non sia consentito da un gruppo di sicurezza di rete. Il traffico interno dalla rete virtuale al servizio di bilanciamento del carico interno è consentito. | Aperto per impostazione predefinita. Gruppo di sicurezza di rete facoltativo. |
-| **Regole in uscita** | [Configurazione NAT in uscita dichiarativa](./load-balancer-outbound-rules-overview.md) | Non disponibile |
+| **Regole in uscita** | [Configurazione NAT in uscita dichiarativa](./load-balancer-outbound-connections.md#outboundrules) | Non disponibile |
 | **TCP Reset per inattività** | [Disponibile in tutte le regole](./load-balancer-tcp-reset.md) | Non disponibile |
 | **[Più front-end](./load-balancer-multivip-overview.md)** | In ingresso e [in uscita](./load-balancer-outbound-connections.md) | Solo in ingresso |
 | **Operazioni di gestione** | La maggior parte delle operazioni < 30 secondi | in genere 60-90+ secondi |
 | **Contratto di servizio** | [99,99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Non disponibile | 
 
-Per altre informazioni, vedere [Limiti di Load Balancer](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Per informazioni dettagliate su Load Balancer Standard, vedere [panoramica](load-balancer-standard-overview.md), [prezzi](https://aka.ms/lbpricing) e [contratto di servizio](https://aka.ms/lbsla).
+Per altre informazioni, vedere [Limiti di Load Balancer](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer). Per informazioni dettagliate su Load Balancer Standard, vedere [panoramica](./load-balancer-overview.md), [prezzi](https://aka.ms/lbpricing) e [contratto di servizio](https://aka.ms/lbsla).
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -65,4 +65,4 @@ Per altre informazioni, vedere [Limiti di Load Balancer](https://docs.microsoft.
 - Informazioni sui [probe di integrità](load-balancer-custom-probe-overview.md).
 - Informazioni sull'uso di [Load Balancer per le connessioni in uscita](load-balancer-outbound-connections.md).
 - Informazioni su [Load Balancer Standard con regole di bilanciamento del carico di porte a disponibilità elevata](load-balancer-ha-ports-overview.md).
-- Vedere altre informazioni sui [gruppi di sicurezza di rete](../virtual-network/security-overview.md).
+- Vedere altre informazioni sui [gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md).

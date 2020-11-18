@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 97541a4f8d86b90bf6045fc2a9e5abbe86aee5cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c322620e1d66182937be41bb02d48fd1469f459
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717337"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697561"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostica di Load Balancer Standard con metriche, avvisi e integrità delle risorse
 
 Azure Load Balancer Standard espone le funzionalità di diagnostica seguenti:
 
-* **Metriche e avvisi multidimensionali**: fornisce funzionalità di diagnostica multidimensionali tramite [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) per le configurazioni di Load Balancer standard. È possibile monitorare, gestire e risolvere i problemi relativi alle risorse di Load Balancer standard.
+* **Metriche e avvisi multidimensionali**: fornisce funzionalità di diagnostica multidimensionali tramite [monitoraggio di Azure](../azure-monitor/overview.md) per le configurazioni di Load Balancer standard. È possibile monitorare, gestire e risolvere i problemi relativi alle risorse di Load Balancer standard.
 
 * **Integrità risorse**: lo stato Integrità risorse della Load Balancer è disponibile nella pagina integrità risorse in monitoraggio. Questo controllo automatico informa l'utente della disponibilità corrente della risorsa Load Balancer.
 
@@ -70,7 +70,7 @@ Per visualizzare le metriche delle risorse di Load Balancer Standard:
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperare le metriche multidimensionali a livello di codice tramite le API
 
-Per informazioni sull'API per il recupero dei valori e delle definizioni delle metriche multidimensionali, vedere la [Procedura dettagliata di API REST di Azure Monitoring](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). Queste metriche possono essere scritte in un account di archiviazione solo tramite l'opzione "tutte le metriche". 
+Per informazioni sull'API per il recupero dei valori e delle definizioni delle metriche multidimensionali, vedere la [Procedura dettagliata di API REST di Azure Monitoring](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Queste metriche possono essere scritte in un account di archiviazione solo tramite l'opzione "tutte le metriche". 
 
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configurare gli avvisi per le metriche multidimensionali ###
 
@@ -138,9 +138,9 @@ Usare **Media** come aggregazione per la maggior parte degli scenari.
 #### <a name="how-do-i-check-my-outbound-connection-statistics"></a>Come è possibile controllare le statistiche di connessione in uscita? 
 <details>
   <summary>Espandere</summary>
-La metrica relativa alle connessioni SNAT descrive il volume di quelle con esito positivo e con esito negativo (connessioni per i [flussi in uscita](https://aka.ms/lboutbound)).
+La metrica relativa alle connessioni SNAT descrive il volume di quelle con esito positivo e con esito negativo (connessioni per i [flussi in uscita](./load-balancer-outbound-connections.md)).
 
-Un volume di connessioni non riuscite maggiore di zero indica l'esaurimento delle porte SNAT. È necessario effettuare un'analisi approfondita per determinare che cosa potrebbe causare questi errori. L'esaurimento delle porte SNAT si manifesta sotto forma di errore durante la definizione di un [flusso in uscita](https://aka.ms/lboutbound). Fare riferimento all'articolo sulle connessioni in uscita per comprendere gli scenari e i meccanismi coinvolti e scoprire come ridurre ed evitare l'esaurimento delle porte SNAT in fase di progettazione. 
+Un volume di connessioni non riuscite maggiore di zero indica l'esaurimento delle porte SNAT. È necessario effettuare un'analisi approfondita per determinare che cosa potrebbe causare questi errori. L'esaurimento delle porte SNAT si manifesta sotto forma di errore durante la definizione di un [flusso in uscita](./load-balancer-outbound-connections.md). Fare riferimento all'articolo sulle connessioni in uscita per comprendere gli scenari e i meccanismi coinvolti e scoprire come ridurre ed evitare l'esaurimento delle porte SNAT in fase di progettazione. 
 
 Per ottenere statistiche sulle connessioni SNAT:
 1. Selezionare il tipo di metrica **connessioni SNAT** e **Sum** come aggregazione. 
@@ -157,14 +157,14 @@ Per ottenere statistiche sulle connessioni SNAT:
   <summary>Espandere</summary>
 La metrica delle porte SNAT utilizzate rileva il numero di porte SNAT utilizzate per gestire i flussi in uscita. Ciò indica quanti flussi univoci vengono stabiliti tra un'origine Internet e una VM back-end o un set di scalabilità di macchine virtuali che si trova dietro un servizio di bilanciamento del carico e non dispone di un indirizzo IP pubblico. Confrontando il numero di porte SNAT che si sta usando con la metrica delle porte SNAT allocate, è possibile determinare se il servizio sta riscontrando o a rischio di esaurimento del SNAT e risultante errore del flusso in uscita. 
 
-Se le metriche indicano il rischio di errore del [flusso in uscita](https://aka.ms/lboutbound) , fare riferimento all'articolo e adottare le misure per attenuare questo problema per garantire l'integrità del servizio.
+Se le metriche indicano il rischio di errore del [flusso in uscita](./load-balancer-outbound-connections.md) , fare riferimento all'articolo e adottare le misure per attenuare questo problema per garantire l'integrità del servizio.
 
 Per visualizzare l'utilizzo e l'allocazione della porta SNAT:
 1. Impostare l'aggregazione temporale del grafico su 1 minuto per garantire la visualizzazione dei dati desiderati.
 1. Selezionare le **porte SNAT utilizzate** e/o le **porte SNAT allocate** come tipo di metrica e **media** come aggregazione
     * Per impostazione predefinita, queste metriche rappresentano il numero medio di porte SNAT allocate o usate da ogni VM back-end o VMSS, corrispondenti a tutti gli indirizzi IP pubblici front-end mappati alla Load Balancer, aggregati su TCP e UDP.
     * Per visualizzare le porte SNAT totali utilizzate da o allocate per il servizio di bilanciamento del carico utilizzare la **somma** di aggregazione metrica
-1. Filtrare per un **tipo di protocollo**specifico, un set di **indirizzi IP back-end**e/o **indirizzi IP**front-end.
+1. Filtrare per un **tipo di protocollo** specifico, un set di **indirizzi IP back-end** e/o **indirizzi IP** front-end.
 1. Per monitorare l'integrità per ogni istanza back-end o front-end, applicare la suddivisione. 
     * Nota la suddivisione consente solo la visualizzazione di una singola metrica alla volta. 
 1. Ad esempio, per monitorare l'utilizzo di SNAT per i flussi TCP per computer, aggregati in base alla **media**, divisi per **indirizzi IP back-end** e filtra per **tipo di protocollo**. 
@@ -181,7 +181,7 @@ Per visualizzare l'utilizzo e l'allocazione della porta SNAT:
 #### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Come è possibile verificare i tentativi di connessione in ingresso/uscita per il servizio?
 <details>
   <summary>Espandere</summary>
-La metrica relativa a un pacchetto SYN descrive il volume di pacchetti SYN TCP arrivati o inviati (per i [flussi in uscita](https://aka.ms/lboutbound)) che sono associati a uno specifico front-end. Questa metrica può essere usata per comprendere i tentativi di connessione TCP al servizio.
+La metrica relativa a un pacchetto SYN descrive il volume di pacchetti SYN TCP arrivati o inviati (per i [flussi in uscita](./load-balancer-outbound-connections.md)) che sono associati a uno specifico front-end. Questa metrica può essere usata per comprendere i tentativi di connessione TCP al servizio.
 
 Usare **Totale** come aggregazione per la maggior parte degli scenari.
 
@@ -252,7 +252,7 @@ Per visualizzare l'integrità delle risorse della configurazione pubblica di Loa
 
    *Figura: Visualizzazione dell'integrità delle risorse di Load Balancer*
  
-La descrizione dello stato di integrità delle risorse generiche è disponibile nella [documentazione di RHC](https://docs.microsoft.com/azure/service-health/resource-health-overview). Per gli stati specifici per il Azure Load Balancer sono elencati nella tabella seguente: 
+La descrizione dello stato di integrità delle risorse generiche è disponibile nella [documentazione di RHC](../service-health/resource-health-overview.md). Per gli stati specifici per il Azure Load Balancer sono elencati nella tabella seguente: 
 
 | Stato di integrità delle risorse | Descrizione |
 | --- | --- |
@@ -263,7 +263,7 @@ La descrizione dello stato di integrità delle risorse generiche è disponibile 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [Load Balancer Standard](load-balancer-standard-overview.md).
-- Altre informazioni sulla [connettività in uscita di Load Balancer](https://aka.ms/lboutbound).
-- Informazioni su [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview).
-- Informazioni sull'[API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/) e su [come recuperare le metriche tramite l'API REST](/rest/api/monitor/metrics/list).
+- Altre informazioni su [Load Balancer Standard](./load-balancer-overview.md).
+- Altre informazioni sulla [connettività in uscita di Load Balancer](./load-balancer-outbound-connections.md).
+- Informazioni su [Monitoraggio di Azure](../azure-monitor/overview.md).
+- Informazioni sull'[API REST di Monitoraggio di Azure](/rest/api/monitor/) e su [come recuperare le metriche tramite l'API REST](/rest/api/monitor/metrics/list).

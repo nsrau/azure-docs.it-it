@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 22922972049ec78cc26f4d060fa1981d1f23a3ce
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a1a8df6d503ec5f5bf9c1e739e5ecf6486a85776
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912447"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697421"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Risolvere i problemi di Azure Load Balancer
 
@@ -35,7 +35,7 @@ Quando i client esterni alle macchine virtuali back-end usano il bilanciamento d
 
 **Convalida e la risoluzione**
 
-Le gli ILB standard sono **sicure per impostazione predefinita** . Gli ILB di base hanno consentito la connessione a Internet tramite un indirizzo IP pubblico *nascosto* . Questo non è recommened per i carichi di lavoro di produzione perché l'indirizzo IP non è né statico né bloccato tramite gruppi di cui si è proprietari. Se è stato recentemente spostato da un ILB di base a un ILB standard, è necessario creare un indirizzo IP pubblico in modo esplicito tramite la configurazione [solo in uscita](egress-only.md) che blocca l'IP tramite gruppi. È anche possibile usare un [gateway NAT](../virtual-network/nat-overview.md) nella subnet.
+Le gli ILB standard sono **sicure per impostazione predefinita**. Gli ILB di base hanno consentito la connessione a Internet tramite un indirizzo IP pubblico *nascosto* . Questo non è recommened per i carichi di lavoro di produzione perché l'indirizzo IP non è né statico né bloccato tramite gruppi di cui si è proprietari. Se è stato recentemente spostato da un ILB di base a un ILB standard, è necessario creare un indirizzo IP pubblico in modo esplicito tramite la configurazione [solo in uscita](egress-only.md) che blocca l'IP tramite gruppi. È anche possibile usare un [gateway NAT](../virtual-network/nat-overview.md) nella subnet.
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Sintomo: Le macchine virtuali controllate da Load Balancer non rispondono ai probe di integrità
 Per partecipare al set di bilanciamento del carico, i server back-end devono superare il controllo del probe. Per altre informazioni sui probe di integrità, vedere [Informazioni sui probe di bilanciamento del carico](load-balancer-custom-probe-overview.md). 
@@ -60,7 +60,7 @@ Se la macchina virtuale è integra, ma non risponde al probe, è possibile che l
 1. Accedere alla macchina virtuale back-end. 
 2. Aprire un prompt dei comandi ed eseguire questo comando per verificare che un'applicazione sia in ascolto nella porta probe:   
             netstat -an
-3. Se lo stato della porta non è elencato come **LISTENING** , configurare la porta corretta. 
+3. Se lo stato della porta non è elencato come **LISTENING**, configurare la porta corretta. 
 4. In alternativa, selezionare un'altra porta che sia elencata come **LISTENING** e aggiornare la configurazione di Load Balancer di conseguenza.              
 
 ### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>Causa 3: Un firewall o un gruppo di sicurezza di rete blocca la porta nelle macchine virtuali del pool back-end di Load Balancer  
@@ -87,7 +87,7 @@ Se tutte le cause precedenti sembrano essere state verificate e risolte corretta
         - Se non si osservano pacchetti in ingresso nella macchina virtuale del pool back-end, è possibile che un gruppo di sicurezza di rete o una route definita dall'utente configurata in modo errato blocchi il traffico. 
         - Se non si osservano pacchetti in uscita nella macchina virtuale del pool back-end, è necessario identificare eventuali problemi non correlati nella macchina virtuale, ad esempio la presenza di un'applicazione che blocca la porta probe. 
     - Verificare se i pacchetti probe vengono forzati verso un'altra destinazione, magari tramite impostazioni delle route definite dall'utente, prima di raggiungere il servizio di bilanciamento del carico. Ciò può impedire costantemente al traffico di raggiungere la macchina virtuale back-end. 
-* Modificare il tipo di probe, ad esempio da HTTP a TCP, e configurare la porta corrispondente negli ACL dei gruppi di sicurezza di rete e nel firewall per verificare se il problema è la configurazione della risposta probe. Per altre informazioni sulla configurazione del probe di integrità, vedere la [configurazione del probe di integrità di bilanciamento del carico con endpoint](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
+* Modificare il tipo di probe, ad esempio da HTTP a TCP, e configurare la porta corrispondente negli ACL dei gruppi di sicurezza di rete e nel firewall per verificare se il problema è la configurazione della risposta probe. Per altre informazioni sulla configurazione del probe di integrità, vedere la [configurazione del probe di integrità di bilanciamento del carico con endpoint](/archive/blogs/mast/endpoint-load-balancing-heath-probe-configuration-details).
 
 ## <a name="symptom-vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Sintomo: le macchine virtuali dietro Load Balancer non rispondono al traffico sulla porta dati configurata
 
@@ -125,7 +125,7 @@ Con il bilanciamento del carico pubblico, per la comunicazione tra i client e le
 
 Se l'applicazione ospitata nella macchina virtuale back-end di un servizio di bilanciamento del carico sta provando ad accedere a un'altra applicazione ospitata nella stessa macchina virtuale back-end tramite la stessa interfaccia di rete, questo scenario non è supportato e avrà esito negativo. 
 
-**Risoluzione** : è possibile risolvere questo problema con uno dei metodi seguenti:
+**Risoluzione**: è possibile risolvere questo problema con uno dei metodi seguenti:
 * Configurare macchine virtuali del pool back-end separate per ogni applicazione. 
 * Configurare l'applicazione in macchine virtuali con due schede di interfaccia di rete in modo che ogni applicazione usi un'interfaccia di rete e un indirizzo IP propri. 
 
@@ -133,7 +133,7 @@ Se l'applicazione ospitata nella macchina virtuale back-end di un servizio di bi
 
 Se è configurato un servizio di bilanciamento del carico interno in una rete virtuale e una delle macchine virtuali del back-end sta tentando di accedere al front-end del servizio di bilanciamento del carico interno, potrebbero verificarsi errori durante il mapping del flusso alla macchina virtuale di origine. Questo scenario non è supportato.
 
-**Risoluzione** È possibile sbloccare questo scenario in diversi modi, incluso l'uso di un proxy. Valutare un gateway applicazione o altri proxy di terze parti, ad esempio nginx o haproxy. Per altre informazioni sul gateway applicazione, vedere [Panoramica del gateway applicazione](../application-gateway/application-gateway-introduction.md)
+**Risoluzione** È possibile sbloccare questo scenario in diversi modi, incluso l'uso di un proxy. Valutare un gateway applicazione o altri proxy di terze parti, ad esempio nginx o haproxy. Per altre informazioni sul gateway applicazione, vedere [Panoramica del gateway applicazione](../application-gateway/overview.md)
 
 **Dettagli** I servizi di bilanciamento del carico interni non convertono le connessioni originate in uscita nel front-end di un servizio di bilanciamento del carico interno perché entrambi risiedono in uno spazio indirizzi IP privati. I servizi Load Balancer pubblici consentono di stabilire [connessioni in uscita](load-balancer-outbound-connections.md) dagli indirizzi IP privati interni alla rete virtuale a indirizzi IP pubblici. Per i servizi Load Balancer interni, questo approccio evita un potenziale esaurimento delle porte SNAT all'interno di uno spazio di indirizzi IP interno univoco, in cui la conversione non è obbligatoria.
 
@@ -143,11 +143,11 @@ Quando il flusso viene mappato nuovamente a se stesso, il flusso in uscita sembr
 
 Il sintomo di questo scenario è il verificarsi di timeout di connessione intermittenti quando il flusso torna nello stesso back-end che lo ha originato. Soluzioni alternative comuni includono l'inserimento di un livello proxy dietro il servizio Load Balancer interno e l'uso delle regole di stile DSR (Direct Server Return). Per altre informazioni, vedere [Più front-end per Azure Load Balancer](load-balancer-multivip-overview.md).
 
-È possibile combinare un servizio Load Balancer interno con qualsiasi proxy di terze parti o usare un [gateway applicazione](../application-gateway/application-gateway-introduction.md) per scenari proxy con HTTP/HTTPS. Sebbene sia possibile usare un servizio Load Balancer pubblico per attenuare questo problema, lo scenario risultante è soggetto a [esaurimento SNAT](load-balancer-outbound-connections.md). Evitare questo secondo approccio, a meno che non sia gestito accuratamente.
+È possibile combinare un servizio Load Balancer interno con qualsiasi proxy di terze parti o usare un [gateway applicazione](../application-gateway/overview.md) per scenari proxy con HTTP/HTTPS. Sebbene sia possibile usare un servizio Load Balancer pubblico per attenuare questo problema, lo scenario risultante è soggetto a [esaurimento SNAT](load-balancer-outbound-connections.md). Evitare questo secondo approccio, a meno che non sia gestito accuratamente.
 
 ## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Sintomo: non è possibile modificare la porta back-end per la regola di bilanciamento del carico esistente di un servizio di bilanciamento del carico con set di scalabilità di macchine virtuali distribuiti nel pool back-end. 
 ### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Causa: non è possibile modificare la porta back-end per una regola di bilanciamento del carico usata da un probe di integrità per il servizio di bilanciamento del carico a cui fa riferimento il set di scalabilità di macchine virtuali.
-**Risoluzione** : per cambiare porta, è possibile rimuovere il probe di integrità aggiornando il set di scalabilità di macchine virtuali, aggiornare la porta e quindi configurare di nuovo il probe di integrità.
+**Risoluzione**: per cambiare porta, è possibile rimuovere il probe di integrità aggiornando il set di scalabilità di macchine virtuali, aggiornare la porta e quindi configurare di nuovo il probe di integrità.
 
 ## <a name="symptom-small-traffic-is-still-going-through-load-balancer-after-removing-vms-from-backend-pool-of-the-load-balancer"></a>Sintomo: dopo la rimozione delle macchine virtuali dal pool back-end del bilanciamento del carico è ancora presente traffico ridotto gestito tramite il bilanciamento del carico. 
 ### <a name="cause--vms-removed-from-backend-pool-should-no-longer-receive-traffic-the-small-amount-of-network-traffic-could-be-related-to-storage-dns-and-other-functions-within-azure"></a>Causa: le macchine virtuali rimosse dal pool back-end non devono più ricevere traffico. La presenza di traffico di rete ridotto potrebbe essere correlata all'archiviazione, a DNS e ad altre funzioni in Azure. 
@@ -172,4 +172,3 @@ Se si decide di aprire un caso di supporto, raccogliere le informazioni seguenti
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se i passaggi precedenti non risolvono il problema, aprire un [ticket di supporto](https://azure.microsoft.com/support/options/).
-

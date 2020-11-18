@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 351503db52e4c62414cd5dcbae1f750032a37eb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eea3c8525d31a3ca551e9cbc7d21d7dde163b5cc
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542275"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697986"
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
 Risposte alle domande comuni, modelli e procedure consigliate per Gestione API di Azure.
@@ -71,18 +71,7 @@ Sì, è possibile gestire Gestione API a livello di codice usando:
 * I cmdlet di PowerShell per la [distribuzione del servizio](/powershell/module/wds) e per la [gestione del servizio](/powershell/azure/servicemanagement/overview).
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Come si aggiunge un utente al gruppo di amministratori?
-Ecco come è possibile aggiungere un utente al gruppo di amministratori:
-
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Passare al gruppo di risorse con l'istanza di Gestione API che si vuole aggiornare.
-3. In gestione API assegnare il ruolo di **collaboratore del servizio gestione API** all'utente.
-
-Ora il nuovo collaboratore aggiunto può usare i [cmdlet](/powershell/azure/) di Azure PowerShell. Ecco come accedere come amministratore:
-
-1. Usare il cmdlet `Connect-AzAccount` per accedere.
-2. Impostare il contesto sulla sottoscrizione che contiene il servizio usando `Set-AzContext -SubscriptionID <subscriptionGUID>`.
-3. Ottenere un l'URL Single Sign-On usando `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
-4. Usare l'URL per accedere al portale di amministrazione.
+Gruppi di amministratori è un gruppo di sistema non modificabile. Gli amministratori della sottoscrizione di Azure sono membri di questo gruppo. Non è possibile aggiungere un utente a questo gruppo. Per altre informazioni [, vedere come creare e usare i gruppi per gestire gli account sviluppatore in gestione API di Azure](./api-management-howto-create-groups.md) .
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Perché il criterio da aggiungere non è disponibile nell'editor dei criteri?
 Se il criterio che si vuole aggiungere è in grigio o ombreggiato nell'editor dei criteri, assicurarsi che l'ambito del criterio sia corretto. Ogni istruzione di criterio è progettata per essere usata in ambiti e sezioni dei criteri specifici. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, vedere la sezione sull'utilizzo in [API Management policies](./api-management-policies.md) (Criteri di Gestione API).

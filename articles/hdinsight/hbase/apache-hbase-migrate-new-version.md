@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 3e35dc35746f08f48150a738b927433065fc1c67
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8ce25780e197c26e0e5b102670e093031e1a2582
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910271"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697663"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Eseguire la migrazione di cluster Apache HBase a una nuova versione
 
@@ -54,7 +54,7 @@ Per aggiornare il cluster Apache HBase in Azure HDInsight, seguire questa proced
 
    ![Usare lo stesso account di archiviazione, ma creare un contenitore diverso](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
 
-1. Scaricare il cluster HBase di origine, ovvero il cluster che si sta aggiornando. HBase scrive i dati in ingresso in un archivio in memoria, detto _memstore_ . Quando il memstore raggiunge una determinata dimensione, HBase lo scarica su disco per l'archiviazione a lungo termine nell'account di archiviazione del cluster. Quando si elimina il cluster precedente, gli archivi memstore vengono riciclati, con la potenziale perdita di dati. Per scaricare manualmente l'archivio memstore per ogni tabella su disco, eseguire lo script seguente. La versione più recente di questo script è in [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh) di Azure.
+1. Scaricare il cluster HBase di origine, ovvero il cluster che si sta aggiornando. HBase scrive i dati in ingresso in un archivio in memoria, detto _memstore_. Quando il memstore raggiunge una determinata dimensione, HBase lo scarica su disco per l'archiviazione a lungo termine nell'account di archiviazione del cluster. Quando si elimina il cluster precedente, gli archivi memstore vengono riciclati, con la potenziale perdita di dati. Per scaricare manualmente l'archivio memstore per ogni tabella su disco, eseguire lo script seguente. La versione più recente di questo script è in [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh) di Azure.
 
     ```bash
     #!/bin/bash
@@ -223,9 +223,9 @@ Per aggiornare il cluster Apache HBase in Azure HDInsight, seguire questa proced
    hdfs dfs -cp /hbase-wal-backup/hbasewal hdfs://mycluster/**
    ```
    
-1. Se si sta eseguendo l'aggiornamento di HDInsight 3,6 a 4,0, seguire questa procedura. in caso contrario, andare al passaggio 10:
+1. Se si sta eseguendo l'aggiornamento di HDInsight 3,6 a 4,0, seguire questa procedura. in caso contrario, andare al passaggio 13:
 
-    1. Riavviare tutti i servizi necessari in Ambari selezionando **Servizi**  >  **Riavvia tutti necessari** .
+    1. Riavviare tutti i servizi necessari in Ambari selezionando **Servizi**  >  **Riavvia tutti necessari**.
     1. Arrestare il servizio HBase.
     1. Connettersi tramite SSH al nodo Zookeeper ed eseguire il [zkCli](https://github.com/go-zkcli/zkcli) comando zkCli `rmr /hbase-unsecure` per rimuovere il elemento znode radice HBase da Zookeeper.
     1. Riavviare HBase.

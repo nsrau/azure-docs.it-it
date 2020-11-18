@@ -1,7 +1,7 @@
 ---
 title: Connettersi a un'istanza di calcolo in Visual Studio Code (anteprima)
 titleSuffix: Azure Machine Learning
-description: Informazioni su come connettersi a un'istanza di calcolo Azure Machine Learning in Visual Studio Code
+description: Informazioni su come connettersi a un'istanza di calcolo Azure Machine Learning in Visual Studio Code per eseguire carichi di lavoro di sviluppo interattivi Jupyter Notebook e remoti.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.author: jmartens
 author: j-martens
-ms.date: 09/03/2020
-ms.openlocfilehash: 6ac116b315d4a11b51b37c5b51edf35aa0676713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/16/2020
+ms.openlocfilehash: 2abad31173992a891e908bdbb61c37e905907d69
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708374"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697579"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Connettersi a un'istanza di calcolo Azure Machine Learning in Visual Studio Code (anteprima)
 
@@ -130,7 +130,7 @@ Host azmlci1
 
 Di seguito sono riportati alcuni dettagli sui campi:
 
-|Campo|Description|
+|Campo|Descrizione|
 |----|---------|
 |Host|Usa qualsiasi abbreviazione che preferisci per l'istanza di calcolo |
 |HostName|Si tratta dell'indirizzo IP dell'istanza di calcolo |

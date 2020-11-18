@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: bf2282c5fda29cd266778a322efa4a0a33139c35
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: aed1aa03527481014a63c636181725b91b17a1e8
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372381"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697306"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Come indicizzare i dati di Cosmos DB usando un indicizzatore in Ricerca cognitiva di Azure 
 
@@ -68,14 +68,14 @@ Verificare che il database di Cosmos DB contenga dati. La [procedura guidata Imp
 
 ### <a name="3---set-the-data-source"></a>3 - Impostare l'origine dati
 
-Nella pagina **origine dati** , l'origine deve essere **Cosmos DB** , con le specifiche seguenti:
+Nella pagina **origine dati** , l'origine deve essere **Cosmos DB**, con le specifiche seguenti:
 
 + **Nome** è il nome dell'oggetto origine dati. Una volta creato, è possibile sceglierlo per altri carichi di lavoro.
 
 + **Cosmos DB account** deve essere in uno dei formati seguenti:
     1. Stringa di connessione primaria o secondaria di Cosmos DB con il formato seguente: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;` .
         + Per la versione 3,2 e la versione 3,6 le **raccolte MongoDB** usano il formato seguente per l'account Cosmos DB nel portale di Azure: `AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;ApiKind=MongoDb`
-        + Per i **grafici Gremlin e le tabelle Cassandra** , iscriversi all' [anteprima dell'indicizzatore gestita](https://aka.ms/azure-cognitive-search/indexer-preview) per ottenere l'accesso all'anteprima e informazioni su come formattare le credenziali.
+        + Per i **grafici Gremlin e le tabelle Cassandra**, iscriversi all' [anteprima dell'indicizzatore gestita](https://aka.ms/azure-cognitive-search/indexer-preview) per ottenere l'accesso all'anteprima e informazioni su come formattare le credenziali.
     1.  Una stringa di connessione di identità gestita con il formato seguente che non include una chiave dell'account: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;(ApiKind=[api-kind];)` . Per usare questo formato della stringa di connessione, seguire le istruzioni per la [configurazione di una connessione dell'indicizzatore a un database di Cosmos DB usando un'identità gestita](search-howto-managed-identities-cosmos-db.md).
 
 + Il **database** è un database esistente dall'account. 
@@ -137,7 +137,7 @@ In precedenza in questo articolo si è indicato che [Azure Cosmos DB](/azure/cos
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-assemblare gli input per la richiesta
 
-Per ogni richiesta, è necessario fornire il nome del servizio e la chiave amministratore per Azure ricerca cognitiva (nell'intestazione POST) e il nome e la chiave dell'account di archiviazione per l'archiviazione BLOB. È possibile usare il [post](search-get-started-postman.md) per inviare richieste HTTP ad Azure ricerca cognitiva.
+Per ogni richiesta, è necessario fornire il nome del servizio e la chiave amministratore per Azure ricerca cognitiva (nell'intestazione POST) e il nome e la chiave dell'account di archiviazione per l'archiviazione BLOB. Per inviare richieste HTTP ad Azure ricerca cognitiva, è possibile usare il [post o il Visual Studio Code](search-get-started-rest.md) .
 
 Copiare i quattro valori seguenti nel blocco note in modo che sia possibile incollarli in una richiesta:
 
@@ -151,11 +151,11 @@ Copiare i quattro valori seguenti nel blocco note in modo che sia possibile inco
 
 2. Nel riquadro di spostamento a sinistra fare clic su **chiavi** e quindi copiare la chiave primaria o secondaria (sono equivalenti).
 
-3. Passare alle pagine del portale per l'account di archiviazione Cosmos. Nel riquadro di spostamento a sinistra, in **Impostazioni** , fare clic su **chiavi**. Questa pagina fornisce un URI, due set di stringhe di connessione e due set di chiavi. Copiare una delle stringhe di connessione nel blocco note.
+3. Passare alle pagine del portale per l'account di archiviazione Cosmos. Nel riquadro di spostamento a sinistra, in **Impostazioni**, fare clic su **chiavi**. Questa pagina fornisce un URI, due set di stringhe di connessione e due set di chiavi. Copiare una delle stringhe di connessione nel blocco note.
 
 ### <a name="2---create-a-data-source"></a>2-creare un'origine dati
 
-Un' **origine dati** specifica i dati per l'indice, le credenziali e i criteri per l'identificazione delle modifiche apportate ai dati (ad esempio documenti modificati o eliminati nella raccolta). L'origine dati è definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
+Un'**origine dati** specifica i dati per l'indice, le credenziali e i criteri per l'identificazione delle modifiche apportate ai dati (ad esempio documenti modificati o eliminati nella raccolta). L'origine dati è definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
 
 Per creare un'origine dati, formulare una richiesta POST:
 
@@ -185,8 +185,8 @@ Il corpo della richiesta contiene la definizione dell'origine dati, che deve inc
 |---------|-------------|
 | **nome** | Obbligatorio. Scegliere un nome qualsiasi per rappresentare l’oggetto origine dati. |
 |**type**| Obbligatorio. Deve essere `cosmosdb`. |
-|**credentials** | Obbligatorio. Deve seguire il formato della stringa di connessione Cosmos DB o un formato della stringa di connessione identità gestita.<br/><br/>Per le **raccolte SQL** , le stringhe di connessione possono seguire uno dei formati seguenti: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<li>Una stringa di connessione di identità gestita con il formato seguente che non include una chiave dell'account: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;` . Per usare questo formato della stringa di connessione, seguire le istruzioni per la [configurazione di una connessione dell'indicizzatore a un database di Cosmos DB usando un'identità gestita](search-howto-managed-identities-cosmos-db.md).<br/><br/>Per la versione 3,2 e la versione 3,6 le **raccolte MongoDB** utilizzano uno dei formati seguenti per la stringa di connessione: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<li>Una stringa di connessione di identità gestita con il formato seguente che non include una chiave dell'account: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;ApiKind=MongoDb;` . Per usare questo formato della stringa di connessione, seguire le istruzioni per la [configurazione di una connessione dell'indicizzatore a un database di Cosmos DB usando un'identità gestita](search-howto-managed-identities-cosmos-db.md).<br/><br/>Per i **grafici Gremlin e le tabelle Cassandra** , iscriversi all' [anteprima dell'indicizzatore gestita](https://aka.ms/azure-cognitive-search/indexer-preview) per ottenere l'accesso all'anteprima e informazioni su come formattare le credenziali.<br/><br/>Evitare i numeri di porta nell'URL dell'endpoint. Se si include il numero di porta, Azure ricerca cognitiva non sarà in grado di indicizzare il database Azure Cosmos DB.|
-| **container** | Contiene gli elementi seguenti: <br/>**name** : Obbligatorio. Specificare l'ID della raccolta di database da indicizzare.<br/>**query** : Facoltativa. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che possa essere indicizzato da Ricerca cognitiva di Azure.<br/>Per le API MongoDB, Gremlin e Apache Cassandra, le query non sono supportate. |
+|**credentials** | Obbligatorio. Deve seguire il formato della stringa di connessione Cosmos DB o un formato della stringa di connessione identità gestita.<br/><br/>Per le **raccolte SQL**, le stringhe di connessione possono seguire uno dei formati seguenti: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<li>Una stringa di connessione di identità gestita con il formato seguente che non include una chiave dell'account: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;` . Per usare questo formato della stringa di connessione, seguire le istruzioni per la [configurazione di una connessione dell'indicizzatore a un database di Cosmos DB usando un'identità gestita](search-howto-managed-identities-cosmos-db.md).<br/><br/>Per la versione 3,2 e la versione 3,6 le **raccolte MongoDB** utilizzano uno dei formati seguenti per la stringa di connessione: <li>`AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<li>Una stringa di connessione di identità gestita con il formato seguente che non include una chiave dell'account: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;ApiKind=MongoDb;` . Per usare questo formato della stringa di connessione, seguire le istruzioni per la [configurazione di una connessione dell'indicizzatore a un database di Cosmos DB usando un'identità gestita](search-howto-managed-identities-cosmos-db.md).<br/><br/>Per i **grafici Gremlin e le tabelle Cassandra**, iscriversi all' [anteprima dell'indicizzatore gestita](https://aka.ms/azure-cognitive-search/indexer-preview) per ottenere l'accesso all'anteprima e informazioni su come formattare le credenziali.<br/><br/>Evitare i numeri di porta nell'URL dell'endpoint. Se si include il numero di porta, Azure ricerca cognitiva non sarà in grado di indicizzare il database Azure Cosmos DB.|
+| **container** | Contiene gli elementi seguenti: <br/>**name**: Obbligatorio. Specificare l'ID della raccolta di database da indicizzare.<br/>**query**: Facoltativa. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che possa essere indicizzato da Ricerca cognitiva di Azure.<br/>Per le API MongoDB, Gremlin e Apache Cassandra, le query non sono supportate. |
 | **dataChangeDetectionPolicy** | Consigliato. Vedere la sezione [Indicizzazione di documenti modificati](#DataChangeDetectionPolicy).|
 |**dataDeletionDetectionPolicy** | facoltativo. Vedere la sezione [Indicizzazione di documenti eliminati](#DataDeletionDetectionPolicy).|
 
@@ -194,7 +194,7 @@ Il corpo della richiesta contiene la definizione dell'origine dati, che deve inc
 È possibile specificare una query di SQL per appiattire le matrici o le proprietà annidate, progettare le proprietà JSON e filtrare i dati da indicizzare. 
 
 > [!WARNING]
-> Le query personalizzate non sono supportate per l' **API MongoDB** , l' **api Gremlin** e **API Cassandra** : il `container.query` parametro deve essere impostato su null o omesso. Se è necessario usare una query personalizzata, inviare un messaggio su [User Voice](https://feedback.azure.com/forums/263029-azure-search).
+> Le query personalizzate non sono supportate per l' **API MongoDB**, l' **api Gremlin** e **API Cassandra**: il `container.query` parametro deve essere impostato su null o omesso. Se è necessario usare una query personalizzata, inviare un messaggio su [User Voice](https://feedback.azure.com/forums/263029-azure-search).
 
 Documento di esempio:
 

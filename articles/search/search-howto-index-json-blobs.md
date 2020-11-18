@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: d41146b01b6b81804cdba31fbbf2541ba7ae0f03
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.openlocfilehash: a3c44d667b6baaf16e109dfb88c22c16a1ea2ce1
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372377"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697204"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Come indicizzare i BLOB JSON usando un indicizzatore BLOB in Azure ricerca cognitiva
 
@@ -49,15 +49,15 @@ Nella pagina Panoramica del servizio di ricerca è possibile [avviare la procedu
 
 ### <a name="3---set-the-data-source"></a>3 - Impostare l'origine dati
 
-Nella pagina **Nuova origine dati** l'origine deve essere **Archivio BLOB di Azure** , con le specifiche seguenti:
+Nella pagina **Nuova origine dati** l'origine deve essere **Archivio BLOB di Azure**, con le specifiche seguenti:
 
 + **Dati da estrarre** deve essere impostato su *Contenuto e metadati*. La selezione di questa opzione consente alla procedura guidata di dedurre uno schema di indice e di eseguire il mapping dei campi per l'importazione.
    
-+ La **modalità di analisi** deve essere impostata su *JSON* , *matrici JSON* o *righe JSON*. 
++ La **modalità di analisi** deve essere impostata su *JSON*, *matrici JSON* o *righe JSON*. 
 
   *JSON* articola ogni BLOB come singolo documento di ricerca, che viene visualizzato come elemento indipendente nei risultati della ricerca. 
 
-  La *matrice JSON* è per i BLOB che contengono dati JSON ben formati, il JSON ben formato corrisponde a una matrice di oggetti o ha una proprietà che è una matrice di oggetti e si vuole che ogni elemento venga articolato come documento di ricerca autonomo e indipendente. Se in presenza di BLOB complessi non si seleziona *Matrice JSON* , l'intero BLOB viene inserito come un solo documento.
+  La *matrice JSON* è per i BLOB che contengono dati JSON ben formati, il JSON ben formato corrisponde a una matrice di oggetti o ha una proprietà che è una matrice di oggetti e si vuole che ogni elemento venga articolato come documento di ricerca autonomo e indipendente. Se in presenza di BLOB complessi non si seleziona *Matrice JSON*, l'intero BLOB viene inserito come un solo documento.
 
   Le *righe JSON* sono per i BLOB composti da più entità JSON separate da una nuova riga, in cui si vuole che ogni entità venga articolata come documento di ricerca indipendente autonomo. Se i BLOB sono complessi e non si sceglie la modalità di analisi delle *righe JSON* , l'intero BLOB viene inserito come singolo documento.
    
@@ -108,7 +108,7 @@ Al termine dell'indicizzazione, è possibile usare [Esplora ricerche](search-exp
 
 È possibile esaminare il [codice di esempio REST](#rest-example) alla fine di questa sezione in cui viene illustrato come creare tutti e tre gli oggetti. Questa sezione contiene anche informazioni dettagliate sulle [modalità di analisi JSON](#parsing-modes), [BLOB singoli](#parsing-single-blobs), [matrici JSON](#parsing-arrays)e [matrici annidate](#nested-json-arrays).
 
-Per l'indicizzazione JSON basata sul codice, usare il [post](search-get-started-postman.md) e l'API REST per creare questi oggetti:
+Per l'indicizzazione JSON basata sul codice, usare la funzione [post o Visual Studio Code](search-get-started-rest.md) e l'API REST per creare questi oggetti:
 
 + [index](/rest/api/searchservice/create-index)
 + [origine dati](/rest/api/searchservice/create-data-source)
@@ -126,7 +126,7 @@ I BLOB JSON nell'archivio BLOB di Azure sono in genere un singolo documento JSON
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-assemblare gli input per la richiesta
 
-Per ogni richiesta, è necessario fornire il nome del servizio e la chiave amministratore per Azure ricerca cognitiva (nell'intestazione POST) e il nome e la chiave dell'account di archiviazione per l'archiviazione BLOB. È possibile usare il [post](search-get-started-postman.md) per inviare richieste HTTP ad Azure ricerca cognitiva.
+Per ogni richiesta, è necessario fornire il nome del servizio e la chiave amministratore per Azure ricerca cognitiva (nell'intestazione POST) e il nome e la chiave dell'account di archiviazione per l'archiviazione BLOB. È possibile usare uno [strumento di test dell'API Web](search-get-started-rest.md) per inviare richieste HTTP ad Azure ricerca cognitiva.
 
 Copiare i quattro valori seguenti nel blocco note in modo che sia possibile incollarli in una richiesta:
 
@@ -141,7 +141,7 @@ Copiare i quattro valori seguenti nel blocco note in modo che sia possibile inco
 
 2. Nel riquadro di spostamento a sinistra fare clic su **chiavi** e quindi copiare la chiave primaria o secondaria (sono equivalenti).
 
-3. Passare alle pagine del portale per l'account di archiviazione. Nel riquadro di spostamento a sinistra, in **Impostazioni** , fare clic su **chiavi di accesso**. In questa pagina vengono forniti il nome e la chiave dell'account. Copiare il nome dell'account di archiviazione e una delle chiavi nel blocco note.
+3. Passare alle pagine del portale per l'account di archiviazione. Nel riquadro di spostamento a sinistra, in **Impostazioni**, fare clic su **chiavi di accesso**. In questa pagina vengono forniti il nome e la chiave dell'account. Copiare il nome dell'account di archiviazione e una delle chiavi nel blocco note.
 
 ### <a name="2---create-a-data-source"></a>2-creare un'origine dati
 
@@ -293,7 +293,7 @@ I BLOB JSON possono assumere più forme. Il parametro **parsingMode** nell'indic
 
 | parsingMode | Descrizione |
 |-------------|-------------|
-| `json`  | Indicizzare ogni BLOB come un singolo documento. Questa è la modalità predefinita. |
+| `json`  | Indicizzare ogni BLOB come un singolo documento. Questo è il valore predefinito. |
 | `jsonArray` | Scegliere questa modalità se i BLOB sono costituiti da matrici JSON ed è necessario che ogni elemento della matrice diventi un documento separato in Azure ricerca cognitiva. |
 |`jsonLines` | Scegliere questa modalità se i BLOB sono costituiti da più entità JSON, separate da una nuova riga, ed è necessario che ogni entità diventi un documento separato in Azure ricerca cognitiva. |
 
