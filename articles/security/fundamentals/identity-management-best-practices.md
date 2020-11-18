@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 886597e5490acb94f43d840dc5a3d22092e45849
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 94cb40522a9e463fea2efae329daf910b5386cdd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698762"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832603"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 
@@ -157,7 +157,7 @@ Se sono presenti più tenant o si vuole consentire agli utenti di [reimpostare l
 
 È consigliabile richiedere la verifica in due passaggi per tutti gli utenti. Questo vale anche per gli amministratori e gli altri utenti dell'organizzazione la cui compromissione dell'account potrebbe avere un impatto significativo, ad esempio, i dirigenti del reparto finanziario.
 
-Sono disponibili vari modi per richiedere la verifica in due passaggi. L'opzione migliore dipende dall'obiettivo che si intende raggiungere, dall'edizione di Azure AD in esecuzione e dal programma di licenza. Vedere [Come richiedere la verifica in due passaggi per un utente](../../active-directory/authentication/howto-mfa-userstates.md) per determinare l'opzione migliore per il proprio ambiente. Altre informazioni sulle licenze e i prezzi sono disponibili nelle pagine relative ai prezzi di [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) e [Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
+Sono disponibili vari modi per richiedere la verifica in due passaggi. L'opzione migliore dipende dall'obiettivo che si intende raggiungere, dall'edizione di Azure AD in esecuzione e dal programma di licenza. Vedere [Come richiedere la verifica in due passaggi per un utente](../../active-directory/authentication/howto-mfa-userstates.md) per determinare l'opzione migliore per il proprio ambiente. Per altre informazioni sulle licenze e sui prezzi, vedere le pagine relative ai prezzi di [Azure ad](https://azure.microsoft.com/pricing/details/active-directory/) e [Azure ad multi-factor authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) .
 
 Di seguito sono indicati i vantaggi e le opzioni per l'abilitazione della verifica in due passaggi:
 
@@ -170,14 +170,14 @@ Di seguito sono indicati i vantaggi e le opzioni per l'abilitazione della verifi
 Questo metodo è disponibile per tutti i livelli di licenza, ma non può essere combinato con criteri di accesso condizionale esistenti. Altre informazioni sono disponibili in [Azure ad impostazioni predefinite di sicurezza](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md)
 
 **Opzione 2**: [abilitare l'autenticazione a più fattori modificando lo stato utente](../../active-directory/authentication/howto-mfa-userstates.md).   
-**Vantaggio**: questo è il metodo tradizionale per richiedere la verifica in due passaggi. Funziona sia con [Azure Multi-Factor Authentication nel cloud e Server Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md). Con questo metodo gli utenti devono eseguire la verifica in due passaggi ogni volta che eseguono l'accesso e viene eseguito l'override dei criteri di accesso condizionale.
+**Vantaggio**: questo è il metodo tradizionale per richiedere la verifica in due passaggi. Funziona con [Azure AD multi-factor authentication nel cloud e server multi-factor authentication di Azure](../../active-directory/authentication/concept-mfa-howitworks.md). Con questo metodo gli utenti devono eseguire la verifica in due passaggi ogni volta che eseguono l'accesso e viene eseguito l'override dei criteri di accesso condizionale.
 
-Per determinare dove è necessario abilitare l'autenticazione MFA, vedere [Determinazione della versione di Azure MFA adatta alla propria organizzazione](../../active-directory/authentication/concept-mfa-howitworks.md).
+Per determinare la posizione in cui è necessario abilitare Multi-Factor Authentication, vedere [quale versione di Azure ad multi-factor authentication è giusta per la propria organizzazione?](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 **Opzione 3**: [abilitare l'autenticazione MFA con criteri di accesso condizionale](../../active-directory/authentication/howto-mfa-getstarted.md).
 **Vantaggio**: questa opzione consente di richiedere la verifica in due passaggi in determinate condizioni usando l'[accesso condizionale](../../active-directory/conditional-access/concept-conditional-access-policy-common.md). L'accesso di utenti da posizioni diverse, l'uso di dispositivi non attendibili o l'uso di applicazioni considerate rischiose possono essere considerate condizioni specifiche. La definizione di condizioni specifiche in cui si richiede la verifica in due passaggi consente di evitare di chiedere continuamente conferma agli utenti della loro identità, che può risultare spiacevole.
 
-Questo rappresenta il mezzo più flessibile per abilitare la verifica in due passaggi per gli utenti. L'abilitazione mediante criteri di accesso condizionale funziona solo per Azure Multi-Factor Authentication nel cloud ed è una funzionalità premium di Azure AD. Per altre informazioni su questo metodo, vedere [Implementare Azure Multi-Factor Authentication basato su cloud](../../active-directory/authentication/howto-mfa-getstarted.md).
+Questo rappresenta il mezzo più flessibile per abilitare la verifica in due passaggi per gli utenti. L'abilitazione di un criterio di accesso condizionale funziona solo per Azure AD Multi-Factor Authentication nel cloud ed è una funzionalità Premium di Azure AD. Per ulteriori informazioni su questo metodo, vedere la pagina relativa alla [distribuzione di Azure ad basati su cloud multi-factor authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 **Opzione 4**: abilitare l'autenticazione MFA con criteri di accesso condizionale valutando i [criteri di accesso condizionale basati sul rischio](../../active-directory/conditional-access/howto-conditional-access-policy-risk.md).   
 **Vantaggio**: questa opzione consente di:
@@ -269,7 +269,7 @@ Valutare gli account assegnati o idonei per il ruolo di amministratore globale. 
 **Procedura consigliata**: richiedere che tutti gli account amministratore critici siano senza password (scelta consigliata) o richiedere l'autenticazione MFA.
 **Dettagli**: Usare l'[app Microsoft Authenticator](../../active-directory/authentication/howto-authentication-passwordless-phone.md) per accedere a qualsiasi account di Azure AD senza usare una password. Analogamente a [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator usa l'autenticazione basata su chiavi per abilitare credenziali utente associate a un dispositivo e usa l'autenticazione biometrica o un PIN.
 
-Richiedere Azure Multi-Factor Authentication al momento dell'accesso per tutti i singoli utenti che sono assegnati in modo permanente a uno o più ruoli di amministratore di Azure AD: Amministratore globale, Amministratore del ruolo con privilegi, Amministratore di Exchange Online e Amministratore di SharePoint Online. Abilitare [Multi-Factor Authentication per gli account amministratore](../../active-directory/authentication/howto-mfa-userstates.md) e assicurarsi che tali utenti account amministratore abbiano tutti eseguito la registrazione.
+Richiedere Azure AD Multi-Factor Authentication all'accesso per tutti i singoli utenti assegnati in modo permanente a uno o più ruoli di amministratore Azure AD: amministratore globale, amministratore del ruolo con privilegi, amministratore di Exchange Online e amministratore di SharePoint Online. Abilitare [Multi-Factor Authentication per gli account amministratore](../../active-directory/authentication/howto-mfa-userstates.md) e assicurarsi che tali utenti account amministratore abbiano tutti eseguito la registrazione.
 
 **Procedura consigliata**: per gli account amministratore critici, predisporre una workstation di amministrazione in cui non siano consentite attività di produzione, ad esempio esplorazione e posta elettronica. Questo consentirà di proteggere gli account amministratore da vettori di attacco che usano l'esplorazione e la posta elettronica e di ridurre in modo significativo il rischio di un evento imprevisto grave.
 **Dettagli**: usare una workstation di amministrazione. Scegliere un livello di sicurezza della workstation:

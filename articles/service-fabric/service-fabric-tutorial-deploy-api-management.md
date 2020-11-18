@@ -3,13 +3,13 @@ title: Integrare Gestione API con Service Fabric in Azure
 description: Informazioni su come iniziare a usare rapidamente Gestione API di Azure e instradare il traffico a un servizio back-end in Service Fabric.
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.custom: mvc
-ms.openlocfilehash: 40f8c53394292a85f6fd032e445d79ed82e2d4e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 61a13d80fd67751d77bc77199fa433143ad92048
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260250"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831702"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrare Gestione API con Service Fabric in Azure
 
@@ -186,7 +186,7 @@ Per un set completo di attributi di criteri di back-end di Service Fabric, veder
 
 Specificare un valore per i seguenti parametri vuoti in *apim.parameters.json* per la distribuzione.
 
-|Parametro|Valore|
+|Parametro|valore|
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|

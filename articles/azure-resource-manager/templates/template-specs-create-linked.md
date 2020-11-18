@@ -2,13 +2,13 @@
 title: Creare una specifica di modello con i modelli collegati
 description: Informazioni su come creare una specifica di modello con i modelli collegati.
 ms.topic: conceptual
-ms.date: 11/03/2020
-ms.openlocfilehash: b1862789ede4a9d2ab8c57bdb913c449a560dc58
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/17/2020
+ms.openlocfilehash: d86b46a88dde7ebffea81cdeb8dc184dd275c0da
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321600"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747435"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Esercitazione: creare una specifica di modello con i modelli collegati (anteprima)
 
@@ -19,7 +19,7 @@ Informazioni su come creare una [specifica del modello](template-specs.md) con u
 Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> La funzionalità Specifiche di modello è attualmente in anteprima. Per usarlo, è necessario [iscriversi per l'anteprima](https://aka.ms/templateSpecOnboarding).
+> La funzionalità Specifiche di modello è attualmente in anteprima. Per usarlo, è necessario installare la versione più recente di PowerShell o dell'interfaccia della riga di comando di Azure. Per Azure PowerShell, usare la [versione 5.0.0 o successiva](/powershell/azure/install-az-ps). Per l'interfaccia della riga di comando di Azure, usare la [versione 2.14.2 o successiva](/cli/azure/install-azure-cli).
 
 ## <a name="create-linked-templates"></a>Creare modelli collegati
 

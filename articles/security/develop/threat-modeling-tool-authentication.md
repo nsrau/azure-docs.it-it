@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: e9a1afd1d998fcb3ba715c890cc4deac1f0a7da5
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ee4dd70faab9ed44b1aa6ca8ca0ec517c7746f66
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94517717"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832531"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Infrastruttura di sicurezza: autenticazione - Procedure di mitigazione
 
@@ -30,7 +30,7 @@ ms.locfileid: "94517717"
 | **Applicazione Web**    | <ul><li>[Prendere in considerazione l'uso di un meccanismo di autenticazione standard per l'autenticazione nell'applicazione Web](#standard-authn-web-app)</li><li>[Gestire in modo sicuro scenari di autenticazione non riuscita mediante le applicazioni](#handle-failed-authn)</li><li>[Abilitare l'autenticazione di step up o Adaptive](#step-up-adaptive-authn)</li><li>[Assicurarsi che le interfacce amministrative siano bloccate correttamente](#admin-interface-lockdown)</li><li>[Implementare in modo sicuro funzionalità per le password dimenticate](#forgot-pword-fxn)</li><li>[Verificare che i criteri password e account siano implementati](#pword-account-policy)</li><li>[Implementare i controlli per impedire l'enumerazione del nome utente](#controls-username-enum)</li></ul> |
 | **Database** | <ul><li>[Quando possibile, utilizzare l'autenticazione di Windows per la connessione a SQL Server](#win-authn-sql)</li><li>[Quando possibile, usare l'autenticazione Azure Active Directory per la connessione al database SQL](#aad-authn-sql)</li><li>[Assicurarsi che vengano applicati i criteri di account e password in SQL Server quando viene usata la modalità di autenticazione SQL](#authn-account-pword)</li><li>[Non usare l'autenticazione SQL in database indipendenti](#autn-contained-db)</li></ul> |
 | **Hub eventi di Azure** | <ul><li>[Usare credenziali di autenticazione per dispositivo con i token di firma di accesso condiviso](#authn-sas-tokens)</li></ul> |
-| **Limite di trust di Azure** | <ul><li>[Abilitare Azure Multi-Factor Authentication per amministratori di Azure](#multi-factor-azure-admin)</li></ul> |
+| **Limite di trust di Azure** | <ul><li>[Abilitare Multi-Factor Authentication Azure AD per gli amministratori di Azure](#multi-factor-azure-admin)</li></ul> |
 | **Limite di trust di Service Fabric** | <ul><li>[Limitare l'accesso anonimo al cluster Service Fabric](#anon-access-cluster)</li><li>[Verificare che Service Fabric certificato da client a nodo sia diverso dal certificato da nodo a nodo](#fabric-cn-nn)</li><li>[Usare AAD per autenticare i client nei cluster di Service Fabric](#aad-client-fabric)</li><li>[Assicurarsi che i certificati di Service Fabric vengano ottenuti da un'Autorità di certificazione (CA) approvata](#fabric-cert-ca)</li></ul> |
 | **Identity Server** | <ul><li>[Usare scenari di autenticazione standard supportati da Identity Server](#standard-authn-id)</li><li>[Sostituire la cache dei token del server Identity predefinita con un'alternativa scalabile](#override-token)</li></ul> |
 | **Limite di Trust del computer** | <ul><li>[Assicurarsi che i file binari dell'applicazione distribuita abbiano una firma digitale](#binaries-signed)</li></ul> |
@@ -173,7 +173,7 @@ ms.locfileid: "94517717"
 | **Riferimenti**              | [Panoramica del modello di sicurezza e autenticazione di Hub eventi](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Passaggi** | <p>Il modello di sicurezza di Hub eventi si basa su una combinazione di token di firma di accesso condiviso e autori di eventi. Il nome dell'autore rappresenta l'ID dispositivo che riceve il token. Questo permette di associare i token generati con i rispettivi dispositivi.</p><p>Tutti i messaggi vengono contrassegnati con l'iniziatore sul lato del servizio, per consentire il rilevamento di tentativi di spoofing dell'origine nel payload. Durante l'autenticazione dei dispositivi, generare un token di firma di accesso condiviso per dispositivo con ambito limitato a un autore univoco.</p>|
 
-## <a name="enable-azure-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Abilitare Azure Multi-Factor Authentication per amministratori di Azure
+## <a name="enable-azure-ad-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Abilitare Multi-Factor Authentication Azure AD per gli amministratori di Azure
 
 | Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
@@ -181,7 +181,7 @@ ms.locfileid: "94517717"
 | **Fase SDL**               | Distribuzione |
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [Informazioni su Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) |
+| **Riferimenti**              | [Che cos'è Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md) |
 | **Passaggi** | <p>Multi-Factor Authentication (MFA) è un metodo di autenticazione che richiede più di un metodo di verifica e con il quale viene aggiunto un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. In genere richiede due o più dei metodi di verifica seguenti:</p><ul><li>Un elemento noto, in genere una password</li><li>Un oggetto fisico (un dispositivo attendibile non facilmente duplicabile, come un telefono)</li><li>Una caratteristica fisica dell'utente (biometrica)</li><ul>|
 
 ## <a name="restrict-anonymous-access-to-service-fabric-cluster"></a><a id="anon-access-cluster"></a>Limitare l'accesso anonimo a un cluster di Service Fabric

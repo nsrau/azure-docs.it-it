@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 67e1f1dff43939ce7ef279db57bee4b18bd12dc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45393f116149f6cf16763d2d7033f8425df235bf
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213950"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832994"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Trigger di archiviazione BLOB di Azure per funzioni di Azure
 
@@ -20,6 +20,16 @@ Il trigger di archiviazione BLOB avvia una funzione quando viene rilevato un BLO
 Il trigger di archiviazione BLOB di Azure richiede un account di archiviazione per utilizzo generico. Sono supportati anche gli account di archiviazione V2 con [spazi dei nomi gerarchici](../storage/blobs/data-lake-storage-namespace.md) . Per usare un account solo BLOB o se l'applicazione ha esigenze specializzate, esaminare le alternative all'uso di questo trigger.
 
 Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](./functions-bindings-storage-blob.md).
+
+## <a name="polling"></a>Polling
+
+Il polling funziona come ibrido tra l'ispezione dei log e l'esecuzione di analisi periodiche dei contenitori. I BLOB vengono analizzati in gruppi di 10.000 alla volta con un token di continuazione usato tra gli intervalli.
+
+> [!WARNING]
+> Per di più [i log di archiviazione vengono creati in base al principio del "massimo sforzo"](/rest/api/storageservices/About-Storage-Analytics-Logging). Non è garantito che tutti gli eventi vengano acquisiti. In alcune condizioni, l'acquisizione dei log può non riuscire.
+> 
+> Se è necessaria un'elaborazione BLOB più veloce o affidabile, è consigliabile creare un [messaggio della coda](../storage/queues/storage-dotnet-how-to-use-queues.md) quando si crea il BLOB. Usare quindi un [trigger di coda](functions-bindings-storage-queue.md) invece di un trigger di BLOB per elaborare il BLOB. Un'altra opzione consiste nell'usare Griglia di eventi. Vedere l'esercitazione [Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi](../event-grid/resize-images-on-storage-blob-upload-event.md).
+>
 
 ## <a name="alternatives"></a>Alternativi
 
@@ -349,7 +359,7 @@ Per cercare le parentesi graffe nei nomi dei file, raddoppiare le parentesi graf
 "path": "images/{{20140101}}-{name}",
 ```
 
-Se il BLOB è denominato * {20140101}-soundfile.mp3*, il `name` valore della variabile nel codice della funzione viene *soundfile.mp3*.
+Se il BLOB è denominato *{20140101}-soundfile.mp3*, il `name` valore della variabile nel codice della funzione viene *soundfile.mp3*.
 
 ## <a name="metadata"></a>Metadati
 
@@ -386,7 +396,7 @@ Il runtime di Funzioni di Azure verifica che nessuna funzione trigger di BLOB ve
 
 Funzioni di Azure archivia le conferme di BLOB in un contenitore denominato *azure-webjobs-hosts* nell'account di archiviazione di Azure per l'app per le funzioni, specificato dall'impostazione app `AzureWebJobsStorage`. Una conferma di BLOB contiene le seguenti informazioni:
 
-* Funzione attivata ("nome dell'app per le* &lt; funzioni>*. Funzioni. * &lt; nome della funzione>*", ad esempio:" MyFunctionApp. Functions. CopyBlob ")
+* Funzione attivata ("nome dell'app per le *&lt; funzioni>*. Funzioni. *&lt; nome della funzione>*", ad esempio:" MyFunctionApp. Functions. CopyBlob ")
 * Il nome del contenitore
 * Il tipo di BLOB ("BlockBlob" o "PageBlob")
 * Il nome del BLOB
@@ -400,7 +410,7 @@ Se una funzione di trigger del BLOB ha esito negativo per un determinato BLOB, p
 
 Se tutti i 5 tentativi non riescono, Funzioni di Azure aggiunge un messaggio a una coda di archiviazione denominata *webjobs-blobtrigger-poison*. Il numero massimo di tentativi è configurabile. La stessa impostazione MaxDequeueCount viene usata per la gestione dei BLOB non elaborabili e per la gestione dei messaggi della coda non elaborabile. Il messaggio di coda per i BLOB non elaborabili è un oggetto JSON che contiene le seguenti proprietà:
 
-* FunctionId (nel formato nome dell'app per le * &lt; funzioni>*. Funzioni. * &lt; nome funzione>*)
+* FunctionId (nel formato nome dell'app per le *&lt; funzioni>*. Funzioni. *&lt; nome funzione>*)
 * BlobType ("BlockBlob" o "PageBlob")
 * ContainerName
 * BlobName
@@ -413,16 +423,6 @@ Il trigger del BLOB usa una un servizio di accodamento interno, quindi il numero
 [Il piano a consumo](functions-scale.md#how-the-consumption-and-premium-plans-work) limita un'app per le funzioni in una macchina virtuale (VM) a 1,5 GB di memoria. La memoria viene usata da ogni istanza della funzione attualmente in esecuzione e dal runtime di funzioni stesso. Se una funzione di attivazione del BLOB carica l'intero BLOB nella memoria, la memoria massima usata da tale funzione solo per i BLOB è pari a 24 * le dimensioni massime del BLOB. Ad esempio, un'app per le funzioni con tre funzioni attivate dal BLOB e le impostazioni predefinite avrebbe una concorrenza per macchina virtuale massima pari a 3 * 24 = 72 chiamate di funzione.
 
 Le funzioni JavaScript e Java caricano l'intero BLOB in memoria e le funzioni C# eseguono questa operazione se si esegue l'associazione a `string` o `Byte[]` .
-
-## <a name="polling"></a>Polling
-
-Il polling funziona come ibrido tra l'ispezione dei log e l'esecuzione di analisi periodiche dei contenitori. I BLOB vengono analizzati in gruppi di 10.000 alla volta con un token di continuazione usato tra gli intervalli.
-
-> [!WARNING]
-> Per di più [i log di archiviazione vengono creati in base al principio del "massimo sforzo"](/rest/api/storageservices/About-Storage-Analytics-Logging). Non è garantito che tutti gli eventi vengano acquisiti. In alcune condizioni, l'acquisizione dei log può non riuscire.
-> 
-> Se è necessaria un'elaborazione BLOB più veloce o affidabile, è consigliabile creare un [messaggio della coda](../storage/queues/storage-dotnet-how-to-use-queues.md) quando si crea il BLOB. Usare quindi un [trigger di coda](functions-bindings-storage-queue.md) invece di un trigger di BLOB per elaborare il BLOB. Un'altra opzione consiste nell'usare Griglia di eventi. Vedere l'esercitazione [Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi](../event-grid/resize-images-on-storage-blob-upload-event.md).
->
 
 ## <a name="next-steps"></a>Passaggi successivi
 

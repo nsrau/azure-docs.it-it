@@ -4,17 +4,16 @@ description: Informazioni su come configurare una trasformazione sink nel flusso
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 2e26028c47e8c96f8c1adabc468ee6f03e3cb19c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.date: 11/17/2020
+ms.openlocfilehash: d45f5d5d1d61372ed959334519aa865c22d70748
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427293"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832501"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Trasformazione sink nel flusso di dati di mapping
 
@@ -65,13 +64,9 @@ Il video seguente illustra alcune opzioni di sink diverse per i tipi di file del
 
 ![Screenshot che mostra le impostazioni del sink.](media/data-flow/sink-settings.png "Screenshot che mostra le impostazioni del sink.")
 
-**Schema Drift** : la [deriva dello schema](concepts-data-flow-schema-drift.md) è la capacità di data factory di gestire in modo nativo gli schemi flessibili nei flussi di dati senza dover definire in modo esplicito le modifiche apportate alle colonne. Abilitare **Consenti Drift schema** per scrivere colonne aggiuntive sopra a quanto definito nello schema dei dati sink.
+**Schema Drift**: la [deriva dello schema](concepts-data-flow-schema-drift.md) è la capacità di data factory di gestire in modo nativo gli schemi flessibili nei flussi di dati senza dover definire in modo esplicito le modifiche apportate alle colonne. Abilitare **Consenti Drift schema** per scrivere colonne aggiuntive sopra a quanto definito nello schema dei dati sink.
 
-**Convalida schema** : se è selezionata l'opzione Convalida schema, il flusso di dati avrà esito negativo se una colonna dello schema di origine in ingresso non viene trovata nella proiezione di origine o se i tipi di dati non corrispondono. Usare questa impostazione per applicare che i dati di origine soddisfano il contratto della proiezione definita. È utile negli scenari di origine del database per segnalare che i nomi o i tipi di colonna sono stati modificati.
-
-**USA tempdb:** Per impostazione predefinita, Data Factory utilizzerà una tabella temporanea globale per archiviare i dati come parte del processo di caricamento. In alternativa, è possibile deselezionare l'opzione "USA TempDB" e invece chiedere Data Factory di archiviare la tabella temporanea in un database utente che si trova nel database usato per il sink.
-
-![Usa database temporaneo](media/data-flow/tempdb.png "Usa database temporaneo")
+**Convalida schema**: se è selezionata l'opzione Convalida schema, il flusso di dati avrà esito negativo se una colonna dello schema di origine in ingresso non viene trovata nella proiezione di origine o se i tipi di dati non corrispondono. Usare questa impostazione per applicare che i dati di origine soddisfano il contratto della proiezione definita. È utile negli scenari di origine del database per segnalare che i nomi o i tipi di colonna sono stati modificati.
 
 ## <a name="cache-sink"></a>Sink della cache
 
@@ -109,9 +104,14 @@ Per impostazione predefinita, i dati vengono scritti in più sink in un ordine n
 
 ![Ordinamento di sink personalizzato](media/data-flow/cache-2.png "Ordinamento di sink personalizzato")
 
+## <a name="error-row-handling"></a>Gestione delle righe con errori
+
+Quando si scrive nei database, alcune righe di dati potrebbero non riuscire a causa di vincoli impostati dalla destinazione. Per impostazione predefinita, l'esecuzione di un flusso di dati avrà esito negativo al primo errore ottenuto. In alcuni connettori è possibile scegliere di **continuare in** caso di errore che consente il completamento del flusso di dati anche se le singole righe contengono errori. Attualmente questa funzionalità è disponibile solo nel database SQL di Azure. Per altre informazioni, vedere [gestione delle righe con errori nel database SQL di Azure](connector-azure-sql-database.md#error-row-handling).
+
 ## <a name="data-preview-in-sink"></a>Anteprima dati in sink
 
 Quando si recupera un'anteprima dei dati in un cluster di debug, non vengono scritti dati nel sink. Verrà restituito uno snapshot dell'aspetto dei dati, ma non verrà scritto alcun elemento nella destinazione. Per testare la scrittura dei dati nel sink, eseguire un debug della pipeline dall'area di disegno della pipeline.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Ora che è stato creato il flusso di dati, aggiungere un' [attività flusso di dati alla pipeline](concepts-data-flow-overview.md).

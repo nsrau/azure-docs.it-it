@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6423ec481c65155b511e398885b4954522bbb376
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 6baebdab06a72d3a4af05b4d2e04bc9eee6acb60
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93025902"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833011"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure
 
@@ -56,7 +56,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 L'esempio seguente mostra un'associazione di trigger timer in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione scrive un log che indica se la chiamata di funzione è dovuta un'occorrenza di pianificazione mancante. L' [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) oggetto viene passato nella funzione.
 
-Ecco i dati di associazione nel file *function.json* :
+Ecco i dati di associazione nel file *function.json*:
 
 ```json
 {
@@ -99,7 +99,7 @@ public void keepAlive(
 
 L'esempio seguente mostra un'associazione di trigger timer in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione scrive un log che indica se la chiamata di funzione è dovuta un'occorrenza di pianificazione mancante. Un [oggetto timer](#usage) viene passato nella funzione.
 
-Ecco i dati di associazione nel file *function.json* :
+Ecco i dati di associazione nel file *function.json*:
 
 ```json
 {
@@ -163,9 +163,9 @@ Un'istanza dell' [oggetto timer](#usage) viene passata come primo argomento alla
 
 # <a name="python"></a>[Python](#tab/python)
 
-Nell'esempio seguente viene utilizzata un'associazione di trigger timer la cui configurazione è descritta nel *function.jssu* file. La [funzione Python](functions-reference-python.md) effettiva che usa l'associazione è descritta nel file *__init__ . py* . L'oggetto passato nella funzione è di tipo [Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La logica della funzione scrive nei log che indicano se la chiamata corrente è dovuta a un'occorrenza di pianificazione mancante.
+Nell'esempio seguente viene utilizzata un'associazione di trigger timer la cui configurazione è descritta nel *function.jssu* file. La [funzione Python](functions-reference-python.md) effettiva che usa l'associazione è descritta nel file *__init__. py* . L'oggetto passato nella funzione è di tipo [Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La logica della funzione scrive nei log che indicano se la chiamata corrente è dovuta a un'occorrenza di pianificazione mancante.
 
-Ecco i dati di associazione nel file *function.json* :
+Ecco i dati di associazione nel file *function.json*:
 
 ```json
 {
@@ -300,7 +300,7 @@ Ogni campo può avere uno dei tipi di valori seguenti:
 |Type  |Esempio  |Quando viene attivato  |
 |---------|---------|---------|
 |Valore specifico |<nobr>"0 5 * * * *"</nobr>|Alle hh.05.00, dove hh corrisponde a ogni ora (una volta all'ora)|
-|Tutti i valori (`*`)|<nobr>"0 * 5 * * *"</nobr>|Alle 5.mm.00 ogni giorno, dove mm è ogni minuto dell'ora (60 volte al giorno)|
+|Tutti i valori (`*`)|<nobr>"0 * 5 * * *"</nobr>|alle 5: mm: 00 ogni giorno, dove mm è ogni minuto dell'ora (60 volte nell'ora specificata)|
 |Intervallo (operatore `-`)|<nobr>"5-7 * * * * *"</nobr>|Alle hh.mm.05, hh.mm.06 e hh.mm.07, dove hh.mm è ogni minuto di ogni ora (3 volte al minuto)|
 |Set di valori (operatore `,`)|<nobr>"5,8,10 * * * * *"</nobr>|Alle hh.mm.05, hh.mm.08 e hh.mm.10, dove hh.mm è ogni minuto di ogni ora (3 volte al minuto)|
 |Valore di intervallo (operatore `/`)|<nobr>"0 */5 * * * *"</nobr>|alle HH: 00:00, HH: 05:00, HH: 10:00 e così via fino a HH: 55:00 dove HH è ogni ora (12 volte un'ora)|

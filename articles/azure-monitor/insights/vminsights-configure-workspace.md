@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 9827f79f8407bd04468f1b4456aec9d6a8793a6f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: a7bdc1ee22d3672160122cad65b18de99f743cc7
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506295"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747690"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurare l'area di lavoro Log Analytics per Monitoraggio di Azure per le macchine virtuali
 Monitoraggio di Azure per le macchine virtuali raccoglie i dati da una o più aree di lavoro Log Analytics in monitoraggio di Azure. Prima di caricare gli agenti, è necessario creare e configurare un'area di lavoro. Questo articolo descrive i requisiti dell'area di lavoro e per configurarlo per Monitoraggio di Azure per le macchine virtuali.
@@ -78,7 +78,7 @@ Prima di poter usare un'area di lavoro Log Analytics con Monitoraggio di Azure p
 > Quando si aggiunge la soluzione *VMInsights* all'area di lavoro, tutte le macchine virtuali esistenti connesse all'area di lavoro inizieranno a inviare i dati a InsightsMetrics. I dati per gli altri tipi di dati non verranno raccolti fino a quando non si aggiungeranno le Dependency Agent alle macchine virtuali esistenti connesse all'area di lavoro.
 
 ### <a name="azure-portal"></a>Portale di Azure
-Sono disponibili tre opzioni per la configurazione di un'area di lavoro esistente dal portale di Azure.
+Sono disponibili tre opzioni per la configurazione di un'area di lavoro esistente usando il portale di Azure. Ognuno di essi è descritto di seguito.
 
 Per configurare una singola area di lavoro, selezionare le **altre opzioni di onboarding** e quindi **configurare un'area di lavoro**. Selezionare una sottoscrizione e un'area di lavoro, quindi fare clic su **Configura**.
 

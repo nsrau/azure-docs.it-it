@@ -10,18 +10,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 4fb62ec8d3a6fa97fe6db5b146ba58d3ad66b1b4
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.custom: how-to, devx-track-python, devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: fa1b19ef4ece3011c97c3158d54edd1d39efc09d
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441988"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832637"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Come usare un modello di Azure Machine Learning distribuito come servizio Web
 
 
-La distribuzione di un modello di Azure Machine Learning come servizio Web crea un endpoint API REST. È possibile inviare dati a questo endpoint e ottenere la previsione restituita dal modello. Questo documento illustra come creare client per il servizio Web usando C#, Go, Java e Python.
+Quando si distribuisce un modello di Azure Machine Learning come servizio Web, viene creato un endpoint dell'API REST. È possibile inviare dati a questo endpoint e ottenere la previsione restituita dal modello. Questo documento illustra come creare client per il servizio Web usando C#, Go, Java e Python.
 
 Si crea un servizio Web quando si distribuisce un modello nell'ambiente locale, istanze di contenitore di Azure, servizio Azure Kubernetes o FPGA (Field-Programmable Gate Array). Per recuperare l'URI utilizzato per accedere al servizio Web, è possibile utilizzare il [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Se l'autenticazione è abilitata, è anche possibile usare l'SDK per ottenere le chiavi di autenticazione o i token.
 
@@ -85,7 +85,7 @@ az ml service show -n <service-name>
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Da Azure Machine Learning Studio selezionare __endpoint__ , endpoint in __tempo reale__ e quindi il nome dell'endpoint. In dettagli per l'endpoint, il campo dell' __endpoint REST__ contiene l'URI di assegnazione dei punteggi. L' __URI di spavalderia__ contiene l'URI di spavalderia.
+Da Azure Machine Learning Studio selezionare __endpoint__, endpoint in __tempo reale__ e quindi il nome dell'endpoint. In dettagli per l'endpoint, il campo dell' __endpoint REST__ contiene l'URI di assegnazione dei punteggi. L' __URI di spavalderia__ contiene l'URI di spavalderia.
 
 ---
 

@@ -9,12 +9,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 96e10bc19d59b60824a908c67816a21ca80326d0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202957"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832807"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Eseguire l'autenticazione in servizi di comunicazione di Azure
 
@@ -27,7 +27,7 @@ La tabella seguente descrive le opzioni di autenticazione supportate dalle libre
 | Libreria client | Chiave di accesso    | Token di accesso utente |
 | -------------- | ------------- | ------------------ |
 | Amministrazione | Supportato     | Non supportato      |
-| SMS            | Supportato     | Non supportato      |
+| sms            | Supportato     | Non supportato      |
 | Chat           | Non supportato | Supportato          |
 | Chiamata        | Non supportato | Supportato          |
 
@@ -72,11 +72,11 @@ Se non si usa una libreria client per effettuare richieste HTTP alle API REST de
 
 I token di accesso utente consentono alle applicazioni client di eseguire l'autenticazione direttamente nei servizi di comunicazione di Azure. A tale scopo, è necessario configurare un servizio attendibile che autentica gli utenti dell'applicazione e rilascia i token di accesso utente con la libreria client di amministrazione. Per ulteriori informazioni sulle considerazioni sull'architettura, vedere la documentazione concettuale sull' [architettura client e server](./client-and-server-architecture.md) .
 
-La `CommunicationClientCredential` classe contiene la logica per fornire le credenziali del token di accesso utente alle librerie client e la gestione del ciclo di vita.
+La `CommunicationUserCredential` classe contiene la logica per fornire le credenziali del token di accesso utente alle librerie client e la gestione del ciclo di vita.
 
 ### <a name="initialize-the-client-libraries"></a>Inizializzare le librerie client
 
-Per inizializzare le librerie client dei servizi di comunicazione di Azure che richiedono l'autenticazione basata su token di accesso utente, creare prima un'istanza della `CommunicationClientCredential` classe e quindi usarla per inizializzare un client API.
+Per inizializzare le librerie client dei servizi di comunicazione di Azure che richiedono l'autenticazione basata su token di accesso utente, creare prima un'istanza della `CommunicationUserCredential` classe e quindi usarla per inizializzare un client API.
 
 I frammenti di codice seguenti illustrano come inizializzare la libreria client di chat con un token di accesso utente:
 

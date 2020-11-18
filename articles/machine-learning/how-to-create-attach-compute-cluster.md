@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: ce80c6bbd3e4a5154e80317c3918776c771e67fb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0bbf70016dc9b93120b3158e8954c336095ea211
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318215"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832688"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Creare un cluster di elaborazione di Azure Machine Learning
 
@@ -58,9 +58,9 @@ I cluster di calcolo possono eseguire processi in modo sicuro in un [ambiente di
 > I cluster possono in genere essere ridimensionati fino a 100 nodi, purché si disponga di una quota sufficiente per il numero di core necessari. Per impostazione predefinita, i cluster sono impostati con la comunicazione tra i nodi abilitata, ad esempio per supportare i processi MPI. È tuttavia possibile ridimensionare i cluster a migliaia di nodi semplicemente [generando un ticket di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)e richiedendo di consentire l'elenco della sottoscrizione o dell'area di lavoro o di un cluster specifico per la disabilitazione della comunicazione tra nodi. 
 
 
-## <a name="create"></a>Create
+## <a name="create"></a>Creare
 
-**Tempo stimato** : circa 5 minuti.
+**Tempo stimato**: circa 5 minuti.
 
 Un ambiente di calcolo di Azure Machine Learning può essere usato su più esecuzioni. L'ambiente di calcolo può essere condiviso con altri utenti nell'area di lavoro e mantenuto da un'esecuzione all'altra, ridimensionando automaticamente i nodi in base al numero di esecuzioni inviate e all'impostazione max_nodes definita nel cluster. L'impostazione min_nodes controlla il numero minimo di nodi disponibili.
 
@@ -74,8 +74,8 @@ Il calcolo viene ridimensionato automaticamente fino a zero nodi quando non vien
 
 Per creare una risorsa permanente di ambiente di calcolo di Machine Learning in Python, specificare le proprietà **vm_size** e **max_nodes**. Azure Machine Learning quindi usa valori predefiniti intelligenti per le altre proprietà. 
     
-* **vm_size** : la famiglia di macchine virtuali dei nodi creati dall'ambiente di calcolo di Azure Machine Learning.
-* **max_nodes** : il numero massimo di nodi per la scalabilità automatica durante l'esecuzione di un processo in un ambiente di calcolo di Machine Learning.
+* **vm_size**: la famiglia di macchine virtuali dei nodi creati dall'ambiente di calcolo di Azure Machine Learning.
+* **max_nodes**: il numero massimo di nodi per la scalabilità automatica durante l'esecuzione di un processo in un ambiente di calcolo di Machine Learning.
 
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]

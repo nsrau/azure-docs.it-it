@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 8f1ea67605be3aee6257c293aea3db617d885645
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3174dbd36d9bb39ce606ec12f88397f795e91526
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370254"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832433"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gestire e trovare i dati BLOB di Azure con i tag degli indici BLOB (anteprima)
 
@@ -247,7 +247,7 @@ Per consentire l'accesso ai tag degli indici BLOB, è possibile concedere le aut
 
 | Autorizzazione | Simbolo URI | Operazioni consentite                |
 |------------|------------|-----------------------------------|
-| Tag di indice |     t      | Ottenere e impostare i tag di indice per un BLOB |
+| Tag di indice |     u      | Ottenere e impostare i tag di indice per un BLOB |
 
 #### <a name="container-sas"></a>Firma di accesso condiviso del contenitore
 
@@ -327,6 +327,7 @@ Questa sezione descrive i problemi noti e le condizioni nell'anteprima pubblica 
 - Quando il filtro è limitato a un singolo contenitore, `@container` può essere passato solo se tutti i tag di indice nell'espressione di filtro sono controlli di uguaglianza (chiave = valore).
 - Quando si utilizza l'operatore Range con la `AND` condizione, è possibile specificare solo lo stesso nome di chiave del tag di indice ( `"Age" > '013' AND "Age" < '100'` ).
 - Il controllo delle versioni e l'indice BLOB non sono supportati. I tag dell'indice BLOB vengono conservati per le versioni, ma non vengono passati al motore dell'indice BLOB.
+- Non è disponibile alcuna API per determinare se i tag di indice sono indicizzati.
 - Il failover dell'account non è supportato. È possibile che l'indice BLOB non venga aggiornato correttamente dopo il failover.
 - La gestione del ciclo di vita supporta solo i controlli di uguaglianza con corrispondenza dell'indice BLOB.
 - `Copy Blob` non copia i tag degli indici BLOB dal BLOB di origine al nuovo BLOB di destinazione. È possibile specificare i tag che si desidera applicare al BLOB di destinazione durante l'operazione di copia.

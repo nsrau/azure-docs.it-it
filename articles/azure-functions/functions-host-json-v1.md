@@ -3,12 +3,12 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 1.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 32848c725d5c99e3814e86447d604839502054c0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 588ab6723015f34d15e4a46ec4f7324302b13b81
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167722"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832824"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Informazioni di riferimento su host.json per Funzioni di Azure 1.x
 
@@ -93,7 +93,8 @@ I file di esempio *host.json* seguenti hanno tutte le possibili opzioni specific
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
+      "autoRenewTimeout": "00:05:00",
+      "autoComplete": true
     },
     "singleton": {
       "lockPeriod": "00:00:15",
@@ -286,6 +287,7 @@ Impostazione di configurazione per l' [associazione di output SendGrind](functio
     "sendGrid": {
         "from": "Contoso Group <admin@contoso.com>"
     }
+}    
 ```
 
 |Proprietà  |Predefinito | Descrizione |
@@ -301,7 +303,8 @@ Impostazione di configurazione per i [trigger e le associazioni dei bus di servi
     "serviceBus": {
       "maxConcurrentCalls": 16,
       "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
+      "autoRenewTimeout": "00:05:00",
+      "autoComplete": true
     }
 }
 ```
@@ -310,7 +313,8 @@ Impostazione di configurazione per i [trigger e le associazioni dei bus di servi
 |---------|---------|---------| 
 |maxConcurrentCalls|16|Il numero massimo di chiamate simultanee al callback che il message pump deve avviare. Per impostazione predefinita, il runtime di Funzioni elabora più messaggi contemporaneamente. Per fare in modo che il runtime elabori un solo messaggio della coda o dell'argomento alla volta, impostare `maxConcurrentCalls` su 1. | 
 |prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato per il MessageReceiver sottostante.| 
-|autoRenewTimeout|00:05:00|La durata massima entro il quale il blocco del messaggio verrà rinnovato automaticamente.| 
+|autoRenewTimeout|00:05:00|La durata massima entro il quale il blocco del messaggio verrà rinnovato automaticamente.|
+|autoComplete|True|Se il valore è true, il trigger completerà automaticamente l'elaborazione del messaggio in caso di esecuzione corretta dell'operazione. Quando è false, è responsabilità della funzione completare il messaggio prima della restituzione.|
 
 ## <a name="singleton"></a>singleton
 

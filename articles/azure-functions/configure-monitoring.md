@@ -3,13 +3,13 @@ title: Configurare il monitoraggio per funzioni di Azure
 description: Informazioni su come connettere l'app per le funzioni a Application Insights per il monitoraggio e su come configurare la raccolta dei dati.
 ms.date: 8/31/2020
 ms.topic: how-to
-ms.custom: contperfq2
-ms.openlocfilehash: 50705eeedf9c985a053600a8c0b27c823231e9a3
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: contperfq2, devx-track-azurecli
+ms.openlocfilehash: f5b1b00c534abf1e7f82d2aca69dd4763b40d5ad
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217185"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833079"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Come configurare il monitoraggio per funzioni di Azure
 
@@ -28,7 +28,7 @@ Il logger di Funzioni di Azure include un *categoria* per ogni log. La categoria
 
 # <a name="v2x"></a>[V2. x +](#tab/v2)
 
-| Category | Tabella | Descrizione |
+| Categoria | Tabella | Descrizione |
 | ----- | ----- | ----- |
 | **`Function.<YOUR_FUNCTION_NAME>`** | **dipendenze**| I dati sulle dipendenze vengono raccolti automaticamente per alcuni servizi. Per le esecuzioni riuscite, questi log sono al `Information` livello. Per altre informazioni, vedere [dipendenze](functions-monitoring.md#dependencies). Le eccezioni vengono registrate a `Error` livello di. Il runtime crea anche `Warning` log di livello, ad esempio quando i messaggi della coda vengono inviati alla [coda non elaborabile](functions-bindings-storage-queue-trigger.md#poison-messages). | 
 | **`Function.<YOUR_FUNCTION_NAME>`** | **customMetrics**<br/>**customEvents** | Gli SDK C# e JavaScript consentono di raccogliere metriche personalizzate e registrare eventi personalizzati. Per altre informazioni, vedere [dati di telemetria personalizzati](functions-monitoring.md#custom-telemetry-data).|
@@ -41,7 +41,7 @@ Il logger di Funzioni di Azure include un *categoria* per ogni log. La categoria
 
 # <a name="v1x"></a>[v1.x](#tab/v1)
 
-| Category | Tabella | Descrizione |
+| Categoria | Tabella | Descrizione |
 | ----- | ----- | ----- |
 | **`Function`** | **traces**| Log generati dall'utente, che possono essere a qualsiasi livello di log. Per altre informazioni sulla scrittura nei log delle funzioni, vedere [scrittura nei log](functions-monitoring.md#writing-to-logs). | 
 | **`Host.Aggregator`** | **customMetrics** | Questi log generati in fase di esecuzione forniscono conteggi e medie delle chiamate di funzione in un periodo di tempo [configurabile](#configure-the-aggregator) . Il periodo predefinito è 30 secondi o 1000 risultati, ovvero quello che viene prima. Gli esempi indicano il numero di esecuzioni, la percentuale di riuscita e la durata. Tutti questi log vengono scritti al livello `Information`. Se si filtra per `Warning` o categoria successiva, non verrà visualizzato alcun dato. |
@@ -245,7 +245,7 @@ Se si sceglie **Crea**, viene creata una risorsa di Application Insights con l'a
 
 Se non è stato creato un Application Insights risorse con l'app per le funzioni, seguire questa procedura per creare la risorsa. È quindi possibile aggiungere la chiave di strumentazione dalla risorsa come [impostazione dell'applicazione](functions-how-to-use-azure-function-app-settings.md#settings) nell'app per le funzioni.
 
-1. Nella [portale di Azure](https://portal.azure.com)cercare e selezionare app per le **funzioni**e quindi scegliere l'app per le funzioni. 
+1. Nella [portale di Azure](https://portal.azure.com)cercare e selezionare app per le **funzioni** e quindi scegliere l'app per le funzioni. 
 
 1. Selezionare il banner **Application Insights non è configurato** nella parte superiore della finestra. Se questo banner non è visibile, Application Insights potrebbe già essere abilitato per l'app.
 
@@ -258,7 +258,7 @@ Se non è stato creato un Application Insights risorse con l'app per le funzioni
     | **Nuovo nome risorsa** | Nome app univoco | È più facile usare lo stesso nome dell'app per le funzioni, che deve essere univoco nella sottoscrizione. | 
     | **Posizione** | Europa occidentale | Se possibile, usare la stessa [area](https://azure.microsoft.com/regions/) dell'app per le funzioni oppure una vicina a tale area. |
 
-    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Abilitare Application Insights nel portale":::
+    :::image type="content" source="media/configure-monitoring/ai-general.png" alt-text="Creare una risorsa di Application Insights":::
 
 1. Selezionare **Applica**. 
 

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2020
-ms.openlocfilehash: a8890db90fa9f76b676a5fb944f74a773b00c8cd
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 80280702748040e12d1d3d048644e6a16c926256
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737511"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832382"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Trasformazione origine nel flusso di dati di mapping
 
@@ -50,6 +50,7 @@ Il flusso di dati di mapping segue un approccio di estrazione, caricamento e tra
 | [Database SQL di Azure](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Istanza gestita SQL di Azure (anteprima)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Cosmos DB (API SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Hive](connector-hive.md#mapping-data-flow-properties) | | -/✓ | 
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
 Le impostazioni specifiche di questi connettori si trovano nella scheda **Opzioni di origine** . Esempi di script di flusso di dati e informazioni su queste impostazioni sono disponibili nella documentazione del connettore.
@@ -64,13 +65,13 @@ Dopo aver aggiunto un'origine, configurare tramite la scheda **impostazioni di o
 
 ![Screenshot che mostra la scheda Impostazioni di origine.](media/data-flow/source1.png "Screenshot che mostra la scheda Impostazioni di origine.")
 
-**Nome del flusso di output** : nome della trasformazione di origine.
+**Nome del flusso di output**: nome della trasformazione di origine.
 
-**Tipo di origine** : scegliere se si desidera utilizzare un set di dati inline o un oggetto DataSet esistente.
+**Tipo di origine**: scegliere se si desidera utilizzare un set di dati inline o un oggetto DataSet esistente.
 
-**Test connessione** : verificare se il servizio Spark del flusso di dati è in grado di connettersi al servizio collegato usato nel set di dati di origine. Per abilitare questa funzionalità, è necessario attivare la modalità di debug.
+**Test connessione**: verificare se il servizio Spark del flusso di dati è in grado di connettersi al servizio collegato usato nel set di dati di origine. Per abilitare questa funzionalità, è necessario attivare la modalità di debug.
 
-**Schema Drift** : la [deriva dello schema](concepts-data-flow-schema-drift.md) è la capacità di data factory di gestire in modo nativo gli schemi flessibili nei flussi di dati senza dover definire in modo esplicito le modifiche apportate alle colonne.
+**Schema Drift**: la [deriva dello schema](concepts-data-flow-schema-drift.md) è la capacità di data factory di gestire in modo nativo gli schemi flessibili nei flussi di dati senza dover definire in modo esplicito le modifiche apportate alle colonne.
 
 * Selezionare la casella di controllo **Consenti la deriva dello schema** se le colonne di origine vengono modificate spesso. Questa impostazione consente a tutti i campi di origine in ingresso di scorrere le trasformazioni nel sink.
 
@@ -80,7 +81,7 @@ Dopo aver aggiunto un'origine, configurare tramite la scheda **impostazioni di o
 
 **Ignora conteggio** righe: il campo **Skip line count** specifica il numero di righe da ignorare all'inizio del set di dati.
 
-**Campionamento** : abilitare il **campionamento** per limitare il numero di righe dall'origine. Usare questa impostazione quando si testano o si campionano i dati dall'origine a scopo di debug.
+**Campionamento**: abilitare il **campionamento** per limitare il numero di righe dall'origine. Usare questa impostazione quando si testano o si campionano i dati dall'origine a scopo di debug.
 
 Per convalidare che l'origine sia configurata correttamente, attivare la modalità di debug e recuperare un'anteprima dei dati. Per altre informazioni, vedere [modalità di debug](concepts-data-flow-debug-mode.md).
 

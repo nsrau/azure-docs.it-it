@@ -8,18 +8,18 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf48f873127a12c3cabb28da33d34cedcda2793b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050863"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831567"
 ---
 # <a name="examine-the-video-indexer-output"></a>Esaminare l'output del Video Indexer
 
-Quando un video viene indicizzato, Video Indexer poduces il contenuto JSON che contiene i dettagli del video specificato. Le informazioni dettagliate includono: trascrizioni, OCR, visi, argomenti, blocchi e così via. Ogni tipo di informazioni include le istanze degli intervalli temporali che mostrano quando l'Insight viene visualizzato nel video. 
+Quando un video viene indicizzato, Video Indexer produce il contenuto JSON che contiene i dettagli del video specificato. Le informazioni dettagliate includono: trascrizioni, OCR, visi, argomenti, blocchi e così via. Ogni tipo di informazioni include le istanze degli intervalli temporali che mostrano quando l'Insight viene visualizzato nel video. 
 
 È possibile esaminare visivamente le informazioni dettagliate riepilogate del video premendo il pulsante **Riproduci** sul video nel sito Web [video Indexer](https://www.videoindexer.ai/) . 
 
@@ -187,6 +187,7 @@ Una faccia potrebbe avere un ID, un nome, un'anteprima, altri metadati e un elen
 |textualContentModeration|Informazioni dettagliate su [textualContentModeration](#textualcontentmoderation) .|
 |emotions| Le [emozioni](#emotions) approfondite.|
 |topics|Informazioni dettagliate sugli [argomenti](#topics) .|
+|altoparlanti|Informazioni dettagliate per gli [speaker](#speakers) .|
 
 Esempio:
 
@@ -221,37 +222,46 @@ instances|Elenco degli intervalli di tempo di questo blocco.|
 |Nome|Descrizione|
 |---|---|
 |id|ID della riga.|
-|text|Testo della trascrizione.|
+|testo|Testo della trascrizione.|
+|confidence|Attendibilità della trascrizione.|
+|speakerId|ID del relatore.|
 |Linguaggio|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga. Se l'istanza corrisponde a un'intera trascrizione, è riportata una sola istanza.|
 
 Esempio:
 
 ```json
-"transcript": [
+"transcript":[
 {
-    "id": 0,
-    "text": "Hi I'm Doug from office.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    }
-    ]
+  "id":1,
+  "text":"Well, good morning everyone and welcome to",
+  "confidence":0.8839,
+  "speakerId":1,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
 },
 {
-    "id": 1,
-    "text": "I have a guest. It's Michelle.",
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:02.7200000",
-        "end": "00:00:03.9600000"
-    }
-    ]
-}
-] 
+  "id":2,
+  "text":"ignite 2016. Your mission at Microsoft is to empower every",
+  "confidence":0.8944,
+  "speakerId":2,
+  "language":"en-US",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
 ```
 
 #### <a name="ocr"></a>ocr
@@ -259,7 +269,7 @@ Esempio:
 |Nome|Descrizione|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
-|text|Testo risultante dal riconoscimento ottico dei caratteri.|
+|testo|Testo risultante dal riconoscimento ottico dei caratteri.|
 |confidence|Grado di attendibilità del riconoscimento.|
 |Linguaggio|Lingua del riconoscimento ottico dei caratteri.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
@@ -294,7 +304,7 @@ Esempio:
 |Nome|Descrizione|
 |---|---|
 |id|ID della parola chiave.|
-|text|Testo della parola chiave.|
+|testo|Testo della parola chiave.|
 |confidence|Grado di attendibilità del riconoscimento della parola chiave.|
 |Linguaggio|Lingua della parola chiave, quando tradotta.|
 |instances|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|
@@ -585,7 +595,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 |Nome|Descrizione|
 |---|---|
 |id|L'ID dell'effetto audio.|
-|type|Tipo di effetto audio, ad esempio applausi, voce o silenzio.|
+|tipo|Tipo di effetto audio, ad esempio applausi, voce o silenzio.|
 |instances|Elenco degli intervalli di tempo in cui è presente l'effetto audio.|
 
 ```json
@@ -699,7 +709,7 @@ Video Indexer identifica le emozioni in base ai suggerimenti vocali e audio. L'e
 |Nome|Descrizione|
 |---|---|
 |id|ID dell'emozione.|
-|type|Il momento in cui l'emozione è stata identificata in base ai suggerimenti vocali e audio. L'emozione potrebbe essere: gioia, tristezza, rabbia o timore.|
+|tipo|Il momento in cui l'emozione è stata identificata in base ai suggerimenti vocali e audio. L'emozione potrebbe essere: gioia, tristezza, rabbia o timore.|
 |instances|Elenco degli intervalli di tempo in cui è comparsa l'emozione.|
 
 ```json
@@ -827,6 +837,42 @@ Video Indexer deduce gli argomenti principali dalle trascrizioni. Quando possibi
 . . .
 ```
 
+#### <a name="speakers"></a>altoparlanti
+
+|Nome|Descrizione|
+|---|---|
+|id|ID altoparlante.|
+|name|Il nome del relatore sotto forma di "Speaker # *<number>* ", ad esempio: "speaker #1".|
+|instances |Elenco di intervalli di tempo in cui è stato visualizzato questo altoparlante.|
+
+```json
+"speakers":[
+{
+  "id":1,
+  "name":"Speaker #1",
+  "instances":[
+     {
+    "adjustedStart":"0:00:10.21",
+    "adjustedEnd":"0:00:12.81",
+    "start":"0:00:10.21",
+    "end":"0:00:12.81"
+     }
+  ]
+},
+{
+  "id":2,
+  "name":"Speaker #2",
+  "instances":[
+     {
+    "adjustedStart":"0:00:12.81",
+    "adjustedEnd":"0:00:17.03",
+    "start":"0:00:12.81",
+    "end":"0:00:17.03"
+     }
+  ]
+},
+` ` `
+```
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai)

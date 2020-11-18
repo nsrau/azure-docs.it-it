@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 35df99d0a30b0952521281fa0d6bb95ce0509695
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8f7baca94d653d9851c506068ccf7ecf84063641
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740996"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832178"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualizzare i dati di un sensore in tempo reale dall'hub IoT di Azure in un'applicazione Web
 
@@ -51,13 +51,7 @@ In questa esercitazione si imparerà a visualizzare i dati del sensore in tempo 
 
 * I passaggi descritti in questo articolo presuppongono un computer di sviluppo Windows, tuttavia è possibile eseguire facilmente questi passaggi in un sistema Linux nella shell preferita.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Aggiungere un gruppo di consumer dell'hub IoT
 
@@ -73,7 +67,7 @@ Annotare il nome scelto, che sarà necessario più avanti in questa esercitazion
 
 ## <a name="get-a-service-connection-string-for-your-iot-hub"></a>Ottenere una stringa di connessione del servizio per l'hub IoT
 
-Gli hub IoT vengono creati con diversi criteri di accesso predefiniti. Uno di questi è il criterio del **servizio** , che offre a un servizio autorizzazioni sufficienti per la lettura e la scrittura degli endpoint dell'hub IoT. Eseguire il comando seguente per ottenere una stringa di connessione per l'hub IoT che rispetti i criteri del servizio:
+Gli hub IoT vengono creati con diversi criteri di accesso predefiniti. Uno di questi è il criterio del **servizio**, che offre a un servizio autorizzazioni sufficienti per la lettura e la scrittura degli endpoint dell'hub IoT. Eseguire il comando seguente per ottenere una stringa di connessione per l'hub IoT che rispetti i criteri del servizio:
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name YourIotHub --policy-name service
@@ -147,7 +141,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
 
 Aprire una finestra in `http://localhost:3000`.
 
-Nell'elenco **Seleziona un dispositivo** , selezionare il dispositivo per visualizzare un tracciato di esecuzione degli ultimi 50 punti dati di temperatura e umidità inviati dal dispositivo all'hub IoT.
+Nell'elenco **Seleziona un dispositivo**, selezionare il dispositivo per visualizzare un tracciato di esecuzione degli ultimi 50 punti dati di temperatura e umidità inviati dal dispositivo all'hub IoT.
 
 ![Pagina dell'app Web che mostra temperatura e umidità in tempo reale](./media/iot-hub-live-data-visualization-in-web-apps/web-page-output.png)
 
@@ -253,7 +247,7 @@ Se si verificano problemi con questo esempio, provare a eseguire i passaggi nell
 
 ### <a name="azure-app-service-issues"></a>Problemi relativi al servizio app di Azure
 
-* Nel portale di Azure passare all'app Web. Nel riquadro sinistro, in **Monitoraggio** selezionare **App Service logs** (Log del servizio app). Attivare **Registrazione applicazioni (file system)** , impostare **Livello** su Errore, quindi selezionare **Salva** . Aprire quindi **Flusso di registrazione** (in **Monitoraggio** ).
+* Nel portale di Azure passare all'app Web. Nel riquadro sinistro, in **Monitoraggio** selezionare **App Service logs** (Log del servizio app). Attivare **Registrazione applicazioni (file system)** , impostare **Livello** su Errore, quindi selezionare **Salva**. Aprire quindi **Flusso di registrazione** (in **Monitoraggio**).
 
 * Dall'app Web nel portale di Azure, in **Strumenti di sviluppo** selezionare **Console** e convalidare le versioni di nodo e npm con `node -v` e `npm -v`.
 

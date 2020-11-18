@@ -1,16 +1,16 @@
 ---
 title: Debug locale della griglia di eventi di Funzioni di Azure
-description: Informazioni sul debug locale delle Funzioni di Azure attivate da una Griglia di eventi
+description: Informazioni su come eseguire il debug locale di funzioni di Azure attivate da un evento di griglia di eventi
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: fdd046a855c4e2114e96e7911a928165f808710c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be05d237d2799404c3fd8b5733464e23eeb49aa3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530545"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94833062"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Debug locale del trigger della Griglia di eventi di Funzioni di Azure
 

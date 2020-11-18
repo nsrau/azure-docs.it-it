@@ -2,15 +2,15 @@
 title: Cenni preliminari sulle specifiche del modello
 description: Viene descritto come creare specifiche di modello e condividerle con altri utenti nell'organizzazione.
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 11/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: b0dfc41bddccc6b5c5c924168044cffc0aa5e2b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83d5a210a5af538173ad0ca5e4c718363639c40a
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728472"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747401"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Specifiche del modello di Azure Resource Manager (anteprima)
 
@@ -21,7 +21,7 @@ Una specifica del modello è un tipo di risorsa per l'archiviazione di un modell
 Per distribuire la specifica del modello, si usano strumenti standard di Azure come PowerShell, l'interfaccia della riga di comando di Azure, portale di Azure, REST e altri SDK e client supportati. Usare gli stessi comandi come per il modello.
 
 > [!NOTE]
-> La funzionalità Specifiche di modello è attualmente in anteprima. Per usarla, è necessario [iscriversi alla lista di attesa](https://aka.ms/templateSpecOnboarding).
+> La funzionalità Specifiche di modello è attualmente in anteprima. Per usarlo, è necessario installare la versione più recente di PowerShell o dell'interfaccia della riga di comando di Azure. Per Azure PowerShell, usare la [versione 5.0.0 o successiva](/powershell/azure/install-az-ps). Per l'interfaccia della riga di comando di Azure, usare la [versione 2.14.2 o successiva](/cli/azure/install-azure-cli).
 
 ## <a name="why-use-template-specs"></a>Perché usare le specifiche del modello?
 
