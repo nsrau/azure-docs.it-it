@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7ed1d4c49c46673f1a1c2b5cb08b2467490acae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 498b75a6541da97e57e23465ae6eb23a6c854727
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565123"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836955"
 ---
 # <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Archiviazione dei dati Identity per i clienti australiani e neozelandesi in Azure Active Directory
 
@@ -32,9 +32,9 @@ Per i clienti che hanno fornito un indirizzo in Australia o Nuova Zelanda, Azure
 
 Tutti gli altri servizi Azure AD archiviano i dati dei clienti nei data center globali. Per trovare il Data Center per un servizio, vedere [Azure Active Directory: dove si trovano i dati?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
 
-## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure multi-factor authentication
+## <a name="microsoft-azure-ad-multi-factor-authentication-mfa"></a>Microsoft Azure AD Multi-Factor Authentication (autenticazione a più fattori)
 
-L'autenticazione a più fattori archivia i dati dei clienti Identity nei data center globali. Per ulteriori informazioni sulle informazioni sugli utenti raccolte e archiviate da Azure multi-factor authentication e dal server di autenticazione a più fattori di Azure, vedere la pagina relativa alla [raccolta di dati utente multi-factor authentication Azure](../authentication/concept-mfa-data-residency.md).
+L'autenticazione a più fattori archivia i dati dei clienti Identity nei data center globali. Per altre informazioni sulle informazioni sugli utenti raccolte e archiviate dal server multi-factor authentication Azure AD e da Azure multi-factor authentication, vedere [raccolta di dati utente multi-factor authentication di Azure](../authentication/concept-mfa-data-residency.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle caratteristiche e le funzionalità descritte in precedenza, vedere questi articoli:

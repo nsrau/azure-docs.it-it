@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f717e14e5abe62aafffdeef841889ea2458fa8b
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 5374dc2ef4c736535b218d8cd67521e83a24a40b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413446"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836462"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Come Azure AD offre la gestione gestita dal cloud per i carichi di lavoro locali
 
@@ -39,7 +39,7 @@ In questo documento viene illustrata la strategia di Microsoft per IDaaS ibrido 
 
 ## <a name="the-azure-ad-approach-to-cloud-governed-identity-management"></a>Approccio Azure AD alla gestione delle identità governata dal cloud
 
-Man mano che le organizzazioni passano al cloud, hanno bisogno di garanzie che dispongano di controlli sull'ambiente completo, più sicurezza e visibilità sulle attività, supportate dall'automazione e informazioni dettagliate proattive. " **Gestione cloud governata** " descrive il modo in cui le organizzazioni gestiscono e governano gli utenti, le applicazioni, i gruppi e i dispositivi dal cloud.
+Man mano che le organizzazioni passano al cloud, hanno bisogno di garanzie che dispongano di controlli sull'ambiente completo, più sicurezza e visibilità sulle attività, supportate dall'automazione e informazioni dettagliate proattive. "**Gestione cloud governata**" descrive il modo in cui le organizzazioni gestiscono e governano gli utenti, le applicazioni, i gruppi e i dispositivi dal cloud.
 
 In questo mondo moderno, le organizzazioni devono essere in grado di gestire in modo efficace su larga scala, a causa della proliferazione di applicazioni SaaS e del ruolo crescente di collaborazione e identità esterne. Il nuovo panorama di rischio del cloud significa che un'organizzazione deve essere più reattiva: un attore malintenzionato che compromette un utente cloud potrebbe influire sulle applicazioni cloud e locali.
 
@@ -89,7 +89,7 @@ Quando un'organizzazione è pronta per spostare un'applicazione integrata con Ac
 
 ## <a name="cloud-governed-management-for-on-premises-federation-based-applications"></a>Gestione gestita dal cloud per le applicazioni locali basate sulla Federazione
 
-Per un'organizzazione che usa già un provider di identità locale, lo strumento di trasferimento delle applicazioni a Azure AD consente un accesso più sicuro e un'esperienza amministrativa più semplice per la gestione della Federazione. Azure AD Abilita la configurazione dei controlli di accesso per applicazione granulari, incluso Multi-Factor Authentication di Azure, usando Azure AD l'accesso condizionale. Azure AD supporta più funzionalità, inclusi i certificati per la firma di token specifici dell'applicazione e le date di scadenza dei certificati configurabili. Queste funzionalità, strumenti e linee guida consentono alle organizzazioni di ritirare i provider di identità locali. Microsoft IT, per un esempio, ha spostato 17.987 applicazioni dal Active Directory Federation Services interno di Microsoft (AD FS) a Azure AD.
+Per un'organizzazione che usa già un provider di identità locale, lo strumento di trasferimento delle applicazioni a Azure AD consente un accesso più sicuro e un'esperienza amministrativa più semplice per la gestione della Federazione. Azure AD Abilita la configurazione dei controlli di accesso per applicazione granulari, incluso Azure AD Multi-Factor Authentication, usando Azure AD l'accesso condizionale. Azure AD supporta più funzionalità, inclusi i certificati per la firma di token specifici dell'applicazione e le date di scadenza dei certificati configurabili. Queste funzionalità, strumenti e linee guida consentono alle organizzazioni di ritirare i provider di identità locali. Microsoft IT, per un esempio, ha spostato 17.987 applicazioni dal Active Directory Federation Services interno di Microsoft (AD FS) a Azure AD.
 
 ![Azure AD Evolution](media/cloud-governed-management-for-on-premises/image5.png)
 

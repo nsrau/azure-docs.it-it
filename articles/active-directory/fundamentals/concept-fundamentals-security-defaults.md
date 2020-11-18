@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 2c056bd4d5fa9037ce00588269c0da2937ff57ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c26cbf55c1e3883605d4c65659511af20cf02c7f
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705334"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836768"
 ---
 # <a name="what-are-security-defaults"></a>Cosa sono le impostazioni predefinite per la sicurezza?
 
 La gestione della sicurezza può essere difficile grazie a attacchi comuni correlati all'identità, ad esempio spray per la password, riproduzione e phishing che diventano sempre più diffusi. Le impostazioni predefinite per la sicurezza consentono di proteggere l'organizzazione da questi attacchi con impostazioni di sicurezza preconfigurate:
 
-- Richiedendo a tutti gli utenti di registrarsi ad Azure Multi-Factor Authentication.
+- Richiedere a tutti gli utenti di registrarsi per Azure AD Multi-Factor Authentication.
 - Richiedendo agli amministratori di eseguire l'autenticazione a più fattori.
 - Bloccando i protocolli di autenticazione legacy.
 - Richiedendo agli utenti di eseguire l'autenticazione a più fattori quando necessario.
@@ -52,13 +52,13 @@ Microsoft sta rendendo disponibili le impostazioni predefinite per la sicurezza 
 
 ### <a name="unified-multi-factor-authentication-registration"></a>Registrazione per l'autenticazione a più fattori unificata
 
-Tutti gli utenti del tenant devono registrarsi per l'autenticazione a più fattori (MFA) sotto forma di Azure Multi-Factor Authentication. Gli utenti hanno 14 giorni per eseguire la registrazione per Azure Multi-Factor Authentication usando l'app Microsoft Authenticator. Dopo i 14 giorni, l'utente non sarà in grado di accedere fino al completamento della registrazione. Il periodo di 14 giorni di un utente inizia dopo il primo accesso interattivo completato dopo l'abilitazione delle impostazioni predefinite per la sicurezza.
+Tutti gli utenti nel tenant devono registrarsi per l'autenticazione a più fattori sotto forma di Azure AD Multi-Factor Authentication. Gli utenti hanno 14 giorni per la registrazione Azure AD Multi-Factor Authentication usando l'app Microsoft Authenticator. Dopo i 14 giorni, l'utente non sarà in grado di accedere fino al completamento della registrazione. Il periodo di 14 giorni di un utente inizia dopo il primo accesso interattivo completato dopo l'abilitazione delle impostazioni predefinite per la sicurezza.
 
 ### <a name="protecting-administrators"></a>Protezione degli amministratori
 
 Gli utenti con accesso con privilegi hanno un accesso maggiore all'ambiente. Considerate le facoltà di questi account, è consigliabile trattarli con particolare attenzione. Un metodo comune per migliorare la protezione degli account con privilegi consiste nel richiedere una forma di verifica degli account più avanzata per l'accesso. In Azure AD è possibile richiedere l'autenticazione a più fattori per ottenere una verifica degli account più avanzata.
 
-Al termine della registrazione con Azure Multi-Factor Authentication, verranno richiesti i nove ruoli di amministratore Azure AD seguenti per eseguire un'autenticazione aggiuntiva ogni volta che viene effettuato l'accesso:
+Al termine della registrazione con Azure AD Multi-Factor Authentication, verranno richiesti i nove ruoli di amministratore Azure AD seguenti per eseguire un'autenticazione aggiuntiva ogni volta che accedono:
 
 - Amministratore globale
 - Amministratore di SharePoint
@@ -120,7 +120,7 @@ Di seguito sono riportate alcune considerazioni aggiuntive relative alla distrib
 
 ### <a name="authentication-methods"></a>Metodi di autenticazione
 
-Queste impostazioni predefinite per la sicurezza gratuite consentono la registrazione e l'uso di Azure Multi-Factor Authentication **usando solo l'app Microsoft Authenticator con le notifiche**. L'accesso condizionale consente di usare qualsiasi metodo di autenticazione che l'amministratore sceglie di abilitare.
+Queste impostazioni predefinite di sicurezza gratuite consentono la registrazione e l'uso di Azure AD Multi-Factor Authentication **usando solo l'app Microsoft Authenticator usando le notifiche**. L'accesso condizionale consente di usare qualsiasi metodo di autenticazione che l'amministratore sceglie di abilitare.
 
 | Metodo | Impostazioni predefinite di sicurezza | Accesso condizionale |
 | --- | --- | --- |
@@ -128,14 +128,14 @@ Queste impostazioni predefinite per la sicurezza gratuite consentono la registra
 | Codice di verifica dall'app per dispositivi mobili o dal token hardware | X** | X |
 | SMS al telefono |   | X |
 | Chiamata al telefono |   | X |
-| Password dell'app |   | X*** |
+| Password dell'app |   | X * * _ |
 
-- ** Gli utenti possono usare i codici di verifica dell'app Microsoft Authenticator ma possono registrarsi solo con l'opzione di notifica.
-- *** Le password dell'app sono disponibili solo nell'autenticazione a più fattori per utente con scenari di autenticazione legacy solo se abilitati dagli amministratori.
+- _ * Gli utenti possono usare i codici di verifica dell'app Microsoft Authenticator ma possono registrarsi solo con l'opzione di notifica.
+- * * _ Le password dell'app sono disponibili solo nell'autenticazione a più fattori per utente con scenari di autenticazione legacy solo se abilitati dagli amministratori.
 
 ### <a name="disabled-mfa-status"></a>Stato MFA disabilitato
 
-Se l'organizzazione è un utente precedente di Azure Multi-Factor Authentication per utente, non è necessario visualizzare gli utenti in uno stato **Abilitato** o **Applicato** osservando la pagina relativa allo stato di Multi-Factor Authentication. **Disabilitato** è lo stato appropriato per gli utenti che usano le impostazioni predefinite per la sicurezza o l'accesso condizionale basato su Azure Multi-Factor Authentication.
+Se l'organizzazione è un utente precedente di Azure AD Multi-Factor Authentication basato su utente, non è necessario che gli utenti in uno stato _ *abilitato** o **applicato** siano visualizzati nella pagina stato di autenticazione a più fattori. **Disabled** è lo stato appropriato per gli utenti che usano le impostazioni predefinite di sicurezza o l'accesso condizionale basato Azure ad multi-factor authentication.
 
 ### <a name="conditional-access"></a>Accesso condizionale
 
@@ -149,14 +149,14 @@ Di seguito sono riportate istruzioni dettagliate su come usare l'accesso condizi
 - [Richiedere l'autenticazione a più fattori per la gestione di Azure](../conditional-access/howto-conditional-access-policy-azure-management.md)
 - [Bloccare l'autenticazione legacy](../conditional-access/howto-conditional-access-policy-block-legacy.md)
 - [Richiedere l'autenticazione a più fattori per tutti gli utenti](../conditional-access/howto-conditional-access-policy-all-users-mfa.md)
-- [Richiedere la registrazione ad Azure MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md): richiede la parte Azure AD Identity Protection di Azure AD Premium P2.
+- [Richiedi Azure ad registrazione](../identity-protection/howto-identity-protection-configure-mfa-policy.md) con autenticazione a più fattori: richiede Azure ad Identity Protection parte di Azure ad Premium P2.
 
 ## <a name="enabling-security-defaults"></a>Abilitazione delle impostazioni predefinite per la sicurezza
 
 Per abilitare le impostazioni predefinite per la sicurezza nella directory:
 
 1. Accedere al  [portale di Azure](https://portal.azure.com)  come amministratore della sicurezza, amministratore di accesso condizionale o amministratore globale.
-1. Passare ad **Azure Active Directory** > **Proprietà **.
+1. Passare ad **Azure Active Directory** > **Proprietà**.
 1. Selezionare **Gestisci le impostazioni predefinite per la sicurezza**.
 1. Impostare **Abilita le impostazioni predefinite per la sicurezza** su **Sì**.
 1. Selezionare **Salva**.
@@ -170,7 +170,7 @@ Le organizzazioni che scelgono di implementare i criteri di accesso condizionale
 Per disabilitare le impostazioni predefinite per la sicurezza nella directory:
 
 1. Accedere al  [portale di Azure](https://portal.azure.com)  come amministratore della sicurezza, amministratore di accesso condizionale o amministratore globale.
-1. Passare ad **Azure Active Directory** > **Proprietà **.
+1. Passare ad **Azure Active Directory** > **Proprietà**.
 1. Selezionare **Gestisci le impostazioni predefinite per la sicurezza**.
 1. Impostare **Abilita le impostazioni predefinite per la sicurezza** su **No**.
 1. Selezionare **Salva**.

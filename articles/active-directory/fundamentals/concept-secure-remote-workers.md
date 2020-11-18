@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43b883cac7b970488a30116bc06efc8663766629
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5c4301a61a79ab2351c18af0c76cccc3d07dd202
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370203"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836683"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Rispondere rapidamente a identità sicure con Azure AD
 
@@ -75,7 +75,7 @@ Nella tabella seguente vengono evidenziate le azioni principali per le seguenti 
 
 | Azione consigliata | Dettaglio |
 | --- | --- |
-| [Abilitare l'esperienza di registrazione combinata per Azure multi-factor authentication e SSPR per semplificare l'esperienza di registrazione utente](../authentication/howto-registration-mfa-sspr-combined.md) | Consentire agli utenti di registrarsi da un'esperienza comune sia per Azure Multi-Factor Authentication che per la reimpostazione della password self-service. |
+| [Abilitare l'esperienza di registrazione combinata per Azure AD multi-factor authentication e SSPR per semplificare l'esperienza di registrazione utente](../authentication/howto-registration-mfa-sspr-combined.md) | Consentire agli utenti di registrarsi da un'esperienza comune sia per Azure AD Multi-Factor Authentication che per la reimpostazione della password self-service. |
 | [Configurare le impostazioni dell'autenticazione a più fattori per l'organizzazione](../authentication/howto-mfa-getstarted.md) | Assicurarsi che gli account siano protetti da compromessi con l'autenticazione a più fattori |
 | [Abilitare la reimpostazione self-service delle password](../authentication/tutorial-enable-sspr.md) | Questa possibilità riduce le chiamate a help desk e la perdita di produttività quando un utente non riesce ad accedere al dispositivo o a un'applicazione |
 | [Implementare il writeback delle password](../authentication/tutorial-enable-sspr-writeback.md) (se si usano le identità ibride) | Consentire il writeback delle modifiche delle password nel cloud in un ambiente di Windows Server Active Directory locale. |
@@ -105,11 +105,11 @@ Nella tabella seguente vengono evidenziate le azioni principali per le seguenti 
 
 | Azione consigliata | Dettaglio |
 | --- | --- |
-| [Abilitare l'esperienza di registrazione combinata per Azure multi-factor authentication e SSPR per semplificare l'esperienza di registrazione utente](../authentication/howto-registration-mfa-sspr-combined.md) | Consentire agli utenti di registrarsi da un'esperienza comune sia per Azure Multi-Factor Authentication che per la reimpostazione della password self-service. |
+| [Abilitare l'esperienza di registrazione combinata per Azure AD multi-factor authentication e SSPR per semplificare l'esperienza di registrazione utente](../authentication/howto-registration-mfa-sspr-combined.md) | Consentire agli utenti di registrarsi da un'esperienza comune sia per Azure AD Multi-Factor Authentication che per la reimpostazione della password self-service. |
 | [Configurare le impostazioni dell'autenticazione a più fattori per l'organizzazione](../authentication/howto-mfa-getstarted.md) | Assicurarsi che gli account siano protetti da compromessi con l'autenticazione a più fattori |
 | [Abilitare la reimpostazione self-service delle password](../authentication/tutorial-enable-sspr.md) | Questa possibilità riduce le chiamate a help desk e la perdita di produttività quando un utente non riesce ad accedere al dispositivo o a un'applicazione |
 | [Implementare il writeback delle password](../authentication/tutorial-enable-sspr-writeback.md) (se si usano le identità ibride) | Consentire il writeback delle modifiche delle password nel cloud in un ambiente di Windows Server Active Directory locale. |
-| [Abilitare i criteri di Identity Protection per applicare la registrazione a più fattori](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | Gestire l'implementazione del Multi-Factor Authentication di Azure (multi-factor authentication). |
+| [Abilitare i criteri di Identity Protection per applicare la registrazione a più fattori](../identity-protection/howto-identity-protection-configure-mfa-policy.md) | Gestire l'implementazione di Azure AD Multi-Factor Authentication (multi-factor authentication). |
 | [Abilitare gli utenti di Identity Protection e i criteri di rischio di accesso](../identity-protection/howto-identity-protection-configure-risk-policies.md) | Abilitare l'utente e i criteri di accesso di Identity Protection. Il criterio di accesso consigliato è quello di individuare gli accessi a rischio medio e richiedere l'autenticazione a più fattori. Per i criteri utente dovrebbe essere destinato a utenti ad alto rischio che richiedono l'azione di modifica della password. |
 | Creare e abilitare i criteri di accesso condizionale | [Autenticazione a più fattori per gli amministratori per proteggere gli account a cui sono assegnati diritti amministrativi.](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [Blocca i protocolli di autenticazione legacy a causa del maggiore rischio associato ai protocolli di autenticazione legacy.](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [Richiedi autenticazione a più fattori per la gestione di Azure per proteggere le tue risorse con privilegi richiedendo l'autenticazione a più fattori per tutti gli utenti che accedono alle risorse di Azure.](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [Abilitare la sincronizzazione dell'hash delle password](../hybrid/how-to-connect-password-hash-synchronization.md) (se si usano le identità ibride) | Fornire ridondanza per l'autenticazione e migliorare la sicurezza (inclusi il blocco intelligente, il blocco IP e la possibilità di individuare le credenziali perse). |

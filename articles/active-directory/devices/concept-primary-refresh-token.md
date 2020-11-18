@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 457910f30830db06f148282a32551a400255f7e1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3f2b059bb6ae63d7f427ce970b2538da922e2dec
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965914"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837264"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Che cos'è un token di aggiornamento primario?
 
@@ -85,7 +85,7 @@ Un token di aggiornamento primario viene rinnovato in due modi diversi:
 * **Plug-in CloudAP di Azure AD ogni 4 ore**: il plug-in CloudAP rinnova il token di aggiornamento primario ogni 4 ore durante l'accesso a Windows. Se l'utente non ha una connessione Internet durante tale intervallo di tempo, il plug-in CloudAP rinnova il token di aggiornamento primario quando il dispositivo si connette a Internet.
 * **Plug-in WAM di Azure AD durante le richieste di token delle app**: il plug-in WAM consente l'accesso SSO nei dispositivi Windows 10 abilitando le richieste automatiche di token per le applicazioni. Il plug-in WAM può rinnovare il token di aggiornamento primario durante queste richieste di token in due modi diversi:
    * Un'app richiede a WAM un token di accesso in modo automatico, ma non è disponibile alcun token di aggiornamento per tale app. In questo caso, WAM usa il token di aggiornamento primario per richiedere un token per l'app e restituisce un nuovo token di aggiornamento primario nella risposta.
-   * Un'app richiede a WAM un token di accesso, ma il token di aggiornamento primario non è valido o Azure AD richiede un'autorizzazione aggiuntiva, ad esempio Azure Multi-Factor Authentication. In questo scenario, WAM avvia un accesso interattivo che richiede all'utente di eseguire di nuovo l'autenticazione o di fornire una verifica aggiuntiva e al completamento dell'autenticazione viene rilasciato un nuovo token di aggiornamento primario.
+   * Un'app richiede WAM per un token di accesso, ma il PRT non è valido o Azure AD richiede un'autorizzazione aggiuntiva, ad esempio Azure AD Multi-Factor Authentication. In questo scenario, WAM avvia un accesso interattivo che richiede all'utente di eseguire di nuovo l'autenticazione o di fornire una verifica aggiuntiva e al completamento dell'autenticazione viene rilasciato un nuovo token di aggiornamento primario.
 
 In un ambiente ADFS, non è necessario che la riga di controllo diretta per il controller di dominio rinnovi il PRT. Il rinnovo PRT richiede solo gli endpoint/ADFS/Services/Trust/2005/usernamemixed e/ADFS/Services/Trust/13/usernamemixed abilitati sul proxy usando il protocollo WS-Trust.
 

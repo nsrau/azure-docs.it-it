@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: baa0aa01c94c4deb35db8a59f7b4f81224ae1fd3
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371053"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836989"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guida di riferimento per le operazioni di gestione dell'autenticazione Azure Active Directory
 
@@ -95,7 +95,7 @@ Le password non sono sufficientemente sicure per impedire agli attori malintenzi
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>Resilienza dell'autenticazione di interruzione locale
 
-Oltre ai vantaggi della semplicità e all'abilitazione del rilevamento di credenziali perse, Azure AD la sincronizzazione dell'hash delle password (pH) e l'autenticazione a più fattori di Azure consentono agli utenti di accedere alle applicazioni SaaS e Microsoft 365 nonostante le interruzioni locali a causa di attacchi cibernetici, ad esempio [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). È anche possibile abilitare pH insieme alla Federazione. L'abilitazione di pH consente un fallback di autenticazione quando i servizi federativi non sono disponibili.
+Oltre ai vantaggi della semplicità e all'abilitazione del rilevamento di credenziali perse, Azure AD la sincronizzazione dell'hash delle password (pH) e Azure AD autenticazione a più fattori consentono agli utenti di accedere alle applicazioni SaaS e Microsoft 365 nonostante le interruzioni locali a causa di attacchi cibernetici, ad esempio [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). È anche possibile abilitare pH insieme alla Federazione. L'abilitazione di pH consente un fallback di autenticazione quando i servizi federativi non sono disponibili.
 
 Se nell'organizzazione locale manca una strategia di resilienza delle interruzioni o ne è presente una che non è integrata con Azure AD, è necessario distribuire Azure AD pH e definire un piano di ripristino di emergenza che includa pH. L'abilitazione di Azure AD pH consentirà agli utenti di eseguire l'autenticazione con Azure AD se il Active Directory locale non è disponibile.
 
@@ -309,7 +309,7 @@ Di seguito è riportato un elenco di app con autorizzazioni che possono essere e
 | | Mail. Read. Shared |
 | | Mail. ReadWrite |
 
-- Le app hanno concesso la rappresentazione utente completa dell'utente che ha eseguito l'accesso. Esempio:
+- Le app hanno concesso la rappresentazione utente completa dell'utente che ha eseguito l'accesso. Ad esempio:
 
 |Risorsa | Autorizzazione |
 | :- | :- |

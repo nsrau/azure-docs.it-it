@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24eb7ac7c4490c8d27d141f6417ae157a7a9c65b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 2a79ec9a54ae597bc7e9795029dc4292c2c82345
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94646577"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836394"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Eseguire la migrazione all'autenticazione cloud tramite un'implementazione a fasi (anteprima)
 
-L'implementazione di gestione temporanea consente di testare in modo selettivo gruppi di utenti con funzionalità di autenticazione cloud come Azure Multi-Factor Authentication (multi-factor authentication), l'accesso condizionale, la protezione delle identità per le credenziali perse, la governance delle identità e altre, prima di eseguire il passaggio dei domini.  Questo articolo illustra come eseguire il passaggio. Prima di iniziare l'implementazione a fasi, è tuttavia necessario considerare i possibili effetti in presenza di uno o più delle condizioni seguenti:
+L'implementazione di gestione temporanea consente di testare in modo selettivo gruppi di utenti con funzionalità di autenticazione cloud come Azure AD Multi-Factor Authentication (multi-factor authentication), l'accesso condizionale, la protezione delle identità per le credenziali perse, la governance delle identità e altre, prima di eseguire il passaggio dei domini.  Questo articolo illustra come eseguire il passaggio. Prima di iniziare l'implementazione a fasi, è tuttavia necessario considerare i possibili effetti in presenza di uno o più delle condizioni seguenti:
     
 -  È attualmente in uso un server Multi-Factor Authentication locale. 
 -  Si usano smart card per l'autenticazione. 
@@ -45,7 +45,7 @@ Per una panoramica della funzionalità, vedere il video seguente sull'implementa
 
 -   Sono stati configurati tutti i criteri appropriati di personalizzazione del tenant e di accesso condizionale necessari per gli utenti di cui viene eseguita la migrazione all'autenticazione cloud.
 
--   Se si prevede di usare Multi-Factor Authentication di Azure, è consigliabile usare la [registrazione combinata per la reimpostazione della password self-service (SSPR) e multi-factor authentication](../authentication/concept-registration-mfa-sspr-combined.md) per fare in modo che gli utenti registrino i propri metodi di autenticazione una volta. Nota: quando si usa SSPR per reimpostare la password o modificare la password tramite la pagina profilo mentre è in esecuzione la distribuzione temporanea, Azure AD Connect necessario sincronizzare il nuovo hash della password, che può richiedere fino a 2 minuti dopo la reimpostazione.
+-   Se si prevede di usare Azure AD Multi-Factor Authentication, è consigliabile usare la [registrazione combinata per la reimpostazione della password self-service (SSPR) e multi-factor authentication](../authentication/concept-registration-mfa-sspr-combined.md) per fare in modo che gli utenti registrino i propri metodi di autenticazione una volta. Nota: quando si usa SSPR per reimpostare la password o modificare la password tramite la pagina profilo mentre è in esecuzione la distribuzione temporanea, Azure AD Connect necessario sincronizzare il nuovo hash della password, che può richiedere fino a 2 minuti dopo la reimpostazione.
 
 -   Per usare la funzionalità di implementazione a fasi, è necessario essere un amministratore globale nel tenant.
 

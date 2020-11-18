@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a703f6d32cb665bfada73ca833f51c94d83f8b97
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 0ffa0059e78ee193cb12a4838282f7f9fb282edd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146161"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836598"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archivio per le novità in Azure Active Directory
 
@@ -189,7 +189,7 @@ La query Delta per le applicazioni è disponibile a livello generale. È ora pos
 
 **Funzionalità del prodotto:** esperienza di sviluppo
 
-Queste API sono uno strumento chiave per la gestione dei metodi di autenticazione degli utenti. È ora possibile pre-registrare e gestire a livello di codice gli autenticatori usati per l'autenticazione a più fattori e la reimpostazione della password self-service (SSPR). Questa è una delle funzionalità più richieste negli spazi di autenticazione a più fattori di Azure, SSPR e Microsoft Graph. Le nuove API rilasciate in questa fase offrono la possibilità di:
+Queste API sono uno strumento chiave per la gestione dei metodi di autenticazione degli utenti. È ora possibile pre-registrare e gestire a livello di codice gli autenticatori usati per l'autenticazione a più fattori e la reimpostazione della password self-service (SSPR). Si tratta di una delle funzionalità più richieste nel Azure AD di multi-factor authentication, SSPR e Microsoft Graph Spaces. Le nuove API rilasciate in questa fase offrono la possibilità di:
 
 - Leggere, aggiungere, aggiornare e rimuovere i telefoni di autenticazione di un utente
 - Reimpostare la password di un utente
@@ -227,9 +227,9 @@ Per ulteriori informazioni, vedere [gestione delle unità amministrative in Azur
 
 **Funzionalità del prodotto:** Controllo di accesso
 
-**Amministratore della stampante** : gli utenti con questo ruolo possono registrare le stampanti e gestire tutti gli aspetti di tutte le configurazioni della stampante nella soluzione di stampa universale Microsoft, incluse le impostazioni del connettore di stampa universale. Possono concedere il consenso a tutte le richieste di autorizzazione di stampa delegate. Gli amministratori stampante possono anche accedere ai report di stampa. 
+**Amministratore della stampante**: gli utenti con questo ruolo possono registrare le stampanti e gestire tutti gli aspetti di tutte le configurazioni della stampante nella soluzione di stampa universale Microsoft, incluse le impostazioni del connettore di stampa universale. Possono concedere il consenso a tutte le richieste di autorizzazione di stampa delegate. Gli amministratori stampante possono anche accedere ai report di stampa. 
 
-**Tecnico della stampante** : gli utenti con questo ruolo possono registrare le stampanti e gestire lo stato della stampante nella soluzione di stampa universale Microsoft. Possono anche leggere tutte le informazioni sul connettore. Le attività principali che un tecnico di stampa non può eseguire sono impostare le autorizzazioni utente sulle stampanti e condividere stampanti. [Altre informazioni.](../roles/permissions-reference.md#printer-administrator)
+**Tecnico della stampante**: gli utenti con questo ruolo possono registrare le stampanti e gestire lo stato della stampante nella soluzione di stampa universale Microsoft. Possono anche leggere tutte le informazioni sul connettore. Le attività principali che un tecnico di stampa non può eseguire sono impostare le autorizzazioni utente sulle stampanti e condividere stampanti. [Altre informazioni.](../roles/permissions-reference.md#printer-administrator)
 
 ---
 
@@ -397,7 +397,7 @@ Queste nuove azioni di miglioramento richiedono la registrazione degli utenti o 
 **Categoria di servizio:** B2B  
 **Funzionalità del prodotto:** B2B/B2C
  
-**A partire dal 31 marzo 2021** , Microsoft non supporterà più il riscatto degli inviti creando account di Azure Active Directory non gestiti (Azure ad) e tenant per gli scenari di collaborazione B2B. In tal caso, si consiglia di acconsentire esplicitamente all' [autenticazione con il codice di posta elettronica](../external-identities/one-time-passcode.md)monouso.
+**A partire dal 31 marzo 2021**, Microsoft non supporterà più il riscatto degli inviti creando account di Azure Active Directory non gestiti (Azure ad) e tenant per gli scenari di collaborazione B2B. In tal caso, si consiglia di acconsentire esplicitamente all' [autenticazione con il codice di posta elettronica](../external-identities/one-time-passcode.md)monouso.
 
 ---
 
@@ -787,11 +787,11 @@ Come parte di un modello sicuro per impostazione predefinita per i cookie, il br
 
 Si consiglia a tutti gli sviluppatori di testare le proprie app seguendo questa guida:
 
-- Impostare il valore predefinito per l'impostazione **usa cookie sicuro** su **Sì** .
+- Impostare il valore predefinito per l'impostazione **usa cookie sicuro** su **Sì**.
 
-- Impostare il valore predefinito per l'attributo **navigava sullostesso sito** su **None** .
+- Impostare il valore predefinito per l'attributo **navigava sullostesso sito** su **None**.
 
-- Aggiungere un `SameSite` attributo aggiuntivo di **Secure** .
+- Aggiungere un `SameSite` attributo aggiuntivo di **Secure**.
 
 Per altre informazioni, vedere [future modifiche ai cookie di navigava sullostesso sito in ASP.NET e ASP.NET Core](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/) e [potenziali rotture per i siti Web dei clienti e i prodotti e servizi Microsoft in Chrome versione 79 e successive](https://support.microsoft.com/help/4522904/potential-disruption-to-microsoft-services-in-chrome-beta-version-79).
 
@@ -969,7 +969,7 @@ Per altre informazioni sull'uso di definizioni di ruolo specifiche dell'applicaz
 
 **Tipo:** Modifica prevista **Categoria di servizio:** Identity Protection **Funzionalità del prodotto:** Protezione e sicurezza delle identità
 
-In risposta al feedback degli sviluppatori, i sottoscrittori di Azure AD Premium P2 possono ora eseguire query complesse sui dati di rilevamento di rischi di Azure AD Identity Protection usando la nuova API riskDetection per Microsoft Graph. La versione beta dell'API [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta) esistente non restituirà più dati dal **10 gennaio 2020** . Se l'organizzazione usa l'API identityRiskEvent, è consigliabile passare alla nuova API di riskDetection.
+In risposta al feedback degli sviluppatori, i sottoscrittori di Azure AD Premium P2 possono ora eseguire query complesse sui dati di rilevamento di rischi di Azure AD Identity Protection usando la nuova API riskDetection per Microsoft Graph. La versione beta dell'API [identityRiskEvent](/graph/api/resources/identityriskevent?view=graph-rest-beta) esistente non restituirà più dati dal **10 gennaio 2020**. Se l'organizzazione usa l'API identityRiskEvent, è consigliabile passare alla nuova API di riskDetection.
 
 Per altre informazioni sulla nuova API riskDetection, vedere la [documentazione di riferimento sull'API di rilevamento di rischi](/graph/api/resources/riskdetection).
 
@@ -983,9 +983,9 @@ Per altre informazioni sulla nuova API riskDetection, vedere la [documentazione 
 
 Per evitare potenziali conseguenze negative dovute a questa modifica, i cookie di accesso e di sessione di Application Proxy verranno aggiornati nel modo seguente:
 
-- Impostando il valore predefinito di **Usa cookie protetti** su **Sì** .
+- Impostando il valore predefinito di **Usa cookie protetti** su **Sì**.
 
-- Impostando il valore predefinito dell'attributo **SameSite** su **Nessuno** .
+- Impostando il valore predefinito dell'attributo **SameSite** su **Nessuno**.
 
     >[!NOTE]
     > I cookie di accesso di Application Proxy sono sempre stati trasmessi esclusivamente su canali protetti. Queste modifiche si applicano solo ai cookie di sessione.
@@ -1104,7 +1104,7 @@ Per altre informazioni sulle app, vedere [Integrazione dell'applicazione SaaS co
 
 **Tipo:** Funzionalità modificata **Categoria di servizio:** Identity Protection **Funzionalità del prodotto:** Protezione e sicurezza delle identità
 
-È ora possibile accedere a tutte le funzionalità di sicurezza di Azure AD disponibili dalla nuova voce di menu **Sicurezza** e dalla barra **Cerca** nel portale di Azure. Inoltre la nuova pagina di destinazione di **Sicurezza** , denominata **Security - Getting started** (Sicurezza - Introduzione), contiene collegamenti alla documentazione pubblica, indicazioni sulla sicurezza e guide alla distribuzione.
+È ora possibile accedere a tutte le funzionalità di sicurezza di Azure AD disponibili dalla nuova voce di menu **Sicurezza** e dalla barra **Cerca** nel portale di Azure. Inoltre la nuova pagina di destinazione di **Sicurezza**, denominata **Security - Getting started** (Sicurezza - Introduzione), contiene collegamenti alla documentazione pubblica, indicazioni sulla sicurezza e guide alla distribuzione.
 
 Il nuovo menu **Sicurezza** include:
 
@@ -1159,7 +1159,7 @@ Per altre informazioni sulle cartelle di lavoro, vedere [Come usare le cartelle 
 
 **Tipo:** Modifica prevista **Categoria di servizio:** Profilo personale/Account **Funzionalità del prodotto:** Collaborazione
 
-A partire da ottobre, l'esperienza Profilo personale diventerà Account personale. Nell'ambito di tale modifica, ogni attuale occorrenza di **Profilo personale** diventerà **Account personale** . Oltre alla modifica del nome e ad alcuni miglioramenti alla progettazione, l'esperienza aggiornata offrirà un'integrazione aggiuntiva con la pagina dell'account Microsoft Office. In particolare, sarà possibile accedere alle installazioni e alle sottoscrizioni di Office dalla pagina **Panoramica account** , oltre che alle preferenze di contatto correlate a Office dalla pagina **Privacy** .
+A partire da ottobre, l'esperienza Profilo personale diventerà Account personale. Nell'ambito di tale modifica, ogni attuale occorrenza di **Profilo personale** diventerà **Account personale**. Oltre alla modifica del nome e ad alcuni miglioramenti alla progettazione, l'esperienza aggiornata offrirà un'integrazione aggiuntiva con la pagina dell'account Microsoft Office. In particolare, sarà possibile accedere alle installazioni e alle sottoscrizioni di Office dalla pagina **Panoramica account**, oltre che alle preferenze di contatto correlate a Office dalla pagina **Privacy**.
 
 Per altre informazioni sull'esperienza Profilo personale (anteprima), vedere [Panoramica del portale Profilo personale (anteprima)](../user-help/my-account-portal-overview.md).
 
@@ -1271,7 +1271,7 @@ Se si è già clienti e il server MFA è stato attivato prima del 1° luglio 201
 
 - Sono stati corretti bug secondari.
 
-A partire dal 1° luglio 2019, Microsoft non offre più il server MFA per le nuove distribuzioni. I nuovi clienti che richiedono l'autenticazione a più fattori dovranno usare il servizio Azure Multi-Factor Authentication basato sul cloud. Per altre informazioni, vedere [Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud](../authentication/howto-mfa-getstarted.md).
+A partire dal 1° luglio 2019, Microsoft non offre più il server MFA per le nuove distribuzioni. I nuovi clienti che richiedono l'autenticazione a più fattori devono usare Multi-Factor Authentication di Azure AD basati sul cloud. Per ulteriori informazioni, vedere [Planning a cloud-based Azure AD multi-factor authentication Deployment](../authentication/howto-mfa-getstarted.md).
 
 ---
 
@@ -1435,11 +1435,11 @@ Per altre informazioni sull'esperienza dell'informazione di sicurezza avanzata, 
 
 1. Accedere al portale di Azure come amministratore globale o amministratore utenti.
 
-2. Passare ad **Azure Active Directory > Impostazioni utente > Gestisci le impostazioni per le funzionalità in anteprima del pannello di accesso** .
+2. Passare ad **Azure Active Directory > Impostazioni utente > Gestisci le impostazioni per le funzionalità in anteprima del pannello di accesso**.
 
 3. Nell'area **Gli utenti possono usare le funzionalità in anteprima per la registrazione e la gestione delle informazioni di sicurezza - Avanzato** selezionare **Selezionato** e quindi scegliere un gruppo di utenti o scegliere **Tutti** per attivare questa funzionalità per tutti gli utenti nel tenant.
 
-4. Nell'area **Gli utenti possono usare le funzionalità in anteprima per la registrazione e la gestione delle informazioni di **sicurezza**** selezionare **Nessuno** .
+4. Nell'area **Gli utenti possono usare le funzionalità in anteprima per la registrazione e la gestione delle informazioni di **sicurezza**** selezionare **Nessuno**.
 
 5. Salvare le impostazioni.
 
@@ -1478,7 +1478,7 @@ Per altre informazioni, vedere [Aggiungere un'applicazione locale per l'accesso 
 
 **Tipo:** Modifica prevista **Categoria di servizio:** App aziendali **Funzionalità del prodotto:** SSO
 
-Nuove modifiche all'interfaccia utente saranno presto disponibili per la struttura dell'area **Aggiungi dalla raccolta** del pannello **Aggiungi applicazione** . Queste modifiche contribuiranno a semplificare l'individuazione delle app che supportano il provisioning automatico, OpenID Connect, SAML (Security Assertion Markup Language) e Password Single Sign-On (SSO).
+Nuove modifiche all'interfaccia utente saranno presto disponibili per la struttura dell'area **Aggiungi dalla raccolta** del pannello **Aggiungi applicazione**. Queste modifiche contribuiranno a semplificare l'individuazione delle app che supportano il provisioning automatico, OpenID Connect, SAML (Security Assertion Markup Language) e Password Single Sign-On (SSO).
 
 ---
 
@@ -1573,7 +1573,7 @@ Per altre informazioni vedere [Abilitare i controlli di sicurezza di Azure AD Do
 
 **Tipo:** Nuova funzionalità **Categoria di servizio:** Reimpostazione password self-service **Funzionalità del prodotto:** Monitoraggio e creazione report
 
-I nuovi report con utilizzo e informazioni dettagliate dei metodi di autenticazione possono contribuire alla comprensione del modo in cui le funzionalità quali Azure Multi-Factor Authentication e reimpostazione della password self-service vengono registrate e usate nell'organizzazione, incluso il numero di utenti registrati per ogni funzionalità, la frequenza con cui la reimpostazione della password self-service viene usata per reimpostare le password e in base a quale metodo viene eseguita la reimpostazione.
+I nuovi metodi di autenticazione & i report di Insights consentono di comprendere in che modo le funzionalità come Azure AD Multi-Factor Authentication e la reimpostazione della password self-service vengono registrate e usate nell'organizzazione, tra cui il numero di utenti registrati per ogni funzionalità, la frequenza con cui viene usata la reimpostazione della password self-service per la reimpostazione delle password e il metodo di reimpostazione.
 
 Per altre informazioni, vedere [Utilizzo e informazioni dettagliate dei metodi di autenticazione (anteprima)](../authentication/howto-authentication-methods-usage-insights.md).
 
@@ -1583,7 +1583,7 @@ Per altre informazioni, vedere [Utilizzo e informazioni dettagliate dei metodi d
 
 **Tipo:** Nuova funzionalità **Categoria di servizio:** Identity Protection **Funzionalità del prodotto:** Protezione e sicurezza delle identità
 
-Tutti gli amministratori di Azure AD possono ora selezionare il banner nella parte superiore dei report di sicurezza esistenti, ad esempio il report **Utenti contrassegnati per il rischio** , per iniziare a usare la nuova esperienza di sicurezza, come illustrato nei report **Utenti a rischio** e **Accessi a rischio** . Prossimamente tutti i report di sicurezza verranno spostati dalle versioni precedenti alle nuove versioni e i nuovi report offriranno le funzionalità aggiuntive seguenti:
+Tutti gli amministratori di Azure AD possono ora selezionare il banner nella parte superiore dei report di sicurezza esistenti, ad esempio il report **Utenti contrassegnati per il rischio**, per iniziare a usare la nuova esperienza di sicurezza, come illustrato nei report **Utenti a rischio** e **Accessi a rischio**. Prossimamente tutti i report di sicurezza verranno spostati dalle versioni precedenti alle nuove versioni e i nuovi report offriranno le funzionalità aggiuntive seguenti:
 
 - Filtro e ordinamento avanzati
 
@@ -1747,9 +1747,9 @@ Per altre informazioni sulla configurazione delle informazioni personalizzate di
 
 **Tipo:** Deprecato **Categoria di servizio:** MFA **Funzionalità del prodotto:** Protezione e sicurezza delle identità
 
-A partire dal 1° luglio 2019, Microsoft non offrirà più il server MFA per le nuove distribuzioni. I nuovi clienti che vogliono richiedere l'autenticazione a più fattori nell'organizzazione ora devono usare il servizio Azure Multi-Factor Authentication basato sul cloud. I clienti che hanno attivato il server MFA prima del 1° luglio non vedranno modifiche. Sarà comunque possibile scaricare la versione più recente, ottenere gli aggiornamenti futuri e generare le credenziali di attivazione.
+A partire dal 1° luglio 2019, Microsoft non offrirà più il server MFA per le nuove distribuzioni. I nuovi clienti che vogliono richiedere l'autenticazione a più fattori nella propria organizzazione devono ora usare Multi-Factor Authentication di Azure AD basati sul cloud. I clienti che hanno attivato il server MFA prima del 1° luglio non vedranno modifiche. Sarà comunque possibile scaricare la versione più recente, ottenere gli aggiornamenti futuri e generare le credenziali di attivazione.
 
-Per altre informazioni, vedere [Introduzione al server Azure Multi-Factor Authentication](../authentication/howto-mfaserver-deploy.md). Per altre informazioni su Azure Multi-Factor Authentication basato sul cloud, vedere [Pianificazione di una distribuzione di Azure Multi-Factor Authentication basata sul cloud](../authentication/howto-mfa-getstarted.md).
+Per altre informazioni, vedere [Introduzione al server Azure Multi-Factor Authentication](../authentication/howto-mfaserver-deploy.md). Per ulteriori informazioni sui Multi-Factor Authentication di Azure AD basati sul cloud, vedere [Planning an cloud-based Azure AD multi-factor authentication Deployment](../authentication/howto-mfa-getstarted.md).
 
 ---
 
@@ -1989,7 +1989,7 @@ Per altre informazioni sulle app, vedere [Integrazione dell'applicazione SaaS co
 
 I nuovi aggiornamenti per le verifiche di accesso di Azure AD consentono di:
 
-- Modificare la frequenza delle verifiche di accesso impostandola su **Semestrale** , in aggiunta alle opzioni esistenti in precedenza, ovvero settimanale, mensile, trimestrale e annuale.
+- Modificare la frequenza delle verifiche di accesso impostandola su **Semestrale**, in aggiunta alle opzioni esistenti in precedenza, ovvero settimanale, mensile, trimestrale e annuale.
 
 - Selezionare più ruoli delle risorse di Azure AD e Azure durante la creazione di una singola verifica di accesso. In questa situazione tutti i ruoli vengono configurati con le stesse impostazioni e tutti i revisori ricevono una notifica nello stesso momento.
 
@@ -2019,7 +2019,7 @@ Per altre informazioni, vedere [Risoluzione dei problemi durante la sincronizzaz
 
 **Tipo:** Nuova funzionalità **Categoria di servizio:** Accesso condizionale **Funzionalità del prodotto:** Protezione e sicurezza delle identità
 
-L'Accesso condizionale basato sulla protezione dell'app è ora disponibile mediante il criterio **Richiedi la protezione dell'app** . Questo nuovo criterio contribuisce al miglioramento della sicurezza dell'organizzazione perché aiuta a prevenire le situazioni seguenti:
+L'Accesso condizionale basato sulla protezione dell'app è ora disponibile mediante il criterio **Richiedi la protezione dell'app**. Questo nuovo criterio contribuisce al miglioramento della sicurezza dell'organizzazione perché aiuta a prevenire le situazioni seguenti:
 
 - Utenti che ottengono l'accesso alle app senza una licenza di Microsoft Intune.
 
@@ -2121,11 +2121,11 @@ Questo aggiornamento invia l'errore di tipo `invalid_grant` seguente: `AADSTS501
 
 **Tipo:** Funzionalità modificata **Categoria di servizio:** Creazione di report **Funzionalità del prodotto:** Monitoraggio e creazione report
 
-È stata creata una nuova pagina **Log di controllo** di Azure AD per contribuire al miglioramento della leggibilità e della modalità di ricerca delle informazioni. Per visualizzare la nuova pagina **Log di controllo** , selezionare **Log di controllo** nella sezione **Attività** di Azure AD.
+È stata creata una nuova pagina **Log di controllo** di Azure AD per contribuire al miglioramento della leggibilità e della modalità di ricerca delle informazioni. Per visualizzare la nuova pagina **Log di controllo**, selezionare **Log di controllo** nella sezione **Attività** di Azure AD.
 
 ![Nuova pagina Log di controllo con informazioni di esempio](media/whats-new/audit-logs-page.png)
 
-Per altre informazioni sulla nuova pagina **Log di controllo** , vedere [Report delle attività di controllo nel portale di Azure Active Directory](../reports-monitoring/concept-audit-logs.md#audit-logs).
+Per altre informazioni sulla nuova pagina **Log di controllo**, vedere [Report delle attività di controllo nel portale di Azure Active Directory](../reports-monitoring/concept-audit-logs.md#audit-logs).
 
 ---
 
@@ -2221,17 +2221,17 @@ In seguito al feedback dei clienti, l'esperienza di anteprima della registrazion
 
 **Per attivare subito l'esperienza avanzata per gli utenti, seguire questa procedura:**
 
-1. Accedere come amministratore globale o amministratore utenti al portale di Azure e passare ad **Azure Active Directory > Impostazioni utente > Gestione delle impostazioni per le funzionalità di anteprima del pannello di accesso** .
+1. Accedere come amministratore globale o amministratore utenti al portale di Azure e passare ad **Azure Active Directory > Impostazioni utente > Gestione delle impostazioni per le funzionalità di anteprima del pannello di accesso**.
 
-2. Nell'opzione **Utenti che possono usare le funzionalità di anteprima per la registrazione e la gestione dell'informazione di sicurezza - Aggiorna** scegliere di attivare le funzionalità per un **Gruppo selezionato di utenti** o per **Tutti gli utenti** .
+2. Nell'opzione **Utenti che possono usare le funzionalità di anteprima per la registrazione e la gestione dell'informazione di sicurezza - Aggiorna** scegliere di attivare le funzionalità per un **Gruppo selezionato di utenti** o per **Tutti gli utenti**.
 
 Nelle prossime settimane verrà rimossa la possibilità di attivare l'esperienza di anteprima di registrazione combinata per MFA/Reimpostazione della password self-service per i tenant che non hanno già attivato tale esperienza.
 
 **Per verificare se il controllo verrà rimosso per il tenant specifico, seguire questa procedura:**
 
-1. Accedere come amministratore globale o amministratore utenti al portale di Azure e passare ad **Azure Active Directory > Impostazioni utente > Gestione delle impostazioni per le funzionalità di anteprima del pannello di accesso** .
+1. Accedere come amministratore globale o amministratore utenti al portale di Azure e passare ad **Azure Active Directory > Impostazioni utente > Gestione delle impostazioni per le funzionalità di anteprima del pannello di accesso**.
 
-2. Se l'opzione **Utenti che possono usare le funzionalità di anteprima per la registrazione e la gestione dell'informazione di sicurezza** è impostata su **Nessuno** , l'opzione verrà rimossa dal tenant.
+2. Se l'opzione **Utenti che possono usare le funzionalità di anteprima per la registrazione e la gestione dell'informazione di sicurezza** è impostata su **Nessuno**, l'opzione verrà rimossa dal tenant.
 
 Indipendentemente dal fatto che l'esperienza di anteprima di registrazione combinata per MFA/Reimpostazione della password self-service sia stata attivata o meno in precedenza per gli utenti, l'esperienza precedente verrà disattivata in futuro. È quindi consigliabile passare appena possibile alla nuova esperienza avanzata.
 
@@ -2265,7 +2265,7 @@ Per altre informazioni sulla scelta di versioni specifiche degli elementi di pag
 
 **Tipo:** Nuova funzionalità **Categoria di servizio:** B2C - Consumer Identity Management **Funzionalità del prodotto:** B2B/B2C
 
-È ora possibile configurare la complessità delle password dell'organizzazione per gli utenti finali, invece di usare i criteri password nativi di Azure AD. Dal pannello **Proprietà** dei flussi utenti, definiti in precedenza criteri predefiniti, è possibile scegliere una complessità di tipo **Semplice** o **Alta** per la password oppure è possibile creare un set di requisiti **Personalizzato** .
+È ora possibile configurare la complessità delle password dell'organizzazione per gli utenti finali, invece di usare i criteri password nativi di Azure AD. Dal pannello **Proprietà** dei flussi utenti, definiti in precedenza criteri predefiniti, è possibile scegliere una complessità di tipo **Semplice** o **Alta** per la password oppure è possibile creare un set di requisiti **Personalizzato**.
 
 Per altre informazioni sulla configurazione dei requisiti per la complessità delle password, vedere [Configurare i requisiti di complessità delle password in Azure Active Directory B2C](../../active-directory-b2c/user-flow-password-complexity.md).
 
@@ -2297,11 +2297,11 @@ Per altre informazioni, vedere [Autenticazione con passcode monouso tramite indi
 
 Sono state introdotte tre nuove impostazioni dei cookie, disponibili per le app pubblicate tramite il proxy di applicazione:
 
-- **Usa un cookie di tipo solo HTTP.** Consente di impostare il flag **HTTPOnly** nei cookie di accesso e di sessione per il proxy di applicazione. L'attivazione di questa impostazione offre vantaggi aggiuntivi per la sicurezza, tra cui la possibilità di evitare la copia o la modifica dei cookie tramite script lato client. È consigliabile attivare questo flag (scegliere **Sì** ) per ottenere i vantaggi aggiuntivi.
+- **Usa un cookie di tipo solo HTTP.** Consente di impostare il flag **HTTPOnly** nei cookie di accesso e di sessione per il proxy di applicazione. L'attivazione di questa impostazione offre vantaggi aggiuntivi per la sicurezza, tra cui la possibilità di evitare la copia o la modifica dei cookie tramite script lato client. È consigliabile attivare questo flag (scegliere **Sì**) per ottenere i vantaggi aggiuntivi.
 
-- **Usa un cookie sicuro.** Consente di impostare il flag **Secure** nei cookie di accesso e di sessione per il proxy di applicazione. L'attivazione di questa impostazione offre vantaggi aggiuntivi per la sicurezza, assicurando che i cookie vengano trasmessi solo su canali TLS sicuri, ad esempio HTTPS. È consigliabile attivare questo flag (scegliere **Sì** ) per ottenere i vantaggi aggiuntivi.
+- **Usa un cookie sicuro.** Consente di impostare il flag **Secure** nei cookie di accesso e di sessione per il proxy di applicazione. L'attivazione di questa impostazione offre vantaggi aggiuntivi per la sicurezza, assicurando che i cookie vengano trasmessi solo su canali TLS sicuri, ad esempio HTTPS. È consigliabile attivare questo flag (scegliere **Sì**) per ottenere i vantaggi aggiuntivi.
 
-- **Usa un cookie permanente.** Consente di impedire la scadenza dei cookie di accesso alla chiusura del Web browser. Questi cookie rimangono validi per l'intera durata del token di accesso. I cookie vengono tuttavia reimpostati se viene raggiunta la scadenza o se l'utente elimina manualmente il cookie. È consigliabile mantenere l'impostazione predefinita **No** , attivando l'impostazione solo per app meno recenti che non condividono cookie tra i processi.
+- **Usa un cookie permanente.** Consente di impedire la scadenza dei cookie di accesso alla chiusura del Web browser. Questi cookie rimangono validi per l'intera durata del token di accesso. I cookie vengono tuttavia reimpostati se viene raggiunta la scadenza o se l'utente elimina manualmente il cookie. È consigliabile mantenere l'impostazione predefinita **No**, attivando l'impostazione solo per app meno recenti che non condividono cookie tra i processi.
 
 Per altre informazioni sui nuovi cookie, vedere [Impostazioni dei cookie per l'accesso alle applicazioni locali in Azure Active Directory](../manage-apps/application-proxy-configure-cookie-settings.md).
 
@@ -2391,14 +2391,14 @@ Questa correzione, di conseguenza, consente di evitare gli aggiornamenti diretti
 Sono attualmente in fase di pubblicazione flussi di log di controllo e accesso tramite Monitoraggio di Azure, per poter integrare uniformemente i file di log con gli strumenti di informazioni di sicurezza e gestione degli eventi o con Log Analytics. In base ai commenti e suggerimenti degli utenti e in preparazione all'annuncio della disponibilità generale di questa funzionalità, Microsoft sta apportando le modifiche seguenti allo schema. Queste modifiche dello schema e i relativi aggiornamenti alla documentazione verranno completati entro la prima settimana di gennaio.
 
 #### <a name="new-fields-in-the-audit-schema"></a>Nuovi campi nello schema di controllo
-Sta per essere aggiunto il nuovo campo **Tipo di operazione** , che permetterà di specificare il tipo di operazione eseguita sulla risorsa. Ad esempio, **aggiunta** , **aggiornamento** o **eliminazione** .
+Sta per essere aggiunto il nuovo campo **Tipo di operazione**, che permetterà di specificare il tipo di operazione eseguita sulla risorsa. Ad esempio, **aggiunta**, **aggiornamento** o **eliminazione**.
 
 #### <a name="changed-fields-in-the-audit-schema"></a>Campi modificati nello schema di controllo
 È in corso la modifica dei campi seguenti nello schema di controllo:
 
 |Nome campo|Cosa è cambiato|Valori precedenti|Nuovi valori|
 |----------|------------|----------|----------|
-|Category|Campo **Nome servizio** nelle versioni precedenti. Si tratta ora del campo **Audit Categories** (Categorie di controllo). Il campo **Nome del servizio** è stato rinominato in **loggedByService** .|<ul><li>Provisioning degli account</li><li>Directory principale</li><li>Reimpostazione password self-service</li></ul>|<ul><li>User Management</li><li>Gestione di gruppi</li><li>Gestione app</li></ul>|
+|Category|Campo **Nome servizio** nelle versioni precedenti. Si tratta ora del campo **Audit Categories** (Categorie di controllo). Il campo **Nome del servizio** è stato rinominato in **loggedByService**.|<ul><li>Provisioning degli account</li><li>Directory principale</li><li>Reimpostazione password self-service</li></ul>|<ul><li>User Management</li><li>Gestione di gruppi</li><li>Gestione app</li></ul>|
 |targetResources|Include **TargetResourceType** al livello superiore.|&nbsp;|<ul><li>Policy</li><li>App</li><li>Utente</li><li>Gruppo</li></ul>|
 |loggedByService|Specifica il nome del servizio che ha generato il log di controllo.|Null|<ul><li>Provisioning degli account</li><li>Directory principale</li><li>Reimpostazione della password self-service</li></ul>|
 |Risultato|Indica il risultato dei log di controllo. Nelle versioni precedenti il campo contiene un'enumerazione, mentre ora viene visualizzato l'effettivo valore.|<ul><li>0</li><li>1</li></ul>|<ul><li>Operazione completata</li><li>Operazioni non riuscite</li></ul>|
@@ -2408,7 +2408,7 @@ Sta per essere aggiunto il nuovo campo **Tipo di operazione** , che permetterà 
 
 |Nome campo|Cosa è cambiato|Valori precedenti|Nuovi valori|
 |----------|------------|----------|----------|
-|appliedConditionalAccessPolicies|Campo **conditionalaccessPolicies** nelle versioni precedenti. Si tratta ora del campo **appliedConditionalAccessPolicies** .|Nessuna modifica|Nessuna modifica|
+|appliedConditionalAccessPolicies|Campo **conditionalaccessPolicies** nelle versioni precedenti. Si tratta ora del campo **appliedConditionalAccessPolicies**.|Nessuna modifica|Nessuna modifica|
 |conditionalAccessStatus|Indica il risultato dello stato dei criteri di accesso condizionale al momento dell'accesso. Nelle versioni precedenti il campo contiene un'enumerazione, mentre ora viene visualizzato l'effettivo valore.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Operazione completata</li><li>Operazioni non riuscite</li><li>Non applicato</li><li>Disabled</li></ul>|
 |appliedConditionalAccessPolicies: risultato|Indica il risultato del singolo stato dei criteri di accesso condizionale al momento dell'accesso. Nelle versioni precedenti il campo contiene un'enumerazione, mentre ora viene visualizzato l'effettivo valore.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Operazione completata</li><li>Operazioni non riuscite</li><li>Non applicato</li><li>Disabled</li></ul>|
 
@@ -2646,7 +2646,7 @@ Per altre informazioni, vedere [Informazioni sul portale delle app personali](..
 
 **Tipo:** Nuova funzionalità **Categoria di servizio:** Creazione di report **Funzionalità del prodotto:** Monitoraggio e creazione report
 
-La nuova scheda **Risoluzione dei problemi e supporto** nella pagina **Accessi** del portale di Azure ha lo scopo di semplificare la risoluzione dei problemi relativi agli accessi ad Azure AD per amministratori e tecnici del supporto. Questa nuova scheda indica il codice errore, il messaggio di errore ed eventuali consigli per la correzione per risolvere il problema. Se il problema non è risolvibile, è anche possibile creare un ticket di supporto usando l'esperienza **Copia negli Appunti** , che popola i campi **ID richiesta** e **Data (UTC)** per il file di log nel ticket di supporto.
+La nuova scheda **Risoluzione dei problemi e supporto** nella pagina **Accessi** del portale di Azure ha lo scopo di semplificare la risoluzione dei problemi relativi agli accessi ad Azure AD per amministratori e tecnici del supporto. Questa nuova scheda indica il codice errore, il messaggio di errore ed eventuali consigli per la correzione per risolvere il problema. Se il problema non è risolvibile, è anche possibile creare un ticket di supporto usando l'esperienza **Copia negli Appunti**, che popola i campi **ID richiesta** e **Data (UTC)** per il file di log nel ticket di supporto.
 
 ![Log degli accessi con la nuova scheda](media/whats-new/troubleshooting-and-support.png)
 
@@ -2740,7 +2740,7 @@ Caratteristiche dell'interfaccia utente di configurazione delle app basate su SA
 
 - Possibilità di impostare il formato di NameID per le app SAML e di impostare il valore di NameID come estensioni della directory.
 
-Per attivare questa visualizzazione aggiornata, fare clic sul collegamento **Prova la nuova esperienza** nella parte superiore della pagina **Single Sign-On** . Per altre informazioni, vedere [Esercitazione: Configurare l'accesso Single Sign-On basato su SAML per un'applicazione con Azure Active Directory](../manage-apps/view-applications-portal.md).
+Per attivare questa visualizzazione aggiornata, fare clic sul collegamento **Prova la nuova esperienza** nella parte superiore della pagina **Single Sign-On**. Per altre informazioni, vedere [Esercitazione: Configurare l'accesso Single Sign-On basato su SAML per un'applicazione con Azure Active Directory](../manage-apps/view-applications-portal.md).
 
 ---
 
@@ -3006,7 +3006,7 @@ L'autenticazione pass-through ora supporta le app e i protocolli legacy. Le limi
 
 Questa nuova funzionalità consente agli utenti di gestire le informazioni di sicurezza (ad esempio, numero di telefono, indirizzo di posta elettronica, app per dispositivi mobili e così via) per la reimpostazione della password self-service e Multi-Factor Authentication in una singola esperienza. Gli utenti non dovranno più registrare le stesse informazioni di sicurezza per la reimpostazione della password self-service e Multi-Factor Authentication in due diverse esperienze. Questa nuova esperienza si applica anche agli utenti che dispongono della reimpostazione della password self-service o di Multi-Factor Authentication.
 
-Se un'organizzazione non impone la registrazione per Multi-Factor Authentication o la reimpostazione della password self-service, gli utenti possono registrare le proprie informazioni di sicurezza tramite il portale **App personali** . Da qui, gli utenti possono eseguire la registrazione per qualsiasi metodo abilitato per MFA o SSPR.
+Se un'organizzazione non impone la registrazione per Multi-Factor Authentication o la reimpostazione della password self-service, gli utenti possono registrare le proprie informazioni di sicurezza tramite il portale **App personali**. Da qui, gli utenti possono eseguire la registrazione per qualsiasi metodo abilitato per MFA o SSPR.
 
 Si tratta di una funzionalità in anteprima pubblica con consenso esplicito. Gli amministratori possono attivare la nuova esperienza (se necessario) per un gruppo selezionato di utenti o tutti gli utenti in un tenant.
 
@@ -3028,16 +3028,16 @@ Le notifiche dell'app per dispositivi mobili possono essere attivate solo come p
 
 **Tipo:** Modifica prevista **Categoria di servizio:** Creazione di report **Funzionalità del prodotto:** Monitoraggio e creazione report
 
-A causa dell'applicazione della sicurezza più avanzata, è stato necessario apportare una modifica alle autorizzazioni per le app che usano un flusso di autorizzazioni delegate per accedere alle [API Log attività di Azure AD](../reports-monitoring/concept-reporting-api.md). Questa modifica verrà applicata entro il **26 giugno 2018** .
+A causa dell'applicazione della sicurezza più avanzata, è stato necessario apportare una modifica alle autorizzazioni per le app che usano un flusso di autorizzazioni delegate per accedere alle [API Log attività di Azure AD](../reports-monitoring/concept-reporting-api.md). Questa modifica verrà applicata entro il **26 giugno 2018**.
 
 Se una delle app usa l'API Log attività di Azure AD, seguire questa procedura per verificare che l'app non venga interrotta dopo l'applicazione della modifica.
 
 **Per aggiornare le autorizzazioni delle app**
 
-1. Accedere al portale di Azure, selezionare **Azure Active Directory** e quindi selezionare **Registrazioni per l'app** .
-2. Selezionare l'app che usa l'API Log attività di Azure AD, selezionare **Impostazioni** , quindi **Autorizzazioni necessarie** e infine selezionare l'API di **Windows Azure Active Directory** .
-3. Nell'area **Autorizzazioni delegate** del pannello **Abilita accesso** selezionare la casella accanto a **Lettura dati directory** e quindi selezionare **Salva** .
-4. Selezionare **Concedi autorizzazioni** e quindi selezionare **Sì** .
+1. Accedere al portale di Azure, selezionare **Azure Active Directory** e quindi selezionare **Registrazioni per l'app**.
+2. Selezionare l'app che usa l'API Log attività di Azure AD, selezionare **Impostazioni**, quindi **Autorizzazioni necessarie** e infine selezionare l'API di **Windows Azure Active Directory**.
+3. Nell'area **Autorizzazioni delegate** del pannello **Abilita accesso** selezionare la casella accanto a **Lettura dati directory** e quindi selezionare **Salva**.
+4. Selezionare **Concedi autorizzazioni** e quindi selezionare **Sì**.
 
     >[!Note]
     >È necessario essere un amministratore globale per concedere le autorizzazioni all'app.
@@ -3052,7 +3052,7 @@ Per altre informazioni, vedere l'area [Concedere le autorizzazioni](../reports-m
 
 Transport Layer Security (TLS) è un protocollo che fornisce riservatezza e integrità dei dati tra due applicazioni in comunicazione ed è il protocollo di sicurezza più usato oggi.
 
-Il [PCI Security Standards Council](https://www.pcisecuritystandards.org/) ha determinato che le versioni precedenti di TLS e Secure Sockets Layer (SSL) devono essere disabilitate a favore dell'abilitazione di protocolli di app nuovi e più sicuri, la cui conformità è prevista a partire dal **30 giugno 2018** . Questo cambiamento comporta che, se ci si connette ai servizi di Azure AD e si richiede la conformità PCI DSS, è necessario disabilitare TLS 1.0. Sono disponibili più versioni di TLS, ma TLS 1.2 è la versione più recente disponibile per i servizi di Azure Active Directory. Si consiglia di passare direttamente a TLS 1.2 per le combinazioni sia browser-server sia client-server.
+Il [PCI Security Standards Council](https://www.pcisecuritystandards.org/) ha determinato che le versioni precedenti di TLS e Secure Sockets Layer (SSL) devono essere disabilitate a favore dell'abilitazione di protocolli di app nuovi e più sicuri, la cui conformità è prevista a partire dal **30 giugno 2018**. Questo cambiamento comporta che, se ci si connette ai servizi di Azure AD e si richiede la conformità PCI DSS, è necessario disabilitare TLS 1.0. Sono disponibili più versioni di TLS, ma TLS 1.2 è la versione più recente disponibile per i servizi di Azure Active Directory. Si consiglia di passare direttamente a TLS 1.2 per le combinazioni sia browser-server sia client-server.
 
 I browser non aggiornati potrebbero non supportare le versioni più recenti di TLS, ad esempio TLS 1.2. Per vedere quali versioni di TLS sono supportate dal browser, accedere al sito [Qualys SSL Labs](https://www.ssllabs.com/) e fare clic su **Test your browser** (Verifica browser). È consigliabile eseguire l'aggiornamento alla versione più recente del Web browser e preferibilmente abilitare solo TLS 1.2.
 
@@ -3060,25 +3060,25 @@ I browser non aggiornati potrebbero non supportare le versioni più recenti di T
 
 - **Microsoft Edge e Internet Explorer (si configurano entrambi usando Internet Explorer)**
 
-    1. Aprire Internet Explorer, selezionare **Strumenti** > **Opzioni Internet** > **Avanzate** .
-    2. Nell'area **Sicurezza** selezionare **Usa TLS 1.2** e quindi fare clic su **OK** .
+    1. Aprire Internet Explorer, selezionare **Strumenti** > **Opzioni Internet** > **Avanzate**.
+    2. Nell'area **Sicurezza** selezionare **Usa TLS 1.2** e quindi fare clic su **OK**.
     3. Chiudere tutte le finestre del browser e riavviare Internet Explorer.
 
 - **Google Chrome**
 
-    1. Aprire Google Chrome, digitare *chrome://settings/* nella barra degli indirizzi e premere **Invio** .
-    2. Espandere le opzioni **Avanzate** , passare all'area **Sistema** e selezionare **Apri le impostazioni proxy** .
-    3. Nella casella **Proprietà Internet** selezionare la scheda **Avanzate** , passare all'area **Sicurezza** , selezionare **Usa TLS 1.2** e fare clic su **OK** .
+    1. Aprire Google Chrome, digitare *chrome://settings/* nella barra degli indirizzi e premere **Invio**.
+    2. Espandere le opzioni **Avanzate**, passare all'area **Sistema** e selezionare **Apri le impostazioni proxy**.
+    3. Nella casella **Proprietà Internet** selezionare la scheda **Avanzate**, passare all'area **Sicurezza**, selezionare **Usa TLS 1.2** e fare clic su **OK**.
     4. Chiudere tutte le finestre del browser e riavviare Google Chrome.
 
 - **Mozilla Firefox**
 
-    1. Aprire Firefox, digitare *about:config* nella barra degli indirizzi e premere **Invio** .
-    2. Cercare il termine *TLS* e quindi selezionare la voce **security.tls.version.max** .
-    3. Impostare il valore su **3** per forzare il browser a usare TLS fino alla versione 1.2, quindi selezionare **OK** .
+    1. Aprire Firefox, digitare *about:config* nella barra degli indirizzi e premere **Invio**.
+    2. Cercare il termine *TLS* e quindi selezionare la voce **security.tls.version.max**.
+    3. Impostare il valore su **3** per forzare il browser a usare TLS fino alla versione 1.2, quindi selezionare **OK**.
 
         >[!NOTE]
-        >Firefox versione 60.0 supporta TLS 1.3, perciò è possibile impostare il valore security.tls.version.max anche su **4** .
+        >Firefox versione 60.0 supporta TLS 1.3, perciò è possibile impostare il valore security.tls.version.max anche su **4**.
 
     4. Chiudere tutte le finestre del browser e riavviare Mozilla Firefox.
 
@@ -3132,11 +3132,11 @@ Per altre informazioni, vedere [Funzionalità Condizioni per l'utilizzo di Azure
 
 ---
 
-### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>Nuova guida completa su come distribuire Azure Multi-Factor Authentication
+### <a name="new-and-comprehensive-guidance-about-deploying-azure-ad-multi-factor-authentication"></a>Linee guida nuove e complete sulla distribuzione di Azure AD Multi-Factor Authentication
 
 **Tipo:** Nuova funzionalità **Categoria di servizio:** Altro **Funzionalità del prodotto:** Protezione e sicurezza delle identità
 
-Sono state rilasciate nuove istruzioni dettagliate su come distribuire Azure Multi-Factor Authentication (MFA) nell'organizzazione.
+Sono state rilasciate nuove istruzioni dettagliate su come distribuire Azure AD Multi-Factor Authentication (multi-factor authentication) nell'organizzazione.
 
 Per visualizzare la guida alla distribuzione di Multi-Factor Authentication, visitare il repository [Identity Deployment Guides](./active-directory-deployment-plans.md) (Guide alla distribuzione di identità) in GitHub. Per fornire commenti e suggerimenti sulle guide alla distribuzione, usare il [modulo di feedback per il piano di distribuzione](https://aka.ms/deploymentplanfeedback). In caso di domande sulle guide alla distribuzione, contattare Microsoft all'indirizzo [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
@@ -3172,7 +3172,7 @@ Per altre informazioni sull'anteprima pubblica, vedere il blog [Azure AD delegat
 
 **Tipo:** Modifica prevista **Categoria di servizio:** Autenticazioni (accessi) **Funzionalità del prodotto:** Piattaforma
 
-Le offerte di software come un servizio, ad esempio Azure Active Directory (Azure AD), sono progettate per ottenere la massima efficienza accedendo direttamente a Internet, senza la necessità di ExpressRoute o di altri tunnel VPN privati. Per questo motivo, l' **1 agosto 2018** , verrà interrotto il supporto di ExpressRoute per i servizi di Azure AD che usano il peering pubblico di Azure e le community di Azure nel peering Microsoft. Tutti i servizi interessati da questa modifica potrebbero riscontrare il graduale passaggio del traffico di Azure AD da ExpressRoute a Internet.
+Le offerte di software come un servizio, ad esempio Azure Active Directory (Azure AD), sono progettate per ottenere la massima efficienza accedendo direttamente a Internet, senza la necessità di ExpressRoute o di altri tunnel VPN privati. Per questo motivo, l'**1 agosto 2018**, verrà interrotto il supporto di ExpressRoute per i servizi di Azure AD che usano il peering pubblico di Azure e le community di Azure nel peering Microsoft. Tutti i servizi interessati da questa modifica potrebbero riscontrare il graduale passaggio del traffico di Azure AD da ExpressRoute a Internet.
 
 Anche se la modifica al supporto è in corso, è risaputo che esistono ancora situazioni in cui potrebbe essere necessario usare un set di circuiti dedicato per il traffico di autenticazione. Per questo motivo, Azure AD continuerà a supportare le restrizioni per gli intervalli IP in base al tenant usando ExpressRoute e i servizi già inclusi nel peering Microsoft con la community "Altri servizi Online di Office 365". Se i servizi in uso sono interessati, ma è richiesto ExpressRoute, è necessario seguire questa procedura:
 
@@ -3312,7 +3312,7 @@ Le verifiche di accesso di gruppi e app sono in genere disponibili come parte di
 
 **Tipo:** Funzionalità modificata **Categoria di servizio:** Autenticazioni (accessi) **Funzionalità del prodotto:** Autenticazione dell'utente
 
-Le app create a partire dal 25 aprile 2018 non potranno più richiedere **id_token** tramite il response_mode **query** .  Questa novità allinea Azure AD alle specifiche OIDC e contribuisce a ridurre la superficie di attacco delle app.  Alle app create prima del 25 aprile 2018 non viene impedito di usare il response_mode **query** con response_type **id_token** .  L'errore restituito durante la richiesta di un id_token da Azure AD è **AADSTS70007:' query ' non è un valore supportato di ' response_mode ' quando viene richiesto un token** .
+Le app create a partire dal 25 aprile 2018 non potranno più richiedere **id_token** tramite il response_mode **query**.  Questa novità allinea Azure AD alle specifiche OIDC e contribuisce a ridurre la superficie di attacco delle app.  Alle app create prima del 25 aprile 2018 non viene impedito di usare il response_mode **query** con response_type **id_token**.  L'errore restituito durante la richiesta di un id_token da Azure AD è **AADSTS70007:' query ' non è un valore supportato di ' response_mode ' quando viene richiesto un token**.
 
 I valori di response_mode **fragment** e **form_post** continuano a funzionare quando si creano nuovi oggetti applicazione, ad esempio per l'utilizzo del proxy di app. Assicurarsi di usare uno dei due prima di creare una nuova applicazione.
 
@@ -3654,11 +3654,11 @@ L'esperienza di esplorazione per la gestione di utenti e gruppi è stata semplif
 
 I report dei log attività di Azure AD sono ora disponibili nelle istanze di Microsoft Azure gestito da 21Vianet (21Vianet per Azure Cina). Sono inclusi i log seguenti:
 
-- **Log di attività di accesso** : includono tutti i log sugli accessi associati al tenant.
+- **Log di attività di accesso**: includono tutti i log sugli accessi associati al tenant.
 
-- **Log di controllo delle password self-service** : includono tutti i log di controllo relativi alla reimpostazione password self-service.
+- **Log di controllo delle password self-service**: includono tutti i log di controllo relativi alla reimpostazione password self-service.
 
-- **Log di controllo della gestione directory** : includono tutti i log di controllo correlati alla gestione delle directory, come Gestione utenti, Gestione app e altri.
+- **Log di controllo della gestione directory**: includono tutti i log di controllo correlati alla gestione delle directory, come Gestione utenti, Gestione app e altri.
 
 Questi log permettono di ottenere informazioni approfondite sullo stato dell'ambiente. I dati forniti consentono di:
 
@@ -3828,7 +3828,7 @@ Per altre informazioni, vedere:
 
 **Tipo:** Funzionalità modificata **Categoria di servizio:** Condizioni per l'utilizzo **Funzionalità del prodotto:** Conformità
 
-Quando vengono visualizzate le Condizioni per l'utilizzo, ora è possibile fare clic su **In caso di problemi di visualizzazione, fare clic qui** . Questo collegamento consente di aprire le Condizioni per l'utilizzo in modo nativo sul dispositivo. Indipendentemente dalle dimensioni del carattere del documento o dalle dimensioni dello schermo del dispositivo, è possibile ingrandire la visualizzazione finché non si riesce a leggere il documento.
+Quando vengono visualizzate le Condizioni per l'utilizzo, ora è possibile fare clic su **In caso di problemi di visualizzazione, fare clic qui**. Questo collegamento consente di aprire le Condizioni per l'utilizzo in modo nativo sul dispositivo. Indipendentemente dalle dimensioni del carattere del documento o dalle dimensioni dello schermo del dispositivo, è possibile ingrandire la visualizzazione finché non si riesce a leggere il documento.
 
 ---
 
@@ -3864,7 +3864,7 @@ Per altre informazioni, vedere [Rilevamenti dei rischi in Azure Active Directory
 
 **Tipo:** Nuova funzionalità **Categoria di servizio:** App personali **Funzionalità del prodotto:** SSO
 
-Ora è possibile gestire in maniera più efficiente la modalità di visualizzazione delle applicazioni di Office 365 nei pannelli di accesso dell'utente tramite una nuova impostazione utente. Questa opzione è utile per ridurre il numero di app nei pannelli di accesso di un utente se si preferisce visualizzare solo le app di Office nel portale di Office. L'impostazione è disponibile in **Impostazioni utente** ed è denominata **Gli utenti possono visualizzare solo le app di Office 365 nel portale di Office 365** .
+Ora è possibile gestire in maniera più efficiente la modalità di visualizzazione delle applicazioni di Office 365 nei pannelli di accesso dell'utente tramite una nuova impostazione utente. Questa opzione è utile per ridurre il numero di app nei pannelli di accesso di un utente se si preferisce visualizzare solo le app di Office nel portale di Office. L'impostazione è disponibile in **Impostazioni utente** ed è denominata **Gli utenti possono visualizzare solo le app di Office 365 nel portale di Office 365**.
 
 Per altre informazioni, vedere [Nascondere un'applicazione dall'esperienza utente in Azure Active Directory](../manage-apps/hide-application-from-user-portal.md).
 
@@ -3899,7 +3899,7 @@ A partire dall'8 gennaio 2018, l'esperienza di amministrazione di Azure AD nel p
 
 A partire dall'8 gennaio 2018, il portale Web di PhoneFactor è stato ritirato. Questo portale è stato usato per l'amministrazione del server MFA, ma tali funzionalità sono state spostate nel portale di Azure all'indirizzo portal.azure.com.
 
-La configurazione di MFA è accessibile da **Azure Active Directory \> MFA Server** .
+La configurazione di MFA è accessibile da **Azure Active Directory \> MFA Server**.
 
 ---
 
@@ -3936,7 +3936,7 @@ A tale scopo, seguire questa procedura:
 
 2. Nell'angolo in alto a destra selezionare il nome e quindi scegliere **Profilo** dall'elenco.
 
-3. In **Profilo** selezionare **Verificare le condizioni d'uso** .
+3. In **Profilo** selezionare **Verificare le condizioni d'uso**.
 
 4. È ora possibile verificare le condizioni per l'utilizzo accettate.
 
@@ -4164,15 +4164,15 @@ Per altre informazioni, vedere:
 
 ---
 
-### <a name="network-policy-server-extension-for-azure-multi-factor-authentication"></a>Estensione di Server dei criteri di rete per Azure Multi-Factor Authentication
+### <a name="network-policy-server-extension-for-azure-ad-multi-factor-authentication"></a>Estensione del server dei criteri di rete per Azure AD Multi-Factor Authentication
 
 **Tipo:** Nuova funzionalità **Categoria di servizio:**  Multi-Factor Authentication **Funzionalità del prodotto:** Autenticazione utente
 
-L'estensione di Server dei criteri di rete per Azure Multi-Factor Authentication aggiunge funzionalità di autenticazione a più fattori basata sul cloud nell'infrastruttura di autenticazione corrente usando i server esistenti. Con l'estensione di Server dei criteri di rete, è possibile aggiungere la verifica con telefonata, messaggio di testo o app telefonica al flusso di autenticazione esistente. Pertanto, non è necessario installare, configurare e gestire nuovi server.
+L'estensione del server dei criteri di rete per Azure AD Multi-Factor Authentication aggiunge funzionalità di Multi-Factor Authentication basate sul cloud all'infrastruttura di autenticazione usando i server esistenti. Con l'estensione di Server dei criteri di rete, è possibile aggiungere la verifica con telefonata, messaggio di testo o app telefonica al flusso di autenticazione esistente. Pertanto, non è necessario installare, configurare e gestire nuovi server.
 
-Questa estensione è stata creata per le organizzazioni che vogliono proteggere le connessioni della rete privata virtuale senza distribuire il server Azure Multi-Factor Authentication. L'estensione di Server dei criteri di rete funge da adattatore tra RADIUS e Azure Multi-Factor Authentication basato su cloud per fornire un secondo fattore di autenticazione per utenti federati o sincronizzati.
+Questa estensione è stata creata per le organizzazioni che vogliono proteggere le connessioni della rete privata virtuale senza distribuire il server Azure Multi-Factor Authentication. L'estensione del server dei criteri di rete funge da adattatore tra RADIUS e Azure AD basato sul cloud Multi-Factor Authentication per fornire un secondo fattore di autenticazione per gli utenti federati o sincronizzati.
 
-Per altre informazioni, vedere [Integrate your existing Network Policy Server infrastructure with Azure Multi-Factor Authentication](../authentication/howto-mfa-nps-extension.md) (Integrare l'infrastruttura di Server dei criteri di rete esistente con Azure Multi-Factor Authentication).
+Per altre informazioni, vedere [integrare l'infrastruttura server dei criteri di rete esistente con Azure AD multi-factor authentication](../authentication/howto-mfa-nps-extension.md).
 
 ---
 
@@ -4187,9 +4187,9 @@ Nel centro di amministrazione di Azure Active Directory è possibile:
 
 **Per provare il servizio:**
 
-1. Nel centro di amministrazione di Azure AD selezionare [Tutti gli utenti](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All) nella sezione **Gestisci** .
+1. Nel centro di amministrazione di Azure AD selezionare [Tutti gli utenti](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All) nella sezione **Gestisci**.
 
-2. Dall'elenco **Mostra** selezionare **Utenti eliminati di recente** .
+2. Dall'elenco **Mostra** selezionare **Utenti eliminati di recente**.
 
 3. Selezionare uno o più utenti eliminati di recente e quindi ripristinarli oppure eliminarli definitivamente.
 
@@ -4250,7 +4250,7 @@ Considerando la disponibilità di queste nuove funzionalità, le API di report n
 
 **Tipo:** Fisso **Categoria di servizio:** App personali **Funzionalità del prodotto:** Single sign-on
 
-Azure AD supporta il rilevamento automatico del campo di accesso per le applicazioni che eseguono il rendering di un campo HTML per nome utente e password. Questi passaggi sono illustrati in [Come acquisire manualmente i campi di accesso per un'applicazione](../manage-apps/troubleshoot-password-based-sso.md#manually-capture-sign-in-fields-for-an-app). È possibile trovare questa funzionalità aggiungendo un'applicazione *non nella raccolta* nella pagina **Applicazioni aziendali** del [portale di Azure](https://aad.portal.azure.com). È anche possibile configurare la modalità **Single Sign-On** in questa nuova applicazione impostandola su **Accesso Single Sign-On basato su password** , immettere un URL Web e quindi salvare la pagina.
+Azure AD supporta il rilevamento automatico del campo di accesso per le applicazioni che eseguono il rendering di un campo HTML per nome utente e password. Questi passaggi sono illustrati in [Come acquisire manualmente i campi di accesso per un'applicazione](../manage-apps/troubleshoot-password-based-sso.md#manually-capture-sign-in-fields-for-an-app). È possibile trovare questa funzionalità aggiungendo un'applicazione *non nella raccolta* nella pagina **Applicazioni aziendali** del [portale di Azure](https://aad.portal.azure.com). È anche possibile configurare la modalità **Single Sign-On** in questa nuova applicazione impostandola su **Accesso Single Sign-On basato su password**, immettere un URL Web e quindi salvare la pagina.
 
 A causa di un problema del servizio, questa funzionalità è stata temporaneamente disabilitata. Il problema è stato risolto e il rilevamento automatico del campo di accesso è nuovamente disponibile.
 
@@ -4322,7 +4322,7 @@ Per altre informazioni, vedere [Verifiche di accesso di Azure AD](../governance/
 
 **Tipo:** Nuova funzionalità **Categoria di servizio:** App personali **Funzionalità del prodotto:** Single sign-on
 
-È ora possibile gestire meglio le app visualizzate nei portali degli utenti tramite una nuova proprietà che consente di **nascondere le app** . È possibile nascondere le app nei casi in cui vengano visualizzati riquadri delle app per i servizi back-end o riquadri duplicati che creano disordine nelle icone di avvio delle app degli utenti. È possibile abilitare o disabilitare questa proprietà nella sezione **Proprietà** dell'app di terze parti tramite l'opzione **Visibile agli utenti?** . È anche possibile nascondere un'app a livello di codice tramite PowerShell.
+È ora possibile gestire meglio le app visualizzate nei portali degli utenti tramite una nuova proprietà che consente di **nascondere le app**. È possibile nascondere le app nei casi in cui vengano visualizzati riquadri delle app per i servizi back-end o riquadri duplicati che creano disordine nelle icone di avvio delle app degli utenti. È possibile abilitare o disabilitare questa proprietà nella sezione **Proprietà** dell'app di terze parti tramite l'opzione **Visibile agli utenti?** . È anche possibile nascondere un'app a livello di codice tramite PowerShell.
 
 Per altre informazioni, vedere [Nascondere un'applicazione di terze parti dall'esperienza utente in Azure Active Directory](../manage-apps/hide-application-from-user-portal.md).
 

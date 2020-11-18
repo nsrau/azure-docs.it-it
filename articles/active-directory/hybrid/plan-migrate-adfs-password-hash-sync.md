@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5a22c904d72f09656480be6009e3832fde72b89
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 4c058f74bb4e390fe7a5003d6ab5d963c56ef2d5
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408635"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836377"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Eseguire la migrazione dalla federazione alla sincronizzazione degli hash delle password per Azure Active Directory
 
@@ -89,8 +89,8 @@ Per verificare le impostazioni di accesso utente correnti:
    ![Screenshot dell'opzione Visualizza la configurazione corrente selezionata nella pagina Attività aggiuntive](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image2.png)<br />
 3. Nella pagina **Verifica della soluzione** prendere nota dello stato di **Sincronizzazione dell'hash delle password**.<br /> 
 
-   * Se **Sincronizzazione dell'hash delle password** è impostato su **Disabilitata** , completare i passaggi elencati in questo articolo per abilitarla.
-   * Se la **sincronizzazione dell'hash delle password** è impostata su **abilitato** , è possibile ignorare la sezione **passaggio 1: abilitare la sincronizzazione dell'hash delle password** in questo articolo.
+   * Se **Sincronizzazione dell'hash delle password** è impostato su **Disabilitata**, completare i passaggi elencati in questo articolo per abilitarla.
+   * Se la **sincronizzazione dell'hash delle password** è impostata su **abilitato**, è possibile ignorare la sezione **passaggio 1: abilitare la sincronizzazione dell'hash delle password** in questo articolo.
 4. Nella pagina **Verifica della soluzione** scorrere fino a visualizzare **Active Directory Federation Services (AD FS)**.<br />
 
    * ‎Se in questa sezione viene visualizzata la configurazione di AD FS, si può presupporre con sicurezza che AD FS sia stato originariamente configurato usando Azure AD Connect. È possibile convertire i domini dall'identità federata all'identità gestita usando l'opzione **Cambia l'accesso utente** di Azure AD Connect. Il processo è descritto in dettaglio nella sezione **opzione A: passare dalla Federazione alla sincronizzazione degli hash delle password usando Azure ad Connect**.
@@ -98,7 +98,7 @@ Per verificare le impostazioni di accesso utente correnti:
 
 ### <a name="document-current-federation-settings"></a>Documentare le impostazioni di federazione correnti
 
-Per trovare le impostazioni di federazione correnti, eseguire il cmdlet **Get-MsolDomainFederationSettings** :
+Per trovare le impostazioni di federazione correnti, eseguire il cmdlet **Get-MsolDomainFederationSettings**:
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName YourDomain.extention | fl *
@@ -110,7 +110,7 @@ Esempio:
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 ```
 
-Verificare le impostazioni che potrebbero essere state personalizzate per la documentazione relativa alla progettazione e alla distribuzione della federazione. Cercare in particolare le personalizzazioni in **PreferredAuthenticationProtocol** , **SupportsMfa** e **PromptLoginBehavior**.
+Verificare le impostazioni che potrebbero essere state personalizzate per la documentazione relativa alla progettazione e alla distribuzione della federazione. Cercare in particolare le personalizzazioni in **PreferredAuthenticationProtocol**, **SupportsMfa** e **PromptLoginBehavior**.
 
 Per altre informazioni, vedere questi articoli:
 
@@ -118,9 +118,9 @@ Per altre informazioni, vedere questi articoli:
 * [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> Se **SupportsMfa** è impostato su **True** , si sta usando una soluzione di autenticazione a più fattori locale per inserire una richiesta di verifica come secondo fattore nel flusso di autenticazione utente. Questa configurazione non funziona più per gli scenari di autenticazione Azure AD dopo la conversione del dominio dall'autenticazione federata a quella gestita. Dopo la disabilitazione della Federazione, la relazione viene troncata alla Federazione locale e sono incluse le schede di autenticazione a più fattori locali. 
+> Se **SupportsMfa** è impostato su **True**, si sta usando una soluzione di autenticazione a più fattori locale per inserire una richiesta di verifica come secondo fattore nel flusso di autenticazione utente. Questa configurazione non funziona più per gli scenari di autenticazione Azure AD dopo la conversione del dominio dall'autenticazione federata a quella gestita. Dopo la disabilitazione della Federazione, la relazione viene troncata alla Federazione locale e sono incluse le schede di autenticazione a più fattori locali. 
 >
-> In alternativa, usare il servizio Azure Multi-Factor Authentication basato sul cloud per eseguire la stessa funzione. Valutare attentamente i requisiti di autenticazione a più fattori prima di continuare. Prima di convertire i domini, assicurarsi di comprendere come usare Azure Multi-Factor Authentication, le implicazioni relative alla gestione delle licenze e il processo di registrazione utente.
+> Usare invece il Azure AD Multi-Factor Authentication servizio basato sul cloud per eseguire la stessa funzione. Valutare attentamente i requisiti di autenticazione a più fattori prima di continuare. Prima di convertire i domini, assicurarsi di comprendere come usare Azure AD Multi-Factor Authentication, le implicazioni relative alle licenze e il processo di registrazione dell'utente.
 
 #### <a name="back-up-federation-settings"></a>Eseguire il backup delle impostazioni di federazione
 
@@ -143,9 +143,9 @@ Prima di eseguire la conversione da identità federata a identità gestita, esam
 | Se | Risultato |
 |-|-|
 | Si prevede di usare AD FS con altre applicazioni (diverse da Azure AD e Microsoft 365). | Dopo la conversione dei domini, si useranno sia AD FS che Azure AD. Considerare l'esperienza utente. In alcuni scenari, è possibile che gli utenti debbano eseguire l'autenticazione due volte: una volta per Azure AD (dove un utente ottiene l'accesso SSO ad altre applicazioni, ad esempio Microsoft 365) e di nuovo per tutte le applicazioni ancora associate AD FS come attendibilità relying party. |
-| L'istanza di AD FS è un componente altamente personalizzabile e si basa su specifiche impostazioni di personalizzazione definite nel file onload.js, ad esempio se si è modificata l'esperienza di accesso per consentire agli utenti di usare il proprio nome solo nel formato **SamAccountName** , invece di un nome di entità utente (UPN), o se l'organizzazione visualizza informazioni personalizzate distintive dell'azienda. Il file onload.js non può essere duplicato in Azure AD. | Prima di continuare, è necessario verificare che Azure AD possa soddisfare i requisiti di personalizzazione corrente. Per altre informazioni e indicazioni, vedere le sezioni relative alla personalizzazione di AD FS e all'uso di informazioni personalizzate distintive dell'azienda in AD FS.|
+| L'istanza di AD FS è un componente altamente personalizzabile e si basa su specifiche impostazioni di personalizzazione definite nel file onload.js, ad esempio se si è modificata l'esperienza di accesso per consentire agli utenti di usare il proprio nome solo nel formato **SamAccountName**, invece di un nome di entità utente (UPN), o se l'organizzazione visualizza informazioni personalizzate distintive dell'azienda. Il file onload.js non può essere duplicato in Azure AD. | Prima di continuare, è necessario verificare che Azure AD possa soddisfare i requisiti di personalizzazione corrente. Per altre informazioni e indicazioni, vedere le sezioni relative alla personalizzazione di AD FS e all'uso di informazioni personalizzate distintive dell'azienda in AD FS.|
 | Si usa AD FS per bloccare le versioni precedenti dei client di autenticazione.| Provare a sostituire AD FS controlli che bloccano le versioni precedenti dei client di autenticazione usando una combinazione di [controlli di accesso condizionale](../conditional-access/concept-conditional-access-conditions.md) e [regole di accesso client di Exchange Online](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules). |
-| Si richiede agli utenti di eseguire l'autenticazione a più fattori in una soluzione server di autenticazione a più fattori locale quando gli utenti eseguono l'autenticazione ad AD FS.| In un dominio con identità gestite, non è possibile inserire una richiesta di autenticazione a più fattori tramite la soluzione di autenticazione a più fattori locale nel flusso di autenticazione. È tuttavia possibile usare il servizio Azure Multi-Factor Authentication per l'autenticazione a più fattori dopo aver convertito il dominio.<br /><br /> Se gli utenti attualmente non usano Azure Multi-Factor Authentication, è necessario un unico passaggio di registrazione utente. È necessario eseguire le opportune operazioni preliminari e comunicare agli utenti la registrazione pianificata. |
+| Si richiede agli utenti di eseguire l'autenticazione a più fattori in una soluzione server di autenticazione a più fattori locale quando gli utenti eseguono l'autenticazione ad AD FS.| In un dominio con identità gestite, non è possibile inserire una richiesta di autenticazione a più fattori tramite la soluzione di autenticazione a più fattori locale nel flusso di autenticazione. Tuttavia, è possibile usare il servizio Azure AD Multi-Factor Authentication per l'autenticazione a più fattori dopo la conversione del dominio.<br /><br /> Se gli utenti non usano attualmente Azure AD Multi-Factor Authentication, è necessario un solo passaggio di registrazione dell'utente. È necessario eseguire le opportune operazioni preliminari e comunicare agli utenti la registrazione pianificata. |
 | Attualmente si usano i criteri di controllo di accesso (AuthZ Rules) in AD FS per controllare l'accesso ai Microsoft 365.| Prendere in considerazione la sostituzione dei criteri con i [criteri di accesso condizionale](../conditional-access/overview.md) Azure ad equivalenti e le [regole di accesso client di Exchange Online](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules).|
 
 ### <a name="common-ad-fs-customizations"></a>Personalizzazioni di AD FS comuni
@@ -257,7 +257,7 @@ Per verificare che la sincronizzazione degli hash delle password funzioni corret
 1. Aprire una nuova sessione di Windows PowerShell nel server di Azure AD Connect usando l'opzione Esegui come amministratore.
 2. Eseguire `Set-ExecutionPolicy RemoteSigned` o `Set-ExecutionPolicy Unrestricted`.
 3. Avviare la procedura guidata di Azure AD Connect.
-4. Passare alla pagina **Attività aggiuntive** , selezionare **Risoluzione dei problemi** e quindi fare clic su **Avanti**.
+4. Passare alla pagina **Attività aggiuntive**, selezionare **Risoluzione dei problemi** e quindi fare clic su **Avanti**.
 5. Nella pagina **Risoluzione dei problemi** selezionare **Avvia** per avviare il menu per la risoluzione dei problemi in PowerShell.
 6. Nel menu principale scegliere **Troubleshoot password hash synchronization** (Risolvere i problemi di sincronizzazione degli hash delle password).
 7. Nel sottomenu scegliere **Password hash synchronization does not work at all** (La sincronizzazione degli hash delle password non funziona).
@@ -281,7 +281,7 @@ Sono disponibili due opzioni per cambiare il metodo di accesso alla sincronizzaz
 
 #### <a name="option-a-switch-from-federation-to-password-hash-synchronization-by-using-azure-ad-connect"></a>Opzione A: passare dalla Federazione alla sincronizzazione dell'hash delle password usando Azure AD Connect
 
-Usare questo metodo se si è inizialmente configurato l'ambiente di AD FS usando Azure AD Connect. In *caso contrario* , questo metodo non può essere usato.
+Usare questo metodo se si è inizialmente configurato l'ambiente di AD FS usando Azure AD Connect. In *caso contrario*, questo metodo non può essere usato.
 
 Prima di tutto, cambiare il metodo di accesso:
 
@@ -359,7 +359,7 @@ Usare questa opzione se non si sono inizialmente configurati i domini federati u
 6. Nella pagina **Pronto per la configurazione** verificare che la casella di controllo **Avvia il processo di sincronizzazione al termine della configurazione** sia selezionata. Quindi selezionare **Configura**.
 
    ![Screenshot che mostra il pulsante Configura nella pagina Pronto per la configurazione](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image15.png)<br />
-   Quando si seleziona il pulsante **Configura** , l'accesso SSO facile viene configurato come indicato nel passaggio precedente. La configurazione della sincronizzazione degli hash delle password non viene modificata perché è stata abilitata in precedenza.
+   Quando si seleziona il pulsante **Configura**, l'accesso SSO facile viene configurato come indicato nel passaggio precedente. La configurazione della sincronizzazione degli hash delle password non viene modificata perché è stata abilitata in precedenza.
 
    > [!IMPORTANT]
    > In questa fase non vengono apportate modifiche al modo in cui gli utenti eseguono l'accesso.
@@ -412,7 +412,7 @@ Per testare la sincronizzazione degli hash delle password:
 
    ![Screenshot che mostra la pagina di accesso in cui immettere una password](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image19.png)
 
-4. Dopo che si è immessa la password e si è selezionato **Accedi** , si verrà reindirizzati al portale di Office 365.
+4. Dopo che si è immessa la password e si è selezionato **Accedi**, si verrà reindirizzati al portale di Office 365.
 
    ![Screenshot che mostra il portale di Office 365](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image20.png)
 
@@ -453,7 +453,7 @@ Vedere la documentazione relativa alla progettazione e alla distribuzione della 
 
 ### <a name="sync-userprincipalname-updates"></a>Sincronizzare gli aggiornamenti di userPrincipalName
 
-In genere, gli aggiornamenti dell'attributo **UserPrincipalName** , che usa il servizio di sincronizzazione dall'ambiente locale, vengono bloccati a meno che non siano vere entrambe le condizioni seguenti:
+In genere, gli aggiornamenti dell'attributo **UserPrincipalName**, che usa il servizio di sincronizzazione dall'ambiente locale, vengono bloccati a meno che non siano vere entrambe le condizioni seguenti:
 
 * L'utente è in un dominio con identità gestite (non federate).
 * All'utente non è stata assegnata una licenza.

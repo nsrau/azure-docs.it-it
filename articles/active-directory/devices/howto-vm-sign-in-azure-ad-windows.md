@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85bbdff2f7e67434a3e21aaf51af96c1e851eb0d
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 134148fa3ea73212d85393cc433d60f7ddeecd17
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740186"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837125"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -81,12 +81,12 @@ Esistono diversi modi per abilitare l'accesso Azure AD per la VM Windows:
 
 Per creare una macchina virtuale Windows Server 2019 datacenter in Azure con Azure AD logon: 
 
-1. Accedere al [portale di Azure](https://portal.azure.com)con un account che abbia accesso per creare macchine virtuali e selezionare **+ Crea una risorsa** .
+1. Accedere al [portale di Azure](https://portal.azure.com)con un account che abbia accesso per creare macchine virtuali e selezionare **+ Crea una risorsa**.
 1. Digitare **Windows Server** in Cerca nella barra di ricerca del Marketplace.
    1. Fare clic su **Windows Server** e scegliere **Windows Server 2019 datacenter** dall'elenco a discesa selezionare un piano software.
-   1. Fare clic su **Crea** .
-1. Nella scheda "gestione" abilitare l'opzione per l' **accesso con le credenziali di AAD (anteprima)** nella sezione Azure Active Directory da off a **on** .
-1. Verificare che l' **identità gestita assegnata dal sistema** nella sezione Identity sia impostata **su on** . Questa azione deve essere eseguita automaticamente dopo aver abilitato l'accesso con Azure AD credenziali.
+   1. Fare clic su **Crea**.
+1. Nella scheda "gestione" abilitare l'opzione per l' **accesso con le credenziali di AAD (anteprima)** nella sezione Azure Active Directory da off a **on**.
+1. Verificare che l' **identità gestita assegnata dal sistema** nella sezione Identity sia impostata **su on**. Questa azione deve essere eseguita automaticamente dopo aver abilitato l'accesso con Azure AD credenziali.
 1. Esaminare il resto dell'esperienza di creazione di una macchina virtuale. Durante questa fase di anteprima sarà necessario creare un nome utente e una password di amministratore per la macchina virtuale.
 
 ![Accedi con credenziali di Azure AD creare una macchina virtuale](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-login-with-azure-ad.png)
@@ -146,8 +146,8 @@ Il `provisioningState` di `Succeeded` viene visualizzato quando l'estensione vie
 
 Ora che è stata creata la macchina virtuale, è necessario configurare i criteri di controllo degli accessi in base al ruolo di Azure per determinare chi può accedere alla macchina virtuale. Per autorizzare l'accesso alla macchina virtuale vengono usati due ruoli di Azure:
 
-- **Account di accesso amministratore macchina virtuale** : gli utenti con questo ruolo assegnati possono accedere a una macchina virtuale di Azure con privilegi di amministratore.
-- **Accesso utente alle macchine virtuali** : gli utenti a cui è stato assegnato questo ruolo possono accedere a una macchina virtuale di Azure con i privilegi di utente normale.
+- **Account di accesso amministratore macchina virtuale**: gli utenti con questo ruolo assegnati possono accedere a una macchina virtuale di Azure con privilegi di amministratore.
+- **Accesso utente alle macchine virtuali**: gli utenti a cui è stato assegnato questo ruolo possono accedere a una macchina virtuale di Azure con i privilegi di utente normale.
 
 > [!NOTE]
 > Per consentire a un utente di accedere alla VM tramite RDP, è necessario assegnare l'account di accesso dell'amministratore della macchina virtuale o del ruolo di accesso utente della macchina virtuale. Un utente di Azure con i ruoli proprietario o collaboratore assegnati a una macchina virtuale non dispone automaticamente dei privilegi necessari per accedere alla macchina virtuale tramite RDP. Questo consente di fornire la separazione controllata tra il set di persone che controllano le macchine virtuali e il set di persone che possono accedere alle macchine virtuali.
@@ -163,10 +163,10 @@ Per configurare le assegnazioni di ruolo per le macchine virtuali Windows Server
 
 1. Passare alla pagina di panoramica della macchina virtuale specifica
 1. Selezionare **controllo di accesso (IAM)** dalle opzioni di menu
-1. Selezionare **Aggiungi** , **Aggiungi assegnazione ruolo** per aprire il riquadro Aggiungi assegnazione ruolo.
-1. Nell'elenco a discesa **ruolo** selezionare un ruolo, ad esempio account di **accesso amministratore macchina virtuale** o **accesso utente macchina virtuale** .
+1. Selezionare **Aggiungi**, **Aggiungi assegnazione ruolo** per aprire il riquadro Aggiungi assegnazione ruolo.
+1. Nell'elenco a discesa **ruolo** selezionare un ruolo, ad esempio account di **accesso amministratore macchina virtuale** o **accesso utente macchina virtuale**.
 1. Nel campo **Seleziona** selezionare un utente, un gruppo, un'entità servizio o un'identità gestita. Se l'entità di sicurezza non è visualizzata nell'elenco, è possibile digitare nella casella **Selezione** per cercare nella directory i nomi visualizzati, gli indirizzi e-mail e gli identificatori di oggetto.
-1. Selezionare **Save (Salva** ) per assegnare il ruolo.
+1. Selezionare **Save (Salva**) per assegnare il ruolo.
 
 Dopo qualche istante, all'entità di sicurezza verrà assegnato il ruolo per l'ambito selezionato.
 
@@ -203,7 +203,7 @@ Per altre informazioni su come usare il controllo degli accessi in base al ruolo
 > Se si usa "Richiedi autenticazione a più fattori" come controllo di concessione dell'accesso per richiedere l'accesso all'app "accesso alle macchine virtuali Windows di Azure", è necessario fornire l'attestazione di autenticazione a più fattori come parte del client che avvia la sessione RDP alla macchina virtuale Windows di destinazione in Azure. L'unico modo per ottenere questo risultato in un client Windows 10 consiste nell'usare il PIN di Windows Hello for business o l'autenticazione biometrica con il client RDP. Il supporto per l'autenticazione biometrica è stato aggiunto al client RDP in Windows 10 versione 1809. Il desktop remoto che usa l'autenticazione di Windows Hello for business è disponibile solo per le distribuzioni che usano il modello di attendibilità del certificato e attualmente non sono disponibili per il modello di attendibilità
 
 > [!WARNING]
-> La Multi-Factor Authentication di Azure abilitata/applicata per utente non è supportata per l'accesso alla macchina virtuale.
+> La Azure AD Multi-Factor Authentication abilitata/applicata per utente non è supportata per l'accesso alla macchina virtuale.
 
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Accedere con le credenziali Azure AD a una macchina virtuale Windows
 
@@ -214,7 +214,7 @@ Per accedere alla macchina virtuale Windows Server 2019 usando Azure AD:
 
 1. Passare alla pagina Panoramica della macchina virtuale abilitata con Azure AD accesso.
 1. Selezionare **Connetti** per aprire il pannello Connetti a macchina virtuale.
-1. Selezionare **Scarica file RDP** .
+1. Selezionare **Scarica file RDP**.
 1. Selezionare **Apri** per avviare il client connessione Desktop remoto.
 1. Selezionare **Connetti** per aprire la finestra di dialogo di accesso di Windows.
 1. Accedere usando le credenziali Azure AD.

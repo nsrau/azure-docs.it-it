@@ -16,12 +16,12 @@ ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e794b66341d4e7c478fd526107cc35c7c745fa7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe92f761ac0b16da7c3cc3c69c1fa4b00f4e7579
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85358328"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836360"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticazione pass-through di Azure Active Directory: approfondimento tecnico
 Questo articolo offre una panoramica del funzionamento dell'autenticazione pass-through di Azure Active Directory (Azure AD). Per informazioni tecniche e di sicurezza approfondite, vedere l'articolo [approfondimento sulla sicurezza](how-to-connect-pta-security-deep-dive.md) .
@@ -43,7 +43,7 @@ Quando un utente tenta di accedere a un'applicazione Azure Active Directory, se 
 8. L'agente convalida il nome utente e la password in Active Directory usando le API Windows standard. Questo meccanismo è simile a quello usato da Active Directory Federation Services (AD FS). Il nome utente può essere il nome utente predefinito locale (in genere `userPrincipalName`) o un altro attributo configurato in Azure AD Connect (noto come `Alternate ID`).
 9. Il controller di dominio (DC, Domain Controller) di Active Directory locale valuta la richiesta e restituisce all'agente la risposta appropriata che può essere esito positivo, errore, password scaduta o utente bloccato.
 10. L'agente di autenticazione, a sua volta, restituisce la risposta ad Azure AD.
-11. Azure AD valuta la risposta e risponde all'utente nel modo appropriato. Ad esempio, Azure AD esegue l'accesso immediato dell'utente o richiede l'esecuzione dell'autenticazione a più fattori di Azure.
+11. Azure AD valuta la risposta e risponde all'utente nel modo appropriato. Ad esempio, Azure AD firma l'utente immediatamente o richiede Azure AD Multi-Factor Authentication.
 12. Se l'accesso dell'utente ha esito positivo, l'utente può accedere all'applicazione.
 
 Il diagramma seguente illustra tutti i componenti e i passaggi interessati:

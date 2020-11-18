@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e427a68751cc348a7b0024fb01402bd15ca87d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df70891ef090d44769aadbc235273e3193bc780e
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705725"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837210"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Risoluzione dei problemi di Enterprise State Roaming in Azure Active Directory
 
@@ -76,7 +76,7 @@ Enterprise State Roaming richiede che il dispositivo sia registrato con Azure AD
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming e Multi-Factor Authentication 
 
-In determinate condizioni, l'Enterprise State Roaming potrebbe non riuscire a sincronizzare i dati se è configurata la funzione Azure Multi-Factor Authentication. Per ulteriori informazioni su questi sintomi, vedere il documento di supporto [KB3193683](https://support.microsoft.com/kb/3193683). 
+In determinate condizioni, Enterprise State Roaming può non riuscire a sincronizzare i dati se è configurata Azure AD Multi-Factor Authentication. Per ulteriori informazioni su questi sintomi, vedere il documento di supporto [KB3193683](https://support.microsoft.com/kb/3193683). 
 
 **Potenziale problema**: se nel portale di Azure Active Directory il dispositivo è configurato per richiedere la Multi-Factor Authentication, potrebbe non essere possibile sincronizzare le impostazioni durante l'accesso tramite password a un dispositivo Windows 10. Questo tipo di configurazione Multi-Factor Authentication è pensata per proteggere gli account di amministratore di Azure. Gli utenti amministratori potrebbero ancora essere in grado di eseguire la sincronizzazione accedendo ai dispositivi Windows 10 con il PIN Microsoft Passport for Work o completando Multi-Factor Authentication durante l'accesso ad altri servizi di Azure, ad esempio Microsoft 365.
 
@@ -111,7 +111,7 @@ Assicurarsi che il client Windows 10 v1511 disponga dell'aggiornamento cumulativ
 Per evitare la perdita di dati, i dati protetti con [windows Information Protection](/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip) non vengono sincronizzati tramite Enterprise state roaming per i dispositivi che usano l'aggiornamento dell'anniversario di Windows 10.
 
 **Azione consigliata**  
-No. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
+Nessuno. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
 
 ---
 
@@ -120,7 +120,7 @@ No. È possibile che questo problema venga risolto da aggiornamenti futuri di Wi
 Nei dispositivi aggiunti a un dominio non verranno sincronizzati la data, l'ora e l'ora automatica dell'area. L'uso dell'ora automatica potrebbe sovrascrivere le altre impostazioni di data, ora e area e causare la mancata sincronizzazione di queste impostazioni. 
 
 **Azione consigliata**  
-No. 
+Nessuno. 
 
 ---
 
@@ -138,7 +138,7 @@ Assicurarsi che il client Windows 10 v1511 disponga dell'aggiornamento cumulativ
 Se si tenta di accedere al dispositivo Windows utilizzando una smart card, anche virtuale, la sincronizzazione delle impostazioni cesserà di funzionare.     
 
 **Azione consigliata**  
-No. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
+Nessuno. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
 
 ---
 

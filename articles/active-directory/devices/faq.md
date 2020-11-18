@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ecc23e2969ce4ce26eef7b9a3a485389d08ce0
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266783"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94837108"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -198,7 +198,7 @@ Le modifiche UPN sono supportate con l'aggiornamento di Windows 10 2004. Gli ute
 
 ---
 
-### <a name="q-why-dont-some-of-my-users-get-azure-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>D: perché alcuni utenti non ricevono richieste di Multi-Factor Authentication di Azure per i dispositivi aggiunti Azure AD?
+### <a name="q-why-dont-some-of-my-users-get-azure-ad-multi-factor-authentication-prompts-on-azure-ad-joined-devices"></a>D: perché alcuni utenti non ricevono Azure AD Multi-Factor Authentication richiesta di Azure AD dispositivi aggiunti?
 
 **R:** Un utente potrebbe partecipare o registrare un dispositivo con Azure AD usando Multi-Factor Authentication. Il dispositivo stesso diventa quindi un secondo fattore attendibile per tale utente. Ogni volta che lo stesso utente esegue l'accesso al dispositivo e accede a un'applicazione, Azure AD considera tale dispositivo come secondo fattore. Ciò consente di accedere facilmente alle applicazioni senza altri messaggi prompt da parte di Multi-Factor Authentication. 
 
@@ -291,7 +291,7 @@ Le modifiche UPN sono supportate con l'aggiornamento di Windows 10 2004. Gli ute
 
 **Un** 
 - Per i dispositivi registrati Azure ad Windows 10, passare a **Impostazioni**  >  **account**  >  **Accedi all'ufficio o all'Istituto di istruzione**. Selezionare l'account e quindi **Disconnetti**. La registrazione del dispositivo è per profilo utente in Windows 10.
-- Per iOS e Android, è possibile usare le **Impostazioni**dell'applicazione Microsoft Authenticator  >  **registrazione del dispositivo** e selezionare **Annulla registrazione del dispositivo**.
+- Per iOS e Android, è possibile usare le **Impostazioni** dell'applicazione Microsoft Authenticator  >  **registrazione del dispositivo** e selezionare **Annulla registrazione del dispositivo**.
 - Per macOS, è possibile usare l'applicazione Portale aziendale Microsoft Intune per annullare la registrazione del dispositivo dalla gestione e rimuovere eventuali registrazioni. 
 
 ---

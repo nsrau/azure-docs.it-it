@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74cb1e021049b7c36c4c23f2e9a6a7512fba1110
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 71726724e7c018f34b1175f323d0c8e55b604931
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146136"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836479"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -457,7 +457,7 @@ Con questo nuovo ruolo, si traggono vantaggio dai privilegi minimi necessari per
 **Categoria di servizio:** Privileged Identity Management  
 **Funzionalità del prodotto:** Privileged Identity Management
  
-In precedenza, l'onboarding in Privileged Identity Management (PIM) richiedeva il consenso dell'utente e un flusso di onboarding nel pannello di PIM che includeva la registrazione nell'autenticazione a più fattori di Azure. Con la recente integrazione dell'esperienza PIM nel pannello ruoli e amministratori Azure AD, questa esperienza verrà rimossa. Qualsiasi tenant con licenza P2 valida verrà caricato automaticamente in PIM.
+In precedenza, l'onboarding in Privileged Identity Management (PIM) richiedeva il consenso dell'utente e un flusso di onboarding nel pannello di PIM che includeva la registrazione in Azure AD multi-factor authentication. Con la recente integrazione dell'esperienza PIM nel pannello ruoli e amministratori Azure AD, questa esperienza verrà rimossa. Qualsiasi tenant con licenza P2 valida verrà caricato automaticamente in PIM.
 
 Il caricamento in PIM non ha alcun effetto negativo diretto sul tenant. È possibile prevedere le seguenti modifiche:
 - Opzioni di assegnazione aggiuntive, ad esempio Active vs. idonee con l'ora di inizio e di fine quando si effettua un'assegnazione nel pannello ruoli e amministratori PIM o Azure AD. 

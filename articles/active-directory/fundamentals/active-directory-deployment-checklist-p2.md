@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aebe6fafea7cbbb0b37469a13262529b568e342
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 92d1e5b8ac6492b0b1d819431e4616d32a092cc8
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077966"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836921"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guida alla distribuzione della funzionalità Azure Active Directory
 
@@ -57,7 +57,7 @@ In questa fase, gli amministratori abilitano le funzionalità di sicurezza di ba
 | [Distribuire Azure AD Multi-Factor Authentication usando i criteri di accesso condizionale](../authentication/howto-mfa-getstarted.md) | Richiedere agli utenti di eseguire la verifica in due passaggi per l'accesso alle applicazioni sensibili mediante i criteri di accesso condizionale. | Azure AD Premium P1 |
 | [Abilitazione di Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) | Abilitare il rilevamento degli accessi rischiosi e di violazione delle credenziali per gli utenti dell'organizzazione. | Azure AD Premium P2 |
 | [Usare i rilevamenti di rischio per attivare l'autenticazione a più fattori e le modifiche delle password](../authentication/tutorial-risk-based-sspr-mfa.md) | Abilitare procedure di automazione per attivare eventi come l'autenticazione a più fattori, la reimpostazione della password e il blocco degli accessi in base al rischio. | Azure AD Premium P2 |
-| [Abilitare la registrazione combinata per la reimpostazione della password self-service e Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) | Consentire agli utenti di registrarsi da un'esperienza comune sia per Azure Multi-Factor Authentication che per la reimpostazione della password self-service. | Azure AD Premium P1 |
+| [Abilitare la registrazione combinata per la reimpostazione della password self-service e Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) | Consentire agli utenti di registrarsi da un'esperienza comune sia per Azure AD Multi-Factor Authentication che per la reimpostazione della password self-service. | Azure AD Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fase 2: importare utenti, abilitare la sincronizzazione e gestire i dispositivi
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 2de3f78b58e10a4fbf65bb00d516448a089f85b6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d5a8fe4192c3778e259ed18239a4198398d8807b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370951"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836836"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Informazioni di riferimento sulla Guida operativa di Azure Active Directory
 
@@ -43,7 +43,7 @@ La gestione di Azure Active Directory richiede l'esecuzione continua delle attiv
 | Monitorare i log ibridi: agenti di autenticazione pass-through | Team operativo IAM |
 | Monitorare i log ibridi: servizio di writeback delle password | Team operativo IAM |
 | Monitorare i log ibridi: gateway di protezione delle password locale | Team operativo IAM |
-| Monitorare i log ibridi: estensione NPS di Azure (se applicabile) | Team operativo IAM |
+| Monitorare i log ibridi: Azure AD estensione NPS server (se applicabile) | Team operativo IAM |
 
 Quando si esamina l'elenco, è possibile che sia necessario assegnare un proprietario per le attività che non dispongono di un proprietario o modificare la proprietà per le attività che non sono allineate alle raccomandazioni precedenti.
 
@@ -86,7 +86,7 @@ Quando si monitora l'integrità dell'ambiente, è necessario risolvere immediata
 
 ### <a name="on-premises-agents-logs"></a>Log degli agenti locali
 
-Alcuni servizi di gestione delle identità e degli accessi richiedono agenti locali per abilitare scenari ibridi. Gli esempi includono la reimpostazione della password, l'autenticazione pass-through (PTA), il proxy di applicazione Azure AD e l'estensione NPS di Azure. La linea di base del team operativo e il monitoraggio dell'integrità di questi componenti sono fondamentali per l'archiviazione e l'analisi dei log degli agenti di componenti usando soluzioni quali System Center Operations Manager o SIEM. È ugualmente importante che il team operativo di INFOSEC o help desk capire come risolvere i problemi relativi ai modelli degli errori.
+Alcuni servizi di gestione delle identità e degli accessi richiedono agenti locali per abilitare scenari ibridi. Gli esempi includono la reimpostazione della password, l'autenticazione pass-through (PTA), il proxy di applicazione Azure AD e Azure AD l'estensione NPS. La linea di base del team operativo e il monitoraggio dell'integrità di questi componenti sono fondamentali per l'archiviazione e l'analisi dei log degli agenti di componenti usando soluzioni quali System Center Operations Manager o SIEM. È ugualmente importante che il team operativo di INFOSEC o help desk capire come risolvere i problemi relativi ai modelli degli errori.
 
 #### <a name="on-premises-agents-logs-recommended-reading"></a>Lettura consigliata dagli agenti locali
 
@@ -94,7 +94,7 @@ Alcuni servizi di gestione delle identità e degli accessi richiedono agenti loc
 - [Risoluzione dei problemi relativi alla reimpostazione della password self-service - Azure Active Directory](../authentication/troubleshoot-sspr.md)
 - [Comprendere i connettori del proxy applicazione di Azure AD](../manage-apps/application-proxy-connectors.md)
 - [Azure AD Connect: risolvere i problemi di autenticazione pass-through](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
-- [Risolvere i problemi relativi ai codici di errore per l'estensione NPS di Azure](../authentication/howto-mfa-nps-extension-errors.md)
+- [Risoluzione dei problemi relativi ai codici di errore per l'estensione NPS Azure AD](../authentication/howto-mfa-nps-extension-errors.md)
 
 ### <a name="on-premises-agents-management"></a>Gestione degli agenti locali
 
