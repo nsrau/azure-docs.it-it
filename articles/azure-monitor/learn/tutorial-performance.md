@@ -3,16 +3,16 @@ title: Diagnosticare i problemi di prestazioni con Azure Application Insights | 
 description: Esercitazione per il rilevamento e la diagnosi dei problemi di prestazioni in un'applicazione con Azure Application Insights.
 ms.subservice: application-insights
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 3c7185e07190895dfcc97555c6603049ed41c18c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df7cfff7d5bf1b89f88105f79c072d1d7e731b31
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322500"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592567"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Rilevare e diagnosticare i problemi di prestazioni con Azure Application Insights
 
@@ -102,11 +102,6 @@ Come per i dati raccolti per le prestazioni del server, Application Insights ren
 2. Verrà aperta la finestra di Log con una query per ognuna delle visualizzazioni nel pannello. La prima query mostra la durata per le diverse visualizzazioni pagina nel corso del tempo.
 
     ![Query sui log](media/tutorial-performance/10-page-view-logs.png)
-
-3.  Smart Diagnostics è una funzionalità di Log che identifica i modelli univoci nei dati. Quando si fa clic sul punto di Smart Diagnostics nel grafico a linee, la stessa query viene eseguita senza i record che hanno causato l'anomalia. I dettagli di questi record vengono visualizzati nella sezione dei commenti della query, in modo da identificare le proprietà di tali visualizzazioni pagina che causano la durata eccessiva.
-
-    ![Log con Diagnostica intelligenti](media/tutorial-performance/11-page-view-logs-dsmart.png)
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere appreso come identificare i problemi di prestazioni, passare all'esercitazione successiva per imparare a creare avvisi in risposta agli errori.

@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 87ca8591be42e34a52f15913e0ec4058505cc0b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4158bc07373a2d0aa6fb6ceaf2dce62b50bb6bd7
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079054"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94658367"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Creare un ambiente di test di Firewall di Azure
 
@@ -72,12 +72,11 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, una rete v
 | [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Crea una configurazione di VM. Questa configurazione include informazioni quali il nome della VM, il sistema operativo e le credenziali amministrative. La configurazione viene usata durante la creazione della VM. |
 | [New-AzVM](/powershell/module/az.compute/new-azvm) | Creare una macchina virtuale. |
 |[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Rimuove un gruppo di risorse e tutte le risorse contenute al suo interno. |
-|[New-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall)| Crea un nuovo firewall di Azure.|
-|[Get-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/get-azfirewall)|Recupera un oggetto Firewall di Azure.|
-|[New-AzFirewallApplicationRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallapplicationrule)|Crea una nuova regola di applicazione di Firewall di Azure.|
-|[Set-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/set-azfirewall)|Esegue il commit delle modifiche nell'oggetto Firewall di Azure.|
+|[New-AzFirewall](/powershell/module/az.network/new-azfirewall)| Crea un nuovo firewall di Azure.|
+|[Get-AzFirewall](/powershell/module/az.network/get-azfirewall)|Recupera un oggetto Firewall di Azure.|
+|[New-AzFirewallApplicationRule](/powershell/module/az.network/new-azfirewallapplicationrule)|Crea una nuova regola di applicazione di Firewall di Azure.|
+|[Set-AzFirewall](/powershell/module/az.network/set-azfirewall)|Esegue il commit delle modifiche nell'oggetto Firewall di Azure.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/azure/).
-

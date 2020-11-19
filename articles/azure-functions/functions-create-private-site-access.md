@@ -6,16 +6,16 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 6c87fcf4f56b7092436fa16658a72ead24d9fec2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: e367e4f2a704d8c718551fb031164520b3ff5bb3
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423029"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94579131"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Esercitazione: Stabilire l'accesso privato al sito per Funzioni di Azure
 
-Questa esercitazione illustra come abilitare l'[accesso privato al sito](./functions-networking-options.md#private-site-access) con Funzioni di Azure. Usando l'accesso privato al sito, è possibile richiedere che il codice della funzione venga attivato solo da una rete virtuale specifica.
+Questa esercitazione illustra come abilitare l'[accesso privato al sito](./functions-networking-options.md#private-endpoint-connections) con Funzioni di Azure. Usando l'accesso privato al sito, è possibile richiedere che il codice della funzione venga attivato solo da una rete virtuale specifica.
 
 L'accesso privato al sito è utile negli scenari in cui l'accesso all'app per le funzioni deve essere limitato a una rete virtuale specifica. L'app per le funzioni potrebbe essere applicabile, ad esempio, solo ai dipendenti di un'organizzazione specifica o ai servizi inclusi nella rete virtuale specificata, come un'altra funzione di Azure, una macchina virtuale di Azure o un cluster del servizio Azure Kubernetes.
 
@@ -90,7 +90,7 @@ Il primo passaggio di questa esercitazione consiste nel creare una nuova macchin
 1. Selezionare **OK** per creare la rete virtuale.
 1. Nella scheda _Rete_ assicurarsi che per **IP pubblico** sia selezionata l'opzione _Nessuno_.
 1. Scegliere la scheda _Gestione_ e quindi _Crea nuovo_ in **Account di archiviazione di diagnostica** per creare un nuovo account di archiviazione.
-1. Lasciare i valori predefiniti per le sezioni _Identità_ , _Arresto automatico_ e _Backup_.
+1. Lasciare i valori predefiniti per le sezioni _Identità_, _Arresto automatico_ e _Backup_.
 1. Selezionare _Rivedi e crea_. Al termine della convalida selezionare **Crea**. Il processo di creazione della VM richiederà alcuni minuti.
 
 ## <a name="configure-azure-bastion"></a>Configurare Azure Bastion
@@ -145,7 +145,7 @@ Il passaggio successivo consiste nel creare un'app per le funzioni in Azure usan
     | _Area_ | Stati Uniti centro-settentrionali | Scegliere un'[area](https://azure.microsoft.com/regions/) nelle vicinanze o vicino ad altri servizi a cui accedono le funzioni. |
 
     Fare clic sul pulsante **Avanti: Hosting >** .
-1. Nella sezione _Hosting_ selezionare le impostazioni corrette per _Account di archiviazione_ , _Sistema operativo_ e _Piano_ , come descritto nella tabella seguente.
+1. Nella sezione _Hosting_ selezionare le impostazioni corrette per _Account di archiviazione_, _Sistema operativo_ e _Piano_, come descritto nella tabella seguente.
 
     | Impostazione      | Valore consigliato  | Descrizione      |
     | ------------ | ---------------- | ---------------- |
@@ -159,20 +159,20 @@ Il passaggio successivo consiste nel creare un'app per le funzioni in Azure usan
 
 Il passaggio successivo consiste nel configurare le [restrizioni di accesso](../app-service/app-service-ip-restrictions.md) affinché la funzione possa essere richiamata solo dalle risorse nella rete virtuale.
 
-L'[accesso privato al sito](functions-networking-options.md#private-site-access) viene abilitato creando un [endpoint servizio](../virtual-network/virtual-network-service-endpoints-overview.md) di rete virtuale di Azure tra l'app per le funzioni e la rete virtuale specificata. Le restrizioni di accesso vengono implementate tramite endpoint servizio, che fanno sì che alla risorsa designata possa accedere solo il traffico proveniente dalla rete virtuale specificata. In questo caso, la risorsa designata è la funzione di Azure.
+L'[accesso privato al sito](functions-networking-options.md#private-endpoint-connections) viene abilitato creando un [endpoint servizio](../virtual-network/virtual-network-service-endpoints-overview.md) di rete virtuale di Azure tra l'app per le funzioni e la rete virtuale specificata. Le restrizioni di accesso vengono implementate tramite endpoint servizio, che fanno sì che alla risorsa designata possa accedere solo il traffico proveniente dalla rete virtuale specificata. In questo caso, la risorsa designata è la funzione di Azure.
 
 1. Nell'app per le funzioni selezionare il collegamento **Rete** nell'intestazione della sezione _Impostazioni_.
 1. La pagina _Rete_ è il punto di partenza per configurare Frontdoor di Azure, Rete CDN di Azure nonché le restrizioni di accesso.
 1. Selezionare **Configura restrizioni di accesso** per configurare l'accesso privato al sito.
 1. Nella pagina _Restrizioni di accesso_ risulta presente solo la restrizione predefinita. L'impostazione predefinita non prevede alcuna restrizione per l'accesso all'app per le funzioni.  Selezionare **Aggiungi regola** per creare la configurazione di una restrizione per l'accesso privato al sito.
-1. Nel riquadro _Aggiungi restrizione di accesso_ specificare un valore in _Nome_ , _Priorità_ e _Descrizione_ per la nuova regola.
-1. Selezionare **Rete virtuale** nella casella a discesa _Tipo_ , selezionare la rete virtuale creata in precedenza e quindi selezionare la subnet **Tutorial**. 
+1. Nel riquadro _Aggiungi restrizione di accesso_ specificare un valore in _Nome_, _Priorità_ e _Descrizione_ per la nuova regola.
+1. Selezionare **Rete virtuale** nella casella a discesa _Tipo_, selezionare la rete virtuale creata in precedenza e quindi selezionare la subnet **Tutorial**. 
     > [!NOTE]
     > L'abilitazione dell'endpoint servizio potrebbe richiedere alcuni minuti.
 1. Nella pagina _Restrizioni di accesso_ verrà ora visualizzata una nuova restrizione. Il passaggio da _Stato endpoint_ disabilitato a Provisioning abilitato può richiedere alcuni secondi.
 
     >[!IMPORTANT]
-    > Ogni app per le funzioni ha un [sito Strumenti avanzati (Kudu)](../app-service/app-service-ip-restrictions.md#scm-site) che viene usato per gestire le distribuzioni dell'app per le funzioni. Questo sito è accessibile da un URL come `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. L'abilitazione delle restrizioni di accesso nel sito Kudu impedisce la distribuzione del codice del progetto da una workstation di sviluppo locale, di conseguenza nella rete virtuale è necessario un agente per eseguire la distribuzione.
+    > Ogni app per le funzioni ha un [sito Strumenti avanzati (Kudu)](../app-service/app-service-ip-restrictions.md#restrict-access-to-an-scm-site) che viene usato per gestire le distribuzioni dell'app per le funzioni. Questo sito è accessibile da un URL come `<FUNCTION_APP_NAME>.scm.azurewebsites.net`. L'abilitazione delle restrizioni di accesso nel sito Kudu impedisce la distribuzione del codice del progetto da una workstation di sviluppo locale, di conseguenza nella rete virtuale è necessario un agente per eseguire la distribuzione.
 
 ## <a name="access-the-functions-app"></a>Accedere all'app per le funzioni
 

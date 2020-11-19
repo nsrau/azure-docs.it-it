@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: a714368fc0508149714eaa42f4741e1042376c52
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f91c9c0f401a455543b12af81eed48bd1a3349bd
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044956"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94696439"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico delle macchine virtuali all'interno di una zona di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
 
@@ -37,7 +37,7 @@ Questa esercitazione illustra la creazione di un'[istanza pubblica di Azure Load
 
 Per altre informazioni sull'uso delle zone di disponibilità con Load Balancer Standard, vedere [Load Balancer Standard e zone di disponibilità](load-balancer-standard-availability-zones.md).
 
-Se si preferisce, usare l'[interfaccia della riga di comando di Azure](load-balancer-standard-public-zonal-cli.md) per completare questa esercitazione.
+Se si preferisce, usare l'[interfaccia della riga di comando di Azure](./quickstart-load-balancer-standard-public-cli.md) per completare questa esercitazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

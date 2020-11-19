@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 8b66a8ea3fcc6af62c872a6df6196b97ece2f55a
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 41955475f32fe674bcb3ef2d1b6e59c71a008b6b
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240920"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94656446"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
@@ -92,7 +92,7 @@ Per abilitare TLS 1.2:
 Per iniziare, abilitare la comunicazione ai data center di Azure per preparare l'ambiente per il proxy di applicazione di Azure AD,. Se nel percorso è presente un firewall, assicurarsi che sia aperto. Un firewall aperto consente al connettore di eseguire richieste HTTPS (TCP) al proxy di applicazione.
 
 > [!IMPORTANT]
-> Se si installa il connettore per il cloud di Azure per enti pubblici, seguire i [prerequisiti](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) e la [procedura di installazione](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud). In questo caso, saranno necessari l'abilitazione dell'accesso a un set diverso di URL e un parametro aggiuntivo per eseguire l'installazione.
+> Se si installa il connettore per il cloud di Azure per enti pubblici, seguire i [prerequisiti](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) e la [procedura di installazione](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud). In questo caso, saranno necessari l'abilitazione dell'accesso a un set diverso di URL e un parametro aggiuntivo per eseguire l'installazione.
 
 ### <a name="open-ports"></a>Aprire le porte
 
@@ -202,7 +202,7 @@ Dopo aver preparato l'ambiente e aver installato un connettore, si è pronti per
     | **Timeout applicazione back-end** | Impostare questo valore su **Lungo** solo se l'applicazione è lenta nell'autenticazione e nella connessione. Per impostazione predefinita, il timeout dell'applicazione back-end ha una durata di 85 secondi. Se viene impostato su Lungo, il timeout del back-end viene aumentato a 180 secondi. |
     | **Usa cookie solo HTTP** | Impostare questo valore su **Sì** per includere nei cookie del proxy di applicazione il flag HTTPOnly nell'intestazione della risposta HTTP. Se si usa Servizi Desktop remoto, impostare questo valore su **No**.|
     | **Usa cookie protetti**| Impostare questo valore su **Sì** per trasmettere i cookie tramite un canale protetto, ad esempio una richiesta HTTPS crittografata.
-    | **Usa cookie persistente**| Mantenere questo valore impostato su **No**. Usare questa impostazione solo per le applicazioni che non possono condividere cookie tra processi. Per altre informazioni sulle impostazioni dei cookie, vedere [Cookie settings for accessing on-premises applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings) (Impostazioni dei cookie per l'accesso alle applicazioni locali in Azure Active Directory).
+    | **Usa cookie persistente**| Mantenere questo valore impostato su **No**. Usare questa impostazione solo per le applicazioni che non possono condividere cookie tra processi. Per altre informazioni sulle impostazioni dei cookie, vedere [Cookie settings for accessing on-premises applications in Azure Active Directory](./application-proxy-configure-cookie-settings.md) (Impostazioni dei cookie per l'accesso alle applicazioni locali in Azure Active Directory).
     | **Convertire l'URL nelle intestazioni** | Mantenere questo valore su **Sì**, a meno che l'applicazione non richieda l'intestazione host originale nella richiesta di autenticazione. |
     | **Convertire gli URL nel corpo dell'applicazione** | Mantenere questo valore su **No**, a meno che non si sia in possesso di collegamenti HTML hardcoded ad altre applicazioni locali e non si usino domini personalizzati. Per altre informazioni, vedere [Reindirizzare i collegamenti hardcoded per le app pubblicate con il proxy di app di Azure AD](application-proxy-configure-hard-coded-link-translation.md).<br><br>Impostare questo valore su **Sì** se si intende monitorare questa applicazione con Microsoft Cloud App Security (MCAS). Per altre informazioni, vedere [Configurare il monitoraggio in tempo reale degli accessi alle applicazioni con Microsoft Cloud App Security e Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md). |
 

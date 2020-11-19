@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e04c7da40719f77ca478f2ce577688af773f523d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 960657d27be4b9dab9f242428592bbb404a49d86
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399228"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94697170"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Esercitazione: Indicizzare i dati di Azure SQL con .NET SDK
 
@@ -69,7 +69,7 @@ Se è presente una risorsa di database SQL di Azure esistente, è possibile aggi
 
 1. Selezionare il file e fare clic su **Apri**. Lo script dovrebbe essere simile allo screenshot seguente:
 
-   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="Pagina Nuovo database" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="Script SQL" border="false":::
 
 1. Fare clic su **Esegui** per eseguire la query. Nel riquadro Risultati dovrebbe essere visualizzato un messaggio di esito positivo della query, per 3 righe.
 
@@ -99,7 +99,7 @@ Le chiamate API richiedono l'URL del servizio e una chiave di accesso. Con entra
 
 1. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
-   :::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Pagina Nuovo database" border="false":::
+   :::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Ottenere un endpoint HTTP e una chiave di accesso" border="false":::
 
 ## <a name="2---set-up-your-environment"></a>2 - Configurare l'ambiente
 
@@ -201,7 +201,7 @@ Un oggetto indicizzatore non dipende dalla piattaforma, ovvero la configurazione
 
 Premere F5 per compilare ed eseguire la soluzione. Il programma viene eseguito in modalità di debug. Una finestra della console indica lo stato di ogni operazione.
 
-   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Pagina Nuovo database" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Output della console" border="false":::
 
 Il codice viene eseguito localmente in Visual Studio, connettendosi al servizio di ricerca in Azure, che a sua volta si connette al database SQL di Azure e recupera il set di dati. Un numero così elevato di operazione comporta molti punti di errore potenziali. Se si verifica un errore, verificare prima di tutto le condizioni seguenti:
 
@@ -217,7 +217,7 @@ Usare il portale di Azure per verificare la creazione dell'oggetto e quindi usar
 
 1. [Accedere al di portale di Azure](https://portal.azure.com/) e nella pagina **Panoramica** del servizio di ricerca aprire ogni elenco a turno per verificare che l'oggetto sia stato creato. Gli **indici**, gli **indicizzatori** e le **origini dati** avranno rispettivamente "hotels", "azure-sql-indexer" e "azure-sql".
 
-   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Pagina Nuovo database" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Riquadri dell'indicizzatore e dell'origine dati" border="false":::
 
 1. Selezionare l'indice hotels. Nella pagina hotels **Esplora ricerche** è la prima scheda. 
 
@@ -225,7 +225,7 @@ Usare il portale di Azure per verificare la creazione dell'oggetto e quindi usar
 
    Le tre voci nell'indice vengono restituite come documenti JSON. Esplora ricerche restituisce documenti in JSON, per consentire di visualizzare l'intera struttura.
 
-   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Pagina Nuovo database" border="false":::
+   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Eseguire una query su un indice" border="false":::
    
 1. Immettere quindi una stringa di ricerca: `search=river&$count=true`. 
 

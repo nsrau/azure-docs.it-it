@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 33c26af86bfcf2f748a0fa68ee4f3d0da1f132e1
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 8ec39c4616f5a34f8326b56d4f0ba6e15cdad91c
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057553"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94699118"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Esercitazione: Diagnosticare, correggere ed eseguire il commit delle modifiche apportate al set di competenze
 
@@ -59,7 +59,7 @@ Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni 
 
 1. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
-:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Ottenere un endpoint HTTP e una chiave di accesso" border="false":::
+:::image type="content" source="media/search-get-started-rest/get-url-key.png" alt-text="Ottenere un endpoint HTTP e una chiave di accesso" border="false":::
 
 Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
@@ -78,13 +78,13 @@ In questa sezione verranno usati Postman e una raccolta fornita per creare l'ori
 1. Immettere la storageConnectionString dalla pagina Chiavi dell'account di archiviazione di Azure.
 1. Immettere il containerName del contenitore creato nell'account di archiviazione.
 
-> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="Ottenere un endpoint HTTP e una chiave di accesso":::
+> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="Modificare le variabili in Postman":::
 
 La raccolta contiene quattro diverse chiamate REST che vengono usate per completare questa sezione.
 
 La prima chiamata crea l'origine dati. `clinical-trials-ds`. La seconda chiamata crea il set di competenze, `clinical-trials-ss`. La terza chiamata crea l'indice, `clinical-trials`. La quarta e ultima chiamata crea l'indicizzatore, `clinical-trials-idxr`. Una volta completate tutte le chiamate della raccolta, chiudere Postman e tornare al portale di Azure.
 
-> :::image type="content" source="media/cognitive-search-debug/postman-create-data-source.png" alt-text="Ottenere un endpoint HTTP e una chiave di accesso":::
+> :::image type="content" source="media/cognitive-search-debug/postman-create-data-source.png" alt-text="Uso di Postman per creare l'origine dati":::
 
 ## <a name="check-the-results"></a>Controllare i risultati
 
@@ -107,7 +107,7 @@ Tornare alla schermata Panoramica del servizio di ricerca.
 
 ## <a name="start-your-debug-session"></a>Avviare la sessione di debug
 
-> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="Ottenere un endpoint HTTP e una chiave di accesso":::
+> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="Avviare una nuova sessione di debug":::
 
 1. Fare clic sulla scheda Sessioni di debug (anteprima).
 1. Selezionare +NewDebugSession
@@ -120,7 +120,7 @@ Tornare alla schermata Panoramica del servizio di ricerca.
 > [!Important]
 > Una sessione di debug funziona solo con un singolo documento. È possibile selezionare un documento specifico nel set di dati, altrimenti la sessione seleziona il primo documento per impostazione predefinita.
 
-> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Ottenere un endpoint HTTP e una chiave di accesso":::
+> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Nuova sessione di debug avviata":::
 
 Al termine dell'esecuzione della sessione di debug, per impostazione predefinita la sessione si apre sulla scheda AI Enrichments (Arricchimenti tramite intelligenza artificiale), con la voce Skill Graph (Grafo delle competenze) evidenziata.
 
@@ -140,7 +140,7 @@ La scheda Errori/Avvisi contiene un errore per un'operazione contrassegnata come
 1. Selezionare il simbolo **</>** all'inizio della riga e aprire l'analizzatore di espressioni.
 1. Fare clic sul pulsante **Valuta** per verificare che l'espressione restituisca un errore. Verrà confermato che la proprietà "languageCode" non è un input valido.
 
-> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Ottenere un endpoint HTTP e una chiave di accesso":::
+> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Analizzatore di espressioni":::
 
 È possibile cercare questo errore nella sessione in due modi. Il primo consiste nell'esaminare la provenienza dell'input: quale competenza nella gerarchia dovrebbe produrre questo risultato? La scheda Esecuzioni nel riquadro dei dettagli della competenza dovrebbe visualizzare l'origine dell'input. L'assenza di origine indica un errore di mapping del campo.
 
@@ -148,13 +148,27 @@ La scheda Errori/Avvisi contiene un errore per un'operazione contrassegnata come
 1. In INPUTS trovare "languageCode". Per questo input non è elencata alcuna origine. 
 1. Nel riquadro sinistro passare alla scheda Enriched Data Structure (Struttura dei dati arricchiti). Non è presente un percorso mappato corrispondente a "languageCode".
 
-> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Ottenere un endpoint HTTP e una chiave di accesso" e "/document/merged_content/locations".
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Struttura dei dati arricchiti":::
+
+È presente un percorso mappato per "language". C'è quindi un errore di ortografia nelle impostazioni della competenza. Per correggerlo, è necessario aggiornare l'espressione "/document/language" nella competenza #1.
+
+1. Aprire l'analizzatore di espressioni **</>** per il percorso "language".
+1. Copiare l'espressione. Chiudere la finestra.
+1. Passare alle impostazioni delle competenze per la competenza #1 e aprire l'analizzatore di espressioni **</>** per l'input "languageCode".
+1. Incollare il nuovo valore "/document/language" nella casella Espressione e fare clic su **Valuta**.
+1. Dovrebbe essere visualizzato l'input corretto "en". Fare clic su Applica per aggiornare l'espressione.
+1. Fare clic su **Salva** nel riquadro dei dettagli della competenza a destra.
+1. Fare clic su **Esegui** nel menu della finestra della sessione. Verrà avviata un'altra esecuzione del set di competenze usando il documento. 
+
+Al termine dell'esecuzione della sessione di debug, fare clic sulla scheda Errori/Avvisi, dove si vedrà che l'errore "Enrichment.NerSkillV2.#1" è scomparso. Ci sono però ancora due avvisi che indicano che il servizio non è stato in grado di eseguire il mapping dei campi di output organizations e locations all'indice di ricerca. Mancano i valori "/document/merged_content/organizations" e "/document/merged_content/locations".
 
 ## <a name="fix-missing-skill-output-values"></a>Correggere i valori di output della competenza mancanti
 
-> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Ottenere un endpoint HTTP e una chiave di accesso" e "/document/content/locations".
+> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Errori e avvisi":::
 
-> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Ottenere un endpoint HTTP e una chiave di accesso":::
+Mancano dei valori di output da una competenza. Per identificare la competenza con l'errore, passare alla scheda Enriched Data Structure (Struttura dei dati arricchiti), trovare il nome del valore e osservare la relativa origine. I valori organizations e locations mancanti sono output della competenza #1. Aprendo l'analizzatore di espressioni </> per ogni percorso, le espressioni verranno visualizzate rispettivamente come "/document/content/organizations" e "/document/content/locations".
+
+> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Entità organizations dell'analizzatore di espressioni":::
 
 L'output di queste entità è vuoto e non dovrebbe esserlo. Quali sono gli input che producono questo risultato?
 
@@ -162,25 +176,45 @@ L'output di queste entità è vuoto e non dovrebbe esserlo. Quali sono gli input
 1. Selezionare la scheda **Esecuzioni** nel riquadro dei dettagli della competenza a destra.
 1. Aprire l'analizzatore di espressioni **</>** per la proprietà INPUTS "text".
 
-> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Ottenere un endpoint HTTP e una chiave di accesso":::
+> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Input per la competenza text":::
 
 Il risultato visualizzato per questo input non sembra un input di testo, ma piuttosto un'immagine racchiusa tra nuove righe. La mancanza di testo indica che non ci sono entità identificabili. In base alla gerarchia delle competenze, il contenuto viene prima elaborato dalla competenza #6 (OCR) e quindi viene passato alla competenza #5 (Merge). 
 
 1. Selezionare la competenza #5 (Merge) in **Skill Graph** (Grafo delle competenze).
 1. Selezionare la scheda **Esecuzioni** nel riquadro dei dettagli della competenza a destra e aprire l'analizzatore di espressioni **</>** per la proprietà OUTPUTS "mergedText".
 
-> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Ottenere un endpoint HTTP e una chiave di accesso" a "merged_content". Quali sono gli output per queste entità nella competenza?
+> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Output della competenza Merge":::
+
+Qui il testo è associato all'immagine. Osservando l'espressione "/document/merged_content" si può notare l'errore nei percorsi "organizations" e "locations"per la competenza #1. Invece di usare "/document/content" dovrebbe usare "/document/merged_content" per la proprietà INPUTS "text".
+
+1. Copiare l'espressione dell'output "mergedText" e chiudere la finestra dell'analizzatore di espressioni.
+1. Selezionare la competenza #1 in **Skill Graph** (Grafo delle competenze).
+1. Selezionare la scheda **Skill Settings** (Impostazioni competenza) nel riquadro dei dettagli della competenza a destra.
+1. Aprire l'analizzatore di espressioni **</>** per la proprietà INPUTS "text".
+1. Incollare la nuova espressione nella casella. Fare clic su **Valuta**.
+1. Dovrebbe essere visualizzato l'input corretto con il testo aggiunto. Fare clic su **Applica** per aggiornare le impostazioni della competenza.
+1. Fare clic su **Salva** nel riquadro dei dettagli della competenza a destra.
+1. Fare clic su **Esegui** nel menu della finestra della sessione. Verrà avviata un'altra esecuzione del set di competenze usando il documento.
+
+Al termine dell'esecuzione dell'indicizzatore, gli errori sono ancora presenti. Tornare alla competenza #1 per individuare la causa. L'input della competenza è stato corretto da "content" a "merged_content". Quali sono gli output per queste entità nella competenza?
 
 1. Selezionare la scheda **AI Enrichments** (Arricchimenti tramite intelligenza artificiale).
 1. Selezionare **Skill Graph** (Grafo delle competenze) e fare clic sulla competenza #1.
 1. In **Skill Settings** (Impostazioni competenza) individuare "outputs".
 1. Aprire l'analizzatore di espressioni **</>** per l'entità "organizations".
 
-> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Ottenere un endpoint HTTP e una chiave di accesso" e modificarla in "/document/merged_content".
+> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Output dell'entità organizations":::
+
+La valutazione del risultato dell'espressione restituisce il risultato corretto. La competenza lavora per identificare il valore corretto dell'entità "organizations". Tuttavia il mapping dell'output nel percorso dell'entità continua a generare un errore. Confrontando il percorso di output nella competenza con il percorso di output nell'errore, si nota che la competenza padre delle entità outputs, organizations e locations è nel nodo /document/content, mentre il mapping dei campi di output prevede che i risultati siano assegnati a una competenza padre nel nodo /document/merged_content. Nel passaggio precedente l'input è stato modificato da "/document/content" a "/document/merged_content". Per assicurare che l'output venga generato con il contesto corretto, occorre modificare il contesto nelle impostazioni della competenza.
+
+1. Selezionare la scheda **AI Enrichments** (Arricchimenti tramite intelligenza artificiale).
+1. Selezionare **Skill Graph** (Grafo delle competenze) e fare clic sulla competenza #1.
+1. In **Skill Settings** (Impostazioni competenza) individuare "context".
+1. Fare doppio clic sull'impostazione relativa a "context" e modificarla in "/document/merged_content".
 1. Fare clic su **Salva** nel riquadro dei dettagli della competenza a destra.
 1. Fare clic su **Esegui** nel menu della finestra della sessione. Verrà avviata un'altra esecuzione del set di competenze usando il documento.
 
-> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Ottenere un endpoint HTTP e una chiave di accesso":::
+> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Correzione del contesto nell'impostazione della competenza":::
 
 Tutti gli errori sono stati risolti.
 
