@@ -413,17 +413,17 @@
         - name: Ritiro a partire dal 1° marzo 2023
           href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Panoramica della migrazione
-          href: migration-classic-resource-manager-overview.md
+          href: ../migration-classic-resource-manager-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Approfondimento sulla migrazione
           href: ../migration-classic-resource-manager-deep-dive.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Pianificare la migrazione
-          href: migration-classic-resource-manager-plan.md
+          href: ../migration-classic-resource-manager-plan.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Eseguire la migrazione usando l'interfaccia della riga di comando
-          href: migration-classic-resource-manager-cli.md
+          href: ../migration-classic-resource-manager-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Errori comuni di migrazione
-          href: migration-classic-resource-manager-errors.md
+          href: migration-classic-resource-manager-errors.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Strumenti della community per la migrazione
-          href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Domande frequenti
           href: ../migration-classic-resource-manager-faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Usare immagini
