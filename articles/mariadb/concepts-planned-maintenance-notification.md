@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 2ce6959cf025d2e29f0ee3dfb3b29b3eaf5d4221
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 61313a1790fe51cb26168622cc871076c40bb511
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490833"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887434"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Notifica di manutenzione pianificata nel database di Azure per MariaDB
 
@@ -21,7 +21,7 @@ Informazioni su come prepararsi per gli eventi di manutenzione pianificata nel d
 
 Il servizio database di Azure per MariaDB esegue l'applicazione automatica delle patch dell'hardware, del sistema operativo e del motore di database sottostanti. La patch include le nuove funzionalità del servizio, la sicurezza e gli aggiornamenti software. Per il motore MariaDB, gli aggiornamenti delle versioni secondarie sono automatici e inclusi nell'ambito del ciclo di applicazione delle patch. Non è richiesto alcun intervento da parte dell'utente o alcuna impostazione di configurazione per l'applicazione di patch. La patch viene testata estensivamente e implementata con procedure di distribuzione sicure.
 
-Una manutenzione pianificata è una finestra di manutenzione quando questi aggiornamenti del servizio vengono distribuiti nei server in una determinata area di Azure. Durante la manutenzione pianificata, viene creato un evento di notifica per informare i clienti quando l'aggiornamento del servizio viene distribuito nell'area di Azure che ospita i server. La durata minima tra due operazioni di manutenzione pianificata è di 30 giorni. Si riceverà una notifica della successiva finestra di manutenzione 72 ore in anticipo.
+Una manutenzione pianificata è una finestra di manutenzione quando questi aggiornamenti del servizio vengono distribuiti nei server in una determinata area di Azure. Durante la manutenzione pianificata, viene creato un evento di notifica per informare i clienti riguardo a quando l'aggiornamento del servizio viene distribuito nell'area di Azure che ospita i server. La durata minima tra due operazioni di manutenzione pianificata è di 30 giorni. Si riceve una notifica della finestra di manutenzione successiva 72 ore prima.
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenzione pianificata-durata e conseguenze per i clienti
 
@@ -78,7 +78,7 @@ Un errore temporaneo è un errore che si risolve in modo autonomo. Durante la ma
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per eventuali domande o suggerimenti sull'uso di database di Azure per MariaDB, inviare un messaggio di posta elettronica al team di database di Azure per MariaDB all'indirizzo *AskAzureDBforMySQL@service.microsoft.com* .
+- Per eventuali domande o suggerimenti sull'uso di database di Azure per MariaDB, inviare un messaggio di posta elettronica al team di database di Azure per MariaDB all'indirizzo **AskAzureDBforMariaDB@service.microsoft.com**
 - Per informazioni sulla creazione di un avviso per una metrica, vedere [Come configurare gli avvisi](howto-alert-metric.md).
 - [Risolvere i problemi di connessione a database di Azure per MariaDB](howto-troubleshoot-common-connection-issues.md)
 - [Gestire gli errori temporanei e connettersi in modo efficiente al database di Azure per MariaDB](concepts-connectivity.md)

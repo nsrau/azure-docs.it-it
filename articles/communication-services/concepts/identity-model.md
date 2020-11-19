@@ -9,12 +9,12 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f172bfcb6e4f11520eb9082052968626efe6fecb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: dd2ffacb176ed3733acba8699d4e870b15dd3c42
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651244"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888709"
 ---
 # <a name="identity-model"></a>Modello di identità
 
@@ -83,6 +83,6 @@ Se si memorizzano nella cache i token di accesso a un archivio di backup, si con
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un'introduzione alla gestione dei token di accesso, vedere [creare e gestire i token di accesso](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
-* Per un'introduzione all'autenticazione, vedere [eseguire l'autenticazione a servizi di comunicazione di Azure](https://docs.microsoft.com/azure/communication-services/concepts/authentication).
-* Per un'introduzione alla privacy e alla residenza dei dati, vedere [disponibilità delle aree e residenza dei dati](https://docs.microsoft.com/azure/communication-services/concepts/privacy).
+* Per un'introduzione alla gestione dei token di accesso, vedere [creare e gestire i token di accesso](../quickstarts/access-tokens.md).
+* Per un'introduzione all'autenticazione, vedere [eseguire l'autenticazione a servizi di comunicazione di Azure](./authentication.md).
+* Per un'introduzione alla privacy e alla residenza dei dati, vedere [disponibilità delle aree e residenza dei dati](./privacy.md).

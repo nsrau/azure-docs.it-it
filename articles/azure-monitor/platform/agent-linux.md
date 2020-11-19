@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e1dbf5e20aa206189397cab26e9b867f4942e1d5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332502"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886839"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installare l'agente di Log Analytics in computer Linux
 Questo articolo fornisce informazioni dettagliate sull'installazione dell'agente di Log Analytics nei computer Linux usando i metodi seguenti:
@@ -30,13 +30,17 @@ Per un elenco delle distribuzioni Linux supportate dall'agente di Log Analytics,
 
 >[!NOTE]
 >OpenSSL 1.1.0 è supportato solo su piattaforme x86_x64 (64 bit), mentre le versioni di OpenSSL precedenti a 1.x non sono supportate su alcuna piattaforma.
->
+
+>[!NOTE]
+>L'esecuzione dell'agente di Log Analytics Linux nei contenitori non è supportata. Se è necessario monitorare i contenitori, sfruttare la soluzione di [monitoraggio](../insights/containers.md) dei contenitori per gli host Docker o [monitoraggio di Azure per i contenitori](../insights/container-insights-overview.md) per Kubernetes.
+
 A partire dalle versioni rilasciate dopo il mese di agosto 2018, al modello di supporto sono state apportate le modifiche seguenti:  
 
 * Sono supportate solo le versioni server, non quelle client.  
 * Maggiore supporto per una delle [distribuzioni Linux approvate in Azure](../../virtual-machines/linux/endorsed-distros.md). Si noti che potrebbe passare del tempo tra una nuova distribuzione e/o una nuova versione Linux approvata in Azure e supportata per l'agente di Log Analytics per Linux.
 * Tutte le versioni minori sono supportate per ogni versione principale elencata.
-* Non sono supportate le versioni che hanno superato la data di fine del supporto.  
+* Non sono supportate le versioni che hanno superato la data di fine del supporto.
+* Supporta solo le immagini di macchina virtuale; i contenitori, anche quelli derivati dalle immagini ufficiali della distribuzione, non sono supportati.
 * Non sono supportate le nuove versioni di AMI.  
 * Per impostazione predefinita, sono supportate solo le versioni che eseguono SSL 1.x.
 
@@ -102,7 +106,7 @@ Vedere [Panoramica dell'agente di log Analytics](log-analytics-agent.md#network-
 
 L'agente di Log Analytics per Linux è costituito da più pacchetti. Il file di versione contiene i pacchetti seguenti, disponibili eseguendo il bundle della shell con il `--extract` parametro:
 
-**Pacchetto** | **Versione** | **Descrizione**
+**Pacchetto** | **Version** | **Descrizione**
 ----------- | ----------- | --------------
 omsagent | 1.13.9 | Agente di Log Analytics per Linux
 omsconfig | 1.1.1 | Agente di configurazione per l'agente di Log Analytics
@@ -128,9 +132,9 @@ La procedura seguente consente di configurare l'installazione dell'agente per Lo
 
 Se il computer Linux deve comunicare tramite un server proxy per Log Analytics, questa configurazione può essere specificata nella riga di comando includendo `-p [protocol://][user:password@]proxyhost[:port]` . La proprietà del *protocollo* accetta `http` o `https` e la proprietà *proxyhost* accetta un nome di dominio completo o un indirizzo IP del server proxy. 
 
-ad esempio `https://proxy01.contoso.com:30443`
+Ad esempio: `https://proxy01.contoso.com:30443`
 
-Se l'autenticazione è necessaria in entrambi i casi, è necessario specificare il nome utente e la password. ad esempio `https://user01:password@proxy01.contoso.com:30443`
+Se l'autenticazione è necessaria in entrambi i casi, è necessario specificare il nome utente e la password. Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
 
 1. Per configurare il computer Linux per la connessione a un'area di lavoro Log Analytics, eseguire il comando seguente specificando l'ID e la chiave primaria dell'area di lavoro. Il comando seguente scarica l'agente, convalida il relativo checksum e ne esegue l'installazione.
     

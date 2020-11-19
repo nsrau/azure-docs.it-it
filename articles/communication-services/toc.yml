@@ -103,15 +103,15 @@
     - name: Panoramica della documentazione di riferimento
       href: concepts/reference.md
     - name: Documentazione relativa alle API REST
-      href: 'https://docs.microsoft.com/rest/api/communication/'
+      href: /rest/api/communication/
     - name: Librerie Chiamata
       items:
         - name: Chiamata (JavaScript)
-          href: 'https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js'
+          href: /javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js
         - name: Chiamata (Android/Java)
-          href: 'https://docs.microsoft.com/java/api/com.azure.communication.calling?view=communication-services-java-android'
+          href: /java/api/com.azure.communication.calling?view=communication-services-java-android
         - name: Chiamata (iOS)
-          href: 'https://docs.microsoft.com/objectivec/communication-services/calling/'
+          href: /objectivec/communication-services/calling/
     - name: Librerie Chat
       items:
         - name: Chat (JavaScript)

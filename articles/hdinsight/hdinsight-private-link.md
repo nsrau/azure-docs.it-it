@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 3c6bee570312009af5fbdf42a018ad2b387662d9
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 66c9a3afb91aaff448d6eadc86175d8515be766c
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422298"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94889083"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Proteggere e isolare i cluster HDInsight di Azure con collegamento privato (anteprima)
 
@@ -25,7 +25,7 @@ Nell' [architettura di rete virtuale predefinita](./hdinsight-virtual-network-ar
 
 ## <a name="remove-public-ip-addresses"></a>Rimuovi indirizzi IP pubblici
 
-Per impostazione predefinita, HDInsight RP usa una connessione in *ingresso* al cluster usando indirizzi IP pubblici. Quando la `resourceProviderConnection` proprietà di rete è impostata su in *uscita* , inverte le connessioni a HDInsight RP, in modo che le connessioni vengano sempre avviate dall'interno del cluster alla relying party. Senza una connessione in ingresso, non è necessario disporre dei tag del servizio in ingresso o degli indirizzi IP pubblici.
+Per impostazione predefinita, HDInsight RP usa una connessione in *ingresso* al cluster usando indirizzi IP pubblici. Quando la `resourceProviderConnection` proprietà di rete è impostata su in *uscita*, inverte le connessioni a HDInsight RP, in modo che le connessioni vengano sempre avviate dall'interno del cluster alla relying party. Senza una connessione in ingresso, non è necessario disporre dei tag del servizio in ingresso o degli indirizzi IP pubblici.
 
 I bilanciamenti del carico di base usati nell'architettura di rete virtuale predefinita forniscono automaticamente il NAT pubblico (Network Address Translation) per accedere alle dipendenze in uscita necessarie, ad esempio HDInsight RP. Se si vuole limitare la connettività in uscita alla rete Internet pubblica, è possibile [configurare un firewall](./hdinsight-restrict-outbound-traffic.md), ma non è un requisito.
 
@@ -54,7 +54,7 @@ Per accedere al cluster usando FQDN del cluster, è possibile usare direttamente
 
 Il collegamento privato, disabilitato per impostazione predefinita, richiede una conoscenza di rete completa per configurare correttamente le route definite dall'utente (UDR) e le regole del firewall prima di creare un cluster. L'uso di questa impostazione è facoltativo ma è disponibile solo quando la `resourceProviderConnection` proprietà di rete è impostata su in *uscita* , come descritto nella sezione precedente.
 
-Quando `privateLink` è impostato su *Abilita* , vengono creati i servizi di [bilanciamento del carico standard](../load-balancer/load-balancer-overview.md) interni (SLB) e viene eseguito il provisioning di un servizio di collegamento privato di Azure per ogni SLB. Il servizio di collegamento privato consente di accedere al cluster HDInsight da endpoint privati.
+Quando `privateLink` è impostato su *Abilita*, vengono creati i servizi di [bilanciamento del carico standard](../load-balancer/load-balancer-overview.md) interni (SLB) e viene eseguito il provisioning di un servizio di collegamento privato di Azure per ogni SLB. Il servizio di collegamento privato consente di accedere al cluster HDInsight da endpoint privati.
 
 I bilanciamenti del carico standard non forniscono automaticamente il [NAT in uscita pubblico](../load-balancer/load-balancer-outbound-connections.md) come i bilanciamenti del carico di base. Per le dipendenze in uscita, è necessario fornire una soluzione NAT personalizzata, ad esempio [NAT della rete virtuale](../virtual-network/nat-overview.md) o un [Firewall](./hdinsight-restrict-outbound-traffic.md). Il cluster HDInsight deve ancora accedere alle dipendenze in uscita. Se queste dipendenze in uscita non sono consentite, la creazione del cluster potrebbe non riuscire.
 
@@ -86,7 +86,8 @@ La figura seguente mostra un esempio delle voci DNS private necessarie per acced
 
 :::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="Diagramma dell'architettura di collegamento privato":::
 
-## <a name="arm-template-properties"></a>Proprietà modello ARM
+## <a name="how-to-create-clusters"></a>Come creare i cluster
+### <a name="use-arm-template-properties"></a>Usare le proprietà del modello ARM
 
 Il frammento di codice JSON seguente include le due proprietà di rete che è necessario configurare nel modello ARM per creare un cluster HDInsight privato.
 
@@ -98,6 +99,13 @@ networkProperties: {
 ```
 
 Per un modello completo con molte delle funzionalità di sicurezza di HDInsight Enterprise, incluso il collegamento privato, vedere [modello di sicurezza HDInsight Enterprise](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
+
+### <a name="use-azure-powershell"></a>Usare Azure PowerShell
+
+Per usare PowerShell, vedere l'esempio [qui](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster?view=azps-5.1.0#example-4--create-an-azure-hdinsight-cluster-with-relay-outbound-and-private-link-feature).
+
+### <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
+Per usare l'interfaccia della riga di comando di Azure, vedere l'esempio [qui](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az_hdinsight_create-examples).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

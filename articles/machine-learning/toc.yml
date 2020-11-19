@@ -89,14 +89,9 @@
     - name: Jupyter Notebook
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
-    - name: Repository di esempi
-      displayName: 'example, examples, jupyter, python, notebook, github'
-      href: 'https://github.com/Azure/azureml-examples'
     - name: Esempi e set di dati della finestra di progettazione
       displayName: 'example, examples, studio, pipelines, data sets, modules'
       href: samples-designer.md
-    - name: Esempi end-to-end di MLOps
-      href: 'https://github.com/microsoft/MLOps'
     - name: Set di dati aperti (pubblici)
       href: ../open-datasets/samples.md?context=azure%252fmachine-learning%252fcontext%252fml-context
 - name: Concetti
@@ -131,7 +126,7 @@
     - name: Destinazione del calcolo
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
-    - name: Dati
+    - name: Data
       items:
         - name: Accesso ai dati
           href: concept-data.md

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 03850315a05f569d2c6ba9405b6ec38bb6b1305d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36cdaa813e0eccb23563301052aee268ab61533a
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78330396"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888505"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -77,14 +77,24 @@ Creare quindi una pagina Web Hello World con Visual Studio Code e distribuirla n
 1. Aprire *index.html* nell'editor, incollare il testo seguente nel file e salvarlo:
 
     ```
-    <h1>Hello World!</h1>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>Hello World!</h1>
+      </body>
+    </html>
     ```
 
 1. Creare il file di errore predefinito e assegnare al file il nome *404.html*.
 1. Aprire *404.html* nell'editor, incollare il testo seguente nel file e salvarlo:
 
     ```
-    <h1>404</h1>
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <h1>404</h1>
+      </body>
+    </html>
     ```
 
 1. Fare clic con il pulsante destro del mouse nella cartella *mywebsite* nella **finestra di esplorazione** e scegliere **Distribuisci in sito Web statico** per distribuire il sito Web. Verrà chiesto di accedere ad Azure per recuperare un elenco di sottoscrizioni.

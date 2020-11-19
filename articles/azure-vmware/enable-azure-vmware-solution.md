@@ -3,12 +3,12 @@ title: Come abilitare la risorsa della soluzione VMware di Azure
 description: Informazioni su come inviare una richiesta di supporto per abilitare la risorsa della soluzione VMware di Azure. È anche possibile richiedere altri nodi nel cloud privato della soluzione VMware di Azure esistente.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: c9c31d8ffbf62a511f4f2ab19f995b6bc0ee0ca4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 8e1b891559cb2d01adc9fdf834ef3c9714fe1233
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695147"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888437"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Come abilitare la risorsa della soluzione VMware di Azure
 Informazioni su come inviare una richiesta di supporto per abilitare la risorsa della [soluzione VMware di Azure](introduction.md) . È anche possibile richiedere altri nodi nel cloud privato della soluzione VMware di Azure esistente.
@@ -78,7 +78,7 @@ I CSP devono usare il centro per i [partner Microsoft](https://partner.microsoft
 
 1. Esaminare e completare la configurazione generale della sottoscrizione del piano Azure per il cliente. Per ulteriori informazioni, vedere la documentazione del centro per i [partner Microsoft](https://docs.microsoft.com/partner-center/azure-plan-manage).
 
-Dopo aver configurato il piano di Azure e aver eseguito le autorizzazioni RBAC necessarie come CSP, si contatterà Microsoft per abilitare la quota per una sottoscrizione di piano di Azure. Accedere portale di Azure dal centro **per i partner usando la procedura di amministrazione per conto di** (Aobo).
+Dopo aver configurato il piano di Azure e le autorizzazioni di vSphere RBAC necessarie sono disponibili come CSP, si interagisce con Microsoft per abilitare la quota per una sottoscrizione di piano di Azure. Accedere portale di Azure dal centro **per i partner usando la procedura di amministrazione per conto di** (Aobo).
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com).
 

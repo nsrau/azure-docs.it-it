@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 315dfcb10b11278401d6cc0abd42b40b5f55f72a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6efcadf85816bb6aa014893bb9b20476a0701990
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968362"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886754"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Monitorare ed esaminare i log per gli ambienti Azure AD di protezione delle password locali
 
@@ -70,11 +70,15 @@ Gli eventi principali relativi alla convalida delle password sono i seguenti:
 |Non riuscita (a causa dei criteri per le password del cliente)| 10016, 30002| 10017, 30003|
 |Non riuscita (a causa dei criteri per le password di Microsoft)| 10016, 30004| 10017, 30005|
 |Non riuscita (a causa di una combinazione dei criteri per le password di Microsoft e del cliente)| 10016, 30026| 10017, 30027|
+|Esito negativo (a causa del nome utente)| 10016, 30021| 10017, 30022|
 |Passaggio di solo controllo (non soddisferebbe i criteri password del cliente)| 10024, 30008| 10025, 30007|
 |Passaggio di solo controllo (non soddisferebbe i criteri password Microsoft)| 10024, 30010| 10025, 30009|
 |Riuscita solo a livello di controllo (non soddisferebbe la combinazione dei criteri per le password di Microsoft e del cliente)| 10024, 30028| 10025, 30029|
+|Pass-only di controllo (non riuscito a causa del nome utente)| 10016, 30024| 10017, 30023|
 
 I casi che si riferiscono alla combinazione di criteri, nella tabella riportata sopra, riguardano situazioni in cui è stata rilevata una password di un utente che contiene almeno un token dell'elenco di password escluse sia di Microsoft che del cliente.
+
+I case della tabella precedente che fanno riferimento a "nome utente" si riferiscono alle situazioni in cui è stata trovata la password di un utente che contiene il nome dell'account dell'utente e/o uno dei nomi descrittivi dell'utente. Uno scenario comporterà la reimpostazione della password dell'utente quando il criterio è impostato su Applica o viene passato se il criterio è in modalità di controllo.
 
 Quando una coppia di eventi viene registrata insieme, entrambi vengono associati in modo esplicito in base allo stesso ID di correlazione.
 
@@ -314,7 +318,7 @@ Gli eventi vengono registrati dai diversi componenti proxy tramite gli intervall
 | --- | --- |
 |Processo di hosting del servizio proxy| 10000-19999|
 |Logica di business di base del servizio proxy| 20000-29999|
-|Cmdlet PowerShell| 30000-39999|
+|Cmdlet di PowerShell| 30000-39999|
 
 ## <a name="proxy-service-text-logging"></a>Registrazione di testo del servizio proxy
 

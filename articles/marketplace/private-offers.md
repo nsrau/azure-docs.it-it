@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 5396845e13e94b4d957f42618baaf19c408f559d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: fdd8c752e8cf610ef3c32e1af91b3ad6454c0813
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843775"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887179"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Offerte private in Microsoft Commercial Marketplace
 
@@ -42,6 +42,8 @@ Per *le offerte nuove o esistenti con i piani*, gli editori possono creare con f
 I piani privati sono componenti di un'offerta e sono visibili e acquistabili dai clienti di destinazione. I piani privati possono riutilizzare le immagini di base e/o i metadati dell'offerta già pubblicati per un piano pubblico. Questa opzione consente agli editori di creare più varianti private di un'offerta pubblica senza dover pubblicare più versioni della stessa immagine di base e degli stessi metadati dell'offerta. Solo per le offerte per le macchine virtuali e le applicazioni Azure, quando un piano privato condivide un'immagine di base con un piano pubblico, qualsiasi modifica apportata all'immagine di base dell'offerta viene propagata in tutti i piani pubblici e privati usando tale immagine di base.
 
 Per le *nuove offerte che includono solo piani privati*, gli editori possono creare le proprie offerte come qualsiasi altra offerta e quindi contrassegnare i piani come privati. Le offerte che hanno solo piani privati non saranno individuabili o accessibili tramite Microsoft Commercial Marketplace o i [portale di Azure](https://azure.microsoft.com/features/azure-portal/) dai clienti che non sono associati all'offerta.
+
+I piani privati sono disponibili sia per Azure globale che per Azure per enti pubblici.
 
 >[!NOTE]
 >Un'offerta che contiene solo piani privati non sarà visibile nel Marketplace pubblico di Azure o AppSource.

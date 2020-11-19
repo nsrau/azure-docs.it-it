@@ -4,12 +4,12 @@ description: Fornisce le risposte ad alcune domande comuni sulla soluzione VMwar
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: f2b46b37fc8c773062402c52f2903a7a10acc2c4
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: f83413bc54164107b8e8a4e6010f8a826a5fe327
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874713"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888420"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Domande frequenti sulla soluzione VMware di Azure
 
@@ -218,7 +218,7 @@ Si avranno i privilegi del gruppo CloudAdmin. Per altre informazioni, vedere [Co
 
 #### <a name="what-privileges-and-permissions-will-i-have-on-the-nsx-t-manager"></a>Quali privilegi e autorizzazioni si avranno in NSX-T Manager?
 
-Si avranno privilegi di amministratore completi in NSX-T e la possibilità di gestire il controllo degli accessi in base al ruolo così come con NSX-T Data Center in locale. Per altre informazioni, vedere [Concetti relativi ad accesso e identità](concepts-identity.md).
+Si avranno privilegi di amministratore completi su NSX-T e si potrà gestire il controllo degli accessi in base al ruolo di vSphere come si farebbe con il Data Center locale di NSX-T. Per altre informazioni, vedere [Concetti relativi ad accesso e identità](concepts-identity.md).
 
 > [!NOTE]
 > Come parte della distribuzione di un cloud privato viene creato e configurato un router T0. Qualsiasi modifica a tale router logico o alle VM dei nodi perimetrali NSX-T influirà sulla connettività al cloud privato.

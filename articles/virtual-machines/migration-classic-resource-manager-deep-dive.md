@@ -8,22 +8,20 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: e9476b7278cbe64bf90911c3b85a09922a1afbf1
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d73ad3235e5ff2c9dbf0cca546308469ef6b5ac0
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843945"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94887040"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager
 
 > [!IMPORTANT]
 > Attualmente, circa il 90% delle VM IaaS USA [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). A partire dal 28 febbraio 2020, le macchine virtuali classiche sono state deprecate e saranno completamente ritirate il 1 ° marzo 2023. [Scopri di più]( https://aka.ms/classicvmretirement) su questa deprecazione e sul [modo in cui influiscono sull'utente](./classic-vm-deprecation.md#how-does-this-affect-me).
 
-Sono descritte informazioni approfondite sulla migrazione del modello di distribuzione classica di Azure al modello di distribuzione di Azure Resource Manager. Le risorse vengono esaminate a livello di risorsa e di funzionalità per aiutare a comprendere come la piattaforma Azure esegue la migrazione di risorse tra i due modelli di distribuzione. Per ulteriori informazioni, leggere l'articolo relativo all'annuncio del servizio:
+Sono descritte informazioni approfondite sulla migrazione del modello di distribuzione classica di Azure al modello di distribuzione di Azure Resource Manager. Le risorse vengono esaminate a livello di risorsa e di funzionalità per aiutare a comprendere come la piattaforma Azure esegue la migrazione di risorse tra i due modelli di distribuzione. Per altre informazioni, leggere l'articolo relativo all'annuncio del servizio, [Migrazione supportata dalla piattaforma di risorse IaaS dal modello classico al modello di Azure Resource Manager](migration-classic-resource-manager-overview.md).
 
-* Per Linux: [migrazione supportata dalla piattaforma di risorse IaaS dal modello classico al Azure Resource Manager](./linux/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Per Windows:  [migrazione supportata dalla piattaforma di risorse IaaS dal modello classico al Azure Resource Manager](./windows/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 È importante comprendere prima di tutto la differenza tra le operazioni a livello di piano dati e quelle a livello di piano di gestione sulle risorse dell'infrastruttura distribuita come servizio (IaaS).
@@ -33,7 +31,7 @@ Sono descritte informazioni approfondite sulla migrazione del modello di distrib
 
 Il piano dati è lo stesso sia per il modello di distribuzione classica che per gli stack di Azure Resource Manager. La differenza sta nel fatto che, durante il processo di migrazione, Microsoft converte la rappresentazione delle risorse dal modello di distribuzione classica a quella nello stack di Azure Resource Manager. È quindi necessario usare nuovi strumenti, API e SDK per gestire le risorse nello stack di Azure Resource Manager.
 
-![Diagramma che mostra la differenza tra piano di gestione/controllo e piano dati](media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+![Diagramma che mostra la differenza tra piano di gestione/controllo e piano dati](./media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 
 > [!NOTE]
@@ -52,7 +50,7 @@ Prima di iniziare la migrazione:
 
 Il flusso di lavoro della migrazione è il seguente:
 
-![Diagramma che mostra il flusso di lavoro di migrazione](windows/media/migration-classic-resource-manager/migration-workflow.png)
+![Diagramma che mostra il flusso di lavoro di migrazione](./media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
 > Tutte le operazioni descritte nelle sezioni seguenti sono idempotenti. Se vengono rilevati errori diversi da una funzionalità non supportata o un errore di configurazione, provare a ripetere l'operazione di preparazione, interruzione o commit. Azure prova a ripetere l'azione.
@@ -98,13 +96,13 @@ Al termine dell'operazione di preparazione, è possibile visualizzare le risorse
 
 I due screenshot seguenti mostrano il risultato dopo l'esito positivo di un'operazione di preparazione. Il primo screenshot mostra un gruppo di risorse che contiene il servizio cloud originale. Il secondo screenshot mostra il nuovo gruppo di risorse "-Migrated" che contiene le risorse equivalenti di Azure Resource Manager.
 
-![Screenshot che mostra il servizio cloud originale](windows/media/migration-classic-resource-manager/portal-classic.png)
+![Screenshot che mostra il servizio cloud originale](./media/migration-classic-resource-manager/portal-classic.png)
 
-![Screenshot che mostra le risorse di Azure Resource Manager nell'operazione di preparazione](windows/media/migration-classic-resource-manager/portal-arm.png)
+![Screenshot che mostra le risorse di Azure Resource Manager nell'operazione di preparazione](./media/migration-classic-resource-manager/portal-arm.png)
 
 Di seguito vengono mostrati i retroscena delle risorse al termine della fase di preparazione. Si noti che la risorsa nel piano dati è la stessa. Viene rappresentata sia nel piano di gestione (modello di distribuzione classica) che nel piano di controllo (Resource Manager).
 
-![Diagramma della fase di preparazione](windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+![Diagramma della fase di preparazione](./media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
 
 > [!NOTE]
 > Le macchine virtuali che non sono in una rete virtuale nel modello di distribuzione classica vengono interrotte e deallocate in questa fase della migrazione.
@@ -124,7 +122,7 @@ Se si verificano problemi, è sempre possibile interrompere la migrazione e torn
 ### <a name="abort"></a>Interruzione
 Questo è un passaggio facoltativo che permette di annullare le modifiche al modello di distribuzione classica e di arrestare la migrazione. L'operazione elimina i metadati di Resource Manager creati nella fase di preparazione per le risorse. 
 
-![Diagramma della fase di interruzione](windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+![Diagramma della fase di interruzione](media/migration-classic-resource-manager/behind-the-scenes-abort.png)
 
 
 > [!NOTE]
@@ -139,13 +137,13 @@ Dopo aver completato la convalida, è possibile eseguire il commit della migrazi
 >
 >
 
-![Diagramma della fase di commit](windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+![Diagramma della fase di commit](media/migration-classic-resource-manager/behind-the-scenes-commit.png)
 
 ## <a name="migration-flowchart"></a>Diagramma di flusso della migrazione
 
 Il diagramma di flusso seguente mostra come procedere con la migrazione:
 
-![Screenshot that shows the migration steps](windows/media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>Conversione delle risorse dal modello di distribuzione classica ad Azure Resource Manager
 La tabella seguente mostra la rappresentazione delle risorse nel modello di distribuzione classica e Resource Manager. Le seguenti funzionalità e risorse non sono attualmente supportate.
@@ -183,24 +181,12 @@ Come parte della migrazione delle risorse dal modello di distribuzione classica 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per Linux:
-
-* [Panoramica sulla migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica al modello Azure Resource Manager](./linux/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Planning for migration of IaaS resources from classic to Azure Resource Manager](./linux/migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager)
-* [Usare PowerShell per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](./windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Usare l'interfaccia della riga di comando per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](./linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](./windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Strumenti della community per assistenza alla migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager)
-* [Rivedere gli errori di migrazione più comuni](./linux/migration-classic-resource-manager-errors.md?toc=/azure/virtual-machines/linux/toc.json)
-* [Esaminare le domande frequenti sulla migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-Per Windows:
-
-* [Panoramica sulla migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica al modello Azure Resource Manager](./windows/migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Planning for migration of IaaS resources from classic to Azure Resource Manager](./windows/migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager)
-* [Usare PowerShell per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](./windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Usare l'interfaccia della riga di comando per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](./linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Panoramica sulla migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica al modello Azure Resource Manager](migration-classic-resource-manager-overview.md)
+* [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md) (Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager)
+* [Usare PowerShell per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](migration-classic-resource-manager-ps.md)
+* [Usare l'interfaccia della riga di comando per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](migration-classic-resource-manager-cli.md)
 * [Migrazione dal modello classico al modello di Resource Manager con gateway VPN](../vpn-gateway/vpn-gateway-classic-resource-manager-migration.md)
 * [Eseguire la migrazione di circuiti ExpressRoute e delle reti virtuali associate dalla distribuzione classica al modello di distribuzione di Resource Manager](../expressroute/expressroute-migration-classic-resource-manager.md)
-* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](./windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Strumenti della community per assistenza alla migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager)
-* [Rivedere gli errori di migrazione più comuni](./windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Esaminare le domande frequenti sulla migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md) (Strumenti della community per assistenza alla migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager)
+* [Rivedere gli errori di migrazione più comuni](migration-classic-resource-manager-errors.md)
+* [Esaminare le domande frequenti sulla migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](migration-classic-resource-manager-faq.md)

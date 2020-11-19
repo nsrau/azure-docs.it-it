@@ -2,17 +2,17 @@
 title: Informazioni di riferimento sulla sintassi di SQLFilter nel bus di servizio di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni dettagliate sulla grammatica di SqlFilter. Un SqlFilter supporta un sottoinsieme dello standard SQL-92.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 8412dea583ae119b30976e53d4751411b45339a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/17/2020
+ms.openlocfilehash: 7f3c744b691e678ef18c8fa721ccfaecaee9c1e2
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85341602"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888471"
 ---
 # <a name="sqlfilter-syntax"></a>Sintassi di SQLFilter
 
-Un oggetto *SqlFilter* è un'istanza della [classe SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) e rappresenta un'espressione filtro basata sul linguaggio SQL che viene valutata in un oggetto [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Un SqlFilter supporta un sottoinsieme dello standard SQL-92.  
+Un oggetto *SqlFilter* è un'istanza della [classe SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)e rappresenta un'espressione di filtro basata sul linguaggio SQL, che viene valutata rispetto a [`BrokeredMessage`](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . Un SqlFilter supporta un sottoinsieme dello standard SQL-92.  
   
  Questo argomento offre informazioni dettagliate sulla grammatica di SqlFilter.  
   
@@ -49,11 +49,11 @@ Un oggetto *SqlFilter* è un'istanza della [classe SqlFilter](/dotnet/api/micros
   
 ## <a name="arguments"></a>Argomenti  
   
--   `<scope>` è una stringa facoltativa che indica l'ambito di `<property_name>`. I valori validi sono `sys` o `user`. Il `sys` valore indica l'ambito del sistema in cui `<property_name>` è il nome di una proprietà pubblica della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica l'ambito dell'utente in cui `<property_name>` è una chiave del dizionario della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . Se l'argomento `<scope>` non è specificato, l'ambito predefinito è `user`.  
+-   `<scope>` è una stringa facoltativa che indica l'ambito di `<property_name>`. I valori validi sono `sys` o `user`. Il `sys` valore indica l'ambito del sistema in cui `<property_name>` è il nome di una proprietà pubblica della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica l'ambito dell'utente in cui `<property_name>` è una chiave del dizionario della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . `user` l'ambito è l'ambito predefinito se `<scope>` non è specificato.  
   
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
-Il tentativo di accedere a una proprietà di sistema inesistente costituisce un errore, mentre il tentativo di accedere a una proprietà utente inesistente non è un errore. Una proprietà utente inesistente viene invece valutata internamente come valore sconosciuto. Un valore sconosciuto viene gestito in modo speciale durante la valutazione degli operatori.  
+Un tentativo di accedere a una proprietà di sistema inesistente è un errore, mentre un tentativo di accedere a una proprietà utente inesistente non è un errore. Una proprietà utente inesistente viene invece valutata internamente come valore sconosciuto. Un valore sconosciuto viene gestito in modo speciale durante la valutazione degli operatori.  
   
 ## <a name="property_name"></a>property_name  
   
@@ -81,7 +81,7 @@ L'espressione corrisponde a qualsiasi stringa che inizia con una lettera seguita
   
 `[:IsDigit:]` indica qualsiasi carattere Unicode classificato come cifra decimale. `System.Char.IsDigit(c)` restituisce `true` se `c` è una cifra Unicode.  
   
-`<regular_identifier>` non può essere una parola chiave riservata.  
+Un `<regular_identifier>` non può essere una parola chiave riservata.  
   
 `<delimited_identifier>` è qualsiasi stringa racchiusa tra parentesi quadra aperta e parentesi quadra chiusa ([]). Una parentesi quadra chiusa è rappresentata con due parentesi quadre chiuse. Di seguito sono riportati esempi di `<delimited_identifier>`:  
   
@@ -91,7 +91,7 @@ L'espressione corrisponde a qualsiasi stringa che inizia con una lettera seguita
   
 ```  
   
-`<quoted_identifier>` è qualsiasi stringa racchiusa tra virgolette doppie. Le virgolette doppie nell'identificatore sono rappresentate con due virgolette doppie. Non è consigliabile usare identificatori racchiusi tra virgolette perché possono essere facilmente confusi con una costante di tipo stringa. Usare se possibile un identificatore delimitato. Di seguito è riportato un esempio di `<quoted_identifier>`:  
+`<quoted_identifier>` è qualsiasi stringa racchiusa tra virgolette doppie. Le virgolette doppie nell'identificatore sono rappresentate con due virgolette doppie. Non è consigliabile usare gli identificatori delimitati perché può essere facilmente confuso con una costante di stringa. Usare se possibile un identificatore delimitato. Di seguito è riportato un esempio di `<quoted_identifier>` :  
   
 ```  
 "Contoso & Northwind"  
@@ -104,9 +104,9 @@ L'espressione corrisponde a qualsiasi stringa che inizia con una lettera seguita
       <expression>  
 ```  
   
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
   
-`<pattern>` deve essere un'espressione valutata come stringa. Viene usato come modello per l'operatore LIKE      e può contenere i caratteri jolly seguenti.  
+`<pattern>` deve essere un'espressione valutata come stringa. Viene usato come modello per l'operatore LIKE.      e può contenere i caratteri jolly seguenti.  
   
 -   `%`: qualsiasi stringa di zero o più caratteri.  
   
@@ -119,7 +119,7 @@ L'espressione corrisponde a qualsiasi stringa che inizia con una lettera seguita
       <expression>  
 ```  
   
-### <a name="remarks"></a>Osservazioni  
+### <a name="remarks"></a>Commenti  
 
 `<escape_char>` deve essere un'espressione valutata come stringa di lunghezza 1. Viene usato come carattere di escape per l'operatore LIKE.  
   
@@ -134,18 +134,18 @@ L'espressione corrisponde a qualsiasi stringa che inizia con una lettera seguita
   
 ### <a name="arguments"></a>Argomenti  
   
--   `<integer_constant>` è una stringa di numeri non racchiusi tra virgolette e non contenenti separatori decimali. I valori sono archiviati internamente come `System.Int64` e seguono lo stesso intervallo.  
+-   `<integer_constant>` è una stringa di numeri che non sono racchiusi tra virgolette e non contengono punti decimali. I valori sono archiviati internamente come `System.Int64` e seguono lo stesso intervallo.  
   
-     Questi sono esempi di costanti di tipo long:  
+     Di seguito sono riportati esempi di costanti lunghe:  
   
     ```  
     1894  
     2  
     ```  
   
--   `<decimal_constant>` è una stringa di numeri non racchiusi tra virgolette e contenente un separatore decimale. I valori sono archiviati internamente come `System.Double` e seguono lo stesso intervallo e la stessa precisione.  
+-   `<decimal_constant>` è una stringa di numeri che non sono racchiusi tra virgolette e contengono una virgola decimale. I valori sono archiviati internamente come `System.Double` e seguono lo stesso intervallo e la stessa precisione.  
   
-     In una versione futura, questo numero potrebbe essere archiviato in un tipo di dati diverso per supportare una semantica numerica esatta e non dover quindi fare affidamento sul fatto che il tipo di dati sottostante per `<decimal_constant>` sia `System.Double`.  
+     In una versione futura, questo numero potrebbe essere archiviato in un tipo di dati diverso per supportare la semantica esatta dei numeri, pertanto non è consigliabile fare affidamento sul fatto che il tipo di dati sottostante è `System.Double` per `<decimal_constant>` .  
   
      Di seguito sono riportati esempi di costanti decimali:  
   
@@ -168,7 +168,7 @@ L'espressione corrisponde a qualsiasi stringa che inizia con una lettera seguita
       TRUE | FALSE  
 ```  
   
-### <a name="remarks"></a>Osservazioni  
+### <a name="remarks"></a>Commenti  
 
 Le costanti booleane sono rappresentate dalle parole chiave **TRUE** e **FALSE**. I valori sono archiviati come `System.Boolean`.  
   
@@ -178,7 +178,7 @@ Le costanti booleane sono rappresentate dalle parole chiave **TRUE** e **FALSE**
 <string_constant>  
 ```  
   
-### <a name="remarks"></a>Osservazioni  
+### <a name="remarks"></a>Commenti  
 
 Le costanti di tipo stringa sono racchiuse tra virgolette singole e includono qualsiasi carattere Unicode valido. Le virgolette singole incorporate in una costante di tipo stringa sono rappresentate con due virgolette singole.  
   
@@ -190,9 +190,9 @@ Le costanti di tipo stringa sono racchiuse tra virgolette singole e includono qu
       property(name) | p(name)  
 ```  
   
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
   
-La funzione `newid()` restituisce un **System.Guid** generato dal metodo `System.Guid.NewGuid()`.  
+La `newid()` funzione restituisce un oggetto `System.Guid` generato dal `System.Guid.NewGuid()` metodo.  
   
 La funzione `property(name)` restituisce il valore della proprietà a cui viene fatto riferimento con `name`. Il valore di `name` può essere qualsiasi espressione valida che restituisce un valore stringa.  
   
@@ -214,17 +214,17 @@ Tenere presente la semantica di [SqlFilter](/dotnet/api/microsoft.servicebus.mes
   
 - Il tentativo di valutare una proprietà di sistema inesistente genera un'eccezione [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception).  
   
-- Una proprietà non esistente verrà valutata internamente come **valore sconosciuto**.  
+- Una proprietà che non esiste viene valutata internamente come **sconosciuta**.  
   
   Valutazione dei valori sconosciuti negli operatori aritmetici:  
   
-- Per gli operatori binari, se il lato sinistro e/o destro degli operandi viene valutato come **valore sconosciuto**, il risultato è un **valore sconosciuto**.  
+- Per gli operatori binari, se il lato sinistro o destro degli operandi viene valutato come **sconosciuto**, il risultato è **sconosciuto**.  
   
 - Per gli operatori unari, se un operando viene valutato come **valore sconosciuto**, il risultato è un **valore sconosciuto**.  
   
   Valutazione dei valori sconosciuti negli operatori di confronto binari:  
   
-- Se il lato sinistro e/o destro degli operandi viene valutato come **valore sconosciuto**, il risultato è un **valore sconosciuto**.  
+- Se il lato sinistro o destro degli operandi viene valutato come **sconosciuto**, il risultato è **sconosciuto**.  
   
   Valutazione dei valori sconosciuti in `[NOT] LIKE`:  
   
@@ -267,6 +267,58 @@ Tenere presente la semantica di [SqlFilter](/dotnet/api/microsoft.servicebus.mes
 -   Gli operatori di confronto come `>`, `>=`, `<`, `<=`, `!=` e `=` seguono la stessa semantica dell'associazione di operatori C# nelle conversioni implicite e nelle promozioni del tipo di dati.  
   
 -   Gli operatori aritmetici come `+`, `-`, `*`, `/` e `%` seguono la stessa semantica dell'associazione di operatori C# nelle conversioni implicite e nelle promozioni del tipo di dati.
+
+
+## <a name="examples"></a>Esempi
+
+### <a name="set-rule-action-for-a-sql-filter"></a>Imposta azione regola per un filtro SQL
+
+```csharp
+// instantiate the ManagementClient
+this.mgmtClient = new ManagementClient(connectionString);
+
+// create the SQL filter
+var sqlFilter = new SqlFilter("source = @stringParam");
+
+// assign value for the parameter
+sqlFilter.Parameters.Add("@stringParam", "orders");
+
+// instantiate the Rule = Filter + Action
+var filterActionRule = new RuleDescription
+{
+    Name = "filterActionRule",
+    Filter = sqlFilter,
+    Action = new SqlRuleAction("SET source='routedOrders'")
+};
+
+// create the rule on Service Bus
+await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionRule);
+```
+
+### <a name="sql-filter-on-a-system-property"></a>Filtro SQL su una proprietà di sistema
+
+```csharp
+sys.Label LIKE '%bus%'`
+```
+
+### <a name="using-or"></a>Utilizzando o 
+
+```csharp
+ sys.Label LIKE '%bus%'` OR `user.tag IN ('queue', 'topic', 'subscription')
+```
+
+### <a name="using-in-and-not-in"></a>Uso di IN e NOT IN
+
+```csharp
+StoreId IN('Store1', 'Store2', 'Store3')"
+
+sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
+
+sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
+```
+
+Per un esempio C#, vedere l' [argomento relativo ai filtri di esempio su GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

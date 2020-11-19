@@ -5,12 +5,12 @@ ms.date: 10/21/2020
 ms.topic: conceptual
 description: Descrive il processo di migrazione da Azure Dev Spaces a Bridge per Kubernetes
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, Bridge per Kubernetes
-ms.openlocfilehash: 7a7642d986d8490c5d0dc3c413e658b21b010798
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d48814df30c17f9b51d8642efa0960a26bbd24f4
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895257"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888522"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrazione a Bridge per Kubernetes
 
@@ -85,7 +85,7 @@ Il Bridge per Kubernetes offre la flessibilità necessaria per lavorare con le a
 1. Se si usa Visual Studio, aggiornare l'IDE di Visual Studio alla versione 16,7 o successiva e installare l'estensione Bridge per Kubernetes dalla [Visual Studio Marketplace][vs-marketplace]. Se si usa Visual Studio Code, installare il [Bridge per l'estensione Kubernetes][vsc-marketplace].
 1. Disabilitare il controller di Azure Dev Spaces usando il portale di Azure o l'interfaccia della riga di comando [Azure Dev Spaces][azds-delete].
 1. Usare [Azure cloud Shell](https://shell.azure.com). In alternativa, in Mac, Linux o Windows con bash installato aprire un prompt della shell bash. Assicurarsi che gli strumenti seguenti siano disponibili nell'ambiente della riga di comando: interfaccia della riga di comando di Azure, Docker, kubectl, CURL, tar e gunzip.
-1. Creare un registro contenitori o utilizzarne uno esistente. È possibile creare un registro contenitori in Azure usando [azure container Registry](../container-registry/index.yml) o usando [Docker Hub](https://hub.docker.com/). Quando si usa Azure Cloud Shell, è disponibile solo Container Registry di Azure per l'hosting di immagini docker.
+1. Creare un registro contenitori o utilizzarne uno esistente. È possibile creare un registro contenitori in Azure usando [azure container Registry](https://azure.microsoft.com/services/container-registry/) o usando [Docker Hub](https://hub.docker.com/). Quando si usa Azure Cloud Shell, è disponibile solo Container Registry di Azure per l'hosting di immagini docker.
 1. Eseguire lo script di migrazione per convertire gli asset Azure Dev Spaces in Bridge per gli asset Kubernetes. Lo script compila una nuova immagine compatibile con Bridge per Kubernetes, la carica nel registro di sistema designato e quindi usa [Helm](https://helm.sh) per aggiornare il cluster con l'immagine. È necessario specificare il gruppo di risorse, il nome del cluster AKS e un registro contenitori. Sono disponibili altre opzioni della riga di comando, come illustrato di seguito:
 
    ```azure-cli
@@ -117,7 +117,7 @@ Il Bridge per Kubernetes offre la flessibilità necessaria per lavorare con le a
 
 È anche possibile usare il routing specifico per gli sviluppatori con Bridge per Kubernetes. Lo scenario di sviluppo del team Azure Dev Spaces usa più spazi dei nomi Kubernetes per isolare un servizio dal resto dell'applicazione usando il concetto di spazi dei nomi padre e figlio. Bridge to Kubernetes offre la stessa funzionalità, ma con caratteristiche di prestazioni migliorate e nello stesso spazio dei nomi dell'applicazione.
 
-Sia Bridge a Kubernetes che Azure Dev Spaces richiedono che le intestazioni HTTP siano presenti e propagate nell'intera applicazione. Se l'applicazione è già stata configurata per gestire la propagazione dell'intestazione per Azure Dev Spaces, è necessario aggiornare l'intestazione. Per eseguire la transizione da Bridge a Kubernetes da Azure Dev Spaces, aggiornare l'intestazione configurata da *azds-route-As* a *Kubernetes-route-As* .
+Sia Bridge a Kubernetes che Azure Dev Spaces richiedono che le intestazioni HTTP siano presenti e propagate nell'intera applicazione. Se l'applicazione è già stata configurata per gestire la propagazione dell'intestazione per Azure Dev Spaces, è necessario aggiornare l'intestazione. Per eseguire la transizione da Bridge a Kubernetes da Azure Dev Spaces, aggiornare l'intestazione configurata da *azds-route-As* a *Kubernetes-route-As*.
 
 ## <a name="evaluate-bridge-to-kubernetes"></a>Valutare Bridge per Kubernetes
 

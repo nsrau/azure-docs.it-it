@@ -1,5 +1,5 @@
 ---
-title: Visualizzare e configurare la telemetria di protezione DDoS
+title: Visualizzare e configurare i dati di telemetria della protezione DDoS
 description: Informazioni su come visualizzare e configurare la telemetria di protezione DDoS.
 services: ddos-protection
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 050533151b927efc8a4f1fd2d0245accdba424ec
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: eefb658c689128c1d91858ac906c09e71d05cda6
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905525"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888947"
 ---
-# <a name="view-and-configure-ddos-protection-telemetry"></a>Visualizzare e configurare la telemetria di protezione DDoS
+# <a name="view-and-configure-ddos-protection-telemetry"></a>Visualizzare e configurare i dati di telemetria della protezione DDoS
 
 Lo standard Protezione DDoS di Azure fornisce informazioni dettagliate sugli attacchi e ne consente la visualizzazione con l'analisi degli attacchi DDoS. I clienti che proteggono le reti virtuali da attacchi DDoS hanno visibilità dettagliata sul traffico degli attacchi e sulle azioni intraprese per mitigare l'attacco tramite i report sulla mitigazione dell'attacco e i log del flusso di mitigazione. I dati di telemetria avanzati vengono esposti tramite monitoraggio di Azure, incluse le metriche dettagliate durante la durata di un attacco DDoS. Gli avvisi possono essere configurati per una delle metriche di monitoraggio di Azure esposte dalla protezione DDoS. La registrazione può essere integrata ulteriormente con [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-ddos-protection), Splunk (hub eventi di Azure), OMS log Analytics e archiviazione di Azure per l'analisi avanzata tramite l'interfaccia di diagnostica di monitoraggio di Azure.
 
@@ -40,17 +40,17 @@ In questa esercitazione si apprenderà come:
 Usando la configurazione degli avvisi di Monitoraggio di Azure, è possibile selezionare una delle metriche di protezione DDoS disponibili per ricevere un avviso nel caso in cui ci sia una mitigazione attiva durante un attacco. Quando vengono soddisfatte le condizioni, si riceve un messaggio di posta elettronica di avviso all'indirizzo specificato:
 
 1. Selezionare **Tutti i servizi** nella parte superiore sinistra del portale.
-2. Immettere *Monitoraggio* nella casella **Filtro** . Selezionare **Monitoraggio** quando viene visualizzato nei risultati.
-3. Selezionare **Metriche** in **SERVIZI CONDIVISI** .
-4. Immettere o selezionare i valori personalizzati, oppure immettere i valori di esempio seguenti, accettare i risultati predefiniti restanti e quindi selezionare **OK** :
+2. Immettere *Monitoraggio* nella casella **Filtro**. Selezionare **Monitoraggio** quando viene visualizzato nei risultati.
+3. Selezionare **Metriche** in **SERVIZI CONDIVISI**.
+4. Immettere o selezionare i valori personalizzati, oppure immettere i valori di esempio seguenti, accettare i risultati predefiniti restanti e quindi selezionare **OK**:
 
     |Impostazione                  |valore                                                                                               |
     |---------                |---------                                                                                           |
-    |Nome                     | Immettere _MyDdosAlert_ .                                                                                |
+    |Nome                     | Immettere _MyDdosAlert_.                                                                                |
     |Subscription             | Selezionare la sottoscrizione che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi.        |
     |Resource group           | Selezionare il gruppo di risorse che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi.      |
     |Risorsa                 | Selezionare l'indirizzo IP pubblico che contiene l'indirizzo IP pubblico per il quale si vogliono ricevere avvisi. La protezione DDoS esegue il monitoraggio degli indirizzi IP pubblici assegnati alle risorse all'interno di una rete virtuale. Se non si dispone di risorse con indirizzi IP pubblici nella rete virtuale, è innanzitutto necessario creare una risorsa con un indirizzo IP pubblico. È possibile eseguire il monitoraggio dell'indirizzo IP pubblico di tutte le risorse distribuite tramite Resource Manager (distribuzione classica) elencate in [Rete virtuale per servizi di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services#services-that-can-be-deployed-into-a-virtual-network), ad eccezione degli ambienti di Servizio app di Azure e del gateway VPN di Azure. Per continuare questa esercitazione, è possibile creare rapidamente una macchina virtuale [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).                   |
-    |Metrica                   | Selezionare **sotto DDoS Attack (attacco DDoS** ).                                                                |
+    |Metrica                   | Selezionare **sotto DDoS Attack (attacco DDoS**).                                                                |
     |Soglia                | 1 - **1** indica che è in corso un attacco **0** indica che non è in corso un attacco                         |
     |Periodo                   | Selezionare un valore di propria scelta                                                                   |
     |Notifica tramite posta elettronica         | Selezionare la casella di controllo.                                                                                 |
@@ -70,11 +70,11 @@ Per simulare un attacco DDoS per convalidare l'avviso, vedere [Convalidare il ri
 I dati di telemetria per un attacco vengono forniti da Monitoraggio di Azure in tempo reale. La telemetria è disponibile solo per l'intervallo di tempo durante cui viene applicata la mitigazione per un indirizzo IP pubblico. Prima o dopo la mitigazione di un attacco, non vengono visualizzati dati di telemetria.
 
 1. Selezionare **Tutti i servizi** nella parte superiore sinistra del portale.
-2. Immettere *Monitoraggio* nella casella **Filtro** . Selezionare **Monitoraggio** quando viene visualizzato nei risultati.
-3. Selezionare **metriche** in **servizi condivisi** .
+2. Immettere *Monitoraggio* nella casella **Filtro**. Selezionare **Monitoraggio** quando viene visualizzato nei risultati.
+3. Selezionare **metriche** in **servizi condivisi**.
 4. Selezionare la **sottoscrizione** e il **gruppo di risorse** contenenti l'indirizzo IP pubblico per il quale si vogliono ottenere i dati di telemetria.
-5. Selezionare **Indirizzo IP pubblico** per **Tipo di risorsa** , quindi selezionare l'indirizzo IP pubblico specifico per il quale si vogliono ottenere i dati di telemetria.
-6. A sinistra dello schermo viene visualizzata una serie di **Metriche disponibili** . Queste metriche, quando selezionate, vengono rappresentate nel **grafo delle metriche di Monitoraggio di Azure** nella schermata di panoramica.
+5. Selezionare **Indirizzo IP pubblico** per **Tipo di risorsa**, quindi selezionare l'indirizzo IP pubblico specifico per il quale si vogliono ottenere i dati di telemetria.
+6. A sinistra dello schermo viene visualizzata una serie di **Metriche disponibili**. Queste metriche, quando selezionate, vengono rappresentate nel **grafo delle metriche di Monitoraggio di Azure** nella schermata di panoramica.
 7. Selezionare il tipo di **aggregazione** come **Max**
 
 I nomi delle metriche si riferiscono a diversi tipi di pacchetto e byte rispetto ai pacchetti, con una struttura di base correlata ai nomi di tag per ogni metrica, come indicato di seguito:
@@ -83,7 +83,7 @@ I nomi delle metriche si riferiscono a diversi tipi di pacchetto e byte rispetto
 - **Forwarded tag name** (Nome tag inoltrato), ad esempio **Inbound Packets Forwarded DDoS** (Pacchetti in ingresso inoltrati da DDoS): numero di pacchetti inoltrati dal sistema DDoS all'indirizzo VIP di destinazione (il traffico non è stato filtrato).
 - **No tag name** (Nessun nome di tag), ad esempio **Inbound Packets DDoS** (Pacchetti in ingresso elaborati da DDoS): numero totale di pacchetti arrivati nel sistema di scrubbing, che rappresenta la somma dei pacchetti eliminati e di quelli inoltrati.
 
-Per simulare un attacco DDoS per convalidare la telemetria, vedere [Convalidare il rilevamento della protezione DDoS](test-through-simulations.md).
+Questa [regola di avviso di monitoraggio di Azure](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20Monitor%20Alert%20-%20DDoS%20Mitigation%20Started) consente di eseguire una query semplice per rilevare quando si verifica una mitigazione DDoS attiva. Per simulare un attacco DDoS per convalidare la telemetria, vedere [Convalidare il rilevamento della protezione DDoS](test-through-simulations.md). 
 
 ## <a name="view-ddos-mitigation-policies"></a>Visualizzare i criteri di mitigazione della protezione DDoS
 
@@ -98,9 +98,9 @@ Le soglie dei criteri vengono configurate automaticamente tramite la profilatura
 Il Centro sicurezza di Azure fornisce un elenco di [avvisi di sicurezza](/azure/security-center/security-center-managing-and-responding-alerts), con informazioni che consentono di analizzare e correggere i problemi. Questa funzionalità consente di ottenere una visualizzazione unificata degli avvisi, inclusi gli avvisi relativi agli attacchi DDoS e le azioni intraprese per attenuare l'attacco in tempi più prossimi.
 Esistono due avvisi specifici che verranno visualizzati per qualsiasi rilevamento e mitigazione degli attacchi DDoS:
 
-- **Attacco DDoS rilevato per l'indirizzo IP pubblico** : questo avviso viene generato quando il servizio protezione DDoS rileva che uno degli indirizzi IP pubblici è la destinazione di un attacco DDoS.
-- **Attacco DDoS mitigato per IP pubblico** : questo avviso viene generato quando è stato mitigato un attacco all'indirizzo IP pubblico.
-Per visualizzare gli avvisi, aprire il **Centro sicurezza** nel portale di Azure. In **protezione dalle minacce** selezionare **avvisi di sicurezza** . Lo screenshot seguente mostra un esempio degli avvisi di attacco DDoS.
+- **Attacco DDoS rilevato per l'indirizzo IP pubblico**: questo avviso viene generato quando il servizio protezione DDoS rileva che uno degli indirizzi IP pubblici è la destinazione di un attacco DDoS.
+- **Attacco DDoS mitigato per IP pubblico**: questo avviso viene generato quando è stato mitigato un attacco all'indirizzo IP pubblico.
+Per visualizzare gli avvisi, aprire il **Centro sicurezza** nel portale di Azure. In **protezione dalle minacce** selezionare **avvisi di sicurezza**. Lo screenshot seguente mostra un esempio degli avvisi di attacco DDoS.
 
 ![Avviso DDoS nel centro sicurezza di Azure](./media/manage-ddos-protection/ddos-alert-asc.png)
 
@@ -118,4 +118,4 @@ In questa esercitazione sono state illustrate le procedure per:
 Per informazioni su come configurare i report di mitigazione degli attacchi e i log di flusso, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Configurare i report di mitigazione degli attacchi DDoS e i log di flusso](reports-and-flow-logs.md)
+> [Configurare i report e i log dei flussi per la mitigazione degli attacchi DDoS](reports-and-flow-logs.md)

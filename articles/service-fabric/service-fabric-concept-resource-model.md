@@ -4,12 +4,12 @@ description: Questo articolo fornisce una panoramica della gestione di un'applic
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
-ms.openlocfilehash: 3968fde0222dcee8047e7490dba78879ab6110e2
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 886b7d6b40bebf6234064b0627017db1d8cfe31f
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681687"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94888828"
 ---
 # <a name="service-fabric-application-resource-model"></a>Modello di risorsa dell'applicazione Service Fabric
 
@@ -91,6 +91,7 @@ Nell'applicazione di esempio sono contenuti [Azure Resource Manager modelli](htt
 >
 >
 
+
 | Parametro              | Descrizione                                 | Esempio                                                      | Commenti                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | Nome del cluster in cui si sta eseguendo la distribuzione | SF-cluster123                                                |                                                              |
@@ -137,6 +138,11 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 ```
 
 ## <a name="upgrade-the-service-fabric-application-by-using-resource-manager"></a>Aggiornare l'applicazione Service Fabric tramite Gestione risorse
+
+
+> [!IMPORTANT]
+> Tutti i servizi distribuiti tramite la definizione JSON ARM devono essere rimossi dalla sezione DefaultServices del file di ApplicationManifest.xml corrispondente.
+
 
 È possibile aggiornare un'applicazione che è già stata distribuita in un cluster Service Fabric per uno dei seguenti motivi:
 
