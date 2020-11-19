@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 3e53937122b8721aff5db435ac447b686ea16643
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: adf0f42b34a4bd7e5df2d2994408dbc175c5e01b
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748676"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94831923"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Guida introduttiva: Abilitare SSH e RDP su un flusso del dispositivo dell'hub IoT con un'applicazione proxy C# (anteprima)
 
@@ -43,9 +43,7 @@ La figura seguente illustra il modo in cui le applicazioni proxy locali del disp
 > [!NOTE]
 > Il traffico SSH che viene inviato tramite un flusso del dispositivo sarà sottoposto a tunneling attraverso l'endpoint di streaming dell'hub IoT invece di essere inviato direttamente tra il servizio e il dispositivo. Per altre informazioni, vedere la sezione sui [vantaggi dell'uso di flussi del dispositivo dell'hub IoT](iot-hub-device-streams-overview.md#benefits).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -58,28 +56,21 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 * Le due applicazioni di esempio eseguite in questo argomento sono scritte in C#. È necessario .NET Core SDK 2.1.0 o versione successiva nel computer di sviluppo.
 
-  È possibile scaricare [.NET Core SDK per più piattaforme da .NET](https://www.microsoft.com/net/download/all).
+    È possibile scaricare [.NET Core SDK per più piattaforme da .NET](https://www.microsoft.com/net/download/all).
 
-* Verificare la versione corrente di C# installata nel computer di sviluppo tramite il comando seguente:
+    Verificare la versione corrente di C# installata nel computer di sviluppo tramite il comando seguente:
 
     ```
     dotnet --version
     ```
 
-* Eseguire questo comando per aggiungere l'estensione Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 * [Scaricare gli esempi di C# per Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) ed estrarre l'archivio ZIP.
 
 * Account e credenziali utente validi nel dispositivo (Windows o Linux) usato per autenticare l'utente.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -93,7 +84,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
    > [!NOTE]
    > * Sostituire il segnaposto *YourIoTHubName* con il nome scelto per l'hub IoT.
-   > * Per il nome del dispositivo che si sta registrando, è consigliabile usare *MyDevice* , come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usarlo nell'intero articolo e aggiornarlo nelle applicazioni di esempio prima di eseguirle.
+   > * Per il nome del dispositivo che si sta registrando, è consigliabile usare *MyDevice*, come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usarlo nell'intero articolo e aggiornarlo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
@@ -195,7 +186,7 @@ Output della console sul lato servizio (l'applicazione il proxy locale del servi
 
 ![Output dell'applicazione proxy locale del servizio](./media/quickstart-device-streams-proxy-csharp/service-console-output.png)
 
-Output della console nell'applicazione proxy locale del dispositivo, che si connette al daemon SSH all'indirizzo *IP_address:22* :
+Output della console nell'applicazione proxy locale del dispositivo, che si connette al daemon SSH all'indirizzo *IP_address:22*:
 
 ![Output dell'applicazione proxy locale del dispositivo](./media/quickstart-device-streams-proxy-csharp/device-console-output.png)
 

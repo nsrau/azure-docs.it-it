@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 4d825d2e4daee5778c7f8e3ef216c3e72d89b1c4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 8a8e6f12a8709935a6fa9551261c56fc8f2aabbd
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747476"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832076"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in C# tramite i flussi dispositivo dell'hub IoT (anteprima)
 
@@ -24,9 +24,7 @@ L'hub IoT di Azure supporta attualmente i flussi del dispositivo come [funzional
 
 I [flussi dispositivo dell'hub IoT](./iot-hub-device-streams-overview.md) consentono alle applicazioni del servizio e del dispositivo di comunicare in modo sicuro e di facile integrazione con i firewall. Questo argomento di avvio rapido prevede due programmi C# che sfruttano i flussi del dispositivo per inviare dati nelle due direzioni (eco).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,22 +35,20 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
   * Asia sud-orientale
 
 * Le due applicazioni di esempio eseguite in questo argomento sono scritte in C#. È necessario .NET Core SDK 2.1.0 o versione successiva nel computer di sviluppo.
-  * Scaricare [.NET Core SDK per più piattaforme da .NET](https://www.microsoft.com/net/download/all).
-  * Verificare la versione corrente di C# installata nel computer di sviluppo tramite il comando seguente:
 
-   ```
-   dotnet --version
-   ```
+    Scaricare [.NET Core SDK per più piattaforme da .NET](https://www.microsoft.com/net/download/all).
 
-* Aggiungere l'estensione Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell eseguendo il comando seguente. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
+    Verificare la versione corrente di C# installata nel computer di sviluppo tramite il comando seguente:
 
-    ```azurecli-interactive
-    az extension add --name azure-iot
+    ```
+    dotnet --version
     ```
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 * [Scaricare gli esempi di C# per Azure IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) ed estrarre l'archivio ZIP. È necessario averlo sia sul lato dispositivo che sul lato servizio.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -66,7 +62,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
    > [!NOTE]
    > * Sostituire il segnaposto *YourIoTHubName* con il nome scelto per l'hub IoT.
-   > * Per il nome del dispositivo che si sta registrando, è consigliabile usare *MyDevice* , come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usarlo nell'intero articolo e aggiornarlo nelle applicazioni di esempio prima di eseguirle.
+   > * Per il nome del dispositivo che si sta registrando, è consigliabile usare *MyDevice*, come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usarlo nell'intero articolo e aggiornarlo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice

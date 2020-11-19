@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: ef362b34fe99212ee6648830ac442e507515719f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 678955970f3eeb87a10c43cd43effc3464db7794
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747523"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94832008"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in Node.js tramite i flussi dispositivo dell'hub IoT (anteprima)
 
@@ -30,13 +30,17 @@ In questa guida di avvio rapido si esegue un'applicazione sul lato servizio e si
 
 * [Node.js 10+](https://nodejs.org).
 
+    È possibile verificare la versione corrente di Node.js installata nel computer di sviluppo tramite il comando seguente:
+
+    ```cmd/sh
+    node --version
+    ```
+
 * [Un progetto Node.js di esempio](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
-È possibile verificare la versione corrente di Node.js installata nel computer di sviluppo tramite il comando seguente:
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-```cmd/sh
-node --version
-```
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 L'hub IoT di Microsoft Azure supporta attualmente i flussi dispositivo come [funzionalità in anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -48,35 +52,23 @@ L'hub IoT di Microsoft Azure supporta attualmente i flussi dispositivo come [fun
 > * Europa settentrionale
 > * Asia sud-orientale
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-### <a name="add-azure-iot-extension"></a>Aggiungere l'estensione Azure IoT
-
-Eseguire questo comando per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure all'istanza di Cloud Shell. L'estensione IoT aggiunge i comandi dell'hub IoT, di IoT Edge e del servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
-Se è stata completata la precedente [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-node.md), è possibile ignorare questo passaggio.
+Se è stata completata la precedente [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-node.md), ignorare questo passaggio.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrare un dispositivo
 
-Se è stata completata la precedente [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-node.md), è possibile ignorare questo passaggio.
+Se è stata completata la precedente [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT](quickstart-send-telemetry-node.md), ignorare questo passaggio.
 
 È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
 1. Eseguire questo comando in Azure Cloud Shell per creare l'identità del dispositivo.
 
-   **YourIoTHubName** : sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+   **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
-   **MyDevice** : nome del dispositivo da registrare. È consigliabile usare **MyDevice** , come illustrato. Se si sceglie un altro nome per il dispositivo, è necessario usare tale nome anche nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
+   **MyDevice**: nome del dispositivo da registrare. È consigliabile usare **MyDevice**, come illustrato. Se si sceglie un altro nome per il dispositivo, è necessario usare tale nome anche nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
@@ -84,7 +76,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
 2. È necessaria anche una *stringa di connessione del servizio* per consentire all'applicazione back-end di connettersi all'hub IoT dell'utente e recuperare i messaggi. Il comando seguente recupera la stringa di connessione del servizio per l'hub IoT:
 
-    **YourIoTHubName** : sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
+    **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
     az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
