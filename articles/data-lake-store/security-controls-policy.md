@@ -1,22 +1,22 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per Azure Data Lake Storage Gen1
 description: Elenca i controlli di conformità alle normative di Criteri di Azure per Azure Data Lake Storage Gen1. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 10/20/2020
+ms.date: 11/17/2020
 ms.topic: sample
 author: normesta
 ms.author: normesta
 ms.service: data-lake-store
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 0b45a3ecda789aa319bce8eec5ccd85b282b0cf6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ac8d4989991f3aad2d7800d63a33c4a3192a5b4d
+ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314856"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94700751"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-data-lake-storage-gen1"></a>Controlli di conformità alle normative di Criteri di Azure per Azure Data Lake Storage Gen1
 
-La [conformità alle normative di Criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) fornisce definizioni di iniziative gestite e create da Microsoft, note come _definizioni predefinite_ , per i **domini di conformità** e i **controlli di sicurezza** correlati a diversi standard di conformità. Questa pagina elenca i **domini di conformità** e i **controlli di sicurezza** per Azure Data Lake Storage Gen1.
+La [conformità alle normative di Criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) fornisce definizioni di iniziative gestite e create da Microsoft, note come _definizioni predefinite_, per i **domini di conformità** e i **controlli di sicurezza** correlati a diversi standard di conformità. Questa pagina elenca i **domini di conformità** e i **controlli di sicurezza** per Azure Data Lake Storage Gen1.
 È possibile assegnare singolarmente i criteri predefiniti per un **controllo di sicurezza** in modo da rendere le risorse di Azure conformi allo specifico standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]

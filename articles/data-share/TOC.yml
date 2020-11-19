@@ -25,6 +25,10 @@
       displayName: 'Azure CLI, az datashare consumer invitation, az datashare consumer share-subscription'
 - name: Concetti
   items:
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
     - name: Terminologia di Condivisione dati di Azure
       href: terminology.md
     - name: Ruoli e requisiti

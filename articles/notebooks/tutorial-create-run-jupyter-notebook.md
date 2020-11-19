@@ -4,12 +4,12 @@ description: Informazioni su come creare ed eseguire un'app Jupyter Notebook in 
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: cb8be1618de7e95a7096e4ea9dec78bf4aa277f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47e9a07c7b8abffc06bfd30a792af46ba04adf5c
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589253"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94844472"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Esercitazione: Creare ed eseguire un'app Jupyter Notebook con Python
 
@@ -433,4 +433,4 @@ Procedure dettagliate:
 - [Eseguire una presentazione](present-jupyter-notebooks-slideshow.md)
 - [Usare i file di dati](work-with-project-data-files.md)
 - [Accedere alle risorse dati](access-data-resources-jupyter-notebooks.md)
-- [Usare Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
+- [Usare Azure Machine Learning](../machine-learning/samples-notebooks.md)

@@ -64,10 +64,6 @@
       href: walkthroughs-sql-server.md
     - name: T-SQL e Python con Azure Synapse Analytics
       href: walkthroughs-sql-data-warehouse.md
-- name: Utilità e strumenti
-  items:
-    - name: Esplorazione di dati e utilità di modellazione (GitHub)
-      href: 'https://github.com/Azure/Azure-TDSP-Utilities'
 - name: Formazione
   items:
     - name: Per data scientist

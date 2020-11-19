@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: c85624d9eced3130a1c7b99943095688beee62bd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 63cc4448034b6a2ae2d74f4a2d9a0a62296678cf
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93417589"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886482"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Notifica di manutenzione pianificata nel database di Azure per MySQL-server singolo
 
@@ -21,7 +21,7 @@ Informazioni su come prepararsi per gli eventi di manutenzione pianificata nel d
 
 Il servizio database di Azure per MySQL esegue l'applicazione automatica delle patch dell'hardware, del sistema operativo e del motore di database sottostanti. La patch include le nuove funzionalità del servizio, la sicurezza e gli aggiornamenti software. Per il motore di MySQL gli aggiornamenti della versione secondaria sono automatici e sono inclusi come parte del ciclo di applicazione delle patch. Non è richiesto alcun intervento da parte dell'utente o alcuna impostazione di configurazione per l'applicazione di patch. La patch viene testata estensivamente e implementata con procedure di distribuzione sicure.
 
-Una manutenzione pianificata è una finestra di manutenzione quando questi aggiornamenti del servizio vengono distribuiti nei server in una determinata area di Azure. Durante la manutenzione pianificata, viene creato un evento di notifica per informare i clienti quando l'aggiornamento del servizio viene distribuito nell'area di Azure che ospita i server. La durata minima tra due operazioni di manutenzione pianificata è di 30 giorni. Si riceverà una notifica della successiva finestra di manutenzione 72 ore in anticipo.
+Una manutenzione pianificata è una finestra di manutenzione quando questi aggiornamenti del servizio vengono distribuiti nei server in una determinata area di Azure. Durante la manutenzione pianificata, viene creato un evento di notifica per informare i clienti riguardo a quando l'aggiornamento del servizio viene distribuito nell'area di Azure che ospita i server. La durata minima tra due operazioni di manutenzione pianificata è di 30 giorni. Si riceve una notifica della finestra di manutenzione successiva 72 ore prima.
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenzione pianificata-durata e conseguenze per i clienti
 
@@ -48,7 +48,7 @@ Ogni tentativo di fornire **notifiche di manutenzione pianificate** 72 ore di pr
 
 1. Nella [portale di Azure](https://portal.azure.com)selezionare integrità del **servizio**.
 2. Selezionare la scheda **manutenzione pianificata**
-3. Selezionare **sottoscrizione** , **area** e **servizio** per cui si desidera controllare la notifica di manutenzione pianificata. 
+3. Selezionare **sottoscrizione**, **area** e **servizio** per cui si desidera controllare la notifica di manutenzione pianificata. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>Per ricevere la notifica di manutenzione pianificata
 
@@ -56,12 +56,12 @@ Ogni tentativo di fornire **notifiche di manutenzione pianificate** 72 ore di pr
 2. Nella sezione **Avvisi** selezionare **Avvisi integrità**.
 3. Selezionare **+ Aggiungi avviso di integrità del servizio** e compilare i campi.
 4. Compilare i campi obbligatori. 
-5. Scegliere il **tipo di evento** , selezionare **manutenzione pianificata** o **selezionare tutto**
+5. Scegliere il **tipo di evento**, selezionare **manutenzione pianificata** o **selezionare tutto**
 6. Nei **gruppi di azioni** definire come si vuole ricevere l'avviso (ricevere un messaggio di posta elettronica, attivare un'app per la logica e così via).  
 7. Assicurarsi che Abilita regola al momento della creazione sia impostata su Sì.
 8. Selezionare **Crea regola di avviso** per completare l'avviso
 
-Per i passaggi dettagliati su come creare gli **avvisi di integrità del servizio** , vedere [creare avvisi del log attività nelle notifiche del servizio](../service-health/alerts-activity-log-service-notifications-portal.md).
+Per i passaggi dettagliati su come creare gli **avvisi di integrità del servizio**, vedere [creare avvisi del log attività nelle notifiche del servizio](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>È possibile annullare o posticipare la manutenzione pianificata?
 
@@ -78,7 +78,7 @@ Un errore temporaneo è un errore che si risolve in modo autonomo. Durante la ma
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per eventuali domande o suggerimenti sull'uso di database di Azure per MySQL, inviare un messaggio di posta elettronica al team di database di Azure per MySQL all'indirizzo *AskAzureDBforMySQL@service.microsoft.com* .
+- Per eventuali domande o suggerimenti sull'uso di database di Azure per MySQL, inviare un messaggio di posta elettronica al team di database di Azure per MySQL all'indirizzo **AskAzureDBforMySQL@service.microsoft.com** .
 - Per informazioni sulla creazione di un avviso per una metrica, vedere [Come configurare gli avvisi](howto-alert-on-metric.md).
 - [Risolvere i problemi di connessione al database di Azure per MySQL-server singolo](howto-troubleshoot-common-connection-issues.md)
 - [Gestire gli errori temporanei e connettersi in modo efficiente al database di Azure per MySQL-server singolo](concepts-connectivity.md)

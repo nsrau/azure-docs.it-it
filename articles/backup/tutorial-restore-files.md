@@ -4,12 +4,12 @@ description: Informazioni su come eseguire un ripristino a livello di file su un
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cf55b9d64d7d716aee9862b0e1e3e24966629286
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 236b2c2c7799ef6a0df1da2ddded0e689349e222
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746703"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94842210"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Ripristinare file in una macchina virtuale in Azure
 
@@ -57,7 +57,7 @@ Se si elimina accidentalmente o si apportano modifiche a un file, è possibile r
     ssh publicIpAddress
     ```
 
-4. Eliminare la pagina predefinita del server Web in */var/www/html/index.nginx-debian.html* , come indicato di seguito:
+4. Eliminare la pagina predefinita del server Web in */var/www/html/index.nginx-debian.html*, come indicato di seguito:
 
     ```bash
     sudo rm /var/www/html/index.nginx-debian.html
@@ -77,7 +77,7 @@ Se si elimina accidentalmente o si apportano modifiche a un file, è possibile r
 
 Per ripristinare i file, Backup di Azure fornisce uno script da eseguire nella macchina virtuale che si connette al punto di recupero come un'unità locale. È possibile individuare l'unità locale, ripristinare i file nella macchina virtuale stessa, quindi disconnettere il punto di recupero. Backup di Azure continua a eseguire il backup in base al criterio assegnato per la pianificazione e la conservazione dei dati.
 
-1. Per elencare i punti di ripristino per la macchina virtuale, usare l'[elenco az backup recoverypoint](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list). In questo esempio verrà selezionato il punto di recupero più recente per la macchina virtuale denominata *myVM* protetta in *myRecoveryServicesVault* :
+1. Per elencare i punti di ripristino per la macchina virtuale, usare l'[elenco az backup recoverypoint](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list). In questo esempio verrà selezionato il punto di recupero più recente per la macchina virtuale denominata *myVM* protetta in *myRecoveryServicesVault*:
 
     ```azurecli-interactive
     az backup recoverypoint list \
@@ -89,7 +89,7 @@ Per ripristinare i file, Backup di Azure fornisce uno script da eseguire nella m
         --output tsv
     ```
 
-2. Per ottenere lo script che si connette a, o contiene, il punto di recupero per la macchina virtuale, usare l'opzione [az backup restore files mount-rp](/cli/azure/backup/restore/files#az-backup-restore-files-mount-rp). Nell'esempio seguente si ottiene lo script per la macchina virtuale denominata *myVM* protetta in *myRecoveryServicesVault* .
+2. Per ottenere lo script che si connette a, o contiene, il punto di recupero per la macchina virtuale, usare l'opzione [az backup restore files mount-rp](/cli/azure/backup/restore/files#az-backup-restore-files-mount-rp). Nell'esempio seguente si ottiene lo script per la macchina virtuale denominata *myVM* protetta in *myRecoveryServicesVault*.
 
     Sostituire *myRecoveryPointName* con il nome del punto di recupero ottenuto nel comando precedente:
 
@@ -119,7 +119,7 @@ Per ripristinare i file, Backup di Azure fornisce uno script da eseguire nella m
 Con lo script di recupero copiato nella macchina virtuale è possibile collegare il punto di recupero e ripristinare i file.
 
 >[!NOTE]
-> Controllare [qui](backup-azure-restore-files-from-vm.md#selecting-the-right-machine-to-run-the-script) per verificare se è possibile eseguire lo script nella macchina virtuale prima di continuare.
+> Controllare [qui](backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) per verificare se è possibile eseguire lo script nella macchina virtuale prima di continuare.
 
 1. Connettersi alla macchina virtuale con SSH. Sostituire *publicIpAddress* con l'indirizzo IP pubblico della macchina virtuale, come segue:
 
@@ -127,7 +127,7 @@ Con lo script di recupero copiato nella macchina virtuale è possibile collegare
     ssh publicIpAddress
     ```
 
-2. Per consentire la corretta esecuzione dello script, aggiungere delle autorizzazioni di esecuzione con **chmod** . Immettere il nome del proprio script:
+2. Per consentire la corretta esecuzione dello script, aggiungere delle autorizzazioni di esecuzione con **chmod**. Immettere il nome del proprio script:
 
     ```bash
     chmod +x myVM_we_1571974050985163527.sh
@@ -141,7 +141,7 @@ Con lo script di recupero copiato nella macchina virtuale è possibile collegare
 
     Durante l'esecuzione dello script viene richiesto di immettere una password per accedere al punto di recupero. Immettere la password illustrata nell'output dal precedente comando [az backup restore files mount-rp](/cli/azure/backup/restore/files#az-backup-restore-files-mount-rp), che ha generato lo script di ripristino.
 
-    L'output dello script fornisce il percorso per il punto di recupero. L'output di esempio seguente mostra che il punto di recupero è montato su */home/azureuser/myVM-20170919213536/Volume1* :
+    L'output dello script fornisce il percorso per il punto di recupero. L'output di esempio seguente mostra che il punto di recupero è montato su */home/azureuser/myVM-20170919213536/Volume1*:
 
     ```output
     Microsoft Azure VM Backup - File Recovery
@@ -179,7 +179,7 @@ Con lo script di recupero copiato nella macchina virtuale è possibile collegare
     exit
     ```
 
-7. Smontare il punto di recupero dalla macchina virtuale tramite il comando [az backup restore files unmount-rp](/cli/azure/backup/restore/files#az-backup-restore-files-unmount-rp). Nell'esempio seguente viene smontato il punto di recupero dalla macchina virtuale denominata *myVM* in *myRecoveryServicesVault* .
+7. Smontare il punto di recupero dalla macchina virtuale tramite il comando [az backup restore files unmount-rp](/cli/azure/backup/restore/files#az-backup-restore-files-unmount-rp). Nell'esempio seguente viene smontato il punto di recupero dalla macchina virtuale denominata *myVM* in *myRecoveryServicesVault*.
 
     Sostituire *myRecoveryPointName* con il nome del punto di recupero ottenuto con i comandi precedenti:
 

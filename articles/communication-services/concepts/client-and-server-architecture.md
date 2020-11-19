@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: b844f61963081bf355837fd26254915112cbce11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b63ce25d6839e8672027240099859dc7aad96c5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666943"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94886074"
 ---
 # <a name="client-and-server-architecture"></a>Architettura client e server
 
@@ -37,19 +37,19 @@ Le librerie client dei servizi di comunicazione di Azure richiedono `user access
 
 :::image type="content" source="../media/scenarios/archdiagram-access.png" alt-text="Diagramma che illustra l'architettura del token di accesso utente.":::
 
-Per ulteriori informazioni, vedere [procedure di gestione delle identità migliori](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
+Per ulteriori informazioni, vedere [procedure di gestione delle identità migliori](../../security/fundamentals/identity-management-best-practices.md)
 
 ## <a name="browser-communication"></a>Comunicazione del browser
 
 Le librerie client JavaScript per le comunicazioni di Azure consentono alle applicazioni Web di usare un'interazione di testo, voce e video avanzata. L'applicazione interagisce direttamente con i servizi di comunicazione di Azure tramite la libreria client per accedere al piano dati e fornire comunicazioni di testo, voce e video in tempo reale. Un flusso di architettura di esempio è disponibile di seguito:
 
-:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagramma che illustra l'architettura del token di accesso utente.":::
+:::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagramma che illustra l'architettura del browser per i servizi di comunicazione.":::
 
 ## <a name="native-app-communication"></a>Comunicazione delle app native
 
 Molti scenari sono particolarmente serviti con le applicazioni native. Servizi di comunicazione di Azure supporta la comunicazione da browser a app e da app a app.  Quando si compila un'esperienza di applicazione nativa, le notifiche push consentono agli utenti di ricevere chiamate anche quando l'applicazione non è in esecuzione. I servizi di comunicazione di Azure semplificano le notifiche push integrate a Google Firebase, Apple Push Notification Service e le notifiche push di Windows. Un flusso di architettura di esempio è disponibile di seguito:
 
-:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="Diagramma che illustra l'architettura del token di accesso utente.":::
+:::image type="content" source="../media/scenarios/archdiagram-app.png" alt-text="Diagramma che illustra l'architettura dei servizi di comunicazione per la comunicazione delle app native.":::
 
 ## <a name="voice-and-sms-over-the-public-switched-telephony-network-pstn"></a>Voce e SMS sulla rete PSTN (Public Telephony Network)
 
@@ -58,7 +58,7 @@ La comunicazione sul sistema telefonico può aumentare significativamente la por
 > [!Note]
 > Durante l'anteprima pubblica, il provisioning dei numeri di telefono degli Stati Uniti è disponibile per i clienti con indirizzi di fatturazione situati negli Stati Uniti e in Canada. 
 
-:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagramma che illustra l'architettura del token di accesso utente.":::
+:::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagramma che illustra l'architettura PSTN dei servizi di comunicazione.":::
 
 Per ulteriori informazioni sulle soluzioni PSTN e SMS, vedere [pianificare la soluzione PSTN e SMS](../concepts/telephony-sms/plan-solution.md)
 
@@ -66,9 +66,9 @@ Per ulteriori informazioni sulle soluzioni PSTN e SMS, vedere [pianificare la so
 
 Servizi di comunicazione Azure supporta la comunicazione da uomo a sistema tramite canali di testo e vocali, con servizi che accedono direttamente al piano dati di servizi di comunicazione di Azure. Ad esempio, è possibile avere un bot per rispondere alle telefonate in arrivo o partecipare a una chat Web. Servizi di comunicazione di Azure fornisce librerie client che consentono di effettuare questi scenari per la chiamata e la chat. Un flusso di architettura di esempio è disponibile di seguito:
 
-:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagramma che illustra l'architettura del token di accesso utente.":::
+:::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagramma che illustra l'architettura di bot per servizi di comunicazione.":::
 
-## <a name="networking"></a>Funzionalità di rete
+## <a name="networking"></a>Rete
 
 Potrebbe essere necessario scambiare dati arbitrari tra gli utenti, ad esempio per sincronizzare una realtà mista condivisa o un'esperienza di gioco. Il piano dati in tempo reale usato per la comunicazione di testo, voce e video è disponibile direttamente in due modi:
 

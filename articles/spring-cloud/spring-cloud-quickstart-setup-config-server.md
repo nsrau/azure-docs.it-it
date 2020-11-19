@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2f6051277f1ddb89e67ce8013c78571a2a7314b7
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 55e47b09ac4a6256a125a75c8a0f856e867e7c0e
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089129"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337788"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Avvio rapido: Configurare il server di configurazione di Azure Spring Cloud
 
@@ -70,9 +70,33 @@ Configurare il server di configurazione con la posizione del repository Git per 
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
-
 ---
 ::: zone-end
+
+## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Risoluzione dei problemi del componente Config Server di Azure Spring Cloud
+
+La procedura seguente illustra come risolvere i problemi delle impostazioni del componente Config Server.
+
+1. Nel portale di Azure passare alla pagina **Panoramica** del servizio e selezionare **Log**. 
+1. Selezionare **Query** e **quindi l'opzione per visualizzare i log dell'applicazione che contengono i termini "errore" o "eccezione"** . 
+1. Fare clic su **Esegui**. 
+1. Se viene rilevato l'errore **java.lang.illegalStateException** nei log, significa che il servizio Spring Cloud non è in grado di trovare le proprietà del componente Config Server.
+
+    [ ![Eseguire una query nel portale di Azure Spring Cloud](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
+
+1. Passare alla pagina **Panoramica** del servizio.
+1. Selezionare **Diagnostica e risoluzione dei problemi**. 
+1. Selezionare il rilevatore **Config Server**.
+
+    [ ![Diagnosticare i problemi nel portale di Azure Spring Cloud](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
+
+3. Fare clic su **Config Server Health Check** (Controllo integrità di Config Server).
+
+    [ ![Genie del portale di Azure Spring Cloud](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
+
+4. Per visualizzare altri dettagli del rilevatore, fare clic su **Config Server Status** (Stato di Config Server).
+
+    [ ![Stato integrità nel portale di Azure Spring Cloud](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
