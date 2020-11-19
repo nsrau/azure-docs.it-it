@@ -67,7 +67,7 @@
           href: spring-cloud-tutorial-config-server.md
         - name: Abilitare la registrazione del servizio
           href: spring-cloud-service-registration.md
-    - name: Distribuisci
+    - name: Distribuire
       items:
         - name: Configurare un ambiente di staging
           href: spring-cloud-howto-staging-environment.md
@@ -81,6 +81,8 @@
           href: spring-cloud-howto-start-stop-delete.md
         - name: Usare l'archiviazione permanente
           href: spring-cloud-howto-persistent-storage.md
+        - name: Identificare gli indirizzi IP pubblici in uscita
+          href: spring-cloud-howto-outbound-public-ip.md
     - name: Monitorare
       items:
         - name: Traccia distribuita e Application Insights

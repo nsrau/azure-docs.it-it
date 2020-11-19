@@ -109,12 +109,14 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: La macchina virtuale non risponde durante l'applicazione di criteri di sicurezza
           href: unresponsive-vm-apply-security-policy.md
-        - name: La macchina virtuale non risponde durante l'attesa di gestione sessioni locali
+        - name: La macchina virtuale non risponde durante l'attesa di Gestione sessioni locali
           href: vm-unresponsive-wait-local-session-manager.md
         - name: Errore di Windows Boot Manager - Stato dell'hash immagine non valido
           href: windows-boot-error-invalid-image-hash.md
         - name: Errore di arresto di Windows - Informazioni di configurazione di sistema errate
           href: windows-stop-error-bad-system-config-info.md
+        - name: Errore di arresto di Windows - Malfunzionamento hardware
+          href: windows-stop-error-hardware-malfunction.md
         - name: Errore di arresto di Windows - Memoria esaurita
           href: troubleshoot-windows-stop-error.md
         - name: Errore di arresto di Windows - Processo di sistema terminato
