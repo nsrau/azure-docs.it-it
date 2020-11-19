@@ -2,13 +2,13 @@
 title: Distribuire le risorse nei gruppi di risorse
 description: Viene descritto come distribuire le risorse in un modello di Azure Resource Manager. Mostra come definire come destinazione più di un gruppo di risorse.
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: fd211641d7fcc02a1db154053597497583b21ae5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/18/2020
+ms.openlocfilehash: 5e33f0d505759944ccaf2233aa122b6ab701c91f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681543"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917427"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Distribuzioni di gruppi di risorse con modelli ARM
 
@@ -83,6 +83,8 @@ Quando si esegue la distribuzione in un gruppo di risorse, è possibile distribu
 
 * gruppo di risorse di destinazione dall'operazione
 * altri gruppi di risorse nella stessa sottoscrizione o in altre sottoscrizioni
+* qualsiasi sottoscrizione nel tenant
+* tenant per il gruppo di risorse
 * [le risorse di estensione](scope-extension-resources.md) possono essere applicate alle risorse
 
 L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
@@ -95,6 +97,8 @@ Per distribuire le risorse nella risorsa di destinazione, aggiungere tali risors
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-rg.json" highlight="5":::
 
+Per un modello di esempio, vedere [distribuire nel gruppo di risorse di destinazione](#deploy-to-target-resource-group).
+
 ### <a name="scope-to-resource-group-in-same-subscription"></a>Ambito del gruppo di risorse nella stessa sottoscrizione
 
 Per distribuire le risorse in un gruppo di risorse diverso nella stessa sottoscrizione, aggiungere una distribuzione annidata e includere la `resourceGroup` Proprietà. Se non si specifica l'ID sottoscrizione o il gruppo di risorse, vengono usati la sottoscrizione e il gruppo di risorse del modello padre. Tutti i gruppi di risorse devono esistere prima di eseguire la distribuzione.
@@ -103,18 +107,48 @@ Nell'esempio seguente la distribuzione annidata è destinata a un gruppo di riso
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/same-sub-to-resource-group.json" highlight="9,13":::
 
+Per un modello di esempio, vedere la pagina relativa [alla distribuzione in più gruppi di risorse](#deploy-to-multiple-resource-groups).
+
 ### <a name="scope-to-resource-group-in-different-subscription"></a>Ambito del gruppo di risorse in una sottoscrizione diversa
 
 Per distribuire le risorse in un gruppo di risorse in una sottoscrizione diversa, aggiungere una distribuzione annidata e includere le `subscriptionId` `resourceGroup` proprietà e. Nell'esempio seguente la distribuzione annidata è destinata a un gruppo di risorse denominato `demoResourceGroup` .
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/different-sub-to-resource-group.json" highlight="9,10,14":::
 
-## <a name="cross-resource-groups"></a>Gruppi di risorse incrociati
+Per un modello di esempio, vedere la pagina relativa [alla distribuzione in più gruppi di risorse](#deploy-to-multiple-resource-groups).
+
+### <a name="scope-to-subscription"></a>Ambito della sottoscrizione
+
+Per distribuire le risorse in una sottoscrizione, aggiungere una distribuzione annidata e includere la `subscriptionId` Proprietà. La sottoscrizione può essere la sottoscrizione per il gruppo di risorse di destinazione o qualsiasi altra sottoscrizione nel tenant. Inoltre, impostare la `location` proprietà per la distribuzione nidificata.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-subscription.json" highlight="9,10,14":::
+
+Per un modello di esempio, vedere [creare un gruppo di risorse](#create-resource-group).
+
+### <a name="scope-to-tenant"></a>Ambito al tenant
+
+È possibile creare risorse nel tenant impostando il `scope` valore su `/` . L'utente che distribuisce il modello deve avere l' [accesso necessario per la distribuzione nel tenant](deploy-to-tenant.md#required-access).
+
+È possibile usare una distribuzione annidata con `scope` e `location` set.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
+
+In alternativa, è possibile impostare l'ambito su `/` per alcuni tipi di risorse, ad esempio i gruppi di gestione.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-create-mg.json" highlight="12,15":::
+
+## <a name="deploy-to-target-resource-group"></a>Distribuire nel gruppo di risorse di destinazione
+
+Per distribuire le risorse nel gruppo di risorse di destinazione, definire le risorse nella sezione **Resources** del modello. Il modello seguente crea un account di archiviazione nel gruppo di risorse specificato nell'operazione di distribuzione.
+
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
+
+## <a name="deploy-to-multiple-resource-groups"></a>Distribuisci in più gruppi di risorse
 
 È possibile eseguire la distribuzione in più di un gruppo di risorse in un singolo modello ARM. Per impostare come destinazione un gruppo di risorse diverso da quello del modello padre, usare un [modello annidato o collegato](linked-templates.md). Nel tipo di risorsa di distribuzione specificare i valori relativi all'ID sottoscrizione e al gruppo di risorse in cui si vuole distribuire il modello annidato. I gruppi di risorse possono trovarsi in sottoscrizioni diverse.
 
 > [!NOTE]
-> Una singola distribuzione può interessare fino a **800 gruppi di risorse** . Questa limitazione significa in genere che è possibile eseguire la distribuzione in un solo gruppo di risorse specificato per il modello padre e in un massimo di 799 gruppi di risorse nelle distribuzioni annidate o collegate. Tuttavia, se il modello padre contiene solo modelli annidati o collegati e non distribuisce risorse, è possibile includere fino a 800 gruppi di risorse nelle distribuzioni annidate o collegate.
+> Una singola distribuzione può interessare fino a **800 gruppi di risorse**. Questa limitazione significa in genere che è possibile eseguire la distribuzione in un solo gruppo di risorse specificato per il modello padre e in un massimo di 799 gruppi di risorse nelle distribuzioni annidate o collegate. Tuttavia, se il modello padre contiene solo modelli annidati o collegati e non distribuisce risorse, è possibile includere fino a 800 gruppi di risorse nelle distribuzioni annidate o collegate.
 
 L'esempio seguente consente di distribuire due account di archiviazione. Il primo account di archiviazione viene distribuito nel gruppo di risorse specificato nell'operazione di distribuzione. Il secondo account di archiviazione viene distribuito nel gruppo di risorse specificato nei parametri `secondResourceGroup` e `secondSubscriptionID`:
 
@@ -126,7 +160,7 @@ Per testare il modello precedente e visualizzare i risultati, usare PowerShell o
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Per distribuire due account di archiviazione in due gruppi di risorse nella **stessa sottoscrizione** , usare:
+Per distribuire due account di archiviazione in due gruppi di risorse nella **stessa sottoscrizione**, usare:
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -143,7 +177,7 @@ New-AzResourceGroupDeployment `
   -secondStorageLocation eastus
 ```
 
-Per distribuire due account di archiviazione in **due sottoscrizioni** , usare:
+Per distribuire due account di archiviazione in **due sottoscrizioni**, usare:
 
 ```azurepowershell-interactive
 $firstRG = "primarygroup"
@@ -152,10 +186,10 @@ $secondRG = "secondarygroup"
 $firstSub = "<first-subscription-id>"
 $secondSub = "<second-subscription-id>"
 
-Select-AzSubscription -Subscription $secondSub
+Set-AzContext -Subscription $secondSub
 New-AzResourceGroup -Name $secondRG -Location eastus
 
-Select-AzSubscription -Subscription $firstSub
+Set-AzContext -Subscription $firstSub
 New-AzResourceGroup -Name $firstRG -Location southcentralus
 
 New-AzResourceGroupDeployment `
@@ -169,7 +203,7 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per distribuire due account di archiviazione in due gruppi di risorse nella **stessa sottoscrizione** , usare:
+Per distribuire due account di archiviazione in due gruppi di risorse nella **stessa sottoscrizione**, usare:
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -184,7 +218,7 @@ az deployment group create \
   --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
 ```
 
-Per distribuire due account di archiviazione in **due sottoscrizioni** , usare:
+Per distribuire due account di archiviazione in **due sottoscrizioni**, usare:
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -207,6 +241,76 @@ az deployment group create \
 ```
 
 ---
+
+## <a name="create-resource-group"></a>Creare un gruppo di risorse
+
+Da una distribuzione del gruppo di risorse, è possibile passare al livello di una sottoscrizione e creare un gruppo di risorse. Il modello seguente distribuisce un account di archiviazione nel gruppo di risorse di destinazione e crea un nuovo gruppo di risorse nella sottoscrizione specificata.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storagePrefix": {
+            "type": "string",
+            "maxLength": 11
+        },
+        "newResourceGroupName": {
+            "type": "string"
+        },
+        "nestedSubscriptionID": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "variables": {
+        "storageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "name": "[variables('storageName')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "demoSubDeployment",
+            "location": "westus",
+            "subscriptionId": "[parameters('nestedSubscriptionID')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Resources/resourceGroups",
+                            "apiVersion": "2020-06-01",
+                            "name": "[parameters('newResourceGroupName')]",
+                            "location": "[parameters('location')]",
+                            "properties": {}
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ]
+}
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

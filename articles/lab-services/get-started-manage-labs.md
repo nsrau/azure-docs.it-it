@@ -2,52 +2,27 @@
 title: Inizia a usare Azure Lab Services
 description: Questo articolo descrive come iniziare a usare Azure Lab Services.
 ms.topic: article
-ms.date: 10/02/2020
-ms.openlocfilehash: 33e052931b0c3bd1bb1434b7eeefeed7a2a7ceab
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.date: 11/18/2020
+ms.openlocfilehash: bdc4f4af06d70a1798e7409b78f6b47530ddd7f4
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93380198"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917104"
 ---
 # <a name="get-started-with-lab-services"></a>Introduzione a Lab Services 
 
-Gli studenti possono usare Azure Lab Services per accedere al software standard del settore necessario per i programmi di studio sulle macchine virtuali (VM). 
+Azure Lab Services offre agli studenti e ai docenti l'accesso ai laboratori di computer virtuali direttamente dai rispettivi computer.
 
-Gli insegnanti devono conoscere come insegnare agli studenti a usare Azure Lab Services nella propria istruzione tramite l'hardware uno a uno studente rilasciato.
+Gli insegnanti devono conoscere come insegnare agli studenti e ai genitori l'uso di servizi Lab nella propria istruzione tramite l'hardware uno a uno studente emesso. Di conseguenza, gli studenti potranno accedere al software standard del settore necessario per i programmi di studio tramite macchine virtuali (VM). 
 
-Questo articolo fornisce informazioni per insegnare al personale su come accedere, gestire e insegnare agli studenti di usare Azure Lab Services.
+Una macchina virtuale è un ambiente virtuale che funge da computer virtuale. Le macchine virtuali dispongono di processore, memoria e archiviazione. Le macchine virtuali forniscono un sostituto per un computer reale e possono concedere agli utenti l'accesso a sistemi operativi e software senza la necessità di utilizzarli nel proprio dispositivo. Azure Lab Services offre agli studenti gli strumenti per accedere alle macchine virtuali e esplorarle e per gestire i propri laboratori di computer virtuali. 
 
-## <a name="overview"></a>Panoramica
+Questo articolo fornisce informazioni per insegnare al personale su come accedere, gestire e insegnare a studenti/genitori di usare Azure Lab Services.
 
-Che cos'è una macchina virtuale e come funzionano?
+## <a name="key-concepts"></a>Concetti chiave
 
-Una macchina virtuale (VM) è un ambiente virtuale che funge da computer virtuale. Le macchine virtuali dispongono di processore, memoria e archiviazione. Le macchine virtuali forniscono un sostituto per un computer reale e possono concedere agli utenti l'accesso a sistemi operativi e software senza la necessità di utilizzarli nel proprio dispositivo. Azure Lab Services offre agli studenti gli strumenti per accedere alle macchine virtuali e esplorarle e per gestire i propri laboratori di computer virtuali. 
-
-Per altre informazioni, vedere [creare e gestire lab in classe](how-to-manage-classroom-labs.md).
-
-## <a name="lab-dashboards"></a>Dashboard del Lab
-
-I dashboard per i Lab della classe in Azure Lab Services offrono uno snapshot dei diversi aspetti di un determinato Lab, incluse le informazioni sulle VM, il numero di macchine virtuali assegnate e non assegnate, il numero di utenti registrati e non registrati e le informazioni sulle pianificazioni dei Lab. 
-
-> [!NOTE]
-> Anche se la maggior parte degli aspetti amministrativi del dashboard e del [sito Web di Azure Lab Services](https://labs.azure.com/) sarà visibile agli insegnanti, le autorizzazioni specifiche per il ruolo potrebbero avere un effetto sulla possibilità di modificare determinati criteri nel dashboard. Se si verifica un problema con la configurazione del lab specifica, rivolgersi all'amministratore della CTE.
-
-:::image type="content" source="./media/use-dashboard/dashboard.png" alt-text="portale di Azure Lab Services":::
-
-1. Navigare e accedere al [sito web Azure Lab Services](https://labs.azure.com/).
-1. Selezionare il Lab.
-1. Sul lato sinistro della finestra viene visualizzato un **Dashboard** . Fare clic su **Dashboard** per visualizzare una serie di riquadri nel dashboard.
-1. Sotto il riquadro **costi & la fatturazione** sono disponibili anche riquadri per modelli, pool di macchine virtuali, utenti e pianificazioni, che consentono di modificare gli aspetti e visualizzare altri dettagli sul Lab della classe.
-
-    1. Modello: descrive la data in cui è stato creato il modello e l'ultima pubblicazione. 
-    1. Pool di macchine virtuali: numero di macchine virtuali assegnate e non assegnate.
-    1. Utenti: numero di utenti registrati e utenti che sono stati aggiunti al Lab, ma non registrati.
-    1. Pianificazioni: Visualizza gli eventi pianificati imminenti per il Lab e un collegamento per visualizzare più eventi.
-
-Per altre informazioni, vedere [use dashboard](use-dashboard.md).
-
-## <a name="quota-hours"></a>Ore quota
+### <a name="quota-hours"></a>Ore quota
 
 Gli studenti possono accedere alle proprie macchine virtuali in qualsiasi momento durante le classi pianificate senza alcun effetto sulle ore di quota. Le ore di quota sono impostate per l'intero semestre e determinano il numero di ore in cui uno studente può usare la propria VM al di fuori del tempo di classe pianificato regolarmente.
 
@@ -57,17 +32,42 @@ Per altre informazioni, vedere [set quota](how-to-configure-student-usage.md#set
 
 ### <a name="automatic-shut-down"></a>Arresto automatico
 
-Per ridurre i costi e salvare le ore di quota degli studenti, gli arresti automatici verranno abilitati per i nostri Lab. Arresti automatici disattiva le macchine virtuali dopo un periodo di inattività (nessun input del mouse o tastiera). Gli arresti automatici funzionano in due fasi, prima che uno studente venga disconnesso dalla macchina virtuale dopo un periodo di inattività. A questo punto, la macchina virtuale è ancora **in esecuzione** e gli studenti sono in grado di connettersi. Dopo un altro periodo di inattività dopo la disconnessione, la macchina virtuale si arresterà automaticamente.
+Per ridurre i costi e salvare le ore di quota degli studenti, gli arresti automatici sono abilitati per i Lab. Arresti automatici disattiva le macchine virtuali dopo un periodo di inattività (nessun input del mouse o tastiera). Gli arresti automatici funzionano in due fasi, prima che uno studente venga disconnesso dalla macchina virtuale dopo un periodo di inattività. A questo punto, la macchina virtuale è ancora **in esecuzione** e gli studenti sono in grado di connettersi. Dopo un altro periodo di inattività dopo la disconnessione, la macchina virtuale si arresterà automaticamente.
 
-Gli arresti automatici sono uno strumento importante per il risparmio di costi, ma presentano una sfida per gli studenti in merito al salvataggio del lavoro e al rendering di file di progetto di grandi dimensioni. Se gli studenti vengono spesso disconnessi o le VM si spengono troppo rapidamente. Rivolgersi all'amministratore della CTE. 
+Gli arresti automatici sono uno strumento importante per il risparmio di costi, ma presentano una sfida per gli studenti in merito al salvataggio del lavoro e al rendering di file di progetto di grandi dimensioni. Se gli studenti vengono spesso disconnessi o le VM si spengono troppo rapidamente, contattare l'amministratore della CTE. 
 
 Per altre informazioni, vedere [configurare l'arresto automatico delle macchine virtuali per un account Lab](how-to-configure-lab-accounts.md).
 
-## <a name="managing-virtual-machines"></a>Gestione delle macchine virtuali
+### <a name="managing-virtual-machines"></a>Gestione delle macchine virtuali
 
 La gestione del Lab consente agli insegnanti di controllare elementi come la capacità del Lab (il numero di macchine virtuali disponibili per gli studenti) e avviare, arrestare o reimpostare manualmente le macchine virtuali. gli insegnanti possono anche connettersi alle macchine virtuali per sperimentare l'interfaccia degli studenti, accedere ai file e risolvere i problemi relativi al software o alla macchina virtuale stessa.
 
-L'aspetto più importante da ricordare quando si gestiscono le macchine virtuali è che ogni volta che un computer è **in esecuzione** , si verificano costi, anche se nessuno è connesso alla macchina virtuale.
+L'aspetto più importante da ricordare quando si gestiscono le macchine virtuali è che ogni volta che un computer è **in esecuzione**, si verificano costi, anche se nessuno è connesso alla VM.
+
+## <a name="lab-dashboards"></a>Dashboard del Lab
+
+### <a name="overview"></a>Panoramica
+
+I dashboard per i Lab della classe in Azure Lab Services offrono uno snapshot dei diversi aspetti di un determinato Lab, incluse le informazioni sulle VM, il numero di macchine virtuali assegnate e non assegnate, il numero di utenti registrati e non registrati e le informazioni sulle pianificazioni dei Lab. 
+
+> [!NOTE]
+> Anche se la maggior parte degli aspetti amministrativi del dashboard e del [sito Web di Azure Lab Services](https://labs.azure.com/) sarà visibile agli insegnanti, le autorizzazioni specifiche per il ruolo potrebbero avere un effetto sulla possibilità di modificare determinati criteri nel dashboard. Se si verifica un problema con la configurazione del lab specifica, rivolgersi all'amministratore della CTE.
+
+:::image type="content" source="./media/use-dashboard/dashboard.png" alt-text="portale di Azure Lab Services":::
+
+### <a name="examine-a-dashboard"></a>Esaminare un dashboard
+
+1. Navigare e accedere al [sito web Azure Lab Services](https://labs.azure.com/).
+1. Selezionare il Lab.
+1. Sul lato sinistro della finestra viene visualizzato un **Dashboard** . Fare clic su **Dashboard** per visualizzare una serie di riquadri nel dashboard.
+1. Sotto il riquadro **costi & la fatturazione** sono disponibili anche riquadri per modelli, pool di macchine virtuali, utenti e pianificazioni, che consentono di modificare gli aspetti e visualizzare altri dettagli sul Lab della classe.
+
+    * Modello: descrive la data in cui è stato creato il modello e l'ultima pubblicazione. 
+    * Pool di macchine virtuali: numero di macchine virtuali assegnate e non assegnate.
+    * Utenti: numero di utenti registrati e utenti che sono stati aggiunti al Lab, ma non registrati.
+    * Pianificazioni: Visualizza gli eventi pianificati imminenti per il Lab e un collegamento per visualizzare più eventi.
+
+Per altre informazioni, vedere [use dashboard](use-dashboard.md).
 
 ### <a name="manually-starting-vms"></a>Avvio manuale di macchine virtuali
 
@@ -98,7 +98,7 @@ Se uno studente sta riscontrando difficoltà di connessione alla macchina virtua
     > [!NOTE]
     > L'attivazione di una macchina virtuale per studenti non influirà sulla quota per lo studente. Quote per gli utenti specifica il numero di ore di Lab disponibili per l'utente al di fuori dell'ora della classe pianificata.
 
-### <a name="connect-to-virtual-machines"></a>Connettersi alle macchine virtuali
+### <a name="connect-to-vms"></a>Connettersi alle macchine virtuali
 
 Gli insegnanti sono in grado di connettersi a una macchina virtuale per studenti a condizione che sia attivata e che lo studente non sia connesso alla macchina virtuale. Connettendosi alla macchina virtuale, sarà possibile accedere ai file locali nella macchina virtuale e aiutare gli studenti a risolvere i problemi.
 
@@ -107,7 +107,7 @@ Gli insegnanti sono in grado di connettersi a una macchina virtuale per studenti
 
 :::image type="content" source="./media/how-to-set-virtual-machine-passwords/connect-student-vm.png" alt-text="Pulsante per connettersi alla macchina virtuale di uno studente":::
 
-## <a name="add-and-manage-lab-users"></a>Aggiungere e gestire gli utenti del lab
+## <a name="manage-users-in-a-lab"></a>Gestire gli utenti in un Lab
 
 Gli insegnanti sono in grado di aggiungere gli utenti degli studenti a un Lab e di monitorarne le quote orarie. 
 
@@ -123,7 +123,7 @@ Gli insegnanti sono in grado di aggiungere gli utenti degli studenti a un Lab e 
     :::image type="content" source="./media/get-started-manage-labs/add-students.png" alt-text="Aggiungere studenti al Lab":::
 1. L'elenco di utenti verrà ora aggiornato con messaggi di posta elettronica, stato, invito e ore di quota.
 
-    Dopo aver registrato gli studenti per un Lab, i relativi nomi verranno aggiornati con il nome e il cognome dalla directory MPS.
+    Dopo aver registrato gli studenti per un Lab, i relativi nomi verranno aggiornati con il nome e il cognome del Azure Active Directory.
 
     > [!NOTE]
     > Per gli utenti, è necessario impostare l'opzione limita l'opzione limita accesso. Ciò significa che solo gli utenti elencati possono registrarsi nel Lab usando il collegamento di registrazione inviato.
@@ -144,7 +144,7 @@ Gli insegnanti sono in grado di aggiungere gli utenti degli studenti a un Lab e 
 
 ### <a name="register-users"></a>Registrare gli utenti
 
-Una volta aggiunti gli utenti al Lab, è necessario registrarsi per accedere alle macchine virtuali. A tale scopo, è possibile invitare gli utenti dal portale dei servizi Web di Azure, che invierà un messaggio di posta elettronica contenente il collegamento di registrazione per il Lab. Oppure copiando e incollando il collegamento di registrazione in un messaggio di posta elettronica o in un'altra forma di comunicazione con gli studenti.
+Una volta aggiunti gli utenti al Lab, è necessario registrarsi per accedere alle macchine virtuali. A tale scopo, è possibile invitare gli utenti dal portale, che invierà un messaggio di posta elettronica contenente il collegamento di registrazione per il Lab. Oppure copiando e incollando il collegamento di registrazione in un messaggio di posta elettronica o in un'altra forma di comunicazione con gli studenti.
 
 1. Nella pagina **utenti** selezionare uno studente o più studenti nell'elenco.
 
@@ -164,7 +164,7 @@ Una volta aggiunti gli utenti al Lab, è necessario registrarsi per accedere all
     
     :::image type="content" source="./media/get-started-manage-labs/user-registration.png" alt-text="Invia registrazione utente":::
 
-Dopo aver invitato gli utenti tramite il portale di Azure o aver condiviso il collegamento, sarà possibile monitorare quali utenti sono stati registrati correttamente nella pagina **utenti** della colonna **stato** . 
+Dopo aver invitato gli utenti o aver condiviso il collegamento, sarà possibile monitorare gli utenti che sono stati registrati correttamente nella pagina **utenti** della colonna **stato** . 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

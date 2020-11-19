@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 5a646f7f42a2af8dcf15f7b7b2cd700e159fe88d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 9034757539a3dfd8b5e43e97ec518479da396456
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734396"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917546"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Come pianificare un'offerta SaaS per il Marketplace commerciale
 
@@ -79,7 +79,7 @@ Se si sta creando un'offerta transazionale, è necessario raccogliere le informa
   Il webhook fornito dovrebbe essere attivo e in esecuzione 24/7. Questo è l'unico modo per ricevere una notifica sugli aggiornamenti delle sottoscrizioni SaaS dei clienti acquistate tramite il Marketplace commerciale.
 
   > [!NOTE]
-  > All'interno del portale di Azure è necessario creare un'app single-tenant [Azure Active Directory (Azure ad)](../active-directory/develop/howto-create-service-principal-portal.md) per consentire l'uso di un app Azure ID per autenticare la connessione tra i due servizi. Per trovare l' [ID tenant](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), passare alla Azure Active Directory e selezionare **Proprietà**, quindi cercare il numero ID directory elencato. Ad esempio, `50c464d3-4930-494c-963c-1e951d15360e`
+  > All'interno del portale di Azure è necessario creare un'app single-tenant [Azure Active Directory (Azure ad)](../active-directory/develop/howto-create-service-principal-portal.md) per consentire l'uso di un app Azure ID per autenticare la connessione tra i due servizi. Per trovare l' [ID tenant](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), passare alla Azure Active Directory e selezionare **Proprietà**, quindi cercare il numero ID directory elencato. Ad esempio: `50c464d3-4930-494c-963c-1e951d15360e`.
 
 - **ID tenant Azure Active Directory**: (noto anche come ID directory). All'interno del portale di Azure è necessario [registrare un'app Azure Active Directory (ad)](../active-directory/develop/howto-create-service-principal-portal.md) in modo che sia possibile aggiungerla all'elenco di controllo di accesso (ACL) dell'API per assicurarsi di essere autorizzati a chiamarlo. Per trovare l'ID tenant per l'app Azure Active Directory (AD), passare al pannello [registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in Azure Active Directory. Nella colonna **nome visualizzato** selezionare l'app. Cercare quindi il numero di **ID della directory (tenant)** elencato (ad esempio, `50c464d3-4930-494c-963c-1e951d15360e` ).
 
@@ -104,7 +104,26 @@ Per raccogliere informazioni sui clienti, è necessario connettere l'offerta al 
 
 ## <a name="selecting-an-online-store"></a>Selezione di uno Store online
 
-Quando si pubblica un'offerta SaaS, questa viene elencata in Microsoft AppSource, in Azure Marketplace o in entrambi. Ogni negozio online serve requisiti univoci per i clienti. AppSource è destinata alle soluzioni aziendali e Azure Marketplace è per le soluzioni IT. Il tipo di offerta, le funzionalità di transazione e le categorie determineranno la posizione in cui verrà pubblicata l'offerta. Le categorie e le sottocategorie sono mappate a ogni negozio online in base al tipo di soluzione. Per informazioni dettagliate sulle opzioni di elenco supportate dagli archivi online, vedere [Listing and pricing Options by Online Store](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). Per ulteriori informazioni sulle categorie e le sottocategorie, vedere [categorie e sottocategorie nel Marketplace commerciale](categories.md).
+Quando si pubblica un'offerta SaaS, questa viene elencata in Microsoft AppSource, in Azure Marketplace o in entrambi. Ogni negozio online serve requisiti univoci per i clienti. AppSource è destinata alle soluzioni aziendali e Azure Marketplace è per le soluzioni IT. Il tipo di offerta, le funzionalità di transazione e le categorie determineranno la posizione in cui verrà pubblicata l'offerta. Le categorie e le sottocategorie sono mappate a ogni negozio online in base al tipo di soluzione. 
+
+Se l'offerta SaaS è *sia* una soluzione it (Azure Marketplace) che una soluzione aziendale (AppSource), selezionare una categoria e una sottocategoria applicabile a ogni negozio online. Le offerte pubblicate in entrambi gli archivi online devono avere una proposta di valore come soluzione IT *e* una soluzione aziendale.
+
+> [!IMPORTANT]
+> Le offerte SaaS con [fatturazione a consumo](partner-center-portal/saas-metered-billing.md) sono disponibili tramite Azure Marketplace e il portale di Azure. Le offerte SaaS con solo piani privati sono disponibili tramite il portale di Azure.
+
+| Fatturazione a consumo | Piano pubblico | Piano privato | Disponibile in: |
+|---|---|---|---|
+| Sì             | Sì         | No           | Azure Marketplace e portale di Azure |
+| Sì             | Sì         | Sì          | Azure Marketplace e portale di Azure * |
+| Sì             | No          | Sì          | Solo portale di Azure |
+| No              | No          | Sì          | Solo portale di Azure |
+|||||
+
+&#42; il piano privato dell'offerta sarà disponibile solo tramite il portale di Azure
+
+Ad esempio, un'offerta con fatturazione a consumo e solo un piano privato (nessun piano pubblico) viene acquistata dai clienti nel portale di Azure. Scopri di più sulle [offerte private in Microsoft Commercial Marketplace](private-offers.md).
+
+Per informazioni dettagliate sulle opzioni di elenco supportate dagli archivi online, vedere [Listing and pricing Options by Online Store](determine-your-listing-type.md#listing-and-pricing-options-by-online-store). Per ulteriori informazioni sulle categorie e le sottocategorie, vedere [categorie e sottocategorie nel Marketplace commerciale](categories.md).
 
 ## <a name="legal-contracts"></a>Contratti legali
 
@@ -131,7 +150,7 @@ Quando si [Crea una nuova offerta SaaS](create-new-saas-offer.md) nel centro per
 6. Informativa sulla privacy
 7. Nome offerta
 8. Riepilogo
-9. Descrizione
+9. Description
 10. Screenshot/video
 11. Documenti
 

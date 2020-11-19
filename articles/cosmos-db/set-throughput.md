@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 0dc55f4d77fde48590b1fbf206ed988e8fb9ec0e
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: a02fa7d9f656ed3b6e61aab1f42e2a3ffca131a7
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490271"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917257"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduzione alla velocità effettiva con provisioning in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -65,7 +65,7 @@ Tutti i contenitori creati all'interno di un database con velocità effettiva co
 
 Se il carico di lavoro in una partizione logica utilizza un livello di velocità effettiva superiore rispetto a quello allocato a una specifica partizione logica, le operazioni risulteranno limitate in termini di velocità. Quando si verifica una limitazione di velocità, è possibile aumentare la velocità effettiva per l'intero database o ripetere le operazioni. Per altre informazioni sul partizionamento, vedere [Partizioni logiche](partitioning-overview.md).
 
-I contenitori in un database con velocità effettiva condivisa condividono tale velocità (UR) allocata nel database. È possibile avere fino a quattro contenitori con minimo 400 UR nel database. Con la velocità effettiva con provisioning standard (manuale) ogni nuovo contenitore dopo i primi quattro richiederà almeno 100 UR al secondo aggiuntive. Ad esempio, se si dispone di un database con velocità effettiva condivisa e otto contenitori, il numero minimo di UR nel database sarà di 800. Con la velocità effettiva con provisioning automatico, è possibile avere fino a 25 contenitori in un database con scalabilità automatica max 4000 ur/s (con scalabilità compresa tra 400 e 4000 ur/sec).
+I contenitori in un database con velocità effettiva condivisa condividono tale velocità (UR) allocata nel database. Con la velocità effettiva con provisioning standard (manuale), è possibile avere fino a 25 contenitori con almeno 400 ur/sec nel database. Con la velocità effettiva con provisioning automatico, è possibile avere fino a 25 contenitori in un database con scalabilità automatica max 4000 ur/s (con scalabilità compresa tra 400 e 4000 ur/sec).
 
 > [!NOTE]
 > A febbraio 2020 è stata introdotta una modifica che consente di avere un massimo di 25 contenitori in un database con velocità effettiva condivisa, migliorando così la condivisione della velocità effettiva tra i contenitori. Dopo i primi 25 contenitori, è possibile aggiungere altri contenitori al database solo se [la relativa velocità effettiva con provisioning è dedicata](#set-throughput-on-a-database-and-a-container), ossia separata dalla velocità effettiva condivisa del database.<br>
@@ -80,11 +80,11 @@ Se i carichi di lavoro comportano l'eliminazione e la ricreazione di tutte le ra
 È possibile combinare i due modelli, effettuando il provisioning della velocità effettiva sia nel database che nel contenitore. L'esempio seguente illustra come effettuare il provisioning della velocità effettiva standard (manuale) in un database di Azure Cosmos e in un contenitore:
 
 * È possibile creare un database di Azure Cosmos denominato *Z* con una velocità effettiva con provisioning standard (manuale) pari a *"K"* UR. 
-* Creare quindi cinque contenitori denominati *A* , *B* , *C* , *D* ed *E* all'interno del database. Quando si crea il contenitore B, abilitare l'opzione **Provision dedicated throughput for this container** (Effettua il provisioning di velocità effettiva dedicata per questo contenitore) e configurare in modo esplicito *"P"* UR di velocità effettiva con provisioning in questo contenitore. È possibile configurare la velocità effettiva condivisa e dedicata solo quando si creano il database e il contenitore. 
+* Creare quindi cinque contenitori denominati *A*, *B*, *C*, *D* ed *E* all'interno del database. Quando si crea il contenitore B, abilitare l'opzione **Provision dedicated throughput for this container** (Effettua il provisioning di velocità effettiva dedicata per questo contenitore) e configurare in modo esplicito *"P"* UR di velocità effettiva con provisioning in questo contenitore. È possibile configurare la velocità effettiva condivisa e dedicata solo quando si creano il database e il contenitore. 
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Impostazione della velocità effettiva a livello di contenitore":::
 
-* La velocità effettiva di *"K"* UR è condivisa tra i quattro contenitori *A* , *C* , *D* ed *E*. La quantità esatta di velocità effettiva disponibile per *A* , *C* , *D* o *E* varia. Non sono previsti contratti di servizio per la velocità effettiva di ogni singolo contenitore.
+* La velocità effettiva di *"K"* UR è condivisa tra i quattro contenitori *A*, *C*, *D* ed *E*. La quantità esatta di velocità effettiva disponibile per *A*, *C*, *D* o *E* varia. Non sono previsti contratti di servizio per la velocità effettiva di ogni singolo contenitore.
 * Il contenitore *B* ha la garanzia di ottenere sempre la velocità effettiva di *"P"* UR ed è supportato da contratti di servizio.
 
 > [!NOTE]
@@ -111,7 +111,6 @@ Il numero effettivo minimo di ur/sec può variare a seconda della configurazione
 * 400 UR/sec 
 * Archiviazione corrente in GB * 10 UR/s (a meno che il contenitore o il database non contenga più di 1 TB di dati, vedere il [programma di archiviazione elevata/velocità effettiva ridotta](#high-storage-low-throughput-program))
 * Unità richiesta/sec più alta con provisioning nel database o nel contenitore/100
-* Numero di contenitori * 100 ur/sec (solo database con velocità effettiva condivisa)
 
 ### <a name="changing-the-provisioned-throughput"></a>Modifica della velocità effettiva con provisioning
 
@@ -120,9 +119,9 @@ Il numero effettivo minimo di ur/sec può variare a seconda della configurazione
 * [Container. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) in .NET SDK.
 * [CosmosContainer. replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) in Java SDK.
 
-Se si **riduce la velocità effettiva con provisioning** , sarà possibile farlo fino al [minimo](#current-provisioned-throughput).
+Se si **riduce la velocità effettiva con provisioning**, sarà possibile farlo fino al [minimo](#current-provisioned-throughput).
 
-Se si **aumenta la velocità effettiva con provisioning** , nella maggior parte dei casi l'operazione è immediata. Esistono tuttavia casi in cui l'operazione può richiedere più tempo a causa delle attività di sistema per il provisioning delle risorse necessarie. In questo caso, un tentativo di modificare la velocità effettiva con provisioning durante l'esecuzione di questa operazione produrrà una risposta HTTP 423 con un messaggio di errore che informa che è in corso un'altra operazione di ridimensionamento.
+Se si **aumenta la velocità effettiva con provisioning**, nella maggior parte dei casi l'operazione è immediata. Esistono tuttavia casi in cui l'operazione può richiedere più tempo a causa delle attività di sistema per il provisioning delle risorse necessarie. In questo caso, un tentativo di modificare la velocità effettiva con provisioning durante l'esecuzione di questa operazione produrrà una risposta HTTP 423 con un messaggio di errore che informa che è in corso un'altra operazione di ridimensionamento.
 
 > [!NOTE]
 > Se si prevede un carico di lavoro di inserimento molto grande che richiede un notevole aumento della velocità effettiva con provisioning, tenere presente che l'operazione di ridimensionamento non ha un contratto di servizio e, come indicato nel paragrafo precedente, può richiedere molto tempo quando l'incremento è elevato. È possibile pianificare in anticipo e avviare il ridimensionamento prima che il carico di lavoro venga avviato e usare i metodi seguenti per verificare lo stato di avanzamento.
@@ -147,8 +146,8 @@ Questa tabella mostra un confronto tra il provisioning della velocità effettiva
 
 |**Parametro**  |**Provisioning della velocità effettiva standard (manuale) in un database**  |**Provisioning della velocità effettiva standard (manuale) in un contenitore**|**Provisioning della velocità effettiva con scalabilità automatica in un database** | **Provisioning della velocità effettiva con scalabilità automatica in un contenitore**|
 |---------|---------|---------|---------|---------|
-|Punto di ingresso (numero minimo di UR/sec) |400 UR/sec Dopo i primi quattro contenitori, ogni contenitore aggiuntivo richiede almeno 100 UR/sec</li> |400| Scalabilità automatica tra 400 e 4.000 UR/sec Fino a 25 contenitori senza limite minimo di UR/sec per contenitore</li> | Scalabilità automatica tra 400 e 4.000 UR/sec|
-|Numero minimo di UR/sec per contenitore|100|400|--|Scalabilità automatica tra 400 e 4.000 UR/sec|
+|Punto di ingresso (numero minimo di UR/sec) |400 UR/sec Può contenere fino a 25 contenitori senza ur/sec minimo per ogni contenitore.</li> |400| Scalabilità automatica tra 400 e 4.000 UR/sec Può contenere fino a 25 contenitori senza ur/sec minimo per ogni contenitore.</li> | Scalabilità automatica tra 400 e 4.000 UR/sec|
+|Numero minimo di UR/sec per contenitore|--|400|--|Scalabilità automatica tra 400 e 4.000 UR/sec|
 |UR massime|Illimitate, nel database.|Illimitate, nel contenitore.|Illimitate, nel database.|Illimitate, nel contenitore.
 |UR assegnate o disponibili per un contenitore specifico|Nessuna garanzia. Le UR assegnate a un determinato contenitore dipendono dalle proprietà. Le proprietà possono essere, a scelta, le chiavi di partizione dei contenitori che condividono la velocità effettiva, la distribuzione del carico di lavoro e il numero di contenitori. |Tutte le UR configurate nel contenitore sono riservate esclusivamente per il contenitore.|Nessuna garanzia. Le UR assegnate a un determinato contenitore dipendono dalle proprietà. Le proprietà possono essere, a scelta, le chiavi di partizione dei contenitori che condividono la velocità effettiva, la distribuzione del carico di lavoro e il numero di contenitori. |Tutte le UR configurate nel contenitore sono riservate esclusivamente per il contenitore.|
 |Archiviazione massima per un contenitore|Senza limiti.|Nessuna limitazione|Nessuna limitazione|Nessuna limitazione|

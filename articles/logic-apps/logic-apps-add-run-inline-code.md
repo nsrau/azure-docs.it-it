@@ -5,24 +5,28 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 11/19/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: f339ae4ff1ea90929ce7811efe002f5860f7b47d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 589420d96a3a6dfcc1c17a1b204765022b1ce412
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269336"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916645"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Aggiungere ed eseguire frammenti di codice usando il codice inline in app per la logica di Azure
 
 Quando si vuole eseguire una parte di codice all'interno dell'app per la logica, è possibile aggiungere l'azione di **codice inline** incorporata come passaggio nel flusso di lavoro dell'app per la logica. Questa azione funziona meglio quando si desidera eseguire codice che soddisfi questo scenario:
 
 * Viene eseguito in JavaScript. Più lingue saranno presto disponibili.
+
 * Termina l'esecuzione in meno di cinque secondi.
+
 * Gestisce i dati con dimensioni massime di 50 MB.
-* Non richiede l'utilizzo delle [azioni **variabili** ](../logic-apps/logic-apps-create-variables-store-values.md), che non sono ancora supportate.
-* USA Node.js versione 8.11.1. Per ulteriori informazioni, vedere [oggetti incorporati standard](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
+
+* Non richiede l'utilizzo delle [azioni **variabili**](../logic-apps/logic-apps-create-variables-store-values.md), che non sono ancora supportate.
+
+* USA Node.js versione 8.11.1. Per ulteriori informazioni, vedere [oggetti incorporati standard](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
 
   > [!NOTE]
   > La `require()` funzione non è supportata dall'azione di **codice inline** per l'esecuzione di JavaScript.
@@ -41,7 +45,7 @@ In questo articolo, l'app per la logica di esempio viene attivata quando arriva 
 
    L'app per la logica di esempio in questo argomento usa questo trigger di Office 365 Outlook: **quando arriva un nuovo messaggio di posta elettronica**
 
-* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) collegato all'app per la logica
+* Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) collegato all'app per la logica. Se non si vuole creare o usare un account di integrazione, provare a creare un'app per la logica nella portale di Azure usando il nuovo tipo di risorsa app per la **logica (anteprima)** o in Visual Studio Code usando la nuova [estensione di anteprima app](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)per la logica di Azure.
 
   > [!NOTE]
   > Assicurarsi di usare un account di integrazione appropriato per il caso d'uso o lo scenario. Ad esempio, gli account di integrazione a [livello gratuito](../logic-apps/logic-apps-pricing.md#integration-accounts) sono destinati solo a scenari esplorativi e carichi di lavoro, non a scenari di produzione, sono limitati all'utilizzo e alla velocità effettiva e non sono supportati da un contratto di servizio (SLA). Altri livelli comportano costi, ma includono il supporto del contratto di servizio, offrono maggiore velocità effettiva e hanno limiti più elevati. Altre informazioni sui [livelli](../logic-apps/logic-apps-pricing.md#integration-accounts), i [prezzi](https://azure.microsoft.com/pricing/details/logic-apps/)e i [limiti](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)dell'account di integrazione.
@@ -68,7 +72,7 @@ In questo articolo, l'app per la logica di esempio viene attivata quando arriva 
 
    ![Azione di codice inline con codice di esempio predefinito](./media/logic-apps-add-run-inline-code/inline-code-action-default.png)
 
-1. Nella casella **codice** eliminare il codice di esempio e immettere il codice che si desidera eseguire. Scrivere codice da inserire all'interno di un metodo, ma senza definire la firma del metodo. 
+1. Nella casella **codice** eliminare il codice di esempio e immettere il codice che si desidera eseguire. Scrivere codice da inserire all'interno di un metodo, ma senza definire la firma del metodo.
 
    Quando si digita una parola chiave riconosciuta, viene visualizzato l'elenco di completamento automatico in modo che sia possibile selezionare le parole chiave disponibili, ad esempio:
 
@@ -84,12 +88,11 @@ In questo articolo, l'app per la logica di esempio viene attivata quando arriva 
 
    ![Seleziona risultato](./media/logic-apps-add-run-inline-code/inline-code-example-select-outputs.png)
 
-   Nella casella **codice** , il frammento di codice può usare l' `workflowContext` oggetto di sola lettura come input. Questo oggetto dispone di sottoproprietà che consentono al codice di accedere ai risultati ottenuti dal trigger e dalle azioni precedenti del flusso di lavoro.
-   Per altre informazioni, vedere questa sezione più avanti in questo argomento: [trigger di riferimento e risultati dell'azione nel codice](#workflowcontext).
+   Nella casella **codice** , il frammento di codice può usare l' `workflowContext` oggetto di sola lettura come input. Questo oggetto dispone di sottoproprietà che consentono al codice di accedere ai risultati ottenuti dal trigger e dalle azioni precedenti del flusso di lavoro. Per altre informazioni, vedere questa sezione più avanti in questo argomento: [trigger di riferimento e risultati dell'azione nel codice](#workflowcontext).
 
    > [!NOTE]
    >
-   > Se il frammento di codice fa riferimento a nomi di azione che usano l'operatore punto (.), è necessario aggiungere i nomi di azione al [parametro **Actions** ](#add-parameters). Tali riferimenti devono anche racchiudere i nomi delle azioni tra parentesi quadre ([]) e virgolette, ad esempio:
+   > Se il frammento di codice fa riferimento a nomi di azione che usano l'operatore punto (.), è necessario aggiungere i nomi di azione al [parametro **Actions**](#add-parameters). Tali riferimenti devono anche racchiudere i nomi delle azioni tra parentesi quadre ([]) e virgolette, ad esempio:
    >
    > `// Correct`</br> 
    > `workflowContext.actions["my.action.name"].body`</br>
@@ -97,8 +100,7 @@ In questo articolo, l'app per la logica di esempio viene attivata quando arriva 
    > `// Incorrect`</br>
    > `workflowContext.actions.my.action.name.body`
 
-   L'azione di codice inline non richiede un' `return` istruzione, ma i risultati di un' `return` istruzione sono disponibili per il riferimento nelle azioni successive tramite il token di **risultato** . 
-   Ad esempio, il frammento di codice restituisce il risultato chiamando la `match()` funzione, che trova le corrispondenze nel corpo del messaggio di posta elettronica rispetto all'espressione regolare. L'azione **compose** usa il token di **risultato** per fare riferimento ai risultati dell'azione di codice inline e crea un singolo risultato.
+   L'azione di codice inline non richiede un' `return` istruzione, ma i risultati di un' `return` istruzione sono disponibili per il riferimento nelle azioni successive tramite il token di **risultato** . Ad esempio, il frammento di codice restituisce il risultato chiamando la `match()` funzione, che trova le corrispondenze nel corpo del messaggio di posta elettronica rispetto all'espressione regolare. L'azione **compose** usa il token di **risultato** per fare riferimento ai risultati dell'azione di codice inline e crea un singolo risultato.
 
    ![App per la logica completata](./media/logic-apps-add-run-inline-code/inline-code-complete-example.png)
 
@@ -247,13 +249,13 @@ Se si seleziona **azioni**, vengono richieste le azioni che si desidera aggiunge
 
   `My.Action.Name`
 
-1. Sulla barra degli strumenti della finestra di progettazione scegliere **visualizzazione codice**e cercare all'interno dell' `actions` attributo il nome dell'azione.
+1. Sulla barra degli strumenti della finestra di progettazione scegliere **visualizzazione codice** e cercare all'interno dell' `actions` attributo il nome dell'azione.
 
    Ad esempio, `Send_approval_email_` è il nome JSON per l'azione **Invia messaggio di posta elettronica di approvazione** .
 
    ![Trovare il nome dell'azione in JSON](./media/logic-apps-add-run-inline-code/find-action-name-json.png)
 
-1. Per tornare alla visualizzazione di progettazione, sulla barra degli strumenti della visualizzazione codice scegliere **finestra**di progettazione.
+1. Per tornare alla visualizzazione di progettazione, sulla barra degli strumenti della visualizzazione codice scegliere **finestra** di progettazione.
 
 1. Per aggiungere la prima azione, nella casella **azioni elemento-1** immettere il nome JSON dell'azione.
 

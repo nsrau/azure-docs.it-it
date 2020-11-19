@@ -3,12 +3,12 @@ title: Agente di Servizi di ripristino di Microsoft Azure (MARS) – domande fre
 description: Risolve le domande frequenti sul backup di file e cartelle con backup di Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 9fb9e3993d6f56833e43a4d451c0865b7fd732d3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 1edfaed99e60409774496c5ae75df8be99a8fe1f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172515"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917359"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Domande frequenti-agente Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -22,7 +22,7 @@ L'agente MARS più recente usato per il backup di computer Windows Server, Syste
 
 ### <a name="where-can-i-download-the-vault-credentials-file"></a>Dove è possibile scaricare il file dell'insieme di credenziali?
 
-Nella portale di Azure passare alle **Proprietà** dell'insieme di credenziali. In **credenziali di backup**selezionare la casella di controllo per **usare già l'agente di servizi di ripristino più recente**. Selezionare **Download**.
+Nella portale di Azure passare alle **Proprietà** dell'insieme di credenziali. In **credenziali di backup** selezionare la casella di controllo per **usare già l'agente di servizi di ripristino più recente**. Selezionare **Download**.
 
 ![Scaricare le credenziali](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
 
@@ -72,6 +72,10 @@ Sì. L'agente MARS converte i dati deduplicati in dati normali quando prepara l'
 
 Sì, l'installazione dell'agente MARS e la configurazione dei backup tramite la console MARS richiedono che l'utente sia un amministratore locale nel server protetto.
 
+### <a name="what-is-the-impact-on-mars-agent-backups-of-transferring-the-vault-subscription-to-a-different-azure-ad-directory"></a>Qual è l'effetto sui backup degli agenti MARS del trasferimento della sottoscrizione dell'insieme di credenziali a una directory Azure AD diversa?
+
+La modifica della directory Azure AD non avrà alcun effetto sui backup dell'agente MARS. 
+
 ## <a name="manage-backups"></a>Gestire i backup
 
 ### <a name="what-happens-if-i-rename-a-windows-machine-configured-for-backup"></a>Cosa accade se si rinomina un computer Windows configurato per il backup?
@@ -112,7 +116,7 @@ La dimensione della cartella della cache determina la quantità di dati di cui s
 1. Per impostazione predefinita, la cartella Scratch si trova in `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Verificare che il percorso della cartella dei file temporanei corrisponda ai valori delle voci della chiave del registro di sistema mostrate di seguito:
 
-    | Percorso del Registro | Chiave del Registro di sistema | valore |
+    | Percorso del Registro | Chiave del Registro di sistema | Valore |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso della cartella della cache* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso della cartella della cache* |
@@ -127,7 +131,7 @@ La dimensione della cartella della cache determina la quantità di dati di cui s
 4. Copiare l'intera `\Scratch` cartella in un'altra unità con spazio sufficiente. Verificare che il contenuto venga copiato, non spostato.
 5. Aggiornare le voci del registro di sistema seguenti con il percorso della cartella Scratch appena spostata.
 
-    | Percorso del Registro | Chiave del Registro di sistema | valore |
+    | Percorso del Registro | Chiave del Registro di sistema | Valore |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso cartella Scratch* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso cartella Scratch* |
@@ -194,7 +198,7 @@ Se si ha la stessa passphrase (fornita durante la registrazione) del computer or
 
 | Computer originale | Passphrase | Opzioni disponibili |
 | --- | --- | --- |
-| Lost |Disponibile |È possibile installare e registrare l'agente MARS in un altro computer con la stessa passphrase fornita durante la registrazione del computer originale. Scegliere l' **opzione di ripristino**  >  in**un altro percorso** per eseguire il ripristino. Per altre informazioni, vedere questo [articolo](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Lost |Disponibile |È possibile installare e registrare l'agente MARS in un altro computer con la stessa passphrase fornita durante la registrazione del computer originale. Scegliere l' **opzione di ripristino**  >  in **un altro percorso** per eseguire il ripristino. Per altre informazioni, vedere questo [articolo](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Lost |Lost |Non è possibile recuperare i dati o i dati non sono disponibili |
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>I processi di backup sono in errore o non sono in esecuzione da molto tempo. Ho superato il periodo di conservazione. Posso ancora ripristinare?

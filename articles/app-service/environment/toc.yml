@@ -3,6 +3,8 @@
   items:
     - name: Informazioni sugli ambienti del servizio app
       href: intro.md
+    - name: Ambiente del servizio app v3 (anteprima)
+      href: overview.md
 - name: Avvi rapidi
   expanded: true
   items:
@@ -10,11 +12,13 @@
       href: create-external-ase.md
     - name: Creare un ambiente del servizio app interno
       href: create-ilb-ase.md
+    - name: Creare un ambiente del servizio app v3 (anteprima)
+      href: creation.md
 - name: Esercitazioni
   items:
     - name: Eseguire l'integrazione con un WAF
       href: app-service-app-service-environment-web-application-firewall.md
-    - name: Configurare TLS
+    - name: Impostazioni personalizzate dell'ambiente del servizio app
       href: app-service-app-service-environment-custom-settings.md
 - name: Esempi
   items:
@@ -28,12 +32,12 @@
       href: network-info.md
     - name: Scalabilità con distribuzione geografica
       href: app-service-app-service-environment-geo-distributed-scale.md
-    - name: ASEv1
-      href: app-service-app-service-environment-intro.md
     - name: Diagnostica
       href: ../overview-diagnostics.md
     - name: Certificati
       href: certificates.md
+    - name: Rete dell'ambiente del servizio app v3 (anteprima)
+      href: networking.md
 - name: Guide alle procedure
   items:
     - name: Usare un ambiente del servizio app
@@ -48,12 +52,16 @@
       href: firewall-integration.md
     - name: Ridondanza della zona
       href: zone-redundancy.md
+    - name: Uso dell'ambiente del servizio app v3 (anteprima)
+      href: using.md
 - name: Informazioni di riferimento
   items:
     - name: Indirizzi di gestione
       href: management-addresses.md
     - name: Documentazione dell'ambiente del servizio app v1
       items:
+        - name: ASEv1
+          href: app-service-app-service-environment-intro.md
         - name: Creare un ambiente del servizio app v1
           href: app-service-web-how-to-create-an-app-service-environment.md
         - name: Configurare l'ambiente del servizio app v1

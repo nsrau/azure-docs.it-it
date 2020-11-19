@@ -330,7 +330,9 @@
         - name: Backup e ripristino di emergenza per i dischi
           href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Dischi condivisi
-          href: disks-shared.md
+          href: ../disks-shared.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Livelli di prestazioni dei dischi
+          href: ../disks-change-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Dischi del sistema operativo temporanei
           href: ../ephemeral-os-disks.md
     - name: Rete
@@ -886,8 +888,10 @@
               href: attach-disk-ps.md
             - name: Portale di Azure
               href: attach-managed-disk-portal.md
-        - name: Modificare il livello del disco
+        - name: Cambiare il livello dei dischi - PowerShell/interfaccia della riga di comando
           href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Cambiare il livello dei dischi - Portale
+          href: ../disks-performance-tiers-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Scollegare un disco
           href: detach-disk.md
         - name: Distribuire dischi con un modello di Azure Resource Manager

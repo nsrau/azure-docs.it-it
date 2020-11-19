@@ -68,8 +68,8 @@
       items:
         - name: Codificare e trasmettere un file remoto - REST
           href: stream-files-tutorial-with-rest.md
-        - name: Chiavi gestite dal cliente con Servizi multimediali
-          href: tutorial-byok.md
+        - name: Chiavi gestite dal cliente con API REST
+          href: tutorial-byok-postman.md
     - name: CLI
       items:
         - name: Codificare e trasmettere un file remoto - Interfaccia della riga di comando
@@ -80,6 +80,8 @@
           href: stream-files-nodejs-quickstart.md
     - name: Portale di Azure
       items:
+        - name: 'Esercitazione: Chiavi gestite dal cliente o BYOK'
+          href: tutorial-byok-portal.md
         - name: Archiviare eventi di AMS in Azure Log Analytics
           href: tutorial-events-log-analytics.md
 - name: Esempi
@@ -102,6 +104,11 @@
         - name: Account di archiviazione
           href: storage-account-concept.md
           displayName: Storage side encryption
+        - name: Identità gestite e servizi multimediali
+          displayName: content protection
+          href: concept-managed-identities.md
+        - name: Chiavi gestite dal cliente
+          href: concept-use-customer-managed-keys-byok.md
     - name: Asset
       items:
         - name: Asset
@@ -178,8 +185,6 @@
         - name: Crittografia dinamica e distribuzione delle chiavi
           displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
           href: content-protection-overview.md
-        - name: Chiavi gestite dal cliente
-          href: concept-use-customer-managed-keys-byok.md
         - name: Progettazione di sistemi multi-DRM
           displayName: 'drm, access control'
           href: design-multi-drm-system-with-access-control.md

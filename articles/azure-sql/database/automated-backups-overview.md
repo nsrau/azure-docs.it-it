@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 10/30/2020
-ms.openlocfilehash: a97e39314b4dc15a360a01408f183a3f9a19c76f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/18/2020
+ms.openlocfilehash: c6754e6f0e3f0d6208bd34c96c8bc473429c943c
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131361"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917903"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backup automatici: database SQL di Azure & SQL Istanza gestita
 
@@ -36,9 +36,9 @@ Quando si ripristina un database, il servizio determina quali backup completi, d
 
 ### <a name="backup-storage-redundancy"></a>Ridondanza dell'archiviazione di backup
 
-Per impostazione predefinita, il database SQL e SQL Istanza gestita archiviano i dati in [BLOB di archiviazione](../../storage/common/storage-redundancy.md) con ridondanza geografica (RA-GRS) che vengono replicati in un' [area associata](../../best-practices-availability-paired-regions.md). In questo modo è possibile proteggere da interruzioni che influiscano sull'archiviazione di backup nell'area primaria e consentire il ripristino del server in un'area diversa in caso di emergenza. 
+Per impostazione predefinita, il database SQL e SQL Istanza gestita archiviano i dati nei [BLOB di archiviazione](../../storage/common/storage-redundancy.md) con ridondanza geografica replicati in un' [area abbinata](../../best-practices-availability-paired-regions.md). In questo modo è possibile proteggere da interruzioni che influiscano sull'archiviazione di backup nell'area primaria e consentire il ripristino del server in un'area diversa in caso di emergenza. 
 
-L'opzione per configurare la ridondanza dell'archiviazione di backup consente di scegliere tra BLOB di archiviazione con ridondanza locale, con ridondanza della zona o con ridondanza geografica per un Istanza gestita SQL o un database SQL. Per assicurarsi che i dati rimangano nella stessa area in cui è distribuita l'istanza gestita o il database SQL, è possibile modificare la ridondanza dell'archiviazione di backup con ridondanza geografica predefinita e configurare i BLOB di archiviazione con ridondanza locale (con ridondanza locale) o con ridondanza della zona (ZRS) per i backup. I meccanismi di ridondanza dell'archiviazione archiviano più copie dei dati in modo che siano protetti da eventi pianificati e non pianificati, inclusi errori hardware temporanei, interruzioni della rete o dell'alimentazione o calamità naturali di grandi dimensioni. La ridondanza dell'archiviazione di backup configurata viene applicata alle impostazioni di conservazione dei backup a breve termine usate per il ripristino temporizzato (ripristino temporizzato) e i backup con conservazione a lungo termine usati per i backup a lungo termine (LTR). 
+L'opzione per configurare la ridondanza dell'archiviazione di backup consente di scegliere tra BLOB di archiviazione con ridondanza locale, con ridondanza della zona o con ridondanza geografica per un Istanza gestita SQL o un database SQL. Per assicurarsi che i dati rimangano nella stessa area in cui è distribuita l'istanza gestita o il database SQL, è possibile modificare la ridondanza dell'archiviazione di backup con ridondanza geografica predefinita e configurare BLOB di archiviazione con ridondanza locale o con ridondanza della zona per i backup. I meccanismi di ridondanza dell'archiviazione archiviano più copie dei dati in modo che siano protetti da eventi pianificati e non pianificati, inclusi errori hardware temporanei, interruzioni della rete o dell'alimentazione o calamità naturali di grandi dimensioni. La ridondanza dell'archiviazione di backup configurata viene applicata alle impostazioni di conservazione dei backup a breve termine usate per il ripristino temporizzato (ripristino temporizzato) e i backup con conservazione a lungo termine usati per i backup a lungo termine (LTR). 
 
 Per un database SQL è possibile configurare la ridondanza dell'archiviazione di backup al momento della creazione del database oppure aggiornare per un database esistente. le modifiche apportate a un database esistente si applicano solo ai backup futuri. Dopo l'aggiornamento della ridondanza di archiviazione dei backup di un database esistente, potrebbero essere necessarie fino a 48 ore per l'applicazione delle modifiche. Si noti che il ripristino geografico è disabilitato non appena un database viene aggiornato per l'uso dell'archiviazione con ridondanza locale o della zona. 
 
@@ -179,9 +179,9 @@ Gli scenari di fatturazione dei backup effettivi sono più complessi. Poiché la
 ### <a name="backup-storage-redundancy"></a>Ridondanza dell'archiviazione di backup
 
 La ridondanza dell'archiviazione di backup influisca sui costi del backup nel modo seguente:
-- Prezzo con ridondanza locale = x
-- Prezzo ZRS = 1.25 x
-- Prezzo RA-GRS = 2x
+- locale-prezzo ridondante = x
+- prezzo con ridondanza della zona = 1.25 x
+- prezzo con ridondanza geografica = 2x
 
 Per altre informazioni sui prezzi di archiviazione dei backup, vedere la pagina dei prezzi del [database SQL di Azure](https://azure.microsoft.com/pricing/details/sql-database/single/) e la [pagina dei prezzi di Azure SQL istanza gestita](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
@@ -190,9 +190,9 @@ Per altre informazioni sui prezzi di archiviazione dei backup, vedere la pagina 
 
 ### <a name="monitor-costs"></a>Monitorare i costi
 
-Per informazioni sui costi di archiviazione di backup, vedere **Gestione costi e fatturazione** nella portale di Azure, selezionare **Gestione costi** , quindi selezionare **analisi dei costi** . Selezionare la sottoscrizione desiderata come **ambito** , quindi filtrare per il periodo di tempo e il servizio a cui si è interessati.
+Per informazioni sui costi di archiviazione di backup, vedere **Gestione costi e fatturazione** nella portale di Azure, selezionare **Gestione costi**, quindi selezionare **analisi dei costi**. Selezionare la sottoscrizione desiderata come **ambito**, quindi filtrare per il periodo di tempo e il servizio a cui si è interessati.
 
-Aggiungere un filtro per **nome servizio** e quindi selezionare **database SQL** nell'elenco a discesa. Usare il filtro **sottocategoria contatore** per scegliere il contatore di fatturazione per il servizio. Per un database singolo o un pool di database elastici, selezionare **spazio di archiviazione di backup ripristino temporizzato del pool singolo/elastico** . Per un'istanza gestita, selezionare **mi ripristino temporizzato backup storage** . Anche le sottocategorie di **archiviazione** e di **calcolo** potrebbero essere interessanti, ma non sono associate ai costi di archiviazione di backup.
+Aggiungere un filtro per **nome servizio** e quindi selezionare **database SQL** nell'elenco a discesa. Usare il filtro **sottocategoria contatore** per scegliere il contatore di fatturazione per il servizio. Per un database singolo o un pool di database elastici, selezionare **spazio di archiviazione di backup ripristino temporizzato del pool singolo/elastico**. Per un'istanza gestita, selezionare **mi ripristino temporizzato backup storage**. Anche le sottocategorie di **archiviazione** e di **calcolo** potrebbero essere interessanti, ma non sono associate ai costi di archiviazione di backup.
 
 ![Analisi dei costi di archiviazione di backup](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
 
@@ -373,7 +373,7 @@ Per altre informazioni, vedere [Backup Retention REST API](/rest/api/sql/backups
 > [!NOTE]
 > La ridondanza di archiviazione configurabile per i backup di SQL Istanza gestita può essere specificata solo durante il processo di creazione dell'istanza gestita. Una volta eseguito il provisioning della risorsa, non è possibile modificare l'opzione di ridondanza dell'archiviazione di backup. Per il database SQL, la versione di anteprima pubblica di questa funzionalità è attualmente disponibile in Brasile meridionale ed è disponibile a livello generale nell'area di Azure Asia sudorientale. 
 
-Una ridondanza di archiviazione di backup di un'istanza gestita può essere impostata solo durante la creazione dell'istanza. Per un database SQL può essere impostato durante la creazione del database oppure può essere aggiornato per un database esistente. Il valore predefinito è archiviazione con ridondanza geografica (RA-GRS). Per le differenze tra i prezzi tra archiviazione con ridondanza locale (con ridondanza locale), con ridondanza della zona (ZRS) e archiviazione con ridondanza geografica (RA-GRS), vedere la [pagina dei prezzi delle istanze gestite](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+Una ridondanza di archiviazione di backup di un'istanza gestita può essere impostata solo durante la creazione dell'istanza. Per un database SQL può essere impostato durante la creazione del database oppure può essere aggiornato per un database esistente. Il valore predefinito è l'archiviazione con ridondanza geografica. Per le differenze nei prezzi tra archiviazione con ridondanza locale, archiviazione con ridondanza della zona e archiviazione di backup con ridondanza geografica, visita la [pagina dei prezzi delle istanze](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)
 
 ### <a name="configure-backup-storage-redundancy-by-using-the-azure-portal"></a>Configurare la ridondanza dell'archiviazione di backup usando il portale di Azure
 

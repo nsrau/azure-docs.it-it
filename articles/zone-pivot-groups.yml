@@ -844,6 +844,14 @@ groups:
     title: Shell dei comandi di Windows
   - id: client-operating-system-powershell
     title: PowerShell
+- id: URL-test-interface-rest-apis
+  title: Strumento di test URL per API REST
+  prompt: Scegliere una delle opzioni seguenti
+  pivots:
+  - id: url-test-tool-rest-postman
+    title: postman
+  - id: url-test-tool-rest-vscode-ext
+    title: Visual Studio Code
 - id: ad-quickstart-one
   title: Linguaggi di programmazione
   prompt: Scegliere un linguaggio di programmazione
@@ -865,9 +873,9 @@ groups:
   - id: programming-languages-objectivec-swift
     title: Objective-C/Swift
 metadata:
-  ms.openlocfilehash: 70e351da8f33b8cfca3534e8bb8cb8797e648cc7
-  ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+  ms.openlocfilehash: c3dea69800b4ad3614adf953053cc43d32de94b9
+  ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/04/2020
-  ms.locfileid: "93313022"
+  ms.lasthandoff: 11/17/2020
+  ms.locfileid: "94701739"

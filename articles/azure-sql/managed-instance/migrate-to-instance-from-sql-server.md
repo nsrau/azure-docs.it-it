@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: 7e7775f289e0221862d11c585ae85a5b0bc6cc27
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2761b97e595f5e11b00e75cd778ee269b12bfcae
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788551"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917801"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server la migrazione dell'istanza ad Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Questo articolo illustra i metodi per eseguire la migrazione di un'istanza di SQL Server 2005 o versione successiva in [Azure SQL istanza gestita](sql-managed-instance-paas-overview.md). Per informazioni sulla migrazione a un database singolo o a un pool elastico, vedere [eseguire la migrazione al database SQL](../database/migrate-to-database-from-sql-server.md). Per informazioni sulla migrazione da altre piattaforme, vedere [Azure Database Migration Guide](https://datamigration.microsoft.com/) (Guida alla migrazione di database di Azure).
+Questo articolo illustra i metodi per eseguire la migrazione di un'istanza di SQL Server 2005 o versione successiva in [Azure SQL istanza gestita](sql-managed-instance-paas-overview.md). Per informazioni sulla migrazione a un singolo database o a un pool elastico, vedere [Panoramica della migrazione: SQL Server al database SQL](../migration-guides/database/sql-server-to-sql-database-overview.md). Per informazioni sulla migrazione da altre piattaforme e linee guida per gli strumenti e le opzioni, vedere eseguire la migrazione [ad Azure SQL](../migration-guides/index.yml).
 
 > [!NOTE]
 > Se si vuole avviare rapidamente e provare Istanza gestita SQL di Azure, è possibile passare alla [Guida introduttiva](quickstart-content-reference-guide.md) invece che a questa pagina.

@@ -2,17 +2,17 @@
 title: Usare un'immagine gestita per creare un pool di immagini personalizzato
 description: Creare un pool di immagini personalizzate di batch da un'immagine gestita per eseguire il provisioning dei nodi di calcolo con il software e i dati dell'applicazione.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 45bf0f8b3cb335b7025ff06189bf6bc4e0a896ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 0a357a1d8a22341297f3bee73fb0867fb03f374f
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851299"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916577"
 ---
 # <a name="use-a-managed-image-to-create-a-custom-image-pool"></a>Usare un'immagine gestita per creare un pool di immagini personalizzato
 
-Per creare un pool di immagini personalizzato per le macchine virtuali (VM) del pool di batch, è possibile usare un'immagine gestita per creare un' [immagine della raccolta di immagini condivise](batch-sig-images.md). È supportato anche l'uso di una sola immagine gestita, ma solo per le versioni API fino alla versione 2019-08-01 inclusa. 
+Per creare un pool di immagini personalizzato per le macchine virtuali (VM) del pool di batch, è possibile usare un'immagine gestita per creare un' [immagine della raccolta di immagini condivise](batch-sig-images.md). È supportato anche l'uso di una sola immagine gestita, ma solo per le versioni API fino alla versione 2019-08-01 inclusa.
 
 > [!IMPORTANT]
 > Nella maggior parte dei casi, è consigliabile creare immagini personalizzate usando la Raccolta immagini condivise. Con la Raccolta immagini condivise è possibile effettuare il provisioning dei pool più velocemente, dimensionare quantità maggiori di macchine virtuali e migliorare l'affidabilità durante il provisioning delle macchine virtuali. Per altre informazioni, vedere [Usare Raccolta immagini condivise per creare un pool personalizzato](batch-sig-images.md).
@@ -49,6 +49,7 @@ Se si crea una nuova macchina virtuale per l'immagine, usare un'immagine produtt
 - Non installare le estensioni di Azure, ad esempio l'estensione Script personalizzato, nella macchina virtuale. Se l'immagine contiene un'estensione preinstallata, Azure può incontrare alcuni problemi durante la distribuzione del pool di Batch.
 - Quando si usano dischi dati allegati è necessario montare e formattare i dischi all'interno di una macchina virtuale per poterli usare.
 - Verificare che l'immagine del sistema operativo di base usi l'unità temporanea predefinita. L'agente del nodo Batch attualmente prevede l'uso dell'unità temporanea predefinita.
+- Verificare che il disco del sistema operativo non sia crittografato.
 - Quando la VM è in esecuzione, connetterla tramite RDP (per Windows) o SSH (per Linux). Installare il software necessario o copiare i dati desiderati.  
 
 ### <a name="create-a-vm-snapshot"></a>Creare uno snapshot della macchina virtuale

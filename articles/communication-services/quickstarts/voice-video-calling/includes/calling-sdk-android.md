@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 1f71c01d53a89ce1b459826689eb5b2e4899b3a2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c015561e66d77e6df352e601bf1a67da5996d4d5
+ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886628"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94915418"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -153,7 +153,7 @@ Le notifiche push Mobile sono le notifiche popup visualizzate nei dispositivi mo
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-Un account Firebase configurato con Cloud Messaging (FCM) abilitato e con il servizio di messaggistica cloud Firebase connesso a un'istanza di hub di notifica di Azure. Per ulteriori informazioni, vedere [notifiche di servizi di comunicazione](https://docs.microsoft.com/azure/communication-services/concepts/notifications) .
+Un account Firebase configurato con Cloud Messaging (FCM) abilitato e con il servizio di messaggistica cloud Firebase connesso a un'istanza di hub di notifica di Azure. Per ulteriori informazioni, vedere [notifiche di servizi di comunicazione](../../../concepts/notifications.md) .
 Inoltre, nell'esercitazione si presuppone che si stia usando Android Studio versione 3,6 o successiva per compilare l'applicazione.
 
 Un set di autorizzazioni è necessario per l'applicazione Android per poter ricevere messaggi di notifica da Firebase Cloud Messaging. Nel `AndroidManifest.xml` file aggiungere il set di autorizzazioni seguente subito dopo il *<manifesto... >* o sotto il *</application>* tag

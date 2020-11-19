@@ -1,18 +1,18 @@
 ---
 title: Procedure consigliate
-description: Procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
-ms.date: 08/12/2020
+description: Informazioni sulle procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
+ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: dff6668050e45d9179cd985aa10670b56afe5377
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: a799aa7de19b9d5b0b8e085252cb172efebd05dc
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913229"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916866"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
-Questo articolo contiene una raccolta di procedure consigliate per l'uso efficace ed efficiente del servizio Azure Batch, in base a un'esperienza reale con Batch. Leggere questo articolo per evitare errori di progettazione, potenziali problemi di prestazioni e la creazione di antipattern durante lo sviluppo per e l'uso di Batch.
+Questo articolo illustra una raccolta di procedure consigliate e suggerimenti utili per l'uso efficace del servizio Azure Batch, in base alle esperienze reali con batch. Questi suggerimenti consentono di migliorare le prestazioni ed evitare problemi di progettazione nelle soluzioni Azure Batch.
 
 ## <a name="pools"></a>Pool
 
@@ -20,7 +20,7 @@ I [pool](nodes-and-pools.md#pools) sono le risorse di calcolo per l'esecuzione d
 
 ### <a name="pool-configuration-and-naming"></a>Configurazione e denominazione del pool
 
-- **Modalità di allocazione pool** Quando si crea un account Batch, è possibile scegliere tra due modalità di allocazione pool: **servizio Batch** o **sottoscrizione utente** . Nella maggior parte dei casi si userà la modalità predefinita del servizio Batch, in cui i pool vengono allocati dietro le quinte nelle sottoscrizioni gestite da Batch. Nella modalità sottoscrizione utente alternativa, le macchine virtuali e le altre risorse di Batch vengono create direttamente nella sottoscrizione in fase di creazione di un pool. Gli account di sottoscrizione utente vengono usati principalmente per rendere possibile un sottoinsieme di scenari, piccolo ma importante. Per altre informazioni sulla modalità di sottoscrizione utente, vedere [Configurazione aggiuntiva per la modalità di sottoscrizione utente](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+- **Modalità di allocazione pool** Quando si crea un account Batch, è possibile scegliere tra due modalità di allocazione pool: **servizio Batch** o **sottoscrizione utente**. Nella maggior parte dei casi si userà la modalità predefinita del servizio Batch, in cui i pool vengono allocati dietro le quinte nelle sottoscrizioni gestite da Batch. Nella modalità sottoscrizione utente alternativa, le macchine virtuali e le altre risorse di Batch vengono create direttamente nella sottoscrizione in fase di creazione di un pool. Gli account di sottoscrizione utente vengono usati principalmente per rendere possibile un sottoinsieme di scenari, piccolo ma importante. Per altre informazioni sulla modalità di sottoscrizione utente, vedere [Configurazione aggiuntiva per la modalità di sottoscrizione utente](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
 - **Considerare il tempo di esecuzione di processi e attività per determinare il mapping tra processi e pool.**
     Se i processi sono costituiti prevalentemente da attività di breve durata e il numero totale previsto di attività è ridotto, per cui il tempo di esecuzione complessivo previsto per il processo non è molto lungo, non allocare un nuovo pool per ogni processo. Il tempo di allocazione dei nodi ridurrà il tempo di esecuzione del processo.
@@ -41,7 +41,7 @@ I [pool](nodes-and-pools.md#pools) sono le risorse di calcolo per l'esecuzione d
 La durata del pool può variare a seconda del metodo di allocazione e delle opzioni applicate alla relativa configurazione. I pool possono avere una durata arbitraria e un numero variabile di nodi di calcolo in qualsiasi momento. È responsabilità dell'utente gestire i nodi di calcolo nel pool in modo esplicito o tramite le funzionalità fornite dal servizio (scalabilità automatica o pool automatici).
 
 - **Mantenere i pool aggiornati.**
-    È necessario ridimensionare i pool a zero ogni pochi mesi per assicurarsi di ottenere gli [aggiornamenti più recenti dell'agente del nodo e le correzioni di bug](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Il pool non riceverà gli aggiornamenti degli agenti dei nodi a meno che non venga ricreato o ridimensionato a 0 nodi di calcolo. Prima di ricreare o ridimensionare il pool, è consigliabile scaricare tutti i log degli agenti dei nodi a scopo di debug, come descritto nella sezione [Nodi](#nodes).
+    Ridimensionare i pool a zero ogni pochi mesi per assicurarsi di ottenere gli [aggiornamenti più recenti dell'agente del nodo e le correzioni di bug](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Il pool non riceverà gli aggiornamenti degli agenti dei nodi a meno che non venga ricreato o ridimensionato a 0 nodi di calcolo. Prima di ricreare o ridimensionare il pool, è consigliabile scaricare tutti i log degli agenti dei nodi a scopo di debug, come descritto nella sezione [Nodi](#nodes).
 
 - **Ricreazione del pool** Analogamente, non è consigliabile eliminare e ricreare i pool su base giornaliera. Creare invece un nuovo pool e aggiornare i processi esistenti in modo che puntino a questo pool. Una volta spostate tutte le attività nel nuovo pool, eliminare quello precedente.
 
@@ -67,7 +67,7 @@ I pool possono essere creati usando immagini di terze parti pubblicate in Azure 
 
 ### <a name="azure-region-dependency"></a>Dipendenza dall'area di Azure
 
-Nel caso di carichi di lavoro di produzione o dipendenti dal tempo, è consigliabile evitare di dipendere da una singola area di Azure. Anche se rari, esistono problemi che possono influire su un'intera area. Se ad esempio l'elaborazione deve essere avviata a un'ora specifica, è consigliabile aumentare il pool nell'area primaria *con molto anticipo rispetto all'ora di inizio* . Se l'aumento del pool non riesce in quell'area, è possibile eseguirne il fallback in una o più aree di backup. I pool distribuiti tra più account in aree diverse forniscono un backup pronto e facilmente accessibile se si verificano problemi in un altro pool. Per altre informazioni, vedere [Progettare l'applicazione per la disponibilità elevata](high-availability-disaster-recovery.md).
+Nel caso di carichi di lavoro di produzione o dipendenti dal tempo, è consigliabile evitare di dipendere da una singola area di Azure. Anche se rari, esistono problemi che possono influire su un'intera area. Se ad esempio l'elaborazione deve essere avviata a un'ora specifica, è consigliabile aumentare il pool nell'area primaria *con molto anticipo rispetto all'ora di inizio*. Se l'aumento del pool non riesce in quell'area, è possibile eseguirne il fallback in una o più aree di backup. I pool distribuiti tra più account in aree diverse forniscono un backup pronto e facilmente accessibile se si verificano problemi in un altro pool. Per altre informazioni, vedere [Progettare l'applicazione per la disponibilità elevata](high-availability-disaster-recovery.md).
 
 ## <a name="jobs"></a>Processi
 
@@ -175,7 +175,7 @@ Per altre informazioni su Resource Manager e sui modelli, vedere [Avvio rapido: 
 
 ## <a name="connectivity"></a>Connettività
 
-Considerare le indicazioni seguenti per la connettività delle soluzioni Batch.
+Esaminare le linee guida seguenti relative alla connettività nelle soluzioni batch.
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Gruppi di sicurezza di rete (NSG) e route definite dall'utente
 
@@ -198,6 +198,10 @@ Assicurarsi che per i client del servizio Batch siano implementati criteri appro
 
 In genere, le macchine virtuali in un pool di batch sono accessibili tramite indirizzi IP pubblici che possono cambiare nel corso della durata del pool. Questo può rendere difficile l'interazione con un database o un altro servizio esterno che limita l'accesso a determinati indirizzi IP. Per assicurarsi che gli indirizzi IP pubblici nel pool non cambino in modo imprevisto, è possibile creare un pool usando un set di indirizzi IP pubblici statici da controllare. Per ulteriori informazioni, vedere [creare un pool di Azure batch con gli indirizzi IP pubblici specificati](create-pool-public-ip.md).
 
+### <a name="testing-connectivity-with-cloud-services-configuration"></a>Test della connettività con la configurazione dei servizi cloud
+
+Non è possibile usare il normale protocollo/ICMP "ping" con i servizi cloud, perché il protocollo ICMP non è consentito tramite il servizio di bilanciamento del carico di Azure. Per altre informazioni, vedere [connettività e rete per servizi cloud di Azure](../cloud-services/cloud-services-connectivity-and-networking-faq.md#can-i-ping-a-cloud-service).
+
 ## <a name="batch-node-underlying-dependencies"></a>Dipendenze sottostanti dei nodi di Batch
 
 Quando si progettano le soluzioni Batch, tenere presenti le dipendenze e le restrizioni seguenti.
@@ -206,12 +210,12 @@ Quando si progettano le soluzioni Batch, tenere presenti le dipendenze e le rest
 
 Azure Batch Crea e gestisce una serie di utenti e gruppi nella VM, che non dovranno essere modificati. Ecco quali sono:
 
-#### <a name="windows"></a>Windows
+Windows:
 
 - Un utente denominato **PoolNonAdmin**
 - Un gruppo di utenti denominato **WATaskCommon**
 
-#### <a name="linux"></a>Linux
+Linux:
 
 - Un utente denominato **_azbatch**
 
@@ -220,3 +224,9 @@ Azure Batch Crea e gestisce una serie di utenti e gruppi nella VM, che non dovra
 Batch prova attivamente a pulire la directory di lavoro in cui vengono eseguite le attività, al termine del periodo di conservazione. La pulizia di tutti i file scritti al di fuori di questa directory è [responsabilità dell'utente](#manage-task-lifetime), per evitare di riempire spazio su disco.
 
 La pulizia automatizzata per la directory di lavoro verrà bloccata se si esegue un servizio in Windows dalla directory di lavoro startTask, perché la cartella è ancora in uso. Questo comporterà una riduzione delle prestazioni. Per risolvere il problema, specificare per tale servizio una directory diversa non gestita da Batch.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Creare un account Azure Batch usando il portale di Azure](batch-account-create-portal.md).
+- Informazioni sul [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md), ad esempio pool, nodi, processi e attività.
+- Informazioni sulle [quote, i limiti e i vincoli predefiniti Azure batch e su come richiedere aumenti di quota](batch-quota-limit.md).

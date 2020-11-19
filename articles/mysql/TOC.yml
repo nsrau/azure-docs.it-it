@@ -287,6 +287,10 @@
           items:
             - name: Arrestare/Avviare il server MySQL
               href: how-to-stop-start-server.md
+        - name: Aggiornamento della versione principale
+          items:
+            - name: Aggiornamento della versione principale
+              href: how-to-major-version-upgrade.md
         - name: Aumento automatico delle dimensioni di archiviazione
           items:
             - name: Portale di Azure

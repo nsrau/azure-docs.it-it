@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 11/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-python
-ms.openlocfilehash: 1a72b0d90a33b011468b5ac42d529befb7acae42
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 76df8baaf170b05762b93478a496eb1e9ed802d5
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844898"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916747"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Connettersi all'API di servizi multimediali V3-Python
 
@@ -43,6 +43,8 @@ Per usare servizi multimediali di Azure con Python, è necessario installare que
 
 * Il `azure-mgmt-resource` modulo, che include i moduli di Azure per Active Directory.
 * Il `azure-mgmt-media` modulo, che include le entità di servizi multimediali.
+
+    Assicurarsi di ottenere [la versione più recente di Media Services SDK per Python](https://pypi.org/project/azure-mgmt-media/).
 
 Aprire uno strumento da riga di comando e usare i comandi seguenti per installare i moduli.
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 6e4eb37477a335ae93b9982692c238d05c81000b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a49dbdace01396656c3114df0bc0d4589aff57c1
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660288"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916492"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Risolvere i problemi di prestazioni delle condivisioni file di Azure
 
@@ -159,7 +159,7 @@ I carichi di lavoro che si basano sulla creazione di un numero elevato di file n
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-- Nessuno.
+- No.
 
 ## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Rallentamento delle prestazioni da Windows 8.1 o Server 2012 R2
 
@@ -196,7 +196,7 @@ Modifiche recenti apportate alle impostazioni di configurazione di SMB multicana
 
 ### <a name="cause"></a>Causa  
 
-Il numero elevato di notifiche di modifica file nelle condivisioni file può comportare latenze elevate significative. Questa situazione si verifica in genere con i siti Web ospitati in condivisioni file con struttura di directory annidata approfondita Uno scenario tipico è l'applicazione Web ospitata in IIS in cui la notifica delle modifiche dei file è impostata per ogni directory nella configurazione predefinita. Ogni modifica (ReadDirectoryChangesW) nella condivisione che il client SMB è registrato per inserisce una notifica di modifica dal servizio file al client, che accetta risorse di sistema, e il problema si aggrava con il numero di modifiche. Questo può causare la limitazione delle richieste di condivisione e pertanto causare una latenza lato client superiore. 
+Il numero elevato di notifiche di modifica file nelle condivisioni file può comportare latenze elevate significative. Questa situazione si verifica in genere con i siti Web ospitati in condivisioni file con struttura di directory annidata approfondita Uno scenario tipico è l'applicazione Web ospitata in IIS in cui la notifica delle modifiche dei file è impostata per ogni directory nella configurazione predefinita. Ogni modifica ([ReadDirectoryChangesW](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) nella condivisione che il client SMB è registrato per inserisce una notifica di modifica dal servizio file al client, che accetta risorse di sistema, e il problema si aggrava con il numero di modifiche. Questo può causare la limitazione delle richieste di condivisione e pertanto causare una latenza lato client superiore. 
 
 Per confermare, è possibile usare le metriche di Azure nel portale- 
 
@@ -213,10 +213,8 @@ Per confermare, è possibile usare le metriche di Azure nel portale-
     - Aggiornare l'intervallo di polling del processo di lavoro IIS (W3WP) a 0 impostando `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` nel registro di sistema e riavviare il processo w3wp. Per ulteriori informazioni su questa impostazione, vedere [chiavi del registro di sistema comuni utilizzate da molte parti di IIS](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp).
 - Aumentare la frequenza dell'intervallo di polling delle notifiche di modifica file per ridurre il volume.
     - Aggiornare l'intervallo di polling del processo di lavoro W3WP a un valore superiore, ad esempio 10mins o 30mins, in base ai requisiti. Impostare `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\W3SVC\Parameters\ConfigPollMilliSeconds ` [nel registro di](/troubleshoot/iis/use-registry-keys#registry-keys-that-apply-to-iis-worker-process-w3wp) sistema e riavviare il processo w3wp.
-- Se la directory fisica mappata del sito Web ha una struttura di directory nidificata, è possibile tentare di limitare l'ambito della notifica di modifica dei file per ridurre il volume di notifica.
-    - Per impostazione predefinita, IIS utilizza la configurazione dei file Web.config nella directory fisica a cui viene eseguito il mapping della directory virtuale, oltre che in qualsiasi directory figlio della directory fisica. Se non si desidera utilizzare Web.config file nelle directory figlio, specificare false per l'attributo allowSubDirConfig nella directory virtuale. Per informazioni dettagliate, vedere [questo articolo](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
-
-Impostare l'impostazione della directory virtuale IIS "allowSubDirConfig" in Web.Config su false per escludere le directory figlio fisiche mappate dall'ambito.  
+- Se la directory fisica mappata del sito Web ha una struttura di directory nidificata, è possibile tentare di limitare l'ambito della notifica di modifica dei file per ridurre il volume di notifica. Per impostazione predefinita, IIS utilizza la configurazione dei file Web.config nella directory fisica a cui viene eseguito il mapping della directory virtuale, oltre che in qualsiasi directory figlio della directory fisica. Se non si desidera utilizzare Web.config file nelle directory figlio, specificare false per l'attributo allowSubDirConfig nella directory virtuale. Per informazioni dettagliate, vedere [questo articolo](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories). 
+    - Impostare l'impostazione della directory virtuale IIS "allowSubDirConfig" in Web.Config su *false* per escludere le directory figlio fisiche mappate dall'ambito.  
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Come creare un avviso se una condivisione file è limitata
 

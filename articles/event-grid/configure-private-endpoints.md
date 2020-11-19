@@ -2,14 +2,14 @@
 title: Configurare gli endpoint privati per gli argomenti o i domini di griglia di eventi di Azure
 description: Questo articolo descrive come configurare gli endpoint privati per gli argomenti o il dominio di griglia di eventi di Azure.
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 11/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2e164d55f61f7a08e689aea106eac678b553c82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8e0cfc0a850ae15ea6d03ff6ca8b90003adbfc9
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324145"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916993"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurare gli endpoint privati per gli argomenti o i domini di griglia di eventi di Azure
 È possibile usare [endpoint privati](../private-link/private-endpoint-overview.md) per consentire l'ingresso di eventi direttamente dalla rete virtuale agli argomenti e ai domini in modo sicuro tramite un [collegamento privato](../private-link/private-link-overview.md) senza passare attraverso la rete Internet pubblica. L'endpoint privato usa un indirizzo IP dello spazio di indirizzi della VNet per l'argomento o il dominio. Per informazioni più concettuali, vedere [sicurezza di rete](network-security.md).
@@ -37,15 +37,15 @@ In questa sezione viene illustrato come utilizzare il portale di Azure per crear
 3. Nella pagina **Risorsa** seguire questa procedura: 
     1. Per metodo di connessione, se si seleziona **Connetti a una risorsa di Azure nella directory**, seguire questa procedura. Questo esempio illustra come connettersi a una risorsa di Azure nella directory. 
         1. Selezionare la **sottoscrizione di Azure** in cui è presente l' **argomento/dominio** . 
-        1. Per **tipo di risorsa**selezionare **Microsoft. EventGrid/topics** o **Microsoft. EventGrid/Domains** per il **tipo di risorsa**.
-        2. Per **risorsa**selezionare un argomento o un dominio dall'elenco a discesa. 
+        1. Per **tipo di risorsa** selezionare **Microsoft. EventGrid/topics** o **Microsoft. EventGrid/Domains** per il **tipo di risorsa**.
+        2. Per **risorsa** selezionare un argomento o un dominio dall'elenco a discesa. 
         3. Verificare che la **sottorisorsa di destinazione** sia impostata su **argomento** o **dominio** , in base al tipo di risorsa selezionato.    
         4. Selezionare **Avanti: Configurazione >** nella parte inferiore della pagina. 
 
             ![Screenshot che mostra la pagina "creare una risorsa endpoint privata".](./media/configure-private-endpoints/resource-page.png)
     2. Se si seleziona **Connetti a una risorsa usando un ID risorsa o un alias**, seguire questa procedura:
         1. Immettere l'ID della risorsa. Ad esempio: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
-        2. Per **risorsa**immettere **argomento** o **dominio**. 
+        2. Per **risorsa** immettere **argomento** o **dominio**. 
         3. opzionale Aggiungere un messaggio di richiesta. 
         4. Selezionare **Avanti: Configurazione >** nella parte inferiore della pagina. 
 
@@ -108,7 +108,7 @@ Le sezioni seguenti illustrano come approvare o rifiutare una connessione all'en
 
 1. Selezionare l' **endpoint privato** che si vuole rifiutare e selezionare **rifiuta** sulla barra degli strumenti.
 
-    ![Screenshot che mostra l'opzione "rete-private endpoint Connections (anteprima)" con "Reject" selezionato.](./media/configure-private-endpoints/reject-button.png)
+    ![Screenshot che mostra le "connessioni all'endpoint privato di rete" con "Reject" selezionato.](./media/configure-private-endpoints/reject-button.png)
 1. Nella finestra di dialogo **rifiuta connessione** immettere un commento (facoltativo) e selezionare **Sì**. 
 
     ![Endpoint privato-rifiuto](./media/configure-private-endpoints/reject.png)
@@ -121,7 +121,7 @@ Le sezioni seguenti illustrano come approvare o rifiutare una connessione all'en
 
 
 ## <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
-Per creare un endpoint privato, usare il metodo [AZ network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) , come illustrato nell'esempio seguente:
+Per creare un endpoint privato, usare il metodo [AZ network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create) , come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -135,12 +135,12 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-Per le descrizioni dei parametri usati nell'esempio, vedere la documentazione per [AZ network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Di seguito sono riportati alcuni punti da considerare in questo esempio: 
+Per le descrizioni dei parametri usati nell'esempio, vedere la documentazione per [AZ network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). Di seguito sono riportati alcuni punti da considerare in questo esempio: 
 
 - Per `private-connection-resource-id` , specificare l'ID risorsa dell' **argomento** o del **dominio**. Nell'esempio precedente viene usato il tipo: topic.
 - per `group-ids` , specificare `topic` o `domain` . Nell'esempio precedente `topic` viene usato. 
 
-Per eliminare un endpoint privato, usare il metodo [AZ network private-endpoint Delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) , come illustrato nell'esempio seguente:
+Per eliminare un endpoint privato, usare il metodo [AZ network private-endpoint Delete](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) , come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
@@ -165,7 +165,7 @@ az extension add -n eventgrid
 ```
 
 ### <a name="create-a-private-endpoint"></a>Creare un endpoint privato
-Per creare un endpoint privato, usare il metodo [AZ network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) , come illustrato nell'esempio seguente:
+Per creare un endpoint privato, usare il metodo [AZ network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create) , come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az network private-endpoint create \
@@ -179,12 +179,12 @@ az network private-endpoint create \
     --group-ids topic
 ```
 
-Per le descrizioni dei parametri usati nell'esempio, vedere la documentazione per [AZ network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Di seguito sono riportati alcuni punti da considerare in questo esempio: 
+Per le descrizioni dei parametri usati nell'esempio, vedere la documentazione per [AZ network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). Di seguito sono riportati alcuni punti da considerare in questo esempio: 
 
 - Per `private-connection-resource-id` , specificare l'ID risorsa dell' **argomento** o del **dominio**. Nell'esempio precedente viene usato il tipo: topic.
 - per `group-ids` , specificare `topic` o `domain` . Nell'esempio precedente `topic` viene usato. 
 
-Per eliminare un endpoint privato, usare il metodo [AZ network private-endpoint Delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) , come illustrato nell'esempio seguente:
+Per eliminare un endpoint privato, usare il metodo [AZ network private-endpoint Delete](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) , come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
 az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --name <PRIVATE ENDPOINT NAME>

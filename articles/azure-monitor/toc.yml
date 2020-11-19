@@ -944,14 +944,28 @@
           href: insights/vminsights-maps.md
         - name: Monitorare le prestazioni
           href: insights/vminsights-performance.md
-        - name: Monitorare le modifiche
-          href: insights/vminsights-change-analysis.md
+        - name: Monitorare l'integrità di VM guest (anteprima)
+          items:
+            - name: Panoramica
+              href: insights/vminsights-health-overview.md
+            - name: Abilita
+              href: insights/vminsights-health-enable.md
+            - name: Avvisi
+              href: insights/vminsights-health-alerts.md
+            - name: Configurare i monitoraggi nel portale
+              href: insights/vminsights-health-configure.md
+            - name: Configurare i monitoraggi su larga scala
+              href: insights/vminsights-health-configure-dcr.md
+            - name: Risolvere problemi
+              href: insights/vminsights-health-troubleshoot.md
         - name: Analizzare i dati con le query sui log
           href: insights/vminsights-log-search.md
+        - name: Monitorare le prestazioni
+          href: insights/vminsights-alerts.md
+        - name: Monitorare le modifiche
+          href: insights/vminsights-change-analysis.md
         - name: Visualizzare i dati con la cartella di lavoro
           href: insights/vminsights-workbooks.md
-        - name: Creazione di regole di avviso
-          href: insights/vminsights-alerts.md
         - name: Disabilitare il monitoraggio
           href: insights/vminsights-optout.md
     - name: Monitoraggio di Azure per contenitori

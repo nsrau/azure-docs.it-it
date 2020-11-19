@@ -139,6 +139,8 @@
       href: ../../container-instances/security-baseline.md
     - name: Baseline di sicurezza di Registro Container
       href: ../../container-registry/security-baseline.md
+    - name: Baseline di sicurezza della rete per la distribuzione di contenuti
+      href: ../../cdn/security-baseline.md
     - name: Baseline di sicurezza di Cosmos DB
       href: ../../cosmos-db/security-baseline.md
     - name: Baseline di sicurezza di Gestione costi

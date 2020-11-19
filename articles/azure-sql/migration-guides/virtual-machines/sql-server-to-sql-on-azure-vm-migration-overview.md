@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 64334b17060879a2e587b13b062c81e86df33831
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d47abaade13958b4e28d3ad5f62b88e8a53e89a9
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94743423"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917842"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Panoramica della migrazione: SQL Server SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -56,6 +56,8 @@ L'approccio appropriato per l'azienda dipende in genere dai fattori seguenti:
 - È necessario modificare SQL Server versione, sistema operativo o entrambi.
 - Ciclo di vita del supporto dei prodotti esistenti
 - Finestra per il tempo di inattività dell'applicazione durante la migrazione
+
+:::image type="content" source="media/sql-server-to-sql-on-azure-vm-individual-databases-guide/virtual-machine-migration-downtime.png" alt-text="tempo di inattività della migrazione della macchina virtuale":::
 
 Nella tabella seguente vengono descritte le differenze tra le due strategie di migrazione:
 <br />

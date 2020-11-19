@@ -2,13 +2,13 @@
 title: Metriche del bus di sevizio di Azure in Monitoraggio di Azure| Microsoft Docs
 description: Questo articolo illustra come usare Monitoraggio di Azure per monitorare le entità del bus di servizio (code, argomenti e sottoscrizioni).
 ms.topic: article
-ms.date: 09/30/2020
-ms.openlocfilehash: 169edb651a59302d0ea1245fd48787404dd3e555
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/18/2020
+ms.openlocfilehash: 1f8bd9484bf2a2106818da1d6e4ef21e937d2ac3
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598132"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94916883"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Metriche del bus di servizio di Azure in Monitoraggio di Azure
 
@@ -23,7 +23,7 @@ Monitoraggio di Azure offre interfacce utente unificate per il monitoraggio di d
 
 Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedere alle metriche dal [portale di Azure](https://portal.azure.com) o usare le API di Monitoraggio di Azure (REST e .NET) e le soluzioni di analisi, ad esempio i log di Monitoraggio di Azure e Hub eventi. Per altre informazioni, vedere [Metriche in Monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md).
 
-Le metriche sono abilitate per impostazione predefinita ed è possibile accedere ai 30 giorni di dati più recenti. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo valore viene configurato nelle [impostazioni di diagnostica ](../azure-monitor/platform/diagnostic-settings.md) in Monitoraggio di Azure.
+Le metriche sono abilitate per impostazione predefinita ed è possibile accedere ai 30 giorni di dati più recenti. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati delle metriche in un account di archiviazione di Azure. Questo valore viene configurato nelle [impostazioni di diagnostica ](../azure-monitor/platform/diagnostic-settings.md) in Monitoraggio di Azure.
 
 ## <a name="access-metrics-in-the-portal"></a>Accedere alle metriche nel portale
 
@@ -31,7 +31,7 @@ Le metriche sono abilitate per impostazione predefinita ed è possibile accedere
 
 ![Screenshot della pagina Monitoraggio-metriche (anteprima) nella portale di Azure.][1]
 
-È anche possibile accedere alle metriche direttamente tramite lo spazio dei nomi. A tale scopo, selezionare lo spazio dei nomi e fare clic su **Metriche**. Per visualizzare le metriche filtrate in base all'ambito dell'entità, selezionare l'entità, quindi fare clic su **Metriche**.
+È anche possibile accedere alle metriche direttamente tramite lo spazio dei nomi. A tale scopo, selezionare lo spazio dei nomi e quindi selezionare **metrica**. Per visualizzare le metriche filtrate nell'ambito dell'entità, selezionare l'entità e quindi selezionare **metrica**.
 
 ![Screenshot della pagina Monitoraggio-metriche (anteprima) filtrata per l'ambito dell'entità.][2]
 
@@ -39,9 +39,9 @@ Per le metriche che supportano le dimensioni, è necessario filtrare specificand
 
 ## <a name="billing"></a>Fatturazione
 
-Le metriche e gli avvisi in Monitoraggio di Azure vengono addebitati in base all'avviso. Questi addebiti dovrebbero essere disponibili nel portale quando l'avviso viene configurato e prima del salvataggio. 
+Le metriche e gli avvisi in Monitoraggio di Azure vengono addebitati in base all'avviso. Questi addebiti dovrebbero essere disponibili nel portale quando l'avviso viene configurato e prima che venga salvato. 
 
-Le soluzioni aggiuntive che inseriscono i dati delle metriche vengono fatturate direttamente da tali soluzioni. Ad esempio, la fatturazione viene effettuata da Archiviazione di Azure se i dati relativi alle metriche vengono archiviati in un account di Archiviazione di Azure. La fatturazione viene effettuata da Log Analytics anche se si esegue lo streaming dei dati relativi alle metriche verso Log Analytics per l'esecuzione di analisi avanzate.
+Le soluzioni aggiuntive che inseriscono i dati delle metriche vengono fatturate direttamente da tali soluzioni. Ad esempio, se si archiviano i dati delle metriche in un account di archiviazione di Azure, viene addebitato l'archiviazione di Azure. viene addebitato anche il Log Analytics se si esegue lo streaming dei dati di metrica Log Analytics per l'analisi avanzata.
 
 Le metriche seguenti offrono una panoramica dell'integrità del servizio. 
 
@@ -58,8 +58,8 @@ Conta il numero di richieste di operazioni di dati e gestione.
 | ------------------- | ----------------- |
 | Richieste in ingresso| Numero di richieste inviate al servizio del bus di servizio in un periodo specificato. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: nome entità|
 |Richieste riuscite|Numero di richieste completate inviate al servizio del bus di servizio in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: nome entità|
-|Errori server|Numero di richieste non elaborate a causa di un errore nel servizio del bus di servizio in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: nome entità|
-|Errori utente (vedere la sottosezione seguente)|Numero di richieste non elaborate a causa di errori utente in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: nome entità|
+|Errori server|Numero di richieste non elaborate a causa di un errore nel servizio del bus di servizio in un periodo di tempo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: nome entità|
+|Errori utente (vedere la sottosezione seguente)|Numero di richieste non elaborate a causa di errori dell'utente in un periodo specificato.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: nome entità|
 |Richieste limitate|Numero di richieste che sono state limitate perché è stata superata la soglia di utilizzo.<br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Totale <br/> Dimensione: nome entità|
 
 ### <a name="user-errors"></a>Errori utente
@@ -80,14 +80,12 @@ I due tipi di errori seguenti sono classificati come errori utente:
 | Messaggi attivi| Numero di messaggi attivi in una coda o in un argomento. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Dimensione: nome entità |
 | Messaggi non recapitabili| Numero di messaggi non recapitabili in una coda o in un argomento. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/>Dimensione: nome entità |
 | Messaggi pianificati| Numero di messaggi pianificati in una coda o in un argomento. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media  <br/> Dimensione: nome entità |
+| Messaggi completati| Numero di messaggi completati in una coda o in un argomento. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Dimensione: nome entità |
+| Messaggi abbandonati| Numero di messaggi abbandonati in una coda o in un argomento. <br/><br/> Unità: Conteggio <br/> Tipo di aggregazione: Media <br/> Dimensione: nome entità |
 | Dimensione | Dimensioni in byte di un'entità (coda o argomento). <br/><br/>Unità: Conteggio <br/>Tipo di aggregazione: Media <br/>Dimensione: nome entità | 
 
 > [!NOTE]
-> I valori per le metriche seguenti sono valori temporizzati. I messaggi in arrivo usati immediatamente dopo tale temporizzazione potrebbero non essere riportati in queste metriche. 
-> - Messaggi
-> - Messaggi attivi 
-> - Messaggi non recapitabili 
-> - Messaggi pianificati 
+> I valori per i messaggi, i messaggi attivi, i messaggi non recapitabili, quelli pianificati, completati e abbandonati sono valori temporizzati. I messaggi in arrivo usati immediatamente dopo tale temporizzazione potrebbero non essere riportati in queste metriche. 
 
 ## <a name="connection-metrics"></a>Metriche di connessione
 
@@ -113,7 +111,7 @@ I due tipi di errori seguenti sono classificati come errori utente:
 
 ## <a name="metrics-dimensions"></a>Dimensioni delle metriche
 
-Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in Monitoraggio di Azure. L'aggiunta di dimensioni alle metriche è facoltativa. Se non si aggiungono le dimensioni, le metriche vengono specificate a livello di spazio dei nomi. 
+Il bus di servizio di Azure supporta le dimensioni seguenti per le metriche in Monitoraggio di Azure. L'aggiunta di dimensioni alle metriche è facoltativa. Se non si aggiungono dimensioni, le metriche vengono specificate a livello di spazio dei nomi. 
 
 |Nome della dimensione|Descrizione|
 | ------------------- | ----------------- |

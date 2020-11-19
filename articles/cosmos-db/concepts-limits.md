@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: cac14687c6193d58069240529955e69fc680b2e8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 503d3d5ed9b099e01a88ee40ef80e88105beb340
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491818"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917733"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -41,26 +41,48 @@ Dopo aver creato un account Azure Cosmos nella propria sottoscrizione, è possib
 > [!NOTE]
 > Per informazioni sulle procedure consigliate per la gestione dei carichi di lavoro con chiavi di partizione che richiedono limiti più elevati per l'archiviazione o la velocità effettiva, vedere [Creare una chiave di partizione sintetica](synthetic-partition-keys.md).
 
-Un contenitore Cosmos (o un database con velocità effettiva condivisa) deve avere una velocità effettiva minima di 400 UR/sec. Man mano che aumenta la dimensione del contenitore, la velocità effettiva minima supportata dipende anche dai fattori seguenti:
+### <a name="minimum-throughput-limits"></a>Limiti di velocità effettiva minima
 
-* La velocità effettiva massima di cui è stato effettuato il provisioning per il contenitore. Se, ad esempio, la velocità effettiva è aumentata a 50.000 UR/sec, la velocità effettiva con provisioning più bassa possibile sarà 500 UR/sec.
-* Archiviazione corrente in GB nel contenitore. Se, ad esempio, il contenitore dispone di 100 GB di spazio di archiviazione, la velocità effettiva con provisioning più bassa possibile sarà 1000 ur/sec. **Nota:** se il contenitore o il database contiene più di 1 TB di dati, è possibile che l'account sia idoneo al [programma "High storage/low throughput"](set-throughput.md#high-storage-low-throughput-program).
-* La velocità effettiva minima in un database con velocità effettiva condivisa dipende dal numero totale di contenitori creati in un database con velocità effettiva condivisa, misurata in 100 UR/sec per ogni contenitore. Se, ad esempio, sono stati creati cinque contenitori all'interno di un database di velocità effettiva condivisa, la velocità effettiva deve essere almeno di 500 UR/sec.
+Un contenitore Cosmos (o un database con velocità effettiva condivisa) deve avere una velocità effettiva minima di 400 UR/sec. Man mano che il contenitore aumenta, Cosmos DB richiede una velocità effettiva minima per garantire che il database o il contenitore disponga di risorse sufficienti per le operazioni.
 
 La velocità effettiva corrente e minima di un contenitore o di un database può essere recuperata dal portale di Azure o dagli SDK. Per altre informazioni, vedere [Effettuare il provisioning della velocità effettiva per i contenitori e i database](set-throughput.md). 
 
-> [!NOTE]
-> In alcuni casi, potrebbe essere possibile ridurre la velocità effettiva a un valore inferiore al 10%. Usare l'API per ottenere il numero minimo esatto di UR per ogni contenitore.
+Il numero effettivo minimo di ur/sec può variare a seconda della configurazione dell'account. È possibile usare le [metriche di monitoraggio di Azure](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) per visualizzare la cronologia della velocità effettiva con provisioning (UR/sec) e l'archiviazione in una risorsa. 
+
+#### <a name="minimum-throughput-on-container"></a>Velocità effettiva minima nel contenitore 
+
+Per stimare la velocità effettiva minima richiesta da un contenitore con velocità effettiva manuale, trovare il numero massimo di:
+
+* 400 UR/sec 
+* Archiviazione corrente in GB * 10 UR/sec
+* Unità richiesta/sec più alta con provisioning sul contenitore/100
+
+Esempio: si supponga di avere un contenitore di cui è stato effettuato il provisioning con 400 ur/s e 0 GB di spazio di archiviazione. È possibile aumentare la velocità effettiva a 50.000 UR/sec e importare 20 GB di dati. Il numero minimo di ur/sec è ora `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 UR/sec. Nel tempo, lo spazio di archiviazione aumenta fino a 200 GB. Il numero minimo di ur/sec è ora `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 UR/sec. 
+
+**Nota:** se il contenitore o il database contiene più di 1 TB di dati, è possibile che l'account sia idoneo al [programma "High storage/low throughput"](set-throughput.md#high-storage-low-throughput-program).
+
+#### <a name="minimum-throughput-on-shared-throughput-database"></a>Velocità effettiva minima nel database di velocità effettiva condivisa 
+Per stimare la velocità effettiva minima richiesta da un database con velocità effettiva condivisa con velocità effettiva manuale, trovare il numero massimo di:
+
+* 400 UR/sec 
+* Archiviazione corrente in GB * 10 UR/sec
+* Unità richiesta/sec massime con provisioning nel database/100
+* 400 + MAX (conteggio contenitori-25,0) * 100 ur/sec
+
+Esempio: si supponga di avere un database di cui è stato effettuato il provisioning con 400 ur/s, 15 GB di spazio di archiviazione e 10 contenitori. Il numero minimo di ur/sec è `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 ur/sec. Se nel database sono presenti 30 contenitori, le UR/sec minime saranno `400 + MAX(30 - 5, 0) * 100 RU/s` = 900 ur/sec. 
+
+**Nota:** se il contenitore o il database contiene più di 1 TB di dati, è possibile che l'account sia idoneo al [programma "High storage/low throughput"](set-throughput.md#high-storage-low-throughput-program).
 
 In sintesi, di seguito sono riportati i limiti minimi di provisioning delle UR. 
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Numero minimo di UR per ogni contenitore ([modalità di provisioning con velocità effettiva dedicata](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Numero minimo di UR per ogni database ([modalità di provisioning con velocità effettiva condivisa](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Numero minimo di UR per ogni contenitore all'interno di un database con velocità effettiva condivisa | 100 |
+| Numero minimo di ur per contenitore ([modalità di provisioning della velocità effettiva dedicata](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Numero minimo di ur per database ([modalità con provisioning della velocità effettiva condivisa](databases-containers-items.md#azure-cosmos-containers)) | 400 ur/sec per i primi 25 contenitori. Altre 100 ur/sec per ogni contenitore in seguito. |
 
-Cosmos DB supporta il ridimensionamento elastico della velocità effettiva (UR) per ogni contenitore o database tramite gli SDK o il portale. Ogni contenitore può essere ridimensionato in modo sincrono e immediatamente entro un intervallo di scala compreso tra 10 e 100 volte, tra i valori minimo e massimo. Se il valore della velocità effettiva richiesta non rientra nell'intervallo, il ridimensionamento viene eseguito in modo asincrono. Il ridimensionamento asincrono può richiedere minuti o ore, a seconda della velocità effettiva richiesta e della dimensione di archiviazione dei dati nel contenitore.  
+Cosmos DB supporta il ridimensionamento a livello di codice della velocità effettiva (UR/sec) per ogni contenitore o database tramite gli SDK o il portale.    
+
+A seconda delle impostazioni del provisioning e delle risorse correnti di Ur/s, ogni risorsa può essere ridimensionata in modo sincrono e immediatamente tra le UR/s minime fino a 100 volte le UR/sec minime. Se il valore della velocità effettiva richiesta non rientra nell'intervallo, il ridimensionamento viene eseguito in modo asincrono. Il ridimensionamento asincrono può richiedere minuti o ore, a seconda della velocità effettiva richiesta e della dimensione di archiviazione dei dati nel contenitore.  
 
 ### <a name="serverless"></a>Senza server
 
@@ -172,9 +194,9 @@ Azure Cosmos DB gestisce i metadati di sistema per ogni account. Questi metadati
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-|Velocità massima di creazione raccolta al minuto| 5|
-|Velocità massima di creazione database al minuto|   5|
-|Velocità massima di aggiornamento velocità effettiva con provisioning al minuto| 5|
+|Velocità massima di creazione raccolta al minuto|    5|
+|Velocità massima di creazione database al minuto|    5|
+|Velocità massima di aggiornamento velocità effettiva con provisioning al minuto|    5|
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Limiti per la velocità effettiva con provisioning a scalabilità automatica
 

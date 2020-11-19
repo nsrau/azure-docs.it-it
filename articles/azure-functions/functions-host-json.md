@@ -3,12 +3,12 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: aaea37b100d6fadd271f48490628b38cba6cf822
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: c12a9244cdc1a76f678578e281532c73bc9385ba
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377123"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917240"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x e versioni successive 
 
@@ -162,6 +162,8 @@ Per la struttura JSON completa, vedere l' [esempio precedente host.jssu file](#s
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
+Per ulteriori informazioni su queste impostazioni, vedere [campionamento in Application Insights](../azure-monitor/app/sampling.md). 
+
 |Proprietà | Predefinito | Descrizione |
 | --------- | --------- | --------- | 
 | isEnabled | true | Abilita o disabilita il campionamento. | 
@@ -191,7 +193,7 @@ Per altre informazioni sugli snapshot, vedere [eseguire il debug di snapshot sul
 |Proprietà | Predefinito | Descrizione |
 | --------- | --------- | --------- | 
 | agentEndpoint | Null | Endpoint utilizzato per la connessione al servizio Application Insights Snapshot Debugger. Se null, viene utilizzato un endpoint predefinito. |
-| captureSnapshotMemoryWeight | 0,5 | Il peso assegnato alle dimensioni della memoria del processo corrente quando viene verificato se è disponibile memoria sufficiente per creare uno snapshot. Il valore previsto è maggiore di 0, frazione corretta (0 < CaptureSnapshotMemoryWeight < 1). |
+| captureSnapshotMemoryWeight | 0.5 | Il peso assegnato alle dimensioni della memoria del processo corrente quando viene verificato se è disponibile memoria sufficiente per creare uno snapshot. Il valore previsto è maggiore di 0, frazione corretta (0 < CaptureSnapshotMemoryWeight < 1). |
 | failedRequestLimit | 3 | Limite al numero di richieste non riuscite per richiedere snapshot prima che il processore di telemetria sia disabilitato.|
 | handleUntrackedExceptions | true | Abilita o Disabilita il rilevamento di eccezioni non rilevate da Application Insights telemetria. |
 | isEnabled | true | Abilita o Disabilita la raccolta di snapshot | 
@@ -409,7 +411,7 @@ Impostazioni di configurazione per il comportamento di blocco Singleton. Per ult
 |lockAcquisitionTimeout|00:01:00|La quantità massima di tempo per cui il runtime tenterà di acquisire un blocco.| 
 |lockAcquisitionPollingInterval|n/d|L'intervallo tra i tentativi di acquisizione di un blocco.| 
 
-## <a name="version"></a>version
+## <a name="version"></a>Versione
 
 Questo valore indica la versione dello schema di host.js. La stringa `"version": "2.0"` di versione è obbligatoria per un'app per le funzioni destinata al runtime v2 o a una versione successiva. Non sono presenti host.jssulle modifiche dello schema tra V2 e V3.
 

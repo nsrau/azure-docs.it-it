@@ -5,25 +5,25 @@ author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 84336051fc3d653fbe73f650f2fc2badb2ec58da
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 10c9b165041f0a4a1f09511f17bef3629353c3b2
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148930"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917529"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Sicurezza di rete per le risorse di griglia di eventi di Azure
 Questo articolo descrive come usare le funzionalità di sicurezza seguenti con griglia di eventi di Azure: 
 
 - Tag di servizio per l'uscita
-- Regole del firewall IP per il traffico in ingresso (anteprima)
+- Regole del firewall IP per il traffico in ingresso
 - Endpoint privati per il traffico in ingresso
 
 
 ## <a name="service-tags"></a>Tag di servizio
 Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag in base alla modifica degli indirizzi, riducendo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. Per altre informazioni sui tag di servizio, vedere [Cenni preliminari sui tag di servizio](../virtual-network/service-tags-overview.md).
 
-È possibile usare i tag del servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md#security-rules) o in [Firewall di Azure](../firewall/service-tags.md). Usare i tag del servizio anziché indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, **AzureEventGrid**) nel *source*   campo di origine o di *destinazione*appropriato   di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
+È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md#security-rules) o nel firewall di [Azure](../firewall/service-tags.md). Usare i tag del servizio anziché indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag di servizio (ad esempio, **AzureEventGrid**) nel campo di *origine* o di *destinazione* appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
 
 | Tag di servizio | Scopo | È possibile usarlo in ingresso o in uscita? | Può essere regionale? | È possibile usarlo con Firewall di Azure? |
 | --- | -------- |:---:|:---:|:---:|
@@ -45,7 +45,7 @@ Per istruzioni dettagliate su come configurare il firewall IP per argomenti e do
 L'uso di endpoint privati per la risorsa griglia di eventi consente di:
 
 - Proteggere l'accesso all'argomento o al dominio da un VNet su una rete backbone Microsoft anziché da Internet pubblico.
-- Connettersi in modo sicuro da reti locali che si connettono al VNet tramite VPN o delle expressroute con peering privato.
+- Connettersi in modo sicuro da reti locali che si connettono alla VNet tramite VPN o Express route con peering privato.
 
 Quando si crea un endpoint privato per un argomento o un dominio nel VNet, viene inviata una richiesta di consenso per l'approvazione al proprietario della risorsa. Se l'utente che richiede la creazione dell'endpoint privato è anche un proprietario della risorsa, questa richiesta di consenso viene approvata automaticamente. In caso contrario, la connessione è in stato di **attesa** fino all'approvazione. Le applicazioni in VNet possono connettersi senza interruzioni al servizio griglia di eventi tramite l'endpoint privato, usando le stesse stringhe di connessione e i meccanismi di autorizzazione usati in altro modo. I proprietari delle risorse possono gestire le richieste di consenso e gli endpoint privati, tramite la scheda **endpoint privati** per la risorsa nel portale di Azure.
 
@@ -85,7 +85,7 @@ Nella tabella seguente vengono descritti i vari Stati della connessione all'endp
 | ------------------ | -------------------------------|
 | Approved           | Sì                            |
 | Rifiutato           | No                             |
-| Pending            | No                             |
+| In sospeso            | No                             |
 | Disconnesso       | No                             |
 
 Per la corretta pubblicazione, lo stato di connessione dell'endpoint privato deve essere **approvato**. Se una connessione viene rifiutata, non può essere approvata utilizzando la portale di Azure. L'unica possibilità consiste nell'eliminare la connessione e crearne una nuova.
