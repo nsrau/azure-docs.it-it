@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: da6d02e620c33610770c71f0c0e3ae68e70ee317
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 36ba593a1d8cd2e50293eaf77dc9ec864245df4c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397046"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566589"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Esercitazione: Creare un gateway applicazione con reindirizzamento basato su percorsi URL usando l'interfaccia della riga di comando di Azure
 
@@ -34,13 +34,11 @@ L'esempio seguente illustra il traffico del sito in arrivo dalle porte 8080 e 80
 
 Se si preferisce, è possibile completare questa esercitazione usando [Azure PowerShell](tutorial-url-redirect-powershell.md).
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successive. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+ - Per questa esercitazione è necessaria la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -100,11 +98,11 @@ az network application-gateway create \
 
  Il processo di creazione del gateway applicazione può richiedere alcuni minuti. Dopo aver creato il gateway applicazione, saranno disponibili le nuove funzionalità seguenti:
 
-- *appGatewayBackendPool* : un gateway applicazione deve avere almeno un pool di indirizzi back-end.
-- *appGatewayBackendHttpSettings* : specifica che per le comunicazioni vengono usati la porta 80 e il protocollo HTTP.
-- *appGatewayHttpListener* : il listener predefinito associato ad *appGatewayBackendPool*.
-- *appGatewayFrontendIP* : assegna *myAGPublicIPAddress* ad *appGatewayHttpListener*.
-- *rule1* : regola di routing predefinita associata ad *appGatewayHttpListener*.
+- *appGatewayBackendPool*: un gateway applicazione deve avere almeno un pool di indirizzi back-end.
+- *appGatewayBackendHttpSettings*: specifica che per le comunicazioni vengono usati la porta 80 e il protocollo HTTP.
+- *appGatewayHttpListener*: il listener predefinito associato ad *appGatewayBackendPool*.
+- *appGatewayFrontendIP*: assegna *myAGPublicIPAddress* ad *appGatewayHttpListener*.
+- *rule1*: regola di routing predefinita associata ad *appGatewayHttpListener*.
 
 
 ### <a name="add-backend-pools-and-ports"></a>Aggiunta di pool back-end e porte
@@ -236,7 +234,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Creare set di scalabilità di macchine virtuali
 
-In questo esempio si creano tre set di scalabilità di macchine virtuali che supportano i tre pool back-end creati. I set di scalabilità creati sono denominati *myvmss1* , *myvmss2* e *myvmss3*. Ogni set di scalabilità contiene due istanze di macchina virtuale in cui si installa NGINX.
+In questo esempio si creano tre set di scalabilità di macchine virtuali che supportano i tre pool back-end creati. I set di scalabilità creati sono denominati *myvmss1*, *myvmss2* e *myvmss3*. Ogni set di scalabilità contiene due istanze di macchina virtuale in cui si installa NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do

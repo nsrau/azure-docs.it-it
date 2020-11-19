@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: tutorial
 ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: 58002140cd6ec0cd90eefc506dc743be05e7be7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9733eeb0d9941f6e23dcc9c0fa4dba60f4e4d30
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274487"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561030"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Esercitazione: Creare un gateway applicazione con un web application firewall tramite il portale di Azure
 
@@ -171,7 +171,7 @@ A questo scopo, è necessario:
 
 In questo esempio viene installato IIS nelle macchine virtuali solo per verificare che il gateway applicazione sia stato creato correttamente da Azure.
 
-1. Aprire [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). A tale scopo, selezionare **Cloud Shell** dalla barra di spostamento superiore del portale di Azure e quindi selezionare **PowerShell** nell'elenco a discesa. 
+1. Aprire [Azure PowerShell](../../cloud-shell/quickstart-powershell.md). A tale scopo, selezionare **Cloud Shell** dalla barra di spostamento superiore del portale di Azure e quindi selezionare **PowerShell** nell'elenco a discesa. 
 
     ![Installare l'estensione personalizzata](../media/application-gateway-web-application-firewall-portal/application-gateway-extension.png)
 

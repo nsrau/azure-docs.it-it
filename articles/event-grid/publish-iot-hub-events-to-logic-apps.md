@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: philmea
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5092aa0b5b23f04af1f49933bca234815f03f454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 857ae8d824443e9a8abdac7c4a66e2b014be2be0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604596"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566351"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Esercitazione: Esercitazione: Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando Griglia di eventi e App per la logica
 
@@ -21,13 +21,13 @@ Griglia di eventi di Azure consente di rispondere agli eventi dell'hub IoT attiv
 
 Questo articolo illustra una configurazione di esempio che usa l'hub IoT e Griglia di eventi. Al termine, si ottiene un'app per la logica di Azure configurata per l'invio di un messaggio di posta elettronica di notifica ogni volta che un dispositivo si connette all'hub IoT o di disconnette dallo stesso. La Griglia di eventi può essere usata per ricevere una notifica tempestiva sulla disconnessione dei dispositivi critici. Le metriche e la diagnostica possono richiedere diversi minuti (ad esempio 20 o di più, anche se non si vuole indicare un numero) per la visualizzazione in log/avvisi. Condizione che potrebbe essere inaccettabile per un'infrastruttura critica.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure attiva. Se non si ha una sottoscrizione, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/).
+* Un account di un provider di posta elettronica supportato da App per la logica di Azure, ad esempio Office 365 Outlook o Outlook.com. Questo account di posta elettronica viene usato per inviare le notifiche degli eventi.
 
-* Un account di un provider di posta elettronica supportato da App per la logica di Azure, ad esempio Office 365 Outlook o Outlook.com. Questo account di posta elettronica viene usato per inviare le notifiche degli eventi. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="create-an-iot-hub"></a>Creazione di un hub IoT
 

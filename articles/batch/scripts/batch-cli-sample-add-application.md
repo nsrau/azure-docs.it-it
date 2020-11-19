@@ -4,20 +4,20 @@ description: Questo script di esempio mostra come aggiungere un'applicazione da 
 ms.topic: sample
 ms.date: 01/29/2018
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa4f273949e59c66292f5742501be9c2ad6a9fa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 414a401168b1b378ed33f4904607243de0267d22
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494452"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565807"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>Esempio di interfaccia della riga di comando: aggiungere un'applicazione a un account Azure Batch
 
 Questo script mostra come aggiungere un'applicazione per l'uso con un'attività o un pool di Azure Batch. Per configurare un'applicazione da aggiungere all'account Batch, creare un pacchetto dell'eseguibile, insieme a eventuali dipendenze, come file ZIP. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.20 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+ - Per questa esercitazione è necessaria la versione 2.0.20 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata. 
 
 ## <a name="example-script"></a>Script di esempio
 
