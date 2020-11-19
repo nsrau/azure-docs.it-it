@@ -3,16 +3,16 @@ title: Informazioni sui concetti del repository del modello di dispositivo | Mic
 description: In qualità di sviluppatore di soluzioni o professionisti IT, informazioni sui concetti di base del repository del modello di dispositivo.
 author: rido-min
 ms.author: rmpablos
-ms.date: 09/30/2020
+ms.date: 11/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4e15ef5256c1552fc8ab7fb9bd84f15bb3433834
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: b567efe2541bb33c905def73bb78398799b4ed69
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131361"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920543"
 ---
 # <a name="device-model-repository"></a>Repository del modello di dispositivo
 
@@ -30,7 +30,7 @@ Microsoft ospita una ricevitore pubblica con queste caratteristiche:
 
 ## <a name="custom-device-model-repository"></a>Repository del modello di dispositivo personalizzato
 
-Per creare un ricevitore personalizzato, è possibile usare lo stesso modello ricevitore in qualsiasi supporto di archiviazione, ad esempio file system locali o server Web HTTP personalizzati. È possibile recuperare i modelli di dispositivo dal ricevitore personalizzato in modo analogo al ricevitore pubblico semplicemente modificando l'URL di base usato per accedere a ricevitore.
+Usare lo stesso modello ricevitore per creare un ricevitore personalizzato in qualsiasi supporto di archiviazione, ad esempio file system locali o server Web HTTP personalizzati. È possibile recuperare i modelli di dispositivo dal ricevitore personalizzato in modo analogo a quello del ricevitore pubblico modificando l'URL di base usato per accedere a ricevitore.
 
 > [!NOTE]
 > Microsoft fornisce gli strumenti per convalidare i modelli di dispositivo nella ricevitore pubblica. È possibile riutilizzare questi strumenti in repository personalizzati.
@@ -47,9 +47,9 @@ Tutte le interfacce nelle `dtmi` cartelle sono disponibili anche dall'endpoint p
 
 ### <a name="resolve-models"></a>Risolvere i modelli
 
-Per accedere a livello di codice a queste interfacce, è necessario convertire un DTMI in un percorso relativo che è possibile usare per eseguire una query sull'endpoint pubblico. Nell'esempio di codice seguente viene illustrato come eseguire questa operazione:
+Per accedere a livello di codice a queste interfacce, è necessario convertire un DTMI in un percorso relativo che è possibile usare per eseguire una query sull'endpoint pubblico.
 
-Per convertire DTMI in un percorso assoluto, viene usata la `DtmiToPath` funzione con `IsValidDtmi` :
+Per convertire un DTMI in un percorso assoluto, usare la `DtmiToPath` funzione con `IsValidDtmi` :
 
 ```cs
 static string DtmiToPath(string dtmi)
@@ -87,45 +87,80 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 
 1. Creare un fork del repository GitHub pubblico: [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models) .
 1. Clonare il repository con fork. Se lo si desidera, è possibile creare un nuovo ramo per evitare che le modifiche siano isolate dal `main` ramo.
-1. Aggiungere le nuove interfacce alla `dtmi` cartella usando la convenzione cartella/nome file. Vedere lo strumento [Aggiungi modello](#add-model) .
-1. Convalidare i modelli di dispositivo localmente utilizzando la sezione [script per convalidare le modifiche](#validate-files) .
+1. Aggiungere le nuove interfacce alla `dtmi` cartella usando la convenzione cartella/nome file. Per altre informazioni, vedere [importare un modello nella `dtmi/` cartella](#import-a-model-to-the-dtmi-folder).
+1. Convalidare i modelli localmente utilizzando lo `dmr-client` strumento. Per altre informazioni, vedere [convalidare i modelli](#validate-models).
 1. Eseguire il commit delle modifiche in locale ed effettuare il push nel fork.
 1. Dal fork creare una richiesta pull destinata al `main` ramo. Vedere la documentazione relativa alla [creazione di un problema o di una richiesta pull](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) .
 1. Esaminare i [requisiti della richiesta pull](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
 
-La richiesta pull attiva una serie di azioni GitHub che convalideranno le nuove interfacce inviate e assicurarsi che la richiesta pull soddisfi tutti i controlli.
+La richiesta pull attiva un set di azioni GitHub che convalidano le interfacce inviate e assicura che la richiesta pull soddisfi tutti i requisiti.
 
 Microsoft risponderà a una richiesta pull con tutti i controlli in tre giorni lavorativi.
 
-### <a name="add-model"></a>Aggiungi modello
+### <a name="dmr-client-tools"></a>`dmr-client` strumenti
 
-Nei passaggi seguenti viene illustrato il modo in cui lo script di add-model.js consente di aggiungere una nuova interfaccia. Per eseguire questo script è necessario Node.js:
+Gli strumenti usati per convalidare i modelli durante i controlli della richiesta pull possono essere usati anche per aggiungere e convalidare le interfacce DTDL localmente.
 
-1. Al prompt dei comandi passare al repository git locale
-1. Eseguire `npm install`
-1. Eseguire `npm run add-model <path-to-file-to-add>`
+> [!NOTE]
+> Questo strumento richiede [.NET SDK](https://dotnet.microsoft.com/download) versione 3,1 o successiva.
+
+### <a name="install-dmr-client"></a>Installare `dmr-client`
+
+```bash
+curl -L https://aka.ms/install-dmr-client-linux | bash
+```
+
+```powershell
+iwr https://aka.ms/install-dmr-client-windows -UseBasicParsing | iex
+```
+
+### <a name="import-a-model-to-the-dtmi-folder"></a>Importare un modello nella `dtmi/` cartella
+
+Se il modello è già archiviato in file JSON, è possibile usare il `dmr-client import` comando per aggiungerli alla `dtmi/` cartella con i nomi file corretti:
+
+```bash
+# from the local repo root folder
+dmr-client import --model-file "MyThermostat.json"
+```
+
+> [!TIP]
+> È possibile usare l' `--local-repo` argomento per specificare la cartella radice del repository locale.
+
+### <a name="validate-models"></a>Convalida modelli
+
+È possibile convalidare i modelli con il `dmr-client validate` comando:
+
+```bash
+dmr-client validate --model-file ./my/model/file.json
+```
+
+> [!NOTE]
+> La convalida usa la versione più recente del parser DTDL per assicurarsi che tutte le interfacce siano compatibili con la specifica del linguaggio DTDL.
+
+Per convalidare le dipendenze esterne, devono esistere nel repository locale. Per convalidare i modelli, utilizzare l' `--repo` opzione per specificare una `local` `remote` cartella o per risolvere le dipendenze:
+
+```bash
+# from the repo root folder
+dmr-client validate --model-file ./my/model/file.json --repo .
+```
+
+### <a name="strict-validation"></a>Convalida rigorosa
+
+Il ricevitore include [requisiti](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md)aggiuntivi, usare il `stict` flag per convalidare il modello:
+
+```bash
+dmr-client validate --model-file ./my/model/file.json --repo . --strict true
+```
 
 Controllare l'output della console per eventuali messaggi di errore.
 
-### <a name="local-validation"></a>Convalida locale
+### <a name="export-models"></a>Esportare i modelli
 
-È possibile eseguire gli stessi controlli di convalida localmente prima di inviare la richiesta pull per facilitare la diagnosi dei problemi in anticipo.
+I modelli possono essere esportati da un repository specifico (locale o remoto) a un singolo file usando una matrice JSON:
 
-#### <a name="validate-files"></a>Validate-files
-
-`npm run validate-files <file1.json> <file2.json>` Verifica che il percorso del file corrisponda alla cartella e ai nomi di file previsti.
-
-#### <a name="validate-ids"></a>Validate-ID
-
-`npm run validate-ids <file1.json> <file2.json>` Verifica che tutti gli ID definiti nel documento usino la stessa radice dell'ID principale.
-
-#### <a name="validate-deps"></a>Validate-Deps
-
-`npm run validate-deps <file1.json> <file2.json>` Verifica che tutte le dipendenze siano disponibili nella `dtmi` cartella.
-
-#### <a name="validate-models"></a>Validate-modelli
-
-È possibile eseguire l' [esempio di convalida DTDL](https://github.com/Azure-Samples/DTDL-Validator) per convalidare i modelli di dispositivo in locale.
+```bash
+dmr-client export --dtmi "dtmi:com:example:TemperatureController;1" -o TemperatureController.expanded.json
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

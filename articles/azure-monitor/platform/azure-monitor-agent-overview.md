@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: 466851ce04a047f3edabcf33b45dba9cab0db20e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 76f541a45c56669d17103f16997f3d036955b773
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132704"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919685"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Panoramica dell'agente di monitoraggio di Azure (anteprima)
 L'agente di monitoraggio di Azure raccoglie i dati di monitoraggio dal sistema operativo guest delle macchine virtuali e li recapita a monitoraggio di Azure. Questo articolo fornisce una panoramica dell'agente di monitoraggio di Azure, tra cui come installarlo e come configurare la raccolta dei dati.
@@ -76,7 +76,7 @@ La tabella seguente elenca i tipi di dati che è attualmente possibile raccoglie
 
 L'agente di monitoraggio di Azure invia dati alle metriche di monitoraggio di Azure o a un'area di lavoro Log Analytics che supporta i log di monitoraggio di Azure.
 
-| origine dati | Destinations | Descrizione |
+| origine dati | Destinazioni | Description |
 |:---|:---|:---|
 | Prestazioni        | Metriche di Monitoraggio di Azure<br>Area di lavoro Log Analytics | Valori numerici che misurano le prestazioni di diversi aspetti del sistema operativo e dei carichi di lavoro. |
 | Registri eventi di Windows | Area di lavoro Log Analytics | Informazioni inviate al sistema di registrazione eventi di Windows. |
@@ -99,7 +99,7 @@ L'agente di monitoraggio di Azure viene implementato come [estensione della macc
 
 | Proprietà | Windows | Linux |
 |:---|:---|:---|
-| Editore | Microsoft. Azure. monitor  | Microsoft. Azure. monitor |
+| Publisher | Microsoft. Azure. monitor  | Microsoft. Azure. monitor |
 | Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
 | TypeHandlerVersion  | 1.0 | 1.5 |
 
@@ -134,7 +134,7 @@ az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Mo
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell2)
 
 ```powershell
-Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
+Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus -TypeHandlerVersion 1.5
 ```
 ---
 

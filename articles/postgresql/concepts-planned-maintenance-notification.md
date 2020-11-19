@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 1803a0070321ff4d895203f027f839601bb726ee
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 0691411f57944f8203120ec2a6ed19013135458c
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887145"
+ms.locfileid: "94920254"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notifica di manutenzione pianificata nel Database di Azure per PostgreSQL - Server singolo
 
@@ -78,7 +78,7 @@ Un errore temporaneo è un errore che si risolve in modo autonomo. Durante la ma
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per eventuali domande o suggerimenti sull'uso di database di Azure per PostgreSQL, inviare un messaggio di posta elettronica al team di database di Azure per PostgreSQL all'indirizzo *AskAzureDBforPostgreSQL@service.microsoft.com* .
+- Per eventuali domande o suggerimenti sull'uso di database di Azure per PostgreSQL, inviare un messaggio di posta elettronica al team di database di Azure per PostgreSQL all'indirizzo AskAzureDBforPostgreSQL@service.microsoft.com
 - Per informazioni sulla creazione di un avviso per una metrica, vedere [Come configurare gli avvisi](howto-alert-on-metric.md).
 - [Risolvere i problemi di connessione al database di Azure per PostgreSQL-server singolo](howto-troubleshoot-common-connection-issues.md)
 - [Gestire gli errori temporanei e connettersi in modo efficiente al database di Azure per PostgreSQL-server singolo](concepts-connectivity.md)

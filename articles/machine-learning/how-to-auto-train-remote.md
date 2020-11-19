@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: how-to, automl
 ms.date: 03/09/2020
-ms.openlocfilehash: a79fc0311e940b9b4eb3e14838ef22e09342a066
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 65ce11581972c83b0294c0afcbe95e5a35ef2471
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357998"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920577"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Eseguire il training di modelli di apprendimento automatico nel cloud
 
@@ -45,7 +45,7 @@ ws = Workspace.from_config()
 
 Creare la [`AmlCompute`](/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?preserve-view=true&view=azure-ml-py) destinazione nell'area di lavoro ( `ws` ) se non esiste già.
 
-**Tempo stimato** : la creazione della destinazione AmlCompute richiede circa 5 minuti.
+**Tempo stimato**: la creazione della destinazione AmlCompute richiede circa 5 minuti.
 
 ```python
 from azureml.core.compute import AmlCompute
@@ -220,7 +220,7 @@ Se non si è in un notebook di Jupyter, è possibile visualizzare l'URL dall'ese
 remote_run.get_portal_url()
 ```
 
-Le stesse informazioni sono disponibili nell'area di lavoro.  Per altre informazioni su questi risultati, vedere informazioni sui [risultati automatici di Machine Learning](how-to-understand-automated-ml.md).
+Le stesse informazioni sono disponibili nell'area di lavoro.  Per altre informazioni su questi risultati, vedere [valutare i risultati automatici di Machine Learning](how-to-understand-automated-ml.md).
 
 ## <a name="example"></a>Esempio
 

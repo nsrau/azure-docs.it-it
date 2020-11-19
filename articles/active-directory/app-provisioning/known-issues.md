@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/11/2020
+ms.date: 11/19/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 4b4c02efffb39e88a01c35d3c818930a0f6fd9cf
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8a1c789759f1119a6170fffc2c70874cd9a32fde
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069756"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919684"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemi noti: provisioning delle applicazioni
 Problemi noti da tenere presente quando si utilizza il provisioning delle app. È possibile fornire commenti e suggerimenti sul servizio di provisioning dell'applicazione in UserVoice, vedere Azure AD provisioning [dell'applicazione UserVoice](https://aka.ms/appprovisioningfeaturerequest). Osserviamo attentamente UserVoice per poter migliorare il servizio. 
@@ -86,6 +86,9 @@ Quando si imposta il provisioning `enabled = off` o si preme Stop, il ciclo di p
 
 Quando un gruppo è nell'ambito e un membro è esterno all'ambito, viene eseguito il provisioning del gruppo. Non verrà eseguito il provisioning dell'utente esterno all'ambito. Se il membro torna all'ambito, il servizio non rileverà immediatamente la modifica. Il riavvio del provisioning risolverà il problema. È consigliabile riavviare periodicamente il servizio per assicurarsi che venga effettuato correttamente il provisioning di tutti gli utenti.  
 
+**Non è stato eseguito il provisioning del gestore**
+
+Se un utente e il relativo Manager sono entrambi nell'ambito del provisioning, il servizio effettuerà il provisioning dell'utente e aggiornerà il responsabile. Tuttavia, se il giorno uno l'utente rientra nell'ambito e il Manager è esterno all'ambito, verrà eseguito il provisioning dell'utente senza il riferimento al responsabile. Quando il gestore entra nell'ambito, il riferimento al responsabile non verrà aggiornato fino a quando non si riavvia il provisioning e si farà in modo che il servizio rivaluti nuovamente tutti gli utenti. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Come funziona il provisioning](how-provisioning-works.md)

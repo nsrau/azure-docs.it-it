@@ -3,12 +3,12 @@ title: Creare i criteri per le proprietà della matrice nelle risorse
 description: Informazioni su come usare i parametri della matrice e le espressioni del linguaggio della matrice, valutare l'alias [*] e aggiungere elementi con le regole di definizione di Criteri di Azure.
 ms.date: 10/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 92339a6da4fd2061d66935cc8d04428c69822862
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 60044d4a599c14088ea923a6a14cb46543646995
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323235"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920458"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Creare i criteri per le proprietà della matrice nelle risorse di Azure
 
@@ -17,7 +17,7 @@ Le proprietà di Azure Resource Manager sono comunemente definite come stringhe 
 - Tipo di un [parametro della definizione](../concepts/definition-structure.md#parameters) per offrire più opzioni
 - Parte di una [regola dei criteri](../concepts/definition-structure.md#policy-rule) che usa le condizioni **in** o **notIn**
 - Parte di una regola dei criteri che valuta l'[alias\[\*\]](../concepts/definition-structure.md#understanding-the--alias) per:
-  - Scenari, ad esempio di tipo **None** , **Any** o **All**
+  - Scenari, ad esempio di tipo **None**, **Any** o **All**
   - Scenari complessi con l'espressione **count**
 - Nell'[effetto Append](../concepts/effects.md#append) per sostituire o aggiungere a una matrice esistente
 
@@ -28,7 +28,7 @@ Questo articolo descrive tutti gli usi di Criteri di Azure e offre diverse defin
 ### <a name="define-a-parameter-array"></a>Definire una matrice di parametri
 
 La definizione di un parametro come matrice consente l'uso di criteri flessibili quando è necessario più di un valore.
-La definizione dei criteri consente di usare un'unica località qualsiasi per il parametro **allowedLocations**. Il valore predefinito è _eastus2_ :
+La definizione dei criteri consente di usare un'unica località qualsiasi per il parametro **allowedLocations**. Il valore predefinito è _eastus2_:
 
 ```json
 "parameters": {
@@ -44,7 +44,7 @@ La definizione dei criteri consente di usare un'unica località qualsiasi per il
 }
 ```
 
-Il valore di **type** è _string_ , quindi è possibile impostare un solo valore quando si assegnano i criteri. Se si assegnano questi criteri, le risorse nell'ambito sono consentite solo all'interno di un'unica area di Azure. La maggior parte delle definizioni dei criteri deve consentire un elenco di opzioni approvate, ad esempio _eastus2_ , _eastus_ e _westus2_.
+Il valore di **type** è _string_, quindi è possibile impostare un solo valore quando si assegnano i criteri. Se si assegnano questi criteri, le risorse nell'ambito sono consentite solo all'interno di un'unica area di Azure. La maggior parte delle definizioni dei criteri deve consentire un elenco di opzioni approvate, ad esempio _eastus2_, _eastus_ e _westus2_.
 
 Per creare la definizione dei criteri che consenta più opzioni, usare _array_ per **type**. Gli stessi criteri possono essere riscritti nel modo seguente:
 
@@ -71,11 +71,11 @@ Per creare la definizione dei criteri che consenta più opzioni, usare _array_ p
 > [!NOTE]
 > Dopo aver salvato una definizione dei criteri, la proprietà **type** in un parametro non può essere modificata.
 
-Questa nuova definizione dei parametri accetta più di un valore durante l'assegnazione dei criteri. Dopo aver definito la proprietà della matrice **allowedValues** , i valori disponibili durante l'assegnazione sono esclusivamente quelli disponibili nell'elenco predefinito delle opzioni. L'uso di **allowedValues** è facoltativo.
+Questa nuova definizione dei parametri accetta più di un valore durante l'assegnazione dei criteri. Dopo aver definito la proprietà della matrice **allowedValues**, i valori disponibili durante l'assegnazione sono esclusivamente quelli disponibili nell'elenco predefinito delle opzioni. L'uso di **allowedValues** è facoltativo.
 
 ### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Passare i valori a una matrice di parametri durante l'assegnazione
 
-Quando si assegnano i criteri tramite il portale di Azure, un parametro di **type** _array_ viene visualizzato come unica casella di testo, in cui viene visualizzato il suggerimento "Usare il ; per separare i valori. Ad esempio: Londra;New York". Per passare i valori delle località consentite di _eastus2_ , _eastus_ e _westus2_ al parametro, usare la stringa seguente:
+Quando si assegnano i criteri tramite il portale di Azure, un parametro di **type** _array_ viene visualizzato come unica casella di testo, in cui viene visualizzato il suggerimento "Usare il ; per separare i valori. Ad esempio: Londra;New York". Per passare i valori delle località consentite di _eastus2_, _eastus_ e _westus2_ al parametro, usare la stringa seguente:
 
 `eastus2;eastus;westus2`
 
@@ -95,7 +95,7 @@ Il formato del valore del parametro è diverso quando si usa l'interfaccia della
 
 Per usare questa stringa con ogni SDK, usare i comandi seguenti:
 
-- Interfaccia della riga di comando di Azure: comando [az policy assignment create](/cli/azure/policy/assignment#az-policy-assignment-create) con il parametro **params**
+- Interfaccia della riga di comando di Azure: comando [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create) con il parametro **params**
 - Azure PowerShell: cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) con il parametro **PolicyParameter**
 - API REST: durante l'operazione di [creazione](/rest/api/resources/policyassignments/create) di tipo _PUT_ come parte del corpo della richiesta, come valore della proprietà **properties.parameters**
 
@@ -134,7 +134,7 @@ Il tentativo di creare questa definizione dei criteri tramite il portale di Azur
 
 - "Non è stato possibile applicare i parametri ai criteri '{GUID}' a causa di errori di convalida. Controllare che i parametri dei criteri siano definiti correttamente. Eccezione interna: "Il risultato della valutazione dell'espressione '[parameters('allowedLocations')]' del linguaggio è di tipo "Array", ma il tipo previsto è "String".
 
-Il valore **type** previsto della condizione `equals` è _string_. Poiché **allowedLocations** è definito come **type** _array_ , il motore dei criteri valuta l'espressione del linguaggio e genera l'errore. Con le condizioni `in` e `notIn`, il motore dei criteri prevede la presenza di **type** _array_ nell'espressione del linguaggio. Per correggere questo messaggio di errore, modificare `equals` in `in` o `notIn`.
+Il valore **type** previsto della condizione `equals` è _string_. Poiché **allowedLocations** è definito come **type** _array_, il motore dei criteri valuta l'espressione del linguaggio e genera l'errore. Con le condizioni `in` e `notIn`, il motore dei criteri prevede la presenza di **type** _array_ nell'espressione del linguaggio. Per correggere questo messaggio di errore, modificare `equals` in `in` o `notIn`.
 
 ## <a name="referencing-array-resource-properties"></a>Riferimento alle proprietà delle risorse della matrice
 
@@ -201,7 +201,7 @@ Con la `field()` funzione, il valore restituito è la matrice dal contenuto dell
 
 #### <a name="referencing-the-array-members-collection"></a>Riferimento alla raccolta di membri della matrice
 
-Gli alias che usano la `[*]` sintassi rappresentano una **raccolta di valori di proprietà selezionati da una proprietà di matrice** , che è diversa dalla selezione della proprietà della matrice stessa. Nel caso di `Microsoft.Test/resourceType/stringArray[*]` , restituisce una raccolta che contiene tutti i membri di `stringArray` . Come indicato in precedenza, una `field` condizione verifica che tutte le proprietà della risorsa selezionate soddisfino la condizione, pertanto la condizione seguente è vera solo se **tutti** i membri di `stringArray` sono uguali a "" valore "".
+Gli alias che usano la `[*]` sintassi rappresentano una **raccolta di valori di proprietà selezionati da una proprietà di matrice**, che è diversa dalla selezione della proprietà della matrice stessa. Nel caso di `Microsoft.Test/resourceType/stringArray[*]` , restituisce una raccolta che contiene tutti i membri di `stringArray` . Come indicato in precedenza, una `field` condizione verifica che tutte le proprietà della risorsa selezionate soddisfino la condizione, pertanto la condizione seguente è vera solo se **tutti** i membri di `stringArray` sono uguali a "" valore "".
 
 ```json
 {
@@ -311,7 +311,7 @@ Questo comportamento funziona anche con matrici annidate. L'espressione seguente
 }
 ```
 
-La potenza di `count` si trova nella `where` condizione. Quando viene specificato, criteri di Azure enumera i membri della matrice e ne valuta ognuno rispetto alla condizione, conteggiando il numero di membri della matrice valutati `true` . In particolare, in ogni iterazione della `where` valutazione della condizione, criteri di Azure seleziona un singolo membro della matrice * **i** _ e valuta il contenuto della risorsa rispetto alla `where` condizione _* come se * *_i_*_ fosse l'unico membro del array_ *. Se è disponibile un solo membro della matrice in ogni iterazione, è possibile applicare condizioni complesse a ogni singolo membro della matrice.
+La potenza di `count` si trova nella `where` condizione. Quando viene specificato, criteri di Azure enumera i membri della matrice e ne valuta ognuno rispetto alla condizione, conteggiando il numero di membri della matrice valutati `true` . In particolare, in ogni iterazione della `where` valutazione della condizione, criteri di Azure seleziona un singolo membro della matrice ***i** _ e valuta il contenuto della risorsa rispetto alla `where` condizione _* come se **_i_*_ fosse l'unico membro del array_ *. Se è disponibile un solo membro della matrice in ogni iterazione, è possibile applicare condizioni complesse a ogni singolo membro della matrice.
 
 Esempio:
 ```json
@@ -424,7 +424,7 @@ Il funzionamento delle `field()` funzioni quando si trova all'interno di una `wh
 1. `field()` le funzioni che fanno riferimento agli alias di matrice restituiscono una matrice con i valori selezionati.
 1. Se si fa riferimento all'alias di matrice conteggiato all'interno della `where` condizione, viene restituita una raccolta con un solo valore selezionato dal membro della matrice valutato nell'iterazione corrente.
 
-Questo comportamento indica che, quando si fa riferimento al membro della matrice conteggiata con una `field()` funzione all'interno della `where` condizione, **viene restituita una matrice con un singolo membro**. Sebbene questo potrebbe non essere intuitivo, è coerente con l'idea che gli alias di matrice restituiscano sempre una raccolta di proprietà selezionate. Ad esempio:
+Questo comportamento indica che, quando si fa riferimento al membro della matrice conteggiata con una `field()` funzione all'interno della `where` condizione, **viene restituita una matrice con un singolo membro**. Sebbene questo potrebbe non essere intuitivo, è coerente con l'idea che gli alias di matrice restituiscano sempre una raccolta di proprietà selezionate. Ecco un esempio:
 
 ```json
 {

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
 ms.date: 11/16/2020
-ms.openlocfilehash: 78c35e42cefa8897d9f93c3a941b4c0e8b81e5f9
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 4dd4729589e429cb1b028b183fdfd144617d1d1b
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686954"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920645"
 ---
 # <a name="major-version-upgrade-in-azure-database-for-mysql-single-server-using-the-azure-portal"></a>Aggiornamento della versione principale nel server singolo database di Azure per MySQL con il portale di Azure
 
@@ -33,6 +33,9 @@ Per completare questa guida, è necessario:
 ## <a name="perform-major-version-upgrade-from-mysql-56-to-mysql-57"></a>Eseguire l'aggiornamento della versione principale da MySQL 5,6 a MySQL 5,7
 
 Seguire questa procedura per eseguire l'aggiornamento principale della versione per il database di Azure del server MySQL 5,6
+
+> [!IMPORTANT]
+> È consigliabile eseguire prima l'aggiornamento su una copia ripristinata del server anziché aggiornare direttamente la produzione. Vedere [come eseguire il ripristino temporizzato](howto-restore-server-portal.md#point-in-time-restore).
 
 1. Nella [portale di Azure](https://portal.azure.com/)selezionare il server di database di Azure per MySQL 5,6 esistente.
 

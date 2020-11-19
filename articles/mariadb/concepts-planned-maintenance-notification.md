@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 61313a1790fe51cb26168622cc871076c40bb511
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 1c9ae694fefcede599331d5d57a298bda4739f53
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887434"
+ms.locfileid: "94920526"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Notifica di manutenzione pianificata nel database di Azure per MariaDB
 
@@ -78,7 +78,7 @@ Un errore temporaneo è un errore che si risolve in modo autonomo. Durante la ma
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per eventuali domande o suggerimenti sull'uso di database di Azure per MariaDB, inviare un messaggio di posta elettronica al team di database di Azure per MariaDB all'indirizzo **AskAzureDBforMariaDB@service.microsoft.com**
+- Per eventuali domande o suggerimenti sull'uso di database di Azure per MariaDB, inviare un messaggio di posta elettronica al team di database di Azure per MariaDB all'indirizzo AskAzureDBforMariaDB@service.microsoft.com
 - Per informazioni sulla creazione di un avviso per una metrica, vedere [Come configurare gli avvisi](howto-alert-metric.md).
 - [Risolvere i problemi di connessione a database di Azure per MariaDB](howto-troubleshoot-common-connection-issues.md)
 - [Gestire gli errori temporanei e connettersi in modo efficiente al database di Azure per MariaDB](concepts-connectivity.md)

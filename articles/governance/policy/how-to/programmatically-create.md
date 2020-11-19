@@ -3,12 +3,12 @@ title: Creare criteri a livello di programmazione
 description: Questo articolo illustra la creazione e la gestione a livello di codice dei criteri per Criteri di Azure con l’interfaccia della riga di comando di Azure, Azure PowerShell e l’API REST.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 2bf2b1864331fd785ecdd70be4af79be01f1e5e0
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 86c1b60608780cba4d8ae27e3c82ace458f09a26
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491801"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920016"
 ---
 # <a name="programmatically-create-policies"></a>Creare criteri a livello di programmazione
 
@@ -203,7 +203,7 @@ Per creare una definizione dei criteri, usare la procedura seguente:
    ```
 
    Il comando crea una definizione di criteri denominata _Audit Storage Accounts Open to Public Networks_.
-   Per altre informazioni sui parametri aggiuntivi che è possibile usare, vedere [az policy definition create](/cli/azure/policy/definition#az-policy-definition-create).
+   Per altre informazioni sui parametri aggiuntivi che è possibile usare, vedere [az policy definition create](/cli/azure/policy/definition#az_policy_definition_create).
 
    Se chiamato senza parametri per la posizione, `az policy definition creation` salva per impostazione predefinita la definizione dei criteri nella sottoscrizione selezionata del contesto di sessioni. Per salvare la definizione in una posizione diversa, usare i parametri seguenti:
 

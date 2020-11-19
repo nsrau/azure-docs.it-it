@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 63cc4448034b6a2ae2d74f4a2d9a0a62296678cf
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: ff197f8add65782a594d64661ffecdaced4598c2
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886482"
+ms.locfileid: "94919625"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Notifica di manutenzione pianificata nel database di Azure per MySQL-server singolo
 
@@ -78,7 +78,7 @@ Un errore temporaneo è un errore che si risolve in modo autonomo. Durante la ma
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per eventuali domande o suggerimenti sull'uso di database di Azure per MySQL, inviare un messaggio di posta elettronica al team di database di Azure per MySQL all'indirizzo **AskAzureDBforMySQL@service.microsoft.com** .
+- Per eventuali domande o suggerimenti sull'uso di database di Azure per MySQL, inviare un messaggio di posta elettronica al team di database di Azure per MySQL all'indirizzo AskAzureDBforMySQL@service.microsoft.com
 - Per informazioni sulla creazione di un avviso per una metrica, vedere [Come configurare gli avvisi](howto-alert-on-metric.md).
 - [Risolvere i problemi di connessione al database di Azure per MySQL-server singolo](howto-troubleshoot-common-connection-issues.md)
 - [Gestire gli errori temporanei e connettersi in modo efficiente al database di Azure per MySQL-server singolo](concepts-connectivity.md)

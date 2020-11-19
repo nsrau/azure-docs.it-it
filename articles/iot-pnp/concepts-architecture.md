@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 32e67bd7f30fecee3449935a35235844a047957b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a87617e1cc6910b4c807aa90f413efe94b6e6953
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574323"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94920305"
 ---
 # <a name="iot-plug-and-play-architecture"></a>Architettura di Plug and Play IoT
 
@@ -36,7 +36,7 @@ Il [repository del modello](./concepts-model-repository.md) è un archivio per l
 
 L'interfaccia utente Web consente di gestire i modelli e le interfacce.
 
-Il repository del modello usa il controllo degli accessi in base al ruolo per consentire l'accesso alle definizioni di interfaccia.
+Il repository del modello dispone di controlli di accesso in base al ruolo predefiniti che consentono di limitare l'accesso alle definizioni di interfaccia.
 
 ## <a name="devices"></a>Dispositivi
 

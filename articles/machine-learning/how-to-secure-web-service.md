@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 03/05/2020
+ms.date: 11/18/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: a9b68b2d4298c5e692782e529bae9a9df6359953
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 97017e104ecff38ebf4e475fb5f6ae42707ef10e
+ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331159"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94919591"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Usare TLS per proteggere un servizio Web tramite Azure Machine Learning
 
@@ -30,7 +30,7 @@ Usare [https](https://en.wikipedia.org/wiki/HTTPS) per limitare l'accesso ai ser
 >
 > In particolare, i servizi Web distribuiti tramite Azure Machine Learning supportano TLS versione 1,2 per le nuove distribuzioni AKS e ACI. Per le distribuzioni ACI, se si utilizza una versione precedente di TLS, è consigliabile eseguire nuovamente la distribuzione per ottenere la versione più recente di TLS.
 
-TLS e SSL si basano entrambi sui *certificati digitali* , che contribuiscono alla crittografia e alla verifica dell'identità. Per ulteriori informazioni sul funzionamento dei certificati digitali, vedere l'argomento di Wikipedia [infrastruttura a chiave pubblica](https://en.wikipedia.org/wiki/Public_key_infrastructure).
+TLS e SSL si basano entrambi sui *certificati digitali*, che contribuiscono alla crittografia e alla verifica dell'identità. Per ulteriori informazioni sul funzionamento dei certificati digitali, vedere l'argomento di Wikipedia [infrastruttura a chiave pubblica](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
 > [!WARNING]
 > Se non si usa HTTPS per il servizio Web, i dati inviati da e verso il servizio potrebbero essere visibili ad altri utenti su Internet.
@@ -87,6 +87,9 @@ Quando si esegue la distribuzione in AKS, è possibile creare un nuovo cluster A
 
 Il metodo **enable_ssl** può utilizzare un certificato fornito da Microsoft o da un certificato acquistato.
 
+> [!WARNING]
+> Se il cluster AKS è configurato con un servizio di bilanciamento del carico interno, l'uso di un certificato fornito da Microsoft __non è supportato__. L'uso di un certificato fornito da Microsoft richiede una risorsa IP pubblica in Azure, che non è disponibile per AKS quando è configurata per il servizio di bilanciamento del carico interno.
+
   * Quando si usa un certificato di Microsoft, è necessario usare il parametro *leaf_domain_label* . Questo parametro genera il nome DNS per il servizio. Ad esempio, il valore "contoso" crea un nome di dominio "Contoso \<six-random-characters> . \<azureregion> .. cloudapp.azure.com ", dove \<azureregion> è l'area che contiene il servizio. Facoltativamente, è possibile usare il parametro *overwrite_existing_domain* per sovrascrivere la *leaf_domain_label* esistente.
 
     Per distribuire (o ridistribuire) il servizio con TLS abilitato, impostare il parametro *ssl_enabled* su "true" laddove applicabile. Impostare il parametro *ssl_certificate* sul valore del file del *certificato* . Impostare il *ssl_key* sul valore del file di *chiave* .
@@ -115,7 +118,7 @@ Il metodo **enable_ssl** può utilizzare un certificato fornito da Microsoft o d
     attach_config.enable_ssl(leaf_domain_label = "contoso")
     ```
 
-  * Quando si usa *un certificato acquistato* , usare i parametri *ssl_cert_pem_file* , *ssl_key_pem_file* e *ssl_cname* . Nell'esempio seguente viene illustrato come usare i file con *estensione PEM* per creare una configurazione che usa un certificato TLS/SSL acquistato:
+  * Quando si usa *un certificato acquistato*, usare i parametri *ssl_cert_pem_file*, *ssl_key_pem_file* e *ssl_cname* . Nell'esempio seguente viene illustrato come usare i file con *estensione PEM* per creare una configurazione che usa un certificato TLS/SSL acquistato:
 
     ```python
     from azureml.core.compute import AksCompute
@@ -130,9 +133,9 @@ Il metodo **enable_ssl** può utilizzare un certificato fornito da Microsoft o d
                                         ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-Per ulteriori informazioni su *enable_ssl* , vedere [AksProvisioningConfiguration.enable_ssl ()](/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) e [AksAttachConfiguration.enable_ssl ()](/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
+Per ulteriori informazioni su *enable_ssl*, vedere [AksProvisioningConfiguration.enable_ssl ()](/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) e [AksAttachConfiguration.enable_ssl ()](/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
 
-### <a name="deploy-on-azure-container-instances"></a>Eseguire la distribuzione in istanze di contenitore di Azure
+### <a name="deploy-on-azure-container-instances"></a>Distribuire in Istanze di Azure Container
 
 Quando si esegue la distribuzione in istanze di contenitore di Azure, si forniscono valori per i parametri correlati a TLS, come illustrato nel frammento di codice seguente:
 
@@ -159,7 +162,8 @@ Successivamente, è necessario aggiornare il DNS in modo che punti al servizio W
 
   > [!WARNING]
   > Se è stato usato *leaf_domain_label* per creare il servizio usando un certificato di Microsoft, non aggiornare manualmente il valore DNS per il cluster. Il valore deve essere impostato automaticamente.
-
+  >
+  > Se il cluster AKS è configurato con un servizio di bilanciamento del carico interno, l'uso di un certificato fornito da Microsoft (impostando *leaf_domain_label*) __non è supportato__. L'uso di un certificato fornito da Microsoft richiede una risorsa IP pubblica in Azure, che non è disponibile per AKS quando è configurata per il servizio di bilanciamento del carico interno.
   Aggiornare il DNS dell'indirizzo IP pubblico del cluster AKS nella scheda **configurazione** in **Impostazioni** nel riquadro sinistro. (Vedere l'immagine seguente). L'indirizzo IP pubblico è un tipo di risorsa creato nel gruppo di risorse che contiene i nodi dell'agente AKS e altre risorse di rete.
 
   [![Azure Machine Learning: protezione dei servizi Web con TLS](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
