@@ -1,103 +1,183 @@
 ---
-title: Usare il portale di Azure per configurare le chiavi gestite dal cliente per Azure Data Box
-description: Informazioni su come usare la portale di Azure per configurare le chiavi gestite dal cliente con Azure Key Vault per Azure Data Box. Le chiavi gestite dal cliente consentono di creare, ruotare, disabilitare e revocare i controlli di accesso.
+title: Utilizzare il portale di Azure per gestire le chiavi gestite dal cliente per Azure Data Box
+description: Informazioni su come usare portale di Azure per creare e gestire chiavi gestite dal cliente con Azure Key Vault per un Azure Data Box. Le chiavi gestite dal cliente consentono di creare, ruotare, disabilitare e revocare i controlli di accesso.
 services: databox
 author: alkohli
 ms.service: databox
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 40b777342c2c565efc5b40d361a259c98eae693c
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: cd9f4ad6b6831b2b15c09b37edc569b3f2d247f7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337705"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958075"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Usare chiavi gestite dal cliente in Azure Key Vault per Azure Data Box
 
-Azure Data Box protegge la chiave di sblocco del dispositivo (nota anche come password del dispositivo) usata per bloccare il dispositivo tramite una chiave di crittografia. Per impostazione predefinita, la chiave di sblocco del dispositivo per un ordine di Data Box viene crittografata con una chiave gestita da Microsoft. Per un controllo aggiuntivo sulla chiave di sblocco del dispositivo, è anche possibile fornire una chiave gestita dal cliente. 
+Azure Data Box protegge la chiave di sblocco del dispositivo (nota anche come password del dispositivo), che viene usata per bloccare un dispositivo tramite una chiave di crittografia. Per impostazione predefinita, questa chiave di crittografia è una chiave gestita da Microsoft. Per un controllo aggiuntivo, è possibile usare una chiave gestita dal cliente.
 
-Le chiavi gestite dal cliente devono essere create e archiviate in un Azure Key Vault. Per ulteriori informazioni su Azure Key Vault, vedere [che cos'è Azure Key Vault?](../key-vault/general/overview.md).
+L'uso di una chiave gestita dal cliente non influisce sulla modalità di crittografia dei dati nel dispositivo. Influiscono solo sulla crittografia della chiave di sblocco del dispositivo.
 
-Questo articolo illustra come usare le chiavi gestite dal cliente con Azure Data Box nel [portale di Azure](https://portal.azure.com/). Questo articolo si applica sia ai dispositivi Azure Data Box che ai dispositivi Azure Data Box Heavy.
+Per garantire questo livello di controllo durante l'elaborazione dell'ordine, utilizzare una chiave gestita dal cliente durante la creazione dell'ordine. Per ulteriori informazioni, vedere [esercitazione: Order Azure Data Box](data-box-deploy-ordered.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+Questo articolo illustra come abilitare una chiave gestita dal cliente per l'ordine di Data Box esistente nel [portale di Azure](https://portal.azure.com/). Scoprirai come modificare l'insieme di credenziali delle chiavi, la chiave, la versione o l'identità per la chiave corrente gestita dal cliente oppure tornare a usare una chiave gestita da Microsoft.
 
-Prima di iniziare, verificare che:
+Questo articolo si applica ai dispositivi Azure Data Box e Azure Data Box Heavy.
 
-1. È stato creato un ordine Azure Data Box in base alle istruzioni riportate nell' [esercitazione: order Azure Data Box](data-box-deploy-ordered.md).
+## <a name="requirements"></a>Requisiti
 
-2. Si dispone di un Azure Key Vault esistente con una chiave che è possibile usare per proteggere la chiave di sblocco del dispositivo. Per informazioni su come creare un insieme di credenziali delle chiavi usando il portale di Azure, vedere [Guida introduttiva: impostare e recuperare un segreto da Azure Key Vault tramite il portale di Azure](../key-vault/secrets/quick-create-portal.md).
+La chiave gestita dal cliente per un ordine di Data Box deve soddisfare i requisiti seguenti:
 
-    - Le operazioni di **eliminazione** temporanea e **non ripulitura** sono impostate nell'insieme di credenziali delle chiavi esistente. Queste proprietà non sono abilitate per impostazione predefinita. Per abilitare queste proprietà, vedere le sezioni intitolate abilitazione dell' **eliminazione** temporanea e **Abilitazione della protezione ripulitura** in uno degli articoli seguenti:
+- La chiave deve essere creata e archiviata in un Azure Key Vault con **eliminazione** temporanea e **non ripulitura** abilitata. Per altre informazioni, vedere [Informazioni sull’insieme di credenziali chiave di Azure](../key-vault/general/overview.md) È possibile creare un insieme di credenziali delle chiavi e una chiave durante la creazione o l'aggiornamento dell'ordine.
 
-        - [Come usare l'eliminazione temporanea con PowerShell](../key-vault/general/soft-delete-powershell.md).
-        - [Come usare l'eliminazione temporanea con l'interfaccia](../key-vault/general/soft-delete-cli.md)della riga di comando.
-    - L'insieme di credenziali delle chiavi esistente deve avere una chiave RSA di 2048 o più dimensioni. Per ulteriori informazioni sulle chiavi, vedere [informazioni sulle chiavi di Azure Key Vault](../key-vault/keys/about-keys.md).
-    - Key Vault deve trovarsi nella stessa area degli account di archiviazione usati per i dati. È possibile collegare più account di archiviazione con la risorsa Azure Data Box.
-    - Se non si dispone di un insieme di credenziali delle chiavi esistente, è anche possibile crearlo inline, come descritto nella sezione seguente.
+- La chiave deve essere una chiave RSA di 2048 dimensioni o superiore.
 
-## <a name="enable-keys"></a>Abilita chiavi
+## <a name="enable-key"></a>Abilita chiave
 
-La configurazione della chiave gestita dal cliente per la Azure Data Box è facoltativa. Per impostazione predefinita, Data Box usa una chiave gestita da Microsoft per proteggere la chiave BitLocker. Per abilitare una chiave gestita dal cliente nel portale di Azure, attenersi alla seguente procedura:
+Per abilitare una chiave gestita dal cliente per l'ordine di Data Box esistente nel portale di Azure, attenersi alla seguente procedura:
 
-1. Passare al pannello **Panoramica** per l'ordine di data box.
+1. Passare alla schermata **Panoramica** per l'ordine del data box.
 
-    ![Pannello di panoramica dell'ordine di Data Box](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-1.png)
+    ![Schermata Panoramica di un ordine di Data Box-1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-1.png)
 
-2. Passare a **impostazioni > crittografia**. In **tipo di crittografia** è possibile scegliere come si vuole proteggere la chiave di sblocco del dispositivo. Per impostazione predefinita, viene usata una chiave gestita da Microsoft per proteggere la password di sblocco del dispositivo. 
+2. Passare a **impostazioni > crittografia** e selezionare **chiave gestita dal cliente**. Selezionare quindi **selezionare una chiave e un** insieme di credenziali delle chiavi.
 
-    ![Scegliere l'opzione di crittografia](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-2.png)
+    ![Selezionare l'opzione crittografia della chiave gestita dal cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
 
-3. Selezionare tipo di crittografia come **chiave gestita dal cliente**. Dopo aver selezionato la chiave gestita dal cliente, **selezionare un insieme di credenziali delle chiavi e una chiave**.
+   Nella schermata **Seleziona chiave da Azure Key Vault** la sottoscrizione viene popolata automaticamente.
 
-    ![Selezionare la chiave gestita dal cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
+ 3. Per **Key Vault** è possibile selezionare un insieme di credenziali delle chiavi esistente dall'elenco a discesa oppure selezionare **Crea nuovo** e creare un nuovo insieme di credenziali delle chiavi.
 
-4. Nel pannello **Seleziona chiave da Azure Key Vault** la sottoscrizione viene popolata automaticamente. Per **Key Vault** è possibile selezionare un insieme di credenziali delle chiavi esistente dall'elenco a discesa.
+     ![Opzioni di Key Vault quando si seleziona una chiave gestita dal cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
 
-    ![Seleziona Azure Key Vault esistente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
+     Per creare un nuovo insieme di credenziali delle chiavi, immettere la sottoscrizione, il gruppo di risorse, il nome dell'insieme di credenziali delle chiavi e altre informazioni nella schermata **Crea nuovo** insieme di credenziali delle chiavi. In **Opzioni di ripristino** assicurarsi che la protezione **eliminazione** temporanea e **ripulitura** sia abilitata. Selezionare quindi **Rivedi e crea**.
 
-    È anche possibile selezionare **Crea nuovo** per creare un nuovo insieme di credenziali delle chiavi. Nel pannello **Create Key Vault** immettere il gruppo di risorse e il nome dell'insieme di credenziali delle chiavi. Assicurarsi che la protezione **eliminazione** temporanea e **ripulitura** sia abilitata. Accettare tutte le altre impostazioni predefinite. Selezionare **Rivedi e crea**.
+      ![Esaminare e creare Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
-    ![Esaminare e creare Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+      Esaminare le informazioni per l'insieme di credenziali delle chiavi e selezionare **Crea**. Attendere un paio di minuti per il completamento della creazione dell'insieme di credenziali delle chiavi.
 
-5. Esaminare le informazioni associate all'insieme di credenziali delle chiavi e selezionare **Crea**. Attendere un paio di minuti per il completamento della creazione dell'insieme di credenziali delle chiavi.
+       ![Creare Azure Key Vault con le impostazioni](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
 
-    ![Creare Azure Key Vault con le impostazioni](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
-
-6. Nella **chiave SELECT da Azure Key Vault** è possibile selezionare una chiave nell'insieme di credenziali delle chiavi esistente.
+4. Nella schermata **Seleziona chiave da Azure Key Vault** è possibile selezionare una chiave esistente dall'insieme di credenziali delle chiavi o crearne una nuova.
 
     ![Selezionare la chiave da Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
-7. Se si vuole creare una nuova chiave, selezionare **Crea nuovo** per creare una chiave. La dimensione della chiave RSA può essere 2048 o successiva.
+   Se si vuole creare una nuova chiave, selezionare **Crea nuovo**. È necessario utilizzare una chiave RSA. La dimensione può essere 2048 o successiva.
 
     ![Crea nuova chiave in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6-a.png)
 
-8. Specificare il nome della chiave, accettare le altre impostazioni predefinite e selezionare **Crea**.
+    Immettere un nome per la nuova chiave, accettare le altre impostazioni predefinite e selezionare **Crea**. Si riceverà una notifica che indica che è stata creata una chiave nell'insieme di credenziali delle chiavi.
 
     ![Nome nuova chiave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
 
-
-9. Si riceve una notifica che indica che è stata creata una chiave nell'insieme di credenziali delle chiavi. Selezionare la **versione** e quindi scegliere **Seleziona**.
+5. Per la **versione**, è possibile selezionare una versione chiave esistente dall'elenco a discesa.
 
     ![Selezionare la versione per la nuova chiave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
 
-10. Nel riquadro **tipo di crittografia** è possibile visualizzare l'insieme di credenziali delle chiavi e la chiave selezionata per la chiave gestita dal cliente.
+    Se si vuole generare una nuova versione della chiave, selezionare **Crea nuovo**.
 
-    ![Chiave e Key Vault per la chiave gestita dal cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
+    ![Aprire una finestra di dialogo per la creazione di una nuova versione della chiave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-a.png)
 
-11. Salvare la chiave. 
+    Scegliere impostazioni per la nuova versione della chiave e selezionare **Crea**.
 
-    ![Salva chiave gestita dal cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
+    ![Creare una nuova versione della chiave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-b.png)
+
+6. Dopo aver selezionato un insieme di credenziali delle chiavi, una chiave e una versione della chiave, scegliere **Seleziona**.
+
+    ![Chiave in una Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-c.png)
+
+    Le impostazioni del **tipo di crittografia** mostrano l'insieme di credenziali delle chiavi e la chiave scelti.
+
+    ![Chiave e Key Vault per una chiave gestita dal cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
+
+7. Consente di selezionare il tipo di identità da utilizzare per gestire la chiave gestita dal cliente per la risorsa. È possibile usare l'identità **assegnata dal sistema** generata durante la creazione dell'ordine o scegliere un'identità assegnata dall'utente.
+
+    Un'identità assegnata dall'utente è una risorsa indipendente che è possibile usare per gestire l'accesso alle risorse. Per altre informazioni, vedere [tipi di identità gestiti](/azure/active-directory/managed-identities-azure-resources/overview).
+
+    ![Selezionare il tipo di identità](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)
+
+    Per assegnare un'identità utente, selezionare **utente assegnato**. Selezionare quindi selezionare **un'identità utente** e selezionare l'identità gestita che si vuole usare.
+
+    ![Selezionare un'identità da usare](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-14.png)
+
+    Non è possibile creare una nuova identità utente qui. Per informazioni su come crearne uno, vedere [creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente usando il portale di Azure](/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+
+    L'identità utente selezionata viene visualizzata nelle impostazioni del **tipo di crittografia** .
+
+    ![Identità utente selezionata visualizzata nelle impostazioni del tipo di crittografia](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-15.png)
+
+ 9. Selezionare **Save (Salva** ) per salvare le impostazioni del **tipo di crittografia** aggiornate.
+
+     ![Salva la chiave gestita dal cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
 
     L'URL della chiave viene visualizzato in **tipo di crittografia**.
 
-    ![URL della chiave gestita dal cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)
+    ![URL della chiave gestita dal cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)<!--Probably need new screen from recent order. Can you provide one? I can't create an order using CMK with the subscription I'm using.-->
 
-> [!IMPORTANT]
-> È possibile disabilitare la chiave gestita da Microsoft e passare alla chiave gestita dal cliente in qualsiasi fase dell'ordine Data Box. Tuttavia, dopo aver creato la chiave gestita dal cliente, non è possibile tornare alla chiave gestita da Microsoft.
+## <a name="change-key"></a>Cambia chiave
+
+Per modificare l'insieme di credenziali delle chiavi, la chiave e/o la versione della chiave per la chiave gestita dal cliente attualmente in uso, attenersi alla procedura seguente:
+
+1. Nella schermata **Panoramica** per l'ordine di data box, passare a **Impostazioni**  >  **crittografia** e fare clic su **cambia chiave**.
+
+    ![Schermata di Panoramica di un ordine di Data Box con chiave gestita dal cliente-1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-16.png)
+
+2. Scegliere **selezionare un insieme di credenziali delle chiavi e una chiave diversi**.
+
+    ![Schermata Panoramica di un ordine di Data Box, selezionare un'altra chiave e un'opzione dell'insieme di credenziali delle chiavi](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-16-a.png)
+
+3. La schermata **Seleziona chiave da insieme di** credenziali delle chiavi Mostra la sottoscrizione, ma nessun insieme di credenziali delle chiavi, chiave o versione della chiave. È possibile apportare le modifiche seguenti:
+
+   - Selezionare una chiave diversa dallo stesso insieme di credenziali delle chiavi. È necessario selezionare l'insieme di credenziali delle chiavi prima di selezionare la chiave e la versione.
+
+   - Selezionare un insieme di credenziali delle chiavi diverso e assegnare una nuova chiave.
+
+   - Modificare la versione per la chiave corrente.
+   
+    Al termine delle modifiche, scegliere **Seleziona**.
+
+    ![Scegliere l'opzione di crittografia-2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17.png)
+
+4. Selezionare **Salva**.
+
+    ![Salva impostazioni di crittografia aggiornate-1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a.png)
+
+## <a name="change-identity"></a>Cambia identità
+
+Per modificare l'identità utilizzata per gestire l'accesso alla chiave gestita dal cliente per questo ordine, attenersi alla seguente procedura:
+
+1. Nella schermata **Panoramica** per l'ordine di data box completato passare a **Impostazioni**  >  **crittografia**.
+
+2. Apportare una delle modifiche seguenti:
+
+     - Per passare a un'identità utente diversa, fare clic su **Seleziona un'identità utente diversa**. Selezionare quindi un'identità diversa nel pannello sul lato destro dello schermo e scegliere **Seleziona**.
+
+       ![Opzione per la modifica dell'identità assegnata dall'utente per una chiave gestita dal cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-18.png)
+
+   - Per passare all'identità assegnata dal sistema generata durante la creazione dell'ordine, selezionare **sistema assegnato** da **Seleziona tipo di identità**.
+
+     ![Opzione per la modifica a un sistema assegnato a una chiave gestita dal cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-19.png)
+
+3. Selezionare **Salva**.
+
+    ![Salva impostazioni di crittografia aggiornate-2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a.png)
+
+## <a name="use-microsoft-managed-key"></a>Usa chiave gestita Microsoft
+
+Per passare dall'utilizzo di una chiave gestita dal cliente alla chiave gestita da Microsoft per l'ordine, attenersi alla procedura seguente:
+
+1. Nella schermata **Panoramica** per l'ordine di data box completato passare a **Impostazioni**  >  **crittografia**.
+
+2. In **Seleziona tipo** selezionare **chiave gestita da Microsoft**.
+
+    ![Schermata Panoramica di un ordine di Data Box-5](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-20.png)
+
+3. Selezionare **Salva**.
+
+    ![Salva le impostazioni di crittografia aggiornate per una chiave gestita da Microsoft](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-21.png)
 
 ## <a name="troubleshoot-errors"></a>Risolvere gli errori
 
@@ -108,12 +188,18 @@ Se si ricevono errori correlati alla chiave gestita dal cliente, usare la tabell
 | SsemUserErrorEncryptionKeyDisabled| Non è stato possibile recuperare la passkey perché la chiave gestita dal cliente è disabilitata.| Sì, abilitando la versione della chiave.|
 | SsemUserErrorEncryptionKeyExpired| Non è stato possibile recuperare la passkey perché la chiave gestita dal cliente è scaduta.| Sì, abilitando la versione della chiave.|
 | SsemUserErrorKeyDetailsNotFound| Non è stato possibile recuperare la passkey perché la chiave gestita dal cliente non è stata trovata.| Se l'insieme di credenziali delle chiavi è stato eliminato, non è possibile recuperare la chiave gestita dal cliente.  Se è stata eseguita la migrazione dell'insieme di credenziali delle chiavi in un tenant diverso, vedere [modificare un ID tenant di Key Vault dopo uno spostamento della sottoscrizione](../key-vault/general/move-subscription.md). Se l'insieme di credenziali delle chiavi è stato eliminato:<ol><li>Sì, se è in fase di ripulitura-protezione, usando la procedura descritta in [ripristinare un](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault)insieme di credenziali delle chiavi.</li><li>No, se il superamento della durata della protezione da ripulitura.</li></ol><br>Altrimenti, se l'insieme di credenziali delle chiavi ha subito una migrazione del tenant, sì, può essere recuperato usando uno dei passaggi seguenti: <ol><li>Ripristinare l'insieme di credenziali delle chiavi al tenant precedente.</li><li>Impostare `Identity = None` , quindi impostare di nuovo il valore su `Identity = SystemAssigned` . Questa operazione consente di eliminare e ricreare l'identità una volta creata la nuova identità. Abilitare `Get` `Wrap` `Unwrap` le autorizzazioni, e per la nuova identità nei criteri di accesso dell'insieme di credenziali delle chiavi.</li></ol> |
-| SsemUserErrorKeyVaultBadRequestException| Non è stato possibile recuperare la passkey perché l'accesso alla chiave gestita dal cliente è stato revocato.| Sì, controllare se: <ol><li>L'insieme di credenziali delle chiavi ha ancora il file MSI nei criteri di accesso.</li><li>Il criterio di accesso fornisce le autorizzazioni per ottenere, eseguire il wrapping, annullare il wrapping.</li><li>Se l'insieme di credenziali delle chiavi si trova in una vNet dietro il firewall, verificare che l'opzione **Consenti servizi attendibili Microsoft** sia abilitata.</li></ol>|
+| SsemUserErrorKeyVaultBadRequestException | È stata applicata una chiave gestita dal cliente, ma l'accesso alla chiave non è stato concesso o è stato revocato oppure non è possibile accedere all'insieme di credenziali delle chiavi a causa dell'abilitazione del firewall. | Aggiungere l'identità selezionata all'insieme di credenziali delle chiavi per abilitare l'accesso alla chiave gestita dal cliente. Se key Vault dispone di un firewall abilitato, passare a un'identità assegnata dal sistema e quindi aggiungere una chiave gestita dal cliente. Per ulteriori informazioni, vedere la pagina relativa alla modalità di [Abilitazione della chiave](#enable-key). |
 | SsemUserErrorKeyVaultDetailsNotFound| Non è stato possibile recuperare la passkey perché l'insieme di credenziali delle chiavi associato per la chiave gestita dal cliente non è stato trovato. | Se l'insieme di credenziali delle chiavi è stato eliminato, non è possibile recuperare la chiave gestita dal cliente.  Se è stata eseguita la migrazione dell'insieme di credenziali delle chiavi in un tenant diverso, vedere [modificare un ID tenant di Key Vault dopo uno spostamento della sottoscrizione](../key-vault/general/move-subscription.md). Se l'insieme di credenziali delle chiavi è stato eliminato:<ol><li>Sì, se è in fase di ripulitura-protezione, usando la procedura descritta in [ripristinare un](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault)insieme di credenziali delle chiavi.</li><li>No, se il superamento della durata della protezione da ripulitura.</li></ol><br>Altrimenti, se l'insieme di credenziali delle chiavi ha subito una migrazione del tenant, sì, può essere recuperato usando uno dei passaggi seguenti: <ol><li>Ripristinare l'insieme di credenziali delle chiavi al tenant precedente.</li><li>Impostare `Identity = None` , quindi impostare di nuovo il valore su `Identity = SystemAssigned` . Questa operazione consente di eliminare e ricreare l'identità una volta creata la nuova identità. Abilitare `Get` `Wrap` `Unwrap` le autorizzazioni, e per la nuova identità nei criteri di accesso dell'insieme di credenziali delle chiavi.</li></ol> |
 | SsemUserErrorSystemAssignedIdentityAbsent  | Non è stato possibile recuperare la passkey perché la chiave gestita dal cliente non è stata trovata.| Sì, controllare se: <ol><li>L'insieme di credenziali delle chiavi ha ancora il file MSI nei criteri di accesso.</li><li>L'identità è di tipo System assegnato.</li><li>Abilitare le autorizzazioni Get, wrap e unwrap per l'identità nei criteri di accesso dell'insieme di credenziali delle chiavi.</li></ol>|
+| SsemUserErrorUserAssignedLimitReached | L'aggiunta di una nuova identità assegnata dall'utente non è riuscita perché è stato raggiunto il numero massimo di identità assegnate dall'utente che è possibile aggiungere. | Ripetere l'operazione con un minor numero di identità utente oppure rimuovere alcune identità assegnate dall'utente dalla risorsa prima di riprovare. |
+| SsemUserErrorCrossTenantIdentityAccessForbidden | Operazione di accesso identità gestita non riuscita. <br> Nota: per lo scenario in cui la sottoscrizione viene spostata in un tenant diverso. Il cliente deve spostare manualmente l'identità in un nuovo tenant. Per informazioni dettagliate, fare. | Spostare l'identità selezionata nel nuovo tenant in cui è presente la sottoscrizione. Per ulteriori informazioni, vedere la pagina relativa alla modalità di [Abilitazione della chiave](#enable-key). |
+| SsemUserErrorKekUserIdentityNotFound | È stata applicata una chiave gestita dal cliente, ma l'identità assegnata dall'utente che ha accesso alla chiave non è stata trovata in Active Directory. <br> Nota: questa situazione si verifica quando l'identità utente viene eliminata da Azure.| Per abilitare l'accesso alla chiave gestita dal cliente, provare ad aggiungere all'insieme di credenziali delle chiavi una diversa identità assegnata all'utente. Per ulteriori informazioni, vedere la pagina relativa alla modalità di [Abilitazione della chiave](#enable-key). |
+| SsemUserErrorUserAssignedIdentityAbsent | Non è stato possibile recuperare la passkey perché la chiave gestita dal cliente non è stata trovata. | Non è stato possibile accedere alla chiave gestita dal cliente. L'identità assegnata dall'utente (UAI) associata alla chiave è stata eliminata o il tipo UAI è stato modificato. |
+| SsemUserErrorCrossTenantIdentityAccessForbidden | Operazione di accesso identità gestita non riuscita. <br> Nota: per lo scenario in cui la sottoscrizione viene spostata in un tenant diverso. Il cliente deve spostare manualmente l'identità in un nuovo tenant. Per informazioni dettagliate, fare. | Per abilitare l'accesso alla chiave gestita dal cliente, provare ad aggiungere all'insieme di credenziali delle chiavi una diversa identità assegnata all'utente. Per ulteriori informazioni, vedere la pagina relativa alla modalità di [Abilitazione della chiave](#enable-key).|
+| SsemUserErrorKeyVaultBadRequestException | È stata applicata una chiave gestita dal cliente, ma l'accesso alla chiave non è stato concesso o è stato revocato oppure non è possibile accedere all'insieme di credenziali delle chiavi a causa dell'abilitazione del firewall. | Aggiungere l'identità selezionata all'insieme di credenziali delle chiavi per abilitare l'accesso alla chiave gestita dal cliente. Se key Vault dispone di un firewall abilitato, passare a un'identità assegnata dal sistema e quindi aggiungere una chiave gestita dal cliente. Per ulteriori informazioni, vedere la pagina relativa alla modalità di [Abilitazione della chiave](#enable-key). |
 | Errore generico  | Non è stato possibile recuperare la passkey.| Si tratta di un errore generico. Contattare supporto tecnico Microsoft per risolvere l'errore e determinare i passaggi successivi.|
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Che cos'è Azure Key Vault](../key-vault/general/overview.md)?
+- [Cos'è l'insieme di credenziali chiave di Azure?](../key-vault/general/overview.md)
+- [Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure](../key-vault/secrets/quick-create-portal.md)

@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: d90b18094a26830ee6909251d46837eff95a812a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: f1409a931195d236b2729e629e4603c606137593
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998590"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959782"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Supporto del servizio Device provisioning in hub Azure (DPS) per le reti virtuali
 
@@ -38,7 +38,7 @@ Per diversi motivi, i clienti potrebbero voler limitare la connettività alle ri
 
 Gli approcci comuni per limitare la connettività includono [le regole del filtro IP DPS](./iot-dps-ip-filtering.md) e la rete virtuale (VNET) con [endpoint privati](../private-link/private-endpoint-overview.md). L'obiettivo di questo articolo è descrivere l'approccio VNET per DPS usando endpoint privati. 
 
-I dispositivi che operano nelle reti locali possono usare la [rete privata virtuale (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) o il peering privato [ExpressRoute](https://azure.microsoft.com/services/expressroute/) per connettersi a una VNET in Azure e accedere alle risorse DPS tramite endpoint privati. 
+I dispositivi che operano nelle reti locali possono usare la [rete privata virtuale (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) o il peering privato [ExpressRoute](https://azure.microsoft.com/services/expressroute/) per connettersi a una VNET in Azure e accedere alle risorse DPS tramite endpoint privati. 
 
 Un endpoint privato è un indirizzo IP privato allocato all'interno di un VNET di proprietà del cliente con cui è possibile accedere a una risorsa di Azure. Se si dispone di un endpoint privato per la risorsa DPS, sarà possibile consentire ai dispositivi che operano all'interno della VNET di richiedere il provisioning dalla risorsa DPS senza consentire il traffico all'endpoint pubblico.
 
@@ -51,7 +51,7 @@ Prima di iniziare, verificare che siano soddisfatti i seguenti prerequisiti:
 
 * È stato effettuato il provisioning di una VNET di Azure con una subnet in cui verrà creato l'endpoint privato. Per altre informazioni, vedere [creare una rete virtuale usando l'interfaccia](../virtual-network/quick-create-cli.md)della riga di comando di Azure.
 
-* Per i dispositivi che operano all'interno di reti locali, configurare la [rete privata virtuale (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) o il peering privato di [EXPRESSROUTE](https://azure.microsoft.com/services/expressroute/) in Azure vnet.
+* Per i dispositivi che operano all'interno di reti locali, configurare la [rete privata virtuale (VPN)](../vpn-gateway/vpn-gateway-about-vpngateways.md) o il peering privato di [EXPRESSROUTE](https://azure.microsoft.com/services/expressroute/) in Azure vnet.
 
 ## <a name="private-endpoint-limitations"></a>Limitazioni dell'endpoint privato
 
@@ -77,7 +77,7 @@ Per configurare un endpoint privato, attenersi alla procedura seguente:
 
     ![Creare nozioni di base sugli endpoint privati](./media/virtual-network-support/create-private-endpoint-basics.png)
 
-    | Campo | valore |
+    | Campo | Valore |
     | :---- | :-----|
     | **Sottoscrizione** | Scegliere la sottoscrizione di Azure desiderata per contenere l'endpoint privato.  |
     | **Gruppo di risorse** | Scegliere o creare un gruppo di risorse che contenga l'endpoint privato |
@@ -90,7 +90,7 @@ Per configurare un endpoint privato, attenersi alla procedura seguente:
 
     ![Crea risorsa endpoint privato](./media/virtual-network-support/create-private-endpoint-resource.png)
 
-    | Campo | valore |
+    | Campo | Valore |
     | :---- | :-----|
     | **Sottoscrizione**        | Scegliere la sottoscrizione di Azure che contiene la risorsa DPS a cui punterà l'endpoint privato.  |
     | **Tipo di risorsa**       | Scegliere **Microsoft. Devices/ProvisioningServices**. |
@@ -105,7 +105,7 @@ Per configurare un endpoint privato, attenersi alla procedura seguente:
 
 4. Nella pagina _Crea configurazione di un endpoint privato_ scegliere la rete virtuale e la subnet in cui creare l'endpoint privato.
  
-    Fare clic su **Avanti: Tag**e, facoltativamente, specificare eventuali tag per la risorsa.
+    Fare clic su **Avanti: Tag** e, facoltativamente, specificare eventuali tag per la risorsa.
 
     ![Configura endpoint privato](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
@@ -125,7 +125,7 @@ Per configurare un endpoint privato, attenersi alla procedura seguente:
 
 2. Una volta ottenuto l'ID risorsa, attenersi alla procedura descritta in [configurare un endpoint privato](#set-up-a-private-endpoint) nel passaggio 3 della pagina _creare una risorsa dell'endpoint privato_ . Fare clic su **Connetti a una risorsa di Azure in base all'ID risorsa o alias** e immettere le informazioni nella tabella seguente. 
 
-    | Campo | valore |
+    | Campo | Valore |
     | :---- | :-----|
     | **ID risorsa o alias** | Immettere l'ID risorsa per la risorsa DPS. |
     | **Sottorisorsa di destinazione** | Immettere **iotDps** |
@@ -135,7 +135,7 @@ Per configurare un endpoint privato, attenersi alla procedura seguente:
 
 3. Nella pagina _Crea configurazione di un endpoint privato_ scegliere la rete virtuale e la subnet in cui creare l'endpoint privato.
  
-    Fare clic su **Avanti: Tag**e, facoltativamente, specificare eventuali tag per la risorsa.
+    Fare clic su **Avanti: Tag** e, facoltativamente, specificare eventuali tag per la risorsa.
 
 4. Fare clic su **Verifica + crea** e quindi su **Crea** per creare la richiesta di endpoint privato.
 
@@ -154,5 +154,5 @@ Per informazioni dettagliate sui prezzi, vedere [Prezzi di Collegamento privato 
 
 Usare i collegamenti seguenti per ulteriori informazioni sulle funzionalità di sicurezza di DPS:
 
-* [Sicurezza](concepts-security.md)
+* [Sicurezza](./concepts-service.md#attestation-mechanism)
 * [Supporto di TLS 1,2](tls-support.md)

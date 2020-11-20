@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: be7cfef5c7121d918c375dae216d293d9d56526b
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: e3f541e28f47bb6456b441811d23baa9e020fde7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890480"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959153"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connettore SAP LaMa per Azure
 
@@ -124,7 +125,7 @@ Nella configurazione del connettore di Azure per SAP LaMa selezionare "Usa ident
 
 ### <a name="create-a-new-connector-in-sap-lama"></a>Creare un nuovo connettore in SAP LaMa
 
-Aprire il sito Web di SAP LaMa e passare a Infrastructure (Infrastruttura). Scegliere la scheda Cloud Managers (Gestori cloud) e fare clic su Add (Aggiungi). Selezionare Microsoft Azure Cloud Adapter e fare clic su Next (Avanti). Immettere le seguenti informazioni:
+Aprire il sito Web di SAP LaMa e passare a Infrastructure (Infrastruttura). Scegliere la scheda Cloud Managers (Gestori cloud) e fare clic su Add (Aggiungi). Selezionare Microsoft Azure Cloud Adapter e fare clic su Next (Avanti). Immettere le informazioni seguenti:
 
 * Label (Etichetta): scegliere un nome per l'istanza del connettore
 * Nome utente: ID dell'applicazione dell'entità servizio o ID dell'identità assegnata all'utente della macchina virtuale. Per ulteriori informazioni, vedere [utilizzo di un'identità assegnata a un sistema o a un utente]
@@ -319,7 +320,7 @@ Nell'account NetApp il pool di capacità specifica le dimensioni e il tipo di di
 
 ![Pool di capacità NetApp di SAP LaMa creato ](media/lama/sap-lama-capacitypool-list.png)
 
-È ora possibile definire i volumi NFS. Poiché saranno presenti volumi per più sistemi in un pool, è necessario scegliere uno schema di denominazione autoesplicativo. L'aggiunta del SID consente di raggruppare insieme i volumi correlati. Per ASC e l'istanza As sono necessari i montaggi seguenti: */sapmnt/ \<SID\>* , */usr/SAP/ \<SID\>* e */Home/ \<sid\> adm* . Facoltativamente, è necessario */usr/sap/trans* per la directory del trasporto centrale, che è almeno usata da tutti i sistemi di un panorama.
+È ora possibile definire i volumi NFS. Poiché saranno presenti volumi per più sistemi in un pool, è necessario scegliere uno schema di denominazione autoesplicativo. L'aggiunta del SID consente di raggruppare insieme i volumi correlati. Per ASC e l'istanza As sono necessari i montaggi seguenti: */sapmnt/ \<SID\>*, */usr/SAP/ \<SID\>* e */Home/ \<sid\> adm*. Facoltativamente, è necessario */usr/sap/trans* per la directory del trasporto centrale, che è almeno usata da tutti i sistemi di un panorama.
 
 > [!NOTE]
 > Durante la fase BETA il nome dei volumi deve essere univoco all'interno della sottoscrizione.
@@ -447,9 +448,9 @@ Eseguire SWPM e usare *as1-ascs* per *ASCS Instance Host Name* (Nome host istanz
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-db -n 255.255.255.128
 ```
 
-Eseguire l'installazione dell'istanza di database di SWPM nella macchina virtuale di SQL Server. Usare SAPINST_USE_HOSTNAME= *as1-db* per ignorare il nome host usato per connettersi a SQL Server. Se si è distribuita la macchina virtuale usando il modello di Azure Resource Manager, assicurarsi di impostare la directory usata per i file di dati del database su *C:\sql\data* e quella per il file di log del database su *C:\sql\log* .
+Eseguire l'installazione dell'istanza di database di SWPM nella macchina virtuale di SQL Server. Usare SAPINST_USE_HOSTNAME=*as1-db* per ignorare il nome host usato per connettersi a SQL Server. Se si è distribuita la macchina virtuale usando il modello di Azure Resource Manager, assicurarsi di impostare la directory usata per i file di dati del database su *C:\sql\data* e quella per il file di log del database su *C:\sql\log*.
 
-Verificare che l'utente *NT AUTHORITY\SYSTEM* disponga dell'accesso a SQL Server e del ruolo server *sysadmin* . Per altre informazioni, vedere le note SAP [1877727] e [2562184].
+Verificare che l'utente *NT AUTHORITY\SYSTEM* disponga dell'accesso a SQL Server e del ruolo server *sysadmin*. Per altre informazioni, vedere le note SAP [1877727] e [2562184].
 
 #### <a name="install-sap-netweaver-application-server"></a>Installare il server applicazioni SAP NetWeaver
 

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 5d6273cbef1664984d466fb15c7f02ca505b18e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 802f732e8d62f5df861be525316b3c31ab4d0655
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184536"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957929"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gestire il servizio StorSimple Data Manager nel portale di Azure
 
@@ -42,7 +42,7 @@ Eseguire la procedura seguente per creare un servizio StorSimple Data Manager.
 
    2. Scegliere una **sottoscrizione** dall'elenco a discesa. La sottoscrizione viene collegata all'account di fatturazione. Se si dispone di una sola sottoscrizione, questo campo viene popolato automaticamente (e non è selezionabile).
 
-   3. Selezionare un gruppo di risorse esistente o crearne uno nuovo. Per altre informazioni, vedere [Azure resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) (Gruppi di risorse di Azure).
+   3. Selezionare un gruppo di risorse esistente o crearne uno nuovo. Per altre informazioni, vedere [Azure resource groups](../azure-resource-manager/management/manage-resource-groups-portal.md) (Gruppi di risorse di Azure).
 
    4. Specificare il **percorso** del servizio che ospita gli account di archiviazione e il servizio StorSimple Data Manager. Il servizio Gestione dispositivi StorSimple, il servizio Data Manager e l'account di archiviazione associato devono trovarsi tutti nelle aree supportate.
     

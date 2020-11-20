@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.author: normesta
-ms.openlocfilehash: a5cdeba654440e666bc79df361b3f90db8a73b0a
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 3ddcbe57112251a428e11d6c164cdb1224553f98
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578649"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959204"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modello di controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -43,7 +43,7 @@ I ruoli seguenti consentono a un'entità di sicurezza di accedere ai dati in un 
 | [Collaboratore ai dati del BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Accesso in lettura, scrittura ed eliminazione ai contenitori e ai BLOB di archiviazione BLOB. Questo accesso non consente all'entità di sicurezza di impostare la proprietà di un elemento, ma può modificare l'ACL degli elementi di proprietà dell'entità di sicurezza. |
 | [Lettore dei dati del BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) | Leggere ed elencare i BLOB e i contenitori di archiviazione BLOB. |
 
-I ruoli, ad esempio [proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [lettore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)e [collaboratore account di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) , consentono a un'entità di sicurezza di gestire un account di archiviazione, ma non di fornire l'accesso ai dati all'interno di tale account. Tuttavia, questi ruoli (escluso **Reader** ) possono ottenere l'accesso alle chiavi di archiviazione, che possono essere usate in diversi strumenti client per accedere ai dati.
+I ruoli, ad esempio [proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [lettore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)e [collaboratore account di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) , consentono a un'entità di sicurezza di gestire un account di archiviazione, ma non di fornire l'accesso ai dati all'interno di tale account. Tuttavia, questi ruoli (escluso **Reader**) possono ottenere l'accesso alle chiavi di archiviazione, che possono essere usate in diversi strumenti client per accedere ai dati.
 
 ## <a name="access-control-lists-acls"></a>Elenchi di controllo di accesso (ACL)
 
@@ -53,16 +53,16 @@ Gli ACL offrono la possibilità di applicare un livello di accesso più preciso 
 
 Durante l'autorizzazione basata su entità di sicurezza, le autorizzazioni vengono valutate nell'ordine seguente.
 
-: una: &nbsp; &nbsp; le assegnazioni di ruolo RBAC di Azure vengono valutate per prime e hanno la priorità sulle assegnazioni ACL.
+: una: &nbsp; &nbsp; le assegnazioni di ruolo di Azure vengono valutate per prime e hanno la priorità sulle assegnazioni ACL.
 
-: due: &nbsp; &nbsp; se l'operazione è completamente autorizzata in base all'assegnazione di ruolo RBAC di Azure, gli ACL non vengono valutati.
+: due: &nbsp; &nbsp; se l'operazione è completamente autorizzata in base all'assegnazione di ruolo di Azure, gli ACL non vengono valutati.
 
 : tre: &nbsp; &nbsp; se l'operazione non è completamente autorizzata, vengono valutati gli ACL.
 
 > [!div class="mx-imgBorder"]
 > ![flusso delle autorizzazioni di archiviazione di data Lake](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
-A causa del modo in cui le autorizzazioni di accesso vengono valutate dal sistema, **non è possibile** utilizzare un ACL per **limitare** l'accesso che è già stato concesso da un'assegnazione di ruolo. Questo perché il sistema valuta prima le assegnazioni di ruolo con controllo degli accessi in base al ruolo di Azure e, se l'assegnazione concede autorizzazioni di accesso sufficienti, gli ACL vengono ignorati 
+A causa del modo in cui le autorizzazioni di accesso vengono valutate dal sistema, **non è possibile** utilizzare un ACL per **limitare** l'accesso che è già stato concesso da un'assegnazione di ruolo. Questo perché il sistema valuta prima le assegnazioni di ruolo di Azure e, se l'assegnazione concede autorizzazioni di accesso sufficienti, gli ACL vengono ignorati. 
 
 Il diagramma seguente illustra il flusso di autorizzazioni per tre operazioni comuni: elencare il contenuto della directory, leggere un file e scrivere un file.
 
@@ -71,7 +71,7 @@ Il diagramma seguente illustra il flusso di autorizzazioni per tre operazioni co
 
 ## <a name="permissions-table-combining-azure-rbac-and-acl"></a>Tabella delle autorizzazioni: combinazione di controllo RBAC e ACL di Azure
 
-La tabella seguente illustra come combinare i ruoli RBAC di Azure e le voci ACL in modo che un'entità di sicurezza possa eseguire le operazioni elencate nella colonna **Operation** . Questa tabella mostra una colonna che rappresenta ogni livello di una gerarchia di directory fittizia. Esiste una colonna per la directory radice del contenitore ( `/` ), una sottodirectory denominata **Oregon** , una sottodirectory della directory Oregon denominata **Portland** e un file di testo nella directory Portland denominata **Data.txt**. Le rappresentazioni in [formato breve](data-lake-storage-access-control.md#short-forms-for-permissions) della voce ACL richieste per concedere le autorizzazioni sono visualizzate in tali colonne. **N/** d ( _non applicabile_ ) viene visualizzato nella colonna se non è necessaria una voce ACL per eseguire l'operazione.
+La tabella seguente illustra come combinare i ruoli di Azure e le voci ACL in modo che un'entità di sicurezza possa eseguire le operazioni elencate nella colonna **Operation** . Questa tabella mostra una colonna che rappresenta ogni livello di una gerarchia di directory fittizia. Esiste una colonna per la directory radice del contenitore ( `/` ), una sottodirectory denominata **Oregon**, una sottodirectory della directory Oregon denominata **Portland** e un file di testo nella directory Portland denominata **Data.txt**. Le rappresentazioni in [formato breve](data-lake-storage-access-control.md#short-forms-for-permissions) della voce ACL richieste per concedere le autorizzazioni sono visualizzate in tali colonne. **N/** d (_non applicabile_) viene visualizzato nella colonna se non è necessaria una voce ACL per eseguire l'operazione.
 
 |    Operazione             | Ruolo RBAC assegnato               |    /        | Oregon/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
@@ -112,7 +112,7 @@ La tabella seguente illustra come combinare i ruoli RBAC di Azure e le voci ACL 
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-groups.md)]
 
-## <a name="limits-on-azure-rbac-role-assignments-and-acl-entries"></a>Limiti per le assegnazioni di ruolo e le voci ACL di Azure
+## <a name="limits-on-azure-role-assignments-and-acl-entries"></a>Limiti per le assegnazioni di ruolo e le voci ACL di Azure
 
 Usando i gruppi, è meno probabile che superino il numero massimo di assegnazioni di ruolo per sottoscrizione e il numero massimo di voci ACL per ogni file o directory. Nella tabella seguente vengono descritti questi limiti.
 

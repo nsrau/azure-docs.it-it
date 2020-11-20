@@ -3,16 +3,17 @@ title: Distribuire SAP IDES EHP7 SP3 per SAP ERP 6.0 in Azure | Microsoft Docs
 description: Distribuire SAP IDES EHP7 SP3 per SAP ERP 6.0 in Azure
 author: hermanndms
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.reviewer: cynthn
-ms.openlocfilehash: 2e1c20ba5549a1d9660b6e30fafa040d545a6a37
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: dc0c1744c2943d33d516de4ed9d28893541773ad
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993442"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957878"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Distribuire SAP IDES EHP7 SP3 per SAP ERP 6.0 in Azure
 Questo articolo descrive come distribuire un sistema SAP IDES in esecuzione con SQL Server e il sistema operativo Windows in Azure tramite SAP Cloud Appliance Library (SAP CAL) 3.0. Gli screenshot illustrano il processo in dettaglio. Per distribuire una soluzione diversa, seguire la stessa procedura.
@@ -91,7 +92,7 @@ Dopo l'accesso a SAP CAL, la prima pagina visualizzata è di solito la pagina **
 
     a. Immettere un **nome** di istanza.
 
-    b. Selezionare un' **area**di Azure. Per visualizzare le diverse aree di Azure disponibili, potrebbe essere necessaria una sottoscrizione di SAP CAL.
+    b. Selezionare un' **area** di Azure. Per visualizzare le diverse aree di Azure disponibili, potrebbe essere necessaria una sottoscrizione di SAP CAL.
 
     c.  Immettere la **password** master per la soluzione, come illustrato:
 

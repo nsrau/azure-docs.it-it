@@ -8,47 +8,53 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: cabde27591159b5751435a97a909a5f6f8c3081b
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: ef06faa17739153b2a04e777498e1de6e97c0646
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518227"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957096"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 
-Il API Analisi del testo consente di usare un testo non strutturato e restituisce un elenco di entità ambiguità, con collegamenti ad altre informazioni sul Web. L'API supporta sia il riconoscimento delle entità denominate (NER) che il collegamento di entità.
+Il API Analisi del testo consente di usare un testo non strutturato e restituisce un elenco di entità ambiguità, con collegamenti ad altre informazioni sul Web. L'API supporta il riconoscimento delle entità denominate (NER) per diverse categorie di entità e il collegamento di entità.
 
-### <a name="entity-linking"></a>Collegamento delle entità
+## <a name="entity-linking"></a>Collegamento delle entità
 
 Il collegamento di entità è la possibilità di identificare e risolvere l'ambiguità dell'identità di un'entità trovata nel testo (ad esempio, determinare se un'occorrenza della parola "Mars" si riferisce al pianeta o al Dio di guerra romano). Questo processo richiede la presenza di una Knowledge base in una lingua appropriata per collegare entità riconosciute nel testo. Il collegamento di entità USA [Wikipedia](https://www.wikipedia.org/) come questa Knowledge base.
 
+## <a name="named-entity-recognition-ner"></a>Riconoscimento delle entità denominate (NER)
 
-### <a name="named-entity-recognition-ner"></a>Riconoscimento delle entità denominate (NER)
+Il riconoscimento delle entità denominate è la possibilità di identificare entità diverse nel testo e di classificarle in classi o tipi predefiniti quali: persona, posizione, evento, prodotto e organizzazione.  
 
-Il riconoscimento delle entità denominate (NER) è la possibilità di identificare entità diverse nel testo e di classificarle in classi o tipi predefiniti quali: persona, località, evento, prodotto e organizzazione.  
+## <a name="personally-identifiable-information-pii"></a>Informazioni personali
 
-## <a name="named-entity-recognition-versions-and-features"></a>Versioni e funzionalità di riconoscimento entità denominate
+La funzionalità informazioni personali fa parte di NER e consente di identificare e offuscare le entità riservate nel testo associate a un singolo utente, ad esempio il numero di telefono, l'indirizzo di posta elettronica, l'indirizzo postale, il numero di Passport.  
+
+## <a name="named-entity-recognition-features-and-versions"></a>Funzionalità e versioni di riconoscimento entità denominate
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| Funzionalità                                                         | NER v 3.0 | NER v 3.1-Preview. 2 |
+| Funzionalità                                                         | NER v 3.0 | NER v 3.1-Preview. 3 |
 |-----------------------------------------------------------------|--------|----------|
 | Metodi per richieste singole e batch                          | X      | X        |
 | Riconoscimento delle entità espanso tra diverse categorie           | X      | X        |
 | Separare gli endpoint per l'invio di entità di collegamento e richieste NER. | X      | X        |
-| Riconoscimento di entità di `PII` informazioni personali () e di integrità ( `PHI` )        |        | x        |
+| Riconoscimento di entità di `PII` informazioni personali () e di integrità ( `PHI` )        |        | X        |
+| Redazione di `PII`        |        | X        |
 
 Per informazioni, vedere Supporto per le [lingue](../language-support.md) .
 
-## <a name="entity-types"></a>Tipi di entità
-
 Il riconoscimento delle entità denominate V3 fornisce il rilevamento espanso tra più tipi. Attualmente, NER v 3.0 è in grado di riconoscere le entità nella [categoria di entità generale](../named-entity-types.md).
 
-Il riconoscimento delle entità denominato v 3.1-Preview. 2 include le funzionalità di rilevamento della versione 3.0 e la possibilità di rilevare le informazioni personali ( `PII` ) usando l' `v3.1-preview.2/entities/recognition/pii` endpoint. È possibile utilizzare il `domain=phi` parametro facoltativo per rilevare le informazioni riservate sull'integrità ( `PHI` ). Per ulteriori informazioni, vedere l'articolo relativo alle [categorie di entità](../named-entity-types.md) e la sezione relativa agli [endpoint di richiesta](#request-endpoints) .
+Il riconoscimento delle entità denominato v 3.1-Preview. 3 include le funzionalità di rilevamento di v 3.0 e: 
+* Possibilità di rilevare le informazioni personali ( `PII` ) utilizzando l' `v3.1-preview.3/entities/recognition/pii` endpoint. 
+* Parametro facoltativo `domain=phi` per rilevare le informazioni riservate sull'integrità ( `PHI` ).
+* [Operazione asincrona](text-analytics-how-to-call-api.md) che usa l' `/analyze` endpoint.
 
+Per altre informazioni, vedere l'articolo relativo alle [categorie di entità](../named-entity-types.md) e la sezione relativa agli [endpoint di richiesta](#request-endpoints) di seguito. 
 
 ## <a name="sending-a-rest-api-request"></a>Invio di una richiesta all'API REST
 
@@ -68,41 +74,41 @@ Creare una richiesta POST. È possibile usare la **console di testing API** o di
 
 ### <a name="request-endpoints"></a>Endpoint di richiesta
 
-#### <a name="version-31-preview2"></a>[Versione 3,1-Preview. 2](#tab/version-3-preview)
+#### <a name="version-31-preview3"></a>[Versione 3,1-Preview. 3](#tab/version-3-preview)
 
-Il riconoscimento delle entità denominate `v3.1-preview.2` utilizza endpoint distinti per le richieste ner, pii ed Entity linking. Usare un formato URL seguente in base alla richiesta:
+Il riconoscimento delle entità denominate `v3.1-preview.3` utilizza endpoint distinti per le richieste ner, pii e di collegamento di entità. Usare un formato URL riportato di seguito in base alla richiesta.
 
-Collegamento di entità
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
+**Collegamento di entità**
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/linking`
 
-[Informazioni di riferimento sul riconoscimento entità denominato versione 3,1-Preview per `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)
+[Informazioni di riferimento sul riconoscimento entità denominato versione 3,1-Preview per `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesLinking)
 
-NER
-* Entità generali- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/general`
+**Riconoscimento di entità denominate**
+* Entità generali- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/general`
 
-[Informazioni di riferimento sul riconoscimento entità denominato versione 3,1-Preview per `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
+[Informazioni di riferimento sul riconoscimento entità denominato versione 3,1-Preview per `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionGeneral)
 
-Informazioni personali
-* Informazioni personali ( `PII` )- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
+**Informazioni personali**
+* Informazioni personali ( `PII` )- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii`
 
 È anche possibile usare il `domain=phi` parametro facoltativo per rilevare `PHI` le informazioni sull'integrità () nel testo. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi`
 
-Si noti l'aggiunta della `redactedText` proprietà nella risposta JSON che contiene il testo di input modificato in cui le entità pii rilevate vengono sostituite da un * per ogni carattere delle entità.
+A partire da `v3.1-preview.3` , la risposta JSON include una `redactedText` proprietà che contiene il testo di input modificato in cui le entità pii rilevate vengono sostituite da un `*` per ogni carattere nelle entità.
 
-[Informazioni di riferimento sul riconoscimento entità denominato versione 3,1-Preview per `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii)
+[Informazioni di riferimento sul riconoscimento entità denominato versione 3,1-Preview per `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
 
 #### <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 
 Il riconoscimento delle entità denominate V3 Usa endpoint distinti per le richieste NER e per il collegamento di entità. Usare un formato URL seguente in base alla richiesta:
 
-Collegamento di entità
+**Collegamento di entità**
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
 
 [Riferimento per il riconoscimento delle entità denominato versione 3,0 per `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
 
-NER
+**Riconoscimento di entità denominate**
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
 [Riferimento per il riconoscimento delle entità denominato versione 3,0 per `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
@@ -113,7 +119,7 @@ Impostare un'intestazione della richiesta per includere la chiave dell'API Anali
 
 ### <a name="example-ner-request"></a>Richiesta NER di esempio 
 
-Di seguito è riportato un esempio di contenuto che è possibile inviare all'API. Il formato della richiesta è identico per entrambe le versioni dell'API.
+Il codice JSON seguente è un esempio di contenuto che è possibile inviare all'API. Il formato della richiesta è identico per entrambe le versioni dell'API.
 
 ```json
 {
@@ -138,11 +144,11 @@ L'API Analisi del testo è senza stato. Non vengono archiviati dati nell'account
 
 Tutte le richieste POST restituiscono una risposta in formato JSON con gli ID e le proprietà dell'entità rilevata.
 
-L'output viene restituito immediatamente. Si possono trasmettere i risultati a un'applicazione che accetta JSON o salvare l'output in un file nel sistema locale e quindi importarlo in un'applicazione che consente di ordinare, cercare e modificare i dati. A causa del supporto multilingue e emoji, la risposta può contenere offset di testo. Per ulteriori informazioni [, vedere come elaborare gli offset di testo](../concepts/text-offsets.md) .
+L'output viene restituito immediatamente. Si possono trasmettere i risultati a un'applicazione che accetta JSON o salvare l'output in un file nel sistema locale e quindi importarlo in un'applicazione che consente di ordinare, cercare e modificare i dati. A causa del supporto multilingue e emoji, la risposta può contenere offset di testo. Per ulteriori informazioni, vedere [come elaborare gli offset di testo](../concepts/text-offsets.md).
 
 ### <a name="example-responses"></a>Risposte di esempio
 
-La versione 3 fornisce endpoint distinti per il collegamento generale NER, PII ed Entity. Di seguito sono riportate le risposte per entrambe le operazioni. 
+La versione 3 fornisce endpoint distinti per il collegamento generale di NER, PII ed entità. Di seguito sono riportate le risposte per entrambe le operazioni. 
 
 #### <a name="version-31-preview"></a>[Versione 3.1-preview](#tab/version-3-preview)
 

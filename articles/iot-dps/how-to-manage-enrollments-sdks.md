@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: fasttrack-edit, iot
 services: iot-dps
-ms.openlocfilehash: 1dc97f92e6139475d0d5ac5ea1201d6ff6b8d470
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45a2b7a64006ab6963290be3ac86a3a5d1e4916d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532325"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959884"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Come gestire le registrazioni dei dispositivi con gli SDK del servizio Device Provisioning di Azure
 La *registrazione dei dispositivi* crea un record di un singolo dispositivo o di un gruppo di dispositivi registrato in un dato punto con il servizio Device Provisioning. Il record di registrazione contiene la configurazione iniziale desiderata per i dispositivi come parte della registrazione, incluso l'hub IoT desiderato. In questo articolo viene illustrato come gestire le registrazioni dei dispositivi per il servizio di provisioning a livello di programmazione tramite gli SDK del servizio di provisioning di Azure IoT.  Gli SDK sono disponibili su GitHub nello stesso repository degli SDK di Azure IoT.
@@ -21,12 +21,12 @@ La *registrazione dei dispositivi* crea un record di un singolo dispositivo o di
 ## <a name="prerequisites"></a>Prerequisiti
 * Ottenere la stringa di connessione da un'istanza del servizio Device Provisioning.
 * Ottenere gli elementi di sicurezza dei dispositivi per il [meccanismo di attestazione](concepts-service.md#attestation-mechanism) in uso:
-    * [**Trusted Platform Module (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):
+    * [**Trusted Platform Module (TPM)**](./concepts-tpm-attestation.md):
         * Registrazione singola: ID registrazione e chiave di verifica dell'autenticità del TPM da un dispositivo fisico o da un simulatore TPM.
         * Il gruppo di registrazioni non è valido per l'attestazione TPM.
-    * [**X. 509**](/azure/iot-dps/concepts-security):
-        * Registrazione singola: [certificato foglia](/azure/iot-dps/concepts-security) dal dispositivo fisico o dall'emulatore [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) dell'SDK.
-        * Gruppo di registrazioni: [certificato della CA/radice](/azure/iot-dps/concepts-security#root-certificate) o [certificato intermedio](/azure/iot-dps/concepts-security#intermediate-certificate), usato per generare il certificato del dispositivo in un dispositivo fisico.  Può anche essere generato dall'emulatore DICE dell'SDK.
+    * [**X. 509**](./concepts-service.md#attestation-mechanism):
+        * Registrazione singola: [certificato foglia](./concepts-service.md#attestation-mechanism) dal dispositivo fisico o dall'emulatore [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) dell'SDK.
+        * Gruppo di registrazioni: [certificato della CA/radice](./concepts-x509-attestation.md#root-certificate) o [certificato intermedio](./concepts-x509-attestation.md#intermediate-certificate), usato per generare il certificato del dispositivo in un dispositivo fisico.  Può anche essere generato dall'emulatore DICE dell'SDK.
 * Le chiamate API possono essere diverse a seconda dei diversi linguaggi. Per i dettagli fare riferimento agli esempi disponibili su GitHub:
    * [Esempi client del servizio di provisioning per Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
    * [Esempi client del servizio di provisioning per Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
@@ -35,7 +35,7 @@ La *registrazione dei dispositivi* crea un record di un singolo dispositivo o di
 ## <a name="create-a-device-enrollment"></a>Creare una registrazione dei dispositivi
 Esistono due modi per registrare i dispositivi con il servizio di provisioning:
 
-* Un **gruppo di registrazioni** è una voce relativa a un gruppo di dispositivi che condividono un meccanismo di attestazione comune dei certificati X.509, firmato mediante il [certificato radice](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) o il [certificato intermedio](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate). È consigliabile usare un gruppo di registrazione per un numero elevato di dispositivi che condividono una configurazione iniziale desiderata o per i dispositivi destinati allo stesso tenant. Si noti che è possibile registrare solo i dispositivi che usano il meccanismo di attestazione X.509 come *gruppi di registrazione*. 
+* Un **gruppo di registrazioni** è una voce relativa a un gruppo di dispositivi che condividono un meccanismo di attestazione comune dei certificati X.509, firmato mediante il [certificato radice](./concepts-x509-attestation.md#root-certificate) o il [certificato intermedio](./concepts-x509-attestation.md#intermediate-certificate). È consigliabile usare un gruppo di registrazione per un numero elevato di dispositivi che condividono una configurazione iniziale desiderata o per i dispositivi destinati allo stesso tenant. Si noti che è possibile registrare solo i dispositivi che usano il meccanismo di attestazione X.509 come *gruppi di registrazione*. 
 
     È possibile creare un gruppo di registrazioni con gli SDK attenendosi al flusso di lavoro seguente:
 

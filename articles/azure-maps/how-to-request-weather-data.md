@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b5db19a6549e7e4675213973554ff18bf46dda1e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 3e0dce10d582006ab8c1dabf6d4b3efc82d8f39f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92915424"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957113"
 ---
 # <a name="request-real-time-and-forecasted-weather-data-using-azure-maps-weather-services"></a>Richiedi dati meteorologici in tempo reale e previsione usando i servizi meteo di Azure Maps
 
@@ -27,6 +27,12 @@ In questo articolo si apprenderà come:
 * Richiedi previsioni giornaliere usando l' [API per ottenere previsioni giornaliere](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview).
 * Richiedere previsioni orarie usando l'API per l' [ottenimento delle previsioni orarie](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview).
 * Richiedi previsioni minuto per minuto usando l' [API di previsione del minuto Get](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview).
+
+Questo video offre una panoramica di servizi meteorologici nelle mappe di Azure con esempi di chiamate REST.
+
+<br/>
+
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps-Weather-services-for-developers/player" width="960" height="540" allowFullScreen frameBorder="0" title="Servizi Meteo di Azure Maps per sviluppatori-video Microsoft Channel 9"></iframe>
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -236,7 +242,7 @@ In questo esempio si userà l' [API Get grave Alerts](https://docs.microsoft.com
 >[!NOTE]
 >In questo esempio vengono recuperati avvisi meteorologici gravi al momento della stesura di questo articolo. È probabile che non siano più presenti avvisi meteorologici gravi nella località richiesta. Per recuperare i dati effettivi gravi sugli avvisi quando si esegue questo esempio, è necessario recuperare i dati in un percorso di coordinate diverso.
 
-1. Aprire l'app post, fare clic su **nuovo** e selezionare **Richiedi** . Immettere un **Request Name** (Nome richiesta) per la richiesta. Selezionare l'insieme creato nella sezione precedente o crearne uno nuovo, quindi selezionare **Salva** .
+1. Aprire l'app post, fare clic su **nuovo** e selezionare **Richiedi**. Immettere un **Request Name** (Nome richiesta) per la richiesta. Selezionare l'insieme creato nella sezione precedente o crearne uno nuovo, quindi selezionare **Salva**.
 
 2. Selezionare il metodo **Get** http nella scheda generatore e immettere l'URL seguente. Per questa richiesta, e per altre indicate in questo articolo, sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria.
 
@@ -288,7 +294,7 @@ L' [API Get Daily Forecast](https://docs.microsoft.com/rest/api/maps/weather/get
 
 In questo esempio si userà l'API per [ottenere una previsione giornaliera](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview) per recuperare le previsioni meteorologiche di cinque giorni per le coordinate situate a Seattle, WA.
 
-1. Aprire l'app post, fare clic su **nuovo** e selezionare **Richiedi** . Immettere un **Request Name** (Nome richiesta) per la richiesta. Selezionare l'insieme creato nella sezione precedente o crearne uno nuovo, quindi selezionare **Salva** .
+1. Aprire l'app post, fare clic su **nuovo** e selezionare **Richiedi**. Immettere un **Request Name** (Nome richiesta) per la richiesta. Selezionare l'insieme creato nella sezione precedente o crearne uno nuovo, quindi selezionare **Salva**.
 
 2. Selezionare il metodo **Get** http nella scheda generatore e immettere l'URL seguente. Per questa richiesta, e per altre indicate in questo articolo, sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria.
 
@@ -536,7 +542,7 @@ L' [API per l'ottenimento delle previsioni orarie](https://docs.microsoft.com/re
 
 In questo esempio si userà l'API per [ottenere una previsione oraria](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview) per recuperare le previsioni meteorologiche orarie per le 12 ore successive alle coordinate situate a Seattle, WA.
 
-1. Aprire l'app post, fare clic su **nuovo** e selezionare **Richiedi** . Immettere un **Request Name** (Nome richiesta) per la richiesta. Selezionare l'insieme creato nella sezione precedente o crearne uno nuovo, quindi selezionare **Salva** .
+1. Aprire l'app post, fare clic su **nuovo** e selezionare **Richiedi**. Immettere un **Request Name** (Nome richiesta) per la richiesta. Selezionare l'insieme creato nella sezione precedente o crearne uno nuovo, quindi selezionare **Salva**.
 
 2. Selezionare il metodo **Get** http nella scheda generatore e immettere l'URL seguente. Per questa richiesta, e per altre indicate in questo articolo, sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria.
 
@@ -643,7 +649,7 @@ In questo esempio si userà l'API per [ottenere una previsione oraria](https://d
 
 In questo esempio si userà l'API per la [previsione dei minuti](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) di recupero per recuperare le previsioni meteorologiche minuto per minuto alle coordinate situate a Seattle, WA. Le previsioni meteorologiche vengono fornite per i prossimi 120 minuti. La query richiede che la previsione venga specificata a intervalli di 15 minuti, ma è possibile modificare il parametro in modo che sia 1 o 5 minuti.
 
-1. Aprire l'app post, fare clic su **nuovo** e selezionare **Richiedi** . Immettere un **Request Name** (Nome richiesta) per la richiesta. Selezionare l'insieme creato nella sezione precedente o crearne uno nuovo, quindi selezionare **Salva** .
+1. Aprire l'app post, fare clic su **nuovo** e selezionare **Richiedi**. Immettere un **Request Name** (Nome richiesta) per la richiesta. Selezionare l'insieme creato nella sezione precedente o crearne uno nuovo, quindi selezionare **Salva**.
 
 2. Selezionare il metodo **Get** http nella scheda generatore e immettere l'URL seguente. Per questa richiesta, e per altre indicate in questo articolo, sostituire `{Azure-Maps-Primary-Subscription-key}` con la chiave di sottoscrizione primaria.
 

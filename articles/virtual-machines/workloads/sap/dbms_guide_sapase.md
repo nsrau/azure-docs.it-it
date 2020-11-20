@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e90c78e8e7cb474756c1a5ea03fd90c33e14300
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a3ef3fc2afa07590ff676d57c22f05ed723539f9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963585"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957725"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribuzione DBMS per SAP ASE di macchine virtuali di Azure per un carico di lavoro SAP
 
@@ -83,7 +84,7 @@ Un esempio di configurazione per un piccolo server di database SAP ASE con una d
 | Configurazione | Windows | Linux | Commenti |
 | --- | --- | --- | --- |
 | Tipo macchina virtuale | E4s_v3 (4 vCPU/32 GB di RAM) | E4s_v3 (4 vCPU/32 GB di RAM) | --- |
-| Rete accelerata | Abilitare | Abilitare | ---|
+| Rete accelerata | Abilita | Abilita | ---|
 | Versione di SAP ASE | 16.0.03.07 o versione successiva | 16.0.03.07 o versione successiva | --- |
 | n. di dispositivi dati | 4 | 4 | ---|
 | n. di dispositivi di log | 1 | 1 | --- |
@@ -104,7 +105,7 @@ Un esempio di configurazione per un server di database SAP ASE medio con dimensi
 | Configurazione | Windows | Linux | Commenti |
 | --- | --- | --- | --- |
 | Tipo macchina virtuale | E16s_v3 (16 vCPU/128 GB di RAM) | E16s_v3 (16 vCPU/128 GB di RAM) | --- |
-| Rete accelerata | Abilitare | Abilitare | ---|
+| Rete accelerata | Abilita | Abilita | ---|
 | Versione di SAP ASE | 16.0.03.07 o versione successiva | 16.0.03.07 o versione successiva | --- |
 | n. di dispositivi dati | 8 | 8 | ---|
 | n. di dispositivi di log | 1 | 1 | --- |
@@ -124,7 +125,7 @@ Un esempio di configurazione per un piccolo server di database SAP ASE con dimen
 | Configurazione | Windows | Linux | Commenti |
 | --- | --- | --- | --- |
 | Tipo macchina virtuale | E64s_v3 (64 vCPU/432 GB di RAM) | E64s_v3 (64 vCPU/432 GB di RAM) | --- |
-| Rete accelerata | Abilitare | Abilitare | ---|
+| Rete accelerata | Abilita | Abilita | ---|
 | Versione di SAP ASE | 16.0.03.07 o versione successiva | 16.0.03.07 o versione successiva | --- |
 | n. di dispositivi dati | 16 | 16 | ---|
 | n. di dispositivi di log | 1 | 1 | --- |
@@ -145,7 +146,7 @@ Un esempio di configurazione per un server di database SAP ASE di piccole dimens
 | Configurazione | Windows | Linux | Commenti |
 | --- | --- | --- | --- |
 | Tipo macchina virtuale | Serie M (da 1,0 a 4,0 TB di RAM)  | Serie M (da 1,0 a 4,0 TB di RAM) | --- |
-| Rete accelerata | Abilitare | Abilitare | ---|
+| Rete accelerata | Abilita | Abilita | ---|
 | Versione di SAP ASE | 16.0.03.07 o versione successiva | 16.0.03.07 o versione successiva | --- |
 | n. di dispositivi dati | 32 | 32 | ---|
 | n. di dispositivi di log | 1 | 1 | --- |

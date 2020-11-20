@@ -3,16 +3,17 @@ title: Progettare e implementare un database Oracle in Azure | Microsoft Docs
 description: Progettare e implementare un database Oracle nell'ambiente Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 9bfd2330f71b9690e2864968cf51cb438bb23676
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6b7c280d9ff5f4d8a3c35eb11e080bf2f9f287c0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534074"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959170"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Progettare e implementare un database Oracle in Azure
 
@@ -143,13 +144,13 @@ In base ai requisiti di larghezza di banda della rete, sono disponibili diversi 
 
 ### <a name="disk-types-and-configurations"></a>Tipi di disco e configurazioni
 
-- *Dischi del sistema operativo predefiniti* : questi tipi di dischi offrono dati persistenti e memorizzazione nella cache. Sono ottimizzati per l'accesso del sistema operativo all'avvio e non sono progettati per i carichi di lavoro transazionali o di data warehouse (analitici).
+- *Dischi del sistema operativo predefiniti*: questi tipi di dischi offrono dati persistenti e memorizzazione nella cache. Sono ottimizzati per l'accesso del sistema operativo all'avvio e non sono progettati per i carichi di lavoro transazionali o di data warehouse (analitici).
 
-- *Dischi non gestiti* : con questo tipi di dischi, si gestiscono gli account di archiviazione che archiviano i file di disco rigido virtuale (VHD) che corrispondono ai dischi delle macchine virtuali. I file VHD vengono archiviati come BLOB di pagine in account di archiviazione di Azure.
+- *Dischi non gestiti*: con questo tipi di dischi, si gestiscono gli account di archiviazione che archiviano i file di disco rigido virtuale (VHD) che corrispondono ai dischi delle macchine virtuali. I file VHD vengono archiviati come BLOB di pagine in account di archiviazione di Azure.
 
-- *Dischi gestiti* : Azure gestisce gli account di archiviazione usati per i dischi delle macchine virtuali. Specificare il tipo di disco (Premium o Standard) e la dimensione del disco necessaria. Azure crea e gestisce il disco automaticamente.
+- *Dischi gestiti*: Azure gestisce gli account di archiviazione usati per i dischi delle macchine virtuali. Specificare il tipo di disco (Premium o Standard) e la dimensione del disco necessaria. Azure crea e gestisce il disco automaticamente.
 
-- *Dischi di archiviazione Premium* : questi tipi di dischi sono ideali per i carichi di lavoro di produzione. Archiviazione Premium supporta i dischi di VM che possono essere collegati a VM di serie con dimensioni specifiche, ad esempio VM serie DS, DSv2, GS e F. Il disco Premium può essere di varie dimensioni ed è possibile scegliere tra dischi compresi tra 32 GB e 4.096 GB. Ciascuna dimensione di disco ha le proprie specifiche in termini di prestazioni. A seconda dei requisiti dell'applicazione è possibile collegare uno o più dischi alla VM.
+- *Dischi di archiviazione Premium*: questi tipi di dischi sono ideali per i carichi di lavoro di produzione. Archiviazione Premium supporta i dischi di VM che possono essere collegati a VM di serie con dimensioni specifiche, ad esempio VM serie DS, DSv2, GS e F. Il disco Premium può essere di varie dimensioni ed è possibile scegliere tra dischi compresi tra 32 GB e 4.096 GB. Ciascuna dimensione di disco ha le proprie specifiche in termini di prestazioni. A seconda dei requisiti dell'applicazione è possibile collegare uno o più dischi alla VM.
 
 Quando si crea un nuovo disco gestito dal portale, è possibile scegliere il **tipo di account** per il tipo di disco da usare. Tenere presente che non tutti i dischi disponibili sono visualizzati nel menu a discesa. Dopo avere scelto determinate dimensioni per la VM, il menu mostra solo gli SKU di Archiviazione Premium disponibili in base a tali dimensioni della VM.
 
@@ -186,21 +187,21 @@ Dopo avere ottenuto un quadro preciso dei requisiti di I/O, è possibile sceglie
 
 Sono disponibili tre opzioni per la memorizzazione nella cache dell'host:
 
-- *ReadOnly* : tutte le richieste vengono memorizzate nella cache per le letture future. Tutte le scritture vengono rese persistenti direttamente nell'archivio BLOB di Azure.
+- *ReadOnly*: tutte le richieste vengono memorizzate nella cache per le letture future. Tutte le scritture vengono rese persistenti direttamente nell'archivio BLOB di Azure.
 
-- *ReadWrite* : si tratta di un algoritmo "Read-ahead". Le letture e le scritture sono memorizzate nella cache per le letture future. Le scritture non write-through sono rese persistenti prima nella cache locale. Offre anche la latenza del disco più bassa per i carichi di lavoro leggeri. L'uso della cache di tipo ReadWrite con un'applicazione che non gestisce la persistenza dei dati necessari può provocare la perdita dei dati, in caso di arresto anomalo della VM.
+- *ReadWrite*: si tratta di un algoritmo "Read-ahead". Le letture e le scritture sono memorizzate nella cache per le letture future. Le scritture non write-through sono rese persistenti prima nella cache locale. Offre anche la latenza del disco più bassa per i carichi di lavoro leggeri. L'uso della cache di tipo ReadWrite con un'applicazione che non gestisce la persistenza dei dati necessari può provocare la perdita dei dati, in caso di arresto anomalo della VM.
 
 - *Nessuna* (disabilitata): usando questa opzione, è possibile ignorare la cache. Tutti i dati vengono trasferiti sul disco e resi persistenti in Archiviazione di Azure. Questo metodo offre la massima frequenza di I/O per i carichi di lavoro con un uso intensivo dell'I/O. È anche necessario considerare il costo delle transazioni.
 
 **Indicazioni**
 
-Per ottimizzare la velocità effettiva, è consigliabile iniziare con **None** per la memorizzazione nella cache dell'host. Per Archiviazione Premium, tenere presente che è necessario disabilitare le "barriere" quando si esegue il montaggio del file system con le opzioni **Sola lettura** o **Nessuna** . Aggiornare il file /etc/fstab con l'UUID dei dischi.
+Per ottimizzare la velocità effettiva, è consigliabile iniziare con **None** per la memorizzazione nella cache dell'host. Per Archiviazione Premium, tenere presente che è necessario disabilitare le "barriere" quando si esegue il montaggio del file system con le opzioni **Sola lettura** o **Nessuna**. Aggiornare il file /etc/fstab con l'UUID dei dischi.
 
 ![Screenshot della pagina del disco gestito che mostra le opzioni ReadOnly e None.](./media/oracle-design/premium_disk02.png)
 
 - Per i dischi del sistema operativo, usare la memorizzazione nella cache **Lettura/scrittura** predefinita.
 - Per SYSTEM, TEMP e UNDO usare **Nessuna** per la memorizzazione nella cache.
-- Per DATA usare **Nessuna** per la memorizzazione nella cache, ma se il database è di sola lettura o esegue un'intensa attività di lettura, usare la memorizzazione nella cache **Sola lettura** .
+- Per DATA usare **Nessuna** per la memorizzazione nella cache, ma se il database è di sola lettura o esegue un'intensa attività di lettura, usare la memorizzazione nella cache **Sola lettura**.
 
 Dopo avere salvato l'impostazione del disco dati, non è possibile modificare l'impostazione della cache host, a meno che l'unità a livello di sistema operativo non venga smontata e quindi rimontata dopo avere apportato la modifica.
 
@@ -208,9 +209,9 @@ Dopo avere salvato l'impostazione del disco dati, non è possibile modificare l'
 
 Dopo avere installato e configurato l'ambiente Azure, il passaggio successivo consiste nel proteggere la rete. Di seguito sono elencati alcuni suggerimenti:
 
-- *Criteri del gruppo di sicurezza di rete* : il gruppo di sicurezza di rete può essere definito da una subnet o una scheda di interfaccia di rete. È più semplice controllare l'accesso a livello di subnet per la sicurezza e forzare il routing per elementi come i firewall applicazione.
+- *Criteri del gruppo di sicurezza di rete*: il gruppo di sicurezza di rete può essere definito da una subnet o una scheda di interfaccia di rete. È più semplice controllare l'accesso a livello di subnet per la sicurezza e forzare il routing per elementi come i firewall applicazione.
 
-- *Jumpbox* : per una maggiore sicurezza dell'accesso, gli amministratori non devono connettersi direttamente al servizio dell'applicazione o al database. Viene usato un jumpbox come elemento intermedio tra il computer dell'amministratore e le risorse di Azure.
+- *Jumpbox*: per una maggiore sicurezza dell'accesso, gli amministratori non devono connettersi direttamente al servizio dell'applicazione o al database. Viene usato un jumpbox come elemento intermedio tra il computer dell'amministratore e le risorse di Azure.
 ![Screenshot della pagina della topologia jumpbox](./media/oracle-design/jumpbox.png)
 
     Il computer dell'amministratore deve offrire accesso con restrizioni IP al solo jumpbox. Il jumpbox deve avere accesso all'applicazione e al database.

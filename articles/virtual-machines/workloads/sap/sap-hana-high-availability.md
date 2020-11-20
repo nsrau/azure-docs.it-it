@@ -7,17 +7,18 @@ author: rdeltcheva
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 9efdbb32683c9a244226012bd2d4bfcab6046678
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 2783d9dc7151190857d870b5493465884b82ffcc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151169"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957266"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata di SAP HANA in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -112,7 +113,7 @@ Per distribuire il modello, seguire questi passaggi:
     - **Disponibilità del sistema**: Selezionare **HA**.
     - **Nome utente amministratore e password amministratore**: viene creato un nuovo utente che può essere usato per accedere al computer.
     - **New Or Existing Subnet** (Subnet nuova o esistente): determina se devono essere create una nuova rete virtuale e una nuova subnet o se deve essere usata una subnet esistente. Se è già presente una rete virtuale connessa alla rete locale, selezionare **Esistente**.
-    - **ID subnet**: Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID si presenta in genere come **/Subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /Subnets/ \<subnet name> **.
+    - **ID subnet**: Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID si presenta in genere come **/Subscriptions/ \<subscription ID> /resourceGroups/ \<resource group name> /providers/Microsoft.Network/virtualNetworks/ \<virtual network name> /Subnets/ \<subnet name>**.
 
 ### <a name="manual-deployment"></a>Distribuzione manuale
 
@@ -163,7 +164,7 @@ Per distribuire il modello, seguire questi passaggi:
    
       1. Aprire il servizio di bilanciamento del carico, selezionare **Probe integrità** e quindi **Aggiungi**.
       1. Immettere il nome del nuovo probe di integrità (ad esempio, **hana-hp**).
-      1. Selezionare **TCP** come protocollo e la porta 625**03**. Lasciare il valore di **Intervallo** impostato su 5 e il valore di **Soglia di non integrità** impostato su 2.
+      1. Selezionare **TCP** come protocollo e la porta 625 **03**. Lasciare il valore di **Intervallo** impostato su 5 e il valore di **Soglia di non integrità** impostato su 2.
       1. Selezionare **OK**.
    
    1. Successivamente, creare le regole del servizio di bilanciamento del carico:
@@ -198,41 +199,41 @@ Per distribuire il modello, seguire questi passaggi:
    
       1. Aprire il servizio di bilanciamento del carico, selezionare **Probe integrità** e quindi **Aggiungi**.
       1. Immettere il nome del nuovo probe di integrità (ad esempio, **hana-hp**).
-      1. Selezionare **TCP** come protocollo e la porta 625**03**. Lasciare il valore di **Intervallo** impostato su 5 e il valore di **Soglia di non integrità** impostato su 2.
+      1. Selezionare **TCP** come protocollo e la porta 625 **03**. Lasciare il valore di **Intervallo** impostato su 5 e il valore di **Soglia di non integrità** impostato su 2.
       1. Selezionare **OK**.
    
    1. Per SAP HANA 1.0, creare le regole di bilanciamento del carico:
    
       1. Aprire il servizio di bilanciamento del carico, selezionare **Regole di bilanciamento del carico** e quindi **Aggiungi**.
-      1. Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, hana-lb-3**03**15).
+      1. Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, hana-lb-3 **03** 15).
       1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza (ad esempio, **hana-frontend**).
-      1. Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3**03**15.
+      1. Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3 **03** 15.
       1. Aumentare il valore di **Timeout di inattività** a 30 minuti.
       1. Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
       1. Selezionare **OK**.
-      1. Ripetere questi passaggi per la porta 3**03**17.
+      1. Ripetere questi passaggi per la porta 3 **03** 17.
    
    1. Per SAP HANA 2.0, creare le regole di bilanciamento del carico per il database di sistema:
    
       1. Aprire il servizio di bilanciamento del carico, selezionare **Regole di bilanciamento del carico** e quindi **Aggiungi**.
-      1. Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, hana-lb-3**03**13).
+      1. Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, hana-lb-3 **03** 13).
       1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza (ad esempio, **hana-frontend**).
-      1. Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3**03**13.
+      1. Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3 **03** 13.
       1. Aumentare il valore di **Timeout di inattività** a 30 minuti.
       1. Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
       1. Selezionare **OK**.
-      1. Ripetere questi passaggi per la porta 3**03**14.
+      1. Ripetere questi passaggi per la porta 3 **03** 14.
    
    1. Per SAP HANA 2.0, creare prima le regole di bilanciamento del carico per il database tenant:
    
       1. Aprire il servizio di bilanciamento del carico, selezionare **Regole di bilanciamento del carico** e quindi **Aggiungi**.
-      1. Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, hana-lb-3**03**40).
+      1. Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, hana-lb-3 **03** 40).
       1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza (ad esempio, **hana-frontend**).
-      1. Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3**03**40.
+      1. Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3 **03** 40.
       1. Aumentare il valore di **Timeout di inattività** a 30 minuti.
       1. Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
       1. Selezionare **OK**.
-      1. Ripetere questi passaggi per le porte 3**03**41 e 3**03**42.
+      1. Ripetere questi passaggi per le porte 3 **03** 41 e 3 **03** 42.
 
    Per altre informazioni sulle porte necessarie per SAP HANA, leggere il capitolo [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Connessioni a database tenant) della guida [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Database tenant SAP HANA) o la [nota SAP 2388694][2388694].
 

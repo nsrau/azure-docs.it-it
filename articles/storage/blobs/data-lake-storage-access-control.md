@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 80c27613ad3956d565b858b02ed32ac13af3a62c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 03117b9f0c3cbaea22f36703f689264549b851e8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320482"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94959136"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Elenchi di controllo di accesso (ACL) in Azure Data Lake Storage Gen2
 
@@ -34,7 +34,7 @@ Per impostare le autorizzazioni a livello di file e directory, vedere gli artico
 
 | Ambiente | Articolo |
 |--------|-----------|
-|Esplora archivi Azure |[Usare Azure Storage Explorer per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
+|Azure Storage Explorer |[Usare Azure Storage Explorer per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
 |.NET |[Usare .NET per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
 |Java|[Utilizzare Java per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
 |Python|[Usare Python per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
@@ -60,7 +60,7 @@ Sia gli ACL di accesso che gli ACL predefiniti presentano la stessa struttura.
 
 ## <a name="levels-of-permission"></a>Livelli di autorizzazione
 
-Le autorizzazioni per un oggetto contenitore sono di **lettura**, **scrittura**ed **esecuzione**e possono essere usate nei file e nelle directory, come illustrato nella tabella seguente:
+Le autorizzazioni per un oggetto contenitore sono di **lettura**, **scrittura** ed **esecuzione** e possono essere usate nei file e nelle directory, come illustrato nella tabella seguente:
 
 |            |    File     |   Directory |
 |------------|-------------|----------|
@@ -90,9 +90,9 @@ Nel modello di tipo POSIX usato da Data Lake Storage Gen2, le autorizzazioni per
 
 Nella tabella seguente vengono illustrate le voci ACL necessarie per consentire a un'entità di sicurezza di eseguire le operazioni elencate nella colonna **Operation** . 
 
-Questa tabella mostra una colonna che rappresenta ogni livello di una gerarchia di directory fittizia. Esiste una colonna per la directory radice del contenitore ( `\` ), una sottodirectory denominata **Oregon**, una sottodirectory della directory Oregon denominata **Portland**e un file di testo nella directory Portland denominata **Data.txt**. 
+Questa tabella mostra una colonna che rappresenta ogni livello di una gerarchia di directory fittizia. Esiste una colonna per la directory radice del contenitore ( `\` ), una sottodirectory denominata **Oregon**, una sottodirectory della directory Oregon denominata **Portland** e un file di testo nella directory Portland denominata **Data.txt**. 
 
-> [! IMPORANT] Questa tabella presuppone che si stiano usando **solo** ACL senza assegnazioni di ruolo RBAC di Azure. Per visualizzare una tabella simile che combina il controllo degli accessi in base al ruolo di Azure con ACL, vedere la [tabella delle autorizzazioni: combinazione](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl)di controllo degli accessi
+> [! IMPORANT] Questa tabella presuppone che si stiano usando **solo** ACL senza assegnazioni di ruolo di Azure. Per visualizzare una tabella simile che combina il controllo degli accessi in base al ruolo di Azure con ACL, vedere la [tabella delle autorizzazioni: combinazione](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl)di controllo degli accessi
 
 |    Operazione             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -270,7 +270,7 @@ Se HNS è disattivato, le regole di autorizzazione RBAC di Azure Azure sono comu
 
 Per informazioni sul modo in cui il sistema valuta gli ACL e il controllo degli accessi in base al ruolo di Azure per prendere decisioni relative [alle autorizzazioni per](data-lake-storage-access-control-model.md#how-permissions-are-evaluated)le risorse dell'account di archiviazione, vedere
 
-### <a name="what-are-the-limits-for-azure-rbac-role-assignments-and-acl-entries"></a>Quali sono i limiti per le assegnazioni di ruolo e le voci ACL di Azure?
+### <a name="what-are-the-limits-for-azure-role-assignments-and-acl-entries"></a>Quali sono i limiti per le assegnazioni di ruolo e le voci ACL di Azure?
 
 La tabella seguente fornisce una panoramica dei limiti da considerare quando si usa il controllo degli accessi in base al ruolo di Azure per gestire le autorizzazioni "grossolane" (autorizzazioni valide per gli account di archiviazione o i contenitori) e l'uso degli ACL per gestire le autorizzazioni con granularità fine (autorizzazioni valide per file e directory). Usare i gruppi di sicurezza per le assegnazioni ACL. Usando i gruppi, è meno probabile che superino il numero massimo di assegnazioni di ruolo per sottoscrizione e il numero massimo di voci ACl per ogni file o directory. 
 
@@ -288,7 +288,7 @@ Gli ACL predefiniti possono essere usati per impostare gli ACL per le nuove sott
 
 - Il chiamante ha autorizzazioni ' superuser ',
 
-Oppure
+Or
 
 - Sono necessarie autorizzazioni di Scrittura + Esecuzione per la directory padre.
 - Sono necessarie autorizzazioni di Lettura + Scrittura + Esecuzione per la directory da eliminare e per ogni directory al suo interno.

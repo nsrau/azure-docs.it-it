@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 7cdd70a44a090b03a3f11626805565469c7c04e7
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: df4d777ad78240b3ca84c51152b37861c4ccc486
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554666"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960003"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usare Azure Machine Learning Studio in una rete virtuale di Azure
 
@@ -36,7 +36,7 @@ Vedere gli altri articoli di questa serie:
 
 
 > [!IMPORTANT]
-> Se l'area di lavoro si trova in un __cloud sovrano__ , ad esempio Azure per enti pubblici o Azure Cina 21ViaNet, i notebook integrati _non_ supportano l'uso dell'archiviazione che si trova in una rete virtuale. È invece possibile usare Jupyter Notebook da un'istanza di calcolo. Per altre informazioni, vedere la sezione [accedere ai dati in un notebook dell'istanza di calcolo](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
+> Se l'area di lavoro si trova in un __cloud sovrano__, ad esempio Azure per enti pubblici o Azure Cina 21ViaNet, i notebook integrati _non_ supportano l'uso dell'archiviazione che si trova in una rete virtuale. È invece possibile usare Jupyter Notebook da un'istanza di calcolo. Per altre informazioni, vedere la sezione [accedere ai dati in un notebook dell'istanza di calcolo](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -90,7 +90,7 @@ Azure Machine Learning usa gli [archivi dati](concept-data.md#datastores) per co
 1. Nelle impostazioni dell'archivio dati selezionare __Sì__ per  __Consenti Azure Machine Learning servizio di accedere allo spazio di archiviazione usando l'identità gestita dall'area di lavoro__.
 
 
-Questa procedura consente di aggiungere l'identità gestita dall'area di lavoro come __lettore__ al servizio di archiviazione usando il controllo degli accessi in base alle risorse di Azure (RBAC di Azure). Accesso in __lettura__ consente all'area di lavoro di recuperare le impostazioni del firewall e assicurarsi che i dati non lascino la rete virtuale.
+Questa procedura consente di aggiungere l'identità gestita dall'area di lavoro come __lettore__ al servizio di archiviazione usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Accesso in __lettura__ consente all'area di lavoro di recuperare le impostazioni del firewall e assicurarsi che i dati non lascino la rete virtuale.
 
 > [!NOTE]
 > Per rendere effettive queste modifiche possono essere necessari fino a 10 minuti.
@@ -104,7 +104,7 @@ L'uso dell'identità gestita per accedere ai servizi di archiviazione influisca 
 
 ### <a name="azure-blob-storage"></a>Archiviazione BLOB di Azure
 
-Per l' __archiviazione BLOB di Azure__ , l'identità gestita dall'area di lavoro viene aggiunta anche come [lettore di dati BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) in modo che possa leggere i dati dall'archivio BLOB.
+Per l' __archiviazione BLOB di Azure__, l'identità gestita dall'area di lavoro viene aggiunta anche come [lettore di dati BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) in modo che possa leggere i dati dall'archivio BLOB.
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Controllo di accesso Azure Data Lake Storage Gen2
 

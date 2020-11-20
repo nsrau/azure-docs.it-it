@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7e9d73fa94acd2f31452de05ef3caee92d5cf3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2214f085c30419cefb3f6f84139d5592873173f7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055504"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960122"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Introduzione a StorSimple Snapshot Manager
 
@@ -79,7 +79,7 @@ Con Gestione snapshot StorSimple è possibile creare volumi, quindi configurarli
 
 Gestione snapshot StorSimple utilizza i gruppi di volumi per creare copie di backup coerenti con l'applicazione. La coerenza con l'applicazione esiste quando tutti i relativi file e database sono sincronizzati e rappresentano lo stato reale di un’applicazione in un momento specifico. I gruppi di volumi (anche noti come *Gruppi di coerenza*) sono alla base di un processo di backup o di ripristino.
 
-I gruppi di volumi non corrispondono ai contenitori di volumi. Un contenitore di volumi contiene uno o più volumi che condividono un account di archiviazione cloud e altri attributi, come la crittografia e il consumo della larghezza di banda. Un contenitore di volumi singolo può contenere fino a 256 volumi StorSimple con thin provisioning. Per altre informazioni sui contenitori di volumi, andare a [Gestione dei contenitori di volumi](storsimple-manage-volume-containers.md). I gruppi di volumi sono raccolte di volumi configurate per facilitare le operazioni di backup. Se si selezionano due volumi che appartengono a contenitori di volumi diversi, inserirli in un singolo gruppo di volumi, quindi creare un criterio di backup per tale gruppo di volumi. Il backup di ciascun volume verrà eseguito nel contenitore di volumi appropriato, utilizzando l'account di archiviazione appropriato.
+I gruppi di volumi non corrispondono ai contenitori di volumi. Un contenitore di volumi contiene uno o più volumi che condividono un account di archiviazione cloud e altri attributi, come la crittografia e il consumo della larghezza di banda. Un contenitore di volumi singolo può contenere fino a 256 volumi StorSimple con thin provisioning. Per altre informazioni sui contenitori di volumi, andare a [Gestione dei contenitori di volumi](./storsimple-8000-manage-volume-containers.md). I gruppi di volumi sono raccolte di volumi configurate per facilitare le operazioni di backup. Se si selezionano due volumi che appartengono a contenitori di volumi diversi, inserirli in un singolo gruppo di volumi, quindi creare un criterio di backup per tale gruppo di volumi. Il backup di ciascun volume verrà eseguito nel contenitore di volumi appropriato, utilizzando l'account di archiviazione appropriato.
 
 > [!NOTE]
 > Tutti i volumi in un gruppo di volumi devono provenire da un singolo provider di servizi cloud.
@@ -140,4 +140,3 @@ Per informazioni sul monitoraggio dei processi di backup, andare a [Utilizzo di 
 ## <a name="next-steps"></a>Passaggi successivi
 * Ulteriori informazioni sull’ [utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
 * Scaricare [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
-

@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: 6d61bd2c45cc1ba9cd9494750b793d7321288224
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57c6caea2de9063b133d4d5d643629184e412dad
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797747"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957691"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configurazione di Pacemaker su SUSE Linux Enterprise Server in Azure
 
@@ -442,7 +443,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    >È possibile controllare l'estensione eseguendo SUSEConnect---list-Extensions.  
    >Per ottenere tempi di failover più rapidi con l'agente di recinzione di Azure:
    > - in SLES 12 SP4 o SLES 12 SP5 installare la versione **4.6.2** o successiva del pacchetto python-Azure-Mgmt-Compute  
-   > - in SLES 15 installare la versione **4.6.2** o successiva del pacchetto python**3**-Azure-Mgmt-Compute 
+   > - in SLES 15 installare la versione **4.6.2** o successiva del pacchetto python **3**-Azure-Mgmt-Compute 
 
 1. **[A]** Configurare la risoluzione dei nomi host
 

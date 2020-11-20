@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: 9978137edb7874a8b93e0c9a5f1f9979ce449277
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4693af9c29a36aad60b7b525fec024509a4d586
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88893171"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94958748"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Distribuire un sistema di SAP HANA con scale-out con un nodo standby in macchine virtuali di Azure usando Azure NetApp Files su Red Hat Enterprise Linux 
 
@@ -235,11 +236,11 @@ Nelle istruzioni successive si presuppone che siano già stati creati il gruppo 
 
    c. Selezionare la subnet della rete virtuale di Azure client. Selezionare [rete accelerata](../../../virtual-network/create-vm-accelerated-networking-cli.md).  
 
-   Quando si distribuiscono le macchine virtuali, il nome dell'interfaccia di rete viene generato automaticamente. In queste istruzioni per semplicità si farà riferimento alle interfacce di rete generate automaticamente, che sono collegate alla subnet della rete virtuale di Azure client come **hanadb1-client**, **hanadb2-client**e **hanadb3-client**. 
+   Quando si distribuiscono le macchine virtuali, il nome dell'interfaccia di rete viene generato automaticamente. In queste istruzioni per semplicità si farà riferimento alle interfacce di rete generate automaticamente, che sono collegate alla subnet della rete virtuale di Azure client come **hanadb1-client**, **hanadb2-client** e **hanadb3-client**. 
 
-3. Creare tre interfacce di rete, una per ogni macchina virtuale, per la `storage` subnet della rete virtuale (in questo esempio, **hanadb1-storage**, **hanadb2-storage**e **hanadb3-storage**).  
+3. Creare tre interfacce di rete, una per ogni macchina virtuale, per la `storage` subnet della rete virtuale (in questo esempio, **hanadb1-storage**, **hanadb2-storage** e **hanadb3-storage**).  
 
-4. Creare tre interfacce di rete, una per ogni macchina virtuale, per la `hana`  subnet della rete virtuale (in questo esempio, **hanadb1-Hana**, **hanadb2-Hana**e **hanadb3-Hana**).  
+4. Creare tre interfacce di rete, una per ogni macchina virtuale, per la `hana`  subnet della rete virtuale (in questo esempio, **hanadb1-Hana**, **hanadb2-Hana** e **hanadb3-Hana**).  
 
 5. Alleghi le interfacce di rete virtuale appena create alle macchine virtuali corrispondenti attenendosi alla procedura seguente:  
 
@@ -249,7 +250,7 @@ Nelle istruzioni successive si presuppone che siano già stati creati il gruppo 
 
     c. Nel riquadro **Panoramica** selezionare **Arresta** per deallocare la macchina virtuale.  
 
-    d. Selezionare **rete**e quindi collegare l'interfaccia di rete. Nell'elenco a discesa **Connetti interfaccia di rete** selezionare le interfacce di rete già create per le `storage` subnet e `hana` .  
+    d. Selezionare **rete** e quindi collegare l'interfaccia di rete. Nell'elenco a discesa **Connetti interfaccia di rete** selezionare le interfacce di rete già create per le `storage` subnet e `hana` .  
     
     e. Selezionare **Salva**. 
  
@@ -518,7 +519,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 
 1. **[A]** prima dell'installazione di Hana, impostare la password radice. È possibile disabilitare la password radice dopo che l'installazione è stata completata. Comando Execute `root` As `passwd` .  
 
-2. **[1]** verificare che sia possibile accedere tramite SSH a **hanadb2** e **hanadb3**senza che venga richiesta una password.  
+2. **[1]** verificare che sia possibile accedere tramite SSH a **hanadb2** e **hanadb3** senza che venga richiesta una password.  
 
     <pre><code>
     ssh root@<b>hanadb2</b>
@@ -531,7 +532,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
     yum install libgcc_s1 libstdc++6 compat-sap-c++-7 libatomic1 
     </code></pre>
 
-4. **[2], [3]** Modificare la proprietà di SAP HANA `data` e `log` directory in **HN1**ADM.   
+4. **[2], [3]** Modificare la proprietà di SAP HANA `data` e `log` directory in **HN1** ADM.   
 
     <pre><code>
     # Execute as root
@@ -730,7 +731,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 
 1. Simulare un arresto anomalo di un nodo in un nodo del ruolo di lavoro SAP HANA. Eseguire le operazioni seguenti: 
 
-   a. Prima di simulare l'arresto anomalo del nodo, eseguire i comandi seguenti come **HN1**ADM per acquisire lo stato dell'ambiente:  
+   a. Prima di simulare l'arresto anomalo del nodo, eseguire i comandi seguenti come **HN1** ADM per acquisire lo stato dell'ambiente:  
 
    <pre><code>
     # Check the landscape status
@@ -786,7 +787,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 
 2. Per terminare il server dei nomi, eseguire le operazioni seguenti:
 
-   a. Prima del test, controllare lo stato dell'ambiente eseguendo i comandi seguenti come **HN1**ADM:  
+   a. Prima del test, controllare lo stato dell'ambiente eseguendo i comandi seguenti come **HN1** ADM:  
 
    <pre><code>
     #Landscape status 
@@ -808,7 +809,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
     hanadb1, 3, 50313, 50314, 0.3, HDB|HDB_WORKER, GREEN
    </code></pre>
 
-   b. Eseguire i comandi seguenti come **HN1**ADM sul nodo master attivo, che è **hanadb1** in questo caso:  
+   b. Eseguire i comandi seguenti come **HN1** ADM sul nodo master attivo, che è **hanadb1** in questo caso:  
 
     <pre><code>
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill

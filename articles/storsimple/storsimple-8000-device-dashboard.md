@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 93d230656fd7ef34e76a143fb3186d23f8d3afed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34bbf4d723e46663efe77560245db74d9dea1fc4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766244"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957912"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Usare il riepilogo del dispositivo nel servizio Gestione dispositivi StorSimple
 
@@ -81,7 +81,7 @@ L'area relativa alle informazioni di base riporta alcune proprietà importanti, 
      In questo contesto, *archiviazione primaria* fa riferimento alla quantità totale di dati scritti dall'host e può essere suddivisa in base al tipo di volume: *archiviazione primaria a livelli* include sia i dati archiviati in locale sia quelli archiviati a livelli nel cloud, mentre *archiviazione primaria aggiunta in locale* include solo i dati archiviati in locale. *Archiviazione cloud* rappresenta invece una misura della quantità totale di dati archiviati nel cloud. Questo tipo di archiviazione include i backup e i dati a più livelli. I dati archiviati nel cloud sono deduplicati e compressi, mentre l'archiviazione primaria indica la quantità di spazio di archiviazione usato prima che i dati vengano deduplicati e compressi. È possibile confrontare questi due numeri per ottenere un'idea della velocità di compressione. Per l'archiviazione primaria e cloud, gli importi visualizzati sono basati sulla frequenza di rilevamento configurata. Se, ad esempio, si sceglie una frequenza settimanale, il grafico mostrerà i dati per ogni giorno della settimana precedente.
 
      Per visualizzare la quantità di spazio di archiviazione cloud usato nel corso del tempo, selezionare l'opzione **SPAZIO DI ARCHIVIAZIONE CLOUD UTILIZZATO**. Per visualizzare l'archiviazione totale scritta dall'host, selezionare le opzioni **PRIMARY TIERED STORAGE USED** (ARCHIVIAZIONE PRIMARIA A LIVELLI USATA) e **PRIMARY LOCALLY PINNED STORAGE USED** (ARCHIVIAZIONE PRIMARIA AGGIUNTA IN LOCALE USATA). 
-     Per ulteriori informazioni, vedere [Utilizzare il servizio StorSimple Manager per monitorare il dispositivo StorSimple](storsimple-monitor-device.md).
+     Per ulteriori informazioni, vedere [Utilizzare il servizio StorSimple Manager per monitorare il dispositivo StorSimple](./storsimple-8000-monitor-device.md).
 
 
 * Il riquadro **Capacità** mostra l'archiviazione primaria di cui è stato eseguito il provisioning e quella rimanente nel dispositivo rispetto all'archiviazione totale disponibile per lo stesso dispositivo. **Provisioning** fa riferimento alla quantità di spazio di archiviazione preparata e allocata per l'uso; **Rimanente** fa riferimento alla capacità rimanente di cui è possibile eseguire il provisioning in questo dispositivo. 
@@ -96,4 +96,3 @@ L'area relativa alle informazioni di base riporta alcune proprietà importanti, 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sul [pannello di riepilogo del servizio StorSimple](storsimple-8000-service-dashboard.md).
 * Altre informazioni sull'[uso del servizio Gestione dispositivi StorSimple per amministrare il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

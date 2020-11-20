@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 8faf4ca8e27b280a60750d5f349ab0282ed593bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b750659bf22e856ee8ad7368e3fea64dd7245df
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86999497"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960360"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Usare il servizio Gestione dispositivi StorSimple per monitorare i componenti hardware e lo stato
 
@@ -47,7 +47,7 @@ Un dispositivo 8600 dispone di componenti aggiuntivi che corrispondono allo chas
 ## <a name="monitor-the-hardware-status"></a>Monitorare lo stato dell'hardware
 Per visualizzare lo stato dell'hardware di un componente del dispositivo, procedere come segue:
 
-1. Passare a **Dispositivi**e selezionare uno specifico dispositivo StorSimple. Passare a **Monitoraggio > Integrità hardware**.
+1. Passare a **Dispositivi** e selezionare uno specifico dispositivo StorSimple. Passare a **Monitoraggio > Integrità hardware**.
 
     ![Screenshot che mostra il pannello impostazioni del servizio Device Manager. In monitoraggio è selezionata l'opzione integrità hardware.](./media/storsimple-8000-monitor-hardware-status/hw-health1.png)
 
@@ -74,12 +74,12 @@ Per visualizzare lo stato dell'hardware di un componente del dispositivo, proced
 
    ![Screenshot che mostra l'elemento dei componenti controller 1 selezionato. Nel pannello adiacente il nodo del cluster si trova in uno stato di errore.](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
 
-4. Se si rileva un componente che non si trova in uno stato **Integro** , contattare il supporto tecnico Microsoft. Se gli avvisi sono attivati sul dispositivo, si riceverà un messaggio di avviso. Se è necessario sostituire un componente hardware in errore, vedere la [Guida alla sostituzione di componenti hardware](storsimple-hardware-component-replacement.md).
+4. Se si rileva un componente che non si trova in uno stato **Integro** , contattare il supporto tecnico Microsoft. Se gli avvisi sono attivati sul dispositivo, si riceverà un messaggio di avviso. Se è necessario sostituire un componente hardware in errore, vedere la [Guida alla sostituzione di componenti hardware](./storsimple-8000-hardware-component-replacement.md).
 
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Elenco di componenti per l’enclosure principale del dispositivo StorSimple
 La tabella seguente indica i componenti fisici e logici contenuti nell'enclosure principale, presente nei dispositivi 8100 e 8600, del dispositivo StorSimple in locale.
 
-| Componente | Modulo | Type | Location | Unità sostituibile sul campo (FRU)? | Descrizione |
+| Componente | Modulo | Type | Location | Unità sostituibile sul campo (FRU)? | Description |
 | --- | --- | --- | --- | --- | --- |
 | Unità in slot [0-11] |Unità disco |Fisico |Condiviso |Sì |Viene visualizzata una riga per ogni unità SSD o le unità disco rigido nello chassis principale. |
 | Sensore di temperatura ambientale |Chassis |Fisico |Condiviso |No |Misura la temperatura all'interno dello chassis. |
@@ -120,7 +120,7 @@ La tabella seguente indica i componenti fisici e logici contenuti nell'enclosure
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Elenco di componenti per l’enclosure EBOD del dispositivo StorSimple
 Nella tabella seguente vengono descritti i componenti fisici e logici contenuti nell'enclosure EBOD (presente solo nel modello 8600) del dispositivo StorSimple in locale.
 
-| Componente | Modulo | Type | Location | FRU? | Descrizione |
+| Componente | Modulo | Type | Location | FRU? | Description |
 | --- | --- | --- | --- | --- | --- |
 | Unità in slot [0-11] |Unità disco |Fisico |Condiviso |Sì |Viene visualizzata una riga per ogni unità HDD nella parte anteriore dello chassis EBOD. |
 | Sensore di temperatura ambientale |Chassis |Fisico |Condiviso |No |Misura la temperatura all'interno dello chassis. |
@@ -146,6 +146,5 @@ Nella tabella seguente vengono descritti i componenti fisici e logici contenuti 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per usare il servizio Gestione dispositivi StorSimple per la gestione del dispositivo, passare all'articolo relativo all'[uso del servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 * Se è necessario risolvere i problemi relativi a un componente del dispositivo con lo stato danneggiato o guasto, fare riferimento a [Indicatori di monitoraggio di StorSimple](storsimple-monitoring-indicators.md).
-* Per sostituire un componente hardware guasto, vedere la [Guida alla sostituzione di componenti hardware di StorSimple](storsimple-hardware-component-replacement.md).
+* Per sostituire un componente hardware guasto, vedere la [Guida alla sostituzione di componenti hardware di StorSimple](./storsimple-8000-hardware-component-replacement.md).
 * Se si continuano a riscontrare problemi nei dispositivi, [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md).
-

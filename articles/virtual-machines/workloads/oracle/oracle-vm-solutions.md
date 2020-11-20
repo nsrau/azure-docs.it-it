@@ -3,16 +3,17 @@ title: Soluzioni Oracle nelle macchine virtuali di Azure | Microsoft Docs
 description: Informazioni sulle configurazioni supportate e sulle limitazioni delle immagini delle macchine virtuali Oracle in Microsoft Azure.
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 739245a8a17c97f3a8081cfee7e7bb31e4135952
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 093d3c0da0b40f2a287b1cb451a419f71ce4b8d7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843979"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957589"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Immagini delle macchine virtuali Oracle e rispettiva distribuzione in Microsoft Azure
 

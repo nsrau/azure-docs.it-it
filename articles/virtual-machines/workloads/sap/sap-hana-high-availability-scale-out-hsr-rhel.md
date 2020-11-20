@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 520a7649942fc5186d32020853b98297ef8b34d7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 36c101acc9e272ca0860649aad1a5e18fb5000a5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152117"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94957334"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Disponibilità elevata del sistema di SAP HANA con scalabilità orizzontale in Red Hat Enterprise Linux 
 
@@ -131,16 +132,16 @@ Per la configurazione presentata in questo documento, distribuire sette macchine
    Distribuire dischi gestiti locali per `/hana/data` e `/hana/log` . La configurazione di archiviazione minima consigliata per `/hana/data` ed `/hana/log` è descritta in [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md).
 
    Distribuire l'interfaccia di rete primaria per ogni macchina virtuale nella `client` subnet della rete virtuale.  
-   Quando la macchina virtuale viene distribuita tramite portale di Azure, viene generato automaticamente il nome dell'interfaccia di rete. In queste istruzioni per semplicità si farà riferimento alle interfacce di rete primarie generate automaticamente, che sono collegate alla `client` subnet della rete virtuale di Azure come **Hana-S1-DB1-client**, **Hana-S1-DB2-client**, **Hana-S1-DB3-client**e così via.  
+   Quando la macchina virtuale viene distribuita tramite portale di Azure, viene generato automaticamente il nome dell'interfaccia di rete. In queste istruzioni per semplicità si farà riferimento alle interfacce di rete primarie generate automaticamente, che sono collegate alla `client` subnet della rete virtuale di Azure come **Hana-S1-DB1-client**, **Hana-S1-DB2-client**, **Hana-S1-DB3-client** e così via.  
 
 
    > [!IMPORTANT]
    > Verificare che il sistema operativo selezionato sia certificato per SAP per SAP HANA sui tipi di VM specifici in uso. Per un elenco dei tipi di VM SAP HANA certificati e delle versioni del sistema operativo per questi tipi, accedere al sito [SAP Hana piattaforme IaaS certificate](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) . Fare clic sui dettagli del tipo di macchina virtuale elencato per ottenere l'elenco completo delle versioni del sistema operativo supportate da SAP HANA per quel tipo.  
   
 
-2. Creare sei interfacce di rete, una per ogni macchina virtuale del database HANA, nella `inter` subnet della rete virtuale (in questo esempio, **Hana-S1-DB1-Inter**, **Hana-S1-DB2-Inter**, **Hana-S1-DB3-Inter**, **Hana-S2-DB1-Inter**, **Hana-S2-DB2-Inter**e **Hana-S2-DB3-Inter**).  
+2. Creare sei interfacce di rete, una per ogni macchina virtuale del database HANA, nella `inter` subnet della rete virtuale (in questo esempio, **Hana-S1-DB1-Inter**, **Hana-S1-DB2-Inter**, **Hana-S1-DB3-Inter**, **Hana-S2-DB1-Inter**, **Hana-S2-DB2-Inter** e **Hana-S2-DB3-Inter**).  
 
-3. Creare sei interfacce di rete, una per ogni macchina virtuale del database HANA, nella `hsr` subnet della rete virtuale (in questo esempio, **Hana-S1-DB1-HSR**, **Hana-S1-DB2-HSR**, **Hana-S1-DB3-HSR**, **Hana-S2-DB1-HSR**, **Hana-S2-DB2-HSR**e **Hana-S2-DB3-HSR**).  
+3. Creare sei interfacce di rete, una per ogni macchina virtuale del database HANA, nella `hsr` subnet della rete virtuale (in questo esempio, **Hana-S1-DB1-HSR**, **Hana-S1-DB2-HSR**, **Hana-S1-DB3-HSR**, **Hana-S2-DB1-HSR**, **Hana-S2-DB2-HSR** e **Hana-S2-DB3-HSR**).  
 
 4. Alleghi le interfacce di rete virtuale appena create alle macchine virtuali corrispondenti:  
 
@@ -150,7 +151,7 @@ Per la configurazione presentata in questo documento, distribuire sette macchine
 
     c. Nel riquadro **Panoramica** selezionare **Arresta** per deallocare la macchina virtuale.  
 
-    d. Selezionare **rete**e quindi collegare l'interfaccia di rete. Nell'elenco a discesa **Connetti interfaccia di rete** selezionare le interfacce di rete già create per le `inter` subnet e `hsr` .  
+    d. Selezionare **rete** e quindi collegare l'interfaccia di rete. Nell'elenco a discesa **Connetti interfaccia di rete** selezionare le interfacce di rete già create per le `inter` subnet e `hsr` .  
     
     e. Selezionare **Salva**. 
  
@@ -206,7 +207,7 @@ Per la configurazione presentata in questo documento, distribuire sette macchine
 
       1. Aprire il servizio di bilanciamento del carico, selezionare **Probe integrità** e quindi **Aggiungi**.
       1. Immettere il nome del nuovo probe di integrità (ad esempio, **hana-hp**).
-      1. Selezionare **TCP** come protocollo e la porta 625**03**. Lasciare il valore di **Intervallo** impostato su 5 e il valore di **Soglia di non integrità** impostato su 2.
+      1. Selezionare **TCP** come protocollo e la porta 625 **03**. Lasciare il valore di **Intervallo** impostato su 5 e il valore di **Soglia di non integrità** impostato su 2.
       1. Selezionare **OK**.
 
    1. Successivamente, creare le regole del servizio di bilanciamento del carico:
@@ -599,7 +600,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 
 1. **[1]** configurare la replica di sistema nel sito 1:
 
-   Eseguire il backup dei database come **HN1**ADM:
+   Eseguire il backup dei database come **HN1** ADM:
 
     ```
     hdbsql -d SYSTEMDB -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupSYS')"
@@ -936,7 +937,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
 
    3. Successivamente, creare la risorsa dell'istanza HANA.  
       > [!NOTE]
-      > Questo articolo contiene riferimenti al termine *slave*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.  
+      > Questo articolo contiene riferimenti al termine *slave*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.  
  
       Se si compila il cluster RHEL **7. x** , usare i comandi seguenti:    
       ```

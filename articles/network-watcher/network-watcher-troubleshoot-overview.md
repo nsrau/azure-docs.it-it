@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 95edcee32c1917d23e4808e805f947d18d2fa7f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f27cb217b60c23f3cf89f48effb933837269000e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986242"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960326"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduzione alla risoluzione dei problemi delle risorse in Azure Network Watcher
 
@@ -82,21 +82,21 @@ Le tabelle seguenti illustrano i diversi tipi di errore (ID relativi ai risultat
 
 L'elenco tabella seguente mostra i gateway e le connessioni supportate con la risoluzione dei problemi di Network Watcher:
 
-| Gateway o connessione | Supportato  |
+| Gateway o connessione | Funzionalità supportata  |
 |---------|---------|
 |**Tipi di gateway**   |         |
-|Connessione      | Supportato        |
+|Connessione      | Funzionalità supportata        |
 |ExpressRoute | Non supportato |
 |**Tipi di VPN** | |
-|Basato su route | Supportato|
+|Basato su route | Funzionalità supportata|
 |Basata su criteri | Non supportato|
 |**Tipi di connessioni**||
-|IPsec| Supportato|
-|Vnet2Vnet| Supportato|
+|IPsec| Funzionalità supportata|
+|Vnet2Vnet| Funzionalità supportata|
 |ExpressRoute| Non supportato|
 |VPNClient| Non supportato|
 
-## <a name="log-files"></a>File di registro
+## <a name="log-files"></a>File di log
 
 I file di log della risoluzione dei problemi delle risorse vengono archiviati in un account di archiviazione al termine della risoluzione dei problemi delle risorse. L'immagine seguente mostra i contenuti di esempio di una chiamata che ha generato un errore.
 
@@ -105,7 +105,7 @@ I file di log della risoluzione dei problemi delle risorse vengono archiviati in
 > [!NOTE]
 > In alcuni casi, solo un sottoinsieme di file di log viene scritto nella risorsa di archiviazione.
 
-Per istruzioni sul download di file dagli account di archiviazione di Azure, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Un altro strumento che può essere usato è Storage Explorer. Altre informazioni su Storage Explorer sono reperibili facendo clic sul collegamento seguente: [Storage Explorer](https://storageexplorer.com/).
+Per istruzioni sul download di file dagli account di archiviazione di Azure, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Un altro strumento che può essere usato è Storage Explorer. Altre informazioni su Storage Explorer sono reperibili facendo clic sul collegamento seguente: [Storage Explorer](https://storageexplorer.com/).
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 
