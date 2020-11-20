@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 5a0ea8a2f07ef596cd80e9165eedb2b98dab0bfa
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0df0c12d5942179e2492bfdc932fa25d126a2426
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978714"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951741"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usare il servizio Gestione dispositivi StorSimple per gestire le credenziali degli account di archiviazione
 
@@ -55,7 +55,7 @@ Le attività più comuni relative agli account di archiviazione che possono esse
 Esistono tre tipi di account di archiviazione che è possibile utilizzare con il dispositivo StorSimple.
 
 * **Account di archiviazione generati automaticamente** : come suggerito dal nome, questo tipo di account di archiviazione viene generato automaticamente quando viene inizialmente creato il servizio. Per altre informazioni sulla creazione di questo account di archiviazione, vedere il [Passaggio 1: Creare un nuovo servizio](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) in [Distribuire il dispositivo StorSimple locale](storsimple-8000-deployment-walkthrough-u2.md). 
-* **Account di archiviazione nella sottoscrizione del servizio**: si tratta degli account di archiviazione di Azure associati alla stessa sottoscrizione di quella del servizio. Per ulteriori informazioni su come vengono creati questi account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md). 
+* **Account di archiviazione nella sottoscrizione del servizio**: si tratta degli account di archiviazione di Azure associati alla stessa sottoscrizione di quella del servizio. Per ulteriori informazioni su come vengono creati questi account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-account-create.md). 
 * **Account di archiviazione all'esterno della sottoscrizione del servizio**: si tratta degli account di archiviazione di Azure non associati al servizio e probabilmente esistenti già prima della creazione del servizio.
 
 ## <a name="add-a-storage-account"></a>Aggiungere un account di archiviazione
@@ -106,7 +106,7 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
 
 2. Nel pannello **Credenziali dell'account di archiviazione** selezionare e fare clic sulle credenziali da modificare nell'elenco. 
 
-3. È possibile modificare la selezione **Abilita SSL**. È anche possibile fare clic su **Altro... ** e selezionare **Sincronizza chiave di accesso** per ruotare le chiavi di accesso agli account di archiviazione. Andare a [Rotazione delle chiavi degli account di archiviazione](#key-rotation-of-storage-accounts) per ulteriori informazioni su come eseguire la rotazione delle chiavi. Dopo avere modificato le impostazioni, fare clic su **Salva**. 
+3. È possibile modificare la selezione **Abilita SSL**. È anche possibile fare clic su **Altro...** e selezionare **Sincronizza chiave di accesso** per ruotare le chiavi di accesso agli account di archiviazione. Andare a [Rotazione delle chiavi degli account di archiviazione](#key-rotation-of-storage-accounts) per ulteriori informazioni su come eseguire la rotazione delle chiavi. Dopo avere modificato le impostazioni, fare clic su **Salva**. 
 
     ![Salvare le credenziali dell'account di archiviazione modificate](./media/storsimple-8000-manage-storage-accounts/editstorageacct3.png)
 
@@ -179,4 +179,3 @@ Al termine della sincronizzazione della chiave, si riceve una notifica.
 ## <a name="next-steps"></a>Passaggi successivi
 * Ulteriori informazioni sulla [sicurezza di StorSimple](storsimple-8000-security.md).
 * Altre informazioni sull'[uso del servizio Gestione dispositivi StorSimple per amministrare il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

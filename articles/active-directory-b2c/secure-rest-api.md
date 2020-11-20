@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: adb9bf48800062d2cc6976a88ec48c1993858dec
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 18979ba8cbc4e68bf79275059c6c1c976578c407
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089537"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953373"
 ---
 # <a name="secure-your-restful-services"></a>Proteggere i servizi RESTful 
 
@@ -52,7 +52,7 @@ Per configurare un profilo tecnico dell'API REST con l'autenticazione HTTP di ba
 1. In **Nome** digitare **RestApiUsername**.
     È possibile che il prefisso *B2C_1A_* venga aggiunto automaticamente.
 1. Nella casella **Segreto** immettere il nome utente dell'API REST.
-1. In **Uso chiave**selezionare **Crittografia**.
+1. In **Uso chiave** selezionare **Crittografia**.
 1. Selezionare **Create** (Crea).
 1. Selezionare di nuovo **Chiavi dei criteri**.
 1. Selezionare **Aggiungi**.
@@ -60,7 +60,7 @@ Per configurare un profilo tecnico dell'API REST con l'autenticazione HTTP di ba
 1. In **Nome** digitare **RestApiPassword**.
     È possibile che il prefisso *B2C_1A_* venga aggiunto automaticamente.
 1. Nella casella **Segreto** immettere la password dell'API REST.
-1. In **Uso chiave**selezionare **Crittografia**.
+1. In **Uso chiave** selezionare **Crittografia**.
 1. Selezionare **Create** (Crea).
 
 ### <a name="configure-your-rest-api-technical-profile-to-use-http-basic-authentication"></a>Configurare il profilo tecnico dell'API REST per l'uso dell'autenticazione HTTP di base
@@ -111,7 +111,7 @@ L'autenticazione con certificato client è un'autenticazione reciproca basata su
 
 ### <a name="prepare-a-self-signed-certificate-optional"></a>Preparare un certificato autofirmato (facoltativo)
 
-Per gli ambienti non di produzione, se non si ha già un certificato è possibile usarne uno autofirmato. In Windows è possibile usare il cmdlet [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) di PowerShell per generare un certificato.
+Per gli ambienti non di produzione, se non si ha già un certificato è possibile usarne uno autofirmato. In Windows è possibile usare il cmdlet [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) di PowerShell per generare un certificato.
 
 1. Eseguire questo comando di PowerShell per generare un certificato autofirmato. Modificare l'argomento `-Subject` in base al nome dell'applicazione e del tenant Azure AD B2C. Si può anche modificare la data `-NotAfter` per specificare una scadenza diversa per il certificato.
     ```powershell
@@ -230,9 +230,9 @@ Un'attestazione fornisce un'archiviazione temporanea dei dati durante l'esecuzio
 
 ### <a name="acquiring-an-access-token"></a>Acquisizione di un token di accesso 
 
-È possibile ottenere un token di accesso in diversi modi: ottenendolo da un [provider di identità federato](idp-pass-through-custom.md), chiamando un'API REST che restituisce un token di accesso, usando un [flusso ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc) o usando il [flusso di credenziali client](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow).  
+È possibile ottenere un token di accesso in diversi modi: ottenendolo da un [provider di identità federato](idp-pass-through-custom.md), chiamando un'API REST che restituisce un token di accesso, usando un [flusso ROPC](../active-directory/develop/v2-oauth-ropc.md) o usando il [flusso di credenziali client](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).  
 
-L'esempio seguente usa un profilo tecnico dell'API REST per effettuare una richiesta all'endpoint del token Azure AD usando le credenziali client passate come autenticazione HTTP di base. Per informazioni su come eseguire la configurazione in Azure AD, vedere [Microsoft Identity Platform e il flusso di credenziali client OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). Potrebbe essere necessario apportare alcune modifiche per consentire l'interazione con il provider di identità. 
+L'esempio seguente usa un profilo tecnico dell'API REST per effettuare una richiesta all'endpoint del token Azure AD usando le credenziali client passate come autenticazione HTTP di base. Per informazioni su come eseguire la configurazione in Azure AD, vedere [Microsoft Identity Platform e il flusso di credenziali client OAuth 2.0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). Potrebbe essere necessario apportare alcune modifiche per consentire l'interazione con il provider di identità. 
 
 Per ServiceUrl, sostituire your-tenant-name con il nome del tenant di Azure AD. Per informazioni su tutte le opzioni disponibili, vedere [Definire un profilo tecnico RESTful nei criteri personalizzati di Azure Active Directory B2C](restful-technical-profile.md).
 
@@ -367,4 +367,4 @@ Di seguito è riportato un esempio di profilo tecnico RESTful configurato con l'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sul [profilo tecnico Restful](restful-technical-profile.md) sono disponibili nella documentazione di riferimento di Identity Experience Framework. 
+- Altre informazioni sul [profilo tecnico Restful](restful-technical-profile.md) sono disponibili nella documentazione di riferimento di Identity Experience Framework.

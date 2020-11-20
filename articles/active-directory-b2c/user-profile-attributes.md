@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 3/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1e6965e15b7482935148ae7fcd2edf0f3cc722b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98c33d4b9e749e804f70d9dccb7198884c80dfe7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83738558"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952703"
 ---
 # <a name="user-profile-attributes"></a>Attributi del profilo utente
 
@@ -26,7 +26,7 @@ Il profilo utente della directory di Azure Active Directory (Azure AD) B2C viene
 
 È anche possibile integrare sistemi esterni. Ad esempio, è possibile usare Azure AD B2C per l'autenticazione, ma delegare a un database CRM (Customer Relationship Management) o di gestione della fedeltà clienti esterno come fonte autorevole di dati dei clienti. Per altre informazioni, vedere la soluzione [Profilo remoto](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile).
 
-La tabella seguente illustra gli attributi del [tipo di risorsa utente](https://docs.microsoft.com/graph/api/resources/user) supportati dal profilo utente della directory Azure AD B2C. Essa fornisce le informazioni seguenti su ogni attributo:
+La tabella seguente illustra gli attributi del [tipo di risorsa utente](/graph/api/resources/user) supportati dal profilo utente della directory Azure AD B2C. Essa fornisce le informazioni seguenti su ogni attributo:
 
 - Nome dell'attributo usato da Azure AD B2C (seguito dal nome Microsoft Graph tra parentesi, se diverso)
 - Tipo di dati dell'attributo
@@ -94,7 +94,7 @@ Spesso è necessario creare attributi personalizzati, come nei casi seguenti:
 - Un provider di identità ha un identificatore utente univoco che deve essere salvato, ad esempio **uniqueUserGUID**.
 - Un percorso utente personalizzato deve rendere permanente lo stato dell'utente, ad esempio **migrationStatus**.
 
-Con Azure AD B2C è possibile estendere il set di attributi archiviati in ogni account utente. Gli attributi di estensione [estendono lo schema](https://docs.microsoft.com/graph/extensibility-overview#schema-extensions) degli oggetti utente nella directory. Gli attributi di estensione possono essere registrati solo su un oggetto applicazione anche se possono contenere dati per un utente. L'attributo di estensione è associato all'applicazione denominata b2c-extensions-app. Non modificare questa applicazione, perché viene usata da Azure AD B2C per archiviare i dati utente. Questa applicazione è reperibile in Registrazioni app di Azure Active Directory.
+Con Azure AD B2C è possibile estendere il set di attributi archiviati in ogni account utente. Gli attributi di estensione [estendono lo schema](/graph/extensibility-overview#schema-extensions) degli oggetti utente nella directory. Gli attributi di estensione possono essere registrati solo su un oggetto applicazione anche se possono contenere dati per un utente. L'attributo di estensione è associato all'applicazione denominata b2c-extensions-app. Non modificare questa applicazione, perché viene usata da Azure AD B2C per archiviare i dati utente. Questa applicazione è reperibile in Registrazioni app di Azure Active Directory.
 
 > [!NOTE]
 > - È possibile scrivere fino a 100 attributi di estensione in qualsiasi account utente.
@@ -113,6 +113,6 @@ Quando si definisce una proprietà in un'estensione di schema sono supportati i 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sugli attributi di estensione:
-- [Estensioni dello schema](https://docs.microsoft.com/graph/extensibility-overview#schema-extensions)
+- [Estensioni dello schema](/graph/extensibility-overview#schema-extensions)
 - [Definire attributi personalizzati con flussi utente](user-flow-custom-attributes.md)
 - [Definire attributi personalizzati con criteri personalizzati](custom-policy-custom-attributes.md)

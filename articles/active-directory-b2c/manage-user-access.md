@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 51a66d74750afa6c46dba7fa442477e85effb2d6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: fadc739f16ce9690a735be22758f58857ff8b9ff
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102052"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951622"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gestire l'accesso utente in Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ A seconda delle normative che l'applicazione deve rispettare, potrebbe essere ne
 
 Di seguito è riportato un esempio di un flusso utente per l'acquisizione del consenso dei genitori:
 
-1. Un'operazione dell'[API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) identifica l'utente come minorenne e restituisce i dati dell'utente all'applicazione sotto forma di token JSON non firmato.
+1. Un'operazione dell'[API Microsoft Graph](/graph/use-the-api) identifica l'utente come minorenne e restituisce i dati dell'utente all'applicazione sotto forma di token JSON non firmato.
 
 2. L'applicazione elabora il token JSON e visualizza una schermata per comunicare al minore che è necessario il consenso dei genitori e richiedere il consenso di un genitore online.
 
@@ -56,7 +56,7 @@ Di seguito è riportato un esempio di un flusso utente per l'acquisizione del co
 
 5. Se il minorenne o l'adulto revoca il consenso, l'API Microsoft Graph consente di impostare **consentProvidedForMinor** su **denied**. In alternativa, l'applicazione può scegliere di eliminare un minorenne per cui il consenso è stato revocato. È anche possibile personalizzare il flusso utente in modo che il minorenne autenticato (o il genitore che ne usa l'account) possa revocare il consenso. Azure AD B2C registra **consentProvidedForMinor** come **denied**.
 
-Per altre informazioni su **legalAgeGroupClassification**, **consentProvidedForMinor** e **ageGroup**, vedere i [tipi di risorsa utente](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Per altre informazioni sugli attributi personalizzati, vedere [Usare attributi personalizzati per raccogliere informazioni sugli utenti](user-flow-custom-attributes.md). Quando si indirizzano attributi estesi con l'API Microsoft Graph, usare la versione estesa dell'attributo, ad esempio *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
+Per altre informazioni su **legalAgeGroupClassification**, **consentProvidedForMinor** e **ageGroup**, vedere i [tipi di risorsa utente](/graph/api/resources/user). Per altre informazioni sugli attributi personalizzati, vedere [Usare attributi personalizzati per raccogliere informazioni sugli utenti](user-flow-custom-attributes.md). Quando si indirizzano attributi estesi con l'API Microsoft Graph, usare la versione estesa dell'attributo, ad esempio *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
 ## <a name="gather-date-of-birth-and-countryregion-data"></a>Raccogliere dati sul paese o sull'area geografica e sulla data di nascita
 

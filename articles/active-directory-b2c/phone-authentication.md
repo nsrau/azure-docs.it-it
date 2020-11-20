@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 096d771cbf6e02a67903da7d5ce495890cc6828d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 9d4fa80f669493e4dc47a9ad0f9bfe9390d4ab24
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840492"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953577"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurare l'iscrizione e l'accesso tramite telefono con criteri personalizzati in Azure AD B2C
 
@@ -82,7 +82,7 @@ Se l'utente dispone di un account esistente con numero di telefono come identifi
 
 ## <a name="deleting-a-user-account"></a>Eliminare un account utente
 
-In alcuni casi potrebbe essere necessario eliminare un utente e i dati associati dalla directory Azure AD B2C. Per informazioni dettagliate su come eliminare un account utente tramite il portale di Azure, fare riferimento a [queste istruzioni](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
+In alcuni casi potrebbe essere necessario eliminare un utente e i dati associati dalla directory Azure AD B2C. Per informazioni dettagliate su come eliminare un account utente tramite il portale di Azure, fare riferimento a [queste istruzioni](/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

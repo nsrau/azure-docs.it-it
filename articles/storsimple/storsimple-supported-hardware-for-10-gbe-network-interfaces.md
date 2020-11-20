@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-ms.openlocfilehash: 7fafe177ea0c6c618dc4ab0727ba14c83cbb0102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd30c7ec15eadd3d7945349a8aae4ac824bfdc7f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68965022"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954087"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple
 
@@ -32,12 +32,12 @@ In questo articolo vengono fornite informazioni sull'hardware supplementare che 
 Microsoft ha verificato i seguenti ricetrasmettitori (SFP) collegabili small form factor, cavi e switch per assicurarsi che funzionino in modo ottimale con i dispositivi. (Le seguenti tabelle saranno aggiornate non appena verificato il nuovo hardware).
 
 ### <a name="sfp-transceivers"></a>Ricetrasmettitori SFP+ 
-| Casa automobilistica | Modello |
+| Casa automobilistica | Modellare |
 | --- | --- |
 | Cisco |SFP-10G-SR |
 
 ### <a name="cables"></a>Cavi
-| N. No. | Casa automobilistica | Modello |
+| S. No. | Casa automobilistica | Modellare |
 | --- | --- | --- |
 | 1. |Cisco |SFP-H10GB-CU1M |
 | 2. |Cisco |SFP-H10GB-CU2M |
@@ -45,7 +45,7 @@ Microsoft ha verificato i seguenti ricetrasmettitori (SFP) collegabili small for
 | 4. |Tripp-Lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>Commutatori
-| N. No. | Casa automobilistica | Modello |
+| S. No. | Casa automobilistica | Modellare |
 | --- | --- | --- |
 | 1. |Cisco |N3K-C3172PQ-10GE |
 | 2. |Cisco |N3K-C3048-ZM-F |
@@ -73,7 +73,7 @@ Mellanox ha verificato i seguenti ricetrasmettitori (SFP) collegabili small form
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Cavi e moduli supportati da Mellanox
 Nella tabella seguente sono elencati i cavi e i moduli supportati da Mellanox. Non sono stati verificati da Microsoft, ma è probabile che funzionino con il dispositivo StorSimple.
 
-| N. No. | speed | Modello | Descrizione | Casa automobilistica |
+| S. No. | speed | Modellare | Description | Casa automobilistica |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |CAB-SFP-SFP-1M |Cavo in rame passivo SFP+ 10 Gb/s 1 m |Arista |
 | 2. |10 GbE |CAB-SFP-SFP-2M |Cavo in rame passivo SFP+ 10 Gb/s 2 m |Arista |
@@ -114,7 +114,7 @@ Nella tabella seguente sono elencati i cavi e i moduli supportati da Mellanox. N
 ### <a name="switches-supported-by-mellanox"></a>Switch supportati da Mellanox
 Nella tabella seguente sono elencati gli switch supportati da Mellanox. Non sono stati verificati da Microsoft, ma è probabile che funzionino con il dispositivo StorSimple.
 
-| N. No. | speed | Modello | Descrizione | Casa automobilistica |
+| S. No. | speed | Modellare | Description | Casa automobilistica |
 | --- | --- | --- | --- | --- |
 | 1. |10GbE |516733-B21 |Switch blade HP ProCurve 6120XG 10GbE Ethernet |HP |
 | 2. |10GbE |538113-B21 |Modulo pass-through (PTM) HP 10GbE |HP |
@@ -125,5 +125,4 @@ Nella tabella seguente sono elencati gli switch supportati da Mellanox. Non sono
 | 7. |1GbE |6120G |Switch blade HP ProCurve 6120G/XG 1GbE |HP |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Ulteriori informazioni sui componenti hardware di StorSimple](storsimple-monitor-hardware-status.md)
-
+[Ulteriori informazioni sui componenti hardware di StorSimple](./storsimple-8000-monitor-hardware-status.md)

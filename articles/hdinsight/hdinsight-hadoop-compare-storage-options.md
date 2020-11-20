@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: a866a225da87c22a3a276a5d59b8e86f1f955cae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34eeeed2b3c44336cd4aa1219d54b1811c6988f5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856195"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952319"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Confrontare le opzioni di archiviazione per l'uso con i cluster Azure HDInsight
 
@@ -36,6 +36,8 @@ La tabella seguente riepiloga i servizi di archiviazione di Azure supportati con
 |Archiviazione di Azure| Utilizzo generico v1 | Oggetto | BLOB | Standard | N/D | Tutti | Tutti |
 |Archiviazione di Azure| Archiviazione BLOB * * | Oggetto | BLOB in blocchi | Standard | Frequente, sporadico, archivio | Tutti | Tutti |
 |Azure Data Lake Storage Gen1| N/D | Gerarchico (filesystem) | N/D | N/D | N/D | solo 3,6 | Tutti tranne HBase |
+|Archiviazione di Azure| BLOB in blocchi| Oggetto | BLOB in blocchi | Premium | N/D| 3.6+ | Solo HBase con scritture accelerate|
+|Azure Data Lake Storage Gen2| BLOB in blocchi| Gerarchico (filesystem) | BLOB in blocchi | Premium | N/D| 3.6+ | Solo HBase con scritture accelerate|
 
 * * Per i cluster HDInsight, solo gli account di archiviazione secondari possono essere di tipo BlobStorage e il BLOB di pagine non è un'opzione di archiviazione supportata.
 
@@ -45,7 +47,7 @@ Per altre informazioni sui livelli di accesso di archiviazione di Azure, vedere 
 
 È possibile creare cluster usando combinazioni di servizi per l'archiviazione secondaria primaria e facoltativa. Nella tabella seguente sono riepilogate le configurazioni di archiviazione del cluster attualmente supportate in HDInsight:
 
-| HDInsight Version | Archiviazione primaria | Archiviazione secondaria | Supportato |
+| HDInsight Version | Archiviazione primaria | Archiviazione secondaria | Funzionalità supportata |
 |---|---|---|---|
 | 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Per utilizzo generico V1, per utilizzo generico V2, BlobStorage (BLOB in blocchi) | Sì |
 | 3,6 & 4,0 | Per utilizzo generico V1, per utilizzo generico V2 | Data Lake Storage Gen2 | No |

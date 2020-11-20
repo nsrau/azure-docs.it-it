@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 718ccbaa57ffe9f4ebaf4e8df448b602ba8cc3fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1b2c7513562e951e1098cf327780387ddf6a495
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89293151"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953543"
 ---
 # <a name="tutorial-for-configuring-whoiam-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di WhoIAM con Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Per iniziare, è necessario:
 
 - Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 
-- [Un tenant Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) collegato alla sottoscrizione di Azure.
+- [Un tenant Azure ad B2C](./tutorial-create-tenant.md) collegato alla sottoscrizione di Azure.
 
 - Un [account di valutazione](https://www.whoiam.ai/contact-us/)di WhoIAM.
 
@@ -72,7 +72,7 @@ Il diagramma dell'architettura seguente illustra l'implementazione di.
 
     - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): usato per archiviare e recuperare le impostazioni.
 
-    - [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#:~:text=Application%20Insights%2C%20a%20feature%20of%20Azure%20Monitor%2C%20is,professionals.%20Use%20it%20to%20monitor%20your%20live%20applications) (facoltativo): usato per accedere sia all'API che al portale di amministrazione.
+    - [Application Insights](../azure-monitor/app/app-insights-overview.md) (facoltativo): usato per accedere sia all'API che al portale di amministrazione.
 
 3. Distribuire l'API di FALDe e il portale di amministrazione di trabocca nell'ambiente Azure.
 
@@ -84,13 +84,13 @@ Per ulteriori informazioni su WhoIAM, vedere la [documentazione del prodotto](ht
 
 1. Aprire il tenant Azure AD B2C. In **Criteri** selezionare **Identity Experience Framework**.
 
-2. Selezionare il **SignUpSignIn**creato in precedenza.
+2. Selezionare il **SignUpSignIn** creato in precedenza.
 
 3. Selezionare **Esegui flusso utente** e quindi:
 
    a. Per **applicazione**, selezionare l'app registrata (l'esempio è JWT).
 
-   b. In **URL di risposta**selezionare l' **URL di reindirizzamento**.
+   b. In **URL di risposta** selezionare l' **URL di reindirizzamento**.
 
    c. Selezionare **Esegui il flusso utente**.
 
@@ -102,6 +102,6 @@ Per ulteriori informazioni su WhoIAM, vedere la [documentazione del prodotto](ht
 
 Per ulteriori informazioni, vedere gli articoli seguenti:
 
-- [Criteri personalizzati in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Criteri personalizzati in AAD B2C](./custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introduzione ai criteri personalizzati in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

@@ -11,12 +11,12 @@ ms.date: 10/15/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c0ab4d367d2ca9fd59c26ce8d36b5f80dcb832c8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 39d23313f9d00ef48f64327dd10356a91b9d13b7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840628"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951894"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Abilitare l'autenticazione a più fattori in Azure Active Directory B2C
 
@@ -41,6 +41,3 @@ Questa funzionalità consente alle applicazioni di gestire scenari come:
 È possibile usare **Esegui ora** per verificare l'esperienza. Confermare lo scenario seguente:
 
 Un account utente viene creato nel tenant prima che venga eseguito il passaggio di autenticazione a più fattori. Durante il passaggio, all'utente viene richiesto di fornire un numero di telefono e di verificarlo. Se la verifica ha esito positivo, il numero di telefono viene associato all'account per un utilizzo successivo. Anche se l'utente annulla o esce, al successivo accesso può venire richiesto all'utente di verificare nuovamente un numero di telefono (con l'autenticazione a più fattori abilitata).
-
-
-

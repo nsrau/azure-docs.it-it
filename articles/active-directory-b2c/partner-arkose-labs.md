@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4d8174cd0bfdb2297099b403fb836210c5529ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 333bb42643539cedec04d37680749c749a003536
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86170225"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953883"
 ---
 # <a name="tutorial-for-configuring-arkose-labs-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di arcose Labs con Azure Active Directory B2C
 
@@ -66,13 +66,13 @@ Per creare un account di archiviazione, seguire questa procedura:
 
 4. Selezionare  **Aggiungi**.
 
-5. In **gruppo di risorse**selezionare **Crea nuovo**, immettere un nome per il nuovo gruppo di risorse e quindi fare clic su **OK**.
+5. In  **gruppo di risorse** selezionare  **Crea nuovo**, immettere un nome per il nuovo gruppo di risorse e quindi fare clic su **OK**.
 
 6. Immettere il nome dell'account di archiviazione. Il nome deve essere univoco in Azure, deve avere una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole.
 
 7. Selezionare il percorso dell'account di archiviazione o accettare quello predefinito.
 
-8. Accettare tutti gli altri valori predefiniti, selezionare  **Verifica & crea**  >  **creazione**.
+8. Accettare tutti gli altri valori predefiniti, selezionare   **Verifica & crea**  >  **creazione**.
 
 9. Dopo aver creato l'account di archiviazione, selezionare  **Vai alla risorsa**.
 
@@ -80,7 +80,7 @@ Per creare un account di archiviazione, seguire questa procedura:
 
 1. Nella pagina Panoramica dell'account di archiviazione selezionare  **BLOB**.
 
-2. Selezionare  **container**, immettere un nome per il contenitore, scegliere  **BLOB** (accesso in lettura anonimo solo per BLOB) e quindi fare clic su **OK**.
+2. Selezionare   **container**, immettere un nome per il contenitore, scegliere   **BLOB** (accesso in lettura anonimo solo per BLOB) e quindi fare clic su **OK**.
 
 #### <a name="enable-cross-origin-resource-sharing-cors"></a>Abilitare la condivisione di risorse tra le origini (CORS)
 
@@ -90,7 +90,7 @@ Il codice Azure AD B2C in un browser usa un approccio moderno e standard per car
 
 2. Per le  **origini consentite**, immettere  `https://your-tenant-name.b2clogin.com` . Sostituire-tenant-Name con il nome del tenant Azure AD B2C. Ad esempio,  `https://fabrikam.b2clogin.com`. Usare tutte le lettere minuscole quando si immette il nome del tenant.
 
-3. Per i **metodi consentiti**, selezionare **Get**, **put**e **options**.
+3. Per i  **metodi consentiti**, selezionare  **Get**, **put** e  **options**.
 
 4. Per **Intestazioni consentite** immettere un asterisco (*).
 
@@ -106,7 +106,7 @@ Il codice Azure AD B2C in un browser usa un approccio moderno e standard per car
 
 Scaricare git bash e seguire questa procedura:
 
-1. Seguire le istruzioni per [creare un'app Web](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-php), fino al messaggio "complimenti!La prima app PHP viene distribuita nel servizio app.
+1. Seguire le istruzioni per [creare un'app Web](../app-service/quickstart-php.md), fino al messaggio "complimenti!La prima app PHP viene distribuita nel servizio app.
 
 2. Aprire la cartella locale e rinominare il file **index. php** in **Verify-token. php**.
 
@@ -138,7 +138,7 @@ Scaricare git bash e seguire questa procedura:
 
 5. Caricare il file index.html nell'archivio BLOB creato in precedenza.
 
-6. Passare al **Storage**  >  caricamento del**contenitore**di archiviazione  >  **Upload**.
+6. Passare al **Storage**  >  caricamento del **contenitore** di archiviazione  >  **Upload**.
 
 #### <a name="set-up-azure-ad-b2c"></a>Configurare Azure AD B2C
 
@@ -149,14 +149,14 @@ Scaricare git bash e seguire questa procedura:
 
 2. Abilitare JavaScript nel [flusso utente](user-flow-javascript-overview.md).
 
-3. Nella stessa pagina flusso utente, Abilita URL pagina personalizzata: Vai al layout della pagina **flusso utente**usa il contenuto della pagina  >  **page layout**  >  **personalizzata**  =  **Sì**  >  **Inserisci URL pagina personalizzata**.
+3. Nella stessa pagina flusso utente, Abilita URL pagina personalizzata: Vai al layout della pagina **flusso utente** usa il contenuto della pagina  >  **page layout**  >  **personalizzata**  =  **Sì**  >  **Inserisci URL pagina personalizzata**.
 Questo URL di pagina personalizzata viene ottenuto dal percorso del file index.html all'interno dell'archivio BLOB  
 
    ![Screenshot che mostra l'URL di archiviazione di arcose Labs](media/partner-arkose-labs/arkose-storage-url.png)
 
 ## <a name="test-the-user-flow"></a>Testare il flusso utente
 
-1. Aprire il tenant di Azure AD B2C e in **criteri**selezionare **flussi utente**.
+1. Aprire il tenant di Azure AD B2C e in **criteri** selezionare **flussi utente**.
 
 2. Selezionare il flusso utente creato in precedenza.
 

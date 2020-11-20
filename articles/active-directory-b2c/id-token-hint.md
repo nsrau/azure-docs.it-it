@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 708ec35524f25314ca568944b738ba2cdf60d55c
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 79a99d9f0ca117d8f47d56d76399210a72b91bb7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132075"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951656"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico per l'hint ID token in un Azure Active Directory B2C criteri personalizzati
 
@@ -82,14 +82,14 @@ L'elemento **OutputClaims** contiene un elenco di attestazioni da estrarre dal t
 
 Quando si utilizza una chiave simmetrica, i metadati seguenti sono rilevanti. 
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | autorità di certificazione | Sì | Identifica il servizio token di sicurezza (emittente del token). Questo valore deve essere identico all' `iss` attestazione nell'attestazione del token JWT. | 
 | IdTokenAudience | Sì | Identifica il destinatario del token. Deve essere identica all' `aud` attestazione con l'attestazione del token JWT. | 
 
 Quando si utilizza una chiave asimmetrica, i metadati seguenti sono rilevanti. 
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | METADATI| Sì | URL che punta a un documento di configurazione dell'emittente del token, noto anche come endpoint di configurazione OpenID noto.   |
 | autorità di certificazione | No | Identifica il servizio token di sicurezza (emittente del token). Questo valore può essere usato per sovrascrivere il valore configurato nei metadati e deve essere identico all' `iss` attestazione nell'attestazione del token JWT. |  
@@ -99,7 +99,7 @@ Quando si utilizza una chiave asimmetrica, i metadati seguenti sono rilevanti.
 
 Quando si usa una chiave simmetrica, l'elemento **CryptographicKeys** contiene l'attributo seguente:
 
-| Attributo | Obbligatoria | Descrizione |
+| Attributo | Obbligatoria | Description |
 | --------- | -------- | ----------- |
 | client_secret | Sì | Chiave crittografica utilizzata per convalidare la firma del token JWT.|
 
@@ -137,7 +137,7 @@ La stessa chiave usata dall'emittente del token deve essere creata nelle chiavi 
    È possibile che il prefisso `B2C_1A_` venga aggiunto automaticamente.
 1. Nella casella **Secret (segreto** ) immettere la chiave di accesso generata in precedenza.
 1. Per **Uso chiave** usare **Crittografia**.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 1. Confermare di avere creato la chiave `B2C_1A_IdTokenHintKey`.
 
 
@@ -189,7 +189,7 @@ Vedere l'esempio [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id
 
 #### <a name="step-1-prepare-a-self-signed-certificate"></a>Passaggio 1. Preparare un certificato autofirmato
 
-Se non si dispone già di un certificato, è possibile utilizzare un certificato autofirmato per questa guida. In Windows è possibile usare il cmdlet [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) di PowerShell per generare un certificato.
+Se non si dispone già di un certificato, è possibile utilizzare un certificato autofirmato per questa guida. In Windows è possibile usare il cmdlet [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) di PowerShell per generare un certificato.
 
 Eseguire questo comando di PowerShell per generare un certificato autofirmato. Modificare l'argomento `-Subject` in base al nome dell'applicazione e del tenant Azure AD B2C. Si può anche modificare la data `-NotAfter` per specificare una scadenza diversa per il certificato.
 

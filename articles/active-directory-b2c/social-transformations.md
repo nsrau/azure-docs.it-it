@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eaa2984c0d7a5d3763f554e39f687fdbd2865e96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c60cecb9d6bfeeefc0569a1a57185d13f0c6442f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203385"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953118"
 ---
 # <a name="social-accounts-claims-transformations"></a>Trasformazioni delle attestazioni degli account social
 
@@ -39,7 +39,7 @@ L'articolo fornisce esempi per l'uso delle trasformazioni di attestazioni dell'a
 
 ## <a name="createalternativesecurityid"></a>CreateAlternativeSecurityId
 
-Crea una rappresentazione JSON della proprietà alternativeSecurityId dell'utente che può essere usata nelle chiamate ad Azure Active Directory. Per ulteriori informazioni, vedere lo schema [AlternativeSecurityId](https://docs.microsoft.com/graph/api/resources/alternativesecurityid) .
+Crea una rappresentazione JSON della proprietà alternativeSecurityId dell'utente che può essere usata nelle chiamate ad Azure Active Directory. Per ulteriori informazioni, vedere lo schema [AlternativeSecurityId](/graph/api/resources/alternativesecurityid) .
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |

@@ -3,16 +3,17 @@ title: Configurare IBM DB2 HADR in macchine virtuali (VM) di Azure | Microsoft D
 description: Stabilire la disponibilità elevata di IBM DB2 LUW in macchine virtuali (VM) di Azure.
 author: msjuergent
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 88a84cd90efb42ea096cad647d75f1c3736426f4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0cd1458c90970e219f2929e26423e455ba647a28
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146439"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951316"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Disponibilità elevata di IBM DB2 LUW in macchine virtuali di Azure in SUSE Linux Enterprise Server con pacemaker
 
@@ -26,7 +27,7 @@ Le versioni supportate di IBM DB2 sono 10,5 e versioni successive, come descritt
 
 Prima di iniziare un'installazione, vedere le note e la documentazione SAP seguenti:
 
-| Nota SAP | Descrizione |
+| Nota SAP | Description |
 | --- | --- |
 | [1928533] | Applicazioni SAP in Azure: Prodotti e tipi di macchine virtuali di Azure supportati |
 | [2015553] | SAP in Azure: prerequisiti per il supporto |
@@ -131,7 +132,7 @@ Verificare che il sistema operativo selezionato sia supportato da IBM/SAP per IB
 
 ## <a name="create-the-pacemaker-cluster"></a>Creare il cluster Pacemaker
     
-Per creare un cluster Pacemaker di base per questo server IBM DB2, vedere [configurare pacemaker in SUSE Linux Enterprise Server in Azure][sles-pacemaker]. 
+Per creare un cluster Pacemaker di base per questo server IBM DB2, vedere [configurare pacemaker in SUSE Linux Enterprise Server in Azure][sles-pacemaker]. 
 
 ## <a name="install-the-ibm-db2-luw-and-sap-environment"></a>Installare l'ambiente IBM DB2 LUW e SAP
 
@@ -167,7 +168,7 @@ Per configurare l'istanza primaria del database IBM DB2 LUW:
 
 Per configurare il server di database di standby usando la procedura di copia di sistema omogenea di SAP, eseguire questi passaggi:
 
-1. Selezionare l'opzione **copia di sistema** > **Target systems**  >  **Distributed**  >  **istanza database**distribuito di sistemi di destinazione.
+1. Selezionare l'opzione **copia di sistema** > **Target systems**  >  **Distributed**  >  **istanza database** distribuito di sistemi di destinazione.
 1. Come metodo di copia, selezionare **sistema omogeneo** in modo da poter utilizzare il backup per ripristinare un backup nell'istanza del server di standby.
 1. Quando si raggiunge il passaggio di uscita per ripristinare il database per la copia di sistema omogenea, uscire dal programma di installazione. Ripristinare il database da un backup dell'host primario. Tutte le fasi di installazione successive sono già state eseguite sul server di database primario.
 1. Configurare HADR per IBM DB2.
@@ -399,11 +400,11 @@ Per configurare Azure Load Balancer, è consigliabile usare lo SKU di [Azure Loa
 
 1. Creare un pool di indirizzi IP front-end:
 
-   a. Nel portale di Azure aprire il Azure Load Balancer, selezionare pool di **indirizzi IP**front-end e quindi selezionare **Aggiungi**.
+   a. Nel portale di Azure aprire il Azure Load Balancer, selezionare pool di **indirizzi IP** front-end e quindi selezionare **Aggiungi**.
 
    b. Immettere il nome del nuovo pool di indirizzi IP front-end (ad esempio, **DB2-Connection**).
 
-   c. Impostare l' **assegnazione** su **statico**e immettere l'indirizzo IP **virtuale-IP** definito all'inizio.
+   c. Impostare l' **assegnazione** su **statico** e immettere l'indirizzo IP **virtuale-IP** definito all'inizio.
 
    d. Selezionare **OK**.
 
@@ -411,7 +412,7 @@ Per configurare Azure Load Balancer, è consigliabile usare lo SKU di [Azure Loa
 
 1. Creare un pool back-end:
 
-   a. Nel portale di Azure aprire il Azure Load Balancer, selezionare **pool back-end**e quindi selezionare **Aggiungi**.
+   a. Nel portale di Azure aprire il Azure Load Balancer, selezionare **pool back-end** e quindi selezionare **Aggiungi**.
 
    b. Immettere il nome del nuovo pool back-end, ad esempio **DB2-backend**.
 
@@ -425,7 +426,7 @@ Per configurare Azure Load Balancer, è consigliabile usare lo SKU di [Azure Loa
 
 1. Creare un probe di integrità:
 
-   a. Nella portale di Azure aprire il Azure Load Balancer, selezionare **Probe integrità**e selezionare **Aggiungi**.
+   a. Nella portale di Azure aprire il Azure Load Balancer, selezionare **Probe integrità** e selezionare **Aggiungi**.
 
    b. Immettere il nome del nuovo probe di integrità, ad esempio **DB2-HP**.
 
@@ -435,13 +436,13 @@ Per configurare Azure Load Balancer, è consigliabile usare lo SKU di [Azure Loa
 
 1. Creare le regole di bilanciamento del carico:
 
-   a. Nella portale di Azure aprire il Azure Load Balancer, selezionare regole di **bilanciamento del carico**e quindi selezionare **Aggiungi**.
+   a. Nella portale di Azure aprire il Azure Load Balancer, selezionare regole di **bilanciamento del carico** e quindi selezionare **Aggiungi**.
 
    b. Immettere il nome della nuova regola di Load Balancer (ad esempio, **DB2-SID**).
 
    c. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creato in precedenza, ad esempio **DB2-frontend**.
 
-   d. Impostare il **protocollo** su **TCP**e immettere *porta di comunicazione del database*di porta.
+   d. Impostare il **protocollo** su **TCP** e immettere *porta di comunicazione del database* di porta.
 
    e. Aumentare il valore di **Timeout di inattività** a 30 minuti.
 
@@ -572,8 +573,8 @@ crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
 - **migrazione di risorse CRM \<res_name> \<host> :** crea vincoli di posizione e può causare problemi di acquisizione
-- **cancellazione \<res_name> risorse CRM **: Cancella i vincoli di posizione
-- **Pulitura \<res_name> risorse CRM **: Cancella tutti gli errori della risorsa
+- **cancellazione \<res_name> risorse CRM**: Cancella i vincoli di posizione
+- **Pulitura \<res_name> risorse CRM**: Cancella tutti gli errori della risorsa
 
 ### <a name="test-the-fencing-agent"></a>Testare l'agente di schermatura
 

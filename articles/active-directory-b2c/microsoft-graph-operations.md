@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d8d898d3825fa40cbfd13337067c24cf14f9a544
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 9db46d13c9a798204958a7c295df9cca169fc08f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102018"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954036"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph operazioni disponibili per Azure AD B2C
 
@@ -26,11 +26,11 @@ Ogni collegamento nelle sezioni seguenti è destinato alla pagina corrispondente
 
 ## <a name="user-management"></a>Gestione utente
 
-- [Elencare gli utenti](https://docs.microsoft.com/graph/api/user-list)
-- [Creazione di un utente consumer](https://docs.microsoft.com/graph/api/user-post-users)
-- [Ottenere un utente](https://docs.microsoft.com/graph/api/user-get)
-- [Aggiornare un utente](https://docs.microsoft.com/graph/api/user-update)
-- [Eliminare un utente](https://docs.microsoft.com/graph/api/user-delete)
+- [Elencare gli utenti](/graph/api/user-list)
+- [Creazione di un utente consumer](/graph/api/user-post-users)
+- [Ottenere un utente](/graph/api/user-get)
+- [Aggiornare un utente](/graph/api/user-update)
+- [Eliminare un utente](/graph/api/user-delete)
 
 Per altre informazioni sulla gestione degli account utente di Azure AD B2C con l'API Microsoft Graph, vedere [gestire gli account utente di Azure ad B2C con Microsoft Graph](manage-user-accounts-graph-api.md).
 
@@ -47,70 +47,70 @@ Per altre informazioni sulla gestione del numero di telefono dell'accesso dell'u
 
 Gestire i provider di identità disponibili per i flussi utente nel tenant del Azure AD B2C.
 
-- [Elencare i provider di identità registrati nel tenant di Azure AD B2C](https://docs.microsoft.com/graph/api/identityprovider-list)
-- [Creazione di un provider di identità](https://docs.microsoft.com/graph/api/identityprovider-post-identityproviders)
-- [Ottenere un provider di identità](https://docs.microsoft.com/graph/api/identityprovider-get)
-- [Aggiorna provider di identità](https://docs.microsoft.com/graph/api/identityprovider-update)
-- [Eliminare un provider di identità](https://docs.microsoft.com/graph/api/identityprovider-delete)
+- [Elencare i provider di identità registrati nel tenant di Azure AD B2C](/graph/api/identityprovider-list)
+- [Creazione di un provider di identità](/graph/api/identityprovider-post-identityproviders)
+- [Ottenere un provider di identità](/graph/api/identityprovider-get)
+- [Aggiorna provider di identità](/graph/api/identityprovider-update)
+- [Eliminare un provider di identità](/graph/api/identityprovider-delete)
 
 ## <a name="user-flow"></a>Flusso utente
 
 Configurare criteri predefiniti per l'iscrizione, l'accesso, l'iscrizione e l'accesso combinati, la reimpostazione della password e l'aggiornamento del profilo.
 
-- [Elencare i flussi utente](https://docs.microsoft.com/graph/api/identityuserflow-list)
-- [Creare un flusso utente](https://docs.microsoft.com/graph/api/identityuserflow-post-userflows)
-- [Ottenere un flusso utente](https://docs.microsoft.com/graph/api/identityuserflow-get)
-- [Eliminare un flusso utente](https://docs.microsoft.com/graph/api/identityuserflow-delete)
+- [Elencare i flussi utente](/graph/api/identityuserflow-list)
+- [Creare un flusso utente](/graph/api/identityuserflow-post-userflows)
+- [Ottenere un flusso utente](/graph/api/identityuserflow-get)
+- [Eliminare un flusso utente](/graph/api/identityuserflow-delete)
 
 ## <a name="custom-policies"></a>Criteri personalizzati
 
 Le operazioni seguenti consentono di gestire i criteri di Azure AD B2C Trust Framework, noti come [criteri personalizzati](custom-policy-overview.md).
 
-- [Elencare tutti i criteri di Framework attendibilità configurati in un tenant](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies)
-- [Creare criteri di Framework attendibilità](https://docs.microsoft.com/graph/api/trustframework-post-trustframeworkpolicy)
-- [Leggere le proprietà di un criterio di Framework attendibilità esistente](https://docs.microsoft.com/graph/api/trustframeworkpolicy-get)
-- [Aggiornare o creare criteri di Framework attendibilità.](https://docs.microsoft.com/graph/api/trustframework-put-trustframeworkpolicy)
-- [Eliminare un criterio di Framework attendibilità esistente](https://docs.microsoft.com/graph/api/trustframeworkpolicy-delete)
+- [Elencare tutti i criteri di Framework attendibilità configurati in un tenant](/graph/api/trustframework-list-trustframeworkpolicies)
+- [Creare criteri di Framework attendibilità](/graph/api/trustframework-post-trustframeworkpolicy)
+- [Leggere le proprietà di un criterio di Framework attendibilità esistente](/graph/api/trustframeworkpolicy-get)
+- [Aggiornare o creare criteri di Framework attendibilità.](/graph/api/trustframework-put-trustframeworkpolicy)
+- [Eliminare un criterio di Framework attendibilità esistente](/graph/api/trustframeworkpolicy-delete)
 
 ## <a name="policy-keys"></a>Chiavi dei criteri
 
 Il Framework dell'esperienza di identità Archivia i segreti a cui si fa riferimento in un criterio personalizzato per stabilire una relazione di trust tra i componenti. Questi segreti possono essere chiavi/valori simmetriche o asimmetriche. Nel portale di Azure queste entità vengono visualizzate come chiavi dei **criteri**.
 
-La risorsa di primo livello per le chiavi dei criteri nell'API Microsoft Graph è il [keyset del Framework attendibile](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset). Ogni **Keyset** contiene almeno una **chiave**. Per creare una chiave, creare prima un keyset vuoto e quindi generare una chiave nel keyset. È possibile creare un segreto manuale, caricare un certificato o una chiave PKCS12. La chiave può essere un segreto generato, una stringa definita dall'utente, ad esempio il segreto dell'applicazione Facebook, oppure un certificato caricato. Se un keyset dispone di più chiavi, solo una delle chiavi è attiva.
+La risorsa di primo livello per le chiavi dei criteri nell'API Microsoft Graph è il [keyset del Framework attendibile](/graph/api/resources/trustframeworkkeyset). Ogni **Keyset** contiene almeno una **chiave**. Per creare una chiave, creare prima un keyset vuoto e quindi generare una chiave nel keyset. È possibile creare un segreto manuale, caricare un certificato o una chiave PKCS12. La chiave può essere un segreto generato, una stringa definita dall'utente, ad esempio il segreto dell'applicazione Facebook, oppure un certificato caricato. Se un keyset dispone di più chiavi, solo una delle chiavi è attiva.
 
 ### <a name="trust-framework-policy-keyset"></a>Keyset criteri di Framework attendibilità
 
-- [Elencare i set di impostazioni del Framework di attendibilità](https://docs.microsoft.com/graph/api/trustframework-list-keysets)
-- [Creare set di impostazioni di un Framework attendibilità](https://docs.microsoft.com/graph/api/trustframework-post-keysets)
-- [Ottenere un keyset](https://docs.microsoft.com/graph/api/trustframeworkkeyset-get)
-- [Aggiornare i set di impostazioni di un Framework attendibilità](https://docs.microsoft.com/graph/api/trustframeworkkeyset-update)
-- [Eliminare i set di impostazioni di un Framework attendibilità](https://docs.microsoft.com/graph/api/trustframeworkkeyset-delete)
+- [Elencare i set di impostazioni del Framework di attendibilità](/graph/api/trustframework-list-keysets)
+- [Creare set di impostazioni di un Framework attendibilità](/graph/api/trustframework-post-keysets)
+- [Ottenere un keyset](/graph/api/trustframeworkkeyset-get)
+- [Aggiornare i set di impostazioni di un Framework attendibilità](/graph/api/trustframeworkkeyset-update)
+- [Eliminare i set di impostazioni di un Framework attendibilità](/graph/api/trustframeworkkeyset-delete)
 
 ### <a name="trust-framework-policy-key"></a>Chiave dei criteri di Framework attendibilità
 
-- [Ottenere la chiave attualmente attiva nel keyset](https://docs.microsoft.com/graph/api/trustframeworkkeyset-getactivekey)
-- [Generare una chiave in keyset](https://docs.microsoft.com/graph/api/trustframeworkkeyset-generatekey)
-- [Carica un segreto basato su stringa](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadsecret)
-- [Caricare un certificato X. 509](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadcertificate)
-- [Carica un certificato in formato PKCS12](https://docs.microsoft.com/graph/api/trustframeworkkeyset-uploadpkcs12)
+- [Ottenere la chiave attualmente attiva nel keyset](/graph/api/trustframeworkkeyset-getactivekey)
+- [Generare una chiave in keyset](/graph/api/trustframeworkkeyset-generatekey)
+- [Carica un segreto basato su stringa](/graph/api/trustframeworkkeyset-uploadsecret)
+- [Caricare un certificato X. 509](/graph/api/trustframeworkkeyset-uploadcertificate)
+- [Carica un certificato in formato PKCS12](/graph/api/trustframeworkkeyset-uploadpkcs12)
 
-## <a name="applications"></a>APPLICAZIONI
+## <a name="applications"></a>Applicazioni
 
-- [Elenco applicazioni](https://docs.microsoft.com/graph/api/application-list)
-- [Creare un'applicazione](https://docs.microsoft.com/graph/api/resources/application)
-- [Update application](https://docs.microsoft.com/graph/api/application-update)
-- [Crea servicePrincipal](https://docs.microsoft.com/graph/api/resources/serviceprincipal)
-- [Crea concessione oauth2Permission](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant)
-- [Eliminare l'applicazione](https://docs.microsoft.com/graph/api/application-delete)
+- [Elenco applicazioni](/graph/api/application-list)
+- [Creare un'applicazione](/graph/api/resources/application)
+- [Update application](/graph/api/application-update)
+- [Crea servicePrincipal](/graph/api/resources/serviceprincipal)
+- [Crea concessione oauth2Permission](/graph/api/resources/oauth2permissiongrant)
+- [Elimina applicazione](/graph/api/application-delete)
 
 ## <a name="application-extension-properties"></a>Proprietà dell'estensione dell'applicazione
 
-- [Elencare le proprietà dell'estensione](https://docs.microsoft.com/graph/api/application-list-extensionproperty)
+- [Elencare le proprietà dell'estensione](/graph/api/application-list-extensionproperty)
 
 Azure AD B2C fornisce una directory che può contenere 100 attributi personalizzati per utente. Per i flussi utente, queste proprietà di estensione vengono [gestite tramite il portale di Azure](custom-policy-custom-attributes.md). Per i criteri personalizzati, Azure AD B2C crea automaticamente la proprietà, la prima volta che il criterio scrive un valore nella proprietà dell'estensione.
 
 ## <a name="audit-logs"></a>Log di controllo
 
-- [Elencare i log di controllo](https://docs.microsoft.com/graph/api/directoryaudit-list)
+- [Elencare i log di controllo](/graph/api/directoryaudit-list)
 
 Per ulteriori informazioni sull'accesso ai log di controllo di Azure AD B2C con l'API Microsoft Graph, vedere [accesso ai log di controllo di Azure ad B2C](view-audit-logs.md).

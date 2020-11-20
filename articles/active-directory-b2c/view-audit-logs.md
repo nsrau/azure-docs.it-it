@@ -12,12 +12,12 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9485fb09d3ac7684ba91bcd37720a0e55603404b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85383938"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952727"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accesso ai log di controllo di Azure AD B2C
 
@@ -51,7 +51,7 @@ Questa immagine di esempio dalla portale di Azure Mostra i dati acquisiti quando
 
 Il pannello Dettagli attività contiene le informazioni rilevanti seguenti:
 
-|Sezione|Campo|Descrizione|
+|Sezione|Campo|Description|
 |-------|-----|-----------|
 | Attività | Nome | Quale attività ha avuto luogo. Ad esempio, *emettere un id_token all'applicazione*, che conclude l'accesso utente effettivo. |
 | Azione avviata da (attore) | ObjectId | **ID oggetto** dell'applicazione B2C a cui l'utente sta eseguendo l'accesso. Questo identificatore non è visibile nel portale di Azure, ma è accessibile tramite l'API Microsoft Graph. |
@@ -84,7 +84,7 @@ Per scaricare l'elenco di eventi di attività in un file con valori delimitati d
 
 ## <a name="get-audit-logs-with-the-azure-ad-reporting-api"></a>Ottenere i log di controllo con l'API per la creazione di report Azure AD
 
-I log di controllo vengono pubblicati nella stessa pipeline delle altre attività di Azure Active Directory e quindi sono accessibili tramite l'[API di creazione di report di Azure Active Directory](https://docs.microsoft.com/graph/api/directoryaudit-list). Per altre informazioni, vedere [Introduzione all'API di creazione report Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
+I log di controllo vengono pubblicati nella stessa pipeline delle altre attività di Azure Active Directory e quindi sono accessibili tramite l'[API di creazione di report di Azure Active Directory](/graph/api/directoryaudit-list). Per altre informazioni, vedere [Introduzione all'API di creazione report Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 ### <a name="enable-reporting-api-access"></a>Abilitare l'accesso all'API di creazione report
 

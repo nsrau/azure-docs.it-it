@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4db3c58da791a5cad5fc3b9c98f245202d8119e2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 384f178481f7a6ff202d5363ba09c242b1fc366d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054764"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951792"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: domande frequenti
 
@@ -37,7 +37,7 @@ Non è possibile usare Azure AD B2C per autenticare gli utenti per Microsoft 365
 
 In un tenant di Azure AD, gli utenti che vi appartengono effettuano l'accesso con un indirizzo di posta elettronica del modulo `<xyz>@<tenant domain>`. `<tenant domain>` è uno dei domini verificati nel tenant o nel dominio `<...>.onmicrosoft.com` iniziale. Questo tipo di account è un account aziendale o dell'istituto di istruzione.
 
-In un tenant di Azure AD B2C, la maggior parte delle app richiede l'accesso dell'utente con un indirizzo di posta elettronica arbitrario, ad esempio joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com. Questo tipo di account è un account locale. Sono supportati anche nomi utente arbitrari come account locali (ad esempio, joe, bob, sarah o jim). È possibile scegliere uno di questi due tipi di account locale durante la configurazione dei provider di identità per Azure AD B2C nel portale di Azure. Nel tenant di Azure AD B2C selezionare **provider di identità**, selezionare **account locale**e quindi fare clic su **nome utente**.
+In un tenant di Azure AD B2C, la maggior parte delle app richiede l'accesso dell'utente con un indirizzo di posta elettronica arbitrario, ad esempio joe@comcast.net, bob@gmail.com, sarah@contoso.com o jim@live.com. Questo tipo di account è un account locale. Sono supportati anche nomi utente arbitrari come account locali (ad esempio, joe, bob, sarah o jim). È possibile scegliere uno di questi due tipi di account locale durante la configurazione dei provider di identità per Azure AD B2C nel portale di Azure. Nel tenant di Azure AD B2C selezionare **provider di identità**, selezionare **account locale** e quindi fare clic su **nome utente**.
 
 Gli account utente per le applicazioni possono essere creati tramite un flusso utente di iscrizione, un flusso utente di iscrizione o accesso, l'API Microsoft Graph o nel portale di Azure.
 
@@ -90,7 +90,7 @@ Attualmente non è possibile modificare il campo "Da:" del messaggio di posta el
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Qual è il flusso di password utente usato per gli account locali in Azure AD B2C?
 
-Il flusso di password utente di AAD B2C per gli account locali si basa sui criteri di Azure AD. L'iscrizione ad Azure AD B2C, i flussi di iscrizione o di accesso e di reset delle password utenti usano un livello di complessità sicuro e le password non scadono. Per informazioni dettagliate, vedere [criteri e restrizioni per le password in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+Il flusso di password utente di AAD B2C per gli account locali si basa sui criteri di Azure AD. L'iscrizione ad Azure AD B2C, i flussi di iscrizione o di accesso e di reset delle password utenti usano un livello di complessità sicuro e le password non scadono. Per informazioni dettagliate, vedere [criteri e restrizioni per le password in Azure Active Directory](../active-directory/authentication/concept-sspr-policy.md).
 
 Per informazioni su blocchi automatici e password degli account, vedere [Gestire le minacce alle risorse e ai dati in Azure Active Directory B2C](threat-management.md).
 
@@ -104,7 +104,7 @@ No. Per motivi di sicurezza, le pagine di Azure AD B2C non possono essere aperte
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C è compatibile con i sistemi CRM come Microsoft Dynamics?
 
-È disponibile l'integrazione con il portale di Microsoft Dynamics 365. Vedere l'articolo relativo alla [configurazione del portale di Dynamics 365 per usare Azure AD B2C per l'autenticazione](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
+È disponibile l'integrazione con il portale di Microsoft Dynamics 365. Vedere l'articolo relativo alla [configurazione del portale di Dynamics 365 per usare Azure AD B2C per l'autenticazione](/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Azure AD B2C è compatibile con SharePoint 2016 locale o versione precedente?
 
@@ -112,7 +112,7 @@ Azure AD B2C non è concepito per lo scenario di condivisione esterna con i part
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>È necessario usare Azure AD B2C o B2B per gestire le identità esterne?
 
-Per altre informazioni sull'applicazione delle funzionalità appropriate agli scenari di identità esterni, vedere [confrontare collaborazione B2B e B2C in Azure ad](../active-directory/b2b/compare-with-b2c.md) .
+Per altre informazioni sull'applicazione delle funzionalità appropriate agli scenari di identità esterni, vedere [confrontare collaborazione B2B e B2C in Azure ad](../active-directory/external-identities/compare-with-b2c.md) .
 
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Quali funzionalità di reporting e controllo offre Azure AD B2C? Offre le stesse funzionalità di Azure AD Premium?
 
@@ -134,7 +134,7 @@ No, per il momento. Questa funzionalità verrà implementata in futuro. Questo n
 
 Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 
-È possibile usare la nuova esperienza Unified **registrazioni app** o  **le applicazioni legacy (legacy)** . [Altre informazioni sulla nuova esperienza](https://aka.ms/b2cappregtraining).
+È possibile usare la nuova esperienza Unified **registrazioni app** o  **le applicazioni legacy (legacy)** . [Altre informazioni sulla nuova esperienza](./app-registrations-training-guide.md).
 
 #### <a name="app-registrations"></a>[Registrazioni per l'app](#tab/app-reg-ga/)
 
@@ -148,8 +148,8 @@ Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 1. In **Gestisci** selezionare **Utenti**.
 1. Selezionare a sua volta ciascun utente (escludere l'utente *amministratore della sottoscrizione* con cui si è attualmente connessi). Selezionare **Elimina** nella parte inferiore della pagina e selezionare **Sì** quando richiesto.
 1. Selezionare **Azure Active Directory** dal menu a sinistra.
-1. In **Gestisci**selezionare **impostazioni utente**.
-1. In **Gestisci**selezionare **Proprietà**
+1. In **Gestisci** selezionare **impostazioni utente**.
+1. In **Gestisci** selezionare **Proprietà**
 1. In **Gestione degli accessi per le risorse di Azure** selezionare **Sì** e quindi selezionare **Salva**.
 1. Disconnettersi dal portale di Azure e quindi accedere di nuovo per aggiornare l'accesso.
 1. Selezionare **Azure Active Directory** dal menu a sinistra.
@@ -167,10 +167,10 @@ Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 1. Selezionare a sua volta ciascun utente (escludere l'utente *amministratore della sottoscrizione* con cui si è attualmente connessi). Selezionare **Elimina** nella parte inferiore della pagina e selezionare **Sì** quando richiesto.
 1. In **Gestione** selezionare **Registrazioni per l'app**.
 1. Selezionare **Visualizza tutte le applicazioni**
-1. Selezionare l'applicazione denominata **B2C-Extensions-app**, selezionare **Elimina**e quindi fare clic su **Sì** quando richiesto.
-1. In **Gestisci**selezionare **impostazioni utente**.
-1. Se presente, in **connessioni account LinkedIn**selezionare **No**, quindi selezionare **Salva**.
-1. In **Gestisci**selezionare **Proprietà**
+1. Selezionare l'applicazione denominata **B2C-Extensions-app**, selezionare **Elimina** e quindi fare clic su **Sì** quando richiesto.
+1. In **Gestisci** selezionare **impostazioni utente**.
+1. Se presente, in **connessioni account LinkedIn** selezionare **No**, quindi selezionare **Salva**.
+1. In **Gestisci** selezionare **Proprietà**
 1. In **Gestione degli accessi per le risorse di Azure** selezionare **Sì** e quindi selezionare **Salva**.
 1. Disconnettersi dal portale di Azure e quindi accedere di nuovo per aggiornare l'accesso.
 1. Selezionare **Azure Active Directory** dal menu a sinistra.

@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3e1d76c5ef1f003fe9e01b866343ef7de7ab4166
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 16b5814835ec5cad6b66087fee37676155196339
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214924"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952081"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>La nuova esperienza Registrazioni app per Azure Active Directory B2C
 
@@ -98,7 +98,7 @@ Nella nuova esperienza, anziché **chiavi**, viene usato il pannello **certifica
 Le seguenti funzionalità di registrazione delle app di Azure AD non sono applicabili o disponibili in Azure AD B2C tenant:
 - **Ruoli e amministratori** : attualmente non disponibili per Azure ad B2C.
 - **Personalizzazione: la** personalizzazione dell'interfaccia utente/UX è configurata nell'esperienza di **personalizzazione dell'azienda** o come parte di un flusso utente. Informazioni su come [personalizzare l'interfaccia utente in Azure Active Directory B2C](customize-ui-overview.md).
-- **Verifica del dominio dell'editore** : l'app è registrata in *. onmicrosoft.com*, che non è un dominio verificato. Il dominio di pubblicazione viene inoltre usato principalmente per concedere il consenso dell'utente, che non si applica alle app Azure AD B2C per l'autenticazione utente. Ulteriori informazioni [sul dominio di pubblicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
+- **Verifica del dominio dell'editore** : l'app è registrata in *. onmicrosoft.com*, che non è un dominio verificato. Il dominio di pubblicazione viene inoltre usato principalmente per concedere il consenso dell'utente, che non si applica alle app Azure AD B2C per l'autenticazione utente. Ulteriori informazioni [sul dominio di pubblicazione](../active-directory/develop/howto-configure-publisher-domain.md).
 - **Configurazione del token** : il token è configurato come parte di un flusso utente anziché un'app.
 - L'esperienza delle **guide introduttive** non è attualmente disponibile per Azure ad B2C tenant.
 <!-- - The **Integration assistant** blade is currently not available for Azure AD B2C tenants. -->

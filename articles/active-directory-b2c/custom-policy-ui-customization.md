@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb833ff35dae4fe1c0c27204ec66fa6b4cdb82c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 340c9629af89bfacb85b37503743fc5770070ae3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388885"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951843"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Completare la procedura descritta in [Introduzione ai criteri personalizzati](cu
 
 Per configurare la personalizzazione dell'interfaccia utente, copiare **ContentDefinition** e i relativi elementi figlio dal file di base nel file delle estensioni.
 
-1. Aprire il file di base dei criteri, ad esempio <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. Questo file di base è uno dei file di criteri inclusi nello Starter Pack del criterio personalizzato, che è necessario ottenere nel prerequisito, [Introduzione ai criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Aprire il file di base dei criteri, ad esempio <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. Questo file di base è uno dei file di criteri inclusi nello Starter Pack del criterio personalizzato, che è necessario ottenere nel prerequisito, [Introduzione ai criteri personalizzati](./custom-policy-get-started.md).
 1. Cercare e copiare l'intero contenuto dell'elemento **ContentDefinitions**.
 1. Aprire il file di estensione. ad esempio *TrustFrameworkExtensions.xml*. Cercare l'elemento **BuildingBlocks**. Se l'elemento non esiste, aggiungerlo.
 1. Incollare l'intero contenuto dell'elemento **ContentDefinitions** copiato come figlio dell'elemento **BuildingBlocks** .

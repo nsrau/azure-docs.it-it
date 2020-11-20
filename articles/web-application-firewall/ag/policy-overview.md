@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 10/14/2020
+ms.date: 11/19/2020
 ms.author: victorh
-ms.openlocfilehash: 0f7fec997ec6d0c73fe6d1039ab1033752e0cedf
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9fb8bf689e2767f681994258c4d2c51be41d6c68
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566572"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952132"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Panoramica dei criteri di Web Application Firewall (WAF) di Azure
 
@@ -53,7 +53,7 @@ Questo criterio globale è adatto per contoso.com e fabrikam.com, ma è necessar
 
 L'URI di adatum.com/payments è il punto in cui è necessario prestare attenzione. Applicare quindi un altro criterio a tale URI e lasciare tutte le regole abilitate e rimuovere anche tutte le esclusioni.
 
-In questo esempio sono presenti criteri globali che si applicano a due siti. Si dispone di un criterio per sito che si applica a un sito e quindi a un criterio per URI che si applica a una regola specifica basata sul percorso. Vedere (inserire il collegamento qui quando esiste) come creare criteri per sito e per URI per il corrispondente PowerShell per questo esempio.
+In questo esempio sono presenti criteri globali che si applicano a due siti. Si dispone di un criterio per sito che si applica a un sito e quindi a un criterio per URI che si applica a una regola specifica basata sul percorso. Per questo esempio, vedere [configurare i criteri di WAF per sito usando Azure PowerShell](per-site-policies.md) per il corrispondente PowerShell.
 
 ## <a name="existing-waf-configurations"></a>Configurazioni WAF esistenti
 

@@ -11,12 +11,12 @@ ms.date: 11/30/2018
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1d631c47225fac7d8a95541313593333a1399e07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2233dbd7b0e669c23397b4bc6a84f2bfdc208391
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87115964"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952812"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definire attributi personalizzati in Azure Active Directory B2C
 
@@ -52,4 +52,4 @@ L'attributo personalizzato è ora disponibile nell'elenco degli **attributi uten
 1. Fare clic su **Attestazioni dell'applicazione** e selezionare l'attributo personalizzato.
 1. Fare clic su **Salva**.
 
-Dopo aver creato un nuovo utente usando un flusso utente che usa l'attributo personalizzato appena creato, l'oggetto può essere sottoposto a query in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). In alternativa, è possibile usare la funzionalità [Esegui flusso utente](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) nel flusso utente per verificare l'esperienza del cliente. Ora si dovrebbe vedere **ShoeSize** nell'elenco di attributi che vengono raccolti durante il percorso dell'utente e nel token inviato all'applicazione.
+Dopo aver creato un nuovo utente usando un flusso utente che usa l'attributo personalizzato appena creato, l'oggetto può essere sottoposto a query in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). In alternativa, è possibile usare la funzionalità [Esegui flusso utente](./tutorial-create-user-flows.md) nel flusso utente per verificare l'esperienza del cliente. Ora si dovrebbe vedere **ShoeSize** nell'elenco di attributi che vengono raccolti durante il percorso dell'utente e nel token inviato all'applicazione.

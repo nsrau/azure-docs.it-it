@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30273c0103d8a0fde12b1b7c6f66d16dd4ea84cb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 761bc4db7760ef5e84e3fc3c8a5deea5d4508f51
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089520"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951928"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Procedura dettagliata: integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C per convalidare l'input dell'utente
 
@@ -65,7 +65,7 @@ Se la convalida ha esito negativo, l'API REST deve restituire un HTTP 409 (confl
 }
 ```
 
-La configurazione dell'endpoint dell'API REST non rientra nell'ambito di questo articolo. È stata creato un esempio di [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-reference). È possibile accedere al codice completo della funzione di Azure in [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+La configurazione dell'endpoint dell'API REST non rientra nell'ambito di questo articolo. È stata creato un esempio di [Funzioni di Azure](../azure-functions/functions-reference.md). È possibile accedere al codice completo della funzione di Azure in [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definire attestazioni
 
@@ -233,11 +233,11 @@ Per restituire l'attestazione del codice promozionale all'applicazione relying p
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD. A tale scopo, selezionare il filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant di Azure AD.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
 1. Fare clic su **Framework dell'esperienza di gestione delle identità**.
-1. Selezionare **carica criteri personalizzati**, quindi caricare i file dei criteri modificati: *TrustFrameworkExtensions.xml*e *SignUpOrSignin.xml*. 
+1. Selezionare **carica criteri personalizzati**, quindi caricare i file dei criteri modificati: *TrustFrameworkExtensions.xml* e *SignUpOrSignin.xml*. 
 1. Selezionare il criterio di iscrizione o di accesso che è stato caricato e fare clic sul pulsante **Esegui adesso**.
 1. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.
 1. Fare clic sul collegamento **Iscriviti ora** .
-1. In **ID fedeltà**Digitare 1234, quindi fare clic su **continua**. A questo punto, verrà ricevuto un messaggio di errore di convalida.
+1. In **ID fedeltà** Digitare 1234, quindi fare clic su **continua**. A questo punto, verrà ricevuto un messaggio di errore di convalida.
 1. Passare a un altro valore e fare clic su **continua**.
 1. Il token inviato all'applicazione include l'attestazione `promoCode`.
 

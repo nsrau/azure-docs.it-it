@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: ca674f38b5c327123bc1d13dd284f84f614881b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf0570cd62a2c329407cfb6dd087020f53cdc991
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300446"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954070"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Usare lo strumento di diagnostica StorSimple per risolvere i problemi dei dispositivi della serie 8000
 
@@ -332,7 +332,7 @@ Di seguito è riportato un output di esempio per il dispositivo 8100. L'output m
 * Le interfacce da DATA2 a DATA5 non sono abilitate nel portale.
 * La configurazione del server DNS è valida e il dispositivo può connettersi tramite il server DNS.
 * La connettività del server NTP è valida.
-* Le porte 80 e 443 sono aperte, ma la porta 9354 è bloccata. In base ai [requisiti di rete del sistema](storsimple-system-requirements.md), questa porta deve essere aperta per la comunicazione del bus di servizio.
+* Le porte 80 e 443 sono aperte, ma la porta 9354 è bloccata. In base ai [requisiti di rete del sistema](./storsimple-8000-system-requirements.md), questa porta deve essere aperta per la comunicazione del bus di servizio.
 * Il certificato TLS/SSL è valido.
 * Il dispositivo può connettersi all'account di archiviazione _myss8000storageacct_.
 * La connettività ai server di aggiornamento è valida.
@@ -388,7 +388,7 @@ Per usare lo strumento di diagnostica, seguire questa procedura:
 
     Se le latenze di lettura/scrittura segnalate dallo strumento di diagnostica sono elevate:
 
-    1. Configurare Analisi archiviazione per i servizi BLOB e analizzare l'output per ottenere informazioni sulle latenze per l'account di archiviazione di Azure. Per istruzioni dettagliate, vedere come [abilitare e configurare Analisi archiviazione](../storage/common/storage-enable-and-view-metrics.md). Se anche tali latenze sono elevate, con valori analoghi a quelli restituiti dallo strumento di diagnostica StorSimple, è necessario inviare una richiesta di servizio tramite Archiviazione di Azure.
+    1. Configurare Analisi archiviazione per i servizi BLOB e analizzare l'output per ottenere informazioni sulle latenze per l'account di archiviazione di Azure. Per istruzioni dettagliate, vedere come [abilitare e configurare Analisi archiviazione](../storage/blobs/monitor-blob-storage.md). Se anche tali latenze sono elevate, con valori analoghi a quelli restituiti dallo strumento di diagnostica StorSimple, è necessario inviare una richiesta di servizio tramite Archiviazione di Azure.
 
     2. Se le latenze dell'account di archiviazione sono basse, contattare l'amministratore di rete per indagare su eventuali problemi di latenza della rete.
 
@@ -414,11 +414,11 @@ Controller0>
 
 La tabella riportata di seguito illustra il mapping dei vari parametri di Windows PowerShell alle informazioni sul sistema. 
 
-| Parametro di PowerShell    | Descrizione  |
+| Parametro di PowerShell    | Description  |
 |-------------------------|------------------|
 | ID istanza             | Ogni controller è associato a un identificatore univoco o un GUID.|
 | Nome                    | Nome descrittivo del dispositivo configurato tramite il portale di Azure durante la distribuzione del dispositivo. Il nome descrittivo predefinito è il numero di serie del dispositivo. |
-| Modello                   | Modello del dispositivo StorSimple serie 8000. Il modello può essere 8100 o 8600.|
+| Modellare                   | Modello del dispositivo StorSimple serie 8000. Il modello può essere 8100 o 8600.|
 | SerialNumber            | Numero di serie di 15 caratteri assegnato in fase di produzione. Ad esempio, 8600-SHX0991003G44HT indica quanto segue:<br> 8600: modello del dispositivo.<br>SHX: sito di produzione.<br> 0991003: prodotto specifico. <br> G44HT: ultime cinque cifre incrementate per creare numeri di serie univoci. Questo potrebbe non essere un insieme sequenziale.|
 | TimeZone                | Fuso orario del dispositivo configurato nel portale di Azure durante la distribuzione del dispositivo.|
 | CurrentController       | Controller a cui si è connessi tramite l'interfaccia di Windows PowerShell del dispositivo StorSimple.|
@@ -440,6 +440,6 @@ La tabella riportata di seguito illustra il mapping dei vari parametri di Window
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulla [sintassi del cmdlet Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
+* Informazioni sulla [sintassi del cmdlet Invoke-HcsDiagnostics](/previous-versions/windows/powershell-scripting/mt795371(v=wps.630)).
 
-* Altre informazioni sulla [risoluzione dei problemi di distribuzione](storsimple-troubleshoot-deployment.md) nel dispositivo StorSimple.
+* Altre informazioni sulla [risoluzione dei problemi di distribuzione](./storsimple-8000-troubleshoot-deployment.md) nel dispositivo StorSimple.

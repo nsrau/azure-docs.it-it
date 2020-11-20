@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bb13b350dfecf70e5f3a45755f6f77069a855c6c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f7a4d0852edded516b7fbe42f15abfe160e44cd3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363845"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94952795"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Panoramica degli account utente in Azure Active Directory B2C
 
@@ -50,29 +50,29 @@ Quando si aggiunge un nuovo account aziendale, è necessario prendere in conside
 Per creare un nuovo account aziendale è possibile usare le informazioni seguenti:
 
 - [Portale di Azure](../active-directory/fundamentals/add-users-azure-active-directory.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>Aggiornare un profilo utente
 
 Per aggiornare un profilo utente è possibile usare le informazioni seguenti:
 
 - [Portale di Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>Reimpostare la password di un utente
 
 Per reimpostare la password di un utente è possibile usare le informazioni seguenti:
 
 - [Portale di Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
-- [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
+- [Microsoft Graph](/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>Utente guest
 
-È possibile invitare utenti esterni al tenant assegnando loro il ruolo di utente guest. Uno scenario tipico per questo tipo di invito al tenant di Azure AD B2C è quello in cui è necessario condividere le responsabilità di amministrazione. Per un esempio di utilizzo di un account guest, vedere [Proprietà di un utente di Collaborazione B2B di Azure Active Directory](../active-directory/b2b/user-properties.md).
+È possibile invitare utenti esterni al tenant assegnando loro il ruolo di utente guest. Uno scenario tipico per questo tipo di invito al tenant di Azure AD B2C è quello in cui è necessario condividere le responsabilità di amministrazione. Per un esempio di utilizzo di un account guest, vedere [Proprietà di un utente di Collaborazione B2B di Azure Active Directory](../active-directory/external-identities/user-properties.md).
 
 Quando si invita un utente guest al tenant, viene fornito l'indirizzo di posta elettronica del destinatario e un messaggio che descrive l'invito. Il collegamento di invito indirizza l'utente alla pagina di consenso, dove è possibile selezionare il pulsante **Introduzione** e accettare il riepilogo delle autorizzazioni. Se all'indirizzo di posta elettronica non è collegata una casella di posta in arrivo, l'utente può aprire la pagina di consenso da una pagina Microsoft, usando le credenziali fornite nell'invito. L'utente deve quindi riscattare l'invito con la stessa procedura che avrebbe eseguito usando il collegamento presente nel messaggio di posta elettronica. Ad esempio: `https://myapps.microsoft.com/B2CTENANTNAME`.
 
-Per invitare un utente guest è anche possibile usare l'[API Graph di Microsoft](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-beta).
+Per invitare un utente guest è anche possibile usare l'[API Graph di Microsoft](/graph/api/invitation-post?view=graph-rest-beta).
 
 ## <a name="consumer-user"></a>Utente consumer
 

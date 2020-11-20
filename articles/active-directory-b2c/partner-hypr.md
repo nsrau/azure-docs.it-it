@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 4f6b09061a4aa98824e176af55efcedfab3df48c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b80b1a4b3f9bcde6cf01b0e0e59425c6783bd5d9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051918"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953764"
 ---
 # <a name="tutorial-for-configuring-hypr-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di HYPR con Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Per iniziare, è necessario:
 
 - Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 
-- [Tenant Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). Il tenant è collegato alla sottoscrizione di Azure.
+- [Tenant Azure ad B2C](./tutorial-create-tenant.md). Il tenant è collegato alla sottoscrizione di Azure.
 
 - Un tenant cloud HYPR, ottenere un [account di valutazione](https://get.hypr.com/free-trial)gratuito.
 
@@ -62,7 +62,7 @@ Il diagramma dell'architettura seguente illustra l'implementazione di.
 
 1. Passare al [criterio Azure ad B2C HYPR](https://github.com/HYPR-Corp-Public/Azure-AD-B2C-HYPR-Sample/tree/master/policy) nella cartella criteri.
 
-2. Segui questo [documento](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) per scaricare lo [Starter Pack le LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
+2. Segui questo [documento](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) per scaricare lo [Starter Pack le LocalAccounts](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)
 
 3. Configurare i criteri per il tenant Azure AD B2C.
 
@@ -73,7 +73,7 @@ Il diagramma dell'architettura seguente illustra l'implementazione di.
 
 1. Aprire il tenant di Azure AD B2C e in criteri selezionare **Framework esperienza di identità**.
 
-2. Selezionare il **SignUpSignIn**creato in precedenza.
+2. Selezionare il **SignUpSignIn** creato in precedenza.
 
 3. Selezionare **Esegui flusso utente** e selezionare le impostazioni:
 
@@ -91,6 +91,6 @@ Il diagramma dell'architettura seguente illustra l'implementazione di.
 
 Per ulteriori informazioni, vedere gli articoli seguenti:
 
-- [Criteri personalizzati in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Criteri personalizzati in AAD B2C](./custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introduzione ai criteri personalizzati in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

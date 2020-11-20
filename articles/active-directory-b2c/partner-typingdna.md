@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: edbc944e77d2483d32574f8044c72fc3d1292e2a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6f62675d27310a15c434baba8e3451a3cd81f058
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94840435"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953526"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di TypingDNA con Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Questa procedura dettagliata illustra come integrare un'app di pagamento online 
 
 2. Quando l'utente invia la pagina, tramite la libreria TypingDNA viene calcolata la caratteristica di digitazione dell'utente. Successivamente, inserire le informazioni in un campo di testo nascosto di cui Azure AD B2C ne è stato eseguito il rendering. Questo campo è nascosto con CSS.  
 
-    Nell' [esempio sono inclusi i file HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignUp.cshtml) con le modifiche JavaScript e CSS, a cui fanno riferimento `api.selfasserted.tdnasignin` le `api.selfasserted.tdnasignup` definizioni del contenuto e. Vedere [hosting del contenuto della pagina](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#hosting-the-page-content) per ospitare i file HTML.
+    Nell' [esempio sono inclusi i file HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignUp.cshtml) con le modifiche JavaScript e CSS, a cui fanno riferimento `api.selfasserted.tdnasignin` le `api.selfasserted.tdnasignup` definizioni del contenuto e. Vedere [hosting del contenuto della pagina](./custom-policy-ui-customization.md#hosting-the-page-content) per ospitare i file HTML.
 
 3. Azure AD B2C ora dispone del modello di digitazione all'interno dell'elenco di attestazioni quando l'utente invia le proprie credenziali. Deve chiamare un'API (your) per passare questi dati all'endpoint dell'API REST di TypingDNA. Questa API è inclusa nell' [esempio (typingDNA-API-Interface)](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface).
 4. L'API del livello intermedio passa quindi i dati del modello di digitazione all'API REST di TypingDNA. Al momento dell'iscrizione, viene chiamato l' [endpoint utente check](https://api.typingdna.com/index.html#api-API_Services-GetUser) per confermare che l'utente non esiste e quindi viene chiamato l'endpoint [Save pattern](https://api.typingdna.com/index.html#api-API_Services-saveUserPattern) per salvare il primo modello di digitazione dell'utente.
@@ -160,7 +160,7 @@ Queste soglie devono essere modificate in caso di utilizzo.
 
 1. Ospitare l' [interfaccia TypingDNA-API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) nel provider di hosting preferito
 2. Sostituire tutte le istanze di `apiKey` e `apiSecret` nella soluzione [TypingDNA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) con le credenziali del dashboard di TypingDNA
-3. Ospitare i file HTML nel provider desiderato seguendo i requisiti di CORS [qui](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#3-configure-cors)
+3. Ospitare i file HTML nel provider desiderato seguendo i requisiti di CORS [qui](./custom-policy-ui-customization.md#3-configure-cors)
 4. Sostituire rispettivamente gli elementi elemento loaduri per `api.selfasserted.tdnasignup` le `api.selfasserted.tdnasignin` definizioni di contenuto e nel `TrustFrameworkExtensions.xml` file con l'URI dei file HTML ospitati.
 5. Creare una chiave dei criteri B2C nel Framework dell'esperienza di identità nel pannello Azure AD della **portale di Azure**. Usare l' `Generate` opzione e assegnare un nome alla chiave `tdnaHashedId` .
 6. Sostituire i TenantId nei file dei criteri
@@ -194,6 +194,6 @@ Queste soglie devono essere modificate in caso di utilizzo.
 
 Per ulteriori informazioni, vedere gli articoli seguenti:
 
-- [Criteri personalizzati in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Criteri personalizzati in AAD B2C](./custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introduzione ai criteri personalizzati in AAD B2C](./custom-policy-get-started.md?tabs=applications)

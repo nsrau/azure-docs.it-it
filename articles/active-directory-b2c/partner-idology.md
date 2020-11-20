@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cfce5b42d37908d0ba89cff9c4831cb25b968524
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07a8f785cf2b9a64f3acb9f44c4fca5023c4fcf3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259323"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94953747"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di IDology con Azure Active Directory B2C 
 
@@ -67,13 +67,13 @@ Il diagramma dell'architettura seguente illustra l'implementazione di.
 
 ### <a name="part-1---deploy-the-api"></a>Parte 1: distribuire l'API
 
-Distribuire il [codice API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) fornito a un servizio di Azure. Il codice può essere pubblicato da Visual Studio, seguendo queste [istruzioni](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Distribuire il [codice API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) fornito a un servizio di Azure. Il codice può essere pubblicato da Visual Studio, seguendo queste [istruzioni](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 Per configurare Azure AD con le impostazioni necessarie, è necessario l'URL del servizio distribuito.
 
 ### <a name="part-2---configure-the-api"></a>Parte 2: configurare l'API 
 
-Le impostazioni dell'applicazione possono essere [configurate nel servizio app in Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Con questo metodo, le impostazioni possono essere configurate in modo sicuro senza archiviarle in un repository. È necessario specificare le impostazioni seguenti per l'API REST:
+Le impostazioni dell'applicazione possono essere [configurate nel servizio app in Azure](../app-service/configure-common.md#configure-app-settings). Con questo metodo, le impostazioni possono essere configurate in modo sicuro senza archiviarle in un repository. È necessario specificare le impostazioni seguenti per l'API REST:
 
 | Impostazioni applicazione | Source (Sorgente) | Note |
 | :-------- | :------------| :-----------|
@@ -119,9 +119,9 @@ Il criterio di esempio utilizza questi nomi di chiave:
 
 ## <a name="test-the-user-flow"></a>Testare il flusso utente
 
-1. Aprire il tenant di Azure AD B2C e in **criteri**selezionare **flussi utente**.
+1. Aprire il tenant di Azure AD B2C e in **criteri** selezionare **flussi utente**.
 
-2. Selezionare il **flusso utente**creato in precedenza.
+2. Selezionare il **flusso utente** creato in precedenza.
 
 3. Selezionare **Esegui flusso utente** e selezionare le impostazioni:
 
@@ -145,5 +145,4 @@ Per ulteriori informazioni, vedere gli articoli seguenti:
 
 - [Criteri personalizzati in AAD B2C](custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](custom-policy-get-started.md?tabs=applications) 
-
+- [Introduzione ai criteri personalizzati in Azure AD B2C](custom-policy-get-started.md?tabs=applications)

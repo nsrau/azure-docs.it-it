@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0dba5f96d90304418d7ebd297419c1f36244f868
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4dd9f98f174144cef455157162694a470aa1065f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363930"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951764"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Distribuire criteri personalizzati con Azure Pipelines
 
@@ -29,7 +29,7 @@ Sono necessari tre passaggi principali per abilitare Azure Pipelines per gestire
 1. Configurare una pipeline di Azure
 
 > [!IMPORTANT]
-> La gestione di Azure AD B2C criteri personalizzati con una pipeline di Azure usa attualmente le operazioni di **Anteprima** disponibili nell'endpoint API Microsoft Graph `/beta` . L'uso di queste API nelle applicazioni di produzione non è supportato. Per ulteriori informazioni, vedere il [riferimento all'endpoint dell'API REST di Microsoft Graph beta](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
+> La gestione di Azure AD B2C criteri personalizzati con una pipeline di Azure usa attualmente le operazioni di **Anteprima** disponibili nell'endpoint API Microsoft Graph `/beta` . L'uso di queste API nelle applicazioni di produzione non è supportato. Per ulteriori informazioni, vedere il [riferimento all'endpoint dell'API REST di Microsoft Graph beta](/graph/api/overview?toc=.%252fref%252ftoc.json&view=graph-rest-beta).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,7 +40,7 @@ Sono necessari tre passaggi principali per abilitare Azure Pipelines per gestire
 
 ## <a name="client-credentials-grant-flow"></a>Flusso di concessione di credenziali client
 
-Lo scenario descritto di seguito consente di usare le chiamate da servizio a servizio tra Azure Pipelines e Azure AD B2C usando il flusso di [concessione delle credenziali client](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md)OAuth 2,0. Questo flusso di concessione consente a un servizio Web come Azure Pipelines (il client riservato) di usare le proprie credenziali anziché rappresentare un utente per eseguire l'autenticazione quando chiama un altro servizio Web (l'API Microsoft Graph, in questo caso). Azure Pipelines ottiene un token in modo non interattivo, quindi effettua richieste all'API Microsoft Graph.
+Lo scenario descritto di seguito consente di usare le chiamate da servizio a servizio tra Azure Pipelines e Azure AD B2C usando il flusso di [concessione delle credenziali client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)OAuth 2,0. Questo flusso di concessione consente a un servizio Web come Azure Pipelines (il client riservato) di usare le proprie credenziali anziché rappresentare un utente per eseguire l'autenticazione quando chiama un altro servizio Web (l'API Microsoft Graph, in questo caso). Azure Pipelines ottiene un token in modo non interattivo, quindi effettua richieste all'API Microsoft Graph.
 
 ## <a name="register-an-application-for-management-tasks"></a>Registrare un'applicazione per le attività di gestione
 
@@ -58,7 +58,7 @@ Con un'applicazione di gestione registrata, si è pronti per configurare un repo
 1. [Creare un nuovo progetto][devops-create-project] o selezionarne uno esistente.
 1. Nel progetto passare a **repository** e selezionare la pagina **file** . Selezionare un repository esistente o crearne uno per questo esercizio.
 1. Creare una cartella denominata *B2CAssets*. Denominare il file segnaposto obbligatorio *Readme.MD* ed eseguire il **commit** del file. Se lo si desidera, è possibile rimuovere il file in un secondo momento.
-1. Aggiungere i file dei criteri di Azure AD B2C alla cartella *B2CAssets* Sono inclusi *TrustFrameworkBase.xml*, *TrustFrameWorkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*e qualsiasi altro criterio creato. Registrare il nome file di ogni file di criteri di Azure AD B2C per l'uso in un passaggio successivo, che vengono usati come argomenti dello script di PowerShell.
+1. Aggiungere i file dei criteri di Azure AD B2C alla cartella *B2CAssets* Sono inclusi *TrustFrameworkBase.xml*, *TrustFrameWorkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml* e qualsiasi altro criterio creato. Registrare il nome file di ogni file di criteri di Azure AD B2C per l'uso in un passaggio successivo, che vengono usati come argomenti dello script di PowerShell.
 1. Creare una cartella denominata *Scripts* nella directory radice del repository, denominare il file segnaposto *DeployToB2c.ps1*. Non eseguire il commit del file in questo momento, in un passaggio successivo.
 1. Incollare lo script di PowerShell seguente in *DeployToB2c.ps1*, quindi eseguire il **commit** del file. Lo script acquisisce un token da Azure AD e chiama l'API Microsoft Graph per caricare i criteri all'interno della cartella *B2CAssets* nel tenant di Azure ad B2C.
 
@@ -114,10 +114,10 @@ Con il repository inizializzato e popolato con i file dei criteri personalizzati
 ### <a name="create-pipeline"></a>Creare una pipeline
 
 1. Accedere all'organizzazione Azure DevOps Services e passare al progetto.
-1. Nel progetto selezionare **pipeline**  >  **rilascia**la  >  **nuova pipeline**.
-1. In **Seleziona un modello**selezionare **processo vuoto**.
-1. Immettere un **nome**per la fase, ad esempio *DeployCustomPolicies*, quindi chiudere il riquadro.
-1. Selezionare **Aggiungi un artefatto**e in **tipo di origine**selezionare **repository di Azure**.
+1. Nel progetto selezionare **pipeline**  >  **rilascia** la  >  **nuova pipeline**.
+1. In **Seleziona un modello** selezionare **processo vuoto**.
+1. Immettere un **nome** per la fase, ad esempio *DeployCustomPolicies*, quindi chiudere il riquadro.
+1. Selezionare **Aggiungi un artefatto** e in **tipo di origine** selezionare **repository di Azure**.
     1. Scegliere il repository di origine contenente la cartella *Scripts* compilata con lo script di PowerShell.
     1. Scegliere un **ramo predefinito**. Se è stato creato un nuovo repository nella sezione precedente, il ramo predefinito è *Master*.
     1. Lasciare l'impostazione di **versione predefinita** *più recente dal ramo predefinito*.
@@ -211,10 +211,10 @@ Verrà visualizzato un banner di notifica che indica che una versione è stata a
 
 Altre informazioni su:
 
-* [Chiamate da servizio a servizio mediante le credenziali client](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
-* [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)
+* [Chiamate da servizio a servizio mediante le credenziali client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)
+* [Azure DevOps Services](/azure/devops/user-guide/?view=azure-devops)
 
 <!-- LINKS - External -->
-[devops]: https://docs.microsoft.com/azure/devops/?view=azure-devops
-[devops-create-project]:  https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops
-[devops-pipelines]: https://docs.microsoft.com/azure/devops/pipelines
+[devops]: /azure/devops/?view=azure-devops
+[devops-create-project]:  /azure/devops/organizations/projects/create-project?view=azure-devops
+[devops-pipelines]: /azure/devops/pipelines
