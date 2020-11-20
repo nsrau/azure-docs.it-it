@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
-ms.openlocfilehash: b3919cbbe0ba7a796a21ae566afb8e2d9fa784db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0362c9ed4f736474dbd49e1bfaf1373e0f48acd6
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88716674"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992710"
 ---
 # <a name="transform-json-and-xml-using-liquid-templates-as-maps-in-azure-logic-apps"></a>Trasformare JSON e XML usando i modelli Liquid come mappe in app per la logica di Azure
 
@@ -152,7 +152,7 @@ Usando il [posting](https://www.getpostman.com/postman) o uno strumento simile, 
 
   * Se il modello USA [filtri Liquid](https://shopify.github.io/liquid/basics/introduction/#filters), assicurarsi di seguire le [convenzioni di denominazione DotLiquid e C#](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers#filter-and-output-casing), che usano la *combinazione di maiuscole e minuscole*. Per tutte le trasformazioni liquide, assicurarsi che i nomi di filtro nel modello usino anche la combinazione di maiuscole e minuscole. In caso contrario, i filtri non funzioneranno.
 
-    Ad esempio, quando si usa il `replace` filtro, usare `Replace` , Not `replace` . La stessa regola si applica se si provano esempi in [DotLiquid online](http://dotliquidmarkup.org/try-online). Per ulteriori informazioni, vedere [Shopify Liquid filters](https://shopify.dev/docs/themes/liquid/reference/filters) e [DotLiquid Liquid filters](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Developers#create-your-own-filters). La specifica Shopify include esempi per ogni filtro. per il confronto, è quindi possibile provare questi esempi in [DotLiquid-try online](https://dotliquidmarkup.org/try-online).
+    Ad esempio, quando si usa il `replace` filtro, usare `Replace` , Not `replace` . La stessa regola si applica se si provano esempi in [DotLiquid online](http://dotliquidmarkup.org/try-online). Per ulteriori informazioni, vedere [Shopify Liquid filters](https://shopify.dev/docs/themes/liquid/reference/filters) e [DotLiquid Liquid filters](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Developers#create-your-own-filters). La specifica Shopify include esempi per ogni filtro. per il confronto, è quindi possibile provare questi esempi in [DotLiquid-try online](http://dotliquidmarkup.org/try-online).
 
   * Il `json` filtro dei filtri di estensione Shopify non è attualmente [implementato in DotLiquid](https://github.com/dotliquid/dotliquid/issues/384). In genere, è possibile usare questo filtro per preparare l'output di testo per l'analisi delle stringhe JSON, ma è invece necessario usare il `Replace` filtro.
 
@@ -244,7 +244,7 @@ Ecco gli input e gli output di esempio:
 
 * [Linguaggi ed esempi di Shopify Liquid](https://shopify.github.io/liquid/basics/introduction/)
 * [DotLiquid](http://dotliquidmarkup.org/)
-* [DotLiquid-prova online](https://dotliquidmarkup.org/try-online)
+* [DotLiquid-prova online](http://dotliquidmarkup.org/try-online)
 * [GitHub DotLiquid](https://github.com/dotliquid/dotliquid)
 * [Problemi di GitHub DotLiquid](https://github.com/dotliquid/dotliquid/issues/)
 * Altre informazioni sulle [mappe](../logic-apps/logic-apps-enterprise-integration-maps.md)
