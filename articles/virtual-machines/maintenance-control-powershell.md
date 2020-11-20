@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: efd35cfe2660f4597ec0c95dc29bcb4b839da680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4cb57eb8d3396667e6c9cb40b7e41b1e97622ed
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306940"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981188"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Controllare gli aggiornamenti con il controllo di manutenzione e Azure PowerShell
 
@@ -67,13 +67,7 @@ Se si tenta di creare una configurazione con lo stesso nome, ma in un percorso d
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
 
-### <a name="create-a-maintenance-configuration-with-scheduled-window-in-preview"></a>Creare una configurazione di manutenzione con la finestra pianificata (in anteprima)
-
-
-> [!IMPORTANT]
-> La funzionalità finestra pianificata è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Creare una configurazione di manutenzione con la finestra pianificata
 
 Usare New-AzMaintenanceConfiguration per creare una configurazione di manutenzione con una finestra pianificata quando Azure applicherà gli aggiornamenti sulle risorse. Questo esempio crea una configurazione di manutenzione denominata config con una finestra pianificata di 5 ore il quarto lunedì di ogni mese. Una volta creata una finestra pianificata, non è più necessario applicare manualmente gli aggiornamenti.
 
@@ -91,8 +85,13 @@ $config = New-AzMaintenanceConfiguration `
 > [!IMPORTANT]
 > La **durata** della manutenzione deve essere maggiore di *2 ore* . È necessario impostare la **ricorrenza** di manutenzione almeno una volta in 35 giorni.
 
-La **ricorrenza** di manutenzione può essere espressa come pianificazioni giornaliere, settimanali o mensili. Gli esempi di pianificazione giornaliera sono recurEvery: Day, recurEvery: 3Days. Gli esempi di pianificazione settimanale sono recurEvery: 3Weeks, recurEvery: settimana sabato, domenica. Gli esempi di pianificazione mensile sono recurEvery: month day23, day24, recurEvery: month last domenica, recurEvery: month Fourth Monday.
-
+La **ricorrenza** della manutenzione può essere espressa come segue:
+ | Valore | Esempio |
+      |-------|-------------|
+      | giornaliera | recurEvery: Day **o** RecurEvery: 3days | 
+      | weekly | recurEvery: 3Weeks **o** RecurEvery: settimana sabato, domenica | 
+      | mensile | recurEvery: month day23, day24 **o** RecurEvery: month Last Sunday **o** RecurEvery: month Fourth Monday | 
+      
 
 ## <a name="assign-the-configuration"></a>Assegnare la configurazione
 

@@ -16,12 +16,12 @@ ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4778ce5efcd6145447c194eaab34bc230bcbe34c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d74a243ab10d0fffca960dc5149999560a7b54cd
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371546"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980587"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Approva o rifiuta le richieste per i ruoli di Azure AD in Privileged Identity Management
 
@@ -38,9 +38,9 @@ A partire da novembre 2019, la parte Azure AD ruoli di Privileged Identity Manag
 
 Attenersi alla procedura descritta in questo articolo per approvare o negare le richieste di Azure AD ruoli.
 
-# <a name="new-version"></a>[Nuova versione](#tab/new)
+## <a name="new-version"></a>[Nuova versione](#tab/new)
 
-## <a name="view-pending-requests"></a>Visualizzare le richieste in sospeso
+### <a name="view-pending-requests"></a>Visualizzare le richieste in sospeso
 
 In qualità di responsabile approvazione delegata, si riceverà una notifica di posta elettronica quando una richiesta di ruolo Azure AD è in attesa dell'approvazione. È possibile visualizzare le richieste in sospeso in Privileged Identity Management.
 
@@ -54,7 +54,7 @@ In qualità di responsabile approvazione delegata, si riceverà una notifica di 
 
     Nella sezione **Requests for role activations** (Richieste di attivazioni di ruoli) verrà visualizzato un elenco di richieste in attesa di approvazione.
 
-## <a name="approve-requests"></a>Approvare le richieste
+### <a name="approve-requests"></a>Approvare le richieste
 
 1. Trovare e selezionare la richiesta che si desidera approvare. Viene visualizzata una pagina approva o nega.
 
@@ -66,7 +66,7 @@ In qualità di responsabile approvazione delegata, si riceverà una notifica di 
 
     ![Approva notifica che indica che la richiesta è stata approvata](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png))
 
-## <a name="deny-requests"></a>Rifiutare le richieste
+### <a name="deny-requests"></a>Rifiutare le richieste
 
 1. Trovare e selezionare la richiesta che si desidera negare. Viene visualizzata una pagina approva o nega.
 
@@ -76,7 +76,7 @@ In qualità di responsabile approvazione delegata, si riceverà una notifica di 
 
 1. Selezionare **Nega**. Viene visualizzata una notifica con la negazione.
 
-## <a name="workflow-notifications"></a>Notifiche del flusso di lavoro
+### <a name="workflow-notifications"></a>Notifiche del flusso di lavoro
 
 Ecco alcune informazioni sulle notifiche del flusso di lavoro:
 
@@ -88,9 +88,9 @@ Ecco alcune informazioni sulle notifiche del flusso di lavoro:
 >[!NOTE]
 >Un amministratore globale o un amministratore del ruolo con privilegi che ritiene che un utente approvato non debba essere attivo può rimuovere l'assegnazione di ruolo attiva in Privileged Identity Management. Sebbene gli amministratori non ricevano le richieste in sospeso, a meno che non siano un responsabile approvazione, possono visualizzare e annullare tutte le richieste in sospeso per tutti gli utenti visualizzando richieste in sospeso in Privileged Identity Management.
 
-# <a name="previous-version"></a>[Versione precedente](#tab/previous)
+## <a name="previous-version"></a>[Versione precedente](#tab/previous)
 
-## <a name="view-pending-requests"></a>Visualizzare le richieste in sospeso
+### <a name="view-pending-requests"></a>Visualizzare le richieste in sospeso
 
 In qualità di responsabile approvazione delegata, si riceverà una notifica di posta elettronica quando una richiesta di ruolo Azure AD è in attesa dell'approvazione. È possibile visualizzare le richieste in sospeso in Privileged Identity Management.
 
@@ -106,7 +106,7 @@ In qualità di responsabile approvazione delegata, si riceverà una notifica di 
 
     È possibile visualizzare un elenco delle richieste in attesa di approvazione.
 
-## <a name="approve-requests"></a>Approvare le richieste
+### <a name="approve-requests"></a>Approvare le richieste
 
 1. Selezionare le richieste da approvare e quindi fare clic su **Approva** per aprire il riquadro Approva le richieste selezionate.
 
@@ -122,7 +122,7 @@ In qualità di responsabile approvazione delegata, si riceverà una notifica di 
 
     ![Approva il riquadro delle richieste selezionate dopo aver fatto clic sul pulsante approva](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
 
-## <a name="deny-requests"></a>Rifiutare le richieste
+### <a name="deny-requests"></a>Rifiutare le richieste
 
 1. Selezionare le richieste da rifiutare e quindi fare clic su **Nega** per aprire il riquadro Rifiuta le richieste selezionate.
 

@@ -4,13 +4,13 @@
   items:
     - name: Informazioni sull'accesso condizionale
       href: overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Richiedere l'accettazione delle condizioni per l'utilizzo
       href: require-tou.md
 - name: Esercitazioni
   items:
-    - name: Richiedere Azure Multi-Factor Authentication
+    - name: Richiedere Azure AD Multi-Factor Authentication
       href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: Concetti
   expanded: false

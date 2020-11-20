@@ -29,7 +29,7 @@ Servizi di comunicazione di Azure consente di usare i numeri di telefono per eff
 
 ## <a name="phone-number-types-in-azure-communication-services"></a>Tipi di numeri di telefono in Servizi di comunicazione di Azure
  
-Servizi di comunicazione offre due tipi di numero di telefono, ossia **numero locale** e **numero verde** . 
+Servizi di comunicazione offre due tipi di numero di telefono, ossia **numero locale** e **numero verde**. 
 
 ### <a name="local-numbers"></a>Numeri locali
 I numeri locali (geografici) sono numeri di telefono di 10 cifre costituiti da prefissi locali degli Stati Uniti. Ad esempio, `+1 (206) XXX-XXXX` è un numero locale con prefisso `206`. Questo prefisso viene assegnato alla città di Seattle. Questi numeri di telefono vengono in genere usati da privati e aziende locali. Servizi di comunicazione di Azure offre numeri locali negli Stati Uniti. Questi numeri possono essere usati per effettuare telefonate, ma non per inviare messaggi SMS. 
@@ -48,7 +48,7 @@ La tabella seguente riepiloga i tipi di numeri di telefono disponibili:
 | Tipo di numero di telefono | Esempio                              | Paesi di disponibilità    | Funzionalità del numero di telefono |Caso d'uso comune                                                                                                     |
 | ----------------- | ------------------------------------ | ----------------------- | ------------------------|------------------------------------------------------------------------------------------------------------------- |
 | Locale (geografico)        | +1 (prefisso locale) XXX XX XX  | US                      | Chiamate (in uscita) | Assegnazione di numeri di telefono agli utenti delle applicazioni  |
-| Numero verde         | \+ 1 ( *codice* area n. verde) XXX XX XX | US                      | Chiamate (in uscita), SMS (in ingresso/in uscita)| Assegnazione di numeri di telefono tramite sistemi IRV (Interactive Voice Response), bot o applicazioni di SMS                                        |
+| Numero verde         | \+ 1 (*codice* area n. verde) XXX XX XX | US                      | Chiamate (in uscita), SMS (in ingresso/in uscita)| Assegnazione di numeri di telefono tramite sistemi IRV (Interactive Voice Response), bot o applicazioni di SMS                                        |
 
 
 ## <a name="phone-number-features-in-azure-communication-services"></a>Funzionalità dei numeri di telefono in Servizi di comunicazione di Azure 

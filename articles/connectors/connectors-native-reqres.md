@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: c0e8743d78c8eeafb5bdeb6ade783d5e75991f91
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: b8f95e7e173dd6d1ad43301aab8ff3ec7cf78018
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330989"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981001"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ricevere e rispondere alle richieste HTTPS in ingresso in App per la logica di Azure
 
@@ -60,7 +60,7 @@ L'app per la logica mantiene aperta una richiesta in ingresso solo per un [perio
    | **Corpo della richiesta: Schema JSON** | `schema` | No | Schema JSON che descrive le proprietà e i valori nel corpo della richiesta in ingresso |
    |||||
 
-1. Nella casella **Corpo della richiesta: schema JSON** , immettere facoltativamente uno schema JSON che descrive il corpo della richiesta in ingresso, ad esempio:
+1. Nella casella **Corpo della richiesta: schema JSON**, immettere facoltativamente uno schema JSON che descrive il corpo della richiesta in ingresso, ad esempio:
 
    ![Schema JSON di esempio](./media/connectors-native-reqres/provide-json-schema.png)
 
@@ -153,7 +153,7 @@ L'app per la logica mantiene aperta una richiesta in ingresso solo per un [perio
 
 1. Per verificare che la chiamata in ingresso disponga di un corpo della richiesta corrispondente allo schema specificato, attenersi alla seguente procedura:
 
-   1. Nella barra del titolo del trigger di richiesta selezionare il pulsante con i puntini di sospensione ( **...** ).
+   1. Nella barra del titolo del trigger di richiesta selezionare il pulsante con i puntini di sospensione (**...**).
 
    1. Nelle impostazioni del trigger attivare la **convalida dello schema** e selezionare **fine**.
 
@@ -167,7 +167,7 @@ L'app per la logica mantiene aperta una richiesta in ingresso solo per un [perio
    | **Percorso relativo** | `relativePath` | No | Percorso relativo per il parametro che l'URL dell'endpoint dell'app per la logica può accettare |
    |||||
 
-   In questo esempio viene aggiunta la proprietà **Metodo** :
+   In questo esempio viene aggiunta la proprietà **Metodo**:
 
    ![Aggiungere il parametro Metodo](./media/connectors-native-reqres/add-parameters.png)
 
@@ -190,9 +190,9 @@ L'app per la logica mantiene aperta una richiesta in ingresso solo per un [perio
    > [!NOTE]
    > Se si desidera includere il simbolo hash o Pound ( **#** ) nell'URI quando si effettua una chiamata al trigger request, utilizzare invece questa versione codificata: `%25%23`
 
-1. Per attivare l'app per la logica, inviare un POST HTTP all'URL generato.
+1. Per testare l'app per la logica, inviare una richiesta HTTP all'URL generato.
 
-   Ad esempio, per inviare il POST HTTP è possibile usare uno strumento come [Postman](https://www.getpostman.com/). Per altre informazioni sulla definizione JSON sottostante al trigger e su come chiamare questo trigger, vedere gli argomenti [Tipo di trigger di richiesta](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [Chiamare, attivare o annidare flussi di lavoro con endpoint HTTP in App per la logica di Azure](../logic-apps/logic-apps-http-endpoint.md).
+   Ad esempio, è possibile usare uno strumento come [posting](https://www.getpostman.com/) per inviare la richiesta HTTP. Per altre informazioni sulla definizione JSON sottostante al trigger e su come chiamare questo trigger, vedere gli argomenti [Tipo di trigger di richiesta](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [Chiamare, attivare o annidare flussi di lavoro con endpoint HTTP in App per la logica di Azure](../logic-apps/logic-apps-http-endpoint.md).
 
 Per ulteriori informazioni sulla sicurezza, autorizzazione e crittografia per le chiamate in ingresso all'app per la logica, ad esempio [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), precedentemente nota come Secure Sockets Layer (SSL), [Azure Active Directory Open Authentication (Azure ad OAuth)](../active-directory/develop/index.yml), esposizione dell'app per la logica con gestione API di Azure o restrizione degli indirizzi IP che generano chiamate in ingresso, vedere [accesso protetto e accesso ai dati per le chiamate in ingresso a trigger basati su richiesta](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
@@ -233,7 +233,7 @@ Quando si utilizza il trigger Request per gestire le richieste in ingresso, è p
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più ( **+** ) visualizzato e quindi **Aggiungi un'azione**.
 
-1. In **scegliere un'azione** , nella casella di ricerca immettere `response` come filtro, quindi selezionare l'azione **risposta** .
+1. In **scegliere un'azione**, nella casella di ricerca immettere `response` come filtro, quindi selezionare l'azione **risposta** .
 
    ![Selezionare l'azione di risposta](./media/connectors-native-reqres/select-response-action.png)
 
@@ -243,7 +243,7 @@ Quando si utilizza il trigger Request per gestire le richieste in ingresso, è p
 
    In alcuni campi, facendo clic sulle relative caselle si apre un elenco di contenuti dinamico. È quindi possibile selezionare i token che rappresentano gli output disponibili dei passaggi precedenti del flusso di lavoro. Le proprietà dello schema specificato nell'esempio precedente appaiono ora nell'elenco dei contenuti dinamici.
 
-   Per esempio, per la casella **Intestazioni** , includere `Content-Type` come nome chiave e impostare il valore chiave su `application/json`, come menzionato in precedenza in questo argomento. Per la casella **Corpo** , è possibile selezionare l'output del corpo del trigger dall'elenco dei contenuti dinamici.
+   Per esempio, per la casella **Intestazioni**, includere `Content-Type` come nome chiave e impostare il valore chiave su `application/json`, come menzionato in precedenza in questo argomento. Per la casella **Corpo**, è possibile selezionare l'output del corpo del trigger dall'elenco dei contenuti dinamici.
 
    ![Dettagli dell'azione di risposta](./media/connectors-native-reqres/response-details.png)
 

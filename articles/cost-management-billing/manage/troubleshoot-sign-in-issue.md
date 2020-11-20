@@ -33,13 +33,13 @@ Se si blocca la pagina del browser Internet, provare ciascuna delle seguenti ope
 - Usare la modalità di esplorazione privata per il browser:
 
    - **Microsoft Edge:** Aprire **Impostazioni** (i tre puntini accanto all'immagine del profilo), selezionare **Nuova finestra InPrivate** e quindi individuare e accedere al [portale di Azure](https://portal.azure.com/) o al [Centro account di Azure](https://account.azure.com/Subscriptions). 
-   - **Chrome:** Scegliere la modalità **Incognito** .
-   - **Safari:** Scegliere **File** , quindi **Nuova finestra privata** .
+   - **Chrome:** Scegliere la modalità **Incognito**.
+   - **Safari:** Scegliere **File**, quindi **Nuova finestra privata**.
 
 - Svuotare la cache ed eliminare i cookie di Internet:
 
-   - **Microsoft Edge:** Aprire **Impostazioni** e selezionare **Privacy e servizi** . Seguire la procedura in **Cancella dati delle esplorazioni** . Verificare che le caselle di controllo **Cronologia esplorazioni** , **Cronologia download** e **Immagini e file memorizzati nella cache** siano selezionate, quindi selezionare **Elimina** .
-   - **Chrome:** Scegliere **Impostazioni** e selezionare **Cancella dati di navigazione** in **Privacy e sicurezza** .
+   - **Microsoft Edge:** Aprire **Impostazioni** e selezionare **Privacy e servizi**. Seguire la procedura in **Cancella dati delle esplorazioni**. Verificare che le caselle di controllo **Cronologia esplorazioni**, **Cronologia download** e **Immagini e file memorizzati nella cache** siano selezionate, quindi selezionare **Elimina**.
+   - **Chrome:** Scegliere **Impostazioni** e selezionare **Cancella dati di navigazione** in **Privacy e sicurezza**.
 
 ## <a name="you-are-automatically-signed-in-as-a-different-user"></a>Viene eseguito l'accesso automaticamente come utente diverso
 
@@ -49,13 +49,13 @@ Per risolvere il problema, utilizzare uno dei seguenti metodi alternativi:
 
 - Svuotare la cache ed eliminare i cookie di Internet.
 
-   - **Microsoft Edge:** Aprire **Impostazioni** e selezionare **Privacy e servizi** . Seguire la procedura in **Cancella dati delle esplorazioni** . Verificare che le caselle di controllo **Cronologia esplorazioni** , **Cronologia download** , **Cookie** e **Immagini e file memorizzati nella cache** siano selezionate, quindi selezionare **Elimina** .
-   - **Chrome:** Scegliere **Impostazioni** e selezionare **Cancella dati di navigazione** in **Privacy e sicurezza** .
+   - **Microsoft Edge:** Aprire **Impostazioni** e selezionare **Privacy e servizi**. Seguire la procedura in **Cancella dati delle esplorazioni**. Verificare che le caselle di controllo **Cronologia esplorazioni**, **Cronologia download**, **Cookie** e **Immagini e file memorizzati nella cache** siano selezionate, quindi selezionare **Elimina**.
+   - **Chrome:** Scegliere **Impostazioni** e selezionare **Cancella dati di navigazione** in **Privacy e sicurezza**.
 - Ripristinare le impostazioni predefinite del browser.
 - Usare la modalità di esplorazione privata per il browser. 
    - **Microsoft Edge:** Aprire **Impostazioni** (i tre puntini accanto all'immagine del profilo), selezionare **Nuova finestra InPrivate** e quindi individuare e accedere al [portale di Azure](https://portal.azure.com/) o al [Centro account di Azure](https://account.azure.com/Subscriptions). 
-   - **Chrome:** Scegliere la modalità **Incognito** .
-   - **Safari:** Scegliere **File** , quindi **Nuova finestra privata** .
+   - **Chrome:** Scegliere la modalità **Incognito**.
+   - **Safari:** Scegliere **File**, quindi **Nuova finestra privata**.
 
 ## <a name="i-can-sign-in-but-i-see-the-error-no-subscriptions-found"></a>È possibile accedere, ma viene visualizzato il messaggio di errore Non sono state trovate sottoscrizioni
 
@@ -73,8 +73,8 @@ Per risolvere il problema:
 Controllare se l'account usato è l'amministratore account. Per verificare chi è l'amministratore account, seguire questa procedura:
 
 1.  Accedere alla [visualizzazione Sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1.  Scegliere la sottoscrizione da controllare, quindi selezionare **Impostazioni** .
-1.  Selezionare **Proprietà** . L'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore account** .
+1.  Scegliere la sottoscrizione da controllare, quindi selezionare **Impostazioni**.
+1.  Selezionare **Proprietà**. L'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore account** .
 
 ## <a name="additional-help-resources"></a>Risorse della guida aggiuntive
 

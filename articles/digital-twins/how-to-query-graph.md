@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperfq2
-ms.openlocfilehash: 6533cbde10dfc924bd982357def859229eb1714a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9aa1156da48ba39672d59858d0640619581329ee
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963165"
+ms.locfileid: "94981120"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Eseguire una query sul grafico gemello di Azure Digital gemelli
 
@@ -277,7 +277,7 @@ AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name)
 
 Si consideri, ad esempio, uno scenario in cui gli *edifici* contengono *piani* e *pavimenti* che contengono *camere*. Per cercare le chat room all'interno di un edificio a caldo, è possibile seguire questa procedura.
 
-1. Trovare i piani nell'edificio in base alla `contains` relazione
+1. Trovare i piani nell'edificio in base alla `contains` relazione.
 
     ```sql
     SELECT Floor
@@ -311,7 +311,7 @@ Si consideri, ad esempio, uno scenario in cui gli *edifici* contengono *piani* e
 
 È possibile **combinare** uno dei tipi di query sopra indicati usando gli operatori di combinazione per includere più dettagli in un'unica query. Di seguito sono riportati alcuni esempi aggiuntivi di query composte che eseguono query per più di un tipo di descrittore gemello.
 
-| Description | Query |
+| Descrizione | Query |
 | --- | --- |
 | Dai dispositivi disponibili nella *stanza 123* , restituire i dispositivi MxChip che svolgono il ruolo di operatore | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contoso:com:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | Ottenere i gemelli con una relazione denominata *Contains* con un altro gemello con ID *ID1* | `SELECT Room`<br>`FROM DIGITALTWINS Room`<br>`JOIN Thermostat RELATED Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |

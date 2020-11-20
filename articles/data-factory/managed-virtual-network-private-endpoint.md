@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: a34f2e50a5eb4ab87a02a5128cb912fa220849f1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317076"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980379"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Rete virtuale gestita Azure Data Factory (anteprima)
 
@@ -72,6 +72,11 @@ Se il proprietario approva la connessione, il collegamento privato viene stabili
 ![Approva endpoint privato gestito](./media/tutorial-copy-data-portal-private/approve-private-endpoint.png)
 
 Solo un endpoint privato gestito in uno stato approvato può inviare il traffico a una risorsa del collegamento privato specificata.
+
+## <a name="interactive-authoring"></a>Creazione interattiva
+Le funzionalità di authoring interattive vengono usate per funzionalità quali test connection, browse Folder List e Table list, Get schema e Preview data. È possibile abilitare la creazione interattiva durante la creazione o la modifica di un Azure Integration Runtime che si trova nella rete virtuale gestita da ADF. Il servizio back-end pre-allocare il calcolo per le funzionalità di creazione interattiva. In caso contrario, il calcolo verrà allocato ogni volta che viene eseguita un'operazione interattiva che può richiedere più tempo. La durata (TTL) per la creazione interattiva è di 60 minuti, il che significa che verrà disabilitato automaticamente dopo 60 minuti dall'ultima operazione di creazione interattiva.
+
+![Creazione interattiva](./media/managed-vnet/interactive-authoring.png)
 
 ## <a name="limitations-and-known-issues"></a>Limitazioni e problemi noti
 ### <a name="supported-data-sources"></a>Origini dati supportate

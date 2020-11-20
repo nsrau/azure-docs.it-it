@@ -149,7 +149,7 @@ Per creare una risorsa Azure Stack Edge, seguire questa procedura nel portale di
 
 9. Selezionare **Avanti: Tag**. Facoltativamente, specificare i tag per classificare le risorse e consolidare la fatturazione. Selezionare **Avanti: Rivedi e crea**.
 
-10. Nella scheda **Rivedi e crea** esaminare i **dettagli sui prezzi** , le **condizioni per l'utilizzo** e i dettagli della risorsa. Selezionare la casella combinata **Dichiaro di aver esaminato le informazioni fornite e di accettare le condizioni relative alla privacy**.
+10. Nella scheda **Rivedi e crea** esaminare i **dettagli sui prezzi**, le **condizioni per l'utilizzo** e i dettagli della risorsa. Selezionare la casella combinata **Dichiaro di aver esaminato le informazioni fornite e di accettare le condizioni relative alla privacy**.
 
     ![Creare una risorsa 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
 

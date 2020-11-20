@@ -154,12 +154,12 @@ La tabella seguente include i riferimenti incrociati tra i valori dei tipi di en
 |-----------------------|-------------------------------------------------|--------------------------------------------|
 | `Address`             |                                                 | *Indirizzo*                                  |
 | `Neighborhood`        | `Neighbourhood`                                 | *Quartiere*                             |
-| `PopulatedPlace`      | `Municipality` o `MunicipalitySubdivision`     | *Città* , *area metropolitana o sobborgo* o *metropoli*     |
+| `PopulatedPlace`      | `Municipality` o `MunicipalitySubdivision`     | *Città*, *area metropolitana o sobborgo* o *metropoli*     |
 | `Postcode1`           | `PostalCodeArea`                                | *Codice postale* o *CAP*                |
 | `AdminDivision1`      | `CountrySubdivision`                            | *Stato* o *provincia*                      |
 | `AdminDivision2`      | `CountrySecondarySubdivison`                    | *Contea* o *distretti*                    |
 | `CountryRegion`       | `Country`                                       | *Nome del paese*                             |
-|                       | `CountryTertiarySubdivision`                    | *Borghi* , *cantoni* , *comuni*          |
+|                       | `CountryTertiarySubdivision`                    | *Borghi*, *cantoni*, *comuni*          |
 
 ## <a name="get-location-suggestions-autosuggest"></a>Ottenere suggerimenti sulla posizione (suggerimenti automatici)
 
@@ -380,7 +380,7 @@ Anche in Mappe di Azure è possibile aggiungere puntine a un'immagine di mappa s
 
 È possibile usare ulteriori stili aggiungendo altri parametri `pins` all'URL con uno stile e un set di posizioni diversi.
 
-Per quanto riguarda le posizioni delle puntine, Mappe di Azure richiede che le coordinate siano in formato `longitude latitude`, mentre Bing Maps usa il formato `latitude,longitude`. Si noti anche che in Mappe di Azure la longitudine e la latitudine sono **separate da uno spazio, non da una virgola** .
+Per quanto riguarda le posizioni delle puntine, Mappe di Azure richiede che le coordinate siano in formato `longitude latitude`, mentre Bing Maps usa il formato `latitude,longitude`. Si noti anche che in Mappe di Azure la longitudine e la latitudine sono **separate da uno spazio, non da una virgola**.
 
 Il valore `iconType` specifica il tipo di segnaposto da creare con i valori possibili seguenti:
 
@@ -446,7 +446,7 @@ Anche in Mappe di Azure è possibile aggiungere linee e poligoni a un'immagine d
 
 > `&path=pathStyles||pathLocation1|pathLocation2|...`
 
-Per quanto riguarda le posizioni dei tragitti, Mappe di Azure richiede che le coordinate siano in formato `longitude latitude`, mentre Bing Maps usa il formato `latitude,longitude`. Si noti anche che in Mappe di Azure la longitudine e la latitudine sono **separate da uno spazio, non da una virgola** . Mappe di Azure attualmente non supporta tragitti codificati. È possibile caricare set di dati di dimensioni maggiori come file GeoJSON nell'API di archiviazione dei dati di Mappe di Azure, come illustrato [qui](./how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
+Per quanto riguarda le posizioni dei tragitti, Mappe di Azure richiede che le coordinate siano in formato `longitude latitude`, mentre Bing Maps usa il formato `latitude,longitude`. Si noti anche che in Mappe di Azure la longitudine e la latitudine sono **separate da uno spazio, non da una virgola**. Mappe di Azure attualmente non supporta tragitti codificati. È possibile caricare set di dati di dimensioni maggiori come file GeoJSON nell'API di archiviazione dei dati di Mappe di Azure, come illustrato [qui](./how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
 
 Gli stili dei percorsi in Mappe di Azure vengono aggiunti con il formato `optionNameValue`, con più stili separati dalla barra verticale (`|`), ad esempio: `optionName1Value1|optionName2Value2`. Si noti che i nomi e i valori delle opzioni non sono separati. È possibile usare i nomi delle opzioni di stile seguenti per applicare uno stile ai percorsi in Mappe di Azure:
 
@@ -528,7 +528,7 @@ La tabella seguente include i riferimenti incrociati tra i parametri delle API d
 È possibile cercare i dati dei punti di interesse in Bing Maps usando le API seguenti:
 
 -   **Ricerca locale:** cerca i punti di interesse vicini (ricerca radiale), per nome o per tipo di entità (categoria). Le API di [ricerca di punti di interesse](/rest/api/maps/search/getsearchpoi) e di [ricerca di categorie di punti di interesse](/rest/api/maps/search/getsearchpoicategory) di Mappe di Azure sono molto simili a questa API.
--   **Riconoscimento della posizione** : cerca i punti di interesse che si trovano entro una certa distanza da una posizione. L'API di [ricerca nelle vicinanze](/rest/api/maps/search/getsearchnearby) di Mappe di Azure è molto simile a questa API.
+-   **Riconoscimento della posizione**: cerca i punti di interesse che si trovano entro una certa distanza da una posizione. L'API di [ricerca nelle vicinanze](/rest/api/maps/search/getsearchnearby) di Mappe di Azure è molto simile a questa API.
 -   **Informazioni locali:** cerca i punti di interesse che si trovano entro un tempo di guida massimo specificato o entro la distanza da una coordinata specifica. Questa funzionalità si può ottenere con Mappe di Azure calcolando prima una isocrona e poi passandola all'API di [ricerca entro un'area geometrica](/rest/api/maps/search/postsearchinsidegeometry).
 
 Mappe di Azure offre numerose API di ricerca per i punti di interesse:
@@ -547,8 +547,8 @@ Assicurarsi di esaminare la documentazione relativa alle [procedure consigliate 
 
 Mappe di Azure offre diverse API per recuperare i dati sul traffico. Sono disponibili due tipi di dati sul traffico:
 
--   **Dati sul flusso** : metriche sul flusso di traffico in sezioni di strade. Si usano spesso per applicare codici colore alle strade. Questi dati vengono aggiornati ogni 2 minuti.
--   **Dati sugli incidenti** : dati su lavori in corso, chiusure di strade, incidenti e altri eventi che possono influire sul traffico. Questi dati vengono aggiornati ogni minuto.
+-   **Dati sul flusso**: metriche sul flusso di traffico in sezioni di strade. Si usano spesso per applicare codici colore alle strade. Questi dati vengono aggiornati ogni 2 minuti.
+-   **Dati sugli incidenti**: dati su lavori in corso, chiusure di strade, incidenti e altri eventi che possono influire sul traffico. Questi dati vengono aggiornati ogni minuto.
 
 Bing Maps fornisce i dati sul flusso del traffico e sugli incidenti nei controlli mappa interattivi e rende anche disponibili i dati sugli incidenti come servizio.
 

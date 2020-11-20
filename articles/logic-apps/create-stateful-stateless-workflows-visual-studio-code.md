@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 11/09/2020
-ms.openlocfilehash: 749807349fd83f9639461fd4ddd9ab771d108119
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.date: 11/17/2020
+ms.openlocfilehash: 14809cb28870e88cfa584c4f02360d50beabf901
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410556"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981060"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creare flussi di lavoro con o senza stato in Visual Studio Code con l'estensione App per la logica di Azure (Anteprima)
 
@@ -206,7 +206,7 @@ Per questa anteprima pubblica, queste funzionalità non sono disponibili o non s
 
    1. Nella scheda **utente** passare a **>** **estensioni** app per la **>** **logica di Azure (anteprima)**.
 
-   1. In **modalità pannello di app per la logica di Azure V2** verificare che sia selezionata l'opzione **Abilita modalità pannello** . In **app per la logica di Azure V2: runtime del progetto** impostare la versione su **~ 3** o **~ 2** , in base alla [versione Azure Functions Core Tools](#prerequisites) installata in precedenza.
+   1. In **modalità pannello di app per la logica di Azure V2** verificare che sia selezionata l'opzione **Abilita modalità pannello** . In **app per la logica di Azure V2: runtime del progetto** impostare la versione su **~ 3** o **~ 2**, in base alla [versione Azure Functions Core Tools](#prerequisites) installata in precedenza.
 
       > [!IMPORTANT]
       > Se si vuole usare l'azione di [ **codice inline**](../logic-apps/logic-apps-add-run-inline-code.md) per l'esecuzione del codice JavaScript, assicurarsi di usare Project Runtime versione 3 perché l'azione non supporta la versione 2. Inoltre, questa azione attualmente non è supportata nei sistemi operativi Linux.
@@ -221,7 +221,7 @@ Per questa anteprima pubblica, queste funzionalità non sono disponibili o non s
 
    ![Screenshot che mostra Visual Studio Code barra degli strumenti e l'icona di Azure selezionata.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-azure-icon.png)
 
-1. Nel riquadro di Azure, in **Azure: app per la logica (anteprima)** , selezionare **Accedi ad Azure**. Quando viene visualizzata la pagina autenticazione Visual Studio Code, accedere con l'account Azure.
+1. Nel riquadro di Azure, in **Azure: app per la logica (anteprima)**, selezionare **Accedi ad Azure**. Quando viene visualizzata la pagina autenticazione Visual Studio Code, accedere con l'account Azure.
 
    ![Screenshot che mostra il riquadro di Azure e il collegamento selezionato per l'accesso ad Azure.](./media/create-stateful-stateless-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
@@ -247,7 +247,7 @@ Prima di poter creare l'app per la logica, creare un progetto locale in modo da 
 
 1. In Visual Studio Code chiudere tutte le cartelle aperte.
 
-1. Nel riquadro di Azure, accanto ad **Azure: app per la logica (anteprima)** , selezionare **Crea nuovo progetto** (icona che mostra una cartella e un fulmine).
+1. Nel riquadro di Azure, accanto ad **Azure: app per la logica (anteprima)**, selezionare **Crea nuovo progetto** (icona che mostra una cartella e un fulmine).
 
    ![Screenshot che mostra la barra degli strumenti del riquadro di Azure con l'opzione "Crea nuovo progetto" selezionata.](./media/create-stateful-stateless-workflows-visual-studio-code/create-new-project-folder.png)
 
@@ -326,7 +326,7 @@ Prima di poter creare l'app per la logica, creare un progetto locale in modo da 
 
       Questo errore può verificarsi se in precedenza si è tentato di aprire la finestra di progettazione e quindi il progetto è stato interrotto o eliminato. Per correggere l'errore, eliminare la cartella **ExtensionBundles** in questo percorso **. ..\Users \\ {your-username} \AppData\Local\Temp\Functions\ExtensionBundles** e riprovare ad aprire il **workflow.js** nel file nella finestra di progettazione.
 
-1. Dall'elenco **Abilita connettori in Azure** selezionare **usa connettori di Azure** , che si applica a tutti i connettori gestiti disponibili e distribuiti in Azure, non solo ai connettori per i servizi di Azure.
+1. Dall'elenco **Abilita connettori in Azure** selezionare **usa connettori di Azure**, che si applica a tutti i connettori gestiti disponibili e distribuiti in Azure, non solo ai connettori per i servizi di Azure.
 
    ![Screenshot che mostra il riquadro di esplorazione con l'elenco "Abilita connettori in Azure" aperto e "usa connettori da Azure" selezionato.](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
 
@@ -367,7 +367,7 @@ Dopo aver aperto la finestra di progettazione dell'app per la logica dal menu di
 
 Il flusso di lavoro dell'app per la logica in questo esempio usa questo trigger e le azioni seguenti:
 
-* [Trigger di richiesta](../connectors/connectors-native-reqres.md)incorporato, **quando viene ricevuta una richiesta http** , che riceve le chiamate in ingresso o le richieste e crea un endpoint che può essere chiamato da altri servizi o app per la logica.
+* [Trigger di richiesta](../connectors/connectors-native-reqres.md)incorporato, **quando viene ricevuta una richiesta http**, che riceve le chiamate in ingresso o le richieste e crea un endpoint che può essere chiamato da altri servizi o app per la logica.
 
 * L' [azione Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), **Invia un messaggio di posta elettronica**.
 
@@ -392,9 +392,9 @@ Il flusso di lavoro dell'app per la logica in questo esempio usa questo trigger 
 
    1. Nella finestra di progettazione selezionare l'elemento, che consente di aprire il riquadro dettagli dell'elemento sul lato destro.
 
-   1. Espandere la finestra di Visual Studio Code sufficientemente ampia in modo che accanto al trigger o al nome dell'azione, il pulsante con i puntini di sospensione ( **...** ) venga visualizzato nell'angolo in alto a destra. 
+   1. Espandere la finestra di Visual Studio Code sufficientemente ampia in modo che accanto al trigger o al nome dell'azione, il pulsante con i puntini di sospensione (**...**) venga visualizzato nell'angolo in alto a destra. 
 
-   1. Aprire il menu con i puntini di sospensione ( **..**.) e selezionare **Elimina**. Per confermare l'eliminazione, fare clic su **OK**.
+   1. Aprire il menu con i puntini di sospensione (**..**.) e selezionare **Elimina**. Per confermare l'eliminazione, fare clic su **OK**.
 
       ![Screenshot che mostra l'elemento selezionato nella finestra di progettazione con il riquadro dettagli aperto e con il pulsante con i puntini di sospensione selezionati e l'opzione "Elimina".](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
 
@@ -452,7 +452,7 @@ Il flusso di lavoro dell'app per la logica in questo esempio usa questo trigger 
    ||||
 
    > [!NOTE]
-   > Se si desidera apportare modifiche nel riquadro dei dettagli della scheda **Impostazioni** , **Esegui dopo** o **risultato statico** , assicurarsi di selezionare **completato** per confermare le modifiche prima di passare a schede o di spostare lo stato attivo sulla finestra di progettazione. In caso contrario, Visual Studio Code non manterrà le modifiche. Per altre informazioni, vedere la pagina di GitHub relativa ai [problemi noti](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)dell'estensione di anteprima.
+   > Se si desidera apportare modifiche nel riquadro dei dettagli della scheda **Impostazioni**, **Esegui dopo** o **risultato statico** , assicurarsi di selezionare **completato** per confermare le modifiche prima di passare a schede o di spostare lo stato attivo sulla finestra di progettazione. In caso contrario, Visual Studio Code non manterrà le modifiche. Per altre informazioni, vedere la pagina di GitHub relativa ai [problemi noti](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)dell'estensione di anteprima.
 
 1. Nella finestra di progettazione selezionare **Salva**.
 
@@ -492,13 +492,13 @@ Per testare l'app per la logica, seguire questa procedura per avviare una sessio
 
       ![Screenshot che mostra il pulsante con il pulsante nuovo selezionato](./media/create-stateful-stateless-workflows-visual-studio-code/postman-create-request.png)
 
-   1. Nel riquadro **Crea nuovo** , in **blocchi predefiniti** , selezionare **richiesta**.
+   1. Nel riquadro **Crea nuovo** , in **blocchi predefiniti**, selezionare **richiesta**.
 
-   1. Nella finestra **Salva richiesta** , in **nome richiesta** , specificare un nome per la richiesta, ad esempio `Test workflow trigger` .
+   1. Nella finestra **Salva richiesta** , in **nome richiesta**, specificare un nome per la richiesta, ad esempio `Test workflow trigger` .
 
-   1. In **selezionare una raccolta o una cartella in cui salvare** , selezionare **Crea raccolta**.
+   1. In **selezionare una raccolta o una cartella in cui salvare**, selezionare **Crea raccolta**.
 
-   1. In **tutte le raccolte** specificare un nome per la raccolta da creare per organizzare le richieste, premere invio e selezionare **Salva per < *raccolta-nome* >**. In questo esempio viene usato `Logic Apps requests` come nome della raccolta.
+   1. In **tutte le raccolte** specificare un nome per la raccolta da creare per organizzare le richieste, premere invio e selezionare **Salva per <*raccolta-nome* >**. In questo esempio viene usato `Logic Apps requests` come nome della raccolta.
 
       Viene visualizzato il riquadro delle richieste del post, in modo che sia possibile inviare una richiesta all'URL di callback per il trigger di richiesta.
 
@@ -506,7 +506,7 @@ Per testare l'app per la logica, seguire questa procedura per avviare una sessio
 
    1. Tornare a Visual Studio Code. dalla pagina Panoramica del flusso di lavoro, copiare il valore della proprietà **URL callback** .
 
-   1. Tornare a postazione. Nel riquadro delle richieste, accanto all'elenco dei metodi, che attualmente Mostra **Get** come metodo di richiesta predefinito, incollare l'URL di callback copiato in precedenza nella casella Address e selezionare **Send (Invia** ).
+   1. Tornare a postazione. Nel riquadro delle richieste, accanto all'elenco dei metodi, che attualmente Mostra **Get** come metodo di richiesta predefinito, incollare l'URL di callback copiato in precedenza nella casella Address e selezionare **Send (Invia**).
 
       ![Screenshot che mostra l'URL dei post e callback nella casella indirizzo con il pulsante Invia selezionato](./media/create-stateful-stateless-workflows-visual-studio-code/postman-test-call-back-url.png)
 
@@ -528,19 +528,22 @@ Per testare l'app per la logica, seguire questa procedura per avviare una sessio
    | **Aborted** | L'esecuzione è stata arrestata o non è stata completata a causa di problemi esterni, ad esempio un'interruzione del sistema o una sottoscrizione di Azure scaduta. |
    | **Annullato** | L'esecuzione è stata attivata e avviata ma è stata ricevuta una richiesta di annullamento. |
    | **Non riuscito** | Almeno un'azione nell'esecuzione non è riuscita. Non è stata configurata alcuna azione successiva nel flusso di lavoro per gestire l'errore. |
-   | **Running** | L'esecuzione è stata attivata ed è in corso, ma questo stato può anche essere visualizzato per un'esecuzione limitata a causa di [limiti di azione](logic-apps-limits-and-config.md) o del [piano tariffario corrente](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Suggerimento** : se si configura la [registrazione diagnostica](monitor-logic-apps-log-analytics.md), è possibile ottenere informazioni sugli eventi di limitazione che si verificano. |
+   | **Running** | L'esecuzione è stata attivata ed è in corso, ma questo stato può anche essere visualizzato per un'esecuzione limitata a causa di [limiti di azione](logic-apps-limits-and-config.md) o del [piano tariffario corrente](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Suggerimento**: se si configura la [registrazione diagnostica](monitor-logic-apps-log-analytics.md), è possibile ottenere informazioni sugli eventi di limitazione che si verificano. |
    | **Completato** | Esecuzione completata. Se un'azione ha esito negativo, un'azione successiva nel flusso di lavoro ha gestito l'errore. |
-   | **Timeout** | Si è verificato il timeout dell'esecuzione perché la durata corrente supera il limite di durata dell'esecuzione, che è controllato dall' [impostazione **conservazione cronologia di esecuzione in giorni**](logic-apps-limits-and-config.md#run-duration-retention-limits). La durata di un'esecuzione viene calcolata usando l'ora di inizio e il limite di durata dell'esecuzione all'ora di inizio. <p><p>**Nota** : se la durata dell'esecuzione supera anche il *limite di conservazione della cronologia di esecuzione* corrente, che è anche controllato dall' [impostazione **conservazione cronologia di esecuzione in giorni**](logic-apps-limits-and-config.md#run-duration-retention-limits), l'esecuzione viene cancellata dalla cronologia esecuzioni da un processo di pulizia giornaliero. Se l'esecuzione scade o viene completata, il periodo di memorizzazione viene sempre calcolato usando l'ora di inizio e il limite di conservazione *corrente* dell'esecuzione. Quindi, se si riduce il limite di durata per un'esecuzione in corso, si verifica il timeout dell'esecuzione. Tuttavia, l'esecuzione rimane o viene cancellata dalla cronologia delle esecuzioni a seconda che la durata dell'esecuzione superi il limite di conservazione. |
-   | **Attesa** | L'esecuzione non è stata avviata o è stata sospesa, ad esempio, a causa di un'istanza del flusso di lavoro precedente ancora in esecuzione. |
+   | **Timeout** | Si è verificato il timeout dell'esecuzione perché la durata corrente supera il limite di durata dell'esecuzione, che è controllato dall' [impostazione **conservazione cronologia di esecuzione in giorni**](logic-apps-limits-and-config.md#run-duration-retention-limits). La durata di un'esecuzione viene calcolata usando l'ora di inizio e il limite di durata dell'esecuzione all'ora di inizio. <p><p>**Nota**: se la durata dell'esecuzione supera anche il *limite di conservazione della cronologia di esecuzione* corrente, che è anche controllato dall' [impostazione **conservazione cronologia di esecuzione in giorni**](logic-apps-limits-and-config.md#run-duration-retention-limits), l'esecuzione viene cancellata dalla cronologia esecuzioni da un processo di pulizia giornaliero. Se l'esecuzione scade o viene completata, il periodo di memorizzazione viene sempre calcolato usando l'ora di inizio e il limite di conservazione *corrente* dell'esecuzione. Quindi, se si riduce il limite di durata per un'esecuzione in corso, si verifica il timeout dell'esecuzione. Tuttavia, l'esecuzione rimane o viene cancellata dalla cronologia delle esecuzioni a seconda che la durata dell'esecuzione superi il limite di conservazione. |
+   | **Waiting** | L'esecuzione non è stata avviata o è stata sospesa, ad esempio, a causa di un'istanza del flusso di lavoro precedente ancora in esecuzione. |
    |||
 
-1. Per esaminare gli Stati per ogni passaggio in un'esecuzione specifica e gli input e gli output del passaggio, selezionare il pulsante con i puntini di sospensione ( **..**.) per l'esecuzione e selezionare **Mostra esecuzione**.
+1. Per esaminare gli Stati per ogni passaggio in un'esecuzione specifica e gli input e gli output del passaggio, selezionare il pulsante con i puntini di sospensione (**..**.) per l'esecuzione e selezionare **Mostra esecuzione**.
 
    ![Screenshot che mostra la riga della cronologia di esecuzione del flusso di lavoro con i puntini di sospensione e la selezione dell'opzione "Mostra esecuzione"](./media/create-stateful-stateless-workflows-visual-studio-code/show-run-history.png)
 
    Visual Studio Code apre la visualizzazione monitoraggio e Mostra lo stato di ogni passaggio nell'esecuzione.
 
    ![Screenshot che mostra ogni passaggio nell'esecuzione del flusso di lavoro e il relativo stato](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
+
+   > [!NOTE]
+   > Se un'esecuzione non è riuscita e un passaggio nella visualizzazione monitoraggio Mostra l' `400 Bad Request` errore, questo problema potrebbe essere causato da un nome di trigger o un nome di azione più lungo che causa il superamento del limite di caratteri predefinito per l'URI (Uniform Resource Identifier) sottostante. Per ulteriori informazioni, vedere ["400 richiesta non valida"](#400-bad-request).
 
    Di seguito sono riportati gli stati possibili che ogni passaggio del flusso di lavoro può avere:
 
@@ -554,7 +557,7 @@ Per testare l'app per la logica, seguire questa procedura per avviare una sessio
    | Completato | ![Icona per lo stato dell'azione "succeeded"][succeeded-icon] | L'azione è riuscita. |
    | Operazione completata con nuovi tentativi | ![Icona per lo stato dell'azione "riuscito con ripetizione dei tentativi"][succeeded-with-retries-icon] | L'azione è stata completata ma solo dopo uno o più tentativi. Per esaminare la cronologia dei tentativi, nella visualizzazione dei dettagli della cronologia di esecuzione selezionare l'azione in modo che sia possibile visualizzare gli input e gli output. |
    | Timeout | ![Icona per lo stato dell'azione "timeout"][timed-out-icon] | L'azione è stata interrotta a causa del limite di timeout specificato dalle impostazioni di tale azione. |
-   | Attesa | ![Icona per lo stato dell'azione "in attesa"][waiting-icon] | Si applica a un'azione webhook che è in attesa di una richiesta in ingresso da un chiamante. |
+   | Waiting | ![Icona per lo stato dell'azione "in attesa"][waiting-icon] | Si applica a un'azione webhook che è in attesa di una richiesta in ingresso da un chiamante. |
    ||||
 
    [aborted-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/aborted.png
@@ -601,7 +604,7 @@ Per restituire una risposta al chiamante che ha inviato una richiesta all'app pe
 
       ![Screenshot che mostra il riquadro dei dettagli dell'azione "risposta" con il puntatore del mouse all'interno della proprietà "Body", in modo che venga visualizzato l'elenco di contenuto dinamico.](./media/create-stateful-stateless-workflows-visual-studio-code/open-dynamic-content-list.png)
 
-   1. Nell'elenco contenuto dinamico, in **Invia un messaggio di posta elettronica** , selezionare **corpo**.
+   1. Nell'elenco contenuto dinamico, in **Invia un messaggio di posta elettronica**, selezionare **corpo**.
 
       ![Screenshot che mostra l'elenco di contenuto dinamico aperto. Nell'elenco, sotto l'intestazione "Invia un messaggio di posta elettronica", viene selezionato il valore di output "Body".](./media/create-stateful-stateless-workflows-visual-studio-code/select-send-email-action-body-output-value.png)
 
@@ -621,7 +624,7 @@ Dopo aver aggiornato l'app per la logica, è possibile eseguire un altro test es
 
 1. Nel post o nello strumento per la creazione e l'invio di richieste inviare un'altra richiesta di attivazione del flusso di lavoro.
 
-1. Se è stato creato un flusso di lavoro con stato, nella pagina Panoramica del flusso di lavoro controllare lo stato dell'esecuzione più recente. Per visualizzare lo stato, gli input e gli output per ogni passaggio di tale esecuzione, selezionare il pulsante con i puntini di sospensione ( **.**..) per l'esecuzione e selezionare **Mostra esecuzione**.
+1. Se è stato creato un flusso di lavoro con stato, nella pagina Panoramica del flusso di lavoro controllare lo stato dell'esecuzione più recente. Per visualizzare lo stato, gli input e gli output per ogni passaggio di tale esecuzione, selezionare il pulsante con i puntini di sospensione (**.**..) per l'esecuzione e selezionare **Mostra esecuzione**.
 
    Ad esempio, di seguito è riportato lo stato dettagliato di un'esecuzione dopo che il flusso di lavoro di esempio è stato aggiornato con l'azione di risposta.
 
@@ -859,7 +862,7 @@ Se il progetto è già stato distribuito nel portale di Azure, attenersi alla pr
 
 1. Nella [portale di Azure](https://portal.azure.com)trovare e aprire la risorsa dell' **app per la logica (anteprima)** .
 
-1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **configurazione**.
+1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **configurazione**.
 
 1. Nella scheda **Impostazioni applicazione** selezionare **nuova impostazione applicazione**.
 
@@ -885,9 +888,9 @@ Per abilitare il monitoraggio in una risorsa app per la logica distribuita **(an
 
 1. Nella [portale di Azure](https://portal.azure.com)trovare e selezionare la risorsa app per la logica distribuita **(anteprima)** .
 
-1. Nel menu di tale risorsa, in **API** , selezionare **CORS**.
+1. Nel menu di tale risorsa, in **API**, selezionare **CORS**.
 
-1. Nel riquadro **CORS** , in **origini consentite** , aggiungere il carattere jolly (*).
+1. Nel riquadro **CORS** , in **origini consentite**, aggiungere il carattere jolly (*).
 
 1. Al termine, sulla barra degli strumenti di **CORS** selezionare **Salva**.
 
@@ -957,7 +960,7 @@ Usando lo [strumento dell'interfaccia della riga di comando di .NET Core](/dotne
 
    `POST /runtime/webhooks/workflow/api/management/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2019-10-01-edge-preview&code={master-key}`
 
-   Il valore della *chiave master* <> viene definito nell'account di archiviazione di Azure impostato per `AzureWebJobsStorage` nel file, **Azure-webjobs-Secrets/{Deployment-Name}/host.json** , in cui è possibile trovare il valore in questa sezione:
+   Il valore della *chiave master* <> viene definito nell'account di archiviazione di Azure impostato per `AzureWebJobsStorage` nel file, **Azure-webjobs-Secrets/{Deployment-Name}/host.json**, in cui è possibile trovare il valore in questa sezione:
 
    ```json
    {
@@ -1014,6 +1017,47 @@ Sebbene molti [limiti esistenti per le app per la logica di Azure](../logic-apps
   * Il limite di caratteri di codice aumenta da 1.024 caratteri a 100.000 caratteri.
 
   * Il limite di tempo per l'esecuzione del codice aumenta da cinque secondi a 15 secondi.
+
+<a name="troubleshooting"></a>
+
+## <a name="troubleshoot-errors-and-problems"></a>Risolvere gli errori e i problemi
+
+<a name="400-bad-request"></a>
+
+### <a name="400-bad-request"></a>"richiesta non valida 400"
+
+Quando un'esecuzione ha esito negativo e si controlla l'esecuzione in visualizzazione monitoraggio, questo errore può essere visualizzato in un trigger o in un'azione con un nome più lungo, che fa sì che il Uniform Resource Identifier sottostante (URI) superi il limite di caratteri predefinito.
+
+Per risolvere il problema e modificare per l'URI più lungo, modificare le chiavi del registro di sistema `UrlSegmentMaxCount` e `UrlSegmentMaxLength` nel computer attenendosi alla procedura descritta di seguito. Questi valori predefiniti della chiave sono descritti in questo argomento, [Http.sys impostazioni del registro di sistema per Windows](/troubleshoot/iis/httpsys-registry-windows).
+
+> [!IMPORTANT]
+> Prima di iniziare, assicurarsi di salvare il lavoro. Per questa soluzione è necessario riavviare il computer al termine dell'operazione, in modo da rendere effettive le modifiche.
+
+1. Nel computer aprire la finestra **Esegui** ed eseguire il `regedit` comando, che consente di aprire l'editor del registro di sistema.
+
+1. Nella casella **controllo account utente** selezionare **Sì** per consentire le modifiche apportate al computer.
+
+1. Nel riquadro sinistro, in **computer**, espandere i nodi lungo il percorso, **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters**, quindi selezionare **parametri**.
+
+1. Nel riquadro destro trovare le chiavi del `UrlSegmentMaxCount` `UrlSegmentMaxLength` Registro di sistema e.
+
+1. Aumentare questi valori di chiave in modo che gli URI possano contenere i nomi che si desidera utilizzare. Se queste chiavi non esistono, aggiungerle alla cartella **Parameters** attenendosi alla seguente procedura:
+
+   1. Dal menu di scelta rapida **parametri** selezionare **nuovo**  >  **valore DWORD (32-bit)**.
+
+   1. Nella casella di modifica visualizzata immettere `UrlSegmentMaxCount` come nuovo nome chiave.
+
+   1. Aprire il menu di scelta rapida della nuova chiave e selezionare **modifica**.
+
+   1. Nella casella **Modifica stringa** visualizzata immettere il valore della chiave di **dati del valore** desiderato in formato esadecimale o decimale. Ad esempio, `400` in esadecimale equivale a `1024` in decimale.
+
+   1. Per aggiungere il `UrlSegmentMaxLength` valore della chiave, ripetere questi passaggi.
+
+   Dopo aver aumentato o aggiunto questi valori di chiave, l'editor del registro di sistema ha un aspetto simile a questo esempio:
+
+   ![Screenshot che mostra l'editor del registro di sistema.](media/create-stateful-stateless-workflows-visual-studio-code/edit-registry-settings-uri-length.png)
+
+1. Quando si è pronti, riavviare il computer per rendere effettive le modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

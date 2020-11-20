@@ -386,5 +386,7 @@
       href: partner-center-portal/commercial-marketplace-co-sell-countries.md
     - name: Codici di stato per il co-selling
       href: partner-center-portal/commercial-marketplace-co-sell-states.md
+    - name: Categorie e sottocategorie
+      href: categories.md
     - name: Tag HTML supportati
       href: supported-html-tags.md

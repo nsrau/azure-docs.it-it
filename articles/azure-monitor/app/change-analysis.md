@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: ed29bfc099ce401288c07db863207a1d989a5e0d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 36e73ceddaa5e3f9cbbf4a41f76a4ba6d70eed0f
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168274"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979964"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare l'analisi delle modifiche dell'applicazione (anteprima) in monitoraggio di Azure
 
@@ -143,7 +143,7 @@ Prerequisiti:
 
 - PowerShell AZ Module. Seguire le istruzioni in [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps)
 
-Eseguire lo script riportato di seguito:
+Eseguire lo script seguente:
 
 ```PowerShell
 # Log in to your Azure subscription
@@ -169,10 +169,10 @@ foreach ($webapp in $webapp_list)
 
 ```
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 ### <a name="having-trouble-registering-microsoftchange-analysis-resource-provider-from-change-history-tab"></a>Problemi durante la registrazione di Microsoft. modificare il provider di risorse di analisi dalla scheda cronologia modifiche
-Se è la prima volta che si visualizza la cronologia delle modifiche dopo l'integrazione con l'analisi delle modifiche dell'applicazione, si noterà che il provider di risorse **Microsoft. ChangeAnalysis**viene registrato automaticamente. In rari casi potrebbe non riuscire per i motivi seguenti:
+Se è la prima volta che si visualizza la cronologia delle modifiche dopo l'integrazione con l'analisi delle modifiche dell'applicazione, si noterà che il provider di risorse **Microsoft. ChangeAnalysis** viene registrato automaticamente. In rari casi potrebbe non riuscire per i motivi seguenti:
 
 - **Non si dispone delle autorizzazioni sufficienti per registrare il provider di risorse Microsoft. ChangeAnalysis**. Questo messaggio di errore indica che il ruolo nella sottoscrizione corrente non ha l'ambito **Microsoft. support/register/Action** associato. Questo problema può verificarsi se non si è il proprietario di una sottoscrizione e si hanno le autorizzazioni di accesso condiviso tramite un collega. ovvero visualizzare l'accesso a un gruppo di risorse. Per risolvere il problema, è possibile contattare il proprietario della sottoscrizione per registrare il provider di risorse **Microsoft. ChangeAnalysis** . Questa operazione può essere eseguita in portale di Azure tramite **sottoscrizioni | Provider di risorse** e ricerca ```Microsoft.ChangeAnalysis``` e registrazione nell'interfaccia utente o tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
@@ -183,6 +183,7 @@ Se è la prima volta che si visualizza la cronologia delle modifiche dopo l'inte
     ```
 
 - **Non è stato possibile registrare il provider di risorse Microsoft. ChangeAnalysis**. Questo messaggio indica che si è verificato un errore immediatamente perché l'interfaccia utente ha inviato una richiesta di registrazione del provider di risorse e non è correlata al problema di autorizzazione. Probabilmente potrebbe trattarsi di un problema temporaneo di connettività Internet. Provare ad aggiornare la pagina e a controllare la connessione a Internet. Se l'errore è permanente, contattare changeanalysishelp@microsoft.com
+- Non è **stato possibile eseguire una query sul provider di risorse Microsoft. ChangeAnalysis** con messaggio *la sottoscrizione di Azure Lighthouse non è supportata. le modifiche sono disponibili solo nel tenant principale della sottoscrizione*. Attualmente esiste una limitazione per la registrazione del provider di risorse di analisi delle modifiche tramite la sottoscrizione di Azure Lighthouse per gli utenti che non si trova nel tenant Home. Questa limitazione verrà risolta nel prossimo futuro. Se si tratta di un problema di blocco, esiste una soluzione alternativa che prevede la creazione di un'entità servizio e l'assegnazione esplicita del ruolo per consentire l'accesso.  Per ulteriori informazioni, contattare il contatto changeanalysishelp@microsoft.com .
 
 - **Questa operazione richiede più tempo del previsto**. Questo messaggio indica che la registrazione richiede più di 2 minuti. Si tratta di un'operazione insolita, ma non implica necessariamente un errore. È possibile passare alle **sottoscrizioni | Provider di risorse** per verificare lo stato di registrazione del provider di risorse **Microsoft. ChangeAnalysis** . È possibile provare a usare l'interfaccia utente per annullare la registrazione, ripetere la registrazione o aggiornare per verificare se è utile. Se il problema persiste, contattare il changeanalysishelp@microsoft.com supporto tecnico.
     ![Risoluzione dei problemi di registrazione RP troppo lungo](./media/change-analysis/troubleshoot-registration-taking-too-long.png)

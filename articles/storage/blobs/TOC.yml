@@ -733,8 +733,10 @@
           items:
             - name: Eseguire la migrazione da Data Lake Storage Gen1
               href: data-lake-storage-migrate-gen1-to-gen2.md
-            - name: Eseguire la migrazione di un archivio HDFS locale
+            - name: Eseguire la migrazione di un archivio HDFS offline
               href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
+            - name: Eseguire la migrazione di un archivio HDFS online
+              href: migrate-gen2-wandisco-live-data-platform.md
         - name: Gestione
           items:
             - name: .NET

@@ -5,13 +5,13 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 08/27/2020
-ms.openlocfilehash: 8a59b47dadd845f1a522854c503af11c8fff72fd
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.date: 11/19/2020
+ms.openlocfilehash: b345168dad63b1846d46c12721587eaffb5f887e
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331975"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981205"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Chiamare, attivare o annidare app per la logica usando endpoint HTTPS in app per la logica di Azure
 
@@ -104,7 +104,7 @@ Per ulteriori informazioni sulla sicurezza, autorizzazione e crittografia per le
 
    * A destra della casella **URL http post** selezionare **Copia URL** (icona copia file).
 
-   * Eseguire la chiamata POST:
+   * Effettuare questa chiamata usando il metodo previsto dal trigger di richiesta. In questo esempio viene usato il `POST` Metodo:
 
      `POST https://management.azure.com/{logic-app-resource-ID}/triggers/{endpoint-trigger-name}/listCallbackURL?api-version=2016-06-01`
 
@@ -124,9 +124,9 @@ Per ulteriori informazioni sulla sicurezza, autorizzazione e crittografia per le
 
 ## <a name="select-expected-request-method"></a>Seleziona metodo di richiesta previsto
 
-Per impostazione predefinita, il trigger di richiesta prevede una richiesta POST. È possibile specificare un metodo diverso da prevedere, ma solo un singolo metodo.
+Per impostazione predefinita, il trigger di richiesta prevede una `POST` richiesta. Tuttavia, è possibile specificare un metodo diverso che il chiamante deve usare, ma solo un singolo metodo.
 
-1. Nel trigger request aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Metodo** , che aggiunge questa proprietà al trigger.
+1. Nel trigger request aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Metodo**, che aggiunge questa proprietà al trigger.
 
    ![Aggiungere la proprietà "Method" al trigger](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
 
@@ -154,7 +154,7 @@ Quando si desidera accettare valori di parametro tramite l'URL dell'endpoint, so
 
 ### <a name="accept-values-through-get-parameters"></a>Accetta valori tramite parametri GET
 
-1. Nel trigger di richiesta aprire l' **elenco Aggiungi nuovo parametro** , aggiungere la proprietà del **Metodo** al trigger e selezionare il metodo **Get** .
+1. Nel trigger di richiesta aprire l' **elenco Aggiungi nuovo parametro**, aggiungere la proprietà del **Metodo** al trigger e selezionare il metodo **Get** .
 
    Per altre informazioni, vedere [selezionare il metodo di richiesta previsto](#select-method).
 
@@ -217,7 +217,7 @@ Quando si desidera accettare valori di parametro tramite l'URL dell'endpoint, so
 
 ### <a name="accept-values-through-a-relative-path"></a>Accetta valori tramite un percorso relativo
 
-1. Nel trigger request aprire l'elenco **Aggiungi nuovo parametro** e selezionare **percorso relativo** , che aggiunge questa proprietà al trigger.
+1. Nel trigger request aprire l'elenco **Aggiungi nuovo parametro** e selezionare **percorso relativo**, che aggiunge questa proprietà al trigger.
 
    ![Aggiungere la proprietà "percorso relativo" al trigger](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
@@ -262,7 +262,7 @@ Quando si desidera accettare valori di parametro tramite l'URL dell'endpoint, so
 
 ## <a name="call-logic-app-through-endpoint-url"></a>Chiamare l'app per la logica tramite l'URL dell'endpoint
 
-Dopo aver creato l'endpoint, è possibile attivare l'app per la logica inviando una `POST` richiesta HTTPS all'URL completo dell'endpoint. Le app per la logica dispongono di supporto incorporato per gli endpoint di accesso diretto.
+Dopo aver creato l'endpoint, è possibile attivare l'app per la logica inviando una richiesta HTTPS all'URL completo dell'endpoint. Le app per la logica dispongono di supporto incorporato per gli endpoint di accesso diretto.
 
 <a name="generated-tokens"></a>
 
@@ -384,7 +384,7 @@ Per visualizzare la definizione JSON per l'azione di risposta e la definizione J
 
 #### <a name="q-what-about-url-security"></a>D: Come viene garantita la sicurezza degli URL?
 
-**R** : Azure genera in modo sicuro gli URL di callback delle app per la logica usando la [firma di accesso condiviso (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Questa firma viene passata come parametro di query e deve essere convalidata prima di poter eseguire l'app per la logica. Azure genera la firma con una combinazione univoca che include la chiave privata per ogni app per la logica, il nome del trigger e l'operazione in esecuzione. Pertanto, a meno che un utente non ottenga l'accesso alla chiave privata dell'app per la logica, non potrà generare una firma valida.
+**R**: Azure genera in modo sicuro gli URL di callback delle app per la logica usando la [firma di accesso condiviso (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Questa firma viene passata come parametro di query e deve essere convalidata prima di poter eseguire l'app per la logica. Azure genera la firma con una combinazione univoca che include la chiave privata per ogni app per la logica, il nome del trigger e l'operazione in esecuzione. Pertanto, a meno che un utente non ottenga l'accesso alla chiave privata dell'app per la logica, non potrà generare una firma valida.
 
 > [!IMPORTANT]
 > Per i sistemi di produzione e di sicurezza più elevati, è consigliabile non chiamare l'app per la logica direttamente dal browser per i motivi seguenti:
@@ -396,7 +396,7 @@ Per ulteriori informazioni sulla sicurezza, autorizzazione e crittografia per le
 
 #### <a name="q-can-i-configure-callable-endpoints-further"></a>D: è possibile configurare ulteriormente gli endpoint chiamabili?
 
-**R** : Sì, gli endpoint HTTPS supportano una configurazione più avanzata tramite [gestione API di Azure](../api-management/api-management-key-concepts.md). Questo servizio offre inoltre la possibilità di gestire tutte le API in modo coerente, incluse le app per la logica, di impostare i nomi di dominio personalizzato, usare più metodi di autenticazione e altro ancora, ad esempio:
+**R**: Sì, gli endpoint HTTPS supportano una configurazione più avanzata tramite [gestione API di Azure](../api-management/api-management-key-concepts.md). Questo servizio offre inoltre la possibilità di gestire tutte le API in modo coerente, incluse le app per la logica, di impostare i nomi di dominio personalizzato, usare più metodi di autenticazione e altro ancora, ad esempio:
 
 * [Impostare il metodo della richiesta](../api-management/api-management-advanced-policies.md#SetRequestMethod)
 * [Modificare i segmenti dell'URL della richiesta](../api-management/api-management-transformation-policies.md#RewriteURL)

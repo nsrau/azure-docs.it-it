@@ -73,7 +73,7 @@ Il dispositivo fisico Azure Stack Edge Pro, la risorsa di Azure e l'account di a
 
 - **Disponibilità delle risorse**: per questa versione di anteprima la risorsa è disponibile nelle aree Stati Uniti orientali, Europa occidentale e Asia sud-orientale.
 
-- **Disponibilità del dispositivo**: per un elenco di tutti i paesi/aree in cui il dispositivo Azure Stack Edge Pro è disponibile, passare alla sezione **Disponibilità** nella scheda **Azure Stack Edge Pro** in [Prezzi di Azure Stack Edge Pro](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
+- **Disponibilità del dispositivo**: per un elenco di tutti i paesi/aree geografiche in cui il dispositivo Azure Stack Edge Pro è disponibile, passare alla sezione **Disponibilità** nella scheda **Azure Stack Edge Pro** in [Prezzi di Azure Stack Edge Pro](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Account di archiviazione di destinazione**: gli account che archiviano i dati sono disponibili in tutte le aree di Azure. Per prestazioni ottimali, le aree in cui gli account archiviano i dati di Azure Stack Edge Pro devono trovarsi nelle vicinanze del dispositivo. Un account di archiviazione lontano dal dispositivo si traduce in lunghe latenze e prestazioni ridotte.
 

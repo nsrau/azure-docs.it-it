@@ -2,21 +2,21 @@
 title: Ripristino di emergenza geografico in griglia di eventi di Azure | Microsoft Docs
 description: Descrive in che modo griglia di eventi di Azure supporta il ripristino di emergenza geografico (GeoDR) automaticamente.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: ccb16971020a65932daa8f9adf4b7cd9008a9253
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/19/2020
+ms.openlocfilehash: 10beaf0ae25f3ed9b7bcda5961a89494b18b84d9
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105847"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980850"
 ---
 # <a name="server-side-geo-disaster-recovery-in-azure-event-grid"></a>Ripristino di emergenza geografico lato server in griglia di eventi di Azure
 Griglia di eventi dispone ora di un ripristino di emergenza geografico (GeoDR) automatico dei metadati non solo per nuovi, ma per tutti i domini, gli argomenti e le sottoscrizioni di eventi esistenti. Se un'intera area di Azure diventa inattiva, griglia di eventi avrà già tutti i metadati dell'infrastruttura correlati agli eventi sincronizzati in un'area abbinata. I nuovi eventi inizieranno a fluire nuovamente senza alcun intervento da parte dell'utente. 
 
 Il ripristino di emergenza viene misurato con due metriche:
 
-- [Obiettivo punto di ripristino (RPO)](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_Point_Objective): minuti o ore di dati che potrebbero andare persi.
-- [Obiettivo del tempo di ripristino (RTO)](https://en.wikipedia.org/wiki/Disaster_recovery#Recovery_time_objective): minuti di ore in cui il servizio potrebbe essere inattivo.
+- Obiettivo punto di ripristino (RPO): minuti o ore di dati che potrebbero andare persi.
+- Obiettivo del tempo di ripristino (RTO): minuti o ore in cui il servizio potrebbe essere inattivo.
 
 Il failover automatico della griglia di eventi presenta RPOs e RTO diversi per i metadati (sottoscrizioni di eventi e così via) e dati (eventi). Se sono necessarie specifiche diverse da quelle riportate di seguito, è comunque possibile implementare il [failover del lato client usando le API di integrità dell'argomento](custom-disaster-recovery.md).
 

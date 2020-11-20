@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: duau
-ms.openlocfilehash: 73cf0d18c68baf7e0e19d15d621a7a3d87a486a2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 6d58f0178535cf01a413056b2096553e4bd06371
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748129"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981018"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -32,7 +32,7 @@ Le tabelle in questo articolo includono informazioni su copertura geografica e p
 Le aree di Azure sono data center globali in cui si trovano risorse di calcolo, rete e archiviazione di Azure. Quando si crea una risorsa di Azure, un cliente deve selezionare una posizione della risorsa. La posizione della risorsa determina in quale data center o zona di disponibilità di Azure viene creata la risorsa.
 
 ## <a name="expressroute-locations"></a>Posizioni di ExpressRoute
-Le posizioni di ExpressRoute (talvolta denominate posizioni di peering o Meet-me-location) sono strutture di condivisione percorso in cui si trovano i dispositivi Microsoft Enterprise Edge (MSEE). Le posizioni ExpressRoute rappresentano il punto di ingresso della rete Microsoft e vengono distribuite a livello globale, offrendo ai clienti la possibilità di connettersi alla rete di Microsoft in tutto il mondo. Queste posizioni rappresentano i casi in cui i partner ExpressRoute e i clienti di ExpressRoute Direct inviano connessioni incrociate alla rete Microsoft. In generale, non è necessario che la posizione di ExpressRoute corrisponda all'area di Azure. Ad esempio, un cliente può creare un circuito ExpressRoute con la posizione della risorsa *Stati Uniti orientali* nella posizione di peering *Seattle* .
+Le posizioni di ExpressRoute (talvolta denominate posizioni di peering o Meet-me-location) sono strutture di condivisione percorso in cui si trovano i dispositivi Microsoft Enterprise Edge (MSEE). Le posizioni ExpressRoute rappresentano il punto di ingresso della rete Microsoft e vengono distribuite a livello globale, offrendo ai clienti la possibilità di connettersi alla rete di Microsoft in tutto il mondo. Queste posizioni rappresentano i casi in cui i partner ExpressRoute e i clienti di ExpressRoute Direct inviano connessioni incrociate alla rete Microsoft. In generale, non è necessario che la posizione di ExpressRoute corrisponda all'area di Azure. Ad esempio, un cliente può creare un circuito ExpressRoute con la posizione della risorsa *Stati Uniti orientali* nella posizione di peering *Seattle*.
 
 Si otterrà l'accesso al servizio di Azure in tutte le aree di un'area geopolitica se è stata effettuata la connessione ad almeno una località per ExpressRoute entro l'area geopolitica. 
 
@@ -100,12 +100,12 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Ginevra** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Svizzera occidentale | 10 G, 100 G | Equinix, Megaport |
 | **RAS di Hong Kong** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Asia orientale | 10 G | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, Equinix, InterCloud, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
 | **Hong Kong2** | [MEGA-i](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | Asia orientale | 10 G | China Mobile International, China Telecom globale, PCCW Global Limited, SingTel |
-| **Giacarta** | Telkom Indonesia | 4 | n/d | 10 G | |
+| **Giacarta** | Telin, Telkom Indonesia | 4 | n/d | 10 G | |
 | **Johannesburg** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | Sudafrica settentrionale | 10 G | BCX, British Telecom, Internet Solutions - Cloud Connect, Liquid Telecom, Orange, Teraco |
 | **Kuala Lumpur** | [TIME dotCom Menara AIMS](https://www.time.com.my/enterprise/connectivity/direct-cloud) | 2 | n/d | n/d | TIME dotCom |
 | **Las Vegas** | [Switch LV](https://www.switch.com/las-vegas) | 1 | n/d | 10 G, 100 G | CenturyLink Cloud Connect, Megaport, PacketFabric |
 | **Londra** | [Equinix LD5](https://www.equinix.com/locations/europe-colocation/united-kingdom-colocation/london-data-centers/ld5/) | 1 | Regno Unito meridionale | 10 G, 100 G | AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
-| **London2** | [Telehouse North Two](https://www.telehouse.net/data-centres/emea/uk-data-centres/london-data-centres/north-two) | 1 | Regno Unito meridionale | 10 G, 100 G | CenturyLink Cloud Connect, Colt, GTT, IX REACH, Equinix, Megaport, SES, Telehouse-KDDI |
+| **London2** | [Telehouse North Two](https://www.telehouse.net/data-centres/emea/uk-data-centres/london-data-centres/north-two) | 1 | Regno Unito meridionale | 10 G, 100 G | CenturyLink Cloud Connect, Colt, GTT, IX REACH, Equinix, Megaport, SES, Sohonet, Telehouse-KDDI |
 | **Los Angeles** | [CoreSite LA1](https://www.coresite.com/data-centers/locations/los-angeles/one-wilshire) | 1 | n/d | 10 G, 100 G | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
 | **Los Angeles2** | [LA1 Equinix](https://www.equinix.com/locations/americas-colocation/united-states-colocation/los-angeles-data-centers/la1/) | 1 | n/d | 10 G, 100 G | Equinix |
 | **Marsiglia** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | Francia meridionale | n/d | DE-CIX, GEANT, Interxion, Jaguar Network, Ooredoo Cloud Connect |
@@ -121,7 +121,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Newport(Wales)** | [Dati di nuova generazione](https://www.nextgenerationdata.co.uk) | 1 | Regno Unito occidentale | n/d | British Telecom, Colt, JISC, livello 3 Communications, dati di nuova generazione |
 | **Osaka** | [Equinix OS1](https://www.equinix.com/locations/asia-colocation/japan-colocation/osaka-data-centers/os1/) | 2 | Giappone occidentale | 10 G, 100 G | A TOKYO, Colt, Equinix, Internet Initiative Giappone Inc.-IIJ, Megaport, NTT Communications, NTT SmartConnect, Softbank |
 | **Oslo** | [DigiPlex Ulven](https://www.digiplex.com/locations/oslo-datacentre) | 1 | Norvegia orientale | 10 G, 100 G | Global Connect, Megaport, Telenor, Telia Carrier |
-| **Parigi** | [Interxion PAR5](https://www.interxion.com/Locations/paris/) | 1 | Francia centrale | 10 G, 100 G | British Telecom, CenturyLink Cloud Connect, puledre, Equinix, intercloud, Interxion, Orange, Telia Carrier, Zayo |
+| **Parigi** | [Interxion PAR5](https://www.interxion.com/Locations/paris/) | 1 | Francia centrale | 10 G, 100 G | British Telecom, CenturyLink Cloud Connect, puledre, Equinix, intercloud, Interxion, Jaguar Network, Orange, Telia Carrier, Zayo |
 | **Perth** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | 2 | n/d | 10 G | Megaport, NextDC |
 | **Phoenix** | [EdgeConneX PHX01](https://www.edgeconnex.com/locations/north-america/phoenix-az/) | 1 | n/d | 10 G | |
 | **Quebec City** | [Vantage](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | 1 | Canada orientale | n/d | Bell Canada, Megaport |

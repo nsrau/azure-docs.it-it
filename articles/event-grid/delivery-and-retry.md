@@ -3,18 +3,21 @@ title: Recapito di Griglia di eventi di Azure e nuovi tentativi
 description: Viene descritto in che modo Griglia di eventi di Azure recapita gli eventi e come gestisce i messaggi non recapitati.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 483a868022d4ae8f7c564e51344dfbede4314232
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 7bf8fd3a647e28d18a7ca1e658761f9226d1153a
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042954"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981103"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi
 
 Questo articolo descrive in che modo Griglia di eventi di Azure gestisce gli eventi quando il recapito non viene confermato.
 
-Griglia di eventi fornisce il recapito durevole. Ogni messaggio viene recapitato almeno una volta per ogni sottoscrizione. Gli eventi vengono inviati immediatamente all'endpoint registrato di ogni sottoscrizione. Se un endpoint non conferma la ricezione di un evento, Griglia di eventi esegue nuovi tentativi di recapito dell'evento.
+Griglia di eventi fornisce il recapito durevole. Recapita ogni messaggio almeno **una volta** per ogni sottoscrizione. Gli eventi vengono inviati immediatamente all'endpoint registrato di ogni sottoscrizione. Se un endpoint non conferma la ricezione di un evento, Griglia di eventi esegue nuovi tentativi di recapito dell'evento.
+
+> [!NOTE]
+> Griglia di eventi non garantisce l'ordine di recapito degli eventi, quindi il Sottoscrittore può riceverli fuori dall'ordine. 
 
 ## <a name="batched-event-delivery"></a>Recapito di eventi in batch
 
@@ -78,7 +81,7 @@ Quando si verificano errori di recapito di un endpoint, griglia di eventi inizia
 Lo scopo funzionale del recapito ritardato consiste nel proteggere gli endpoint non integri e il sistema di griglia di eventi. Senza il ritardi e il ritardo del recapito a endpoint non integri, i criteri di ripetizione dei tentativi e le funzionalità del volume di griglia di eventi possono sovraccaricare facilmente un sistema.
 
 ## <a name="dead-letter-events"></a>Eventi relativi ai messaggi non recapitabili
-Quando griglia di eventi non è in grado di recapitare un evento entro un determinato periodo di tempo o dopo il tentativo di recapitare l'evento un certo numero di volte, può inviare l'evento non recapitato a un account di archiviazione. Questo processo è noto come **messaggio non recapitabile** . Griglia di eventi non recapitabili un evento quando viene soddisfatta **una delle condizioni seguenti** . 
+Quando griglia di eventi non è in grado di recapitare un evento entro un determinato periodo di tempo o dopo il tentativo di recapitare l'evento un certo numero di volte, può inviare l'evento non recapitato a un account di archiviazione. Questo processo è noto come **messaggio non recapitabile**. Griglia di eventi non recapitabili un evento quando viene soddisfatta **una delle condizioni seguenti** . 
 
 - L'evento non viene recapitato entro il periodo **di durata (TTL** ). 
 - Il **numero di tentativi** di recapitare l'evento ha superato il limite.
@@ -100,7 +103,7 @@ In questa sezione vengono forniti esempi di eventi e di eventi non recapitabili 
 
 ### <a name="event-grid-schema"></a>Schema di Griglia di eventi
 
-#### <a name="event"></a>Evento 
+#### <a name="event"></a>Event 
 ```json
 {
     "id": "93902694-901e-008f-6f95-7153a806873c",
@@ -159,7 +162,7 @@ In questa sezione vengono forniti esempi di eventi e di eventi non recapitabili 
 
 ### <a name="cloudevents-10-schema"></a>Schema CloudEvents 1,0
 
-#### <a name="event"></a>Evento
+#### <a name="event"></a>Event
 
 ```json
 {
@@ -200,7 +203,7 @@ In questa sezione vengono forniti esempi di eventi e di eventi non recapitabili 
 
 ### <a name="custom-schema"></a>Schema personalizzato
 
-#### <a name="event"></a>Evento
+#### <a name="event"></a>Event
 
 ```json
 {

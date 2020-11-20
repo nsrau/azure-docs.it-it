@@ -97,7 +97,7 @@ Dopo che lo schema di dati è stato caricato, con un aspetto simile al seguente,
 |**Ignora**     | Ignora la colonna selezionata.        |         |
 
 
-:::image type="content" source="../media/schema-configuration.png" alt-text="Impostazioni di connessione" lightbox="../media/schema-configuration.png":::
+:::image type="content" source="../media/schema-configuration.png" alt-text="Configurazione dello schema" lightbox="../media/schema-configuration.png":::
 
 ### <a name="automatic-roll-up-settings"></a>Impostazioni di rollup automatico
 
@@ -117,7 +117,7 @@ Una volta applicato il rilevamento, fare clic su una delle metriche elencate nel
 - Aggiornare la configurazione del rilevamento per soddisfare i risultati previsti
 - Configurare la notifica per le anomalie rilevate
 
-:::image type="content" source="../media/metric-details.png" alt-text="Impostazioni di connessione" lightbox="../media/metric-details.png":::
+:::image type="content" source="../media/metric-details.png" alt-text="Dettagli della metrica" lightbox="../media/metric-details.png":::
 
 ## <a name="view-the-diagnostic-insights"></a>Visualizzare le informazioni di diagnostica
 
@@ -125,13 +125,13 @@ Dopo l'ottimizzazione della configurazione del rilevamento, le anomalie rilevate
 
 Per visualizzare le informazioni di diagnostica, fare clic sui puntini rossi nelle visualizzazioni delle serie temporali, che rappresentano le anomalie rilevate. Verrà visualizzata una finestra che contiene un collegamento alla pagina di analisi degli eventi imprevisti. 
 
-:::image type="content" source="../media/incident-link.png" alt-text="Impostazioni di connessione" lightbox="../media/incident-link.png":::
+:::image type="content" source="../media/incident-link.png" alt-text="Collegamento all'evento imprevisto" lightbox="../media/incident-link.png":::
 
 Facendo clic sul collegamento si passerà alla pagina di analisi degli eventi imprevisti, che analizza le anomalie corrispondenti con una serie di informazioni dettagliate di diagnostica. Nella parte superiore sono presenti statistiche sull'evento imprevisto, ad esempio la **gravità**, le **anomalie interessate**, l'**ora di inizio** e l'**ora di fine**. 
 
 Si vedranno quindi l'anomalia predecessore dell'evento imprevisto e un suggerimento automatico sulla causa radice. Questo suggerimento viene generato analizzando l'albero degli eventi imprevisti di tutte le anomalie correlate, tra cui deviazione, distribuzione e contributo alle anomalie padre. 
 
-:::image type="content" source="../media/incident-diagnostic.png" alt-text="Impostazioni di connessione" lightbox="../media/incident-diagnostic.png":::
+:::image type="content" source="../media/incident-diagnostic.png" alt-text="Diagnostica degli eventi imprevisti" lightbox="../media/incident-diagnostic.png":::
 
 In base a queste informazioni è già possibile ottenere una visione d'insieme di ciò che accade e l'impatto dell'evento imprevisto, oltre alla causa radice più probabile, in modo da poter agire immediatamente per risolvere l'incidente il più presto possibile. 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: a26a618d4f1bd9900136561d95c21c1ecbaadfaa
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 1459c80c857a436c8369d3ebe89794e0b69c33b1
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916475"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94980882"
 ---
 # <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Vantaggio Azure Hybrid: come viene applicato per macchine virtuali Linux
 
@@ -146,6 +146,35 @@ R: No. Il tentativo di immettere un tipo di licenza che corrisponde erroneamente
 *D: si è registrato con Red Hat cloud Access ma non è ancora possibile abilitare il vantaggio nelle macchine virtuali RHEL. Cosa devo fare?*
 
 R: la propagazione della registrazione della sottoscrizione di Red Hat cloud Access da Red Hat ad Azure potrebbe richiedere del tempo. Se l'errore viene ancora visualizzato dopo un giorno lavorativo, contattare il supporto tecnico Microsoft.
+
+*D: è stata distribuita una macchina virtuale con RHEL BYOS "Golden Image". È possibile convertire la fatturazione su queste immagini da BYOS a PAYG?*
+
+R: No. Vantaggio Azure Hybrid supporta la conversione solo su immagini con pagamento in base al consumo.
+
+*D: è stata distribuita una macchina virtuale con RHEL BYOS "Golden Image". È possibile convertire la fatturazione su queste immagini da BYOS a PAYG?*
+
+R: No. Vantaggio Azure Hybrid supporta la conversione solo su immagini con pagamento in base al consumo.
+
+*D: è stata caricata un'immagine RHEL personalizzata da locale (tramite ASR o altro) in Azure. È possibile convertire la fatturazione su queste immagini da BYOS a PAYG?*
+
+R: No. La funzionalità Vantaggio Azure Hybrid è attualmente disponibile solo per le immagini RHEL e SLES Marketplace. 
+
+*D: è possibile usare Vantaggio Azure Hybrid nelle macchine virtuali distribuite da immagini RHEL e SLES SAP del Marketplace?*
+
+R: sì. È possibile usare il tipo di licenza ' RHEL_BYOS ' per le macchine virtuali RHEL è SLES_BYOS ' per le conversioni di macchine virtuali distribuite da immagini RHEL e SLES SAP del Marketplace.
+
+*D: è possibile usare Vantaggio Azure Hybrid nel set di scalabilità di macchine virtuali (VMSS) per RHEL e SLES?*
+
+R: No, non è possibile. VMSS attualmente non rientrano nell'ambito di Vantaggio Azure Hybrid per RHEL e SLES.
+
+*D: è possibile usare Vantaggio Azure Hybrid per le istanze riservate (RIs) per RHEL e SLES?*
+
+R: No, non è possibile. I servizi di installazione remota non sono attualmente inclusi nell'ambito Vantaggio Azure Hybrid per RHEL e SLES.
+
+*D: è possibile usare Vantaggio Azure Hybrid in una macchina virtuale distribuita per SQL Server su immagini RHEL?*
+
+R: No, non è possibile. Non esiste alcun piano per supportarli.
+ 
 
 ## <a name="common-issues"></a>Problemi comuni
 Questa sezione contiene un elenco di problemi comuni che possono essere rilevati e i passaggi per la mitigazione.

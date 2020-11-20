@@ -9,7 +9,7 @@
   items:
     - name: Abilitare la reimpostazione self-service delle password
       href: tutorial-enable-sspr.md
-    - name: Abilitare Azure Multi-Factor Authentication
+    - name: Abilitare Azure AD Multi-Factor Authentication
       href: tutorial-enable-azure-mfa.md
     - name: Abilitare il writeback delle password nell'ambiente locale
       href: tutorial-enable-sspr-writeback.md
@@ -80,7 +80,7 @@
           href: howto-sspr-authenticationdata.md
         - name: Reimpostazione della password self-service per client Windows
           href: howto-sspr-windows.md
-    - name: Azure Multi-Factor Authentication
+    - name: Azure AD Multi-Factor Authentication
       items:
         - name: Guida alla distribuzione
           href: howto-mfa-getstarted.md
@@ -108,7 +108,7 @@
               href: howto-mfa-nps-extension.md
             - name: Configurazione avanzata per l'estensione Server dei criteri di rete
               href: howto-mfa-nps-extension-advanced.md
-            - name: VPN di Azure e MFA di Azure
+            - name: VPN di Azure e Azure AD MFA
               href: ../../vpn-gateway/vpn-gateway-radius-mfa-nsp.md
             - name: Gateway Desktop remoto
               href: howto-mfa-nps-extension-rdg.md

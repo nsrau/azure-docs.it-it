@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 3a11f77384c520bed9824841269be4ad998adba4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3348654a83b6d0930d10e1f58e07455623b5861d
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056201"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94981086"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Plug-in REACT per Application Insights JavaScript SDK
 
@@ -20,7 +20,7 @@ Plug-in REACT per Application Insights JavaScript SDK, Abilita:
 - Rilevamento delle modifiche della route
 - Statistiche sull'utilizzo dei componenti React
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 Installare il pacchetto NPM:
 
@@ -32,15 +32,17 @@ npm install @microsoft/applicationinsights-react-js
 
 ## <a name="basic-usage"></a>Uso di base
 
+Inizializzare una connessione a Application Insights:
+
 ```javascript
-import React from 'react';
+// AppInsights.js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { ReactPlugin, withAITracking } from '@microsoft/applicationinsights-react-js';
-import { createBrowserHistory } from "history";
+import { ReactPlugin } from '@microsoft/applicationinsights-react-js';
+import { createBrowserHistory } from 'history';
 
 const browserHistory = createBrowserHistory({ basename: '' });
-var reactPlugin = new ReactPlugin();
-var appInsights = new ApplicationInsights({
+const reactPlugin = new ReactPlugin();
+const appInsights = new ApplicationInsights({
     config: {
         instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
         extensions: [reactPlugin],
@@ -50,6 +52,15 @@ var appInsights = new ApplicationInsights({
     }
 });
 appInsights.loadAppInsights();
+export { reactPlugin, appInsights };
+```
+
+Eseguire il wrapping del componente con la funzione componente di ordine superiore per abilitare Application Insights:
+
+```javascript
+import React from 'react';
+import { withAITracking } from '@microsoft/applicationinsights-react-js';
+import { reactPlugin, appInsights } from './AppInsights';
 
 // To instrument various React components usage tracking, apply the `withAITracking` higher-order
 // component function.
@@ -58,8 +69,7 @@ class MyComponent extends React.Component {
     ...
 }
 
-export default withAITracking(reactPlugin,appInsights, MyComponent);
-
+export default withAITracking(reactPlugin, appInsights, MyComponent);
 ```
 
 ## <a name="configuration"></a>Configurazione
@@ -84,6 +94,127 @@ Per visualizzare questa metrica nella portale di Azure è necessario passare all
 
 > [!NOTE]
 > Possono essere necessari fino a 10 minuti affinché le nuove metriche personalizzate vengano visualizzate nel portale di Azure.
+
+## <a name="using-react-hooks"></a>Uso di hook React
+
+Gli [hook React](https://reactjs.org/docs/hooks-reference.html) sono un approccio alla gestione dello stato e del ciclo di vita in un'applicazione React senza basarsi su componenti React basati su classi. Il plug-in Application Insights React fornisce un numero di integrazioni di hook che operano in modo analogo all'approccio del componente di ordine superiore.
+
+### <a name="using-react-context"></a>Uso del contesto React
+
+Gli hook React per Application Insights sono progettati per usare il [contesto React](https://reactjs.org/docs/context.html) come un aspetto che lo contiene. Per usare context, inizializzare Application Insights come sopra, quindi importare l'oggetto context:
+
+```javascript
+import React from "react";
+import { AppInsightsContext } from "@microsoft/applicationinsights-react-js";
+import { reactPlugin } from "./AppInsights";
+
+const App = () => {
+    return (
+        <AppInsightsContext.Provider value={reactPlugin}>
+            /* your application here */
+        </AppInsightsContext.Provider>
+    );
+};
+```
+
+Questo provider di contesto renderà Application Insights disponibile come `useContext` hook all'interno di tutti i componenti figlio.
+
+```javascript
+import React from "react";
+import { useAppInsightsContext } from "@microsoft/applicationinsights-react-js";
+
+const MyComponent = () => {
+    const appInsights = useAppInsightsContext();
+    
+    appInsights.trackMetric("Component 'MyComponent' is in use");
+    
+    return (
+        <h1>My Component</h1>
+    );
+}
+export default MyComponent;
+```
+
+### `useTrackMetric`
+
+L' `useTrackMetric` hook replica la funzionalità del componente di `withAITracking` ordine superiore, senza aggiungere un componente aggiuntivo alla struttura dei componenti. Il gancio accetta due argomenti, il primo è l'istanza di Application Insights (che può essere ottenuta dall' `useAppInsightsContext` hook) e un identificatore per il componente per il rilevamento, ad esempio il nome.
+
+```javascript
+import React from "react";
+import { useAppInsightsContext, useTrackMetric } from "@microsoft/applicationinsights-react-js";
+
+const MyComponent = () => {
+    const appInsights = useAppInsightsContext();
+    const trackComponent = useTrackMetric(appInsights, "MyComponent");
+    
+    return (
+        <h1 onHover={trackComponent} onClick={trackComponent}>My Component</h1>
+    );
+}
+export default MyComponent;
+```
+
+Funziona come il componente di ordine superiore, ma risponde ai hook degli eventi del ciclo di vita, anziché al ciclo di vita di un componente. L'hook deve essere fornito in modo esplicito agli eventi utente se è necessario eseguire in particolari interazioni.
+
+### `useTrackEvent`
+
+L' `useTrackEvent` hook viene usato per tenere traccia di qualsiasi evento personalizzato che può essere necessario tenere traccia di un'applicazione, ad esempio un clic su un pulsante o un'altra chiamata API. Accetta due argomenti, il primo è l'istanza Application Insights (che può essere ottenuta dall' `useAppInsightsContext` hook) e un nome per l'evento.
+
+```javascript
+import React, { useState, useEffect } from "react";
+import { useAppInsightsContext, useTrackEvent } from "@microsoft/applicationinsights-react-js";
+
+const ProductCart = () => {
+    const appInsights = useAppInsightsContext();
+    const trackCheckout = useTrackEvent(appInsights, "Checkout");
+    const trackCartUpdate = useTrackEvent(appInsights, "Cart Updated");
+    const [cart, setCart] = useState([]);
+    
+    useEffect(() => {
+        trackCartUpdate({ cartCount: cart.length });
+    }, [cart]);
+    
+    const performCheckout = () => {
+        trackCheckout();
+        // submit data
+    };
+    
+    return (
+        <div>
+            <ul>
+                <li>Product 1 <button onClick={() => setCart([...cart, "Product 1"])}>Add to Cart</button>
+                <li>Product 2 <button onClick={() => setCart([...cart, "Product 2"])}>Add to Cart</button>
+                <li>Product 3 <button onClick={() => setCart([...cart, "Product 3"])}>Add to Cart</button>
+                <li>Product 4 <button onClick={() => setCart([...cart, "Product 4"])}>Add to Cart</button>
+            </ul>
+            <button onClick={performCheckout}>Checkout</button>
+        </div>
+    );
+}
+export default MyComponent;
+```
+
+Quando si usa l'hook, è possibile fornire un payload di dati per aggiungere ulteriori dati all'evento quando viene archiviato in Application Insights.
+
+## <a name="react-error-boundaries"></a>Limiti di errore React
+
+I [limiti di errore](https://reactjs.org/docs/error-boundaries.html) consentono di gestire normalmente un'eccezione quando si verifica all'interno di un'applicazione React e, quando si verifica questo errore, è probabile che l'eccezione debba essere registrata. Il plug-in REACT per Application Insights fornisce un componente limite errori che registrerà automaticamente l'errore quando si verifica.
+
+```javascript
+import React from "react";
+import { reactPlugin } from "./AppInsights";
+import { AppInsightsErrorBoundary } from "@microsoft/applicationinsights-react-js";
+
+const App = () => {
+    return (
+        <AppInsightsErrorBoundary onError={() => <h1>I believe something went wrong</h1>} appInsights={reactPlugin}>
+            /* app here */
+        </AppInsightsErrorBoundary>
+    );
+};
+```
+
+Per `AppInsightsErrorBoundary` è necessario passare due oggetti Props, l' `ReactPlugin` istanza creata per l'applicazione e il rendering di un componente quando si verifica un errore. Quando si verifica un errore non gestito, `trackException` viene chiamato con le informazioni fornite al limite di errore e `onError` viene visualizzato il componente.
 
 ## <a name="sample-app"></a>App di esempio
 

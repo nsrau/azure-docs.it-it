@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9122d6716aa94a7e0164c9c7774c7c8d85be814a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 81bcfdf5e63d49280fb798773559310cbd912a26
+ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968010"
+ms.locfileid: "94980525"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creare un suggerimento per abilitare il completamento automatico e i risultati suggeriti in una query
 
@@ -119,23 +119,20 @@ Nell'API REST aggiungere i suggerimenti tramite [create index](/rest/api/searchs
 
 ## <a name="create-using-net"></a>Creare con .NET
 
-In C# definire un [oggetto SearchSuggester](/dotnet/api/azure.search.documents.indexes.models.searchsuggester). `Suggesters` è una raccolta in un oggetto SearchIndex, ma può assumere solo un elemento. 
+In C# definire un [oggetto SearchSuggester](/dotnet/api/azure.search.documents.indexes.models.searchsuggester). `Suggesters` è una raccolta in un oggetto SearchIndex, ma può assumere solo un elemento. Aggiungere un componente di suggerimento alla definizione dell'indice.
 
 ```csharp
-private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
+private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 {
-    var definition = new SearchIndex()
-    {
-        FieldBuilder builder = new FieldBuilder();
-        Fields = builder.Build(typeof(Hotel);
-        Suggesters = new List<Suggester>() {new Suggester()
-            {
-                Name = "sg",
-                SourceFields = new string[] { "HotelName", "Category" }
-            }}
-    }
+    FieldBuilder fieldBuilder = new FieldBuilder();
+    var searchFields = fieldBuilder.Build(typeof(Hotel));
 
-    await indexClient.CreateIndexAsync(definition);
+    var definition = new SearchIndex(indexName, searchFields);
+
+    var suggester = new SearchSuggester("sg", new[] { "HotelName", "Category", "Address/City", "Address/StateProvince" });
+    definition.Suggesters.Add(suggester);
+
+    indexClient.CreateOrUpdateIndex(definition);
 }
 ```
 
