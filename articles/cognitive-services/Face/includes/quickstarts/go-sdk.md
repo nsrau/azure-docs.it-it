@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 8dee3d9c91ac2b4fe97ada6069591f8f474c8c24
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 65f7af56e7f0042b8d4c312d17641a537f5fd908
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918685"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816922"
 ---
 Introduzione al riconoscimento facciale con la libreria client di Viso per Go. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
 
@@ -49,9 +49,9 @@ cd my-app
 
 L'area di lavoro conterrà tre cartelle:
 
-* **src** : questa directory conterrà il codice sorgente e i pacchetti. Tutti i pacchetti installati con il comando `go get` saranno disponibili in questa cartella.
-* **pkg** : questa directory conterrà gli oggetti pacchetto Go compilati. Tutti questi i file hanno estensione `.a`.
-* **bin** : questa directory conterrà i file eseguibili binari creati durante l'esecuzione di `go install`.
+* **src**: questa directory conterrà il codice sorgente e i pacchetti. Tutti i pacchetti installati con il comando `go get` saranno disponibili in questa cartella.
+* **pkg**: questa directory conterrà gli oggetti pacchetto Go compilati. Tutti questi i file hanno estensione `.a`.
+* **bin**: questa directory conterrà i file eseguibili binari creati durante l'esecuzione di `go install`.
 
 > [!TIP]
 > Per altre informazioni sulla struttura di un'area di lavoro Go, vedere la [documentazione del linguaggio Go](https://golang.org/doc/code.html#Workspaces). Questa guida include informazioni per l'impostazione di `$GOPATH` e `$GOROOT`.
@@ -181,7 +181,7 @@ Il blocco di codice successivo autentica un oggetto **[PersonGroupPersonClient](
 
 ### <a name="assign-faces-to-persons"></a>Assegnare i visi alle persone
 
-Il codice seguente ordina le immagini in base al prefisso, rileva i visi e li assegna a ogni rispettivo oggetto **PersonGroup Person** , in base al nome del file di immagine.
+Il codice seguente ordina le immagini in base al prefisso, rileva i visi e li assegna a ogni rispettivo oggetto **PersonGroup Person**, in base al nome del file di immagine.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_assign)]
 
@@ -194,9 +194,12 @@ Una volta assegnati i visi, eseguire il training di **PersonGroup** in modo che 
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_train)]
 
+> [!TIP]
+> L'API Viso esegue una serie di modelli predefiniti che sono per natura statici (le prestazioni del modello non regrediscono né migliorano durante l'esecuzione del servizio). I risultati generati dal modello potrebbero cambiare se Microsoft ne aggiorna il back-end senza eseguire la migrazione a una versione interamente nuova. Per trarre vantaggio da una versione più recente di un modello, è possibile ripetere il training di **PersonGroup** specificando il nuovo modello come parametro con le stesse immagini di registrazione.
+
 ## <a name="identify-a-face"></a>Identificare un viso
 
-L'operazione di identificazione acquisisce un'immagine di una persona (o di più persone) e cerca di individuare l'identità di ogni viso nell'immagine (ricerca basata su riconoscimento facciale). Confronta ogni viso rilevato con un **PersonGroup** , un database di oggetti **Person** diversi le cui caratteristiche del viso sono note.
+L'operazione di identificazione acquisisce un'immagine di una persona (o di più persone) e cerca di individuare l'identità di ogni viso nell'immagine (ricerca basata su riconoscimento facciale). Confronta ogni viso rilevato con un **PersonGroup**, un database di oggetti **Person** diversi le cui caratteristiche del viso sono note.
 
 > [!IMPORTANT]
 > Prima di eseguire questo esempio occorre eseguire il codice in [Creare ed eseguire il training di un gruppo di persone](#create-and-train-a-person-group).

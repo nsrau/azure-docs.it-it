@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/10/2020
 ms.author: pafarley
-ms.openlocfilehash: cf7b82ec1da660ac68c6031434c0e0748ee67b3d
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7141ebe4e7894c975ba2ee6fb39d5bfd4483ed41
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94523776"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816871"
 ---
 Introduzione al riconoscimento facciale con la libreria client di Viso per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
 
@@ -164,6 +164,9 @@ Il codice seguente ordina le immagini in base al prefisso, rileva i visi e li as
 Una volta assegnati i visi, è necessario eseguire il training di **PersonGroup** in modo che possa identificare le funzionalità visive associate a ogni oggetto **Person**. Il codice seguente chiama il metodo **train** asincrono ed esegue il polling del risultato, visualizzando lo stato nella console.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_persongroup_train)]
+
+> [!TIP]
+> L'API Viso esegue una serie di modelli predefiniti che sono per natura statici (le prestazioni del modello non regrediscono né migliorano durante l'esecuzione del servizio). I risultati generati dal modello potrebbero cambiare se Microsoft ne aggiorna il back-end senza eseguire la migrazione a una versione interamente nuova. Per trarre vantaggio da una versione più recente di un modello, è possibile ripetere il training di **PersonGroup** specificando il nuovo modello come parametro con le stesse immagini di registrazione.
 
 ## <a name="identify-a-face"></a>Identificare un viso
 

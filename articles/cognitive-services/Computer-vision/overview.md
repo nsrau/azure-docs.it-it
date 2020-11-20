@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 11/13/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: visione artificiale, applicazioni di visione artificiale, servizio visione artificiale
-ms.openlocfilehash: fa00265f3c591578f9970b77770fbf7290d87510
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aeaa10870b8b40b907da1d1660e77ebf0271c300
+ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90907077"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94629751"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -27,19 +27,19 @@ ms.locfileid: "90907077"
 
 Il servizio Visione artificiale di Azure consente di accedere ad algoritmi avanzati che elaborano le immagini e restituiscono informazioni, in base alle caratteristiche visive a cui si è interessati. Ad esempio, Visione artificiale consente di determinare se un'immagine contiene contenuto per adulti, di trovare specifici marchi o oggetti o di individuare visi umani.
 
-È possibile creare applicazioni di Visione artificiale tramite un SDK della libreria client oppure chiamando direttamente l'API REST. Questa pagina illustra su vasta scala le operazioni eseguibili con Visione artificiale.
+È possibile creare applicazioni di Visione artificiale tramite un [SDK di libreria client](./quickstarts-sdk/client-library.md) oppure chiamando direttamente l'[API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005). Questa pagina illustra su vasta scala le operazioni eseguibili con Visione artificiale.
+
+## <a name="optical-character-recognition-ocr"></a>Riconoscimento ottico dei caratteri (OCR)
+
+Visione artificiale include funzionalità di [riconoscimento ottico dei caratteri (OCR)](concept-recognizing-text.md). È possibile usare la nuova API di lettura per estrarre testo, scritto a mano o stampato, da immagini e documenti. Usa i modelli più recenti e funziona con testo su un'ampia gamma di superfici e sfondi, tra cui ricevute, poster, biglietti da visita, lettere e lavagne. Le due API di riconoscimento ottico dei caratteri supportano l'estrazione di testo stampato in [diverse lingue](./language-support.md). Per iniziare, seguire una [guida di avvio rapido](./quickstarts-sdk/client-library.md).
 
 ## <a name="computer-vision-for-digital-asset-management"></a>Visione artificiale per la gestione delle risorse digitali
 
 Visione artificiale può ottimizzare molti scenari di gestione delle risorse digitali. La gestione delle risorse digitali è il processo aziendale per l'organizzazione, l'archiviazione e il recupero di risorse multimediali elaborate e per la gestione dei diritti e delle autorizzazioni digitali. Una società potrebbe ad esempio voler raggruppare e identificare le immagini in base a logo visibili, visi, oggetti, colori e così via. Oppure si potrebbe voler [generare didascalie per le immagini](./Tutorials/storage-lab-tutorial.md) automaticamente e allegare parole chiave in modo che siano disponibili per la ricerca. Per una soluzione di gestione delle risorse digitali all-in-one che usa Servizi cognitivi, Ricerca cognitiva di Azure e creazione di report intelligenti, vedere la [guida su Solution Accelerator per Knowledge Mining](https://github.com/Azure-Samples/azure-search-knowledge-mining) in GitHub. Per altri esempi di gestione delle risorse digitali, vedere il repository [Computer Vision Solution Templates](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) (Modelli per la soluzione Visione artificiale).
 
-## <a name="optical-character-recognition-ocr"></a>Riconoscimento ottico dei caratteri (OCR)
-
-Visione artificiale include funzionalità di [riconoscimento ottico dei caratteri (OCR)](concept-recognizing-text.md). È possibile usare la nuova API di lettura per estrarre testo, scritto a mano o stampato, da immagini e documenti. Usa i modelli più recenti e funziona con testo su un'ampia gamma di superfici e sfondi, tra cui ricevute, poster, biglietti da visita, lettere e lavagne. Le due API di riconoscimento ottico dei caratteri supportano l'estrazione di testo stampato in [diverse lingue](./language-support.md). Per iniziare, seguire una [guida di avvio rapido](#next-steps).
-
 ## <a name="analyze-images-for-insight"></a>Analizzare le immagini per ottenere informazioni dettagliate
 
-È possibile analizzare le immagini per ricevere informazioni dettagliate sulle caratteristiche e gli aspetti visivi. Tutte le funzionalità nella tabella seguente vengono fornite dall'API [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisi dell'immagine). Per iniziare, seguire una [guida di avvio rapido](#next-steps).
+È possibile analizzare le immagini per ricevere informazioni dettagliate sulle caratteristiche e gli aspetti visivi. Tutte le funzionalità nella tabella seguente vengono fornite dall'API [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) (Analisi dell'immagine). Per iniziare, seguire una [guida di avvio rapido](./quickstarts-sdk/client-library.md).
 
 
 ### <a name="tag-visual-features"></a>Assegnare tag agli elementi visivi
@@ -113,8 +113,6 @@ Come con tutti i Servizi cognitivi, gli sviluppatori che usano il servizio Visio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un'introduzione a Visione artificiale, seguire una guida introduttiva:
+Seguire questa guida di avvio rapido nel linguaggio di sviluppo preferito per iniziare a usare Visione artificiale:
 
-- [Avvio rapido: Libreria client di Visione artificiale per .NET](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-- [Avvio rapido: Libreria client di Visione artificiale per Python](./quickstarts-sdk/client-library.md?pivots=programming-language-python)
-- [Avvio rapido: Libreria client di Visione artificiale per Java](./quickstarts-sdk/client-library.md?pivots=programming-language-java)
+- [Avvio rapido: Libreria client di Visione artificiale](./quickstarts-sdk/client-library.md)

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/03/2020
 ms.author: aahi
-ms.openlocfilehash: 3f2611c9535b9721cccadf35e56bdd21a3020257
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2c2ebe9b419100163ae55c1be85dd1464904e841
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677427"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94979690"
 ---
 ### <a name="container-repositories-and-images"></a>Repository e immagini del contenitore
 
@@ -71,7 +71,7 @@ Per altre informazioni [, vedere How to run and install Anomaly Detector Contain
 
 I contenitori di anteprima seguenti sono disponibili pubblicamente. Microsoft Container Registry (il Consorzio) ha tutti i contenitori non gated disponibili pubblicamente per servizi cognitivi. I contenitori sono anche disponibili direttamente dall' [Hub Docker](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
-| Servizio | Contenitore | Container Registry/repository/nome dell'immagine |
+| Service | Contenitore | Container Registry/repository/nome dell'immagine |
 |--|--|--|
 | [Analisi del testo](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Estrazione frasi chiave | `mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase` |
 | [Analisi del testo](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Rilevamento lingua | `mcr.microsoft.com/azure-cognitive-services/textanalytics/language` |
@@ -85,13 +85,12 @@ In precedenza, i contenitori di anteprima gestita erano ospitati nel `containerp
 2. Al momento dell'approvazione, scaricare il contenitore da. 
 3. Usare la chiave e l'endpoint da una risorsa di Azure appropriata per autenticare il contenitore in fase di esecuzione. 
 
-| Servizio | Contenitore | Container Registry/repository/nome dell'immagine |
+| Service | Contenitore | Container Registry/repository/nome dell'immagine |
 |--|--|--|
 | [Visione artificiale](../../Computer-vision/computer-vision-how-to-install-containers.md) | Lettura v 2.0 | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
 | [Visione artificiale](../../Computer-vision/computer-vision-how-to-install-containers.md) | Leggi v 3.1 | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
-| [Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container) | Analisi spaziale | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
+| [Visione artificiale](../../computer-vision/spatial-analysis-container.md) | Analisi spaziale | `mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis` |
 | [API servizio Voce](../../speech-service/speech-container-howto.md?tab=ctts) | Sintesi vocale personalizzata | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech` |
 | [API servizio Voce](../../speech-service/speech-container-howto.md?tab=lid) | Rilevamento lingua | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection` |
 | [API servizio Voce](../../speech-service/speech-container-howto.md?tab=ntts) | Sintesi vocale neurale | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech` |
-| [Analisi del testo per l'integrità](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Analisi del testo per la sanità | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |
-
+| [Analisi del testo per la sanità](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Analisi del testo per la sanità | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |

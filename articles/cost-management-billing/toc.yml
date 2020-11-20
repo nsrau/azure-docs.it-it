@@ -184,9 +184,15 @@
               href: manage/pay-by-invoice.md
             - name: Creare sottoscrizioni aggiuntive
               href: manage/create-subscription.md
-            - name: Creare sottoscrizioni a livello di codice con l'API più recente
-              href: manage/programmatically-create-subscription.md
-            - name: Creare sottoscrizioni a livello di codice con l'API in anteprima
+            - name: Creare sottoscrizioni del contratto Enterprise a livello di codice con l'ultima API
+              href: manage/programmatically-create-subscription-enterprise-agreement.md
+            - name: Creare sottoscrizioni del Contratto del cliente Microsoft a livello di codice con l'ultima API
+              href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
+            - name: Creare sottoscrizioni del Contratto Microsoft Partner a livello di codice con l'ultima API
+              href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
+            - name: Creare sottoscrizioni a livello di codice con un modello di Resource Manager
+              href: manage/create-subscription-template.md
+            - name: Creare sottoscrizioni a livello di codice con la vecchia API in anteprima
               href: manage/programmatically-create-subscription-preview.md
             - name: Concedere l'accesso per la creazione di sottoscrizioni EA
               href: manage/grant-access-to-create-subscription.md

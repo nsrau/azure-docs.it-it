@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/16/2020
+ms.date: 11/11/2020
 ms.author: aahi
-ms.openlocfilehash: 3bc2d339ade7dade3cf3be6e63e150c77d3c44b4
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 87e6ad488438ae28467f6e904fbb57f7ca5448ff
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366758"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518176"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procedura: Rilevare il sentiment con l'API REST Analisi del testo
 
@@ -40,7 +40,7 @@ Analisi del sentiment supporta una vasta gamma di linguaggi, mentre altri dispon
 
 Analisi del sentiment v3 applica le etichette del sentiment al testo, che vengono restituite a livello di frase e documento, con un punteggio di attendibilità per ognuna. 
 
-Le etichette sono *positive* , *negative* e *neutral*. A livello di documento, può anche essere restituita l'etichetta del sentiment *mixed*. Il sentiment del documento è determinato di seguito:
+Le etichette sono *positive*, *negative* e *neutral*. A livello di documento, può anche essere restituita l'etichetta del sentiment *mixed*. Il sentiment del documento è determinato di seguito:
 
 | Valutazione della frase                                                                            | Etichetta di documento restituita |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -78,9 +78,9 @@ Le dimensioni dei documenti devono essere inferiori a 5.120 caratteri per docume
 
 Creare una richiesta POST. È possibile [usare Postman](text-analytics-how-to-call-api.md) o la **console di test dell'API** nei collegamenti di riferimento seguenti per strutturarne e inviarne rapidamente una. 
 
-#### <a name="version-31-preview1"></a>[Versione 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Versione 3.1-preview.2](#tab/version-3-1)
 
-[Informazioni di riferimento su Analisi del sentiment v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
+[Informazioni di riferimento su Analisi del sentiment v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Sentiment)
 
 #### <a name="version-30"></a>[Versione 3.0](#tab/version-3)
 
@@ -95,13 +95,13 @@ Impostare l'endpoint HTTP per l'analisi del sentiment usando una risorsa di Anal
 > [!NOTE]
 > È possibile trovare la chiave e l'endpoint per la risorsa Analisi del testo nel portale di Azure. Si trovano in **Gestione risorse** nella pagina **Avvio rapido** della risorsa. 
 
-#### <a name="version-31-preview1"></a>[Versione 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Versione 3.1-preview.2](#tab/version-3-1)
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment`
 
 Per ottenere risultati di opinion mining, è necessario includere il parametro `opinionMining=true`. Ad esempio:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
 
 Questo parametro è impostato su `false` per impostazione predefinita. 
 
@@ -142,7 +142,7 @@ L'analisi del sentiment restituisce un'etichetta del sentiment e un punteggio di
 
 L'output viene restituito immediatamente. È possibile trasmettere i risultati a un'applicazione che accetta JSON o salvare l'output in un file nel sistema locale. Importare quindi l'output in un'applicazione che consente di ordinare, cercare e modificare i dati. A causa del supporto multilingue e emoji, la risposta può contenere offset di testo. Per altre informazioni, vedere [come elaborare gli offset](../concepts/text-offsets.md).
 
-#### <a name="version-31-preview1"></a>[Versione 3.1-preview.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Versione 3.1-preview.2](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-v31-example-response"></a>Risposta di esempio di Analisi del sentiment v3.1
 

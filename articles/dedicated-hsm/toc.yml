@@ -10,6 +10,10 @@
       href: tutorial-deploy-hsm-cli.md
     - name: Distribuzione di moduli di protezione hardware in una rete virtuale esistente con PowerShell
       href: tutorial-deploy-hsm-powershell.md
+- name: Avvi rapidi
+  items:
+    - name: Creare un modulo HSM dedicato di Azure con Azure PowerShell
+      href: quickstart-create-hsm-powershell.md
 - name: Concetti
   items:
     - name: Disponibilità elevata

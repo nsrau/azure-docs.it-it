@@ -61,10 +61,14 @@
       href: security-baselines-overview.md
     - name: Baseline di sicurezza di Gestione API
       href: ../../api-management/security-baseline.md
+    - name: Baseline di sicurezza del servizio app
+      href: ../../app-service/security-baseline.md
     - name: Baseline di sicurezza del gateway applicazione
       href: ../../application-gateway/security-baseline.md
     - name: Baseline di sicurezza di Automazione
       href: ../../automation/security-baseline.md
+    - name: Baseline di sicurezza di Azure Advisor
+      href: ../../advisor/security-baseline.md
     - name: Baseline di sicurezza di Backup di Azure
       href: ../../backup/security-baseline.md
     - name: Baseline di sicurezza di Cache di Azure per Redis
@@ -97,6 +101,8 @@
       href: ../../frontdoor/security-baseline.md
     - name: Baseline di sicurezza di Funzioni di Azure
       href: ../../azure-functions/security-baseline.md
+    - name: Baseline di sicurezza di Azure Information Protection
+      href: /azure/information-protection/security-baseline
     - name: Baseline di sicurezza dell'hub IoT di Azure
       href: ../../iot-hub/security-baseline.md
     - name: Baseline di sicurezza del servizio Azure Kubernetes

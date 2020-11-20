@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 44c1e55d60fb35ba510d99535c50c7919b29253e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 1299cbf1b837315a1a95c8a2ec2e4ed0706d959c
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92918684"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94816778"
 ---
 Introduzione al riconoscimento facciale con la libreria client di Viso per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
 
@@ -46,7 +46,7 @@ Creare un'applicazione .NET Core con Visual Studio.
 
 ### <a name="install-the-client-library"></a>Installare la libreria client 
 
-Dopo aver creato un nuovo progetto, installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione del progetto in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia** , **Includi versione preliminare** e cercare `Microsoft.Azure.CognitiveServices.Vision.Face`. Selezionare la versione `2.6.0-preview.1`, quindi **Installa**. 
+Dopo aver creato un nuovo progetto, installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione del progetto in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia**, **Includi versione preliminare** e cercare `Microsoft.Azure.CognitiveServices.Vision.Face`. Selezionare la versione `2.6.0-preview.1`, quindi **Installa**. 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
@@ -184,7 +184,7 @@ Il codice seguente visualizza i dettagli delle corrispondenze nella console:
 
 ## <a name="identify-a-face"></a>Identificare un viso
 
-L'operazione di identificazione acquisisce un'immagine di una persona (o di più persone) e cerca di individuare l'identità di ogni viso nell'immagine (ricerca basata su riconoscimento facciale). Confronta ogni viso rilevato con un **PersonGroup** , un database di oggetti **Person** diversi le cui caratteristiche del viso sono note. Per eseguire l'operazione di identificazione, è prima di tutto necessario creare ed eseguire il training di un oggetto **PersonGroup**
+L'operazione di identificazione acquisisce un'immagine di una persona (o di più persone) e cerca di individuare l'identità di ogni viso nell'immagine (ricerca basata su riconoscimento facciale). Confronta ogni viso rilevato con un **PersonGroup**, un database di oggetti **Person** diversi le cui caratteristiche del viso sono note. Per eseguire l'operazione di identificazione, è prima di tutto necessario creare ed eseguire il training di un oggetto **PersonGroup**
 
 ### <a name="create-a-person-group"></a>Creare un gruppo di persone
 
@@ -212,6 +212,9 @@ Aggiungere quindi il codice seguente per creare un oggetto **Person** per ogni p
 Dopo aver estratto i dati sui visi dalle immagini e averli ordinati in oggetti **Person** diversi, è necessario eseguire il training di **PersonGroup** per identificare le caratteristiche visive associate a ogni oggetto **Person**. Il codice seguente chiama il metodo **train** asincrono ed esegue il polling dei risultati, visualizzando lo stato nella console.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_train)]
+
+> [!TIP]
+> L'API Viso esegue una serie di modelli predefiniti che sono per natura statici (le prestazioni del modello non regrediscono né migliorano durante l'esecuzione del servizio). I risultati generati dal modello potrebbero cambiare se Microsoft ne aggiorna il back-end senza eseguire la migrazione a una versione interamente nuova. Per trarre vantaggio da una versione più recente di un modello, è possibile ripetere il training di **PersonGroup** specificando il nuovo modello come parametro con le stesse immagini di registrazione.
 
 Questo gruppo **Person** e gli oggetti **Person** associati sono ora pronti per essere usati nelle operazioni di verifica, identificazione o raggruppamento.
 

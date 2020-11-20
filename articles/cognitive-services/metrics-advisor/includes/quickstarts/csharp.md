@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 10/14/2020
+ms.date: 11/09/2020
 ms.author: mbullwin
-ms.openlocfilehash: 8e9b2c69344a19c027f72983a02834aee2e14ccf
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: 124a1339b1ff685016b820e51417a9f1e0acb40f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186930"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523764"
 ---
 [Documentazione di riferimento](https://aka.ms/azsdk/net/docs/ref/metricsadvisor) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.AI.MetricsAdvisor) | [Esempi](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/samples/README.md)
 
@@ -35,7 +35,7 @@ ms.locfileid: "93186930"
 
 ### <a name="install-the-client-library"></a>Installare la libreria client 
 
-Dopo aver creato un nuovo progetto, installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione del progetto in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia** , **Includi versione preliminare** e cercare `Azure.AI.MetricsAdvisor`. Selezionare la versione `1.0.0-beta.1`, quindi **Installa**. 
+Dopo aver creato un nuovo progetto, installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione del progetto in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia**, **Includi versione preliminare** e cercare `Azure.AI.MetricsAdvisor`. Selezionare la versione `1.0.0-beta.2`, quindi **Installa**. 
 
 In una finestra di una console, ad esempio cmd, PowerShell o Bash, usare il comando `dotnet new` per creare una nuova app console con il nome `metrics-advisor-quickstart`. Questo comando crea un semplice progetto C# "Hello World" con un unico file di origine: *program.cs*. 
 
@@ -64,7 +64,7 @@ Build succeeded.
 Se si usa un IDE diverso da Visual Studio, è possibile installare la libreria client di Advisor metriche per .NET con il comando seguente:
 
 ```console
-dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0-beta.1
+dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0-beta.2
 ```
 
 > [!TIP]
@@ -77,6 +77,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Azure.AI.MetricsAdvisor.Administration;
+using Azure.AI.MetricsAdvisor;
 using Azure.AI.MetricsAdvisor.Models;
 ```
 
@@ -95,10 +96,10 @@ Le classi seguenti gestiscono alcune delle principali funzionalità di Metrics A
 
 |Nome|Descrizione|
 |---|---|
-| [MetricsAdvisorClient](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/MetricsAdvisorClient.cs) | **Si usa pe** : <br> - Elencare gli eventi imprevisti <br> - Elencare la causa radice degli eventi imprevisti <br> - Recuperare i dati delle serie temporali originali e quelli arricchiti dal servizio. <br> - Elencare gli avvisi <br> - Aggiungere feedback per ottimizzare il modello |
+| [MetricsAdvisorClient](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/MetricsAdvisorClient.cs) | **Si usa pe**: <br> - Elencare gli eventi imprevisti <br> - Elencare la causa radice degli eventi imprevisti <br> - Recuperare i dati delle serie temporali originali e quelli arricchiti dal servizio. <br> - Elencare gli avvisi <br> - Aggiungere feedback per ottimizzare il modello |
 | [MetricsAdvisorAdministrationClient](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/MetricsAdvisorAdministrationClient.cs)| **Consente di:** <br> - Gestire i feed di dati <br> - Specificare le configurazioni di rilevamento anomalie <br> - Specificare le configurazioni degli avvisi per le anomalie <br> - Gestire gli hook  |
 | [DataFeed](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/Models/DataFeed/DataFeed.cs)| **Quali dati inserisce Advisor metriche dall'origine dati. `DataFeed` contiene righe di:** <br> - Timestamp <br> - Zero o più dimensioni <br> - Una o più misure  |
-| [Metrica](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/Models/DataFeedMetric.cs)| Per `Metric` si intende una misura quantificabile usata per monitorare e valutare lo stato di un processo aziendale specifico. Può essere una combinazione di più valori di serie temporali divisi in dimensioni. Una metrica di integrità Web può ad esempio contenere dimensioni relative al numero di utenti e al mercato statunitense. |
+| [DataFeedMetric](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/Models/DataFeed/DataFeedMetric.cs)| Per `DataFeedMetric` si intende una misura quantificabile usata per monitorare e valutare lo stato di un processo aziendale specifico. Può essere una combinazione di più valori di serie temporali divisi in dimensioni. Una metrica di integrità Web può ad esempio contenere dimensioni relative al numero di utenti e al mercato statunitense. |
 
 ## <a name="code-examples"></a>Esempi di codice
 
@@ -117,7 +118,7 @@ Questi frammenti di codice mostrano come eseguire le operazioni seguenti con la 
 Nella classe `Program` dell'applicazione creare variabili per l'endpoint e le chiavi della risorsa.
 
 > [!IMPORTANT]
-> Accedere al portale di Azure. Se la risorsa di Advisor metriche creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. Le chiavi di sottoscrizione e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**. <br><br>Per recuperare la chiave API, è necessario passare a [https://metricsadvisor.azurewebsites.net](https://metricsadvisor.azurewebsites.net). Selezionare i valori di **Directory** , **Sottoscrizioni** e **Area di lavoro** appropriati per la risorsa, quindi scegliere **Attività iniziali**. Sarà quindi possibile recuperare le chiavi API da [https://metricsadvisor.azurewebsites.net/api-key](https://metricsadvisor.azurewebsites.net/api-key).   
+> Accedere al portale di Azure. Se la risorsa di Advisor metriche creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. Le chiavi di sottoscrizione e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**. <br><br>Per recuperare la chiave API, è necessario passare a [https://metricsadvisor.azurewebsites.net](https://metricsadvisor.azurewebsites.net). Selezionare i valori di **Directory**, **Sottoscrizioni** e **Area di lavoro** appropriati per la risorsa, quindi scegliere **Attività iniziali**. Sarà quindi possibile recuperare le chiavi API da [https://metricsadvisor.azurewebsites.net/api-key](https://metricsadvisor.azurewebsites.net/api-key).   
 >
 > Al termine, ricordarsi di rimuovere la chiave dal codice e non renderlo mai pubblico. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Per altre informazioni, vedere l'articolo sulla [sicurezza](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) di Servizi cognitivi.
 
@@ -131,7 +132,7 @@ var credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
 var client = new MetricsAdvisorClient(new Uri(endpoint), credential);
 ```
 
-È anche possibile creare un oggetto [`MetricsAdvisorAdministrationClient`](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/MetricsAdvisorAdministrationClient.cs) per eseguire operazioni di amministrazione:
+È anche possibile creare un oggetto [`MetricsAdvisorAdministrationClient`](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/src/MetricsAdvisorAdministrationClient.cs) per eseguire operazioni amministrative:
 
 ```csharp
 string endpoint = "<endpoint>";
@@ -143,7 +144,7 @@ var adminClient = new MetricsAdvisorAdministrationClient(new Uri(endpoint), cred
 
 ## <a name="add-a-data-feed"></a>Aggiungere un feed di dati
 
-Advisor metriche supporta più tipi di origini dati. In questo esempio verrà illustrato come creare un oggetto `DataFeed` che estrae i dati da un server SQL. Sostituire `connection_String` con la stringa di connessione del server SQL e `query` con una query che restituisce i dati in corrispondenza di un singolo timestamp. Sarà anche necessario modificare i valori di `metric` e `dimension` in base ai dati personalizzati.
+Advisor metriche supporta più tipi di origini dati. In questo esempio verrà illustrato come creare un oggetto `DataFeed` che estrae i dati da un server SQL. Sostituire `connection_String` con la stringa di connessione del server SQL e `query` con una query che restituisce i dati in corrispondenza di un singolo timestamp. Sarà anche necessario modificare i valori di `DataFeedMetric` e `DataFeedDimension` in base ai dati personalizzati.
 
 
 ```csharp
@@ -151,7 +152,7 @@ string sqlServerConnectionString = "<connection_String>";
 string sqlServerQuery = "<query>";
 
 var dataFeedName = "Sample data feed";
-var dataFeedSource = new MySqlDataFeedSource(sqlServerConnectionString, sqlServerQuery);
+var dataFeedSource = new SqlServerDataFeedSource(sqlServerConnectionString, sqlServerQuery);
 var dataFeedGranularity = new DataFeedGranularity(DataFeedGranularityType.Daily);
 
 var dataFeedMetrics = new List<DataFeedMetric>()
@@ -159,10 +160,10 @@ var dataFeedMetrics = new List<DataFeedMetric>()
     new DataFeedMetric("cost"),
     new DataFeedMetric("revenue")
 };
-var dataFeedDimensions = new List<MetricDimension>()
+var dataFeedDimensions = new List<DataFeedDimension>()
 {
-    new MetricDimension("category"),
-    new MetricDimension("city")
+    new DataFeedDimension("category"),
+    new DataFeedDimension("city")
 };
 var dataFeedSchema = new DataFeedSchema(dataFeedMetrics)
 {
@@ -172,26 +173,27 @@ var dataFeedSchema = new DataFeedSchema(dataFeedMetrics)
 var ingestionStartTime = DateTimeOffset.Parse("2020-01-01T00:00:00Z");
 var dataFeedIngestionSettings = new DataFeedIngestionSettings(ingestionStartTime);
 
-Response<DataFeed> response = await adminClient.CreateDataFeedAsync(dataFeedName, dataFeedSource,
-    dataFeedGranularity, dataFeedSchema, dataFeedIngestionSettings);
+var dataFeed = new DataFeed(dataFeedName, dataFeedSource, dataFeedGranularity, dataFeedSchema, dataFeedIngestionSettings);
+
+Response<string> response = await adminClient.CreateDataFeedAsync(dataFeed);
+
+string dataFeedId = response.Value;
+
+Console.WriteLine($"Data feed ID: {dataFeedId}");
+
+// Note that only the ID of the data feed is known at this point. You can perform another
+// service call to GetDataFeedAsync or GetDataFeed to get more information, such as status,
+// created time, the list of administrators, or the metric IDs.
+
+Response<DataFeed> response = await adminClient.GetDataFeedAsync(dataFeedId);
 
 DataFeed dataFeed = response.Value;
-
-Console.WriteLine($"Data feed ID: {dataFeed.Id}");
-
-// Only the ID of the data feed is known at this point. You can perform another service
-// call to get more information, such as status, created time, the list of administrators,
-// or the metric IDs.
-
-response = await adminClient.GetDataFeedAsync(dataFeed.Id);
-
-dataFeed = response.Value;
 
 Console.WriteLine($"Data feed status: {dataFeed.Status.Value}");
 Console.WriteLine($"Data feed created time: {dataFeed.CreatedTime.Value}");
 
 Console.WriteLine($"Data feed administrators:");
-foreach (string admin in dataFeed.Options.Administrators)
+foreach (string admin in dataFeed.Administrators)
 {
     Console.WriteLine($" - {admin}");
 }
@@ -212,7 +214,10 @@ string dataFeedId = "<dataFeedId>";
 
 var startTime = DateTimeOffset.Parse("2020-01-01T00:00:00Z");
 var endTime = DateTimeOffset.Parse("2020-09-09T00:00:00Z");
-var options = new GetDataFeedIngestionStatusesOptions(startTime, endTime);
+var options = new GetDataFeedIngestionStatusesOptions(startTime, endTime)
+{
+    TopCount = 5
+};
 
 Console.WriteLine("Ingestion statuses:");
 Console.WriteLine();
@@ -222,12 +227,12 @@ int statusCount = 0;
 await foreach (DataFeedIngestionStatus ingestionStatus in adminClient.GetDataFeedIngestionStatusesAsync(dataFeedId, options))
 {
     Console.WriteLine($"Timestamp: {ingestionStatus.Timestamp}");
-    Console.WriteLine($"Status: {ingestionStatus.Status.Value}");
+    Console.WriteLine($"Status: {ingestionStatus.Status}");
     Console.WriteLine($"Service message: {ingestionStatus.Message}");
     Console.WriteLine();
 
-    // Print at most 10 statuses.
-    if (++statusCount >= 10)
+    // Print at most 5 statuses.
+    if (++statusCount >= 5)
     {
         break;
     }
@@ -260,16 +265,16 @@ var detectionCondition = new MetricWholeSeriesDetectionCondition()
 
 var detectionConfiguration = new AnomalyDetectionConfiguration(metricId, configurationName, detectionCondition);
 
-Response<AnomalyDetectionConfiguration> response = await adminClient.CreateMetricAnomalyDetectionConfigurationAsync(detectionConfiguration);
+Response<string> response = await adminClient.CreateDetectionConfigurationAsync(detectionConfiguration);
 
-detectionConfiguration = response.Value;
+string detectionConfigurationId = response.Value;
 
-Console.WriteLine($"Anomaly detection configuration ID: {detectionConfiguration.Id}");
+Console.WriteLine($"Anomaly detection configuration ID: {detectionConfigurationId}");
 ```
 
 ### <a name="create-a-hook"></a>Creare un hook
 
-Advisor metriche supporta le classi `EmailHook` e `WebHook` come mezzo per sottoscrivere le notifiche degli avvisi. In questo esempio verrà illustrato come creare un oggetto `EmailHook`. Per iniziare a ricevere notifiche, è necessario passare l'hook a una configurazione degli avvisi per le anomalie. Per altre informazioni, vedere l'esempio su come [creare una configurazione degli avvisi per le anomalie](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor#create-an-anomaly-alert-configuration).
+Advisor metriche supporta le classi `EmailNotificationHook` e `WebNotificationHook` come mezzo per sottoscrivere le notifiche degli avvisi. In questo esempio verrà illustrato come creare un oggetto `EmailNotificationHook`. Per iniziare a ricevere notifiche, è necessario passare l'hook a una configurazione degli avvisi per le anomalie. Per altre informazioni, vedere l'esempio su come [creare una configurazione degli avvisi per le anomalie](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor#create-an-anomaly-alert-configuration).
 
 ```csharp
 string hookName = "Sample hook";
@@ -281,11 +286,11 @@ var emailsToAlert = new List<string>()
 
 var emailHook = new EmailNotificationHook(hookName, emailsToAlert);
 
-Response<NotificationHook> response = await adminClient.CreateHookAsync(emailHook);
+Response<string> response = await adminClient.CreateHookAsync(emailHook);
 
-NotificationHook hook = response.Value;
+string hookId = response.Value;
 
-Console.WriteLine($"Hook ID: {hook.Id}");
+Console.WriteLine($"Hook ID: {hookId}");
 ```
 
 ##  <a name="create-an-alert-configuration"></a>Creare una configurazione degli avvisi
@@ -307,54 +312,79 @@ var metricAlertConfigurations = new List<MetricAnomalyAlertConfiguration>()
 
 AnomalyAlertConfiguration alertConfiguration = new AnomalyAlertConfiguration(configurationName, idsOfHooksToAlert, metricAlertConfigurations);
 
-Response<AnomalyAlertConfiguration> response = await adminClient.CreateAnomalyAlertConfigurationAsync(alertConfiguration);
+Response<string> response = await adminClient.CreateAlertConfigurationAsync(alertConfiguration);
 
-alertConfiguration = response.Value;
+string alertConfigurationId = response.Value;
 
-Console.WriteLine($"Alert configuration ID: {alertConfiguration.Id}");
+Console.WriteLine($"Alert configuration ID: {alertConfigurationId}");
 ```
 
 ### <a name="query-the-alert"></a>Eseguire query sull'avviso
 
-Esaminare gli avvisi creati da una determinata configurazione e visualizzare le anomalie che li hanno attivati.
+Esaminare gli avvisi creati da una specifica configurazione degli avvisi per le anomalie.
 
 ```csharp
 string anomalyAlertConfigurationId = "<anomalyAlertConfigurationId>";
 
 var startTime = DateTimeOffset.Parse("2020-01-01T00:00:00Z");
 var endTime = DateTimeOffset.UtcNow;
-var options = new GetAlertsOptions(startTime, endTime, TimeMode.AnomalyTime);
+var options = new GetAlertsOptions(startTime, endTime, AlertQueryTimeMode.AnomalyTime)
+{
+    TopCount = 5
+};
 
 int alertCount = 0;
 
 await foreach (AnomalyAlert alert in client.GetAlertsAsync(anomalyAlertConfigurationId, options))
 {
+    Console.WriteLine($"Alert created at: {alert.CreatedTime}");
     Console.WriteLine($"Alert at timestamp: {alert.Timestamp}");
     Console.WriteLine($"Id: {alert.Id}");
-    Console.WriteLine($"Anomalies that triggered this alert:");
+    Console.WriteLine();
 
-    await foreach (DataAnomaly anomaly in client.GetAnomaliesForAlertAsync(anomalyAlertConfigurationId, alert.Id))
-    {
-        Console.WriteLine("  Anomaly:");
-        Console.WriteLine($"    Status: {anomaly.Status.Value}");
-        Console.WriteLine($"    Severity: {anomaly.Severity}");
-        Console.WriteLine($"    Series key:");
-
-        foreach (KeyValuePair<string, string> keyValuePair in anomaly.SeriesKey.AsDictionary())
-        {
-            Console.WriteLine($"      Dimension '{keyValuePair.Key}': {keyValuePair.Value}");
-        }
-
-        Console.WriteLine();
-    }
-
-    // Print at most 3 alerts.
-    if (++alertCount >= 3)
+    // Print at most 5 alerts.
+    if (++alertCount >= 5)
     {
         break;
     }
 }
 ```
+
+Quando si conosce l'ID di un avviso, elencare le [anomalie](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/README.md#data-point-anomaly) che l'hanno attivato.
+
+```csharp
+string alertConfigurationId = "<alertConfigurationId>";
+string alertId = "<alertId>";
+
+var options = new GetAnomaliesForAlertOptions() { TopCount = 3 };
+
+int anomalyCount = 0;
+
+await foreach (DataPointAnomaly anomaly in client.GetAnomaliesAsync(alertConfigurationId, alertId, options))
+{
+    Console.WriteLine($"Anomaly detection configuration ID: {anomaly.AnomalyDetectionConfigurationId}");
+    Console.WriteLine($"Metric ID: {anomaly.MetricId}");
+    Console.WriteLine($"Anomaly at timestamp: {anomaly.Timestamp}");
+    Console.WriteLine($"Anomaly detected at: {anomaly.CreatedTime}");
+    Console.WriteLine($"Status: {anomaly.Status}");
+    Console.WriteLine($"Severity: {anomaly.Severity}");
+    Console.WriteLine("Series key:");
+
+    foreach (KeyValuePair<string, string> keyValuePair in anomaly.SeriesKey.AsDictionary())
+    {
+        Console.WriteLine($"  Dimension '{keyValuePair.Key}': {keyValuePair.Value}");
+    }
+
+    Console.WriteLine();
+
+    // Print at most 3 anomalies.
+    if (++anomalyCount >= 3)
+    {
+        break;
+    }
+}
+```
+
 
 ### <a name="run-the-application"></a>Eseguire l'applicazione
 
