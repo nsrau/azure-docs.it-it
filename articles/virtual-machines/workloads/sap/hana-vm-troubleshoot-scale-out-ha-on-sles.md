@@ -7,17 +7,18 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 5c3a24bc9d754a15a0b372667fbcd689365a9aec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cf18e2d375d7a45c3641876b8a3ed5974882927
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088309"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965426"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificare e risolvere i problemi di impostazione di tipo scale-out a disponibilità elevata per SAP HANA su SLES 12 SP3 
 
@@ -550,7 +551,7 @@ Last change: Wed Sep 12 07:46:54 2018 by root via cibadmin on hso-hana-vm-s2-1
 7 nodes configured
 17 resources configured
 
-              *** Resource management is DISABLED ***
+              **_ Resource management is DISABLED _*_
   The cluster will not attempt to start, stop or recover services
 
 Online: [ hso-hana-dm hso-hana-vm-s1-0 hso-hana-vm-s1-1 hso-hana-vm-s1-2 hso-hana-vm-s2-0 hso-hana-vm-s2-1 hso-hana-vm-s2-2 ]
@@ -586,7 +587,7 @@ crm configure property maintenance-mode=false
 </code></pre>
 
 
-Un altro comando **crm** ottiene la configurazione completa del cluster e la visualizza in un editor, da cui è possibile modificarla. Dopo il salvataggio delle modifiche, il cluster avvia le azioni appropriate:
+Un altro comando _ *CRM** ottiene la configurazione del cluster completa in un editor, in modo che sia possibile modificarla. Dopo il salvataggio delle modifiche, il cluster avvia le azioni appropriate:
 
 <pre><code>
 crm configure edit
@@ -682,7 +683,7 @@ watch SAPHanaSR-showAttr
 
 Esistono alcuni tentativi per evitare failover non necessari. Il cluster reagisce solo se lo stato passa da **Ok**, con valore restituito **4**, a **error**, con valore restituito **1**. È quindi corretto se l'output restituito da **SAPHanaSR-showAttr** mostra una macchina virtuale con stato **offline**. Non vi sono ancora tuttavia attività che determinano il passaggio da primaria a secondaria. Nessuna attività del cluster viene attivata, purché SAP HANA non restituisca un errore.
 
-È possibile monitorare lo stato di integrità di SAP HANA Landscape come utente ** \<HANA SID\> adm** chiamando lo script SAP Python come indicato di seguito. Può essere necessario adattare il percorso:
+È possibile monitorare lo stato di integrità di SAP HANA Landscape come utente **\<HANA SID\> adm** chiamando lo script SAP Python come indicato di seguito. Può essere necessario adattare il percorso:
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py

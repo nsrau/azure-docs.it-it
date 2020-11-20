@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b6cb195f44bf6c868402481480d9b10802c4d59
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975069"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965673"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usare l'acquisizione di pacchetti per il monitoraggio proattivo della rete con avvisi e Funzioni di Azure
 
@@ -39,7 +39,7 @@ Usando Network Watcher, gli avvisi e le funzioni dall'ecosistema di Azure, è po
 
 * La versione più recente di [Azure PowerShell](/powershell/azure/install-Az-ps).
 * Un'istanza esistente di Network Watcher. Se non è già presente, creare un'[istanza di Network Watcher](network-watcher-create.md).
-* Una macchina virtuale esistente nella stessa area di Network Watcher con [estensione Windows](../virtual-machines/windows/extensions-nwa.md) o [estensione della macchina virtuale Linux](../virtual-machines/linux/extensions-nwa.md).
+* Una macchina virtuale esistente nella stessa area di Network Watcher con [estensione Windows](../virtual-machines/extensions/network-watcher-windows.md) o [estensione della macchina virtuale Linux](../virtual-machines/extensions/network-watcher-linux.md).
 
 ## <a name="scenario"></a>Scenario
 
@@ -80,7 +80,7 @@ Il primo passaggio è la creazione di una funzione di Azure per elaborare l'avvi
     |**Sottoscrizione**|[Sottoscrizione]sottoscrizione in cui creare l'app per le funzioni.||
     |**Gruppo di risorse**|PacketCaptureRG|Nome del gruppo di risorse che conterrà l'app per le funzioni.|
     |**Piano di hosting**|Piano a consumo| Tipo di piano usato dall'app per le funzioni. Le opzioni sono Consumo e Piano di servizio app di Azure. |
-    |**Posizione**|Stati Uniti centrali| Area in cui creare l'app per le funzioni.|
+    |**Località**|Stati Uniti centrali| Area in cui creare l'app per le funzioni.|
     |**Storage Account**|{generato automaticamente}| Account di archiviazione richiesto da Funzioni di Azure per l'archiviazione di uso generico.|
 
 3. Nel pannello delle app per le funzioni **PacketCaptureExample** selezionare **Funzioni** > **Funzione personalizzata** >**+**.
@@ -138,7 +138,7 @@ Per usare i cmdlet PowerShell di Network Watcher, caricare il modulo PowerShell 
 
 1. Fare clic con il pulsante destro del mouse sulla sottocartella **AZ. Network** , quindi scegliere **Carica file**. 
 
-6. Passare ai moduli di Azure. Nella cartella **AZ. Network** locale selezionare tutti i file nella cartella. Quindi scegliere **OK**. 
+6. Passare ai moduli di Azure. Nella cartella **AZ. Network** locale selezionare tutti i file nella cartella. Selezionare **OK**. 
 
 7. Ripetere questi passaggi per **AZ. Accounts** e **AZ. resources**.
 
@@ -252,7 +252,7 @@ $Encryptedpassword
 
 1. Aggiungere le variabili di ambiente e i relativi valori alle impostazioni dell'app e quindi fare clic su **Salva**.
 
-    ![Impostazioni dell'app][functions12]
+    ![Impostazioni app][functions12]
 
 ### <a name="add-powershell-to-the-function"></a>Aggiunta di PowerShell alla funzione
 
@@ -340,7 +340,7 @@ Si possono configurare avvisi per notificare alle singole persone quando una met
 
 ### <a name="create-the-alert-rule"></a>Creare la regola di avviso
 
-Passare a una macchina virtuale esistente, quindi aggiungere una regola di avviso. Per informazioni più dettagliate sulla configurazione di avvisi, vedere [Creazione di avvisi in Monitoraggio di Azure per i servizi Azure - Portale di Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). Immettere i valori seguenti nel pannello **Regola di avviso** e fare clic su **OK**.
+Passare a una macchina virtuale esistente, quindi aggiungere una regola di avviso. Per informazioni più dettagliate sulla configurazione di avvisi, vedere [Creazione di avvisi in Monitoraggio di Azure per i servizi Azure - Portale di Azure](../azure-monitor/platform/alerts-classic-portal.md). Immettere i valori seguenti nel pannello **Regola di avviso** e fare clic su **OK**.
 
   |**Impostazione** | **Valore** | **Informazioni dettagliate** |
   |---|---|---|
@@ -353,7 +353,7 @@ Passare a una macchina virtuale esistente, quindi aggiungere una regola di avvis
   |**Webhook**|[URL webhook dell'app per le funzioni]| URL webhook dall'app per le funzioni creata nei passaggi precedenti.|
 
 > [!NOTE]
-> La metrica di segmenti TCP non è abilitata per impostazione predefinita. Per altre informazioni su come abilitare metriche aggiuntive, vedere [Abilitare il monitoraggio e la diagnostica](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).
+> La metrica di segmenti TCP non è abilitata per impostazione predefinita. Per altre informazioni su come abilitare metriche aggiuntive, vedere [Abilitare il monitoraggio e la diagnostica](../azure-monitor/overview.md).
 
 ## <a name="review-the-results"></a>Esaminare i risultati
 
@@ -363,11 +363,11 @@ Dopo i criteri di attivazione dell'avviso, viene creata l'acquisizione di pacche
 
 Se il file di acquisizione è archiviato in locale, è possibile recuperarlo accedendo alla macchina virtuale.
 
-Per istruzioni relative al download di file dagli account di archiviazione di Azure, vedere [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Un altro strumento è [Storage Explorer](https://storageexplorer.com/).
+Per istruzioni relative al download di file dagli account di archiviazione di Azure, vedere [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Un altro strumento è [Storage Explorer](https://storageexplorer.com/).
 
 Dopo il download dell'acquisizione, è possibile visualizzarla con qualsiasi strumento per la lettura di un file **.cap**. Di seguito i collegamenti a due di questi strumenti:
 
-- [Analizzatore messaggi Microsoft](https://technet.microsoft.com/library/jj649776.aspx)
+- [Analizzatore messaggi Microsoft](/message-analyzer/microsoft-message-analyzer-operating-guide)
 - [WireShark](https://www.wireshark.org/)
 
 ## <a name="next-steps"></a>Passaggi successivi

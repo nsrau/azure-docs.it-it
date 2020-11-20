@@ -8,20 +8,20 @@ ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8eb4e49e6c0e3f011015d40b8eca036d5218674c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4284956138002d209ab0934cdd052748ef8aab78
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891700"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966276"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>Guida di riferimento allo schema StylesObject per mappe dinamiche
 
-Questo articolo è una guida di riferimento allo schema JSON e alla sintassi per il `StylesObject` . `StylesObject`È una `StyleObject` matrice che rappresenta gli stili degli Stati. Usare il [servizio stato funzionalità](/rest/api/maps/featurestate) di Azure Maps Creator per applicare gli stili di stato alle funzionalità dei dati della mappa interna. Una volta creati gli stili di stato e associati alle funzionalità della mappa interna, è possibile usarli per creare mappe interne dinamiche. Per altre informazioni sulla creazione di mappe interne dinamiche, vedere [implementare lo stile dinamico per le mappe interne dell'autore](indoor-map-dynamic-styling.md).
+ `StylesObject`È una `StyleObject` matrice che rappresenta gli stili degli Stati. Usare il [servizio stato funzionalità](/rest/api/maps/featurestate) di Azure Maps Creator per applicare gli stili di stato alle funzionalità dei dati della mappa interna. Una volta creati gli stili dello stato e associati alle funzionalità della mappa interna, è possibile usarli per creare mappe interne dinamiche. Per altre informazioni sulla creazione di mappe interne dinamiche, vedere [implementare lo stile dinamico per le mappe interne dell'autore](indoor-map-dynamic-styling.md).
 
 ## <a name="styleobject"></a>StyleObject
 
-Un oggetto `StyleObject` può essere come [`BooleanTypeStyleRule`](#booleantypestylerule) o [`NumericTypeStyleRule`](#numerictypestylerule) .
+Un oggetto `StyleObject` è di tipo [`BooleanTypeStyleRule`](#booleantypestylerule) o [`NumericTypeStyleRule`](#numerictypestylerule) .
 
 Il codice JSON seguente mostra un oggetto `BooleanTypeStyleRule` denominato `occupied` e un oggetto `NumericTypeStyleRule` denominato `temperature` .
 
@@ -68,7 +68,7 @@ Il codice JSON seguente mostra un oggetto `BooleanTypeStyleRule` denominato `occ
 |-----------|----------|-------------|-------------|
 | `keyName` | string | Nome della proprietà dinamica o *dello stato* . Un oggetto `keyName` deve essere univoco all'interno della `StyleObject` matrice.| Sì |
 | `type` | string | Il valore è "NUMERIC". | Sì |
-| `rules` | [`NumberRuleObject`](#numberruleobject)[]| Matrice di intervalli di stili numerici con i colori associati. Ogni intervallo definisce un colore da utilizzare quando il valore *dello stato* soddisfa l'intervallo.| Sì |
+| `rules` | [`NumberRuleObject`](#numberruleobject)[]| Matrice di intervalli di stili numerici con i colori associati. Ogni intervallo definisce un colore da usare quando il valore *dello stato* soddisfa l'intervallo.| Sì |
 
 ### <a name="numberruleobject"></a>NumberRuleObject
 

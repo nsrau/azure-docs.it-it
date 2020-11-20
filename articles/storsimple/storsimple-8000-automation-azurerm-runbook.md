@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 8b74e23147e4dcc6f786c1c08b8a03bd07dd0b9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5f2a86fb7c776436ea707ef293a66c033014c33
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744033"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966327"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Usare i runbook di automazione di Azure per gestire i dispositivi StorSimple
 
@@ -186,9 +186,9 @@ Per creare un modulo di automazione per la gestione dei dispositivi StorSimple s
 
        ![Screenshot mostra il riquadro Aggiungi account di automazione con i valori per sottoscrizione, crea account RunAs di Azure e crea 2](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
-      Quando la creazione dell'account di automazione è completata, si riceve una notifica. Per altre informazioni su come creare un account di automazione, vedere [Creare un account RunAs](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+      Quando la creazione dell'account di automazione è completata, si riceve una notifica. Per altre informazioni su come creare un account di automazione, vedere [Creare un account RunAs](../automation/manage-runas-account.md).
 
-3. Per assicurarsi che l'account di automazione creato possa accedere al servizio Gestione dispositivi StorSimple, è necessario assegnare le autorizzazioni appropriate all'account di automazione. Passare a **Controllo di accesso** nel servizio Gestione dispositivi StorSimple. Fare clic su **+ Aggiungi** e specificare il nome dell'account di automazione di Azure. **Salvare** le impostazioni.
+3. Per assicurarsi che l'account di automazione creato possa accedere al servizio Gestione dispositivi StorSimple, è necessario assegnare le autorizzazioni appropriate all'account di automazione. Passare a **Controllo di accesso** nel servizio Gestione dispositivi StorSimple. Fare clic su **+ Aggiungi** e specificare il nome dell'account di automazione di Azure. Fare clic su **Save** (Salva) per salvare le impostazioni.
 
     ![Aggiungere autorizzazioni per l'account di automazione](./media/storsimple-8000-automation-azurerm-runbook/goto-add-roles.png)
 
@@ -206,7 +206,7 @@ Per creare un modulo di automazione per la gestione dei dispositivi StorSimple s
 
     ![Fare clic sul nuovo runbook](./media/storsimple-8000-automation-azurerm-runbook/verify-runbook-created.png)
 
-8. Modificare il Runbook e fare clic su **riquadro di test**. Specificare i parametri, ad esempio il nome del servizio Gestione dispositivi StorSimple, il nome del dispositivo StorSimple e la sottoscrizione. **Avviare** il test. Il report viene generato al termine dell'esecuzione. Per altre informazioni, vedere [How to test a Runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+8. Modificare il Runbook e fare clic su **riquadro di test**. Specificare i parametri, ad esempio il nome del servizio Gestione dispositivi StorSimple, il nome del dispositivo StorSimple e la sottoscrizione. **Avviare** il test. Il report viene generato al termine dell'esecuzione. Per altre informazioni, vedere [How to test a Runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md#step-3---test-the-runbook).
 
     ![Screenshot che mostra il Pan di test in cui si canenter i valori dei parametri e si avvia un test](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9ed6a57dadb70daed9cdf02421b91d310b4b0f07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4523319c04703c04a293471124329512e31a265
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631461"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964678"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Baseline della sicurezza di Azure per gestione traffico di Azure
 
@@ -270,7 +270,7 @@ Inoltre, utilizzare Azure AD rilevamento dei rischi per visualizzare gli avvisi 
 
 In Resource Manager è possibile aggiungere endpoint di qualsiasi sottoscrizione a Gestione traffico, purché la persona che configura il profilo di Gestione traffico abbia accesso in lettura all'endpoint.
 
-Gestione traffico di Azure ha un ruolo predefinito di controllo degli accessi in base al ruolo di Azure denominato "Collaboratore gestione traffico di Azure", che può essere assegnato agli utenti.
+Gestione traffico di Azure ha un ruolo predefinito di Azure denominato "Collaboratore gestione traffico", che può essere assegnato agli utenti.
 
 - [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md)
 

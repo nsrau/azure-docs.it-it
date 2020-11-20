@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 62f4a06ec729d896dc11a290bc7a5ccc7c321683
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b363d90d05e95b017c3a655b57dbabc3712a155
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984059"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965545"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete in Azure con Network Watcher e Graylog
 
@@ -40,7 +40,7 @@ I log di flusso dei gruppi di sicurezza di rete vengono abilitati tramite Networ
 
 ### <a name="enable-network-security-group-flow-logging"></a>Abilitare la registrazione dei flussi dei gruppi di sicurezza di rete
 
-Per questo scenario, è necessario abilitare la registrazione dei flussi dei gruppi di sicurezza di rete in almeno un gruppo di sicurezza di rete nel proprio account. Per istruzioni in proposito, vedere  [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
+Per questo scenario, è necessario abilitare la registrazione dei flussi dei gruppi di sicurezza di rete in almeno un gruppo di sicurezza di rete nel proprio account. Per istruzioni in proposito, vedere [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
 
 ### <a name="setting-up-graylog"></a>Configurazione di Graylog
 
@@ -53,7 +53,7 @@ Questo esempio usa l'installazione minima di Graylog, ovvero una singola istanza
 
 Graylog può essere installato in molti modi, in base alla piattaforma in uso e alle proprie preferenze. Per un elenco completo dei metodi di installazione possibili, vedere la [documentazione](https://docs.graylog.org/en/2.2/pages/installation.html) ufficiale di Graylog. L'applicazione server Graylog viene eseguita su distribuzioni Linux e deve rispettare i requisiti seguenti:
 
--  Java SE 8 o versione successiva - [Documentazione di Azul Azure JDK](https://aka.ms/azure-jdks)
+-  Java SE 8 o versione successiva - [Documentazione di Azul Azure JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 -  Elastic Search 2.x (2.1.0 o versione successiva) - [Documentazione di installazione di Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
 -  MongoDB 2.4 o versione successiva - [Documentazione di installazione di MongoDB](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
@@ -180,7 +180,7 @@ Dopo aver stabilito una connessione con i log di flusso tramite Logstash e confi
 2. Per spostarsi sulla pagina di configurazione, selezionare il menu a discesa **System** (Sistema) nella barra di spostamento superiore a destra e quindi fare clic su **Inputs** (Input).
    In alternativa, accedere all'URL `http://<graylog-server-ip>:9000/system/inputs`
 
-   ![Guida introduttiva](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
+   ![Introduzione](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
 3. Per avviare il nuovo input, selezionare *GELF UDP* nel menu a discesa **Select input** (Seleziona input) e quindi compilare il modulo. GELF è l'acronimo di Graylog Extended Log Format. Il formato GELF viene sviluppato da Graylog. Per altre informazioni sui vantaggi relativi, vedere la [documentazione](https://docs.graylog.org/en/2.2/pages/gelf.html) di Graylog.
 
@@ -246,4 +246,4 @@ Grazie all'integrazione di Network Watcher con Graylog, è ora disponibile un mo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI, vedere  [Visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
+Per informazioni su come visualizzare i log di flusso dei gruppi di sicurezza di rete con Power BI, vedere [Visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: 15396467e92b3e035add03d0d29888558571aa2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3adbf34e4c19a76c2b5b2b1968c7821f37965929
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711239"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965630"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurare il DNS inverso per i servizi ospitati in Azure
 
@@ -247,11 +247,10 @@ No. Azure supporta attualmente il DNS inverso solo per le risorse PublicIpAddres
 
 ### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>È possibile inviare messaggi di posta elettronica a domini esterni dai servizi di calcolo di Azure?
 
-La possibilità tecnica di inviare messaggi di posta elettronica direttamente da una distribuzione di Azure dipende dal tipo di sottoscrizione. Indipendentemente dal tipo di sottoscrizione, è consigliabile usare servizi di inoltro attendibili per l'invio della posta in uscita. Per altre informazioni, vedere [Enhanced Azure Security for sending Emails – November 2017 Update](https://blogs.msdn.microsoft.com/mast/2017/11/15/enhanced-azure-security-for-sending-emails-november-2017-update/) (Sicurezza avanzata di Azure per l'invio di messaggi di posta elettronica - Aggiornamento novembre 2017).
+La possibilità tecnica di inviare messaggi di posta elettronica direttamente da una distribuzione di Azure dipende dal tipo di sottoscrizione. Indipendentemente dal tipo di sottoscrizione, è consigliabile usare servizi di inoltro attendibili per l'invio della posta in uscita. Per altre informazioni, vedere [Enhanced Azure Security for sending Emails – November 2017 Update](../virtual-network/troubleshoot-outbound-smtp-connectivity.md) (Sicurezza avanzata di Azure per l'invio di messaggi di posta elettronica - Aggiornamento novembre 2017).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sul DNS inverso, vedere [Risoluzione DNS inversa su Wikipedia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Informazioni su come eseguire l'[hosting della zona di ricerca inversa per l'intervallo di indirizzi IP assegnato dal provider di servizi Internet in DNS Azure](dns-reverse-dns-for-azure-services.md).
-

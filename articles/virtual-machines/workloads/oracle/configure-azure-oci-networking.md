@@ -3,16 +3,17 @@ title: Connettere Azure ExpressRoute con l'infrastruttura cloud Oracle | Microso
 description: Connettere Azure ExpressRoute con Oracle Cloud Infrastructure (OCI) FastConnect per abilitare soluzioni di applicazioni Oracle tra cloud
 author: dbakevlar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 03/16/2020
 ms.author: rogardle
 ms.reviewer: cynthn
-ms.openlocfilehash: e932bf7381e1246f4b489e7d564cf5486c3ec635
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2717ba307cac82465e0c5df996ef3b668af5e7d4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996222"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963709"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurare un'interconnessione diretta tra Azure e l'infrastruttura cloud Oracle  
 
@@ -43,12 +44,12 @@ Nell'immagine seguente viene illustrata una panoramica di alto livello dell'inte
     * Un circuito ExpressRoute di Azure offre opzioni di larghezza di banda granulari, mentre FastConnect supporta 1, 2, 5 o 10 Gbps. È quindi consigliabile scegliere una di queste opzioni di larghezza di banda corrispondente in ExpressRoute.
 
     ![Crea circuito ExpressRoute](media/configure-azure-oci-networking/exr-create-new.png)
-1. Prendere nota della **chiave del servizio**ExpressRoute. È necessario specificare la chiave durante la configurazione del circuito FastConnect.
+1. Prendere nota della **chiave del servizio** ExpressRoute. È necessario specificare la chiave durante la configurazione del circuito FastConnect.
 
     ![Chiave del servizio ExpressRoute](media/configure-azure-oci-networking/exr-service-key.png)
 
     > [!IMPORTANT]
-    > Verranno addebitati gli addebiti per ExpressRoute non appena viene effettuato il provisioning del circuito ExpressRoute (anche se non è stato effettuato il **provisioning**dello **stato del provider** ).
+    > Verranno addebitati gli addebiti per ExpressRoute non appena viene effettuato il provisioning del circuito ExpressRoute (anche se non è stato effettuato il **provisioning** dello **stato del provider** ).
 
 1. Suddividere due spazi di indirizzi IP privati di/30 ognuno che non si sovrappongono alla rete virtuale di Azure o allo spazio di indirizzi IP della rete del cloud virtuale OCI. Si fa riferimento al primo spazio degli indirizzi IP come spazio di indirizzi primario e al secondo spazio degli indirizzi IP come spazio degli indirizzi secondario. Prendere nota degli indirizzi necessari durante la configurazione del circuito FastConnect.
 1. Creare un gateway di routing dinamico (DRG). Questa operazione sarà necessaria per la creazione del circuito FastConnect. Per ulteriori informazioni, vedere la documentazione del [gateway di routing dinamico](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm) .
@@ -57,7 +58,7 @@ Nell'immagine seguente viene illustrata una panoramica di alto livello dell'inte
     * In configurazione di FastConnect selezionare **Microsoft Azure: ExpressRoute** come provider.
     * Selezionare il gateway di routing dinamico di cui è stato effettuato il provisioning nel passaggio precedente.
     * Selezionare la larghezza di banda di cui effettuare il provisioning. Per ottenere prestazioni ottimali, la larghezza di banda deve corrispondere alla larghezza di banda selezionata durante la creazione del circuito ExpressRoute.
-    * Nella **chiave del servizio del provider**incollare la chiave del servizio ExpressRoute.
+    * Nella **chiave del servizio del provider** incollare la chiave del servizio ExpressRoute.
     * Usare il primo/30 spazio di indirizzi IP privati suddiviso in un passaggio precedente per l' **indirizzo IP BGP primario** e il secondo/30 spazio di indirizzi IP privato per l'indirizzo **IP BGP secondario** .
         * Assegnare il primo indirizzo utilizzabile dei due intervalli per l'indirizzo IP BGP Oracle (primario e secondario) e il secondo indirizzo all'indirizzo IP BGP del cliente (dal punto di vista della FastConnect). Il primo indirizzo IP utilizzabile è il secondo indirizzo IP nello spazio degli indirizzi/30 (il primo indirizzo IP è riservato da Microsoft).
     * Fare clic su **Crea**.

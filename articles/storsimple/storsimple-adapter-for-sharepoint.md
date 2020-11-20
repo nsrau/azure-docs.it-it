@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
-ms.openlocfilehash: a33e01d68a31585e216faa51ac8af193d86c6123
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 639efab3a9eaef400b3fbe3d0b134d02f458b865
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053277"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966293"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Installare e configurare l’adattatore StorSimple per SharePoint
 ## <a name="overview"></a>Panoramica
@@ -53,7 +53,7 @@ L’implementazione di RBS  in Microsoft Azure StorSimple offre i vantaggi segue
 Spostando il contenuto BLOB nel file system è possibile ottenere altri vantaggi e risparmi sui costi. Ad esempio, tramite RBS si può diminuire la costosa archiviazione di livello 1 necessaria e, poiché riduce il database del contenuto, RBS consente di ridurre il numero di database richiesti nella server farm di SharePoint. Altri fattori quali i limiti di dimensioni del database e la quantità di contenuto non RBS possono, tuttavia, influire sui requisiti di archiviazione. Per altre informazioni sui costi e sui vantaggi dell'uso di RBS, vedere [Pianificare RBS (SharePoint Foundation 2010)][4] e [Stabilire se usare RBS in SharePoint 2013][5].
 
 ### <a name="capacity-and-performance-limits"></a>Limiti di capacità e prestazioni
-Prima di prendere in considerazione  l'uso di RBS nella soluzione SharePoint, è necessario valutare i limiti di capacità e prestazioni testate di SharePoint Server 2010 e SharePoint Server 2013 e come tali limiti sono correlati a prestazioni accettabili. Per ulteriori informazioni, vedere [Limiti del software e limiti per SharePoint 2013](https://technet.microsoft.com/library/cc262787.aspx).
+Prima di prendere in considerazione  l'uso di RBS nella soluzione SharePoint, è necessario valutare i limiti di capacità e prestazioni testate di SharePoint Server 2010 e SharePoint Server 2013 e come tali limiti sono correlati a prestazioni accettabili. Per ulteriori informazioni, vedere [Limiti del software e limiti per SharePoint 2013](/SharePoint/install/software-boundaries-and-limits-0).
 
 Prima di configurare RBS, effettuare le operazioni seguenti:
 
@@ -138,8 +138,8 @@ Assicurarsi che la server farm di SharePoint sia configurata correttamente, come
   1. Chiudere tutte le istanze di Internet Explorer.
   2. Avviare Server Manager.
   3. Nel riquadro di sinistra fare clic su **Server locale**.
-  4. Nel riquadro di destra, accanto a **Configurazione sicurezza avanzata IE**, fare clic sull'icona di attivazione.****
-  5. In **Administrators**, fare clic sull'icona di disattivazione.****
+  4. Nel riquadro di destra, accanto a **Configurazione sicurezza avanzata IE**, fare clic sull'icona di attivazione.
+  5. In **Administrators**, fare clic sull'icona di disattivazione.
   6. Fare clic su **OK**.
 
 ## <a name="remote-blob-storage-rbs-prerequisites"></a>Prerequisiti di archiviazione BLOB remoti (RBS) 
@@ -226,7 +226,7 @@ Prima di disinstallare l'adattatore StorSimple per il software di SharePoint, è
 4. Nella pagina **Configura l'adattatore StorSimple** fare clic sul pulsante **Disabilita** sotto ogni database di contenuto che si desidera rimuovere dalla risorsa di archiviazione BLOB esterna. 
 5. Eliminare gli oggetti da SharePoint e caricarli nuovamente.
 
-In alternativa, è possibile usare il `RBS Migrate()` cmdlet di Microsoft PowerShell incluso in SharePoint. Per ulteriori informazioni, vedere [Migrazione del contenuto in o da RBS](https://technet.microsoft.com/library/ff628255.aspx).
+In alternativa, è possibile usare il `RBS Migrate()` cmdlet di Microsoft PowerShell incluso in SharePoint. Per ulteriori informazioni, vedere [Migrazione del contenuto in o da RBS](/previous-versions/office/sharepoint-foundation-2010/ff628255(v=office.14)).
 
 Dopo aver spostato nuovamente i BLOB nel database di contenuto, andare al passaggio successivo: [Disinstallare l'adattatore](#uninstall-the-adapter).
 
@@ -258,8 +258,8 @@ Dopo aver spostato nuovamente i BLOB nei database del contenuto di SQL Server, u
 
 <!--Reference links-->
 [1]: https://www.microsoft.com/download/details.aspx?id=44073
-[2]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
-[4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
-[5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/library/ff943565.aspx
+[2]: /SharePoint/administration/rbs-planning
+[3]: /previous-versions/office/sharepoint-server-2010/ff628583(v=office.14)
+[4]: /previous-versions/office/sharepoint-foundation-2010/ff628569(v=office.14)
+[5]: /SharePoint/administration/rbs-planning
+[8]: /SharePoint/administration/maintain-rbs

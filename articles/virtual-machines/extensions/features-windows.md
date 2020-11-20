@@ -9,18 +9,19 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00cb63f63ffb1f2e10a276cfdeee9c5e8e1022de
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 565f98126cea8cc03874bb4f83ecdc2c65f8d5fb
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427378"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966055"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
 
@@ -76,7 +77,7 @@ L'agente guest di Windows non dispone del supporto per il server proxy per il re
 
 ## <a name="discover-vm-extensions"></a>Individuare le estensioni della macchina virtuale
 
-Sono disponibili molte estensioni diverse delle macchine virtuali da usare con macchine virtuali di Azure. Per visualizzare un elenco completo usare [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). L'esempio seguente elenca tutte le estensioni disponibili nella posizione *WestUS* :
+Sono disponibili molte estensioni diverse delle macchine virtuali da usare con macchine virtuali di Azure. Per visualizzare un elenco completo usare [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). L'esempio seguente elenca tutte le estensioni disponibili nella posizione *WestUS*:
 
 ```powershell
 Get-AzVmImagePublisher -Location "WestUS" | `
@@ -92,7 +93,7 @@ Per eseguire un'estensione in una macchina virtuale esistente, è possibile usar
 
 ### <a name="powershell"></a>PowerShell
 
-Molti comandi di PowerShell vengono utilizzati per l'esecuzione di estensioni singole. Per visualizzare un elenco, usare [Get-Command](/powershell/module/microsoft.powershell.core/get-command) e applicare il filtro *Estensione* :
+Molti comandi di PowerShell vengono utilizzati per l'esecuzione di estensioni singole. Per visualizzare un elenco, usare [Get-Command](/powershell/module/microsoft.powershell.core/get-command) e applicare il filtro *Estensione*:
 
 ```powershell
 Get-Command Set-Az*Extension* -Module Az.Compute
@@ -142,13 +143,13 @@ Il comando `Set-AzVMExtension` può essere utilizzato per avviare qualsiasi este
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Le estensioni macchina virtuale possono essere applicate a una macchina virtuale esistente tramite il portale di Azure. Selezionare la macchina virtuale nel portale, scegliere **Estensioni** , quindi selezionare **Aggiungi**. Scegliere l'estensione desiderata dall'elenco di quelle disponibili e quindi seguire le istruzioni della procedura guidata.
+Le estensioni macchina virtuale possono essere applicate a una macchina virtuale esistente tramite il portale di Azure. Selezionare la macchina virtuale nel portale, scegliere **Estensioni**, quindi selezionare **Aggiungi**. Scegliere l'estensione desiderata dall'elenco di quelle disponibili e quindi seguire le istruzioni della procedura guidata.
 
 L'esempio seguente illustra l'installazione dell'estensione Microsoft Antimalware dal portale di Azure:
 
 ![Installare un'estensione antimalware](./media/features-windows/installantimalwareextension.png)
 
-### <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
+### <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 
 Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Quando si distribuisce un'estensione con un modello, è possibile creare distribuzioni di Azure completamente configurate. Ad esempio, il codice JSON seguente è tratto da un modello di Gestione risorse distribuisce un set di macchine virtuali con carico bilanciato e un database SQL di Azure, quindi installa un'applicazione .NET Core in ogni macchina virtuale. L'estensione della macchina virtuale gestisce l'installazione del software.
 
@@ -286,7 +287,7 @@ Microsoft.Compute     CustomScriptExtension                1.9
 
 #### <a name="agent-updates"></a>Aggiornamenti dell'agente
 
-L'agente guest di Windows contiene solo il *codice Extension Handling* ; il *codice Windows Provisioning* è separato. È possibile disinstallare l'agente guest di Windows. Non è possibile disabilitare l'aggiornamento automatico dell'agente guest di Windows.
+L'agente guest di Windows contiene solo il *codice Extension Handling*; il *codice Windows Provisioning* è separato. È possibile disinstallare l'agente guest di Windows. Non è possibile disabilitare l'aggiornamento automatico dell'agente guest di Windows.
 
 Il *codice di gestione delle estensioni* è responsabile della comunicazione con l'infrastruttura di Azure e della gestione delle operazioni di estensione macchina virtuale, ad esempio installazioni, stato della creazione di report, aggiornamento e rimozione delle singole estensioni. Gli aggiornamenti contengono correzioni per la sicurezza, correzioni di bug e miglioramenti al *codice di gestione delle estensioni*.
 
@@ -294,7 +295,7 @@ Per verificare la versione in esecuzione, vedere [Detecting installed Windows Gu
 
 #### <a name="extension-updates"></a>Aggiornamenti delle estensioni
 
-Quando è disponibile l'aggiornamento di un'estensione, l'agente guest di Windows lo scarica e lo installa. Gli aggiornamenti automatici delle estensioni sono *secondari* oppure *aggiornamenti rapidi*. È possibile accettare o rifiutare esplicitamente gli aggiornamenti *secondari* delle estensioni quando si effettua il provisioning dell'estensione. L'esempio seguente mostra come aggiornare automaticamente le versioni secondarie in un modello di Resource Manager con *autoUpgradeMinorVersion": true,'* :
+Quando è disponibile l'aggiornamento di un'estensione, l'agente guest di Windows lo scarica e lo installa. Gli aggiornamenti automatici delle estensioni sono *secondari* oppure *aggiornamenti rapidi*. È possibile accettare o rifiutare esplicitamente gli aggiornamenti *secondari* delle estensioni quando si effettua il provisioning dell'estensione. L'esempio seguente mostra come aggiornare automaticamente le versioni secondarie in un modello di Resource Manager con *autoUpgradeMinorVersion": true,'*:
 
 ```json
     "properties": {
@@ -322,7 +323,7 @@ Per ottenere le più recenti versioni secondarie delle correzioni di bug, si con
  $vm.Extensions
 ```
 
-L'output di esempio seguente mostra che *autoUpgradeMinorVersion* è impostato su *true* :
+L'output di esempio seguente mostra che *autoUpgradeMinorVersion* è impostato su *true*:
 
 ```powershell
 ForceUpdateTag              :
@@ -336,7 +337,7 @@ AutoUpgradeMinorVersion     : True
 
 Per vedere quando è stato eseguito un aggiornamento dell'estensione, esaminare i log dell'agente nella macchina virtuale in *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-Nell'esempio seguente nella macchina virtuale era installato *Microsoft.Compute.CustomScriptExtension 1.8*. Era disponibile un aggiornamento rapido alla versione *1.9* :
+Nell'esempio seguente nella macchina virtuale era installato *Microsoft.Compute.CustomScriptExtension 1.8*. Era disponibile un aggiornamento rapido alla versione *1.9*:
 
 ```powershell
 [INFO]  Getting plugin locations for plugin 'Microsoft.Compute.CustomScriptExtension'. Current Version: '1.8', Requested Version: '1.9'
@@ -371,7 +372,7 @@ I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le est
 
 ### <a name="view-extension-status"></a>Visualizzare lo stato dell'estensione
 
-Dopo l'esecuzione di un'estensione della macchina virtuale su una macchina virtuale, usare [Get-AzVM](/powershell/module/az.compute/get-azvm) per restituire lo stato dell'estensione. *Substatuses[0]* indica che il provisioning dell'estensione ha avuto esito positivo, vale a dire che l'estensione è stata distribuita alla macchina virtuale, ma l'esecuzione dell'estensione nella macchina virtuale ha avuto esito negativo ( *Substatuses[1]* ).
+Dopo l'esecuzione di un'estensione della macchina virtuale su una macchina virtuale, usare [Get-AzVM](/powershell/module/az.compute/get-azvm) per restituire lo stato dell'estensione. *Substatuses[0]* indica che il provisioning dell'estensione ha avuto esito positivo, vale a dire che l'estensione è stata distribuita alla macchina virtuale, ma l'esecuzione dell'estensione nella macchina virtuale ha avuto esito negativo (*Substatuses[1]*).
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

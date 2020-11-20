@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 1d6213d49c98f5e09f22e7310183315800d0c6f6
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: fe2d09315dcb2a0958f8a1b8efe7532c64c111d8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359783"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966548"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Esercitazione: Configurare ServiceNow per il provisioning utenti automatico
 
@@ -56,13 +56,6 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
    ![Ruolo amministratore ServiceNow](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
 
-3. Verificare che le impostazioni seguenti siano **disabilitate** in ServiceNow:
-
-   1. Selezionare **System Security** > **High security settings** > **Require basic authentication for incoming SCHEMA requests** (Sicurezza del sistema > Impostazioni di sicurezza elevata > Richiedi autenticazione di base per le richieste SCHEMA in ingresso).
-   2. Selezionare **System Properties** > **Web Services** > **Require basic authorization for incoming SOAP requests** (Proprietà di sistema > Servizi Web > Richiedi autenticazione di base per le richieste SOAP in ingresso).
-     
-   > [!IMPORTANT]
-   > Se queste impostazioni sono *abilitate*, il motore di provisioning non riuscirà a comunicare con ServiceNow.
 
 ## <a name="step-3-add-servicenow-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere ServiceNow dalla raccolta di applicazioni di Azure AD
 
@@ -93,7 +86,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot delle opzioni disponibili in Gestisci con l'opzione Provisioning evidenziata.](common/provisioning.png)
+    ![Screenshot delle opzioni di gestione con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 

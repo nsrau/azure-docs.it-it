@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: 9302e922d509f3145fd7913835ce896a6da860fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63bd1d01adf66f33a8ee5349f35063473429b007
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84699465"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964780"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migrazione di zone private legacy di DNS di Azure nel nuovo modello di risorsa
 
@@ -107,10 +107,10 @@ Questo passaggio elimina le zone DNS legacy e deve essere eseguito solo dopo ave
 ## <a name="update-your-automation"></a>Aggiornare l'automazione
 
 Se si usa l'automazione, tra cui modelli, script di PowerShell o codice personalizzato sviluppato con SDK, è necessario aggiornare l'automazione in modo da usare il nuovo modello di risorsa per le zone DNS private. Di seguito vengono forniti i collegamenti alla nuova documentazione dell'interfaccia della riga di comando, di PowerShell e dell'SDK per DNS.
-* [API REST delle zone private di DNS di Azure](https://docs.microsoft.com/rest/api/dns/privatedns/privatezones)
-* [Interfaccia della riga di comando per le zone private di DNS di Azure](https://docs.microsoft.com/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
-* [PowerShell per le zone private di DNS di Azure](https://docs.microsoft.com/powershell/module/az.privatedns/?view=azps-2.3.2)
-* [SDK per le zone private di DNS di Azure](https://docs.microsoft.com/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
+* [API REST delle zone private di DNS di Azure](/rest/api/dns/privatedns/privatezones)
+* [Interfaccia della riga di comando per le zone private di DNS di Azure](/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
+* [PowerShell per le zone private di DNS di Azure](/powershell/module/az.privatedns/?view=azps-2.3.2)
+* [SDK per le zone private di DNS di Azure](/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
 
 ## <a name="need-further-help"></a>Ulteriore assistenza
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: bdf69a9ff7b3260b47042f296a47826e3c52387b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71b018da6b54ebf2b45a261378ea521a397159e5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81460648"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964984"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedure consigliate per l'array virtuale StorSimple
 
@@ -119,7 +119,7 @@ Se l'array virtuale è aggiunto al dominio, è possibile applicarvi oggetti Crit
 È quindi consigliabile:
 
 * Assicurarsi che l'array virtuale sia nella propria unità organizzativa (OU) per Active Directory.
-* Assicurarsi che nessun oggetto Criteri di gruppo venga applicato all'array virtuale. È possibile bloccare l'ereditarietà per assicurarsi che l'array virtuale (nodo figlio) non erediti automaticamente alcun oggetto Criteri di gruppo dall'oggetto padre. Per altre informazioni, vedere [Bloccare l'ereditarietà](https://technet.microsoft.com/library/cc731076.aspx).
+* Assicurarsi che nessun oggetto Criteri di gruppo venga applicato all'array virtuale. È possibile bloccare l'ereditarietà per assicurarsi che l'array virtuale (nodo figlio) non erediti automaticamente alcun oggetto Criteri di gruppo dall'oggetto padre. Per altre informazioni, vedere [Bloccare l'ereditarietà](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731076(v=ws.11)).
 
 ### <a name="networking"></a>Rete
 La configurazione di rete per l'array virtuale viene eseguita tramite l'interfaccia utente Web locale. Un'interfaccia di rete virtuale è abilitata tramite l'hypervisor in cui viene effettuato il provisioning dell'array virtuale. Usare la pagina [Impostazioni di rete](storsimple-virtual-array-deploy3-fs-setup.md) per configurare l'indirizzo IP, la subnet e il gateway dell'interfaccia di rete virtuale.  È inoltre possibile configurare il server DNS primario e secondario, le impostazioni dell'ora e le impostazioni proxy facoltative per il dispositivo. La maggior parte della configurazione di rete è un'operazione singola. Prima di distribuire l'array virtuale, vedere la sezione [Requisiti di rete](storsimple-ova-system-requirements.md#networking-requirements) per StorSimple.
@@ -289,4 +289,3 @@ Può essere necessario distribuire più array virtuali per tenere conto di un wo
 
 ## <a name="see-also"></a>Vedere anche
 Informazioni su come [amministrare l'array virtuale StorSimple](storsimple-virtual-array-manager-service-administration.md) usando il servizio StorSimple Manager.
-

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: bf3da62e989f0e029efdc8e9c70f5f45e0ddd765
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8af9549efc3e8dab54f55dd404346d87201dee2c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76932305"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965613"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Panoramica del DNS inverso e supporto in Azure
 
@@ -89,7 +89,7 @@ Una ricerca inversa per l'indirizzo IP "192.0.2.129" esegue una query per un rec
 
 Il nome di una zona di ricerca inversa di tipo IPv6 deve avere il formato seguente: `<IPv6 network prefix in reverse order>.ip6.arpa`.
 
-Ad esempio: Quando si crea una zona inversa per ospitare i record per gli host con indirizzi IP con prefisso 2001:db8:1000:abdc::/64, il nome della zona viene creato tramite l'isolamento del prefisso di rete dell'indirizzo (2001:db8:abdc::). Viene quindi espanso il prefisso di rete IPv6 per rimuovere la [compressione degli zeri](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), se è stata usata per accorciare il prefisso dell'indirizzo IPv6 (2001:0db8:abdc:0000::). Invertire l'ordine, usando un punto come delimitatore tra ogni numero esadecimale nel prefisso, per creare il prefisso di rete inverso (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) e quindi aggiungere il suffisso `.ip6.arpa`.
+Ad esempio: Quando si crea una zona inversa per ospitare i record per gli host con indirizzi IP con prefisso 2001:db8:1000:abdc::/64, il nome della zona viene creato tramite l'isolamento del prefisso di rete dell'indirizzo (2001:db8:abdc::). Viene quindi espanso il prefisso di rete IPv6 per rimuovere la [compressione degli zeri](/previous-versions/windows/it-pro/windows-server-2003/cc781672(v=ws.10)), se è stata usata per accorciare il prefisso dell'indirizzo IPv6 (2001:0db8:abdc:0000::). Invertire l'ordine, usando un punto come delimitatore tra ogni numero esadecimale nel prefisso, per creare il prefisso di rete inverso (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) e quindi aggiungere il suffisso `.ip6.arpa`.
 
 
 |Prefisso di rete  |Prefisso di rete espanso e inverso |Suffisso standard |Nome della zona inversa  |
@@ -114,4 +114,3 @@ Per altre informazioni sul DNS inverso, vedere [Risoluzione DNS inversa su Wikip
 Informazioni su come eseguire l'[hosting della zona di ricerca inversa per l'intervallo di indirizzi IP assegnato dal provider di servizi Internet in DNS Azure](dns-reverse-dns-for-azure-services.md).
 <br>
 Informazioni su come [gestire i record di DNS inverso per i servizi di Azure](dns-reverse-dns-for-azure-services.md).
-

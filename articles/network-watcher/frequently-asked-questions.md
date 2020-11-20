@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 4ba35d91d286cb43a763887d104e21ae0d537c8e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 959062d493d9eb47204be2488f216b70804b3605
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424127"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965766"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Domande frequenti su Azure Network Watcher
-Il servizio [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) offre una suite di strumenti per monitorare, diagnosticare, visualizzare le metriche e abilitare o disabilitare i log per le risorse in una rete virtuale di Azure. Questo articolo risponde a domande comuni sul servizio.
+Il servizio [Azure Network Watcher](./network-watcher-monitoring-overview.md) offre una suite di strumenti per monitorare, diagnosticare, visualizzare le metriche e abilitare o disabilitare i log per le risorse in una rete virtuale di Azure. Questo articolo risponde a domande comuni sul servizio.
 
 ## <a name="general"></a>Generale
 
@@ -31,21 +31,21 @@ Network Watcher è progettato per monitorare e ripristinare lo stato di integrit
 ### <a name="what-tools-does-network-watcher-provide"></a>Quali strumenti Network Watcher fornire?
 Network Watcher offre tre principali set di funzionalità
 * Monitoraggio
-  * La [visualizzazione topologia](https://docs.microsoft.com/azure/network-watcher/view-network-topology) Mostra le risorse nella rete virtuale e le relazioni tra di esse.
-  * Il [monitoraggio della connessione](https://docs.microsoft.com/azure/network-watcher/connection-monitor) consente di monitorare la connettività e la latenza tra una macchina virtuale e un'altra risorsa di rete.
-  * [Monitoraggio prestazioni rete](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor) consente di monitorare la connettività e le latenze tra architetture di rete ibride, circuiti Expressroute e endpoint di servizio/applicazione.  
+  * La [visualizzazione topologia](./view-network-topology.md) Mostra le risorse nella rete virtuale e le relazioni tra di esse.
+  * Il [monitoraggio della connessione](./connection-monitor.md) consente di monitorare la connettività e la latenza tra una macchina virtuale e un'altra risorsa di rete.
+  * [Monitoraggio prestazioni rete](../azure-monitor/insights/network-performance-monitor.md) consente di monitorare la connettività e le latenze tra architetture di rete ibride, circuiti Expressroute e endpoint di servizio/applicazione.  
 * Diagnostica
-  * La [Verifica del flusso IP](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) consente di rilevare i problemi di filtro del traffico a livello di macchina virtuale.
-  * L' [hop successivo](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) consente di verificare le route del traffico e di rilevare i problemi di routing.
-  * La [risoluzione dei problemi di connessione](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-portal) consente una connettività unica e il controllo della latenza tra una macchina virtuale e un'altra risorsa di rete.
-  * L' [acquisizione di pacchetti](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview) consente di acquisire tutto il traffico in una macchina virtuale nella rete virtuale.
-  * La [risoluzione dei problemi relativi alla VPN](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-overview) esegue più controlli di diagnostica sui gateway VPN e sulle connessioni per facilitare il debug dei problemi.
+  * La [Verifica del flusso IP](./network-watcher-ip-flow-verify-overview.md) consente di rilevare i problemi di filtro del traffico a livello di macchina virtuale.
+  * L' [hop successivo](./network-watcher-next-hop-overview.md) consente di verificare le route del traffico e di rilevare i problemi di routing.
+  * La [risoluzione dei problemi di connessione](./network-watcher-connectivity-portal.md) consente una connettività unica e il controllo della latenza tra una macchina virtuale e un'altra risorsa di rete.
+  * L' [acquisizione di pacchetti](./network-watcher-packet-capture-overview.md) consente di acquisire tutto il traffico in una macchina virtuale nella rete virtuale.
+  * La [risoluzione dei problemi relativi alla VPN](./network-watcher-troubleshoot-overview.md) esegue più controlli di diagnostica sui gateway VPN e sulle connessioni per facilitare il debug dei problemi.
 * Registrazione
-  * [NSG Flow log](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) consente di registrare tutto il traffico nei [gruppi di sicurezza di rete (gruppi)](https://docs.microsoft.com/azure/virtual-network/security-overview)
-  * [Analisi del traffico](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) elabora i dati del log di flusso NSG che consentono di visualizzare, eseguire query, analizzare e comprendere il traffico di rete.
+  * [NSG Flow log](./network-watcher-nsg-flow-logging-overview.md) consente di registrare tutto il traffico nei [gruppi di sicurezza di rete (gruppi)](../virtual-network/network-security-groups-overview.md)
+  * [Analisi del traffico](./traffic-analytics.md) elabora i dati del log di flusso NSG che consentono di visualizzare, eseguire query, analizzare e comprendere il traffico di rete.
 
 
-Per informazioni più dettagliate, vedere la [pagina di panoramica Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview).
+Per informazioni più dettagliate, vedere la [pagina di panoramica Network Watcher](./network-watcher-monitoring-overview.md).
 
 
 ### <a name="how-does-network-watcher-pricing-work"></a>Come funzionano i prezzi Network Watcher?
@@ -55,7 +55,7 @@ Visitare la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/netw
 È possibile visualizzare l'ultima disponibilità a livello di area nella [pagina disponibilità dei servizi di Azure](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
 ### <a name="which-permissions-are-needed-to-use-network-watcher"></a>Quali autorizzazioni sono necessarie per usare Network Watcher?
-Vedere l'elenco delle [autorizzazioni RBAC di Azure necessarie per usare Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). Per la distribuzione delle risorse, sono necessarie le autorizzazioni di collaboratore per NetworkWatcherRG (vedere di seguito).
+Vedere l'elenco delle [autorizzazioni RBAC di Azure necessarie per usare Network Watcher](./required-rbac-permissions.md). Per la distribuzione delle risorse, sono necessarie le autorizzazioni di collaboratore per NetworkWatcherRG (vedere di seguito).
 
 ### <a name="how-do-i-enable-network-watcher"></a>Come si abilita Network Watcher?
 Il servizio Network Watcher viene [abilitato automaticamente](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/) per ogni sottoscrizione.
@@ -73,13 +73,13 @@ L'estensione Network Watcher è obbligatoria per qualsiasi funzionalità che dev
 L'acquisizione di pacchetti, la risoluzione dei problemi di connessione e le funzionalità di monitoraggio della connessione richiedono che sia presente l'estensione Network Watcher.
 
 ### <a name="what-are-resource-limits-on-network-watcher"></a>Che cosa sono i limiti delle risorse per Network Watcher?
-Per tutti i limiti, vedere la pagina relativa ai [limiti del servizio](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) .  
+Per tutti i limiti, vedere la pagina relativa ai [limiti del servizio](../azure-resource-manager/management/azure-subscription-service-limits.md#network-watcher-limits) .  
 
 ### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>Perché è consentita una sola istanza di Network Watcher per area? 
 Network Watcher deve essere abilitata una sola volta per una sottoscrizione per il funzionamento delle funzionalità, non si tratta di un limite di servizio.
 
 ### <a name="how-can-i-manage-the-network-watcher-resource"></a>Come è possibile gestire la risorsa Network Watcher? 
-La risorsa Network Watcher rappresenta il servizio back-end per Network Watcher ed è completamente gestita da Azure. I clienti non devono gestirlo. Operazioni come lo spostamento non sono supportate nella risorsa. Tuttavia, [la risorsa può essere eliminata](https://docs.microsoft.com/azure/network-watcher/network-watcher-create#delete-a-network-watcher-in-the-portal). 
+La risorsa Network Watcher rappresenta il servizio back-end per Network Watcher ed è completamente gestita da Azure. I clienti non devono gestirlo. Operazioni come lo spostamento non sono supportate nella risorsa. Tuttavia, [la risorsa può essere eliminata](./network-watcher-create.md#delete-a-network-watcher-in-the-portal). 
 
 ## <a name="service-availability-and-redundancy"></a>Disponibilità e ridondanza del servizio 
 
@@ -92,7 +92,7 @@ Non è necessaria alcuna configurazione del cliente per abilitare la resilienza 
 ## <a name="nsg-flow-logs"></a>Log di flusso NSG
 
 ### <a name="what-does-nsg-flow-logs-do"></a>Quali sono i registri dei flussi di NSG?
-Le risorse di rete di Azure possono essere combinate e gestite tramite [gruppi di sicurezza di rete (gruppi)](https://docs.microsoft.com/azure/virtual-network/security-overview). I log di flusso NSG consentono di registrare le informazioni sul flusso di 5 tuple relative a tutto il traffico attraverso gruppi. I log dei flussi non elaborati vengono scritti in un account di archiviazione di Azure da cui possono essere ulteriormente elaborati, analizzati, sottoposti a query o esportati in base alle esigenze.
+Le risorse di rete di Azure possono essere combinate e gestite tramite [gruppi di sicurezza di rete (gruppi)](../virtual-network/network-security-groups-overview.md). I log di flusso NSG consentono di registrare le informazioni sul flusso di 5 tuple relative a tutto il traffico attraverso gruppi. I log dei flussi non elaborati vengono scritti in un account di archiviazione di Azure da cui possono essere ulteriormente elaborati, analizzati, sottoposti a query o esportati in base alle esigenze.
 
 ### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-firewall"></a>Ricerca per categorie usare i log di flusso NSG con un account di archiviazione dietro un firewall?
 
@@ -108,11 +108,11 @@ Per usare un account di archiviazione dietro un firewall, è necessario fornire 
 
 ### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-service-endpoint"></a>Ricerca per categorie usare i log di flusso NSG con un account di archiviazione dietro a un endpoint di servizio?
 
-I log di flusso NSG sono compatibili con gli endpoint di servizio senza richiedere alcuna configurazione aggiuntiva. Vedere l' [esercitazione sull'abilitazione degli endpoint di servizio](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) nella rete virtuale.
+I log di flusso NSG sono compatibili con gli endpoint di servizio senza richiedere alcuna configurazione aggiuntiva. Vedere l' [esercitazione sull'abilitazione degli endpoint di servizio](../virtual-network/tutorial-restrict-network-access-to-resources.md#enable-a-service-endpoint) nella rete virtuale.
 
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Qual è la differenza tra i log dei flussi versioni 1 & 2?
-Log dei flussi versione 2 introduce il concetto di *stato del flusso* & archivia le informazioni su byte e pacchetti trasmessi. [Altre informazioni](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).
+Log dei flussi versione 2 introduce il concetto di *stato del flusso* & archivia le informazioni su byte e pacchetti trasmessi. [Altre informazioni](./network-watcher-nsg-flow-logging-overview.md#log-format).
 
 ## <a name="next-steps"></a>Passaggi successivi
- - Passare alla [pagina Panoramica della documentazione](https://docs.microsoft.com/azure/network-watcher/) per alcune esercitazioni per iniziare a usare Network Watcher.
+ - Passare alla [pagina Panoramica della documentazione](./index.yml) per alcune esercitazioni per iniziare a usare Network Watcher.

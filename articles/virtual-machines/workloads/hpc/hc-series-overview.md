@@ -3,16 +3,17 @@ title: Panoramica delle VM serie HC-macchine virtuali di Azure | Microsoft Docs
 description: Informazioni sul supporto in anteprima per le dimensioni della macchina virtuale della serie HC in Azure.
 author: vermagit
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 97e0ae9ea4914cda5d92f5180199a740c02ecdf4
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 672175d5bb92c8ab6dc347ece5ad6b14d8232ef4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994365"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965443"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Panoramica delle macchine virtuali della serie HC
 
@@ -39,7 +40,7 @@ Il diagramma seguente illustra la separazione dei core riservati per l'hyperviso
 | Core                            | 44 (HT disabilitato)                 |
 | CPU                              | Intel Xeon Platinum 8168         |
 | Frequenza CPU (non-AVX)          | 3,7 GHz (core singolo), 2.7-3,4 GHz (tutti i core) |
-| Memoria                           | 8 GB/Core (Totale 352)            |
+| Memory                           | 8 GB/Core (Totale 352)            |
 | Disco locale                       | SSD 700 GB                       |
 | Infiniband                       | 100 GB EDR Mellanox ConnectX-5   |
 | Rete                          | 50 GB Ethernet (40 GB utilizzabili) Azure Second gen SmartNIC    |

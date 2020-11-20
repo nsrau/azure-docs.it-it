@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 54b15d5865b1abb0d624628ed4b5c9892ab04d41
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 53a30f92adaf25d87897e98834cda2d5f92b874c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542134"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965834"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -210,7 +210,7 @@ Altre informazioni sulle [etichette di segmentazione delle istanze di immagine](
     + Aggiornamento della documentazione di AzureML MLflow e degli esempi di notebook 
     + Nuovo supporto per i progetti MLflow con backend AzureML
     + Supporto del registro di sistema del modello MLflow
-    + Aggiunto il supporto RBAC per operazioni di AzureML-MLflow 
+    + Aggiunta del supporto RBAC di Azure per operazioni di AzureML-MLflow 
     
   + **azureml-pipeline-core**
     + È stata migliorata la documentazione dei metodi PipelineOutputFileDataset.parse_ *.
@@ -245,7 +245,7 @@ Altre informazioni sulle [etichette di segmentazione delle istanze di immagine](
     + Dipendenze di AutoML aggiornate: `scikit-learn` (ora 0.22.1), `pandas` (ora 0.25.1), `numpy` (ora 1.18.2).
   + **azureml-contrib-automl-DNN-Forecasting**
     + Dipendenze di AutoML aggiornate: `scikit-learn` (ora 0.22.1), `pandas` (ora 0.25.1), `numpy` (ora 1.18.2).
-  + **azureml-contrib-fairness**
+  + **azureml-contrib-Equity**
     + Fornire una breve descrizione per azureml-contrib-equity.
   + **azureml-contrib-pipeline-steps**
     + Aggiunto messaggio che indica che il pacchetto è deprecato e che l'utente deve usare azureml-pipeline-Steps.
@@ -797,7 +797,7 @@ Altre informazioni sulle [etichette di segmentazione delle istanze di immagine](
 
 Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     
-| Strumento basato sul Web  |     Descrizione  |
+| Strumento basato sul Web  |     Description  |
 |---|---|
 | Notebook di Azure ML Studio   |     Prima creazione di classi per i file notebook e supporto per tutte le operazioni disponibili in Azure ML Python SDK. | 
 
@@ -1309,7 +1309,7 @@ Da studio è possibile eseguire il training, il test, la distribuzione e la gest
 
 Accedere ai seguenti strumenti di creazione basati sul Web da studio:
 
-| Strumento basato sul Web | Descrizione | 
+| Strumento basato sul Web | Description | 
 |-|-|-|
 | VM notebook (anteprima) | Workstation basata su cloud completamente gestita | 
 | [Machine Learning automatizzato](tutorial-first-experiment-automated-ml.md) (anteprima) | Nessuna esperienza di codice per l'automazione dello sviluppo di modelli di Machine Learning | 

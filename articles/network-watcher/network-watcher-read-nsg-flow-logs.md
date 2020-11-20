@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: damendo
-ms.openlocfilehash: 18023f5a5b36dd971080d7a62fdd44698a205bb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9b9e91cda93a986fdaaf0f53d8987544e783a2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272536"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966463"
 ---
 # <a name="read-nsg-flow-logs"></a>Leggere i log dei flussi del gruppo di sicurezza di rete
 
 In questo articolo viene illustrato come leggere le voci del log dei flussi del gruppo di sicurezza di rete con PowerShell.
 
-I log dei flussi del gruppo di sicurezza di rete vengono archiviati in un account di archiviazione in [BLOB in blocchi](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). I BLOB in blocchi sono costituiti da blocchi di dimensioni inferiori. Ogni log è un BLOB in blocchi separato che viene generato ogni ora. Nuovi registri vengono generati ogni ora, i log vengono aggiornati con le nuove voci più recenti ogni pochi minuti. In questo articolo è illustrato come leggere parti dei log dei flussi.
+I log dei flussi del gruppo di sicurezza di rete vengono archiviati in un account di archiviazione in [BLOB in blocchi](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). I BLOB in blocchi sono costituiti da blocchi di dimensioni inferiori. Ogni log è un BLOB in blocchi separato che viene generato ogni ora. Nuovi registri vengono generati ogni ora, i log vengono aggiornati con le nuove voci più recenti ogni pochi minuti. In questo articolo è illustrato come leggere parti dei log dei flussi.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -37,7 +37,7 @@ Prima di iniziare, è necessario abilitare la registrazione dei flussi dei grupp
 
 ## <a name="retrieve-the-block-list"></a>Recuperare l'elenco di blocco
 
-Il comando PowerShell seguente imposta le variabili necessarie per eseguire una query al BLOB del log del flussi del gruppo di sicurezza di rete ed elenca i blocchi all'interno del BLOB in blocchi [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob). Aggiornare lo script in modo che contenga i valori validi per l'ambiente.
+Il comando PowerShell seguente imposta le variabili necessarie per eseguire una query al BLOB del log del flussi del gruppo di sicurezza di rete ed elenca i blocchi all'interno del BLOB in blocchi [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob). Aggiornare lo script in modo che contenga i valori validi per l'ambiente.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -189,6 +189,6 @@ Questo scenario è un esempio di come leggere le voci nei log dei flussi del gru
 
 Visitare [Usare Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Usare Grafana](network-watcher-nsg-grafana.md) e [Usare Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) per altre informazioni sui vari modi per visualizzare i log del flusso del gruppo di sicurezza di rete. Un approccio open source di funzioni di Azure per l'utilizzo dei BLOB direttamente e la creazione di diversi consumer di log Analytics è disponibile qui: [connettore azure Network Watcher NSG Flow logs](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-È possibile usare [analisi del traffico di Azure](https://docs.microsoft.com/azure/network-watcher/traffic-analytics) per ottenere informazioni dettagliate sui flussi di traffico. Analisi del traffico USA [log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) per rendere il flusso di traffico Queryable.
+È possibile usare [analisi del traffico di Azure](./traffic-analytics.md) per ottenere informazioni dettagliate sui flussi di traffico. Analisi del traffico USA [log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) per rendere il flusso di traffico Queryable.
 
 Per altre informazioni sui BLOB di archiviazione, consultare [Binding dell'archiviazione BLOB di Funzioni di Azure](../azure-functions/functions-bindings-storage-blob.md)

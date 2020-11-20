@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: damendo
-ms.openlocfilehash: 28d5ae1451b97c19576baa3f9760b8f784db3175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 099ead37b8d6b46b767ef59ff24a7e7ff9dc9e3c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84736731"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966446"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher usando il portale
 
@@ -40,7 +40,7 @@ Se un gruppo di sicurezza di rete è associato all'interfaccia di rete o alla su
 
 ## <a name="start-a-packet-capture"></a>Avviare un'acquisizione di pacchetti
 
-1. Nel browser, passare al [portale di Azure](https://portal.azure.com) e selezionare **Tutti i servizi**e quindi selezionare **Network Watcher** nella **sezione rete**.
+1. Nel browser, passare al [portale di Azure](https://portal.azure.com) e selezionare **Tutti i servizi** e quindi selezionare **Network Watcher** nella **sezione rete**.
 2. Selezionare **Acquisizione di pacchetti** sotto **Strumenti di diagnostica di rete**. Sono elencate tutte le acquisizioni di pacchetti esistenti, indipendentemente dal loro stato.
 3. Selezionare **Aggiungi** per creare un'acquisizione di pacchetti. Selezionare i valori per gli elementi seguenti:
    - **Sottoscrizione**: La sottoscrizione che la macchina virtuale desidera creare per l'acquisizione di pacchetti.
@@ -74,7 +74,7 @@ Una volta scaduto il limite di tempo impostato per l'acquisizione di pacchetti, 
 > [!NOTE]
 > Il portale automaticamente:
 >  * Creare un'istanza di network watcher nella stessa area dell'area in cui è presente la macchina virtuale selezionata, se l'area non dispone ancora di un network watcher.
->  * Aggiungere l'estensione della macchina virtuale*AzureNetworkWatcherExtension* [Linux](../virtual-machines/linux/extensions-nwa.md) oppure [Windows](../virtual-machines/windows/extensions-nwa.md) alla macchina virtuale, se non ancora installata.
+>  * Aggiungere l'estensione della macchina virtuale *AzureNetworkWatcherExtension* [Linux](../virtual-machines/extensions/network-watcher-linux.md) oppure [Windows](../virtual-machines/extensions/network-watcher-windows.md) alla macchina virtuale, se non ancora installata.
 
 ## <a name="delete-a-packet-capture"></a>Eliminare un'acquisizione di pacchetti
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 119436cbe03e619b0d09df30ab2c5dc34126b0ce
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 20d44fd3150f9da31e9c242017e597d4f46e4d5d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629394"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963930"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Attivare un'esecuzione di una pipeline di Machine Learning da un'app per la logica
 
@@ -60,7 +60,7 @@ Una volta eseguito il provisioning dell'app per la logica, seguire questa proced
     > [!NOTE]
     > Questo trigger eseguirà il monitoraggio del contenitore selezionato, ma non eseguirà il monitoraggio delle sottocartelle.
 
-1. Aggiungere un'azione HTTP che verrà eseguita quando viene rilevato un BLOB nuovo o modificato. Selezionare **+ nuovo passaggio** , quindi cercare e selezionare l'azione http.
+1. Aggiungere un'azione HTTP che verrà eseguita quando viene rilevato un BLOB nuovo o modificato. Selezionare **+ nuovo passaggio**, quindi cercare e selezionare l'azione http.
 
   > [!div class="mx-imgBorder"]
   > ![Cerca azione HTTP](media/how-to-trigger-published-pipeline/search-http.png)
@@ -96,7 +96,7 @@ Una volta eseguito il provisioning dell'app per la logica, seguire questa proced
 1. Selezionare **Save (Salva** ). la pianificazione è ora pronta.
 
 > [!IMPORTANT]
-> Se si usa il controllo degli accessi in base al ruolo (RBAC) per gestire l'accesso alla pipeline, [impostare le autorizzazioni per lo scenario della pipeline (training o assegnazione del punteggio)](how-to-assign-roles.md#common-scenarios).
+> Se si usa il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gestire l'accesso alla pipeline, [impostare le autorizzazioni per lo scenario della pipeline (training o assegnazione del punteggio)](how-to-assign-roles.md#common-scenarios).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

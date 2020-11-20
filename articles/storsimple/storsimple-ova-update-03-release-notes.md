@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/15/2016
 ms.author: alkohli
-ms.openlocfilehash: f56c36f18379449409f4989eab9510da1f686d0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8301b45fe778bd3df7fc665db2662ba81d3e644f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80397815"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966106"
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>Note sulla versione dell'aggiornamento 0.3 per l'array virtuale StorSimple
 ## <a name="overview"></a>Panoramica
@@ -66,11 +66,10 @@ La tabella seguente fornisce un riepilogo dei problemi noti per l'array virtuale
 | **14.** |File server |Se un file contenuto in una cartella è associato a un flusso di dati alternativi (ADS), sul flusso non viene eseguito il backup o il ripristino tramite ripristino di emergenza, clonazione e ripristino a livello di elemento. | |
 
 ## <a name="next-step"></a>Passaggio successivo
-[Installare l'aggiornamento 0.3](storsimple-ova-install-update-01.md) sull'array virtuale StorSimple.
+[Installare l'aggiornamento 0.3](./storsimple-virtual-array-install-update-06.md) sull'array virtuale StorSimple.
 
 ## <a name="references"></a>Riferimenti
 Si desidera consultare le note su una versione precedente? Passare a: 
 
 * [Note sulla versione dell'Aggiornamento 0.1 e 0.2 per l'array virtuale StorSimple](storsimple-ova-update-01-release-notes.md)
-* [Note sulla versione con disponibilità generale dell'array virtuale StorSimple](storsimple-ova-pp-release-notes.md)
-
+* [Note sulla versione con disponibilità generale dell'array virtuale StorSimple](./storsimple-virtual-array-update-06-release-notes.md)

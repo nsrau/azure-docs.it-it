@@ -10,17 +10,18 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 1ba6a19b271943c7ecbe2254ef2544a5f576ad3d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3827fa7a98cef9358db0ee102925586bce97fae6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167424"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965239"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure in SUSE Linux Enterprise Server per le applicazioni SAP guida a più SID
 
@@ -96,7 +97,7 @@ Per ottenere la disponibilità elevata, SAP NetWeaver richiede condivisioni NFS 
 ![Panoramica della disponibilità elevata di SAP NetWeaver](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
 > [!IMPORTANT]
-> Il supporto per il clustering a più SID di SAP ASC/ERS con SUSE Linux come sistema operativo guest nelle macchine virtuali di Azure è limitato a **cinque** SID SAP nello stesso cluster. Ogni nuovo SID aumenta la complessità. **Non è supportata**una combinazione di server di replica SAP di Accodamento e di Accodamento del server di replica 2 nello stesso cluster. Il clustering a più SID descrive l'installazione di più istanze di SAP ASC/ERS con SID diversi in un cluster pacemaker. Attualmente il clustering a più SID è supportato solo per ASC/ERS.  
+> Il supporto per il clustering a più SID di SAP ASC/ERS con SUSE Linux come sistema operativo guest nelle macchine virtuali di Azure è limitato a **cinque** SID SAP nello stesso cluster. Ogni nuovo SID aumenta la complessità. **Non è supportata** una combinazione di server di replica SAP di Accodamento e di Accodamento del server di replica 2 nello stesso cluster. Il clustering a più SID descrive l'installazione di più istanze di SAP ASC/ERS con SID diversi in un cluster pacemaker. Attualmente il clustering a più SID è supportato solo per ASC/ERS.  
 
 > [!TIP]
 > Il clustering a più SID di SAP ASC/ERS è una soluzione con maggiore complessità. È più complesso da implementare. Comporta inoltre un lavoro amministrativo più elevato, quando si eseguono attività di manutenzione, ad esempio l'applicazione di patch del sistema operativo. Prima di iniziare l'implementazione effettiva, è opportuno pianificare attentamente la distribuzione e tutti i componenti necessari, ad esempio macchine virtuali, montaggi NFS, VIP, configurazioni del servizio di bilanciamento del carico e così via.  
@@ -112,7 +113,7 @@ L'elenco seguente mostra la configurazione del servizio di bilanciamento del car
   * Indirizzo IP per NW2:10.3.1.16
   * Indirizzo IP per NW3:10.3.1.13
 * Porte Probe
-  * Porta 620<strong> &lt; Nr &gt; </strong>, pertanto per le porte Probe NW1, NW2 e NW3 620**00**, 620**10** e 620**20**
+  * Porta 620 <strong> &lt; Nr &gt;</strong>, pertanto per le porte Probe NW1, NW2 e NW3 620 **00**, 620 **10** e 620 **20**
 * Regole di bilanciamento del carico- 
 * crearne uno per ogni istanza, ovvero NW1/ASC, NW2/ASC e NW3/ASC.
   * Se si usa Load Balancer Standard, selezionare **Porte a disponibilità elevata**
@@ -132,7 +133,7 @@ L'elenco seguente mostra la configurazione del servizio di bilanciamento del car
   * Indirizzo IP per NW2 10.3.1.17
   * Indirizzo IP per NW3 10.3.1.19
 * Porta probe
-  * Porta 621<strong> &lt; Nr &gt; </strong>, quindi per NW1, NW2 e N # probe Ports 621**02**, 621**12** and 621**22**
+  * Porta 621 <strong> &lt; Nr &gt;</strong>, quindi per NW1, NW2 e N # probe Ports 621 **02**, 621 **12** and 621 **22**
 * Regole di bilanciamento del carico: crearne una per ogni istanza, ovvero NW1/ERS, NW2/ERS e NW3/ERS.
   * Se si usa Load Balancer Standard, selezionare **Porte a disponibilità elevata**
   * Se si usa Load Balancer Basic, creare regole di bilanciamento del carico per le porte seguenti
@@ -290,7 +291,7 @@ In questa documentazione si presuppone che:
 
 2. **[1]** Installare SAP NetWeaver ASCS  
 
-   Installare SAP NetWeaver ASC come root, usando un nome host virtuale che esegue il mapping all'indirizzo IP della configurazione front-end del servizio di bilanciamento del carico per il ASC. Ad esempio, per **NW2**di sistema, il nome host virtuale è <b>msnw2ascs</b>, <b>10.3.1.16</b> e il numero di istanza usato per il probe del servizio di bilanciamento del carico, ad esempio <b>10</b>. per **NW3**di sistema, il nome host virtuale è <b>msnw3ascs</b>, <b>10.3.1.13</b> e il numero di istanza usato per il probe del servizio di bilanciamento del carico, ad esempio <b>20</b>.
+   Installare SAP NetWeaver ASC come root, usando un nome host virtuale che esegue il mapping all'indirizzo IP della configurazione front-end del servizio di bilanciamento del carico per il ASC. Ad esempio, per **NW2** di sistema, il nome host virtuale è <b>msnw2ascs</b>, <b>10.3.1.16</b> e il numero di istanza usato per il probe del servizio di bilanciamento del carico, ad esempio <b>10</b>. per **NW3** di sistema, il nome host virtuale è <b>msnw3ascs</b>, <b>10.3.1.13</b> e il numero di istanza usato per il probe del servizio di bilanciamento del carico, ad esempio <b>20</b>.
 
    È possibile usare il parametro sapinst SAPINST_REMOTE_ACCESS_USER per consentire a un utente non ROOT di connettersi a sapinst. È possibile usare il parametro SAPINST_USE_HOSTNAME per installare SAP, usando il nome host virtuale.  
 
@@ -298,7 +299,7 @@ In questa documentazione si presuppone che:
       sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
      ```
 
-   Se l'installazione non riesce a creare una sottocartella in/usr/SAP/**SID**/ASCS**instance #**, provare a impostare il proprietario su **SID**ADM e il gruppo su sapsys dell'**istanza ASC #** e riprovare.
+   Se l'installazione non riesce a creare una sottocartella in/usr/SAP/**SID**/ASCS **instance #**, provare a impostare il proprietario su **SID** ADM e il gruppo su sapsys dell'**istanza ASC #** e riprovare.
 
 3. **[1]** creare una risorsa IP virtuale e un cluster di probe di integrità per l'istanza ERS del sistema SAP aggiuntivo che si sta distribuendo nel cluster. L'esempio illustrato di seguito è per **NW2** e **NW3** ERS, usando un server NFS a disponibilità elevata. 
 
@@ -340,7 +341,7 @@ In questa documentazione si presuppone che:
 
 4. **[2]** Installare SAP NetWeaver ERS
 
-   Installare SAP NetWeaver ERS come root nell'altro nodo usando un nome host virtuale mappato all'indirizzo IP della configurazione front-end del servizio di bilanciamento del carico per ERS. Ad esempio, per **NW2**di sistema, il nome host virtuale sarà <b>msnw2ers</b>, <b>10.3.1.17</b> e il numero di istanza usato per il probe del servizio di bilanciamento del carico, ad esempio <b>12</b>. Per **NW3**di sistema, il nome host virtuale <b>msnw3ers</b>, <b>10.3.1.19</b> e il numero di istanza usato per il probe del servizio di bilanciamento del carico, ad esempio <b>22</b>. 
+   Installare SAP NetWeaver ERS come root nell'altro nodo usando un nome host virtuale mappato all'indirizzo IP della configurazione front-end del servizio di bilanciamento del carico per ERS. Ad esempio, per **NW2** di sistema, il nome host virtuale sarà <b>msnw2ers</b>, <b>10.3.1.17</b> e il numero di istanza usato per il probe del servizio di bilanciamento del carico, ad esempio <b>12</b>. Per **NW3** di sistema, il nome host virtuale <b>msnw3ers</b>, <b>10.3.1.19</b> e il numero di istanza usato per il probe del servizio di bilanciamento del carico, ad esempio <b>22</b>. 
 
    È possibile usare il parametro sapinst SAPINST_REMOTE_ACCESS_USER per consentire a un utente non ROOT di connettersi a sapinst. È possibile usare il parametro SAPINST_USE_HOSTNAME per installare SAP, usando il nome host virtuale.  
 
@@ -351,7 +352,7 @@ In questa documentazione si presuppone che:
    > [!NOTE]
    > Usare SWPM SP 20 PL 05 o versione successiva. Le versioni precedenti non impostano correttamente le autorizzazioni e l'installazione avrà esito negativo.
 
-   Se l'installazione non riesce a creare una sottocartella in/usr/SAP/**NW2**/ERS**instance #**, provare a impostare il proprietario su **SID**ADM e il gruppo su sapsys della cartella dell'**istanza ERS #** e riprovare.
+   Se l'installazione non riesce a creare una sottocartella in/usr/SAP/**NW2**/ERS **instance #**, provare a impostare il proprietario su **SID** ADM e il gruppo su sapsys della cartella dell'**istanza ERS #** e riprovare.
 
    Se è necessario eseguire la migrazione del gruppo ERS del sistema SAP appena distribuito in un altro nodo del cluster, non dimenticare di rimuovere il vincolo location per il gruppo ERS. È possibile rimuovere il vincolo eseguendo il comando seguente (l'esempio viene fornito per i sistemi SAP **NW2** e **NW3**).  
 
@@ -772,7 +773,7 @@ I test presentati si trovano in un cluster a due nodi e a più SID con tre siste
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
 
-   Eseguire i comandi seguenti come **NW2**ADM per eseguire la migrazione dell'istanza di NW2 ASC.
+   Eseguire i comandi seguenti come **NW2** ADM per eseguire la migrazione dell'istanza di NW2 ASC.
 
    ```
     slesmsscl2:nw2adm 53> sapcontrol -nr 10 -host msnw2ascs -user nw2adm password -function HAFailoverToNode ""

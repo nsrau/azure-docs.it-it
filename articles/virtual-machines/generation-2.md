@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 7234c02d387e2fbf21a7f6002e44f84deb851133
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0aedcc3be4cb319dc24990507d85756bd77777e4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977596"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963828"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Supporto per le macchine virtuali di seconda generazione in Azure
 
@@ -101,7 +101,8 @@ Azure attualmente non supporta alcune funzionalità supportate da Hyper-V in loc
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/ripristino                    | :heavy_check_mark: | :heavy_check_mark: |
 | Raccolta di immagini condivise              | :heavy_check_mark: | :heavy_check_mark: |
-| Crittografia dischi di Azure             | :heavy_check_mark: | :x:                |
+| [Crittografia dischi di Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :x:                |
+| [Modello di crittografia lato server](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="creating-a-generation-2-vm"></a>Creazione di una macchina virtuale di seconda generazione
 
@@ -192,7 +193,7 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
   1. Nella portale di Azure passare alla pagina delle proprietà della macchina virtuale.
   1. Per arrestare e deallocare la macchina virtuale, selezionare il pulsante **Interrompi**.
   1. Nella sezione **Dischi** selezionare il disco del sistema operativo di cui si vuole aumentare la capacità.
-  1. Nella sezione**Dischi** selezionare **Configurazione** e aggiornare **Dimensioni** al valore desiderato.
+  1. Nella sezione **Dischi** selezionare **Configurazione** e aggiornare **Dimensioni** al valore desiderato.
   1. Tornare alla pagina delle proprietà della macchina virtuale e selezionare **Avvia** per avviare la macchina virtuale.
   
   Potrebbe essere visualizzato un avviso per i dischi del sistema operativo con dimensioni maggiori di 2 TiB. L'avviso non è valido per le macchine virtuali di seconda generazione. Tuttavia, le dimensioni del disco del sistema operativo maggiori di 4 TiB non sono supportate.

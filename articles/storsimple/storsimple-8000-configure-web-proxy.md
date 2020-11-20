@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 62c052f2293c670b43f1c77363c8bbbcc03d0de2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48671e7558ea1bd613d33372c96fa3c563407e81
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514284"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966225"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurare il proxy web per il dispositivo StorSimple
 
@@ -63,7 +63,7 @@ Usare l'installazione guidata per semplificare i passaggi per la configurazione 
    
     `Invoke-HcsSetupWizard`
 2. Se questa è la prima volta che viene usata l'installazione guidata per la registrazione del dispositivo, è necessario configurare tutte le impostazioni di rete necessarie fino a raggiungere la configurazione del proxy Web. Se il dispositivo è già registrato, accettare tutte le impostazioni di rete configurate fino a raggiungere la configurazione del proxy Web. Nella procedura guidata, quando viene richiesto di configurare le impostazioni del proxy Web, digitare **Sì**.
-3. Per l' **URL proxy Web**specificare l'indirizzo IP o il nome di dominio completo (FQDN) del server proxy Web e il numero di porta TCP che si desidera che il dispositivo utilizzi per comunicare con il cloud. Usare il formato seguente:
+3. Per l' **URL proxy Web** specificare l'indirizzo IP o il nome di dominio completo (FQDN) del server proxy Web e il numero di porta TCP che si desidera che il dispositivo utilizzi per comunicare con il cloud. Utilizzare il seguente formato:
    
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
@@ -154,6 +154,5 @@ Se le impostazioni proxy Web sono configurate in modo errato, verranno visualizz
 > * Gli errori correlati alle impostazioni del proxy Web non vengono visualizzati nel portale di Azure del servizio Gestione dispositivi StorSimple. Se si verifica un problema con il proxy Web dopo il completamento della configurazione, lo stato del dispositivo verrà modificato in **Offline** nel portale classico.|
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Se si riscontrano problemi durante la distribuzione del dispositivo o la configurazione delle impostazioni proxy Web, fare riferimento a [Risoluzione dei problemi relativi alla distribuzione del dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
+* Se si riscontrano problemi durante la distribuzione del dispositivo o la configurazione delle impostazioni proxy Web, fare riferimento a [Risoluzione dei problemi relativi alla distribuzione del dispositivo StorSimple](./storsimple-8000-troubleshoot-deployment.md).
 * Per altre informazioni sull'uso del servizio Gestione dispositivi StorSimple, passare a [Uso del servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

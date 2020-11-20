@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: timlt
-ms.openlocfilehash: 64f91263154f7e65238acdcef9d97e5f2d09aad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9c7a2df83e9d630ce2b4635a830fb941180c758
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006025"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965001"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida
 
@@ -48,7 +48,7 @@ Nella tabella seguente vengono descritti alcuni dei vantaggi principali forniti 
 | Mobilità dei dati |I dati caricati nei servizi cloud di Microsoft Azure sono accessibili da altri siti a scopo di ripristino e migrazione. È anche possibile usare StorSimple per configurare appliance cloud StorSimple in macchine virtuali in esecuzione in Microsoft Azure. Le VM possono quindi usare i dispositivi virtuali per accedere ai dati archiviati a scopo di test o recupero. |
 | Continuità aziendale |Consente agli utenti delle serie StorSimple 5000-7000 di eseguire la migrazione dei dati in un dispositivo StorSimple serie 8000. |
 | Disponibilità nel portale di Azure Government |StorSimple è disponibile nel portale di Azure per enti pubblici. Per altre informazioni, vedere l'articolo relativo alla [distribuzione di un dispositivo StorSimple locale nel portale di Azure per enti pubblici](storsimple-8000-deployment-walkthrough-gov-u2.md). |
-| Disponibilità e protezione dei dati |StorSimple serie 8000 supporta l'archiviazione con ridondanza della zona (ZRS) oltre all'archiviazione con ridondanza locale (LRS) e all'archiviazione con ridondanza geografica (GRS). Fare riferimento a questo [articolo sulle opzioni di ridondanza dell'archiviazione di Azure](https://azure.microsoft.com/documentation/articles/storage-redundancy/) per informazioni dettagliate sull'archiviazione con ridondanza della zona. |
+| Disponibilità e protezione dei dati |StorSimple serie 8000 supporta l'archiviazione con ridondanza della zona (ZRS) oltre all'archiviazione con ridondanza locale (LRS) e all'archiviazione con ridondanza geografica (GRS). Fare riferimento a questo [articolo sulle opzioni di ridondanza dell'archiviazione di Azure](../storage/common/storage-redundancy.md) per informazioni dettagliate sull'archiviazione con ridondanza della zona. |
 | Supporto per applicazioni critiche |StorSimple consente di identificare i volumi appropriati come aggiunti in locale e questo assicura che i dati richiesti dalle applicazioni critiche non siano suddivisi su più livelli nel cloud. I volumi aggiunti in locale non sono soggetti a latenze cloud o a problemi di connettività. Per altre informazioni sui volumi aggiunti in locale, vedere [Use the StorSimple Device Manager service to manage volumes](storsimple-8000-manage-volumes-u2.md) (Usare il servizio Gestione dispositivi StorSimple per gestire i volumi). |
 | Bassa latenza e alte prestazioni |È possibile creare appliance cloud che sfruttano le funzionalità di bassa latenza e alte prestazioni dell'archiviazione Premium di Azure. Per altre informazioni sulle appliance cloud Premium StorSimple, vedere [Distribuire e gestire un'appliance cloud StorSimple in Azure](storsimple-8000-cloud-appliance-u2.md). |
 
@@ -208,7 +208,7 @@ La deduplicazione riduce la quantità complessiva di dati archiviati eliminando 
 ## <a name="storsimple-workload-summary"></a>Riepilogo dei carichi di lavoro di StorSimple
 Di seguito è riportato un riepilogo dei carichi di lavoro StorSimple supportati.
 
-| Scenario | Carico di lavoro | Supportato | Restrizioni | Versione |
+| Scenario | Carico di lavoro | Funzionalità supportata | Restrizioni | Versione |
 | --- | --- | --- | --- | --- |
 | Collaborazione |Condivisione di file |Sì | |Tutte le versioni |
 | Collaborazione |Condivisione di file distribuita |Sì | |Tutte le versioni |
@@ -235,7 +235,7 @@ I carichi di lavoro seguenti non sono supportati dai dispositivi StorSimple dell
 
 Di seguito è riportato un elenco dei componenti dell'infrastruttura supportati da StorSimple.
 
-| Scenario | Carico di lavoro | Supportato | Restrizioni | Versione |
+| Scenario | Carico di lavoro | Funzionalità supportata | Restrizioni | Versione |
 | --- | --- | --- | --- | --- |
 | Generale |Express Route |Sì | |Tutte le versioni |
 | Generale |DataCore FC |Sì* |Supportato con DataCore SANsymphony |Tutte le versioni |
@@ -258,7 +258,7 @@ Di seguito è riportato un elenco di altri prodotti software che vengono usati c
 Prima di distribuire la soluzione Microsoft Azure StorSimple, è consigliabile esaminare i seguenti termini e definizioni.
 
 ### <a name="key-terms-and-definitions"></a>Termini e definizioni chiave
-| Termine (acronimo o abbreviazione) | Descrizione |
+| Termine (acronimo o abbreviazione) | Description |
 | --- | --- |
 | record di controllo di accesso |Record associato a un volume sul dispositivo Microsoft Azure StorSimple che determina quali host vi si possono connettere. Per determinarli, viene usato il nome qualificato iSCSI (IQN) degli host (contenuto nel record di controllo di accesso) che si connettono al dispositivo StorSimple. |
 | AES-256 |Algoritmo AES (Advanced Encryption Standard) a 256 bit per la crittografia dei dati in entrata e in uscita dal cloud. |
@@ -315,4 +315,3 @@ Prima di distribuire la soluzione Microsoft Azure StorSimple, è consigliabile e
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni sulla [sicurezza di StorSimple](storsimple-8000-security.md).
-

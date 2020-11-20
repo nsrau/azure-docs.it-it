@@ -1,7 +1,7 @@
 ---
-title: Aggiornare un comando dall'app client
+title: Aggiornare un comando da un'app client
 titleSuffix: Azure Cognitive Services
-description: aggiornare un comando dall'app client
+description: Informazioni su come aggiornare un comando da un'applicazione client.
 services: cognitive-services
 author: encorona-ms
 manager: yetian
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: encorona
-ms.openlocfilehash: 1bffb09d0f49bbd0059e8a528d67bfe215f0650d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 765bcbd0521f93bacb0799595e6fbef565d0f313
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654348"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963624"
 ---
-# <a name="update-a-command-from-the-client"></a>Aggiornare un comando dal client
+# <a name="update-a-command-from-a-client-app"></a>Aggiornare un comando da un'app client
 
-Questo articolo illustra come aggiornare un comando in corso da un'applicazione client.
+In questo articolo si apprenderà come aggiornare un comando in corso da un'applicazione client.
 
 ## <a name="prerequisites"></a>Prerequisiti
 > [!div class = "checklist"]
@@ -29,7 +29,7 @@ Questo articolo illustra come aggiornare un comando in corso da un'applicazione 
 
 Se l'applicazione client richiede di aggiornare lo stato di un comando in corso senza input vocale, è possibile inviare un evento per aggiornare il comando.
 
-Per illustrare questo scenario, per aggiornare lo stato di un comando in corso (TurnOnOff) è possibile inviare la seguente attività evento. 
+Per illustrare questo scenario, inviare l'attività evento seguente per aggiornare lo stato di un comando in corso ( `TurnOnOff` ): 
 
 ```json
 {
@@ -49,36 +49,36 @@ Per illustrare questo scenario, per aggiornare lo stato di un comando in corso (
 }
 ```
 
-Consente di esaminare gli attributi chiave di questa attività.
+Esaminiamo gli attributi chiave di questa attività:
 
 | Attributo | Spiegazione |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **type** | L'attività è di tipo "Event" e il nome dell'evento deve essere "RemoteUpdate". |
-| **value** | L'attributo "value" contiene gli attributi necessari per aggiornare il comando corrente. |
-| **updatedCommand** | L'attributo "updatedCommand" contiene il nome del comando, "updatedParameters" è una mappa con il nome dei parametri e i relativi valori aggiornati. |
-| **cancel** | Se è necessario annullare il comando in corso, impostare l'attributo "Cancel" su true. |
-| **updatedGlobalParameters** | L'attributo "updatedGlobalParameters" è anche una mappa, analogamente a "updatedParameters", ma usata per i parametri globali. |
-| **processTurn** | Se è necessario elaborare il turno dopo l'invio dell'attività, impostare l'attributo "processTurn" su true. |
+| **type** | L'attività è di tipo `"event"` e il nome dell'evento deve essere `"RemoteUpdate"` . |
+| **value** | L'attributo `"value"` contiene gli attributi necessari per aggiornare il comando corrente. |
+| **updatedCommand** | L'attributo `"updatedCommand"` contiene il nome del comando. All'interno di tale attributo, `"updatedParameters"` è una mappa con i nomi dei parametri e i relativi valori aggiornati. |
+| **cancel** | Se è necessario annullare il comando in corso, impostare l'attributo `"cancel"` su `true` . |
+| **updatedGlobalParameters** | L'attributo `"updatedGlobalParameters"` è una mappa analoga a `"updatedParameters"` , ma viene usato per i parametri globali. |
+| **processTurn** | Se è necessario elaborare il turno dopo l'invio dell'attività, impostare l'attributo `"processTurn"` su `true` . |
 
-È possibile testare questo scenario nel portale dei comandi personalizzati.
+È possibile testare questo scenario nel portale dei comandi personalizzati:
 
-1. Aprire l'applicazione di comandi personalizzati creata in precedenza. 
-1. Fare clic su Train, quindi su test.
-1. Inviare "Turn".
-1. Aprire il pannello laterale e fare clic su Editor attività.
-1. Digitare e inviare l'evento RemoteCommand specificato nella sezione precedente.
+1. Aprire l'applicazione Commands personalizzata creata in precedenza. 
+1. Selezionare **Train** e quindi **test**.
+1. Inviare `turn` .
+1. Aprire il pannello laterale e selezionare **Editor attività**.
+1. Digitare e inviare l' `RemoteCommand` evento specificato nella sezione precedente.
     > [!div class="mx-imgBorder"]
-    > ![Invia comando remoto](media/custom-commands/send-remote-command-activity.png)
+    > ![Screenshot che mostra l'evento per un comando remoto.](media/custom-commands/send-remote-command-activity.png)
 
-Si noti che il valore per il parametro "OnOff" è stato impostato su "on" utilizzando un'attività del client anziché il testo o il riconoscimento vocale.
+Si noti il modo in cui il valore per il parametro `"OnOff"` è stato impostato su `"on"` tramite un'attività del client anziché un testo o una voce.
 
 ## <a name="update-the-catalog-of-the-parameter-for-a-command"></a>Aggiornare il catalogo del parametro per un comando
 
 Quando si configura l'elenco di opzioni valide per un parametro, i valori per il parametro vengono definiti globalmente per l'applicazione. 
 
-In questo esempio il parametro SubjectDevice avrà un elenco fisso di valori supportati indipendentemente dalla conversazione.
+In questo esempio, il `SubjectDevice` parametro avrà un elenco fisso di valori supportati indipendentemente dalla conversazione.
 
-Se è necessario aggiungere nuove voci al catalogo del parametro per conversazione, è possibile inviare l'attività seguente.
+Se si desidera aggiungere nuove voci al catalogo del parametro per conversazione, è possibile inviare l'attività seguente:
 
 ```json
 {
@@ -103,48 +103,49 @@ Se è necessario aggiungere nuove voci al catalogo del parametro per conversazio
   }
 }
 ```
-Con questa attività è stata aggiunta una voce per "stereo" al catalogo del parametro "SubjectDevice" nel comando "TurnOnOff".
+Con questa attività, è stata aggiunta una voce per `"stereo"` al catalogo del parametro `"SubjectDevice"` nel comando `"TurnOnOff"` .
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-commands/update-catalog-with-remote-activity.png" alt-text="Catalogo aggiornamenti":::
+> :::image type="content" source="./media/custom-commands/update-catalog-with-remote-activity.png" alt-text="Screenshot che mostra un aggiornamento del catalogo.":::
 
-Si noti un paio di cose.
-1. È sufficiente inviare questa attività una sola volta (idealmente subito dopo l'avvio di una connessione).
-1. Dopo aver inviato questa attività, è necessario attendere che il ParameterCatalogsUpdated dell'evento venga restituito al client.
+Si noti un paio di aspetti:
+- È necessario inviare questa attività solo una volta (idealmente, subito dopo l'avvio di una connessione).
+- Dopo aver inviato questa attività, è necessario attendere che l'evento `ParameterCatalogsUpdated` venga restituito al client.
 
-## <a name="add-additional-context-from-the-client-application"></a>Aggiungere un contesto aggiuntivo dall'applicazione client
+## <a name="add-more-context-from-the-client-application"></a>Aggiungere altro contesto dall'applicazione client
 
 È possibile impostare un contesto aggiuntivo dall'applicazione client per ogni conversazione che può essere usata in un secondo momento nell'applicazione comandi personalizzata. 
 
 Si consideri, ad esempio, lo scenario in cui si vuole inviare l'ID e il nome del dispositivo connesso all'applicazione Custom Commands.
 
-Per testare questo scenario, è possibile creare un nuovo comando nell'applicazione corrente.
-1. Creare un nuovo comando denominato GetDeviceInfo.
-1. Aggiungere una frase di esempio con "Get Device Info".
-1. Nella regola di completamento "operazione completata" aggiungere un'azione Invia risposta vocale che contiene gli attributi di clientContext.
-    > ![Invia risposta vocale con contesto](media/custom-commands/send-speech-response-context.png)
+Per testare questo scenario, creare un nuovo comando nell'applicazione corrente:
+1. Creare un nuovo comando denominato `GetDeviceInfo` .
+1. Aggiungere una frase di esempio di `get device info` .
+1. Nella **regola di** completamento, aggiungere un'azione **Invia risposta vocale** che contiene gli attributi di `clientContext` .
+   ![Screenshot che mostra una risposta per l'invio di sintesi vocale con contesto.](media/custom-commands/send-speech-response-context.png)
 1. Salva, Esegui il training e testa la tua applicazione.
-1. Una volta nella finestra di test, inviare un'attività per aggiornare il contesto client.
-    > ```json
-    >{
-    >   "type": "event",
-    >   "name": "RemoteUpdate",
-    >   "value": {
-    >     "clientContext": {
-    >       "deviceId": "12345",
-    >       "deviceName": "My device"
-    >     },
-    >     "processTurn": false
-    >   }
-    >}
-    > ```
-1. Inviare il testo "Get Device Info".
-    > ![Invia attività contesto client](media/custom-commands/send-client-context-activity.png)
+1. Nella finestra di test inviare un'attività per aggiornare il contesto client.
 
-Prendere nota di alcune operazioni.
-1. È sufficiente inviare questa attività una sola volta (idealmente subito dopo l'avvio di una connessione).
-1. Per clientContext è possibile usare oggetti complessi.
-1. È possibile usare clientContext nelle risposte vocali per inviare le attività e quando si chiamano gli endpoint Web.
+    ```json
+    {
+       "type": "event",
+       "name": "RemoteUpdate",
+       "value": {
+         "clientContext": {
+           "deviceId": "12345",
+           "deviceName": "My device"
+         },
+         "processTurn": false
+       }
+    }
+    ```
+1. Inviare il testo `get device info` .
+   ![Screenshot che mostra un'attività per l'invio del contesto client.](media/custom-commands/send-client-context-activity.png)
+
+Si noti quanto segue:
+- È necessario inviare questa attività solo una volta (idealmente, subito dopo l'avvio di una connessione).
+- Per è possibile utilizzare oggetti complessi `clientContext` .
+- È possibile utilizzare `clientContext` nelle risposte vocali, per l'invio di attività e per la chiamata di endpoint Web.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

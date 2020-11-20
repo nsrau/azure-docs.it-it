@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 keywords: SAP, Azure, Oracle, Data Guard
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e72c9d64a71fceb90d0a6ae9984997f73c1b5c6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3e99b3a8960eb49856e9a016eb054eed41eccde9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963534"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965256"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Distribuzione del sistema DBMS Oracle per macchine virtuali di Azure per carichi di lavoro SAP
 
@@ -380,7 +381,7 @@ La configurazione minima è la seguente:
 | \oracle\<SID>\origlogaB & mirrlogA | Disco Premium o ultra | nessuno | Non necessario |
 | \oracle\<SID>\sapdata1...n | Disco Premium o ultra | Sola lettura | Può essere usato per Premium |
 | \oracle\<SID>\oraarch | Standard | nessuno | Non necessario |
-| Oracle Home, `saptrace` ,... | Disco del sistema operativo (Premium) | | Non necessario |
+| Oracle Home, `saptrace` ,... | Disco del sistema operativo (Premium) | | Non necessaria |
 
 
 La selezione dei dischi per l'hosting dei log di ripristino online deve essere determinata dai requisiti di IOPS. È possibile archiviare tutti gli spazi di tabella sapdata1... n in un unico disco montato, purché le dimensioni, le operazioni di I/O al secondo e la velocità effettiva soddisfino i requisiti. 
@@ -389,12 +390,12 @@ La configurazione delle prestazioni è la seguente:
 
 | Componente | Disco | Memorizzazione nella cache | Pool di archiviazione |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA | Disco Premium o ultra | nessuno | Può essere usato per Premium  |
-| \oracle\<SID>\origlogaB | Disco Premium o ultra | nessuno | Può essere usato per Premium |
-| \oracle\<SID>\mirrlogAB | Disco Premium o ultra | nessuno | Può essere usato per Premium |
-| \oracle\<SID>\mirrlogBA | Disco Premium o ultra | nessuno | Può essere usato per Premium |
+| \oracle\<SID>\origlogaA | Disco Premium o ultra | Nessuno | Può essere usato per Premium  |
+| \oracle\<SID>\origlogaB | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
+| \oracle\<SID>\mirrlogAB | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
+| \oracle\<SID>\mirrlogBA | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
 | \oracle\<SID>\sapdata1...n | Disco Premium o ultra | Sola lettura | Consigliato per Premium  |
-| \oracle\SID\sapdata(n+1)* | Disco Premium o ultra | nessuno | Può essere usato per Premium |
+| \oracle\SID\sapdata(n+1)* | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
 | \oracle\<SID>\oraarch* | Disco Premium o ultra | nessuno | Non necessario |
 | Oracle Home, `saptrace` ,... | Disco del sistema operativo (Premium) | Non necessario |
 
@@ -482,12 +483,12 @@ Configurazione delle prestazioni:
 
 | Componente | Disco | Memorizzazione nella cache | Rimozione * |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA | Disco Premium o ultra | nessuno | Può essere usato per Premium  |
-| /oracle/\<SID>/origlogaB | Disco Premium o ultra | nessuno | Può essere usato per Premium |
-| /oracle/\<SID>/mirrlogAB | Disco Premium o ultra | nessuno | Può essere usato per Premium |
-| /oracle/\<SID>/mirrlogBA | Disco Premium o ultra | nessuno | Può essere usato per Premium |
+| /oracle/\<SID>/origlogaA | Disco Premium o ultra | Nessuno | Può essere usato per Premium  |
+| /oracle/\<SID>/origlogaB | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
+| /oracle/\<SID>/mirrlogAB | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
+| /oracle/\<SID>/mirrlogBA | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
 | /oracle/\<SID>/sapdata1...n | Disco Premium o ultra | Sola lettura | Consigliato per Premium  |
-| /oracle/\<SID>/sapdata(n+1)* | Disco Premium o ultra | nessuno | Può essere usato per Premium |
+| /oracle/\<SID>/sapdata(n+1)* | Disco Premium o ultra | Nessuno | Può essere usato per Premium |
 | /oracle/\<SID>/oraarch* | Disco Premium o ultra | nessuno | Non necessario |
 | Oracle Home, `saptrace` ,... | Disco del sistema operativo (Premium) | Non necessario |
 

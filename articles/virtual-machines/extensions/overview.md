@@ -4,16 +4,17 @@ description: Altre informazioni sulle estensioni di VM di Azure
 services: virtual-machines
 author: amjads1
 ms.service: virtual-machines
+ms.subservice: extensions
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/03/2020
 ms.author: amjads
-ms.openlocfilehash: 73738f339bea3e8e075530e5de564c1c0854d283
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1dd26fce2e0a761ceed211933cb79ce518905e2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87552051"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965885"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Estensioni e funzionalità delle macchine virtuali di Azure
 Le estensioni sono piccole applicazioni che forniscono configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. La piattaforma Azure ospita molte estensioni per la configurazione delle macchine virtuali, il monitoraggio, la sicurezza e le applicazioni di utilità. Gli editori accettano un'applicazione, ne esegue il wrapping in un'estensione e semplificano l'installazione. È sufficiente specificare parametri obbligatori. 

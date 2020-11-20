@@ -5,15 +5,16 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 503d3d5ed9b099e01a88ee40ef80e88105beb340
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 11/19/2020
+ms.openlocfilehash: f1a7ffc8225ea20b48df4e1d9a049655ca4776a4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917733"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964661"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
+
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Questo articolo fornisce una panoramica delle quote predefinite offerte a risorse diverse in Azure Cosmos DB.
@@ -194,8 +195,8 @@ Azure Cosmos DB gestisce i metadati di sistema per ogni account. Questi metadati
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-|Velocità massima di creazione raccolta al minuto|    5|
-|Velocità massima di creazione database al minuto|    5|
+|Velocità massima di creazione raccolta al minuto|    100|
+|Velocità massima di creazione database al minuto|    100|
 |Velocità massima di aggiornamento velocità effettiva con provisioning al minuto|    5|
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Limiti per la velocità effettiva con provisioning a scalabilità automatica

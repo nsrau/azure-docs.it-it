@@ -7,17 +7,18 @@ author: vermagit
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
-ms.openlocfilehash: eb06f98d1a6e9b76c321e3d202043d656a2d94eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a5aa8983e6cbb0745e05ce275edeadeccb60736
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829051"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966038"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>Estensione driver InfiniBand per Linux
 
@@ -74,7 +75,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione.
 | apiVersion | 2015-06-15 | Data |
 | publisher | Microsoft.HpcCompute | string |
 | type | InfiniBandDriverLinux | string |
-| typeHandlerVersion | 1.1 | INT |
+| typeHandlerVersion | 1.1 | int |
 
 
 

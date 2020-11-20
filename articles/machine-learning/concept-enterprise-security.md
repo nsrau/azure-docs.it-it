@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: a9ad018980784a1f809ad28a77dacf9f0328fffa
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: 4e2bcb683c9d4c5248315549bf6d6ee26b2a51ac
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94873897"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965035"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Sicurezza e governance aziendale per Azure Machine Learning
 
@@ -28,7 +28,7 @@ Quando si usa un servizio cloud, è consigliabile limitare l'accesso solo agli u
 
 ## <a name="authentication--authorization"></a>Autorizzazione & di autenticazione
 
-La maggior parte dell'autenticazione per Azure Machine Learning risorse USA Azure Active Directory (Azure AD) per l'autenticazione e il controllo degli accessi in base al ruolo (RBAC di Azure) per l'autorizzazione. Le eccezioni sono le seguenti:
+La maggior parte dell'autenticazione per Azure Machine Learning risorse USA Azure Active Directory (Azure AD) per l'autenticazione e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per l'autorizzazione. Le eccezioni sono le seguenti:
 
 * __SSH__: è possibile abilitare l'accesso SSH ad alcune risorse di calcolo, ad esempio Azure Machine Learning istanza di calcolo. L'accesso SSH usa l'autenticazione basata su chiavi. Per altre informazioni sulla creazione di chiavi SSH, vedere [creare e gestire chiavi SSH](../virtual-machines/linux/create-ssh-keys-detailed.md). Per informazioni sull'abilitazione dell'accesso SSH, vedere [creare e gestire Azure Machine Learning istanza di calcolo](how-to-create-manage-compute-instance.md).
 * __Modelli distribuiti come servizi Web__: le distribuzioni di servizi Web possono usare il controllo di accesso basato su __chiavi__ o __token__. Le chiavi sono stringhe statiche. I token vengono recuperati usando un account Azure AD. Per altre informazioni, vedere [configurare l'autenticazione per i modelli distribuiti come servizio Web](how-to-authenticate-web-service.md).
@@ -49,7 +49,7 @@ Per ulteriori informazioni, vedere [autenticazione per Azure machine learning ar
 
 ### <a name="azure-rbac"></a>Controllo degli accessi in base al ruolo di Azure
 
-È possibile creare più aree di lavoro, ciascuna delle quali può essere condivisa da più utenti. È possibile controllare le funzionalità o le operazioni dell'area di lavoro a cui gli utenti possono accedere assegnando il proprio account Azure AD ai ruoli RBAC di Azure. Di seguito sono riportati i ruoli predefiniti:
+È possibile creare più aree di lavoro, ciascuna delle quali può essere condivisa da più utenti. È possibile controllare le funzionalità o le operazioni dell'area di lavoro a cui gli utenti possono accedere assegnando il proprio account Azure AD ai ruoli di Azure. Di seguito sono riportati i ruoli predefiniti:
 
 * Proprietario
 * Collaboratore
@@ -131,7 +131,7 @@ Potrebbe anche essere necessario crittografare le [informazioni di diagnostica r
 
 Esistono diversi scenari di monitoraggio con Azure Machine Learning, a seconda del ruolo e degli elementi monitorati.
 
-| Ruolo | Monitoraggio da usare | Descrizione |
+| Ruolo | Monitoraggio da usare | Description |
 | ---- | ----- | ----- |
 | Admin, DevOps, MLOps | [Metriche di monitoraggio di Azure](#azure-monitor), [log attività](#activity-log), [analisi delle vulnerabilità](#vulnerability-scanning) | Informazioni sul livello di servizio |
 | Data Scientist, MLOps | [Monitoraggio delle esecuzioni](#monitor-runs) | Informazioni registrate durante l'esecuzione del training |

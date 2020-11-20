@@ -3,12 +3,12 @@ title: Registrare gli avvisi da monitoraggio di Azure per i contenitori | Micros
 description: Questo articolo descrive come creare avvisi di log personalizzati per l'utilizzo della memoria e della CPU da monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: ddf898978bdaf51cb81a95c3209855c51212280f
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: e9b0e01ca4c0ccb24d0d1b04a4d17ec06db253b6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995261"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966252"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Come creare avvisi di log da monitoraggio di Azure per i contenitori
 
@@ -17,7 +17,7 @@ Monitoraggio di Azure per i contenitori monitora le prestazioni dei carichi di l
 - Quando l'utilizzo della CPU o della memoria nei nodi del cluster supera una soglia
 - Quando l'utilizzo della CPU o della memoria in qualsiasi contenitore all'interno di un controller supera una soglia rispetto a un limite impostato sulla risorsa corrispondente
 - Conteggi del nodo dello stato *Nobattistrada*
-- Conteggi di *fasi Pod* *non riusciti*, *in sospeso*, *sconosciuti*, *in esecuzione*o completati
+- Conteggi di *fasi Pod* *non riusciti*, *in sospeso*, *sconosciuti*, *in esecuzione* o completati
 - Quando lo spazio libero su disco nei nodi del cluster supera una soglia
 
 Per segnalare un utilizzo elevato della CPU o della memoria o di spazio su disco insufficiente nei nodi del cluster, utilizzare le query fornite per creare un avviso per la metrica o un avviso di misurazione della metrica. Mentre gli avvisi delle metriche hanno una latenza inferiore rispetto agli avvisi del log, gli avvisi del log forniscono query avanzate e una maggiore complessità. Le query di avviso del log confrontano un valore DateTime con quello attuale usando l'operatore *Now* e tornando indietro di un'ora. Il monitoraggio di Azure per i contenitori archivia tutte le date nel formato UTC (Coordinated Universal Time).
@@ -207,14 +207,14 @@ KubeNodeInventory
             NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
 | order by ClusterName asc, Computer asc, TimeGenerated desc
 ```
-La query seguente restituisce i conteggi delle fasi pod in base a tutte le fasi: *failed*, *Pending*, *Unknown*, *Running*o *succeeded*.  
+La query seguente restituisce i conteggi delle fasi pod in base a tutte le fasi: *failed*, *Pending*, *Unknown*, *Running* o *succeeded*.  
 
 ```kusto
-let endDateTime = now();
-    let startDateTime = ago(1h);
-    let trendBinSize = 1m;
-    let clusterName = '<your-cluster-name>';
-    KubePodInventory
+let endDateTime = now(); 
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+let clusterName = '<your-cluster-name>';
+KubePodInventory
     | where TimeGenerated < endDateTime
     | where TimeGenerated >= startDateTime
     | where ClusterName == clusterName
@@ -224,13 +224,13 @@ let endDateTime = now();
         KubePodInventory
         | where TimeGenerated < endDateTime
         | where TimeGenerated >= startDateTime
-        | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus
+        | summarize PodStatus=any(PodStatus) by TimeGenerated, PodUid, ClusterId
         | summarize TotalCount = count(),
                     PendingCount = sumif(1, PodStatus =~ 'Pending'),
                     RunningCount = sumif(1, PodStatus =~ 'Running'),
                     SucceededCount = sumif(1, PodStatus =~ 'Succeeded'),
                     FailedCount = sumif(1, PodStatus =~ 'Failed')
-                 by ClusterName, bin(TimeGenerated, trendBinSize)
+                by ClusterName, bin(TimeGenerated, trendBinSize)
     ) on ClusterName, TimeGenerated
     | extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount
     | project TimeGenerated,
@@ -244,7 +244,7 @@ let endDateTime = now();
 ```
 
 >[!NOTE]
->Per eseguire un avviso su determinate fasi di Pod, ad esempio *in sospeso*, *non riuscite*o *sconosciute*, modificare l'ultima riga della query. Ad esempio, per segnalare l'uso di *FailedCount* : <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
+>Per eseguire un avviso su determinate fasi di Pod, ad esempio *in sospeso*, *non riuscite* o *sconosciute*, modificare l'ultima riga della query. Ad esempio, per segnalare l'uso di *FailedCount* : <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
 La query seguente restituisce i dischi dei nodi del cluster che superano il 90% di spazio libero utilizzato. Per ottenere l'ID del cluster, eseguire prima la query seguente e copiare il valore dalla `ClusterId` proprietà:
 
@@ -287,14 +287,14 @@ Questa sezione illustra la creazione di una regola di avviso di misurazione dell
 4. Nel riquadro sul lato sinistro selezionare **log** per aprire la pagina log di monitoraggio di Azure. Usare questa pagina per scrivere ed eseguire query di log di Azure.
 5. Nella pagina **logs** incollare una delle [query](#resource-utilization-log-search-queries) fornite in precedenza nel campo della **query di ricerca** e quindi selezionare **Run (Esegui** ) per convalidare i risultati. Se non si esegue questo passaggio, l'opzione **+ nuovo avviso** non è disponibile per la selezione.
 6. Selezionare **+ nuovo avviso** per creare un avviso del log.
-7. Nella sezione **condizione** selezionare il **ogni volta che la ricerca log personalizzata è \<logic undefined> ** una condizione di log personalizzata predefinita. Il tipo di segnale di **Ricerca log personalizzato** viene selezionato automaticamente perché si sta creando una regola di avviso direttamente dalla pagina log di monitoraggio di Azure.  
+7. Nella sezione **condizione** selezionare il **ogni volta che la ricerca log personalizzata è \<logic undefined>** una condizione di log personalizzata predefinita. Il tipo di segnale di **Ricerca log personalizzato** viene selezionato automaticamente perché si sta creando una regola di avviso direttamente dalla pagina log di monitoraggio di Azure.  
 8. Incollare una delle [query](#resource-utilization-log-search-queries) fornite in precedenza nel campo della **query di ricerca** .
 9. Configurare l'avviso come segue:
 
     1. Dall'elenco **a discesa basato su** selezionare **misurazione metrica**. Una misura metrica crea un avviso per ogni oggetto nella query con un valore superiore alla soglia specificata.
-    1. Per **condizione**selezionare **maggiore di**e immettere **75** come **soglia** iniziale di base per gli avvisi di utilizzo della CPU e della memoria. Per l'avviso di spazio su disco insufficiente immettere **90**. In alternativa, immettere un valore diverso che soddisfi i criteri.
-    1. Nella sezione **trigger Alert based on** selezionare **violazioni consecutive**. Nell'elenco a discesa selezionare **maggiore di**e immettere **2**.
-    1. Per configurare un avviso per l'utilizzo della CPU o della memoria del contenitore, in **Aggregate on**selezionare **containerName**. Per configurare l'avviso per nodo cluster su disco basso, selezionare **ClusterId**.
+    1. Per **condizione** selezionare **maggiore di** e immettere **75** come **soglia** iniziale di base per gli avvisi di utilizzo della CPU e della memoria. Per l'avviso di spazio su disco insufficiente immettere **90**. In alternativa, immettere un valore diverso che soddisfi i criteri.
+    1. Nella sezione **trigger Alert based on** selezionare **violazioni consecutive**. Nell'elenco a discesa selezionare **maggiore di** e immettere **2**.
+    1. Per configurare un avviso per l'utilizzo della CPU o della memoria del contenitore, in **Aggregate on** selezionare **containerName**. Per configurare l'avviso per nodo cluster su disco basso, selezionare **ClusterId**.
     1. Nella sezione **valutato in base** a impostare il valore del **periodo** su **60 minuti**. La regola viene eseguita ogni 5 minuti e restituisce i record creati nell'ultima ora dall'ora corrente. Impostazione del periodo di tempo su un'ampia finestra account per la potenziale latenza dei dati. Garantisce inoltre che la query restituisca dati per evitare un falso negativo in cui l'avviso non viene mai attivato.
 
 10. Selezionare **fine** per completare la regola di avviso.

@@ -7,17 +7,18 @@ author: vermagit
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: amverma
-ms.openlocfilehash: ccc9df8078bb7fec8be7d72b0ae18ed416bb10ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0ec18ae4a7d6020299660adbeba6f993cd4eeca
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87097837"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966021"
 ---
 # <a name="infiniband-driver-extension-for-windows"></a>Estensione driver InfiniBand per Windows
 
@@ -36,7 +37,7 @@ Questa estensione supporta le distribuzioni dei sistemi operativi seguenti, in b
 | Windows 10 | Core |
 | Windows Server 2019 | Core |
 | Windows Server 2016 | Core |
-| R2 per Windows Server 2012 | Core |
+| Windows Server 2012 R2 | Core |
 | Windows Server 2012 | Core |
 
 ### <a name="internet-connectivity"></a>Connettività Internet

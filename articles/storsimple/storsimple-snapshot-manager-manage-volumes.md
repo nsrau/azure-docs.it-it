@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: alkohli
-ms.openlocfilehash: 79a239def70f0455f63c18d86397ec8d927f244c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 309fa85d0a4d877522a89dd8f1e6e71fb2074744
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90054908"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964967"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Utilizzare StorSimple Snapshot Manager per visualizzare e gestire i volumi
 ## <a name="overview"></a>Panoramica
@@ -45,7 +45,7 @@ Questo tutorial spiega come montare, inizializzare e formattare volumi e quindi 
 > 
 
 ## <a name="mount-volumes"></a>Montare i volumi
-Usare la procedura seguente per montare, inizializzare e formattare volumi StorSimple. Questa procedura usa Gestione disco, un'utilità di sistema per la gestione dei dischi rigidi e dei volumi o delle partizioni corrispondenti. Per altre informazioni su Gestione disco, vedere [Gestione Disco](https://technet.microsoft.com/library/cc770943.aspx) nel sito Web Microsoft TechNet.
+Usare la procedura seguente per montare, inizializzare e formattare volumi StorSimple. Questa procedura usa Gestione disco, un'utilità di sistema per la gestione dei dischi rigidi e dei volumi o delle partizioni corrispondenti. Per altre informazioni su Gestione disco, vedere [Gestione Disco](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770943(v=ws.11)) nel sito Web Microsoft TechNet.
 
 #### <a name="to-mount-volumes"></a>Montare volumi
 1. Sul computer, avviare iSCSI Microsoft Initiator.
@@ -80,7 +80,7 @@ Usare la procedura seguente per montare, inizializzare e formattare volumi StorS
       * Selezionare il file system NTFS.
       * Specificare una dimensione unità di allocazione pari a 64 KB.
       * Eseguire una formattazione veloce.
-7. Formattare volumi con più partizioni. Per istruzioni, vedere la sezione "Partizioni e Volumi" in [Esecuzione Gestione Disco](https://msdn.microsoft.com/library/dd163556.aspx).
+7. Formattare volumi con più partizioni. Per istruzioni, vedere la sezione "Partizioni e Volumi" in [Esecuzione Gestione Disco](/previous-versions/tn-archive/dd163556(v=technet.10)).
 
 ## <a name="view-information-about-your-volumes"></a>Visualizzare informazioni sui volumi
 Utilizzare la procedura seguente per visualizzare informazioni sui volumi locali e di Azure StorSimple di Azure.
@@ -91,7 +91,7 @@ Utilizzare la procedura seguente per visualizzare informazioni sui volumi locali
    
     ![Configurare le colonne](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
    
-   | Colonna risultati | Descrizione |
+   | Colonna risultati | Description |
    |:--- |:--- |
    |  Nome |La colonna **Nome** contiene la lettera di unità assegnata a ogni volume individuato. |
    |  Dispositivo |La **colonna** dispositivo contiene l'indirizzo IP del dispositivo connesso al computer. |
@@ -133,7 +133,7 @@ Utilizzare la procedura seguente per configurare il backup di un volume di base 
 ### <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare:
 
-* Assicurarsi che il dispositivo StorSimple, dispositivi e il computer siano configurati correttamente. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).
+* Assicurarsi che il dispositivo StorSimple, dispositivi e il computer siano configurati correttamente. Per altre informazioni, vedere [Distribuire un dispositivo StorSimple locale](./storsimple-8000-deployment-walkthrough-u2.md).
 * Installare e configurare Snapshot StorSimple Manager. Per altre informazioni, vedere l'argomento relativo alla [distribuzione di StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
 #### <a name="to-configure-backup-of-a-basic-volume"></a>Per configurare il backup di un volume di base
@@ -166,7 +166,7 @@ Prima di iniziare:
 * Configurare due volumi sul dispositivo StorSimple. Negli esempi i volumi disponibili sono **Disco 1** e **Disco 2**. 
 
 ### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Passaggio 1: Utilizzare Gestione Disco per creare un volume con mirroring dinamico
-Gestione disco è un'utilità di sistema per la gestione dei dischi rigidi e i volumi o partizioni in essi contenuti. Per altre informazioni su Gestione disco, vedere [Gestione Disco](https://technet.microsoft.com/library/cc770943.aspx) nel sito Web Microsoft TechNet.
+Gestione disco è un'utilità di sistema per la gestione dei dischi rigidi e i volumi o partizioni in essi contenuti. Per altre informazioni su Gestione disco, vedere [Gestione Disco](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770943(v=ws.11)) nel sito Web Microsoft TechNet.
 
 #### <a name="to-create-a-dynamic-mirrored-volume"></a>Per creare un volume con mirroring dinamico
 1. Per avviare Gestione Disco, usare una delle opzioni seguenti: 
@@ -186,7 +186,7 @@ Gestione disco è un'utilità di sistema per la gestione dei dischi rigidi e i v
 9. Viene visualizzato un messaggio per indicare che il disco di base verrà convertito in un disco dinamico. Fare clic su **Sì**.
    
     ![Messaggi di conversione del disco dinamico](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png) 
-10. In Gestione disco, verificare che Disco 1 e Disco 2 vengano visualizzati come volumi con mirroring dinamico. Nella colonna dello stato dovrebbe essere visualizzata la dicitura**Dinamico** e le barre di capacità dovrebbero diventare rosse a indicare un volume con mirroring. 
+10. In Gestione disco, verificare che Disco 1 e Disco 2 vengano visualizzati come volumi con mirroring dinamico. Nella colonna dello stato dovrebbe essere visualizzata la dicitura **Dinamico** e le barre di capacità dovrebbero diventare rosse a indicare un volume con mirroring. 
     
     ![Dischi dinamici con mirroring di Gestione disco](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png) 
 
@@ -210,4 +210,4 @@ Utilizzare la procedura seguente per configurare un volume con mirroring dinamic
 * Informazioni su come [usare StorSimple Snapshot Manager per creare e gestire gruppi di volumi](storsimple-snapshot-manager-manage-volume-groups.md).
 
 <!--Reference links-->
-[1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee338480(v=ws.10)

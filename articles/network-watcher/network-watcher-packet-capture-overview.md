@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 1f17463125cead64bd58a2d07e53eee4d3cfcd70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c458508dbf8d98349ec8549af32e3dd48bbd09b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76840809"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966429"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introduzione all'acquisizione di pacchetti di variabili in Azure Network Watcher
 
@@ -25,7 +25,7 @@ Il servizio di acquisizione di pacchetti di variabili di Network Watcher consent
 L'acquisizione di pacchetti è un'estensione macchina virtuale che viene avviata da remoto tramite Network Watcher. Questa funzionalità evita di dover eseguire manualmente questa operazione sulla macchina virtuale desiderata, consentendo un notevole risparmio di tempo. L'acquisizione di pacchetti può essere attivata tramite il portale, PowerShell, l'interfaccia della riga di comando o l'API REST. Un esempio di modalità di attivazione è rappresentata dagli avvisi della macchina virtuale. Sono disponibili filtri per la sessione di acquisizione per garantire che venga acquisito il traffico che si desidera monitorare. I filtri si basano su informazioni a 5 tuple (protocollo, indirizzo IP locale, indirizzo IP remoto, porta locale e porta remota). I dati acquisiti vengono archiviati nel disco locale o in un BLOB di archiviazione. È previsto un limite di 10 sessioni di acquisizione dei pacchetti per area per sottoscrizione. Questo limite si applica solo alle sessioni e non si applica ai file di acquisizione di pacchetti salvati in locale nella VM o in un account di archiviazione.
 
 > [!IMPORTANT]
-> L'acquisizione di pacchetti richiede un'estensione macchina virtuale `AzureNetworkWatcherExtension`. Per installare l'estensione in una VM Windows, vedere [Estensione macchina virtuale agente Azure Network Watcher per Windows](../virtual-machines/windows/extensions-nwa.md) e per una VM Linux VM vedere [Estensione macchina virtuale Azure Network Watcher Agent per Linux](../virtual-machines/linux/extensions-nwa.md).
+> L'acquisizione di pacchetti richiede un'estensione macchina virtuale `AzureNetworkWatcherExtension`. Per installare l'estensione in una VM Windows, vedere [Estensione macchina virtuale agente Azure Network Watcher per Windows](../virtual-machines/extensions/network-watcher-windows.md) e per una VM Linux VM vedere [Estensione macchina virtuale Azure Network Watcher Agent per Linux](../virtual-machines/extensions/network-watcher-linux.md).
 
 Per limitare le informazioni acquisite alle sole informazioni desiderate, sono disponibili le opzioni seguenti per una sessione di acquisizione di pacchetti:
 
@@ -55,16 +55,3 @@ Le informazioni su come creare acquisizioni di pacchetti proattive tramite gli a
 
 <!--Image references-->
 [1]: ./media/network-watcher-packet-capture-overview/figure1.png
-
-
-
-
-
-
-
-
-
-
-
-
-

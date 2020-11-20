@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: akjosh
-ms.openlocfilehash: 4491171062e582db8388c3eff380d67ea1a0c51c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82ed1d57d72a4479005d8bfd2234c124a97096ee
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87085657"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965987"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Estensione di driver GPU NVIDIA per Windows
 
@@ -39,7 +40,7 @@ Questa estensione supporta i seguenti sistemi operativi:
 |---|---|
 | Windows 10 | Core |
 | Windows Server 2016 | Core |
-| R2 per Windows Server 2012 | Core |
+| Windows Server 2012 R2 | Core |
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 
@@ -76,7 +77,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione.
 | apiVersion | 2015-06-15 | Data |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverWindows | string |
-| typeHandlerVersion | 1.3 | INT |
+| typeHandlerVersion | 1.3 | int |
 
 
 ## <a name="deployment"></a>Distribuzione

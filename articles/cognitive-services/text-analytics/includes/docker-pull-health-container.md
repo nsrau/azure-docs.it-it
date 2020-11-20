@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 519625f6468372ec7ace523dae7648212f4f3203
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b2c9548f9c1289ae0abd61a72d7146a3bbca29
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779746"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94965160"
 ---
-Compilare e inviare il [modulo di richiesta di contenitori di servizi cognitivi](https://aka.ms/csgate) per richiedere l'accesso al contenitore.
+Compilare e inviare il [modulo di richiesta di servizi cognitivi](https://aka.ms/csgate) per richiedere l'accesso alla analisi del testo per l'anteprima pubblica dell'integrità.  Questa applicazione è valida sia per il contenitore che per l'anteprima pubblica dell'API Web ospitata.
 Il modulo richiede informazioni sull'utente, sull'azienda e sullo scenario utente per cui si userà il contenitore. Dopo l'invio del modulo, il team di Servizi cognitivi di Azure lo esaminerà per verificare che siano soddisfatti i criteri di accesso al registro contenitori privato.
 
 > [!IMPORTANT]
@@ -25,7 +25,7 @@ Il modulo richiede informazioni sull'utente, sull'azienda e sullo scenario utent
 > * La risorsa di Azure usata per eseguire il contenitore deve essere stata creata con l'ID sottoscrizione di Azure approvato. 
 > * Controllare la posta elettronica (cartella posta in arrivo e cartelle indesiderate) per gli aggiornamenti sullo stato dell'applicazione da Microsoft.
 
-Usare il comando Docker login con le credenziali fornite nel messaggio di posta elettronica di onboarding per connettersi al registro contenitori privato per i contenitori di servizi cognitivi.
+Una volta approvata, verrà inviato un messaggio di posta elettronica con le credenziali per accedere al registro contenitori privato.  Usare il comando Docker login con le credenziali fornite nel messaggio di posta elettronica di onboarding per connettersi al registro contenitori privato per i contenitori di servizi cognitivi.
 
 
 ```Docker

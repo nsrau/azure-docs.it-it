@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 757b297d3d74365928cda0934485c0018f28ffee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a7ca8236307bbf8a419d2988e1a6dc1e4c40597
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225649"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94964865"
 ---
 # <a name="preview-create-an-image-from-a-vm"></a>Anteprima: creare un'immagine da una macchina virtuale
 
@@ -81,7 +81,7 @@ Per altre informazioni sui valori che è possibile specificare per la definizion
 
 Per creare la definizione di immagine, usare [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). 
 
-In questo esempio, la definizione dell'immagine è denominata *myImageDefinition*ed è destinata a una VM specializzata che esegue Windows. Per creare una definizione per le immagini con Linux, usare `-OsType Linux` . 
+In questo esempio, la definizione dell'immagine è denominata *myImageDefinition* ed è destinata a una VM specializzata che esegue Windows. Per creare una definizione per le immagini con Linux, usare `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `
@@ -105,7 +105,7 @@ I caratteri consentiti per le versioni delle immagini sono numeri e punti. I num
 
 In questo esempio la versione dell'immagine è *1.0.0* e viene replicata nei datacenter degli *Stati Uniti centro-occidentali* e degli *Stati Uniti centro-meridionali*. Quando si scelgono le aree di destinazione per la replica, tenere presente che è necessario includere anche l'area di *origine* come destinazione per la replica.
 
-Per creare una versione di immagine dalla macchina virtuale, usare `$vm.Id.ToString()` per `-Source`.
+Per creare una versione di immagine dalla macchina virtuale, usare `$vm.Id.ToString()` per `-SourceImageId`.
 
 ```azurepowershell-interactive
    $region1 = @{Name='South Central US';ReplicaCount=1}
@@ -119,7 +119,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName $gallery.ResourceGroupName `
    -Location $gallery.Location `
    -TargetRegion $targetRegions  `
-   -Source $sourceVm.Id.ToString() `
+   -SourceImageId $sourceVm.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-01' `  
    -asJob 
 ```
