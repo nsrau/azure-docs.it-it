@@ -116,8 +116,6 @@
           href: sample-scripts-azure-cli.md
         - name: Pool di connessioni Java
           href: sample-scripts-java-connection-pooling.md
-        - name: Criteri di Azure predefiniti
-          href: ./policy-reference.md
     - name: Concetti
       items:
         - name: Server
@@ -156,6 +154,9 @@
               href: concepts-azure-ad-authentication.md
             - name: Crittografia doppia dell'infrastruttura
               href: concepts-infrastructure-double-encryption.md
+            - name: Controlli di sicurezza in base a Criteri di Azure
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: Baseline di sicurezza
               href: security-baseline.md
         - name: Manutenzione pianificata
@@ -573,6 +574,9 @@
       href: /azure/templates/microsoft.dbformysql/allversions
     - name: Stored procedure di gestione
       href: reference-stored-procedures.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Modelli di distribuzione

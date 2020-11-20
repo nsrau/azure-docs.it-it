@@ -36,6 +36,10 @@
     - name: Azure Lighthouse e applicazioni gestite di Azure
       displayName: 'managed apps, ama'
       href: ./concepts/managed-applications.md
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
 - name: Guide pratiche
   items:
     - name: Eseguire l'onboarding dei clienti in Azure Lighthouse

@@ -57,8 +57,12 @@
       href: concept-security-alerts.md
     - name: Avvisi di sicurezza personalizzabili
       href: concept-customizable-security-alerts.md
-    - name: Suggerimenti per la sicurezza
-      href: concept-recommendations.md
+    - name: Sicurezza
+      items:
+        - name: Suggerimenti per la sicurezza
+          href: concept-recommendations.md
+        - name: Baseline di sicurezza
+          href: security-baseline.md
     - name: Di base
       href: concept-baseline.md
     - name: Aggregazione di eventi

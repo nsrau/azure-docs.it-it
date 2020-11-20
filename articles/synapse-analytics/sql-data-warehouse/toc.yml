@@ -29,6 +29,8 @@
   items:
     - name: Creare e connettere
       items:
+        - name: Interfaccia della riga di comando di Azure
+          href: create-data-warehouse-azure-cli.md
         - name: Portale
           href: create-data-warehouse-portal.md
         - name: PowerShell

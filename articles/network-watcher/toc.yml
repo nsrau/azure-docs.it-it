@@ -69,17 +69,17 @@
     - name: Eseguire la migrazione a Monitoraggio connessione
       items:
         - name: Da Monitoraggio prestazioni rete
-          href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
+          href: migrate-to-connection-monitor-from-network-performance-monitor.md
         - name: Da Monitoraggio connessione (versione classica)
-          href: migrate-to-connection-monitor-preview-from-connection-monitor.md
+          href: migrate-to-connection-monitor-from-connection-monitor-classic.md
     - name: Diagnosticare i problemi di rete delle VM
       items:
         - name: Installare un'estensione di macchina virtuale
           items:
             - name: Windows
-              href: ../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+              href: ../virtual-machines/extensions/network-watcher-windows.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json
             - name: Linux
-              href: ../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+              href: ../virtual-machines/extensions/network-watcher-linux.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json
         - name: Diagnosticare un problema di routing
           items:
             - name: Azure PowerShell
@@ -184,7 +184,7 @@
     - name: Determinare la latenza relativa tra una posizione e un'area di Azure
       href: view-relative-latencies.md
     - name: Monitorare le prestazioni di rete
-      href: ../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+      href: ../azure-monitor/insights/network-performance-monitor.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json
     - name: Spostare le risorse
       items:
         - name: Spostare le risorse di Network Watcher
@@ -214,7 +214,7 @@
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Pagina delle domande di Domande e risposte Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/network-watcher/'
     - name: Aggiornamenti del servizio

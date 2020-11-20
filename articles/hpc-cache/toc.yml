@@ -8,6 +8,10 @@
   items:
     - name: Pianificare lo spazio dei nomi aggregato
       href: hpc-cache-namespace.md
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
 - name: Guide pratiche
   items:
     - name: Prerequisiti
