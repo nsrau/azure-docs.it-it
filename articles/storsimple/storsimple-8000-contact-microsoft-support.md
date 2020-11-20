@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: daf54b64e33b83b909fe91455cee2f5c1ec27d3d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c288f59b1cb9a85ed4bc978d1c3fba18ba30b572
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960321"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968758"
 ---
 # <a name="contact-microsoft-support"></a>Contattare il supporto tecnico Microsoft
 
@@ -21,7 +21,7 @@ Gestione dispositivi StorSimple offre la possibilità di **registrare una nuova 
 * Come gestire una richiesta di supporto relativa al ciclo di vita all'interno del portale.
 * Come avviare una sessione di supporto nell'interfaccia Windows PowerShell del dispositivo StorSimple.
 
-Esaminare [Informazioni e contratti di servizio di supporto tecnico della serie 8000 di StorSimple](https://msdn.microsoft.com/library/mt433077.aspx) prima di creare una richiesta di supporto.
+Esaminare [Informazioni e contratti di servizio di supporto tecnico della serie 8000 di StorSimple](./storsimple-8000-support-options.md) prima di creare una richiesta di supporto.
 
 ## <a name="create-a-support-request"></a>Creare una richiesta di supporto
 
@@ -47,7 +47,7 @@ In base al [piano di supporto](https://azure.microsoft.com/support/plans/) è po
     2. Specificare se il problema è correlato al dispositivo o al servizio Gestione dispositivi StorSimple.
     3. Scegliere una **Categoria** per il problema e fornire maggiori **Dettagli**.
     4. Specificare la data e l'ora di inizio del problema.
-    5. In **Caricamento file**fare clic sull'icona della cartella per selezionare il pacchetto di supporto.
+    5. In **Caricamento file** fare clic sull'icona della cartella per selezionare il pacchetto di supporto.
     6. Selezionare **Condividi informazioni diagnostica**.
     7. Fare clic su **Avanti**.
 

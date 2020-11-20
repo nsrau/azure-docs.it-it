@@ -7,12 +7,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 580c378df5fc3912aa540b5d85adf99bc42605e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f50c84212e62fae378d9d95e8990e084c82bb99a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511943"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967211"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Usare i filtri di connessioni IP del servizio Device Provisioning in hub IoT di Azure
 
@@ -22,7 +22,7 @@ La sicurezza rappresenta un aspetto importante di ogni soluzione IoT. Talvolta �
 
 Esistono due casi d'uso specifici in cui è utile bloccare le connessioni a un endpoint del servizio Device Provisioning da specifici indirizzi IP:
 
-* Il servizio Device Provisioning deve ricevere il traffico solo da un intervallo di indirizzi IP specificato e rifiutare tutto il resto. Il servizio Device Provisioning viene ad esempio usato con [Azure ExpressRoute](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) per creare connessioni private tra il servizio e i dispositivi.
+* Il servizio Device Provisioning deve ricevere il traffico solo da un intervallo di indirizzi IP specificato e rifiutare tutto il resto. Il servizio Device Provisioning viene ad esempio usato con [Azure ExpressRoute](../expressroute/expressroute-faqs.md#supported-services) per creare connessioni private tra il servizio e i dispositivi.
 
 * È necessario rifiutare il traffico proveniente da indirizzi IP identificati come sospetti dall'amministratore del servizio Device Provisioning.
 
@@ -48,7 +48,7 @@ Dopo aver selezionato **Aggiungi regola di filtro IP**, compilare i campi.
 
 ![Dopo aver selezionato Aggiungi una regola di filtro IP](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
 
-* Specificare un **nome** per la regola di Filtro IP. Questo deve essere univoco e costituito da una stringa alfanumerica che non fa distinzione tra maiuscole e minuscole e ha una lunghezza massima di 128 caratteri. Sono ammessi solo caratteri alfanumerici ASCII a 7 bit più `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
+* Specificare un **nome** per la regola di Filtro IP. Questo deve essere univoco e costituito da una stringa alfanumerica che non fa distinzione tra maiuscole e minuscole e ha una lunghezza massima di 128 caratteri. Sono ammessi solo caratteri alfanumerici ASCII a 7 bit più `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
 
 * Specificare un singolo indirizzo IPv4 o un blocco di indirizzi IP in notazione CIDR. In notazione CIDR, ad esempio, 192.168.100.0/22 rappresenta gli indirizzi IPv4 1024 da 192.168.100.0 a 192.168.103.255.
 
@@ -74,7 +74,7 @@ Per eliminare una regola di filtro IP, selezionare l'icona del cestino sulla rig
 
 ## <a name="update-ip-filter-rules-in-code"></a>Aggiornare le regole di filtro IP nel codice
 
-È possibile recuperare e modificare il filtro IP del servizio Device Provisioning usando l'endpoint REST del provider di risorse di Azure. Vedere `properties.ipFilterRules` nel [metodo createorupdate](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/createorupdate).
+È possibile recuperare e modificare il filtro IP del servizio Device Provisioning usando l'endpoint REST del provider di risorse di Azure. Vedere `properties.ipFilterRules` nel [metodo createorupdate](/rest/api/iot-dps/iotdpsresource/createorupdate).
 
 L'aggiornamento delle regole del filtro IP del servizio Device Provisioning non è attualmente supportato con l'interfaccia della riga di comando di Azure o con Azure PowerShell, ma è possibile usare i modelli di Azure Resource Manager. Per informazioni sull'uso dei modelli di Azure Resource Manager, vedere [Modelli di Azure Resource Manager](../azure-resource-manager/templates/overview.md). Gli esempi di modelli che seguono illustrano come creare, modificare ed eliminare le regole del filtro IP del servizio Device Provisioning.
 
@@ -136,7 +136,7 @@ Aggiornare gli attributi della regola di filtro IP del modello in base ai requis
 | Attributo                | Descrizione |
 | ------------------------ | ----------- |
 | **FilterName**           | Specificare un nome per la regola di filtro IP. Questo deve essere univoco e costituito da una stringa alfanumerica che non fa distinzione tra maiuscole e minuscole e ha una lunghezza massima di 128 caratteri. Sono ammessi solo i caratteri alfanumerici ASCII a 7 bit, oltre a {'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''} . |
-| **Azione**               | I valori ammessi sono **Accetta** o **Rifiuta** come azione per la regola di filtro IP. |
+| **Azione**               | I valori ammessi sono **Accetta** o  **Rifiuta** come azione per la regola di filtro IP. |
 | **ipMask**               | Specificare un singolo indirizzo IPv4 o un blocco di indirizzi IP in notazione CIDR. In notazione CIDR, ad esempio, 192.168.100.0/22 rappresenta gli indirizzi IPv4 1024 da 192.168.100.0 a 192.168.103.255. |
 
 

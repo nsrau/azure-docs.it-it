@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/19/2020
+ms.date: 11/19/2020
 ms.author: aahi
-ms.openlocfilehash: 056009c34aec97a8c5c45aea4b93ba41977fa7a6
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 31cba884cff490d43341a4c52f24c32b1e253e42
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518193"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967330"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Eseguire la migrazione alla versione 3. x del API Analisi del testo
 
 [!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
-Se si usa la versione 2,1 della API Analisi del testo, questo articolo consentirà di aggiornare l'applicazione per l'uso della versione 3. x. La versione 3,0 è disponibile a livello generale e introduce nuove funzionalità, ad esempio il [riconoscimento delle entità denominate](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) espanse e il [controllo delle versioni del modello](concepts/model-versioning.md). È disponibile anche una versione di anteprima di v 3.1 (v 3.1-Preview. x), che aggiunge funzionalità come [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features). I modelli usati nella versione V2 non riceveranno gli aggiornamenti futuri. 
+Se si usa la versione 2,1 della API Analisi del testo, questo articolo consentirà di aggiornare l'applicazione per l'uso della versione 3. x. La versione 3,0 è disponibile a livello generale e introduce nuove funzionalità, ad esempio il [riconoscimento delle entità denominate](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-features-and-versions) espanse e il [controllo delle versioni del modello](concepts/model-versioning.md). È disponibile anche una versione di anteprima di v 3.1 (v 3.1-Preview. x), che aggiunge funzionalità come [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features). I modelli usati nella versione V2 non riceveranno gli aggiornamenti futuri. 
 
 #### <a name="sentiment-analysis"></a>[Analisi del sentiment](#tab/sentiment-analysis)
 
@@ -38,7 +38,7 @@ Se l'applicazione usa l'API REST, aggiornare l'endpoint della richiesta all'endp
 Per esempi della risposta JSON, vedere la documentazione di riferimento.
 * [Versione 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 * [Versione 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
-* [Versione 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Sentiment)
+* [Versione 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
 ### <a name="client-libraries"></a>Librerie client
 
@@ -70,7 +70,7 @@ Sarà anche necessario aggiornare l'applicazione per usare le categorie di [enti
 Per esempi della risposta JSON, vedere la documentazione di riferimento.
 * [Versione 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 * [Versione 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
-* [Versione 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/EntitiesRecognitionGeneral)
+* [Versione 3.1-preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/EntitiesRecognitionGeneral)
 
 ### <a name="client-libraries"></a>Librerie client
 
@@ -92,7 +92,7 @@ Se l'applicazione usa l'API REST, aggiornare l'endpoint della richiesta all'endp
 Per esempi della risposta JSON, vedere la documentazione di riferimento.
 * [Versione 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 * [Versione 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
-* [Versione 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Languages)
+* [Versione 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 
 ### <a name="client-libraries"></a>Librerie client
 
@@ -109,7 +109,7 @@ La funzionalità di estrazione della frase chiave non è stata modificata in V3 
 
 ### <a name="rest-api"></a>API REST
 
-Se l'applicazione usa l'API REST, aggiornare l'endpoint della richiesta all'endpoint V3 per l'estrazione della frase chiave. ad esempio `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
+Se l'applicazione usa l'API REST, aggiornare l'endpoint della richiesta all'endpoint V3 per l'estrazione della frase chiave. Ad esempio: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
 
 Per esempi della risposta JSON, vedere la documentazione di riferimento.
 * [Versione 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)

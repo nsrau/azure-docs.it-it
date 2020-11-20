@@ -3,6 +3,7 @@ title: Configurare una distribuzione controllata per gli sviluppatori di applica
 description: Eseguire un ambiente di sviluppo e test IBM Z (zD&T) in macchine virtuali (VM) di Azure.
 services: virtual-machines-linux
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 documentationcenter: ''
 author: njray
 manager: edprice
@@ -12,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: b2509539551b3991690e6d0313e069ae015eb892
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcd354b906b4d6c92d8b3186fc8e09c94a31ca55
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87052395"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968401"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configurare una distribuzione controllata per gli sviluppatori di applicazioni (ADCD) in IBM zD&T V1
 
@@ -58,11 +59,11 @@ L'accesso al supporto ADCD è obbligatorio. I passaggi seguenti presuppongono ch
 
 5. Facoltativamente, fare clic sull'elenco ordine alfabetico per visualizzare e visualizzare prodotto in base al nome.
 
-6. Selezionare **tutti i sistemi operativi** nel **campo sistema operativo**e **tutte le lingue** nel **campo lingue**. Quindi, fare clic su **Vai**.
+6. Selezionare **tutti i sistemi operativi** nel **campo sistema operativo** e **tutte le lingue** nel **campo lingue**. Quindi, fare clic su **Vai**.
 
 7. Fare clic su **Seleziona singoli file** per espandere l'elenco e visualizzare i singoli supporti da scaricare.
 
-8. Verificare i pacchetti che si desidera scaricare, selezionare **Scarica**e quindi scaricare i file nella directory desiderata.
+8. Verificare i pacchetti che si desidera scaricare, selezionare **Scarica** e quindi scaricare i file nella directory desiderata.
 
 ## <a name="upload-the-adcd-packages"></a>Carica il pacchetto/i ADCD
 
@@ -111,13 +112,13 @@ Il passaggio successivo consiste nel configurare zD&T per l'uso dei pacchetti ca
 
     ![Schermata iniziale di IBM zD&T Enterprise Edition](media/02-welcome.png)
 
-3. Nella pagina **avvio rapido** in **Configura**Selezionare **archiviazione immagini**.
+3. Nella pagina **avvio rapido** in **Configura** Selezionare **archiviazione immagini**.
 
      ![Schermata Avvio rapido IBM zD&T Enterprise Edition](media/03-quickstart.png)
 
 4. Nella pagina **Configura archiviazione immagini** selezionare **SSH File Transfer Protocol**.
 
-5. Per **nome host**digitare **localhost** e immettere il percorso della directory in cui sono state caricate le immagini. Ad esempio,/home/MyUserID/ZDT/adcd/nov2017/volumes.
+5. Per **nome host** digitare **localhost** e immettere il percorso della directory in cui sono state caricate le immagini. Ad esempio,/home/MyUserID/ZDT/adcd/nov2017/volumes.
 
 6. Immettere l' **ID utente** e la **password** per la macchina virtuale. Non usare l'ID utente e la password ZD&T.
 
@@ -127,7 +128,7 @@ Il passaggio successivo consiste nel configurare zD&T per l'uso dei pacchetti ca
 
 Il passaggio successivo consiste nel configurare l'ambiente di destinazione zD&T. Questo ambiente host emulato è il punto in cui vengono eseguite le immagini.
 
-1. Nella pagina **avvio rapido** in **Configura**selezionare **ambienti di destinazione**.
+1. Nella pagina **avvio rapido** in **Configura** selezionare **ambienti di destinazione**.
 
 2. Nella pagina **Configura ambienti di destinazione** selezionare **Aggiungi destinazione**.
 

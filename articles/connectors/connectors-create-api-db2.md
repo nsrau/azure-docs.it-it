@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
-ms.date: 08/23/2018
+ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: 6c9c54450788a89a7b1aadbb0b4682a60619c061
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 765bb66b572f0c046222cfb617fe4caa80925256
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334600"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967402"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Accedere e gestire le risorse IBM DB2 usando app per la logica di Azure
 
@@ -28,7 +28,7 @@ Il connettore IBM DB2 supporta le piattaforme e le versioni di IBM DB2 insieme a
 
 | Piattaforma | Versione | 
 |----------|---------|
-| IBM DB2 per z/OS | 11.1, 10.1 |
+| IBM DB2 per z/OS | 12, 11,1, 10,1 |
 | IBM DB2 per i | 7.3, 7.2, 7.1 |
 | IBM DB2 per LUW | 11, 10.5 |
 |||
@@ -80,7 +80,7 @@ Gli esempi di questo articolo usano il trigger **Ricorrenza**.
 
 Per configurare la connessione, specificare questi dettagli quando richiesto, scegliere **Crea** e quindi salvare l'app per la logica:
 
-| Proprietà | Obbligatoria | Descrizione |
+| Proprietà | Obbligatoria | Description |
 |----------|----------|-------------|
 | **Connetti tramite gateway dati locale** | No | Si applica solo alle connessioni locali. |
 | **Connection Name** (Nome connessione) | Sì | Il nome della connessione, ad esempio, "MyLogicApp-DB2-connection" |
@@ -100,7 +100,7 @@ Ad esempio:
 
 Prima di creare la connessione, è necessario aver già installato il gateway dati locale. In caso contrario non sarà possibile completare la configurazione della connessione. Con un'installazione del gateway, continuare fornendo questi dettagli di connessione e scegliere **Create**.
 
-| Proprietà | Obbligatoria | Descrizione |
+| Proprietà | Obbligatoria | Description |
 |----------|----------|-------------|
 | **Connetti tramite gateway dati locale** | Sì | Si applica quando si desidera una connessione locale e mostra le proprietà della connessione locale. |
 | **Connection Name** (Nome connessione) | Sì | Il nome della connessione, ad esempio, "MyLogicApp-DB2-connection" | 
@@ -151,7 +151,7 @@ Per recuperare un record in una tabella di database DB2, usare l'azione **Ottien
 
 1. Specificare valori per tutte le proprietà obbligatorie (*). Dopo aver selezionato una tabella, l'azione mostrerà le proprietà pertinenti specifiche per i record al suo interno.
 
-   | Proprietà | Obbligatoria | Descrizione |
+   | Proprietà | Obbligatoria | Description |
    |----------|----------|-------------|
    | **Nome tabella** | Sì | La tabella che contiene il record desiderato, ad esempio "AREA" in questo esempio |
    | **ID area** | Sì | L'ID che contiene il record desiderato, ad esempio "99999" in questo esempio |
@@ -231,7 +231,7 @@ Per aggiungere un singolo record in una tabella di database DB2, usare l'azione 
 
    Ecco le proprietà per l'esempio:
 
-   | Proprietà | Obbligatoria | Descrizione |
+   | Proprietà | Obbligatoria | Description |
    |----------|----------|-------------|
    | **Nome tabella** | Sì | La tabella in cui aggiungere il record, ad esempio "AREA" |
    | **ID area** | Sì | L'ID per l'area da aggiungere, ad esempio "99999" |
@@ -278,7 +278,7 @@ Per aggiornare un singolo record in una tabella di database DB2, usare l'azione 
 
    Ecco le proprietà per l'esempio:
 
-   | Proprietà | Obbligatoria | Descrizione |
+   | Proprietà | Obbligatoria | Description |
    |----------|----------|-------------|
    | **Nome tabella** | Sì | La tabella in cui aggiornare il record, ad esempio "AREA" |
    | **ID riga** | Sì | L'ID del record da aggiornare, ad esempio "99999" |
@@ -326,7 +326,7 @@ Per eliminare un singolo record da una tabella di database DB2, usare l'azione *
 
    Ecco le proprietà per l'esempio:
 
-   | Proprietà | Obbligatoria | Descrizione |
+   | Proprietà | Obbligatoria | Description |
    |----------|----------|-------------|
    | **Nome tabella** | Sì | La tabella in cui eliminare il record, ad esempio "AREA" |
    | **ID riga** | Sì | L'ID del record da eliminare, ad esempio "99999" |

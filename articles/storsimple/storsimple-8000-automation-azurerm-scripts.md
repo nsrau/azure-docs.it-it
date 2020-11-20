@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4a53dd803b22899b7dd15db0aa1ff411641a11dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3339f883d177366a64187e0c090752527802c8d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88183259"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968775"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Usare gli script basati su Azure Resource Manager SDK per gestire i dispositivi StorSimple
 
@@ -25,7 +25,7 @@ Gli script di esempio seguenti sono disponibili per l'automazione di diversi pro
 
 #### <a name="table-of-azure-resource-manager-sdk-based-sample-scripts"></a>Tabella degli script di esempio basati su Azure Resource Manager SDK
 
-| Script di Azure Resource Manager                    | Descrizione                                                                                                                                                                                                       |
+| Script di Azure Resource Manager                    | Description                                                                                                                                                                                                       |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Authorize-ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | Questo script consente di autorizzare il dispositivo StorSimple a modificare la chiave di crittografia dei dati del servizio.                                                                                                           |
 | [Create-StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | Questo script crea un'appliance cloud StorSimple 8010 o 8020. L'appliance cloud può essere quindi configurata e registrata con il servizio Gestore dati StorSimple.                                                       |
@@ -57,7 +57,7 @@ Prima di iniziare, assicurarsi di disporre di:
     * In un ambiente Windows seguire i passaggi descritti in [Install and configure Azure PowerShell](/powershell/azure/install-az-ps) (Installare e configurare Azure PowerShell). È possibile installare Azure PowerShell nell'host Windows Server per StorSimple, se disponibile.
     * In un ambiente Linux o MacOS seguire i passaggi descritti in [Install and configure Azure PowerShell on MacOS or Linux](/powershell/azure/install-az-ps) (Installare e configurare Azure PowerShell in MacOS o Linux).
 
-Per altre informazioni sull'uso di Azure PowerShell, vedere [Get started with using Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Iniziare a usare Azure PowerShell).
+Per altre informazioni sull'uso di Azure PowerShell, vedere [Get started with using Azure PowerShell](/powershell/azure/get-started-azureps) (Iniziare a usare Azure PowerShell).
 
 ### <a name="run-azure-powershell-script"></a>Eseguire lo script di Azure PowerShell
 

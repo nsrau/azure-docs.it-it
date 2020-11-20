@@ -10,16 +10,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: f247465c7e2c0a212df2821ebc7165d3ee5b15f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ddaed181d017e3167694a9d7edf53c7c09fd5e9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80876658"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968520"
 ---
 # <a name="deploy-and-run-container-on-azure-container-instance"></a>Distribuire ed eseguire un contenitore in Istanze di Azure Container
 
-Con i passaggi seguenti è possibile ridimensionare facilmente le applicazioni di servizi cognitivi di Azure nel cloud con [istanze di contenitore](https://docs.microsoft.com/azure/container-instances/)di Azure. Il contenitore consente di concentrarsi sulla creazione di applicazioni anziché sulla gestione dell'infrastruttura. Per altre informazioni sull'uso dei contenitori, vedere [funzionalità e vantaggi](../cognitive-services-container-support.md#features-and-benefits).
+Con i passaggi seguenti è possibile ridimensionare facilmente le applicazioni di servizi cognitivi di Azure nel cloud con [istanze di contenitore](../../container-instances/index.yml)di Azure. Il contenitore consente di concentrarsi sulla creazione di applicazioni anziché sulla gestione dell'infrastruttura. Per altre informazioni sull'uso dei contenitori, vedere [funzionalità e vantaggi](../cognitive-services-container-support.md#features-and-benefits).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

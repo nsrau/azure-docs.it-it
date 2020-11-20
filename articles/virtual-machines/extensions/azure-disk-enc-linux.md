@@ -8,17 +8,18 @@ manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: ejarvi
-ms.openlocfilehash: cc82109c60ac077d9e92e4d4a52abdaf8577771f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 61f8fd3d671bbd66d2dc5656e9a467b06798d280
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971184"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968418"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Crittografia dischi di Azure per Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -146,20 +147,20 @@ Utilizzo di `AADClientCertificate`:
 | apiVersion | 2019-07-01 | Data |
 | publisher | Microsoft.Azure.Security | string |
 | type | AzureDiskEncryptionForLinux | string |
-| typeHandlerVersion | 1,1, 0,1 | INT |
+| typeHandlerVersion | 1,1, 0,1 | int |
 | (schema 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
-| (schema 0,1) AADClientSecret | password | Stringa |
-| (schema 0,1) AADClientCertificate | thumbprint | Stringa |
-| opzionale (schema 0,1) Passphrase | password | Stringa |
+| (schema 0,1) AADClientSecret | password | string |
+| (schema 0,1) AADClientCertificate | thumbprint | string |
+| opzionale (schema 0,1) Passphrase | password | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dizionario JSON |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | Stringa | 
-| (facoltativo-predefinito RSA-OAEP) KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | Stringa |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| (facoltativo-predefinito RSA-OAEP) KeyEncryptionAlgorithm | "RSA-OAEP", "RSA-OAEP-256", "RSA1_5" | string |
 | KeyVaultURL | url | string |
 | KeyVaultResourceId | url | string |
 | opzionale KeyEncryptionKeyURL | url | string |
 | opzionale KekVaultResourceId | url | string |
-| opzionale SequenceVersion | UNIQUEIDENTIFIER | Stringa |
-| VolumeType | Sistema operativo, dati, tutti | Stringa |
+| opzionale SequenceVersion | UNIQUEIDENTIFIER | string |
+| VolumeType | Sistema operativo, dati, tutti | string |
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 

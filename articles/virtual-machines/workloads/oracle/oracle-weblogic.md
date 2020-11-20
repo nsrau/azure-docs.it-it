@@ -3,16 +3,17 @@ title: Cosa sono le soluzioni per l'esecuzione di Oracle WebLogic Server in macc
 description: Informazioni su come eseguire Oracle WebLogic Server in Macchine virtuali di Microsoft Azure.
 author: rezar
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: d8639214773a4444876b2a89dda5dd831b8c36ce
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 51f0e68b3e07a157a5222a4374f9e1b74ef7e403
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927291"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968707"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Quali sono le soluzioni per eseguire Oracle WebLogic Server in Macchine virtuali di Microsoft Azure?
 
@@ -28,7 +29,7 @@ Le soluzioni WLS di Azure hanno lo scopo di semplificare il più possibile il tr
 
 Sono disponibili quattro offerte per soddisfare diversi scenari, ovvero [un singolo nodo senza un server di amministrazione](https://portal.azure.com/#create/oracle.20191001-arm-oraclelinux-wls20191001-arm-oraclelinux-wls), un [singolo nodo con un server di amministrazione, un](https://portal.azure.com/#create/oracle.20191009-arm-oraclelinux-wls-admin20191009-arm-oraclelinux-wls-admin) [cluster](https://portal.azure.com/#create/oracle.20191007-arm-oraclelinux-wls-cluster20191007-arm-oraclelinux-wls-cluster)e un [cluster dinamico](https://portal.azure.com/#create/oracle.20191021-arm-oraclelinux-wls-dynamic-cluster20191021-arm-oraclelinux-wls-dynamic-cluster). Le offerte sono disponibili gratuitamente. Queste offerte sono descritte e collegate di seguito.
 
-_Le offerte si basano sul modello Bring Your Own License_ . Si presuppone che l'utente abbia già ottenuto le licenze appropriate con Oracle e che disponga di una licenza corretta per l'esecuzione di offerte in Azure.
+_Le offerte si basano sul modello Bring Your Own License_. Si presuppone che l'utente abbia già ottenuto le licenze appropriate con Oracle e che disponga di una licenza corretta per l'esecuzione di offerte in Azure.
 
 Le offerte supportano una gamma di versioni del sistema operativo, Java e WLS tramite immagini di base, ad esempio WebLogic Server 14 e JDK 11 in Oracle Linux 7,6). Queste immagini di base sono disponibili anche in Azure autonomamente. Le immagini di base sono adatte per i clienti che necessitano di distribuzioni di Azure complesse e personalizzate. Il set corrente di immagini di base è disponibile [qui](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1).
 
@@ -52,7 +53,7 @@ _Se si è interessati a lavorare a stretto contatto con gli scenari di migrazion
 
 Le soluzioni consentiranno un'ampia gamma di architetture di distribuzione pronte per la produzione con la relativa facilità. È possibile soddisfare la maggior parte dei casi di migrazione nel modo più produttivo possibile consentendo di concentrarsi sullo sviluppo di applicazioni aziendali.
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="È possibile usare la portale di Azure per distribuire WebLogic Server in Azure":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-vms.png" alt-text="Le distribuzioni di WebLogic Server complesse sono abilitate in Azure":::
 
 Oltre a ciò di cui viene effettuato automaticamente il provisioning dalle soluzioni, i clienti hanno la massima flessibilità per personalizzare ulteriormente le distribuzioni. È probabile che, in base alla distribuzione di applicazioni, i clienti integrino altre risorse di Azure con le relative distribuzioni. I clienti sono invitati a fornire commenti e suggerimenti su come migliorare ulteriormente le soluzioni.
 

@@ -3,17 +3,18 @@ title: Panoramica dell'agente VM Linux di Azure
 description: Informazioni su come installare e configurare l'agente Linux (waagent) per gestire l'interazione della macchina virtuale con il controller di infrastruttura di Azure.
 author: axayjo
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19b9259b55332d9f31fdefd166f0509e5443628d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a4a391e52f80ec171d48718a18764f0f88f34133
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965812"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968452"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Informazioni e uso dell'agente Linux di Azure
 
@@ -106,7 +107,7 @@ Leggere la documentazione nel [repository dell'agente Linux di Azure su GitHub](
 * verbose: aumenta il livello di dettaglio del comando specificato
 * force: ignora la conferma interattiva per determinati comandi
 
-### <a name="commands"></a>Comandi:
+### <a name="commands"></a>Comandi
 * help: elenca i flag e i comandi supportati.
 * deprovision: tenta di pulire il sistema per renderlo idoneo per un nuovo provisioning. L'operazione seguente elimina:
   

@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2020
 ms.author: radeltch
-ms.openlocfilehash: 9b4684f8d9a6bd04a11961632b616258db7344a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 496b78de869cc213af6b79b3e72016bba3da1266
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487569"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967432"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux
 
@@ -150,7 +151,7 @@ Azure Marketplace contiene un'immagine per Red Hat Enterprise Linux che è possi
    1. Nome utente, password amministratore o chiave SSH  
       Viene creato un nuovo utente che può essere usato per accedere al computer.
    1. Subnet ID  
-   Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID si presenta in genere come** &lt; ID &gt; sottoscrizione**/subscriptions//resourceGroups/nome** &lt; gruppo &gt; di risorse**** &lt; &gt; ** /Providers/Microsoft.Network/virtualNetworks/nome** &lt; rete &gt; virtuale**/Subnets/nome subnet
+   Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID si presenta in genere come **&lt; ID &gt; sottoscrizione**/subscriptions//resourceGroups/nome **&lt; gruppo &gt; di risorse****&lt; &gt;** /Providers/Microsoft.Network/virtualNetworks/nome **&lt; rete &gt; virtuale**/Subnets/nome subnet
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuire Linux manualmente tramite il portale di Azure
 
@@ -185,13 +186,13 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Cre
       1. Selezionare le macchine virtuali del cluster (A)SCS e il rispettivo indirizzo IP.
       1. Fare clic su Aggiungi.
    1. Creare i probe di integrità
-      1. Porta 620**00** per ASCS
+      1. Porta 620 **00** per ASCS
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
          1. Immettere il nome del nuovo probe di integrità, ad esempio **nw1-ascs-hp**
-         1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
+         1. Selezionare TCP come protocollo, la porta 620 **00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
          1. Fare clic su OK.
-      1. Porta 621**02** per ASCS ERS
-         * Ripetere i passaggi precedenti per creare un probe di integrità per ERS, ad esempio 621**02** e **nw1-aers-hp**
+      1. Porta 621 **02** per ASCS ERS
+         * Ripetere i passaggi precedenti per creare un probe di integrità per ERS, ad esempio 621 **02** e **nw1-aers-hp**
    1. Regole di bilanciamento del carico
       1. Regole di bilanciamento del carico per ASC
          1. Aprire il servizio di bilanciamento del carico, selezionare regole di bilanciamento del carico e fare clic su Aggiungi.
@@ -219,15 +220,15 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Cre
       1. Selezionare le macchine virtuali del cluster (A)SCS
       1. Fare clic su OK.
    1. Creare i probe di integrità
-      1. Porta 620**00** per ASCS
+      1. Porta 620 **00** per ASCS
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
          1. Immettere il nome del nuovo probe di integrità, ad esempio **nw1-ascs-hp**
-         1. Selezionare TCP come protocollo, la porta 620**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
+         1. Selezionare TCP come protocollo, la porta 620 **00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
          1. Fare clic su OK.
-      1. Porta 621**02** per ASCS ERS
-         * Ripetere i passaggi precedenti per creare un probe di integrità per ERS, ad esempio 621**02** e **nw1-aers-hp**
+      1. Porta 621 **02** per ASCS ERS
+         * Ripetere i passaggi precedenti per creare un probe di integrità per ERS, ad esempio 621 **02** e **nw1-aers-hp**
    1. Regole di bilanciamento del carico
-      1. TCP 32**00** per ASCS
+      1. TCP 32 **00** per ASCS
          1. Aprire il servizio di bilanciamento del carico, selezionare regole di bilanciamento del carico e fare clic su Aggiungi.
          1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **nw1-lb-3200**
          1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza, ad esempio **nw1-ascs-frontend**
@@ -236,9 +237,9 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Cre
          1. **Assicurarsi di abilitare l'indirizzo IP mobile**
          1. Fare clic su OK.
       1. Porte aggiuntive per ASCS
-         * Ripetere i passaggi precedenti per le porte 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 e TCP per ASCS
+         * Ripetere i passaggi precedenti per le porte 36 **00**, 39 **00**, 81 **00**, 5 **00** 13, 5 **00** 14, 5 **00** 16 e TCP per ASCS
       1. Porte aggiuntive per ASCS ERS
-         * Ripetere i passaggi precedenti per le porte 33**02**, 5**02**13, 5**02**14, 5**02**16 e TCP per ASCS ERS
+         * Ripetere i passaggi precedenti per le porte 33 **02**, 5 **02** 13, 5 **02** 14, 5 **02** 16 e TCP per ASCS ERS
 
 > [!IMPORTANT]
 > L'IP mobile non è supportato in una configurazione IP secondaria di NIC negli scenari di bilanciamento del carico. Per informazioni dettagliate, vedere limitazioni del servizio di [bilanciamento del carico di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Se è necessario un indirizzo IP aggiuntivo per la macchina virtuale, distribuire una seconda scheda di interfaccia di rete.  
@@ -406,7 +407,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-   Se durante l'installazione non viene creata una sottocartella in /usr/sap/**NW1**/ASCS**00**, provare a impostare il proprietario e il gruppo della cartella ASCS**00** e riprovare.
+   Se durante l'installazione non viene creata una sottocartella in /usr/sap/**NW1**/ASCS **00**, provare a impostare il proprietario e il gruppo della cartella ASCS **00** e riprovare.
 
    <pre><code>sudo chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    sudo chgrp sapsys /usr/sap/<b>NW1</b>/ASCS<b>00</b>
@@ -462,7 +463,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-   Se durante l'installazione non viene creata una sottocartella in /usr/sap/**NW1**/ERS**02**, provare a impostare il proprietario e il gruppo della cartella ERS**02** e riprovare.
+   Se durante l'installazione non viene creata una sottocartella in /usr/sap/**NW1**/ERS **02**, provare a impostare il proprietario e il gruppo della cartella ERS **02** e riprovare.
 
    <pre><code>sudo chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
    sudo chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>

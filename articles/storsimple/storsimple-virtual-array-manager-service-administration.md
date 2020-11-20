@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: d7c7cf335336cc552adaf5d9490bc58d64b0cdc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2395e3c6f2026bc1024de38122bc20959fdcf9b7
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515433"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967092"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per amministrare l'array virtuale StorSimple
 ![flusso del processo di installazione](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
@@ -34,7 +34,7 @@ Dopo aver letto l'articolo, l'utente sarà in grado di:
 * Amministrare l'array virtuale StorSimple tramite il servizio Gestione dispositivi StorSimple
 
 > [!NOTE]
-> Per visualizzare le opzioni di gestione disponibili per il dispositivo StorSimple serie 8000, vedere [Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](storsimple-manager-service-administration.md).
+> Per visualizzare le opzioni di gestione disponibili per il dispositivo StorSimple serie 8000, vedere [Utilizzare il servizio StorSimple Manager per amministrare il dispositivo StorSimple](./storsimple-8000-manager-service-administration.md).
 > 
 > 
 
@@ -78,4 +78,3 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sull'interfaccia utente Web e sul suo uso, vedere [Usare l'interfaccia utente Web per amministrare l'array virtuale StorSimple (anteprima)](storsimple-ova-web-ui-admin.md).
-

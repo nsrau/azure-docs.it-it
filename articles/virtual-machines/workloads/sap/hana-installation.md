@@ -7,18 +7,19 @@ author: hermanndms
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 60d889b232857ae69372df8ebabbd0edd01a2f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1430b32c0e74be7a0e50fa4c5c183018b2b55e0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91529831"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967772"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Come installare e configurare SAP HANA (istanze Large) in Azure
 
@@ -124,7 +125,7 @@ Per SAP HANA in Azure (istanze Large), la sincronizzazione dell'ora eseguita in 
 È necessario pertanto configurare un server di riferimento ora separato che possa essere usato dai server applicazioni SAP in esecuzione nelle macchine virtuali di Azure e dalle istanze di database SAP HANA in esecuzione nelle istanze Large di HANA. L'ora dell'infrastruttura di archiviazione nei timestamp dell'istanza Large è sincronizzata con i server NTP.
 
 
-## <a name="networking"></a>Funzionalità di rete
+## <a name="networking"></a>Rete
 Si presuppone che siano state seguite le indicazioni relative alla progettazione delle reti virtuali di Azure e alla connessione di queste reti virtuali alle istanze Large di HANA come descritto nei documenti seguenti:
 
 - [Panoramica e architettura di SAP HANA (istanza large) in Azure](./hana-overview-architecture.md)
@@ -134,7 +135,7 @@ Si presuppone che siano state seguite le indicazioni relative alla progettazione
 
 Per altre informazioni sui dettagli Ethernet per l'architettura, vedere [Scenari supportati nelle istanze Large di Hana](hana-supported-scenario.md).
 
-## <a name="storage"></a>Archiviazione:
+## <a name="storage"></a>Archiviazione
 
 Il layout di archiviazione per SAP HANA in Azure (istanze large) viene configurato da SAP HANA in Azure `service management` tramite le linee guida consigliate per SAP. come illustrato nel white paper [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) (Requisiti per le risorse di archiviazione di SAP HANA). 
 

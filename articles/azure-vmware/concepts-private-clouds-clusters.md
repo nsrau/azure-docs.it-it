@@ -3,12 +3,12 @@ title: Concetti-cloud privati e cluster
 description: Informazioni sulle funzionalità principali dei data center e dei cluster vSphere definiti dal software della soluzione VMware di Azure.
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 0454ade503ce40de46363f65d36a64340219c0b1
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.openlocfilehash: af34bb0d83d9571ae91dce90cab198a61cfe82a1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874016"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967381"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Concetti relativi ai cluster e al cloud privato della soluzione VMware di Azure
 
@@ -38,7 +38,7 @@ Usare vSphere e NSX-T Manager per gestire la maggior parte degli altri aspetti d
 
 ## <a name="hosts"></a>Hosts
 
-I cluster di cloud privati della soluzione VMware di Azure usano i nodi dell'infrastruttura bare metal iperconvergenti. Nella tabella seguente vengono illustrate le capacità della RAM, della CPU e del disco dell'host. 
+I cluster di cloud privati della soluzione VMware di Azure usano gli host di infrastruttura bare metal Hyper-convergenti. Nella tabella seguente vengono illustrate le capacità della RAM, della CPU e del disco dell'host. 
 
 | Host Type              |             CPU             |   RAM (GB)   |  Livello cache NVMe rete VSAN (TB, RAW)  |  livello di capacità SSD rete VSAN (TB, RAW)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |

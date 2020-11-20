@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 12e5a6db7257678b3d4d14d7583a1a30da0d3a87
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371070"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967143"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorare identità e accesso
 
@@ -30,7 +30,7 @@ Monitorando le attività e le impostazioni di configurazione relative all'identi
 
 Il Centro sicurezza di Azure dispone di due controlli di sicurezza dedicati per garantire che i requisiti di sicurezza e identità dell'organizzazione siano soddisfatti: 
 
- - **Gestire l'accesso e le autorizzazioni** : si consiglia di adottare il [modello di accesso con privilegi minimi](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e di garantire agli utenti solo l'accesso necessario per svolgere i propri processi. Questo controllo include anche suggerimenti per l'implementazione del [controllo degli accessi in base al ruolo (RBAC)](../role-based-access-control/overview.md) per controllare l'accesso alle risorse.
+ - **Gestire l'accesso e le autorizzazioni** : si consiglia di adottare il [modello di accesso con privilegi minimi](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e di garantire agli utenti solo l'accesso necessario per svolgere i propri processi. Questo controllo include anche suggerimenti per l'implementazione del [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md) per controllare l'accesso alle risorse.
  
  - **Abilitare** l' [autenticazione a più fattori con l'](https://www.microsoft.com/security/business/identity/mfa) autenticazione a più fattori abilitata, gli account sono più sicuri e gli utenti possono ancora eseguire l'autenticazione a quasi tutte le applicazioni con Single Sign-on.
 

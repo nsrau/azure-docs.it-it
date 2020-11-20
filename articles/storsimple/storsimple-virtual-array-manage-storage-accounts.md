@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 8267a678f35d01119ae3e7d89a07c789dc969614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70b6231829173059ffee675105bacbe1bd1532f2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507501"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967109"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Usare Gestione dispositivi StorSimple per gestire le credenziali dell'account di archiviazione per l'array virtuale StorSimple
 
@@ -31,7 +31,7 @@ La sezione **Configurazione** del pannello del servizio Gestione dispositivi Sto
   
   ![Dashboard del servizio Gestione dispositivi](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccts-dashboard.png)  
 
-Questa esercitazione illustra come aggiungere, modificare o eliminare le credenziali dell'account di archiviazione per l'array virtuale StorSimple. Le informazioni contenute in questa esercitazione si applicano solo all'array virtuale StorSimple. Per informazioni su come gestire gli account di archiviazione della serie 8000, vedere [Utilizzare il servizio StorSimple Manager per gestire l'account di archiviazione](storsimple-manage-storage-accounts.md).
+Questa esercitazione illustra come aggiungere, modificare o eliminare le credenziali dell'account di archiviazione per l'array virtuale StorSimple. Le informazioni contenute in questa esercitazione si applicano solo all'array virtuale StorSimple. Per informazioni su come gestire gli account di archiviazione della serie 8000, vedere [Utilizzare il servizio StorSimple Manager per gestire l'account di archiviazione](./storsimple-8000-manage-storage-accounts.md).
 
 Le credenziali dell'account di archiviazione contengono le credenziali usate dal dispositivo per accedere all'account di archiviazione con il provider di servizi cloud. Per gli account di archiviazione di Microsoft Azure, queste sono le credenziali, ad esempio il nome dell'account e la chiave di accesso primaria.
 
@@ -52,7 +52,7 @@ Le attività più comuni relative alle credenziali dell'account di archiviazione
 Esistono tre tipi di credenziali dell'account di archiviazione che è possibile usare con il dispositivo StorSimple.
 
 * **Credenziali dell'account di archiviazione generate automaticamente**: come il nome suggerisce, questo tipo di credenziale viene generato automaticamente alla creazione del servizio. Per altre informazioni sulla creazione della credenziale dell'account di archiviazione, vedere [Creare un nuovo servizio](storsimple-virtual-array-manage-service.md#create-a-service).
-* **Credenziali dell'account di archiviazione nella sottoscrizione del servizio**: le credenziali dell'account di archiviazione di Azure associate alla stessa sottoscrizione del servizio. Per altre informazioni su come vengono create queste credenziali dell'account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md).
+* **Credenziali dell'account di archiviazione nella sottoscrizione del servizio**: le credenziali dell'account di archiviazione di Azure associate alla stessa sottoscrizione del servizio. Per altre informazioni su come vengono create queste credenziali dell'account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-account-create.md).
 * **Credenziali dell'account di archiviazione esterne alla sottoscrizione del servizio**: le credenziali dell'account di archiviazione di Azure non associate al servizio e probabilmente esistenti prima che il servizio fosse creato.
 
 ## <a name="add-a-storage-account-credential"></a>Aggiungere una credenziale dell'account di archiviazione
@@ -74,7 +74,7 @@ Usare le procedure seguenti per aggiungere le credenziali dell'account di archiv
    
     1. Per **Sottoscrizione** selezionare **Corrente**.
     2. Specificare il nome dell'account di archiviazione di Azure.
-    3. Selezionare**Abilita** per creare un canale sicuro per la comunicazione di rete tra il dispositivo StorSimple e il cloud. Selezionare **Disabilita** solo se si opera all'interno di un cloud privato.
+    3. Selezionare **Abilita** per creare un canale sicuro per la comunicazione di rete tra il dispositivo StorSimple e il cloud. Selezionare **Disabilita** solo se si opera all'interno di un cloud privato.
     4. Scegliere **Aggiungi**. Quando la creazione dell'account di archiviazione viene completata, si riceve una notifica.<br></br>
    
         ![Aggiungere le credenziali di un account di archiviazione esistente](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
@@ -152,4 +152,3 @@ Per comunicare la modifica al servizio Gestione dispositivi StorSimple, è neces
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-

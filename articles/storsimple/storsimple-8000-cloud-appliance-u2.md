@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 219e2b77a0f6f30307c43f006fcdd3828d3c8fbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d78051c1a5af82a986152c8244d25b68dd65d552
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87021376"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968843"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuire e gestire un'appliance cloud StorSimple in Azure (aggiornamento 3 e versioni successive)
 
@@ -47,7 +47,7 @@ L'appliance cloud StorSimple è disponibile in due modelli, Standard 8010 (in pr
 | **Capacità massima** |30 TB |64 TB |
 | **Macchina virtuale di Azure** |Standard_A3 (4 core, 7 GB di memoria)| Standard_DS3 (4 core, 14 GB di memoria)|
 | **Aree di disponibilità** |Tutte le aree di Azure |Le aree di Azure che supportano Archiviazione Premium e VM DS3 di Azure<br></br>Usare [questo elenco](https://azure.microsoft.com/regions/services/) per verificare se nella propria area sono disponibili sia le **macchine virtuali serie DS** che l'**archiviazione su disco**. |
-| **Tipo di archiviazione** |Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard](../storage/common/storage-create-storage-account.md) |Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br> |
+| **Tipo di archiviazione** |Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard](../storage/common/storage-account-create.md) |Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br> |
 | **Indicazioni relative al carico di lavoro** |Recupero a livello di elemento per i file dai backup |Scenari di sviluppo e test basati su cloud <br></br>Bassa latenza e carichi di lavoro a prestazioni superiori<br></br>Dispositivo secondario per il ripristino di emergenza |
 
 <sup>1</sup> *precedentemente noto come 1100*.
@@ -64,7 +64,7 @@ La tabella seguente illustra alcune differenze chiave tra l'appliance cloud Stor
 
 |  | Dispositivo fisico | Appliance cloud |
 | --- | --- | --- |
-| **Posizione** |Si trova nel data center. |Viene eseguito in Azure. |
+| **Località** |Si trova nel data center. |Viene eseguito in Azure. |
 | **Interfacce di rete** |Ha sei interfacce di rete: da DATA 0 a DATA 5. |Ha una sola interfaccia di rete: DATA 0. |
 | **Registrazione** |La registrazione viene eseguita durante il passaggio della configurazione iniziale. |La registrazione è un'attività separata. |
 | **Chiave di crittografia dei dati del servizio** |Rigenerare la chiave nel dispositivo fisico e quindi aggiornare l'appliance cloud con la nuova chiave. |Non è possibile rigenerare la chiave dall'appliance cloud. |
@@ -96,7 +96,7 @@ Prima di effettuare il provisioning dell'appliance cloud, è necessario eseguire
 Prima di creare un'appliance cloud, effettuare gli aggiornamenti seguenti nel servizio Gestione dispositivi StorSimple:
 
 * Aggiungere [record controllo di accesso](storsimple-8000-manage-acrs.md) per le VM che svolgeranno il ruolo di server host per l'appliance cloud.
-* Usare un [account di archiviazione](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) nella stessa area dell'appliance cloud. Gli account di archiviazione posti in aree diverse possono causare una riduzione delle prestazioni. Con l'appliance cloud è possibile usare un account di archiviazione Standard o Premium. Altre informazioni su come creare un [account di archiviazione Standard](../storage/common/storage-create-storage-account.md).
+* Usare un [account di archiviazione](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) nella stessa area dell'appliance cloud. Gli account di archiviazione posti in aree diverse possono causare una riduzione delle prestazioni. Con l'appliance cloud è possibile usare un account di archiviazione Standard o Premium. Altre informazioni su come creare un [account di archiviazione Standard](../storage/common/storage-account-create.md).
 * Per la creazione dell'appliance cloud usare un account di archiviazione diverso rispetto a quello usato per i dati. Se si utilizza lo stesso account di archiviazione, si potrebbe verificare una riduzione delle prestazioni.
 
 Prima di iniziare, verificare quanto segue:
@@ -267,7 +267,7 @@ Per interrompere tutti gli addebiti, è necessario eliminare l'appliance cloud. 
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Risolvere gli errori di connettività Internet
 Se durante la creazione di un'appliance cloud non è disponibile connettività a Internet, il passaggio della creazione ha esito negativo. Per risolvere gli errori di connettività Internet, seguire questa procedura nel portale di Azure:
 
-1. [Creare una macchina virtuale Windows nella portale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Questa macchina virtuale dovrà usare lo stesso account di archiviazione, la stessa rete virtuale e la stessa subnet usati dall'appliance cloud. Se esiste già un host Windows Server in Azure che usa lo stesso account di archiviazione, la stessa rete virtuale e la stessa subnet, è anche possibile risolvere i problemi di connettività Internet usando tale host.
+1. [Creare una macchina virtuale Windows nella portale di Azure](../virtual-machines/windows/quick-create-portal.md). Questa macchina virtuale dovrà usare lo stesso account di archiviazione, la stessa rete virtuale e la stessa subnet usati dall'appliance cloud. Se esiste già un host Windows Server in Azure che usa lo stesso account di archiviazione, la stessa rete virtuale e la stessa subnet, è anche possibile risolvere i problemi di connettività Internet usando tale host.
 2. Eseguire l'accesso remoto alla macchina virtuale creata nel passaggio precedente.
 3. Aprire una finestra di comando nella macchina virtuale (premere tasto WINDOWS + R e quindi digitare `cmd`).
 4. Al prompt eseguire questo comando:

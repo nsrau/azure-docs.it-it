@@ -1,17 +1,17 @@
 ---
 title: Come abilitare la risorsa della soluzione VMware di Azure
-description: Informazioni su come inviare una richiesta di supporto per abilitare la risorsa della soluzione VMware di Azure. È anche possibile richiedere altri nodi nel cloud privato della soluzione VMware di Azure esistente.
+description: Informazioni su come inviare una richiesta di supporto per abilitare la risorsa della soluzione VMware di Azure. È anche possibile richiedere più host nel cloud privato della soluzione VMware di Azure esistente.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 8e1b891559cb2d01adc9fdf834ef3c9714fe1233
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: cd58611f77c2f2fb1694597fc9ef049420093ccc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888437"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94967364"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Come abilitare la risorsa della soluzione VMware di Azure
-Informazioni su come inviare una richiesta di supporto per abilitare la risorsa della [soluzione VMware di Azure](introduction.md) . È anche possibile richiedere altri nodi nel cloud privato della soluzione VMware di Azure esistente.
+Informazioni su come inviare una richiesta di supporto per abilitare la risorsa della [soluzione VMware di Azure](introduction.md) . È anche possibile richiedere più host nel cloud privato della soluzione VMware di Azure esistente.
 
 ## <a name="eligibility-criteria"></a>Criteri di idoneità
 
@@ -22,7 +22,7 @@ Sarà necessario un account Azure in una sottoscrizione di Azure. La sottoscrizi
 
 
 ## <a name="enable-azure-vmware-solution-for-ea-customers"></a>Abilitare la soluzione VMware di Azure per i clienti con contratto Enterprise
-Prima di creare la risorsa della soluzione Azure VMware, sarà necessario inviare un ticket di supporto per ottenere l'allocazione dei nodi. Dopo la ricezione della richiesta da parte del team di supporto, sono necessari fino a cinque giorni per completare la richiesta e allocare i nodi. Se è disponibile un cloud privato della soluzione Azure VMware ed è necessaria l'allocazione di altri nodi, sarà necessario seguire lo stesso processo.
+Prima di creare la risorsa della soluzione VMware di Azure, è necessario inviare un ticket di supporto per allocare gli host. Dopo la ricezione della richiesta da parte del team di supporto, sono necessari fino a cinque giorni per completare la richiesta e allocare gli host. Se è disponibile un cloud privato della soluzione Azure VMware ed è necessaria l'allocazione di altri host, sarà necessario seguire lo stesso processo.
 
 
 1. Nella portale di Azure in Guida e **supporto tecnico** creare una **[nuova richiesta di supporto](https://rc.portal.azure.com/#create/Microsoft.Support)** e fornire le informazioni seguenti per il ticket:
@@ -38,20 +38,20 @@ Prima di creare la risorsa della soluzione Azure VMware, sarà necessario inviar
 
    - POC o produzione 
    - Nome area
-   - Numero di nodi
+   - Numero di host
    - Altri dettagli
 
    >[!NOTE]
-   >La soluzione VMware di Azure consiglia un minimo di tre nodi per avviare il cloud privato e per la ridondanza di N + 1 nodi. 
+   >La soluzione VMware di Azure consiglia un minimo di tre host per avviare il cloud privato e per gli host con ridondanza N + 1. 
 
 1. Selezionare **Verifica + crea** per inviare la richiesta.
 
    Per confermare la richiesta, l'addetto al supporto richiederà fino a cinque giorni lavorativi.
 
    >[!IMPORTANT] 
-   >Se si dispone già di una soluzione VMware di Azure esistente e si richiedono nodi aggiuntivi, si noti che per l'allocazione dei nodi sono necessari cinque giorni lavorativi. 
+   >Se si dispone già di una soluzione VMware di Azure esistente e si richiede un host aggiuntivo, si noti che per l'assegnazione degli host sono necessari cinque giorni lavorativi. 
 
-1. Prima di poter effettuare il provisioning dei nodi, assicurarsi di registrare il provider di risorse **Microsoft. AVS** nella portale di Azure.  
+1. Prima di poter effettuare il provisioning degli host, assicurarsi di registrare il provider di risorse **Microsoft. AVS** nella portale di Azure.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
@@ -99,21 +99,21 @@ Dopo aver configurato il piano di Azure e le autorizzazioni di vSphere RBAC nece
 
    - POC o produzione 
    - Nome area
-   - Numero di nodi
+   - Numero di host
    - Altri dettagli
    - È destinato a ospitare più clienti?
 
    >[!NOTE]
-   >La soluzione VMware di Azure consiglia un minimo di tre nodi per avviare il cloud privato e per la ridondanza di N + 1 nodi. 
+   >La soluzione VMware di Azure consiglia un minimo di tre host per avviare il cloud privato e per gli host con ridondanza N + 1. 
 
 1. Selezionare **Verifica + crea** per inviare la richiesta.
 
    Per confermare la richiesta, l'addetto al supporto richiederà fino a cinque giorni lavorativi.
 
    >[!IMPORTANT] 
-   >Se si dispone già di una soluzione VMware di Azure esistente e si richiedono nodi aggiuntivi, si noti che per l'allocazione dei nodi sono necessari cinque giorni lavorativi. 
+   >Se si dispone già di una soluzione VMware di Azure esistente e si richiede un host aggiuntivo, si noti che per l'assegnazione degli host sono necessari cinque giorni lavorativi. 
 
-1. Una volta aggiunto al piano Azure e con la quota abilitata, il cliente o l'amministratore partner può distribuire un cloud privato della soluzione VMware di Azure tramite il portale di Azure. Prima di poter effettuare il provisioning dei nodi, assicurarsi di registrare il provider di risorse **Microsoft. AVS** nella portale di Azure.  
+1. Una volta aggiunto al piano Azure e con la quota abilitata, il cliente o l'amministratore partner può distribuire un cloud privato della soluzione VMware di Azure tramite il portale di Azure. Prima di poter effettuare il provisioning degli host, assicurarsi di registrare il provider di risorse **Microsoft. AVS** nella portale di Azure.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>

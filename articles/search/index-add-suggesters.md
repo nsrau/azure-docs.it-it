@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e90c1d1cfa02f63a2b5115124dee2a9da68e2f3f
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 9122d6716aa94a7e0164c9c7774c7c8d85be814a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917274"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968010"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creare un suggerimento per abilitare il completamento automatico e i risultati suggeriti in una query
 
@@ -40,9 +40,11 @@ Un suggerimento è una struttura di dati interna che supporta i comportamenti di
 
 Per creare un componente di suggerimento, aggiungerne uno a una [definizione di indice](/rest/api/searchservice/create-index). Un suggerimento riceve un nome e una raccolta di campi in cui è abilitata l'esperienza typeahead. e [impostare ciascuna proprietà](#property-reference). Il momento migliore per creare un suggerimento è quando si definisce anche il campo che lo utilizzerà.
 
-+ USA solo campi stringa
++ Utilizzare solo i campi stringa.
 
-+ Usare l'analizzatore Lucene standard predefinito ( `"analyzer": null` ) o un [analizzatore del linguaggio](index-add-language-analyzers.md) (ad esempio, `"analyzer": "en.Microsoft"` ) nel campo
++ Se il campo stringa fa parte di un tipo complesso (ad esempio, un campo città all'interno di Address), includere l'elemento padre nel campo: `"Address/City"` (REST e C# e Python) o `["Address"]["City"]` (JavaScript).
+
++ Usare l'analizzatore Lucene standard predefinito ( `"analyzer": null` ) o un [analizzatore del linguaggio](index-add-language-analyzers.md) (ad esempio, `"analyzer": "en.Microsoft"` ) nel campo.
 
 Se si tenta di creare un suggerimento usando i campi preesistenti, l'API non lo consentirà. I prefissi vengono generati durante l'indicizzazione, quando i termini parziali in due o più combinazioni di caratteri vengono suddivisi in token insieme a termini interi. Dato che i campi esistenti sono già in formato token, sarà necessario ricompilare l'indice se si desidera aggiungerli a un suggerimento. Per altre informazioni, vedere [How to rebuild an Azure ricerca cognitiva index](search-howto-reindex.md).
 

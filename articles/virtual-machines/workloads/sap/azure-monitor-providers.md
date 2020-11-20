@@ -3,22 +3,23 @@ title: Monitoraggio di Azure per i provider di soluzioni SAP | Microsoft Docs
 description: Questo articolo fornisce le risposte alle domande frequenti su monitoraggio di Azure per i provider di soluzioni SAP.
 author: rdeltcheva
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: f5df8bccc10ca64ee9a04f195299c5228b7274c1
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 056eba8694d1727350809121f763181e3cdbdc64
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356451"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968605"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Monitoraggio di Azure per i provider di soluzioni SAP (anteprima)
 
 ## <a name="overview"></a>Panoramica  
 
-Nel contesto di monitoraggio di Azure per le soluzioni SAP, un *tipo di provider* si riferisce a un *provider* specifico. Ad esempio *SAP Hana* , configurato per un componente specifico all'interno del panorama applicativo SAP, come SAP Hana database. Un provider contiene le informazioni di connessione per il componente corrispondente e consente di raccogliere dati di telemetria da tale componente. Una risorsa di monitoraggio di Azure per SAP Solutions (nota anche come risorsa di monitoraggio SAP) può essere configurata con più provider dello stesso tipo di provider o più provider di più tipi di provider.
+Nel contesto di monitoraggio di Azure per le soluzioni SAP, un *tipo di provider* si riferisce a un *provider* specifico. Ad esempio *SAP Hana*, configurato per un componente specifico all'interno del panorama applicativo SAP, come SAP Hana database. Un provider contiene le informazioni di connessione per il componente corrispondente e consente di raccogliere dati di telemetria da tale componente. Una risorsa di monitoraggio di Azure per SAP Solutions (nota anche come risorsa di monitoraggio SAP) può essere configurata con più provider dello stesso tipo di provider o più provider di più tipi di provider.
    
 I clienti possono scegliere di configurare tipi di provider diversi per consentire la raccolta di dati dal componente corrispondente nel panorama applicativo SAP. I clienti possono ad esempio configurare un provider per il tipo di provider SAP HANA, un altro provider per il tipo di provider cluster a disponibilità elevata e così via.  
 

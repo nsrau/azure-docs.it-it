@@ -3,20 +3,20 @@ title: Panoramica delle VM serie HBv2-macchine virtuali di Azure | Microsoft Doc
 description: Informazioni sulle dimensioni delle macchine virtuali della serie HBv2 in Azure.
 services: virtual-machines
 author: vermagit
-manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 48366f205ed8eb2d179bdc39c8da3d673f066a69
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: be66f29881250843f70ba85b8ef7c80ae8b31aa6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332638"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966939"
 ---
 # <a name="hbv2-series-virtual-machine-overview"></a>Panoramica delle macchine virtuali serie HBv2 
 
@@ -41,7 +41,7 @@ Il blocco dei processi funzionerà sulle macchine virtuali della serie HBv2, per
 | Core                            | 120 (SMT disabilitato)               | 
 | CPU                              | AMD EPYC 7742                    | 
 | Frequenza CPU (non-AVX)          | ~ 3,1 GHz (singolo + tutti i core)    | 
-| Memoria                           | 4 GB/Core (Totale 480 GB)         | 
+| Memory                           | 4 GB/Core (Totale 480 GB)         | 
 | Disco locale                       | 960 GB NVMe (Block), 480 GB SSD (file di paging) | 
 | Infiniband                       | 200 GB/s EDR Mellanox ConnectX-6 | 
 | Rete                          | 50 GB/s Ethernet (40 GB/s utilizzabile) Azure Second gen SmartNIC | 

@@ -4,18 +4,18 @@ description: IoT Edge il recupero del log del modulo e il caricamento nell'archi
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
-ms.date: 09/14/2020
+ms.date: 11/12/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 64264028706c1493f687f032a7ec39e69188bd45
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 97cdc4ad0b1d5e7dfb6642fa0163f810be5d7171
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171924"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94966922"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperare i log da distribuzioni IoT Edge
 
@@ -63,16 +63,16 @@ Questo metodo accetta un payload JSON con lo schema seguente:
     }
 ```
 
-| Nome | Type | Descrizione |
+| Nome | Type | Description |
 |-|-|-|
 | schemaVersion | string | Impostare su `1.0` |
 | items | Matrice JSON | Matrice con `id` `filter` Tuple e. |
 | ID | string | Espressione regolare che fornisce il nome del modulo. Può corrispondere a più moduli in un dispositivo perimetrale. È previsto il formato delle [espressioni regolari di .NET](/dotnet/standard/base-types/regular-expressions) . |
 | filter | Sezione JSON | Filtri di log da applicare ai moduli corrispondenti all' `id` espressione regolare nella tupla. |
-| coda | numero intero | Numero di righe di log nel passato da recuperare a partire dall'ultima. FACOLTATIVO |
-| since | numero intero | Restituire i log solo dopo questa volta, come durata (1 d, 90 m, 2 giorni 3 ore 2 minuti), timestamp rfc3339 o timestamp UNIX.  Se `tail` `since` vengono specificati sia che, i log vengono recuperati usando `since` prima il valore. Quindi, il `tail` valore viene applicato al risultato e viene restituito il risultato finale. FACOLTATIVO |
-| until | numero intero | Restituisce i log solo prima dell'ora specificata, come timestamp rfc3339, timestamp UNIX o durata (1 d, 90 m, 2 giorni 3 ore 2 minuti). FACOLTATIVO |
-| livello di registrazione | numero intero | Filtrare le righe di log inferiori o uguali al livello di log specificato. Le linee di log devono seguire il formato di registrazione consigliato e usare lo standard del [livello di gravità syslog](https://en.wikipedia.org/wiki/Syslog#Severity_level) . FACOLTATIVO |
+| coda | integer | Numero di righe di log nel passato da recuperare a partire dall'ultima. FACOLTATIVO |
+| since | integer | Restituire i log solo dopo questa volta, come durata (1 d, 90 m, 2 giorni 3 ore 2 minuti), timestamp rfc3339 o timestamp UNIX.  Se `tail` `since` vengono specificati sia che, i log vengono recuperati usando `since` prima il valore. Quindi, il `tail` valore viene applicato al risultato e viene restituito il risultato finale. FACOLTATIVO |
+| until | integer | Restituisce i log solo prima dell'ora specificata, come timestamp rfc3339, timestamp UNIX o durata (1 d, 90 m, 2 giorni 3 ore 2 minuti). FACOLTATIVO |
+| livello di registrazione | integer | Filtrare le righe di log inferiori o uguali al livello di log specificato. Le linee di log devono seguire il formato di registrazione consigliato e usare lo standard del [livello di gravità syslog](https://en.wikipedia.org/wiki/Syslog#Severity_level) . FACOLTATIVO |
 | regex | string | Filtrare le righe di log con contenuto corrispondente all'espressione regolare specificata utilizzando il formato delle [espressioni regolari di .NET](/dotnet/standard/base-types/regular-expressions) . FACOLTATIVO |
 | codifica | string | `gzip` o `none`. Il valore predefinito è `none`. |
 | contentType | string | `json` o `text`. Il valore predefinito è `text`. |
@@ -141,6 +141,14 @@ az iot hub invoke-module-method \
 
 Usare il metodo diretto **UploadModuleLogs** per inviare i log richiesti a un contenitore di archiviazione BLOB di Azure specificato.
 
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> Se si vuole caricare i log da un dispositivo dietro un dispositivo gateway, è necessario che il [proxy API e i moduli di archiviazione BLOB](how-to-configure-api-proxy-module.md) siano configurati nel dispositivo di livello superiore. Questi moduli instradano i log dal dispositivo di livello inferiore tramite il dispositivo gateway alla risorsa di archiviazione nel cloud.
+
+::: moniker-end
+
 Questo metodo accetta un payload JSON simile a **GetModuleLogs**, con l'aggiunta della chiave "sasUrl":
 
 ```json
@@ -164,7 +172,7 @@ Questo metodo accetta un payload JSON simile a **GetModuleLogs**, con l'aggiunta
     }
 ```
 
-| Nome | Type | Descrizione |
+| Nome | Type | Description |
 |-|-|-|
 | sasURL | stringa (URI) | [URL della firma di accesso condiviso con accesso in scrittura al contenitore di archiviazione BLOB di Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
 
@@ -261,6 +269,14 @@ Nel portale di Azure richiamare il metodo con il nome del metodo `UploadModuleLo
 
 Usare il metodo diretto **UploadSupportBundle** per aggregare e caricare un file zip dei log del modulo IOT Edge in un contenitore di archiviazione BLOB di Azure disponibile. Questo metodo diretto esegue il [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) comando sul dispositivo IOT Edge per ottenere i log.
 
+<!-- 1.2.0 -->
+::: moniker range=">=iotedge-2020-11"
+
+> [!NOTE]
+> Se si vuole caricare i log da un dispositivo dietro un dispositivo gateway, è necessario che il [proxy API e i moduli di archiviazione BLOB](how-to-configure-api-proxy-module.md) siano configurati nel dispositivo di livello superiore. Questi moduli instradano i log dal dispositivo di livello inferiore tramite il dispositivo gateway alla risorsa di archiviazione nel cloud.
+
+::: moniker-end
+
 Questo metodo accetta un payload JSON con lo schema seguente:
 
 ```json
@@ -273,12 +289,12 @@ Questo metodo accetta un payload JSON con lo schema seguente:
     }
 ```
 
-| Nome | Type | Descrizione |
+| Nome | Type | Description |
 |-|-|-|
 | schemaVersion | string | Impostare su `1.0` |
 | sasURL | stringa (URI) | [URL della firma di accesso condiviso con accesso in scrittura al contenitore di archiviazione BLOB di Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
-| since | numero intero | Restituire i log solo dopo questa volta, come durata (1 d, 90 m, 2 giorni 3 ore 2 minuti), timestamp rfc3339 o timestamp UNIX. FACOLTATIVO |
-| until | numero intero | Restituisce i log solo prima dell'ora specificata, come timestamp rfc3339, timestamp UNIX o durata (1 d, 90 m, 2 giorni 3 ore 2 minuti). FACOLTATIVO |
+| since | integer | Restituire i log solo dopo questa volta, come durata (1 d, 90 m, 2 giorni 3 ore 2 minuti), timestamp rfc3339 o timestamp UNIX. FACOLTATIVO |
+| until | integer | Restituisce i log solo prima dell'ora specificata, come timestamp rfc3339, timestamp UNIX o durata (1 d, 90 m, 2 giorni 3 ore 2 minuti). FACOLTATIVO |
 | edgeRuntimeOnly | boolean | Se è true, vengono restituiti solo i log dell'agente Edge, dell'Hub Edge e del daemon di sicurezza perimetrale. Valore predefinito: false.  FACOLTATIVO |
 
 > [!IMPORTANT]

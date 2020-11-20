@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: cc88d5b7a458c3666cdb4469d7021917d27115f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d44fada1eddf2d3f80bec085d8a5bf751197eb1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514331"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94968809"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurare Multipath I/O per il dispositivo StorSimple
 
 Questa esercitazione descrive i passaggi da seguire per installare e usare la funzionalità Multipath I/O (MPIO) in un host che esegue Windows Server 2012 R2 e connesso a un dispositivo fisico StorSimple. Le indicazioni fornite in questo articolo si applicano solo ai dispositivi fisici StorSimple serie 8000. La funzionalità MPIO non è attualmente supportata in un'appliance cloud StorSimple.
 
-Microsoft ha creato il supporto per funzionalità Multipath I/O (MPIO) in Windows Server per consentire la creazione di configurazioni di rete iSCI a elevata disponibilità e con tolleranza d'errore. MPIO utilizza componenti di percorso fisico ridondanti, adattatori, cavi e interruttori, per creare percorsi logici tra il server e il dispositivo di archiviazione. Se si verifica un errore del componente, che causa l’errore di un percorso logico, la logica dei percorsi multipli utilizza un percorso alternativo per l’I/O, in modo che le applicazioni possano continuare ad accedere ai dati. Inoltre, in base alla configurazione, MPIO può anche migliorare le prestazioni bilanciando nuovamente il carico tra tutti questi percorsi. Per altre informazioni, vedere [Cenni preliminari su MPIO](https://technet.microsoft.com/library/cc725907.aspx "Panoramica e funzionalità di MPIO").
+Microsoft ha creato il supporto per funzionalità Multipath I/O (MPIO) in Windows Server per consentire la creazione di configurazioni di rete iSCI a elevata disponibilità e con tolleranza d'errore. MPIO utilizza componenti di percorso fisico ridondanti, adattatori, cavi e interruttori, per creare percorsi logici tra il server e il dispositivo di archiviazione. Se si verifica un errore del componente, che causa l’errore di un percorso logico, la logica dei percorsi multipli utilizza un percorso alternativo per l’I/O, in modo che le applicazioni possano continuare ad accedere ai dati. Inoltre, in base alla configurazione, MPIO può anche migliorare le prestazioni bilanciando nuovamente il carico tra tutti questi percorsi. Per altre informazioni, vedere [Cenni preliminari su MPIO](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc725907(v=ws.11) "Panoramica e funzionalità di MPIO").
 
 Per la disponibilità elevata della soluzione StorSimple, è necessario configurare MPIO nel dispositivo StorSimple. Quando MPIO è installato nei server host che eseguono Windows Server 2012 R2, i server possono dunque tollerare un errore di collegamento, di rete o di interfaccia.
 
@@ -191,4 +191,3 @@ Nella procedura seguente viene descritto come aggiungere le sessioni quando un d
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni su come [usare il servizio Gestione dispositivi StorSimple per modificare la configurazione del dispositivo StorSimple](storsimple-8000-modify-device-config.md).
-
