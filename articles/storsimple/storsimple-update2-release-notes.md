@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 53be638c46685dd46a5afb5ed56f9a76ed7b5fd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b68e338c2675a3aeefda390d12ab2d82ea1c7a9f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055861"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956654"
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Note sulla versione dell'aggiornamento 2 di StorSimple serie 8000
 
@@ -80,7 +80,7 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa ve
 | 3 |Account di archiviazione |L’utilizzo del servizio di archiviazione per eliminare l'account di archiviazione non è supportato. Tale operazione causerebbe una situazione in cui non è possibile recuperare i dati dell'utente. | |Sì |Sì |
 | 4 |Failover del dispositivo |I failover multipli di un contenitore di volumi dallo stesso dispositivo di origine verso dispositivi di destinazione diversi non sono supportati. Il failover da un singolo dispositivo inattivo a più dispositivi causerà la perdita della proprietà dei dati dei contenitori di volumi sul primo dispositivo sottoposto a failover. Dopo un tale failover, questi contenitori di volumi appariranno o si comporteranno in maniera diversa quando vengono visualizzati nel portale di Azure classico. | |Sì |No |
 | 5 |Installazione |Durante l’installazione dell'adattatore StorSimple per SharePoint è necessario fornire un IP del dispositivo affinché l'installazione possa essere completata correttamente. | |Sì |No |
-| 6 |Proxy Web |Se nella configurazione del proxy Web è specificato il protocollo HTTPS, la comunicazione tra dispositivo e servizio ne sarà interessata e il dispositivo verrà portato offline. Nel processo, inoltre, verranno generati pacchetti di supporto, consumando risorse significative sul dispositivo. |Assicurarsi che l'URL del proxy Web abbia HTTP come protocollo specificato. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](storsimple-configure-web-proxy.md). |Sì |No |
+| 6 |Proxy Web |Se nella configurazione del proxy Web è specificato il protocollo HTTPS, la comunicazione tra dispositivo e servizio ne sarà interessata e il dispositivo verrà portato offline. Nel processo, inoltre, verranno generati pacchetti di supporto, consumando risorse significative sul dispositivo. |Assicurarsi che l'URL del proxy Web abbia HTTP come protocollo specificato. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](./storsimple-8000-configure-web-proxy.md). |Sì |No |
 | 7 |Proxy Web |Se si configura e si abilita il proxy Web su un dispositivo registrato, è necessario riavviare il controller attivo sul dispositivo. | |Sì |No |
 | 8 |Elevata latenza del cloud ed elevato carico di lavoro I/O |Quando il dispositivo StorSimple rileva una combinazione di latenze cloud molto elevate (nell’ordine di secondi) e carico di lavoro I/O elevato, i volumi del dispositivo entrano in uno stato con funzionalità ridotte e gli I/O potrebbero non riuscire a causa di un errore di "dispositivo non pronto". |In questo caso è necessario riavviare manualmente i controller del dispositivo o eseguire un failover del dispositivo per risolvere  il problema. |Sì |No |
 | 9 |Azure PowerShell |Quando si utilizza il cmdlet di StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** per selezionare il primo oggetto in modo tale da poter creare un oggetto **VolumeContainer** nuovo, il cmdlet restituisce tutti gli oggetti. |Racchiudere il cmdlet tra parentesi nel modo seguente: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Sì |Sì |
@@ -107,5 +107,4 @@ Questa versione aggiorna il driver e il firmware del disco sul dispositivo.
 Impossibile applicare questo aggiornamento per il dispositivo virtuale. Sarà necessario creare nuovi dispositivi virtuali. 
 
 ## <a name="next-step"></a>Passaggio successivo
-Informazioni su come [installare l'aggiornamento 2](storsimple-install-update-2.md) nel dispositivo StorSimple.
-
+Informazioni su come [installare l'aggiornamento 2](./storsimple-8000-install-update-5.md) nel dispositivo StorSimple.

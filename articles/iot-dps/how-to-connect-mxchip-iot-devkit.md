@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: 2a030d9ca5422e12856dcb81b29f8327e684c97e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6b6649d03da319171b24baa24983972bf270679
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528654"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954546"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Usare il provisioning automatico del servizio Device Provisioning in hub IoT per registrare MXChip IoT DevKit nell'hub IoT
 
@@ -30,9 +30,9 @@ Questo articolo descrive come usare il servizio Device provisioning in hub Azure
 
 Per completare la procedura di questa esercitazione, effettuare le attività seguenti:
 
-* Configurare la Wi-Fi di DevKit e preparare l'ambiente di sviluppo seguendo la procedura descritta nella sezione "preparare l'ambiente di sviluppo" in [Connect DevKit AZ3166 nell'hub di Azure Internet nel cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
+* Configurare la Wi-Fi di DevKit e preparare l'ambiente di sviluppo seguendo la procedura descritta nella sezione "preparare l'ambiente di sviluppo" in [Connect DevKit AZ3166 nell'hub di Azure Internet nel cloud](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 * Eseguire l'aggiornamento al firmware più recente (1.3.0 o versioni successive) seguendo l'esercitazione [Update DevKit firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) (Aggiornare il firmware del DevKit).
-* Creare e collegare un hub Internet delle cose con un'istanza del servizio Device provisioning seguendo la procedura descritta in [configurare il servizio Device provisioning in hub Internet con il portale di Azure](/azure/iot-dps/quick-setup-auto-provision).
+* Creare e collegare un hub Internet delle cose con un'istanza del servizio Device provisioning seguendo la procedura descritta in [configurare il servizio Device provisioning in hub Internet con il portale di Azure](./quick-setup-auto-provision.md).
 
 ## <a name="open-sample-project"></a>Aprire il progetto di esempio
 
@@ -74,7 +74,7 @@ Per salvare un segreto UDS nel DevKit:
 
 ## <a name="update-the-global-device-endpoint-and-id-scope"></a>Aggiornare Endpoint dispositivo globale e Ambito ID
 
-Nel codice del dispositivo è necessario specificare l'[endpoint di provisioning del dispositivo](/azure/iot-dps/concepts-service#device-provisioning-endpoint) e l'ambito ID per garantire l'isolamento del tenant.
+Nel codice del dispositivo è necessario specificare l'[endpoint di provisioning del dispositivo](./concepts-service.md#device-provisioning-endpoint) e l'ambito ID per garantire l'isolamento del tenant.
 
 1. Nella portale di Azure selezionare il riquadro **Panoramica** del servizio Device provisioning e prendere nota dei valori **endpoint dispositivo globale** e **ambito ID** .
   ![Ambito ID ed endpoint globale del servizio Device Provisioning](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
@@ -90,7 +90,7 @@ Nel codice del dispositivo è necessario specificare l'[endpoint di provisioning
 
 ## <a name="generate-x509-certificate"></a>Generare il certificato X.509
 
-Il [meccanismo di attestazione](/azure/iot-dps/concepts-device#attestation-mechanism) usato da questo esempio è il certificato X.509. È necessario usare un'utilità per generarlo.
+Il [meccanismo di attestazione](./concepts-service.md#attestation-mechanism) usato da questo esempio è il certificato X.509. È necessario usare un'utilità per generarlo.
 
 1. In VS Code fare clic su `F1`, digitare e selezionare **Apri nuovo terminale** per aprire una finestra del terminale.
 
@@ -141,4 +141,3 @@ In breve, si è appreso come:
 > * Verificare che il dispositivo sia registrato.
 
 Altre informazioni in [Creare ed effettuare il provisioning di un dispositivo simulato](./quick-create-simulated-device.md).
-

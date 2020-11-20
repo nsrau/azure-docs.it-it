@@ -15,19 +15,19 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24eb03069689d6dc89d8e237e0e65c71af6c6173
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 509a3ac383cebd91821e9c4b872c253ab3b0a947
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184721"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956195"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Ripristino di emergenza e failover del dispositivo per l'array virtuale StorSimple tramite il portale di Azure
 
 ## <a name="overview"></a>Panoramica
 Questo articolo descrive il ripristino di emergenza per l'array virtuale Microsoft Azure StorSimple, inclusi i passaggi dettagliati per eseguire il failover a un altro array virtuale. Il failover consente di spostare i dati da un dispositivo di *origine* nel data center a un dispositivo di *destinazione*. Il dispositivo di destinazione può trovarsi nella stessa o in un'altra area geografica. Il failover del dispositivo interessa tutto il dispositivo. Durante il failover, la proprietà dei dati del cloud passa dal dispositivo di origine al dispositivo di destinazione.
 
-Il contenuto di questo articolo si applica solo a StorSimple Virtual Array. Per eseguire il failover di un dispositivo serie 8000, andare a [Failover e ripristino di emergenza per il dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
+Il contenuto di questo articolo si applica solo a StorSimple Virtual Array. Per eseguire il failover di un dispositivo serie 8000, andare a [Failover e ripristino di emergenza per il dispositivo StorSimple](./storsimple-8000-device-failover-disaster-recovery.md).
 
 ## <a name="what-is-disaster-recovery-and-device-failover"></a>Che cos'è failover del dispositivo e il ripristino di emergenza?
 
@@ -181,4 +181,3 @@ Se sono presenti dispositivi StorSimple registrati prima del verificarsi di un'e
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su come [Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-

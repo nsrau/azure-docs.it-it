@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c49a46dfcd97f5feb43b0b910476ef3ad6f402a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c7f4ab92e4cce3937a933fec97008c281a0eae
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742248"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954121"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Eseguire il backup di condivisioni o volumi nell'array virtuale StorSimple
 
@@ -28,7 +28,7 @@ ms.locfileid: "91742248"
 
 StorSimple Virtual Array è un dispositivo virtuale locale di archiviazione cloud ibrido che può essere configurato come file server o server iSCSI. L'array virtuale consente all'utente di creare backup pianificati e manuali di tutte le condivisioni o di tutti i volumi nel dispositivo. Quando viene configurato come file server, consente anche il ripristino a livello di elemento. In questa esercitazione viene descritto come creare backup pianificati e manuali ed eseguire il ripristino a livello di elemento per recuperare un file eliminato nell'array virtuale.
 
-Le informazioni contenute in questa esercitazione si applicano solo all'array virtuale StorSimple. Per informazioni sulla serie 8000, vedere l'articolo sulla [creazione di un backup per un dispositivo serie 8000](storsimple-manage-backup-policies-u2.md)
+Le informazioni contenute in questa esercitazione si applicano solo all'array virtuale StorSimple. Per informazioni sulla serie 8000, vedere l'articolo sulla [creazione di un backup per un dispositivo serie 8000](./storsimple-8000-manage-backup-policies-u2.md)
 
 ## <a name="back-up-shares-and-volumes"></a>Backup di condivisioni e volumi
 
@@ -58,7 +58,7 @@ L'array virtuale StorSimple dispone di un criterio di backup predefinito che si 
    
     ![passare a Criteri di backup](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 ### <a name="take-a-manual-backup"></a>Creazione di un backup manuale
 
@@ -115,4 +115,3 @@ Per visualizzare i backup esistenti, eseguire la procedura seguente nel portale 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Scoprire di più su come [amministrazione StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-

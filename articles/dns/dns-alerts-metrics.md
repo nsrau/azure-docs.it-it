@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: rohink
-ms.openlocfilehash: a27c4519024d6d3d2f3852534619b5f8c2bb5e43
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 85b681cbeb1b06784529e321c9e907ab2bdecb73
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489609"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954648"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Metriche e avvisi di DNS di Azure
 DNS di Azure è un servizio di hosting per i domini DNS che offre la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure. Questo articolo descrive le metriche e gli avvisi per il servizio DNS di Azure.
@@ -62,7 +62,7 @@ La metrica *Record Set Capacity Utilization* (Uso della capacità di set di reco
 *Figura: metriche Record Set Capacity Utilization (Uso della capacità di set di record) di DNS di Azure*
 
 ## <a name="alerts-in-azure-dns"></a>Avvisi in DNS di Azure
-Monitoraggio di Azure offre la possibilità di emettere degli avvisi in base ai valori delle metriche disponibili. Le metriche DNS sono disponibili nella nuova esperienza di configurazione degli avvisi. Come descritto in dettaglio nella [documentazione degli avvisi di Monitoraggio di Azure](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md), è possibile selezionare la zona DNS come risorsa, scegliere il tipo di segnale della metrica e configurare la logica di avviso e altri parametri, ad esempio **Periodo** e **Frequenza**. È anche possibile definire un [gruppo di azioni](../azure-monitor/platform/action-groups.md) nel caso in cui venga soddisfatta la condizione di avviso, in base al quale l'avviso verrà inviato tramite le azioni scelte. Per altre informazioni su come configurare gli avvisi per le metriche di Monitoraggio di Azure, vedere [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
+Monitoraggio di Azure offre la possibilità di emettere degli avvisi in base ai valori delle metriche disponibili. Le metriche DNS sono disponibili nella nuova esperienza di configurazione degli avvisi. Come descritto in dettaglio nella [documentazione degli avvisi di Monitoraggio di Azure](../azure-monitor/platform/alerts-metric.md), è possibile selezionare la zona DNS come risorsa, scegliere il tipo di segnale della metrica e configurare la logica di avviso e altri parametri, ad esempio **Periodo** e **Frequenza**. È anche possibile definire un [gruppo di azioni](../azure-monitor/platform/action-groups.md) nel caso in cui venga soddisfatta la condizione di avviso, in base al quale l'avviso verrà inviato tramite le azioni scelte. Per altre informazioni su come configurare gli avvisi per le metriche di Monitoraggio di Azure, vedere [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](../azure-monitor/platform/alerts-metric.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni su [DNS di Azure](dns-overview.md).

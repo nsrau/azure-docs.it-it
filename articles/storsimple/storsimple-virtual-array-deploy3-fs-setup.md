@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05447db97311fb78707079528e0570b3fd42df59
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 244fdbf7cb723fe85e0987d176a13242f0bff064
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977579"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956824"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuire l'array virtuale StorSimple: configurare come file server tramite il portale di Azure
 ![Diagramma che illustra i passaggi necessari per distribuire un array virtuale. La prima parte del terzo passaggio è denominata configurata come file server ed è evidenziata.](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -31,7 +31,7 @@ ms.locfileid: "91977579"
 
 Questo articolo illustra come eseguire l'installazione iniziale, registrare il file server StorSimple, completare l'installazione del dispositivo, quindi creare condivisioni SMB a cui connettersi. Questo è l'ultimo articolo della serie di esercitazioni per la distribuzione necessarie per la distribuzione completa dell'array virtuale come file server o server iSCSI.
 
-Il completamento del processo di installazione e configurazione può richiedere circa 10 minuti. Le informazioni in questo articolo si applicano solo alla distribuzione dell'array virtuale StorSimple. Per la distribuzione di dispositivi StorSimple serie 8000, vedere [Distribuire un dispositivo StorSimple serie 8000 con Aggiornamento 2](storsimple-deployment-walkthrough-u2.md).
+Il completamento del processo di installazione e configurazione può richiedere circa 10 minuti. Le informazioni in questo articolo si applicano solo alla distribuzione dell'array virtuale StorSimple. Per la distribuzione di dispositivi StorSimple serie 8000, vedere [Distribuire un dispositivo StorSimple serie 8000 con Aggiornamento 2](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ## <a name="setup-prerequisites"></a>Setup prerequisites
 Prima di configurare e installare l'array virtuale StorSimple, si deve:
@@ -118,7 +118,7 @@ Seguire passo per passo le istruzioni riportate sotto per installare e configura
     ![Screenshot della pagina tutte le risorse della portale di Azure. Viene evidenziato un servizio Device Manager.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. Nell'elenco filtrato selezionare il servizio Gestione dispositivi StorSimple e quindi passare a **Gestione > Dispositivi**. Nel pannello **Dispositivi** verificare che il dispositivo sia connesso correttamente al servizio controllando che lo stato sia **Pronto per la configurazione**.
     
-    ![Distribuisci](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
+    ![Distribuire](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
 
 ## <a name="step-2-configure-the-device-as-file-server"></a>Passaggio 2: Configurare il dispositivo come file server
 Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/) per completare l'installazione richiesta del dispositivo.
@@ -138,7 +138,7 @@ Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/)
     
    3. Una chiave AES a 256 bit viene usata con la chiave definita dall'utente per la crittografia. Specificare una chiave di 32 caratteri e quindi immetterla nuovamente per confermarla. Registrare la chiave in un'app di gestione delle chiavi per riferimento futuro.
     
-   4. Fare clic su **Configura le impostazioni necessarie** per specificare le credenziali dell'account di archiviazione da usare con il dispositivo. Se non è configurata alcuna credenziale, fare clic su **Aggiungi nuova**. **Verificare che l'account di archiviazione usato supporti i BLOB in blocchi. I BLOB di pagine non sono supportati.** Altre informazioni sui [BLOB in blocchi e i BLOB di pagine](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Fare clic su **Configura le impostazioni necessarie** per specificare le credenziali dell'account di archiviazione da usare con il dispositivo. Se non è configurata alcuna credenziale, fare clic su **Aggiungi nuova**. **Verificare che l'account di archiviazione usato supporti i BLOB in blocchi. I BLOB di pagine non sono supportati.** Altre informazioni sui [BLOB in blocchi e i BLOB di pagine](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
       ![Configurare un file server 3](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Nel pannello **Aggiungi credenziali dell'account di archiviazione** eseguire le operazioni seguenti: 
@@ -213,4 +213,3 @@ A questo punto, è necessario connettersi a una o più condivisioni create nel p
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su come usare l'interfaccia utente Web locale per [amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
-

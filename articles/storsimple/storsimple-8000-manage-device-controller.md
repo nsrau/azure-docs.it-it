@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: baa035269f4a5b2f39263264f23183b308264ead
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 090797549cc61aa27945114e5ef8b666226b66e2
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513946"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956994"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gestire i controller del dispositivo StorSimple
 
@@ -117,7 +117,7 @@ Per ripristinare le impostazioni predefinite di fabbrica del dispositivo StorSim
    
     `Reset-HcsFactoryDefault`
    
-    Per ripristinare invece un singolo controller, usare il cmdlet [Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) con il parametro `-scope`.
+    Per ripristinare invece un singolo controller, usare il cmdlet [Reset-HcsFactoryDefault](/previous-versions/windows/powershell-scripting/dn688132(v=wps.630)) con il parametro `-scope`.
    
     Il sistema verrà riavviato più volte. Verrà ricevuta una notifica al termine del processo di ripristino. A seconda del modello di sistema, per completare questo processo possono essere necessari 45-60 minuti per un dispositivo 8100 e 60-90 minuti per un dispositivo 8600.
    
@@ -161,4 +161,3 @@ In questa sezione vengono riportate alcune delle domande frequenti relative alla
 ## <a name="next-steps"></a>Passaggi successivi
 * Se si verificano problemi con i controller del dispositivo StorSimple che non si risolvono usando le procedure elencate in questa esercitazione, [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md).
 * Per altre informazioni sull'uso del servizio Gestione dispositivi StorSimple, passare a [Uso del servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

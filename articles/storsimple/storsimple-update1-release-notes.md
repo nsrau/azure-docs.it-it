@@ -15,19 +15,19 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17e20048c4cb4de2be6fe36be100b472f0b8ee73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a5ba4b27ae19999237edb75c50db36ef57a10f1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89459964"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956688"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>Note sulla versione dell'aggiornamento 1.2 del dispositivo StorSimple serie 8000
 
 ## <a name="overview"></a>Panoramica
 Nelle note sulla versione seguenti vengono descritte le nuove funzionalità e sono indicati i problemi critici non risolti relativi all'aggiornamento 1.2 di StorSimple serie 8000. Le note contengono inoltre un elenco degli aggiornamenti del firmware del software, del driver e del disco di StorSimple inclusi in questa versione. 
 
-L’aggiornamento 1.2 può essere applicato a qualsiasi dispositivo StorSimple che esegue il software Release (GA), aggiornamento 0.1, aggiornamento 0.2 o aggiornamento 0.3. L’aggiornamento 1.2 non è disponibile se il dispositivo esegue l’aggiornamento 1 o 1.1. Se il dispositivo esegue Release (GA), [contattare il supporto Microsoft](storsimple-contact-microsoft-support.md) per assistenza relativa all'installazione dell'aggiornamento.
+L’aggiornamento 1.2 può essere applicato a qualsiasi dispositivo StorSimple che esegue il software Release (GA), aggiornamento 0.1, aggiornamento 0.2 o aggiornamento 0.3. L’aggiornamento 1.2 non è disponibile se il dispositivo esegue l’aggiornamento 1 o 1.1. Se il dispositivo esegue Release (GA), [contattare il supporto Microsoft](./storsimple-8000-contact-microsoft-support.md) per assistenza relativa all'installazione dell'aggiornamento.
 
 Nella tabella seguente vengono elencate le versioni del software del dispositivo corrispondenti agli aggiornamenti 1, 1.1 e 1.2.
 
@@ -37,11 +37,11 @@ Nella tabella seguente vengono elencate le versioni del software del dispositivo
 | Aggiornamento 1.1 |6.3.9600.17521 |
 | Aggiornamento 1.0 |6.3.9600.17491 |
 
-Esaminare le informazioni contenute nelle note sulla versione prima di distribuire l'aggiornamento della soluzione StorSimple. Per altre informazioni, vedere la procedura [Installazione dell'aggiornamento 1.2 sul dispositivo StorSimple](storsimple-install-update-1.md). 
+Esaminare le informazioni contenute nelle note sulla versione prima di distribuire l'aggiornamento della soluzione StorSimple. Per altre informazioni, vedere la procedura [Installazione dell'aggiornamento 1.2 sul dispositivo StorSimple](./storsimple-8000-install-update-5.md). 
 
 > [!IMPORTANT]
 > * Sono necessarie circa 5-10 ore per installare questo aggiornamento (inclusi gli aggiornamenti di Windows). 
-> * L’aggiornamento 1.2 dispone di aggiornamenti del software, del driver LSI e del firmware del disco. Per installarlo, seguire le istruzioni in [Installare l’aggiornamento 1.2 sul dispositivo StorSimple](storsimple-install-update-1.md).
+> * L’aggiornamento 1.2 dispone di aggiornamenti del software, del driver LSI e del firmware del disco. Per installarlo, seguire le istruzioni in [Installare l’aggiornamento 1.2 sul dispositivo StorSimple](./storsimple-8000-install-update-5.md).
 > * Per le nuove versioni è possibile che gli aggiornamenti non siano immediatamente visibili perché viene effettuata un'implementazione graduale degli aggiornamenti. Provare a cercare nuovamente gli aggiornamenti dopo qualche giorno perché verranno presto resi disponibili.
 > 
 > 
@@ -55,11 +55,11 @@ Queste funzionalità sono state rilasciate precedentemente con l'aggiornamento 1
   * **Miglioramenti delle funzionalità offerte dalle appliance serie 8000**, come la gestione centralizzata efficiente di più appliance tramite il servizio StorSimple Manager, migliore classe di hardware e aggiornamento di firmware, appliance virtuali, mobilità dei dati e funzionalità nei piani d’azione futuri.
     
     Consultare la [Guida alla migrazione](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b) per dettagli su come eseguire la migrazione di un dispositivo StorSimple serie 5000-7000 a un dispositivo di serie 8000. 
-* **Disponibilità nel portale di Azure Government** – StorSimple è ora disponibile nel portale di Azure Government. Vedere la procedura [Distribuire un dispositivo StorSimple nel portale di Azure Government](storsimple-deployment-walkthrough-gov.md).
+* **Disponibilità nel portale di Azure Government** – StorSimple è ora disponibile nel portale di Azure Government. Vedere la procedura [Distribuire un dispositivo StorSimple nel portale di Azure Government](./index.yml).
 * **Supporto per altri provider di servizi cloud** – Altri provider di servizi cloud supportati sono Amazon S3, Amazon S3 con RRS, HP e OpenStack (beta).
-* **Aggiornamento alle API di archiviazione più recenti** - Con questa versione, StorSimple è stato aggiornato con le API del servizio di archiviazione di Azure più recenti. I dispositivi StorSimple serie 8000 che eseguono le versioni del software del pre-aggiornamento 1 (Release, 0.1, 0.2 e 0.3) utilizzano versioni delle API del servizio di archiviazione di Azure precedenti al 17 luglio 2009. Come indicato nell’ [annuncio sulla rimozione delle versioni del servizio di archiviazione](https://docs.microsoft.com/archive/blogs/windowsazurestorage/microsoft-azure-storage-service-version-removal-update-extension-to-2016)aggiornato, entro il 1 agosto 2016 tali API saranno deprecate. È necessario applicare l'aggiornamento 1 di StorSimple serie 8000 prima del 1 agosto 2016. In caso contrario, i dispositivi StorSimple smetteranno di funzionare correttamente.
+* **Aggiornamento alle API di archiviazione più recenti** - Con questa versione, StorSimple è stato aggiornato con le API del servizio di archiviazione di Azure più recenti. I dispositivi StorSimple serie 8000 che eseguono le versioni del software del pre-aggiornamento 1 (Release, 0.1, 0.2 e 0.3) utilizzano versioni delle API del servizio di archiviazione di Azure precedenti al 17 luglio 2009. Come indicato nell’ [annuncio sulla rimozione delle versioni del servizio di archiviazione](/archive/blogs/windowsazurestorage/microsoft-azure-storage-service-version-removal-update-extension-to-2016)aggiornato, entro il 1 agosto 2016 tali API saranno deprecate. È necessario applicare l'aggiornamento 1 di StorSimple serie 8000 prima del 1 agosto 2016. In caso contrario, i dispositivi StorSimple smetteranno di funzionare correttamente.
 * **Supporto per l'archiviazione con ridondanza della zona (ZRS)** – Con l'aggiornamento alla versione più recente delle API di archiviazione, StorSimple serie 8000 supporta l'archiviazione con ridondanza della zona (ZRS) oltre all'archiviazione con ridondanza locale (LRS) e all'archiviazione con ridondanza geografica (GRS). Per informazioni dettagliate su ZRS, vedere questo [articolo sulle opzioni di ridondanza di archiviazione di Azure](../storage/common/storage-redundancy.md) .
-* **Esperienza di distribuzione iniziale e aggiornamento migliorata** - In questa versione sono stati migliorati i processi di installazione e aggiornamento. L'installazione tramite configurazione guidata è stata migliorata per fornire commenti e suggerimenti all'utente qualora la configurazione di rete e le impostazioni del firewall non siano corrette. Per facilitare la risoluzione dei problemi di rete del dispositivo sono stati forniti dei cmdlet diagnostici aggiuntivi. Vedere l’ [articolo sulla risoluzione dei problemi di distribuzione](storsimple-troubleshoot-deployment.md) per ulteriori informazioni sui nuovi cmdlet diagnostici per la risoluzione dei problemi.
+* **Esperienza di distribuzione iniziale e aggiornamento migliorata** - In questa versione sono stati migliorati i processi di installazione e aggiornamento. L'installazione tramite configurazione guidata è stata migliorata per fornire commenti e suggerimenti all'utente qualora la configurazione di rete e le impostazioni del firewall non siano corrette. Per facilitare la risoluzione dei problemi di rete del dispositivo sono stati forniti dei cmdlet diagnostici aggiuntivi. Vedere l’ [articolo sulla risoluzione dei problemi di distribuzione](./storsimple-8000-troubleshoot-deployment.md) per ulteriori informazioni sui nuovi cmdlet diagnostici per la risoluzione dei problemi.
 
 ## <a name="issues-fixed-in-update-12"></a>Problemi risolti nell'aggiornamento 1.2
 La seguente tabella fornisce un riepilogo dei problemi risolti nell'aggiornamento 1.2, 1.1 e 1.    
@@ -89,7 +89,7 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti in questa ve
 | 3 |Account di archiviazione |L’utilizzo del servizio di archiviazione per eliminare l'account di archiviazione non è supportato. Tale operazione causerebbe una situazione in cui non è possibile recuperare i dati dell'utente. |Sì |Sì | |
 | 4 |Failover del dispositivo |I failover multipli di un contenitore di volumi dallo stesso dispositivo di origine verso dispositivi di destinazione diversi non sono supportati. Il failover del dispositivo da un singolo dispositivo inattivo a più dispositivi causerà la perdita della proprietà dei dati dei contenitori di volumi sul primo dispositivo sottoposto a failover. Dopo un tale failover, questi contenitori di volumi appariranno o si comporteranno in maniera diversa quando vengono visualizzati nel portale di Azure classico. | |Sì |No |
 | 5 |Installazione |Durante l’installazione dell'adattatore StorSimple per SharePoint è necessario fornire un IP del dispositivo affinché l'installazione possa essere completata correttamente. | |Sì |No |
-| 6 |Proxy Web |Se nella configurazione del proxy Web è specificato il protocollo HTTPS, la comunicazione tra dispositivo e servizio ne sarà interessata e il dispositivo verrà portato offline. Nel processo, inoltre, verranno generati pacchetti di supporto, consumando risorse significative sul dispositivo. |Assicurarsi che l'URL del proxy Web abbia HTTP come protocollo specificato. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](storsimple-configure-web-proxy.md). |Sì |No |
+| 6 |Proxy Web |Se nella configurazione del proxy Web è specificato il protocollo HTTPS, la comunicazione tra dispositivo e servizio ne sarà interessata e il dispositivo verrà portato offline. Nel processo, inoltre, verranno generati pacchetti di supporto, consumando risorse significative sul dispositivo. |Assicurarsi che l'URL del proxy Web abbia HTTP come protocollo specificato. Per ulteriori informazioni, andare a [Configurare il proxy Web per il dispositivo](./storsimple-8000-configure-web-proxy.md). |Sì |No |
 | 7 |Proxy Web |Se si configura e si abilita il proxy Web su un dispositivo registrato, è necessario riavviare il controller attivo sul dispositivo. | |Sì |No |
 | 8 |Elevata latenza del cloud ed elevato carico di lavoro I/O |Quando il dispositivo StorSimple rileva una combinazione di latenze cloud molto elevate (nell’ordine di secondi) e carico di lavoro I/O elevato, i volumi del dispositivo entrano in uno stato con funzionalità ridotte e gli I/O potrebbero non riuscire a causa di un errore di "dispositivo non pronto". |In questo caso è necessario riavviare manualmente i controller del dispositivo o eseguire un failover del dispositivo per risolvere  il problema. |Sì |No |
 | 9 |Azure PowerShell |Quando si utilizza il cmdlet di StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** per selezionare il primo oggetto in modo tale da poter creare un oggetto **VolumeContainer** nuovo, il cmdlet restituisce tutti gli oggetti. |Racchiudere il cmdlet tra parentesi nel modo seguente: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Sì |Sì |
@@ -112,5 +112,4 @@ Questa versione aggiorna il driver e il firmware del disco sul dispositivo.
 Impossibile applicare questo aggiornamento per il dispositivo virtuale. Sarà necessario creare nuovi dispositivi virtuali. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Installare l'aggiornamento 1.2 nel dispositivo](storsimple-install-update-1.md).
-
+* [Installare l'aggiornamento 1.2 nel dispositivo](./storsimple-8000-install-update-5.md).

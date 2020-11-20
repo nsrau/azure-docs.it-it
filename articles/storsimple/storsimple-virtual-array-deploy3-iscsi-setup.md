@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 81799e6ec366c7429fdb29b85b4ff65d353a8fba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6289f335234c9b7efec02a18e12b40a1140c1b3f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742418"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956552"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Distribuire l'array virtuale StorSimple: configurarlo come server iSCSI tramite il portale di Azure
 
@@ -37,7 +37,7 @@ Il completamento delle procedure descritte di seguito richiede approssimativamen
 
 Prima di configurare e installare l'array virtuale StorSimple, si deve:
 
-* Eseguire il provisioning di un array virtuale e connettersi come illustrato in [Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) o in [Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
+* Eseguire il provisioning di un array virtuale e connettersi come illustrato in [Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in Hyper-V](./storsimple-virtual-array-deploy2-provision-hyperv.md) o in [Distribuire StorSimple Virtual Array: eseguire il provisioning di un array virtuale in VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
 * Avere ottenuto la chiave di registrazione del servizio dal servizio Gestione dispositivi StorSimple creato per gestire gli array virtuali StorSimple. Per altre informazioni, vedere **Passaggio 2: Ottenere la chiave di registrazione del servizio** in [Distribuire StorSimple Virtual Array: preparare il portale](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 * Se questo è il secondo o l'ulteriore array virtuale registrato con un servizio Gestione dispositivi StorSimple esistente, è necessario disporre della chiave di crittografia del servizio. Questa chiave viene generata nel momento in cui avviene la corretta registrazione del primo dispositivo con questo servizio. Se si smarrisce la chiave, vedere **Ottenere la chiave DEK del servizio** in [Usare l'interfaccia utente Web per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
 
@@ -245,7 +245,4 @@ Eseguire i passaggi seguenti per ottenere il nome qualificato iSCSI (IQN) di un 
 3. Salvare la stringa.
 
 <!--Reference link-->
-[1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
-
-
-
+[1]: /previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee338480(v=ws.10)

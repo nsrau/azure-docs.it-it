@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ed99145a2d3860849c4a8117a93a9a0f24d227c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 1cd6f5f7865d18461ac7a635530e9aabfde380a6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540927"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955413"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Tipi di Archiviazione di Azure per carichi di lavoro SAP
 Azure dispone di numerosi tipi di archiviazione che variano notevolmente in funzionalità, velocità effettiva, latenza e prezzi. Alcuni tipi di archiviazione non sono o di utilizzo limitato per gli scenari SAP. Mentre alcuni tipi di archiviazione di Azure sono particolarmente adatti o ottimizzati per scenari specifici del carico di lavoro SAP. In particolare per SAP HANA, alcuni tipi di archiviazione di Azure sono stati certificati per l'utilizzo con SAP HANA. In questo documento vengono esaminati i diversi tipi di archiviazione e ne viene descritta la funzionalità e l'usabilità con i carichi di lavoro SAP e i componenti SAP.
@@ -90,15 +91,15 @@ Caratteristiche che è possibile prevedere dall'elenco dei diversi tipi di archi
 
 | Scenario di utilizzo | HDD Standard | SSD Standard | Archiviazione Premium | Disco Ultra | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| SLA velocità effettiva/IOPS | no | no | sì | sì | sì |
+| SLA velocità effettiva/IOPS | No | No | sì | sì | sì |
 | Letture latenza | high | da medio a alto | low | millisecondi | millisecondi |
 | Scritture latenza | high | da medio a alto  | bassa (sub-millisecond<sup>1</sup>) | millisecondi | millisecondi |
-| HANA supportato | no | no | Sì<sup>1</sup> | sì | sì |
-| Snapshot del disco possibili | sì | sì | sì | no | sì |
+| HANA supportato | No | No | Sì<sup>1</sup> | sì | sì |
+| Snapshot del disco possibili | sì | sì | sì | No | sì |
 | Allocazione di dischi in cluster di archiviazione diversi quando si usano i set di disponibilità | tramite Managed Disks | tramite Managed Disks | tramite Managed Disks | tipo di disco non supportato con le macchine virtuali distribuite tramite i set di disponibilità | n.<sup>3</sup> |
 | Allineato con zone di disponibilità | sì | sì | sì | sì | richiede il coinvolgimento di Microsoft |
-| Ridondanza di zona | non per Managed Disks | non per Managed Disks | non per Managed Disks | no | no |
-| Ridondanza geografica | non per Managed Disks | non per Managed Disks | no | no | no |
+| Ridondanza di zona | non per Managed Disks | non per Managed Disks | non per Managed Disks | No | No |
+| Ridondanza geografica | non per Managed Disks | non per Managed Disks | No | No | No |
 
 
 <sup>1</sup> con utilizzo del [acceleratore di scrittura di Azure](../../how-to-enable-write-accelerator.md) per le famiglie di macchine virtuali M/Mv2 per i volumi di log di log/rollforward
@@ -134,7 +135,7 @@ Azure dispone di un contratto di contratto per macchine virtuali a istanza singo
 
 La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 
-| Funzionalità| Commento| Note/collegamenti | 
+| Funzionalità| Comment| Note/collegamenti | 
 | --- | --- | --- | 
 | VHD di base del sistema operativo | adatto | tutti i sistemi |
 | Disco dati | adatto | tutti i sistemi, [specialmente per SAP Hana](../../how-to-enable-write-accelerator.md) |
@@ -192,7 +193,7 @@ Il costo di un singolo disco è determinato dalle tre dimensioni che è possibil
 
 La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 
-| Funzionalità| Commento| Note/collegamenti | 
+| Funzionalità| Comment| Note/collegamenti | 
 | --- | --- | --- | 
 | VHD di base del sistema operativo | non funziona | - |
 | Disco dati | adatto | tutti i sistemi  |
@@ -247,7 +248,7 @@ Come già con archiviazione Premium di Azure, le dimensioni della velocità effe
 
 La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 
-| Funzionalità| Commento| Note/collegamenti | 
+| Funzionalità| Comment| Note/collegamenti | 
 | --- | --- | --- | 
 | VHD di base del sistema operativo | non funziona | - |
 | Disco dati | adatto | Solo SAP HANA  |
@@ -273,14 +274,14 @@ Funzionalità incorporate aggiuntive dell'archiviazione e:
 - Clonazione di volumi e da snapshot
 - Ripristinare i volumi da snapshot (ripristino di snap-in)
 
-**Riepilogo** : Azure NetApp files è un'archiviazione a bassa latenza certificata di Hana che consente di distribuire volumi o condivisioni NFS e SMB. Lo spazio di archiviazione è costituito da tre diversi livelli di servizio che forniscono velocità effettiva e IOPS diverse in modo lineare per capacità GiB del volume. Lo spazio di archiviazione e consente di distribuire SAP HANA scenari con scalabilità orizzontale con un nodo standby. Lo spazio di archiviazione è adatto per fornire le condivisioni file necessarie per la directory di trasporto globale/sapmnt o SAP. Lo spazio di archiviazione e è disponibile con la disponibilità delle funzionalità disponibile come funzionalità NetApp nativa.  
+**Riepilogo**: Azure NetApp files è un'archiviazione a bassa latenza certificata di Hana che consente di distribuire volumi o condivisioni NFS e SMB. Lo spazio di archiviazione è costituito da tre diversi livelli di servizio che forniscono velocità effettiva e IOPS diverse in modo lineare per capacità GiB del volume. Lo spazio di archiviazione e consente di distribuire SAP HANA scenari con scalabilità orizzontale con un nodo standby. Lo spazio di archiviazione è adatto per fornire le condivisioni file necessarie per la directory di trasporto globale/sapmnt o SAP. Lo spazio di archiviazione e è disponibile con la disponibilità delle funzionalità disponibile come funzionalità NetApp nativa.  
 
 
 
 ## <a name="azure-standard-ssd-storage"></a>Archiviazione SSD standard di Azure
 Rispetto all'archiviazione HDD standard di Azure, l'archiviazione SSD standard di Azure offre disponibilità, coerenza, affidabilità e latenza migliori. È ottimizzato per i carichi di lavoro che richiedono prestazioni coerenti a livelli di IOPS inferiori. Questa archiviazione è lo spazio di archiviazione minimo usato per i sistemi SAP non di produzione con requisiti di IOPS e velocità effettiva limitati. La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 
-| Funzionalità| Commento| Note/collegamenti | 
+| Funzionalità| Comment| Note/collegamenti | 
 | --- | --- | --- | 
 | VHD di base del sistema operativo | adatto con restrizioni | sistemi non di produzione |
 | Disco dati | adatto con restrizioni | alcuni sistemi non di produzione con requisiti di latenza e IOPS Bassi |
@@ -307,12 +308,12 @@ Rispetto all'archiviazione HDD standard di Azure, l'archiviazione SSD standard d
 ## <a name="azure-standard-hdd-storage"></a>Archiviazione HDD standard di Azure
 Archiviazione HDD Standard di Azure è l'unico tipo di archiviazione quando l'infrastruttura di Azure è stata certificata per il carico di lavoro SAP NetWeaver nell'anno 2014. Nell'anno 2014, le macchine virtuali di Azure erano piccole e basse nella velocità effettiva di archiviazione. Pertanto, questo tipo di archiviazione è stato in grado di soddisfare le esigenze. Lo spazio di archiviazione è ideale per carichi di lavoro non sensibili alla latenza, che difficilmente si presentano nello spazio SAP. Con la velocità effettiva crescente delle macchine virtuali di Azure e l'aumento del carico di lavoro che queste VM producono, questo tipo di archiviazione non viene più considerato per l'utilizzo con gli scenari SAP. La matrice di funzionalità per il carico di lavoro SAP è simile alla seguente:
 
-| Funzionalità| Commento| Note/collegamenti | 
+| Funzionalità| Comment| Note/collegamenti | 
 | --- | --- | --- | 
 | VHD di base del sistema operativo | non adatto | - |
 | Disco dati | non adatto | - |
 | Directory di trasporto globale SAP | NO | [Non supportato](https://launchpad.support.sap.com/#/notes/2015553) |
-| Sapmnt SAP | NO | Non supportato |
+| Sapmnt SAP | NO | Non supportate |
 | Archiviazione di backup | adatto | - |
 | Condivisioni/disco condiviso | non disponibile | Necessità File di Azure o di terze parti |
 | Resilienza | LRS, GRS | Nessun ZRS disponibile per i dischi |

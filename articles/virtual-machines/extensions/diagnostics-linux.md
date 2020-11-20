@@ -5,16 +5,17 @@ services: virtual-machines-linux
 author: axayjo
 manager: gwallace
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 0ae6366acf270d762b1c15563bfec1b2eb2a1b8d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: ffbafb76fd2c6dd06a88bfd79746557889039cd6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421074"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956025"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log
 
@@ -604,7 +605,7 @@ TransfersPerSecond | Operazioni di lettura o scrittura per secondo
 
 È possibile ottenere i valori aggregati in tutti i file System impostando `"condition": "IsAggregate=True"`. È possibile ottenere i valori per un determinato file system montato, ad esempio "/mnt", può essere ottenuto impostando `"condition": 'Name="/mnt"'`. 
 
-**NOTA** : Se si usa il portale di Azure anziché JSON, il formato del campo condizione corretto è Name='/mnt'
+**NOTA**: Se si usa il portale di Azure anziché JSON, il formato del campo condizione corretto è Name='/mnt'
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>Metriche Builtin per la classe Disco
 

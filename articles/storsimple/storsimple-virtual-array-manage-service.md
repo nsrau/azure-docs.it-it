@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 29ea9300b2f86f442d95c96d4a5df3364628d866
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92041be4d3d5ef4d980c17fa0a5870b740c1784a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744135"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956110"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Distribuire il servizio Gestione dispositivi StorSimple per l'array virtuale StorSimple
 
@@ -36,7 +36,7 @@ Le attività comuni correlate a un servizio Gestione dispositivi StorSimple sono
 * Ottenere la chiave di registrazione del servizio
 * Rigenerare la chiave di registrazione del servizio
 
-Questa esercitazione descrive come eseguire ognuna delle attività precedenti. Le informazioni contenute in questo articolo si applicano solo all'array virtuale StorSimple. Per altre informazioni su StorSimple serie 8000, andare a [Distribuire il servizio StorSimple Manager](storsimple-manage-service.md).
+Questa esercitazione descrive come eseguire ognuna delle attività precedenti. Le informazioni contenute in questo articolo si applicano solo all'array virtuale StorSimple. Per altre informazioni su StorSimple serie 8000, andare a [Distribuire il servizio StorSimple Manager](./storsimple-8000-manage-service.md).
 
 ## <a name="create-a-service"></a>Creare un servizio
 
@@ -89,7 +89,7 @@ L'elenco dei servizi verrà aggiornato.
  ![Elenco aggiornato dei servizi](./media/storsimple-virtual-array-manage-service/deleteservice7.png)
 
 ## <a name="get-the-service-registration-key"></a>Ottenere la chiave di registrazione del servizio
-Dopo aver creato un servizio, è necessario registrare il dispositivo StorSimple. Per registrare il primo dispositivo StorSimple, è necessaria la chiave di registrazione del servizio. Per registrare altri dispositivi con un servizio StorSimple esistente, sono necessarie la chiave di registrazione e la chiave DEK del servizio (che viene generata durante la registrazione sul primo dispositivo). Per altre informazioni sulla chiave DEK del servizio, vedere [Sicurezza in StorSimple](storsimple-security.md). È possibile ottenere la chiave di registrazione mediante il pannello **Chiavi** per il servizio.
+Dopo aver creato un servizio, è necessario registrare il dispositivo StorSimple. Per registrare il primo dispositivo StorSimple, è necessaria la chiave di registrazione del servizio. Per registrare altri dispositivi con un servizio StorSimple esistente, sono necessarie la chiave di registrazione e la chiave DEK del servizio (che viene generata durante la registrazione sul primo dispositivo). Per altre informazioni sulla chiave DEK del servizio, vedere [Sicurezza in StorSimple](./storsimple-8000-security.md). È possibile ottenere la chiave di registrazione mediante il pannello **Chiavi** per il servizio.
 
 Per ottenere la chiave di registrazione del servizio, attenersi alla procedura seguente.
 
@@ -125,4 +125,3 @@ Per rigenerare una chiave di registrazione del servizio, attenersi alla procedur
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come iniziare a [usare](storsimple-virtual-array-deploy1-portal-prep.md) un array virtuale StorSimple.
 * Informazioni su come [amministrare il dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
-

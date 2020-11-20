@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
-ms.openlocfilehash: a951bc07c4a8ed42b1c116332d13674656bbaafd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eaa320e79f1d595303c6d9fe1399df12cb6c52b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75646796"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954410"
 ---
 # <a name="what-is-a-private-azure-dns-zone"></a>Che cos'è una zona DNS di Azure privata
 
@@ -25,7 +25,7 @@ I record contenuti in una zona DNS privata non sono risolvibili da Internet. La 
 
 ## <a name="limits"></a>Limiti
 
-Per comprendere il numero di zone DNS private che è possibile creare in una sottoscrizione e il numero di set di record supportati in una zona DNS privata, vedere [limiti di DNS di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
+Per comprendere il numero di zone DNS private che è possibile creare in una sottoscrizione e il numero di set di record supportati in una zona DNS privata, vedere [limiti di DNS di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)
 
 ## <a name="restrictions"></a>Restrizioni
 

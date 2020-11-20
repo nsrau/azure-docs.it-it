@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: radeltch
-ms.openlocfilehash: e6b8708edeeb4b3b69dab82265d13db2a4c22e08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41699625b7062daa005e6908ce9e4249dd86f1fa
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87051659"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956399"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS in VM di Azure in Red Hat Enterprise Linux per SAP NetWeaver
 
@@ -98,7 +99,7 @@ Azure Marketplace contiene un'immagine per Red Hat Enterprise Linux che è possi
    4. Nome utente, password amministratore o chiave SSH  
       Verrà creato un nuovo utente con cui è possibile accedere alla macchina
    5. Subnet ID  
-      Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID si presenta in genere come** &lt; ID &gt; sottoscrizione**/subscriptions//resourceGroups/nome** &lt; gruppo &gt; di risorse**** &lt; &gt; ** /Providers/Microsoft.Network/virtualNetworks/nome** &lt; rete &gt; virtuale**/Subnets/nome subnet
+      Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID si presenta in genere come **&lt; ID &gt; sottoscrizione**/subscriptions//resourceGroups/nome **&lt; gruppo &gt; di risorse****&lt; &gt;** /Providers/Microsoft.Network/virtualNetworks/nome **&lt; rete &gt; virtuale**/Subnets/nome subnet
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuire Linux manualmente tramite il portale di Azure
 

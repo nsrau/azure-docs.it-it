@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: c787df901fc33c2dcd2c8a901202c72ea6de45d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84fd1a2d3d0dc4ce6960469ea3212b8ca1d4d07c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513597"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94956773"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Disattivare ed eliminare un array virtuale StorSimple
 
@@ -30,7 +30,7 @@ Quando si disattiva un array virtuale StorSimple, si interrompe la connessione t
 * Disattivare un dispositivo 
 * Eliminare un dispositivo disattivato
 
-Le informazioni in questo articolo si applicano solo agli array virtuali StorSimple. Per informazioni sulla serie 8000, passare alla procedura per [la disattivazione o per l'eliminazione di un dispositivo](storsimple-deactivate-and-delete-device.md).
+Le informazioni in questo articolo si applicano solo agli array virtuali StorSimple. Per informazioni sulla serie 8000, passare alla procedura per [la disattivazione o per l'eliminazione di un dispositivo](./storsimple-8000-deactivate-and-delete-device.md).
 
 ## <a name="when-to-deactivate"></a>Quando disattivare
 
@@ -74,7 +74,7 @@ Per eliminare il dispositivo, completare la procedura seguente.
 #### <a name="to-delete-the-device"></a>Per eliminare il dispositivo
 
 1. In Gestione dispositivi StorSimple passare a **Gestione > Dispositivi**. Nel pannello **Dispositivi** selezionare un dispositivo disattivato che si desidera eliminare.
-2. Nel pannello **Device dashboard** (Dashboard dispositivo) fare clic su **… More** (Altro), quindi su**Elimina**.
+2. Nel pannello **Device dashboard** (Dashboard dispositivo) fare clic su **… More** (Altro), quindi su **Elimina**.
    
    ![Selezione del dispositivo da eliminare](./media/storsimple-virtual-array-deactivate-and-delete-device/deactivate-delete4.png)
 3. Nel pannello **Elimina** digitare il nome del dispositivo per confermare l'eliminazione, quindi fare clic su **Elimina**. L'eliminazione del dispositivo non determina l'eliminazione dei dati a esso associati presenti nel cloud. 
@@ -90,5 +90,4 @@ Per eliminare il dispositivo, completare la procedura seguente.
 
 * Per informazioni su come eseguire il failover, fare riferimento all'articolo relativo a [failover e ripristino di emergenza per l'array virtuale StorSimple](storsimple-virtual-array-failover-dr.md).
 
-* Per altre informazioni sull'uso del servizio Gestione dispositivi StorSimple, vedere l'articolo relativo all'[uso di Gestione dispositivi StorSimple per amministrare l'array virtuale StorSimple](storsimple-virtual-array-manager-service-administration.md). 
-
+* Per altre informazioni sull'uso del servizio Gestione dispositivi StorSimple, vedere l'articolo relativo all'[uso di Gestione dispositivi StorSimple per amministrare l'array virtuale StorSimple](storsimple-virtual-array-manager-service-administration.md).

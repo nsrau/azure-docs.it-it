@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 08/10/2019
 ms.author: rohink
-ms.openlocfilehash: e7c4db7a2fc3ba931415e3b167f7fe72ee2b3980
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72adb2732eb0832589cbc25fb7e4288eb1899214
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710542"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954512"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Ospitare app Web di Azure con carico bilanciato nel dominio radice
 
@@ -55,10 +55,10 @@ Creare due app Web, una in ciascun piano di servizio app.
 1. Nell'angolo superiore sinistro della pagina portale di Azure selezionare **Crea una risorsa**.
 2. Digitare **App Web** nella barra di ricerca e premere INVIO.
 3. Selezionare **app Web**.
-4. Selezionare **Crea**.
+4. Selezionare **Create** (Crea).
 5. Accettare le impostazioni predefinite e usare la tabella seguente per configurare le due app Web:
 
-   |Nome<br>(deve essere univoco all'interno di .azurewebsites.net)|Gruppo di risorse |Stack di runtime|Region|Piano di servizio app/Località
+   |Nome<br>(deve essere univoco all'interno di .azurewebsites.net)|Gruppo di risorse |Stack di runtime|Area|Piano di servizio app/Località
    |---------|---------|-|-|-------|
    |App-01|Usa esistente<br>Selezionare un gruppo di risorse|.NET Core 2.2|Stati Uniti orientali|ASP-01 (D1)|
    |App-02|Usa esistente<br>Selezionare un gruppo di risorse|.NET Core 2.2|Stati Uniti centrali|ASP-02 (D1)|
@@ -115,8 +115,8 @@ Aggiungere un dominio personalizzato per entrambe le app Web.
 
 1. Aprire il gruppo di risorse e selezionare la prima app Web.
 2. Nella colonna sinistra selezionare **domini personalizzati**.
-3. In **domini personalizzati**selezionare **Aggiungi dominio personalizzato**.
-4. In **dominio personalizzato**Digitare il nome di dominio personalizzato. Ad esempio, contoso.com.
+3. In **domini personalizzati** selezionare **Aggiungi dominio personalizzato**.
+4. In **dominio personalizzato** Digitare il nome di dominio personalizzato. Ad esempio, contoso.com.
 5. Selezionare **Convalida**.
 
    Il dominio deve superare la convalida e mostrare segni di spunta verdi accanto alla **disponibilità del nome host** e alla **proprietà del dominio**.
@@ -134,7 +134,7 @@ Aggiungere ora un record alias per il vertice della zona.
 
    |Nome  |Type  |Set di record alias  |Tipo di alias  |Risorsa di Azure|
    |---------|---------|---------|---------|-----|
-   |@     |Una|Sì|Risorsa di Azure|Gestione traffico - Profilo personale|
+   |@     |A|Sì|Risorsa di Azure|Gestione traffico - Profilo personale|
 
 
 ## <a name="test-your-web-apps"></a>Testare le app Web
@@ -158,6 +158,6 @@ Per altre informazioni sui record alias, vedere gli articoli seguenti:
 
 - [Esercitazione: Configurare un record alias per fare riferimento a un indirizzo IP pubblico di Azure](tutorial-alias-pip.md)
 - [Esercitazione: Configurare un record alias per supportare nomi della radice del dominio con Gestione traffico](tutorial-alias-tm.md)
-- [Domande frequenti su DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
+- [Domande frequenti su DNS](./dns-faq.md#alias-records)
 
 Per informazioni su come eseguire la migrazione di un nome DNS attivo, vedere [eseguire la migrazione di un nome DNS attivo al servizio app Azure](../app-service/manage-custom-dns-migrate-domain.md).

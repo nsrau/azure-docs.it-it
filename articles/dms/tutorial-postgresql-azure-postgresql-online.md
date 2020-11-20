@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 62f4d069a6eda6dba48817589e338f010b766a34
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: e5ee40a156d1b6a322895a9e3f0bdbd73ee029b6
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893714"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94954886"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Esercitazione: Eseguire la migrazione online di PostgreSQL a Database di Azure per PostgreSQL con il Servizio Migrazione del database tramite l'interfaccia della riga di comando di Azure
 
-È possibile usare Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di PostgreSQL locale a [Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/) con tempi di inattività minimi. In altre parole, la migrazione può essere eseguita con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **DVD Rental** da un'istanza locale di PostgreSQL 9.6 a Database di Azure per PostgreSQL usando l'attività di migrazione online in Servizio Migrazione del database di Azure.
+È possibile usare Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di PostgreSQL locale a [Database di Azure per PostgreSQL](../postgresql/index.yml) con tempi di inattività minimi. In altre parole, la migrazione può essere eseguita con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **DVD Rental** da un'istanza locale di PostgreSQL 9.6 a Database di Azure per PostgreSQL usando l'attività di migrazione online in Servizio Migrazione del database di Azure.
 
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
@@ -42,15 +42,15 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Per completare questa esercitazione, è necessario:
 
-* Scaricare e installare [PostgreSQL community edition](https://www.postgresql.org/download/) 9.5, 9.6 o 10. La versione del server PostgreSQL di origine deve essere 9.5.11, 9.6.7, 10 o successiva. Per altre informazioni, vedere l'articolo [Versioni supportate del database PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+* Scaricare e installare [PostgreSQL community edition](https://www.postgresql.org/download/) 9.5, 9.6 o 10. La versione del server PostgreSQL di origine deve essere 9.5.11, 9.6.7, 10 o successiva. Per altre informazioni, vedere l'articolo [Versioni supportate del database PostgreSQL](../postgresql/concepts-supported-versions.md).
 
     Si noti anche che la versione del Database di Azure per PostgreSQL di destinazione deve essere uguale o successiva alla versione locale di PostgreSQL. Ad esempio, per PostgreSQL 9.6 è possibile eseguire la migrazione a Database di Azure per PostgreSQL 9.6, 10 o 11 ma non a Database di Azure per PostgreSQL 9.5.
 
-* [Creare un'istanza di Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) o [Creare un server di Database di Azure per PostgreSQL - Hyperscale (Citus)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
-* Creare una rete virtuale di Microsoft Azure per il servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per altre informazioni sulla creazione di una rete virtuale, vedere la [documentazione sulla rete virtuale](https://docs.microsoft.com/azure/virtual-network/) e in particolare gli articoli di avvio rapido con istruzioni dettagliate.
+* [Creare un'istanza di Database di Azure per PostgreSQL](../postgresql/quickstart-create-server-database-portal.md) o [Creare un server di Database di Azure per PostgreSQL - Hyperscale (Citus)](../postgresql/quickstart-create-hyperscale-portal.md).
+* Creare una rete virtuale di Microsoft Azure per il servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](../expressroute/expressroute-introduction.md) o [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Per altre informazioni sulla creazione di una rete virtuale, vedere la [documentazione sulla rete virtuale](../virtual-network/index.yml) e in particolare gli articoli di avvio rapido con istruzioni dettagliate.
 
     > [!NOTE]
-    > Durante la configurazione della rete virtuale, se si usa ExpressRoute con il peering di rete per Microsoft, aggiungere gli [endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) servizio seguenti alla subnet in cui verrà effettuato il provisioning del servizio:
+    > Durante la configurazione della rete virtuale, se si usa ExpressRoute con il peering di rete per Microsoft, aggiungere gli [endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) servizio seguenti alla subnet in cui verrà effettuato il provisioning del servizio:
     >
     > * Endpoint del database di destinazione (ad esempio endpoint SQL, endpoint Cosmos DB e così via)
     > * Endpoint di archiviazione
@@ -58,11 +58,11 @@ Per completare questa esercitazione, è necessario:
     >
     > Questa configurazione è necessaria perché il Servizio Migrazione del database di Azure non ha connettività Internet.
 
-* Verificare che le regole del gruppo di sicurezza di rete (NSG) per la rete virtuale non blocchino le porte di comunicazione in ingresso nel servizio Migrazione del database di Azure: 443, 53, 9354, 445, 12000. Per informazioni dettagliate sul filtro del traffico dei gruppi di sicurezza di rete della rete virtuale, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
-* Configurare [Windows Firewall per l'accesso al motore di database](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+* Verificare che le regole del gruppo di sicurezza di rete (NSG) per la rete virtuale non blocchino le porte di comunicazione in ingresso nel servizio Migrazione del database di Azure: 443, 53, 9354, 445, 12000. Per informazioni dettagliate sul filtro del traffico dei gruppi di sicurezza di rete della rete virtuale, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Configurare [Windows Firewall per l'accesso al motore di database](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Aprire Windows Firewall per consentire a Servizio Migrazione del database di Azure di accedere al server PostgreSQL di origine, per impostazione predefinita attraverso la porta TCP 5432.
 * Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
-* Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per Database di Azure per PostgreSQL per consentire a Servizio Migrazione del database di Azure di accedere ai database di destinazione. Specificare l'intervallo di subnet della rete virtuale usato per il Servizio Migrazione del database di Azure.
+* Creare una [regola del firewall](../azure-sql/database/firewall-configure.md) a livello di server per Database di Azure per PostgreSQL per consentire a Servizio Migrazione del database di Azure di accedere ai database di destinazione. Specificare l'intervallo di subnet della rete virtuale usato per il Servizio Migrazione del database di Azure.
 * Esistono due metodi per richiamare l'interfaccia della riga di comando:
 
   * Nell'angolo superiore destro del portale di Azure selezionare il pulsante Cloud Shell:
@@ -71,9 +71,9 @@ Per completare questa esercitazione, è necessario:
 
   * Installare ed eseguire l'interfaccia della riga di comando. L'interfaccia della riga di comando 2.0 è uno strumento da riga di comando per la gestione delle risorse di Azure.
 
-       Per scaricare l'interfaccia della riga di comando, seguire le istruzioni riportate nell'articolo [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). L'articolo elenca anche le piattaforme che supportano l'interfaccia della riga di comando 2.0.
+       Per scaricare l'interfaccia della riga di comando, seguire le istruzioni riportate nell'articolo [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest). L'articolo elenca anche le piattaforme che supportano l'interfaccia della riga di comando 2.0.
 
-       Per configurare il sottosistema Windows per Linux (WSL), seguire le istruzioni riportate nella [Guida all'installazione di Windows 10](https://docs.microsoft.com/windows/wsl/install-win10)
+       Per configurare il sottosistema Windows per Linux (WSL), seguire le istruzioni riportate nella [Guida all'installazione di Windows 10](/windows/wsl/install-win10)
 
 * Abilitare la replica logica nel file postgresql.config e impostare i parametri seguenti:
 
@@ -100,7 +100,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
 2. Creare un database vuoto nell'ambiente di destinazione, ovvero il Database di Azure per PostgreSQL.
 
-    Per informazioni dettagliate su come connettere e creare un database, vedere l'articolo [Creare un server di Database di Azure per PostgreSQL nel portale di Azure](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) o [Creare un server di Database di Azure per PostgreSQL - Hyperscale (Citus) nel portale di Azure](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
+    Per informazioni dettagliate su come connettere e creare un database, vedere l'articolo [Creare un server di Database di Azure per PostgreSQL nel portale di Azure](../postgresql/quickstart-create-server-database-portal.md) o [Creare un server di Database di Azure per PostgreSQL - Hyperscale (Citus) nel portale di Azure](../postgresql/quickstart-create-hyperscale-portal.md).
 
 3. Importare lo schema nel database di destinazione che è stato creato mediante il ripristino del file di dump dello schema.
 
@@ -526,5 +526,5 @@ Se è necessario annullare o eliminare qualsiasi attività, progetto o servizio 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sulle limitazioni e i problemi noti delle migrazioni online verso il Database di Azure per PostgreSQL, vedere l'articolo sui [problemi noti e soluzioni alternative per le migrazioni online in Database di Azure per PostgreSQL](known-issues-azure-postgresql-online.md).
-* Per informazioni sul Servizio Migrazione del database di Azure, vedere l'articolo [Definizione del Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview).
-* Per informazioni su Database di Azure per PostgreSQL, vedere l'articolo [Che cos'è Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview).
+* Per informazioni sul Servizio Migrazione del database di Azure, vedere l'articolo [Definizione del Servizio Migrazione del database di Azure](./dms-overview.md).
+* Per informazioni su Database di Azure per PostgreSQL, vedere l'articolo [Che cos'è Database di Azure per PostgreSQL](../postgresql/overview.md).

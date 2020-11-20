@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/24/2020
-ms.openlocfilehash: 407183837f7be01f5182ff0890426170da223161
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df789161bb9db8d49f069992600b5fcb4f78dd03
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91363172"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94955243"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Esercitazione: Eseguire la migrazione online di Oracle a Database di Azure per PostgreSQL usando il Servizio Migrazione del database (anteprima)
 
-È possibile usare il Servizio Migrazione del database di Azure per eseguire la migrazione dei database dai database Oracle ospitati in locale o su macchine virtuali a [Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/) con tempi di inattività minimi. In altre parole, è possibile completare la migrazione con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **HR** da un'istanza locale o su macchina virtuale di Oracle 11g a Database di Azure per PostgreSQL usando l'attività di migrazione online nel Servizio Migrazione del database di Azure.
+È possibile usare il Servizio Migrazione del database di Azure per eseguire la migrazione dei database dai database Oracle ospitati in locale o su macchine virtuali a [Database di Azure per PostgreSQL](../postgresql/index.yml) con tempi di inattività minimi. In altre parole, è possibile completare la migrazione con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **HR** da un'istanza locale o su macchina virtuale di Oracle 11g a Database di Azure per PostgreSQL usando l'attività di migrazione online nel Servizio Migrazione del database di Azure.
 
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
@@ -50,12 +50,12 @@ Per completare questa esercitazione, è necessario:
 * Scaricare e installare [Oracle 11g Release 2 (Standard Edition, Standard Edition One o Enterprise Edition)](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html).
 * Scaricare il database di esempio **HR** da [qui](https://docs.oracle.com/database/121/COMSC/installation.htm#COMSC00002).
 * Scaricare e [installare ora2pg in Windows o Linux](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf).
-* [Creare un'istanza nel Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
-* Connettersi all'istanza e creare un database usando le istruzioni contenute in questo [documento](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal).
-* Creare una rete virtuale di Microsoft Azure per il servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per altre informazioni sulla creazione di una rete virtuale, vedere la [documentazione sulla rete virtuale](https://docs.microsoft.com/azure/virtual-network/) e in particolare gli articoli di avvio rapido con istruzioni dettagliate.
+* [Creare un'istanza nel Database di Azure per PostgreSQL](../postgresql/quickstart-create-server-database-portal.md).
+* Connettersi all'istanza e creare un database usando le istruzioni contenute in questo [documento](../postgresql/tutorial-design-database-using-azure-portal.md).
+* Creare una rete virtuale di Microsoft Azure per il servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](../expressroute/expressroute-introduction.md) o [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Per altre informazioni sulla creazione di una rete virtuale, vedere la [documentazione sulla rete virtuale](../virtual-network/index.yml) e in particolare gli articoli di avvio rapido con istruzioni dettagliate.
 
   > [!NOTE]
-  > Durante la configurazione della rete virtuale, se si usa ExpressRoute con il peering di rete per Microsoft, aggiungere gli [endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) servizio seguenti alla subnet in cui verrà effettuato il provisioning del servizio:
+  > Durante la configurazione della rete virtuale, se si usa ExpressRoute con il peering di rete per Microsoft, aggiungere gli [endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) servizio seguenti alla subnet in cui verrà effettuato il provisioning del servizio:
   >
   > * Endpoint del database di destinazione (ad esempio endpoint SQL, endpoint Cosmos DB e così via)
   > * Endpoint di archiviazione
@@ -63,11 +63,11 @@ Per completare questa esercitazione, è necessario:
   >
   > Questa configurazione è necessaria perché il Servizio Migrazione del database di Azure non ha connettività Internet.
 
-* Verificare che le regole del gruppo di sicurezza di rete (NSG) per la rete virtuale non blocchino le porte di comunicazione in ingresso nel servizio Migrazione del database di Azure: 443, 53, 9354, 445, 12000. Per informazioni dettagliate sul filtro del traffico dei gruppi di sicurezza di rete della rete virtuale, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
-* Configurare [Windows Firewall per l'accesso al motore di database](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+* Verificare che le regole del gruppo di sicurezza di rete (NSG) per la rete virtuale non blocchino le porte di comunicazione in ingresso nel servizio Migrazione del database di Azure: 443, 53, 9354, 445, 12000. Per informazioni dettagliate sul filtro del traffico dei gruppi di sicurezza di rete della rete virtuale, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+* Configurare [Windows Firewall per l'accesso al motore di database](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Aprire Windows Firewall per consentire al Servizio Migrazione del database di Azure di accedere al server Oracle di origine (per impostazione predefinita attraverso la porta TCP 1521).
 * Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
-* Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per Database di Azure per PostgreSQL per consentire al Servizio Migrazione del database di Azure di accedere ai database di destinazione. Specificare l'intervallo di subnet della rete virtuale usato per il servizio Migrazione del database di Azure.
+* Creare una [regola del firewall](../azure-sql/database/firewall-configure.md) a livello di server per Database di Azure per PostgreSQL per consentire al Servizio Migrazione del database di Azure di accedere ai database di destinazione. Specificare l'intervallo di subnet della rete virtuale usato per il servizio Migrazione del database di Azure.
 * Abilitare l'accesso ai database Oracle di origine.
 
   > [!NOTE]
@@ -206,7 +206,7 @@ Il Servizio Migrazione del database di Azure può anche creare lo schema di tabe
 > [!IMPORTANT]
 > Il Servizio Migrazione del database di Azure crea solo lo schema di tabella. Non vengono creati altri oggetti di database, ad esempio stored procedure, pacchetti, indici e così via.
 
-Eliminare inoltre la chiave esterna nel database di destinazione per eseguire il caricamento completo. Per uno script da usare per eliminare la chiave esterna, vedere la sezione **Eseguire la migrazione dello schema di esempio** di [questo](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online) articolo. Usare Il Servizio Migrazione del database di Azure per eseguire il caricamento completo e la sincronizzazione.
+Eliminare inoltre la chiave esterna nel database di destinazione per eseguire il caricamento completo. Per uno script da usare per eliminare la chiave esterna, vedere la sezione **Eseguire la migrazione dello schema di esempio** di [questo](./tutorial-postgresql-azure-postgresql-online.md) articolo. Usare Il Servizio Migrazione del database di Azure per eseguire il caricamento completo e la sincronizzazione.
 
 ### <a name="when-the-postgresql-table-schema-already-exists"></a>Quando lo schema di tabella PostgreSQL esiste già
 
@@ -281,7 +281,7 @@ Attività iniziali
 
     La rete virtuale consente al Servizio Migrazione del database di Azure di accedere all'istanza di Oracle di origine e all'istanza di Database di Azure per PostgreSQL di destinazione.
 
-    Per altre informazioni su come creare una rete virtuale nel portale di Azure, vedere l'articolo [Creare una rete virtuale con il portale di Azure](https://aka.ms/DMSVnet).
+    Per altre informazioni su come creare una rete virtuale nel portale di Azure, vedere l'articolo [Creare una rete virtuale con il portale di Azure](../virtual-network/quick-create-portal.md).
 
 5. Selezione di un piano tariffario.
 
@@ -386,5 +386,5 @@ Al termine del caricamento completo iniziale, i database vengono contrassegnati 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sulle limitazioni e i problemi noti delle migrazioni online verso il Database di Azure per PostgreSQL, vedere l'articolo sui [problemi noti e soluzioni alternative per le migrazioni online in Database di Azure per PostgreSQL](known-issues-azure-postgresql-online.md).
-* Per informazioni su Servizio Migrazione del database di Azure, vedere l'articolo [Che cos'è il Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview).
-* Per informazioni su Database di Azure per PostgreSQL, vedere l'articolo [Che cos'è Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview).
+* Per informazioni su Servizio Migrazione del database di Azure, vedere l'articolo [Che cos'è il Servizio Migrazione del database di Azure](./dms-overview.md).
+* Per informazioni su Database di Azure per PostgreSQL, vedere l'articolo [Che cos'è Database di Azure per PostgreSQL](../postgresql/overview.md).
