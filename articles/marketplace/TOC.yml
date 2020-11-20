@@ -15,7 +15,7 @@
       href: partner-center-portal/account-migration-from-cpp-to-pc.md
 - name: Concetti
   items:
-    - name: Opzioni e considerazioni sulla pubblicazione
+    - name: Opzioni di presentazione
       href: determine-your-listing-type.md
     - name: Esecuzione di transazioni nel marketplace commerciale
       href: marketplace-commercial-transaction-capabilities-and-considerations.md
@@ -349,15 +349,14 @@
       items:
         - name: Panoramica delle API di evasione ordini SaaS
           href: partner-center-portal/pc-saas-fulfillment-apis.md
-          items:
-            - name: Registrare un'applicazione SaaS
-              href: partner-center-portal/pc-saas-registration.md
-            - name: API di evasione ordini SaaS v2
-              href: partner-center-portal/pc-saas-fulfillment-api-v2.md
-            - name: API di evasione ordini SaaS v1 (deprecate)
-              href: partner-center-portal/pc-saas-fulfillment-api-v1.md
-            - name: API di evasione ordini SaaS - domande frequenti
-              href: partner-center-portal/saas-fulfillment-apis-faq.md
+        - name: Registrare un'applicazione SaaS
+          href: partner-center-portal/pc-saas-registration.md
+        - name: API di evasione ordini SaaS v2
+          href: partner-center-portal/pc-saas-fulfillment-api-v2.md
+        - name: API di evasione ordini SaaS v1 (deprecate)
+          href: partner-center-portal/pc-saas-fulfillment-api-v1.md
+        - name: API di evasione ordini SaaS - domande frequenti
+          href: partner-center-portal/saas-fulfillment-apis-faq.md
 - name: Risorse
   items:
     - name: Domande frequenti sul marketplace commerciale
