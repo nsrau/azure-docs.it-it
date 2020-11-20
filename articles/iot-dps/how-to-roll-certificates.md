@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: fbcb3656bc824e2fd352f92314652bd04167b4d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf8b1e04e11dee4e636826430838a467fe034e3f
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531407"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951129"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Come rinnovare i certificati X.509 dei dispositivi
 
@@ -51,7 +51,7 @@ Quando è inizialmente sottoposto a provisioning automatico, il dispositivo vien
 
 Dopo l'assegnazione di un nuovo certificato foglia, il dispositivo non può più connettersi all'hub IoT perché usa un nuovo certificato, mentre l'hub IoT riconosce solo il dispositivo con il certificato precedente. Il tentativo di connessione del dispositivo ha quindi come risultato un errore di connessione "non autorizzata". Per risolvere questo errore, è necessario aggiornare la voce di registrazione per il dispositivo in base al nuovo certificato foglia. Al termine del nuovo provisioning del dispositivo, il servizio di provisioning può aggiornare di conseguenza le informazioni del registro dei dispositivi dell'hub IoT. 
 
-Una possibile eccezione a questo errore di connessione è data da uno scenario in cui è stato creato un [gruppo di registrazioni](concepts-service.md#enrollment-group) per il dispositivo nel servizio di provisioning. In questo caso, anche se non si rinnova il certificato radice o intermedio nella catena di certificati del dispositivo, quest'ultimo viene riconosciuto se il nuovo certificato fa parte della catena di certificati definita nel gruppo di registrazioni. Se questo scenario si verifica come una reazione a una violazione della sicurezza, è necessario almeno non consentire i certificati specifici del dispositivo nel gruppo considerati violati. Per altre informazioni, vedere non [consentire dispositivi specifici in un gruppo di registrazione](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#disallow-specific-devices-in-an-enrollment-group).
+Una possibile eccezione a questo errore di connessione è data da uno scenario in cui è stato creato un [gruppo di registrazioni](concepts-service.md#enrollment-group) per il dispositivo nel servizio di provisioning. In questo caso, anche se non si rinnova il certificato radice o intermedio nella catena di certificati del dispositivo, quest'ultimo viene riconosciuto se il nuovo certificato fa parte della catena di certificati definita nel gruppo di registrazioni. Se questo scenario si verifica come una reazione a una violazione della sicurezza, è necessario almeno non consentire i certificati specifici del dispositivo nel gruppo considerati violati. Per altre informazioni, vedere non [consentire dispositivi specifici in un gruppo di registrazione](./how-to-revoke-device-access-portal.md#disallow-specific-devices-in-an-enrollment-group).
 
 L'aggiornamento delle voci di registrazione per i certificati rinnovati viene eseguito nella pagina **Gestisci registrazioni**. Per accedere alla pagina, seguire questa procedura:
 
@@ -94,7 +94,7 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
 1. Fare clic su **Registrazioni singole** e quindi sulla voce dell'ID di registrazione nell'elenco. 
 
-2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Save**.
+2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Salva**.
 
     ![Gestire le registrazioni individuali usando la scadenza del certificato secondario](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
@@ -177,7 +177,7 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
 1. Fare clic su **Gruppi di registrazioni** e quindi sul nome del gruppo nell'elenco. 
 
-2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Save**.
+2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Salva**.
 
     Il nuovo certificato intermedio deve essere firmato da un certificato della CA radice verificato che sia già stato aggiunto al servizio di provisioning. Per altre informazioni, vedere [Certificati X.509](concepts-x509-attestation.md#x509-certificates).
 

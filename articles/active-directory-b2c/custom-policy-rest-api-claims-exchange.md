@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b34d5cdd95f44082d05153390209de5145e56d3f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 84053df34ffda0d4686ad80a9e5f3af00ac53d72
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089571"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949497"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Procedura dettagliata: Aggiungere scambi di attestazioni API REST ai criteri personalizzati in Azure Active Directory B2C
 
@@ -53,7 +53,7 @@ Quando l'API REST convalida i dati, deve restituire un codice HTTP 200 (Ok) con 
 }
 ```
 
-La configurazione dell'endpoint dell'API REST non rientra nell'ambito di questo articolo. È stata creato un esempio di [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-reference). È possibile accedere al codice completo della funzione di Azure in [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+La configurazione dell'endpoint dell'API REST non rientra nell'ambito di questo articolo. È stata creato un esempio di [Funzioni di Azure](../azure-functions/functions-reference.md). È possibile accedere al codice completo della funzione di Azure in [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
 
 ## <a name="define-claims"></a>Definire attestazioni
 
@@ -185,7 +185,7 @@ Per restituire l'attestazione `balance` all'applicazione relying party, aggiunge
 
 Ripetere questo passaggio per i percorsi utente **ProfileEdit.xml** e **PasswordReset.xml**.
 
-Salvare i file modificati: *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*e *PasswordReset.xml*. 
+Salvare i file modificati: *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* e *PasswordReset.xml*. 
 
 ## <a name="test-the-custom-policy"></a>Testare i criteri personalizzati
 
@@ -193,7 +193,7 @@ Salvare i file modificati: *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.x
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD. A tale scopo, selezionare il filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant di Azure AD.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
 1. Fare clic su **Framework dell'esperienza di gestione delle identità**.
-1. Selezionare **Carica i criteri personalizzati** e caricare i file dei criteri modificati: *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*e *PasswordReset.xml*. 
+1. Selezionare **Carica i criteri personalizzati** e caricare i file dei criteri modificati: *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* e *PasswordReset.xml*. 
 1. Selezionare il criterio di iscrizione o di accesso che è stato caricato e fare clic sul pulsante **Esegui adesso**.
 1. Dovrebbe essere possibile iscriversi usando un indirizzo e-mail o un account Facebook.
 1. Il token inviato all'applicazione include l'attestazione `balance`.

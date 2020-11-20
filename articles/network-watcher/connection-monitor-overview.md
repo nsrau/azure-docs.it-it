@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 5dbb8d508fe824d0264043625c988f43092f3f78
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 13b379fd3b4f788d79cbb6a9bf6d40cb1693eaf9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699237"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948966"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitoraggio della connettività di rete con monitoraggio connessione
 
@@ -34,7 +34,7 @@ Di seguito sono riportati alcuni casi d'uso per il monitoraggio della connession
 - Per l'applicazione ibrida è necessaria la connettività a un endpoint di archiviazione di Azure. Il sito locale e l'applicazione Azure si connettono allo stesso endpoint di archiviazione di Azure. Si desidera confrontare le latenze del sito locale con le latenze dell'applicazione Azure.
 - Si vuole controllare la connettività tra le installazioni locali e le macchine virtuali di Azure che ospitano l'applicazione cloud.
 
-Il monitoraggio della connessione combina il meglio di due funzionalità: la funzionalità di [monitoraggio della connessione Network Watcher (classica)](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) e il monitoraggio della [connettività del servizio](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity)di monitoraggio prestazioni rete (NPM), il [monitoraggio di ExpressRoute](https://docs.microsoft.com/azure/expressroute/how-to-npm)e le funzionalità di [monitoraggio delle prestazioni](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) .
+Il monitoraggio della connessione combina il meglio di due funzionalità: la funzionalità di [monitoraggio della connessione Network Watcher (classica)](./network-watcher-monitoring-overview.md#monitor-communication-between-a-virtual-machine-and-an-endpoint) e il monitoraggio della [connettività del servizio](../azure-monitor/insights/network-performance-monitor-service-connectivity.md)di monitoraggio prestazioni rete (NPM), il [monitoraggio di ExpressRoute](../expressroute/how-to-npm.md)e le funzionalità di [monitoraggio delle prestazioni](../azure-monitor/insights/network-performance-monitor-performance-monitor.md) .
 
 Di seguito sono riportati alcuni vantaggi del monitoraggio della connessione:
 
@@ -65,7 +65,7 @@ Il monitoraggio della connessione si basa sui file eseguibili leggeri per esegui
 
 Per fare in modo che il monitoraggio delle connessioni riconosca le VM di Azure come origini di monitoraggio, installare l'estensione della macchina virtuale di Network Watcher Agent. Questa estensione è nota anche come *estensione Network Watcher*. Le macchine virtuali di Azure richiedono l'estensione per attivare il monitoraggio end-to-end e altre funzionalità avanzate. 
 
-È possibile installare l'estensione Network Watcher quando si [Crea una macchina virtuale](https://docs.microsoft.com/azure/network-watcher/connection-monitor#create-the-first-vm). È anche possibile installare, configurare e risolvere i problemi relativi all'estensione Network Watcher per [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-linux) e [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows).
+È possibile installare l'estensione Network Watcher quando si [Crea una macchina virtuale](./connection-monitor.md#create-the-first-vm). È anche possibile installare, configurare e risolvere i problemi relativi all'estensione Network Watcher per [Linux](../virtual-machines/extensions/network-watcher-linux.md) e [Windows](../virtual-machines/extensions/network-watcher-windows.md).
 
 Le regole per un gruppo di sicurezza di rete (NSG) o un firewall possono bloccare la comunicazione tra l'origine e la destinazione. Il monitoraggio della connessione rileva questo problema e lo Mostra come un messaggio di diagnostica nella topologia. Per abilitare il monitoraggio della connessione, assicurarsi che le regole NSG e firewall consentano i pacchetti su TCP o ICMP tra l'origine e la destinazione.
 
@@ -73,7 +73,7 @@ Le regole per un gruppo di sicurezza di rete (NSG) o un firewall possono bloccar
 
 Per fare in modo che il monitoraggio della connessione riconosca i computer locali come origini per il monitoraggio, installare l'agente Log Analytics nei computer. Abilitare quindi la soluzione Monitoraggio prestazioni rete. Questi agenti sono collegati alle aree di lavoro Log Analytics, quindi è necessario configurare l'ID dell'area di lavoro e la chiave primaria prima che gli agenti possano avviare il monitoraggio.
 
-Per installare l'agente di Log Analytics per i computer Windows, vedere [estensione macchina virtuale di monitoraggio di Azure per Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows).
+Per installare l'agente di Log Analytics per i computer Windows, vedere [estensione macchina virtuale di monitoraggio di Azure per Windows](../virtual-machines/extensions/oms-windows.md).
 
 Se il percorso include firewall o appliance virtuali di rete (appliance virtuali), assicurarsi che la destinazione sia raggiungibile.
 
@@ -81,7 +81,7 @@ Se il percorso include firewall o appliance virtuali di rete (appliance virtuali
 
 Tutte le sottoscrizioni con una rete virtuale sono abilitate con Network Watcher. Quando si crea una rete virtuale nella sottoscrizione, Network Watcher viene abilitata automaticamente nell'area e nella sottoscrizione della rete virtuale. Questa abilitazione automatica non influisce sulle risorse o è soggetta a un addebito. Verificare che Network Watcher non sia disabilitato in modo esplicito nella sottoscrizione. 
 
-Per ulteriori informazioni, vedere [Enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
+Per ulteriori informazioni, vedere [Enable Network Watcher](./network-watcher-create.md).
 
 ## <a name="create-a-connection-monitor"></a>Creare un monitoraggio della connessione 
 
@@ -111,7 +111,7 @@ Il monitoraggio della connessione include le seguenti entità:
 
  ![Diagramma che mostra un monitoraggio della connessione, che definisce la relazione tra i gruppi di test e i test](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-È possibile creare un monitoraggio della connessione utilizzando [portale di Azure](connection-monitor-preview-create-using-portal.md) o [ARMClient](connection-monitor-preview-create-using-arm-client.md)
+È possibile creare un monitoraggio della connessione utilizzando [portale di Azure](./connection-monitor-create-using-portal.md) o [ARMClient](./connection-monitor-create-using-template.md)
 
 Tutte le origini, le destinazioni e le configurazioni di test aggiunte a un gruppo di test vengono suddivise in singoli test. Ecco un esempio di come vengono suddivise le origini e le destinazioni:
 
@@ -213,7 +213,7 @@ Per visualizzare solo i test non superati nel monitoraggio della connessione in 
 Per visualizzare solo i test non superati nel monitoraggio della connessione in cui la destinazione è outlook.office365.com:
 1. Modificare la visualizzazione da **testare**.
 1. Per il filtro basato sullo stato, selezionare **esito negativo**.
-1. Nel campo di ricerca immettere *Outlook.office365.com*
+1. Nel campo di ricerca immettere *Office.Live.com*
 1. In **ambito** nel filtro di primo livello selezionare **destinazioni**.
   
   :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Screenshot che mostra una visualizzazione filtrata per mostrare solo i test non superati per la destinazione Outlook.Office365.com" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
@@ -271,7 +271,7 @@ Nei monitoraggi connessioni creati prima dell'esperienza di monitoraggio della c
 
 Quando si usano le metriche, impostare il tipo di risorsa come Microsoft. Network/networkWatchers/connectionMonitors
 
-| Metrica | Nome visualizzato | Unità | Tipo di aggregazione | Descrizione | Dimensioni |
+| Metrica | Nome visualizzato | Unità | Tipo di aggregazione | Description | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % di probe non riusciti | Percentuale | Media | Percentuale di probe di monitoraggio della connettività non riuscita. | Nessuna dimensione |
 | AverageRoundtripMs | Avg. Tempo di round trip (ms) | Millisecondi | Media | RTT di rete medio per i probe di monitoraggio della connettività inviati tra l'origine e la destinazione. |             Nessuna dimensione |
@@ -348,5 +348,5 @@ Per le reti le cui origini sono macchine virtuali di Azure, è possibile rilevar
 
 ## <a name="next-steps"></a>Passaggi successivi
     
-   * Informazioni [su come creare un monitoraggio connessione utilizzando portale di Azure](connection-monitor-preview-create-using-portal.md)  
-   * Informazioni [su come creare un monitoraggio della connessione tramite ARMClient](connection-monitor-preview-create-using-arm-client.md)  
+   * Informazioni [su come creare un monitoraggio connessione utilizzando portale di Azure](./connection-monitor-create-using-portal.md)  
+   * Informazioni [su come creare un monitoraggio della connessione tramite ARMClient](./connection-monitor-create-using-template.md)

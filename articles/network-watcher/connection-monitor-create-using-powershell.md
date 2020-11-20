@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 532f045233f26a9a2933a19ae7a0a893195ad33f
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: fa8b2d967a336343d23c5f6aa4477ebcf2396407
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94384128"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949038"
 ---
 # <a name="create-a-connection-monitor-using-powershell"></a>Creare un monitoraggio della connessione tramite PowerShell
 
@@ -89,7 +89,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 * Gruppi di test
     * Nome: assegnare un nome al gruppo di test.
     * testConfigurations: configurazioni di test in base alle quali gli endpoint di origine si connettono agli endpoint di destinazione
-    * origini: scegliere dagli endpoint creati in precedenza. Per gli endpoint di origine basati su Azure è necessario che sia installata l'estensione di Azure Network Watcher e che gli endpoint di origine non basati su Azure debbano haveAzure Log Analytics agente installato. Per installare un agente per l'origine, vedere [Install Monitoring Agents](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+    * origini: scegliere dagli endpoint creati in precedenza. Per gli endpoint di origine basati su Azure è necessario che sia installata l'estensione di Azure Network Watcher e che gli endpoint di origine non basati su Azure debbano haveAzure Log Analytics agente installato. Per installare un agente per l'origine, vedere [Install Monitoring Agents](./connection-monitor-overview.md#install-monitoring-agents).
     * destinazioni: scegliere tra gli endpoint creati in precedenza. È possibile monitorare la connettività alle macchine virtuali di Azure o a qualsiasi endpoint (un indirizzo IP pubblico, un URL o un nome di dominio completo) specificandone tali elementi come destinazioni. In un singolo gruppo di test è possibile aggiungere macchine virtuali di Azure, URL di Office 365, URL di Dynamics 365 ed endpoint personalizzati.
     * Disable: utilizzare questo campo per disabilitare il monitoraggio per tutte le origini e le destinazioni specificate dal gruppo di test.
 
@@ -115,5 +115,5 @@ I monitoraggi connessione presentano i limiti di scalabilità seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni [su come analizzare i dati di monitoraggio e impostare gli avvisi](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts)
-* Informazioni [su come diagnosticare i problemi nella rete](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network)
+* Informazioni [su come analizzare i dati di monitoraggio e impostare gli avvisi](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts)
+* Informazioni [su come diagnosticare i problemi nella rete](./connection-monitor-overview.md#diagnose-issues-in-your-network)

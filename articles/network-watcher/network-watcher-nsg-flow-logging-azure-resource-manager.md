@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 6d16d878b0cf7a73c87b5d6e9263a24c4dfb4383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8db4d4ae56a5a0ee0c92de5d9822614a3270b1c5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738142"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948681"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Configurare log del flusso del gruppo di sicurezza di rete da un modello di Azure Resource Manager
 
@@ -31,15 +31,15 @@ ms.locfileid: "84738142"
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
-[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) è il potente strumento nativo di Azure per gestire l'[infrastruttura come codice](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code).
+[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) è il potente strumento nativo di Azure per gestire l'[infrastruttura come codice](/azure/devops/learn/what-is-infrastructure-as-code).
 
-Questo articolo illustra come abilitare i [log del flusso del gruppo di sicurezza di rete](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) a livello di codice usando un modello di Azure Resource Manager e Azure PowerShell. Per iniziare, è necessario fornire una panoramica delle proprietà dell'oggetto log del flusso del gruppo di sicurezza di rete, seguito da alcuni modelli di esempio. Il modello viene quindi distribuito con un'istanza di PowerShell locale.
+Questo articolo illustra come abilitare i [log del flusso del gruppo di sicurezza di rete](./network-watcher-nsg-flow-logging-overview.md) a livello di codice usando un modello di Azure Resource Manager e Azure PowerShell. Per iniziare, è necessario fornire una panoramica delle proprietà dell'oggetto log del flusso del gruppo di sicurezza di rete, seguito da alcuni modelli di esempio. Il modello viene quindi distribuito con un'istanza di PowerShell locale.
 
 
 ## <a name="nsg-flow-logs-object"></a>Oggetto log del flusso del gruppo di sicurezza di rete
 
 Di seguito è illustrato l'oggetto log del flusso del gruppo di sicurezza di rete con tutti i parametri.
-Per una panoramica completa delle proprietà, è possibile leggere le [informazioni di riferimento del modello log del flusso del gruppo di sicurezza di rete](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
+Per una panoramica completa delle proprietà, è possibile leggere le [informazioni di riferimento del modello log del flusso del gruppo di sicurezza di rete](/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
 
 ```json
 {
@@ -76,8 +76,8 @@ Per creare una risorsa Microsoft.Network/networkWatchers/flowLogs, aggiungere il
 
 Se si usano i modelli di Azure Resource Manager per la prima volta, è possibile ottenere altre informazioni usando i collegamenti seguenti.
 
-* [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
-* [Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
+* [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+* [Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)
 
 
 Di seguito sono illustrati due esempi di modelli completi per la configurazione dei log del flusso del gruppo di sicurezza di rete.
@@ -172,14 +172,14 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 ## <a name="verifying-your-deployment"></a>Verifica della distribuzione
 
-Esistono due modi per verificare se la distribuzione ha avuto esito positivo. Nella console di PowerShell è necessario che per "ProvisioningState" sia visualizzato il valore "Succeeded". Inoltre, è possibile visitare la [pagina del portale relativa ai log del flusso del gruppo di sicurezza di rete](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) per confermare le modifiche apportate. Se si sono verificati problemi durante la distribuzione, vedere [Risolvere errori comuni durante la distribuzione di Azure con Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
+Esistono due modi per verificare se la distribuzione ha avuto esito positivo. Nella console di PowerShell è necessario che per "ProvisioningState" sia visualizzato il valore "Succeeded". Inoltre, è possibile visitare la [pagina del portale relativa ai log del flusso del gruppo di sicurezza di rete](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) per confermare le modifiche apportate. Se si sono verificati problemi durante la distribuzione, vedere [Risolvere errori comuni durante la distribuzione di Azure con Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 
 ## <a name="deleting-your-resource"></a>Eliminazione della risorsa
-Azure consente l'eliminazione di risorse tramite la modalità di distribuzione "Completa". Per eliminare una risorsa dei log del flusso, specificare una distribuzione in modalità Completa senza includere la risorsa che si vuole eliminare. Per altre informazioni, leggere [Modalità di distribuzione completa](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode).
+Azure consente l'eliminazione di risorse tramite la modalità di distribuzione "Completa". Per eliminare una risorsa dei log del flusso, specificare una distribuzione in modalità Completa senza includere la risorsa che si vuole eliminare. Per altre informazioni, leggere [Modalità di distribuzione completa](../azure-resource-manager/templates/deployment-modes.md#complete-mode).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere le informazioni su come visualizzare i dati del flusso del gruppo di sicurezza di rete usando:
 * [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 * [Strumenti open source](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-* [Analisi del traffico di Azure](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Analisi del traffico di Azure](./traffic-analytics.md)

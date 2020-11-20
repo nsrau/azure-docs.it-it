@@ -8,16 +8,16 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: 3cbab09c6b50abb590cfe9f2720713a8fa547aa7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d68314aab636180ff17e330c49c9859b8851b06
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75646473"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950687"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Risoluzione dei problemi con il servizio Device provisioning in hub Azure
 
-I problemi di connettività per i dispositivi Internet possono essere difficili da risolvere perché esistono molti possibili punti di errore, ad esempio errori di attestazione, errori di registrazione e così via. Questo articolo fornisce indicazioni su come rilevare e risolvere i problemi di connettività del dispositivo tramite [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview).
+I problemi di connettività per i dispositivi Internet possono essere difficili da risolvere perché esistono molti possibili punti di errore, ad esempio errori di attestazione, errori di registrazione e così via. Questo articolo fornisce indicazioni su come rilevare e risolvere i problemi di connettività del dispositivo tramite [monitoraggio di Azure](../azure-monitor/overview.md).
 
 ## <a name="using-azure-monitor-to-view-metrics-and-set-up-alerts"></a>Uso di monitoraggio di Azure per visualizzare le metriche e configurare gli avvisi
 
@@ -81,5 +81,5 @@ Usare questa tabella per comprendere e risolvere gli errori comuni.
 | 401 | Il token di autorizzazione non può essere convalidato. ad esempio, è scaduta o non si applica all'URI della richiesta. Questo codice di errore viene anche restituito ai dispositivi come parte del flusso di attestazione TPM. | 401 - Non autorizzato|
 | 404 | L'istanza del servizio Device provisioning o una risorsa, ad esempio una registrazione, non esiste. |404 - Non trovato |
 | 412 | Il valore ETag nella richiesta non corrisponde al valore ETag della risorsa esistente, in base al valore di RFC7232. | 412 Precondizione non riuscita |
-| 429 | Le operazioni sono limitate dal servizio. Per i limiti di servizio specifici, vedere [limiti del servizio Device provisioning in hub](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | 429 numero eccessivo di richieste |
+| 429 | Le operazioni sono limitate dal servizio. Per i limiti di servizio specifici, vedere [limiti del servizio Device provisioning in hub](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | 429 numero eccessivo di richieste |
 | 500 | An internal error occurred. | 500 - Errore interno del server|

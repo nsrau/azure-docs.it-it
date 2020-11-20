@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: ae87771e8a557ad7cb58c9cad9231784606cdd74
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 25f4ae0dbfd7827a36dede6a889c342ea490e273
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426548"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948477"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -58,7 +58,7 @@ Per verificare i ruoli assegnati a un utente per una sottoscrizione:
 
 3. Per elencare tutti i ruoli assegnati a un utente specifico, usare  **Get-AzRoleAssignment-SignInName [user email]-IncludeClassicAdministrators**. 
 
-Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbonamento per ottenere l'accesso ed eseguire i comandi. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure con Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbonamento per ottenere l'accesso ed eseguire i comandi. Per altre informazioni, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>In quali aree di Azure è disponibile Analisi del traffico?
@@ -126,7 +126,7 @@ Sì.
 
 ## <a name="can-i-use-an-existing-workspace"></a>È possibile usare un'area di lavoro esistente?
 
-Sì. Se si seleziona un'area di lavoro esistente, assicurarsi che sia stata eseguita la migrazione al nuovo linguaggio di query. Se non si vuole aggiornare l'area di lavoro, è necessario crearne una nuova. Per altre informazioni sul nuovo linguaggio di query, vedere l' [aggiornamento dei log di monitoraggio di Azure alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md).
+Sì. Se si seleziona un'area di lavoro esistente, assicurarsi che sia stata eseguita la migrazione al nuovo linguaggio di query. Se non si vuole aggiornare l'area di lavoro, è necessario crearne una nuova. Per altre informazioni sul nuovo linguaggio di query, vedere l' [aggiornamento dei log di monitoraggio di Azure alla nuova ricerca log](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>È possibile usare sottoscrizioni diverse per l'account di archiviazione di Azure e l'area di lavoro Log Analytics?
 
@@ -176,7 +176,7 @@ Le informazioni sulle risorse sono visualizzate nel dashboard, tuttavia non sono
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>È possibile configurare la funzionalità Analisi del traffico tramite PowerShell o un client o modello di Azure Resource Manager?
 
-È possibile configurare Analisi del traffico utilizzando Windows PowerShell a partire dalla versione 6.2.1. Per configurare la registrazione del flusso e analisi del traffico per un NSG specifico usando il cmdlet Set, vedere [set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Per ottenere la registrazione del flusso e lo stato di analisi del traffico per uno specifico NSG, vedere [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
+È possibile configurare Analisi del traffico utilizzando Windows PowerShell a partire dalla versione 6.2.1. Per configurare la registrazione del flusso e analisi del traffico per un NSG specifico usando il cmdlet Set, vedere [set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Per ottenere la registrazione del flusso e lo stato di analisi del traffico per uno specifico NSG, vedere [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Attualmente, non è possibile utilizzare un modello di Azure Resource Manager per configurare Analisi del traffico.
 
@@ -250,7 +250,7 @@ Ad esempio, in base il [piano tariffario](https://azure.microsoft.com/pricing/de
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>Con quale frequenza Analisi del traffico elaborare i dati?
 
-Vedere la [sezione aggregazione dei dati](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) in analisi del traffico schema e il documento di aggregazione dei dati
+Vedere la [sezione aggregazione dei dati](./traffic-analytics-schema.md#data-aggregation) in analisi del traffico schema e il documento di aggregazione dei dati
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>In che modo Analisi del traffico decide che un indirizzo IP è dannoso? 
 
@@ -262,7 +262,7 @@ Analisi del traffico non dispone del supporto incorporato per gli avvisi. Tuttav
 - È possibile usare notifica per Log Analytics in Analisi del traffico. 
 - Usare lo [schema descritto qui](traffic-analytics-schema.md) per scrivere le query 
 - Fare clic su "nuova regola di avviso" per creare l'avviso
-- Vedere la [documentazione relativa agli avvisi di log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) per creare l'avviso
+- Vedere la [documentazione relativa agli avvisi di log](../azure-monitor/platform/alerts-log.md) per creare l'avviso
 
 ## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>Ricerca per categorie verificare quali macchine virtuali ricevono la maggior parte del traffico locale?
 
@@ -400,4 +400,4 @@ La pagina della topologia di subnet virtuale contiene due sezioni principali:
 - Dopo aver selezionato un filtro nel banner e premuto `Ctrl+F6`, lo stato attivo si sposta su uno dei nodi evidenziati (**Subnet**) nella visualizzazione della topologia.
 - Per spostarsi su altri nodi evidenziati nella visualizzazione della topologia, utilizzare il tasto `Shift+Right arrow` per spostarsi in avanti. 
 - Sui nodi evidenziati, lo stato attivo si sposta sulla **casella degli strumenti Informazioni** relativa al nodo. Per impostazione predefinita, la messa a fuoco viene spostata sul pulsante **Altri dettagli** nella **casella degli strumenti Informazioni**. Per spostarsi ulteriormente all'interno della visualizzazione della **casella**, usare i tasti `Right arrow` e `Left arrow` per andare in avanti o indietro. Premere `Enter` equivale a selezionare il pulsante con stato attivo nella **casella degli strumenti Informazioni**.
-- Una volta selezionati tali nodi, è possibile consultarne tutte le connessioni, una per una, premendo il tasto `Shift+Left arrow`. L’attenzione si sposta sulla **casella degli strumenti Informazioni** di tale connessione. In qualsiasi momento è possibile spostare nuovamente l’attenzione sul nodo premendo nuovamente `Shift+Right arrow`.    
+- Una volta selezionati tali nodi, è possibile consultarne tutte le connessioni, una per una, premendo il tasto `Shift+Left arrow`. L’attenzione si sposta sulla **casella degli strumenti Informazioni** di tale connessione. In qualsiasi momento è possibile spostare nuovamente l’attenzione sul nodo premendo nuovamente `Shift+Right arrow`.

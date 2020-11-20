@@ -5,18 +5,19 @@ author: MSSedusch
 manager: juergent
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: ea53eda3863ea5164142fa0d37fff7be365a4d5c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: c186e7beeed3a1729560d7deb002d573e0014508
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92894101"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950976"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
 
@@ -339,7 +340,7 @@ Nel documento vengono usati i termini seguenti.
 * Panorama applicativo SAP: questo termine si riferisce a tutte le risorse SAP presenti nell'ambiente IT di un cliente. Il panorama applicativo SAP include tutti gli ambienti di produzione e non produzione.
 * Sistema SAP: combinazione del livello DBMS e del livello applicazione, costituito ad esempio da un sistema di sviluppo SAP ERP, un sistema di test SAP BW, un sistema di produzione SAP CRM e così via. Nelle distribuzioni di Azure non è supportata la divisione di questi due livelli tra ambiente locale e Azure. Un sistema SAP deve quindi essere distribuito o in locale o in Azure. È tuttavia possibile distribuire i diversi sistemi di un panorama applicativo SAP in Azure o in locale. È ad esempio possibile distribuire i sistemi di sviluppo e test SAP CRM in Azure e il sistema di produzione SAP CRM in locale.
 * Cross-premise o ibrido: indica uno scenario in cui le VM vengono distribuite in una sottoscrizione di Azure con connettività da sito a sito, multisito o ExpressRoute tra i data center locali e Azure. Nella documentazione comune su Azure questi tipi di distribuzioni vengono definiti anche scenari cross-premise o ibridi. La connessione consente di estendere i domini locali, l'istanza locale di Active Directory/OpenLDAP e il DNS locale in Azure. Il panorama applicativo locale viene esteso alle risorse di Azure della sottoscrizione. Questa estensione consente alle macchine virtuali di fare parte del dominio locale. Gli utenti di dominio del dominio locale possono accedere ai server e possono eseguire servizi in queste VM, ad esempio i servizi DBMS. La comunicazione e la risoluzione dei nomi tra VM distribuite in locale e VM distribuite in Azure sono consentite. Questo è il caso più comune e quasi esclusivo di distribuzione delle risorse SAP in Azure. Per altre informazioni, vedere [questo][vpn-gateway-cross-premises-options] articolo e [questo][vpn-gateway-site-to-site-create].
-* Estensione di monitoraggio di Azure, monitoraggio avanzato ed estensione di Azure per SAP: indicano lo stesso elemento, ovvero un'estensione di macchina virtuale che deve essere distribuita dall'utente per fornire alcuni dati di base sull'infrastruttura di Azure all'agente host SAP. Nelle note SAP può essere indicata come estensione di monitoraggio o monitoraggio avanzato. In Azure è indicata come **estensione di Azure per SAP** .
+* Estensione di monitoraggio di Azure, monitoraggio avanzato ed estensione di Azure per SAP: indicano lo stesso elemento, ovvero un'estensione di macchina virtuale che deve essere distribuita dall'utente per fornire alcuni dati di base sull'infrastruttura di Azure all'agente host SAP. Nelle note SAP può essere indicata come estensione di monitoraggio o monitoraggio avanzato. In Azure è indicata come **estensione di Azure per SAP**.
 
 > [!NOTE]
 > Le distribuzioni cross-premise o ibride di sistemi SAP in cui le macchine virtuali di Azure che eseguono sistemi SAP sono membri di un dominio locale sono supportate per i sistemi SAP di produzione. Le configurazioni cross-premise o ibride sono supportate per la distribuzione parziale o completa di panorami applicativi SAP in Azure. Anche l'esecuzione del panorama applicativo SAP completo in Azure richiede che queste VM siano parte di un dominio locale e di ADS/OpenLDAP.
@@ -494,7 +495,7 @@ Per altre informazioni sui prezzi del servizio Spot, vedere l'articolo [Macchine
 Anche il concetto di host dedicato è proprio di Azure. Il concetto di host dedicato offre un maggiore controllo sui cicli di patch eseguiti da Azure. È possibile programmare l'applicazione delle patch in base alle proprie pianificazioni. Questa offerta è destinata specificamente ai clienti con un carico di lavoro che potrebbe non seguire il normale ciclo dei carichi di lavoro. Per informazioni sui concetti alla base delle offerte di host dedicato di Azure, vedere l'articolo [Host dedicato di Azure](../../dedicated-hosts.md). Questa offerta è supportata per il carico di lavoro SAP e viene scelta da diversi clienti SAP che vogliono un maggiore controllo sull'applicazione di patch all'infrastruttura e sugli eventuali piani di manutenzione di Microsoft. Per altre informazioni su come Microsoft esegue la manutenzione e applica le patch all'infrastruttura di Azure che ospita le macchine virtuali, vedere l'articolo [Manutenzione per macchine virtuali in Azure](../../maintenance-and-updates.md).
 
 #### <a name="generation-1-and-generation-2-virtual-machines"></a>Macchine virtuali di prima e di seconda generazione
-L'hypervisor di Microsoft riesce a gestire due diverse generazioni di macchine virtuali. Tale formati sono chiamati **Generazione 1** e **Generazione 2** . La **generazione 2** è stata introdotta nel 2012 con l'hypervisor di Windows Server 2012. Azure ha iniziato a usare macchine virtuali di prima generazione. Quando si distribuiscono macchine virtuali di Azure, per impostazione predefinita viene ancora usato il formato Generazione 1. Nel frattempo è possibile distribuire anche macchine virtuali con il formato Generazione 2. L'articolo [Supporto per le macchine virtuali di seconda generazione in Azure](../../generation-2.md) elenca le famiglie di macchine virtuali di Azure che possono essere distribuite come macchine virtuali di seconda generazione. Questo articolo elenca anche le principali differenze funzionali delle macchine virtuali di seconda generazione, che possono essere eseguite nel cloud privato Hyper-V e in Azure. Ancora più importante, questo articolo elenca anche le differenze funzionali tra le macchine virtuali di prima generazione e le macchine virtuali di seconda generazione, che vengono eseguite in Azure.
+L'hypervisor di Microsoft riesce a gestire due diverse generazioni di macchine virtuali. Tale formati sono chiamati **Generazione 1** e **Generazione 2**. La **generazione 2** è stata introdotta nel 2012 con l'hypervisor di Windows Server 2012. Azure ha iniziato a usare macchine virtuali di prima generazione. Quando si distribuiscono macchine virtuali di Azure, per impostazione predefinita viene ancora usato il formato Generazione 1. Nel frattempo è possibile distribuire anche macchine virtuali con il formato Generazione 2. L'articolo [Supporto per le macchine virtuali di seconda generazione in Azure](../../generation-2.md) elenca le famiglie di macchine virtuali di Azure che possono essere distribuite come macchine virtuali di seconda generazione. Questo articolo elenca anche le principali differenze funzionali delle macchine virtuali di seconda generazione, che possono essere eseguite nel cloud privato Hyper-V e in Azure. Ancora più importante, questo articolo elenca anche le differenze funzionali tra le macchine virtuali di prima generazione e le macchine virtuali di seconda generazione, che vengono eseguite in Azure.
 
 > [!NOTE]
 > Esistono differenze funzionali tra le macchine virtuali di prima e di seconda generazione eseguite in Azure. Per un elenco di tali differenze, vedere l'articolo [Supporto per le macchine virtuali di seconda generazione in Azure](../../generation-2.md).
@@ -856,8 +857,8 @@ Se la macchina virtuale è stata preparata in modo sufficiente per essere generi
 ---
 > ![Logo Windows.][Logo_Windows] Windows
 >
-> L'ultimo passaggio consiste nell'accedere a una macchina virtuale con un account amministratore. Aprire una finestra di comando di Windows come *amministratore* . Accedere a %windir%\windows\system32\sysprep ed eseguire sysprep.exe.
-> Viene visualizzata una finestra di piccole dimensioni. È importante selezionare l'opzione **Generalizza** , deselezionata per impostazione predefinita, e modificare l'opzione di arresto dall'impostazione predefinita "Riavvia" ad "Arresta". Questa procedura presuppone che il processo sysprep venga eseguito in locale nel sistema operativo guest di una macchina virtuale.
+> L'ultimo passaggio consiste nell'accedere a una macchina virtuale con un account amministratore. Aprire una finestra di comando di Windows come *amministratore*. Accedere a %windir%\windows\system32\sysprep ed eseguire sysprep.exe.
+> Viene visualizzata una finestra di piccole dimensioni. È importante selezionare l'opzione **Generalizza**, deselezionata per impostazione predefinita, e modificare l'opzione di arresto dall'impostazione predefinita "Riavvia" ad "Arresta". Questa procedura presuppone che il processo sysprep venga eseguito in locale nel sistema operativo guest di una macchina virtuale.
 > Per eseguire la procedura con una macchina virtuale già in esecuzione in Azure, seguire i passaggi in [questo articolo](../../windows/capture-image-resource.md).
 >
 > ![Logo Linux.][Logo_Linux] Linux
@@ -884,18 +885,18 @@ Lo scopo di questo scenario è caricare un file VHD, con o senza sistema operati
 
 * Accedere alla sottoscrizione con *Connect-AzAccount*
 * Impostare la sottoscrizione del contesto con *Set-AzContext* e il parametro SubscriptionId o SubscriptionName. Vedere <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
-* Caricare il disco rigido virtuale in un account di Archiviazione di Azure con *Add-AzVhd* . Vedere <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
-* (Facoltativo) Creare un disco gestito dal disco rigido virtuale usando *New-AzDisk* . Vedere <https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk>
-* Impostare il disco del sistema operativo di una nuova configurazione di macchina virtuale sul disco rigido virtuale o sul disco gestito con *Set-AzVMOSDisk* . Vedere <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
-* Creare una nuova macchina virtuale dalla configurazione di macchina virtuale con *New-AzVM* . Vedere <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
-* Aggiungere un disco dati a una nuova macchina virtuale con *Add-AzVMDataDisk* . Vedere <https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk>
+* Caricare il disco rigido virtuale in un account di Archiviazione di Azure con *Add-AzVhd*. Vedere <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
+* (Facoltativo) Creare un disco gestito dal disco rigido virtuale usando *New-AzDisk*. Vedere <https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk>
+* Impostare il disco del sistema operativo di una nuova configurazione di macchina virtuale sul disco rigido virtuale o sul disco gestito con *Set-AzVMOSDisk*. Vedere <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
+* Creare una nuova macchina virtuale dalla configurazione di macchina virtuale con *New-AzVM*. Vedere <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
+* Aggiungere un disco dati a una nuova macchina virtuale con *Add-AzVMDataDisk*. Vedere <https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk>
 
 **Interfaccia della riga di comando di Azure**
 
 * Accedere alla sottoscrizione con *az login*
 * Selezionare la propria sottoscrizione con *az account set --subscription `<subscription name or id`>*
-* Caricare il disco rigido virtuale con *az storage blob upload* . Vedere [Uso dell'interfaccia della riga di comando di Azure con archiviazione di Azure][storage-azure-cli]
-* (Facoltativo) Creare un disco gestito dal disco rigido virtuale usando *az disk create* . Vedere https://docs.microsoft.com/cli/azure/disk
+* Caricare il disco rigido virtuale con *az storage blob upload*. Vedere [Uso dell'interfaccia della riga di comando di Azure con archiviazione di Azure][storage-azure-cli]
+* (Facoltativo) Creare un disco gestito dal disco rigido virtuale usando *az disk create*. Vedere https://docs.microsoft.com/cli/azure/disk
 * Creare una nuova VM specificando il disco rigido virtuale o il disco gestito caricato come disco del sistema operativo con *azure vm create* e il parametro *--attach-os-disk*
 * Aggiungere un disco dati a una nuova VM con *az vm disk attach* e il parametro *--new*
 
@@ -911,20 +912,20 @@ Per caricare una macchina virtuale o un disco rigido virtuale esistente dalla re
 * Usare *sysprep* in Windows o *waagent-deprovision* in Linux per generalizzare la macchina virtuale. Vedere [Documentazione tecnica su Sysprep](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10)) per Windows o [Come acquisire una macchina virtuale Linux da usare come modello di Resource Manager][capture-image-linux-step-2-create-vm-image] per Linux
 * Accedere alla sottoscrizione con *Connect-AzAccount*
 * Impostare la sottoscrizione del contesto con *Set-AzContext* e il parametro SubscriptionId o SubscriptionName. Vedere <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
-* Caricare il disco rigido virtuale in un account di Archiviazione di Azure con *Add-AzVhd* . Vedere <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
-* (Facoltativo) Creare un'immagine del disco gestito dal disco rigido virtuale usando *New-AzImage* . Vedere <https://docs.microsoft.com/powershell/module/az.compute/new-Azimage>
+* Caricare il disco rigido virtuale in un account di Archiviazione di Azure con *Add-AzVhd*. Vedere <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
+* (Facoltativo) Creare un'immagine del disco gestito dal disco rigido virtuale usando *New-AzImage*. Vedere <https://docs.microsoft.com/powershell/module/az.compute/new-Azimage>
 * Impostare il disco del sistema operativo di una nuova configurazione di VM sul
-  * disco rigido virtuale usando *Set-AzVMOSDisk -SourceImageUri -CreateOption fromImage* . Vedere <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
-  * immagine del disco gestito usando *Set-AzVMSourceImage* . Vedere <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage>
-* Creare una nuova macchina virtuale dalla configurazione di macchina virtuale con *New-AzVM* . Vedere <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
+  * disco rigido virtuale usando *Set-AzVMOSDisk -SourceImageUri -CreateOption fromImage*. Vedere <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
+  * immagine del disco gestito usando *Set-AzVMSourceImage*. Vedere <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage>
+* Creare una nuova macchina virtuale dalla configurazione di macchina virtuale con *New-AzVM*. Vedere <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
 
 **Interfaccia della riga di comando di Azure**
 
 * Usare *sysprep* in Windows o *waagent-deprovision* in Linux per generalizzare la macchina virtuale. Vedere [Documentazione tecnica su Sysprep](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10)) per Windows o [Come acquisire una macchina virtuale Linux da usare come modello di Resource Manager][capture-image-linux-step-2-create-vm-image] per Linux
 * Accedere alla sottoscrizione con *az login*
 * Selezionare la propria sottoscrizione con *az account set --subscription `<subscription name or id`>*
-* Caricare il disco rigido virtuale con *az storage blob upload* . Vedere [Uso dell'interfaccia della riga di comando di Azure con archiviazione di Azure][storage-azure-cli]
-* (Facoltativo) Creare un'immagine del disco gestito dal disco rigido virtuale usando *az image create* . Vedere https://docs.microsoft.com/cli/azure/image
+* Caricare il disco rigido virtuale con *az storage blob upload*. Vedere [Uso dell'interfaccia della riga di comando di Azure con archiviazione di Azure][storage-azure-cli]
+* (Facoltativo) Creare un'immagine del disco gestito dal disco rigido virtuale usando *az image create*. Vedere https://docs.microsoft.com/cli/azure/image
 * Creare una nuova VM specificando l’immagine del disco rigido virtuale o del disco gestito caricato come disco del sistema operativo con *azure vm create* e il parametro *--image*
 
 **Modello**
@@ -1076,8 +1077,8 @@ Questa attività non può essere eseguita nel portale di Azure. È possibile usa
 
 Il flusso di base della logica dei cmdlet di PS è simile al seguente:
 
-* Creare un contesto per l'account di archiviazione di **origine** con *New-AzStorageContext* . Vedere <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
-* Creare un contesto per l'account di archiviazione di **destinazione** con *New-AzStorageContext* . Vedere <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* Creare un contesto per l'account di archiviazione di **origine** con *New-AzStorageContext*. Vedere <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* Creare un contesto per l'account di archiviazione di **destinazione** con *New-AzStorageContext*. Vedere <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
 * Avviare la copia con
 
 ```powershell
@@ -1178,7 +1179,7 @@ Per altri suggerimenti e dettagli, in particolare per le macchine virtuali di DB
 
 Nella maggior parte degli scenari è necessario creare altri dischi per distribuire il database SAP nella macchina virtuale. Nel capitolo [Struttura di macchina virtuale/dischi per le distribuzioni SAP][planning-guide-5.5.1] di questo documento sono state presentate alcune considerazioni sul numero di dischi. Il portale di Azure consente di collegare e scollegare i dischi dopo aver distribuito una macchina virtuale di base. I dischi possono essere collegati o scollegati sia quando la macchina virtuale è attiva e in esecuzione che quando è arrestata. Quando si collega un disco, il portale di Azure offre di collegare un disco vuoto o un disco esistente che in quello specifico momento non è collegato ad altre macchine virtuali.
 
-**Nota** : i dischi possono essere collegati in qualsiasi momento a una sola macchina virtuale.
+**Nota**: i dischi possono essere collegati in qualsiasi momento a una sola macchina virtuale.
 
 ![Collegare e scollegare dischi con l'archiviazione standard di Azure][planning-guide-figure-1400]
 
@@ -1186,7 +1187,7 @@ Durante la distribuzione di una nuova macchina virtuale, è possibile decidere s
 
 Successivamente, è necessario decidere se creare un nuovo disco vuoto o se selezionare un disco esistente caricato in precedenza da collegare subito alla macchina virtuale.
 
-**IMPORTANTE** : **NON** usare la memorizzazione nella cache dell'host con l'archiviazione Standard di Azure, ma mantenere l'impostazione predefinita NESSUNA. Con l'archiviazione Premium di Azure, è consigliabile abilitare la memorizzazione nella cache di lettura se la caratteristica I/O è generalmente di lettura, come il normale traffico I/O per i file di dati del database. Nel caso del file di log delle transazioni del database, la memorizzazione nella cache non è consigliata.
+**IMPORTANTE**: **NON** usare la memorizzazione nella cache dell'host con l'archiviazione Standard di Azure, ma mantenere l'impostazione predefinita NESSUNA. Con l'archiviazione Premium di Azure, è consigliabile abilitare la memorizzazione nella cache di lettura se la caratteristica I/O è generalmente di lettura, come il normale traffico I/O per i file di dati del database. Nel caso del file di log delle transazioni del database, la memorizzazione nella cache non è consigliata.
 
 ---
 > ![Logo Windows.][Logo_Windows] Windows
@@ -1270,12 +1271,12 @@ Potrebbe essere necessario configurare il firewall nelle macchine virtuali per c
 > A tale scopo, effettuare l'operazione seguente:
 >
 > * Aprire **Impostazioni avanzate** in Pannello di controllo\Sistema e Sicurezza\Windows Firewall.
-> * Fare clic con il pulsante destro del mouse su Regole connessioni in entrata e scegliere **Nuova regola** .
-> * Nella procedura guidata seguente scegliere di creare una nuova regola **Porta** .
+> * Fare clic con il pulsante destro del mouse su Regole connessioni in entrata e scegliere **Nuova regola**.
+> * Nella procedura guidata seguente scegliere di creare una nuova regola **Porta**.
 > * Nel passaggio successivo della procedura guidata lasciare l'impostazione su TCP e digitare il numero della porta da aprire. L'ID dell'istanza SAP è 00, quindi verrà usato 3200. Se l'istanza ha un numero diverso, è necessario aprire la porta definita in precedenza in base al numero di istanza.
-> * Nella parte successiva della procedura guidata lasciare selezionata l'opzione **Consenti connessione** .
+> * Nella parte successiva della procedura guidata lasciare selezionata l'opzione **Consenti connessione**.
 > * Nel passaggio successivo della procedura guidata è necessario definire se la regola si applica al tipo di rete Dominio, Privato o Pubblico. Se necessario, modificarlo in base alle esigenze. Tuttavia, per la connessione con l'interfaccia utente grafica SAP dall'esterno attraverso la rete pubblica è necessario che la regola sia applicata alla rete pubblica.
-> * Nell'ultimo passaggio della procedura guidata assegnare un nome alla regola e salvare premendo **Fine** .
+> * Nell'ultimo passaggio della procedura guidata assegnare un nome alla regola e salvare premendo **Fine**.
 >
 > La regola viene applicata immediatamente.
 >
@@ -1427,7 +1428,7 @@ Add-AzVMDataDisk -VM $vm -Name datadisk -DiskSizeInGB 1023 -CreateOption empty -
 
 ##### <a name="cli"></a>CLI
 
-L'esempio di codice seguente può essere usato in Linux. Per Windows, usare PowerShell come descritto in precedenza oppure adattare l'esempio per usare %rgName% anziché $rgName e impostare la variabile di ambiente con il comando di Windows *set* .
+L'esempio di codice seguente può essere usato in Linux. Per Windows, usare PowerShell come descritto in precedenza oppure adattare l'esempio per usare %rgName% anziché $rgName e impostare la variabile di ambiente con il comando di Windows *set*.
 
 * Creare un nuovo gruppo di risorse per ogni scenario di formazione/dimostrativo
 
@@ -1770,14 +1771,14 @@ Se si vuole personalizzare l'URL e/o le porte di SAP Enterprise Portal, consulta
 
 L'espressione **disponibilità elevata** è in genere correlata a un set di tecnologie che riduce al minimo le interruzioni IT assicurando la continuità aziendale dei servizi IT tramite componenti ridondanti, a tolleranza di errore o protetti con failover all'interno dello **stesso** data center. Nel caso di questo documento, all'interno di un'unica area di Azure.
 
-Anche il **ripristino di emergenza** ha la funzione di ridurre al minimo le interruzioni dei servizi IT e il relativo ripristino, ma tra data center **diversi** , in genere ubicati a centinaia di chilometri di distanza. Nel caso di questo documento, tra aree di Azure diverse all'interno della stessa area geopolitica o come stabilito dal cliente.
+Anche il **ripristino di emergenza** ha la funzione di ridurre al minimo le interruzioni dei servizi IT e il relativo ripristino, ma tra data center **diversi**, in genere ubicati a centinaia di chilometri di distanza. Nel caso di questo documento, tra aree di Azure diverse all'interno della stessa area geopolitica o come stabilito dal cliente.
 
 ### <a name="overview-of-high-availability"></a>Panoramica della disponibilità elevata
 
 È possibile suddividere la discussione sulla disponibilità elevata SAP in Azure in due parti:
 
-* **Disponibilità elevata dell'infrastruttura di Azure** , relativa, ad esempio, al calcolo (VM), alla rete, all'archiviazione e così via e i relativi vantaggi associati all'aumento della disponibilità delle applicazioni SAP.
-* **Disponibilità elevata delle applicazioni SAP** , relativa, ad esempio, ai componenti software SAP:
+* **Disponibilità elevata dell'infrastruttura di Azure**, relativa, ad esempio, al calcolo (VM), alla rete, all'archiviazione e così via e i relativi vantaggi associati all'aumento della disponibilità delle applicazioni SAP.
+* **Disponibilità elevata delle applicazioni SAP**, relativa, ad esempio, ai componenti software SAP:
   * Server applicazioni SAP
   * Istanza di SAP ASCS/SCS
   * Server di database

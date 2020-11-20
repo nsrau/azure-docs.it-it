@@ -10,12 +10,12 @@ ms.devlang: NA
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: e9033caf903967432b713afa00a509bd2d966d8b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ff70df225b5ed27960c96889d409d7005f0fbcc4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972017"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950732"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Ripristinare un volume StorSimple da un set di backup
 
@@ -63,7 +63,7 @@ Nella versione Update 4 è possibile usare i cmdlet di Windows PowerShell per es
 
 * `Set-HcsRehydrationJob`: questo cmdlet permette di sospendere, arrestare e riprendere il processo di riattivazione, quando questo è in corso.
 
-Per altre informazioni sui cmdlet di riattivazione, vedere le [informazioni di riferimento sui cmdlet di Windows PowerShell per StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+Per altre informazioni sui cmdlet di riattivazione, vedere le [informazioni di riferimento sui cmdlet di Windows PowerShell per StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 
 Con la riattivazione automatica, in genere ci si aspetta prestazioni di lettura temporanee più elevate. L'effettiva entità dei miglioramenti dipende da diversi fattori, tra cui modello di accesso, varianza dei dati e tipo di dati. 
 
@@ -137,4 +137,3 @@ Per completare l'operazione di ripristino, portare offline il volume nell'host e
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [gestire i volumi StorSimple](storsimple-8000-manage-volumes-u2.md).
 * Informazioni su come [usare il servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-

@@ -10,18 +10,19 @@ tags: azure-resource-manager
 keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a356e96b82e6fbe855d0b474dcb6b1f59c98333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b204aa508370c62aaf33688aeb7ec63d3f8f1b0e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855224"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950619"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Disponibilità elevata multi-SID dell'istanza ASCS/SCS di SAP con Windows Server Failover Clustering e condivisione file in Azure
 
@@ -71,13 +72,13 @@ L'obiettivo è installare più istanze con cluster Advanced Business Application
 
 _**Figura 2:** Configurazione a più SID di SAP in due cluster_
 
-L'installazione di un sistema **SAP \<SID2> ** aggiuntivo è identica all'installazione di un \<SID> sistema. Sono necessari due passaggi di preparazione aggiuntivi nel cluster ASCS/SCS e nel cluster di file server di scalabilità orizzontale della condivisione file.
+L'installazione di un sistema **SAP \<SID2>** aggiuntivo è identica all'installazione di un \<SID> sistema. Sono necessari due passaggi di preparazione aggiuntivi nel cluster ASCS/SCS e nel cluster di file server di scalabilità orizzontale della condivisione file.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Preparare l'infrastruttura per uno scenario di multi-SID di SAP
 
 ### <a name="prepare-the-infrastructure-on-the-domain-controller"></a>Preparare l'infrastruttura nel controller di dominio
 
-Creare il gruppo di dominio ** \<Domain> \ SAP_ \<SID2> _GlobalAdmin**, ad esempio, con \<SID2> = Pr2. Il nome del gruppo di dominio è \<Domain> \ SAP_PR2_GlobalAdmin.
+Creare il gruppo di dominio **\<Domain> \ SAP_ \<SID2> _GlobalAdmin**, ad esempio, con \<SID2> = Pr2. Il nome del gruppo di dominio è \<Domain> \ SAP_PR2_GlobalAdmin.
 
 ### <a name="prepare-the-infrastructure-on-the-ascsscs-cluster"></a>Preparare l'infrastruttura nel cluster ASCS/SCS
 
@@ -259,7 +260,7 @@ _**Figura 10:** Disabilitare tutte le impostazioni_
 <br>
 
 Assegnare le autorizzazioni *Controllo completo* sui file e sulla condivisione sapmnt per:
-* Gruppo utenti di dominio ** \<SID> _GlobalAdmin SAP_**
+* Gruppo utenti di dominio **\<SID> _GlobalAdmin SAP_**
 * L'oggetto computer dei nodi cluster ASCS/SCS **ascs-1$** e **ascs-2$**
 
 ![Figura 11: Assegnare le autorizzazioni Controllo completo agli account di computer e di gruppo utenti][sap-ha-guide-figure-8022]

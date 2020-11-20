@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: f5bedde9e5e095b1b8637a09263bf18b06bcddea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 120446472038076e34f62b47ba79348e5de8b972
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532342"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94951078"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Come annullare la registrazione di un dispositivo nel servizio Device Provisioning in hub IoT
 
@@ -56,7 +56,7 @@ Dopo aver completato la procedura, la voce apparirà rimossa dall'elenco delle r
 
 ## <a name="disallow-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Non consentire un certificato X. 509 intermedio o CA radice usando un gruppo di registrazioni
 
-I certificati X.509 vengono in genere organizzati in una catena di certificati attendibili. Se un certificato in un punto qualsiasi di una catena risulta compromesso, la relativa attendibilità risulta danneggiata. Il certificato non deve essere consentito per impedire al servizio Device provisioning di effettuare il provisioning dei dispositivi a valle in una catena che contiene il certificato. Per altre informazioni sui certificati X.509 e sulle modalità di uso con il servizio di provisioning, vedere [Certificati X.509](./concepts-security.md#x509-certificates). 
+I certificati X.509 vengono in genere organizzati in una catena di certificati attendibili. Se un certificato in un punto qualsiasi di una catena risulta compromesso, la relativa attendibilità risulta danneggiata. Il certificato non deve essere consentito per impedire al servizio Device provisioning di effettuare il provisioning dei dispositivi a valle in una catena che contiene il certificato. Per altre informazioni sui certificati X.509 e sulle modalità di uso con il servizio di provisioning, vedere [Certificati X.509](./concepts-x509-attestation.md#x509-certificates). 
 
 Un gruppo di registrazioni è una voce relativa a dispositivi che condividono un meccanismo di attestazione comune basato su certificati X.509, firmati dalla stessa CA radice o intermedia. La voce relativa al gruppo di registrazioni è configurata con il certificato X.509 associato alla CA radice o intermedia, nonché con qualsiasi valore di configurazione, ad esempio lo stato del dispositivo gemello e la connessione all'hub IoT, condiviso dai dispositivi con tale certificato nella catena di certificati. Per non consentire il certificato, è possibile disabilitare o eliminare il relativo gruppo di registrazioni.
 
@@ -96,7 +96,7 @@ Per non consentire un singolo dispositivo in un gruppo di registrazione, attener
 2. Dall'elenco di risorse selezionare il servizio di provisioning che contiene il gruppo di registrazioni per il dispositivo che si vuole non consentire.
 3. Nel servizio di provisioning, fare clic su **Gestisci registrazioni** e quindi selezionare la scheda **Registrazioni singole**.
 4. Selezionare il pulsante **Aggiungi registrazione singola** nella parte superiore. 
-5. Nella pagina **Aggiungi registrazione ** selezionare **X.509** come **meccanismo** di attestazione per il dispositivo.
+5. Nella pagina **Aggiungi registrazione** selezionare **X.509** come **meccanismo** di attestazione per il dispositivo.
 
     Caricare il certificato del dispositivo e immettere l'ID del dispositivo da non consentire. Come certificato, usare il certificato dell'entità finale firmato installato nel dispositivo. Il dispositivo usa tale certificato per l'autenticazione.
 
@@ -110,4 +110,4 @@ Dopo avere creato la registrazione, nella scheda **Registrazioni singole** viene
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-L'annullamento della registrazione è anche parte del più ampio processo di deprovisioning. Il deprovisioning di un dispositivo include sia l'annullamento della registrazione nel servizio di provisioning, sia l'annullamento della registrazione nell'hub IoT. Per informazioni sul processo completo, vedere [Come eseguire il deprovisioning di dispositivi di cui in precedenza è stato eseguito il provisioning automatico](how-to-unprovision-devices.md) 
+L'annullamento della registrazione è anche parte del più ampio processo di deprovisioning. Il deprovisioning di un dispositivo include sia l'annullamento della registrazione nel servizio di provisioning, sia l'annullamento della registrazione nell'hub IoT. Per informazioni sul processo completo, vedere [Come eseguire il deprovisioning di dispositivi di cui in precedenza è stato eseguito il provisioning automatico](how-to-unprovision-devices.md)

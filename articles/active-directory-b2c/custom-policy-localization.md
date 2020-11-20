@@ -10,18 +10,18 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cdd7f4957b22eb4c87d60e3d57b0cec675659963
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 7ba0604c0fb1a51c5276f2a28fb0e39b878b7639
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131803"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949565"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Localizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-La personalizzazione della lingua in Azure Active Directory B2C (Azure AD B2C) consente di modificare le diverse lingue in base alle esigenze dei clienti. Microsoft fornisce le traduzioni per [36 lingue](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-language-customization#supported-languages), ma è anche possibile inserire le proprie traduzioni per qualsiasi lingua. Anche se l'esperienza è disponibile per una sola lingua, è possibile personalizzare qualsiasi testo nelle pagine. 
+La personalizzazione della lingua in Azure Active Directory B2C (Azure AD B2C) consente di modificare le diverse lingue in base alle esigenze dei clienti. Microsoft fornisce le traduzioni per [36 lingue](./user-flow-language-customization.md#supported-languages), ma è anche possibile inserire le proprie traduzioni per qualsiasi lingua. Anche se l'esperienza è disponibile per una sola lingua, è possibile personalizzare qualsiasi testo nelle pagine. 
 
 Questo articolo illustra come supportare più impostazioni locali o lingue nel criterio per i percorsi utente. Per la localizzazione sono necessari tre passaggi: configurare l'elenco esplicito delle lingue supportate, fornire stringhe e raccolte specifiche della lingua e modificare la [definizione del contenuto](contentdefinitions.md) per la pagina. 
 
@@ -265,4 +265,3 @@ https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_s
 
 - Altre informazioni sull'elemento [localizzazione](localization.md) nella documentazione di riferimento di Identity Experience Framework.
 - Vedere l'elenco degli [ID stringa di localizzazione](localization-string-ids.md) disponibili in Azure AD B2C.
-

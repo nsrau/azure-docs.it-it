@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 857429ab5fd2e2ea9a0cb0173015ceba4bb0bacb
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 47885e64b40db07ca3b4a7380389967a36abbd9e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504112"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949837"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Aggiungere un connettore API a un flusso utente di iscrizione (anteprima)
 
@@ -27,7 +27,7 @@ Per usare un [connettore API](api-connectors-overview.md), è necessario innanzi
 ## <a name="create-an-api-connector"></a>Creare un connettore API
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. In **servizi di Azure**selezionare **Azure ad B2C**.
+2. In **servizi di Azure** selezionare **Azure ad B2C**.
 4. Selezionare **connettori API (anteprima)** e quindi fare clic su **nuovo connettore API**.
 
    ![Aggiungere un nuovo connettore API](./media/add-api-connector/api-connector-new.png)
@@ -36,13 +36,13 @@ Per usare un [connettore API](api-connectors-overview.md), è necessario innanzi
 6. Specificare l' **URL dell'endpoint** per la chiamata API.
 7. Fornire le informazioni di autenticazione per l'API.
 
-   - Attualmente è supportata solo l'autenticazione di base. Se si vuole usare un'API senza autenticazione di base a scopo di sviluppo, è sufficiente immettere un **nome utente** e una **password** fittizi che l'API può ignorare. Per l'uso con una funzione di Azure con una chiave API, è possibile includere il codice come parametro di query nell' **URL dell'endpoint** (ad esempio, HTTPS []() ://contoso.azurewebsites.NET/API/endpoint<b>? Code = 0123456789</b>).
+   - Attualmente è supportata solo l'autenticazione di base. Se si vuole usare un'API senza autenticazione di base a scopo di sviluppo, è sufficiente immettere un **nome utente** e una **password** fittizi che l'API può ignorare. Per l'uso con una funzione di Azure con una chiave API, è possibile includere il codice come parametro di query nell' **URL dell'endpoint** (ad esempio, HTTPS []() ://contoso.azurewebsites.NET/API/endpoint <b>? Code = 0123456789</b>).
 
    ![Configurare un nuovo connettore API](./media/add-api-connector/api-connector-config.png)
 8. Selezionare **Salva**.
 
 ## <a name="the-request-sent-to-your-api"></a>La richiesta inviata all'API
-Un connettore API si materializza come una richiesta **http post** , inviando attributi utente ("claims") come coppie chiave-valore in un corpo JSON. Gli attributi vengono serializzati in modo analogo alle proprietà [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties) utente. 
+Un connettore API si materializza come una richiesta **http post** , inviando attributi utente ("claims") come coppie chiave-valore in un corpo JSON. Gli attributi vengono serializzati in modo analogo alle proprietà [Microsoft Graph](/graph/api/resources/user#properties) utente. 
 
 **Richiesta di esempio**
 ```http
@@ -73,7 +73,7 @@ Content-type: application/json
 }
 ```
 
-Nella richiesta sono disponibili solo le proprietà utente e gli attributi personalizzati elencati nel **Azure ad B2C**  >  esperienza**degli attributi utente** .
+Nella richiesta sono disponibili solo le proprietà utente e gli attributi personalizzati elencati nel **Azure ad B2C**  >  esperienza **degli attributi utente** .
 
 Gli attributi personalizzati sono disponibili nel formato **extension_ \<extensions-app-id> _CustomAttribute**  nella directory. L'API deve essere in attesa di ricevere attestazioni in questo stesso formato serializzato. Per altre informazioni sugli attributi personalizzati, vedere [definire attributi personalizzati in Azure Active Directory B2C](user-flow-custom-attributes.md).
 
@@ -83,16 +83,16 @@ Inoltre, l'attestazione delle **impostazioni locali dell'interfaccia utente (' u
 > Se un'attestazione non dispone di un valore nel momento in cui viene chiamato l'endpoint dell'API, l'attestazione non verrà inviata all'API. L'API deve essere progettata per controllare in modo esplicito e gestire il caso in cui un'attestazione non è presente nella richiesta.
 
 > [!TIP] 
-> le [**identità (' identità')**](https://docs.microsoft.com/graph/api/resources/objectidentity) e l' **indirizzo di posta elettronica (' email ')** attestazioni possono essere usate dall'API per identificare un utente prima che dispongano di un account nel tenant. 
+> le [**identità (' identità')**](/graph/api/resources/objectidentity) e l' **indirizzo di posta elettronica (' email ')** attestazioni possono essere usate dall'API per identificare un utente prima che dispongano di un account nel tenant. 
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Abilitare il connettore API in un flusso utente
 
 Seguire questi passaggi per aggiungere un connettore API a un flusso utente di iscrizione.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. In **servizi di Azure**selezionare **Azure ad B2C**.
-4. Selezionare **flussi utente**e quindi selezionare il flusso utente a cui si vuole aggiungere il connettore API.
-5. Selezionare **connettori API**e quindi selezionare gli endpoint API da richiamare nei passaggi seguenti del flusso utente:
+2. In **servizi di Azure** selezionare **Azure ad B2C**.
+4. Selezionare **flussi utente** e quindi selezionare il flusso utente a cui si vuole aggiungere il connettore API.
+5. Selezionare **connettori API** e quindi selezionare gli endpoint API da richiamare nei passaggi seguenti del flusso utente:
 
    - **Dopo aver eseguito l'accesso con un provider di identità**
    - **Prima della creazione dell'utente**
@@ -103,7 +103,7 @@ Seguire questi passaggi per aggiungere un connettore API a un flusso utente di i
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Dopo aver eseguito l'accesso con un provider di identità
 
-Un connettore API in questo passaggio del processo di iscrizione viene richiamato immediatamente dopo l'autenticazione dell'utente con un provider di identità (ad esempio Google, Facebook, & Azure AD). Questo passaggio precede la **_pagina della raccolta di attributi_*_, che è il form presentato all'utente per raccogliere gli attributi utente. Questo passaggio non viene richiamato se un utente sta effettuando la registrazione con un account locale.
+Un connettore API in questo passaggio del processo di iscrizione viene richiamato immediatamente dopo l'autenticazione dell'utente con un provider di identità (ad esempio Google, Facebook, & Azure AD). Questo passaggio precede la **_pagina della raccolta di attributi_* _, che è il form presentato all'utente per raccogliere gli attributi utente. Questo passaggio non viene richiamato se un utente sta effettuando la registrazione con un account locale.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Richiesta di esempio inviata all'API in questo passaggio
 ```http
@@ -237,7 +237,7 @@ Content-type: application/json
 }
 ```
 
-| Parametro                                          | Tipo              | Obbligatorio | Descrizione                                                                                                                                                                                                                                                                            |
+| Parametro                                          | Type              | Obbligatoria | Descrizione                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | string            | Sì      | Versione dell'API.                                                                                                                                                                                                                                                                |
 | action                                             | string            | Sì      | Il valore deve essere `Continue`.                                                                                                                                                                                                                                                              |
@@ -258,7 +258,7 @@ Content-type: application/json
 
 ```
 
-| Parametro   | Tipo   | Obbligatorio | Descrizione                                                                |
+| Parametro   | Type   | Obbligatoria | Descrizione                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | string | Sì      | Versione dell'API.                                                    |
 | action      | string | Sì      | Il valore deve essere `ShowBlockPage`                                              |
@@ -284,7 +284,7 @@ Content-type: application/json
 }
 ```
 
-| Parametro   | Tipo    | Obbligatorio | Descrizione                                                                |
+| Parametro   | Type    | Obbligatoria | Descrizione                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | string  | Sì      | Versione dell'API.                                                    |
 | action      | string  | Sì      | Il valore deve essere `ValidationError`.                                           |

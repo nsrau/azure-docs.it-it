@@ -12,12 +12,12 @@ ms.date: 08/03/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4a9323cc92567d681ee8c73a62e0b89c17c22b1e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a5fcbf80850fd9de77e6f9a431afea6d48cb14d1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647614"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949412"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Gestire gli account utente Azure AD B2C con Microsoft Graph
 
@@ -35,13 +35,13 @@ Per creare una registrazione dell'applicazione utilizzabile dall'applicazione di
 
 ## <a name="user-management-microsoft-graph-operations"></a>Operazioni di Microsoft Graph gestione utenti
 
-Le seguenti operazioni di gestione degli utenti sono disponibili nell' [API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user):
+Le seguenti operazioni di gestione degli utenti sono disponibili nell' [API Microsoft Graph](/graph/api/resources/user):
 
-- [Ottenere un elenco di utenti](https://docs.microsoft.com/graph/api/user-list)
-- [Creare un utente](https://docs.microsoft.com/graph/api/user-post-users)
-- [Ottenere un utente](https://docs.microsoft.com/graph/api/user-get)
-- [Aggiornare un utente](https://docs.microsoft.com/graph/api/user-update)
-- [Eliminare un utente](https://docs.microsoft.com/graph/api/user-delete)
+- [Ottenere un elenco di utenti](/graph/api/user-list)
+- [Creare un utente](/graph/api/user-post-users)
+- [Ottenere un utente](/graph/api/user-get)
+- [Aggiornare un utente](/graph/api/user-update)
+- [Eliminare un utente](/graph/api/user-delete)
 
 ## <a name="user-properties"></a>Proprietà utente
 
@@ -60,7 +60,7 @@ Un utente con un account cliente può accedere con più identità. Ad esempio no
 
 Nell'API Microsoft Graph, sia le identità locali che quelle federate vengono archiviate nell' `identities` attributo User, che è di tipo [objectIdentity][graph-objectIdentity]. La `identities` raccolta rappresenta un set di identità usate per accedere a un account utente. Questa raccolta consente all'utente di accedere all'account utente con qualsiasi identità associata.
 
-| Proprietà   | Type |Descrizione|
+| Proprietà   | Type |Description|
 |:---------------|:--------|:----------|
 |signInType|string| Specifica i tipi di accesso utente nella directory. Per l'account locale:  `emailAddress` , `emailAddress1` , `emailAddress2` , `emailAddress3` ,  `userName` o qualsiasi altro tipo. L'account di social networking deve essere impostato su  `federated` .|
 |autorità di certificazione|string|Specifica l'emittente dell'identità. Per gli account locali (dove **signInType** non è `federated` ), questa proprietà corrisponde al nome di dominio predefinito del tenant B2C locale, ad esempio `contoso.onmicrosoft.com` . Per l'identità sociale (dove **signInType** è  `federated` ), il valore è il nome dell'autorità emittente, ad esempio `facebook.com`|
@@ -125,7 +125,7 @@ L'API Microsoft Graph supporta la creazione e l'aggiornamento di un utente con a
 
 ## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>Esempio di codice: come gestire gli account utente a livello di codice
 
-Questo esempio di codice è un'applicazione console .NET Core che usa l' [SDK Microsoft Graph](https://docs.microsoft.com/graph/sdks/sdks-overview) per interagire con Microsoft Graph API. Il codice illustra come chiamare l'API per gestire gli utenti a livello di codice in un tenant Azure AD B2C.
+Questo esempio di codice è un'applicazione console .NET Core che usa l' [SDK Microsoft Graph](/graph/sdks/sdks-overview) per interagire con Microsoft Graph API. Il codice illustra come chiamare l'API per gestire gli utenti a livello di codice in un tenant Azure AD B2C.
 È possibile [scaricare l'archivio di esempio](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management/archive/master.zip) (*. zip), [esplorare il repository](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) in GitHub o clonare il repository:
 
 ```cmd
@@ -152,7 +152,7 @@ L'applicazione visualizza un elenco di comandi che è possibile eseguire. Ad ese
 
 ### <a name="code-discussion"></a>Discussione sul codice
 
-Il codice di esempio usa il [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview), progettato per semplificare la creazione di applicazioni di alta qualità, efficienti e resilienti che accedono a Microsoft Graph.
+Il codice di esempio usa il [Microsoft Graph SDK](/graph/sdks/sdks-overview), progettato per semplificare la creazione di applicazioni di alta qualità, efficienti e resilienti che accedono a Microsoft Graph.
 
 Qualsiasi richiesta all'API Microsoft Graph richiede un token di accesso per l'autenticazione. La soluzione USA il pacchetto NuGet [Microsoft. Graph. auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) che fornisce un wrapper basato sullo scenario di autenticazione di Microsoft Authentication Library (MSAL) per l'uso con il Microsoft Graph SDK.
 
@@ -203,7 +203,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-[Eseguire chiamate API usando gli sdk Microsoft Graph](https://docs.microsoft.com/graph/sdks/create-requests) include informazioni su come leggere e scrivere informazioni da Microsoft Graph, usare `$select` per controllare le proprietà restituite, fornire parametri di query personalizzati e usare i `$filter` `$orderBy` parametri di query e.
+[Eseguire chiamate API usando gli sdk Microsoft Graph](/graph/sdks/create-requests) include informazioni su come leggere e scrivere informazioni da Microsoft Graph, usare `$select` per controllare le proprietà restituite, fornire parametri di query personalizzati e usare i `$filter` `$orderBy` parametri di query e.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -211,5 +211,5 @@ Per un indice completo delle operazioni dell'API Microsoft Graph supportate per 
 
 <!-- LINK -->
 
-[graph-objectIdentity]: https://docs.microsoft.com/graph/api/resources/objectidentity
+[graph-objectIdentity]: /graph/api/resources/objectidentity
 [graph-user]: (https://docs.microsoft.com/graph/api/resources/user)

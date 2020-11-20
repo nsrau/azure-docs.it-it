@@ -12,12 +12,12 @@ ms.date: 11/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 80ecd02f9aebbca66169d64d6c6d0302d58ca439
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4426a305d72fdd86ee58b3f4a05153593515d4b5
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647665"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949650"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrare un'applicazione SAML in Azure AD B2C
 
@@ -73,7 +73,7 @@ Per creare una relazione di trust tra il provider di servizi e Azure AD B2C, è 
 
 ### <a name="11-prepare-a-self-signed-certificate"></a>1.1 Preparare un certificato autofirmato
 
-Se non si ha già un certificato, per questa esercitazione è possibile usarne uno autofirmato. In Windows è possibile usare il cmdlet [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) di PowerShell per generare un certificato.
+Se non si ha già un certificato, per questa esercitazione è possibile usarne uno autofirmato. In Windows è possibile usare il cmdlet [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) di PowerShell per generare un certificato.
 
 1. Eseguire questo comando di PowerShell per generare un certificato autofirmato. Modificare l'argomento `-Subject` in base al nome dell'applicazione e del tenant Azure AD B2C. Si può anche modificare la data `-NotAfter` per specificare una scadenza diversa per il certificato.
 
@@ -340,7 +340,7 @@ I metadati possono essere configurati nel provider di servizi come "metadati sta
 In genere sono necessari alcuni o tutti gli elementi seguenti:
 
 * **Metadati**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Emittente**: il valore della richiesta SAML `issuer` deve corrispondere a uno degli URI configurati nell' `identifierUris` elemento del manifesto di registrazione dell'applicazione. Se il nome della richiesta SAML `issuer` non esiste nell' `identifierUris` elemento, [aggiungerlo al manifesto di registrazione dell'applicazione](#identifieruris). Ad esempio, `https://contoso.onmicrosoft.com/app-name` 
+* **Emittente**: il valore della richiesta SAML `issuer` deve corrispondere a uno degli URI configurati nell' `identifierUris` elemento del manifesto di registrazione dell'applicazione. Se il nome della richiesta SAML `issuer` non esiste nell' `identifierUris` elemento, [aggiungerlo al manifesto di registrazione dell'applicazione](#identifieruris). Ad esempio: `https://contoso.onmicrosoft.com/app-name`. 
 * **URL di accesso/endpoint SAML/URL SAML**: controllare il valore nel file di metadati dei criteri SAML Azure ad B2C per l' `<SingleSignOnService>` elemento XML
 * **Certificato**: *B2C_1A_SamlIdpCert*, ma senza la chiave privata. Per ottenere la chiave pubblica del certificato:
 

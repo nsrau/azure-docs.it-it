@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 8c4df64334957a78fcf05c11625335214f8e032a
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: d652f1eae62270fa8968d64a2bd15a1261dca673
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699373"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949191"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Creare un monitoraggio in Connection Monitor usando il portale di Azure
 
@@ -102,7 +102,7 @@ Nel portale di Azure, per creare un gruppo di test in un monitoraggio della conn
 
 * **Disabilita gruppo di test**: è possibile selezionare questa casella di controllo per disabilitare il monitoraggio per tutte le origini e le destinazioni specificate dal gruppo di test. Questa selezione è deselezionata per impostazione predefinita.
 * **Nome**: assegnare un nome al gruppo di test.
-* **Origini**: è possibile specificare le VM di Azure e i computer locali come origini se gli agenti sono installati su di essi. Per informazioni sull'installazione di un agente per l'origine, vedere [Install Monitoring Agents](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
+* **Origini**: è possibile specificare le VM di Azure e i computer locali come origini se gli agenti sono installati su di essi. Per informazioni sull'installazione di un agente per l'origine, vedere [Install Monitoring Agents](./connection-monitor-overview.md#install-monitoring-agents).
    * Per scegliere gli agenti di Azure, selezionare la scheda **endpoint di Azure** . Qui vengono visualizzate solo le macchine virtuali associate all'area specificata al momento della creazione del monitoraggio connessione. Per impostazione predefinita, le macchine virtuali vengono raggruppate nella sottoscrizione a cui appartengono. Questi gruppi sono compressi. 
    
        È possibile eseguire il drill-down dal livello di **sottoscrizione** ad altri livelli nella gerarchia:
@@ -117,7 +117,7 @@ Nel portale di Azure, per creare un gruppo di test in un monitoraggio della conn
 
    * Per scegliere gli agenti locali, selezionare la scheda **endpoint non di Azure** . Per impostazione predefinita, gli agenti sono raggruppati in aree di lavoro in base all'area. Per tutte queste aree di lavoro è configurata la Monitoraggio prestazioni rete. 
    
-       Se è necessario aggiungere Monitoraggio prestazioni rete all'area di lavoro, ottenerla da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Per informazioni su come aggiungere Monitoraggio prestazioni rete, vedere [monitoraggio delle soluzioni in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
+       Se è necessario aggiungere Monitoraggio prestazioni rete all'area di lavoro, ottenerla da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Per informazioni su come aggiungere Monitoraggio prestazioni rete, vedere [monitoraggio delle soluzioni in monitoraggio di Azure](../azure-monitor/insights/solutions.md). 
    
        In **Crea monitoraggio connessione**, nella scheda **nozioni di base** , l'area predefinita è selezionata. Se si modifica l'area, è possibile scegliere agenti dalle aree di lavoro nella nuova area. È possibile selezionare uno o più agenti o subnet. Nella visualizzazione **subnet** è possibile selezionare indirizzi IP specifici per il monitoraggio. Se si aggiungono più subnet, verrà creata una rete locale personalizzata denominata **OnPremises_Network_1** . È anche possibile modificare il selettore **Group by** in Group by Agents.
 
@@ -140,7 +140,7 @@ Nel portale di Azure, per creare un gruppo di test in un monitoraggio della conn
     
     * Per scegliere gli agenti non Azure come destinazioni, selezionare la scheda **endpoint non Azure** . Per impostazione predefinita, gli agenti sono raggruppati in aree di lavoro in base all'area. Tutte le aree di lavoro sono Monitoraggio prestazioni rete configurate. 
     
-      Se è necessario aggiungere Monitoraggio prestazioni rete all'area di lavoro, ottenerla da Azure Marketplace. Per informazioni su come aggiungere Monitoraggio prestazioni rete, vedere [monitoraggio delle soluzioni in monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
+      Se è necessario aggiungere Monitoraggio prestazioni rete all'area di lavoro, ottenerla da Azure Marketplace. Per informazioni su come aggiungere Monitoraggio prestazioni rete, vedere [monitoraggio delle soluzioni in monitoraggio di Azure](../azure-monitor/insights/solutions.md). 
 
       In **Crea monitoraggio connessione**, nella scheda **nozioni di base**   , l'area predefinita è selezionata. Se si modifica l'area, è possibile scegliere agenti dalle aree di lavoro nella nuova area. È possibile selezionare uno o più agenti o subnet. Nella visualizzazione **subnet** è possibile selezionare indirizzi IP specifici per il monitoraggio. Se si aggiungono più subnet, verrà creata una rete locale personalizzata denominata **OnPremises_Network_1** .  
 
@@ -182,7 +182,7 @@ Nel portale di Azure, per creare avvisi per un monitoraggio della connessione, �
 
 - **Nome della condizione**: l'avviso viene creato sulla `Test Result(preview)` metrica. Quando il risultato del test di monitoraggio della connessione non è riuscito, viene attivata la regola di avviso. 
 
-- **Nome gruppo di azioni**: è possibile immettere direttamente la posta elettronica oppure è possibile creare avvisi tramite gruppi di azioni. Se si immette direttamente il proprio indirizzo di posta elettronica, viene creato un gruppo di azione con il nome **NPM email ActionGroup** . L'ID di posta elettronica viene aggiunto al gruppo di azioni. Se si sceglie di usare i gruppi di azioni, è necessario selezionare un gruppo di azioni creato in precedenza. Per informazioni su come creare un gruppo di azione, vedere [creare gruppi di azioni nella portale di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups). Dopo la creazione dell'avviso, è possibile [gestire gli avvisi](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#view-and-manage-with-azure-portal). 
+- **Nome gruppo di azioni**: è possibile immettere direttamente la posta elettronica oppure è possibile creare avvisi tramite gruppi di azioni. Se si immette direttamente il proprio indirizzo di posta elettronica, viene creato un gruppo di azione con il nome **NPM email ActionGroup** . L'ID di posta elettronica viene aggiunto al gruppo di azioni. Se si sceglie di usare i gruppi di azioni, è necessario selezionare un gruppo di azioni creato in precedenza. Per informazioni su come creare un gruppo di azione, vedere [creare gruppi di azioni nella portale di Azure](../azure-monitor/platform/action-groups.md). Dopo la creazione dell'avviso, è possibile [gestire gli avvisi](../azure-monitor/platform/alerts-metric.md#view-and-manage-with-azure-portal). 
 
 - **Nome regola di avviso**: il nome del monitoraggio connessione.
 
@@ -201,5 +201,5 @@ I monitoraggi connessione presentano questi limiti di scalabilità:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni [su come analizzare i dati di monitoraggio e impostare gli avvisi](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts).
-* Informazioni [su come diagnosticare i problemi nella rete](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network).
+* Informazioni [su come analizzare i dati di monitoraggio e impostare gli avvisi](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts).
+* Informazioni [su come diagnosticare i problemi nella rete](./connection-monitor-overview.md#diagnose-issues-in-your-network).

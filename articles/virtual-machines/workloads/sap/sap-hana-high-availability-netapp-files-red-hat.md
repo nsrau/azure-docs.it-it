@@ -7,17 +7,18 @@ author: rdeltcheva
 manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 8800adae73de2672dd89678a6346fe6b0df755ba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f107ba4dd0150e9727183d0bd334c9279de17337
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144201"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94950007"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Disponibilità elevata di SAP HANA scalabilità verticale con Azure NetApp Files in Red Hat Enterprise Linux
 
@@ -51,7 +52,7 @@ ms.locfileid: "92144201"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-Questo articolo descrive come configurare la replica di sistema SAP HANA in una distribuzione con scalabilità verticale, quando i file System HANA sono montati tramite NFS, usando Azure NetApp Files (e). Nelle configurazioni e nei comandi di installazione di esempio, vengono usati il numero di istanza **03**e l'ID di sistema Hana **HN1** . La replica SAP HANA è costituita da un nodo primario e da almeno un nodo secondario.
+Questo articolo descrive come configurare la replica di sistema SAP HANA in una distribuzione con scalabilità verticale, quando i file System HANA sono montati tramite NFS, usando Azure NetApp Files (e). Nelle configurazioni e nei comandi di installazione di esempio, vengono usati il numero di istanza **03** e l'ID di sistema Hana **HN1** . La replica SAP HANA è costituita da un nodo primario e da almeno un nodo secondario.
 
 Quando i passaggi descritti in questo documento sono contrassegnati con i prefissi seguenti, il significato è il seguente:
 
@@ -251,7 +252,7 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Eseguire quindi
     1.  Creare quindi un probe di integrità:
         1.  Aprire il servizio di bilanciamento del carico, selezionare **Probe integrità** e quindi **Aggiungi**.
         1.  Immettere il nome del nuovo probe di integrità (ad esempio, **hana-hp**).
-        1.  Selezionare TCP come protocollo e la porta 625**03**. Lasciare il valore di **Intervallo** impostato su 5 e il valore di **Soglia di non integrità** impostato su 2.
+        1.  Selezionare TCP come protocollo e la porta 625 **03**. Lasciare il valore di **Intervallo** impostato su 5 e il valore di **Soglia di non integrità** impostato su 2.
         1.  Selezionare **OK**.
     1.  Successivamente, creare le regole del servizio di bilanciamento del carico:
         1.  Aprire il servizio di bilanciamento del carico, selezionare **Regole di bilanciamento del carico** e quindi **Aggiungi**.
@@ -280,35 +281,35 @@ Per prima cosa è necessario creare i volumi Azure NetApp Files. Eseguire quindi
     1.  Creare quindi un probe di integrità:
         1.  Aprire il servizio di bilanciamento del carico, selezionare **Probe integrità** e quindi **Aggiungi**.
         1.  Immettere il nome del nuovo probe di integrità (ad esempio, **hana-hp**).
-        1.  Selezionare **TCP** come protocollo e la porta 625**03**. Lasciare il valore di **Intervallo** impostato su 5 e il valore di **Soglia di non integrità** impostato su 2.
+        1.  Selezionare **TCP** come protocollo e la porta 625 **03**. Lasciare il valore di **Intervallo** impostato su 5 e il valore di **Soglia di non integrità** impostato su 2.
         1.  Selezionare **OK**.
     1.  Per SAP HANA 1.0, creare le regole di bilanciamento del carico:
         1.  Aprire il servizio di bilanciamento del carico, selezionare **Regole di bilanciamento del carico** e quindi **Aggiungi**.
-        1.  Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, hana-lb-3**03**15).
+        1.  Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, hana-lb-3 **03** 15).
         1.  Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza (ad esempio, **hana-frontend**).
-        1.  Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3**03**15.
+        1.  Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3 **03** 15.
         1.  Aumentare il valore di **Timeout di inattività** a 30 minuti.
         1.  Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
         1.  Selezionare **OK**.
-        1.  Ripetere questi passaggi per la porta 3**03**17.
+        1.  Ripetere questi passaggi per la porta 3 **03** 17.
     1.  Per SAP HANA 2.0, creare le regole di bilanciamento del carico per il database di sistema:
         1.  Aprire il servizio di bilanciamento del carico, selezionare **Regole di bilanciamento del carico** e quindi **Aggiungi**.
-        1.  Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, hana-lb-3**03**13).
+        1.  Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, hana-lb-3 **03** 13).
         1.  Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza (ad esempio, **hana-frontend**).
-        1.  Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3**03**13.
+        1.  Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3 **03** 13.
         1.  Aumentare il valore di **Timeout di inattività** a 30 minuti.
         1.  Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
         1.  Selezionare **OK**.
-        1.  Ripetere questi passaggi per la porta 3**03**14.
+        1.  Ripetere questi passaggi per la porta 3 **03** 14.
     1.  Per SAP HANA 2.0, creare prima le regole di bilanciamento del carico per il database tenant:
         1.  Aprire il servizio di bilanciamento del carico, selezionare **Regole di bilanciamento del carico** e quindi **Aggiungi**.
-        1.  Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, hana-lb-3**03**40).
+        1.  Immettere il nome della nuova regola di bilanciamento del carico (ad esempio, hana-lb-3 **03** 40).
         1.  Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza (ad esempio, **hana-frontend**).
-        1.  Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3**03**40.
+        1.  Lasciare il valore di **Protocollo** impostato su **TCP** e immettere la porta 3 **03** 40.
         1.  Aumentare il valore di **Timeout di inattività** a 30 minuti.
         1.  Assicurarsi di selezionare **Abilita l'indirizzo IP mobile**.
         1.  Selezionare **OK**.
-        1.  Ripetere questi passaggi per le porte 3**03**41 e 3**03**42.
+        1.  Ripetere questi passaggi per le porte 3 **03** 41 e 3 **03** 42.
 
 Per ulteriori informazioni sulle porte necessarie per SAP HANA, vedere il capitolo [connessioni ai database tenant](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) nella Guida ai [database tenant di SAP Hana](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) o la nota SAP [2388694](https://launchpad.support.sap.com/#/notes/2388694).
 
@@ -563,7 +564,7 @@ In questo esempio ogni nodo del cluster ha i propri filesystem HANA NFS/Hana/Sha
 
    Verificare lo stato del cluster e tutte le risorse
    > [!NOTE]
-   > Questo articolo contiene riferimenti al termine *slave*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
+   > Questo articolo contiene riferimenti al termine *slave*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
    
     ```
     sudo pcs status

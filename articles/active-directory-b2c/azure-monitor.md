@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 11/12/2020
-ms.openlocfilehash: 68a7dd1b9a7af9f2667785c8b822b2771510d00e
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: b41f5e9a3bd4d3cbe52cf2e1c567d24de8a661f4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562830"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949956"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorare Azure AD B2C con monitoraggio di Azure
 
@@ -25,7 +25,7 @@ Usare monitoraggio di Azure per indirizzare l'accesso Azure Active Directory B2C
 È possibile instradare gli eventi del log a:
 
 * Un [account di archiviazione](../storage/blobs/storage-blobs-introduction.md)di Azure.
-* Un' [area di lavoro log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (per analizzare i dati, creare dashboard e avvisi per eventi specifici).
+* Un' [area di lavoro log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) (per analizzare i dati, creare dashboard e avvisi per eventi specifici).
 * Un [Hub eventi](../event-hubs/event-hubs-about.md) di Azure (e si integrano con le istanze della logica Splunk e Sumo).
 
 ![Monitoraggio di Azure](./media/azure-monitor/azure-monitor-flow.png)
@@ -34,7 +34,7 @@ Questo articolo illustra come trasferire i log in un'area di lavoro di Azure Log
 
 ## <a name="deployment-overview"></a>Panoramica della distribuzione
 
-Azure AD B2C sfrutta [Azure Active Directory il monitoraggio](../active-directory/reports-monitoring/overview-monitoring.md). Per abilitare *le impostazioni di diagnostica* in Azure Active Directory all'interno del tenant di Azure ad B2C, usare [Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) per [delegare una risorsa](../lighthouse/concepts/azure-delegated-resource-management.md), che consente al Azure ad B2C ( **provider di servizi** ) di gestire una risorsa Azure ad ( **cliente** ). Dopo aver completato i passaggi descritti in questo articolo, sarà possibile accedere al gruppo di risorse *Azure-ad-B2C-monitor* che contiene l' [area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md) nel portale di **Azure ad B2C** . Sarà anche possibile trasferire i log da Azure AD B2C nell'area di lavoro Log Analytics.
+Azure AD B2C sfrutta [Azure Active Directory il monitoraggio](../active-directory/reports-monitoring/overview-monitoring.md). Per abilitare *le impostazioni di diagnostica* in Azure Active Directory all'interno del tenant di Azure ad B2C, usare [Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) per [delegare una risorsa](../lighthouse/concepts/azure-delegated-resource-management.md), che consente al Azure ad B2C ( **provider di servizi**) di gestire una risorsa Azure ad ( **cliente**). Dopo aver completato i passaggi descritti in questo articolo, sarà possibile accedere al gruppo di risorse *Azure-ad-B2C-monitor* che contiene l' [area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md) nel portale di **Azure ad B2C** . Sarà anche possibile trasferire i log da Azure AD B2C nell'area di lavoro Log Analytics.
 
 Durante questa distribuzione, è necessario autorizzare un utente o un gruppo nella directory Azure AD B2C per configurare l'istanza dell'area di lavoro Log Analytics all'interno del tenant che contiene la sottoscrizione di Azure. Per creare l'autorizzazione, si distribuisce un modello di [Azure Resource Manager](../azure-resource-manager/index.yml) nel tenant di Azure ad che contiene la sottoscrizione.
 
@@ -58,7 +58,7 @@ Un' **area di lavoro log Analytics** è un ambiente univoco per i dati di log di
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il **tenant Azure ad**.
-1. [Creare un'area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md). Questo esempio usa un'area di lavoro Log Analytics denominata *AzureAdB2C* , in un gruppo di risorse denominato *Azure-ad-B2C-monitor*.
+1. [Creare un'area di lavoro log Analytics](../azure-monitor/learn/quick-create-workspace.md). Questo esempio usa un'area di lavoro Log Analytics denominata *AzureAdB2C*, in un gruppo di risorse denominato *Azure-ad-B2C-monitor*.
 
 ## <a name="3-delegate-resource-management"></a>3. delegare la gestione delle risorse
 
@@ -70,7 +70,7 @@ Per prima cosa, ottenere l' **ID tenant** della directory di Azure ad B2C (anche
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 1. Selezionare l'icona **directory + sottoscrizione** sulla barra degli strumenti del portale e quindi selezionare la directory che contiene il tenant **Azure ad B2C** .
-1. Selezionare **Azure Active Directory** , quindi **Panoramica**.
+1. Selezionare **Azure Active Directory**, quindi **Panoramica**.
 1. Registrare l' **ID tenant**.
 
 ### <a name="32-select-a-security-group"></a>3,2 Selezionare un gruppo di sicurezza
@@ -104,7 +104,7 @@ Successivamente, verrà creato un modello di Azure Resource Manager che concede 
    | Nome dell'offerta msp| Nome che descrive questa definizione. Ad esempio, *Azure ad B2C monitoraggio*.  |
    | Descrizione dell'offerta msp| Breve descrizione dell'offerta. Ad esempio, *Abilita monitoraggio di Azure in Azure ad B2C*.|
    | Gestito dall'ID tenant| **ID tenant** del tenant di Azure ad B2C (noto anche come ID directory). |
-   |Authorizations|Specificare una matrice JSON di oggetti che includono la Azure AD `principalId` , `principalIdDisplayName` e Azure `roleDefinitionId` . `principalId`È l' **ID oggetto** del gruppo B2C o dell'utente che avrà accesso alle risorse in questa sottoscrizione di Azure. Per questa procedura dettagliata, specificare l'ID oggetto del gruppo registrato in precedenza. Per `roleDefinitionId` , utilizzare il valore del [ruolo predefinito](../role-based-access-control/built-in-roles.md) per il *ruolo Collaboratore* , `b24988ac-6180-42a0-ab88-20f7382dd24c` .|
+   |Authorizations|Specificare una matrice JSON di oggetti che includono la Azure AD `principalId` , `principalIdDisplayName` e Azure `roleDefinitionId` . `principalId`È l' **ID oggetto** del gruppo B2C o dell'utente che avrà accesso alle risorse in questa sottoscrizione di Azure. Per questa procedura dettagliata, specificare l'ID oggetto del gruppo registrato in precedenza. Per `roleDefinitionId` , utilizzare il valore del [ruolo predefinito](../role-based-access-control/built-in-roles.md) per il *ruolo Collaboratore*, `b24988ac-6180-42a0-ab88-20f7382dd24c` .|
    | Nome gruppo di risorse | Il nome del gruppo di risorse creato in precedenza nel tenant del Azure AD. Ad esempio, *Azure-ad-B2C-monitor*. |
 
    Nell'esempio seguente viene illustrata una matrice di autorizzazioni con un gruppo di sicurezza.
@@ -162,7 +162,7 @@ Per configurare le impostazioni di monitoraggio per i log attività Azure AD B2C
 
 1. Assegnare un nome all'impostazione se non ne è già presente uno.
 1. Selezionare la casella per ogni destinazione per inviare i log. Selezionare **Configura** per specificare le impostazioni **come descritto nella tabella seguente**.
-1. Selezionare **Invia a log Analytics** , quindi selezionare il **nome dell'area di lavoro** creata in precedenza ( `AzureAdB2C` ).
+1. Selezionare **Invia a log Analytics**, quindi selezionare il **nome dell'area di lavoro** creata in precedenza ( `AzureAdB2C` ).
 1. Selezionare **AuditLogs** e **SignInLogs**.
 1. Selezionare **Salva**.
 
@@ -239,7 +239,7 @@ Seguire le istruzioni riportate di seguito per creare una nuova cartella di lavo
 1. Applicare il modello usando il pulsante **applica** .
 1. Selezionare il pulsante **modifica completato** dalla barra degli strumenti per completare la modifica della cartella di lavoro.
 1. Infine, salvare la cartella di lavoro utilizzando il pulsante **Salva** sulla barra degli strumenti.
-1. Fornire un **titolo** , ad esempio *Azure ad B2C dashboard*.
+1. Fornire un **titolo**, ad esempio *Azure ad B2C dashboard*.
 1. Selezionare **Salva**.
 
     ![Salvare la cartella di lavoro](./media/azure-monitor/wrkb-title.png)

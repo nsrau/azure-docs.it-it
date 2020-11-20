@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: damendo
-ms.openlocfilehash: 9a5bd6dff05fe39d62e5bf5f897bc61936686bb7
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 548db64bd93dd561f9c69e9f594d01f4c0825db9
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887230"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948341"
 ---
 # <a name="azure-role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Autorizzazioni di controllo degli accessi in base al ruolo di Azure necessarie per usare Network Watcher funzionalità
 
@@ -103,12 +103,12 @@ Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente di
 
 Le funzionalità di Network Watcher richiedono anche le azioni seguenti:
 
-| Azione/i                                                           | Descrizione                                                    |
+| Azione/i                                                           | Description                                                    |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Authorization/\*/Read                                     | Usato per recuperare le assegnazioni di ruolo e le definizioni dei criteri di Azure          |
 | Microsoft.Resources/subscriptions/resourceGroups/Read               | Utilizzato per enumerare tutti i gruppi di risorse in una sottoscrizione    |
 | Microsoft.Storage/storageAccounts/Read                              | Usato per ottenere le proprietà per l'account di archiviazione specificato   |
-| Microsoft. storage/storageAccounts/listServiceSas/Action, </br> Microsoft. storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Usato per recuperare le firme di accesso condiviso (SAS) che abilitano [l'accesso sicuro all'account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) e la scrittura nell'account di archiviazione |
+| Microsoft. storage/storageAccounts/listServiceSas/Action, </br> Microsoft. storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Usato per recuperare le firme di accesso condiviso (SAS) che abilitano [l'accesso sicuro all'account di archiviazione](../storage/common/storage-sas-overview.md) e la scrittura nell'account di archiviazione |
 | Microsoft. Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Usato per accedere alla macchina virtuale, eseguire un'acquisizione di pacchetti e caricarla nell'account di archiviazione|
 | Microsoft.Compute/virtualMachines/extensions/Read </br> Microsoft.Compute/virtualMachines/extensions/Write| Usato per verificare se è presente Network Watcher estensione e installarlo se necessario |
 | Microsoft. Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write| Usato per accedere ai set di scalabilità di macchine virtuali, eseguire acquisizioni di pacchetti e caricarli nell'account di archiviazione|

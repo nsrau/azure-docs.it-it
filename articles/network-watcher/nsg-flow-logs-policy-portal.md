@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: damendo
-ms.openlocfilehash: a603f55bd5bff7b2ed68623e9c712faaf8ac766f
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 54b87da73d4427234e65e406d183525d55c6c00d
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877029"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94948545"
 ---
 # <a name="quickstart-deploy-and-manage-nsg-flow-logs-using-azure-policy"></a>Guida introduttiva: distribuire e gestire i log di flusso NSG usando criteri di Azure 
 
@@ -25,8 +25,8 @@ ms.locfileid: "91877029"
 Criteri di Azure consente di imporre standard aziendali e di valutare la conformità su larga scala. I casi d'uso comuni per Criteri di Azure includono l'implementazione della governance per la coerenza delle risorse, la conformità alle normative, la sicurezza, i costi e la gestione. In questo articolo verranno usati due criteri predefiniti disponibili per i log di flusso NSG per gestire l'installazione dei log dei flussi. Il primo criterio contrassegna i gruppi senza i log di flusso abilitati. Il secondo criterio distribuisce automaticamente i log di flusso per gruppi senza i log di flusso abilitati. 
 
 Se si sta creando un criterio di Azure per la prima volta, è possibile leggere: 
-- [Panoramica di criteri di Azure](https://docs.microsoft.com/azure/governance/policy/overview) 
-- [Esercitazione per la creazione di criteri](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal#create-a-policy-assignment).
+- [Panoramica di criteri di Azure](../governance/policy/overview.md) 
+- [Esercitazione per la creazione di criteri](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
 ## <a name="locate-the-policies"></a>Individuare i criteri
@@ -134,5 +134,5 @@ Verrà visualizzata una schermata simile alla seguente dopo il criterio. Se il c
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
--   Usare questa [esercitazione](https://docs.microsoft.com/azure/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template) per approfondire l'uso dei modelli ARM per distribuire i log di flusso e analisi del traffico.
--   Altre informazioni su [Network Watcher](https://docs.microsoft.com/azure/network-watcher/)
+-   Usare questa [esercitazione](./quickstart-configure-network-security-group-flow-logs-from-arm-template.md) per approfondire l'uso dei modelli ARM per distribuire i log di flusso e analisi del traffico.
+-   Altre informazioni su [Network Watcher](./index.yml)

@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6f2608dafb77aeba98f188ec04f78649656ef969
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: b74de2bdf1f6239f1006c820579a336946939421
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089656"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94949582"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Verifica della posta elettronica personalizzata con Mailjet
 
 Usare un indirizzo di posta elettronica personalizzato in Azure Active Directory B2C (Azure AD B2C) per inviare messaggi di posta elettronica personalizzati agli utenti che si iscrivono per l'uso delle applicazioni. Usando [DisplayControls](display-controls.md) (attualmente in anteprima) e il provider di posta elettronica di terze parti Mailjet, è possibile usare il proprio modello di posta elettronica e *da:* indirizzo e oggetto, nonché la localizzazione del supporto e le impostazioni della password monouso (OTP) personalizzate.
 
-Per la verifica tramite posta elettronica personalizzata è necessario usare un provider di posta elettronica di terze parti, ad esempio [Mailjet](https://Mailjet.com), [SendGrid](custom-email.md)o [SparkPost](https://sparkpost.com), un'API REST personalizzata o qualsiasi provider di posta elettronica basato su http (incluso il proprio). Questo articolo descrive la configurazione di una soluzione che usa Mailjet.
+Per la verifica tramite posta elettronica personalizzata è necessario usare un provider di posta elettronica di terze parti, ad esempio [Mailjet](https://Mailjet.com), [SendGrid](./custom-email-sendgrid.md)o [SparkPost](https://sparkpost.com), un'API REST personalizzata o qualsiasi provider di posta elettronica basato su http (incluso il proprio). Questo articolo descrive la configurazione di una soluzione che usa Mailjet.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -43,13 +43,13 @@ Quindi, archiviare la chiave API Mailjet in una chiave dei criteri di Azure AD B
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 1. Nella pagina **Panoramica** selezionare **Framework esperienza di identità**.
 1. Selezionare **Chiavi dei criteri** e quindi selezionare **Aggiungi**.
-1. Per **Opzioni**scegliere **manuale**.
+1. Per **Opzioni** scegliere **manuale**.
 1. Immettere un **nome** per la chiave dei criteri. Ad esempio: `MailjetApiKey`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
 1. In **Secret (segreto**) immettere la **chiave API** di Mailjet registrata in precedenza.
 1. Per **Uso chiave** selezionare **Firma**.
 1. Selezionare **Create** (Crea).
 1. Selezionare **Chiavi dei criteri** e quindi selezionare **Aggiungi**.
-1. Per **Opzioni**scegliere **manuale**.
+1. Per **Opzioni** scegliere **manuale**.
 1. Immettere un **nome** per la chiave dei criteri. Ad esempio: `MailjetSecretKey`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
 1. In **Secret (segreto**) immettere la **chiave privata** Mailjet registrata in precedenza.
 1. Per **Uso chiave** selezionare **Firma**.
@@ -159,7 +159,7 @@ Con un account Mailjet creato e la chiave API Mailjet archiviata in una chiave d
     ```
 
 1. Espandi **oggetto modifica** nella parte superiore sinistra
-    1. Per **Subject**immettere un valore predefinito per l'oggetto. Mailjet usa questo valore quando l'API non contiene un parametro Subject.
+    1. Per **Subject** immettere un valore predefinito per l'oggetto. Mailjet usa questo valore quando l'API non contiene un parametro Subject.
     1. Per il **nome**, digitare il nome della società.
     1. Per l' **Indirizzo**, selezionare l'indirizzo di posta elettronica
     1. Selezionare **Salva**.
