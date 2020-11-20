@@ -1,6 +1,6 @@
 ---
 title: Definire un nuovo tipo di dispositivo IoT in Azure IoT Central | Microsoft Docs
-description: Questo articolo illustra come creare un nuovo modello di dispositivo Azure Internet nell'applicazione IoT Central di Azure. Il creatore definisce i dati di telemetria, lo stato, le proprietà e i comandi per il tipo.
+description: Questo articolo illustra come creare un nuovo modello di dispositivo Azure Internet nell'applicazione IoT Central di Azure come generatore di soluzioni. Il creatore definisce i dati di telemetria, lo stato, le proprietà e i comandi per il tipo.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/06/2019
@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: c8fb60a4b549a7203057dd60298d2ae0540450d6
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f5b3e461408242553822024bc59c56a3feb29c44
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122654"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94991061"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definire un nuovo tipo di dispositivo IoT nell'applicazione Azure IoT Central
 
@@ -38,12 +38,12 @@ Da questo modello di dispositivo, un operatore può creare e connettere disposit
 > [!NOTE]
 > Solo i generatori e gli amministratori possono creare, modificare ed eliminare i modelli di dispositivo. Qualsiasi utente può creare dispositivi nella pagina **Dispositivi** dai modelli di dispositivi esistenti.
 
-In un'applicazione IoT Central un modello di dispositivo usa un modello di funzionalità del dispositivo per descrivere le funzionalità di un dispositivo. I generatori hanno a disposizione numerose opzioni per creare modelli di dispositivo:
+In un'applicazione IoT Central, un modello di dispositivo usa un modello di dispositivo per descrivere le funzionalità di un dispositivo. I generatori hanno a disposizione numerose opzioni per creare modelli di dispositivo:
 
-- Progettare il modello di dispositivo in IoT Central, quindi [implementare il modello di funzionalità del dispositivo nel codice del dispositivo](concepts-telemetry-properties-commands.md).
-- Importare un modello di funzionalità di dispositivo dal [catalogo dei dispositivi Azure Certified per IoT](https://aka.ms/iotdevcat). Aggiungere quindi al modello di dispositivo le proprietà cloud, le personalizzazioni e i dashboard necessari per l'applicazione IoT Central.
-- Creare un modello di funzionalità di dispositivo con Visual Studio Code. Implementare il codice del dispositivo dal modello. Importare manualmente il modello di funzionalità di dispositivo nell'applicazione IoT Central e quindi aggiungere eventuali personalizzazioni, dashboard e proprietà cloud necessari per l'applicazione IoT Central.
-- Creare un modello di funzionalità di dispositivo con Visual Studio Code. Implementare il codice del dispositivo dal modello e connettere il dispositivo reale all'applicazione IoT Central, tramite una connessione di tipo device-first. IoT Central trova e importa automaticamente il modello di funzionalità di dispositivo dal repository pubblico. È quindi possibile aggiungere al modello di dispositivo le proprietà cloud, le personalizzazioni e i dashboard necessari per l'applicazione IoT Central.
+- Progettare il modello di dispositivo in IoT Central, quindi [implementare il modello di dispositivo nel codice del dispositivo](concepts-telemetry-properties-commands.md).
+- Importare un modello di dispositivo dal [Catalogo dei dispositivi Azure Certified per](https://aka.ms/iotdevcat)l'it. Personalizzare il modello di dispositivo in modo che siano necessari in IoT Central.
+- Creare un modello di dispositivo con il [linguaggio DTDL (Digital Gemini Definition Language)-versione 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Visual Studio Code ha un'estensione che supporta la creazione di modelli di DTDL. Per altre informazioni, vedere [Installare e usare gli strumenti di creazione di DTDL](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Pubblicare quindi il modello nel repository del modello pubblico. Per altre informazioni, vedere [repository del modello di dispositivo](../../iot-pnp/concepts-model-repository.md). Implementare il codice del dispositivo dal modello e connettere il dispositivo reale all'applicazione IoT Central. IoT Central trova e importa il modello di dispositivo dal repository pubblico e genera un modello di dispositivo. È quindi possibile aggiungere al modello di dispositivo le proprietà cloud, le personalizzazioni e i dashboard necessari per l'applicazione IoT Central.
+- Creare un modello di dispositivo usando DTDL. Implementare il codice del dispositivo dal modello. Importare manualmente il modello di dispositivo nell'applicazione IoT Central e quindi aggiungere le proprietà del cloud, le personalizzazioni e i dashboard necessari per l'applicazione IoT Central.
 
 È anche possibile aggiungere modelli di dispositivo a un'applicazione IoT Central usando l' [API REST](/learn/modules/manage-iot-central-apps-with-rest-api/) o l' [interfaccia](howto-manage-iot-central-from-cli.md)della riga di comando.
 
@@ -51,10 +51,10 @@ Alcuni [modelli di applicazione](concepts-app-templates.md) includono già model
 
 ## <a name="create-a-device-template-from-the-device-catalog"></a>Creare un modello di dispositivo dal catalogo dispositivi
 
-È possibile iniziare rapidamente a creare la soluzione usando un dispositivo Plug and Play IoT (anteprima) certificato. Vedere l'elenco nel [catalogo dei dispositivi Azure IoT](https://catalog.azureiotsolutions.com/alldevices). IoT Central è integrato con il catalogo dispositivi per consentire l'importazione di un modello di funzionalità di dispositivo da uno qualsiasi di questi dispositivi Plug and Play IoT (anteprima) certificati. Per creare un modello di dispositivo da uno di questi dispositivi in IoT Central:
+In qualità di generatore, è possibile iniziare rapidamente a creare la soluzione usando un dispositivo certificato. Vedere l'elenco nel [catalogo dei dispositivi Azure IoT](https://catalog.azureiotsolutions.com/alldevices). IoT Central si integra con il catalogo dispositivi, in modo da poter importare un modello di dispositivo da uno qualsiasi dei dispositivi certificati. Per creare un modello di dispositivo da uno di questi dispositivi in IoT Central:
 
-1. Passare alla pagina **Modelli di dispositivo** nell'applicazione IoT Central.
-1. Selezionare **+ Nuovo** e quindi selezionare uno dei dispositivi Plug and Play IoT (anteprima) certificati dal catalogo. IoT Central crea un modello di dispositivo in base a questo modello di funzionalità di dispositivo.
+1. Passare alla pagina **modelli di dispositivo** nell'applicazione IoT Central.
+1. Selezionare **+ nuovo**, quindi selezionare uno dei dispositivi certificati dal catalogo. IoT Central crea un modello di dispositivo basato su questo modello di dispositivo.
 1. Aggiungere le proprietà cloud, le personalizzazioni o le visualizzazioni al modello di dispositivo.
 1. Selezionare **Pubblica** per rendere disponibile il modello agli operatori per la visualizzazione e la connessione dei dispositivi.
 
@@ -62,57 +62,56 @@ Alcuni [modelli di applicazione](concepts-app-templates.md) includono già model
 
 Un modello di dispositivo contiene:
 
-- Un _modello di funzionalità di dispositivo_ che specifica i dati di telemetria, le proprietà e i comandi implementati dal dispositivo. Queste funzionalità sono organizzate in una o più interfacce.
+- _Modello di dispositivo_ che specifica i dati di telemetria, le proprietà e i comandi implementati dal dispositivo. Queste funzionalità sono organizzate in uno o più componenti.
 - _Proprietà cloud_ che definiscono le informazioni che l'applicazione IoT Central archivia sui dispositivi. Una proprietà cloud, ad esempio, potrebbe registrare i dati relativi all'ultimo intervento effettuato sul dispositivo. Queste informazioni non vengono mai condivise con il dispositivo.
-- Le _personalizzazioni_ consentono allo sviluppatore di eseguire l'override di alcune delle definizioni nel modello di funzionalità di dispositivo. Lo sviluppatore può, ad esempio, eseguire l'override del nome di una proprietà del dispositivo. I nomi delle proprietà vengono visualizzati nei dashboard e nei moduli di IoT Central.
+- Le _personalizzazioni_ consentono al generatore di eseguire l'override di alcune definizioni nel modello di dispositivo. Lo sviluppatore può, ad esempio, eseguire l'override del nome di una proprietà del dispositivo. I nomi delle proprietà vengono visualizzati nei dashboard e nei moduli di IoT Central.
 - _Dashboard e moduli_ consentono allo sviluppatore di creare un'interfaccia utente che gli operatori possono usare per monitorare e gestire i dispositivi connessi all'applicazione.
 
 Per creare un modello di dispositivo in IoT Central:
 
 1. Passare alla pagina **Modelli di dispositivo** nell'applicazione IoT Central.
-1. Selezionare **+ nuovo**  >  **personalizzato**.
-1. Immettere un nome per il modello, ad esempio **sensore ambientale**.
-1. Premere **INVIO**. IoT Central crea un modello di dispositivo vuoto.
+1. Selezionare **+ nuovo**  >  **dispositivo**. Selezionare quindi **Next: Personalizza**.
+1. Immettere un nome per il modello, ad esempio **termostato**. Quindi selezionare **Avanti: verifica** e quindi selezionare **Crea**.
+1. IoT Central crea un modello di dispositivo vuoto e consente di scegliere di creare un modello personalizzato da zero o importare un modello DTDL.
 
 ## <a name="manage-a-device-template"></a>Gestire un modello di dispositivo
 
 È possibile rinominare o eliminare un modello dalla home page del modello.
 
-Dopo aver aggiunto un modello di funzionalità di dispositivo al modello, è possibile pubblicarlo. Fino a quando il modello non viene pubblicato, non è possibile connettere un dispositivo in base a questo modello per consentire agli operatori di visualizzarlo nella pagina **Dispositivi**.
+Dopo aver aggiunto un modello di dispositivo al modello, è possibile pubblicarlo. Fino a quando il modello non viene pubblicato, non è possibile connettere un dispositivo in base a questo modello per consentire agli operatori di visualizzarlo nella pagina **Dispositivi**.
 
 ## <a name="create-a-capability-model"></a>Creare un modello di funzionalità
 
-Per creare un modello di funzionalità di dispositivo, è possibile:
+Per creare un modello di dispositivo, è possibile:
 
 - Usare IoT Central per creare un modello personalizzato da zero.
-- Importare un modello da un file JSON. Uno sviluppatore di dispositivi potrebbe aver usato Visual Studio Code per creare un modello di funzionalità di dispositivo per l'applicazione.
-- Selezionare uno dei dispositivi dal catalogo dispositivi. Questa opzione importa il modello di funzionalità di dispositivo pubblicato dal produttore per questo dispositivo. Un modello di funzionalità di dispositivo importato come questo caso viene pubblicato automaticamente.
+- Importare un modello DTDL da un file JSON. Un generatore di dispositivi potrebbe aver usato Visual Studio Code per creare un modello di dispositivo per l'applicazione.
+- Selezionare uno dei dispositivi dal catalogo dispositivi. Questa opzione importa il modello di dispositivo pubblicato dal produttore per questo dispositivo. Un modello di dispositivo importato come questo viene pubblicato automaticamente.
 
 ## <a name="manage-a-capability-model"></a>Gestire un modello di funzionalità
 
-Dopo aver creato un modello di funzionalità di dispositivo, è possibile:
+Dopo aver creato un modello di dispositivo, è possibile:
 
-- Aggiungere interfacce al modello. Un modello deve avere almeno un'interfaccia.
+- Aggiungere componenti al modello. Un modello deve contenere almeno un componente.
 - Modificare i metadati del modello, ad esempio ID, spazio dei nomi e nome.
 - Eliminare il modello.
 
-## <a name="create-an-interface"></a>Creare un'interfaccia
+## <a name="create-a-component"></a>Creare un componente
 
-Una funzionalità di dispositivo deve avere almeno un'interfaccia. Un'interfaccia è una raccolta riutilizzabile di funzionalità.
+Un modello di dispositivo deve avere almeno un componente predefinito. Un componente è una raccolta riutilizzabile di funzionalità.
 
-Per creare un'interfaccia:
+Per creare un componente:
 
-1. Passare al modello di funzionalità del dispositivo e scegliere **+ Aggiungi interfaccia**.
+1. Passare al modello di dispositivo e scegliere **+ Aggiungi componente**.
 
-1. Nella pagina **Selezionare un'interfaccia** è possibile:
+1. Nella pagina **Aggiungi interfaccia componente** è possibile:
 
-    - Creare un'interfaccia personalizzata da zero.
-    - Importare un'interfaccia esistente da un file. Uno sviluppatore di dispositivi potrebbe aver usato Visual Studio Code per creare un'interfaccia per il dispositivo.
-    - Scegliere una delle interfacce standard, ad esempio l'interfaccia **informazioni sul dispositivo** . Le interfacce standard specificano le funzionalità comuni a molti dispositivi. Queste interfacce standard vengono pubblicate da Azure IoT e non è possibile modificarle o creare versioni.
+    - Creare un componente personalizzato da zero.
+    - Importa un componente esistente da un file DTDL. Un generatore di dispositivi potrebbe aver usato Visual Studio Code per creare un'interfaccia componente per il dispositivo.
 
-1. Dopo aver creato un'interfaccia, scegliere **Modifica identità** per modificare il nome visualizzato dell'interfaccia.
+1. Dopo aver creato un componente, scegliere **modifica identità** per modificare il nome visualizzato del componente.
 
-1. Se si sceglie di creare un'interfaccia personalizzata da zero, è possibile aggiungere le funzionalità di dispositivo desiderate. Le funzionalità di dispositivo sono costituite da telemetria, proprietà e comandi.
+1. Se si sceglie di creare un componente personalizzato da zero, è possibile aggiungere le funzionalità del dispositivo. Le funzionalità di dispositivo sono costituite da telemetria, proprietà e comandi.
 
 ### <a name="telemetry"></a>Telemetria
 
@@ -129,14 +128,14 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | SCHEMA | Tipo di dati di telemetria, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. Lo schema non è disponibile per i tipi semantici stato ed evento. |
 | Gravità | Disponibile solo per il tipo semantico evento. I livelli di gravità sono **Errore**, **Informazioni** o **Avviso**. |
 | Valori di stato | Disponibile solo per il tipo semantico stato. Definisce i valori di stato possibili, ognuno dei quali ha un nome visualizzato, un nome, un tipo di enumerazione e un valore. |
-| Unità | Unità per il valore di telemetria, ad esempio **mph**, **%** o ** &deg; C**. |
+| Unità | Unità per il valore di telemetria, ad esempio **mph**, **%** o **&deg; C**. |
 | Unità di visualizzazione | Unità di visualizzazione da usare nei dashboard e nei moduli. |
 | Commento | Eventuali commenti sulla funzionalità di telemetria. |
 | Descrizione | Descrizione della funzionalità di telemetria. |
 
 ### <a name="properties"></a>Proprietà
 
-Le proprietà rappresentano valori temporizzati. Ad esempio, un dispositivo potrebbe usare una proprietà per segnalare la temperatura di destinazione che sta tentando di raggiungere. È possibile impostare proprietà scrivibili da IoT Central.
+Le proprietà rappresentano valori temporizzati. Ad esempio, un dispositivo potrebbe usare una proprietà per segnalare la temperatura di destinazione che sta tentando di raggiungere. È possibile impostare le proprietà scrivibili da IoT Central.
 
 La tabella seguente illustra le impostazioni di configurazione per una funzionalità della proprietà:
 
@@ -147,15 +146,15 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Tipo di funzionalità | Proprietà. |
 | Tipo semantico | Tipo semantico della proprietà, ad esempio temperatura, stato o evento. La scelta del tipo semantico determina quali tra i campi seguenti sono disponibili. |
 | SCHEMA | Tipo di dati della proprietà, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. Lo schema non è disponibile per i tipi semantici stato ed evento. |
-| Scrivibile | Se la proprietà non è scrivibile, il dispositivo può segnalare i valori della proprietà a IoT Central. Se la proprietà è scrivibile, il dispositivo può segnalare i valori della proprietà a IoT Central e IoT Central può inviare gli aggiornamenti sulla proprietà al dispositivo.
+| Scrivibile | Se la proprietà non è scrivibile, il dispositivo può segnalare i valori delle proprietà IoT Central. Se la proprietà è scrivibile, il dispositivo può segnalare i valori delle proprietà a IoT Central e IoT Central può inviare gli aggiornamenti delle proprietà al dispositivo.
 | Gravità | Disponibile solo per il tipo semantico evento. I livelli di gravità sono **Errore**, **Informazioni** o **Avviso**. |
 | Valori di stato | Disponibile solo per il tipo semantico stato. Definisce i valori di stato possibili, ognuno dei quali ha un nome visualizzato, un nome, un tipo di enumerazione e un valore. |
-| Unità | Unità per il valore della proprietà, ad esempio **mph**, **%** o ** &deg; C**. |
+| Unità | Unità per il valore della proprietà, ad esempio **mph**, **%** o **&deg; C**. |
 | Unità di visualizzazione | Unità di visualizzazione da usare nei dashboard e nei moduli. |
 | Commento | Eventuali commenti sulla funzionalità della proprietà. |
 | Descrizione | Descrizione della funzionalità della proprietà. |
 
-### <a name="commands"></a>Comandi:
+### <a name="commands"></a>Comandi
 
 È possibile chiamare i comandi del dispositivo da IoT Central. I comandi passano facoltativamente i parametri al dispositivo e ricevono una risposta dal dispositivo. Ad esempio, è possibile chiamare un comando per riavviare un dispositivo entro 10 secondi.
 
@@ -166,11 +165,12 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Nome visualizzato | Nome visualizzato per il comando usato nei dashboard e nei moduli. |
 | Nome | Nome del comando. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
 | Tipo di funzionalità | Comando. |
-| Comando | `SynchronousExecutionType`. |
 | Commento | Eventuali commenti sulla funzionalità del comando. |
 | Descrizione | Descrizione della funzionalità del comando. |
 | Richiesta | Se abilitata, una definizione del parametro della richiesta, tra cui: nome, nome visualizzato, schema, unità e unità di visualizzazione. |
 | Risposta | Se abilitata, una definizione della risposta del comando, tra cui: nome, nome visualizzato, schema, unità e unità di visualizzazione. |
+
+Per altre informazioni sul modo in cui i dispositivi implementano i comandi, vedere [comandi di telemetria, proprietà e payload del comando > comandi e comandi con esecuzione prolungata](concepts-telemetry-properties-commands.md#commands).
 
 #### <a name="offline-commands"></a>Comandi offline
 
@@ -185,13 +185,13 @@ Messaggi da cloud a dispositivo:
 - Richiedere al dispositivo di implementare un gestore di messaggi per elaborare il messaggio da cloud a dispositivo.
 
 > [!NOTE]
-> Questa opzione è disponibile solo nell'interfaccia utente Web IoT Central. Questa impostazione non è inclusa se si esporta un modello o un'interfaccia dal modello di dispositivo.
+> Questa opzione è disponibile solo nell'interfaccia utente Web IoT Central. Questa impostazione non è inclusa se si esporta un modello o un componente dal modello di dispositivo.
 
-## <a name="manage-an-interface"></a>Gestire un'interfaccia
+## <a name="manage-a-component"></a>Gestire un componente
 
-Se l'interfaccia non è stata pubblicata, è possibile modificare le funzionalità definite dall'interfaccia. Una volta pubblicata l'interfaccia, per apportare modifiche sarà necessario creare una nuova versione del modello di dispositivo e applicare il controllo delle versioni all'interfaccia. Le modifiche che non richiedono il controllo delle versioni, ad esempio i nomi visualizzati o le unità, possono essere apportate nella sezione **Personalizza**.
+Se il componente non è stato pubblicato, è possibile modificare le funzionalità definite dal componente. Dopo aver pubblicato il componente, se si desidera apportare modifiche, è necessario creare una nuova versione del modello di dispositivo e [la versione del componente](howto-version-device-template.md). Le modifiche che non richiedono il controllo delle versioni, ad esempio i nomi visualizzati o le unità, possono essere apportate nella sezione **Personalizza**.
 
-È anche possibile esportare l'interfaccia come file JSON se si vuole riutilizzarla in un altro modello di funzionalità.
+È anche possibile esportare il componente come file JSON se si vuole riutilizzarlo in un altro modello di funzionalità.
 
 ## <a name="add-cloud-properties"></a>Aggiungere proprietà cloud
 
@@ -208,23 +208,23 @@ La tabella seguente illustra le impostazioni di configurazione per una propriet�
 
 ## <a name="add-customizations"></a>Aggiungere personalizzazioni
 
-Usare le personalizzazioni quando è necessario modificare un'interfaccia importata o aggiungere funzionalità specifiche di IoT Central a una funzionalità. È possibile personalizzare solo i campi che non compromettono la compatibilità dell'interfaccia. Ad esempio, è possibile:
+Utilizzare le personalizzazioni quando è necessario modificare un componente importato o aggiungere funzionalità specifiche di IoT Central a una funzionalità. È possibile personalizzare solo i campi che non interrompono la compatibilità con i componenti. Ad esempio, è possibile:
 
 - Personalizzare il nome visualizzato e le unità di una funzionalità.
 - Aggiungere un colore predefinito da usare quando il valore viene visualizzato in un grafico.
 - Specificare i valori iniziale, minimo e massimo per una proprietà.
 
-Non è possibile personalizzare il tipo o il nome della funzionalità. Se occorre apportare modifiche non consentite nella sezione **Personalizza**, è necessario creare una nuova versione del modello di dispositivo e dell'interfaccia per modificare la funzionalità.
+Non è possibile personalizzare il tipo o il nome della funzionalità. Se sono presenti modifiche che non è possibile apportare nella sezione **Personalizza** , è necessario eseguire la versione del modello e del componente del dispositivo per modificare la funzionalità.
 
 ### <a name="generate-default-views"></a>Generare le visualizzazioni predefinite
 
 La generazione di visualizzazioni predefinite è un modo rapido per visualizzare le informazioni importanti sul dispositivo. Per il modello di dispositivo possono essere generate fino a tre visualizzazioni predefinite:
 
-- **Comandi**: fornisce una visualizzazione con i comandi del dispositivo e consente all'operatore di inviarli al dispositivo.
-- **Panoramica**: fornisce una visualizzazione con i dati di telemetria del dispositivo, visualizzando grafici e metriche.
-- **Informazioni su**: fornisce una visualizzazione con le informazioni sul dispositivo, mostrandone le proprietà.
+- **Comandi**: una visualizzazione con i comandi del dispositivo e consente all'operatore di inviarli al dispositivo.
+- **Panoramica**: una visualizzazione con i dati di telemetria dei dispositivi, che Visualizza grafici e metriche.
+- Informazioni su: visualizzazione con informazioni sul dispositivo, visualizzazione delle proprietà **del** dispositivo.
 
-Dopo la selezione di **Genera visualizzazioni predefinite**, le visualizzazioni verranno aggiunte automaticamente nella sezione **Visualizzazioni** del modello di dispositivo.
+Dopo aver selezionato **Genera visualizzazioni predefinite**, si noterà che sono state aggiunte automaticamente nella sezione **viste** del modello di dispositivo.
 
 ## <a name="add-dashboards"></a>Aggiungere dashboard
 
@@ -237,13 +237,13 @@ Per aggiungere un dashboard a un modello di dispositivo:
 1. Immettere un nome per il dashboard in **Nome del dashboard**.
 1. Aggiungere al dashboard i riquadri selezionati dall'elenco di riquadri statici, proprietà, proprietà cloud, telemetria e comandi. Trascinare e rilasciare i riquadri da aggiungere al dashboard.
 1. Per tracciare più valori di telemetria in un singolo riquadro del grafico, selezionare i valori di telemetria e quindi fare clic su **combina**.
-1. Configurare ogni riquadro aggiunto per personalizzare la modalità di visualizzazione dei dati. A tale scopo, selezionare l'icona a forma di ingranaggio oppure selezionare **Modifica configurazione** nel riquadro del grafico.
+1. Configurare ogni riquadro aggiunto per personalizzare la modalità di visualizzazione dei dati. Per accedere a questa opzione, selezionare l'icona dell'ingranaggio oppure selezionare **modifica configurazione** nel riquadro del grafico.
 1. Disporre e ridimensionare i riquadri nel dashboard.
 1. Salvare le modifiche.
 
 ### <a name="configure-preview-device-to-view-dashboard"></a>Configurare l'anteprima del dispositivo per visualizzare il dashboard
 
-Per visualizzare e testare il dashboard, selezionare **Configura anteprima dispositivo**. Sarà possibile visualizzare il dashboard come lo vede l'operatore dopo la pubblicazione. Usare questa opzione per assicurarsi che le visualizzazioni mostrino i dati corretti. È possibile scegliere tra le opzioni seguenti:
+Per visualizzare e testare il dashboard, selezionare **Configura anteprima dispositivo**. Questa funzionalità consente di visualizzare il dashboard mentre l'operatore lo vede dopo la pubblicazione. Usare questa funzionalità per verificare che le visualizzazioni mostrino i dati corretti. È possibile scegliere tra le opzioni seguenti:
 
 - Nessuna anteprima del dispositivo.
 - Il dispositivo di test reale configurato per il modello di dispositivo.
@@ -251,7 +251,7 @@ Per visualizzare e testare il dashboard, selezionare **Configura anteprima dispo
 
 ## <a name="add-forms"></a>Aggiungere moduli
 
-Aggiungere moduli a un modello di dispositivo per consentire agli operatori di gestire un dispositivo visualizzando e impostando le proprietà. Gli operatori possono solo modificare le proprietà cloud e le proprietà dei dispositivi scrivibili. Possono essere presenti più moduli per un modello di dispositivo.
+Aggiungere moduli a un modello di dispositivo per consentire agli operatori di gestire un dispositivo visualizzando e impostando le proprietà. Gli operatori possono solo modificare le proprietà del cloud e le proprietà dei dispositivi scrivibili. Possono essere presenti più moduli per un modello di dispositivo.
 
 Per aggiungere un modulo a un modello di dispositivo:
 
@@ -266,9 +266,9 @@ Per aggiungere un modulo a un modello di dispositivo:
 
 ## <a name="publish-a-device-template"></a>Pubblicare un modello di dispositivo
 
-Prima di poter connettere un dispositivo che implementa il modello di funzionalità di dispositivo, è necessario pubblicare il modello di dispositivo.
+Prima di poter connettere un dispositivo che implementa il modello di dispositivo, è necessario pubblicare il modello di dispositivo.
 
-Dopo la pubblicazione di un modello di dispositivo, è possibile apportare solo modifiche limitate al modello di funzionalità di dispositivo. Per modificare un'interfaccia, è necessario [creare e pubblicare una nuova versione](./howto-version-device-template.md).
+Dopo la pubblicazione di un modello di dispositivo, è possibile apportare solo modifiche limitate al modello di dispositivo. Per modificare un componente, è necessario [creare e pubblicare una nuova versione](./howto-version-device-template.md).
 
 Per pubblicare un modello di dispositivo, passare al modello di dispositivo e selezionare **pubblica**.
 

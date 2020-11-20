@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 3371b9cc0848e387c0150ca9aa7e7a971cecba1a
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e5472620fe9b07d152a5325b0654044cb1505fd7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905395"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992438"
 ---
 # <a name="ddos-protection-reference-architectures"></a>Architetture di riferimento di Protezione DDoS
 
-Protezione DDoS standard è progettato [per i servizi distribuiti in una rete virtuale](/azure/virtual-network/virtual-network-for-azure-services). Per altri servizi si applica il servizio Protezione DDoS Basic predefinito. Le architetture di riferimento seguenti sono indicate per scenari, con i modelli di architettura raggruppati.
+Protezione DDoS standard è progettato [per i servizi distribuiti in una rete virtuale](../virtual-network/virtual-network-for-azure-services.md). Per altri servizi si applica il servizio Protezione DDoS Basic predefinito. Le architetture di riferimento seguenti sono indicate per scenari, con i modelli di architettura raggruppati.
 
 ## <a name="virtual-machine-windowslinux-workloads"></a>Carichi di lavoro della macchina virtuale (Windows/Linux)
 
@@ -54,7 +54,7 @@ Viene configurata un'area di stand-by per gli scenari di failover.
 
 Gestione traffico di Azure indirizza le richieste in ingresso al gateway applicazione in una delle aree. Durante il normale funzionamento, le richieste vengono indirizzate al gateway applicazione nell'area attiva. Se quell'area non è più disponibile, Gestione traffico effettua il failover al gateway applicazione nell'area di stand-by.
 
-Tutto il traffico da Internet destinato all'applicazione Web viene incanalato verso l'[indirizzo IP pubblico del gateway applicazione](/azure/application-gateway/application-gateway-web-app-overview) tramite Gestione traffico. In questo scenario, lo stesso servizio app (app Web) non è esposto direttamente verso l'esterno ed è protetto dal gateway applicazione. 
+Tutto il traffico da Internet destinato all'applicazione Web viene incanalato verso l'[indirizzo IP pubblico del gateway applicazione](../application-gateway/application-gateway-web-app-overview.md) tramite Gestione traffico. In questo scenario, lo stesso servizio app (app Web) non è esposto direttamente verso l'esterno ed è protetto dal gateway applicazione. 
 
 È consigliabile configurare lo SKU WAF del gateway applicazioni (modalità di prevenzione) per proteggersi dagli attacchi di livello 7 (HTTP/HTTPS/Web Socket). Le app Web sono inoltre configurate per [accettare il traffico solo dall'indirizzo IP del gateway applicazione](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/).
 
@@ -64,7 +64,7 @@ Vedere questo [articolo](/azure/architecture/reference-architectures/app-service
 
 ### <a name="hdinsight-on-azure"></a>HDInsight in Azure
 
-Questa architettura di riferimento mostra la configurazione di Protezione DDoS Standard per un [cluster Azure HDInsight](/azure/hdinsight/). Assicurarsi che il cluster HDInsight sia collegato a una rete virtuale e che Protezione DDoS sia abilitato sulla rete virtuale.
+Questa architettura di riferimento mostra la configurazione di Protezione DDoS Standard per un [cluster Azure HDInsight](../hdinsight/index.yml). Assicurarsi che il cluster HDInsight sia collegato a una rete virtuale e che Protezione DDoS sia abilitato sulla rete virtuale.
 
 ![Riquadri "HDInsight" e "Impostazioni avanzate", con le impostazioni della rete virtuale](./media/ddos-best-practices/image-12.png)
 
@@ -72,7 +72,7 @@ Questa architettura di riferimento mostra la configurazione di Protezione DDoS S
 
 In questa architettura, il traffico destinato al cluster HDInsight da Internet viene indirizzato all'indirizzo IP pubblico associato al servizio di bilanciamento del carico del gateway di HDInsight. Il bilanciamento del carico di gateway invia quindi il traffico ai nodi head o direttamente ai nodi di lavoro. Dato che Protezione DDoS Standard è abilitata nella rete virtuale HDInsight, tutti gli indirizzi IP pubblici della rete virtuale ottengono la protezione DDoS per i livelli 3 e 4. Questa architettura di riferimento può essere combinata con le architetture di riferimento a più livelli e a più areee.
 
-Per altre informazioni su questa architettura di riferimento, vedere la documentazione [Estendere Azure HDInsight usando Rete virtuale di Azure](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Per altre informazioni su questa architettura di riferimento, vedere la documentazione [Estendere Azure HDInsight usando Rete virtuale di Azure](../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 
 > [!NOTE]

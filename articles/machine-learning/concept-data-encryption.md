@@ -10,19 +10,19 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: a133cdb72e304a254305833b9ae6e8a7ebe30ab3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 211ef9571b5a126686b4583330dc0f80863fd47e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540009"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992047"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Crittografia dei dati con Azure Machine Learning
 
 Azure Machine Learning usa un'ampia gamma di servizi di archiviazione dati di Azure e risorse di calcolo durante il training di modelli e l'inferenza. Ognuno di questi ha una propria storia sul modo in cui forniscono la crittografia per i dati inattivi e in transito. In questo articolo vengono fornite informazioni su ognuna di esse e la soluzione migliore per lo scenario in uso.
 
 > [!IMPORTANT]
-> Per la crittografia di livello produzione durante il __Training__ , Microsoft consiglia di usare Azure Machine Learning cluster di elaborazione. Per la crittografia di livello produzione durante l' __inferenza__ , Microsoft consiglia di usare il servizio Azure Kubernetes.
+> Per la crittografia di livello produzione durante il __Training__, Microsoft consiglia di usare Azure Machine Learning cluster di elaborazione. Per la crittografia di livello produzione durante l' __inferenza__, Microsoft consiglia di usare il servizio Azure Kubernetes.
 >
 > Azure Machine Learning istanza di calcolo è un ambiente di sviluppo/test. Quando si usa, è consigliabile archiviare i file, ad esempio notebook e script, in una condivisione file. I dati devono essere archiviati in un archivio dati.
 
@@ -129,6 +129,12 @@ Ogni macchina virtuale ha anche un disco temporaneo locale per le operazioni del
 ### <a name="azure-databricks"></a>Azure Databricks
 
 Azure Databricks può essere usato nelle pipeline di Azure Machine Learning. Per impostazione predefinita, il file system di Databricks (DBFS) usato da Azure Databricks viene crittografato con una chiave gestita da Microsoft. Per configurare Azure Databricks per l'uso delle chiavi gestite dal cliente, vedere [Configurare chiavi gestite dal cliente in DBFS predefinito (radice)](/azure/databricks/security/customer-managed-keys-dbfs).
+
+### <a name="microsoft-generated-data"></a>Dati generati da Microsoft
+
+Quando si usano servizi quali Machine Learning automatizzato, Microsoft può generare dati temporanei pre-elaborati per il training di più modelli. Questi dati vengono archiviati in un archivio dati dell'area di lavoro, che consente di applicare i controlli di accesso e la crittografia in modo appropriato.
+
+Potrebbe anche essere necessario crittografare le [informazioni di diagnostica registrate nell'endpoint distribuito](how-to-enable-app-insights.md) nell'istanza di Azure Application Insights.
 
 ## <a name="encryption-in-transit"></a>Crittografia in transito
 

@@ -9,84 +9,37 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/09/2020
-ms.openlocfilehash: 4e2bcb683c9d4c5248315549bf6d6ee26b2a51ac
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.date: 11/20/2020
+ms.openlocfilehash: a079504872eaf3840416a99e784c4d33a6828b0c
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965035"
+ms.locfileid: "94992030"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Sicurezza e governance aziendale per Azure Machine Learning
 
-In questo articolo vengono illustrate le funzionalità di sicurezza disponibili per Azure Machine Learning.
+In questo articolo vengono fornite informazioni sulle funzionalità di sicurezza e governance disponibili per Azure Machine Learning. Queste funzionalità sono utili per gli amministratori, DevOps e MLOps, che desiderano creare una configurazione sicura conforme ai criteri aziendali. Con Azure Machine Learning e la piattaforma Azure, è possibile:
 
-Quando si usa un servizio cloud, è consigliabile limitare l'accesso solo agli utenti che ne hanno bisogno. Per iniziare, è necessario comprendere i modelli di autenticazione e autorizzazione usati dal servizio. È anche possibile limitare l'accesso alla rete o unire in modo sicuro le risorse nella rete locale con il cloud. Anche la crittografia dei dati è fondamentale, sia quando sono inattivi che durante lo spostamento tra i servizi. È anche possibile creare criteri per applicare determinate configurazioni o log quando vengono create configurazioni non conformi. Infine, è necessario poter monitorare il servizio e produrre un log di controllo di tutte le attività.
+* Limitazione dell'accesso a risorse e operazioni da un account utente o da gruppi
+* Limitare le comunicazioni di rete in ingresso e in uscita
+* Crittografare i dati in transito e inattivi
+* Analizza le vulnerabilità
+* Applicare e controllare i criteri di configurazione
 
-> [!NOTE]
-> Le informazioni contenute in questo articolo sono destinate a Python SDK per Azure Machine Learning versione 1.0.83.1 o successiva.
+## <a name="restrict-access-to-resources-and-operations"></a>Limitare l'accesso a risorse e operazioni
 
-## <a name="authentication--authorization"></a>Autorizzazione & di autenticazione
+[Azure Active Directory (Azure ad)](../active-directory/fundamentals/active-directory-whatis.md) è il provider del servizio di identità per Azure Machine Learning. Consente di creare e gestire gli oggetti di sicurezza (utente, gruppo, entità servizio e identità gestita) usati per l' _autenticazione_ nelle risorse di Azure. La funzionalità autenticazione a più fattori è supportata se Azure AD è configurata per usarla.
 
-La maggior parte dell'autenticazione per Azure Machine Learning risorse USA Azure Active Directory (Azure AD) per l'autenticazione e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per l'autorizzazione. Le eccezioni sono le seguenti:
+Ecco il processo di autenticazione per Azure Machine Learning usando l'autenticazione a più fattori in Azure AD:
 
-* __SSH__: è possibile abilitare l'accesso SSH ad alcune risorse di calcolo, ad esempio Azure Machine Learning istanza di calcolo. L'accesso SSH usa l'autenticazione basata su chiavi. Per altre informazioni sulla creazione di chiavi SSH, vedere [creare e gestire chiavi SSH](../virtual-machines/linux/create-ssh-keys-detailed.md). Per informazioni sull'abilitazione dell'accesso SSH, vedere [creare e gestire Azure Machine Learning istanza di calcolo](how-to-create-manage-compute-instance.md).
-* __Modelli distribuiti come servizi Web__: le distribuzioni di servizi Web possono usare il controllo di accesso basato su __chiavi__ o __token__. Le chiavi sono stringhe statiche. I token vengono recuperati usando un account Azure AD. Per altre informazioni, vedere [configurare l'autenticazione per i modelli distribuiti come servizio Web](how-to-authenticate-web-service.md).
-
-I servizi specifici su cui si basa Azure Machine Learning, ad esempio i servizi di archiviazione dei dati di Azure, dispongono di metodi di autenticazione e autorizzazione personalizzati. Per ulteriori informazioni sull'autenticazione dei servizi di archiviazione, vedere [connettersi ai servizi di archiviazione](how-to-access-data.md).
-
-### <a name="azure-ad-authentication"></a>Autenticazione di Azure AD
-
-L'autenticazione a più fattori è supportata se Azure Active Directory (Azure AD) è configurato per usarla. Ecco illustrato il processo di autenticazione:
-
-1. Il client accede ad Azure AD e ottiene un token di Azure Resource Manager.  Gli utenti e le entità servizio sono completamente supportati.
+1. Il client accede ad Azure AD e ottiene un token di Azure Resource Manager.
 1. Il client presenta il token ad Azure Resource Manager e ad Azure Machine Learning.
-1. Il servizio Machine Learning offre un token di servizio Machine Learning alla destinazione di calcolo dell'utente, ad esempio all'ambiente di calcolo di Machine Learning. Il token viene usato dalla destinazione di calcolo dell'utente per richiamare il servizio Machine Learning al termine dell'esecuzione. L'ambito è limitato all'area di lavoro.
+1. Azure Machine Learning fornisce un token di servizio Machine Learning alla destinazione di calcolo dell'utente (ad esempio, Azure Machine Learning cluster di elaborazione). Il token viene usato dalla destinazione di calcolo dell'utente per richiamare il servizio Machine Learning al termine dell'esecuzione. L'ambito è limitato all'area di lavoro.
 
 [![Autenticazione in Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication.png#lightbox)
 
-Per ulteriori informazioni, vedere [autenticazione per Azure machine learning area di lavoro](how-to-setup-authentication.md).
-
-### <a name="azure-rbac"></a>Controllo degli accessi in base al ruolo di Azure
-
-È possibile creare più aree di lavoro, ciascuna delle quali può essere condivisa da più utenti. È possibile controllare le funzionalità o le operazioni dell'area di lavoro a cui gli utenti possono accedere assegnando il proprio account Azure AD ai ruoli di Azure. Di seguito sono riportati i ruoli predefiniti:
-
-* Proprietario
-* Collaboratore
-* Reader
-
-I proprietari e i collaboratori possono usare tutte le destinazioni di calcolo e gli archivi dati collegati all'area di lavoro.  
-
-La tabella seguente elenca alcune delle principali operazioni di Azure Machine Learning e i ruoli che possono eseguirle:
-
-| Operazioni di Azure Machine Learning | Proprietario | Collaboratore | Reader |
-| ---- |:----:|:----:|:----:|
-| Creare un'area di lavoro | ✓ | ✓ | |
-| Condividere l'area di lavoro | ✓ | |  |
-| Creare una destinazione di calcolo | ✓ | ✓ | |
-| Collegare la destinazione di calcolo | ✓ | ✓ | |
-| Collegare gli archivi dati | ✓ | ✓ | |
-| Eseguire esperimento | ✓ | ✓ | |
-| Visualizzare esecuzioni/metriche | ✓ | ✓ | ✓ |
-| Registrare il modello | ✓ | ✓ | |
-| Creare un'immagine | ✓ | ✓ | |
-| Distribuire il servizio Web | ✓ | ✓ | |
-| Visualizzare modelli o immagini | ✓ | ✓ | ✓ |
-| Chiamare un servizio Web | ✓ | ✓ | ✓ |
-
-Se i ruoli predefiniti non soddisfano le esigenze personali, è possibile creare ruoli personalizzati. I ruoli personalizzati controllano tutte le operazioni all'interno di un'area di lavoro, ad esempio la creazione di un calcolo, l'invio di un'esecuzione, la registrazione di un archivio dati o la distribuzione di un modello. I ruoli personalizzati possono disporre di autorizzazioni di lettura, scrittura o eliminazione per le varie risorse di un'area di lavoro, ad esempio cluster, archivi dati, modelli ed endpoint. È possibile rendere il ruolo disponibile per un livello di area di lavoro specifico, per un livello di gruppo di risorse specifico o per un livello di sottoscrizione specifico. Per altre informazioni, vedere [Gestire gli utenti e i ruoli in un'area di lavoro di Azure Machine Learning](how-to-assign-roles.md).
-
-Per altre informazioni sull'uso di RBAC con Kubernetes, vedere il [controllo di accesso di Azure Role-Based per l'autorizzazione Kubernetes](../aks/manage-azure-rbac.md).
-
-> [!IMPORTANT]
-> Azure Machine Learning dipende da altri servizi di Azure, come l'archiviazione BLOB di Azure e i servizi Kubernetes di Azure. Ogni servizio di Azure ha le proprie configurazioni RBAC di Azure. Per ottenere il livello di controllo di accesso desiderato, potrebbe essere necessario applicare entrambe le configurazioni RBAC di Azure per Azure Machine Learning e quelle per i servizi usati con Azure Machine Learning.
-
-> [!WARNING]
-> Azure Machine Learning è supportata con la collaborazione Business to Business di Azure Machine Learning, ma attualmente non è supportata con la collaborazione Business to Consumer di Azure Active Directory.
-
-### <a name="managed-identities"></a>Identità gestite
-
-A ogni area di lavoro è associata anche un' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) assegnata dal sistema con lo stesso nome dell'area di lavoro. L'identità gestita viene utilizzata per accedere in modo sicuro alle risorse utilizzate dall'area di lavoro. Dispone delle seguenti autorizzazioni per le risorse collegate:
+A ogni area di lavoro è associata un' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) assegnata dal sistema con lo stesso nome dell'area di lavoro. Questa identità gestita viene utilizzata per accedere in modo sicuro alle risorse utilizzate dall'area di lavoro. Dispone delle seguenti autorizzazioni RBAC di Azure per le risorse collegate:
 
 | Risorsa | Autorizzazioni |
 | ----- | ----- |
@@ -97,15 +50,32 @@ A ogni area di lavoro è associata anche un' [identità gestita](../active-direc
 | Gruppo di risorse che contiene l'area di lavoro | Collaboratore |
 | Gruppo di risorse che contiene l'insieme di credenziali delle chiavi se diverso da quello che contiene l'area di lavoro. | Collaboratore |
 
-Non è consigliabile che gli amministratori revochino l'accesso dell'identità gestita alle risorse indicate nella tabella precedente. È possibile ripristinare l'accesso usando l'operazione di risincronizzazione delle chiavi.
+Non è consigliabile che gli amministratori revochino l'accesso dell'identità gestita alle risorse indicate nella tabella precedente. È possibile ripristinare l'accesso tramite l' [operazione di risincronizzazione delle chiavi](how-to-change-storage-access-key.md).
 
-Azure Machine Learning crea un'applicazione aggiuntiva, il cui nome inizia con `aml-` o `Microsoft-AzureML-Support-App-`, con accesso a livello di collaboratore nella sottoscrizione per ogni area geografica dell'area di lavoro. Se, ad esempio, si dispone di un'area di lavoro negli Stati Uniti orientali e una in Europa settentrionale nella stessa sottoscrizione, verranno visualizzate due applicazioni. Queste applicazioni consentono all'utente di gestire le risorse di calcolo con Azure Machine Learning.
+Azure Machine Learning crea anche un'applicazione aggiuntiva (il nome inizia con `aml-` o `Microsoft-AzureML-Support-App-` ) con accesso a livello di collaboratore nella sottoscrizione per ogni area dell'area di lavoro. Se, ad esempio, si dispone di un'area di lavoro negli Stati Uniti orientali e una in Europa settentrionale nella stessa sottoscrizione, verranno visualizzate due applicazioni. Queste applicazioni consentono all'utente di gestire le risorse di calcolo con Azure Machine Learning.
 
-Facoltativamente, è possibile configurare le proprie identità gestite per l'uso con macchine virtuali di Azure e Azure Machine Learning cluster di elaborazione. Con una macchina virtuale, l'identità gestita può essere usata per accedere all'area di lavoro dall'SDK, anziché l'account Azure AD di un singolo utente. Con un cluster di calcolo, l'identità gestita viene usata per accedere alle risorse, ad esempio gli archivi dati protetti che l'utente che esegue il processo di training potrebbe non avere accesso a. Per ulteriori informazioni, vedere [autenticazione per Azure machine learning area di lavoro](how-to-setup-authentication.md).
+È anche possibile configurare le proprie identità gestite per l'uso con macchine virtuali di Azure e Azure Machine Learning cluster di elaborazione. Con una macchina virtuale, l'identità gestita può essere usata per accedere all'area di lavoro dall'SDK, anziché l'account Azure AD di un singolo utente. Con un cluster di calcolo, l'identità gestita viene usata per accedere alle risorse, ad esempio gli archivi dati protetti che l'utente che esegue il processo di training potrebbe non avere accesso a. Per ulteriori informazioni, vedere [autenticazione per Azure machine learning area di lavoro](how-to-setup-authentication.md).
+
+> [!TIP]
+> Esistono alcune eccezioni all'uso di Azure AD e di controllo degli accessi in base al ruolo di Azure in Azure Machine Learning:
+> * Facoltativamente, è possibile abilitare l'accesso __SSH__ alle risorse di calcolo, ad esempio Azure Machine Learning istanza di calcolo e il cluster di calcolo. L'accesso SSH si basa su coppie di chiavi pubbliche/private, non Azure AD. L'accesso SSH non è regolato da RBAC di Azure.
+> * È possibile eseguire l'autenticazione a modelli distribuiti come servizi Web (endpoint di inferenza) usando l'autenticazione basata su __token__ o __chiave__ . Le chiavi sono stringhe statiche, mentre i token vengono recuperati utilizzando un oggetto Azure AD sicurezza. Per altre informazioni, vedere [configurare l'autenticazione per i modelli distribuiti come servizio Web](how-to-authenticate-web-service.md).
+
+Per altre informazioni, vedere gli articoli seguenti:
+* [Autenticazione per Azure Machine Learning area di lavoro](how-to-setup-authentication.md)
+* [Gestire l'accesso ai Azure Machine Learning](how-to-assign-roles.md)
+* [Connettersi ai servizi di archiviazione](how-to-access-data.md)
+* [USA Azure Key Vault per i segreti durante il training](how-to-use-secrets-in-runs.md)
+* [Usare Azure AD identità gestita con Azure Machine Learning](how-to-use-managed-identities.md)
+* [Usare Azure AD identità gestita con il servizio Web](how-to-use-azure-ad-identity.md)
 
 ## <a name="network-security-and-isolation"></a>Sicurezza e isolamento della rete
 
-Per limitare l'accesso fisico alle risorse di Azure Machine Learning, è possibile usare rete virtuale di Azure (VNet). Reti virtuali consentono di creare ambienti di rete parzialmente o completamente isolati dalla rete Internet pubblica. In questo modo si riduce la superficie di attacco per la soluzione, nonché le probabilità di exfiltration di dati.
+Per limitare l'accesso di rete alle risorse di Azure Machine Learning, è possibile usare [rete virtuale di Azure (VNet)](../virtual-network/virtual-networks-overview.md). Reti virtuali consentono di creare ambienti di rete parzialmente o completamente isolati dalla rete Internet pubblica. In questo modo si riduce la superficie di attacco per la soluzione, nonché le probabilità di exfiltration di dati.
+
+È possibile usare un gateway di rete privata virtuale (VPN) per connettere i singoli client o la propria rete a VNet
+
+L'area di lavoro Azure Machine Learning può usare il [collegamento privato di Azure](../private-link/private-link-overview.md) per creare un endpoint privato dietro la VNet. Fornisce un set di indirizzi IP privati che possono essere usati per accedere all'area di lavoro dall'interno di VNet. Alcuni dei servizi che Azure Machine Learning si basano su possono anche usare il collegamento privato di Azure, ma alcuni si basano sui gruppi di sicurezza di rete o sul routing definito dall'utente.
 
 Per altre informazioni, vedere i documenti seguenti:
 
@@ -114,89 +84,24 @@ Per altre informazioni, vedere i documenti seguenti:
 * [Proteggere l'ambiente di training](how-to-secure-training-vnet.md)
 * [Ambiente di inferenza sicuro](how-to-secure-inferencing-vnet.md)
 * [Usare studio in una rete virtuale protetta](how-to-enable-studio-virtual-network.md)
+* [Usare DNS personalizzato](how-to-custom-dns.md)
+* [Configurare il firewall](how-to-access-azureml-behind-firewall.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 
 ## <a name="data-encryption"></a>Crittografia dei dati
 
-Azure Machine Learning usa un'ampia gamma di risorse di calcolo e archivi dati. Per altre informazioni su come ognuno di questi supporti supporta la crittografia dei dati inattivi e in transito, vedere [crittografia dei dati con Azure Machine Learning](concept-data-encryption.md).
+Azure Machine Learning usa un'ampia gamma di risorse di calcolo e archivi dati nella piattaforma Azure. Per altre informazioni su come ognuno di questi supporti supporta la crittografia dei dati inattivi e in transito, vedere [crittografia dei dati con Azure Machine Learning](concept-data-encryption.md).
 
-### <a name="microsoft-generated-data"></a>Dati generati da Microsoft
+Quando si distribuiscono i modelli come servizi Web, è possibile abilitare la sicurezza a livello di trasporto (TLS) per crittografare i dati in transito. Per ulteriori informazioni, vedere la pagina relativa alla [configurazione di un servizio Web protetto](how-to-secure-web-service.md).
 
-Quando si usano servizi quali Machine Learning automatizzato, Microsoft può generare dati temporanei pre-elaborati per il training di più modelli. Questi dati vengono archiviati in un archivio dati dell'area di lavoro, che consente di applicare i controlli di accesso e la crittografia in modo appropriato.
+## <a name="vulnerability-scanning"></a>Analisi delle vulnerabilità
 
-Potrebbe anche essere necessario crittografare le [informazioni di diagnostica registrate nell'endpoint distribuito](how-to-enable-app-insights.md) nell'istanza di Azure Application Insights.
-
-## <a name="monitoring"></a>Monitoraggio
-
-Esistono diversi scenari di monitoraggio con Azure Machine Learning, a seconda del ruolo e degli elementi monitorati.
-
-| Ruolo | Monitoraggio da usare | Description |
-| ---- | ----- | ----- |
-| Admin, DevOps, MLOps | [Metriche di monitoraggio di Azure](#azure-monitor), [log attività](#activity-log), [analisi delle vulnerabilità](#vulnerability-scanning) | Informazioni sul livello di servizio |
-| Data Scientist, MLOps | [Monitoraggio delle esecuzioni](#monitor-runs) | Informazioni registrate durante l'esecuzione del training |
-| MLOps | [Raccolta dei dati del modello](how-to-enable-data-collection.md), [monitoraggio con Application Insights](how-to-enable-app-insights.md) | Informazioni registrate da modelli distribuiti come servizi Web o moduli IoT Edge|
-
-### <a name="monitor-runs"></a>Monitoraggio delle esecuzioni
-
-È possibile monitorare le esecuzioni degli esperimenti in Azure Machine Learning, incluse le informazioni di registrazione all'interno degli script di training. Queste informazioni possono essere visualizzate tramite l'SDK, l'interfaccia della riga di comando di Azure e studio. Per altre informazioni, vedere gli articoli seguenti:
-
-* [Avviare, monitorare e annullare le esecuzioni di training](how-to-manage-runs.md)
-* [Abilitare i log](how-to-track-experiments.md)
-* [Visualizzare i log](how-to-monitor-view-training-logs.md)
-* [Visualizzare le esecuzioni con TensorBoard](how-to-monitor-tensorboard.md)
-
-### <a name="azure-monitor"></a>Monitoraggio di Azure
-
-È possibile usare le metriche di Monitoraggio di Azure per visualizzare e monitorare le metriche per l'area di lavoro Azure Machine Learning. Nel [portale di Azure](https://portal.azure.com) selezionare l'area di lavoro e quindi **Metrica**:
-
-[![Screenshot che illustra le metriche di esempio per un'area di lavoro](media/concept-enterprise-security/workspace-metrics.png)](media/concept-enterprise-security/workspace-metrics-expanded.png#lightbox)
-
-Le metriche includono informazioni su esecuzioni, distribuzioni e registrazioni.
-
-Per altre informazioni, vedere [Metriche in Monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md).
-
-### <a name="activity-log"></a>Log attività
-
-È possibile visualizzare il log attività di un'area di lavoro per visualizzare varie operazioni eseguite nell'area di lavoro. Il log include informazioni di base quali il nome dell'operazione, l'iniziatore dell'evento e il timestamp.
-
-Questo screenshot mostra il log attività di un'area di lavoro:
-
-[![Screenshot che mostra il log attività di un'area di lavoro](media/concept-enterprise-security/workspace-activity-log.png)](media/concept-enterprise-security/workspace-activity-log-expanded.png#lightbox)
-
-I dettagli della richiesta di punteggio vengono archiviati in Application Insights. Quando si crea un'area di lavoro, Application Insights viene creato nella sottoscrizione. Le informazioni registrate includono campi come:
-
-* HTTPMethod
-* UserAgent
-* ComputeType
-* RequestUrl
-* StatusCode
-* RequestId
-* Duration
-
-> [!IMPORTANT]
-> Alcune azioni nell'area di lavoro Azure Machine Learning non registrano le informazioni nel log attività. Ad esempio, l'avvio di un'esecuzione del training e la registrazione di un modello non vengono registrate.
->
-> Alcune di queste azioni vengono visualizzate nell'area **Attività** dell'area di lavoro, ma queste notifiche non specificano chi ha avviato l'attività.
-
-### <a name="vulnerability-scanning"></a>Analisi delle vulnerabilità
-
-Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi. Per Azure Machine Learning, è necessario abilitare l'analisi delle risorse di Azure Container Registry e del servizio Azure Kubernetes. Vedere [azure container Registry Image Scan by Security Center](../security-center/defender-for-container-registries-introduction.md) e [Azure Kubernetes Services Integration with Security Center](../security-center/defender-for-kubernetes-introduction.md).
+Il [Centro sicurezza di Azure](../security-center/security-center-introduction.md) offre la gestione unificata della sicurezza e la protezione avanzata dalle minacce nei carichi di lavoro cloud ibridi. Per Azure Machine Learning, è necessario abilitare l'analisi delle risorse di [azure container Registry](../container-registry/container-registry-intro.md) e del servizio Azure Kubernetes. Per altre informazioni, vedere [azure container Registry Image Scan by Security Center](../security-center/defender-for-container-registries-introduction.md) and [Azure Kubernetes Services Integration with Security Center](../security-center/defender-for-kubernetes-introduction.md).
 
 ## <a name="audit-and-manage-compliance"></a>Controllare e gestire la conformità
 
-[Criteri di Azure](../governance/policy/index.yml) è uno strumento di governance che consente di garantire che le risorse di Azure siano conformi ai criteri. Con Azure Machine Learning è possibile assegnare i seguenti criteri:
-
-* **Chiave gestita dal cliente**: controlla o impone se le aree di lavoro devono usare una chiave gestita dal cliente.
-* **Collegamento privato**: controllare se le aree di lavoro usano un endpoint privato per comunicare con una rete virtuale.
-
-Per altre informazioni sui criteri di Azure, vedere la [documentazione di criteri di Azure](../governance/policy/overview.md).
-
-Per altre informazioni sui criteri specifici di Azure Machine Learning, vedere [Audit and Manage compliance with Azure Policy](how-to-integrate-azure-policy.md).
-
-## <a name="resource-locks"></a>Blocchi risorse
-
-[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
+[Criteri di Azure](../governance/policy/index.yml) è uno strumento di governance che consente di garantire che le risorse di Azure siano conformi ai criteri. È possibile impostare criteri per consentire o applicare configurazioni specifiche, ad esempio se l'area di lavoro Azure Machine Learning usa un endpoint privato. Per altre informazioni sui criteri di Azure, vedere la [documentazione di criteri di Azure](../governance/policy/overview.md). Per altre informazioni sui criteri specifici di Azure Machine Learning, vedere [Audit and Manage compliance with Azure Policy](how-to-integrate-azure-policy.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

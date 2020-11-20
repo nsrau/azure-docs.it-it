@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 10b10309e438bab3c99cb2ed7202eaa272d24abe
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: dec2c845780b62e9a595c73504037142c511c0e6
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905442"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989412"
 ---
 # <a name="manage-ddos-protection-plans-permissions-and-restrictions"></a>Gestire i piani di protezione DDoS: autorizzazioni e restrizioni
 
@@ -30,14 +30,14 @@ Un piano di protezione DDoS funziona in diverse aree e sottoscrizioni. Lo stesso
 
 Per lavorare con i piani di protezione DDoS, l'account deve essere assegnato al ruolo [Collaboratore Rete](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un ruolo [personalizzato](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) a cui sono assegnate le operazioni appropriate elencate nella tabella seguente:
 
-| Azione                                            | Nome                                     |
+| Action                                            | Nome                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | Leggere un piano di protezione DDoS              |
 | Microsoft.Network/ddosProtectionPlans/write       | Creare o aggiornare un piano di protezione DDoS  |
 | Microsoft.Network/ddosProtectionPlans/delete      | Eliminare un piano di protezione DDoS            |
 | Microsoft.Network/ddosProtectionPlans/join/action | Aggiungere un piano di Protezione DDoS              |
 
-Per abilitare la protezione DDoS per una rete virtuale, all'account devono anche essere assegnate le appropriate [operazioni per le reti virtuali](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#permissions).
+Per abilitare la protezione DDoS per una rete virtuale, all'account devono anche essere assegnate le appropriate [operazioni per le reti virtuali](../virtual-network/manage-virtual-network.md#permissions).
 
 ## <a name="azure-policy"></a>Criteri di Azure
 
@@ -51,4 +51,4 @@ Per i clienti che hanno diverse sottoscrizioni e che vogliono garantire la distr
 Per informazioni su come visualizzare e configurare i dati di telemetria per il piano di protezione DDoS, continuare con le esercitazioni.
 
 > [!div class="nextstepaction"]
-> [Visualizzare e configurare la telemetria di protezione DDoS](telemetry-monitoring-alerting.md)
+> [Visualizzare e configurare i dati di telemetria della protezione DDoS](telemetry-monitoring-alerting.md)

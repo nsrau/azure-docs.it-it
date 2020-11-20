@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: 415c9fdcbf0e8bfecaa48b8199702d4159bc32d9
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 138cd03989008aa4fbd7d6ca3e06aff94fa76e33
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629190"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989463"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Ripristino usando i backup automatici del database: database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,7 +60,7 @@ Per una singola sottoscrizione, esistono alcune limitazioni al numero di richies
 Non esiste un metodo incorporato per ripristinare l'intero server. Per un esempio di come eseguire questa attività, vedere [database SQL di Azure: ripristino completo del server](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
 
 > [!IMPORTANT]
-> Per eseguire il ripristino usando i backup automatici, è necessario essere un membro del ruolo Collaboratore SQL Server o del ruolo Collaboratore SQL Istanza gestita (a seconda della destinazione di ripristino) nella sottoscrizione oppure il proprietario della sottoscrizione. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../../role-based-access-control/built-in-roles.md). È possibile eseguire il ripristino usando il portale di Azure, PowerShell o l'API REST. Non è possibile usare Transact-SQL.
+> Per eseguire il ripristino usando i backup automatici, è necessario essere un membro del ruolo Collaboratore SQL Server o del ruolo Collaboratore SQL Istanza gestita (a seconda della destinazione di ripristino) nella sottoscrizione oppure il proprietario della sottoscrizione. Per altre informazioni, vedere controllo degli accessi [in base al ruolo di Azure: ruoli predefiniti](../../role-based-access-control/built-in-roles.md). È possibile eseguire il ripristino usando il portale di Azure, PowerShell o l'API REST. Non è possibile usare Transact-SQL.
 
 ## <a name="point-in-time-restore"></a>Ripristino temporizzato
 
@@ -159,8 +159,8 @@ Per eseguire il ripristino geografico di un database singolo dal portale di Azur
 
 1. Dal **Dashboard** selezionare **Aggiungi**  >  **Crea database SQL**. Nella scheda informazioni di **base** immettere le informazioni necessarie.
 2. Seleziona **Impostazioni aggiuntive**.
-3. Per **Usa dati esistenti** , selezionare **backup**.
-4. Per il **backup** , selezionare un backup dall'elenco dei backup disponibili per il ripristino geografico.
+3. Per **Usa dati esistenti**, selezionare **backup**.
+4. Per il **backup**, selezionare un backup dall'elenco dei backup disponibili per il ripristino geografico.
 
     ![Screenshot delle opzioni create database SQL](./media/recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
@@ -253,7 +253,7 @@ Per ripristinare un database usando l'interfaccia della riga di comando di Azure
 
 Per ripristinare un database di istanza gestita usando l'interfaccia della riga di comando di Azure, vedere [AZ SQL MidB Restore](/cli/azure/sql/midb#az-sql-midb-restore).
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 I backup automatici proteggono i database da errori dell'utente e delle applicazioni, dall'eliminazione accidentale e da interruzioni prolungate. Questa funzionalità incorporata è disponibile per tutti i livelli di servizio e le dimensioni di calcolo.
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 47733f4b141b0064e966d0c083fd6414405f65f9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e2f5528fde977520dc0aa0215a480a40ef8f1e7d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095544"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94989616"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-cli"></a>Guida introduttiva: creare e configurare protezione DDoS di Azure standard usando l'interfaccia della riga di comando
 
@@ -39,7 +39,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 In Azure, si allocano le risorse correlate a un gruppo di risorse. È possibile usare un gruppo di risorse esistente o crearne uno nuovo.
 
-Per creare un gruppo di risorse usare [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create&preserve-view=true). In questo esempio si denominano il gruppo di risorse _MyResourceGroup_ e si usa la località _Stati Uniti orientali_ :
+Per creare un gruppo di risorse usare [az group create](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-create). In questo esempio si denominano il gruppo di risorse _MyResourceGroup_ e si usa la località _Stati Uniti orientali_ :
 
 ```azurecli-interactive
 az group create \
@@ -47,7 +47,7 @@ az group create \
     --location eastus
 ```
 
-A questo punto, creare un piano di protezione DDoS denominato _MyDdosProtectionPlan_ :
+A questo punto, creare un piano di protezione DDoS denominato _MyDdosProtectionPlan_:
 
 ```azurecli-interactive
 az network ddos-protection create \
@@ -59,7 +59,7 @@ az network ddos-protection create \
 
 ### <a name="enable-ddos-protection-for-a-new-virtual-network"></a>Abilitare la protezione DDoS per una nuova rete virtuale
 
-È possibile abilitare la protezione DDoS quando si crea una rete virtuale. In questo esempio il nome della rete virtuale _MyVnet_ : 
+È possibile abilitare la protezione DDoS quando si crea una rete virtuale. In questo esempio il nome della rete virtuale _MyVnet_: 
 
 ```azurecli-interactive
 az network vnet create \
@@ -73,7 +73,7 @@ Non è possibile spostare una rete virtuale in un altro gruppo di risorse o in u
 
 ### <a name="enable-ddos-protection-for-an-existing-virtual-network"></a>Abilitare la protezione DDoS per una rete virtuale esistente
 
-Quando si [Crea un piano di protezione DDoS](#create-a-ddos-protection-plan), è possibile associare una o più reti virtuali al piano. Per aggiungere più di una rete virtuale, è sufficiente elencare i nomi o gli ID, separati da spazi. In questo esempio si aggiungerà _MyVnet_ :
+Quando si [Crea un piano di protezione DDoS](#create-a-ddos-protection-plan), è possibile associare una o più reti virtuali al piano. Per aggiungere più di una rete virtuale, è sufficiente elencare i nomi o gli ID, separati da spazi. In questo esempio si aggiungerà _MyVnet_:
 
 ```azurecli-interactive
 az group create \
@@ -111,7 +111,7 @@ Verificare che il comando restituisca i dettagli corretti del piano di protezion
 
 È possibile salvare le risorse per l'esercitazione successiva. Se non è più necessario, eliminare il gruppo di risorse _MyResourceGroup_ . Quando si elimina il gruppo di risorse, viene eliminato anche il piano di protezione DDoS e tutte le risorse correlate. 
 
-Per eliminare il gruppo di risorse, usare [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_delete&preserve-view=true):
+Per eliminare il gruppo di risorse, usare [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az_group_delete):
 
 ```azurecli-interactive
 az group delete \

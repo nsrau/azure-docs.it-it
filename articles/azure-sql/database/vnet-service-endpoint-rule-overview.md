@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 4539709dbac992979af6a56e3dae81725a35739d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 5c5276f11da687f14630bafd007532d172ef3737
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325008"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94990806"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usare gli endpoint del servizio rete virtuale e le regole per i server nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -55,7 +55,7 @@ I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint servizio 
 - **Amministratore di rete:** &nbsp; attivare l'endpoint.
 - **Amministratore di database:** &nbsp; Aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al server.
 
-*Alternativa del controllo degli accessi in base al ruolo:*
+*Alternative RBAC di Azure:*
 
 I ruoli di amministratore di rete e amministratore di database hanno più funzionalità di quelle necessarie a gestire le regole di rete virtuale. È necessario solo un subset delle relative funzionalità.
 
@@ -149,7 +149,7 @@ Per caricare i dati in Azure sinapsi Analytics dagli account di archiviazione di
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
 
-   1. Creare credenziali con ambito database con **IDENTITY = 'Managed Service Identity'** :
+   1. Creare credenziali con ambito database con **IDENTITY = 'Managed Service Identity'**:
 
        ```sql
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -188,11 +188,11 @@ La semplice impostazione di una regola del firewall non consente di proteggere i
 
 ## <a name="errors-40914-and-40615"></a>Errori 40914 e 40615
 
-L'errore di connessione 40914 è correlato alle *regole di rete virtuale* , come specificato nel riquadro Firewall nel portale di Azure. L'errore 40615 è simile, ma è correlato alle *regole degli indirizzi IP* in Firewall.
+L'errore di connessione 40914 è correlato alle *regole di rete virtuale*, come specificato nel riquadro Firewall nel portale di Azure. L'errore 40615 è simile, ma è correlato alle *regole degli indirizzi IP* in Firewall.
 
 ### <a name="error-40914"></a>Errore 40914
 
-*Testo del messaggio:* Impossibile aprire il server ' *[nome-server]* ' richiesto dall'accesso. Al client non è consentito accedere al server.
+*Testo del messaggio:* Impossibile aprire il server '*[nome-server]*' richiesto dall'accesso. Al client non è consentito accedere al server.
 
 *Descrizione dell'errore:* il client si trova in una subnet che include endpoint server di rete virtuale. Tuttavia, il server non dispone di alcuna regola di rete virtuale che conceda alla subnet il diritto di comunicare con il database.
 
@@ -240,7 +240,7 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 
 1. Accedere al [portale di Azure][http-azure-portal-link-ref-477t].
 
-2. Cercare e selezionare **SQL Server** , quindi selezionare il server. In **sicurezza** selezionare **firewall e reti virtuali**.
+2. Cercare e selezionare **SQL Server**, quindi selezionare il server. In **sicurezza** selezionare **firewall e reti virtuali**.
 
 3. Impostare il controllo **Consenti l'accesso a Servizi di Azure** su OFF.
 

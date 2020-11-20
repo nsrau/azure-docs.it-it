@@ -8,17 +8,17 @@ mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: kumud
-ms.openlocfilehash: 70793b585a11da2eccb43fd6cf47053774f1e991
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 4cc0fd970f9adc26f5fdb024f501dcb0edf77bde
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905405"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992421"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Partnership con protezione DDoS di Azure standard
 Questo articolo descrive le opportunità di collaborazione abilitate dallo standard di protezione DDoS di Azure. Questo articolo è stato progettato per aiutare i responsabili dei prodotti e i ruoli di sviluppo aziendali a comprendere i percorsi di investimento e fornire informazioni sulle proposte di valore per i partner.
 
-## <a name="background"></a>Background
+## <a name="background"></a>Sfondo
 Gli attacchi Distributed Denial of Service (DDoS) rappresentano una delle principali problematiche di disponibilità e sicurezza espresse dai clienti che spostano le applicazioni nel cloud. Con estorsione e hacktivism sono le motivazioni comuni dietro gli attacchi DDoS, sono state costantemente aumentate in base a tipo, scalabilità e frequenza di occorrenza poiché sono relativamente semplici e convenienti da avviare.
 
 Protezione DDoS di Azure fornisce contromisure contro le minacce DDoS più sofisticate, sfruttando la scala globale della rete di Azure. Il servizio fornisce funzionalità avanzate di mitigazione DDoS per applicazioni e risorse distribuite in reti virtuali.
@@ -77,10 +77,10 @@ Per configurare l'integrazione con protezione DDoS di Azure standard, è necessa
 
 - [Pagina del prodotto protezione DDoS di Azure](https://azure.microsoft.com/services/ddos-protection/)
 - [Documentazione sulla protezione DDoS di Azure](ddos-protection-overview.md)
-- [Informazioni di riferimento sulle API protezione DDoS di Azure](https://docs.microsoft.com/rest/api/virtualnetwork/ddosprotectionplans)
-- [Informazioni di riferimento sulle API di rete virtuale di Azure](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks)
+- [Informazioni di riferimento sulle API protezione DDoS di Azure](/rest/api/virtualnetwork/ddosprotectionplans)
+- [Informazioni di riferimento sulle API di rete virtuale di Azure](/rest/api/virtualnetwork/virtualnetworks)
 
-### <a name="get-help"></a>Ottenere aiuto
+### <a name="get-help"></a>Ottieni supporto
 
 - In caso di domande sull'integrazione di applicazioni, servizi o prodotti con protezione DDoS di Azure standard, contattare la community di [sicurezza di Azure](https://techcommunity.microsoft.com/t5/security-identity/bd-p/Azure-Security).
 - Segui le discussioni su [stack overflow](https://stackoverflow.com/tags/azure-ddos/).

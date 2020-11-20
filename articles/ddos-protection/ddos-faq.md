@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 871ededce1db5e4c3179c187fc46a828cd157456
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 6c475971f604c951280d0351d593cd5d96879d31
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94886278"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94992404"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Domande frequenti sugli standard di protezione DDoS di Azure
 
@@ -29,7 +29,7 @@ Un attacco di tipo Denial of Service, o DDoS, è un tipo di attacco in cui un ut
 Protezione DDoS di Azure standard, in combinazione con le procedure consigliate per la progettazione di applicazioni, fornisce funzionalità avanzate di mitigazione DDoS per la difesa da attacchi DDoS. Viene ottimizzata automaticamente per aiutare a proteggere le risorse di Azure specifiche in una rete virtuale. La protezione è semplice da abilitare in qualsiasi rete virtuale nuova o esistente e non richiede alcuna modifica di applicazioni o risorse. Presenta diversi vantaggi rispetto al servizio Basic, compresa la registrazione, gli avvisi e i dati di telemetria. Per altri dettagli, vedere [Panoramica di protezione DDoS di Azure standard](ddos-protection-overview.md) . 
 
 ## <a name="what-about-protection-at-the-service-layer-layer-7"></a>E per quanto riguarda la protezione a livello di servizio (livello 7)?
-I clienti possono usare il servizio protezione DDoS di Azure in combinazione con lo [SKU WAF del gateway applicazione](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview) a per la protezione a livello di rete (livello 3 e 4, offerto dal servizio di protezione DDoS di Azure) e a livello di applicazione (livello 7, offerto dallo SKU WAF del gateway applicazione).
+I clienti possono usare il servizio protezione DDoS di Azure in combinazione con lo [SKU WAF del gateway applicazione](../web-application-firewall/ag/ag-overview.md) a per la protezione a livello di rete (livello 3 e 4, offerto dal servizio di protezione DDoS di Azure) e a livello di applicazione (livello 7, offerto dallo SKU WAF del gateway applicazione).
 
 ## <a name="are-services-unsafe-in-azure-without-the-service"></a>I servizi non sono sicuri in Azure senza il servizio?
 I servizi in esecuzione in Azure sono intrinsecamente protetti da protezione DDoS di Azure Basic, per proteggere l'infrastruttura di Azure. Tuttavia, la protezione che protegge l'infrastruttura ha una soglia molto più elevata rispetto alla capacità di gestione della maggior parte delle applicazioni e non fornisce dati di telemetria o avvisi, quindi mentre un volume di traffico può essere percepito come innocuo dalla piattaforma, può risultare devastante per l'applicazione che lo riceve. 
@@ -64,6 +64,3 @@ Vedere [test tramite simulazioni](test-through-simulations.md).
 ## <a name="how-long-does-it-take-for-the-metrics-to-load-on-portal"></a>Quanto tempo è necessario per il caricamento delle metriche nel portale?
 Le metriche devono essere visibili nel portale entro 5 minuti. Se la risorsa è sotto attacco, altre metriche verranno visualizzate nel portale entro 5-7 minuti. 
     
-
-
-

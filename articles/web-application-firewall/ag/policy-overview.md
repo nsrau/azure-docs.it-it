@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 11/19/2020
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: 9fb8bf689e2767f681994258c4d2c51be41d6c68
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b546b043b856fd6ec69acd63fd69a01c48d0553b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952132"
+ms.locfileid: "94990126"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Panoramica dei criteri di Web Application Firewall (WAF) di Azure
 
@@ -43,7 +43,7 @@ Per una maggiore personalizzazione fino al livello URI, è possibile associare u
 
 Come per i criteri di WAF per sito, i criteri più specifici eseguono l'override di quelli meno specifici. Ciò significa che un criterio per URI in una mappa di percorso URL esegue l'override di tutti i criteri di WAF per sito o globali.
 
-## <a name="example"></a>Esempio
+### <a name="example"></a>Esempio
 
 Supponiamo di avere tre siti: contoso.com, fabrikam.com e adatum.com tutti dietro lo stesso gateway applicazione. Si vuole applicare un WAF a tutti e tre i siti, ma è necessario aggiungere sicurezza con adatum.com perché i clienti visitano, sfogliano e acquistano i prodotti.
 
