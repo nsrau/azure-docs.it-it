@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 7c16e3b991bffd9c6bbcc4759a07b9e122ef5b72
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: c7a24dbe93bf0096e327804be07acc3f67d2f03b
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125343"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985757"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creazione e uso della replica geografica attiva-database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -64,8 +64,8 @@ Poiché i database secondari sono leggibili, possono essere usati per l'offload 
 
 Oltre al ripristino di emergenza, la replica geografica attiva può essere usata negli scenari seguenti:
 
-- **Migrazione di database** : è possibile usare la replica geografica attiva per eseguire la migrazione di un database da un server a un altro online con un tempo di inattività minimo.
-- **Aggiornamenti dell'applicazione** : è possibile creare un database secondario aggiuntivo come copia di failback durante gli aggiornamenti dell'applicazione.
+- **Migrazione di database**: è possibile usare la replica geografica attiva per eseguire la migrazione di un database da un server a un altro online con un tempo di inattività minimo.
+- **Aggiornamenti dell'applicazione**: è possibile creare un database secondario aggiuntivo come copia di failback durante gli aggiornamenti dell'applicazione.
 
 Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei database tra i data center rappresenta solo una parte della soluzione. Per ripristinare un'applicazione (servizio) end-to-end dopo un problema grave, è necessario effettuare il ripristino di tutti i componenti del servizio e gli eventuali servizi dipendenti. Esempi di questi componenti includono il software client (ad esempio, un browser con JavaScript personalizzato), front-end Web, spazio di archiviazione e DNS. È fondamentale che tutti i componenti siano resilienti agli stessi problemi e diventino disponibili entro I'obiettivo del tempo di ripristino (RTO) dell'applicazione. È perciò necessario identificare tutti i servizi dipendenti e comprendere quali garanzie e funzionalità vengono fornite. È quindi necessario intraprendere le azioni appropriate per assicurare il funzionamento del servizio durante il failover dei servizi da cui dipende. Per altre informazioni sulla progettazione di soluzioni per il ripristino di emergenza, vedere [Progettazione di applicazioni per il ripristino di emergenza cloud con la replica geografica attiva in database SQL](designing-cloud-solutions-for-disaster-recovery.md).
 
@@ -244,7 +244,7 @@ Per misurare il ritardo rispetto alle modifiche apportate al database primario c
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Gestione a livello di codice della replica geografica attiva
 
-Come indicato in precedenza, la replica geografica attiva può essere gestita a livello di codice usando Azure PowerShell e l'API REST. Le tabelle seguenti descrivono il set di comandi disponibili. La replica geografica attiva include un set di API di Azure Resource Manager per la gestione, compresa l'[API REST del Database SQL di Azure](/rest/api/sql/) e i [cmdlet di Azure PowerShell](/powershell/azure/). Queste API richiedono l'uso di gruppi di risorse e supportano la sicurezza basata sui ruoli (Controllo degli accessi in base al ruolo). Per altre informazioni su come implementare i ruoli di accesso, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).
+Come indicato in precedenza, la replica geografica attiva può essere gestita a livello di codice usando Azure PowerShell e l'API REST. Le tabelle seguenti descrivono il set di comandi disponibili. La replica geografica attiva include un set di API di Azure Resource Manager per la gestione, compresa l'[API REST del Database SQL di Azure](/rest/api/sql/) e i [cmdlet di Azure PowerShell](/powershell/azure/). Queste API richiedono l'uso di gruppi di risorse e supportano il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per altre informazioni su come implementare i ruoli di accesso, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).
 
 ### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: gestire il failover di database singoli e in pool
 

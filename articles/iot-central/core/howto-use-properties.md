@@ -3,32 +3,32 @@ title: Usare le proprietà in una soluzione IoT Central di Azure
 description: Informazioni su come usare le proprietà di sola lettura e scrivibili in una soluzione IoT Central di Azure.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/12/2020
+ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1cc4f40374fce83589d2dc10a0422b91f5178c0b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: aeb1e5ee00bd52ebb4bd93dec2f4a1eacb002fb9
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123784"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94986532"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Usare le proprietà in una soluzione IoT Central di Azure
 
 Questo articolo illustra come usare le proprietà del dispositivo definite in un modello di dispositivo nell'applicazione IoT Central di Azure.
 
-Le proprietà rappresentano valori temporizzati. Ad esempio, un dispositivo potrebbe usare una proprietà per segnalare la temperatura di destinazione che sta tentando di raggiungere. Le proprietà consentono inoltre di sincronizzare lo stato tra il dispositivo e l'applicazione IoT Central di Azure. È possibile impostare le proprietà scrivibili da Azure IoT Central.
+Le proprietà rappresentano valori temporizzati. Ad esempio, un dispositivo potrebbe usare una proprietà per segnalare la temperatura di destinazione che sta tentando di raggiungere. Per impostazione predefinita, le proprietà del dispositivo sono di sola lettura in IoT Central. Le proprietà scrivibili consentono di sincronizzare lo stato tra il dispositivo e l'applicazione IoT Central di Azure.
 
 È anche possibile definire le proprietà del cloud in un'applicazione IoT Central di Azure. I valori delle proprietà cloud non vengono mai scambiati con un dispositivo e non rientrano nell'ambito di questo articolo.
 
 ## <a name="define-your-properties"></a>Definire le proprietà
 
-Le proprietà sono campi dati che rappresentano lo stato del dispositivo. Usare le proprietà per rappresentare lo stato durevole del dispositivo, ad esempio lo stato on/off di un dispositivo. Le proprietà possono anche rappresentare le proprietà di base dei dispositivi, ad esempio la versione software del dispositivo. È possibile dichiarare le proprietà in sola lettura o in scrittura.
+Le proprietà sono campi dati che rappresentano lo stato del dispositivo. Usare le proprietà per rappresentare lo stato durevole del dispositivo, ad esempio lo stato on/off di un dispositivo. Le proprietà possono anche rappresentare le proprietà di base dei dispositivi, ad esempio la versione software del dispositivo. Si dichiarano le proprietà in sola lettura o in scrittura.
 
 Lo screenshot seguente mostra una definizione di proprietà in un'applicazione IoT Central di Azure.
 
-![Screenshot che mostra una definizione di proprietà in un'applicazione IoT Central di Azure.](./media/howto-use-properties/property-definition.png)
+:::image type="content" source="media/howto-use-properties/property-definition.png" alt-text="Screenshot che mostra una definizione di proprietà in un'applicazione IoT Central di Azure.":::
 
 Nella tabella seguente vengono illustrate le impostazioni di configurazione per una funzionalità della proprietà.
 
@@ -42,7 +42,7 @@ Nella tabella seguente vengono illustrate le impostazioni di configurazione per 
 | Scrivibile       | Se la proprietà non è scrivibile, il dispositivo può segnalare i valori delle proprietà in IoT Central di Azure. Se la proprietà è scrivibile, il dispositivo può segnalare i valori delle proprietà in IoT Central di Azure. Azure IoT Central può quindi inviare gli aggiornamenti delle proprietà al dispositivo. |
 | Gravità        | Disponibile solo per il tipo semantico evento. I livelli di gravità sono **Errore**, **Informazioni** o **Avviso**.                                                                                                                         |
 | Valori di stato    | Disponibile solo per il tipo semantico stato. Definisce i valori di stato possibili, ognuno dei quali ha un nome visualizzato, un nome, un tipo di enumerazione e un valore.                                                                                   |
-| Unità            | Unità per il valore della proprietà, ad esempio **mph**, **%** o ** &deg; C**.                                                                                                                                                              |
+| Unità            | Unità per il valore della proprietà, ad esempio **mph**, **%** o **&deg; C**.                                                                                                                                                              |
 | Unità di visualizzazione    | Unità di visualizzazione da usare nei dashboard e nei moduli.                                                                                                                                                                                    |
 | Commento         | Eventuali commenti sulla funzionalità della proprietà.                                                                                                                                                                                        |
 | Descrizione     | Descrizione della funzionalità della proprietà.                                                                                                                                                                                          |
@@ -51,83 +51,63 @@ Le proprietà possono essere definite anche in un'interfaccia in un modello di d
 
 ``` json
 {
-  "@type": "Property",
-  "displayName": "Device State",
-  "description": "The state of the device. Two states online/offline are available.",
-  "name": "state",
-  "schema": "boolean"
-},
-{
-  "@type": "Property",
-  "displayName": "Customer Name",
-  "description": "The name of the customer currently operating the device.",
-  "name": "name",
-  "schema": "string",
+  "@type": [
+    "Property",
+    "Temperature"
+  ],
+  "name": "targetTemperature",
+  "schema": "double",
+  "displayName": "Target Temperature",
+  "description": "Allows to remotely specify the desired target temperature.",
+  "unit" : "degreeCelsius",
   "writable": true
 },
 {
- "@type": "Property",
- "displayName": "Date ",
- "description": "The date on which the device is currently operating",
- "name": "date",
- "writable": true,
- "schema": "date"
-},
-{ 
- "@type": "Property",
- "displayName": "Location",
- "description": "The current location of the device",
- "name": "location",
- "writable": true,
- "schema": "geopoint"
-},
-{
- "@type": "Property",
- "displayName": "Vector Level",
- "description": "The Vector level of the device",
- "name": "vector",
- "writable": true,
- "schema": "vector"
+  "@type": [
+    "Property",
+    "Temperature"
+  ],
+  "name": "maxTempSinceLastReboot",
+  "schema": "double",
+  "unit" : "degreeCelsius",
+  "displayName": "Max temperature since last reboot.",
+  "description": "Returns the max temperature since last device reboot."
 }
 ```
 
-Questo esempio mostra cinque proprietà. Queste proprietà possono essere correlate alla definizione di proprietà nell'interfaccia utente, come illustrato di seguito:
+Questo esempio mostra due proprietà. Queste proprietà sono correlate alla definizione di proprietà nell'interfaccia utente:
 
-* `@type` per specificare il tipo di funzionalità: `Property`
-* `name` per il valore della proprietà.
-* `schema` consente di specificare il tipo di dati per la proprietà. Questo valore può essere un tipo primitivo, ad esempio Double, Integer, Boolean o String. Sono supportati anche tipi di oggetti complessi, matrici e mappe.
+* `@type` Specifica il tipo di funzionalità: `Property` . Nell'esempio precedente viene inoltre illustrato il tipo semantico `Temperature` per entrambe le proprietà.
+* `name` per la proprietà.
+* `schema` Specifica il tipo di dati per la proprietà. Questo valore può essere un tipo primitivo, ad esempio Double, Integer, Boolean o String. Sono supportati anche tipi di oggetti complessi, matrici e mappe.
 * `writable` Per impostazione predefinita, le proprietà sono di sola lettura. È possibile contrassegnare una proprietà come scrivibile utilizzando questo campo.
 
 I campi facoltativi, ad esempio nome visualizzato e descrizione, consentono di aggiungere ulteriori dettagli all'interfaccia e alle funzionalità.
 
-Quando si crea una proprietà, è possibile specificare i tipi di **schema** complessi come Object e enum.
+Quando si crea una proprietà, è possibile specificare tipi di schema complessi, ad esempio **Object** e **enum**.
 
 ![Screenshot che illustra come aggiungere una funzionalità.](./media/howto-use-properties/property.png)
 
-Quando si seleziona lo **schema**complesso, ad esempio **oggetto**, è necessario definire anche l'oggetto.
+Quando si seleziona lo **schema** complesso, ad esempio **oggetto**, è necessario definire anche l'oggetto.
 
-![Screenshot che illustra come definire un oggetto.](./media/howto-use-properties/object.png)
+:::image type="content" source="media/howto-use-properties/object.png" alt-text="Screenshot che illustra come definire un oggetto":::
 
 Nel codice seguente viene illustrata la definizione di un tipo di proprietà dell'oggetto. Questo oggetto dispone di due campi con tipi stringa e Integer.
 
 ``` json
 {
-  "@id": "<element id>",
   "@type": "Property",
   "displayName": {
     "en": "ObjectProperty"
   },
   "name": "ObjectProperty",
   "schema": {
-    "@id": "<element id>",
     "@type": "Object",
     "displayName": {
       "en": "Object"
     },
     "fields": [
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Field1"
         },
@@ -135,8 +115,6 @@ Nel codice seguente viene illustrata la definizione di un tipo di proprietà del
         "schema": "integer"
       },
       {
-        "@id": "<element id>",
-        "@type": "SchemaField",
         "displayName": {
           "en": "Field2"
         },
@@ -150,15 +128,14 @@ Nel codice seguente viene illustrata la definizione di un tipo di proprietà del
 
 ## <a name="implement-read-only-properties"></a>Implementare proprietà di sola lettura
 
-Per impostazione predefinita, le proprietà sono di sola lettura. Le proprietà di sola lettura indicano che il dispositivo segnala gli aggiornamenti del valore della proprietà all'applicazione IoT Central di Azure. L'applicazione IoT Central di Azure non può impostare il valore di una proprietà di sola lettura.
+Per impostazione predefinita, le proprietà sono di sola lettura. Le proprietà di sola lettura consentono l'aggiornamento del valore della proprietà del report del dispositivo all'applicazione IoT Central di Azure. L'applicazione IoT Central di Azure non può impostare il valore di una proprietà di sola lettura.
 
 Azure IoT Central USA dispositivi gemelli per sincronizzare i valori delle proprietà tra il dispositivo e l'applicazione Azure IoT Central. I valori delle proprietà del dispositivo usano le proprietà segnalate del dispositivo gemello. Per altre informazioni, vedere [dispositivi gemelli](../../iot-hub/tutorial-device-twins.md).
 
-Il frammento di codice seguente da un modello di funzionalità del dispositivo Mostra la definizione di un tipo di proprietà di sola lettura:
+Il frammento di codice seguente di un modello di dispositivo Mostra la definizione di un tipo di proprietà di sola lettura:
 
 ``` json
 {
-  "@type": "Property",
   "name": "model",
   "displayName": "Device model",
   "schema": "string",
@@ -166,7 +143,7 @@ Il frammento di codice seguente da un modello di funzionalità del dispositivo M
 }
 ```
 
-Le proprietà di sola lettura vengono inviate dal dispositivo ad Azure IoT Central. Le proprietà vengono inviate come payload JSON. Per ulteriori informazioni, vedere [payload](./concepts-telemetry-properties-commands.md).
+Gli aggiornamenti delle proprietà vengono inviati da un dispositivo come payload JSON. Per ulteriori informazioni, vedere [payload](./concepts-telemetry-properties-commands.md).
 
 È possibile usare l'SDK per dispositivi Azure per inviare un aggiornamento della proprietà all'applicazione IoT Central di Azure.
 
@@ -187,16 +164,17 @@ Questo articolo usa Node.js per semplicità. Per informazioni complete sugli ese
 
 * [Creare e connettere un'applicazione client all'applicazione IoT Central di Azure (Node.js)](tutorial-connect-device-nodejs.md)
 * [Creare e connettere un'applicazione client all'applicazione IoT Central di Azure (Python)](tutorial-connect-device-python.md)
+* [Creare e connettere un'applicazione client all'applicazione IoT Central di Azure (Java)](tutorial-connect-device-java.md)
 
 La vista seguente nell'applicazione IoT Central di Azure Mostra le proprietà che è possibile visualizzare. La visualizzazione rende automaticamente la proprietà del **modello del dispositivo** una _proprietà di sola lettura del dispositivo_.
 
-![Screenshot che mostra la visualizzazione di una proprietà di sola lettura.](./media/howto-use-properties/read-only.png)
+:::image type="content" source="media/howto-use-properties/read-only.png" alt-text="Screenshot che mostra la visualizzazione di una proprietà di sola lettura":::
 
 ## <a name="implement-writable-properties"></a>Implementare proprietà scrivibili
 
 Le proprietà scrivibili vengono impostate da un operatore nell'applicazione IoT Central di Azure in un modulo. Azure IoT Central Invia la proprietà al dispositivo. Azure IoT Central prevede un riconoscimento dal dispositivo.
 
-Il frammento di codice seguente da un modello di funzionalità del dispositivo Mostra la definizione di un tipo di proprietà scrivibile:
+Il frammento di codice seguente da un modello di dispositivo Mostra la definizione di un tipo di proprietà scrivibile:
 
 ``` json
 {
@@ -207,12 +185,6 @@ Il frammento di codice seguente da un modello di funzionalità del dispositivo M
   "writable": true,
   "schema": "long"
 }
-```
-
-Un client del dispositivo deve inviare un payload JSON simile all'esempio seguente come proprietà segnalata nel dispositivo gemello:
-
-``` json
-{ "Brightness Level": 2 }
 ```
 
 Per definire e gestire le proprietà scrivibili a cui risponde il dispositivo, è possibile usare il codice seguente:
@@ -245,10 +217,9 @@ Il messaggio di risposta deve includere `ac` i `av` campi e. Il campo `ad` è fa
 | Valore | Etichetta | Descrizione |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completi | L'operazione di modifica della proprietà è stata completata correttamente. |
-| `'ac': 202` o `'ac': 201` | Pending | L'operazione di modifica della proprietà è in sospeso o in corso. |
+| `'ac': 202` o `'ac': 201` | In sospeso | L'operazione di modifica della proprietà è in sospeso o in corso. |
 | `'ac': 4xx` | Errore | La modifica della proprietà richiesta non è valida o si è verificato un errore. |
 | `'ac': 5xx` | Errore | Si è verificato un errore imprevisto nel dispositivo durante l'elaborazione della modifica richiesta. |
-
 
 Per altre informazioni sui dispositivi gemelli, vedere [configurare i dispositivi da un servizio back-end](../../iot-hub/tutorial-device-twins.md).
 

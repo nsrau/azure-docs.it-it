@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 5c51649e742f6e314e0e324ae19c38f1a83b02ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c4248246be845aa8608aac8b8a3ce761ea1ef86
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016861"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987049"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Connettere un dispositivo Azure IoT Edge a un'applicazione Azure IoT Central
 
@@ -63,9 +63,9 @@ In IoT Central di Azure è possibile importare un manifesto di distribuzione per
 
 IoT Central modella un dispositivo IoT Edge come segue:
 
-* Ogni modello di dispositivo IoT Edge ha un modello di funzionalità di dispositivo.
+* Ogni modello di dispositivo IoT Edge dispone di un modello di dispositivo.
 * Per ogni modulo personalizzato elencato nel manifesto della distribuzione viene generato un modello di funzionalità del modulo.
-* Viene stabilita una relazione tra ogni modello di funzionalità del modulo e un modello di funzionalità di dispositivo.
+* Viene stabilita una relazione tra ogni modello di capacità del modulo e un modello di dispositivo.
 * Il modello di funzionalità del modulo implementa le interfacce del modulo.
 * Ogni interfaccia del modulo contiene i dati di telemetria, le proprietà e i comandi.
 
@@ -73,7 +73,7 @@ IoT Central modella un dispositivo IoT Edge come segue:
 
 ## <a name="iot-edge-gateway-devices"></a>Dispositivi IoT Edge Gateway
 
-Se il dispositivo IoT Edge è stato selezionato per fungere da dispositivo gateway, è possibile aggiungere relazioni downstream ai modelli di funzionalità di dispositivo per i dispositivi da connettere al dispositivo gateway.
+Se è stato selezionato un dispositivo IoT Edge come dispositivo gateway, è possibile aggiungere relazioni downstream ai modelli di dispositivo per i dispositivi che si desidera connettere al dispositivo gateway.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

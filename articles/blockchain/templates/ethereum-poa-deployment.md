@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
-ms.openlocfilehash: d1d3ad94957e791b2178b6c60d4c7debdec2b391
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bbfca4d890440574ee6717ca910969226fc781a
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283429"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987066"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuire il modello di soluzione del Consorzio di prova Ethereum in Azure
 
@@ -48,7 +48,7 @@ Ogni distribuzione di un membro di un consorzio include:
 * Monitoraggio di Azure per l'aggregazione dei log e delle statistiche sulle prestazioni
 * Gateway di rete virtuale (facoltativo) per consentire le connessioni VPN tra reti virtuali private
 
-Per impostazione predefinita, gli endpoint RPC e peering sono accessibili tramite IP pubblico per abilitare la connettività semplificata tra le sottoscrizioni e i cloud. Per i controlli di accesso a livello di applicazione, è possibile usare i [contratti di autorizzazione della parità](https://wiki.parity.io/Permissioning). Le reti distribuite dietro le VPN, che sfruttano i gateway VNet per la connettività tra sottoscrizioni sono supportate. Poiché le distribuzioni VPN e VNet sono più complesse, è consigliabile iniziare con un modello IP pubblico durante la prototipazione di una soluzione.
+Per impostazione predefinita, gli endpoint RPC e peering sono accessibili tramite IP pubblico per abilitare la connettività semplificata tra le sottoscrizioni e i cloud. Per i controlli di accesso a livello di applicazione, è possibile usare i contratti di autorizzazione della parità. Le reti distribuite dietro le VPN, che sfruttano i gateway VNet per la connettività tra sottoscrizioni sono supportate. Poiché le distribuzioni VPN e VNet sono più complesse, è consigliabile iniziare con un modello IP pubblico durante la prototipazione di una soluzione.
 
 I contenitori Docker vengono usati per l'affidabilità e la modularità. Azure Container Registry viene usato per ospitare e gestire le immagini con versione come parte di ogni distribuzione. Le immagini del contenitore sono costituite da:
 
@@ -82,22 +82,22 @@ Le sezioni successive illustrano come configurare il footprint del primo membro 
 
 Nella [portale di Azure](https://portal.azure.com)selezionare **Crea una risorsa** nell'angolo superiore sinistro.
 
-Selezionare **Blockchain**il  >  **Consorzio di prova blockchain Ethereum (anteprima)**.
+Selezionare **Blockchain** il  >  **Consorzio di prova blockchain Ethereum (anteprima)**.
 
-### <a name="basics"></a>Nozioni di base
+### <a name="basics"></a>Operazioni di base
 
-In **nozioni di base**specificare i valori per i parametri standard per qualsiasi distribuzione.
+In **nozioni di base** specificare i valori per i parametri standard per qualsiasi distribuzione.
 
-![Nozioni di base](./media/ethereum-poa-deployment/basic-blade.png)
+![Operazioni di base](./media/ethereum-poa-deployment/basic-blade.png)
 
-Parametro | Description | Valore di esempio
+Parametro | Descrizione | Valore di esempio
 ----------|-------------|--------------
-Crea una nuova rete o Unisciti alla rete esistente | È possibile creare una nuova rete Consortium o partecipare a una rete Consortium esistente. Per l'aggiunta a una rete esistente sono necessari parametri aggiuntivi. | Create new
+Crea una nuova rete o Unisciti alla rete esistente | È possibile creare una nuova rete Consortium o partecipare a una rete Consortium esistente. Per l'aggiunta a una rete esistente sono necessari parametri aggiuntivi. | Creare un nuovo gruppo di risorse
 Indirizzo di posta elettronica | Si riceverà una notifica di posta elettronica al termine della distribuzione con le informazioni sulla distribuzione. | Un indirizzo di posta elettronica valido
 Nome utente macchina virtuale | Nome utente amministratore di ogni macchina virtuale distribuita | 1-64 caratteri alfanumerici
 Tipo di autenticazione | Metodo per l'autenticazione per la macchina virtuale. | Password
 Password | Password dell'account dell'amministratore per ognuna delle macchine virtuali distribuite. Tutte le macchine virtuali hanno inizialmente la stessa password. È possibile modificare la password dopo il provisioning. | 12-72 caratteri 
-Subscription | La sottoscrizione sul quale eseguire la distribuzione della rete di consorzio |
+Sottoscrizione | La sottoscrizione sul quale eseguire la distribuzione della rete di consorzio |
 Gruppo di risorse| Gruppo di risorse nel quale eseguire la distribuzione della rete di consorzio. | myResourceGroup
 Location | La regione di Azure per gruppo di risorse. | West US 2
 
@@ -105,11 +105,11 @@ Selezionare **OK**.
 
 ### <a name="deployment-regions"></a>Regioni di distribuzione
 
-In *aree di distribuzione*specificare il numero di aree e località per ciascuna. È possibile distribuire in un massimo di cinque aree. La prima area deve corrispondere alla posizione del gruppo di risorse dalla sezione *nozioni di base* . Per le reti di sviluppo o di test, è possibile usare una singola area per ogni membro. Per la produzione, distribuire in due o più aree per la disponibilità elevata.
+In *aree di distribuzione* specificare il numero di aree e località per ciascuna. È possibile distribuire in un massimo di cinque aree. La prima area deve corrispondere alla posizione del gruppo di risorse dalla sezione *nozioni di base* . Per le reti di sviluppo o di test, è possibile usare una singola area per ogni membro. Per la produzione, distribuire in due o più aree per la disponibilità elevata.
 
 ![aree di distribuzione](./media/ethereum-poa-deployment/deployment-regions.png)
 
-Parametro | Description | Valore di esempio
+Parametro | Descrizione | Valore di esempio
 ----------|-------------|--------------
 Numero di regioni|Numero di aree per la distribuzione della rete di consorzio| 2
 Prima regione | Prima regione per la distribuzione della rete di consorzio | West US 2
@@ -119,11 +119,11 @@ Selezionare **OK**.
 
 ### <a name="network-size-and-performance"></a>Dimensioni e prestazioni della rete
 
-In *dimensioni e prestazioni della rete*specificare gli input per la dimensione della rete Consortium. Le dimensioni di archiviazione del nodo validator determinano la dimensione potenziale del blockchain. Le dimensioni possono essere modificate dopo la distribuzione.
+In *dimensioni e prestazioni della rete* specificare gli input per la dimensione della rete Consortium. Le dimensioni di archiviazione del nodo validator determinano la dimensione potenziale del blockchain. Le dimensioni possono essere modificate dopo la distribuzione.
 
 ![Dimensioni e prestazioni della rete](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
-Parametro | Description | Valore di esempio
+Parametro | Descrizione | Valore di esempio
 ----------|-------------|--------------
 Number of load balanced validator nodes (Numero di nodi di convalida con carico bilanciato) | Numero di nodi validator di cui eseguire il provisioning come parte della rete. | 2
 Validator node storage performance (Prestazioni di archiviazione dei nodi di convalida) | Tipo di disco gestito per ogni nodo validator distribuito. Per informazioni dettagliate sui prezzi, vedere [prezzi di archiviazione](https://azure.microsoft.com/pricing/details/managed-disks/) | SSD Standard
@@ -141,11 +141,11 @@ Selezionare **OK**.
 
 ### <a name="ethereum-settings"></a>Impostazioni Ethereum
 
-In *Impostazioni Ethereum*specificare le impostazioni di configurazione relative a Ethereum.
+In *Impostazioni Ethereum* specificare le impostazioni di configurazione relative a Ethereum.
 
 ![Impostazioni Ethereum](./media/ethereum-poa-deployment/ethereum-settings.png)
 
-Parametro | Description | Valore di esempio
+Parametro | Descrizione | Valore di esempio
 ----------|-------------|--------------
 Consortium Member ID (ID membro del consorzio) | ID associato a ogni membro che partecipa alla rete Consortium. Viene usato per configurare gli spazi degli indirizzi IP per evitare conflitti. Per una rete privata, l'ID membro deve essere univoco tra organizzazioni diverse nella stessa rete.  È necessario un ID membro univoco anche quando la stessa organizzazione esegue la distribuzione in più regioni. Prendere nota del valore di questo parametro poiché è necessario condividerlo con altri membri di join per assicurarsi che non esistano conflitti. L'intervallo valido è compreso tra 0 e 255. | 0
 ID rete | L'ID di rete per la rete di consorzio Ethereum in fase di realizzazione. Ogni rete Ethereum ha il proprio ID di rete, di cui 1 è l'ID della rete pubblica. L'intervallo valido è compreso tra 5 e 999.999.999 | 10101010
@@ -164,17 +164,17 @@ Il monitoraggio consente di configurare una risorsa di log per la rete. L'agente
 
 ![Monitoraggio di Azure](./media/ethereum-poa-deployment/azure-monitor.png)
 
-Parametro | Description | Valore di esempio
+Parametro | Descrizione | Valore di esempio
 ----------|-------------|--------------
 Monitoraggio | Opzione per abilitare il monitoraggio | Abilita
-Connettersi ai log di monitoraggio di Azure esistenti | Opzione per creare una nuova istanza di log di monitoraggio di Azure o aggiungere un'istanza esistente | Create new
+Connettersi ai log di monitoraggio di Azure esistenti | Opzione per creare una nuova istanza di log di monitoraggio di Azure o aggiungere un'istanza esistente | Creare un nuovo gruppo di risorse
 Location | Area in cui è distribuita la nuova istanza | Stati Uniti orientali
 ID dell'area di lavoro di log Analytics esistente (Connetti a log di monitoraggio di Azure esistenti = join esistente)|ID area di lavoro dell'istanza dei log di monitoraggio di Azure esistente||N/D
 Chiave primaria di log Analytics esistente (Connetti a log di monitoraggio di Azure esistenti = join esistente)|Chiave primaria usata per connettersi all'istanza di log di monitoraggio di Azure esistente||N/D
 
 Selezionare **OK**.
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 
 Fare clic sul riepilogo per esaminare gli input specificati ed eseguire la convalida pre-distribuzione di base. Prima di distribuire, è possibile scaricare il modello e i parametri.
 
@@ -341,7 +341,7 @@ ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
 
 Per ottenere nodi di transazione aggiuntivi, incrementare di uno il numero di porta.
 
-Se è stato distribuito in più di un'area, impostare il comando sul nome DNS o sull'indirizzo IP del servizio di bilanciamento del carico in tale area. Per trovare il nome DNS o l'indirizzo IP delle altre aree, trovare la risorsa con la convenzione di denominazione ** \* \* \* \* \* -lbpip- \# reg** e visualizzare il nome DNS e le proprietà dell'indirizzo IP.
+Se è stato distribuito in più di un'area, impostare il comando sul nome DNS o sull'indirizzo IP del servizio di bilanciamento del carico in tale area. Per trovare il nome DNS o l'indirizzo IP delle altre aree, trovare la risorsa con la convenzione di denominazione **\* \* \* \* \* -lbpip- \# reg** e visualizzare il nome DNS e le proprietà dell'indirizzo IP.
 
 ## <a name="azure-traffic-manager-load-balancing"></a>Bilanciamento del carico di Gestione traffico di Azure
 
@@ -370,7 +370,7 @@ Se si decide di creare un profilo di Gestione traffico, è possibile usare il no
 
 1. Scegliere la scheda **endpoint** e selezionare il pulsante **Aggiungi** .
 1. Fornire un nome univoco per l'endpoint.
-1. Per **tipo di risorsa di destinazione**scegliere **indirizzo IP pubblico**.
+1. Per **tipo di risorsa di destinazione** scegliere **indirizzo IP pubblico**.
 1. Scegliere l'indirizzo IP pubblico del servizio di bilanciamento del carico della prima area.
 
     ![Routing di Gestione traffico](./media/ethereum-poa-deployment/traffic-manager-routing.png)
@@ -685,7 +685,7 @@ Ora che il contratto intelligente è stato distribuito, è possibile inviare una
 
 ## <a name="webassembly-wasm-support"></a>Supporto WebAssembly (WASM)
 
-Il supporto WebAssembly è già abilitato nelle nuove reti PoA distribuite. Consente lo sviluppo di smart contract in qualsiasi linguaggio esegua il transpile in Web-Assembly (Rust, C, C++). Per altre informazioni, vedere [Panoramica della parità di webassembly](https://wiki.parity.io/WebAssembly-Home) ed [esercitazione di parità Tech](https://github.com/paritytech/pwasm-tutorial)
+Il supporto WebAssembly è già abilitato nelle nuove reti PoA distribuite. Consente lo sviluppo di smart contract in qualsiasi linguaggio esegua il transpile in Web-Assembly (Rust, C, C++). Per ulteriori informazioni, vedere l' [esercitazione di parità tecnologia](https://github.com/paritytech/pwasm-tutorial).
 
 ## <a name="faq"></a>Domande frequenti
 

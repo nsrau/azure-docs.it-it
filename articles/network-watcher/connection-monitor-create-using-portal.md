@@ -1,5 +1,5 @@
 ---
-title: Creazione di un monitoraggio della connessione-portale di Azure
+title: Crea monitoraggio connessione (anteprima)-portale di Azure
 titleSuffix: Azure Network Watcher
 description: Questo articolo descrive come creare un monitoraggio in Connection Monitor usando il portale di Azure.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: d652f1eae62270fa8968d64a2bd15a1261dca673
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: f1ba23d53d79587c9d75c1d840c1d3857725d8dd
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949191"
+ms.locfileid: "94984380"
 ---
-# <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Creare un monitoraggio in Connection Monitor usando il portale di Azure
+# <a name="create-a-monitor-in-connection-monitor-preview-by-using-the-azure-portal"></a>Creare un monitoraggio in Connection Monitor (anteprima) usando il portale di Azure
 
 Informazioni su come usare il monitoraggio della connessione per monitorare la comunicazione tra le risorse. Questo articolo descrive come creare un monitoraggio usando il portale di Azure. Il monitoraggio della connessione supporta le distribuzioni ibride e cloud di Azure.
+
+> [!IMPORTANT]
+> Il monitoraggio connessione è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Prima di iniziare 
 

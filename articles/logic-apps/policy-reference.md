@@ -1,16 +1,16 @@
 ---
 title: Definizioni di criteri predefiniti per App per la logica di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per App per la logica di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.topic: reference
 ms.suite: integration
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7bfb8e392a22e53ce44d1e75a1443b09197a5979
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2e641285afba589404ec4c50b722e31efc7d853d
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745165"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985186"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-logic-apps"></a>Definizioni predefinite di Criteri di Azure per App per la logica di Azure
 

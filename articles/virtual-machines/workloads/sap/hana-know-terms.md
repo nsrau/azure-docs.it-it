@@ -11,15 +11,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/21/2020
+ms.date: 11/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b65190c0fd2fcac132f762116a63357a08e6bf02
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7777888bd27325e9094032458922969494a9a64e
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967738"
+ms.locfileid: "94984958"
 ---
 # <a name="know-the-terms"></a>Conoscere i termini
 
@@ -45,6 +45,7 @@ Nella guida all'architettura e alla distribuzione vengono comunemente usati alcu
 - **Revisione**: per gli indicatori di istanze large di Hana sono presenti due revisioni di timbri diversi. Questi sono diversi in architettura e prossimità degli host di macchine virtuali di Azure
     - "Revisione 3" (Rev 3): è la progettazione originale che è stata distribuita dalla metà dell'anno 2016
     - "Revisione 4" (Rev 4): è una nuova progettazione che può fornire una prossimità più vicina agli host di macchine virtuali di Azure e con una latenza di rete inferiore tra le macchine virtuali di Azure e le unità di istanze large di HANA 
+    - "Revisione 4,2" (Rev 4,2): nei controller di dominio di revisione esistenti 4, le risorse vengono rimarcate nell'infrastruttura di BareMetal.  I clienti possono accedere alle risorse come istanze di BareMetal dalla portale di Azure. 
 
 In merito alla distribuzione di un carico di lavoro SAP nel cloud è disponibile un'ampia gamma di risorse aggiuntive. Se si pianifica una distribuzione di SAP HANA in Azure è necessario essere utenti esperti e conoscere i principi dell'infrastruttura IaaS di Azure e la distribuzione dei carichi di lavoro SAP in tale infrastruttura. Prima di continuare, vedere [Uso di soluzioni SAP nelle macchine virtuali di Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per altre informazioni. 
 

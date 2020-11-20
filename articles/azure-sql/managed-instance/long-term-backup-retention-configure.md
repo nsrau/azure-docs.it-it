@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/29/2020
-ms.openlocfilehash: 8b0d6665b440516d29cc9aeb0b6e50f509528574
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: ec193eab02d937e9d93b8632fa171fec8227d6c2
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503437"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987491"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Gestire la conservazione dei backup a lungo termine Istanza gestita SQL di Azure (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,7 +30,7 @@ Le sezioni seguenti illustrano come usare PowerShell per configurare la conserva
 
 ## <a name="azure-roles-to-manage-long-term-retention"></a>Ruoli di Azure per gestire la conservazione a lungo termine
 
-Per **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** e **Restore-AzSqlInstanceDatabase**è necessario disporre di uno dei ruoli seguenti:
+Per **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** e **Restore-AzSqlInstanceDatabase** è necessario disporre di uno dei ruoli seguenti:
 
 - Ruolo proprietario sottoscrizione o
 - Istanza gestita ruolo Collaboratore o
@@ -39,7 +39,7 @@ Per **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** e **Restore-AzSqlInstan
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read`
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read`
 
-Per **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**è necessario disporre di uno dei ruoli seguenti:
+Per **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup** è necessario disporre di uno dei ruoli seguenti:
 
 - Ruolo proprietario sottoscrizione o
 - Ruolo personalizzato con l'autorizzazione seguente:
@@ -48,7 +48,7 @@ Per **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**è necessario disporr
 > [!NOTE]
 > Il ruolo Collaboratore Istanza gestita non dispone dell'autorizzazione per eliminare i backup di LTR.
 
-È possibile concedere autorizzazioni RBAC nell'ambito di una *sottoscrizione* o di un *gruppo di risorse* . Tuttavia, per accedere ai backup di LTR che appartengono a un'istanza eliminata, l'autorizzazione deve essere concessa nell'ambito della *sottoscrizione* di tale istanza.
+È possibile concedere le autorizzazioni RBAC di Azure nell'ambito di una *sottoscrizione* o di un *gruppo di risorse* . Tuttavia, per accedere ai backup di LTR che appartengono a un'istanza eliminata, l'autorizzazione deve essere concessa nell'ambito della *sottoscrizione* di tale istanza.
 
 - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/delete`
 

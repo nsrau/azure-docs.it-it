@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 11/16/2020
-ms.openlocfilehash: e91a3cc0a96add1f53d220e04fb98d63cc7c33f4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 0d2248b9c0a289f5e4f9f2f8e987365ab58c49c0
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841088"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988545"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -142,15 +142,15 @@ Le autorizzazioni per un gruppo di failover vengono gestite tramite il [controll
 
 ### <a name="create-failover-group"></a>Create failover group
 
-Per creare un gruppo di failover, è necessario l'accesso in scrittura RBAC ai server primari e secondari e a tutti i database nel gruppo di failover. Per un Istanza gestita SQL è necessario l'accesso in scrittura RBAC sia al Istanza gestita SQL primario che secondario, ma le autorizzazioni per i singoli database non sono rilevanti, perché i singoli database SQL Istanza gestita non possono essere aggiunti o rimossi da un gruppo di failover.
+Per creare un gruppo di failover, è necessario l'accesso in scrittura RBAC di Azure sia ai server primari che secondari e a tutti i database nel gruppo di failover. Per un Istanza gestita SQL è necessario l'accesso in scrittura RBAC di Azure sia al Istanza gestita SQL primario che secondario, ma le autorizzazioni per i singoli database non sono rilevanti, perché i singoli database SQL Istanza gestita non possono essere aggiunti o rimossi da un gruppo di failover.
 
 ### <a name="update-a-failover-group"></a>Aggiornare un gruppo di failover
 
-Per aggiornare un gruppo di failover, è necessario l'accesso in scrittura RBAC al gruppo di failover e a tutti i database nel server primario o nell'istanza gestita corrente.  
+Per aggiornare un gruppo di failover, è necessario l'accesso in scrittura RBAC di Azure al gruppo di failover e a tutti i database nel server primario o nell'istanza gestita corrente.  
 
 ### <a name="fail-over-a-failover-group"></a>Eseguire il failover di un gruppo di failover
 
-Per eseguire il failover di un gruppo di failover, è necessario l'accesso in scrittura RBAC al gruppo di failover nel nuovo server primario o nell'istanza gestita.
+Per eseguire il failover di un gruppo di failover, è necessario l'accesso in scrittura RBAC di Azure al gruppo di failover nel nuovo server primario o nell'istanza gestita.
 
 ## <a name="best-practices-for-sql-database"></a>Procedure consigliate per il database SQL
 
@@ -409,7 +409,7 @@ Tenere presente le limitazioni seguenti:
 
 ## <a name="programmatically-managing-failover-groups"></a>Gestione di gruppi di failover a livello di codice
 
-Come indicato in precedenza, i gruppi di failover automatico e la replica geografica attiva possono essere gestiti a livello di codice usando Azure PowerShell e l'API REST. Le tabelle seguenti descrivono il set di comandi disponibili. La replica geografica attiva include un set di API di Azure Resource Manager per la gestione, compresa l'[API REST del Database SQL di Azure](/rest/api/sql/) e i [cmdlet di Azure PowerShell](/powershell/azure/). Queste API richiedono l'uso di gruppi di risorse e supportano la sicurezza basata sui ruoli (Controllo degli accessi in base al ruolo). Per altre informazioni su come implementare i ruoli di accesso, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).
+Come indicato in precedenza, i gruppi di failover automatico e la replica geografica attiva possono essere gestiti a livello di codice usando Azure PowerShell e l'API REST. Le tabelle seguenti descrivono il set di comandi disponibili. La replica geografica attiva include un set di API di Azure Resource Manager per la gestione, compresa l'[API REST del Database SQL di Azure](/rest/api/sql/) e i [cmdlet di Azure PowerShell](/powershell/azure/). Queste API richiedono l'uso di gruppi di risorse e supportano il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per altre informazioni su come implementare i ruoli di accesso, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).
 
 ### <a name="manage-sql-database-failover"></a>Gestire il failover del database SQL
 

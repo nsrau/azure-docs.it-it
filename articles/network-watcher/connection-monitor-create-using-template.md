@@ -1,5 +1,5 @@
 ---
-title: Creazione di un monitoraggio della connessione-ARMClient
+title: Crea monitoraggio connessione (anteprima)-modello ARM
 titleSuffix: Azure Network Watcher
 description: Informazioni su come creare un monitoraggio della connessione tramite ARMClient.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: c80f2aaf26c0f0e89014c997151599c8bddbe903
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: e1a0ecd85d07aa4fdf5482c5104c17eb4a068688
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948817"
+ms.locfileid: "94984227"
 ---
-# <a name="create-a-connection-monitor-using-the-armclient"></a>Creazione di un monitoraggio della connessione tramite ARMClient
+# <a name="create-a-connection-monitor-using-the-arm-template"></a>Creare un monitoraggio della connessione usando il modello ARM
 
 Informazioni su come creare un monitoraggio della connessione per monitorare la comunicazione tra le risorse usando ARMClient. Supporta le distribuzioni ibride e cloud di Azure.
+
+> [!IMPORTANT]
+> Il monitoraggio connessione è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Prima di iniziare 
 

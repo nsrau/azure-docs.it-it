@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec45ce7634b7bc0a8f38f354112cdc2e172f1e17
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 58f0ffa8bd43a8428603334b6c89fa1cf36315b5
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288372"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987338"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Domande frequenti sulla protezione delle identità in Azure Active Directory
 
@@ -76,7 +76,7 @@ Tutti i rilevamenti dei rischi sono documentati nell'articolo relativo al [risch
 - Inoltre, offriamo le informazioni ai sistemi di Machine Learning per futuri miglioramenti nella valutazione dei rischi.
 
     > [!NOTE]
-    > Se l'utente è già stato salvaguardato, non fare clic su **Conferma compromesso** poiché modificherà lo stato di rischio di accesso e di rischio utente in **Confermato compromesso** , e il livello di rischio in **Elevato**.
+    > Se l'utente è già stato salvaguardato, non fare clic su **Conferma compromesso** poiché modificherà lo stato di rischio di accesso e di rischio utente in **Confermato compromesso**, e il livello di rischio in **Elevato**.
 
 **Conferma sicuro** (in fase di accesso) - indica ad Azure Active Directory Identity Protection che l'accesso è stato eseguito dal proprietario dell'identità e non indica un compromesso.
 
@@ -95,6 +95,4 @@ Dato che i rischi per l'utente sono cumulativi e non scadono, un utente può ave
 
 Il punteggio elevato di rischio aggregato potrebbe essere basato su altre funzionalità di accesso o sul fatto che sono stati generati più rilevamenti per tale accesso. E viceversa, un accesso potrebbe avere un rischio di accesso (aggregato) di livello Medio anche se i rilevamenti associati a tale accesso sono di rischio Elevato. 
 
-### <a name="why-is-the-detection-which-is-linked-to-a-risky-sign-in-have-a-different-risk-level-than-the-sign-in-risk-level-real-time"></a>Perché il rilevamento collegato a un accesso rischioso ha un livello di rischio diverso rispetto al livello di rischio di accesso (in tempo reale)? 
 
-Di recente sono stati apportati miglioramenti al calcolo del rischio di accesso in tempo reale. La discrepanza osservata tra il livello di rilevamento del rischio e il livello di rischio di accesso è il risultato di tali modifiche. Si noti che il rischio di accesso in tempo reale è il valore utilizzato durante l'applicazione dei criteri. 

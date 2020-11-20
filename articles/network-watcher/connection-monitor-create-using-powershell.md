@@ -1,5 +1,5 @@
 ---
-title: Creazione di un monitoraggio della connessione-PowerShell
+title: Creazione di monitoraggio connessione (anteprima)-PowerShell
 titleSuffix: Azure Network Watcher
 description: Informazioni su come creare un monitoraggio della connessione tramite PowerShell.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: fa8b2d967a336343d23c5f6aa4477ebcf2396407
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b1ffce75d5c38177c70db3ec1fc024a01821d3ab
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949038"
+ms.locfileid: "94984244"
 ---
-# <a name="create-a-connection-monitor-using-powershell"></a>Creare un monitoraggio della connessione tramite PowerShell
+# <a name="create-a-connection-monitor-preview-using-powershell"></a>Creare un monitoraggio connessione (anteprima) con PowerShell
 
 Informazioni su come creare un monitoraggio della connessione per monitorare la comunicazione tra le risorse usando PowerShell.
+
+> [!IMPORTANT]
+> Il monitoraggio connessione è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Prima di iniziare 
 
@@ -80,7 +84,7 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
 
 * Endpoint
     * Nome: nome univoco per ogni endpoint
-    * resourceId: per gli endpoint di Azure, l'ID risorsa fa riferimento all'ID risorsa Azure Resource Manager per le macchine virtuali. Per gli endpoint non di Azure, l'ID risorsa fa riferimento all'ID risorsa di Azure Resource Manager per l'area di lavoro Log Analytics collegata a agenti non Azure.
+    * resourceId: per gli endpoint di Azure, l'ID risorsa fa riferimento all'ID risorsa Azure Resource Manager per le macchine virtuali. Per gli endpoint non di Azure, l'ID risorsa fa riferimento all'ID di risorsa Azure Resource Manager per l'area di lavoro Log Analytics collegata a agenti non Azure.
     * Address: applicabile solo quando l'ID risorsa non è specificato o se l'ID risorsa è Log Analytics area di lavoro. Se utilizzata con Log Analytics ID risorsa, si riferisce al nome di dominio completo dell'agente che può essere utilizzato per il monitoraggio. Se usato senza ID risorsa, può corrispondere all'URL o all'indirizzo IP di qualsiasi endpoint pubblico.
     * Filter: per gli endpoint non di Azure, usare Filter per selezionare gli agenti dall'area di lavoro Log Analytics che verrà usata per il monitoraggio nella risorsa di monitoraggio della connessione. Se i filtri non sono impostati, tutti gli agenti appartenenti all'area di lavoro Log Analytics possono essere utilizzati per il monitoraggio
         * Tipo: impostare il tipo come "Indirizzo agente"
@@ -100,6 +104,10 @@ New-AzNetworkWatcherConnectionMonitor -NetworkWatcherName $nw -ResourceGroupName
         * preferHTTPS-specificare se usare HTTPS su HTTP
         * porta: specificare la porta di destinazione scelta.
         * disableTraceRoute: si applica ai gruppi di test il cui protocollo è TCP o ICMP. Arresta le origini dall'individuazione della topologia e della RTT hop-by-hop.
+        * Metodo: si applica alle configurazioni di test il cui protocollo è HTTP. Selezionare il metodo di richiesta HTTP, ovvero GET o POST
+        * percorso: specificare i parametri del percorso da accodare all'URL
+        * validStatusCodes-scegliere i codici di stato applicabili. Se il codice di risposta non corrisponde a questo elenco, verrà ricevuto un messaggio di diagnostica
+        * requestHeaders-specificare le stringhe di intestazione della richiesta personalizzate che verranno passate alla destinazione
     * successThreshold: è possibile impostare le soglie nei parametri di rete seguenti:
         * checksFailedPercent: consente di impostare la percentuale di verifiche che possono avere esito negativo quando le origini controllano la connettività alle destinazioni usando i criteri specificati. Per il protocollo TCP o ICMP, la percentuale di controlli non riusciti può essere equivalente alla percentuale di perdita di pacchetti. Per il protocollo HTTP, questo campo rappresenta la percentuale di richieste HTTP che non hanno ricevuto risposta.
         * roundTripTimeMs: consente di impostare RTT in millisecondi per il tempo necessario per la connessione alla destinazione tramite la configurazione di test.

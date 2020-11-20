@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bb66d8a197a33d6d0ad46502b510662f43ea1ca
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532518"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988562"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST di riconoscimento vocale
 
@@ -55,7 +55,7 @@ Questi parametri possono essere inclusi nella stringa di query della richiesta R
 
 | Parametro | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Obbligatoria |
+| `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Necessario |
 | `format` | Specifica il formato del risultato. I valori accettati sono `simple` e `detailed`. I risultati semplici includono `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. Le risposte dettagliate includono quattro rappresentazioni diverse del testo visualizzato. L'impostazione predefinita è `simple`. | Facoltativo |
 | `profanity` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `masked` , che sostituisce la volgarità con `removed` gli asterischi,, che rimuove tutte le parolacce dal risultato, o `raw` , che include la volgarità nel risultato. L'impostazione predefinita è `masked`. | Facoltativo |
 | `cid` | Quando si usa il [portale di riconoscimento vocale personalizzato](how-to-custom-speech.md) per creare modelli personalizzati, è possibile usare modelli personalizzati tramite l' **ID endpoint** trovato nella pagina **distribuzione** . Usare l' **ID endpoint** come argomento per il `cid` parametro della stringa di query. | Facoltativo |
@@ -69,7 +69,7 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 | `Ocp-Apim-Subscription-Key` | La chiave di sottoscrizione al Servizio di riconoscimento vocale dell'utente. | È necessaria questa intestazione o `Authorization`. |
 | `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | È necessaria questa intestazione o `Ocp-Apim-Subscription-Key`. |
 | `Pronunciation-Assessment` | Specifica i parametri per visualizzare i punteggi di pronuncia nei risultati del riconoscimento, che valutano la qualità di pronuncia dell'input vocale, con indicatori di accuratezza, fluidità, completezza e così via. Questo parametro è un JSON con codifica Base64 contenente più parametri dettagliati. Per informazioni su come compilare questa intestazione, vedere [parametri di valutazione della pronuncia](#pronunciation-assessment-parameters) . | Facoltativo |
-| `Content-type` | Descrive il formato e il codec dei dati audio forniti. I valori accettati sono `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obbligatoria |
+| `Content-type` | Descrive il formato e il codec dei dati audio forniti. I valori accettati sono `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Necessario |
 | `Transfer-Encoding` | Specifica che vengono inviati i dati audio in blocchi, anziché un singolo file. Utilizzare questa intestazione solo se vi è stata la suddivisione in blocchi dei dati audio. | Facoltativo |
 | `Expect` | Se si usa il trasferimento in blocchi, inviare `Expect: 100-continue`. Il Servizio di riconoscimento vocale legge la richiesta iniziale e attende ulteriori dati.| Obbligatorio in caso di invio di dati audio in blocchi. |
 | `Accept` | Se specificato, deve essere `application/json`. Il servizio di riconoscimento vocale fornisce i risultati in formato JSON. Alcuni framework di richiesta forniscono un valore predefinito incompatibile. È consigliabile includere sempre `Accept` . | Facoltativo, ma consigliato. |
@@ -90,12 +90,12 @@ L'audio viene inviato nel corpo della richiesta HTTP `POST`. Deve essere in uno 
 
 Questa tabella elenca i parametri obbligatori e facoltativi per la valutazione della pronuncia.
 
-| Parametro | Descrizione | Obbligatoria / Facoltativa |
+| Parametro | Descrizione | Necessaria? |
 |-----------|-------------|---------------------|
-| ReferenceText | Testo su cui verrà valutata la pronuncia. | Obbligatoria |
-| GradingSystem | Sistema di punti per la taratura dei punteggi. I valori accettati sono `FivePoint` e `HundredMark`. L'impostazione predefinita è `FivePoint`. | Facoltativo |
+| ReferenceText | Testo su cui verrà valutata la pronuncia. | Necessario |
+| GradingSystem | Sistema di punti per la taratura dei punteggi. Il `FivePoint` sistema restituisce un punteggio a virgola mobile 0-5 e `HundredMark` restituisce un punteggio a virgola mobile 0-100. Impostazione predefinita: `FivePoint`. | Facoltativo |
 | Granularità | Granularità della valutazione. I valori accettati sono `Phoneme` , che mostra il punteggio sul livello full-text, Word e fonema, `Word` , che mostra il punteggio a livello di testo intero e di parola, `FullText` , che mostra il punteggio solo sul livello full-text. L'impostazione predefinita è `Phoneme`. | Facoltativo |
-| Dimensione | Definisce i criteri di output. I valori accettati sono `Basic` , che mostra solo il Punteggio di accuratezza, `Comprehensive` Mostra i punteggi su più dimensioni (ad esempio, il Punteggio di fluidità e il Punteggio di completezza sul livello full-text, il tipo di errore a livello di parola). Controllare i [parametri di risposta](#response-parameters) per visualizzare le definizioni delle diverse dimensioni dei punteggi e dei tipi di errore di Word. L'impostazione predefinita è `Basic`. | Facoltativo |
+| Dimension | Definisce i criteri di output. I valori accettati sono `Basic` , che mostra solo il Punteggio di accuratezza, `Comprehensive` Mostra i punteggi su più dimensioni (ad esempio, il Punteggio di fluidità e il Punteggio di completezza sul livello full-text, il tipo di errore a livello di parola). Controllare i [parametri di risposta](#response-parameters) per visualizzare le definizioni delle diverse dimensioni dei punteggi e dei tipi di errore di Word. L'impostazione predefinita è `Basic`. | Facoltativo |
 | EnableMiscue | Abilita il calcolo miscue. Con questa funzionalità abilitata, le parole pronunciate verranno confrontate con il testo di riferimento e verranno contrassegnate con omissione/inserimento in base al confronto. I valori accettati sono `False` e `True`. L'impostazione predefinita è `False`. | Facoltativo |
 | ScenarioId | GUID che indica un sistema di punti personalizzato. | Facoltativo |
 

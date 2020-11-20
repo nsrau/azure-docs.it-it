@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio connessione | Microsoft Docs
+title: Monitoraggio connessione (anteprima) in Azure | Microsoft Docs
 description: Informazioni su come usare il monitoraggio della connessione per monitorare la comunicazione di rete in un ambiente distribuito.
 services: network-watcher
 documentationcenter: na
@@ -15,18 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 13b379fd3b4f788d79cbb6a9bf6d40cb1693eaf9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cb24cc55844d7c42d68e75d6f6ef947b1315a306
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94948966"
+ms.locfileid: "94984363"
 ---
-# <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitoraggio della connettività di rete con monitoraggio connessione
+# <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoraggio della connettività di rete con monitoraggio connessione (anteprima)
 
 Il monitoraggio della connessione fornisce il monitoraggio della connessione end-to-end unificato in Azure Network Watcher. La funzionalità di monitoraggio della connessione supporta le distribuzioni ibride e cloud di Azure. Network Watcher offre strumenti per monitorare, diagnosticare e visualizzare le metriche relative alla connettività per le distribuzioni di Azure.
 
-Di seguito sono riportati alcuni casi d'uso per il monitoraggio della connessione:
+> [!IMPORTANT]
+> Il monitoraggio connessione è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Di seguito sono riportati alcuni casi d'uso per il monitoraggio della connessione:
 
 - La VM del server Web front-end comunica con una macchina virtuale del server di database in un'applicazione multilivello. Si vuole controllare la connettività di rete tra le due VM.
 - Si vuole che le macchine virtuali nell'area Stati Uniti orientali per il ping delle macchine virtuali nell'area Stati Uniti centrali e si desideri confrontare le latenze di rete tra aree.
@@ -271,12 +274,12 @@ Nei monitoraggi connessioni creati prima dell'esperienza di monitoraggio della c
 
 Quando si usano le metriche, impostare il tipo di risorsa come Microsoft. Network/networkWatchers/connectionMonitors
 
-| Metrica | Nome visualizzato | Unità | Tipo di aggregazione | Description | Dimensioni |
+| Metrica | Nome visualizzato | Unità | Tipo di aggregazione | Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % di probe non riusciti | Percentuale | Media | Percentuale di probe di monitoraggio della connettività non riuscita. | Nessuna dimensione |
 | AverageRoundtripMs | Avg. Tempo di round trip (ms) | Millisecondi | Media | RTT di rete medio per i probe di monitoraggio della connettività inviati tra l'origine e la destinazione. |             Nessuna dimensione |
-| ChecksFailedPercent (anteprima) | % Controlli non riusciti (anteprima) | Percentuale | Media | Percentuale di verifiche non riuscite per un test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocollo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Area |
-| RoundTripTimeMs (anteprima) | Tempo di round trip (MS) (anteprima) | Millisecondi | Media | RTT per i controlli inviati tra l'origine e la destinazione. Questo valore non è medio. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocollo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Area |
+| ChecksFailedPercent (anteprima) | % Controlli non riusciti (anteprima) | Percentuale | Media | Percentuale di verifiche non riuscite per un test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocollo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| RoundTripTimeMs (anteprima) | Tempo di round trip (MS) (anteprima) | Millisecondi | Media | RTT per i controlli inviati tra l'origine e la destinazione. Questo valore non è medio. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocollo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>Avvisi basati su metriche per il monitoraggio della connessione
 

@@ -1,15 +1,15 @@
 ---
 title: Tipi di risorse Azure Resource Manager supportati
 description: Fornire un elenco dei tipi di risorse Azure Resource Manager supportati da Azure Resource Graph e la cronologia delle modifiche.
-ms.date: 10/28/2020
+ms.date: 11/20/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: e604fe7c5e3a7f40e31f43db64bcd59ae0545ac0
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: fa5a5f5741f05e6f5f30a3d04958ba0b450a1bb7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927567"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94988341"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabella di Azure Resource Graph e riferimenti sui tipi di risorsa
 
@@ -68,6 +68,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.aisupercomputer/accounts/jobgroups
 - microsoft.aisupercomputer/accounts/jobgroups/jobs
 - microsoft.alertsmanagement/actionrules
+- Microsoft. alertsmanagement/resourcehealthalertrules
 - microsoft.alertsmanagement/smartdetectoralertrules
 - microsoft.analysisservices/servers
 - microsoft.apimanagement/service
@@ -88,6 +89,10 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.azconfig/configurationstores
 - microsoft.azureactivedirectory/b2cdirectories
 - Microsoft. azureactivedirectory/guestusages
+- Microsoft. azurearcdata/datacontrollers
+- Microsoft. azurearcdata/postgresinstances
+- Microsoft. azurearcdata/sqlmanagedinstances
+- Microsoft. azurearcdata/sqlserverinstances
 - microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
@@ -103,6 +108,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.baremetal/consoleconnections
 - microsoft.baremetal/crayservers
 - microsoft.baremetal/monitoringservers
+- Microsoft. baremetalinfrastructure/baremetalinstances
 - microsoft.batch/batchaccounts
 - microsoft.batchai/clusters
 - microsoft.batchai/fileservers
@@ -131,6 +137,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.cloudes/accounts
 - microsoft.cloudsearch/indexes
 - Microsoft. CloudTest/accounts
+- Microsoft. CloudTest/hostedpools
 - Microsoft. CloudTest/images
 - Microsoft. CloudTest/pools
 - Microsoft. codespaces/piani
@@ -177,6 +184,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.containerservice/openshiftmanagedclusters
 - Microsoft. contoso/cluster
 - microsoft.contoso/employees
+- Microsoft. contoso/Towers
 - microsoft.costmanagement/connectors
 - microsoft.customproviders/resourceproviders
 - Microsoft. d365customerinsights/istanze
@@ -205,6 +213,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.dbforpostgresql/servers
 - microsoft.dbforpostgresql/serversv2
 - microsoft.dbforpostgresql/singleservers
+- Microsoft. delegatednetwork/controller
 - Microsoft. delegatednetwork/delegatedsubnets
 - Microsoft. delegatednetwork/orchestratorinstances
 - microsoft.deploymentmanager/artifactsources
@@ -302,6 +311,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.machinelearning/workspaces
 - microsoft.machinelearningcompute/operationalizationclusters
 - microsoft.machinelearningservices/workspaces
+- Microsoft. machinelearningservices/Workspaces/batchendpoints
 - Microsoft. machinelearningservices/Workspaces/inferenceendpoints
 - Microsoft. machinelearningservices/Workspaces/inferenceendpoints/distribuzioni
 - Microsoft. machinelearningservices/Workspaces/onlineendpoints
@@ -316,6 +326,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.managednetwork/managednetworks/managednetworkgroups
 - microsoft.managednetwork/managednetworks/managednetworkpeeringpolicies
 - microsoft.maps/accounts
+- Microsoft. Maps/accounts/Creators
 - microsoft.maps/accounts/privateatlases
 - microsoft.marketplaceapps/classicdevservices
 - microsoft.media/mediaservices
@@ -389,6 +400,8 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.network/serviceendpointpolicies
 - microsoft.network/trafficmanagerprofiles
 - microsoft.network/virtualhubs
+- Microsoft. Network/virtualhubs/bgpconnections
+- Microsoft. Network/virtualhubs/ipconfigurations
 - microsoft.network/virtualnetworkgateways
 - microsoft.network/virtualnetworks
 - microsoft.network/virtualnetworktaps
@@ -424,6 +437,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.powerbi/workspacecollections
 - microsoft.powerbidedicated/capacities
 - microsoft.projectbabylon/accounts
+- Microsoft. competenza/account
 - microsoft.quantum/workspaces
 - microsoft.recoveryservices/vaults
 - microsoft.redhatopenshift/openshiftclusters

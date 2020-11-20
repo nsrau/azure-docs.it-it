@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-set-nineteen
-ms.openlocfilehash: 245a00acb07d1c0e769a243413fccdf64d544f5a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1cc313daf0e76ddd14865959410b07d9bdc189d7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133685"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984922"
 ---
 # <a name="pronunciation-assessment"></a>Valutazione della pronuncia
 
@@ -154,12 +154,12 @@ double pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
 
 Questa tabella elenca i parametri di configurazione per la valutazione della pronuncia.
 
-| Parametro | Descrizione | Obbligatoria / Facoltativa |
+| Parametro | Descrizione | Necessaria? |
 |-----------|-------------|---------------------|
 | ReferenceText | Testo su cui verrà valutata la pronuncia. | Necessario |
-| GradingSystem | Sistema di punti per la taratura dei punteggi. I valori accettati sono `FivePoint` e `HundredMark`. L'impostazione predefinita è `FivePoint`. | Facoltativo |
-| Granularità | Granularità della valutazione. I valori accettati sono `Phoneme` , che mostra il punteggio sul livello full-text, Word e fonema, `Word` , che mostra il punteggio a livello di testo intero e di parola, `FullText` , che mostra il punteggio solo sul livello full-text. L'impostazione predefinita è `Phoneme`. | Facoltativo |
-| EnableMiscue | Abilita il calcolo miscue. Con questa funzionalità abilitata, le parole pronunciate verranno confrontate con il testo di riferimento e verranno contrassegnate con omissione/inserimento in base al confronto. I valori accettati sono `False` e `True`. L'impostazione predefinita è `False`. | Facoltativo |
+| GradingSystem | Sistema di punti per la taratura dei punteggi. Il `FivePoint` sistema restituisce un punteggio a virgola mobile 0-5 e `HundredMark` restituisce un punteggio a virgola mobile 0-100. Impostazione predefinita: `FivePoint`. | Facoltativo |
+| Granularità | Granularità della valutazione. I valori accettati sono `Phoneme` , che mostra il punteggio sul livello full-text, Word e fonema, `Word` , che mostra il punteggio a livello di testo intero e di parola, `FullText` , che mostra il punteggio solo sul livello full-text. Impostazione predefinita: `Phoneme`. | Facoltativo |
+| EnableMiscue | Abilita il calcolo miscue. Con questa funzionalità abilitata, le parole pronunciate verranno confrontate con il testo di riferimento e verranno contrassegnate con omissione/inserimento in base al confronto. I valori accettati sono `False` e `True`. Impostazione predefinita: `False`. | Facoltativo |
 | ScenarioId | GUID che indica un sistema di punti personalizzato. | Facoltativo |
 
 ### <a name="pronunciation-assessment-result-parameters"></a>Parametri dei risultati della valutazione della pronuncia

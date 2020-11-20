@@ -1,5 +1,5 @@
 ---
-title: Esegui migrazione a monitoraggio connessione da monitoraggio connessione
+title: Esegui migrazione a monitoraggio connessione (anteprima) da monitoraggio connessione
 titleSuffix: Azure Network Watcher
 description: Informazioni su come eseguire la migrazione a monitoraggio connessione da monitoraggio connessione.
 services: network-watcher
@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
-ms.openlocfilehash: 0ae1a1f36b9f81145b49245d8e6ace37ab36f834
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d785ecd48816150cd33d8e2f5fcce2ff36f1603f
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94974909"
+ms.locfileid: "94985791"
 ---
-# <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Esegui migrazione a monitoraggio connessione da monitoraggio connessione (versione classica)
+# <a name="migrate-to-connection-monitor-preview-from-connection-monitor-classic"></a>Esegui migrazione a monitoraggio connessione (anteprima) da monitoraggio connessione (versione classica)
 
-È possibile eseguire la migrazione dei monitoraggi connessione esistenti a un nuovo monitoraggio della connessione migliorato con pochi clic e senza tempi di inattività. Per ulteriori informazioni sui vantaggi, vedere [Connection Monitor](./connection-monitor-overview.md).
+È possibile eseguire la migrazione dei monitoraggi connessione esistenti a un nuovo monitoraggio della connessione migliorato (anteprima) con pochi clic e senza tempi di inattività. Per ulteriori informazioni sui vantaggi, vedere [Connection Monitor](./connection-monitor-overview.md).
+
+> [!IMPORTANT]
+> Il monitoraggio connessione è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="key-points-to-note"></a>Punti chiave da notare
 

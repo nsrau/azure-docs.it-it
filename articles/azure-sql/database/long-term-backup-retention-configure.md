@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/14/2020
-ms.openlocfilehash: 42f6badabd27ceaa302f635a7a33b0161b870dc5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3cab3b262f9116903d0b423cd5e4a0ebd03c46fa
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782859"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94984431"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gestire la conservazione a lungo termine dei backup del database SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ Le sezioni seguenti mostrano come usare il portale di Azure per configurare il p
 
 È possibile configurare il database SQL per [conservare i backup automatizzati](long-term-retention-overview.md) per un periodo più lungo rispetto al periodo di conservazione associato al livello di servizio.
 
-1. Nella portale di Azure selezionare l'istanza di SQL Server e quindi fare clic su **Gestisci backup** . Nella scheda **Configura criteri** selezionare la casella di controllo relativa al database in cui si vogliono impostare o modificare i criteri di conservazione a lungo termine dei backup. Se la casella di controllo accanto al database non è selezionata, le modifiche dei criteri non verranno applicate al database.  
+1. Nella portale di Azure selezionare l'istanza di SQL Server e quindi fare clic su **Gestisci backup**. Nella scheda **Configura criteri** selezionare la casella di controllo relativa al database in cui si vogliono impostare o modificare i criteri di conservazione a lungo termine dei backup. Se la casella di controllo accanto al database non è selezionata, le modifiche dei criteri non verranno applicate al database.  
 
    ![collegamento di gestione backup](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
 
@@ -39,7 +39,7 @@ Le sezioni seguenti mostrano come usare il portale di Azure per configurare il p
 
    ![Configurare criteri](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
 
-3. Al termine, fare clic su **Applica** .
+3. Al termine, fare clic su **Applica**.
 
 > [!IMPORTANT]
 > Quando si Abilita un criterio di conservazione dei backup a lungo termine, potrebbe essere necessario attendere fino a 7 giorni prima che il primo backup diventi visibile e disponibile per il ripristino. Per informazioni dettagliate sul backup Cadance di LTR, vedere [conservazione dei backup a lungo termine](long-term-retention-overview.md).
@@ -48,7 +48,7 @@ Le sezioni seguenti mostrano come usare il portale di Azure per configurare il p
 
 Visualizzare i backup conservati per un database specifico con un criterio LTR e ripristinare da tali backup.
 
-1. Nella portale di Azure selezionare il server e quindi fare clic su **Gestisci backup** . Nella scheda **Available backups** (Backup disponibili) selezionare il database per cui si vuole visualizzare i backup disponibili.
+1. Nella portale di Azure selezionare il server e quindi fare clic su **Gestisci backup**. Nella scheda **Available backups** (Backup disponibili) selezionare il database per cui si vuole visualizzare i backup disponibili.
 
    ![Selezionare il database](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
 
@@ -100,7 +100,7 @@ Per **Remove-AzSqlDatabaseLongTermRetentionBackup** è necessario disporre di un
 > [!NOTE]
 > Il ruolo Collaboratore SQL Server non dispone dell'autorizzazione per eliminare i backup di LTR.
 
-È possibile concedere autorizzazioni RBAC nell'ambito di una *sottoscrizione* o di un *gruppo di risorse* . Tuttavia, per accedere ai backup di LTR che appartengono a un server eliminato, l'autorizzazione deve essere concessa nell'ambito della *sottoscrizione* di tale server.
+È possibile concedere le autorizzazioni RBAC di Azure nell'ambito di una *sottoscrizione* o di un *gruppo di risorse* . Tuttavia, per accedere ai backup di LTR che appartengono a un server eliminato, l'autorizzazione deve essere concessa nell'ambito della *sottoscrizione* di tale server.
 
 - Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 

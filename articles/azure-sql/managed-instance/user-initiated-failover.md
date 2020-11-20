@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: 7bcdabdb4e49d198b9acb7a1c57312b31a5b4fff
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 51e9e66e2fd8ff60dd20c275a66fd13c047cc629
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842227"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985519"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manuale avviato dall'utente in SQL Istanza gestita
 
@@ -37,16 +37,16 @@ La [disponibilità elevata](../database/high-availability-sla.md) è una parte f
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Avviare il failover manuale in SQL Istanza gestita
 
-### <a name="rbac-permissions-required"></a>Autorizzazioni RBAC richieste
+### <a name="azure-rbac-permissions-required"></a>Autorizzazioni RBAC di Azure richieste
 
-Per avviare un failover, l'utente deve avere uno dei ruoli RBAC seguenti:
+Per avviare un failover, l'utente deve avere uno dei seguenti ruoli di Azure:
 
 - Ruolo di proprietario della sottoscrizione o
 - Istanza gestita ruolo Collaboratore o
 - Ruolo personalizzato con l'autorizzazione seguente:
   - `Microsoft.Sql/managedInstances/failover/action`
 
-### <a name="using-powershell"></a>Utilizzo di PowerShell
+### <a name="using-powershell"></a>Uso di PowerShell
 
 La versione minima di AZ. SQL deve essere [v 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0). Si consiglia di usare [Azure cloud Shell](../../cloud-shell/overview.md) dal portale di Azure in cui è sempre disponibile la versione più recente di PowerShell. 
 

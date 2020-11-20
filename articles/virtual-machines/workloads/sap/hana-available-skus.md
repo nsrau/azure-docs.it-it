@@ -12,15 +12,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/23/2020
+ms.date: 11/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd979f553ff03d8373948d73c416a96bb140b544
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2732f9fc4b1b9251391180874a055e8ffd8d9e7a
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964763"
+ms.locfileid: "94985077"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>SKU disponibili per le istanze large di HANA
 
@@ -35,10 +35,13 @@ Il servizio SAP HANA in Azure (istanze large) basato su indicatori di revisione 
 
 - West US 2
 - Stati Uniti orientali
-- Stati Uniti orientali 2
-- Stati Uniti centro-meridionali
+
+Servizio di infrastruttura BareMetal (certificati per carichi di lavoro SAP HANA) basato sulla revisione 4,2 timbri. È disponibile in diverse configurazioni nelle aree di Azure di:
 - Europa occidentale
 - Europa settentrionale
+- Stati Uniti orientali 2
+- Stati Uniti centro-meridionali
+
 
 
 

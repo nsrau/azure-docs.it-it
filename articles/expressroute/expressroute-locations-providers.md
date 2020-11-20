@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: duau
-ms.openlocfilehash: 6d58f0178535cf01a413056b2096553e4bd06371
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 9b7b88124837e85874f4f29828a3d4146bb29257
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981018"
+ms.locfileid: "94987814"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -78,7 +78,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Posizione** | **Indirizzo** | **Zona** | **Aree di Azure locali** | **ER Direct** | **Provider di servizi** |
 | --- | --- | --- | --- | --- | --- |
 | **Amsterdam** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 1 | Europa occidentale | 10 G, 100 G | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
-| **Amsterdam2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | Europa occidentale | 10 G, 100 G | British Telecom, CenturyLink Cloud Connect, Colt, DE-CIX, euNetworks, GÉANT, Interxion, NOS, Orange, Vodafone |
+| **Amsterdam2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | Europa occidentale | 10 G, 100 G | British Telecom, CenturyLink Cloud Connect, puledre, DE-CIX, euNetworks, GÉANT, Interxion, NOS, NTT Global datacenters EMEA, Orange, Vodafone |
 | **Atlanta** | [Equinix AT2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | 1 | n/d | 10 G, 100 G | Equinix, Megaport |
 | **Auckland** | [Vocus Group NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | n/d | 10 G | Devoli, Kordia, Megaport, Spark NZ, Vocus Group NZ |
 | **Bangkok** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | n/d | 10 G | AIS, UIH |

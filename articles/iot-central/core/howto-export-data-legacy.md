@@ -7,12 +7,12 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 812fd0c10b63cfe469a10a99069f201fcc2cc658
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9e5f4fd14f56f0a2dff45dd2650ea552b07fecd7
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126738"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94987355"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati (legacy)
 
@@ -22,7 +22,7 @@ ms.locfileid: "92126738"
 > - Per informazioni sulle nuove funzionalità di anteprima per l'esportazione dei dati, vedere [esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati](./howto-export-data.md).
 > - Per informazioni sulle differenze tra le funzionalità di esportazione dei dati di anteprima e di esportazione dei dati legacy, vedere la [tabella di confronto](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
 
-Questo articolo descrive come usare la funzionalità di esportazione dei dati in Azure IoT Central. Questa funzionalità consente di esportare i dati in modo continuo in **Hub eventi**di Azure, nel **bus di servizio di Azure**o nelle istanze di **archiviazione BLOB di Azure** . L'esportazione dei dati usa il formato JSON e può includere dati di telemetria, informazioni sul dispositivo e informazioni sul modello di dispositivo. Usare i dati esportati per:
+Questo articolo descrive come usare la funzionalità di esportazione dei dati in Azure IoT Central. Questa funzionalità consente di esportare i dati in modo continuo in **Hub eventi** di Azure, nel **bus di servizio di Azure** o nelle istanze di **archiviazione BLOB di Azure** . L'esportazione dei dati usa il formato JSON e può includere dati di telemetria, informazioni sul dispositivo e informazioni sul modello di dispositivo. Usare i dati esportati per:
 
 - Approfondimenti e analisi a caldo del percorso. Questa opzione include l'attivazione di regole personalizzate in analisi di flusso di Azure, l'attivazione di flussi di lavoro personalizzati in app per la logica di Azure o il passaggio tramite funzioni di Azure da trasformare.
 - Analisi del percorso a freddo, ad esempio i modelli di training in Azure Machine Learning o l'analisi delle tendenze a lungo termine in Microsoft Power BI.
@@ -85,9 +85,9 @@ Ora che si dispone di una destinazione in cui esportare i dati, attenersi alla p
     > [!Tip]
     > Se non viene visualizzata l' **esportazione dei dati** nel riquadro sinistro, non si dispone delle autorizzazioni per configurare l'esportazione dei dati nell'app. Chiedere a un amministratore di configurare l'esportazione dei dati.
 
-3. Selezionare il pulsante **+New**. Scegliere una risorsa di **archiviazione BLOB**di Azure, **Hub eventi**di Azure, **coda del bus di servizio**di Azure o un argomento del bus di servizio di **Azure** come destinazione dell'esportazione. Il numero massimo di esportazioni per ogni applicazione è cinque.
+3. Selezionare il pulsante **+New**. Scegliere una risorsa di **archiviazione BLOB** di Azure, **Hub eventi** di Azure, **coda del bus di servizio** di Azure o un argomento del bus di servizio di **Azure** come destinazione dell'esportazione. Il numero massimo di esportazioni per ogni applicazione è cinque.
 
-4. Immettere un nome per l'esportazione. Nella casella di riepilogo a discesa selezionare lo **spazio dei nomi**oppure **immettere una stringa di connessione**.
+4. Immettere un nome per l'esportazione. Nella casella di riepilogo a discesa selezionare lo **spazio dei nomi** oppure **immettere una stringa di connessione**.
 
     - Nella stessa sottoscrizione dell'applicazione IoT Central vengono visualizzati solo gli account di archiviazione, gli spazi dei nomi di hub eventi e gli spazi dei nomi del bus di servizio. Se si desidera esportare in una destinazione esterna a questa sottoscrizione, scegliere **immettere una stringa di connessione** e vedere il passaggio 6.
     - Per le app create con il piano tariffario gratuito, l'unico modo per configurare l'esportazione dei dati consiste nell'usare una stringa di connessione. Alle app del piano tariffario gratuito non è associata una sottoscrizione di Azure.
@@ -100,18 +100,18 @@ Ora che si dispone di una destinazione in cui esportare i dati, attenersi alla p
 
     - Hub eventi o bus di servizio, passare allo spazio dei nomi nel portale di Azure:
         - Per utilizzare una stringa di connessione per l'intero spazio dei nomi:
-            1. In **Impostazioni**selezionare **criteri di accesso condiviso**
+            1. In **Impostazioni** selezionare **criteri di accesso condiviso**
             2. Creare una nuova chiave o scegliere una chiave esistente con autorizzazioni di **invio** .
             3. Copiare la stringa di connessione primaria o secondaria.
         - Per usare la stringa di connessione per un'istanza specifica di hub eventi o per una coda o un argomento del bus di servizio, passare a **entità > Hub eventi** o **entità > code** o **entità > argomenti**. Scegliere un'istanza specifica e seguire la stessa procedura descritta in precedenza per ottenere una stringa di connessione.
     - Account di archiviazione, passare all'account di archiviazione nel portale di Azure:
         - Sono supportate solo le stringhe di connessione per l'intero account di archiviazione. Non sono supportate le stringhe di connessione con ambito a un singolo contenitore.
-          1. In **Impostazioni**selezionare **chiavi di accesso**
+          1. In **Impostazioni** selezionare **chiavi di accesso**
           2. Copiare la stringa di connessione Key1 o la stringa di connessione Key2
 
-    Incollare la stringa di connessione. Digitare l'istanza o il **nome del contenitore**con distinzione tra maiuscole e minuscole.
+    Incollare la stringa di connessione. Digitare l'istanza o il **nome del contenitore** con distinzione tra maiuscole e minuscole.
 
-7. In **dati da esportare**scegliere i tipi di dati da esportare impostando il tipo **su on**.
+7. In **dati da esportare** scegliere i tipi di dati da esportare impostando il tipo **su on**.
 
 8. Per attivare l'esportazione dei dati, assicurarsi che l'interruttore abilitato sia **On** **attivo** . Selezionare **Salva**.
 
@@ -382,7 +382,6 @@ Questo esempio mostra un messaggio sui dati dei modelli di dispositivo nell'hub 
                           {
                               "@id": "<id>",
                               "@type": ["Command"],
-                              "commandType": "synchronous",
                               "request": {
                                   "@id": "<id>",
                                   "@type": ["SchemaField"],
@@ -506,7 +505,6 @@ Questo snapshot di esempio mostra un messaggio che contiene i dati del dispositi
                           {
                               "@id": "<id>",
                               "@type": ["Command"],
-                              "commandType": "synchronous",
                               "request": {
                                   "@id": "<id>",
                                   "@type": ["SchemaField"],

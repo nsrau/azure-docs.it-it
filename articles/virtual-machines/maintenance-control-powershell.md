@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: f4cb57eb8d3396667e6c9cb40b7e41b1e97622ed
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: f33cb7d4d005f15d0a5fcc70d56ebd4698f86694
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981188"
+ms.locfileid: "94988222"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Controllare gli aggiornamenti con il controllo di manutenzione e Azure PowerShell
 
@@ -69,7 +69,7 @@ Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 
 ### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>Creare una configurazione di manutenzione con la finestra pianificata
 
-Usare New-AzMaintenanceConfiguration per creare una configurazione di manutenzione con una finestra pianificata quando Azure applicherà gli aggiornamenti sulle risorse. Questo esempio crea una configurazione di manutenzione denominata config con una finestra pianificata di 5 ore il quarto lunedì di ogni mese. Una volta creata una finestra pianificata, non è più necessario applicare manualmente gli aggiornamenti.
+È anche possibile dichiarare una finestra pianificata quando Azure applicherà gli aggiornamenti sulle risorse. Questo esempio crea una configurazione di manutenzione denominata config con una finestra pianificata di 5 ore il quarto lunedì di ogni mese. Una volta creata una finestra pianificata, non è più necessario applicare manualmente gli aggiornamenti.
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
@@ -85,12 +85,10 @@ $config = New-AzMaintenanceConfiguration `
 > [!IMPORTANT]
 > La **durata** della manutenzione deve essere maggiore di *2 ore* . È necessario impostare la **ricorrenza** di manutenzione almeno una volta in 35 giorni.
 
-La **ricorrenza** della manutenzione può essere espressa come segue:
- | Valore | Esempio |
-      |-------|-------------|
-      | giornaliera | recurEvery: Day **o** RecurEvery: 3days | 
-      | weekly | recurEvery: 3Weeks **o** RecurEvery: settimana sabato, domenica | 
-      | mensile | recurEvery: month day23, day24 **o** RecurEvery: month Last Sunday **o** RecurEvery: month Fourth Monday | 
+La **ricorrenza** di manutenzione può essere espressa come giornaliera, settimanale o mensile. Ad esempio:
+ - giornaliero: "recurEvery: Day" **o** "RecurEvery: 3days" 
+ - settimanale: "recurEvery: 3Weeks" **o** "RecurEvery: settimana sabato, domenica" 
+ - mensile: "recurEvery: month day23, day24" **o** "RecurEvery: month Last Sunday" **o** "RecurEvery: month Fourth Monday"  
       
 
 ## <a name="assign-the-configuration"></a>Assegnare la configurazione

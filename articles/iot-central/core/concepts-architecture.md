@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cc33d3c07461b5662e1454ec131dbc2b5f19a390
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7b048581b29fa4244c42261810f382b229a627dd
+ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126174"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94985968"
 ---
 # <a name="azure-iot-central-architecture"></a>Architettura di Azure IoT Central
 
@@ -54,7 +54,7 @@ IoT Central Abilita le funzionalità seguenti a per i dispositivi IoT Edge:
   - I dati di telemetria inviati da ogni modulo.
   - Proprietà che ogni modulo segnala.
   - Comandi a cui ogni modulo risponde.
-  - Relazioni tra un modello di funzionalità del dispositivo gateway IoT Edge e un modello di capacità del dispositivo downstream.
+  - Relazioni tra un dispositivo IoT Edge Gateway e un dispositivo downstream.
   - Proprietà del cloud che non sono archiviate nel dispositivo IoT Edge.
   - Personalizzazioni, dashboard e moduli che fanno parte dell'applicazione IoT Central.
 
@@ -119,7 +119,7 @@ Azure IoT Central archivia i dati dell'applicazione nel cloud. I dati archiviati
 
 Azure IoT Central usa un archivio di serie temporali per i dati di misura inviati dai dispositivi. Dati di serie temporali dei dispositivi utilizzati dal servizio di analisi.
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analisi
 
 Il servizio di analisi è responsabile della generazione dei dati dei report personalizzati mostrati dall'applicazione. Un operatore può [personalizzare le analisi](howto-create-analytics.md) visualizzate nell'applicazione. Il servizio di analisi si basa su [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) ed elabora i dati di misura inviati dai dispositivi.
 
@@ -133,12 +133,12 @@ I modelli di dispositivo in un'applicazione Azure IoT Central definiscono il com
 
 ![Architettura dei modelli](media/concepts-architecture/template-architecture.png)
 
-In un modello di dispositivo IoT Central applicazione contiene:
+In un [modello di dispositivo](concepts-device-templates.md) IOT Central contiene:
 
-- I **modelli di funzionalità del dispositivo** specificano le funzionalità di un dispositivo, ad esempio i dati di telemetria inviati, le proprietà che definiscono lo stato del dispositivo e i comandi a cui risponde il dispositivo. Le funzionalità del dispositivo sono organizzate in una o più interfacce.
+- Un **modello di dispositivo** per specificare le funzionalità di un dispositivo, ad esempio i dati di telemetria inviati, le proprietà che definiscono lo stato del dispositivo e i comandi a cui risponde il dispositivo. Le funzionalità del dispositivo sono organizzate in una o più interfacce.
 - Le **proprietà del cloud** specificano le proprietà IOT Central archivi per un dispositivo. Queste proprietà vengono archiviate solo in IoT Central e non vengono mai inviate a un dispositivo.
 - Le **visualizzazioni** specificano i dashboard e i moduli creati dal generatore per consentire all'operatore di monitorare e gestire i dispositivi.
-- Le **personalizzazioni** consentono al generatore di eseguire l'override di alcune definizioni nel modello di funzionalità del dispositivo per renderle più rilevanti per l'applicazione IoT Central.
+- Le **personalizzazioni** consentono al generatore di eseguire l'override di alcune definizioni nel modello di dispositivo per renderle più rilevanti per l'applicazione IoT Central.
 
 Un'applicazione può avere uno o più dispositivi simulati e reali basati su ogni modello di dispositivo.
 
@@ -152,7 +152,7 @@ In un'applicazione IoT Central di Azure è possibile [creare ed eseguire process
 
 ## <a name="role-based-access-control-rbac"></a>Controllo degli accessi in base al ruolo
 
-Un [amministratore può definire le regole di accesso](howto-manage-users-roles.md) per un'applicazione IoT Central di Azure usando uno dei ruoli predefiniti oppure creando un ruolo personalizzato. I ruoli determinano le aree dell'applicazione a cui un utente può accedere e le azioni che può eseguire.
+Ogni applicazione IoT Central dispone di un proprio sistema RBAC incorporato. Un [amministratore può definire le regole di accesso](howto-manage-users-roles.md) per un'applicazione IoT Central di Azure usando uno dei ruoli predefiniti oppure creando un ruolo personalizzato. I ruoli determinano le aree dell'applicazione a cui un utente può accedere e le azioni che può eseguire.
 
 ## <a name="security"></a>Sicurezza
 
