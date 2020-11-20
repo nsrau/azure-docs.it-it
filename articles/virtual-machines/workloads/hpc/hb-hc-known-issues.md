@@ -3,16 +3,17 @@ title: Risoluzione dei problemi noti con le VM HPC e GPU-macchine virtuali di Az
 description: Informazioni sulla risoluzione dei problemi noti relativi alle dimensioni di VM HPC e GPU in Azure.
 author: vermagit
 ms.service: virtual-machines
+ms.subservice: workloads
 ms.topic: article
 ms.date: 10/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: a96042045eaab440d099f96782c020067eedfa18
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f4e93deb40799cbcc9c86aff454e250f1ab71712
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282112"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963335"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemi noti delle VM serie H e serie N
 

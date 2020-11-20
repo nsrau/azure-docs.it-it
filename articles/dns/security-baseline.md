@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f107741dc3e601d0a46c295932a745c99dadb96d
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ed1c183281aea830e9cd61c1d95c6c092adbe05c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328077"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960683"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Baseline della sicurezza di Azure per DNS di Azure
 
@@ -20,7 +20,7 @@ La linea di base di sicurezza di Azure per Microsoft Azure DNS contiene raccoman
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: registrazione e monitoraggio](/azure/security/benchmarks/security-control-logging-monitoring).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: registrazione e monitoraggio](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: configurare la gestione dei log di sicurezza centralizzata
 
@@ -90,7 +90,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 ## <a name="identity-and-access-control"></a>Identità e controllo di accesso
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: identità e controllo di accesso](/azure/security/benchmarks/security-control-identity-access-control).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: identità e controllo di accesso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
@@ -98,9 +98,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 In DNS di Azure esiste il ruolo Collaboratore zona DNS, nonché il livello di zona e il livello di set di record di Azure. È anche possibile creare ruoli personalizzati di Azure per fornire un controllo più granulare. Si noti che le risorse della zona DNS privata utilizzano un nome di ruolo diverso, DNS privato collaboratore zona.
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
@@ -128,7 +128,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 È anche possibile abilitare l'accesso just-in-time agli account amministrativi usando Azure AD Privileged Identity Management e Azure Resource Manager. 
 
-- [Altre informazioni su Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Altre informazioni su Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 - [Come usare Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -178,7 +178,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 **Indicazioni**: usare Azure Active Directory report di sicurezza e il monitoraggio per rilevare quando si verificano attività sospette o non sicure nell'ambiente. Usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso.
 
-- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Come monitorare l'identità e le attività di accesso degli utenti nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
@@ -210,7 +210,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 **Indicazioni**: Azure Active Directory mette a disposizione i log necessari per individuare gli account obsoleti. Inoltre, utilizzare Azure AD le verifiche di identità e accesso per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. L'accesso utente può essere esaminato a intervalli regolari per assicurarsi che solo gli utenti corretti abbiano accesso continuo. 
 
-- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Come usare Azure AD le verifiche di identità e accesso](../active-directory/governance/access-reviews-overview.md)
 
@@ -224,7 +224,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 È possibile semplificare questo processo creando impostazioni di diagnostica per Azure AD account utente e inviando i log di controllo e i log di accesso a un'area di lavoro di Log Analytics. È possibile configurare gli avvisi desiderati nell'area di lavoro Log Analytics.
 
-- [Come integrare i log attività di Azure con monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Come integrare i log attività di Azure con monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -234,7 +234,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 **Indicazioni**: usare le funzionalità di Azure ad Identity Protection per configurare risposte automatiche per rilevare azioni sospette correlate alle identità utente. È anche possibile inserire i dati in Azure Sentinel per un'analisi più approfondita.
 
-- [Come visualizzare gli accessi a rischio per Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Come configurare e abilitare i criteri di rischio di Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -246,13 +246,13 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 ## <a name="data-protection"></a>Protezione dei dati
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: protezione dei dati](/azure/security/benchmarks/security-control-data-protection).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: protezione dei dati](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: gestire un inventario delle informazioni riservate
 
 **Indicazioni**: usare i tag per rilevare più facilmente le risorse di Azure che memorizzano o elaborano informazioni riservate.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -286,7 +286,7 @@ In DNS di Azure esiste il ruolo Collaboratore zona DNS, nonché il livello di zo
 
 ## <a name="inventory-and-asset-management"></a>Gestione di asset e inventario
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: inventario e gestione delle risorse](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: inventario e gestione delle risorse](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: usare la soluzione automazione Asset Discovery
 
@@ -296,7 +296,7 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Esplora
 
 - [Come creare query con Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-- [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
@@ -308,7 +308,7 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Esplora
 
 **Linee guida**: usare il nome, la descrizione e la categoria dei criteri per organizzare logicamente gli asset in base a una tassonomia.
 
-- [Per altre informazioni sull'assegnazione di tag agli asset, vedere Guida alla decisione relativa alla denominazione delle risorse e all'assegnazione di tag](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Per altre informazioni sull'assegnazione di tag agli asset, vedere Guida alla decisione relativa alla denominazione delle risorse e all'assegnazione di tag](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -318,11 +318,11 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Esplora
 
 **Indicazioni**: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate, laddove appropriato, per organizzare e tenere traccia delle risorse di Azure. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](../governance/management-groups/create.md)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -362,7 +362,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/index.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -380,13 +380,13 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 ## <a name="secure-configuration"></a>Configurazione sicura
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: configurazione sicura](/azure/security/benchmarks/security-control-secure-configuration).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: configurazione sicura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Definire configurazioni sicure per tutte le risorse di Azure
 
 **Linee guida**: definire e implementare configurazioni di sicurezza standard per DNS di Azure con criteri di Azure. Usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. Network" per creare criteri personalizzati per controllare o applicare la configurazione degli insiemi di credenziali dei servizi di ripristino.
 
-- [Come visualizzare gli alias dei criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Come visualizzare gli alias dei criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -416,9 +416,9 @@ Inoltre, Azure Resource Manager supporta un altro tipo di controllo di sicurezza
 
 **Linee guida**: se si usano definizioni di criteri di Azure personalizzate, usare Azure DevOps o Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Documentazione di Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Documentazione di Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -456,7 +456,7 @@ Inoltre, Azure Resource Manager supporta un altro tipo di controllo di sicurezza
 
 ## <a name="malware-defense"></a>Difesa da malware
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: Malware Defense](/azure/security/benchmarks/security-control-malware-defense).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: eseguire l'analisi preliminare dei file da caricare in risorse di Azure non di calcolo
 
@@ -470,7 +470,7 @@ Inoltre, Azure Resource Manager supporta un altro tipo di controllo di sicurezza
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: risposta agli eventi imprevisti](/azure/security/benchmarks/security-control-incident-response).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: risposta agli eventi imprevisti](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: creare un piano di risposta agli eventi imprevisti
 
@@ -494,7 +494,7 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 - [Avvisi di sicurezza nel Centro sicurezza di Azure](../security-center/security-center-alerts-overview.md)
 
-- [Usare tag per organizzare le risorse di Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usare tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -544,7 +544,7 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Test di penetrazione ed esercizi Red Team
 
-*Per altre informazioni, vedere [benchmark di sicurezza di Azure: test di penetrazione e esercizi Red Team](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Per altre informazioni, vedere [benchmark di sicurezza di Azure: test di penetrazione e esercizi Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
@@ -560,5 +560,5 @@ Inoltre, contrassegnare le sottoscrizioni usando i tag e creare un sistema di de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

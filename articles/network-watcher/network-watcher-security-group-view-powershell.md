@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 69fe84d6546e3fcb9e905a6b77ad3d9af3ed4d51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2da4ebfa6a9ce64b03e6e1d29956f740f6cb3c1b
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077964"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960612"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analizzare la protezione della macchina virtuale visualizzando un gruppo di sicurezza con PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "87077964"
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 > [!NOTE]
-> L'API visualizzazione del gruppo di sicurezza non è più gestita e verrà presto deprecata. Utilizzare la [funzionalità regole di sicurezza effettive](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) che fornisce la stessa funzionalità. 
+> L'API visualizzazione del gruppo di sicurezza non è più gestita e verrà presto deprecata. Utilizzare la [funzionalità regole di sicurezza effettive](./network-watcher-security-group-view-overview.md) che fornisce la stessa funzionalità. 
 
 La visualizzazione di un gruppo di sicurezza consente di recuperare le regole di sicurezza di rete configurate ed effettive applicate a una macchina virtuale. Questa funzionalità è utile per controllare e diagnosticare i gruppi di sicurezza di rete e le regole configurate in una macchina virtuale per verificare che il traffico viene consentito o negato in modo corretto. Questo articolo illustra come recuperare le regole di sicurezza configurate ed effettive applicate a una macchina virtuale tramite PowerShell
 
@@ -132,5 +132,3 @@ NetworkInterfaces : [
 ## <a name="next-steps"></a>Passaggi successivi
 
 Consultare [Auditing Network Security Groups (NSG) with Network Watcher](network-watcher-nsg-auditing-powershell.md) (Verifica dei gruppi di sicurezza di rete con Network Watcher) per informazioni su come automatizzare la verifica dei gruppi di sicurezza di rete.
-
-

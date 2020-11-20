@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c9feb1131f6d2d0eb75ac71e27dc46c226c52c1
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707396"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961057"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Distribuire un dispositivo StorSimple locale (aggiornamento 3 e successivi)
 
@@ -166,7 +166,7 @@ La configurazione del dispositivo è stata completata.
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Configurare un nuovo account di archiviazione per il servizio
 Si tratta di un passaggio che è necessario eseguire solo se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio. Per creare un contenitore di volumi di StorSimple, è necessario un account di archiviazione di Microsoft Azure.
 
-Se occorre creare un account di archiviazione di Azure in un'area diversa, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md) per istruzioni dettagliate.
+Se occorre creare un account di archiviazione di Azure in un'area diversa, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-account-create.md) per istruzioni dettagliate.
 
 Seguire questa procedura nella pagina del **servizio Gestione dispositivi StorSimple** nel portale di Azure.
 
@@ -207,4 +207,3 @@ La punta del connettore jack è PIN RX 3, la parte centrale è PIN 2 TX e la bas
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurare un'appliance cloud StorSimple](storsimple-8000-cloud-appliance-u2.md).
 * [Use the StorSimple Device Manager service to manage your StorSimple device (Usare il servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple)](storsimple-8000-manager-service-administration.md).
-

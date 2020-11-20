@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
+ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: d121430452e0ed445af19f9b1ac89cfdfccdcdae
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 05bcb0aebd44dee60fa3f323e1f109e4c0761ec8
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167322"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961958"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -120,7 +121,7 @@ Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP 
    4. Nome utente e password amministratore  
       Verrà creato un nuovo utente con cui è possibile accedere alla macchina
    5. Subnet ID  
-      Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID si presenta in genere come** &lt; ID &gt; sottoscrizione**/subscriptions//resourceGroups/nome** &lt; gruppo &gt; di risorse**** &lt; &gt; ** /Providers/Microsoft.Network/virtualNetworks/nome** &lt; rete &gt; virtuale**/Subnets/nome subnet
+      Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID si presenta in genere come **&lt; ID &gt; sottoscrizione**/subscriptions//resourceGroups/nome **&lt; gruppo &gt; di risorse****&lt; &gt;** /Providers/Microsoft.Network/virtualNetworks/nome **&lt; rete &gt; virtuale**/Subnets/nome subnet
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuire Linux manualmente tramite il portale di Azure
 
@@ -158,7 +159,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
          1. Porta 61000 per NW1
             1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
             1. Immettere il nome del nuovo probe di integrità, ad esempio **nw1-hp**
-            1. Selezionare TCP come protocollo, la porta 610**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
+            1. Selezionare TCP come protocollo, la porta 610 **00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
             1. Scegliere OK
          1. Porta 61001 per NW2
             * Ripetere i passaggi precedenti per creare un probe di integrità per NW2
@@ -192,7 +193,7 @@ Prima di tutto è necessario creare le macchine virtuali per il cluster NFS. Suc
          1. Porta 61000 per NW1
             1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
             1. Immettere il nome del nuovo probe di integrità, ad esempio **nw1-hp**
-            1. Selezionare TCP come protocollo, la porta 610**00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
+            1. Selezionare TCP come protocollo, la porta 610 **00**, mantenere 5 per Intervallo e impostare Soglia di non integrità su 2
             1. Scegliere OK
          1. Porta 61001 per NW2
             * Ripetere i passaggi precedenti per creare un probe di integrità per NW2
@@ -428,13 +429,13 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo drbdadm primary --force <b>NW2</b>-nfs
    </code></pre>
 
-1. **[1] ** Attendere il completamento della sincronizzazione dei nuovi dispositivi drbd
+1. **[1]** Attendere il completamento della sincronizzazione dei nuovi dispositivi drbd
 
    <pre><code>sudo drbdsetup wait-sync-resource NW1-nfs
    sudo drbdsetup wait-sync-resource NW2-nfs
    </code></pre>
 
-1. **[1] ** Creare i file system nei dispositivi drbd
+1. **[1]** Creare i file system nei dispositivi drbd
 
    <pre><code>sudo mkfs.xfs /dev/drbd0
    sudo mkdir /srv/nfs/NW1

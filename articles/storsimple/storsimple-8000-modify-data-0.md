@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 1d5d57cab9906c04c5c207fa7df2d2fae6f749e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85d7114f419266124d0d23368b24700af025758a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514611"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961040"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Modificare le impostazioni dell'interfaccia di rete DATA 0 in un dispositivo StorSimple serie 8000
 
@@ -64,9 +64,8 @@ Un modo alternativo per riconfigurare l'interfaccia di rete DATI 0 consiste nell
    * Indirizzo IPv4 fisso per controller 0
    * Indirizzo IPv4 fisso per controller 1
      
-     Per altre informazioni su come usare questo cmdlet, vedere le [informazioni di riferimento sui cmdlet di Windows PowerShell per StorSimple](https://technet.microsoft.com/library/dn688161.aspx).
+     Per altre informazioni su come usare questo cmdlet, vedere le [informazioni di riferimento sui cmdlet di Windows PowerShell per StorSimple](/previous-versions/windows/powershell-scripting/dn688161(v=wps.630)).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per configurare interfacce di rete diverse da DATA 0, vedere l'articolo su come [configurare le impostazioni di rete nel portale di Azure](storsimple-8000-modify-device-config.md). 
-* Se si riscontrano problemi durante la configurazione delle interfacce di rete, fare riferimento a [Risoluzione dei problemi di distribuzione](storsimple-troubleshoot-deployment.md).
-
+* Se si riscontrano problemi durante la configurazione delle interfacce di rete, fare riferimento a [Risoluzione dei problemi di distribuzione](./storsimple-8000-troubleshoot-deployment.md).

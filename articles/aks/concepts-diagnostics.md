@@ -6,12 +6,12 @@ author: yunjchoi
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 03bb7b786280dfcbb64190adac51b8d001d59c18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d06ad2f740394a4959f3665c5d6311e71841241
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79126601"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94960836"
 ---
 # <a name="azure-kubernetes-service-diagnostics-preview-overview"></a>Panoramica di diagnostica del servizio Kubernetes di Azure (anteprima)
 
@@ -39,7 +39,7 @@ Dopo aver fatto clic su una categoria, è possibile visualizzare un report di di
 
 ## <a name="cluster-insights"></a>Informazioni dettagliate sul cluster
 
-In **cluster Insights**sono disponibili i seguenti controlli di diagnostica.
+In **cluster Insights** sono disponibili i seguenti controlli di diagnostica.
 
 ### <a name="cluster-node-issues"></a>Problemi del nodo del cluster
 
@@ -82,5 +82,7 @@ Gestione identità e sicurezza rileva gli errori di autenticazione e autorizzazi
 ## <a name="next-steps"></a>Passaggi successivi
 
 Raccogliere i log per facilitare la risoluzione dei problemi del cluster usando il [periscopio AKS](https://aka.ms/aksperiscope).
+
+Leggere la [sezione procedure di valutazione](https://docs.microsoft.com/azure/architecture/operator-guides/aks/aks-triage-practices) della Guida operativa di AKS Day-2.
 
 Pubblicare domande o commenti e suggerimenti in [UserVoice](https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) aggiungendo "[diag]" nel titolo.

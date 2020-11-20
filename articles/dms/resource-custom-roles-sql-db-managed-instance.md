@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: e950e34a1965e309d226c42bf4b3128cbe3bf3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad02735228bb639981bf3f053a74f29d1944e5a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291504"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961482"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Ruoli personalizzati per SQL Server ad Azure SQL Istanza gestita migrazioni online
 
@@ -32,7 +32,7 @@ La sezione AssignableScopes della stringa JSON di definizione del ruolo consente
 > [!NOTE]
 > L'ultimo requisito del ruolo personalizzato potrebbe essere rimosso, in quanto il nuovo codice SQL Istanza gestita viene distribuito in Azure.
 
-**Ruolo personalizzato per l'ID app**. Questo ruolo è necessario per la migrazione del servizio migrazione del database di Azure a livello di *risorsa* o di *gruppo di risorse* . per ulteriori informazioni sull'ID app, vedere l'articolo [usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+**Ruolo personalizzato per l'ID app**. Questo ruolo è necessario per la migrazione del servizio migrazione del database di Azure a livello di *risorsa* o di *gruppo di risorse* . per ulteriori informazioni sull'ID app, vedere l'articolo [usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ```json
 {
@@ -83,7 +83,7 @@ La sezione AssignableScopes della stringa JSON di definizione del ruolo consente
 
 Il codice JSON precedente deve essere archiviato in tre file di testo ed è possibile usare i cmdlet AzureRM, AZ PowerShell o l'interfaccia della riga di comando di Azure per creare i ruoli usando **New-AzureRmRoleDefinition (AzureRM)** o **New-AzRoleDefinition (AZ)**.
 
-Per altre informazioni, vedere l'articolo [ruoli personalizzati di Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+Per altre informazioni, vedere l'articolo [ruoli personalizzati di Azure](../role-based-access-control/custom-roles.md).
 
 Dopo aver creato questi ruoli personalizzati, è necessario aggiungere assegnazioni di ruolo a utenti e ID APP alle risorse o ai gruppi di risorse appropriati:
 
@@ -142,7 +142,7 @@ Se il numero di ruoli personalizzati nell'Azure Active Directory non costituisce
 
 Per assegnare un ruolo a utenti/ID APP, aprire il portale di Azure, seguire questa procedura:
 
-1. Passare al gruppo di risorse o alla risorsa (ad eccezione del ruolo che deve essere concesso per la sottoscrizione), passare a **controllo di accesso**e quindi scorrere per trovare i ruoli personalizzati appena creati.
+1. Passare al gruppo di risorse o alla risorsa (ad eccezione del ruolo che deve essere concesso per la sottoscrizione), passare a **controllo di accesso** e quindi scorrere per trovare i ruoli personalizzati appena creati.
 
 2. Selezionare il ruolo appropriato, selezionare l'ID APP e quindi salvare le modifiche.
 

@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 7ffb13912780edcf3d92093e672d1dae983e50a8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: de4cae90f2cc1223271672d9fc5ba5b42e4409e4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977409"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962434"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usare il servizio Gestione dispositivi di StorSimple per monitorare il dispositivo StorSimple
 
@@ -29,7 +29,7 @@ La capacità fornita e quella residua sono ulteriormente suddivise in volumi agg
 
 
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 **Utilizzo** tiene traccia delle metriche correlate alla quantità di spazio di archiviazione di dati usato da volumi, contenitori del volume o dispositivo. È possibile creare report basati sull'utilizzo della capacità dell'archiviazione primaria, dell'archiviazione cloud o dell'archiviazione del dispositivo. L’utilizzo della capacità può essere misurata per un volume specifico, un contenitore del volume specifico o tutti i contenitori del volume.
 Per impostazione predefinita, viene segnalato l'uso nelle ultime 24 ore. Per modificare l'intervallo di calcolo dell'uso nel grafico, effettuare una selezione tra:
 * Ultime 24 ore
@@ -139,6 +139,5 @@ Esaminando il grafico della velocità effettiva dell'interfaccia Data 1, un'altr
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Imparare a [usare il dashboard dispositivo del servizio Gestione dispositivi StorSimple](storsimple-device-dashboard.md).
-* Informazioni su come [usare il servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple](storsimple-manager-service-administration.md).
-
+* Imparare a [usare il dashboard dispositivo del servizio Gestione dispositivi StorSimple](./storsimple-8000-device-dashboard.md).
+* Informazioni su come [usare il servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple](./storsimple-8000-manager-service-administration.md).

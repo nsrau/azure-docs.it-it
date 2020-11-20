@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 05/20/2020
-ms.openlocfilehash: 2316e0314c9d8f36aee123d4a516f382f58e83e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b331f8e0af452937028c63fba123cb92f57a6b0
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291657"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962417"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Problemi noti/limitazioni per le migrazioni online da Oracle a Database di Azure per PostgreSQL (server singolo)
 
@@ -34,7 +34,7 @@ Il Servizio Migrazione del database di Azure non supporta la connessione a datab
 
 ## <a name="postgresql-versions-supported-as-a-target-database"></a>Versioni di PostgreSQL supportate come database di destinazione
 
-Il Servizio Migrazione del database di Azure supporta le migrazioni a Database di Azure per PostgreSQL (server singolo) versioni 9.5, 9.6, 10 e 11. Vedere l'articolo [Versione supportate del database PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) per informazioni aggiornate sulle versioni supportate da Database di Azure per PostgreSQL (server singolo).
+Il Servizio Migrazione del database di Azure supporta le migrazioni a Database di Azure per PostgreSQL (server singolo) versioni 9.5, 9.6, 10 e 11. Vedere l'articolo [Versione supportate del database PostgreSQL](../postgresql/concepts-supported-versions.md) per informazioni aggiornate sulle versioni supportate da Database di Azure per PostgreSQL (server singolo).
 
 ## <a name="datatype-limitations"></a>Limitazioni relative ai tipi di dati
 

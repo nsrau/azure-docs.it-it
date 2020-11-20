@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 181f5433de6653c8b6a2cda085f04e21c64082b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 316b513f761aa422f87c83658e6c50efec25efb4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514656"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961142"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opzioni di migrazione dei dati da un dispositivo StorSimple serie 5000-7000 
 
@@ -43,7 +43,7 @@ Per altre informazioni sulle modalità di esecuzione dei dati usando una disposi
 
 Questa opzione di migrazione completamente nuova consente ai clienti di archiviare le condivisioni file dell'organizzazione in File di Azure. Queste condivisioni file sono quindi centralizzate per l'accesso in locale tramite l'uso di Sincronizzazione file di Azure (AFS). AFS può essere distribuito in un host server di Windows. La migrazione effettiva dei dati viene quindi eseguita come una copia host o tramite lo strumento di migrazione.
 
-Per altre informazioni sulle modalità di esecuzione della migrazione dei dati a Sincronizzazione file di Azure, passare a [Eseguire la migrazione dei dati da StorSimple serie 5000-7000 a una Sincronizzazione file di Azure](storsimple-5000-7000-afs-migration.md).
+Per altre informazioni sulle modalità di esecuzione della migrazione dei dati a Sincronizzazione file di Azure, passare a [Eseguire la migrazione dei dati da StorSimple serie 5000-7000 a una Sincronizzazione file di Azure](../storage/files/storage-files-migration-storsimple-8000.md).
 
 ### <a name="third-party-options"></a>Opzioni di terze parti
 
@@ -127,4 +127,4 @@ R. La data di fine supporto per StorSimple serie 8000 è pubblicata [qui](https:
 
 ## <a name="next-steps"></a>Passaggi successivi
  - [Eseguire la migrazione dei dati da un dispositivo StorSimple serie 5000/7000 a un dispositivo serie 8000](storsimple-8000-migrate-from-5000-7000.md).
- - [Eseguire la migrazione dei dati da un dispositivo StorSimple serie 5000/7000 a Sincronizzazione file di Azure](storsimple-5000-7000-afs-migration.md)
+ - [Eseguire la migrazione dei dati da un dispositivo StorSimple serie 5000/7000 a Sincronizzazione file di Azure](../storage/files/storage-files-migration-storsimple-8000.md)

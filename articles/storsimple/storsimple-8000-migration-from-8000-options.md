@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 78ac7e849a3a8f1742701006638a2cb72299bad7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4839f8211e678f5fc2fb3572c7eaa545fbee6c6c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055776"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961193"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Opzioni per la migrazione dei dati da StorSimple serie 8000
 
@@ -31,7 +31,7 @@ I clienti che usano StorSimple serie 8000 hanno opzioni di Azure o di terze part
 
 Questa nuovissima opzione di migrazione consente ai clienti di archiviare le condivisioni file dell'organizzazione nel File di Azure. Queste condivisioni file sono quindi centralizzate per l'accesso in locale tramite l'uso di Sincronizzazione file di Azure (AFS). AFS pu√≤ essere distribuito in un host server di Windows. La migrazione effettiva dei dati viene quindi eseguita come una copia host o tramite lo strumento di migrazione.
 
-Per altre informazioni su come eseguire la migrazione dei dati in Sincronizzazione file di Azure, vedere la pagina relativa alla [migrazione di StorSimple 8100 e 8600 a sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000).
+Per altre informazioni su come eseguire la migrazione dei dati in Sincronizzazione file di Azure, vedere la pagina relativa alla [migrazione di StorSimple 8100 e 8600 a sincronizzazione file di Azure](../storage/files/storage-files-migration-storsimple-8000.md).
 
 ### <a name="third-party-options"></a>Opzioni di terze parti
 
@@ -111,4 +111,4 @@ R. Il tempo necessario per la migrazione dei dati varia a seconda della quantit√
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Migrare i dati da una serie StorSimple 8000 a Sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000)
+* [Migrare i dati da una serie StorSimple 8000 a Sincronizzazione file di Azure](../storage/files/storage-files-migration-storsimple-8000.md)

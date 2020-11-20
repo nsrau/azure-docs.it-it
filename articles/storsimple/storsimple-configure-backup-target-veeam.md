@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: 052859e99ffd0082994d313508ebb6f0496d980b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf28265de2b297dade545695c9369b8074eeb72c
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710346"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962553"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple come destinazione di backup con Veeam
 
@@ -75,13 +75,13 @@ StorSimple offre i vantaggi seguenti:
 -   Algoritmi di deduplicazione e compressione univoci che usano il cloud per ottenere livelli avanzati di deduplicazione
 -   Disponibilità elevata
 -   Replica geografica usando la replica geografica di Azure
--   Integrazione di Azure
+-   Integrazione con Azure
 -   Crittografia dei dati nel cloud
 -   Miglioramento del ripristino di emergenza e della conformità
 
 Sebbene StorSimple presenti due scenari di distribuzione principali (destinazione di backup primaria e secondaria), fondamentalmente si tratta di un normale dispositivo di archiviazione a blocchi. StorSimple esegue tutta la compressione e la deduplicazione necessarie. Invia e recupera senza problemi i dati tra il cloud e l'applicazione e il file system.
 
-Per altre informazioni su StorSimple, vedere [Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida](storsimple-overview.md). È possibile vedere anche le [specifiche tecniche di StorSimple serie 8000](storsimple-technical-specifications-and-compliance.md).
+Per altre informazioni su StorSimple, vedere [Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida](storsimple-overview.md). È possibile vedere anche le [specifiche tecniche di StorSimple serie 8000](./storsimple-8000-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > L'uso di un dispositivo StorSimple come destinazione di backup è supportato solo per StorSimple 8000 Update 3 e versioni successive.
@@ -172,7 +172,7 @@ Per garantire prestazioni ottimali della soluzione, è consigliabile rispettare 
 
 ### <a name="deploy-storsimple"></a>Distribuire StorSimple
 
-Per una guida dettagliata alla distribuzione di StorSimple, vedere [Distribuire un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).
+Per una guida dettagliata alla distribuzione di StorSimple, vedere [Distribuire un dispositivo StorSimple locale](./storsimple-8000-deployment-walkthrough-u2.md).
 
 ### <a name="deploy-veeam"></a>Distribuire Veeam
 
@@ -187,7 +187,7 @@ In questa sezione vengono descritti alcuni esempi di configurazione. Gli esempi 
 | Attività di distribuzione di StorSimple  | Commenti aggiuntivi |
 |---|---|
 | Distribuire un dispositivo StorSimple locale. | Versioni supportate: Update 3 e versioni successive. |
-| Attivare la destinazione di backup. | Usare i comandi seguenti per attivare o disattivare la modalità di destinazione di backup e ottenere lo stato. Per altre informazioni, vedere [Connettersi in remoto a un dispositivo StorSimple](storsimple-remote-connect.md).</br> Per attivare la modalità di backup: `Set-HCSBackupApplianceMode -enable`. </br> Per disattivare la modalità di backup: `Set-HCSBackupApplianceMode -disable`. </br> Per ottenere lo stato corrente delle impostazioni della modalità di backup: `Get-HCSBackupApplianceMode`. |
+| Attivare la destinazione di backup. | Usare i comandi seguenti per attivare o disattivare la modalità di destinazione di backup e ottenere lo stato. Per altre informazioni, vedere [Connettersi in remoto a un dispositivo StorSimple](./storsimple-8000-remote-connect.md).</br> Per attivare la modalità di backup: `Set-HCSBackupApplianceMode -enable`. </br> Per disattivare la modalità di backup: `Set-HCSBackupApplianceMode -disable`. </br> Per ottenere lo stato corrente delle impostazioni della modalità di backup: `Get-HCSBackupApplianceMode`. |
 | Creare un contenitore comune per il volume che archivia i dati di backup. Tutti i dati contenuti in un contenitore di volumi vengono deduplicati. | I contenitori di volumi StorSimple definiscono i domini di deduplicazione.  |
 | Creare i volumi di StorSimple. | Creare volumi con dimensioni il più possibile simili all'uso previsto in quanto le dimensioni del volume possono influire sulla durata dello snapshot cloud. Per vedere come dimensionare un volume, leggere le informazioni sui [criteri di conservazione](#retention-policies).</br> </br> Usare i volumi StorSimple a livelli e selezionare la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente**. </br> L'uso di soli volumi aggiunti in locale non è supportato. |
 | Creare un criterio di backup di StorSimple univoco per tutti i volumi della destinazione di backup. | Un criterio di backup di StorSimple definisce il gruppo di coerenza del volume. |
@@ -213,16 +213,16 @@ Configurare la soluzione in base alle linee guida riportate nelle sezioni seguen
 - Disabilitare la deframmentazione di Windows Server sui volumi StorSimple.
 - Disabilitare l'indicizzazione di Windows Server sui volumi StorSimple.
 - Eseguire una scansione antivirus dell'host di origine (non nei volumi StorSimple).
-- Disabilitare la [manutenzione di Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) predefinita in Gestione attività. Eseguire questa operazione in uno dei modi seguenti:
+- Disabilitare la [manutenzione di Windows Server](/windows/win32/w8cookbook/automatic-maintenance) predefinita in Gestione attività. Eseguire questa operazione in uno dei modi seguenti:
   - Disattivare lo strumento di configurazione della manutenzione nell'Utilità di pianificazione attività di Windows.
-  - Scaricare [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) di Windows Sysinternals. Dopo aver scaricato PsExec, eseguire Windows PowerShell come amministratore e digitare:
+  - Scaricare [PsExec](/sysinternals/downloads/psexec) di Windows Sysinternals. Dopo aver scaricato PsExec, eseguire Windows PowerShell come amministratore e digitare:
     ```powershell
     psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
     ```
 
 ### <a name="storsimple-best-practices"></a>Procedure consigliate di StorSimple
 
--   Assicurarsi che il dispositivo StorSimple sia aggiornato alla versione [Update 3 o successiva](storsimple-install-update-3.md).
+-   Assicurarsi che il dispositivo StorSimple sia aggiornato alla versione [Update 3 o successiva](./index.yml).
 -   Isolare il traffico iSCSI e cloud. Usare connessioni iSCSI dedicate per il traffico tra StorSimple e il server di backup.
 -   Assicurarsi che il dispositivo StorSimple sia una destinazione di backup dedicata. I carichi di lavoro misti non sono supportati in quanto influenzano RTO e RPO.
 
@@ -319,7 +319,7 @@ Di seguito è riportato un esempio di una pianificazione a rotazione GFS per qua
 | Frequenza/Tipo di backup | Full | Incrementale (giorni 1-5)  |   
 |---|---|---|
 | Settimanale (settimane 1-4) | Sabato | Lunedì-venerdì |
-| Mensilmente  | Sabato  |   |
+| Ogni mese  | Sabato  |   |
 | Annuale | Sabato  |   |
 
 
@@ -399,7 +399,7 @@ Pianificazione della rotazione GFS settimanale, mensile e annuale
 | Settimana 2 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 3 | StorSimple settimane 2-4 |   |   |   |   |   |
 | Settimana 4 | StorSimple settimane 2-4 |   |   |   |   |   |
-| Mensilmente | StorSimple Mensile |   |   |   |   |   |
+| Ogni mese | StorSimple Mensile |   |   |   |   |   |
 | Annuale | StorSimple Annuale  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Assegnare volumi StorSimple a un processo di copia Veeam
@@ -502,7 +502,7 @@ Una situazione di emergenza può essere causata da numerosi fattori. La tabella 
 
 | Scenario | Impatto | Come ripristinare | Note |
 |---|---|---|---|
-| Errore del dispositivo StorSimple | Le operazioni di backup e ripristino vengono interrotte. | Sostituire il dispositivo con errore ed eseguire [failover e ripristino di emergenza per StorSimple](storsimple-device-failover-disaster-recovery.md). | Se è necessario eseguire un ripristino dopo il recupero del dispositivo, i working set di dati completi vengono recuperati dal cloud al nuovo dispositivo. Tutte le operazioni saranno eseguite alle velocità del cloud. Il processo di ripetizione dell'indicizzazione e della catalogazione può causare l'analisi e l'estrazione di tutti i set di backup dal livello cloud al livello del dispositivo locale e questo processo può richiedere molto tempo. |
+| Errore del dispositivo StorSimple | Le operazioni di backup e ripristino vengono interrotte. | Sostituire il dispositivo con errore ed eseguire [failover e ripristino di emergenza per StorSimple](./storsimple-8000-device-failover-disaster-recovery.md). | Se è necessario eseguire un ripristino dopo il recupero del dispositivo, i working set di dati completi vengono recuperati dal cloud al nuovo dispositivo. Tutte le operazioni saranno eseguite alle velocità del cloud. Il processo di ripetizione dell'indicizzazione e della catalogazione può causare l'analisi e l'estrazione di tutti i set di backup dal livello cloud al livello del dispositivo locale e questo processo può richiedere molto tempo. |
 | Errore del server di Veeam | Le operazioni di backup e ripristino vengono interrotte. | Ricompilare il server di backup ed eseguire il ripristino del database come illustrato in [Veeam Help Center (Technical Documentation)](https://www.veeam.com/documentation-guides-datasheets.html) (Help Center Veeam (documentazione tecnica)).  | È necessario ricompilare o ripristinare il server di Veeam nel sito di ripristino di emergenza. Ripristinare il database al punto più recente. Se il database Veeam ripristinato non è sincronizzato con i processi di backup più recenti, è necessario eseguire l'indicizzazione e la catalogazione. Il processo di ripetizione dell'indicizzazione e della catalogazione può causare l'analisi e l'estrazione di tutti i set di backup dal livello cloud al livello del dispositivo locale. In questo modo il tempo sarà un fattore ancora più importante. |
 | Errore del sito che comporta la perdita sia del server di backup che di StorSimple | Le operazioni di backup e ripristino vengono interrotte. | Ripristinare innanzitutto StorSimple e quindi Veeam. | Ripristinare innanzitutto StorSimple e quindi Veeam. Se è necessario eseguire un ripristino dopo il recupero del dispositivo, i working set di dati completi vengono recuperati dal cloud al nuovo dispositivo. Tutte le operazioni saranno eseguite alle velocità del cloud. |
 
@@ -511,12 +511,12 @@ Una situazione di emergenza può essere causata da numerosi fattori. La tabella 
 
 Questo articolo fa riferimento ai documenti seguenti:
 
-- [Configurazione di Multipath I/O per StorSimple](storsimple-configure-mpio-windows-server.md)
-- [Scenari di archiviazione: thin provisioning](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [Uso di unità GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [Configurare le copie shadow di cartelle condivise](https://technet.microsoft.com/library/cc771893.aspx)
+- [Configurazione di Multipath I/O per StorSimple](./storsimple-8000-configure-mpio-windows-server.md)
+- [Scenari di archiviazione: thin provisioning](/windows-hardware/drivers/storage/thin-provisioning)
+- [Uso di unità GPT](/previous-versions/windows/hardware/design/dn653580(v=vs.85)#EHD)
+- [Configurare le copie shadow di cartelle condivise](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771893(v=ws.11))
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [eseguire il ripristino da un set di backup](storsimple-restore-from-backup-set-u2.md).
-- Informazioni su come eseguire le procedure di [failover e ripristino di emergenza di un dispositivo](storsimple-device-failover-disaster-recovery.md).
+- Informazioni su come [eseguire il ripristino da un set di backup](./storsimple-8000-restore-from-backup-set-u2.md).
+- Informazioni su come eseguire le procedure di [failover e ripristino di emergenza di un dispositivo](./storsimple-8000-device-failover-disaster-recovery.md).

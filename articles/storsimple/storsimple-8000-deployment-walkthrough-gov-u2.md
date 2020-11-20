@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
-ms.openlocfilehash: fbbb298dd9e5b568e6a1dc2c4ef731b8521f8308
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d736c09fc1c9490f79dfc526895970e01b8b45cc
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85556034"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963182"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Distribuire un dispositivo StorSimple locale nel portale di Azure per enti pubblici
 
@@ -153,7 +153,7 @@ Eseguire questi passaggi nell'host di Windows Server.
 
 > [!IMPORTANT]
 > * Per la disponibilità elevata della soluzione StorSimple, è consigliabile configurare MPIO nei server host (facoltativo) prima della configurazione iSCSI. Usare la funzionalità MPIO sui server host per assicurarsi che i server possano tollerare un errore di collegamento, rete o interfaccia.
-> * Per istruzioni sull'installazione e sulla configurazione di MPIO e iSCSI sull’host Windows Server, vedere [Configurare MPIO per il dispositivo StorSimple](storsimple-configure-mpio-windows-server.md). Questi comprendono anche i passaggi per montare, inizializzare e formattare volumi StorSimple.
+> * Per istruzioni sull'installazione e sulla configurazione di MPIO e iSCSI sull’host Windows Server, vedere [Configurare MPIO per il dispositivo StorSimple](./storsimple-8000-configure-mpio-windows-server.md). Questi comprendono anche i passaggi per montare, inizializzare e formattare volumi StorSimple.
 > * Per istruzioni sull'installazione e sulla configurazione di MPIO e iSCSI su un host Linux, vedere [Configurare MPIO per l’host Linux di StorSimple](storsimple-configure-mpio-on-linux.md)
 
 Se si decide di non configurare MPIO, eseguire la procedura seguente per montare, inizializzare e formattare i volumi StorSimple su un host Windows Server.
@@ -172,7 +172,7 @@ Attenersi alla procedura seguente nel portale per enti pubblici per creare un ba
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Configurare un nuovo account di archiviazione per il servizio
 Si tratta di un passaggio che è necessario eseguire solo se non è stata abilitata la creazione automatica di un account di archiviazione con il servizio. Per creare un contenitore di volumi di StorSimple, è necessario un account di archiviazione di Microsoft Azure.
 
-Se occorre creare un account di archiviazione di Azure in un'area diversa, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md) per istruzioni dettagliate.
+Se occorre creare un account di archiviazione di Azure in un'area diversa, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-account-create.md) per istruzioni dettagliate.
 
 Attenersi alla procedura seguente nel portale per gli enti pubblici, nella pagina del **servizio Gestione dispositivi StorSimple**.
 
@@ -199,4 +199,3 @@ Attenersi alla procedura seguente nel portale per enti pubblici per creare un ba
 ## <a name="next-steps"></a>Passaggi successivi
 * Configurare un [dispositivo virtuale](storsimple-8000-cloud-appliance-u2.md).
 * Usare il [servizio Device Manager StorSimple](storsimple-8000-manager-service-administration.md) per gestire il dispositivo StorSimple.
-

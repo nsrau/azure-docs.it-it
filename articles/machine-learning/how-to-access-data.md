@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: 30ece529b141f3a50191c532d85265d8e9555b34
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3c8e18a3a216240a624b3b14f5e2e397d6c06012
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538598"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961329"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Connettersi ai servizi di archiviazione in Azure
 
@@ -88,13 +88,13 @@ Per garantire la connessione sicura al servizio di archiviazione di Azure, Azure
 
 ### <a name="virtual-network"></a>Rete virtuale 
 
-Se l'account di archiviazione dati si trova in una **rete virtuale** , sono necessari passaggi di configurazione aggiuntivi per garantire che Azure Machine Learning abbia accesso ai dati. Vedere [usare Azure Machine Learning Studio in una rete virtuale di Azure](how-to-enable-studio-virtual-network.md) per assicurarsi che vengano applicati i passaggi di configurazione appropriati quando si crea e si registra l'archivio dati.  
+Se l'account di archiviazione dati si trova in una **rete virtuale**, sono necessari passaggi di configurazione aggiuntivi per garantire che Azure Machine Learning abbia accesso ai dati. Vedere [usare Azure Machine Learning Studio in una rete virtuale di Azure](how-to-enable-studio-virtual-network.md) per assicurarsi che vengano applicati i passaggi di configurazione appropriati quando si crea e si registra l'archivio dati.  
 
 ### <a name="access-validation"></a>Convalida dell'accesso
 
-**Come parte del processo di creazione e registrazione dell'archivio dati iniziale** , Azure Machine Learning convalida automaticamente il servizio di archiviazione sottostante e l'entità fornita dall'utente (nome utente, entità servizio o token SAS) ha accesso alla risorsa di archiviazione specificata.
+**Come parte del processo di creazione e registrazione dell'archivio dati iniziale**, Azure Machine Learning convalida automaticamente il servizio di archiviazione sottostante e l'entità fornita dall'utente (nome utente, entità servizio o token SAS) ha accesso alla risorsa di archiviazione specificata.
 
-**Dopo la creazione dell'archivio dati** , questa convalida viene eseguita solo per i metodi che richiedono l'accesso al contenitore di archiviazione sottostante, **non** ogni volta che vengono recuperati gli oggetti dell'archivio dati. La convalida viene ad esempio eseguita se è necessario scaricare i file dall'archivio dati, mentre se si vuole solo modificare l'archivio dati predefinito, la convalida non viene eseguita.
+**Dopo la creazione dell'archivio dati**, questa convalida viene eseguita solo per i metodi che richiedono l'accesso al contenitore di archiviazione sottostante, **non** ogni volta che vengono recuperati gli oggetti dell'archivio dati. La convalida viene ad esempio eseguita se è necessario scaricare i file dall'archivio dati, mentre se si vuole solo modificare l'archivio dati predefinito, la convalida non viene eseguita.
 
 Per autenticare l'accesso al servizio di archiviazione sottostante, è possibile specificare la chiave dell'account, le firme di accesso condiviso (SAS) o l'entità servizio nel metodo corrispondente `register_azure_*()` del tipo di archivio dati che si vuole creare. Nella [matrice del tipo di archiviazione](#matrix) sono elencati i tipi di autenticazione supportati che corrispondono a ogni tipo di archivio dati.
 
@@ -180,7 +180,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 Per un archivio dati Azure Data Lake Storage Gen2 (ADLS Gen2), usare [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) per registrare un archivio dati delle credenziali connesso a una risorsa di archiviazione di Azure Data Lake Storage Gen2 con [autorizzazioni dell'entità servizio](../active-directory/develop/howto-create-service-principal-portal.md).  
 
-Per usare l'entità servizio, è necessario [registrare l'applicazione](../active-directory/develop/app-objects-and-service-principals.md) e concedere all'entità servizio l'accesso ai dati tramite il controllo degli accessi in base al ruolo (RBAC di Azure) o gli elenchi di controllo di accesso (ACL). Vedere altre informazioni sulla [configurazione del controllo di accesso per ADLS Gen2](../storage/blobs/data-lake-storage-access-control-model.md). 
+Per usare l'entità servizio, è necessario [registrare l'applicazione](../active-directory/develop/app-objects-and-service-principals.md) e concedere all'entità servizio l'accesso ai dati tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) o gli elenchi di controllo di accesso (ACL). Vedere altre informazioni sulla [configurazione del controllo di accesso per ADLS Gen2](../storage/blobs/data-lake-storage-access-control-model.md). 
 
 Il codice seguente crea e registra l'archivio dati `adlsgen2_datastore_name` nell'area di lavoro `ws`. Questo archivio dati accede al file system `test` nell'account di archiviazione `account_name` usando le credenziali dell'entità servizio fornite. Per informazioni sugli scenari di rete virtuale e su dove trovare le credenziali di autenticazione necessarie, vedere la sezione [autorizzazioni di accesso alle & di archiviazione](#storage-access-and-permissions) . 
 

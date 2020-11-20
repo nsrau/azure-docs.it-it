@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6809e8a44120eddbae4965bff30f80b617bdd024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c308824afdcae5f5c04a316c199bad71ad84a429
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272162"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962006"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Creare un'istanza di Azure Network Watcher
 
@@ -49,7 +49,7 @@ az provider register -n Microsoft.Network
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Creare un'istanza di Network Watcher nel portale
 
-Passare a **tutti i servizi**  >  **Networking**  >  **Network Watcher**di rete. È possibile selezionare tutte le sottoscrizioni per cui si vuole abilitare Network Watcher. Questa azione crea un'istanza di Network Watcher in ogni area in cui è disponibile.
+Passare a **tutti i servizi**  >  **Networking**  >  **Network Watcher** di rete. È possibile selezionare tutte le sottoscrizioni per cui si vuole abilitare Network Watcher. Questa azione crea un'istanza di Network Watcher in ogni area in cui è disponibile.
 
 ![Creare un'istanza di Network Watcher](./media/network-watcher-create/figure1.png)
 
@@ -107,7 +107,7 @@ Per creare un'istanza di Network Watcher fare riferimento a questo [modello di a
 
 ## <a name="delete-a-network-watcher-in-the-portal"></a>Eliminare un Network Watcher nel portale
 
-Passare a **tutti i servizi**  >  **Networking**  >  **Network Watcher**di rete.
+Passare a **tutti i servizi**  >  **Networking**  >  **Network Watcher** di rete.
 
 Selezionare la scheda Panoramica, se non lo si è già fatto. Usare l'elenco a discesa per selezionare la sottoscrizione in cui si vuole disabilitare Network Watcher.
 Espandere l'elenco delle aree per la sottoscrizione scelta facendo clic sulla freccia. Per qualsiasi dato, usare i 3 puntini a destra per accedere al menu di scelta rapida.
@@ -129,7 +129,7 @@ Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup Networ
 
 Dopo aver creato un'istanza di Network Watcher, è possibile approfondire le funzionalità disponibili, indicate di seguito:
 
-* [Topologia](network-watcher-topology-overview.md)
+* [Topologia](./view-network-topology.md)
 * [Acquisizione pacchetti](network-watcher-packet-capture-overview.md)
 * [Verifica flusso IP](network-watcher-ip-flow-verify-overview.md)
 * [Hop successivo](network-watcher-next-hop-overview.md)

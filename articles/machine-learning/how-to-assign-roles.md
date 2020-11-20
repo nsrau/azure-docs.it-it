@@ -11,19 +11,19 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: dd8eff01cd52f8d80eb56f3a1ebe924763c8b70c
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6cd4bbec89e955c398f7cb6e37ba5c3dcc6427ea
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441700"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961227"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire gli accessi all'area di lavoro di Azure Machine Learning
 
 Questo articolo illustra come gestire l'accesso (autorizzazione) a un'area di lavoro Azure Machine Learning. Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md) viene usato per gestire l'accesso alle risorse di Azure, ad esempio la possibilità di creare nuove risorse o usare quelle esistenti. Agli utenti del Azure Active Directory (Azure AD) vengono assegnati ruoli specifici che concedono l'accesso alle risorse. Azure fornisce ruoli predefiniti e la possibilità di creare ruoli personalizzati.
 
 > [!TIP]
-> Questo articolo è incentrato sulla Azure Machine Learning, i singoli servizi basati su Azure ML che forniscono le proprie impostazioni RBAC. Ad esempio, usando le informazioni contenute in questo articolo, è possibile configurare chi può inviare richieste di assegnazione dei punteggi a un modello distribuito come servizio Web nel servizio Azure Kubernetes. Il servizio Azure Kubernetes fornisce tuttavia un proprio set di ruoli RBAC di Azure. Per informazioni RBAC specifiche del servizio che possono essere utili con Azure Machine Learning, vedere i collegamenti seguenti:
+> Questo articolo è incentrato sulla Azure Machine Learning, i singoli servizi basati su Azure ML che forniscono le proprie impostazioni RBAC. Ad esempio, usando le informazioni contenute in questo articolo, è possibile configurare chi può inviare richieste di assegnazione dei punteggi a un modello distribuito come servizio Web nel servizio Azure Kubernetes. Il servizio Azure Kubernetes fornisce tuttavia un proprio set di ruoli di Azure. Per informazioni RBAC specifiche del servizio che possono essere utili con Azure Machine Learning, vedere i collegamenti seguenti:
 >
 > * [Controllare l'accesso alle risorse cluster di Azure Kubernetes](../aks/azure-ad-rbac.md)
 > * [Usa RBAC di Azure per l'autorizzazione Kubernetes](../aks/manage-azure-rbac.md)
@@ -192,7 +192,7 @@ Per assegnare un'identità assegnata all'utente a un cluster di calcolo di Azure
 
 Per eseguire operazioni MLflow con l'area di lavoro Azure Machine Learning, usare gli ambiti seguenti per il ruolo personalizzato:
 
-| Operazione MLflow | Ambito |
+| Operazione MLflow | Scope |
 | --- | --- |
 | Elencare tutti gli esperimenti nell'archivio di rilevamento dell'area di lavoro, ottenere un esperimento in base all'ID, ottenere un esperimento per nome | `Microsoft.MachineLearningServices/workspaces/experiments/read` |
 | Creare un esperimento con un nome, impostare un tag per un esperimento, ripristinare un esperimento contrassegnato per l'eliminazione| `Microsoft.MachineLearningServices/workspaces/experiments/write` | 
@@ -209,7 +209,7 @@ Per eseguire operazioni MLflow con l'area di lavoro Azure Machine Learning, usar
 
 ### <a name="data-scientist"></a>Data scientist
 
-Consente a un data scientist di eseguire tutte le operazioni all'interno di un'area di lavoro **eccetto** :
+Consente a un data scientist di eseguire tutte le operazioni all'interno di un'area di lavoro **eccetto**:
 
 * Creazione di calcolo
 * Distribuzione di modelli in un cluster AKS di produzione
@@ -247,7 +247,7 @@ Consente a un data scientist di eseguire tutte le operazioni all'interno di un'a
 
 ### <a name="data-scientist-restricted"></a>Data Scientist con restrizioni
 
-Definizione di ruolo più limitata senza caratteri jolly nelle azioni consentite. Può eseguire tutte le operazioni all'interno di un'area di lavoro **eccetto** :
+Definizione di ruolo più limitata senza caratteri jolly nelle azioni consentite. Può eseguire tutte le operazioni all'interno di un'area di lavoro **eccetto**:
 
 * Creazione di calcolo
 * Distribuzione di modelli in un cluster AKS di produzione
@@ -310,7 +310,7 @@ Definizione di ruolo più limitata senza caratteri jolly nelle azioni consentite
      
 ### <a name="mlflow-data-scientist"></a>MLflow data scientist
 
-Consente a un data scientist di eseguire tutte le operazioni supportate da MLflow AzureML **eccetto** :
+Consente a un data scientist di eseguire tutte le operazioni supportate da MLflow AzureML **eccetto**:
 
 * Creazione di calcolo
 * Distribuzione di modelli in un cluster AKS di produzione

@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 3b9a94f7f9f64426374a5ea349b3653d837fc1ac
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: a9ac4830d11aa3360a272ac1feb167eb20c26c9a
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494449"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962621"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problemi di migrazione online & limitazioni di Azure DB per MySQL con il servizio migrazione del database di Azure
 
@@ -32,7 +32,7 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 - Database di Azure per MySQL supporta:
   - Edizione MySQL Community
   - Motore InnoDB
-- La migrazione alla stessa versione. La migrazione di MySQL 5.6 a Database di Azure per MySQL 5.7 non è supportata. Le migrazioni da o verso MySQL 8,0 non sono supportate.
+- La migrazione alla stessa versione. La migrazione di MySQL 5.6 a Database di Azure per MySQL 5.7 non è supportata. Le migrazioni a o da MySQL 8.0 non sono supportate.
 - Abilitare la registrazione binaria in my.ini (Windows) o my.cnf (Unix)
   - Impostare Server_id su un numero qualsiasi maggiore o uguale a 1, ad esempio Server_id=1 (solo per MySQL 5.6)
   - Impostare log-bin = \<path> (solo per MySQL 5.6)
@@ -118,7 +118,7 @@ Quando si tenta di eseguire una migrazione in linea da AWS RDS MySQL a database 
 
   **Limitazione**: questo errore si verifica quando il database di Azure di destinazione per il database MySQL non ha lo schema richiesto. La migrazione dello schema è necessaria per abilitare la migrazione dei dati alla destinazione.
 
-  **Soluzione temporanea**: [eseguire la migrazione dello schema](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#migrate-the-sample-schema) dal database di origine al database di destinazione.
+  **Soluzione temporanea**: [eseguire la migrazione dello schema](./tutorial-mysql-azure-mysql-online.md#migrate-the-sample-schema) dal database di origine al database di destinazione.
 
 ## <a name="other-limitations"></a>Altre limitazioni
 
@@ -136,7 +136,7 @@ Quando si tenta di eseguire una migrazione in linea da AWS RDS MySQL a database 
 
 - Nel servizio migrazione del database di Azure, il limite di database di cui eseguire la migrazione in un'unica attività di migrazione è quattro.
 
-- Il Servizio Migrazione del database di Azure non supporta l'azione referenziale CASCADE, che consente di eliminare o aggiornare automaticamente una riga nella tabella figlio quando viene eliminata o aggiornata una riga corrispondente nella tabella padre. Per altre informazioni, vedere la sezione Azioni referenziali dell'articolo [Vincoli FOREIGN KEY](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html) nella documentazione di MySQL. Il Servizio Migrazione del database di Azure richiede di eliminare i vincoli di chiave esterna nel database di destinazione durante il caricamento iniziale di dati e non è possibile usare azioni referenziali. Se il carico di lavoro dipende dall'aggiornamento di una tabella figlio correlata tramite questa operazione referenziale, è consigliabile eseguire invece un'operazione di [dump e ripristino](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore). 
+- Il Servizio Migrazione del database di Azure non supporta l'azione referenziale CASCADE, che consente di eliminare o aggiornare automaticamente una riga corrispondente nella tabella figlio quando viene eliminata o aggiornata una riga nella tabella padre. Per altre informazioni, vedere la sezione Azioni referenziali dell'articolo [Vincoli FOREIGN KEY](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html) nella documentazione di MySQL. Il Servizio Migrazione del database di Azure richiede di eliminare i vincoli di chiave esterna nel database di destinazione durante il caricamento iniziale di dati e non è possibile usare azioni referenziali. Se il carico di lavoro dipende dall'aggiornamento di una tabella figlio correlata tramite questa operazione referenziale, è consigliabile eseguire invece un'operazione di [dump e ripristino](../mysql/concepts-migrate-dump-restore.md). 
 
 - **Errore:** Dimensioni delle righe troppo grandi (> 8126). Potrebbe essere utile modificare alcune colonne in testo o BLOB. Nel formato di riga corrente, il prefisso BLOB di 0 byte viene archiviato inline.
 

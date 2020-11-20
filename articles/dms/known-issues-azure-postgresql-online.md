@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 14722f46f06351504583da7231179d206f7a3c26
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: db2f6e95153610e0a1b79cf5d30cea3c917333d3
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893731"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962570"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>Problemi noti/limitazioni della migrazione con migrazioni online da PostgreSQL a database di Azure per PostgreSQL
 
@@ -96,13 +96,13 @@ Quando si tenta di eseguire una migrazione in linea da AWS Servizi Desktop remot
 - **Errore**: Il valore predefinito della colonna "{column}" nella tabella "{table}" del database "{database}" è diverso nei server di origine e di destinazione. È "{value on source}" nell'origine e "{value on target}" nella destinazione.
 
   **Limitazione**: questo errore si verifica quando il valore predefinito in uno schema di colonna è diverso tra i database di origine e di destinazione.
-  **Soluzione temporanea**: assicurarsi che lo schema nella destinazione corrisponda allo schema nell'origine. Per informazioni dettagliate sulla migrazione dello schema, vedere la [documentazione relativa alla migrazione in linea di Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Soluzione temporanea**: assicurarsi che lo schema nella destinazione corrisponda allo schema nell'origine. Per informazioni dettagliate sulla migrazione dello schema, vedere la [documentazione relativa alla migrazione in linea di Azure PostgreSQL](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 - **Errore**: Il database di destinazione "{database}" ha "{number of tables}" tabelle, mentre il database di origine "{database}" ha "{number of tables}" tabelle. Il numero di tabelle nei database di origine e di destinazione deve corrispondere.
 
   **Limitazione**: questo errore si verifica quando il numero di tabelle è diverso tra i database di origine e di destinazione.
 
-  **Soluzione temporanea**: assicurarsi che lo schema nella destinazione corrisponda allo schema nell'origine. Per informazioni dettagliate sulla migrazione dello schema, vedere la [documentazione relativa alla migrazione in linea di Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Soluzione temporanea**: assicurarsi che lo schema nella destinazione corrisponda allo schema nell'origine. Per informazioni dettagliate sulla migrazione dello schema, vedere la [documentazione relativa alla migrazione in linea di Azure PostgreSQL](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 - **Errore:** Il database di origine {database} è vuoto.
 
@@ -113,7 +113,7 @@ Quando si tenta di eseguire una migrazione in linea da AWS Servizi Desktop remot
 - **Errore:** Il database di destinazione {database} è vuoto. Eseguire la migrazione dello schema.
 
   **Limitazione**: questo errore si verifica quando non è presente alcuno schema nel database di destinazione. Verificare che lo schema nella destinazione corrisponda allo schema nell'origine.
-  **Soluzione temporanea**: assicurarsi che lo schema nella destinazione corrisponda allo schema nell'origine. Per informazioni dettagliate sulla migrazione dello schema, vedere la [documentazione relativa alla migrazione in linea di Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+  **Soluzione temporanea**: assicurarsi che lo schema nella destinazione corrisponda allo schema nell'origine. Per informazioni dettagliate sulla migrazione dello schema, vedere la [documentazione relativa alla migrazione in linea di Azure PostgreSQL](./tutorial-postgresql-azure-postgresql-online.md#migrate-the-sample-schema).
 
 ## <a name="other-limitations"></a>Altre limitazioni
 

@@ -3,18 +3,18 @@ title: Usare i tag degli indici BLOB per gestire e trovare i dati nell'archiviaz
 description: Vedere esempi di come usare i tag di indice BLOB per categorizzare, gestire ed eseguire query per gli oggetti BLOB.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/19/2020
+ms.date: 11/19/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 159252cf850fd59f40d1b59e592153f50d7cb813
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2e3e16b71d52edd9ab4eaf55651567b95e334b84
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371971"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94961788"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Usare i tag degli indici BLOB (anteprima) per gestire e trovare i dati nell'archiviazione BLOB di Azure
 
@@ -56,7 +56,7 @@ Poiché l'indice BLOB è in anteprima, il pacchetto di archiviazione .NET viene 
 
 ## <a name="upload-a-new-blob-with-index-tags"></a>Caricare un nuovo BLOB con tag indice
 
-Il caricamento di un nuovo BLOB con tag di indice può essere eseguito dal [proprietario dei dati del BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Inoltre, gli utenti con l' `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` autorizzazione di [controllo degli accessi in base al ruolo](/azure/role-based-access-control/overview) possono eseguire questa operazione.
+Questa attività può essere eseguita da un [proprietario di dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) o da un'entità di sicurezza a cui è stata assegnata l'autorizzazione per l' `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [operazione del provider di risorse di Azure](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) tramite un ruolo personalizzato di Azure.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -114,9 +114,9 @@ static async Task BlobIndexTagsOnCreate()
 
 ## <a name="get-set-and-update-blob-index-tags"></a>Ottenere, impostare e aggiornare i tag indice BLOB
 
-Il recupero dei tag dell'indice BLOB può essere eseguito dal [proprietario dei dati del BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Inoltre, gli utenti con l' `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` autorizzazione di [controllo degli accessi in base al ruolo](/azure/role-based-access-control/overview) possono eseguire questa operazione.
+Il recupero dei tag dell'indice BLOB può essere eseguito da un [proprietario di dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) o da un'entità di sicurezza a cui è stata assegnata l'autorizzazione per l' `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [operazione del provider di risorse di Azure](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) tramite un ruolo personalizzato di Azure.
 
-L'impostazione e l'aggiornamento dei tag degli indici BLOB possono essere eseguiti dal [proprietario dei dati del BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Inoltre, gli utenti con l' `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` autorizzazione di [controllo degli accessi in base al ruolo](/azure/role-based-access-control/overview) possono eseguire questa operazione.
+L'impostazione e l'aggiornamento dei tag dell'indice BLOB possono essere eseguite da un [proprietario di dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) o da un'entità di sicurezza a cui è stata assegnata l'autorizzazione per l' `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [operazione del provider di risorse di Azure](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) tramite un ruolo di Azure
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -132,7 +132,7 @@ L'impostazione e l'aggiornamento dei tag degli indici BLOB possono essere esegui
 
 6. Seleziona il pulsante **Salva** per confermare eventuali aggiornamenti apportati al BLOB
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Screenshot della portale di Azure che illustra come caricare un BLOB con tag di indice.":::
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Screenshot della portale di Azure che Mostra come ottenere, impostare, aggiornare ed eliminare tag di indice nei BLOB.":::
 
 # <a name="net"></a>[.NET](#tab/net)
 
@@ -193,7 +193,7 @@ static async Task BlobIndexTagsExample()
 
 ## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrare e trovare i dati con i tag degli indici BLOB
 
-La ricerca e il filtro in base ai tag degli indici BLOB possono essere eseguiti dal [proprietario dei dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Inoltre, gli utenti con l' `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` autorizzazione di [controllo degli accessi in base al ruolo](/azure/role-based-access-control/overview) possono eseguire questa operazione.
+Questa attività può essere eseguita da un [proprietario di dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) o da un'entità di sicurezza a cui è stata assegnata l'autorizzazione per l' `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [operazione del provider di risorse di Azure](/azure/role-based-access-control/resource-provider-operations.md#microsoftstorage) tramite un ruolo personalizzato di Azure.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -209,7 +209,7 @@ All'interno del portale di Azure, il filtro tag indice BLOB applica automaticame
 
 5. Selezionare il pulsante **Filtro tag indice BLOB** per aggiungere altri filtri tag (fino a 10)
 
-:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Screenshot della portale di Azure che illustra come caricare un BLOB con tag di indice.":::
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Screenshot della portale di Azure che Mostra come filtrare e trovare i BLOB con tag con i tag di indice":::
 
 # <a name="net"></a>[.NET](#tab/net)
 
@@ -303,11 +303,11 @@ static async Task FindBlobsByTagsExample()
 
 4. Selezionare il set di **filtri** per aggiungere un filtro facoltativo per corrispondenza prefisso e indice BLOB
 
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Screenshot della portale di Azure che illustra come caricare un BLOB con tag di indice.":::
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Screenshot della portale di Azure che illustra come aggiungere tag di indice per la gestione del ciclo di vita.":::
 
 5. Selezionare **Verifica + Aggiungi** per esaminare le impostazioni della regola
 
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="Screenshot della portale di Azure che illustra come caricare un BLOB con tag di indice.":::
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="Screenshot della portale di Azure che mostra una regola di gestione del ciclo di vita con esempio di filtro di tag di indice BLOB":::
 
 6. Selezionare **Aggiungi** per applicare la nuova regola ai criteri di gestione del ciclo di vita
 

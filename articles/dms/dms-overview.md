@@ -10,12 +10,12 @@ ms.service: dms
 ms.workload: data-services
 ms.topic: overview
 ms.date: 02/20/2020
-ms.openlocfilehash: 77b121dca4ed5966487268cf47353dc43b7e9a1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 328c29afee3752ecb11b83f22d67f20aa3a2c93e
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292082"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94963012"
 ---
 # <a name="what-is-azure-database-migration-service"></a>Che cos'è il Servizio Migrazione del database di Azure?
 
@@ -23,7 +23,7 @@ Il Servizio Migrazione del database di Azure è un servizio completamente gestit
 
 ## <a name="migrate-databases-to-azure-with-familiar-tools"></a>Eseguire la migrazione dei database in Azure con strumenti familiari
 
-Il Servizio Migrazione del database di Azure integra alcune funzionalità degli strumenti e dei servizi esistenti. Offre ai clienti una soluzione a disponibilità elevata completa. Il servizio usa il [Data Migration Assistant](https://aka.ms/dma) per generare report di valutazione che forniscono indicazioni che consentono di eseguire le modifiche necessarie prima di una migrazione. È compito dell'utente eseguire le correzioni necessarie. Quando si è pronti a iniziare il processo di migrazione, il Servizio Migrazione del database di Azure esegue tutti i passaggi necessari. È possibile avviare i progetti di migrazione con tranquillità sapendo che il processo si avvale delle procedure consigliate stabilite da Microsoft. 
+Il Servizio Migrazione del database di Azure integra alcune funzionalità degli strumenti e dei servizi esistenti. Offre ai clienti una soluzione a disponibilità elevata completa. Il servizio usa il [Data Migration Assistant](/sql/dma/dma-overview) per generare report di valutazione che forniscono indicazioni che consentono di eseguire le modifiche necessarie prima di una migrazione. È compito dell'utente eseguire le correzioni necessarie. Quando si è pronti a iniziare il processo di migrazione, il Servizio Migrazione del database di Azure esegue tutti i passaggi necessari. È possibile avviare i progetti di migrazione con tranquillità sapendo che il processo si avvale delle procedure consigliate stabilite da Microsoft. 
 
 > [!NOTE]
 > L'uso del Servizio Migrazione del database di Azure per eseguire una migrazione online richiede la creazione di un'istanza basata sul piano tariffario Premium.

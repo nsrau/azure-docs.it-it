@@ -9,17 +9,18 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: 8b2099a6a48c9393b6e9e8b983a4acac2933bf06
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: afce76c8f5330f7d73ff58cc9b9307af2b8832f4
+ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973836"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94962128"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 1 con macchine virtuali Linux
 
@@ -125,7 +126,7 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 | type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | INT |
 | fileUris (es.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | array |
-| commandToExecute (es.) | MyPythonScript.py Python \<my-param1\> | Stringa |
+| commandToExecute (es.) | MyPythonScript.py Python \<my-param1\> | string |
 | enableInternalDNSCheck | true | boolean |
 | storageAccountName (es.) | examplestorageacct | string |
 | storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
