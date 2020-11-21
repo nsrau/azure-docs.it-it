@@ -4,12 +4,12 @@ description: Questo articolo illustra come creare un'applicazione .NET Core che 
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1c0f5a5fb45ee45cb9b7e399dc39ad29406b15dc
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 7962e28ecdc7e2c04fefeb0faf6feb5b730d979c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578995"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024535"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Inviare e ricevere eventi da Hub eventi di Azure - .NET (Azure.Messaging.EventHubs) 
 Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub eventi con la libreria .NET **Azure.Messaging.EventHubs**. 
@@ -49,7 +49,7 @@ Questa sezione illustra come creare un'applicazione console .NET Core per inviar
 ### <a name="add-the-event-hubs-nuget-package"></a>Aggiungere il pacchetto NuGet di Hub eventi
 
 1. Scegliere **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti** dal menu. 
-1. Eseguire il comando seguente per installare il pacchetto NuGet **Azure.Messaging.EventHubs** :
+1. Eseguire il comando seguente per installare il pacchetto NuGet **Azure.Messaging.EventHubs**:
 
     ```cmd
     Install-Package Azure.Messaging.EventHubs
@@ -58,7 +58,7 @@ Questa sezione illustra come creare un'applicazione console .NET Core per inviar
 
 ### <a name="write-code-to-send-messages-to-the-event-hub"></a>Scrivere codice per inviare messaggi all'hub eventi
 
-1. Aggiungere le istruzioni `using` seguenti all'inizio del file **Program.cs** :
+1. Aggiungere le istruzioni `using` seguenti all'inizio del file **Program.cs**:
 
     ```csharp
     using System;
@@ -113,7 +113,7 @@ Questa sezione mostra come scrivere un'applicazione console .NET Core che riceve
 > [!WARNING]
 > Se si esegue questo codice nell'hub di Azure Stack, si verificheranno errori di runtime a meno che non si scelga una versione specifica dell'API di archiviazione come destinazione. Il motivo è che Event Hubs SDK usa l'ultima versione disponibile in Azure dell'API di archiviazione di Azure, che potrebbe non essere presente nella piattaforma dell'hub di Azure Stack. L'hub di Azure Stack potrebbe supportare una versione di Storage Blob SDK diversa da quelle solitamente disponibili in Azure. Se si usa Archiviazione BLOB di Azure come archivio di checkpoint, verificare la [versione dell'API di archiviazione di Azure supportata per la build dell'hub di Azure Stack](/azure-stack/user/azure-stack-acs-differences?#api-version) e scegliere tale versione come destinazione nel codice. 
 >
-> Se ad esempio l'esecuzione avviene nell'hub di Azure Stack versione 2005, la versione più recente disponibile per il servizio di archiviazione è 2019-02-02. Per impostazione predefinita, la libreria client di Event Hubs SDK usa la versione più recente disponibile in Azure (2019-07-07 al momento del rilascio dell'SDK). In questo caso, oltre ai passaggi descritti in questa sezione, sarà anche necessario aggiungere codice destinato alla versione 2019-02-02 dell'API del servizio di archiviazione. Per informazioni su come definire come destinazione una versione specifica dell'API di archiviazione, vedere [questo esempio in GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
+> Se ad esempio l'esecuzione avviene nell'hub di Azure Stack versione 2005, la versione più recente disponibile per il servizio di archiviazione è 2019-02-02. Per impostazione predefinita, la libreria client di Event Hubs SDK usa la versione più recente disponibile in Azure (2019-07-07 al momento del rilascio dell'SDK). In questo caso, oltre ai passaggi descritti in questa sezione, sarà anche necessario aggiungere codice destinato alla versione 2019-02-02 dell'API del servizio di archiviazione. Per informazioni su come definire come destinazione una versione specifica dell'API di archiviazione, vedere [questo esempio in GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
  
 
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>Creare un account di archiviazione di Azure e un contenitore BLOB
@@ -128,19 +128,19 @@ In questo argomento di avvio rapido si usa una risorsa di archiviazione di Azure
 
 ### <a name="create-a-project-for-the-receiver"></a>Creare un progetto per l'app ricevente
 
-1. Nella finestra Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione **EventHubQuickStart** , scegliere **Aggiunti** e selezionare **Nuovo progetto**. 
-1. Selezionare **App console (.NET Core)** , quindi **Avanti**. 
+1. Nella finestra Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione **EventHubQuickStart**, scegliere **Aggiunti** e selezionare **Nuovo progetto**. 
+1. Selezionare **App console (.NET Core)**, quindi **Avanti**. 
 1. Immettere **EventHubsReceiver** per **Nome progetto** e selezionare **Crea**. 
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Aggiungere il pacchetto NuGet di Hub eventi
 
 1. Scegliere **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti** dal menu. 
-1. Eseguire il comando seguente per installare il pacchetto NuGet **Azure.Messaging.EventHubs** :
+1. Eseguire il comando seguente per installare il pacchetto NuGet **Azure.Messaging.EventHubs**:
 
     ```cmd
     Install-Package Azure.Messaging.EventHubs
     ```
-1. Eseguire il comando seguente per installare il pacchetto NuGet **Azure.Messaging.EventHubs.Processor** :
+1. Eseguire il comando seguente per installare il pacchetto NuGet **Azure.Messaging.EventHubs.Processor**:
 
     ```cmd
     Install-Package Azure.Messaging.EventHubs.Processor
@@ -218,7 +218,7 @@ In questo argomento di avvio rapido si usa una risorsa di archiviazione di Azure
 1. Compilare il progetto e assicurarsi che non siano presenti errori.
 
     > [!NOTE]
-    > Per il codice sorgente completo con commenti più informativi, vedere [questo file in GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.cs).
+    > Per il codice sorgente completo con commenti più informativi, vedere [questo file in GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample01_HelloWorld.md).
 6. Eseguire l'applicazione ricevente. 
 1. Viene visualizzato un messaggio che indica che l'evento è stato ricevuto. 
 

@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: dpalled
-ms.openlocfilehash: 2cf86ed4fd4305a37d27bf7a88e8493821ef085c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3460cd8a88733ede041f6c0635ba40797675ed03
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629098"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025328"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Aggiunta del supporto per il tipo di dati Long in Azure Time Series Insights Gen2
 
@@ -42,11 +42,11 @@ A seconda della soluzione e dei vincoli dell'it, è possibile che non si dispong
 - È possibile apportare preventivamente le modifiche consigliate per tutti i tag numerici.
 - È possibile instradare temporaneamente un subset di eventi alla risorsa di archiviazione per comprendere meglio ed esplorare lo schema.
 
-Per archiviare gli eventi, attivare l' [acquisizione](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) di eventi per hub eventi di Azure o [instradare](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage) dall'hub delle cose all'archivio BLOB di Azure.
+Per archiviare gli eventi, attivare l' [acquisizione](../event-hubs/event-hubs-capture-overview.md) di eventi per hub eventi di Azure o [instradare](../iot-hub/iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint) dall'hub delle cose all'archivio BLOB di Azure.
 
-I dati possono essere osservati anche tramite [Esplora Hub eventi](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer)o tramite l' [host processore di eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events).
+I dati possono essere osservati anche tramite [Esplora Hub eventi](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer)o tramite l' [host processore di eventi](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md#receive-events).
 
-Se si usa l'hub Internet delle cose, passare a [leggere i messaggi da dispositivo a cloud dall'endpoint predefinito per informazioni](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) su come accedere all'endpoint predefinito.
+Se si usa l'hub Internet delle cose, passare a [leggere i messaggi da dispositivo a cloud dall'endpoint predefinito per informazioni](../iot-hub/iot-hub-devguide-messages-read-builtin.md) su come accedere all'endpoint predefinito.
 
 > [!NOTE]
 > È possibile che si verifichino problemi se non si apportano le modifiche consigliate. Ad esempio, le variabili di Time Series Insights interessate a cui si accede tramite le API di query o Time Series Insights Explorer restituiranno **null** , ovvero non verranno visualizzati dati nella finestra di esplorazione.
@@ -66,7 +66,7 @@ Se al momento si inviano dati di telemetria Integer, i dati verranno divisi in d
 
 I dati integer vengono scritti in **propertyValue_long**. I dati numerici inseriti in precedenza (e inseriti successivamente) in **propertyValue_double** non vengono copiati.
 
-Se si desidera eseguire una query sui dati in queste due colonne per la proprietà **PropertyValue** , è necessario utilizzare la funzione scalare **COALESCE ()** nel TSX. La funzione accetta argomenti dello stesso **tipo** di dati e restituisce il primo valore non null nell'elenco di argomenti. Per altre informazioni, vedere [Azure Time Series Insights concetti relativi all'accesso ai dati Gen2](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
+Se si desidera eseguire una query sui dati in queste due colonne per la proprietà **PropertyValue** , è necessario utilizzare la funzione scalare **COALESCE ()** nel TSX. La funzione accetta argomenti dello stesso **tipo** di dati e restituisce il primo valore non null nell'elenco di argomenti. Per altre informazioni, vedere [Azure Time Series Insights concetti relativi all'accesso ai dati Gen2](/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
 
 #### <a name="variable-definition-in-tsx---numeric"></a>Definizione di variabile in TSX-numeric
 
@@ -78,7 +78,7 @@ Se si desidera eseguire una query sui dati in queste due colonne per la propriet
 
 [![Screenshot mostra la finestra di dialogo Aggiungi nuova variabile per la variabile PropertyValue con un valore personalizzato numerico.](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-È anche possibile usare **COALESCE ($Event. PropertyValue. Double, ToDouble ($Event. PropertyValue. Long))** come [espressione della serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizzata.
+È anche possibile usare **COALESCE ($Event. PropertyValue. Double, ToDouble ($Event. PropertyValue. Long))** come [espressione della serie temporale](/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizzata.
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---numeric"></a>Definizione di variabile inline usando le API di query TSX-numeric
 
@@ -126,7 +126,7 @@ Se si desidera eseguire una query sui dati in queste due colonne per la propriet
 }
 ```
 
-È anche possibile usare **COALESCE ($Event. PropertyValue. Double, ToDouble ($Event. PropertyValue. Long))** come [espressione della serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizzata.
+È anche possibile usare **COALESCE ($Event. PropertyValue. Double, ToDouble ($Event. PropertyValue. Long))** come [espressione della serie temporale](/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizzata.
 
 > [!NOTE]
 > Si consiglia di aggiornare queste variabili in tutte le posizioni in cui possono essere utilizzate. Questi punti includono il modello Time Series, le query salvate e le query del connettore Power BI.
@@ -145,9 +145,9 @@ Se attualmente si usano variabili categoriche che esegue il mapping di valori in
 
 [![Screenshot mostra la finestra di dialogo Aggiungi nuova variabile per la variabile PropertyValue con un valore personalizzato, categorico.](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
-È anche possibile usare **COALESCE ($Event. PropertyValue. Double, ToDouble ($Event. PropertyValue. Long))** come [espressione della serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)personalizzata.
+È anche possibile usare **COALESCE ($Event. PropertyValue. Double, ToDouble ($Event. PropertyValue. Long))** come [espressione della serie temporale](/rest/api/time-series-insights/preview#time-series-expression-and-syntax)personalizzata.
 
-Le variabili categoriche richiedono ancora un valore di tipo Integer. Il **tipo di dati di tutti** gli argomenti in **COALESCE ()** deve essere di tipo **Long** nell' [espressione della serie temporale personalizzata.](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)
+Le variabili categoriche richiedono ancora un valore di tipo Integer. Il **tipo di dati di tutti** gli argomenti in **COALESCE ()** deve essere di tipo **Long** nell' [espressione della serie temporale personalizzata.](/rest/api/time-series-insights/reference-time-series-expression-syntax)
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---categorical"></a>Definizione di variabile inline usando le API di query TSX-categorico
 
@@ -227,7 +227,7 @@ Le variabili categoriche richiedono ancora un valore di tipo Integer. Il **tipo 
 }
 ```
 
-Le variabili categoriche richiedono ancora un valore di tipo Integer. Il **tipo di dati di tutti** gli argomenti in **COALESCE ()** deve essere di tipo **Long** nell' [espressione della serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizzata.
+Le variabili categoriche richiedono ancora un valore di tipo Integer. Il **tipo di dati di tutti** gli argomenti in **COALESCE ()** deve essere di tipo **Long** nell' [espressione della serie temporale](/rest/api/time-series-insights/reference-time-series-expression-syntax)personalizzata.
 
 > [!NOTE]
 > Si consiglia di aggiornare queste variabili in tutte le posizioni in cui possono essere utilizzate. Questi punti includono il modello Time Series, le query salvate e le query del connettore Power BI.

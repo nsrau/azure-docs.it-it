@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: e22eaacd73bb15ddf43f416831ff5ff42923b6e0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 8d70a7b44893ba9c9a0cc2d1d01c65e8e1584e0f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393388"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024483"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Registrare un'applicazione della risorsa in Azure Active Directory
 
@@ -37,73 +37,7 @@ az ad sp create --id 4f6778d8-5aef-43dc-a1ff-b073724b9495
 
 ## <a name="fhir-server-for-azure"></a>Server FHIR per Azure
 
-Se si usa il server FHIR open source per Azure, attenersi alla procedura seguente per registrare un'applicazione della risorsa.
-
-### <a name="app-registrations-in-azure-portal"></a>Registrazioni app in portale di Azure
-
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel pannello di spostamento a sinistra.
-
-2. Nel pannello **Azure Active Directory** fare clic su **registrazioni app** :
-
-    ![portale di Azure. Nuova registrazione dell'app.](media/how-to-aad/portal-aad-new-app-registration.png)
-
-3. Fare clic sulla **nuova registrazione**.
-
-### <a name="add-a-new-application-registration"></a>Aggiungere una nuova registrazione dell'applicazione
-
-Inserire i dettagli per la nuova applicazione. Non sono previsti requisiti specifici per il nome visualizzato, ma l'impostazione dell'URI del server FHIR rende più semplice trovare:
-
-![Registrazione nuova applicazione](media/how-to-aad/portal-aad-register-new-app-registration-NAME.png)
-
-### <a name="set-identifier-uri-and-define-scopes"></a>Impostare l'URI dell'identificatore e definire gli ambiti
-
-Un'applicazione della risorsa ha un URI identificatore (URI ID applicazione), che i client possono usare per richiedere l'accesso alla risorsa. Questo valore compilerà l' `aud` attestazione del token di accesso. È consigliabile impostare questo URI come URI del server FHIR. Per le app intelligenti in FHIR, si presuppone che il gruppo di *destinatari* sia l'URI del server FHIR.
-
-1. Fare clic su **esporre un'API**
-
-2. Fare clic su **imposta** accanto a *URI ID applicazione*.
-
-3. Immettere l'URI dell'identificatore e fare clic su **Salva**. Un URI di identificatore valido è l'URI del server FHIR.
-
-4. Fare clic su **Aggiungi un ambito** e aggiungere eventuali ambiti che si desidera definire per l'API. È necessario aggiungere almeno un ambito per concedere le autorizzazioni per l'applicazione della risorsa in futuro. Se non si dispone di ambiti specifici che si desidera aggiungere, è possibile aggiungere user_impersonation come ambito.
-
-![Destinatari e ambito](media/how-to-aad/portal-aad-register-new-app-registration-AUD-SCOPE.png)
-
-### <a name="define-application-roles"></a>Definire i ruoli applicazione
-
-L'API di Azure per FHIR e il server OSS FHIR per Azure usano [Azure Active Directory ruoli applicazione](/azure/architecture/multitenant-identity/app-roles) per il controllo degli accessi in base al ruolo. Per definire i ruoli che devono essere disponibili per l'API del server FHIR, aprire il [manifesto](/azure/active-directory/active-directory-application-manifest/)dell'applicazione della risorsa:
-
-1. Fare clic su **manifesto** :
-
-    ![Ruoli applicazione](media/how-to-aad/portal-aad-register-new-app-registration-APP-ROLES.png)
-
-2. Nella `appRoles` Proprietà aggiungere i ruoli che si desidera includere per gli utenti o le applicazioni:
-
-    ```json
-    "appRoles": [
-      {
-        "allowedMemberTypes": [
-          "User",
-          "Application"
-        ],
-        "description": "FHIR Server Administrators",
-        "displayName": "admin",
-        "id": "1b4f816e-5eaf-48b9-8613-7923830595ad",
-        "isEnabled": true,
-        "value": "admin"
-      },
-      {
-        "allowedMemberTypes": [
-          "User"
-        ],
-        "description": "Users who can read",
-        "displayName": "reader",
-        "id": "c20e145e-5459-4a6c-a074-b942bbd4cfe1",
-        "isEnabled": true,
-        "value": "reader"
-      }
-    ],
-    ```
+Se si usa il server FHIR open source per Azure, seguire i passaggi nel [repository GitHub](https://github.com/microsoft/fhir-server/blob/master/docs/Register-Resource-Application.md) per registrare un'applicazione della risorsa. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

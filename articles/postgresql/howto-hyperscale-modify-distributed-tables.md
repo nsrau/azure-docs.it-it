@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 628944f9763dc79148e0b64c97158064208412bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf9f9ca5b8690a38c6e5aa6f519378c0a2e3a4f2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136938"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026438"
 ---
 # <a name="distribute-and-modify-tables"></a>Distribuire e modificare tabelle
 
@@ -140,7 +140,7 @@ Quando una nuova tabella non è correlata ad altre nel gruppo di condivisione pe
 SELECT create_distributed_table('A', 'foo', colocate_with => 'none');
 ```
 
-Suddividendo le tabelle non correlate nei rispettivi gruppi di condivisione percorso sarà possibile migliorare le prestazioni di [ribilanciamento](howto-hyperscale-scaling.md#rebalance-shards) delle partizioni, perché le partizioni nello stesso gruppo devono essere spostate insieme.
+Suddividendo le tabelle non correlate nei rispettivi gruppi di condivisione percorso sarà possibile migliorare le prestazioni di [ribilanciamento](howto-hyperscale-scale-rebalance.md) delle partizioni, perché le partizioni nello stesso gruppo devono essere spostate insieme.
 
 Quando le tabelle sono effettivamente correlate, ad esempio quando vengono unite in join, può essere utile eseguire una colocazione esplicita. I guadagni della condivisione percorso appropriata sono più importanti rispetto al sovraccarico di ribilanciamento.
 

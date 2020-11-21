@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: cf138248e878b21531df2035dfeda1b90162ea99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf5ab7361c84fb787366c7c361829e52362fe427
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536104"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025909"
 ---
 # <a name="intents-in-your-luis-app"></a>Intent nell'app LUIS
 
@@ -27,19 +27,19 @@ Finalità dell'app di viaggi   |   Espressioni di esempio   |
  BookFlight (PrenotaVolo)     |   "Prenotami un volo per Rio la settimana prossima" <br/> "Fammi volare a Rio il 24" <br/> "Ho bisogno di un biglietto aereo per Rio de Janeiro per domenica prossima"    |
  Greeting (Messaggio introduttivo)     |   "Ciao" <br/>"Hello" <br/>"Buongiorno"  |
  Meteo | "Com'è il tempo a Boston?" <br/> "Mostrami le previsioni per il weekend" |
- Nessuno         | "Dammi una ricetta di biscotti"<br>"Ha vinto la Roma?" |
+ nessuno         | "Dammi una ricetta di biscotti"<br>"Ha vinto la Roma?" |
 
 Tutte le applicazioni hanno lo scopo predefinito, ovvero "[None](#none-intent)", ovvero lo scopo del fallback.
 
 ## <a name="prebuilt-domains-provide-intents"></a>I domini predefiniti forniscono finalità
-Oltre agli Intent definiti, è possibile usare gli Intent predefiniti da uno dei [domini predefiniti](luis-how-to-use-prebuilt-domains.md).
+Oltre agli Intent definiti, è possibile usare gli Intent predefiniti da uno dei [domini predefiniti](./howto-add-prebuilt-models.md).
 
 ## <a name="return-all-intents-scores"></a>Restituire i punteggi di tutte le finalità
 Assegnare un'espressione a una singola finalità. Quando LUIS riceve un enunciato sull'endpoint, per impostazione predefinita restituisce l'intento superiore per tale espressione.
 
 Se si desiderano i punteggi per tutti gli Intent per l'espressione, è possibile specificare un flag sulla stringa di query dell'API di stima.
 
-|Versione dell'API di stima|Contrassegno|
+|Versione dell'API di stima|Flag|
 |--|--|
 |V2|`verbose=true`|
 |V3|`show-all-intents=true`|
@@ -59,7 +59,7 @@ Lo scopo rappresenta l'azione che l'applicazione deve eseguire per l'utente e si
 
 ## <a name="prebuilt-domain-intents"></a>Finalità di domini predefiniti
 
-I [domini predefiniti](luis-how-to-use-prebuilt-domains.md) forniscono gli Intent con espressioni.
+I [domini predefiniti](./howto-add-prebuilt-models.md) forniscono gli Intent con espressioni.
 
 ## <a name="none-intent"></a>Finalità None
 

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 609bd01e8dcb0e9202d1d9dbe1d1fc1a01cac550
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 71097f13fffbbe5cb57a69c98fb0ab272e16af5c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368282"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026302"
 ---
 # <a name="features"></a>Funzionalità
 
@@ -29,7 +29,7 @@ Le versioni precedenti sono attualmente supportate anche: `3.0.2`
 
 | API                            | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
-| read                           | Sì       | Sì       | Sì       |                                                     |
+| leggere                           | Sì       | Sì       | Sì       |                                                     |
 | VREAD                          | Sì       | Sì       | Sì       |                                                     |
 | update                         | Sì       | Sì       | Sì       |                                                     |
 | aggiornamento con blocco ottimistico | Sì       | Sì       | Sì       |                                                     |
@@ -55,13 +55,13 @@ Sono supportati tutti i tipi di parametro di ricerca.
 
 | Tipo di parametro di ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento |
 |-----------------------|-----------|-----------|-----------|---------|
-| Number                | Sì       | Sì       | Sì       |         |
+| Numero                | Sì       | Sì       | Sì       |         |
 | Date/DateTime         | Sì       | Sì       | Sì       |         |
 | string                | Sì       | Sì       | Sì       |         |
 | token                 | Sì       | Sì       | Sì       |         |
-| Informazioni di riferimento             | Sì       | Sì       | Sì       |         |
+| Riferimento             | Sì       | Sì       | Sì       |         |
 | Composite             | Sì       | Sì       | Sì       |         |
-| Quantità              | Sì       | Sì       | Sì       |         |
+| Quantity              | Sì       | Sì       | Sì       |         |
 | URI                   | Sì       | Sì       | Sì       |         |
 | Speciali               | No        | No        | No        |         |
 
@@ -100,8 +100,8 @@ Sono supportati tutti i tipi di parametro di ricerca.
 |-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Partial        | Partial   | Partial        |   `_sort=_lastUpdated` è supportato       |
 | `_count`                | Sì       | Sì       | Sì       | `_count` è limitato a 100 caratteri. Se è impostato su un valore superiore a 100, verrà restituito solo 100 e nel bundle verrà restituito un avviso. |
-| `_include`              | No        | Sì       | No        |         |
-| `_revinclude`           | No        | Sì       | No        | Gli elementi inclusi sono limitati a 100. |
+| `_include`              | Sì       | Sì       | Sì       |Gli elementi inclusi sono limitati a 100. L'inclusione in PaaS e OSS in Cosmos DB non include: iterate support.|
+| `_revinclude`           | Sì       | Sì       | Sì       | Gli elementi inclusi sono limitati a 100. L'inclusione in PaaS e OSS in Cosmos DB non include: iterate support.|
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count` è supportato |
 | `_total`                | Partial   | Partial   | Partial   | _total = non e _total = accurate      |
 | `_elements`             | Sì       | Sì       | Sì       |         |
@@ -132,6 +132,27 @@ Cosmos DB è un database multimodello distribuito a livello globale (API SQL, AP
 Il server FHIR USA [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) per il controllo di accesso. In particolare, viene applicato il controllo di accesso Role-Based (RBAC), se il `FhirServer:Security:Enabled` parametro di configurazione è impostato su `true` e tutte le richieste (eccetto `/metadata` ) al server FHIR devono avere l' `Authorization` intestazione della richiesta impostata su `Bearer <TOKEN>` . Il token deve contenere uno o più ruoli come definito nell' `roles` attestazione. Sarà consentita una richiesta se il token contiene un ruolo che consente l'azione specificata sulla risorsa specificata.
 
 Attualmente, le azioni consentite per un determinato ruolo vengono applicate a *livello globale* nell'API.
+
+## <a name="service-limits"></a>Limiti del servizio
+
+* [**Unità richiesta (UR)**](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) : è possibile configurare fino a 10.000 UR nel portale per l'API di Azure per FHIR. Sarà necessario un minimo di 400 ur o 10 UR/GB, a seconda del valore maggiore. Se sono necessarie più di 10.000 UR, è possibile inserire un ticket di supporto per aumentare il numero di unità. Il valore massimo disponibile è 1 milione.
+
+* Connessioni e **istanze** **simultanee** : per dafault, sono disponibili cinque connessioni simultanee in due istanze del cluster (per un totale di 10 richieste simultanee). Se ritieni di avere bisogno di più richieste simultanee, Apri un ticket di supporto con i dettagli sulle tue esigenze.
+
+* **Dimensioni bundle** : ogni bundle è limitato a 500 di elementi.
+
+* **Dimensioni dati** : i dati e i documenti devono essere leggermente inferiori a 2 MB.
+
+## <a name="performance-expectations"></a>Aspettative sulle prestazioni
+
+Le prestazioni del sistema dipendono dal numero di UR, dalle connessioni simultanee e dal tipo di operazioni eseguite (Put, post e così via). Di seguito sono riportati alcuni intervalli generali di ciò che è possibile aspettarsi in base alle UR configurate. In generale, le prestazioni vengono ridimensionate in modo lineare con un aumento delle UR:
+
+| numero di ur | Risorse/sec |
+|----------|---------------|
+| 400      | 5-10          |
+| 1\.000    | 100-150       |
+| 10,000   | 225-400       |
+| 100,000  | 2500-4000   |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

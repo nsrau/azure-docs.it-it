@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: sintesi vocale
-ms.openlocfilehash: 5d60279a2e3cb6aa7226f518783d53a1a38ddaa8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af0c9338cb9661402c3a76bab55f34b01304c7b6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357455"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024518"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è la sintesi vocale?
 
@@ -31,7 +31,7 @@ In questa panoramica vengono illustrati i vantaggi e le funzionalità del serviz
 
 ## <a name="core-features"></a>Funzionalità di base
 
-* Sintesi vocale: usare l' [SDK di riconoscimento vocale](quickstarts/text-to-speech-audio-file.md) o l' [API REST](rest-text-to-speech.md) per convertire la sintesi vocale usando le voci standard, Neural o Custom.
+* Sintesi vocale: usare l' [SDK di riconoscimento vocale](./get-started-text-to-speech.md) o l' [API REST](rest-text-to-speech.md) per convertire la sintesi vocale usando le voci standard, Neural o Custom.
 
 * Sintesi asincrona dell'audio lungo: usare l' [API Long audio](long-audio-api.md) per sintetizzare in modo asincrono i file da sintesi vocale più di 10 minuti (ad esempio, libri audio o lezioni). Diversamente dalla sintesi eseguita con l'SDK per il riconoscimento vocale o con l'API REST di sintesi vocale, le risposte non vengono restituite in tempo reale. Si prevede che le richieste vengano inviate in modo asincrono, viene eseguito il polling delle risposte e che l'audio sintetizzato viene scaricato quando reso disponibile dal servizio. Sono supportate solo le voci neurali personalizzate.
 
@@ -41,7 +41,7 @@ In questa panoramica vengono illustrati i vantaggi e le funzionalità del serviz
 
 * Speech Synthesis Markup Language (SSML): linguaggio di markup basato su XML usato per personalizzare gli output di riconoscimento vocale. Con SSML è possibile modificare il pitch, aggiungere pause, migliorare la pronuncia, accelerare o rallentare la velocità di pronuncia, aumentare o diminuire il volume e attribuire più voci a un singolo documento. Vedere [SSML](speech-synthesis-markup.md).
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
 Per iniziare a usare sintesi vocale, vedere la [Guida introduttiva](get-started-text-to-speech.md) . Il servizio di sintesi vocale è disponibile tramite l' [SDK vocale](speech-sdk.md), l' [API REST](rest-text-to-speech.md)e l'interfaccia della riga di comando [vocale](spx-overview.md)
 

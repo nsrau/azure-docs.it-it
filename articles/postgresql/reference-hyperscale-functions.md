@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 16c3a45e0d88a0546772b3fdc855c90f2e450d14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f324ef44d002f50bf27c08072e904c1d92b5512f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250332"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026234"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Funzioni nell'API SQL con iperscalabilità (CITUS)
 
@@ -32,7 +32,7 @@ Questa funzione sostituisce l'utilizzo della \_ tabella master create \_ Distrib
 
 #### <a name="arguments"></a>Argomenti
 
-** \_ nome tabella:** nome della tabella che deve essere distribuita.
+**\_ nome tabella:** nome della tabella che deve essere distribuita.
 
 **colonna di distribuzione \_ :** la colonna in cui deve essere distribuita la tabella.
 
@@ -40,7 +40,7 @@ Questa funzione sostituisce l'utilizzo della \_ tabella master create \_ Distrib
 
 **colocate \_ with:** (facoltativo) includere la tabella corrente nel gruppo di condivisione di un'altra tabella. Per impostazione predefinita, le tabelle sono condivise quando vengono distribuite da colonne dello stesso tipo, hanno lo stesso numero di partizioni e hanno lo stesso fattore di replica. I valori possibili per `colocate_with` sono `default` , `none` per avviare un nuovo gruppo di condivisione percorso o il nome di un'altra tabella da assegnare a tale tabella.  Vedere la condivisione [percorso tabella](concepts-hyperscale-colocation.md).
 
-Tenere presente che il valore predefinito di è la condivisione `colocate_with` percorso implicita. La condivisione [percorso](concepts-hyperscale-colocation.md) può essere un'ottima cosa quando le tabelle sono correlate o verranno unite in join.  Tuttavia, quando due tabelle non sono correlate ma si usa lo stesso tipo di dati per le relative colonne di distribuzione, la condivisione accidentale può ridurre le prestazioni durante il [ribilanciamento](howto-hyperscale-scaling.md#rebalance-shards)delle partizioni.  Le partizioni della tabella verranno spostate insieme inutilmente in una \" catena.\"
+Tenere presente che il valore predefinito di è la condivisione `colocate_with` percorso implicita. La condivisione [percorso](concepts-hyperscale-colocation.md) può essere un'ottima cosa quando le tabelle sono correlate o verranno unite in join.  Tuttavia, quando due tabelle non sono correlate ma si usa lo stesso tipo di dati per le relative colonne di distribuzione, la condivisione accidentale può ridurre le prestazioni durante il [ribilanciamento](howto-hyperscale-scale-rebalance.md)delle partizioni.  Le partizioni della tabella verranno spostate insieme inutilmente in una \" catena.\"
 
 Se una nuova tabella distribuita non è correlata ad altre tabelle, è preferibile specificare `colocate_with => 'none'` .
 
@@ -66,7 +66,7 @@ La \_ funzione Create Reference \_ Table () viene utilizzata per definire un pic
 
 #### <a name="arguments"></a>Argomenti
 
-** \_ nome tabella:** nome della dimensione piccola o della tabella di riferimento che deve essere distribuita.
+**\_ nome tabella:** nome della dimensione piccola o della tabella di riferimento che deve essere distribuita.
 
 #### <a name="return-value"></a>Valore restituito
 
@@ -86,7 +86,7 @@ La \_ funzione di aggiornamento alla \_ tabella di riferimento \_ () accetta una
 
 #### <a name="arguments"></a>Argomenti
 
-** \_ nome tabella:** nome della tabella distribuita (con numero di partizioni = 1) che verrà distribuito come tabella di riferimento.
+**\_ nome tabella:** nome della tabella distribuita (con numero di partizioni = 1) che verrà distribuito come tabella di riferimento.
 
 #### <a name="return-value"></a>Valore restituito
 
@@ -108,7 +108,7 @@ Le tabelle di condivisione percorso devono essere eseguite in fase di distribuzi
 
 #### <a name="arguments"></a>Argomenti
 
-** \_ \_ nome tabella di origine:** nome della tabella distribuita di cui verranno assegnate le destinazioni a cui viene assegnato il gruppo di condivisione percorso.
+**\_ \_ nome tabella di origine:** nome della tabella distribuita di cui verranno assegnate le destinazioni a cui viene assegnato il gruppo di condivisione percorso.
 
 **nomi di tabella di destinazione \_ \_ :** la matrice dei nomi delle tabelle di destinazione distribuite deve essere non vuota. Queste tabelle distribuite devono corrispondere alla tabella di origine in:
 
@@ -144,9 +144,9 @@ Il percorso di ricerca Postgres non viene propagato dal coordinatore ai ruoli di
 
 #### <a name="arguments"></a>Argomenti
 
-** \_ nome funzione:** nome della funzione da distribuire. Il nome deve includere i tipi di parametro della funzione tra parentesi, perché più funzioni possono avere lo stesso nome in PostgreSQL. Ad esempio, `'foo(int)'` è diverso da `'foo(int, text)'` .
+**\_ nome funzione:** nome della funzione da distribuire. Il nome deve includere i tipi di parametro della funzione tra parentesi, perché più funzioni possono avere lo stesso nome in PostgreSQL. Ad esempio, `'foo(int)'` è diverso da `'foo(int, text)'` .
 
-** \_ \_ nome arg di distribuzione:** (facoltativo) nome dell'argomento da distribuire. Per praticità (o se gli argomenti della funzione non hanno nomi), è consentito un segnaposto posizionale, ad esempio `'$1'` . Se questo parametro non viene specificato, la funzione denominata da `function_name` viene semplicemente creata nei ruoli di lavoro. Se i nodi di lavoro vengono aggiunti in futuro, la funzione verrà creata automaticamente.
+**\_ \_ nome arg di distribuzione:** (facoltativo) nome dell'argomento da distribuire. Per praticità (o se gli argomenti della funzione non hanno nomi), è consentito un segnaposto posizionale, ad esempio `'$1'` . Se questo parametro non viene specificato, la funzione denominata da `function_name` viene semplicemente creata nei ruoli di lavoro. Se i nodi di lavoro vengono aggiunti in futuro, la funzione verrà creata automaticamente.
 
 **colocate \_ with:** (facoltativo) quando la funzione distribuita legge o scrive in una tabella distribuita (o, più in generale, gruppo di condivisione percorso), assicurarsi di assegnare un nome alla tabella usando il `colocate_with` parametro. Ogni chiamata della funzione verrà quindi eseguita nel nodo del ruolo di lavoro contenente le partizioni pertinenti.
 
@@ -186,23 +186,23 @@ La \_ funzione Master Get \_ Table \_ Metadata () può essere utilizzata per res
 
 #### <a name="arguments"></a>Argomenti
 
-** \_ nome tabella:** nome della tabella distribuita per cui si desidera recuperare i metadati.
+**\_ nome tabella:** nome della tabella distribuita per cui si desidera recuperare i metadati.
 
 #### <a name="return-value"></a>Valore restituito
 
 Tupla contenente le informazioni seguenti:
 
-** \_ relid logico:** OID della tabella distribuita. Fa riferimento alla colonna relfilenode nella tabella PG \_ Class System Catalog.
+**\_ relid logico:** OID della tabella distribuita. Fa riferimento alla colonna relfilenode nella tabella PG \_ Class System Catalog.
 
-** \_ tipo di archiviazione parti \_ :** tipo di archiviazione usato per la tabella. Potrebbe essere ' T'(tabella standard),' f ' (tabella esterna) o ' c'(tabella a colonne).
+**\_ tipo di archiviazione parti \_ :** tipo di archiviazione usato per la tabella. Potrebbe essere ' T'(tabella standard),' f ' (tabella esterna) o ' c'(tabella a colonne).
 
-** \_ Metodo Part:** metodo di distribuzione utilizzato per la tabella. Può essere ' a' (Append) o ' h ' (hash).
+**\_ Metodo Part:** metodo di distribuzione utilizzato per la tabella. Può essere ' a' (Append) o ' h ' (hash).
 
 **chiave della parte \_ :** colonna di distribuzione per la tabella.
 
-** \_ \_ numero di repliche della parte:** conteggio della replica della partizione corrente.
+**\_ \_ numero di repliche della parte:** conteggio della replica della partizione corrente.
 
-** \_ \_ dimensione massima della parte:** dimensioni massime correnti della partizione in byte.
+**\_ \_ dimensione massima della parte:** dimensioni massime correnti della partizione in byte.
 
 **criteri di posizionamento delle parti \_ \_ :** criteri di posizionamento delle partizioni usati per inserire le partizioni della tabella. Può essere 1 (locale-nodo-primo) o 2 (Round Robin).
 
@@ -224,7 +224,7 @@ Iperscale (CITUS) assegna ogni riga di una tabella distribuita a una partizione 
 
 #### <a name="arguments"></a>Argomenti
 
-** \_ nome tabella:** la tabella distribuita.
+**\_ nome tabella:** la tabella distribuita.
 
 **valore di distribuzione \_ :** valore della colonna di distribuzione.
 
@@ -251,7 +251,7 @@ Per una descrizione più dettagliata, vedere [scelta di una colonna di distribuz
 
 #### <a name="arguments"></a>Argomenti
 
-** \_ nome tabella:** la tabella distribuita.
+**\_ nome tabella:** la tabella distribuita.
 
 **testo della colonna \_ var \_ :** valore di `partkey` nella `pg_dist_partition` tabella.
 
@@ -363,7 +363,7 @@ N/D
 
 #### <a name="return-value"></a>Valore restituito
 
-Nessuno
+nessuno
 
 ## <a name="server-group-management-and-repair"></a>Gestione e ripristino dei gruppi di server
 
@@ -375,7 +375,7 @@ Per ripristinare una partizione, la funzione rilascia prima di tutto il posizion
 
 #### <a name="arguments"></a>Argomenti
 
-** \_ ID partizione:** ID della partizione da ripristinare.
+**\_ ID partizione:** ID della partizione da ripristinare.
 
 **nome del nodo di origine \_ \_ :** nome DNS del nodo in cui è presente la posizione di partizionamento integro ( \" nodo di origine \" ).
 
@@ -409,7 +409,7 @@ Dopo un'operazione di spostamento riuscita, le partizioni nel nodo di origine ve
 
 #### <a name="arguments"></a>Argomenti
 
-** \_ ID partizione:** ID della partizione da spostare.
+**\_ ID partizione:** ID della partizione da spostare.
 
 **nome del nodo di origine \_ \_ :** nome DNS del nodo in cui è presente la posizione di partizionamento integro ( \" nodo di origine \" ).
 
@@ -419,7 +419,7 @@ Dopo un'operazione di spostamento riuscita, le partizioni nel nodo di origine ve
 
 **porta del nodo di destinazione \_ \_ :** porta sul nodo del ruolo di lavoro di destinazione su cui è in ascolto il server di database.
 
-** \_ modalità di trasferimento partizioni \_ :** (facoltativo) specificare il metodo di replica, se usare la replica logica PostgreSQL o un comando di copia tra i thread di lavoro. I valori possibili sono:
+**\_ modalità di trasferimento partizioni \_ :** (facoltativo) specificare il metodo di replica, se usare la replica logica PostgreSQL o un comando di copia tra i thread di lavoro. I valori possibili sono:
 
 > -   `auto`: Richiedere l'identità della replica se è possibile la replica logica. in caso contrario, usare il comportamento legacy, ad esempio per il ripristino della partizione, PostgreSQL 9,6. Rappresenta il valore predefinito.
 > -   `force_logical`: Usare la replica logica anche se la tabella non ha un'identità di replica. Eventuali istruzioni Update/Delete simultanee della tabella avranno esito negativo durante la replica.
@@ -454,7 +454,7 @@ Se uno di questi presupposti non è presente, il ribilanciamento predefinito pu�
 
 #### <a name="arguments"></a>Argomenti
 
-** \_ nome tabella:** (facoltativo) nome della tabella di cui è necessario ribilanciare le partizioni. Se NULL, ribilanciare tutti i gruppi di condivisione percorso esistenti.
+**\_ nome tabella:** (facoltativo) nome della tabella di cui è necessario ribilanciare le partizioni. Se NULL, ribilanciare tutti i gruppi di condivisione percorso esistenti.
 
 **Threshold:** (facoltativo) un numero float compreso tra 0,0 e 1,0 che indica il rapporto tra la differenza massima di utilizzo del nodo e l'utilizzo medio. Se ad esempio si specifica 0,1, il ribilanciamento delle partizioni tenterà di bilanciare tutti i nodi in modo da mantenere lo stesso numero di partizioni pari a ± 10%.
 In particolare, il ribilanciamento delle partizioni tenterà di convergere l'utilizzo di tutti i nodi del ruolo di lavoro per l'utilizzo medio (soglia 1) \* \_ \. . (1
@@ -464,13 +464,13 @@ In particolare, il ribilanciamento delle partizioni tenterà di convergere l'uti
 
 **Elenco partizioni escluse \_ \_ :** (facoltativo) identificatori di partizioni che non devono essere spostati durante l'operazione di ribilanciamento.
 
-** \_ modalità di trasferimento partizioni \_ :** (facoltativo) specificare il metodo di replica, se usare la replica logica PostgreSQL o un comando di copia tra i thread di lavoro. I valori possibili sono:
+**\_ modalità di trasferimento partizioni \_ :** (facoltativo) specificare il metodo di replica, se usare la replica logica PostgreSQL o un comando di copia tra i thread di lavoro. I valori possibili sono:
 
 > -   `auto`: Richiedere l'identità della replica se è possibile la replica logica. in caso contrario, usare il comportamento legacy, ad esempio per il ripristino della partizione, PostgreSQL 9,6. Rappresenta il valore predefinito.
 > -   `force_logical`: Usare la replica logica anche se la tabella non ha un'identità di replica. Eventuali istruzioni Update/Delete simultanee della tabella avranno esito negativo durante la replica.
 > -   `block_writes`: Usare copia (scritture di blocco) per le tabelle prive di chiave primaria o identità di replica.
 
-** \_ solo svuotamento:** (facoltativo) se il valore è true, spostare le partizioni dai nodi del ruolo di lavoro che hanno `shouldhaveshards` impostato su false in [pg_dist_node](reference-hyperscale-metadata.md#worker-node-table); non spostare altre partizioni.
+**\_ solo svuotamento:** (facoltativo) se il valore è true, spostare le partizioni dai nodi del ruolo di lavoro che hanno `shouldhaveshards` impostato su false in [pg_dist_node](reference-hyperscale-metadata.md#worker-node-table); non spostare altre partizioni.
 
 **strategia di ribilanciamento \_ :** (facoltativo) nome di una strategia in [pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table).
 Se questo argomento viene omesso, la funzione sceglie la strategia predefinita, come indicato nella tabella.
@@ -506,9 +506,9 @@ Gli stessi argomenti del ribilanciamento delle partizioni della \_ tabella \_ : 
 
 Tuple contenenti le colonne seguenti:
 
--   ** \_ nome tabella**: tabella di cui si sposteranno le partizioni
+-   **\_ nome tabella**: tabella di cui si sposteranno le partizioni
 -   **shardid**: partizione in questione
--   ** \_ Dimensioni partizione**: dimensioni in byte
+-   **\_ Dimensioni partizione**: dimensioni in byte
 -   **SourceName**: nome host del nodo di origine
 -   **sourceport**: porta del nodo di origine
 -   **TargetName**: nome host del nodo di destinazione
@@ -527,9 +527,9 @@ N/D
 Tuple contenenti le colonne seguenti:
 
 -   **SessionID**: PID Postgres del monitoraggio del ribilanciamento
--   ** \_ nome tabella**: tabella di cui si stanno muovendo le partizioni
+-   **\_ nome tabella**: tabella di cui si stanno muovendo le partizioni
 -   **shardid**: partizione in questione
--   ** \_ Dimensioni partizione**: dimensioni in byte
+-   **\_ Dimensioni partizione**: dimensioni in byte
 -   **SourceName**: nome host del nodo di origine
 -   **sourceport**: porta del nodo di origine
 -   **TargetName**: nome host del nodo di destinazione
@@ -565,13 +565,13 @@ Per ulteriori informazioni su questi argomenti, vedere i valori di colonna corri
 
 **funzione di costo della partizione \_ \_ :** identifica la funzione usata per determinare il \" costo \" di ogni partizione
 
-** \_ funzione node Capacity \_ :** identifica la funzione per misurare la capacità del nodo
+**\_ funzione node Capacity \_ :** identifica la funzione per misurare la capacità del nodo
 
 **partizione \_ consentita \_ nella \_ \_ funzione node:** identifica la funzione che determina quali partizioni possono essere posizionate sui nodi
 
-** \_ soglia predefinita:** soglia a virgola mobile che ottimizza la precisione con cui bilanciare il costo della partizione cumulativa tra i nodi
+**\_ soglia predefinita:** soglia a virgola mobile che ottimizza la precisione con cui bilanciare il costo della partizione cumulativa tra i nodi
 
-** \_ soglia minima:** (facoltativo) colonna di salvaguardia che include il valore minimo consentito per l'argomento soglia delle partizioni di tabella di ribilanciamento \_ \_ (). Il valore predefinito è 0
+**\_ soglia minima:** (facoltativo) colonna di salvaguardia che include il valore minimo consentito per l'argomento soglia delle partizioni di tabella di ribilanciamento \_ \_ (). Il valore predefinito è 0
 
 #### <a name="return-value"></a>Valore restituito
 
@@ -626,7 +626,7 @@ La \_ funzione del \_ nodo di svuotamento principale () sposta le partizioni dal
 
 Deport **:** Numero di porta del nodo da svuotare.
 
-** \_ modalità di trasferimento partizioni \_ :** (facoltativo) specificare il metodo di replica, se usare la replica logica PostgreSQL o un comando di copia tra i thread di lavoro. I valori possibili sono:
+**\_ modalità di trasferimento partizioni \_ :** (facoltativo) specificare il metodo di replica, se usare la replica logica PostgreSQL o un comando di copia tra i thread di lavoro. I valori possibili sono:
 
 > -   `auto`: Richiedere l'identità della replica se è possibile la replica logica. in caso contrario, usare il comportamento legacy, ad esempio per il ripristino della partizione, PostgreSQL 9,6. Rappresenta il valore predefinito.
 > -   `force_logical`: Usare la replica logica anche se la tabella non ha un'identità di replica. Eventuali istruzioni Update/Delete simultanee della tabella avranno esito negativo durante la replica.
@@ -677,11 +677,11 @@ La funzione replicate \_ Table \_ partizionas () replica le partizioni sottorepl
 
 #### <a name="arguments"></a>Argomenti
 
-** \_ nome tabella:** il nome della tabella di cui è necessario replicare le partizioni.
+**\_ nome tabella:** il nome della tabella di cui è necessario replicare le partizioni.
 
-** \_ fattore di replica partizione \_ :** (facoltativo) il fattore di replica desiderato da ottenere per ogni partizione.
+**\_ fattore di replica partizione \_ :** (facoltativo) il fattore di replica desiderato da ottenere per ogni partizione.
 
-numero massimo di ** \_ copie di partizione \_ :** (facoltativo) numero massimo di partizioni da copiare per raggiungere il fattore di replica desiderato.
+numero massimo di **\_ copie di partizione \_ :** (facoltativo) numero massimo di partizioni da copiare per raggiungere il fattore di replica desiderato.
 
 **Elenco partizioni escluse \_ \_ :** (facoltativo) identificatori delle partizioni che non devono essere copiate durante l'operazione di replica.
 
@@ -689,7 +689,7 @@ numero massimo di ** \_ copie di partizione \_ :** (facoltativo) numero massimo 
 
 N/D
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>Esempio
 
 Nell'esempio seguente viene effettuato un tentativo di replicare le partizioni della \_ tabella degli eventi GitHub in un fattore di replica di partizionamento \_ \_ .
 
@@ -709,17 +709,17 @@ Questa funzione crea una nuova partizione per mantenere le righe con un valore s
 
 #### <a name="arguments"></a>Argomenti
 
-** \_ nome tabella:** il nome della tabella per ottenere una nuova partizione.
+**\_ nome tabella:** il nome della tabella per ottenere una nuova partizione.
 
-** \_ ID tenant:** valore della colonna di distribuzione che verrà assegnato alla nuova partizione.
+**\_ ID tenant:** valore della colonna di distribuzione che verrà assegnato alla nuova partizione.
 
-** \_ opzione CASCADE:** (facoltativo) se impostata su \" CASCADE, \" isola anche una partizione da tutte le tabelle del [gruppo](concepts-hyperscale-colocation.md)di condivisione della tabella corrente.
+**\_ opzione CASCADE:** (facoltativo) se impostata su \" CASCADE, \" isola anche una partizione da tutte le tabelle del [gruppo](concepts-hyperscale-colocation.md)di condivisione della tabella corrente.
 
 #### <a name="return-value"></a>Valore restituito
 
-** \_ ID partizione:** la funzione restituisce l'ID univoco assegnato alla partizione appena creata.
+**\_ ID partizione:** la funzione restituisce l'ID univoco assegnato alla partizione appena creata.
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>Esempio
 
 Creare una nuova partizione per l'LineItems del tenant 135:
 

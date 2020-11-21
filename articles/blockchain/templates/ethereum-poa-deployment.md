@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
-ms.openlocfilehash: 5bbfca4d890440574ee6717ca910969226fc781a
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: e680bc601b7f230314c1063523a003e95a849c0a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987066"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024399"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Distribuire il modello di soluzione del Consorzio di prova Ethereum in Azure
 
@@ -48,7 +48,9 @@ Ogni distribuzione di un membro di un consorzio include:
 * Monitoraggio di Azure per l'aggregazione dei log e delle statistiche sulle prestazioni
 * Gateway di rete virtuale (facoltativo) per consentire le connessioni VPN tra reti virtuali private
 
-Per impostazione predefinita, gli endpoint RPC e peering sono accessibili tramite IP pubblico per abilitare la connettività semplificata tra le sottoscrizioni e i cloud. Per i controlli di accesso a livello di applicazione, è possibile usare i contratti di autorizzazione della parità. Le reti distribuite dietro le VPN, che sfruttano i gateway VNet per la connettività tra sottoscrizioni sono supportate. Poiché le distribuzioni VPN e VNet sono più complesse, è consigliabile iniziare con un modello IP pubblico durante la prototipazione di una soluzione.
+Per impostazione predefinita, gli endpoint RPC e peering sono accessibili tramite IP pubblico per consentire una connettività semplificata tra
+
+sottoscrizioni e cloud. Per i controlli di accesso a livello di applicazione, è possibile usare i [contratti di autorizzazione della parità](https://openethereum.github.io/Permissioning.html). Le reti distribuite dietro le VPN, che sfruttano i gateway VNet per la connettività tra sottoscrizioni sono supportate. Poiché le distribuzioni VPN e VNet sono più complesse, è consigliabile iniziare con un modello IP pubblico durante la prototipazione di una soluzione.
 
 I contenitori Docker vengono usati per l'affidabilità e la modularità. Azure Container Registry viene usato per ospitare e gestire le immagini con versione come parte di ogni distribuzione. Le immagini del contenitore sono costituite da:
 
@@ -685,7 +687,7 @@ Ora che il contratto intelligente è stato distribuito, è possibile inviare una
 
 ## <a name="webassembly-wasm-support"></a>Supporto WebAssembly (WASM)
 
-Il supporto WebAssembly è già abilitato nelle nuove reti PoA distribuite. Consente lo sviluppo di smart contract in qualsiasi linguaggio esegua il transpile in Web-Assembly (Rust, C, C++). Per ulteriori informazioni, vedere l' [esercitazione di parità tecnologia](https://github.com/paritytech/pwasm-tutorial).
+Il supporto WebAssembly è già abilitato nelle nuove reti PoA distribuite. Consente lo sviluppo di smart contract in qualsiasi linguaggio esegua il transpile in Web-Assembly (Rust, C, C++). Per altre informazioni, vedere [Panoramica della parità di webassembly](https://openethereum.github.io/WebAssembly-Home.html) ed [esercitazione di parità Tech](https://github.com/paritytech/pwasm-tutorial)
 
 ## <a name="faq"></a>Domande frequenti
 

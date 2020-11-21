@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 9c84b35318637f5b89e6c88c0ebb3fd6616533fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aeb90e8e064c44f4d17f920261ed58310f0e55f0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023126"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025702"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>Errori di debug durante la creazione di un'applicazione di comandi personalizzati
 
@@ -24,7 +24,7 @@ Questo articolo descrive come eseguire il debug quando si verificano errori dura
 ## <a name="errors-when-creating-an-application"></a>Errori durante la creazione di un'applicazione
 I comandi personalizzati consentono inoltre di creare un'applicazione in [Luis](https://www.luis.ai/) quando si crea un'applicazione di comandi personalizzata. 
 
-[Luis limita le applicazioni 500 per ogni risorsa di creazione](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits). La creazione di un'applicazione LUIS potrebbe non riuscire se si usa una risorsa di creazione che ha già 500 applicazioni. 
+[Luis limita le applicazioni 500 per ogni risorsa di creazione](../luis/luis-limits.md). La creazione di un'applicazione LUIS potrebbe non riuscire se si usa una risorsa di creazione che ha già 500 applicazioni. 
 
 Verificare che la risorsa di authoring LUIS selezionata disponga di meno di 500 di applicazioni. In caso contrario, è possibile creare una nuova risorsa LUIS authoring, passare a un'altra oppure provare a pulire le applicazioni LUIS.  
 
@@ -61,7 +61,7 @@ I comandi personalizzati non consentono frasi di esempio comuni condivise tra co
 
 Assicurarsi che non siano presenti frasi di esempio comuni condivise tra comandi diversi. 
 
-Per la procedura consigliata per il bilanciamento delle frasi di esempio in diversi comandi, vedere la [procedura consigliata Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Per la procedura consigliata per il bilanciamento delle frasi di esempio in diversi comandi, vedere la [procedura consigliata Luis](../luis/luis-concept-best-practices.md).
 
 ### <a name="empty-sample-sentences"></a>Frasi di esempio vuote
 È necessario avere almeno una frase di esempio per ogni comando.
@@ -82,7 +82,7 @@ Ad esempio, è possibile definire un parametro {Vehicle} per le frasi di esempio
 | Prenota un volo | Prenota un {Vehicle} |
 | Prenota un taxi | Prenota un {Vehicle} |
 
-Per la procedura consigliata per la formazione di LUIS, vedere la [procedura consigliata Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+Per la procedura consigliata per la formazione di LUIS, vedere la [procedura consigliata Luis](../luis/luis-concept-best-practices.md).
 
 ## <a name="cant-update-luis-key"></a>Non è possibile aggiornare la chiave LUIS
 ### <a name="reassign-to-e0-authoring-resource"></a>Riassegna alla risorsa di creazione di E0

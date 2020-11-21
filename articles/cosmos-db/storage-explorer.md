@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 9260f2892bdcc6a694e1e54e29cb06bae90298eb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 61ae446d180a86b42bc52ac3244b96b7b347b68f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074472"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025396"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Gestire le risorse di Azure Cosmos DB tramite Azure Storage Explorer
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "93074472"
 Usare lo stesso strumento per gestire le diverse entità di Azure in un'unica posizione. È possibile gestire Azure Cosmos DB entità, manipolare i dati, aggiornare stored procedure e trigger insieme ad altre entità di Azure, ad esempio BLOB di archiviazione e code. Azure Storage Explorer supporta gli account Cosmos configurati per le API SQL, MongoDB, Graph e Table.
 
 > [!NOTE]
-> L'integrazione di Azure Cosmos DB con Storage Explorer è stata deprecata. Tutte le funzionalità esistenti non verranno rimosse per almeno un anno da questa versione. È invece consigliabile usare il [portale](https://portal.azure.com/)di Azure, l' [app desktop del portale di Azure](https://portal.azure.com/App/Download) o [Azure Cosmos Explorer](data-explorer.md) autonomo. Le opzioni alternative contengono molte nuove funzionalità che attualmente non sono supportate in Storage Explorer.
+> L'integrazione di Azure Cosmos DB con Storage Explorer è stata deprecata. Tutte le funzionalità esistenti non verranno rimosse per almeno un anno a partire da questa versione. In alternativa è consigliabile usare il [portale di Azure](https://portal.azure.com/), l'[app desktop del portale di Azure](https://portal.azure.com/App/Download) o la versione autonoma [Azure Cosmos Explorer](data-explorer.md). Le opzioni alternative contengono molte nuove funzionalità che attualmente non sono supportate in Storage Explorer.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,25 +34,25 @@ Per installare i bit di Azure Storage Explorer più recenti, vedere [Azure Stora
 
 ## <a name="connect-to-an-azure-subscription"></a>Connettersi a una sottoscrizione di Azure
 
-1. Dopo l'installazione di **Azure Storage Explorer** , selezionare l'icona del **plug-in** nel riquadro sinistro.
+1. Dopo l'installazione di **Azure Storage Explorer**, selezionare l'icona del **plug-in** nel riquadro sinistro.
 
    :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
 
-1. Selezionare **Add an Azure Account** (Aggiungi un account Azure) e quindi **Accedi** .
+1. Selezionare **Add an Azure Account** (Aggiungi un account Azure) e quindi **Accedi**.
 
-   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Screenshot della finestra Connetti ad archiviazione di Azure che mostra il pulsante di opzione Aggiungi un account Azure selezionato e il menu a discesa ambiente Azure.":::
 
-1. Nella finestra **di dialogo di accesso ad Azure** selezionare **Accedi** , quindi immettere le credenziali di Azure.
+1. Nella finestra **di dialogo di accesso ad Azure** selezionare **Accedi**, quindi immettere le credenziali di Azure.
 
-    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Screenshot della finestra di accesso che mostra la posizione in cui immettere le credenziali per la sottoscrizione di Azure.":::
 
-1. Selezionare la sottoscrizione nell'elenco e quindi **Applica** .
+1. Selezionare la sottoscrizione nell'elenco e quindi **Applica**.
 
-    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Screenshot del riquadro Gestione account, che mostra un elenco di sottoscrizioni e il pulsante Applica.":::
 
     Il riquadro di esplorazione viene aggiornato e Mostra gli account nella sottoscrizione selezionata.
 
-    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="Screenshot del riquadro di esplorazione, aggiornato per visualizzare gli account nella sottoscrizione selezionata.":::
 
     L' **account Cosmos DB** è connesso alla sottoscrizione di Azure.
 
@@ -60,17 +60,20 @@ Per installare i bit di Azure Storage Explorer più recenti, vedere [Azure Stora
 
 È possibile usare una stringa di connessione per connettersi a un Azure Cosmos DB. Questo metodo supporta solo le API SQL e Table. Per connettersi con una stringa di connessione, seguire questa procedura:
 
-1. Trovare **locale e collegato** nell'albero a sinistra, fare clic con il pulsante destro del mouse su **account Cosmos DB** , quindi selezionare **Connetti a Cosmos DB** .
+1. Trovare **locale e collegato** nell'albero a sinistra, fare clic con il pulsante destro del mouse su **account Cosmos DB**, quindi selezionare **Connetti a Cosmos DB**.
 
-    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Screenshot che mostra il menu a discesa dopo aver fatto clic con il pulsante destro del mouse, con Connetti ad Azure Cosmos D B evidenziato.":::
 
 2. Nella finestra **Connetti a Cosmos DB** :
    1. Selezionare l'API dal menu a discesa.
    1. Incollare la stringa di connessione nella casella **stringa di connessione** . Per informazioni su come recuperare la stringa di connessione primaria, vedere [ottenere la stringa di connessione](manage-with-powershell.md#list-keys).
-   1. Immettere un' **etichetta di account** , quindi selezionare **Avanti** per verificare il riepilogo.
+   1. Immettere un' **etichetta di account**, quindi selezionare **Avanti** per verificare il riepilogo.
    1. Selezionare **Connetti** per connettere l'account Azure Cosmos DB.
 
-      :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+      :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Screenshot della finestra Connetti a Cosmos D B, che mostra il menu a discesa API, la casella stringa di connessione e la casella etichetta account.":::
+
+> [!NOTE]
+> Se il Azure Storage Explorer indica che la stringa di connessione Azure Cosmos DB presenta un formato non valido, assicurarsi che la stringa di connessione includa un punto e virgola ( `;` ) alla fine. Di seguito è riportato un esempio di una stringa di connessione Azure Cosmos DB valida: `AccountEndpoint=https://accountname.documents.azure.com:443;AccountKey=accountkey==;`
 
 ## <a name="use-a-local-emulator-to-connect-to-azure-cosmos-db"></a>Usare un emulatore locale per connettersi a Azure Cosmos DB
 
@@ -78,16 +81,16 @@ Usare la procedura seguente per connettersi a un Azure Cosmos DB con un emulator
 
 1. Installare Cosmos DB Emulator, quindi aprirlo. Per informazioni sull'installazione dell'emulatore, vedere [Cosmos DB Emulator](./local-emulator.md).
 
-1. Trovare **locale e collegato** nell'albero a sinistra, fare clic con il pulsante destro del mouse su **account Cosmos DB** , quindi selezionare **Connetti a Cosmos DB emulatore** .
+1. Trovare **locale e collegato** nell'albero a sinistra, fare clic con il pulsante destro del mouse su **account Cosmos DB**, quindi selezionare **Connetti a Cosmos DB emulatore**.
 
-    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Screenshot che mostra il menu visualizzato dopo aver fatto clic con il pulsante destro del mouse, con Connetti all'emulatore di Azure Cosmos D B evidenziato.":::
 
 1. Nella finestra **Connetti a Cosmos DB** :
    1. Incollare la stringa di connessione nella casella **stringa di connessione** . Per informazioni sul recupero della stringa di connessione primaria, vedere [ottenere la stringa di connessione](manage-with-powershell.md#list-keys).
-   1. Immettere un' **etichetta di account** , quindi selezionare **Avanti** per verificare il riepilogo.
+   1. Immettere un' **etichetta di account**, quindi selezionare **Avanti** per verificare il riepilogo.
    1. Selezionare **Connetti** per connettere l'account Azure Cosmos DB.
 
-      :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+      :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Screenshot della finestra Connetti a Cosmos D B, che mostra la casella stringa di connessione e la casella etichetta account.":::
 
 ## <a name="azure-cosmos-db-resource-management"></a>Gestione risorse di Azure Cosmos DB
 
@@ -107,67 +110,67 @@ Per gestire un account Azure Cosmos DB, utilizzare le operazioni seguenti:
 
 * Fare clic con il pulsante destro del mouse su un account o database di Azure Cosmos DB, quindi scegliere **Apri nel portale** per gestire la risorsa nel browser nel portale di Azure.
 
-  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Screenshot che mostra il menu visualizzato dopo aver fatto clic con il pulsante destro del mouse, con Apri nel portale evidenziato.":::
 
 * Fare clic con il pulsante destro del mouse su un account Azure Cosmos DB, un database o una raccolta, quindi scegliere **Aggiungi ad accesso rapido** per aggiungerlo al menu di accesso rapido.
 
 * Selezionare **Cerca da qui** per abilitare la ricerca di parole chiave nel percorso selezionato.
 
-    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="Screenshot che mostra la casella di ricerca evidenziata.":::
 
 ### <a name="database-and-collection-management"></a>Gestione di un database e di una raccolta
 
 #### <a name="create-a-database"></a>Creazione di un database
 
-1. Fare clic con il pulsante destro del mouse sull'account Azure Cosmos DB, quindi scegliere **Crea database** .
+1. Fare clic con il pulsante destro del mouse sull'account Azure Cosmos DB, quindi scegliere **Crea database**.
 
-   :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+   :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Screenshot che mostra il menu visualizzato dopo aver fatto clic con il pulsante destro del mouse, con create database evidenziato.":::
 
 1. Immettere il nome del database, quindi premere **invio** per completare l'operazione.
 
 #### <a name="delete-a-database"></a>Eliminare un database
 
-1. Fare clic con il pulsante destro del mouse sul database, quindi scegliere **Elimina database** . 
+1. Fare clic con il pulsante destro del mouse sul database, quindi scegliere **Elimina database**. 
 
-   :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+   :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Screenshot che mostra il menu visualizzato dopo aver fatto clic con il pulsante destro del mouse, con Elimina database evidenziato.":::
 
 1. Selezionare **Sì** nella finestra popup. Il nodo del database viene eliminato e l'account di Azure Cosmos DB viene aggiornato automaticamente.
 
-   :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+   :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Screenshot della finestra di conferma con il pulsante Sì evidenziato.":::
 
 #### <a name="create-a-collection"></a>Creare una raccolta
 
-1. Fare clic con il pulsante destro del mouse sul database e quindi scegliere **Crea raccolta** .
+1. Fare clic con il pulsante destro del mouse sul database e quindi scegliere **Crea raccolta**.
 
-   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Screenshot che mostra il menu visualizzato dopo aver fatto clic con il pulsante destro del mouse, con Crea raccolta evidenziato.":::
 
-1. Nella finestra Crea raccolta immettere le informazioni richieste, ad esempio **ID raccolta** e **capacità di archiviazione** e così via. Al termine selezionare **OK** .
+1. Nella finestra Crea raccolta immettere le informazioni richieste, ad esempio **ID raccolta** e **capacità di archiviazione** e così via. Al termine selezionare **OK**.
 
-   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Screenshot della finestra Crea raccolta, che mostra la casella raccolta i D e i pulsanti capacità di archiviazione.":::
 
 1. Selezionare **illimitata** per poter specificare una chiave di partizione e quindi fare clic su **OK** per terminare.
 
    > [!NOTE]
    > Se viene usata una chiave di partizione quando si crea una raccolta, una volta completata la creazione, non è possibile modificare il valore della chiave di partizione nella raccolta.
 
-    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Screenshot della finestra Crea raccolta, che mostra l'opzione illimitata selezionata per capacità di archiviazione e la casella chiave di partizione evidenziata.":::
 
 #### <a name="delete-a-collection"></a>Eliminare una raccolta
 
-- Fare clic con il pulsante destro del mouse sulla raccolta, scegliere **Elimina raccolta** , quindi scegliere **Sì** nella finestra popup.
+- Fare clic con il pulsante destro del mouse sulla raccolta, scegliere **Elimina raccolta**, quindi scegliere **Sì** nella finestra popup.
 
     Il nodo della raccolta viene eliminato e il database viene aggiornato automaticamente.
 
-    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="Screenshot che mostra il menu visualizzato dopo aver fatto clic con il pulsante destro del mouse, con l'eliminazione della raccolta evidenziata.":::
 
 ### <a name="document-management"></a>Gestione dei documenti
 
 #### <a name="create-and-modify-documents"></a>Creare e modificare un documento
 
-- Aprire **documenti** nel riquadro sinistro, selezionare **nuovo documento** , modificare il contenuto nel riquadro destro e quindi selezionare **Salva** .
-- È anche possibile aggiornare un documento esistente e quindi selezionare **Salva** . Per annullare le modifiche, selezionare **Ignora** .
+- Aprire **documenti** nel riquadro sinistro, selezionare **nuovo documento**, modificare il contenuto nel riquadro destro e quindi selezionare **Salva**.
+- È anche possibile aggiornare un documento esistente e quindi selezionare **Salva**. Per annullare le modifiche, selezionare **Ignora**.
 
-  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Screenshot che mostra i documenti evidenziati nel riquadro sinistro. Nel riquadro destro vengono evidenziati i nuovi documenti, Salva e Rimuovi.":::
 
 #### <a name="delete-a-document"></a>Eliminare un documento
 
@@ -175,18 +178,18 @@ Per gestire un account Azure Cosmos DB, utilizzare le operazioni seguenti:
 
 #### <a name="query-for-documents"></a>Eseguire query per documenti
 
-* Per modificare il filtro del documento, immettere una [query SQL](./sql-query-getting-started.md)e quindi selezionare **applica** .
+* Per modificare il filtro del documento, immettere una [query SQL](./sql-query-getting-started.md)e quindi selezionare **applica**.
 
-  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Screenshot del riquadro destro, che mostra i pulsanti filtro e applica, il numero ID e la casella query evidenziata.":::
 
 ### <a name="graph-management"></a>Gestione dei grafi
 
 #### <a name="create-and-modify-a-vertex"></a>Creare e modificare un vertice
 
-* Per creare un nuovo vertice, aprire il **grafico** dal riquadro a sinistra, selezionare **nuovo vertice** , modificare il contenuto e quindi fare clic su **OK** .
+* Per creare un nuovo vertice, aprire il **grafico** dal riquadro a sinistra, selezionare **nuovo vertice**, modificare il contenuto e quindi fare clic su **OK**.
 * Per modificare un vertice esistente, selezionare l'icona della penna nel riquadro di destra.
 
-   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Screenshot che mostra il grafico selezionato nel riquadro a sinistra e Mostra il nuovo vertice e l'icona della penna evidenziata nel riquadro destro.":::
 
 #### <a name="delete-a-graph"></a>Eliminare un grafo
 
@@ -194,23 +197,23 @@ Per gestire un account Azure Cosmos DB, utilizzare le operazioni seguenti:
 
 #### <a name="filter-for-graph"></a>Filtrare un grafo
 
-* Per modificare il filtro del grafico, immettere una [query Gremlin](gremlin-support.md)e quindi selezionare **Applica filtro** .
+* Per modificare il filtro del grafico, immettere una [query Gremlin](gremlin-support.md)e quindi selezionare **Applica filtro**.
 
-   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Screenshot che mostra il grafico selezionato nel riquadro a sinistra e Mostra applica filtro e la casella query evidenziata nel riquadro destro.":::
 
 ### <a name="table-management"></a>Gestione delle tabelle
 
 #### <a name="create-and-modify-a-table"></a>Creare e modificare una tabella
 
 * Per creare una nuova tabella:
-   1. Nel riquadro sinistro aprire **entità** , quindi selezionare **Aggiungi** .
+   1. Nel riquadro sinistro aprire **entità**, quindi selezionare **Aggiungi**.
    1. Nella finestra di dialogo **Aggiungi entità** modificare il contenuto.
    1. Selezionare il pulsante **Aggiungi proprietà** per aggiungere una proprietà.
-   1. Selezionare **Inserisci** .
+   1. Selezionare **Inserisci**.
 
-      :::image type="content" source="./media/storage-explorer/table.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+      :::image type="content" source="./media/storage-explorer/table.png" alt-text="Screenshot che mostra le entità evidenziate nel riquadro sinistro e Mostra Aggiungi, modifica, Aggiungi proprietà e Inserisci evidenziato nel riquadro di destra.":::
 
-* Per modificare una tabella, selezionare **modifica** , modificare il contenuto e quindi fare clic su **Aggiorna** .
+* Per modificare una tabella, selezionare **modifica**, modificare il contenuto e quindi fare clic su **Aggiorna**.
 
    
 
@@ -219,34 +222,34 @@ Per gestire un account Azure Cosmos DB, utilizzare le operazioni seguenti:
 * Per importare, selezionare il pulsante **Importa** , quindi scegliere una tabella esistente.
 * Per esportare, selezionare il pulsante **Esporta** , quindi scegliere una destinazione.
 
-   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Screenshot che mostra i pulsanti Importa ed Esporta evidenziati nel riquadro di destra.":::
 
 #### <a name="delete-entities"></a>Eliminare entità
 
 * Selezionare le entità, quindi fare clic sul pulsante **Elimina** .
 
-  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Screenshot che mostra il pulsante Elimina evidenziato nel riquadro destro e una finestra popup di conferma con sì evidenziato.":::
 
 #### <a name="query-a-table"></a>Eseguire query su una tabella
 
 - Selezionare il pulsante **query** , immettere una condizione di query, quindi selezionare il pulsante **Esegui query** . Per chiudere il riquadro query, selezionare il pulsante **Chiudi query** .
 
-  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Screenshot del riquadro destro, che mostra il pulsante Esegui query e il pulsante Chiudi query evidenziato.":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Gestire stored procedure, trigger e UDF
 
 * Per creare un stored procedure:
-  1. Nell'albero sinistro fare clic con il pulsante destro del mouse su **stored procedure** e quindi scegliere **Crea stored procedure** .
+  1. Nell'albero sinistro fare clic con il pulsante destro del mouse su **stored procedure** e quindi scegliere **Crea stored procedure**.
   
-     :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+     :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Screenshot del riquadro a sinistra, che mostra il menu visualizzato dopo aver fatto clic con il pulsante destro del mouse, con Crea stored procedure evidenziato.":::
   
-  1. Immettere un nome a sinistra, immettere il stored procedure Scripts nel riquadro destro e quindi selezionare **Crea** .
+  1. Immettere un nome a sinistra, immettere il stored procedure Scripts nel riquadro destro e quindi selezionare **Crea**.
   
 * Per modificare un stored procedure esistente, fare doppio clic sulla procedura, eseguire l'aggiornamento e quindi selezionare **Aggiorna** per salvarlo. È anche possibile selezionare **Ignora** per annullare la modifica.
 
-* Le operazioni per **trigger** e **UDF** sono simili alle **stored procedure** .
+* Le operazioni per **trigger** e **UDF** sono simili alle **stored procedure**.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Di seguito sono riportate le soluzioni ai problemi comuni che si verificano quando si usa Azure Cosmos DB in Storage Explorer.
 
@@ -258,7 +261,7 @@ Riavviare innanzitutto l'applicazione per verificare se il problema è stato ris
 
 Esistono alcuni motivi per cui è possibile che venga visualizzato questo errore, i due più comuni sono:
 
-* Si è protetti da un *proxy trasparente* . Un utente, ad esempio il reparto IT, intercetta il traffico HTTPS, lo decrittografa e quindi lo crittografa usando un certificato autofirmato.
+* Si è protetti da un *proxy trasparente*. Un utente, ad esempio il reparto IT, intercetta il traffico HTTPS, lo decrittografa e quindi lo crittografa usando un certificato autofirmato.
 
 * Si sta eseguendo software, ad esempio un software antivirus. Il software inserisce un certificato TLS/SSL autofirmato nei messaggi HTTPS ricevuti.
 
@@ -270,12 +273,12 @@ Quando Storage Explorer trova un certificato autofirmato, non sa se il messaggio
      - macOS e Linux: devono essere inclusi nel sistema operativo.
 
 1. Eseguire OpenSSL:
-    * Windows: passare alla directory di installazione, quindi **/bin/** , quindi fare doppio clic su **openssl.exe** .
+    * Windows: passare alla directory di installazione, quindi **/bin/**, quindi fare doppio clic su **openssl.exe**.
     * Mac e Linux: eseguire **openssl** da un terminale.
 1. Eseguire `s_client -showcerts -connect microsoft.com:443`.
 1. Cercare i certificati autofirmati. Se non si è certi, che sono autofirmati, cercare ovunque che l'oggetto ("s:") e l'autorità emittente ("i:") siano uguali.
 1. Se si individuano certificati autofirmati, copiare e incollare tutti gli elementi da e includere **-----inizio certificato-----** per **-----certificato di fine-----** a un nuovo. File CER per ciascuno di essi.
-1. Aprire Storage Explorer e quindi fare clic su **modifica**  >  **certificati SSL**  >  **Importa certificati** . Usare la selezione file per trovare, selezionare e aprire. File CER creati.
+1. Aprire Storage Explorer e quindi fare clic su **modifica**  >  **certificati SSL**  >  **Importa certificati**. Usare la selezione file per trovare, selezionare e aprire. File CER creati.
 
 Se non si trovano certificati autofirmati, è possibile inviare commenti e suggerimenti per ulteriori informazioni.
 
@@ -298,7 +301,7 @@ Se non si è in grado di recuperare le sottoscrizioni dopo l'accesso, provare i 
   * .extaccounts
 * Premere il tasto F12 per aprire la console per sviluppatori. Quando si accede, controllare la console per individuare eventuali messaggi di errore.
 
-   :::image type="content" source="./media/storage-explorer/console.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+   :::image type="content" source="./media/storage-explorer/console.png" alt-text="Screenshot della console degli strumenti di sviluppo che mostra la console evidenziata.":::
 
 #### <a name="unable-to-see-the-authentication-page"></a>Impossibile visualizzare la pagina di autenticazione
 
@@ -323,7 +326,7 @@ Se non si è in grado di rimuovere un account o se il collegamento di riautentic
   * ~/.config/StorageExplorer per Linux
   
   > [!NOTE]
-  > Se si eliminano questi file, **è necessario immettere nuovamente tutte le credenziali** .
+  > Se si eliminano questi file, **è necessario immettere nuovamente tutte le credenziali**.
 
 ### <a name="httphttps-proxy-issue"></a>Problema del proxy HTTP/HTTPS
 
@@ -333,19 +336,19 @@ Non è possibile elencare i nodi Azure Cosmos DB nell'albero a sinistra quando s
 
 Non ci sono risposte dopo aver selezionato il nodo **sviluppo** nel nodo **locale e collegato** nell'albero a sinistra. Si tratta di un comportamento previsto.
 
-:::image type="content" source="./media/storage-explorer/development.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+:::image type="content" source="./media/storage-explorer/development.png" alt-text="Screenshot che mostra il nodo di sviluppo selezionato.":::
 
 ### <a name="attach-an-azure-cosmos-db-account-in-the-local-and-attached-node-error"></a>Associare un account Azure Cosmos DB nell'errore del nodo **locale e collegato**
 
 Se viene visualizzato l'errore seguente dopo avere collegato un account Azure Cosmos DB nel nodo **locale e collegato** , assicurarsi di usare la stringa di connessione corretta.
 
-:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Screenshot della finestra popup non è possibile recuperare l'errore delle risorse figlio, che indica funzione getaddrinfo ENOTFOUND.":::
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>Errore di espansione del nodo di Azure Cosmos DB
 
 È possibile che venga visualizzato l'errore seguente quando si tenta di espandere i nodi nell'albero di sinistra.
 
-:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="Screenshot che mostra l'icona del plug-in nel riquadro sinistro.":::
+:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="Screenshot della finestra popup Impossibile recuperare le risorse figlio, che indica che non è possibile connettersi a questo account Cosmos D B.":::
 
 Provare i suggerimenti seguenti:
 

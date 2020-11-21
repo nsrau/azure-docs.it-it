@@ -10,17 +10,17 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3ff2a1f92cabb61f58d70b732738e613afa7cd9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319120"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025634"
 ---
 # <a name="inspect-custom-speech-data"></a>Esaminare i dati di Riconoscimento vocale personalizzato
 
 > [!NOTE]
-> Questa pagina presuppone che sia stata effettuata la lettura [dei dati di test per riconoscimento vocale personalizzato](how-to-custom-speech-test-data.md) e che sia stato caricato un set di dati per l'ispezione.
+> Questa pagina presuppone che sia stata effettuata la lettura [dei dati di test per riconoscimento vocale personalizzato](./how-to-custom-speech-test-and-train.md) e che sia stato caricato un set di dati per l'ispezione.
 
 Riconoscimento vocale personalizzato offre strumenti che consentono di esaminare visivamente la qualità del riconoscimento di un modello confrontando i dati audio con il risultato del riconoscimento corrispondente. Dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech)è possibile riprodurre l'audio caricato e determinare se il risultato del riconoscimento fornito è corretto. Questo strumento consente di controllare la qualità del modello di sintesi vocale di Microsoft, controllare un modello personalizzato sottoposto a training o confrontare la trascrizione con due modelli.
 
@@ -91,7 +91,7 @@ Dopo aver apportato le modifiche, fare clic sul pulsante **Salva** .
 
 Per esportare di nuovo i set di **dati** nella scheda dati, passare alla pagina dei dettagli dei dati e fare clic sul pulsante **Esporta** per esportare tutti i file come nuovo set di dati. È anche possibile filtrare i file in base all'ora dell'Ultima modifica, alle durate audio e così via per selezionare parzialmente i file desiderati. 
 
-![Esporta dati](media/custom-speech/custom-speech-editor-export.png)
+![Esportazione dei dati](media/custom-speech/custom-speech-editor-export.png)
 
 I file esportati nei dati verranno usati come set di dati completamente nuovo e non influiscono sulle entità esistenti di dati, training e test.
 
@@ -104,4 +104,4 @@ I file esportati nei dati verranno usati come set di dati completamente nuovo e 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Preparare i dati di test per Riconoscimento vocale personalizzato](how-to-custom-speech-test-data.md)
+- [Preparare i dati di test per Riconoscimento vocale personalizzato](./how-to-custom-speech-test-and-train.md)

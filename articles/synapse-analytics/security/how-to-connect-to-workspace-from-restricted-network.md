@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7cff2d8245095489fbba3b7af24b416885995e4d
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 55ec8be176dc7274a3b9a1feca53726d57eeb422
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637133"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024466"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Connettersi alle risorse dell'area di lavoro da una rete con restrizioni
 
@@ -21,9 +21,9 @@ Si supponga di essere un amministratore IT che gestisce la rete con restrizioni 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Sottoscrizione di Azure** : se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Area di lavoro di Azure sinapsi Analytics** : è possibile crearne uno da Azure sinapsi Analytics. Il nome dell'area di lavoro è necessario nel passaggio 4.
-* **Una rete con restrizioni** : l'amministratore IT gestisce la rete con restrizioni per l'organizzazione e dispone dell'autorizzazione per la configurazione dei criteri di rete. Il nome della rete virtuale e la relativa subnet sono necessari nel passaggio 3.
+* **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* **Area di lavoro di Azure sinapsi Analytics**: è possibile crearne uno da Azure sinapsi Analytics. Il nome dell'area di lavoro è necessario nel passaggio 4.
+* **Una rete con restrizioni**: l'amministratore IT gestisce la rete con restrizioni per l'organizzazione e dispone dell'autorizzazione per la configurazione dei criteri di rete. Il nome della rete virtuale e la relativa subnet sono necessari nel passaggio 3.
 
 
 ## <a name="step-1-add-network-outbound-security-rules-to-the-restricted-network"></a>Passaggio 1: aggiungere regole di sicurezza in uscita della rete alla rete con restrizioni
@@ -38,13 +38,13 @@ La schermata seguente mostra i dettagli per la regola in uscita Azure Resource M
 
 ![Screenshot dei dettagli del tag del servizio Azure Resource Manager.](./media/how-to-connect-to-workspace-from-restricted-network/arm-servicetag.png)
 
-Quando si creano le altre tre regole, sostituire il valore del **tag del servizio di destinazione** con **AzureFrontDoor. frontend** , **AzureActiveDirectory** o **AzureMonitor** nell'elenco.
+Quando si creano le altre tre regole, sostituire il valore del **tag del servizio di destinazione** con **AzureFrontDoor. frontend**, **AzureActiveDirectory** o **AzureMonitor** nell'elenco.
 
-Per altre informazioni, vedere [Cenni preliminari sui tag di servizio](/azure/virtual-network/service-tags-overview.md).
+Per altre informazioni, vedere [Cenni preliminari sui tag di servizio](/azure/virtual-network/service-tags-overview).
 
 ## <a name="step-2-create-private-link-hubs"></a>Passaggio 2: creare hub di collegamento privato
 
-Successivamente, creare hub di collegamento privati dal portale di Azure. Per trovarlo nel portale, cercare *Azure sinapsi Analytics (hub collegamento privato)* , quindi immettere le informazioni necessarie per crearlo. 
+Successivamente, creare hub di collegamento privati dal portale di Azure. Per trovarlo nel portale, cercare *Azure sinapsi Analytics (hub collegamento privato)*, quindi immettere le informazioni necessarie per crearlo. 
 
 > [!Note]
 > Verificare che il valore **Region** sia uguale a quello in cui si trova l'area di lavoro di Azure sinapsi Analytics.
@@ -67,7 +67,7 @@ Nella scheda **risorsa** scegliere l'hub collegamento privato, creato nel passag
 Nella scheda **configurazione** : 
 * In **rete virtuale** selezionare il nome della rete virtuale con restrizioni.
 * Per **subnet** selezionare la subnet della rete virtuale con restrizioni. 
-* Per l' **integrazione con la zona DNS privata** , selezionare **Sì**.
+* Per l' **integrazione con la zona DNS privata**, selezionare **Sì**.
 
 ![Screenshot della creazione di un endpoint privato, scheda configurazione.](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-3.png)
 
@@ -78,7 +78,7 @@ Dopo aver creato l'endpoint del collegamento privato, è possibile accedere alla
 Per accedere alle risorse all'interno della risorsa dell'area di lavoro di Azure sinapsi Analytics studio, è necessario creare quanto segue:
 
 - Almeno un endpoint di collegamento privato con un tipo di **sviluppatore** di una **risorsa secondaria di destinazione**.
-- Altri due endpoint di collegamento privato facoltativi con tipi di **SQL** o **sqlondemand** , a seconda delle risorse nell'area di lavoro a cui si vuole accedere.
+- Altri due endpoint di collegamento privato facoltativi con tipi di **SQL** o **sqlondemand**, a seconda delle risorse nell'area di lavoro a cui si vuole accedere.
 
 La creazione di questi parametri è simile alla creazione dell'endpoint nel passaggio precedente.  
 

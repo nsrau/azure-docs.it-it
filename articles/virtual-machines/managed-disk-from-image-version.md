@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: 1fbdae2480caef5bf1d190124ca3be6c5b97a2f9
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 40d3ff736194c4634b949af52ee7b09db20dd06d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576360"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026132"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>Creare un disco gestito da una versione dell'immagine
 
@@ -33,9 +33,9 @@ az sig image-version list \
    -o table
 ```
 
-Impostare la `source` variabile sull'ID della versione dell'immagine, quindi usare [AZ disk create](//cli/azure/disk#az_disk_create) per creare il disco gestito. 
+Impostare la `source` variabile sull'ID della versione dell'immagine, quindi usare [AZ disk create](/cli/azure/disk?view=azure-cli-latest#az_disk_create) per creare il disco gestito. 
 
-In questo esempio il disco del sistema operativo della versione dell'immagine viene esportato per creare un disco gestito denominato *myManagedOSDisk* , nell'area *eastus* , in un gruppo di risorse denominato *myResourceGroup*. 
+In questo esempio il disco del sistema operativo della versione dell'immagine viene esportato per creare un disco gestito denominato *myManagedOSDisk*, nell'area *eastus* , in un gruppo di risorse denominato *myResourceGroup*. 
 
 ```azurecli-interactive
 source="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<galleryImageDefinition>/versions/<imageVersion>"
@@ -47,7 +47,7 @@ az disk create --resource-group myResourceGroup --location EastUS --name myManag
 
 Se si vuole esportare un disco dati dalla versione dell'immagine, aggiungere `--gallery-image-reference-lun` per specificare il percorso LUN del disco dati da esportare. 
 
-In questo esempio, viene esportato il disco dati che si trova nel LUN 0 della versione dell'immagine per creare un disco gestito denominato *myManagedDataDisk* , nell'area *eastus* , in un gruppo di risorse denominato *myResourceGroup*. 
+In questo esempio, viene esportato il disco dati che si trova nel LUN 0 della versione dell'immagine per creare un disco gestito denominato *myManagedDataDisk*, nell'area *eastus* , in un gruppo di risorse denominato *myResourceGroup*. 
 
 ```azurecli-interactive
 source="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<galleryImageDefinition>/versions/<imageVersion>"
@@ -77,7 +77,7 @@ $sourceImgVer = Get-AzGalleryImageVersion `
 
 Dopo aver impostato la `source` variabile sull'ID della versione dell'immagine, usare [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) per creare una configurazione del disco e [New-AzDisk](/powershell/module/az.compute/new-azdisk) per creare il disco. 
 
-In questo esempio il disco del sistema operativo della versione dell'immagine viene esportato per creare un disco gestito denominato *myManagedOSDisk* , nell'area *eastus* , in un gruppo di risorse denominato *myResourceGroup*. 
+In questo esempio il disco del sistema operativo della versione dell'immagine viene esportato per creare un disco gestito denominato *myManagedOSDisk*, nell'area *eastus* , in un gruppo di risorse denominato *myResourceGroup*. 
 
 Creare una configurazione del disco.
 ```azurepowershell-interactive
@@ -97,7 +97,7 @@ New-AzDisk -Disk $diskConfig `
 
 Se si vuole esportare un disco dati nella versione dell'immagine, aggiungere un ID LUN alla configurazione del disco per specificare il percorso LUN del disco dati da esportare. 
 
-In questo esempio, viene esportato il disco dati che si trova nel LUN 0 della versione dell'immagine per creare un disco gestito denominato *myManagedDataDisk* , nell'area *eastus* , in un gruppo di risorse denominato *myResourceGroup*. 
+In questo esempio, viene esportato il disco dati che si trova nel LUN 0 della versione dell'immagine per creare un disco gestito denominato *myManagedDataDisk*, nell'area *eastus* , in un gruppo di risorse denominato *myResourceGroup*. 
 
 Creare una configurazione del disco.
 ```azurepowershell-interactive

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 2897fe2e0cc8aeb929b0a33f5cdaba9c60f2a244
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dae7b8e0485c1a2456b85e0910f60b2164d4e41c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81261585"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026319"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Esempi di campioni vocali per la creazione di una voce personalizzata
 
@@ -211,7 +211,7 @@ Ascoltare attentamente ogni file. In questa fase, è possibile modificare i dist
 
 Convertire ogni file a 16 bit e a una frequenza di campionamento di 16 KHz prima del salvataggio e, se sono state registrate conversazioni in studio, rimuovere il secondo canale. Salvare ogni file in formato WAV, denominando i file con il numero di espressione presente nello script.
 
-Creare infine la *trascrizione* che associa ogni file con estensione wav con la versione in formato testo dell'espressione corrispondente. In [Creazione di caratteri voce personalizzati](how-to-customize-voice-font.md) sono incluse informazioni dettagliate sul formato necessario. È possibile copiare il testo direttamente dallo script. Creare quindi un file ZIP dei file WAV e la trascrizione del testo.
+Creare infine la *trascrizione* che associa ogni file con estensione wav con la versione in formato testo dell'espressione corrispondente. In [Creazione di caratteri voce personalizzati](./how-to-custom-voice-create-voice.md) sono incluse informazioni dettagliate sul formato necessario. È possibile copiare il testo direttamente dallo script. Creare quindi un file ZIP dei file WAV e la trascrizione del testo.
 
 Archiviare le registrazioni originali in un luogo sicuro nel caso in cui siano necessarie in un secondo momento. Conservare anche lo script e le note.
 
@@ -220,4 +220,4 @@ Archiviare le registrazioni originali in un luogo sicuro nel caso in cui siano n
 A questo punto è possibile caricare le registrazioni e creare la voce personalizzata.
 
 > [!div class="nextstepaction"]
-> [Creare caratteri voce personalizzati](how-to-customize-voice-font.md)
+> [Creare caratteri voce personalizzati](./how-to-custom-voice-create-voice.md)

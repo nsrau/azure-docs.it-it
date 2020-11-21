@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: affbf57fcda5ff9fb56e148c2fa8769e7aa775e6
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b8b3a0aa6d9790dbb5900eac2d79074f44a749d2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555805"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025651"
 ---
-# <a name="evaluate-and-improve-custom-speech-accuracy"></a>Valutazione e miglioramento dell'accuratezza Riconoscimento vocale personalizzato
+# <a name="evaluate-and-improve-custom-speech-accuracy"></a>Valutare e migliorare l'accuratezza di Riconoscimento vocale personalizzato
 
 Questo articolo illustra come misurare quantitativamente e migliorare l'accuratezza dei modelli di sintesi vocale di Microsoft o di modelli personalizzati. Per il test dell'accuratezza sono necessari dati di trascrizione audio e con etichetta umana. è necessario fornire da 30 minuti a 5 ore di audio rappresentativo.
 
@@ -62,7 +62,7 @@ Una volta creato correttamente il test, è possibile confrontare i risultati aff
 
 ### <a name="side-by-side-comparison"></a>Confronto affiancato
 
-Una volta completato il test, indicato dalla modifica dello stato a *succeeded* , si troverà un numero wer per entrambi i modelli inclusi nel test. Fare clic sul nome del test per visualizzare la pagina dei dettagli del test. Questa pagina di dettaglio elenca tutte le espressioni del set di dati, indicando i risultati del riconoscimento dei due modelli insieme alla trascrizione dal set di dati inviato. Per esaminare il confronto affiancato, è possibile abilitare o disabilitare vari tipi di errore, tra cui inserimento, eliminazione e sostituzione. Ascoltando l'audio e confrontando i risultati del riconoscimento in ogni colonna, che mostra la trascrizione con etichetta umana e i risultati per due modelli di riconoscimento vocale, è possibile decidere quale modello soddisfi le proprie esigenze e dove siano necessari ulteriori training e miglioramenti.
+Una volta completato il test, indicato dalla modifica dello stato a *succeeded*, si troverà un numero wer per entrambi i modelli inclusi nel test. Fare clic sul nome del test per visualizzare la pagina dei dettagli del test. Questa pagina di dettaglio elenca tutte le espressioni del set di dati, indicando i risultati del riconoscimento dei due modelli insieme alla trascrizione dal set di dati inviato. Per esaminare il confronto affiancato, è possibile abilitare o disabilitare vari tipi di errore, tra cui inserimento, eliminazione e sostituzione. Ascoltando l'audio e confrontando i risultati del riconoscimento in ogni colonna, che mostra la trascrizione con etichetta umana e i risultati per due modelli di riconoscimento vocale, è possibile decidere quale modello soddisfi le proprie esigenze e dove siano necessari ulteriori training e miglioramenti.
 
 ## <a name="improve-custom-speech-accuracy"></a>Migliorare l'accuratezza di Riconoscimento vocale personalizzato
 
@@ -114,7 +114,7 @@ Considerare i seguenti dettagli:
 
 ### <a name="add-new-words-with-pronunciation"></a>Aggiungi nuove parole con la pronuncia
 
-Le parole che sono composte o altamente specializzate possono avere pronunce univoche. Queste parole possono essere riconosciute se la parola può essere suddivisa in parole più piccole per la relativa dichiarazione. Ad esempio, per riconoscere **Xbox** , pronunciare come **X Box**. Questo approccio non aumenterà l'accuratezza complessiva, ma potrà aumentare il riconoscimento delle parole chiave.
+Le parole che sono composte o altamente specializzate possono avere pronunce univoche. Queste parole possono essere riconosciute se la parola può essere suddivisa in parole più piccole per la relativa dichiarazione. Ad esempio, per riconoscere **Xbox**, pronunciare come **X Box**. Questo approccio non aumenterà l'accuratezza complessiva, ma potrà aumentare il riconoscimento delle parole chiave.
 
 > [!NOTE]
 > Questa tecnica è disponibile solo per alcune lingue al momento. Per informazioni dettagliate, vedere Personalizzazione per la pronuncia nella [tabella speech-to-text](language-support.md) .
@@ -136,5 +136,5 @@ La tabella seguente illustra gli scenari di riconoscimento vocale ed elenca i ma
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Preparare e testare i dati](how-to-custom-speech-test-data.md)
+* [Preparare e testare i dati](./how-to-custom-speech-test-and-train.md)
 * [Esaminare i dati](how-to-custom-speech-inspect-data.md)

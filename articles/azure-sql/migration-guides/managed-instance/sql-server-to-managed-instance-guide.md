@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 0aba809fd18dfd74a344a32b2335aba9426c9845
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 5c20fbbe25b51160f42f233d30c39ccaec0f5cac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94496732"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026062"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guida alla migrazione: SQL Server a SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -99,7 +99,7 @@ Se è necessario confrontare le prestazioni del carico di lavoro in un Istanza g
 
 ### <a name="create-sql-managed-instance"></a>Creare un'istanza gestita di SQL 
 
-In base alle informazioni della fase di individuazione e valutazione, creare un Istanza gestita SQL di destinazione con dimensioni appropriate. È possibile farlo usando il [portale di Azure](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)o un [modello di Azure Resource Manager (ARM)](/../../managed-instance/create-template-quickstart.md). 
+In base alle informazioni della fase di individuazione e valutazione, creare un Istanza gestita SQL di destinazione con dimensioni appropriate. È possibile farlo usando il [portale di Azure](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)o un [modello di Azure Resource Manager (ARM)](/azure/azure-sql/managed-instance/create-template-quickstart). 
 
 
 ## <a name="migrate"></a>Migrate
@@ -142,7 +142,7 @@ Il diagramma seguente offre una panoramica di alto livello del processo:
 
 Per eseguire la migrazione tramite backup e ripristino, attenersi alla procedura seguente: 
 
-1. Eseguire il backup del database nell'archiviazione BLOB di Azure. Usare, ad esempio, [backup su URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) in [SQL Server Management Studio](/ssms/download-sql-server-management-studio-ssms). Utilizzare lo [strumento Microsoft Azure](https://go.microsoft.com/fwlink/?LinkID=324399) per supportare i database precedenti a SQL Server 2012 SP1 CU2. 
+1. Eseguire il backup del database nell'archiviazione BLOB di Azure. Usare, ad esempio, [backup su URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) in [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). Utilizzare lo [strumento Microsoft Azure](https://go.microsoft.com/fwlink/?LinkID=324399) per supportare i database precedenti a SQL Server 2012 SP1 CU2. 
 1. Connettersi al Istanza gestita SQL di Azure usando SQL Server Management Studio. 
 1. Creare una credenziale usando una firma di accesso condiviso per accedere all'account di archiviazione BLOB di Azure con i backup del database. Ad esempio:
 
@@ -191,10 +191,10 @@ Dopo la migrazione dei dati nell'ambiente di destinazione, tutte le applicazioni
 
 L'approccio di test per la migrazione del database prevede le attività seguenti:
 
-1. **Sviluppare i test di convalida** : per testare la migrazione del database, è necessario usare query SQL. È necessario creare le query di convalida da eseguire sia sul database di origine che su quello di destinazione. Le query di convalida devono essere estese all'ambito definito.
-1. **Configurare un ambiente di test** : l'ambiente di test deve contenere una copia del database di origine e del database di destinazione. Assicurarsi di isolare l'ambiente di test.
-1. **Eseguire test di convalida** : eseguire i test di convalida sull'origine e sulla destinazione, quindi analizzare i risultati.
-1. **Eseguire test delle prestazioni** : eseguire test delle prestazioni sull'origine e sulla destinazione, quindi analizzare e confrontare i risultati.
+1. **Sviluppare i test di convalida**: per testare la migrazione del database, è necessario usare query SQL. È necessario creare le query di convalida da eseguire sia sul database di origine che su quello di destinazione. Le query di convalida devono essere estese all'ambito definito.
+1. **Configurare un ambiente di test**: l'ambiente di test deve contenere una copia del database di origine e del database di destinazione. Assicurarsi di isolare l'ambiente di test.
+1. **Eseguire test di convalida**: eseguire i test di convalida sull'origine e sulla destinazione, quindi analizzare i risultati.
+1. **Eseguire test delle prestazioni**: eseguire test delle prestazioni sull'origine e sulla destinazione, quindi analizzare e confrontare i risultati.
 
    > [!NOTE]
    > Per assistenza nello sviluppo e nell'esecuzione di test di convalida post-migrazione, prendere in considerazione la soluzione per la qualità dei dati offerta dal partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 

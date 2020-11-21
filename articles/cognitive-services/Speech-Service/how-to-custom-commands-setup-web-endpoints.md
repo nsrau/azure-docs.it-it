@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 0e2406cd35fb2d4dd99da4f5139a9f0f80697912
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e50d7aba5cc5b3d5d620d844cc9ad169ad8b3bf6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566249"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025892"
 ---
 # <a name="set-up-web-endpoints"></a>Configurare endpoint Web
 
@@ -49,18 +49,18 @@ Questo articolo illustra come configurare gli endpoint Web in un'applicazione di
    | Intestazioni | Chiave: app, Valore: usare le prime 8 cifre dell'ID applicazione | I parametri dell'intestazione da includere nell'intestazione della richiesta.|
 
     > [!NOTE]
-    > - L'endpoint Web di esempio, creato con [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/), si collega al database e salva lo stato dispositivo della TV e del ventilatore
+    > - L'endpoint Web di esempio, creato con [Funzioni di Azure](../../azure-functions/index.yml), si collega al database e salva lo stato dispositivo della TV e del ventilatore
     > - L'intestazione suggerita è necessaria solo per l'endpoint di esempio
     > - Per assicurarsi che il valore dell'intestazione sia univoco nell'endpoint di esempio, usare le prime 8 cifre dell'ID applicazione
-    > - Nella realtà, l'endpoint Web può essere l'endpoint per l'[hub IoT](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) che gestisce i dispositivi
+    > - Nella realtà, l'endpoint Web può essere l'endpoint per l'[hub IoT](../../iot-hub/about-iot-hub.md) che gestisce i dispositivi
 
 1. Fare clic su **Salva**.
 
 ## <a name="call-web-endpoints"></a>Chiamare gli endpoint Web
 
-1. Passare al comando **TurnOnOff** , selezionare **ConfirmationResponse** nella regola di completamento, quindi selezionare **Aggiungi un'azione**.
+1. Passare al comando **TurnOnOff**, selezionare **ConfirmationResponse** nella regola di completamento, quindi selezionare **Aggiungi un'azione**.
 1. In **Nuova azione - Tipo** selezionare **Call web endpoint** (Chiamata a endpoint Web)
-1. In **Modifica azione - Endpoint** selezionare **UpdateDeviceState** , ovvero l'endpoint Web creato.  
+1. In **Modifica azione - Endpoint** selezionare **UpdateDeviceState**, ovvero l'endpoint Web creato.  
 1. In **Configurazione** inserire i valori seguenti: 
    > [!div class="mx-imgBorder"]
    > ![Parametri dell'azione di chiamata a endpoint Web](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
@@ -149,7 +149,7 @@ Aggiungere il codice XML seguente a `MainPage.xaml` sopra il blocco `"EnableMicr
 
 ### <a name="sync-device-state"></a>Sincronizzare lo stato del dispositivo 
 
-In `MainPage.xaml.cs` aggiungere il riferimento `using Windows.Web.Http;`. Aggiungere il codice seguente alla classe `MainPage` . Questo metodo invierà una richiesta GET all'endpoint di esempio ed estrarrà lo stato corrente del dispositivo per l'app. Assicurarsi di sostituire `<your_app_name>` con il valore usato nell' **intestazione** nell'endpoint Web di comandi personalizzati
+In `MainPage.xaml.cs` aggiungere il riferimento `using Windows.Web.Http;`. Aggiungere il codice seguente alla classe `MainPage` . Questo metodo invierà una richiesta GET all'endpoint di esempio ed estrarrà lo stato corrente del dispositivo per l'app. Assicurarsi di sostituire `<your_app_name>` con il valore usato nell'**intestazione** nell'endpoint Web di comandi personalizzati
 
 ```C#
 private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs e)

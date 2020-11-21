@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 86db8c88fae7a5fd1ec4828d8936c6cb8172a61c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 446731e084084ca301b350f6fec0c4065485a40f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564566"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026625"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Procedure consigliate per la configurazione del cluster (SQL Server nelle macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ Usare una singola scheda di interfaccia di rete per server (nodo cluster) e una 
 
 ### <a name="tuning-failover-cluster-network-thresholds"></a>Ottimizzazione delle soglie di rete del cluster di failover
 
-Quando si eseguono nodi del cluster di failover Windows in macchine virtuali di Azure con SQL Server AlwaysOn, è consigliabile modificare l'impostazione del cluster in uno stato di monitoraggio più rilassato.  In questo modo il cluster risulta molto più stabile e affidabile.  Per informazioni dettagliate, vedere [IaaS con SQL AlwaysOn-ottimizzazione delle soglie di rete del cluster di failover](/windows-server/troubleshoot/iaas-sql-failover-cluser).
+Quando si eseguono nodi del cluster di failover Windows in macchine virtuali di Azure con SQL Server AlwaysOn, è consigliabile modificare l'impostazione del cluster in uno stato di monitoraggio più rilassato.  In questo modo il cluster risulta molto più stabile e affidabile.  Per informazioni dettagliate, vedere [IaaS con SQL AlwaysOn-ottimizzazione delle soglie di rete del cluster di failover](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 ## <a name="quorum"></a>Quorum
 
@@ -60,7 +60,7 @@ Configurare un disco condiviso di Azure come disco di controllo.
 Per iniziare, vedere [configurare un disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)di controllo.
 
 
-**Sistemi operativi supportati** : Tutti   
+**Sistemi operativi supportati**: Tutti   
 
 
 ### <a name="cloud-witness"></a>Cloud di controllo
@@ -70,7 +70,7 @@ Un server di controllo del mirroring è un tipo di quorum di controllo del clust
 Per iniziare, vedere [configurare un cloud](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp)di controllo.
 
 
-**Sistemi operativi supportati** : Windows Server 2016 e versioni successive   
+**Sistemi operativi supportati**: Windows Server 2016 e versioni successive   
 
 
 ### <a name="file-share-witness"></a>Condivisione file di controllo
@@ -82,7 +82,7 @@ Se si intende usare una condivisione file di Azure, è possibile montarla con lo
 Per iniziare, vedere [configurare una condivisione file](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)di controllo.
 
 
-**Sistemi operativi supportati** : Windows Server 2012 e versioni successive   
+**Sistemi operativi supportati**: Windows Server 2012 e versioni successive   
 
 ## <a name="connectivity"></a>Connettività
 
@@ -108,9 +108,9 @@ Si verifica un lieve ritardo di failover quando si usa il servizio di bilanciame
 
 Per iniziare, informazioni su come configurare Azure Load Balancer per l' [istanza del cluster di failover](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o un [gruppo di disponibilità](availability-group-vnn-azure-load-balancer-configure.md)
 
-**Sistemi operativi supportati** : Tutti   
-**Versione di SQL supportata** : Tutti   
-**Soluzione HADR supportata** : istanza del cluster di failover e gruppo di disponibilità   
+**Sistemi operativi supportati**: Tutti   
+**Versione di SQL supportata**: Tutti   
+**Soluzione HADR supportata**: istanza del cluster di failover e gruppo di disponibilità   
 
 
 ### <a name="distributed-network-name-dnn"></a>DNN (Distributed Network Name)
@@ -128,9 +128,9 @@ La maggior parte delle funzionalità SQL Server funziona in modo trasparente con
 
 Per iniziare, informazioni su come configurare una risorsa nome di rete distribuita per [un'istanza del cluster di failover](failover-cluster-instance-distributed-network-name-dnn-configure.md) o un [gruppo di disponibilità](availability-group-distributed-network-name-dnn-listener-configure.md)
 
-**Sistemi operativi supportati** : Windows Server 2016 e versioni successive   
-**Versione SQL supportata** : SQL Server 2019 Cu2 (FCI) e SQL Server 2019 CU8 (AG)   
-**Soluzione HADR supportata** : istanza del cluster di failover e gruppo di disponibilità   
+**Sistemi operativi supportati**: Windows Server 2016 e versioni successive   
+**Versione SQL supportata**: SQL Server 2019 Cu2 (FCI) e SQL Server 2019 CU8 (AG)   
+**Soluzione HADR supportata**: istanza del cluster di failover e gruppo di disponibilità   
 
 
 ## <a name="limitations"></a>Limitazioni

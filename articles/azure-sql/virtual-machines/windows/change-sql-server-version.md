@@ -14,12 +14,12 @@ ms.date: 06/08/2020
 ms.author: RamaKoni
 ms.reviewer: sqlblt, daleche
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a0ecc36d78ffde002dac971a749889104ff10073
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: b9223ffc564620804b36f6f0e71602b3888a9f42
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556455"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025379"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Modifica sul posto della versione SQL Server in una macchina virtuale di Azure
 
@@ -66,7 +66,7 @@ Per aggiornare la versione di SQL Server, ottenere i supporti di installazione S
 
    :::image type="content" source="./media/change-sql-server-version/upgrade.png" alt-text="Selezione per l'aggiornamento della versione di SQL Server":::
 
-1. Nella pagina **codice Product Key** selezionare un'opzione per indicare se si intende eseguire l'aggiornamento a un'edizione gratuita di SQL Server o se si dispone di una chiave PID per una versione di produzione del prodotto. Per ulteriori informazioni, vedere [edizioni e funzionalità supportate di SQL Server 2019 (15. x)](/sql/sql-server/editions-and-components-of-sql-server-version-155) e [aggiornamenti di versione ed edizione supportati (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades).
+1. Nella pagina **codice Product Key** selezionare un'opzione per indicare se si intende eseguire l'aggiornamento a un'edizione gratuita di SQL Server o se si dispone di una chiave PID per una versione di produzione del prodotto. Per ulteriori informazioni, vedere [edizioni e funzionalità supportate di SQL Server 2019 (15. x)](/sql/sql-server/editions-and-components-of-sql-server-version-15) e [aggiornamenti di versione ed edizione supportati (SQL Server 2016)](/sql/database-engine/install-windows/supported-version-and-edition-upgrades).
 1. Selezionare **Avanti** fino a quando non si raggiunge la pagina inizio **aggiornamento** , quindi selezionare **Aggiorna**. La finestra di installazione potrebbe smettere di rispondere per alcuni minuti mentre la modifica ha effetto. In una pagina **completa** verrà verificato che l'aggiornamento sia stato completato. Per una procedura dettagliata per l'aggiornamento, vedere [la procedura completa](/sql/database-engine/install-windows/upgrade-sql-server-using-the-installation-wizard-setup#procedure).
 
    :::image type="content" source="./media/change-sql-server-version/complete-page.png" alt-text="Pagina completa":::
@@ -109,7 +109,7 @@ Dopo aver modificato la versione di SQL Server, registrare di nuovo la VM SQL Se
 > [!NOTE]
 > Se è già stata eseguita la registrazione con l'estensione SQL IaaS Agent, [annullare la registrazione dalla RELYING Party](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) e quindi [registrare nuovamente la risorsa VM SQL](sql-agent-extension-manually-register-single-vm.md#register-with-extension) in modo che rilevi la versione e l'edizione corrette del SQL Server installato nella macchina virtuale. Questa operazione Aggiorna i metadati e le informazioni di fatturazione associate a questa macchina virtuale.
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 - È consigliabile avviare backup/Aggiorna statistiche/Ricompila indici/Verifica coerenza al termine dell'aggiornamento. È anche possibile controllare i singoli livelli di compatibilità del database per assicurarsi che riflettano il livello desiderato.
 - Dopo l'aggiornamento di SQL Server nella macchina virtuale, assicurarsi che la proprietà **edizione** di SQL Server nel portale di Azure corrisponda al numero di edizione installato per la fatturazione.

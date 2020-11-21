@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 49922599adb30e6c631f29b4831fda60cc000a40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa3a6d16b79800043bdcd3f183dd86fa278dd1a9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360124"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026028"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Eseguire l'integrazione con un'applicazione client tramite Speech SDK
 
@@ -35,7 +35,7 @@ Sono necessari anche:
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) o versione successiva. Questa guida è basata su Visual Studio 2019.
 > * Una chiave di sottoscrizione di Azure per i servizi Voce. [Ottenerne uno](overview.md#try-the-speech-service-for-free) gratuitamente o crearlo nel [portale di Azure](https://portal.azure.com)
-> * [Abilitare il dispositivo per lo sviluppo](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
+> * [Abilitare il dispositivo per lo sviluppo](/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Passaggio 1: pubblicare l'applicazione comandi personalizzati
 
@@ -43,7 +43,7 @@ Sono necessari anche:
 1. Passare a **Impostazioni**, selezionare **risorsa Luis**
 1. Se la **risorsa di stima** non è assegnata, selezionare una chiave di stima della query o crearne una nuova.
 
-    La chiave di stima della query è sempre obbligatoria prima di pubblicare un'applicazione. Per altre informazioni sulle risorse LUIS, fare riferimento a [creare una risorsa Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription)
+    La chiave di stima della query è sempre obbligatoria prima di pubblicare un'applicazione. Per altre informazioni sulle risorse LUIS, fare riferimento a [creare una risorsa Luis](../luis/luis-how-to-azure-subscription.md)
 
 1. Tornare ai comandi di modifica, selezionare **pubblica** .
 
@@ -65,7 +65,7 @@ In questo passaggio viene aggiunto il codice XAML che definisce l'interfaccia ut
 
 Creare l'interfaccia utente dell'applicazione aggiungendo il codice XAML.
 
-1. In **Esplora soluzioni**aprire `MainPage.xaml`
+1. In **Esplora soluzioni** aprire `MainPage.xaml`
 
 1. Nella visualizzazione XAML della finestra di progettazione sostituire l'intero contenuto con il frammento di codice seguente:
 
@@ -129,7 +129,7 @@ Aggiungere l'origine code-behind in modo che l'applicazione funzioni come previs
 
 Aggiungere l'origine code-behind come indicato di seguito:
 
-1. In **Esplora soluzioni**aprire il file di origine code-behind `MainPage.xaml.cs` (raggruppato in `MainPage.xaml` )
+1. In **Esplora soluzioni** aprire il file di origine code-behind `MainPage.xaml.cs` (raggruppato in `MainPage.xaml` )
 
 1. Sostituire il contenuto del file con il codice seguente: 
 
@@ -404,7 +404,7 @@ Aggiungere l'origine code-behind come indicato di seguito:
 
 1. Dalla barra dei menu scegliere **file**  >  **Salva tutto** per salvare le modifiche
 
-## <a name="try-it-out"></a>Provare il servizio
+## <a name="try-it-out"></a>Provare questa operazione
 
 1. Dalla barra dei menu scegliere **Compila** > **Compila soluzione** per compilare l'applicazione. Il codice dovrebbe risultare compilato senza errori.
 
@@ -416,7 +416,7 @@ Aggiungere l'origine code-behind come indicato di seguito:
 
    ![Richiesta di autorizzazione di accesso al microfono](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Selezionare **Talk**e pronunciare una frase o una frase in inglese nel microfono del dispositivo. Il contenuto vocale viene trasmesso al canale Direct Line Speech e trascritto come testo che viene visualizzato nella finestra.
+1. Selezionare **Talk** e pronunciare una frase o una frase in inglese nel microfono del dispositivo. Il contenuto vocale viene trasmesso al canale Direct Line Speech e trascritto come testo che viene visualizzato nella finestra.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

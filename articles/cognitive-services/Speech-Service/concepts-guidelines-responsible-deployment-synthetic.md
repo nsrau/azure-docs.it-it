@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
-ms.openlocfilehash: a529ac8b7ce16d3ee4463f1b4bc2e8007e5b79b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d80ffb575c6aa15695279584b58288cbc16be43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73836771"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024977"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Linee guida per la distribuzione responsabile della tecnologia Voice sintetica
 Ecco le linee guida di progettazione generali di Microsoft per l'uso della tecnologia Voice sintetica. Queste sono state sviluppate in studi che Microsoft ha condotto con il talento vocale, i consumatori, nonché singoli utenti con problemi di sintesi vocale per guidare lo sviluppo responsabile della voce sintetica.
@@ -39,7 +39,7 @@ In scenari ambigui e transazionali, ad esempio un Call Support Center, gli utent
 Quando si lavora con il talento vocale, ad esempio gli attori vocali, per creare voci sintetiche, si applicano le linee guida riportate di seguito.
 
 ### <a name="obtain-meaningful-consent-from-voice-talent"></a>Ottenere un consenso significativo dal talento vocale
-Il talento vocale si aspetta di avere il controllo del tipo di carattere vocale (come e dove verrà usato) e verrà compensato ogni volta che viene usato. I proprietari del sistema devono quindi ottenere le autorizzazioni esplicite scritte dal talento vocale e hanno chiare specifiche contrattuali sui casi d'uso, la durata dell'utilizzo, la compensazione e così via. Un talento vocale non è a conoscenza dei potenziali usi dannosi della tecnologia e deve essere istruito dai proprietari del sistema sulle funzionalità della tecnologia. Per altre informazioni sul talento vocale e sul consenso, leggi la [divulgazione per il talento vocale](https://aka.ms/disclosure-voice-talent).
+Il talento vocale si aspetta di avere il controllo del tipo di carattere vocale (come e dove verrà usato) e verrà compensato ogni volta che viene usato. I proprietari del sistema devono quindi ottenere le autorizzazioni esplicite scritte dal talento vocale e hanno chiare specifiche contrattuali sui casi d'uso, la durata dell'utilizzo, la compensazione e così via. Un talento vocale non è a conoscenza dei potenziali usi dannosi della tecnologia e deve essere istruito dai proprietari del sistema sulle funzionalità della tecnologia. Per altre informazioni sul talento vocale e sul consenso, leggi la [divulgazione per il talento vocale](/legal/cognitive-services/speech-service/disclosure-voice-talent).
 
 
 ## <a name="considerations-for-those-with-speech-disorders"></a>Considerazioni per gli utenti con problemi di sintesi vocale
@@ -57,13 +57,13 @@ Gli utenti con problemi di riconoscimento vocale desiderano apportare aggiorname
 
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
-* [Divulgazione per il talento vocale](https://aka.ms/disclosure-voice-talent)
+* [Divulgazione per il talento vocale](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Cenni preliminari sul controllo](concepts-gating-overview.md)
 * [Come divulgare](concepts-disclosure-guidelines.md)
 * [Schemi di progettazione della divulgazione](concepts-disclosure-patterns.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Divulgazione per il talento vocale](https://aka.ms/disclosure-voice-talent)
+* [Divulgazione per il talento vocale](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Come divulgare](concepts-disclosure-guidelines.md)
 * [Schemi di progettazione della divulgazione](concepts-disclosure-patterns.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 5685a2553b95308a1c18c3e490737338f609b594
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 7d4d1acac591bfe6ce40efcf6166357d43718363
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330938"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024960"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Migliorare la sintesi con lo strumento di creazione del contenuto audio
 
@@ -33,13 +33,13 @@ La creazione di contenuti audio è uno strumento gratuito, ma si paga per il ser
 
 ### <a name="step-1---create-an-azure-account"></a>Passaggio 1: creare un account Azure
 
-Per usare la creazione di contenuto audio, è necessario disporre di un [account Microsoft](https://account.microsoft.com/account) e di un [account Azure](https://azure.microsoft.com/free/ai/). Seguire queste istruzioni per [configurare l'account](get-started.md#new-resource). 
+Per usare la creazione di contenuto audio, è necessario disporre di un [account Microsoft](https://account.microsoft.com/account) e di un [account Azure](https://azure.microsoft.com/free/ai/). Seguire queste istruzioni per [configurare l'account](./overview.md#try-the-speech-service-for-free). 
 
 [Portale di Azure](https://portal.azure.com/) è la posizione centralizzata per la gestione dell'account Azure. È possibile creare la risorsa di sintesi vocale, gestire l'accesso al prodotto e monitorare tutto da semplici app Web a distribuzioni cloud complesse. 
 
 ### <a name="step-2---create-a-speech-resource"></a>Passaggio 2: creare una risorsa vocale
 
-Dopo aver effettuato l'iscrizione per l'account Azure, è necessario creare una risorsa vocale nell'account Azure per accedere ai servizi di riconoscimento vocale. Visualizzare le istruzioni per la [creazione di una risorsa di sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview#create-the-azure-resource). 
+Dopo aver effettuato l'iscrizione per l'account Azure, è necessario creare una risorsa vocale nell'account Azure per accedere ai servizi di riconoscimento vocale. Visualizzare le istruzioni per la [creazione di una risorsa di sintesi vocale](./overview.md#create-the-azure-resource). 
 
 È necessario qualche secondo per distribuire la nuova risorsa del servizio Voce. Al termine della distribuzione, è possibile avviare il percorso di creazione del contenuto audio. 
 
@@ -63,7 +63,7 @@ Questo diagramma illustra i passaggi necessari per ottimizzare gli output di sin
 2. [Creare un file di ottimizzazione audio](#create-an-audio-tuning-file) usando gli script SSML o testo normale. Digitare o caricare il contenuto nella creazione di contenuto audio.
 3. Scegliere la voce e la lingua per il contenuto dello script. La creazione di contenuto audio include tutte le voci di sintesi [vocale di Microsoft](language-support.md#text-to-speech). Puoi usare la tua voce standard, neurale o personalizzata.
    >[!NOTE]
-   > L'accesso controllato è disponibile per le voci neurali personalizzate, che consentono di creare voci ad alta definizione simili alla voce naturale. Per ulteriori informazioni, vedere [processo](https://aka.ms/ignite2019/speech/ethics)di controllo.
+   > L'accesso controllato è disponibile per le voci neurali personalizzate, che consentono di creare voci ad alta definizione simili alla voce naturale. Per ulteriori informazioni, vedere [processo](./text-to-speech.md)di controllo.
 
 4. Fare clic sull'icona di **riproduzione** (un triangolo) per visualizzare l'anteprima dell'output di sintesi predefinito. Migliorare quindi l'output regolando la pronuncia, le interruzioni, il pitch, la velocità, l'intonazione, lo stile vocale e altro ancora. Per un elenco completo delle opzioni, vedere [linguaggio di markup sintesi vocale](speech-synthesis-markup.md). Ecco un [video](https://www.youtube.com/watch?v=O1wIJ7mts_w) che illustra come ottimizzare l'output vocale con la creazione di contenuto audio. 
 5. Salvare ed [esportare l'audio ottimizzato](#export-tuned-audio). Quando si salva la traccia di ottimizzazione nel sistema, è possibile continuare a lavorare ed eseguire l'iterazione dell'output. Quando si è soddisfatti dell'output, è possibile creare un'attività di creazione audio con la funzionalità Esporta. È possibile osservare lo stato dell'attività di esportazione e scaricare l'output da usare con le app e i prodotti.
@@ -140,7 +140,7 @@ Seguire questi passaggi per aggiungere un utente a una risorsa vocale in modo da
 
     :::image source="media/audio-content-creation/add-role-first.png" alt-text="Finestra di dialogo Aggiungi ruolo":::
 
-1. Gli utenti aggiunti riceveranno un messaggio di posta elettronica di invito. Dopo aver fatto clic su **Accept invito**  >  **Accept per partecipare ad Azure** , è possibile usare la [creazione di contenuto audio](https://aka.ms/audiocontentcreation).
+1. Gli utenti aggiunti riceveranno un messaggio di posta elettronica di invito. Dopo aver fatto clic su **Accept invito**  >  **Accept per partecipare ad Azure**, è possibile usare la [creazione di contenuto audio](https://aka.ms/audiocontentcreation).
 
 Gli utenti che si trovano nella stessa risorsa di sintesi vocale vedranno il lavoro di tutti gli altri in audio Content Creation Studio. Se si vuole che ogni singolo utente disponga di un'area di lavoro univoca e privata nella creazione di contenuto audio, [creare una nuova risorsa vocale](#step-2---create-a-speech-resource) per ogni utente e concedere a ogni utente l'accesso univoco alla risorsa di sintesi vocale. 
 
@@ -160,7 +160,7 @@ Per consentire a uno degli utenti di concedere l'accesso ad altri utenti, è nec
 
 ## <a name="see-also"></a>Vedi anche
 
-* [API Long audio](https://aka.ms/long-audio-api)
+* [API Long audio](./long-audio-api.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4c5000adb2339d3fd0f828781a60f75c75894b5
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 87e33940d927fc9116c03345011e21398384d484
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168597"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024416"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -25,7 +25,7 @@ Quando vengono presentati i conteggi delle metriche nel portale, vengono rinorma
 * Il campionamento a frequenza fissa è disponibile nelle versioni recenti degli SDK Application Insights per ASP.NET, ASP.NET Core, Java (sia l'agente che l'SDK) e Python.
 * Il campionamento di inserimento funziona sull'endpoint del servizio Application Insights. Si applica solo quando non è attivo alcun altro campionamento. Se l'SDK campiona i dati di telemetria, il campionamento per inserimento è disabilitato.
 * Per le applicazioni Web, se si registrano eventi personalizzati ed è necessario assicurarsi che un set di eventi venga mantenuto o rimosso insieme, gli eventi devono avere lo stesso `OperationId` valore.
-* Se si scrivono query di Dati di analisi, è necessario [tener conto del campionamento](../log-query/aggregations.md). In particolare, anziché eseguire semplicemente il conteggio dei record, è necessario usare `summarize sum(itemCount)`.
+* Se si scrivono query di Dati di analisi, è necessario [tener conto del campionamento](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations). In particolare, anziché eseguire semplicemente il conteggio dei record, è necessario usare `summarize sum(itemCount)`.
 * Alcuni tipi di telemetria, incluse le metriche delle prestazioni e le metriche personalizzate, vengono sempre mantenuti indipendentemente dal fatto che il campionamento sia abilitato o meno.
 
 La tabella seguente riepiloga i tipi di campionamento disponibili per ogni SDK e tipo di applicazione:

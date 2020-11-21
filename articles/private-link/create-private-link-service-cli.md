@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 87fe02aed19ae7e5858715748a2b4c4da87a07b3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e0b9ac3f16a170bb14925b555e8894cb10080488
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658571"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026183"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Creare un servizio di collegamento privato usando l'interfaccia della riga di comando
 Questo articolo illustra come creare un servizio di collegamento privato in Azure usando l'interfaccia della riga di comando di Azure.
@@ -79,7 +79,7 @@ Una regola di bilanciamento del carico definisce la configurazione IP front-end 
 ```
 ### <a name="create-backend-servers"></a>Creare i server back-end
 
-In questo esempio non viene trattata la creazione di macchine virtuali. È possibile seguire la procedura descritta in [avvio rapido: creare un servizio di bilanciamento del carico interno per bilanciare il carico](/load-balancer/quickstart-load-balancer-standard-internal-cli#create-backend-servers) delle macchine virtuali usando l'interfaccia della riga di comando di Azure per creare due macchine virtuali da usare come server back-end per il bilanciamento del carico 
+In questo esempio non viene trattata la creazione di macchine virtuali. È possibile seguire la procedura descritta in [avvio rapido: creare un servizio di bilanciamento del carico interno per bilanciare il carico](/azure/load-balancer/quickstart-load-balancer-standard-internal-cli) delle macchine virtuali usando l'interfaccia della riga di comando di Azure per creare due macchine virtuali da usare come server back-end per il bilanciamento del carico 
 
 
 ### <a name="disable-private-link-service-network-policies-on-subnet"></a>Disabilitare i criteri di rete del servizio di collegamento privato nella subnet 

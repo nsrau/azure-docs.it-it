@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c2dbaf8f65208126c52617d4b89d901b3670dac
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921419"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025175"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>Che cos'è la conversazione per più dispositivi (anteprima)?
 
@@ -72,7 +72,7 @@ Ogni client può inviare messaggi audio o istantanei. Il servizio userà il rico
 
 ## <a name="overview-of-conversation-host-and-participant"></a>Panoramica di conversazioni, host e partecipanti
 
-Una **conversazione** è una sessione avviata da un utente per l'aggiunta degli altri utenti partecipanti. Tutti i client si connettono alla conversazione usando il **codice di conversazione**di cinque lettere.
+Una **conversazione** è una sessione avviata da un utente per l'aggiunta degli altri utenti partecipanti. Tutti i client si connettono alla conversazione usando il **codice di conversazione** di cinque lettere.
 
 Ogni conversazione crea metadati che includono:
 -    Timestamp del momento in cui la conversazione è iniziata e terminata
@@ -105,7 +105,7 @@ Quando si crea o si aggiunge una conversazione, ogni utente deve scegliere una *
 Esistono due tipi di linguaggi: **sintesi vocale** e **testo**:
 - Se l'utente sceglie una lingua **vocale** come lingua principale, sarà in grado di usare sia l'input vocale che quello di testo nella conversazione.
 
-- Se l'utente sceglie una lingua di **solo testo** , sarà in grado di utilizzare solo l'input di testo e di inviare messaggi istantanei nella conversazione. I linguaggi di solo testo sono le lingue supportate per la traduzione del testo, ma non quelle di sintesi vocale. È possibile visualizzare le lingue disponibili nella pagina supporto per la [lingua](supported-languages.md) .
+- Se l'utente sceglie una lingua di **solo testo** , sarà in grado di utilizzare solo l'input di testo e di inviare messaggi istantanei nella conversazione. I linguaggi di solo testo sono le lingue supportate per la traduzione del testo, ma non quelle di sintesi vocale. È possibile visualizzare le lingue disponibili nella pagina supporto per la [lingua](./language-support.md) .
 
 Oltre alla lingua primaria, ogni partecipante può anche specificare altre lingue per la traduzione della conversazione.
 
@@ -119,7 +119,7 @@ Di seguito è riportato un riepilogo delle operazioni che l'utente sarà in grad
 | Tradurre la conversazione | ✔️ | ✔️ |
 
 > [!NOTE]
-> Per gli elenchi di lingue di traduzione vocale e testo disponibili, vedere [linguaggi supportati](supported-languages.md).
+> Per gli elenchi di lingue di traduzione vocale e testo disponibili, vedere [linguaggi supportati](./language-support.md).
 
 
 

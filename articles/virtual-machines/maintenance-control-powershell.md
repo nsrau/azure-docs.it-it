@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: f33cb7d4d005f15d0a5fcc70d56ebd4698f86694
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 2cc935e81e867609159b5c150b6ee7c346bb9f8e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988222"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026149"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Controllare gli aggiornamenti con il controllo di manutenzione e Azure PowerShell
 
-Il controllo della manutenzione consente di decidere quando applicare gli aggiornamenti alle VM isolate e agli host dedicati di Azure. In questo argomento vengono illustrate le opzioni di Azure PowerShell per il controllo di manutenzione. Per ulteriori informazioni sui vantaggi derivanti dall'utilizzo del controllo manutenzione, delle relative limitazioni e di altre opzioni di gestione, vedere [gestione degli aggiornamenti della piattaforma con il controllo di manutenzione](maintenance-control.md).
+Il controllo della manutenzione consente di decidere quando applicare gli aggiornamenti della piattaforma all'infrastruttura host delle VM isolate e degli host dedicati di Azure. In questo argomento vengono illustrate le opzioni di Azure PowerShell per il controllo di manutenzione. Per ulteriori informazioni sui vantaggi derivanti dall'utilizzo del controllo manutenzione, delle relative limitazioni e di altre opzioni di gestione, vedere [gestione degli aggiornamenti della piattaforma con il controllo di manutenzione](maintenance-control.md).
  
 ## <a name="enable-the-powershell-module"></a>Abilitare il modulo PowerShell
 
@@ -86,9 +86,9 @@ $config = New-AzMaintenanceConfiguration `
 > La **durata** della manutenzione deve essere maggiore di *2 ore* . È necessario impostare la **ricorrenza** di manutenzione almeno una volta in 35 giorni.
 
 La **ricorrenza** di manutenzione può essere espressa come giornaliera, settimanale o mensile. Ad esempio:
- - giornaliero: "recurEvery: Day" **o** "RecurEvery: 3days" 
- - settimanale: "recurEvery: 3Weeks" **o** "RecurEvery: settimana sabato, domenica" 
- - mensile: "recurEvery: month day23, day24" **o** "RecurEvery: month Last Sunday" **o** "RecurEvery: month Fourth Monday"  
+ - **Daily**-RecurEvery "Day" **o** "3days" 
+ - **settimanale**-RecurEvery "3Weeks" **o** "settimana sabato, domenica" 
+ - **Monthly**-RecurEvery "month day23, day24" **o** "month Last Sunday" **o** "month Fourth Monday"  
       
 
 ## <a name="assign-the-configuration"></a>Assegnare la configurazione

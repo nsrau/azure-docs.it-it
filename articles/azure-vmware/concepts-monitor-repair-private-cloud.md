@@ -2,13 +2,14 @@
 title: Concetti-monitoraggio e ripristino di cloud privati della soluzione VMware di Azure
 description: Scopri in che modo la soluzione VMware di Azure monitora e ripristina VMware ESXi Server in un cloud privato della soluzione VMware di Azure.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 11a3c53bff7ce7b67b677977eddb9829f336672d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.custom: contperfq2
+ms.date: 11/20/2020
+ms.openlocfilehash: 6c37ff6cc0715182453669f67306094af2f00cdf
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684696"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024348"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Monitorare e ripristinare i cloud privati della soluzione VMware di Azure
 

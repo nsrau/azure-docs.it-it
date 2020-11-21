@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 9bcc3d08fa29109cf4178f8eb0c3efe661323ef0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6f01354bb5aa2b78d3c9962bac49be39dd2c81f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541782"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025994"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Estrarre dati da testo di un'espressione con finalità ed entità
 LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot per intervenire. Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON.
@@ -232,9 +232,9 @@ Le entità [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](luis-
 
 ### <a name="names-of-people"></a>Nomi di persone
 
-I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Utilizzare un'entità **[PersonName](luis-reference-prebuilt-person.md)** predefinita o un' **[entità semplice](luis-concept-entity-types.md#simple-entity)** con [ruoli](luis-concept-roles.md) di nome e cognome.
+I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Utilizzare un'entità **[PersonName](luis-reference-prebuilt-person.md)** predefinita o un' **[entità semplice](luis-concept-entity-types.md)** con ruoli di nome e cognome.
 
-Se si usa l'entità semplice, assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezze diverse ed espressioni in tutti gli Intent, inclusa la finalità None. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
+Se si usa l'entità semplice, assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezze diverse ed espressioni in tutti gli Intent, inclusa la finalità None. [Rivedere](./luis-how-to-review-endpoint-utterances.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ### <a name="names-of-places"></a>Nomi di località
 
@@ -242,17 +242,17 @@ I nomi di località sono impostati e noti come città, contee, Stati, Province e
 
 ### <a name="new-and-emerging-names"></a>Nomi nuovi ed emergenti
 
-Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Questi tipi di nomi sono il tipo più complesso di estrazione dei dati. Iniziare con un' **[entità semplice](luis-concept-entity-types.md#simple-entity)** e aggiungere un [elenco di frasi](luis-concept-feature.md). [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
+Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Questi tipi di nomi sono il tipo più complesso di estrazione dei dati. Iniziare con un' **[entità semplice](luis-concept-entity-types.md#simple-entity)** e aggiungere un [elenco di frasi](luis-concept-feature.md). [Rivedere](./luis-how-to-review-endpoint-utterances.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ## <a name="patternany-entity-data"></a>Dati entità Pattern.any
 
 [Pattern. any](reference-entity-pattern-any.md) è un segnaposto a lunghezza variabile usato solo nell'espressione di modello di un modello per contrassegnare l'inizio e la fine dell'entità. Per poter applicare il modello, è necessario trovare l'entità utilizzata nel modello.
 
 ## <a name="sentiment-analysis"></a>Analisi del sentiment
-Se l'analisi dei sentimenti viene configurata durante la [pubblicazione](luis-how-to-publish-app.md#sentiment-analysis), la risposta di Luis JSON include l'analisi dei sentimenti. Per ulteriori informazioni sull'analisi del sentiment, vedere la documentazione [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+Se l'analisi dei sentimenti viene configurata durante la [pubblicazione](luis-how-to-publish-app.md#sentiment-analysis), la risposta di Luis JSON include l'analisi dei sentimenti. Per ulteriori informazioni sull'analisi del sentiment, vedere la documentazione [Analisi del testo](../text-analytics/index.yml).
 
 ## <a name="key-phrase-extraction-entity-data"></a>Dati entità estrazione frasi chiave
-L' [entità di estrazione della frase chiave](luis-reference-prebuilt-keyphrase.md) restituisce frasi chiave nell'espressione, fornite da [analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+L' [entità di estrazione della frase chiave](luis-reference-prebuilt-keyphrase.md) restituisce frasi chiave nell'espressione, fornite da [analisi del testo](../text-analytics/index.yml).
 
 ## <a name="data-matching-multiple-entities"></a>Dati corrispondenti a più entità
 

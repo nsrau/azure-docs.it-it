@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: trbye
-ms.openlocfilehash: 34c0703ee7c335ca904a21bcce6ed44abc6dc13f
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 9193da2f3841bb94aa395399c31d7fe826c395e0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555788"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025600"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Eseguire il training e distribuire un modello di Riconoscimento vocale personalizzato
 
@@ -33,7 +33,7 @@ Se si riscontrano problemi di riconoscimento con un modello di base, l'uso di tr
 
 ## <a name="train-and-evaluate-a-model"></a>Eseguire il training di un modello e valutarlo
 
-Il primo passaggio per eseguire il training di un modello consiste nel caricare i dati di training. Usare [preparare e testare i dati](how-to-custom-speech-test-data.md) per istruzioni dettagliate per preparare le trascrizioni con etichetta umana e il testo correlato (espressioni e pronunce). Dopo aver caricato i dati di training, seguire queste istruzioni per avviare il training del modello:
+Il primo passaggio per eseguire il training di un modello consiste nel caricare i dati di training. Usare [preparare e testare i dati](./how-to-custom-speech-test-and-train.md) per istruzioni dettagliate per preparare le trascrizioni con etichetta umana e il testo correlato (espressioni e pronunce). Dopo aver caricato i dati di training, seguire queste istruzioni per avviare il training del modello:
 
 1. Accedere al portale di [riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech).
 2. Passare a **> vocale Riconoscimento vocale personalizzato > [nome del progetto] > Training**.
@@ -61,7 +61,7 @@ Selezionare quindi **Aggiungi endpoint** e immettere un **nome** e una **Descriz
 > [!NOTE]
 > Non dimenticare di accettare le condizioni per l'utilizzo e i dettagli relativi ai prezzi.
 
-Quindi selezionare **Crea**. Questa azione consente di tornare alla pagina **distribuzione** . La tabella include ora una voce che corrisponde all'endpoint personalizzato. Lo stato dell'endpoint Mostra lo stato corrente. Possono essere necessari fino a 30 minuti per creare un'istanza di un nuovo endpoint usando i modelli personalizzati. Quando lo stato della distribuzione diventa **completato** , l'endpoint è pronto per l'utilizzo.
+Quindi selezionare **Crea**. Questa azione consente di tornare alla pagina **distribuzione** . La tabella include ora una voce che corrisponde all'endpoint personalizzato. Lo stato dell'endpoint Mostra lo stato corrente. Possono essere necessari fino a 30 minuti per creare un'istanza di un nuovo endpoint usando i modelli personalizzati. Quando lo stato della distribuzione diventa **completato**, l'endpoint è pronto per l'utilizzo.
 
 Dopo la distribuzione dell'endpoint, il nome dell'endpoint viene visualizzato come collegamento. Fare clic sul collegamento per visualizzare informazioni specifiche per l'endpoint, ad esempio la chiave dell'endpoint, l'URL dell'endpoint e il codice di esempio.
 
@@ -77,6 +77,6 @@ I dati di registrazione sono disponibili per il download in **Endpoint > dettagl
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Preparare e testare i dati](how-to-custom-speech-test-data.md)
+- [Preparare e testare i dati](./how-to-custom-speech-test-and-train.md)
 - [Esaminare i dati](how-to-custom-speech-inspect-data.md)
 - [Valutazione dei dati](how-to-custom-speech-evaluate-data.md)

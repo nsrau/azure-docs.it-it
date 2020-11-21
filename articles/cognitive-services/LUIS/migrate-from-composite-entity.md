@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5c3ac14af6eb863daa9eadd32727f4fb53d2185f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46e9ece70d9f980065c719ee1205eb46591b45c0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322858"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025243"
 ---
 # <a name="upgrade-composite-entity-to-machine-learning-entity"></a>Aggiornare un'entità composita a un'entità Machine Learning
 
@@ -29,7 +29,7 @@ Il processo di aggiornamento:
     * Se l'entità figlio viene usata in composito _e_ come entità separata (etichettata in espressioni di esempio), verrà aggiunta alla versione come entità e come sottoentità alla nuova entità Machine Learning.
     * Se l'entità figlio utilizza un ruolo, ogni ruolo verrà convertito in una sottoentità con lo stesso nome.
     * Se l'entità figlio è un'entità non di apprendimento automatico (espressione regolare, entità di elenco o entità precompilata), viene creata una nuova sottoentità con lo stesso nome e la nuova sottoentità ha una funzionalità che usa l'entità non Machine Learning con la funzionalità richiesta aggiunta.
-* I nomi vengono conservati, ma devono essere univoci a livello di sottoentità/di pari livello. Vedere [limiti di denominazione univoci](luis-boundaries.md#name-uniqueness).
+* I nomi vengono conservati, ma devono essere univoci a livello di sottoentità/di pari livello. Vedere [limiti di denominazione univoci](./luis-limits.md#name-uniqueness).
 * Le etichette nelle espressioni di esempio vengono passate alla nuova entità Machine Learning con le sottoentità.
 
 Usare il grafico seguente per comprendere le modifiche apportate al modello:

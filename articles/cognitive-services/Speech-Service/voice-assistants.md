@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 4bdca8921a99db764cbc8ee1edfdad8cf8b8568f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa885b1dcff59ec1b89d9a0bcf4ac5578cb5e8ea
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360940"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024909"
 ---
 # <a name="what-is-a-voice-assistant"></a>Che cos'è un assistente vocale?
 
@@ -32,7 +32,7 @@ Il primo passaggio per la creazione di un assistente vocale è quello di decider
 |Conversazione aperta con Solid Skills Integration e controllo completo della distribuzione | Bot del servizio bot di Azure con canale [vocale Direct Line](direct-line-speech.md) | <ul><li>"Devo andare a Seattle"</li><li>"Che tipo di pizza è possibile ordinare?"</li></ul>
 |Comandi vocali o conversazioni semplici orientate alle attività con creazione e hosting semplificate | [Comandi personalizzati](custom-commands.md) | <ul><li>"Accendere la luce del sovraccarico"</li><li>"Renderlo 5 gradi più caldo"</li><li>Altri esempi [disponibili qui](https://speech.microsoft.com/customcommands)</li></ul>
 
-Se non si è certi di cosa si vuole che l'assistente debba gestire, è consigliabile usare [Direct Line Speech](direct-line-speech.md) come la scelta migliore. Offre l'integrazione con un set completo di strumenti e strumenti per la creazione, ad esempio la [soluzione Virtual Assistant e il modello Enterprise](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) , e il [servizio QnA Maker](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview) per creare modelli comuni e usare le origini delle informazioni esistenti.
+Se non si è certi di cosa si vuole che l'assistente debba gestire, è consigliabile usare [Direct Line Speech](direct-line-speech.md) come la scelta migliore. Offre l'integrazione con un set completo di strumenti e strumenti per la creazione, ad esempio la [soluzione Virtual Assistant e il modello Enterprise](/azure/bot-service/bot-builder-enterprise-template-overview) , e il [servizio QnA Maker](../qnamaker/overview/overview.md) per creare modelli comuni e usare le origini delle informazioni esistenti.
 
 I [comandi personalizzati](custom-commands.md) semplificano la creazione di app avanzate per i comandi vocali ottimizzate per esperienze di interazione vocali-First. Offre un'esperienza di creazione unificata, un modello di hosting automatico e una complessità relativamente inferiore, che ti aiuta a concentrarti sulla creazione della soluzione migliore per gli scenari di comandi vocali.
 
@@ -47,9 +47,9 @@ I [comandi personalizzati](custom-commands.md) semplificano la creazione di app 
 
 Indipendentemente dal fatto che [si scelgano](direct-line-speech.md) i [comandi personalizzati](custom-commands.md) per la creazione di interazioni con gli assistenti, è possibile usare un set completo di funzionalità di personalizzazione per personalizzare l'assistente per il proprio marchio, il prodotto e la personalità.
 
-| Category | Caratteristiche |
+| Category | Funzionalità |
 |----------|----------|
-|[Parola chiave Custom](speech-devices-sdk-create-kws.md) | Gli utenti possono avviare conversazioni con gli assistenti con una parola chiave personalizzata, ad esempio "Hey contoso". Un'app esegue questa operazione con un motore di parole chiave personalizzato nell'SDK di riconoscimento vocale, che può essere configurato con una parola chiave personalizzata [che è possibile generare qui](speech-devices-sdk-create-kws.md). Gli assistenti vocali possono usare la verifica delle parole chiave sul lato servizio per migliorare l'accuratezza dell'attivazione della parola chiave (rispetto al dispositivo da solo).
+|[Parola chiave Custom](./custom-keyword-basics.md) | Gli utenti possono avviare conversazioni con gli assistenti con una parola chiave personalizzata, ad esempio "Hey contoso". Un'app esegue questa operazione con un motore di parole chiave personalizzato nell'SDK di riconoscimento vocale, che può essere configurato con una parola chiave personalizzata [che è possibile generare qui](./custom-keyword-basics.md). Gli assistenti vocali possono usare la verifica delle parole chiave sul lato servizio per migliorare l'accuratezza dell'attivazione della parola chiave (rispetto al dispositivo da solo).
 |[Riconoscimento vocale](speech-to-text.md) | Gli assistenti vocali convertono l'audio in tempo reale in testo riconosciuto usando il [riconoscimento vocale](speech-to-text.md) dal servizio di riconoscimento vocale. Questo testo è disponibile, in quanto viene trascritto, sia per l'implementazione dell'assistente che per l'applicazione client.
 |[Sintesi vocale](text-to-speech.md) | Le risposte testuali dell'Assistente vengono sintetizzate tramite sintesi [vocale](text-to-speech.md) dal servizio di riconoscimento vocale. Questa sintesi viene quindi resa disponibile all'applicazione client come flusso audio. Microsoft offre la possibilità di creare una voce personalizzata neurale e di alta qualità che fornisce una voce al proprio marchio. Per altre informazioni, [Contattaci](mailto:mstts@microsoft.com).
 

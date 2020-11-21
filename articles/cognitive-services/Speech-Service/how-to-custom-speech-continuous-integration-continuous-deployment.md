@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f82ea154d5949f4d229ac76e7a7ce2a89d15ac13
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555822"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025668"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD per Riconoscimento vocale personalizzato
 
 Implementare il training, il test e la gestione delle versioni automatizzati per consentire un miglioramento continuo dei modelli di Riconoscimento vocale personalizzato quando si applicano gli aggiornamenti ai dati di training e di testing. Grazie all'implementazione efficace dei flussi di lavoro CI/CD, è possibile verificare che l'endpoint per il modello di Riconoscimento vocale personalizzato con le prestazioni migliori sia sempre disponibile.
 
-L' [integrazione continua](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-integration) (ci) è la pratica di progettazione di un commit frequente degli aggiornamenti in un repository condiviso e l'esecuzione di una compilazione automatizzata. I flussi di lavoro CI per Riconoscimento vocale personalizzato eseguono il training di un nuovo modello dalle origini dati ed eseguono test automatizzati sul nuovo modello per garantire prestazioni migliori rispetto al modello precedente.
+L' [integrazione continua](/azure/devops/learn/what-is-continuous-integration) (ci) è la pratica di progettazione di un commit frequente degli aggiornamenti in un repository condiviso e l'esecuzione di una compilazione automatizzata. I flussi di lavoro CI per Riconoscimento vocale personalizzato eseguono il training di un nuovo modello dalle origini dati ed eseguono test automatizzati sul nuovo modello per garantire prestazioni migliori rispetto al modello precedente.
 
-Il [recapito continuo](https://docs.microsoft.com/azure/devops/learn/what-is-continuous-delivery) (CD) accetta modelli dal processo ci e crea un endpoint per ogni modello di riconoscimento vocale personalizzato migliorato. CD rende gli endpoint facilmente disponibili per l'integrazione nelle soluzioni.
+Il [recapito continuo](/azure/devops/learn/what-is-continuous-delivery) (CD) accetta modelli dal processo ci e crea un endpoint per ogni modello di riconoscimento vocale personalizzato migliorato. CD rende gli endpoint facilmente disponibili per l'integrazione nelle soluzioni.
 
 Sono possibili soluzioni di integrazione continua/recapito continuo personalizzate, ma per una soluzione solida e precompilata, usare l' [Archivio di modelli di DevOps vocale](https://github.com/Azure-Samples/Speech-Service-DevOps-Template), che esegue i flussi di lavoro ci/CD usando le azioni di GitHub.
 
@@ -73,7 +73,7 @@ La maggior parte dei team richiede un processo di revisione e approvazione manua
 
 Usare gli strumenti seguenti per i flussi di lavoro di automazione CI/CD per Riconoscimento vocale personalizzato:
 
-- [Interfaccia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) della riga di comando di Azure per creare un'autenticazione dell'entità servizio di Azure, eseguire query sulle sottoscrizioni di Azure e archiviare i risultati dei test nel BLOB
+- [Interfaccia](/cli/azure/?view=azure-cli-latest) della riga di comando di Azure per creare un'autenticazione dell'entità servizio di Azure, eseguire query sulle sottoscrizioni di Azure e archiviare i risultati dei test nel BLOB
 - [Interfaccia](spx-overview.md) della riga di comando di Azure per interagire con il servizio riconoscimento vocale dalla riga di comando o da un flusso di lavoro automatizzato.
 
 ## <a name="devops-solution-for-custom-speech-using-github-actions"></a>Soluzione DevOps per Riconoscimento vocale personalizzato usando le azioni di GitHub
@@ -84,7 +84,7 @@ Il [repository del modello DevOps vocale](https://github.com/Azure-Samples/Speec
 
 - Copiare il repository di modelli nell'account GitHub, quindi creare risorse di Azure e un' [entità servizio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) per i flussi di lavoro di integrazione continua/distribuzione continua di GitHub.
 - Esaminare il "[ciclo interno di sviluppo](https://mitchdenny.com/the-inner-loop/)". Aggiornare i dati di training e di test da un branch di funzionalità, testare le modifiche con un modello di sviluppo temporaneo e generare una richiesta pull per proporre ed esaminare le modifiche.
-- Quando i dati di training vengono aggiornati in una richiesta pull al *database master* , eseguire il training dei modelli con il flusso di lavoro ci azioni github.
+- Quando i dati di training vengono aggiornati in una richiesta pull al *database master*, eseguire il training dei modelli con il flusso di lavoro ci azioni github.
 - Eseguire test di accuratezza automatici per stabilire la [frequenza degli errori di Word](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER) del modello. Archiviare i risultati dei test nel BLOB di Azure.
 - Eseguire il flusso di lavoro CD per creare un endpoint quando il WER migliora.
 

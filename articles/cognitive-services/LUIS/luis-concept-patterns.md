@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 44a7a89740be3d6d502c5d22c79b46582034d88a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cda71c6e825ff27ba9b03e1306ccb287663e8613
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535960"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025960"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Migliorare l'accuratezza della stima con i criteri
 I criteri sono progettati per migliorare l'accuratezza quando vi sono più espressioni molto simili.  Un modello consente di ottenere maggiore accuratezza in relazione a una finalità senza fornire molte altre espressioni.
@@ -48,7 +48,7 @@ Un modello è concepito principalmente per aiutare la stima di Intent e ruoli. _
 Non aspettarsi un miglioramento della stima delle entità se si comprimono più espressioni in un singolo criterio. Per l'attivazione di entità semplici, è necessario aggiungere espressioni o usare le entità dell'elenco altrimenti il modello non viene attivato.
 
 ## <a name="patterns-use-entity-roles"></a>I criteri usano i ruoli delle entità
-Se due o più entità in un criterio hanno una relazione di tipo contestuale, i criteri usano i [ruoli](luis-concept-roles.md) delle entità per estrarre informazioni contestuali sull'entità.
+Se due o più entità in un criterio hanno una relazione di tipo contestuale, i criteri usano i [ruoli](./luis-concept-entity-types.md) delle entità per estrarre informazioni contestuali sull'entità.
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Punteggi di stima con e senza criteri
 Con un numero sufficiente di espressioni di esempio, LUIS dovrebbe poter aumentare l'attendibilità delle stime anche senza criteri. I criteri aumentano il punteggio di attendibilità senza dovere specificare un numero così elevato di espressioni.

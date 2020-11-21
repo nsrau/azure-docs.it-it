@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: fbcb262fee6a2cc62bfe64e8a8589c92b4fe2b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e8b009ecc2181edfaad5da3d8d05ad0c1909051
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82997447"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024756"
 ---
 # <a name="voice-assistants-on-windows"></a>Assistenti vocali in Windows
 
@@ -37,7 +37,7 @@ Quando l'utente parla di una parola chiave, la parola chiave software o hardware
 
 ### <a name="registration"></a>Registrazione
 
-La prima volta che viene eseguita un'applicazione attivata tramite voce, registra le informazioni relative all'ID app e alla parola chiave tramite le API ConversationalAgent. AAR registra tutte le configurazioni nel mapping globale con la parola chiave hardware o software Spotter nel sistema, consentendo loro di rilevare la parola chiave dell'applicazione. L'applicazione viene inoltre [registrata con il servizio in background](https://docs.microsoft.com/windows/uwp/launch-resume/register-a-background-task).
+La prima volta che viene eseguita un'applicazione attivata tramite voce, registra le informazioni relative all'ID app e alla parola chiave tramite le API ConversationalAgent. AAR registra tutte le configurazioni nel mapping globale con la parola chiave hardware o software Spotter nel sistema, consentendo loro di rilevare la parola chiave dell'applicazione. L'applicazione viene inoltre [registrata con il servizio in background](/windows/uwp/launch-resume/register-a-background-task).
 
 Si noti che questo significa che un'applicazione non può essere attivata da Voice fino a quando non è stata eseguita una volta e che è stato consentito il completamento della registrazione.
 

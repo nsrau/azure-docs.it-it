@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: swmachan
-ms.openlocfilehash: 6b211dd8ca735ea9ee4a5209aa6030398cca472e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8175cbd469c8a3933526d01f433e1def714783b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121018"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024501"
 ---
 # <a name="translator-v30"></a>Traduttore v 3.0
 
@@ -147,7 +147,7 @@ Un token di autenticazione è valido per 10 minuti. Il token deve essere riutili
 
 ## <a name="virtual-network-support"></a>Supporto della rete virtuale
 
-Il servizio Translator è ora disponibile con le funzionalità di rete virtuale (VNET) in tutte le aree del cloud pubblico di Azure. Per abilitare la rete virtuale, vedere [configurazione di reti virtuali dei servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+Il servizio Translator è ora disponibile con le funzionalità di rete virtuale (VNET) in tutte le aree del cloud pubblico di Azure. Per abilitare la rete virtuale, vedere [configurazione di reti virtuali dei servizi cognitivi di Azure](../../cognitive-services-virtual-networks.md?tabs=portal). 
 
 Una volta attivata questa funzionalità, è necessario utilizzare l'endpoint personalizzato per chiamare il traduttore. Non è possibile usare l'endpoint di conversione globale ("api.cognitive.microsofttranslator.com") e non è possibile eseguire l'autenticazione con un token di accesso.
 
@@ -230,7 +230,7 @@ Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 
 | 503000| Il servizio è temporaneamente non disponibile. Riprovare. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta indicato in X-RequestId nell'intestazione della risposta e identificatore del client indicato in X-ClientTraceId nell'intestazione della richiesta.|
 
 ## <a name="metrics"></a>Metriche 
-Le metriche consentono di visualizzare le informazioni sull'utilizzo e sulla disponibilità del convertitore in portale di Azure, nella sezione metrica, come illustrato nella schermata seguente. Per altre informazioni, vedere [metriche dei dati e della piattaforma](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Le metriche consentono di visualizzare le informazioni sull'utilizzo e sulla disponibilità del convertitore in portale di Azure, nella sezione metrica, come illustrato nella schermata seguente. Per altre informazioni, vedere [metriche dei dati e della piattaforma](../../../azure-monitor/platform/data-platform-metrics.md).
 
 ![Metriche del traduttore](../media/translatormetrics.png)
 

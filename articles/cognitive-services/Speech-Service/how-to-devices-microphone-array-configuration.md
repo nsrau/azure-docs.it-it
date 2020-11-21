@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: wellsi
-ms.openlocfilehash: a2652bed6c8e7dec0a6fe8f9471793c3873646bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf0580c96f5bf78f0444b2bb39088f2a417fd658
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82781757"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025062"
 ---
 # <a name="how-to-configure-a-microphone-array"></a>Come configurare un array di microfoni
 
-Questo articolo illustra come configurare una [matrice di microfoni](https://aka.ms/sdsdk-microphone). Include l'impostazione dell'angolo di lavoro e il modo in cui selezionare il microfono usato per l'SDK per i dispositivi vocali.
+Questo articolo illustra come configurare una [matrice di microfoni](./speech-devices-sdk-microphone.md). Include l'impostazione dell'angolo di lavoro e il modo in cui selezionare il microfono usato per l'SDK per i dispositivi vocali.
 
-L'SDK per dispositivi vocali funziona meglio con una matrice di microfoni progettata in base alle [linee guida](https://aka.ms/sdsdk-microphone). La configurazione della matrice di microfoni può essere fornita dal sistema operativo o fornita tramite uno dei metodi seguenti.
+L'SDK per dispositivi vocali funziona meglio con una matrice di microfoni progettata in base alle [linee guida](./speech-devices-sdk-microphone.md). La configurazione della matrice di microfoni può essere fornita dal sistema operativo o fornita tramite uno dei metodi seguenti.
 
 Speech Devices SDK supporta inizialmente le matrici di microfoni selezionando da un set fisso di configurazioni.
 
@@ -49,7 +49,7 @@ Se viene specificata una matrice di microfoni usando `AudioConfig::FromMicrophon
 Microsoft audio stack nell'SDK per dispositivi vocali supporta solo sottocampionando per le tariffe di esempio che sono multipli integrali di 16 KHz. Sono inoltre supportati i formati seguenti: IEEE little endian float a 32 bit, a 32 bit little endian con firma int, a 24 bit little endian con segno int, a 16 bit little endian con segno int e a 8 bit con segno int.
 
 ## <a name="android"></a>Android
-Attualmente solo [Roobo V1](speech-devices-sdk-android-quickstart.md) è supportato da Speech Devices SDK. Il comportamento è uguale a quello delle versioni precedenti, a meno che ora la `MicArrayGeometryConfigFile` proprietà possa essere usata per specificare un file JSON contenente l'intervallo di beamforming.
+Attualmente solo [Roobo V1](./speech-devices-sdk-quickstart.md?pivots=platform-android%253fpivots%253dplatform-android) è supportato da Speech Devices SDK. Il comportamento è uguale a quello delle versioni precedenti, a meno che ora la `MicArrayGeometryConfigFile` proprietà possa essere usata per specificare un file JSON contenente l'intervallo di beamforming.
 
 ## <a name="microphone-array-configuration-json"></a>JSON di configurazione della matrice microfonica
 

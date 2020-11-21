@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: trbye
 zone_pivot_groups: acs-js-csharp
-ms.openlocfilehash: 6cb338e8b7baa45e1c84f59a5730a9a500e71a79
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ae3d7b329c55ce0be101cee73e1fc7674a2d75aa
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486788"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026540"
 ---
 # <a name="get-started-with-real-time-conversation-transcription"></a>Inizia a usare la trascrizione in tempo reale delle conversazioni
 
@@ -25,7 +25,7 @@ L'API **ConversationTranscriber** dell'SDK vocale consente di trascrivere riunio
 ## <a name="limitations"></a>Limitazioni
 
 * Disponibile solo nelle aree di sottoscrizione seguenti: `centralus` , `eastasia` , `eastus` , `westeurope`
-* Richiede una matrice multimicrofono circolare 7-mic con un flusso di riferimento per la riproduzione. La matrice di microfoni deve soddisfare le [specifiche](https://aka.ms/sdsdk-microphone).
+* Richiede una matrice multimicrofono circolare 7-mic con un flusso di riferimento per la riproduzione. La matrice di microfoni deve soddisfare le [specifiche](./speech-devices-sdk-microphone.md).
 * [Speech Devices SDK](speech-devices-sdk.md) fornisce dispositivi appropriati e un'app di esempio che illustra la trascrizione delle conversazioni.
 
 ## <a name="prerequisites"></a>Prerequisiti

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 03ece391b6f33b47f34705cec1c5907602ac7b23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 198ba23920179e71e095e498ee2173d7f0111d42
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400180"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95026730"
 ---
 # <a name="azure-peering-service-overview"></a>Panoramica del servizio peering di Azure
 
@@ -45,10 +45,10 @@ Il servizio peering è:
 Il servizio di peering non è un prodotto di connettività privato come Azure ExpressRoute o un prodotto VPN.
 
 > [!NOTE]
-> Per ulteriori informazioni su ExpressRoute, vedere la [documentazione di ExpressRoute](https://docs.microsoft.com/azure/expressroute/).
+> Per ulteriori informazioni su ExpressRoute, vedere la [documentazione di ExpressRoute](../expressroute/index.yml).
 >
 
-## <a name="background"></a>Background
+## <a name="background"></a>Sfondo
 
 Microsoft 365, Dynamics 365 e qualsiasi altro servizio SaaS Microsoft sono ospitati in più Data Center Microsoft ed è possibile accedervi da qualsiasi posizione geografica. La rete globale Microsoft dispone di località PoP (Point of Presence) Microsoft Edge in tutto il mondo in cui è in grado di connettersi a un utente finale tramite i propri provider di servizi. 
 
@@ -57,7 +57,7 @@ I provider di servizi Microsoft e dei partner assicurano che il traffico per i p
 ![Rete Microsoft e connettività pubblica](./media/peering-service-about/peering-service-background-final.png)
 
 > [!NOTE]
-> Per ulteriori informazioni sulla rete globale Microsoft, vedere la pagina relativa alla [rete globale Microsoft](https://docs.microsoft.com/azure/networking/microsoft-global-network).
+> Per ulteriori informazioni sulla rete globale Microsoft, vedere la pagina relativa alla [rete globale Microsoft](../networking/microsoft-global-network.md).
 >
 
 ## <a name="why-use-peering-service"></a>Perché usare il servizio di peering?
