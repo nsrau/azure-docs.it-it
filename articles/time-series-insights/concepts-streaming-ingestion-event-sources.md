@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 6bc238389ac470e6127a582eb174ec7bc438e36b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e83cca79a4dc99533ab17cca7e96e1ac802d598
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650869"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020794"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Origini eventi Azure Time Series Insights Gen2
 
@@ -27,7 +27,7 @@ Gli eventi devono essere inviati come JSON con codifica UTF-8.
 
 ## <a name="create-or-edit-event-sources"></a>Crea o modifica origini eventi
 
-Le risorse di origine evento possono risiedere nella stessa sottoscrizione di Azure dell'ambiente Azure Time Series Insights Gen2 o in una sottoscrizione diversa. È possibile usare la [portale di Azure](time-series-insights-update-create-environment.md#create-a-preview-payg-environment), l' [interfaccia](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights)della riga di comando di Azure, i [modelli ARM](time-series-insights-manage-resources-using-azure-resource-manager-template.md)e l' [API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) per creare, modificare o rimuovere le origini eventi dell'ambiente.
+Le risorse di origine evento possono risiedere nella stessa sottoscrizione di Azure dell'ambiente Azure Time Series Insights Gen2 o in una sottoscrizione diversa. È possibile usare la [portale di Azure](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), l' [interfaccia](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights)della riga di comando di Azure, i [modelli ARM](time-series-insights-manage-resources-using-azure-resource-manager-template.md)e l' [API REST](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) per creare, modificare o rimuovere le origini eventi dell'ambiente.
 
 Quando si connette un'origine evento, l'ambiente Azure Time Series Insights Gen2 leggerà tutti gli eventi attualmente archiviati nell'hub eventi o in Internet, a partire dall'evento meno recente.
 
@@ -45,7 +45,7 @@ Quando si connette un'origine evento, l'ambiente Azure Time Series Insights Gen2
 
 - Non superare il [limite di velocità effettiva](./concepts-streaming-ingress-throughput-limits.md) dell'ambiente o il limite per partizione.
 
-- Configurare un [avviso](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) di ritardo per ricevere una notifica nel caso in cui si verifichino problemi di elaborazione dei dati nell'ambiente.
+- Configurare un [avviso](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) di ritardo per ricevere una notifica nel caso in cui si verifichino problemi di elaborazione dei dati nell'ambiente.
 
 - Usare l'inserimento streaming solo per i dati near real-time e recenti. I dati cronologici di streaming non sono supportati.
 
@@ -64,7 +64,7 @@ L'uso della pipeline di streaming per importare i dati cronologici non è attual
 
 ## <a name="event-source-timestamp"></a>Timestamp origine evento
 
-Quando si configura un'origine evento, verrà richiesto di specificare una proprietà ID timestamp. La proprietà timestamp viene utilizzata per tenere traccia degli eventi nel corso del tempo, ovvero il tempo che verrà utilizzato come $event. $ts nelle [API di query](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) e per il tracciato delle serie in Azure Time Series Insights Explorer. Se non viene fornita alcuna proprietà al momento della creazione o se la proprietà timestamp non è presente in un evento, il tempo di accodamento dell'hub eventi o degli hub eventi verrà usato come valore predefinito. I valori delle proprietà timestamp vengono archiviati in formato UTC.
+Quando si configura un'origine evento, verrà richiesto di specificare una proprietà ID timestamp. La proprietà timestamp viene utilizzata per tenere traccia degli eventi nel corso del tempo, ovvero il tempo che verrà utilizzato come $event. $ts nelle [API di query](/rest/api/time-series-insights/dataaccessgen2/query/execute) e per il tracciato delle serie in Azure Time Series Insights Explorer. Se non viene fornita alcuna proprietà al momento della creazione o se la proprietà timestamp non è presente in un evento, il tempo di accodamento dell'hub eventi o degli hub eventi verrà usato come valore predefinito. I valori delle proprietà timestamp vengono archiviati in formato UTC.
 
 In generale, gli utenti scelgono di personalizzare la proprietà timestamp e di usare l'ora in cui il sensore o il tag ha generato la lettura, anziché usare l'ora di accodamento dell'Hub predefinito. Questa operazione è particolarmente necessaria quando i dispositivi hanno una perdita di connettività intermittente e un batch di messaggi ritardati viene inviato a Azure Time Series Insights Gen2.
 

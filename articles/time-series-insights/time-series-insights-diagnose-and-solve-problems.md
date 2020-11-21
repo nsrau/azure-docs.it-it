@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15f2ff5aaa1d731c13125d0a3ab4ac32acb9276c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530137"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023276"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnosticare e risolvere i problemi nell'ambiente Azure Time Series Insights Gen1
 
@@ -37,7 +37,7 @@ Se non viene visualizzato alcun dato in [esplora Azure Time Series Insights](htt
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Causa A: i dati dell'origine evento non sono in formato JSON
 
-Azure Time Series Insights supporta solo dati in formato JSON. Per alcuni esempi di dati in formato JSON, vedere [Forme JSON supportate](./how-to-shape-query-json.md).
+Azure Time Series Insights supporta solo dati in formato JSON. Per alcuni esempi di dati in formato JSON, vedere [Forme JSON supportate](./concepts-json-flattening-escaping-rules.md).
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Causa B: manca un'autorizzazione necessaria per la chiave dell'origine evento
 
@@ -85,7 +85,7 @@ Immaginate un ambiente che inserisce messaggi da un hub eventi. Ha una velocità
 
 Un ambiente SKU S1 con una capacità pari a 3 consente l'ingresso di soli 2.100 eventi al minuto (1 milione di eventi al giorno = 700 eventi al minuto in tre unità = 2.100 eventi al minuto).
 
-Per informazioni di alto livello sul funzionamento della logica di Flat, vedere [forme JSON supportate](./how-to-shape-query-json.md).
+Per informazioni di alto livello sul funzionamento della logica di Flat, vedere [forme JSON supportate](./concepts-json-flattening-escaping-rules.md).
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>Risoluzioni consigliate per la limitazione eccessiva
 
@@ -127,7 +127,7 @@ Tenere presente che il nome della proprietà timestamp fa distinzione tra maiusc
 
 Il modo più semplice per garantire che il nome della proprietà timestamp venga acquisito e funzioni correttamente consiste nell'utilizzare Esplora Azure Time Series Insights. In Esplora Azure Time Series Insights, usando il grafico, selezionare un periodo di tempo dopo aver immesso il nome della proprietà timestamp. Fare clic con il pulsante destro del mouse sulla selezione, quindi scegliere **Esplora eventi**.
 
-L'intestazione della prima colonna deve essere il nome della proprietà timestamp. Accanto al **timestamp**di Word verrà visualizzato **($TS)** .
+L'intestazione della prima colonna deve essere il nome della proprietà timestamp. Accanto al **timestamp** di Word verrà visualizzato **($TS)** .
 
 Non verranno visualizzati i valori seguenti:
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 401d22ee68ba0652eb684b03b06fddf0b0fe3d72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61af7922318514a7b86a349d1970c59d4d168d85
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569462"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023327"
 ---
 # <a name="create-a-new-azure-time-series-insights-gen1-environment-in-the-azure-portal"></a>Creare un nuovo ambiente Azure Time Series Insights Gen1 nella portale di Azure
 
@@ -33,7 +33,7 @@ Seguire questa procedura per creare un ambiente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Selezionare il pulsante **+ Crea una risorsa** .
+1. Selezionare il pulsante **+ Crea una risorsa**.
 
 1. Selezionare la categoria **Internet delle cose** e quindi **Time Series Insights**.
 
@@ -60,7 +60,7 @@ Seguire questa procedura per creare un ambiente:
 
    [![Controllare le notifiche](media/time-series-insights-get-started/tsi-deploy-notifications.png)](media/time-series-insights-get-started/tsi-deploy-notifications.png#lightbox)
 
-1. In **Panoramica**delle risorse verificare le impostazioni di configurazione della distribuzione.
+1. In **Panoramica** delle risorse verificare le impostazioni di configurazione della distribuzione.
 
    [![Creare il pin Azure Time Series Insights al dashboard](media/time-series-insights-get-started/tsi-verify-deployment.png)](media/time-series-insights-get-started/tsi-verify-deployment.png#lightbox)
 
@@ -68,9 +68,9 @@ Seguire questa procedura per creare un ambiente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Definire i criteri di accesso ai dati](time-series-insights-data-access.md) per proteggere l'ambiente.
+* [Definire i criteri di accesso ai dati](./concepts-access-policies.md) per proteggere l'ambiente.
 
-* [Aggiungere un'origine evento Hub eventi](time-series-insights-how-to-add-an-event-source-eventhub.md) a un ambiente Azure Time Series Insights.
+* [Aggiungere un'origine evento Hub eventi](./how-to-ingest-data-event-hub.md) a un ambiente Azure Time Series Insights.
 
 * [Inviare eventi](time-series-insights-send-events.md) all'origine evento.
 

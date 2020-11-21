@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: cb673efb3e5d14e72e945bcf8c23d57495823720
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 56d5eb981aa02d9da83973d49e8df79fcd9c7e9c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394952"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021015"
 ---
 # <a name="securing-azure-sql-edge"></a>Protezione di Azure SQL Edge
 
@@ -34,14 +34,14 @@ L'implementazione della sicurezza della piattaforma inizia con la conservazione 
 - Specifica e limitazione delle porte host che usano per Azure SQL Edge
 - Verificare che il controllo di accesso appropriato venga applicato a tutti i volumi di dati che ospitano i dati di Azure SQL Edge. 
 
-Per altre informazioni sui protocolli di rete perimetrale di Azure SQL e sugli endpoint TDS, vedere [protocolli di rete ed endpoint TDS](//previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
+Per altre informazioni sui protocolli di rete perimetrale di Azure SQL e sugli endpoint TDS, vedere [protocolli di rete ed endpoint TDS](/previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
 
 ## <a name="authentication-and-authorization"></a>Autenticazione e autorizzazione 
 
 ### <a name="authentication"></a>Authentication  
 L'autenticazione è il processo atto a dimostrare che l'utente sia effettivamente chi dichiara di essere. Azure SQL Edge attualmente supporta solo il `SQL Authentication` meccanismo.
 
-- *Autenticazione SQL* :
+- *Autenticazione SQL*:
 
     L'autenticazione SQL si riferisce all'autenticazione di un utente durante la connessione ad Azure SQL Edge mediante nome utente e password. È necessario specificare la password di accesso **sa** di SQL durante la distribuzione di SQL Edge. In seguito, l'amministratore del server può creare altri utenti e accessi SQL, che consentono agli utenti di connettersi tramite nome utente e password.
 

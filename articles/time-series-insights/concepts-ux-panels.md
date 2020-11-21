@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5810bea7920dbfe91a836814124cbe4c7f6f3bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edfbbdd1b30cba74cf4f63d6b5e84c2e616e1a0f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653792"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020981"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Strumento di esplorazione di Azure Time Series Insights
 
@@ -25,11 +25,11 @@ Questo articolo descrive le varie funzionalità e opzioni disponibili nell' [amb
 
 Per iniziare a usare Esplora Azure Time Series Insights, è necessario:
 
-* Eseguire il provisioning di un ambiente di Azure Time Series Insights Gen2. Per altre informazioni sul provisioning di un'istanza, leggere l'esercitazione [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md) .
-* [Fornire l'accesso ai dati](./time-series-insights-data-access.md) all'ambiente Azure Time Series Insights Gen2 creato per l'account. È possibile fornire l'accesso a se stessi e ad altri utenti.
+* Eseguire il provisioning di un ambiente di Azure Time Series Insights Gen2. Per altre informazioni sul provisioning di un'istanza, leggere l'esercitazione [Azure Time Series Insights Gen2](./tutorials-set-up-tsi-environment.md) .
+* [Fornire l'accesso ai dati](./concepts-access-policies.md) all'ambiente Azure Time Series Insights Gen2 creato per l'account. È possibile fornire l'accesso a se stessi e ad altri utenti.
 * Aggiungere un'origine evento all'ambiente Azure Time Series Insights Gen2 per eseguire il push dei dati nell'ambiente:
-  * Informazioni [su come connettersi a un hub eventi](./time-series-insights-how-to-add-an-event-source-eventhub.md)
-  * Informazioni [su come connettersi a un hub](./time-series-insights-how-to-add-an-event-source-iothub.md) Internet
+  * Informazioni [su come connettersi a un hub eventi](./how-to-ingest-data-event-hub.md)
+  * Informazioni [su come connettersi a un hub](./how-to-ingest-data-iot-hub.md) Internet
 
 ## <a name="explore-the-azure-time-series-insights-explorer"></a>Esplorare Esplora Azure Time Series Insights
 
@@ -133,7 +133,7 @@ Di seguito viene fornito un esempio di **grafico sovrapposto** :
 
   [![Opzione grafico sovrapposta](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png)](media/v2-update-explorer/tsi-preview-explorer-overlapping-chart.png#lightbox)
 
-Il pulsante **altre azioni** si espande per visualizzare il **download come CSV**, **connettersi a Power bi**, **visualizzare i dati del grafico sotto forma di tabella**ed esplorare le opzioni relative **agli eventi non elaborati** .
+Il pulsante **altre azioni** si espande per visualizzare il **download come CSV**, **connettersi a Power bi**, **visualizzare i dati del grafico sotto forma di tabella** ed esplorare le opzioni relative **agli eventi non elaborati** .
 
   [![Altre azioni-opzione](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
@@ -160,7 +160,7 @@ I controlli Web seguenti sono disponibili in Azure Time Series Insights Gen2 per
 
 1. **Controllo dispositivo di scorrimento intervallo di date esterno**: usare i controlli endpoint per selezionare l'intervallo di date esterno, che sarà disponibile per il controllo dell'intervallo di date interno.
 
-1. **Controllo dispositivo di scorrimento intervallo di tempo**: consente di passare rapidamente da una selezione a un intervallo di tempo preimpostato, ad esempio gli ultimi **30 minuti**, le **ultime 12 ore**o un **intervallo personalizzato**. Modificando questo valore, vengono modificati anche gli intervalli disponibili illustrati per lo strumento dispositivo di scorrimento delle dimensioni dell'intervallo.
+1. **Controllo dispositivo di scorrimento intervallo di tempo**: consente di passare rapidamente da una selezione a un intervallo di tempo preimpostato, ad esempio gli ultimi **30 minuti**, le **ultime 12 ore** o un **intervallo personalizzato**. Modificando questo valore, vengono modificati anche gli intervalli disponibili illustrati per lo strumento dispositivo di scorrimento delle dimensioni dell'intervallo.
 
    [![Da e verso il pannello di selezione](media/v2-update-explorer/to-and-from-element.png)](media/v2-update-explorer/to-and-from-element.png#lightbox)
 
@@ -221,7 +221,7 @@ Il pannello dell'editor dei termini Azure Time Series Insights Gen2 accetta i pa
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | Tutti gli operandi devono essere dello stesso tipo o essere una costante NULL. |
 | `HAS` | string | Sul lato destro sono consentiti solo valori letterali stringa costanti. Non sono consentite stringhe vuote e NULL. |
 
-Per ulteriori informazioni sulle operazioni di query e sui tipi di dati supportati, leggere [espressione Time Series (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+Per ulteriori informazioni sulle operazioni di query e sui tipi di dati supportati, leggere [espressione Time Series (TSX)](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Esempi di clausole WHERE
 
@@ -233,7 +233,7 @@ Per ulteriori informazioni sulle operazioni di query e sui tipi di dati supporta
 
   [![Visualizzazione di una query e filtro](media/v2-update-explorer/s1-s2-preview-filtered-view.png)](media/v2-update-explorer/s1-s2-preview-filtered-view.png#lightbox)
 
-È possibile mostrare e nascondere gli elementi nel pannello del grafico selezionando l'icona visibile, come illustrato nella figura seguente. Per rimuovere completamente le query, selezionare la **X**rossa.
+È possibile mostrare e nascondere gli elementi nel pannello del grafico selezionando l'icona visibile, come illustrato nella figura seguente. Per rimuovere completamente le query, selezionare la **X** rossa.
 
   [![Annulla un'opzione sottoposta a query e filtrata](media/v2-update-explorer/s1-s2-preview-filtered-view-cancel.png)](media/v2-update-explorer/s1-s2-preview-filtered-view-cancel.png#lightbox)
 
@@ -245,4 +245,4 @@ Per ulteriori informazioni sulle operazioni di query e sui tipi di dati supporta
 
 * Vedere la pagina relativa alla [modellazione dei dati](./concepts-model-overview.md) in Azure Time Series Insights Gen2.
 
-* Informazioni [su come diagnosticare e risolvere i problemi relativi all'](./time-series-insights-update-how-to-troubleshoot.md) ambiente.
+* Informazioni [su come diagnosticare e risolvere i problemi relativi all'](./how-to-diagnose-troubleshoot.md) ambiente.

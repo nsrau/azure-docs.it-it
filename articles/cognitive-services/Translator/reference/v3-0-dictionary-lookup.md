@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: b2d111f22b8ef36b20b93b65ff1ea6f7b52ea8f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ada9c06f0befbea4b9aa85f95651e96dec595b7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83584740"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021287"
 ---
 # <a name="translator-30-dictionary-lookup"></a>Translator 3,0: ricerca nel dizionario
 
@@ -44,7 +44,7 @@ Le intestazioni della richiesta includono:
 
 | Intestazioni  | Descrizione |
 | ------ | ----------- |
-| Intestazioni di autenticazione <img width=200/>  | **Intestazione della richiesta obbligatoria**.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>. |
+| Intestazioni di autenticazione <img width=200/>  | **Intestazione della richiesta obbligatoria**.<br/>Vedere le <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>. |
 | Content-Type | **Intestazione della richiesta obbligatoria**.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`. |
 | Content-Length   | **Intestazione della richiesta obbligatoria**.<br/>Lunghezza del corpo della richiesta. |
 | X-ClientTraceId   | **Facoltativo**.<br/>GUID generato dal client che identifica in modo univoco la richiesta. È possibile omettere questa intestazione se nella stringa della query si include l'ID traccia usando un parametro di query denominato `ClientTraceId`. |
@@ -87,7 +87,7 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
         | CONJ     | Congiunzioni |
         | DET      | Determinanti  |
         | MODAL    | Verbi        |
-        | NOUN     | Nomi        |
+        | NOUN     | Sostantivi        |
         | PREP     | Preposizioni |
         | PRON     | Pronomi     |
         | VERB     | Verbi        |
@@ -112,7 +112,7 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
     > [!NOTE]
     > Se il termine cercato non esiste nel dizionario, la risposta è 200 (OK) ma l'elenco `translations` è vuoto.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Questo esempio illustra come eseguire la ricerca di traduzioni spagnole alternative per il termine inglese `fly`.
 

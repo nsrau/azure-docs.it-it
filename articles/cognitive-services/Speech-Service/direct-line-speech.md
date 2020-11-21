@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 2b0bb997ecea55d25748152bab7bb6963d67657f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8c7e21b0784aacc85bd02e3c1702e1a710e76ab
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357642"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021882"
 ---
 # <a name="what-is-direct-line-speech"></a>Che cos'è Direct Line Speech?
 
@@ -35,11 +35,11 @@ Per una guida completa e dettagliata sulla creazione di un semplice assistente v
 
 Sono inoltre disponibili guide introduttive progettate per l'esecuzione di codice e l'apprendimento rapido delle API. Questa tabella include un elenco di guide introduttive per Assistente vocale organizzate in base a linguaggio e piattaforma.
 
-| Avvio rapido | Piattaforma | Informazioni di riferimento sulle API |
+| Avvio rapido | Piattaforma | API (riferimento) |
 |------------|----------|---------------|
-| C#, UWP | Windows | [Sfoglia](https://aka.ms/csspeech/csharpref) |
-| Java | Windows, macOS, Linux | [Sfoglia](https://aka.ms/csspeech/javaref) |
-| Java | Android | [Sfoglia](https://aka.ms/csspeech/javaref) |
+| C#, UWP | Windows | [Sfoglia](/dotnet/api/microsoft.cognitiveservices.speech) |
+| Java | Windows, macOS, Linux | [Sfoglia](/java/api/com.microsoft.cognitiveservices.speech) |
+| Java | Android | [Sfoglia](/java/api/com.microsoft.cognitiveservices.speech) |
 
 ## <a name="sample-code"></a>Codice di esempio
 
@@ -50,21 +50,21 @@ Il codice di esempio per la creazione di un assistente vocale è disponibile su 
 
 ## <a name="customization"></a>Personalizzazione
 
-Gli assistenti vocali creati con il servizio di riconoscimento vocale possono usare la gamma completa di opzioni di personalizzazione disponibili per la scelta [vocale](speech-to-text.md) [, sintesi vocale e](text-to-speech.md)selezione di [parole chiave personalizzate](speech-devices-sdk-create-kws.md).
+Gli assistenti vocali creati con il servizio di riconoscimento vocale possono usare la gamma completa di opzioni di personalizzazione disponibili per la scelta [vocale](speech-to-text.md) [, sintesi vocale e](text-to-speech.md)selezione di [parole chiave personalizzate](./custom-keyword-basics.md).
 
 > [!NOTE]
-> Le opzioni di personalizzazione variano in base alla lingua o alle impostazioni locali (vedere [lingue supportate](supported-languages.md)).
+> Le opzioni di personalizzazione variano in base alla lingua o alle impostazioni locali (vedere [lingue supportate](./language-support.md)).
 
-Il riconoscimento diretto della linea e la relativa funzionalità associata per gli assistenti vocali costituiscono un complemento ideale per la [soluzione Virtual Assistant e il modello Enterprise](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Sebbene la comunicazione diretta diretta possa funzionare con qualsiasi bot compatibile, queste risorse forniscono una linea di base riutilizzabile per le esperienze di alta qualità, nonché le competenze e i modelli di supporto più comuni per iniziare rapidamente.
+Il riconoscimento diretto della linea e la relativa funzionalità associata per gli assistenti vocali costituiscono un complemento ideale per la [soluzione Virtual Assistant e il modello Enterprise](/azure/bot-service/bot-builder-enterprise-template-overview). Sebbene la comunicazione diretta diretta possa funzionare con qualsiasi bot compatibile, queste risorse forniscono una linea di base riutilizzabile per le esperienze di alta qualità, nonché le competenze e i modelli di supporto più comuni per iniziare rapidamente.
 
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
-* [Speech SDK](speech-sdk-reference.md)
-* [Servizio Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+* [Speech SDK](./speech-sdk.md)
+* [Servizio Azure Bot](/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](overview.md#try-the-speech-service-for-free)
 * [Ottenere Speech SDK](speech-sdk.md)
-* [Creare e distribuire un bot di base](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+* [Creare e distribuire un bot di base](/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Ottenere la soluzione Virtual Assistant e il modello Enterprise](https://github.com/Microsoft/AI)

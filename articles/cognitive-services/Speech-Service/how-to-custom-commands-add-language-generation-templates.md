@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 0cbc57922b31f1b3879bb2cad8a988a1ba4cc368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40c5e3474d3992108ef61d34e745bc63c1f7a713
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85307828"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020947"
 ---
 # <a name="add-language-generation-templates-for-speech-responses"></a>Aggiungere modelli di generazione della lingua per le risposte vocali
 
@@ -34,7 +34,7 @@ Questo articolo illustra come usare i modelli di generazione del linguaggio con 
 
 ## <a name="language-generation-templates-overview"></a>Panoramica sui modelli di generazione della lingua
 
-I modelli di comandi personalizzati sono basati sui [modelli LG](https://aka.ms/speech/cc-lg-format)di botframework (. Poiché i comandi personalizzati creano un nuovo modello LG quando necessario, ovvero per le risposte vocali nei parametri o nelle azioni, non è necessario specificare il nome del modello LG. Quindi, invece di definire il modello come:
+I modelli di comandi personalizzati sono basati sui [modelli LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates)di botframework (. Poiché i comandi personalizzati creano un nuovo modello LG quando necessario, ovvero per le risposte vocali nei parametri o nelle azioni, non è necessario specificare il nome del modello LG. Quindi, invece di definire il modello come:
 
  ```
     # CompletionAction
@@ -51,7 +51,7 @@ I modelli di comandi personalizzati sono basati sui [modelli LG](https://aka.ms/
 
 Questa modifica introduce la variazione delle risposte vocali inviate al client. Quindi, per lo stesso enunciato, la risposta vocale corrispondente verrebbe selezionata in modo casuale dalle opzioni fornite.
 
-Sfruttare i vantaggi dei modelli LG consente inoltre di definire risposte vocali complesse per i comandi mediante espressioni adattive. Per altri dettagli, vedere il [formato dei modelli LG](https://aka.ms/speech/cc-lg-format) . Per impostazione predefinita, i comandi personalizzati supportano tutte le funzionalità con le differenze minime seguenti:
+Sfruttare i vantaggi dei modelli LG consente inoltre di definire risposte vocali complesse per i comandi mediante espressioni adattive. Per altri dettagli, vedere il [formato dei modelli LG](/azure/bot-service/file-format/bot-builder-lg-file-format#templates) . Per impostazione predefinita, i comandi personalizzati supportano tutte le funzionalità con le differenze minime seguenti:
 
 * Nelle entità dei modelli LG sono rappresentate come $ {EntityName}. Nei comandi personalizzati non vengono usate entità, ma i parametri possono essere usati come variabili con una delle rappresentazioni $ {parameterName} o {ParameterName}
 * La composizione e l'espansione del modello non sono supportate nei comandi personalizzati. Questo perché non si modifica mai `.lg` direttamente il file, ma solo le risposte dei modelli creati automaticamente.
@@ -66,7 +66,7 @@ Modificare il comando **TurnOnOff** per aggiungere un nuovo parametro con la con
 | ------------------ | --------------------- | 
 | Nome               | `SubjectContext`         | 
 | È globale          | unchecked             | 
-| Obbligatoria           | unchecked               | 
+| Necessario           | unchecked               | 
 | Type               | string                |
 | Valore predefinito      | `all` |
 | Configurazione      | Accetta valori di input predefiniti dal catalogo interno | 
@@ -110,7 +110,7 @@ Un altro modo per personalizzare le risposte ai comandi personalizzati consiste 
 > ![Frasi di esempio con parametri](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> - Per le **voci pubbliche**, i **tipi neurali** sono disponibili solo per aree specifiche. Per verificare la disponibilità, vedere [le voci standard e neurali per area/endpoint](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
+> - Per le **voci pubbliche**, i **tipi neurali** sono disponibili solo per aree specifiche. Per verificare la disponibilità, vedere [le voci standard e neurali per area/endpoint](./regions.md#standard-and-neural-voices).
 > - Per le **voci personalizzate**, è possibile crearle dalla pagina del progetto Voice personalizzato. Vedere [Introduzione alla voce personalizzata](./how-to-custom-voice.md).
 
 A questo punto, l'applicazione risponderà alla voce selezionata, anziché alla voce predefinita.

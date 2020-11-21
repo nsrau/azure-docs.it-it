@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: ee37ab90910058378172223a3435047346f5fe7c
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 6ffe631dc237e7efaf1d6bfd9ac79ab7431c7371
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701786"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023140"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Desktop virtuale Windows RDP ShortPath (anteprima)
 
@@ -36,7 +36,7 @@ Il shortpath RDP sta estendendo le funzionalità di multitrasporto RDP. Non sost
 
 La porta UDP 3390 viene usata solo per il traffico ShortPath in ingresso autenticato sul trasporto di connessione inversa. Il listener ShortPath RDP ignora tutti i tentativi di connessione al listener a meno che non corrispondano alla sessione di connessione inversa.
 
-Il shortpath RDP usa una connessione TLS tra il client e l'host sessione usando i certificati dell'host sessione. Per impostazione predefinita, il certificato usato per la crittografia RDP viene generato automaticamente dal sistema operativo durante la distribuzione. Se lo si desidera, i clienti possono distribuire certificati gestiti centralmente emessi dall'autorità di certificazione globale (Enterprise). Per ulteriori informazioni sulle configurazioni dei certificati, vedere la [documentazione di Windows Server](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations.md).
+Il shortpath RDP usa una connessione TLS tra il client e l'host sessione usando i certificati dell'host sessione. Per impostazione predefinita, il certificato usato per la crittografia RDP viene generato automaticamente dal sistema operativo durante la distribuzione. Se lo si desidera, i clienti possono distribuire certificati gestiti centralmente emessi dall'autorità di certificazione globale (Enterprise). Per ulteriori informazioni sulle configurazioni dei certificati, vedere la [documentazione di Windows Server](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations).
 
 ## <a name="rdp-shortpath-connection-sequence"></a>Sequenza di connessione ShortPath RDP
 
@@ -187,7 +187,7 @@ I valori possibili sono:
 * **0** : la connessione utente non usa il shortpath RDP
 * **1** -la connessione utente usa ShortPath RDP
   
-L'elenco di query seguente consente di esaminare le informazioni di connessione. È possibile eseguire questa query nell' [editor di query log Analytics](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries). Per ogni query, sostituire `userupn` con l'UPN dell'utente che si desidera cercare.
+L'elenco di query seguente consente di esaminare le informazioni di connessione. È possibile eseguire questa query nell' [editor di query log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query). Per ogni query, sostituire `userupn` con l'UPN dell'utente che si desidera cercare.
 
 ```kusto
 let Events = WVDConnections | where UserName == "userupn" ;

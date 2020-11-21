@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
-ms.openlocfilehash: 83b6e6be8764a86c41bd9156cc96f8a594dbe1e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f932eed2f1d58e8470a24ea595e21712deb7f03
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87294309"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021899"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>Crittografia dei dati inattivi per i comandi personalizzati
 
@@ -50,17 +50,17 @@ Per richiedere la possibilità di usare chiavi gestite dal cliente, compilare e 
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chiavi gestite dal cliente con Azure Key Vault
 
-È necessario utilizzare Azure Key Vault per archiviare le chiavi gestite dal cliente. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API Azure Key Vault per generare chiavi. La risorsa vocale e l'insieme di credenziali delle chiavi devono trovarsi nella stessa area e nello stesso tenant Azure Active Directory (Azure AD), ma possono trovarsi in sottoscrizioni diverse. Per ulteriori informazioni su Azure Key Vault, vedere [che cos'è Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+È necessario utilizzare Azure Key Vault per archiviare le chiavi gestite dal cliente. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API Azure Key Vault per generare chiavi. La risorsa vocale e l'insieme di credenziali delle chiavi devono trovarsi nella stessa area e nello stesso tenant Azure Active Directory (Azure AD), ma possono trovarsi in sottoscrizioni diverse. Per ulteriori informazioni su Azure Key Vault, vedere [che cos'è Azure Key Vault?](../../key-vault/general/overview.md).
 
 Quando viene creata una nuova risorsa di riconoscimento vocale e usata per eseguire il provisioning di comandi personalizzati, i dati vengono sempre crittografati usando le chiavi gestite da Microsoft. Non è possibile abilitare le chiavi gestite dal cliente nel momento in cui viene creata la risorsa. Le chiavi gestite dal cliente vengono archiviate in Azure Key Vault e l'insieme di credenziali delle chiavi deve essere sottoposto a provisioning con criteri di accesso che concedono le autorizzazioni chiave all'identità gestita associata alla risorsa Servizi cognitivi. L'identità gestita è disponibile solo dopo la creazione della risorsa usando il piano tariffario richiesto per CMK.
 
-L'abilitazione delle chiavi gestite dal cliente consentirà anche un' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)assegnata dal sistema, una funzionalità di Azure ad. Una volta abilitata l'identità gestita assegnata dal sistema, questa risorsa verrà registrata con Azure Active Directory. Dopo la registrazione, all'identità gestita verrà concesso l'accesso al Key Vault selezionato durante l'installazione della chiave gestita dal cliente. 
+L'abilitazione delle chiavi gestite dal cliente consentirà anche un' [identità gestita](../../active-directory/managed-identities-azure-resources/overview.md)assegnata dal sistema, una funzionalità di Azure ad. Una volta abilitata l'identità gestita assegnata dal sistema, questa risorsa verrà registrata con Azure Active Directory. Dopo la registrazione, all'identità gestita verrà concesso l'accesso al Key Vault selezionato durante l'installazione della chiave gestita dal cliente. 
 
 > [!IMPORTANT]
 > Se si disabilitano le identità gestite assegnate dal sistema, l'accesso all'insieme di credenziali delle chiavi verrà rimosso e i dati crittografati con le chiavi del cliente non saranno più accessibili. Tutte le funzionalità che dipendono da questi dati smetteranno di funzionare.
 
 > [!IMPORTANT]
-> Le identità gestite attualmente non supportano gli scenari tra directory. Quando si configurano le chiavi gestite dal cliente nel portale di Azure, un'identità gestita viene assegnata automaticamente dietro le quinte. Se successivamente si sposta la sottoscrizione, il gruppo di risorse o la risorsa da una directory Azure AD a un'altra, l'identità gestita associata alla risorsa non viene trasferita al nuovo tenant, quindi le chiavi gestite dal cliente potrebbero non funzionare più. Per altre informazioni, vedere **trasferimento di una sottoscrizione tra Azure ad directory** nelle [domande frequenti e problemi noti relativi alle identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories).  
+> Le identità gestite attualmente non supportano gli scenari tra directory. Quando si configurano le chiavi gestite dal cliente nel portale di Azure, un'identità gestita viene assegnata automaticamente dietro le quinte. Se successivamente si sposta la sottoscrizione, il gruppo di risorse o la risorsa da una directory Azure AD a un'altra, l'identità gestita associata alla risorsa non viene trasferita al nuovo tenant, quindi le chiavi gestite dal cliente potrebbero non funzionare più. Per altre informazioni, vedere **trasferimento di una sottoscrizione tra Azure ad directory** nelle [domande frequenti e problemi noti relativi alle identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
 ## <a name="configure-azure-key-vault"></a>Configurare Azure Key Vault
 
@@ -71,10 +71,10 @@ Con le chiavi gestite dal cliente è necessario impostare due proprietà nell'in
 
 Per informazioni su come abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, vedere le sezioni **Abilitazione dell'eliminazione temporanea** e **Abilitazione della protezione dall'eliminazione** in uno degli articoli seguenti:
 
-- [Come usare l'eliminazione temporanea con PowerShell](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell).
-- [Come usare l'eliminazione temporanea con l'interfaccia](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-cli)della riga di comando.
+- [Come usare l'eliminazione temporanea con PowerShell](../../key-vault/general/key-vault-recovery.md).
+- [Come usare l'eliminazione temporanea con l'interfaccia](../../key-vault/general/key-vault-recovery.md)della riga di comando.
 
-Con la crittografia di archiviazione di Azure sono supportate solo le chiavi RSA della dimensione 2048. Per ulteriori informazioni sulle chiavi, vedere **Key Vault chiavi** in [informazioni su Azure Key Vault chiavi, segreti e certificati](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
+Con la crittografia di archiviazione di Azure sono supportate solo le chiavi RSA della dimensione 2048. Per ulteriori informazioni sulle chiavi, vedere **Key Vault chiavi** in [informazioni su Azure Key Vault chiavi, segreti e certificati](../../key-vault/general/about-keys-secrets-certificates.md).
 
 ## <a name="enable-customer-managed-keys-for-your-speech-resource"></a>Abilitare le chiavi gestite dal cliente per la risorsa vocale
 
@@ -140,7 +140,7 @@ La rotazione della chiave non attiva la nuova crittografia dei dati nella risors
 
 ## <a name="revoke-access-to-customer-managed-keys"></a>Revocare l'accesso alle chiavi gestite dal cliente
 
-Per revocare l'accesso alle chiavi gestite dal cliente, usare PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [PowerShell per Azure Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault//) o [Interfaccia della riga di comando per Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La revoca dell'accesso blocca in modo efficace l'accesso a tutti i dati nella risorsa Servizi cognitivi, in quanto la chiave di crittografia non è accessibile dai servizi cognitivi.
+Per revocare l'accesso alle chiavi gestite dal cliente, usare PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [PowerShell per Azure Key Vault](/powershell/module/az.keyvault//) o [Interfaccia della riga di comando per Azure Key Vault](/cli/azure/keyvault). La revoca dell'accesso blocca in modo efficace l'accesso a tutti i dati nella risorsa Servizi cognitivi, in quanto la chiave di crittografia non è accessibile dai servizi cognitivi.
 
 ## <a name="disable-customer-managed-keys"></a>Disabilitare le chiavi gestite dal cliente
 
@@ -152,8 +152,5 @@ Quando si disabilitano le chiavi gestite dal cliente, la risorsa vocale viene qu
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Modulo di richiesta della chiave di Customer-Managed vocale](https://aka.ms/cogsvc-cmk)
-* [Altre informazioni su Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-* [Che cosa sono le identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
-
-
-
+* [Altre informazioni su Azure Key Vault](../../key-vault/general/overview.md)
+* [Che cosa sono le identità gestite](../../active-directory/managed-identities-azure-resources/overview.md)

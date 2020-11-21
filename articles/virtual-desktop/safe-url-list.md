@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 90db861a4ef4fc951844d3ae82a51d20cf9dc8c5
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3d19a60fd6a22eb9245722c6ff69d3b39c05d29e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875105"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023174"
 ---
 # <a name="safe-url-list"></a>Elenco degli URL sicuri
 
@@ -34,7 +34,7 @@ Le macchine virtuali di Azure create per desktop virtuale Windows devono avere a
 |mrsglobalsteus2prod.blob.core.windows.net|443|Aggiornamenti dello stack dell'agente e di SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.windows.net|443|Supporto del portale di Azure|AzureCloud|
 | 169.254.169.254 | 80 | [Endpoint del servizio metadati dell'istanza di Azure](../virtual-machines/windows/instance-metadata-service.md) | N/D |
-| 168.63.129.16 | 80 | [Monitoraggio dello stato dell'host sessione](../virtual-network/security-overview.md#azure-platform-considerations) | N/D |
+| 168.63.129.16 | 80 | [Monitoraggio dello stato dell'host sessione](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/D |
 
 >[!IMPORTANT]
 >Desktop virtuale Windows supporta ora il tag FQDN. Per altre informazioni, vedere [Usare Firewall di Azure per proteggere le distribuzioni di Desktop virtuale Windows](../firewall/protect-windows-virtual-desktop.md).
@@ -56,7 +56,7 @@ Le macchine virtuali di Azure create per desktop virtuale Windows devono avere a
 |mrsglobalstugviffx.core.usgovcloudapi.net|443|Aggiornamenti dello stack dell'agente e di SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Supporto del portale di Azure|AzureCloud|
 | 169.254.169.254 | 80 | [Endpoint del servizio metadati dell'istanza di Azure](../virtual-machines/windows/instance-metadata-service.md) | N/D |
-| 168.63.129.16 | 80 | [Monitoraggio dello stato dell'host sessione](../virtual-network/security-overview.md#azure-platform-considerations) | N/D |
+| 168.63.129.16 | 80 | [Monitoraggio dello stato dell'host sessione](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/D |
 
 La tabella seguente elenca gli URL facoltativi accessibili alle macchine virtuali di Azure:
 
@@ -93,7 +93,7 @@ Tutti i client Desktop remoto utilizzati devono avere accesso agli URL seguenti:
 |aka.ms|443|Abbreviazione URL Microsoft|Tutti|nessuno|
 |docs.microsoft.com|443|Documentazione|Tutti|nessuno|
 |privacy.microsoft.com|443|Informativa sulla privacy|Tutti|nessuno|
-|query.prod.cms.rt.microsoft.com|443|Aggiornamenti client|Desktop di Windows|Nessuno|
+|query.prod.cms.rt.microsoft.com|443|Aggiornamenti client|Desktop di Windows|nessuno|
 
 >[!IMPORTANT]
 >L'apertura di questi URL è essenziale per un'esperienza client affidabile. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio.

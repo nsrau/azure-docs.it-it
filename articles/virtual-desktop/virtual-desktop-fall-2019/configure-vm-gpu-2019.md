@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: denisgun
-ms.openlocfilehash: 32d5c280e80b2f21b30bb34a182070da51e21026
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa7b80b021e00d25dea4f96432ae922c15474058
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008492"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023055"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop-classic"></a>Configurare l'accelerazione GPU (Graphics Processing Unit) per desktop virtuale di Windows (versione classica)
 
@@ -23,24 +23,24 @@ Per creare una macchina virtuale di Azure ottimizzata per la GPU, aggiungerla al
 
 ## <a name="select-a-gpu-optimized-azure-virtual-machine-size"></a>Selezionare una dimensione della macchina virtuale di Azure ottimizzata per la GPU
 
-Azure offre una serie di [dimensioni delle macchine virtuali ottimizzate per la GPU](/azure/virtual-machines/windows/sizes-gpu). La scelta corretta per il pool di host dipende da diversi fattori, tra cui i carichi di lavoro di app specifici, la qualità desiderata dell'esperienza utente e i costi. In generale, le GPU più grandi e più idonee offrono un'esperienza utente migliore a una determinata densità utente.
+Azure offre una serie di [dimensioni delle macchine virtuali ottimizzate per la GPU](../../virtual-machines/sizes-gpu.md). La scelta corretta per il pool di host dipende da diversi fattori, tra cui i carichi di lavoro di app specifici, la qualità desiderata dell'esperienza utente e i costi. In generale, le GPU più grandi e più idonee offrono un'esperienza utente migliore a una determinata densità utente.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Creare un pool di host, effettuare il provisioning della macchina virtuale e configurare un gruppo di app
 
-Creare un nuovo pool di host usando una macchina virtuale delle dimensioni selezionate. Per istruzioni, vedere [esercitazione: creare un pool di host con Azure Marketplace](/azure/virtual-desktop/create-host-pools-azure-marketplace).
+Creare un nuovo pool di host usando una macchina virtuale delle dimensioni selezionate. Per istruzioni, vedere [esercitazione: creare un pool di host con Azure Marketplace](../create-host-pools-azure-marketplace.md).
 
 Desktop virtuale Windows supporta il rendering e la codifica con accelerazione GPU nei sistemi operativi seguenti:
 
 * Windows 10 versione 1511 o successive
 * Windows Server 2016 o versioni successive
 
-È anche necessario configurare un gruppo di app o usare il gruppo di app desktop predefinito (denominato "gruppo di applicazioni desktop") che viene creato automaticamente quando si crea un nuovo pool di host. Per istruzioni, vedere [Esercitazione: Gestire gruppi di app per Desktop virtuale Windows](/azure/virtual-desktop/manage-app-groups).
+È anche necessario configurare un gruppo di app o usare il gruppo di app desktop predefinito (denominato "gruppo di applicazioni desktop") che viene creato automaticamente quando si crea un nuovo pool di host. Per istruzioni, vedere [Esercitazione: Gestire gruppi di app per Desktop virtuale Windows](../manage-app-groups.md).
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Installare i driver grafici supportati nella macchina virtuale
 
-Per sfruttare i vantaggi offerti dalle funzionalità della GPU delle macchine virtuali serie N di Azure in Desktop virtuale Windows, è necessario installare i driver grafici appropriati. Seguire le istruzioni in [Sistemi operativi e driver supportati](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) per installare i driver dal fornitore di grafica appropriato, manualmente o usando un'estensione della macchina virtuale di Azure.
+Per sfruttare i vantaggi offerti dalle funzionalità della GPU delle macchine virtuali serie N di Azure in Desktop virtuale Windows, è necessario installare i driver grafici appropriati. Seguire le istruzioni in [Sistemi operativi e driver supportati](../../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) per installare i driver dal fornitore di grafica appropriato, manualmente o usando un'estensione della macchina virtuale di Azure.
 
-Per Desktop virtuale Windows sono supportati solo i driver distribuiti da Azure. Per le macchine virtuali di Azure con GPU NVIDIA sono supportati solo [driver NVIDIA Grid](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) per desktop virtuale di Windows.
+Per Desktop virtuale Windows sono supportati solo i driver distribuiti da Azure. Per le macchine virtuali di Azure con GPU NVIDIA sono supportati solo [driver NVIDIA Grid](../../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers) per desktop virtuale di Windows.
 
 Dopo l'installazione, è necessario eseguire il riavvio della macchina virtuale. Per verificare che i driver grafici siano stati installati correttamente, usare i passaggi di verifica nelle istruzioni sopra indicate.
 
@@ -75,7 +75,7 @@ Desktop remoto codifica tutti i grafici sottoposti a rendering dalle app e dai d
 
 Per verificare che le app stiano usando la GPU per il rendering, provare a eseguire una delle operazioni seguenti:
 
-* Per le macchine virtuali di Azure con una GPU NVIDIA, usare l'utilità `nvidia-smi` come descritto in [Verificare l'installazione del driver](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) per verificare l'utilizzo della GPU durante l'esecuzione delle app.
+* Per le macchine virtuali di Azure con una GPU NVIDIA, usare l'utilità `nvidia-smi` come descritto in [Verificare l'installazione del driver](../../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation) per verificare l'utilizzo della GPU durante l'esecuzione delle app.
 * Nelle versioni supportate del sistema operativo, è possibile usare Gestione attività, per verificare l'utilizzo della GPU. Per vedere se le app utilizzano la GPU, selezionare la GPU nella scheda "Prestazioni".
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Verificare la codifica del frame con accelerazione GPU
@@ -91,5 +91,5 @@ Per verificare che Desktop remoto usi la codifica con accelerazione GPU:
 
 Queste istruzioni dovrebbero essere in esecuzione con l'accelerazione GPU in un host di sessione (una macchina virtuale). Alcune considerazioni aggiuntive per l'abilitazione dell'accelerazione GPU in un pool di host più ampio:
 
-* Per semplificare l'installazione e gli aggiornamenti dei driver in diverse macchine virtuali, prendere in considerazione l'uso di un'[estensione della macchina virtuale](/azure/virtual-machines/extensions/overview). Usare l'[estensione del driver GPU NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows) per le macchine virtuali con GPU NVIDIA e usare l'estensione del driver GPU AMD per le macchine virtuali con GPU AMD.
-* Per semplificare la configurazione dei criteri di gruppo in diverse macchine virtuali, prendere in considerazione l'uso di Criteri di gruppo di Active Directory. Per informazioni sulla distribuzione di Criteri di gruppo nel dominio Active Directory, vedere [Working with Group Policy Objects](https://go.microsoft.com/fwlink/p/?LinkId=620889) (Utilizzo degli oggetti Criteri di gruppo).
+* Per semplificare l'installazione e gli aggiornamenti dei driver in diverse macchine virtuali, prendere in considerazione l'uso di un'[estensione della macchina virtuale](../../virtual-machines/extensions/overview.md). Usare l'[estensione del driver GPU NVIDIA](../../virtual-machines/extensions/hpccompute-gpu-windows.md) per le macchine virtuali con GPU NVIDIA e usare l'estensione del driver GPU AMD per le macchine virtuali con GPU AMD.
+* Per semplificare la configurazione dei criteri di gruppo in diverse macchine virtuali, prendere in considerazione l'uso di Criteri di gruppo di Active Directory. Per informazioni sulla distribuzione di Criteri di gruppo nel dominio Active Directory, vedere [Working with Group Policy Objects](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731212(v=ws.11)) (Utilizzo degli oggetti Criteri di gruppo).

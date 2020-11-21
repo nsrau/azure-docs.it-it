@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 1f4dfc4b80aff01e4b7fe7ebae4850b28cd6a498
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9abd1f305e47eca743dc9274e0ec1f0a950dd6a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83588599"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021270"
 ---
 # <a name="translator-30-languages"></a>Translator 3,0: lingue
 
@@ -40,7 +40,7 @@ I parametri della richiesta inviati a una stringa di query sono:
     <td><em>Parametro obbligatorio</em>.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`.</td>
   </tr>
   <tr>
-    <td>ambito</td>
+    <td>scope</td>
     <td>*Parametro facoltativo*.<br/>Elenco di nomi delimitato da virgole che definisce il gruppo di lingue da restituire. I nomi di gruppi consentiti sono: `translation`, `transliteration` e `dictionary`. Se non viene specificato un ambito, vengono restituiti tutti i gruppi come se venisse passato `scope=translation,transliteration,dictionary`. Per determinare il set di lingue supportate appropriato per uno scenario specifico, vedere la descrizione dell'[oggetto risposta](#response-body).</td>
   </tr>
 </table> 
@@ -275,9 +275,9 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
 </table> 
 
-Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore comuni sono disponibili nella [pagina di riferimento del convertitore V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore comuni sono disponibili nella [pagina di riferimento del convertitore V3](./v3-0-reference.md#errors). 
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 L'esempio seguente mostra come recuperare le lingue supportate per la traduzione del testo.
 

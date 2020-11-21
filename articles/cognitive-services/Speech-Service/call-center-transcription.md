@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19d4cc388494e149b7f258a8e9f154041a3dd070
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630152"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021967"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servizio di riconoscimento vocale per i dati di telefonia
 
@@ -60,7 +60,7 @@ Non è insolito per il 35% del tempo di una chiamata al supporto tecnico. Di seg
 
 ### <a name="translation"></a>Traduzione
 
-Alcune aziende sperimentano la fornitura di trascrizioni tradotte da chiamate al supporto per le lingue straniere, in modo che i responsabili della distribuzione possano comprendere l'esperienza globale dei clienti. Le nostre competenze di [traduzione](/azure/cognitive-services/speech-service/speech-translation) non hanno rivali. Per un numero elevato di impostazioni locali è possibile convertire audio-audio o audio-testo.
+Alcune aziende sperimentano la fornitura di trascrizioni tradotte da chiamate al supporto per le lingue straniere, in modo che i responsabili della distribuzione possano comprendere l'esperienza globale dei clienti. Le nostre competenze di [traduzione](./speech-translation.md) non hanno rivali. Per un numero elevato di impostazioni locali è possibile convertire audio-audio o audio-testo.
 
 ### <a name="text-to-speech"></a>Sintesi vocale
 
@@ -70,7 +70,7 @@ La latenza end-to-end è notevolmente bassa per le varie tecnologie interattive,
 
 Le nuove voci sono inoltre indistinguibili da quelle umane. Puoi usare le nostre voci per offrire al tuo bot la sua personalità univoca.
 
-### <a name="search"></a>Ricerca
+### <a name="search"></a>Cerca
 
 Un altro elemento di base dell'analisi consiste nell'identificare le interazioni in cui si è verificata un'esperienza o un evento specifico. Questa operazione viene in genere eseguita con uno dei due approcci seguenti: una ricerca ad hoc in cui l'utente digita semplicemente una frase e il sistema risponde oppure una query più strutturata in cui un analista può creare un set di istruzioni logiche che identificano uno scenario in una chiamata e quindi ogni chiamata può essere indicizzata in base a tale set di query. Un esempio di ricerca valido è la dichiarazione di conformità universale "questa chiamata verrà registrata per scopi qualitativi... ". Molte aziende desiderano assicurarsi che i loro agenti forniscano questa dichiarazione di non responsabilità ai clienti prima che la chiamata venga effettivamente registrata. La maggior parte dei sistemi di analisi è in grado di eseguire la tendenza dei comportamenti individuati dagli algoritmi di ricerca/query e questa segnalazione delle tendenze è in definitiva una delle funzioni più importanti di un sistema di analisi. Grazie alla [directory Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/directory/search/), la soluzione end-to-end può essere significativamente migliorata con funzionalità di indicizzazione e ricerca.
 
@@ -94,7 +94,7 @@ Una tipica soluzione usa questi servizi:
 
 - Il servizio di riconoscimento vocale viene usato per trascrivere il riconoscimento vocale. Per usare l'API di trascrizione batch, è necessaria una sottoscrizione standard (S0) per il servizio di riconoscimento vocale. Le sottoscrizioni gratuite (F0) non funzioneranno.
 - Per archiviare i dati di telefonia e le trascrizioni restituite dall'API di trascrizione batch si usa [Archiviazione di Azure](https://azure.microsoft.com/services/storage/). Questo account di archiviazione deve usare le notifiche, in particolare quando vengono aggiunti nuovi file. Queste notifiche vengono usate per attivare il processo di trascrizione.
-- [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/) consente di creare l'URI di firma di accesso condiviso per ogni registrazione e attivare la richiesta POST HTTP per avviare una trascrizione. Inoltre, Funzioni di Azure consente di creare richieste per recuperare ed eliminare trascrizioni usando l'API di trascrizione batch.
+- [Funzioni di Azure](../../azure-functions/index.yml) consente di creare l'URI di firma di accesso condiviso per ogni registrazione e attivare la richiesta POST HTTP per avviare una trascrizione. Inoltre, Funzioni di Azure consente di creare richieste per recuperare ed eliminare trascrizioni usando l'API di trascrizione batch.
 
 Microsoft usa internamente le suddette tecnologie per supportare le chiamate dei clienti in modalità batch.
 :::image type="content" source="media/scenarios/call-center-batch-pipeline.png" alt-text="Tecnologie usate per supportare le chiamate dei clienti Microsoft in modalità batch.":::
@@ -111,7 +111,7 @@ Internamente si usano le tecnologie precedenti per analizzare in tempo reale le 
 
 ## <a name="a-word-on-ivrs"></a>Introduzione ai sistemi IVR
 
-Il servizio riconoscimento vocale può essere facilmente integrato in qualsiasi soluzione usando l' [SDK di riconoscimento vocale](speech-sdk.md) o l' [API REST](rest-apis.md). Tuttavia, le trascrizioni del call center possono richiedere tecnologie aggiuntive. In genere, è necessaria una connessione tra un sistema IVR e Azure. Sebbene non siano disponibili tali componenti, ecco una descrizione della connessione a un IVR.
+Il servizio riconoscimento vocale può essere facilmente integrato in qualsiasi soluzione usando l' [SDK di riconoscimento vocale](speech-sdk.md) o l' [API REST](./overview.md#reference-docs). Tuttavia, le trascrizioni del call center possono richiedere tecnologie aggiuntive. In genere, è necessaria una connessione tra un sistema IVR e Azure. Sebbene non siano disponibili tali componenti, ecco una descrizione della connessione a un IVR.
 
 Diversi prodotti di servizi IVR o di telefonia (ad esempio Genesys o AudioCodes) offrono funzionalità di integrazione che possono essere sfruttate per consentire il pass-through audio in ingresso e in uscita a un servizio di Azure. In pratica, un servizio di Azure personalizzato potrebbe fornire un'interfaccia specifica per definire le sessioni di chiamata telefonica, ad esempio l'avvio della chiamata o la chiamata finale, ed esporre un'API WebSocket per ricevere l'audio del flusso in ingresso usato con il servizio di riconoscimento vocale. Le risposte in uscita, ad esempio la trascrizione della conversazione o le connessioni con Bot Framework, possono essere sintetizzate con il servizio di sintesi vocale di Microsoft e restituite al sistema IVR per la riproduzione.
 
@@ -121,12 +121,12 @@ Un altro scenario è l'integrazione diretta con SIP (Session Initiation Protocol
 
  Il servizio riconoscimento vocale funziona bene con i modelli predefiniti. Tuttavia, potrebbe essere necessario personalizzare ulteriormente e ottimizzare l'esperienza per il prodotto o l'ambiente. Le opzioni di personalizzazione spaziano dall'ottimizzazione del modello acustico ai caratteri voce univoci per il proprio marchio. Dopo aver compilato un modello personalizzato, è possibile usarlo con le funzionalità del servizio riconoscimento vocale in modalità batch o in tempo reale.
 
-| Servizio Voce | Modello | Description |
+| Servizio Voce | Modellare | Descrizione |
 | -------------- | ----- | ----------- |
-| Riconoscimento vocale | [Modello acustico](how-to-customize-acoustic-models.md) | Creazione di un modello acustico personalizzato per applicazioni, strumenti o dispositivi usati in ambienti particolari, ad esempio in un'automobile o in fabbrica, ognuno con condizioni di registrazione specifiche. Sono esempi di queste situazioni un eloquio con un forte accento, particolari rumori di sottofondo o l'uso di uno speciale microfono per la registrazione. |
-|                | [Modello linguistico](how-to-customize-language-model.md) | Creazione di un modello linguistico personalizzato per migliorare la trascrizione di grammatica e terminologia specifica di settore, ad esempio terminologia medica o IT. |
-|                | [Modello di pronuncia](how-to-customize-pronunciation.md) | Con un modello di pronuncia personalizzato, è possibile definire il form fonetico e visualizzarlo per una parola o un termine. È utile per gestire i termini personalizzati, come i nomi di prodotto o gli acronimi. Per iniziare, è sufficiente un file di pronuncia, ovvero un `.txt` file semplice. |
-| Sintesi vocale | [Carattere voce](how-to-customize-voice-font.md) | I caratteri voce personalizzati consentono di creare una voce distintiva e unica per il proprio marchio. Per iniziare è necessaria solo una piccola quantità di dati. Più dati si forniscono, più naturale e umano risulterà il carattere voce. |
+| Riconoscimento vocale | [Modello acustico](./how-to-custom-speech-train-model.md) | Creazione di un modello acustico personalizzato per applicazioni, strumenti o dispositivi usati in ambienti particolari, ad esempio in un'automobile o in fabbrica, ognuno con condizioni di registrazione specifiche. Sono esempi di queste situazioni un eloquio con un forte accento, particolari rumori di sottofondo o l'uso di uno speciale microfono per la registrazione. |
+|                | [Modello linguistico](./how-to-custom-speech-train-model.md) | Creazione di un modello linguistico personalizzato per migliorare la trascrizione di grammatica e terminologia specifica di settore, ad esempio terminologia medica o IT. |
+|                | [Modello di pronuncia](./how-to-custom-speech-train-model.md) | Con un modello di pronuncia personalizzato, è possibile definire il form fonetico e visualizzarlo per una parola o un termine. È utile per gestire i termini personalizzati, come i nomi di prodotto o gli acronimi. Per iniziare, è sufficiente un file di pronuncia, ovvero un `.txt` file semplice. |
+| Sintesi vocale | [Carattere voce](./how-to-custom-voice-create-voice.md) | I caratteri voce personalizzati consentono di creare una voce distintiva e unica per il proprio marchio. Per iniziare è necessaria solo una piccola quantità di dati. Più dati si forniscono, più naturale e umano risulterà il carattere voce. |
 
 ## <a name="sample-code"></a>Codice di esempio
 
@@ -138,7 +138,7 @@ Il codice di esempio è disponibile in GitHub per ognuna delle funzionalità del
 
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
-- [Speech SDK](speech-sdk-reference.md)
+- [Speech SDK](./speech-sdk.md)
 - [Speech Devices SDK](speech-devices-sdk.md)
 - [API REST: Riconoscimento vocale](rest-speech-to-text.md)
 - [API REST: Sintesi vocale](rest-text-to-speech.md)

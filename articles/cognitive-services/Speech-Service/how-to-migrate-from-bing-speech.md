@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: 81c4c26f252cdd9eb302a7f8f362c8bf52e48629
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b7950759914724234ec89e6eaee13b48e735ec9
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825589"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024314"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Eseguire la migrazione dal riconoscimento vocale Bing al servizio riconoscimento vocale
 
@@ -28,7 +28,7 @@ Una singola chiave di sottoscrizione del servizio vocale concede l'accesso alle 
 * [Riconoscimento vocale](speech-to-text.md)
 * [Riconoscimento vocale personalizzato](https://cris.ai)
 * [Sintesi vocale](text-to-speech.md)
-* [Voci personalizzate per Sintesi vocale](how-to-customize-voice-font.md)
+* [Voci personalizzate per Sintesi vocale](./how-to-custom-voice-create-voice.md)
 * [Traduzione vocale](speech-translation.md) (non include la [traduzione testuale](../translator/translator-info-overview.md))
 
 [Speech SDK](speech-sdk.md) sostituisce le funzioni delle librerie client di Riconoscimento vocale Bing, ma usa un'API diversa.
@@ -63,7 +63,7 @@ Il servizio riconoscimento vocale usa un modello di determinazione prezzi basato
 
 Se l'utente o l'organizzazione dispone di applicazioni in fase di sviluppo o produzione che usano un Speech API Bing, è necessario aggiornarle per usare il servizio riconoscimento vocale appena possibile. Vedere la [documentazione del servizio vocale](index.yml) per SDK, esempi di codice ed esercitazioni disponibili.
 
-Le [API REST](rest-apis.md) del servizio di riconoscimento vocale sono compatibili con le API riconoscimento vocale Bing. Se attualmente si usano le API REST di riconoscimento vocale Bing, è necessario modificare solo l'endpoint REST e passare a una chiave di sottoscrizione del servizio di riconoscimento vocale.
+Le [API REST](./overview.md#reference-docs) del servizio di riconoscimento vocale sono compatibili con le API riconoscimento vocale Bing. Se attualmente si usano le API REST di riconoscimento vocale Bing, è necessario modificare solo l'endpoint REST e passare a una chiave di sottoscrizione del servizio di riconoscimento vocale.
 
 Se si usa una libreria client di Riconoscimento vocale Bing per un linguaggio di programmazione specifico, per eseguire la migrazione a [Speech SDK](speech-sdk.md) è necessario apportare modifiche all'applicazione perché l'API è diversa. Speech SDK può semplificare il codice permettendo anche di accedere alle nuove funzionalità. Speech SDK è disponibile in un'ampia gamma di linguaggi di programmazione. Le API sono simili in tutte le piattaforme e ciò semplifica lo sviluppo multipiattaforma.
 
@@ -72,14 +72,14 @@ Il servizio riconoscimento vocale non offre un endpoint globale. Determinare se 
 Per iniziare a usare Speech SDK:
 
 1. Scaricare [Speech SDK](speech-sdk.md).
-1. Usare le [guide introduttive](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) e le [esercitazioni](how-to-recognize-intents-from-speech-csharp.md)per il servizio di riconoscimento vocale. Analizzare anche gli [esempi di codice](samples.md) per acquisire familiarità con le nuove API.
+1. Usare le [guide introduttive](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) e le [esercitazioni](how-to-recognize-intents-from-speech-csharp.md)per il servizio di riconoscimento vocale. Analizzare anche gli [esempi di codice](./speech-sdk.md#sample-source-code) per acquisire familiarità con le nuove API.
 1. Aggiornare l'applicazione per l'uso del servizio di riconoscimento vocale.
 
 ## <a name="support"></a>Supporto
 
 I clienti di Riconoscimento vocale Bing devono contattare il supporto tecnico aprendo un [ticket di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). È anche possibile contattare Microsoft se il caso richiede un [piano di supporto tecnico](https://azure.microsoft.com/support/plans/).
 
-Per il supporto di riconoscimento vocale, SDK e API, visitare la [pagina del supporto](support.md)del servizio di riconoscimento vocale.
+Per il supporto di riconoscimento vocale, SDK e API, visitare la [pagina del supporto](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext)del servizio di riconoscimento vocale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -87,7 +87,7 @@ Per il supporto di riconoscimento vocale, SDK e API, visitare la [pagina del sup
 * [Introduzione al riconoscimento vocale](get-started-speech-to-text.md)
 * [Introduzione alla sintesi vocale](get-started-text-to-speech.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Note sulla versione del servizio vocale](releasenotes.md)
 * [Informazioni sul servizio di riconoscimento vocale](overview.md)

@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d02642b49951b4b116eaae6dbea490ef2720c15d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 126a8e48a8db1c41299a7cb7a34f172342110667
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90084414"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023123"
 ---
 # <a name="host-pool-creation"></a>Creazione di pool di host
 
@@ -20,13 +20,13 @@ ms.locfileid: "90084414"
 
 In questo articolo vengono illustrati i problemi durante la configurazione iniziale del tenant di desktop virtuale Windows e l'infrastruttura del pool di host sessione correlata.
 
-## <a name="provide-feedback"></a>Inviare feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Acquisizione dell'immagine multisessione Enterprise di Windows 10
 
-Per usare l'immagine multisessione Enterprise di Windows 10, passare a Azure Marketplace, selezionare **Introduzione**a  >  **Microsoft Windows 10** > e [Windows 10 Enterprise multisessione, versione 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Per usare l'immagine multisessione Enterprise di Windows 10, passare a Azure Marketplace, selezionare **Introduzione** a  >  **Microsoft Windows 10** > e [Windows 10 Enterprise multisessione, versione 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 ## <a name="issues-with-using-the-azure-portal-to-create-host-pools"></a>Problemi relativi all'utilizzo del portale di Azure per creare pool host
 
@@ -57,9 +57,9 @@ Correzione: è necessario riassegnare gli utenti ai gruppi di app.
 
 Seguire queste istruzioni per risolvere i problemi relativi alle distribuzioni non riuscite dei modelli di Azure Resource Manager e di PowerShell DSC.
 
-1. Esaminare gli errori nella distribuzione usando [Visualizza operazioni di distribuzione con Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-operations.md).
-2. Se non sono presenti errori nella distribuzione, esaminare gli errori nel log attività usando [Visualizza log attività per controllare le azioni sulle risorse](../azure-resource-manager/resource-group-audit.md).
-3. Una volta identificato l'errore, usare il messaggio di errore e le risorse in [risolvere gli errori comuni di distribuzione di Azure con Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) per risolvere il problema.
+1. Esaminare gli errori nella distribuzione usando [Visualizza operazioni di distribuzione con Azure Resource Manager](../azure-resource-manager/templates/deployment-history.md).
+2. Se non sono presenti errori nella distribuzione, esaminare gli errori nel log attività usando [Visualizza log attività per controllare le azioni sulle risorse](../azure-resource-manager/management/view-activity-logs.md).
+3. Una volta identificato l'errore, usare il messaggio di errore e le risorse in [risolvere gli errori comuni di distribuzione di Azure con Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md) per risolvere il problema.
 4. Eliminare tutte le risorse create durante la distribuzione precedente e riprovare a distribuire il modello.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Errore: la distribuzione non è riuscita... \<hostname> /JoinDomain

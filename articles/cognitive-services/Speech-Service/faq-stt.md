@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 0fe5b1350fdcf53eeda11f6de430d8d02a24fdbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c0b399f84e793d9e762c89dbbd1901bb5a95f26
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397760"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024331"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
 
-Se in questo documento non sono presenti risposte alle domande di proprio interesse, vedere le [altre opzioni di supporto](support.md).
+Se in questo documento non sono presenti risposte alle domande di proprio interesse, vedere le [altre opzioni di supporto](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
 
 ## <a name="general"></a>Generale
 
@@ -29,7 +29,7 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 **D: Da dove è necessario iniziare per usare un modello di base?**
 
-**R**: Prima di tutto è necessario ottenere una [chiave di sottoscrizione](overview.md#try-the-speech-service-for-free). Per effettuare chiamate REST ai modelli di base predistribuiti, vedere le [API REST](rest-apis.md). Se si desidera usare WebSocket, [scaricare l'SDK](speech-sdk.md).
+**R**: Prima di tutto è necessario ottenere una [chiave di sottoscrizione](overview.md#try-the-speech-service-for-free). Per effettuare chiamate REST ai modelli di base predistribuiti, vedere le [API REST](./overview.md#reference-docs). Se si desidera usare WebSocket, [scaricare l'SDK](speech-sdk.md).
 
 **: È sempre necessario compilare un modello conversione voce/testo personalizzato?**
 

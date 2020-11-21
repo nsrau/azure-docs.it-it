@@ -1,18 +1,20 @@
 ---
 title: Guida alla configurazione del Lab accelerato per Azure Lab Services
-description: Questa guida consente agli autori di lab di configurare rapidamente un account apposito da usare all'interno della scuola.
+description: Se sei un creatore di Lab, questa guida ti aiuta a configurare rapidamente un account Lab presso la tua scuola.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8ef168aefb69df32f57b623bb488adbb97cbd411
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 07f0d92ebd926616f1318b430bec2de32f753f7c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659676"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021731"
 ---
 # <a name="lab-setup-guide"></a>Guida all'installazione di Lab
 
-Il processo per la pubblicazione di un Lab per gli studenti può richiedere fino a diverse ore.  La quantità di tempo dipende dal numero di macchine virtuali (VM) che verranno create nel Lab. Consentire almeno un giorno per configurare un Lab, per assicurarsi che funzioni correttamente e per concedere tempo sufficiente per pubblicare le macchine virtuali degli studenti.
+In questa guida si apprenderà come creare un Lab per studenti presso la propria scuola.
+
+Il processo per la pubblicazione di un Lab per gli studenti può richiedere fino a diverse ore. La quantità di tempo di installazione dipende dal numero di macchine virtuali (VM) che si vuole creare nel Lab. Consentire almeno un giorno per garantire che il Lab funzioni correttamente e consentire il tempo sufficiente per pubblicare le macchine virtuali degli studenti.
 
 ## <a name="understand-the-lab-requirements-of-your-class"></a>Comprendere i requisiti del lab della classe
 
@@ -20,127 +22,124 @@ Prima di configurare un nuovo lab è consigliabile considerare le domande seguen
 
 ### <a name="what-software-requirements-does-the-class-have"></a>Quali sono i requisiti software della classe?
 
-In base agli obiettivi di apprendimento della classe stabilire il sistema operativo, le applicazioni e gli strumenti da installare nelle macchine virtuali del lab. Per configurare le macchine virtuali del lab sono disponibili tre opzioni:
+Vedere gli obiettivi di apprendimento della classe quando si decide quale sistema operativo, applicazioni e strumenti è necessario installare nelle macchine virtuali del Lab. Per configurare le macchine virtuali del lab sono disponibili tre opzioni:
 
 - **Usare un'immagine di Azure Marketplace**: Azure Marketplace offre centinaia di immagini che è possibile usare durante la creazione di un lab. Per alcune classi, una di queste immagini potrebbe già contenere tutto il necessario per la classe.
 
-- **Creare una nuova immagine personalizzata**: è possibile creare un'immagine personalizzata usando un'immagine di Azure Marketplace come punto di partenza e personalizzandola tramite l'installazione di software aggiuntivo e modifiche di configurazione.
+- **Creare una nuova immagine personalizzata**: è possibile creare un'immagine personalizzata usando un'immagine di Azure Marketplace come punto di partenza. È quindi possibile personalizzarlo installando software aggiuntivo e apportando modifiche di configurazione.
 
-- **Usare un'immagine personalizzata esistente**: è possibile riusare le immagini personalizzate esistenti create in precedenza oppure create da altri amministratori o docenti della scuola. Per usare immagini personalizzate, è necessario che gli amministratori configurano una raccolta di immagini condivise.  Una raccolta di immagini condivise è un repository usato per salvare immagini personalizzate.
+- **Usare un'immagine personalizzata esistente**: è possibile riutilizzare immagini personalizzate create in precedenza o immagini create da altri amministratori o docenti presso la propria scuola. Per usare immagini personalizzate, è necessario che gli amministratori configurano una raccolta di immagini condivise.  Una raccolta di immagini condivise è un repository usato per salvare immagini personalizzate.
 
 > [!NOTE]
-> Gli amministratori sono responsabili dell'abilitazione delle immagini di Azure Marketplace e di quelle personalizzate in modo che possano essere usate. Coordinarsi con il reparto IT per verificare che le immagini necessarie siano abilitate. Le immagini personalizzate create vengono automaticamente abilitate per l'uso nei lab di cui si è proprietari.
+> Gli amministratori sono responsabili dell'abilitazione delle immagini di Azure Marketplace e di quelle personalizzate in modo che possano essere usate. Coordinarsi con il reparto IT per assicurarsi che le immagini necessarie siano abilitate. Le immagini personalizzate create vengono automaticamente abilitate per l'uso nei lab di cui si è proprietari.
 
 ### <a name="what-hardware-requirements-does-the-class-have"></a>Quali sono i requisiti hardware della classe?
 
 È possibile scegliere tra diverse dimensioni di calcolo:
 
-- Dimensioni di virtualizzazione annidate, in modo che sia possibile concedere l'accesso agli studenti a una macchina virtuale in grado di ospitare più macchine virtuali nidificate. Ad esempio, è possibile usare questa dimensione di calcolo per le classi di rete o di hacking etico.
+- **Dimensioni della virtualizzazione annidata**: consente agli studenti di accedere a una macchina virtuale in grado di ospitare più macchine virtuali nidificate. Ad esempio, è possibile usare questa dimensione di calcolo per le classi di rete o di hacking etico.
 
-- Dimensioni GPU, in modo che gli studenti possano usare tipi di applicazioni a elevato utilizzo di calcolo. Questa scelta, ad esempio, viene spesso usata con l'intelligenza artificiale e l'apprendimento automatico.
+- **Dimensioni GPU**: consente agli studenti di usare tipi di applicazioni a elevato utilizzo di computer. Questa scelta, ad esempio, viene spesso usata con l'intelligenza artificiale e l'apprendimento automatico.
 
-Per istruzioni sulla selezione delle dimensioni appropriate per la macchina virtuale, vedere gli articoli seguenti:
+Per istruzioni sulla selezione delle dimensioni appropriate per la macchina virtuale, vedere:
 - [Dimensioni di VM](./administrator-guide.md#vm-sizing)
-- [Passaggio da un Lab fisico a Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931)
+- [Passa da un Lab fisico a Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931)
 
 > [!NOTE]
-> La disponibilità delle dimensioni di calcolo varia in base all'area geografica. Pertanto è possibile che se ne visualizzi un numero minore, a seconda dell'area geografica del lab. In genere, è consigliabile selezionare le dimensioni di calcolo minime più vicine alle proprie esigenze. Con Azure Lab Services è possibile configurare un nuovo lab con una capacità di calcolo diversa in un secondo momento, se necessario.
+> Poiché la disponibilità delle dimensioni di calcolo varia in base all'area, potrebbe essere disponibile un minor numero di dimensioni per il Lab. In genere, è necessario selezionare la dimensione di calcolo più piccola adatta alle proprie esigenze. Con Azure Lab Services è possibile configurare un nuovo Lab con una capacità di calcolo maggiore in un secondo momento, se necessario.
 
 ### <a name="what-dependencies-does-the-class-have-on-external-azure-or-network-resources"></a>Quali sono le dipendenze della classe da risorse di Azure o di rete esterne?
-È possibile che le macchine virtuali del Lab debbano accedere a risorse esterne, ad esempio accedere a un database, a una condivisione file o a un server licenze.  Per consentire alle macchine virtuali del Lab di usare risorse esterne, coordinarsi con gli amministratori IT.
+È possibile che le macchine virtuali del Lab debbano accedere a risorse esterne, ad esempio un database, una condivisione file o un server licenze.  Per consentire alle macchine virtuali del Lab di usare risorse esterne, coordinarsi con gli amministratori IT.
 
 > [!NOTE]
-> È consigliabile valutare se sia possibile ridurre le dipendenze del lab da risorse esterne rendendo disponibile la risorsa direttamente nella macchina virtuale. Ad esempio, per eliminare la necessità di leggere i dati da un database esterno, è possibile installare il database direttamente nella macchina virtuale.  
+> È necessario valutare se è possibile ridurre la dipendenza del Lab dalle risorse esterne fornendo risorse di rete direttamente nella macchina virtuale. Ad esempio, per eliminare la necessità di leggere i dati da un database esterno, è possibile installare il database direttamente nella macchina virtuale.  
 
-### <a name="how-will-costs-be-controlled"></a>Come saranno controllati i costi?
-Lab Services usa un modello di prezzi con pagamento in base al consumo dove il cliente paga solo per il tempo in cui una macchina virtuale del lab è in esecuzione. Per controllare i costi, sono disponibili tre opzioni che vengono in genere utilizzate insieme:
+### <a name="how-will-you-control-costs"></a>Come si controllano i costi?
+Lab Services usa un modello di determinazione prezzi con pagamento in base al consumo, ovvero si paga solo per il tempo di esecuzione di una macchina virtuale Lab. Per controllare i costi, usare una o tutte le opzioni seguenti:
 
-- **Pianificazione**: una pianificazione consente di controllare automaticamente quando le macchine virtuali dei lab vengono avviate e arrestate.
-- **Quota**: la quota controlla il numero di ore in cui gli studenti avranno accesso a una macchina virtuale al di fuori delle ore pianificate.  Quando uno studente usa la macchina virtuale e viene raggiunta la quota, la macchina virtuale viene arrestata automaticamente.  Lo studente potrà riavviare la macchina virtuale solo se la quota viene aumentata.
-- **AutoShutdown**: se abilitata, l'impostazione AutoShutdown causa l'arresto automatico delle macchine virtuali Windows dopo che uno studente si è disconnesso da una sessione di Remote Desktop Protocol (RDP). Per impostazione predefinita, questa impostazione è disabilitata.
+- **Pianificazione**: usare le pianificazioni per controllare automaticamente quando le macchine virtuali del Lab vengono avviate e arrestate.
+- **Quota**: usare le quote per controllare il numero di ore per cui gli studenti hanno accesso a una macchina virtuale al di fuori delle ore pianificate.  Quando uno studente usa una macchina virtuale e raggiunge una quota, la macchina virtuale viene arrestata automaticamente.  Lo studente non può riavviare la macchina virtuale, a meno che non si aumenti la quota.
+- **Arresto automatico**: quando si Abilita l'impostazione di arresto automatico, le macchine virtuali Windows vengono arrestate automaticamente dopo che uno studente si è disconnesso da una sessione di Remote Desktop Protocol (RDP). Per impostazione predefinita, questa impostazione è disabilitata.
 
-Per ulteriori informazioni, leggere gli articoli seguenti:
+Per ulteriori informazioni sul controllo dei costi, vedere:
 - [Stimare i costi](./cost-management-guide.md#estimate-the-lab-costs)
 - [Gestire i costi](./cost-management-guide.md#manage-costs)
 
 ### <a name="how-will-students-save-their-work"></a>In che modo gli studenti salveranno il proprio lavoro?
-A ogni studente viene assegnata una macchina virtuale per la durata del lab. Lo studente può scegliere di:
+A ogni singolo studente viene assegnata una macchina virtuale per la durata del Lab. Gli studenti possono salvare il proprio lavoro:
 
-- Salvare il proprio lavoro direttamente nella macchina virtuale.
-- Salvarlo in un percorso esterno, ad esempio OneDrive o GitHub.
-
-È possibile configurare OneDrive automaticamente per gli studenti nelle macchine virtuali del lab.
+- Alla VM.
+- In una posizione esterna, ad esempio OneDrive o GitHub. È possibile configurare OneDrive automaticamente per gli studenti nelle macchine virtuali del lab.
 
 > [!NOTE]
-> Per assicurarsi l'accesso continuo al lavoro salvato al di fuori del lab, anche dopo la fine del corso, è consigliabile che gli studenti salvino il proprio lavoro in un repository esterno.
+> Per assicurarsi che gli studenti abbiano continuato ad accedere al proprio lavoro salvato al di fuori del Lab e al termine della classe, si consiglia di salvare il lavoro in un repository esterno.
 
-### <a name="how-will-students-connect-to-their-vm"></a>In che modo gli studenti si connetteranno alla macchina virtuale?
-Per RDP su macchine virtuali Windows, è consigliabile che gli studenti usino il [client Desktop remoto Microsoft](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients). Il client Desktop remoto supporta dispositivi Mac, Chromebook e Windows.
+### <a name="how-will-students-connect-to-their-vms"></a>In che modo gli studenti si connetteranno alle macchine virtuali?
+Per le connessioni RDP alle macchine virtuali Windows, è consigliabile che gli studenti usino il [client desktop remoto Microsoft](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients). Il client Desktop remoto supporta i dispositivi Mac, Chromebook e Windows.
 
-Per le macchine virtuali Linux, gli studenti possono usare SSH o RDP. Per consentire la connessione tramite RDP occorre installare e configurare i pacchetti RDP e GUI necessari.
+Per le macchine virtuali Linux, gli studenti possono usare il protocollo Secure Shell (SSH) o RDP. Per fare in modo che gli studenti si connettano tramite RDP, è necessario installare e configurare i pacchetti RDP e interfaccia utente grafica (GUI) necessari.
 
-### <a name="will-students-also-be-using-microsoft-teams"></a>Gli studenti useranno anche Microsoft Teams?
-Azure Lab Services si integra con Microsoft teams in modo che i docenti possano creare e gestire i propri Lab all'interno dei team.  Allo stesso modo, gli studenti possono accedere al Lab all'interno dei team.
+### <a name="will-students-also-use-microsoft-teams"></a>Gli studenti utilizzeranno anche Microsoft Teams?
+Azure Lab Services si integra con Microsoft teams in modo che i membri dei docenti possano creare e gestire i propri laboratori in team.  Allo stesso modo, gli studenti possono accedere ai propri Lab in teams.
 
-Per altre informazioni, vedere l'articolo seguente:
-- [Azure Lab Services in Microsoft Teams](./lab-services-within-teams-overview.md)
+Per ulteriori informazioni, vedere [Azure Lab Services in Microsoft teams](./lab-services-within-teams-overview.md).
 
 ## <a name="set-up-your-lab"></a>Configurare il lab
 
-Dopo aver compreso i requisiti, si può procedere alla configurazione del lab della classe. Seguire i collegamenti disponibili in questa sezione per vedere come configurare il lab.  Si noti che sono disponibili diversi passaggi a seconda dell'uso di Lab in team.
+Dopo aver compreso i requisiti, si può procedere alla configurazione del lab della classe. Per informazioni su come, seguire i collegamenti in questa sezione. Vengono inoltre fornite istruzioni per la configurazione dei Lab in team.
 
-1. **Creare un lab.** Vedere le esercitazioni sulla creazione di un Lab:
-    - Per istruzioni, [creare un Lab in classe](./tutorial-setup-classroom-lab.md#create-a-classroom-lab) .
-    - [Creare un lab da Teams](./how-to-get-started-create-lab-within-teams.md)
+1. **Creare un Lab**. Vedere le esercitazioni seguenti:
+    - [Creare un lab per le classi](./tutorial-setup-classroom-lab.md#create-a-classroom-lab)
+    - [Creare un Lab in teams](./how-to-get-started-create-lab-within-teams.md)
 
     > [!NOTE]
-    > Se la classe richiede la virtualizzazione annidata, vedere la procedura descritta in [Abilitare la virtualizzazione annidata](./how-to-enable-nested-virtualization-template-vm.md).
+    > Se la classe richiede la virtualizzazione nidificata, vedere [abilitare la virtualizzazione annidata](./how-to-enable-nested-virtualization-template-vm.md).
 
-1. **Personalizzare le immagini e pubblicare le macchine virtuali del lab.** Connettersi a una macchina virtuale speciale denominata macchina virtuale modello. Vedere i passaggi nelle guide seguenti:
+1. **Personalizzare le immagini e pubblicare macchine virtuali del Lab**. Per connettersi a una macchina virtuale speciale denominata VM modello, vedere:
     - [Creare e gestire una macchina virtuale modello](./tutorial-setup-classroom-lab.md#publish-the-template-vm)
     - [Usare una raccolta di immagini condivise](./how-to-use-shared-image-gallery.md)
 
     > [!NOTE]
-    > Se si usa Windows, è consigliabile vedere anche le istruzioni relative alla [preparazione di una macchina virtuale modello Windows](./how-to-prepare-windows-template.md). Queste istruzioni includono i passaggi per la configurazione di OneDrive e Office per l'uso da parte degli studenti.
+    > Se si usa Windows, vedere anche [configurare una VM modello Windows](./how-to-prepare-windows-template.md). Queste istruzioni includono i passaggi per la configurazione di OneDrive e Microsoft Office per gli studenti.
 
-1. **Gestire il pool di macchine virtuali e la capacità.** È possibile aumentare o ridurre facilmente la capacità delle macchine virtuali, in base alle esigenze della classe. Tenere presente che l'aumento della capacità della macchina virtuale può richiedere diverse ore perché sono in corso la configurazione di nuove macchine virtuali. Vedere i passaggi negli articoli seguenti:
+1. **Gestire il pool di macchine virtuali e la capacità**. È possibile aumentare o ridurre facilmente la capacità delle macchine virtuali, in base alle esigenze della classe. Tenere presente che l'aumento della capacità della macchina virtuale può richiedere diverse ore perché sono in corso la configurazione di nuove macchine virtuali. Vedere gli articoli seguenti:
     - [Configurare e gestire un pool di macchine virtuali](./how-to-set-virtual-machine-passwords.md)
-    - [Gestire un pool di macchine virtuali in Lab Services dai team](./how-to-manage-vm-pool-within-teams.md)
+    - [Gestire un pool di macchine virtuali in Lab Services nei team](./how-to-manage-vm-pool-within-teams.md)
 
-1. **Aggiungere e gestire gli utenti del lab.** Per aggiungere utenti al lab, vedere i passaggi descritti nelle esercitazioni seguenti:
+1. **Aggiungere e gestire gli utenti del Lab**. Per aggiungere utenti al Lab, vedere:
    - [Aggiungere utenti al lab](./tutorial-setup-classroom-lab.md#add-users-to-the-lab)
    - [Inviare inviti agli utenti](./tutorial-setup-classroom-lab.md#send-invitation-emails-to-users)
-   - [Gestire gli elenchi utenti di Lab Services dai team](./how-to-manage-user-lists-within-teams.md)
+   - [Gestire gli elenchi di utenti di Lab Services nei team](./how-to-manage-user-lists-within-teams.md)
 
-    Per informazioni sui tipi di account che gli studenti possono usare, vedere [Account per studenti](./how-to-configure-student-usage.md#student-accounts).
+    Per informazioni sui tipi di account che gli studenti possono usare, vedere [account per studenti](./how-to-configure-student-usage.md#student-accounts).
   
-1. **Impostare i controlli dei costi.** Per controllare i costi del Lab, impostare le pianificazioni, le quote e l'arresto automatico. Vedere le esercitazioni seguenti:
+1. **Imposta i controlli dei costi**. Per impostare una pianificazione, stabilire le quote e abilitare l'arresto automatico, vedere le esercitazioni seguenti:
 
    - [Impostare una pianificazione](./tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
 
         > [!NOTE]
-        > A seconda del tipo di sistema operativo installato, l'avvio di una macchina virtuale può richiedere diversi minuti. Per assicurarsi che una macchina virtuale del lab sia pronta per l'uso durante le ore pianificate, è consigliabile avviare le macchine virtuali 30 minuti prima.
+        > A seconda del sistema operativo installato, l'avvio di una macchina virtuale potrebbe richiedere diversi minuti. Per assicurarsi che una macchina virtuale Lab sia pronta per essere usata durante le ore pianificate, è consigliabile avviarla 30 minuti prima.
 
-   - [Impostare quote per gli utenti](./how-to-configure-student-usage.md#set-quotas-for-users) e [Impostare una quota aggiuntiva per un utente specifico](./how-to-configure-student-usage.md#set-additional-quotas-for-specific-users)
+   - [Impostare le quote per gli utenti](./how-to-configure-student-usage.md#set-quotas-for-users) e [impostare quote aggiuntive per utenti specifici](./how-to-configure-student-usage.md#set-additional-quotas-for-specific-users)
   
    - [Abilitare l'arresto automatico alla disconnessione](./how-to-enable-shutdown-disconnect.md)
 
         > [!NOTE]
-        > Pianificazioni e quote non si applicano alla macchina virtuale modello, mentre si applicano le impostazioni di arresto automatico. 
+        > Le pianificazioni e le quote non si applicano alla macchina virtuale modello, ma le impostazioni di arresto automatico si applicano. 
         > 
-        > Quando si crea un lab, la macchina virtuale modello viene creata, ma non avviata. È possibile avviarla, connettersi a essa, installare eventuale software prerequisito per il lab e quindi pubblicarla. Quando si pubblica la macchina virtuale modello, questa viene automaticamente arrestata, se non è stato fatto. 
+        > Quando si crea un Lab, la macchina virtuale del modello viene creata ma non avviata. È possibile avviare la macchina virtuale del modello, connettersi, installare i prerequisiti software per il Lab e quindi pubblicarli. Quando si pubblica la macchina virtuale del modello, questa viene arrestata automaticamente se non è stata eseguita manualmente. 
         > 
-        > Le macchine virtuali modello comportano **costi** durante l'esecuzione, quindi assicurarsi che la macchina virtuale modello venga arrestata quando non è necessario che sia in esecuzione.
+        > Le VM modello comportano *costi* quando sono in esecuzione, quindi assicurarsi che la macchina virtuale del modello venga arrestata quando non è necessario che sia in esecuzione.
 
-    - [Creare e gestire pianificazioni di servizi Lab nei team](./how-to-create-schedules-within-teams.md) 
+    - [Creare e gestire pianificazioni di servizi Lab in team](./how-to-create-schedules-within-teams.md) 
 
-1. **Usare la dashboard.** Per istruzioni, vedere l'articolo relativo all'[uso della dashboard del lab](./use-dashboard.md).
+1. **Usare il dashboard**. Per istruzioni, vedere [use the aule Lab dashboard](./use-dashboard.md).
 
     > [!NOTE]
-    > Il costo stimato indicato nella dashboard è il costo massimo che è possibile prevedere per l'utilizzo del lab da parte degli studenti. Ad esempio, *non* verranno addebitate le ore quota non usate dagli studenti. I costi stimati *non* riflettono gli addebiti per l'uso della VM modello, della raccolta di immagini condivise o quando l'autore del Lab avvia un computer utente.
+    > Il costo stimato visualizzato nel dashboard è il costo massimo che si può prevedere per l'utilizzo del Lab per studenti. Ad esempio, *non* verranno addebitate le ore quota non usate dagli studenti. I costi stimati *non* riflettono gli addebiti per l'uso della VM modello, della raccolta di immagini condivise o quando l'autore del Lab avvia un computer utente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Tenere traccia dell'utilizzo di un lab per le classi](tutorial-track-usage.md)
-  
+Come parte della gestione dei laboratori, vedere gli articoli seguenti:
+- [Tenere traccia dell'utilizzo del Lab in aula](tutorial-track-usage.md)  
 - [Accedere a un lab per le classi](tutorial-connect-virtual-machine-classroom-lab.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: 7df082cd5044f142d8d5900ec1fff6c182262bd9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 348277d42c543bc45cf98bfeaf7ea8313afe8f6f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425122"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021984"
 ---
 # <a name="disclosure-design-patterns"></a>Schemi progettuali per le informative
 Ora che&#39;ho determinato il giusto [livello di divulgazione](concepts-disclosure-guidelines.md#disclosure-assessment) per la tua esperienza vocale sintetica,&#39;s è un momento opportuno per esplorare i modelli di progettazione potenziali.
@@ -38,7 +38,7 @@ Usare il grafico seguente per fare riferimento direttamente ai modelli applicabi
 
 
 
-| Se l'esperienza di Voice sintetico... | Indicazioni | Modelli di progettazione |
+| Se l'esperienza di Voice sintetico... | Consigli | Modelli di progettazione |
 | --- | --- | --- |
 | Richiede la divulgazione elevata  | Usare almeno un modello esplicito e i segnali impliciti in primo piano per aiutare gli utenti a compilare le associazioni. |[Divulgazione esplicita](#explicit-disclosure)<br>[Divulgazione implicita](#implicit-disclosure)  |
 | Richiede la divulgazione limitata | La divulgazione può essere minima o superflua, ma può trarre vantaggio da alcuni modelli impliciti. | [Divulgazione delle funzionalità](#capability-disclosure)<br>[Trasparenza conversazione](#conversational-transparency)  |
@@ -61,7 +61,7 @@ Prima dell'inizio dell'esperienza vocale, l'assistente digitale è stato complet
 ![Introduzione trasparente durante la prima esecuzione](media/responsible-ai/disclosure-patterns/transparent-intro-first.png) <br>
 *La voce sintetica viene introdotta durante l'onboarding di un nuovo utente.*
 
-Indicazioni
+Consigli
 - Descrivere che la voce è artificiale, ad esempio &quot; digitale &quot;
 - Descrivere le operazioni che l'agente è in grado di eseguire
 - Specificare in modo esplicito le origini della&#39;vocale
@@ -96,7 +96,7 @@ Usare questo modello se l'utente interagisce con un lettore audio o un component
 ![Sottotitolo esplicito in uno scenario multimediale di notizie](media/responsible-ai/disclosure-patterns/explicit-byline.png) <br/>
 *Un sottotitolo esplicito è l'attribuzione da cui proviene la voce.*
 
-Indicazioni
+Consigli
 
 - Punto di ingresso dell'offerta per ulteriori informazioni sulla voce sintetizzata
 
@@ -111,7 +111,7 @@ Offrire scelte che hanno un effetto significativo ed evidente sull'esperienza di
 ![Preferenze dell'utente](media/responsible-ai/disclosure-patterns/customization-user-control.png)<br/>
 *Le preferenze utente consentono agli utenti di personalizzare e migliorare l'esperienza.*
 
-Indicazioni
+Consigli
 
 - Consenti agli utenti di personalizzare la voce (ad esempio, selezionare la lingua e il tipo di voce)
 - Fornire agli utenti un modo per insegnare al sistema di rispondere alla propria voce univoca (ad esempio, la calibrazione vocale, i comandi personalizzati)
@@ -124,7 +124,7 @@ Offrire modi per personalizzare l'assistente digitale&#39;s Voice. Se la voce si
 ![Personalizzazione vocale](media/responsible-ai/disclosure-patterns/customization-voice-type.png)<br/>
 *Offrire la possibilità di selezionare un set di voci consente di fornire la natura artificiale.*
 
-Indicazioni
+Consigli
 - Consenti agli utenti di visualizzare in anteprima il suono di ogni voce
 - Usa un'introduzione autentica per ogni voce
 - Fornire punti di ingresso per ulteriori informazioni sulla voce sintetizzata
@@ -136,7 +136,7 @@ Oltre a rispettare le normative della COPPA, fornire la divulgazione agli elemen
 ![Divulgazione per gli elementi padre](media/responsible-ai/disclosure-patterns/parental-disclosure.png)<br/>
 *Un'introduzione trasparente ottimizzata per i genitori garantisce che un adulto abbia reso conto della natura sintetica della voce prima che un figlio interagisce con esso.*
 
-Indicazioni
+Consigli
 
 - Indirizzare gli elementi padre come destinatari primari per la divulgazione
 - Incoraggiare i genitori a comunicare la divulgazione ai propri figli
@@ -155,7 +155,7 @@ Quando un utente richiede ulteriori informazioni sulla voce sintetica, l'obietti
 ![Fornire agli utenti ulteriori informazioni sulla voce sintetica](media/responsible-ai/disclosure-patterns/learn-more.png)<br/>
 *Ulteriori informazioni possono essere disponibili in un sito esterno della guida del sito.*
 
-Indicazioni
+Consigli
 
 - Semplifica i concetti complessi ed evita l'uso di un gergo tecnico e legale
 - Non seppellire questo contenuto nelle istruzioni sulla privacy e sulle condizioni per l'utilizzo
@@ -241,17 +241,17 @@ Utilizzare la divulgazione come opportunità per eseguire correttamente l'errore
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 - [Linee guida per bot Microsoft](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
-- [Linee guida per la progettazione di Cortana](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
-- [Linee guida per la progettazione di sintesi vocale di Microsoft Windows UWP](https://docs.microsoft.com/windows/uwp/design/input/speech-interactions)
-- [Linee guida per i comandi vocali della realtà mista di Microsoft Windows](https://docs.microsoft.com/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
+- [Linee guida per la progettazione di Cortana](/cortana/voice-commands/voicecommand-design-guidelines)
+- [Linee guida per la progettazione di sintesi vocale di Microsoft Windows UWP](/windows/uwp/design/input/speech-interactions)
+- [Linee guida per i comandi vocali della realtà mista di Microsoft Windows](/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
-* [Divulgazione per il talento vocale](https://aka.ms/disclosure-voice-talent)
+* [Divulgazione per il talento vocale](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Linee guida per la distribuzione responsabile della tecnologia Voice sintetica](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Cenni preliminari sul controllo](concepts-gating-overview.md)
 * [Come divulgare](concepts-disclosure-guidelines.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Divulgazione per il talento vocale](https://aka.ms/disclosure-voice-talent)
+* [Divulgazione per il talento vocale](/legal/cognitive-services/speech-service/disclosure-voice-talent)

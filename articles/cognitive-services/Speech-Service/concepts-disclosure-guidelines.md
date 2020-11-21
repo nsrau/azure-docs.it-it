@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: bae801ac64950b0b0e9fe45585a3411477ebf12b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 2276e66fa47b1c125a8c30f3c73a7c948f65a35d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150860"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021933"
 ---
 # <a name="disclosure-design-guidelines"></a>Linee guida sulla progettazione di informative
 Scopri come creare e gestire l'attendibilità dei clienti grazie alla trasparenza della natura sintetica dell'esperienza vocale.
@@ -76,7 +76,7 @@ Usare il diagramma seguente per determinare se l'esperienza della voce sintetica
 
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
-* [Divulgazione per il talento vocale](https://aka.ms/disclosure-voice-talent)
+* [Divulgazione per il talento vocale](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Linee guida per la distribuzione responsabile della tecnologia Voice sintetica](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Cenni preliminari sul controllo](concepts-gating-overview.md)
 

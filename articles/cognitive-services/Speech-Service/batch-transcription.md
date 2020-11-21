@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f89dd6b7926baf6c1c64cff81e8b613461a3e925
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: b9ed43019e7af0cb810c3e0fc849281a458a43e1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345500"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023634"
 ---
 # <a name="how-to-use-batch-transcription"></a>Come usare la trascrizione batch
 
@@ -46,7 +46,7 @@ Come per tutte le funzionalità del servizio Voce, si crea una chiave di sottosc
 >[!NOTE]
 > Per usare la trascrizione batch, è necessaria una sottoscrizione standard (S0) per il servizio di riconoscimento vocale. Le chiavi di sottoscrizione gratuita (F0) non funzioneranno. Per altre informazioni, vedere [prezzi e limiti](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Se si prevede di personalizzare i modelli, attenersi alla procedura descritta in [personalizzazione acustica](how-to-customize-acoustic-models.md) e [personalizzazione della lingua](how-to-customize-language-model.md). Per usare i modelli creati nella trascrizione batch, è necessario il percorso del modello. È possibile recuperare il percorso del modello quando si esaminano i dettagli del modello ( `self` proprietà). Un endpoint personalizzato distribuito *non è necessario* per il servizio di trascrizione batch.
+Se si prevede di personalizzare i modelli, attenersi alla procedura descritta in [personalizzazione acustica](./how-to-custom-speech-train-model.md) e [personalizzazione della lingua](./how-to-custom-speech-train-model.md). Per usare i modelli creati nella trascrizione batch, è necessario il percorso del modello. È possibile recuperare il percorso del modello quando si esaminano i dettagli del modello ( `self` proprietà). Un endpoint personalizzato distribuito *non è necessario* per il servizio di trascrizione batch.
 
 >[!NOTE]
 > Come parte dell'API REST, la trascrizione batch presenta un set di [quote e limiti](speech-services-quotas-and-limits.md#batch-transcription)che è consigliabile esaminare. Per sfruttare al meglio la capacità di trascrizione batch di trascrivere in modo efficiente un numero elevato di file audio, è consigliabile inviare sempre più file per ogni richiesta o puntare a un contenitore di archiviazione BLOB con i file audio da trascrivere. Il servizio trascriverà i file simultaneamente riducendo il tempo di inversione. L'uso di più file in una singola richiesta è molto semplice e semplice. vedere la sezione relativa alla [configurazione](#configuration) . 
@@ -182,7 +182,7 @@ Usare queste proprietà facoltative per configurare la trascrizione:
 
 ### <a name="storage"></a>Archiviazione
 
-La trascrizione batch può leggere l'audio da un URI Internet visibile pubblicamente ed è in grado di leggere audio o scrivere trascrizioni usando un URI SAS con [archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
+La trascrizione batch può leggere l'audio da un URI Internet visibile pubblicamente ed è in grado di leggere audio o scrivere trascrizioni usando un URI SAS con [archiviazione BLOB di Azure](../../storage/blobs/storage-blobs-overview.md).
 
 ## <a name="batch-transcription-result"></a>Risultato trascrizione batch
 

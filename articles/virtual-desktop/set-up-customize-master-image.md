@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 175b2268727364040640b319c24019bdf9b48df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e4cb4fe8a701600290d24c055e2be5187a711c5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433705"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023395"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparare e personalizzare un'immagine master di disco rigido virtuale
 
@@ -114,7 +114,7 @@ Per reindirizzare i fusi orari:
 1. Nel server Active Directory aprire il **console Gestione criteri di gruppo**.
 2. Espandere il dominio e gli oggetti Criteri di gruppo.
 3. Fare clic con il pulsante destro del mouse sull' **oggetto Criteri di gruppo** creato per le impostazioni di criteri di gruppo e scegliere **modifica**.
-4. Nella **Editor gestione criteri di gruppo**passare a **Configurazione computer**  >  **criteri**  >  **modelli amministrativi**  >  **componenti di Windows**  >  **Servizi Desktop remoto**  >  **host sessione Desktop remoto**  >  **Reindirizzamento risorse e dispositivi**.
+4. Nella **Editor gestione criteri di gruppo** passare a **Configurazione computer**  >  **criteri**  >  **modelli amministrativi**  >  **componenti di Windows**  >  **Servizi Desktop remoto**  >  **host sessione Desktop remoto**  >  **Reindirizzamento risorse e dispositivi**.
 5. Abilitare l'impostazione **Consenti reindirizzamento del fuso orario** .
 
 È anche possibile eseguire questo comando sull'immagine master per reindirizzare i fusi orari:
@@ -189,7 +189,7 @@ Le istruzioni seguenti illustrano come caricare l'immagine master in un account 
 
 1. Convertire l'immagine di macchina virtuale (VHD) in corretta, se non è già stata eseguita. Se l'immagine non viene convertita in fixed, non è possibile crearla correttamente.
 
-2. Caricare il disco rigido virtuale in un contenitore BLOB nell'account di archiviazione. È possibile caricare rapidamente con lo [strumento Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Per altre informazioni sullo strumento Storage Explorer, vedere [questo articolo](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
+2. Caricare il disco rigido virtuale in un contenitore BLOB nell'account di archiviazione. È possibile caricare rapidamente con lo [strumento Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Per altre informazioni sullo strumento Storage Explorer, vedere [questo articolo](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows).
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot della finestra di ricerca dello strumento Microsoft Azure Storage Explorer. È selezionata la casella di controllo "carica file con estensione VHD o VHDX come BLOB di pagine (scelta consigliata)".](media/897aa9a9b6acc0aa775c31e7fd82df02.png)

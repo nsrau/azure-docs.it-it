@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 1681217c9e55b67ee2a6737aeece5303256bc1e6
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 654d7b4ddb332906aba330da20d42a0e16ec79e6
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461805"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021440"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Che cosa viene monitorato da Monitoraggio di Azure?
 Questo articolo descrive le applicazioni e i servizi monitorati da Monitoraggio di Azure. 
@@ -126,7 +126,6 @@ La tabella seguente elenca i servizi di Azure e i dati che raccolgono in Monitor
 |Applicazioni gestite  | No | No | No |  |
 |Mappe  | No | No | No |  |
 |Servizi multimediali | Sì | Sì | No |  |
-|Microsoft Flow | No | No | No |  |
 |Microsoft Managed Desktop | No | No | No |  |
 |Microsoft PowerApps | No | No | No |  |
 |Microsoft Social Engagement | No | No | No |  |
@@ -137,6 +136,7 @@ La tabella seguente elenca i servizi di Azure e i dati che raccolgono in Monitor
 |Hub di notifica | Sì | No | No |  |
 |Set di dati Open | No | No | No |  |
 |Policy | No | No | No |  |
+|Power Automate | No | No | No |  |
 |Power BI Embedded | Sì | Sì | No |  |
 |Collegamento privato | No | No | No |  |
 |Piattaforma di comunicazione spooling del progetto | No | No | No |  |

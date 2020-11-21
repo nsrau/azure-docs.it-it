@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1c9b0b48c7862990cfa2c8ba38bde0851058a228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49d9b91df896646da7bf36e077d9f3c9187137dd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023024"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021797"
 ---
 # <a name="debug-errors-when-running-a-custom-commands-application"></a>Errori di debug durante l'esecuzione di un'applicazione di comandi personalizzati
 
@@ -25,7 +25,7 @@ Questo articolo descrive come eseguire il debug quando si verificano errori dura
 
 Se l'applicazione Esegui comandi personalizzati dall' [applicazione client (con l'SDK vocale)](./how-to-custom-commands-setup-speech-sdk.md) o il [client Windows Voice Assistant](./how-to-custom-commands-developer-flow-test.md), potrebbero verificarsi errori di connessione, come indicato di seguito:
 
-| Codice di errore | Dettagli |
+| Codice errore | Dettagli |
 | ------- | -------- |
 | [401](#error-401) | AuthenticationFailure: l'aggiornamento di WebSocket non è riuscito con un errore di autenticazione |
 | [1002](#error-1002)] | Il server ha restituito il codice di stato ' 404' quando era previsto il codice di stato ' 101'. |
@@ -86,13 +86,13 @@ Language Understanding (LUIS) presenta limiti di utilizzo delle risorse. In gene
 
     Aggiungere una risorsa di stima all'applicazione comandi personalizzata: 
     1. passare a **Impostazioni**, risorsa Luis
-    1. Scegliere una risorsa di stima dalla **risorsa di stima**oppure fare clic su **Crea nuova risorsa** 
+    1. Scegliere una risorsa di stima dalla **risorsa di stima** oppure fare clic su **Crea nuova risorsa** 
 
 - La risorsa di stima LUIS supera il limite
 
     Se si utilizza una risorsa di stima F0, il limite è di 10 mila al mese, 5 query al secondo.
 
-Per informazioni dettagliate sui limiti delle risorse LUIS, vedere [Language Understanding utilizzo delle risorse e limite](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits#resource-usage-and-limits)
+Per informazioni dettagliate sui limiti delle risorse LUIS, vedere [Language Understanding utilizzo delle risorse e limite](../luis/luis-limits.md#resource-usage-and-limits)
 
 ### <a name="connection-to-the-recognizer-failed"></a>Connessione al sistema di riconoscimento non riuscita
 In genere significa un errore di connessione temporanea al riconoscitore LUIS (Language Understanding). Riprovare e risolvere il problema.
@@ -123,7 +123,7 @@ Le risposte impreviste possono essere causate da più operazioni. Alcuni control
 
     L'accuratezza del riconoscimento LUIS può essere interessata quando due comandi condividono Intent simili ed esempi di frasi. È possibile provare a rendere le funzionalità del comando e le frasi di esempio il più possibile distinti.
 
-    Per una procedura consigliata per migliorare l'accuratezza del riconoscimento, vedere la [procedura consigliata di Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+    Per una procedura consigliata per migliorare l'accuratezza del riconoscimento, vedere la [procedura consigliata di Luis](../luis/luis-concept-best-practices.md).
 
 - Finestra di dialogo annullata
     

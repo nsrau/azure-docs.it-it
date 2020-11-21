@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: bd1ab5110313380c90e71ed161935c7274a845b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dda50a443babca88a0a650fde60df0744d0a1d2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839249"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021831"
 ---
 # <a name="continuous-deployment-with-azure-devops"></a>Distribuzione continua con Azure DevOps
 
@@ -25,7 +25,7 @@ Questo articolo illustra come configurare la distribuzione continua per le appli
 > [!div class = "checklist"]
 > * Applicazione di comandi personalizzata per lo sviluppo (DEV)
 > * Un'applicazione di comandi personalizzati per la produzione (PROD)
-> * Iscriversi per [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
+> * Iscriversi per [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops)
 
 ## <a name="exportimportpublish"></a>Esportazione/importazione/pubblicazione
 
@@ -88,7 +88,7 @@ Gli script sono ospitati in [Assistente vocale di servizi cognitivi-comandi pers
     | SourceAppId | ID dell'applicazione DEV |
     | TargetAppId | ID dell'applicazione PROD |
     | SubscriptionKey | Chiave di sottoscrizione usata per entrambe le applicazioni |
-    | Impostazioni cultura | Impostazioni cultura delle applicazioni (ad esempio en-US) |
+    | culture | Impostazioni cultura delle applicazioni (ad esempio en-US) |
 
     > [!div class="mx-imgBorder"]
     > ![Payload dell'attività Send](media/custom-commands/cicd-edit-pipeline-variables.png)
@@ -99,7 +99,7 @@ Gli script sono ospitati in [Assistente vocale di servizi cognitivi-comandi pers
 
 ## <a name="deploy-from-source-code"></a>Distribuire dal codice sorgente
 
-Se si vuole lasciare la definizione dell'applicazione in un repository, vengono forniti gli script per le distribuzioni dal codice sorgente. Poiché gli script sono in bash, se si usa Windows è necessario installare il [sottosistema Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+Se si vuole lasciare la definizione dell'applicazione in un repository, vengono forniti gli script per le distribuzioni dal codice sorgente. Poiché gli script sono in bash, se si usa Windows è necessario installare il [sottosistema Linux](/windows/wsl/install-win10).
 
 Gli script sono ospitati in [Assistente vocale di servizi cognitivi-comandi personalizzati](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/master/custom-commands). Clonare gli script nella directory bash nel repository. Assicurarsi di mantenere lo stesso percorso.
 
@@ -163,7 +163,7 @@ Gli script sono ospitati in [Assistente vocale di servizi cognitivi-comandi pers
     | ------- | --------------- | ----------- |
     | TargetAppId | ID dell'applicazione PROD |
     | SubscriptionKey | Chiave di sottoscrizione usata per entrambe le applicazioni |
-    | Impostazioni cultura | Impostazioni cultura delle applicazioni (ad esempio en-US) |
+    | culture | Impostazioni cultura delle applicazioni (ad esempio en-US) |
 
 1. Fare clic su "Esegui" e quindi su "processo" in esecuzione.
     Verrà visualizzato un elenco delle attività in esecuzione che contengono: "Importa app" & "Esegui il training e la pubblicazione dell'app"

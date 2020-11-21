@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 105faf796583eb0f272eea7a316648993fdafd0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 680b3c5a9548fa06d0139bd441b5583c27427a77
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653775"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020777"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualizzare i dati da Azure Time Series Insights in Power BI
 
@@ -32,7 +32,7 @@ Assicurarsi di iscriversi per ottenere una [sottoscrizione gratuita di Azure](ht
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Scaricare e installare la versione più recente di [Power bi desktop](https://powerbi.microsoft.com/downloads/)
-* Avere o creare un [ambiente Azure Time Series Insights Gen2](time-series-insights-update-how-to-manage.md)
+* Avere o creare un [ambiente Azure Time Series Insights Gen2](./how-to-provision-manage.md)
 
 > [!IMPORTANT]
 >
@@ -61,7 +61,7 @@ Attività iniziali
 
    1. Consente di specificare un intervallo di tempo relativo da visualizzare. Se si è soddisfatti della visualizzazione esistente, lasciarlo come intervallo di tempo **esistente**.
 
-   1. Scegliere tra **eventi non elaborati**e **aggregati** .
+   1. Scegliere tra **eventi non elaborati** e **aggregati** .
 
        > [!NOTE]
        > È sempre possibile aggregare i dati in un secondo momento in Power BI, ma non è possibile ripristinare i dati non elaborati dopo l'aggregazione.
@@ -94,7 +94,7 @@ Attività iniziali
 
     [![Scegliere Crea query personalizzata](media/how-to-connect-power-bi/confirm-the-connection.png)](media/how-to-connect-power-bi/confirm-the-connection.png#lightbox)
 
-1. Nel menu a discesa in **origine dati**scegliere **Crea query personalizzata**. Incollare gli Appunti nel campo facoltativo **query personalizzata (facoltativo)** di seguito, quindi fare clic su **OK**.
+1. Nel menu a discesa in **origine dati** scegliere **Crea query personalizzata**. Incollare gli Appunti nel campo facoltativo **query personalizzata (facoltativo)** di seguito, quindi fare clic su **OK**.
 
     [![Passare la query personalizzata e selezionare OK.](media/how-to-connect-power-bi/custom-query-load.png)](media/how-to-connect-power-bi/custom-query-load.png#lightbox)  
 
@@ -130,7 +130,7 @@ Una volta creato il report, è possibile pubblicarlo in Power BI Reporting Servi
 
 ## <a name="advanced-editing"></a>Modifica avanzata
 
-Se è già stato caricato un set di dati in Power BI ma si vuole modificare la query, ad esempio i parametri di data/ora o ID ambiente, è possibile eseguire questa operazione tramite la funzionalità di Editor avanzato di Power BI. Per altre informazioni, vedere la [documentazione Power bi](https://docs.microsoft.com/power-bi/desktop-query-overview) .
+Se è già stato caricato un set di dati in Power BI ma si vuole modificare la query, ad esempio i parametri di data/ora o ID ambiente, è possibile eseguire questa operazione tramite la funzionalità di Editor avanzato di Power BI. Per altre informazioni, vedere la [documentazione Power bi](/power-bi/desktop-query-overview) .
 
 Panoramica:
 
@@ -146,6 +146,6 @@ L'interfaccia rifletterà ora le modifiche desiderate applicate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per Azure Time Series Insights, vedere Concetti relativi a [Power bi Connector](https://docs.microsoft.com/power-bi/desktop-query-overview) .
+* Per Azure Time Series Insights, vedere Concetti relativi a [Power bi Connector](/power-bi/desktop-query-overview) .
 
-* Scopri di più su [Power bi desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* Scopri di più su [Power bi desktop](/power-bi/desktop-query-overview).

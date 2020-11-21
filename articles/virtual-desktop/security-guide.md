@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: dc39c1e43580c5cf302e85664783dba4509889af
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d3033af32229be238831740c11a1112513259a43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842635"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023157"
 ---
 # <a name="security-best-practices"></a>Procedure consigliate per la sicurezza
 
@@ -62,7 +62,7 @@ Per altre informazioni, vedere [Eseguire l'onboarding della sottoscrizione di Az
 
 ### <a name="improve-your-secure-score"></a>Migliorare il punteggio di sicurezza
 
-Il Punteggio di sicurezza fornisce raccomandazioni e consigli sulle procedure consigliate per migliorare la sicurezza complessiva. Queste raccomandazioni sono classificate in ordine di priorità per facilitare la scelta di quelle più importanti e le opzioni di correzione rapida consentono di risolvere rapidamente le potenziali vulnerabilità. Inoltre, queste raccomandazioni vengono aggiornate nel tempo, mantenendo aggiornati i modi migliori per gestire la sicurezza dell'ambiente. Per altre informazioni, vedere [Migliorare il punteggio di sicurezza nel Centro sicurezza di Azure](../security-center/security-center-secure-score.md).
+Il Punteggio di sicurezza fornisce raccomandazioni e consigli sulle procedure consigliate per migliorare la sicurezza complessiva. Queste raccomandazioni sono classificate in ordine di priorità per facilitare la scelta di quelle più importanti e le opzioni di correzione rapida consentono di risolvere rapidamente le potenziali vulnerabilità. Inoltre, queste raccomandazioni vengono aggiornate nel tempo, mantenendo aggiornati i modi migliori per gestire la sicurezza dell'ambiente. Per altre informazioni, vedere [Migliorare il punteggio di sicurezza nel Centro sicurezza di Azure](../security-center/secure-score-security-controls.md).
 
 ## <a name="windows-virtual-desktop-security-best-practices"></a>Procedure consigliate per la sicurezza del Desktop virtuale Windows
 
@@ -74,13 +74,13 @@ La richiesta dell'autenticazione a più fattori per tutti gli utenti e gli ammin
 
 ### <a name="enable-conditional-access"></a>Abilitare l'accesso condizionale
 
-L'abilitazione dell'[accesso condizionale](../active-directory/conditional-access/best-practices.md) consente di gestire i rischi prima di concedere agli utenti l'accesso all'ambiente Desktop virtuale Windows. Quando si decide a quali utenti concedere l'accesso, è consigliabile considerare anche chi è l'utente, il modo in cui accede e il dispositivo in uso.
+L'abilitazione dell'[accesso condizionale](../active-directory/conditional-access/overview.md) consente di gestire i rischi prima di concedere agli utenti l'accesso all'ambiente Desktop virtuale Windows. Quando si decide a quali utenti concedere l'accesso, è consigliabile considerare anche chi è l'utente, il modo in cui accede e il dispositivo in uso.
 
 ### <a name="collect-audit-logs"></a>Raccogliere log di controllo
 
 L'abilitazione della raccolta dei log di controllo consente di visualizzare l'attività di utenti e amministratori correlata a Desktop virtuale Windows. Ecco alcuni esempi di log di controllo principali:
 
--   [Log attività di Azure](../azure-monitor/platform/activity-log-collect.md)
+-   [Log attività di Azure](../azure-monitor/platform/activity-log.md)
 -   [Log attività di Azure Active Directory](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Host di sessione](../azure-monitor/platform/agent-windows.md)
@@ -93,7 +93,7 @@ Quando si sceglie un modello di distribuzione, è possibile consentire agli uten
 
 ### <a name="monitor-usage-with-azure-monitor"></a>Monitorare l'uso con Monitoraggio di Azure
 
-Monitorare l'uso e la disponibilità del servizio Desktop virtuale Windows con [Monitoraggio di Azure](https://azure.microsoft.com/services/monitor/). Prendere in considerazione la creazione di [avvisi di integrità dei servizi](../service-health/alerts-activity-log-service-notifications.md) per il servizio Desktop virtuale Windows per ricevere notifiche ogni volta che si verifica un evento che ha un impatto sui servizi.
+Monitorare l'uso e la disponibilità del servizio Desktop virtuale Windows con [Monitoraggio di Azure](https://azure.microsoft.com/services/monitor/). Prendere in considerazione la creazione di [avvisi di integrità dei servizi](../service-health/alerts-activity-log-service-notifications-portal.md) per il servizio Desktop virtuale Windows per ricevere notifiche ogni volta che si verifica un evento che ha un impatto sui servizi.
 
 ## <a name="session-host-security-best-practices"></a>Procedure consigliate per la sicurezza dell'host di sessione
 

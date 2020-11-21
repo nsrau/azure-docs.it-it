@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: shlo
-ms.openlocfilehash: 73e6e4e69a245485ca473f048bbeafef21dbbf37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d66c02b58da295c74a38fb921a081cc4036763a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73836779"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021916"
 ---
 # <a name="custom-neural-voice-gating-overview"></a>Cenni preliminari sul controllo vocale neurale personalizzato
 
@@ -28,7 +28,7 @@ Nell'ambito dell'impegno di Microsoft nella progettazione di intelligenza artifi
 ### <a name="guidance-for-deploying-custom-neural-voice"></a>Linee guida per la distribuzione di una voce neurale personalizzata
 
 - [Linee guida per la distribuzione responsabile](concepts-guidelines-responsible-deployment-synthetic.md): i nostri suggerimenti principali basati sulla nostra ricerca
-- [Divulgazione per il talento vocale](https://aka.ms/disclosure-voice-talent): cosa è necessario conoscere e informare il talento vocale sulla tecnologia per utilizzarlo responsabilmente
+- [Divulgazione per il talento vocale](/legal/cognitive-services/speech-service/disclosure-voice-talent): cosa è necessario conoscere e informare il talento vocale sulla tecnologia per utilizzarlo responsabilmente
 - [Progettazione della divulgazione](concepts-disclosure-guidelines.md): come progettare esperienze in modo che gli utenti sappiano quando viene usata una voce sintetica e considerano attendibile il servizio
 
 ### <a name="why-custom-neural-voice-is-a-gated-technology"></a>Perché la voce neurale personalizzata è una tecnologia gestita
@@ -41,11 +41,11 @@ Per ottenere l'accesso alla voce neurale personalizzata, è necessario iniziare 
 
 L'accesso al servizio di Voice Neural personalizzato è soggetto alla esclusiva discrezione di Microsoft, in base ai criteri di idoneità, al processo di vagliatura e alla disponibilità per supportare un numero limitato di clienti durante questa anteprima gestita.
 
-Come parte del processo dell'applicazione, è necessario impegnarsi per ottenere l'autorizzazione scritta esplicita dal talento vocale prima di creare un tipo di carattere vocale, che include la condivisione della [divulgazione per il talento vocale](https://aka.ms/disclosure-voice-talent). Inoltre, quando si distribuisce il tipo di carattere vocale, l'implementazione [divulga la natura sintetica](concepts-disclosure-guidelines.md) del servizio agli utenti, fornisce l'attribuzione al servizio sintesi vocale Microsoft in termini di servizio e supporta un canale di feedback che consente agli utenti del servizio di segnalare problemi e condividere i dettagli con Microsoft. Altre informazioni sulle condizioni per l'utilizzo sono disponibili [qui](https://aka.ms/custom-neural-code-of-conduct).
+Come parte del processo dell'applicazione, è necessario impegnarsi per ottenere l'autorizzazione scritta esplicita dal talento vocale prima di creare un tipo di carattere vocale, che include la condivisione della [divulgazione per il talento vocale](/legal/cognitive-services/speech-service/disclosure-voice-talent). Inoltre, quando si distribuisce il tipo di carattere vocale, l'implementazione [divulga la natura sintetica](concepts-disclosure-guidelines.md) del servizio agli utenti, fornisce l'attribuzione al servizio sintesi vocale Microsoft in termini di servizio e supporta un canale di feedback che consente agli utenti del servizio di segnalare problemi e condividere i dettagli con Microsoft. Altre informazioni sulle condizioni per l'utilizzo sono disponibili [qui](/legal/cognitive-services/speech-service/tts-code-of-conduct).
 
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
-* [Informativa per speaker](https://aka.ms/disclosure-voice-talent)
+* [Informativa per speaker](/legal/cognitive-services/speech-service/disclosure-voice-talent)
 * [Linee guida per la distribuzione responsabile della tecnologia Voice sintetica](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Come divulgare](concepts-disclosure-guidelines.md)
 

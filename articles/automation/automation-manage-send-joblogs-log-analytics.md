@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6dcd2005971927de30ca96173cb2bdb063e46663
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8578f8aef779ff80f3965fc21b24b785f11226d0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397432"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024144"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Inoltrare i dati dei processi di Automazione di Azure ai log di Monitoraggio di Azure
 
@@ -177,7 +177,7 @@ AzureDiagnostics
 
 ### <a name="filter-job-status-output-converted-into-a-json-object"></a>Filtrare l'output dello stato del processo convertito in un oggetto JSON
 
-Recentemente è stato modificato il comportamento di scrittura dei dati del log di automazione `AzureDiagnostics` nella tabella nel servizio log Analytics, in cui non suddivide più le proprietà JSON in campi distinti. Se il Runbook è stato configurato per formattare gli oggetti nel flusso di output in formato JSON come colonne separate, è necessario riconfigurare le query per analizzare tale campo in un oggetto JSON per accedere a tali proprietà. Questa operazione viene eseguita usando [parseJSON](../azure-monitor/log-query/json-data-structures.md#parsejson) per accedere a un elemento JSON specifico in un percorso noto.
+Recentemente è stato modificato il comportamento di scrittura dei dati del log di automazione `AzureDiagnostics` nella tabella nel servizio log Analytics, in cui non suddivide più le proprietà JSON in campi distinti. Se il Runbook è stato configurato per formattare gli oggetti nel flusso di output in formato JSON come colonne separate, è necessario riconfigurare le query per analizzare tale campo in un oggetto JSON per accedere a tali proprietà. Questa operazione viene eseguita usando [parseJSON](https://docs.microsoft.com/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#parsejson) per accedere a un elemento JSON specifico in un percorso noto.
 
 Ad esempio, un Runbook formatta la proprietà *ResultDescription* nel flusso di output in formato JSON con più campi. Per cercare lo stato dei processi che si trovano in uno stato di errore, come specificato in un campo denominato **stato**, usare questa query di esempio per eseguire una ricerca nel *ResultDescription* con lo stato **non riuscito**:
 

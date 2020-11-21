@@ -12,12 +12,12 @@ ms.date: 11/03/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: keyword-quickstart
-ms.openlocfilehash: 2d15da55c0bab42571d2a9660156a780c5d27881
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 49ac70b6881085f48c8bc3a12e31e4a1aa220c6a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305863"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021950"
 ---
 # <a name="get-started-with-custom-keyword"></a>Introduzione alla parola chiave personalizzata
 
@@ -39,7 +39,7 @@ Prima di poter usare una parola chiave personalizzata, è necessario creare una 
 
 1. Nella pagina della [parola chiave Custom](https://aka.ms/sdsdk-wakewordportal) creare un **nuovo progetto**. 
 
-1. Immettere un **nome** , una **Descrizione** facoltativa e selezionare la lingua. È necessario un progetto per ogni lingua e il supporto è attualmente limitato al `en-US` linguaggio.
+1. Immettere un **nome**, una **Descrizione** facoltativa e selezionare la lingua. È necessario un progetto per ogni lingua e il supporto è attualmente limitato al `en-US` linguaggio.
 
     ![Descrivere il progetto di parola chiave](media/custom-keyword/custom-kws-portal-new-project.png)
 
@@ -49,7 +49,7 @@ Prima di poter usare una parola chiave personalizzata, è necessario creare una 
 
 1. Per creare un nuovo modello di parola chiave, fare clic su **Train Model**.
 
-1. Immettere un **nome** per il modello, una **Descrizione** facoltativa e la **parola chiave** desiderata, quindi fare clic su **Avanti**. Vedere le [linee guida](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) sulla scelta di una parola chiave valida.
+1. Immettere un **nome** per il modello, una **Descrizione** facoltativa e la **parola chiave** desiderata, quindi fare clic su **Avanti**. Vedere le [linee guida](./custom-keyword-overview.md#choose-an-effective-keyword) sulla scelta di una parola chiave valida.
 
     ![Immettere la parola chiave](media/custom-keyword/custom-kws-portal-new-model.png)
 
@@ -79,4 +79,4 @@ Prima di poter usare una parola chiave personalizzata, è necessario creare una 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Testare la parola chiave personalizzata con la [Guida introduttiva all'SDK dei dispositivi vocali](https://aka.ms/sdsdk-quickstart).
+Testare la parola chiave personalizzata con la [Guida introduttiva all'SDK dei dispositivi vocali](./speech-devices-sdk-quickstart.md?pivots=platform-android).

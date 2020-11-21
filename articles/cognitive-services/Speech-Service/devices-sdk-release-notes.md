@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: a2fe1c7c1ac8799d615c26fdaee40b92bf3e294b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af66f2ec56551a5177cd9323d216e9bf4b0c41be
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212497"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95021848"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Note sulla versione: SDK per dispositivi vocali
 
@@ -27,13 +27,13 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 - Supporto per [URBETTER DDK](http://www.urbetter.com/products_56/278.html).
 - File binari rilasciati per l' [altoparlante GGEC](https://aka.ms/sdsdk-download-speaker) usato nell' [esempio di Assistente vocale](https://aka.ms/sdsdk-speaker).
 - File binari rilasciati per [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32) e [Linux ARM 64](https://aka.ms/sdsdk-download-linux-arm64) per Raspberry Pi e dispositivi simili.
-- Aggiornamento del componente [SDK vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) alla versione 1.11.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
+- Aggiornamento del componente [SDK vocale](./speech-sdk.md) alla versione 1.11.0. Per altre informazioni, vedere le relative [Note sulla versione](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-190"></a>1.9.0 SDK per dispositivi vocali:
 
 - Sono disponibili i file binari iniziali per [URBETTER DDK](https://aka.ms/sdsdk-download-urbetter) (Linux arm64).
 - Roobo V1 usa ora Maven per l'SDK di riconoscimento vocale
-- Aggiornamento del componente [SDK vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) alla versione 1.9.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
+- Aggiornamento del componente [SDK vocale](./speech-sdk.md) alla versione 1.9.0. Per altre informazioni, vedere le relative [Note sulla versione](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-170"></a>1.7.0 SDK per dispositivi vocali:
 
@@ -44,22 +44,22 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 - Supporto per il riconoscimento a più turni utilizzando lo stesso oggetto riconoscimento vocale/Intent.
 - Risolvere i problemi occasionali in cui il processo smette di rispondere durante l'arresto del riconoscimento.
 - Le app di esempio contengono ora un file partecipante di esempio. Properties per illustrare il formato del file.
-- Aggiornamento del componente [SDK vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) alla versione 1.7.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
+- Aggiornamento del componente [SDK vocale](./speech-sdk.md) alla versione 1.7.0. Per altre informazioni, vedere le relative [Note sulla versione](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-160"></a>Speech Devices SDK 1.6.0:
 
-- Supporto di [Azure Kinect dk](https://azure.microsoft.com/services/kinect-dk/) in Windows e Linux con l' [applicazione di esempio](https://aka.ms/sdsdk-download) comune
-- Aggiornamento del componente [SDK vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) alla versione 1.6.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
+- Supporto di [Azure Kinect dk](https://azure.microsoft.com/services/kinect-dk/) in Windows e Linux con l' [applicazione di esempio](./speech-devices-sdk.md) comune
+- Aggiornamento del componente [SDK vocale](./speech-sdk.md) alla versione 1.6.0. Per altre informazioni, vedere le relative [Note sulla versione](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-151"></a>Speech Devices SDK 1.5.1:
 
-- Includere la [trascrizione delle conversazioni](conversation-transcription-service.md) nell'app di esempio.
-- Aggiornamento del componente [SDK vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) alla versione 1.5.1. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
+- Includere la [trascrizione delle conversazioni](./conversation-transcription.md) nell'app di esempio.
+- Aggiornamento del componente [SDK vocale](./speech-sdk.md) alla versione 1.5.1. Per altre informazioni, vedere le relative [Note sulla versione](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-150-2019-may-release"></a>Speech Devices SDK 1.5.0:2019-versione di maggio
 
 - Speech Devices SDK è ora GA e non è più un'anteprima gestita.
-- Aggiornamento del componente [SDK vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) alla versione 1.5.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
+- Aggiornamento del componente [SDK vocale](./speech-sdk.md) alla versione 1.5.0. Per altre informazioni, vedere le relative [Note sulla versione](./releasenotes.md).
 - La nuova tecnologia per le parole chiave offre miglioramenti significativi della qualità, vedere modifiche di rilievo.
 - Nuova pipeline di elaborazione audio per migliorare il riconoscimento dei campi.
 
@@ -70,30 +70,30 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 
 ## <a name="speech-devices-sdk-140-2019-apr-release"></a>Speech Devices SDK 1.4.0:2019-versione apr
 
-- Aggiornamento del componente [SDK vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) alla versione 1.4.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
+- Aggiornamento del componente [SDK vocale](./speech-sdk.md) alla versione 1.4.0. Per altre informazioni, vedere le relative [Note sulla versione](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-131-2019-mar-release"></a>Speech Devices SDK 1.3.1:2019-versione mar
 
-- Aggiornamento del componente [SDK vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) alla versione 1.3.1. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
+- Aggiornamento del componente [SDK vocale](./speech-sdk.md) alla versione 1.3.1. Per altre informazioni, vedere le relative [Note sulla versione](./releasenotes.md).
 - Gestione delle parole chiave aggiornata. vedere modifiche di rilievo.
 - L'applicazione di esempio aggiunge la lingua scelta per il riconoscimento vocale e la traduzione.
 
 **Modifiche di rilievo**
 
-- L' [installazione di una parola chiave](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) è stata semplificata ed è ora inclusa nell'app e non è necessaria un'installazione separata sul dispositivo.
+- L' [installazione di una parola chiave](./custom-keyword-basics.md) è stata semplificata ed è ora inclusa nell'app e non è necessaria un'installazione separata sul dispositivo.
 - Il riconoscimento delle parole chiave è stato modificato e sono supportati due eventi.
   - `RecognizingKeyword,` indica che il risultato del riconoscimento vocale contiene testo della parola chiave non verificato.
   - `RecognizedKeyword`, indica che il riconoscimento delle parole chiave ha completato il riconoscimento della parola chiave specificata.
 
 ## <a name="speech-devices-sdk-110-2018-nov-release"></a>Speech Devices SDK 1.1.0:2018-versione nov
 
-- Il componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) è stato aggiornato alla versione 1.1.0. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
+- Il componente [Speech SDK](./speech-sdk.md) è stato aggiornato alla versione 1.1.0. Per altre informazioni, vedere le relative [Note sulla versione](./releasenotes.md).
 - L'accuratezza del riconoscimento vocale in campo lontano è stata migliorata grazie a un nuovo algoritmo di elaborazione audio.
 - L'applicazione di esempio ha aggiunto il supporto al riconoscimento vocale in cinese.
 
 ## <a name="speech-devices-sdk-101-2018-oct-release"></a>Speech Devices SDK 1.0.1:2018-versione Oct
 
-- Il componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) è stato aggiornato alla versione 1.0.1. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew).
+- Il componente [Speech SDK](./speech-sdk.md) è stato aggiornato alla versione 1.0.1. Per altre informazioni, vedere le relative [Note sulla versione](./releasenotes.md).
 - L'accuratezza del riconoscimento vocale risulterà migliorata grazie a un nuovo algoritmo di elaborazione audio.
 - Un bug relativo alla sessione audio di riconoscimento continuo è stato corretto.
 
@@ -105,7 +105,7 @@ L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
 ## <a name="speech-devices-sdk-050-2018-aug-release"></a>Speech Devices SDK 0.5.0:2018-versione Aug
 
 - È stata migliorata l'accuratezza del riconoscimento vocale correggendo un bug nel codice di elaborazione audio.
-- Il componente [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) è stato aggiornato alla versione 0.5.0. Per altre informazioni, vedere le relative [Note sulla versione](releasenotes.md#cognitive-services-speech-sdk-050-2018-july-release).
+- Il componente [Speech SDK](./speech-sdk.md) è stato aggiornato alla versione 0.5.0. Per altre informazioni, vedere le relative [Note sulla versione](releasenotes.md#cognitive-services-speech-sdk-050-2018-july-release).
 
 ## <a name="speech-devices-sdk-0212733-2018-may-release"></a>Speech Devices SDK 0.2.12733:2018-versione di maggio
 

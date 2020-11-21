@@ -3,12 +3,12 @@ title: Eseguire l'onboarding dei clienti in Azure Lighthouse
 description: Informazioni su come caricare un cliente in Azure Lighthouse, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant mediante la gestione delle risorse delegate di Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: d80fef21e4b7cf1705b67df3c8d08f91bac589bf
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 43f28073c996167c82e241476020bdc341486b26
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042848"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95024297"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Eseguire l'onboarding dei clienti in Azure Lighthouse
 
@@ -38,7 +38,7 @@ Se i valori ID non sono già disponibili, è possibile recuperarli in uno dei mo
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-L'ID del tenant può essere visualizzato passando il puntatore sul nome dell'account nell'angolo in alto a destra del portale di Azure o selezionando **Cambia directory** . Per selezionare e copiare l'ID tenant, cercare "Azure Active Directory" nel portale, quindi selezionare **Proprietà** e copiare il valore visualizzato nel campo **ID directory** . Per trovare l'ID di una sottoscrizione nel tenant personalizzato, cercare "Sottoscrizioni" e quindi selezionare l'ID della sottoscrizione appropriato.
+L'ID del tenant può essere visualizzato passando il puntatore sul nome dell'account nell'angolo in alto a destra del portale di Azure o selezionando **Cambia directory**. Per selezionare e copiare l'ID tenant, cercare "Azure Active Directory" nel portale, quindi selezionare **Proprietà** e copiare il valore visualizzato nel campo **ID directory**. Per trovare l'ID di una sottoscrizione nel tenant personalizzato, cercare "Sottoscrizioni" e quindi selezionare l'ID della sottoscrizione appropriato.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -67,7 +67,7 @@ Il provider di servizi può eseguire più attività per un singolo cliente, per 
 Per semplificare la gestione, è consigliabile usare Azure AD gruppi di utenti per ogni ruolo. In questo modo è possibile aggiungere o rimuovere singoli utenti nel gruppo che ha accesso, in modo da non dover ripetere il processo di caricamento per apportare modifiche agli utenti. È possibile assegnare ruoli a un'entità servizio, che può essere utile per gli scenari di automazione.
 
 > [!IMPORTANT]
-> Per aggiungere autorizzazioni per un gruppo di Azure AD, il **tipo di gruppo** deve essere impostato su **sicurezza** . Questa opzione è selezionata quando viene creato il gruppo. Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Per aggiungere autorizzazioni per un gruppo di Azure AD, il **tipo di gruppo** deve essere impostato su **sicurezza**. Questa opzione è selezionata quando viene creato il gruppo. Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Quando si definiscono le autorizzazioni, assicurarsi di seguire il principio dei privilegi minimi, in modo che gli utenti dispongano solo delle autorizzazioni necessarie per completare il processo. Per le linee guida e le informazioni sui ruoli supportati, vedere [tenant, utenti e ruoli negli scenari di Azure Lighthouse](../concepts/tenants-users-roles.md).
 
@@ -128,7 +128,7 @@ Il processo di onboarding richiede un modello di Azure Resource Manager, disponi
 > [!IMPORTANT]
 > Il processo descritto di seguito richiede una distribuzione separata per ogni sottoscrizione da caricare, anche se si esegue il caricamento di sottoscrizioni nello stesso tenant del cliente. Le distribuzioni separate sono necessarie anche se si esegue l'onboarding di più gruppi di risorse all'interno di sottoscrizioni diverse nello stesso tenant del cliente. Tuttavia, l'onboarding di più gruppi di risorse all'interno di una singola sottoscrizione può essere eseguito in una sola distribuzione.
 >
-> Le distribuzioni separate sono necessarie anche se si applicano più offerte alla stessa sottoscrizione (o gruppi di risorse all'interno di una sottoscrizione). Ogni offerta applicata deve usare un diverso **mspOfferName** .
+> Le distribuzioni separate sono necessarie anche se si applicano più offerte alla stessa sottoscrizione (o gruppi di risorse all'interno di una sottoscrizione). Ogni offerta applicata deve usare un diverso **mspOfferName**.
 
 Il modello scelto dipenderà dal fatto che si esegua l'onboarding di un'intera sottoscrizione, di un gruppo di risorse o di più gruppi di risorse all'interno di una sottoscrizione. Viene anche fornito un modello che può essere usato per i clienti che hanno acquistato un'offerta di servizio gestito pubblicata in Azure Marketplace, se si preferisce eseguire l'onboarding delle sottoscrizioni in questo modo.
 
@@ -211,8 +211,8 @@ La distribuzione può essere eseguita nel portale di Azure, tramite PowerShell o
 ### <a name="azure-portal"></a>Portale di Azure
 
 1. Nel [repository GitHub](https://github.com/Azure/Azure-Lighthouse-samples/)selezionare il pulsante **Distribuisci in Azure** visualizzato accanto al modello che si vuole usare. Il modello verrà aperto nel portale di Azure.
-1. Immettere i valori per **nome dell'offerta msp** , **Descrizione dell'offerta msp** , **gestito da ID tenant** e **autorizzazioni** . Se si preferisce, è possibile selezionare **modifica parametri** per immettere i valori per `mspOfferName` , `mspOfferDescription` , `managedbyTenantId` e `authorizations` direttamente nel file dei parametri. Assicurarsi di aggiornare questi valori invece di usare i valori predefiniti del modello.
-1. Selezionare **revisione e creazione** , quindi selezionare **Crea** .
+1. Immettere i valori per **nome dell'offerta msp**, **Descrizione dell'offerta msp**, **gestito da ID tenant** e **autorizzazioni**. Se si preferisce, è possibile selezionare **modifica parametri** per immettere i valori per `mspOfferName` , `mspOfferDescription` , `managedbyTenantId` e `authorizations` direttamente nel file dei parametri. Assicurarsi di aggiornare questi valori invece di usare i valori predefiniti del modello.
+1. Selezionare **revisione e creazione**, quindi selezionare **Crea**.
 
 Dopo alcuni minuti verrà visualizzata una notifica che segnala che la distribuzione è stata completata.
 
@@ -265,7 +265,7 @@ Quando la sottoscrizione di un cliente è stata caricata in Azure Lighthouse, gl
 Nel tenant del provider di servizi:
 
 1. Passare alla [pagina Clienti personali](view-manage-customers.md).
-2. Selezionare **Clienti** .
+2. Selezionare **Clienti**.
 3. Verificare che sia possibile visualizzare le sottoscrizioni con il nome dell'offerta specificato nel modello di Resource Manager.
 
 > [!IMPORTANT]
@@ -274,7 +274,7 @@ Nel tenant del provider di servizi:
 Nel tenant del cliente:
 
 1. Passare alla [pagina Provider di servizi](view-manage-service-providers.md).
-2. Selezionare **Offerte del provider di servizi** .
+2. Selezionare **Offerte del provider di servizi**.
 3. Verificare che sia possibile visualizzare le sottoscrizioni con il nome dell'offerta specificato nel modello di Resource Manager.
 
 > [!NOTE]
@@ -286,6 +286,11 @@ Nel tenant del cliente:
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
 Get-AzContext
+
+# Confirm successful onboarding for Azure Lighthouse
+
+Get-AzManagedServicesDefinition
+Get-AzManagedServicesAssignment
 ```
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure

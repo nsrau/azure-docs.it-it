@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: b186c2d2c4b5efc8e1e052a63505549e860b5619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b512a80fcfc26efbe5c008884509aebfd86ed3e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460829"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020845"
 ---
 # <a name="data-storage"></a>Archiviazione dati
 
@@ -27,7 +27,7 @@ Quando si crea un ambiente Azure Time Series Insights Gen2, sono disponibili le 
 
 * Archiviazione dati a freddo:
   * Creare una nuova risorsa di archiviazione di Azure nella sottoscrizione e nell'area scelte per l'ambiente.
-  * Alleghi un account di archiviazione di Azure preesistente. Questa opzione è disponibile solo distribuendo da un [modello](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)di Azure Resource Manager e non è visibile nel portale di Azure.
+  * Alleghi un account di archiviazione di Azure preesistente. Questa opzione è disponibile solo distribuendo da un [modello](/azure/templates/microsoft.timeseriesinsights/allversions)di Azure Resource Manager e non è visibile nel portale di Azure.
 * Archiviazione dati a caldo:
   * Un archivio caldo è facoltativo e può essere abilitato o disabilitato durante o dopo l'esecuzione del provisioning. Se si decide di abilitare l'archivio a caldo in un secondo momento e sono già presenti dati nell'archivio a freddo, esaminare [questa](concepts-storage.md#warm-store-behavior) sezione per comprendere il comportamento previsto. È possibile configurare il periodo di conservazione dei dati dell'archivio di riscaldamento per 7 o 31 giorni. questa operazione può anche essere regolata in base alle esigenze.
 
@@ -40,14 +40,14 @@ Quando un evento viene inserito, viene indicizzato sia nell'archivio a caldo (se
 
 ## <a name="data-availability"></a>Disponibilità dei dati
 
-Azure Time Series Insights Gen2 le partizioni e indicizza i dati per ottenere prestazioni ottimali delle query. I dati diventeranno disponibili per eseguire una query sia dal sistema caldo (se abilitato) che dall'archivio a freddo dopo che è stato indicizzato. La quantità di dati da inserire e la velocità effettiva per partizione possono influire sulla disponibilità. Esaminare le limitazioni relative alla [velocità effettiva](./concepts-streaming-ingress-throughput-limits.md) dell'origine eventi e le [procedure](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) consigliate per ottenere prestazioni ottimali. È anche possibile configurare un [avviso](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) di ritardo per ricevere una notifica nel caso in cui si verifichino problemi di elaborazione dei dati nell'ambiente.
+Azure Time Series Insights Gen2 le partizioni e indicizza i dati per ottenere prestazioni ottimali delle query. I dati diventeranno disponibili per eseguire una query sia dal sistema caldo (se abilitato) che dall'archivio a freddo dopo che è stato indicizzato. La quantità di dati da inserire e la velocità effettiva per partizione possono influire sulla disponibilità. Esaminare le limitazioni relative alla [velocità effettiva](./concepts-streaming-ingress-throughput-limits.md) dell'origine eventi e le [procedure](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) consigliate per ottenere prestazioni ottimali. È anche possibile configurare un [avviso](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) di ritardo per ricevere una notifica nel caso in cui si verifichino problemi di elaborazione dei dati nell'ambiente.
 
 > [!IMPORTANT]
 > È possibile che si verifichi un periodo di tempo massimo di 60 secondi prima che i dati diventino disponibili. Se si verifica una latenza significativa superiore a 60 secondi, inviare un ticket di supporto tramite il portale di Azure.
 
 ## <a name="warm-store"></a>Negozio caldo
 
-I dati nell'archivio a caldo sono disponibili solo tramite le [API di query della serie temporale](./time-series-insights-update-tsq.md), il [Azure Time Series Insights di gestione](./time-series-insights-update-explorer.md)delle chiavi di gestione delle chiavi o il [connettore Power bi](./how-to-connect-power-bi.md). Le query di archivio warm sono gratuite e non esiste alcuna quota, ma è previsto un [limite di 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) richieste simultanee.
+I dati nell'archivio a caldo sono disponibili solo tramite le [API di query della serie temporale](./concepts-query-overview.md), il [Azure Time Series Insights di gestione](./concepts-ux-panels.md)delle chiavi di gestione delle chiavi o il [connettore Power bi](./how-to-connect-power-bi.md). Le query di archivio warm sono gratuite e non esiste alcuna quota, ma è previsto un [limite di 30](/rest/api/time-series-insights/reference-api-limits#query-apis---limits) richieste simultanee.
 
 ### <a name="warm-store-behavior"></a>Comportamento dell'archivio caldo
 
@@ -77,9 +77,9 @@ Per garantire le prestazioni delle query e la disponibilità dei dati, non modif
 
 #### <a name="accessing-cold-store-data"></a>Accesso ai dati dell'archivio freddo
 
-Oltre ad accedere ai dati dalle API di query di [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md) e della [serie temporale](./time-series-insights-update-tsq.md), è anche possibile accedere ai dati direttamente dai file parquet archiviati nell'archivio a freddo. Ad esempio, è possibile leggere, trasformare e pulire i dati in un notebook di Jupyter, e poi usarli per eseguire il training del modello di Azure Machine Learning nello stesso flusso di lavoro Spark.
+Oltre ad accedere ai dati dalle API di query di [Azure Time Series Insights Explorer](./concepts-ux-panels.md) e della [serie temporale](./concepts-query-overview.md), è anche possibile accedere ai dati direttamente dai file parquet archiviati nell'archivio a freddo. Ad esempio, è possibile leggere, trasformare e pulire i dati in un notebook di Jupyter, e poi usarli per eseguire il training del modello di Azure Machine Learning nello stesso flusso di lavoro Spark.
 
-Per accedere ai dati direttamente dall'account di archiviazione di Azure, è necessario l'accesso in lettura all'account usato per archiviare i dati di Azure Time Series Insights Gen2. È quindi possibile leggere i dati selezionati in base all'ora di creazione del file parquet presente nella cartella `PT=Time` descritta di seguito nella sezione dedicata al [formato di file parquet](#parquet-file-format-and-folder-structure).  Per altre informazioni sull'abilitazione dell'accesso in lettura all'account di archiviazione, vedere [Gestire l'accesso alle risorse dell'account di archiviazione](../storage/blobs/storage-manage-access-to-resources.md).
+Per accedere ai dati direttamente dall'account di archiviazione di Azure, è necessario l'accesso in lettura all'account usato per archiviare i dati di Azure Time Series Insights Gen2. È quindi possibile leggere i dati selezionati in base all'ora di creazione del file parquet presente nella cartella `PT=Time` descritta di seguito nella sezione dedicata al [formato di file parquet](#parquet-file-format-and-folder-structure).  Per altre informazioni sull'abilitazione dell'accesso in lettura all'account di archiviazione, vedere [Gestire l'accesso alle risorse dell'account di archiviazione](../storage/blobs/anonymous-read-access-configure.md).
 
 #### <a name="data-deletion"></a>Eliminazione di dati
 
@@ -123,6 +123,6 @@ Azure Time Series Insights eventi Gen2 vengono mappati al contenuto del file par
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere la pagina relativa alla [modellazione dei dati](./time-series-insights-update-tsm.md).
+* Vedere la pagina relativa alla [modellazione dei dati](./concepts-model-overview.md).
 
-* Pianificare l' [ambiente di Azure Time Series Insights Gen2](./time-series-insights-update-plan.md).
+* Pianificare l' [ambiente di Azure Time Series Insights Gen2](./how-to-plan-your-environment.md).

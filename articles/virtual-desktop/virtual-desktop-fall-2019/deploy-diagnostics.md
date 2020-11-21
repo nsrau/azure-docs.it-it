@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 61c31b24b01b40da4d73a308a4f304f6ff242e41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 729e22f8ad94d2119d0f3f3e9fc474cc83a493a8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88691412"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023072"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Distribuire lo strumento di diagnostica desktop virtuale di Windows (classico)
 
@@ -96,7 +96,7 @@ Per eseguire lo script di PowerShell:
 
     - Per **ResourceGroupName**, immettere il nome del gruppo di risorse.
     - Per **LogAnalyticsWorkspaceName**, immettere un nome univoco per l'area di lavoro log Analytics.
-    - Per **località**immettere l'area di Azure in uso.
+    - Per **località** immettere l'area di Azure in uso.
     - Immettere l' **ID sottoscrizione di Azure**, che è possibile trovare nella portale di Azure in **sottoscrizioni**.
 
 4. Immettere le credenziali di un utente con accesso amministratore delegato.
@@ -121,7 +121,7 @@ Di seguito viene illustrato come configurare manualmente i contatori delle prest
     -   Informazioni processore ( \* ) \\ tempo processore
     -   Ritardo input utente per sessione ( \* )- \\ ritardo input massimo
 
-Altre informazioni sui contatori delle prestazioni [nelle origini dati delle prestazioni di Windows e Linux in monitoraggio di Azure](/azure/azure-monitor/platform/data-sources-performance-counters).
+Altre informazioni sui contatori delle prestazioni [nelle origini dati delle prestazioni di Windows e Linux in monitoraggio di Azure](../../azure-monitor/platform/data-sources-performance-counters.md).
 
 >[!NOTE]
 >Tutti i contatori aggiuntivi configurati non verranno visualizzati nello strumento di diagnostica. Per fare in modo che venga visualizzato nello strumento di diagnostica, è necessario configurare il file di configurazione dello strumento. Le istruzioni su come eseguire questa operazione con l'amministrazione avanzata saranno disponibili in GitHub in un secondo momento.
@@ -144,8 +144,8 @@ Per assicurarsi che la registrazione dell'app disponga delle autorizzazioni API:
 Per assicurarsi che l'area di lavoro di Log Analytics disponga dei contatori delle prestazioni di Windows preconfigurati:
 
 1. Nella [portale di Azure](https://portal.azure.com/)passare a **log Analytics aree di lavoro** per esaminare i contatori delle prestazioni di Windows configurati.
-2. In **Impostazioni**selezionare **Impostazioni avanzate**.
-3. Passare quindi ai **Data**  >  **contatori delle prestazioni di Windows**data.
+2. In **Impostazioni** selezionare **Impostazioni avanzate**.
+3. Passare quindi ai **Data**  >  **contatori delle prestazioni di Windows** data.
 4. Verificare che i contatori seguenti siano preconfigurati:
 
    - Disco logico ( \* ) \\ % di spazio disponibile: Visualizza la quantità di spazio disponibile totale del disco utilizzabile sul disco come percentuale.
@@ -204,7 +204,7 @@ Per impostare l'URI di reindirizzamento:
 
 Prima di rendere disponibile lo strumento di diagnostica agli utenti, verificare che dispongano delle autorizzazioni seguenti:
 
-- Gli utenti hanno bisogno dell'accesso in lettura per log Analytics. Per altre informazioni, vedere [Introduzione a ruoli, autorizzazioni e sicurezza con monitoraggio di Azure](/azure/azure-monitor/platform/roles-permissions-security).
+- Gli utenti hanno bisogno dell'accesso in lettura per log Analytics. Per altre informazioni, vedere [Introduzione a ruoli, autorizzazioni e sicurezza con monitoraggio di Azure](../../azure-monitor/platform/roles-permissions-security.md).
 -  Per gli utenti è inoltre necessario l'accesso in lettura per il tenant desktop virtuale Windows (ruolo lettura Servizi Desktop remoto). Per ulteriori informazioni, vedere [accesso delegato in desktop virtuale di Windows](delegated-access-virtual-desktop-2019.md).
 
 È anche necessario fornire agli utenti le informazioni seguenti:
