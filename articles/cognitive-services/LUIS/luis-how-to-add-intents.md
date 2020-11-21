@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
 ms.service: cognitive-services
-ms.openlocfilehash: c2802f1b41ed2842e12c808a8c380ebd646ffa03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2401c032f0fc90024e0049fad5f696b8a184544
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540932"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018940"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Aggiungere finalità per determinare l'intenzione delle espressioni dell'utente
 
@@ -27,7 +27,7 @@ Nel portale LUIS, gli Intent sono gestiti dalla sezione di **compilazione** dell
 1. Accedere al [portale LUIS](https://www.luis.ai) e quindi selezionare la **sottoscrizione** e la **risorsa di creazione** per vedere le app assegnate a tale risorsa.
 1. Per aprire l'app, selezionarne il nome nella pagina **app personali** .
 1. Nella pagina **Intent** selezionare **+ Crea**.
-1. Nella finestra di dialogo **Crea nuova finalità** immettere il nome della finalità, ad esempio `ModifyOrder` , e **fare**clic su fine.
+1. Nella finestra di dialogo **Crea nuova finalità** immettere il nome della finalità, ad esempio `ModifyOrder` , e **fare** clic su fine.
 
     > [!div class="mx-imgBorder"]
     > ![Aggiungi finalità](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
@@ -81,4 +81,4 @@ Dopo aver aggiunto, modificato o rimosso le finalità, [eseguire il training](lu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sull'aggiunta di [espressioni di esempio](luis-how-to-add-example-utterances.md) con entità.
+Altre informazioni sull'aggiunta di [espressioni di esempio](./luis-how-to-add-entities.md) con entità.

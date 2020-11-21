@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 49a763af8d936ec9fd15c59c908ba9015f803930
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 639f2ef12d190a56e04a9b48d96ea0a6537d243c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568646"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020113"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights Esplora Gen1
 
@@ -45,8 +45,8 @@ Azure Time Series Insights è un servizio completamente gestito per analisi, arc
 Prima di poter usare Azure Time Series Insights Explorer, è necessario:
 
 - Creare un ambiente Azure Time Series Insights. Per altre informazioni, vedere [come iniziare a usare Azure Time Series Insights](./time-series-insights-get-started.md).
-- [Fornire l'accesso](time-series-insights-data-access.md) all'account nell'ambiente.
-- Aggiungere un' [origine eventi dell'hub](time-series-insights-how-to-add-an-event-source-iothub.md) eventi o dell' [Hub eventi](time-series-insights-how-to-add-an-event-source-eventhub.md) .
+- [Fornire l'accesso](./concepts-access-policies.md) all'account nell'ambiente.
+- Aggiungere un' [origine eventi dell'hub](./how-to-ingest-data-iot-hub.md) eventi o dell' [Hub eventi](./how-to-ingest-data-event-hub.md) .
 
 ## <a name="explore-and-query-data"></a>Esplorare ed eseguire query sui dati
 
@@ -115,7 +115,7 @@ Entro pochi minuti dalla connessione dell'origine evento all'ambiente di Azure T
 
 1. Quando si esplorano gli eventi selezionando o facendo clic con il pulsante destro del mouse, viene reso disponibile il pannello **eventi** . Qui è possibile esaminare tutti gli eventi non elaborati ed esportare gli eventi come file JSON o CSV. Azure Time Series Insights archivia tutti i dati non elaborati.
 
-    [![Events](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png)](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png#lightbox)
+    [![Eventi](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png)](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png#lightbox)
 
 1. Selezionare la scheda **statistiche** dopo aver esplorato gli eventi per esporre i modelli e le statistiche di colonna.
 

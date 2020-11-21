@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a3fccc934fafd8ff7db2cffbd6ba641329ba8de2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d8b696b175c4ef841eef1a51f1d357d1781cba7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006806"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018291"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Usare Log Analytics per la funzionalità di diagnostica
 
@@ -46,7 +46,7 @@ Monitoraggio di Azure consente di analizzare i dati di desktop virtuali Windows 
 Prima di poter usare Log Analytics, è necessario creare un'area di lavoro. A tale scopo, seguire le istruzioni riportate in uno dei due articoli seguenti:
 
 - Se si preferisce usare portale di Azure, vedere [creare un'area di lavoro log Analytics in portale di Azure](../azure-monitor/learn/quick-create-workspace.md).
-- Se si preferisce PowerShell, vedere [creare un'area di lavoro log Analytics con PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+- Se si preferisce PowerShell, vedere [creare un'area di lavoro log Analytics con PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
 
 Dopo aver creato l'area di lavoro, seguire le istruzioni in [connettere i computer Windows a monitoraggio di Azure](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key) per ottenere le informazioni seguenti:
 
@@ -83,7 +83,7 @@ Per configurare Log Analytics per un nuovo oggetto:
 6. Selezionare **Salva**.
 
 >[!NOTE]
->Log Analytics offre la possibilità di trasmettere dati a [Hub eventi](../event-hubs/event-hubs-about.md) o di archiviarli in un account di archiviazione. Per altre informazioni su questa funzionalità, vedere [trasmettere i dati di monitoraggio di Azure a un hub eventi](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) e [archiviare i log delle risorse di Azure nell'account di archiviazione](../azure-monitor/platform/resource-logs-collect-storage.md).
+>Log Analytics offre la possibilità di trasmettere dati a [Hub eventi](../event-hubs/event-hubs-about.md) o di archiviarli in un account di archiviazione. Per altre informazioni su questa funzionalità, vedere [trasmettere i dati di monitoraggio di Azure a un hub eventi](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) e [archiviare i log delle risorse di Azure nell'account di archiviazione](../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 ## <a name="how-to-access-log-analytics"></a>Come accedere a Log Analytics
 
@@ -114,7 +114,7 @@ Per configurare Log Analytics per un nuovo oggetto:
 5. Si è pronti per eseguire query di diagnostica. Tutte le tabelle di diagnostica hanno un prefisso "WVD".
 
 >[!NOTE]
->Per informazioni più dettagliate sulle tabelle archiviate nei log di monitoraggio di Azure, vedere la pagina relativa al [recinto dei dati di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/reference/). Tutte le tabelle relative al desktop virtuale Windows sono contrassegnate con l'etichetta "WVD".
+>Per informazioni più dettagliate sulle tabelle archiviate nei log di monitoraggio di Azure, vedere la pagina relativa al [recinto dei dati di monitoraggio di Azure](/azure/azure-monitor/reference/). Tutte le tabelle relative al desktop virtuale Windows sono contrassegnate con l'etichetta "WVD".
 
 ## <a name="cadence-for-sending-diagnostic-events"></a>Cadenza per l'invio di eventi di diagnostica
 
@@ -134,9 +134,9 @@ Accedere a query di esempio tramite il monitoraggio di Azure Log Analytics inter
 1. Selezionare **desktop virtuale Windows** per esaminare le query disponibili.
 1. Selezionare **Esegui** per eseguire la query selezionata.
 
-Per altre informazioni sull'interfaccia di query di esempio, vedere [query salvate in monitoraggio di Azure log Analytics](../azure-monitor/log-query/saved-queries.md).
+Per altre informazioni sull'interfaccia di query di esempio, vedere [query salvate in monitoraggio di Azure log Analytics](../azure-monitor/log-query/example-queries.md).
 
-L'elenco di query seguente consente di esaminare le informazioni di connessione o i problemi per un singolo utente. È possibile eseguire queste query nell' [editor di query log Analytics](../azure-monitor/log-query/get-started-portal.md#write-and-run-basic-queries). Per ogni query, sostituire `userupn` con l'UPN dell'utente che si desidera cercare.
+L'elenco di query seguente consente di esaminare le informazioni di connessione o i problemi per un singolo utente. È possibile eseguire queste query nell' [editor di query log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query). Per ogni query, sostituire `userupn` con l'UPN dell'utente che si desidera cercare.
 
 
 Per trovare tutte le connessioni per un singolo utente:

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: Java, jakartaee, JavaEE, microprofile, Open Liberty, WebSphere-Liberty, Aro, OpenShift, Red Hat
-ms.openlocfilehash: ee4baf8eed26a43728fa52289bce86108c9e8c4a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 41891b58942efbfd705747cc16219185f2a2daa2
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414877"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018393"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Distribuire un'applicazione Java con Open Liberty/WebSphere Liberty in un cluster Azure Red Hat OpenShift 4
 
@@ -65,7 +65,7 @@ Si noti che questi elementi sono inattivi quando si completano i passaggi per ab
 
 1. Accedere alla console Web di OpenShift dal browser usando le `kubeadmin` credenziali.
 2. Passare a **Amministrazione**  >  **spazi dei** nomi  >  **Crea spazio dei nomi**.
-3. Compilare `open-liberty-demo` per **nome** e selezionare **Crea** , come mostrato di seguito.
+3. Compilare `open-liberty-demo` per **nome** e selezionare **Crea**, come mostrato di seguito.
 
    ![Crea spazio dei nomi](./media/howto-deploy-java-liberty-app/create-namespace.png)
 
@@ -98,7 +98,7 @@ Dopo la creazione e la connessione al cluster, installare l'operatore Open Liber
 2. Passare a **Operators**  >  **OperatorHub** e cercare **Open Liberty operator**.
 3. Selezionare **Apri operatore Liberty** nei risultati della ricerca.
 4. Selezionare **Installa**.
-5. Nella sottoscrizione popup **create operator** selezionare tutti gli **spazi dei nomi nel cluster (impostazione predefinita)** per la **modalità di installazione** , la **versione beta** per il **canale di aggiornamento** e la strategia **automatica** per l' **approvazione** :
+5. Nella sottoscrizione popup **create operator** selezionare tutti gli **spazi dei nomi nel cluster (impostazione predefinita)** per la **modalità di installazione**, la **versione beta** per il **canale di aggiornamento** e la strategia **automatica** per l' **approvazione**:
 
    ![creazione della sottoscrizione operator per l'operatore Open Liberty](./media/howto-deploy-java-liberty-app/install-operator.png)
 6. Selezionare **Subscribe (Sottoscrivi** ) e attendere un minuto o due finché non viene visualizzato l'operatore Open Liberty.
@@ -126,7 +126,7 @@ Per eseguire l'applicazione in Open Liberty, è necessario creare un file di con
    [INFO] Source compilation was successful.
    ```
 
-1. Aprire [http://localhost:9080/](http://localhost:9080/) nel browser per visitare l'applicazione Home page. L'applicazione sarà simile all'immagine seguente:
+1. Aprire `http://localhost:9080/` nel browser per visitare l'applicazione Home page. L'applicazione sarà simile all'immagine seguente:
 
    ![Interfaccia utente Web di JavaEE Cafe](./media/howto-deploy-java-liberty-app/javaee-cafe-web-ui.png)
 1. Premere **CTRL-C** per arrestare l'applicazione e aprire Liberty server.
@@ -164,7 +164,7 @@ Prima di distribuire l'applicazione in contenitori in un cluster remoto, eseguir
 
 1. Eseguire `docker run -it --rm -p 9080:9080 javaee-cafe-simple:1.0.0` nella console di.
 2. Attendere l'avvio di Liberty server e l'applicazione per la distribuzione corretta.
-3. Aprire [http://localhost:9080/](http://localhost:9080/) nel browser per visitare l'applicazione Home page.
+3. Aprire `http://localhost:9080/` nel browser per visitare l'applicazione Home page.
 4. Premere **CTRL-C** per arrestare l'applicazione e il server di libertà.
 
 ### <a name="push-the-image-to-the-container-image-registry"></a>Eseguire il push dell'immagine nel registro immagini del contenitore
@@ -230,10 +230,10 @@ A questo punto è possibile distribuire l'applicazione Liberty di esempio nel cl
 
 ### <a name="deploy-the-application-from-the-web-console"></a>Distribuire l'applicazione dalla console Web
 
-Poiché si usa l'operatore Open Liberty per gestire le applicazioni Liberty, è necessario creare un'istanza della relativa *definizione di risorsa personalizzata* , di tipo "OpenLibertyApplication". L'operatore si occuperà quindi di tutti gli aspetti della gestione delle risorse OpenShift necessarie per la distribuzione.
+Poiché si usa l'operatore Open Liberty per gestire le applicazioni Liberty, è necessario creare un'istanza della relativa *definizione di risorsa personalizzata*, di tipo "OpenLibertyApplication". L'operatore si occuperà quindi di tutti gli aspetti della gestione delle risorse OpenShift necessarie per la distribuzione.
 
 1. Accedere alla console Web di OpenShift dal browser usando le credenziali dell'utente Azure AD.
-1. Espandere **Home** , selezionare **progetti**  >  **Apri-libertà-demo**.
+1. Espandere **Home**, selezionare **progetti**  >  **Apri-libertà-demo**.
 1. Passare a **Operators**  >  **installato Operators**.
 1. Al centro della pagina, selezionare **Apri operatore di libertà**.
 1. Al centro della pagina selezionare **Apri applicazione Liberty**.  La navigazione degli elementi nell'interfaccia utente rispecchia la gerarchia di contenimento effettiva delle tecnologie in uso.
@@ -241,7 +241,7 @@ Poiché si usa l'operatore Open Liberty per gestire le applicazioni Liberty, è 
    ![Contenimento di ARO Java](./media/howto-deploy-java-liberty-app/aro-java-containment.png)
 1. Selezionare **Crea OpenLibertyApplication**
 1. Sostituire l'oggetto YAML generato con il proprio, disponibile in `<path-to-repo>/2-simple/openlibertyapplication.yaml` .
-1. Selezionare **Create** (Crea). Verrà restituito l'elenco di OpenLibertyApplications.
+1. Selezionare **Crea**. Verrà restituito l'elenco di OpenLibertyApplications.
 1. Selezionare **JavaEE-Café-Simple**.
 1. Al centro della pagina selezionare **risorse**.
 1. Nella tabella selezionare il collegamento per **JavaEE-Café-Simple** con il **tipo** di **Route**.

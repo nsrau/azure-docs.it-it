@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 00a3c1d0a2a905e6435b811d5f2611c16a5de502
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b60a6e53e8fecd71885204690231776ff69fc08f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328880"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018376"
 ---
 # <a name="configure-device-redirections"></a>Configurare i reindirizzamenti dei dispositivi
 
@@ -19,11 +19,11 @@ La configurazione del reindirizzamento dei dispositivi per l'ambiente desktop vi
 
 ## <a name="supported-device-redirections"></a>Reindirizzamento dei dispositivi supportati
 
-Ogni client supporta il reindirizzamento dei dispositivi diversi. Vedere [confrontare i client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) per l'elenco completo dei reindirizzamenti di dispositivi supportati per ogni client.
+Ogni client supporta il reindirizzamento dei dispositivi diversi. Vedere [confrontare i client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) per l'elenco completo dei reindirizzamenti di dispositivi supportati per ogni client.
 
 ## <a name="customizing-rdp-properties-for-a-host-pool"></a>Personalizzazione delle proprietà RDP per un pool host
 
-Per ulteriori informazioni sulla personalizzazione delle proprietà RDP per un pool host mediante PowerShell o il portale di Azure, vedere [Proprietà RDP](customize-rdp-properties.md). Per l'elenco completo delle proprietà RDP supportate, vedere [impostazioni del file RDP supportate](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context).
+Per ulteriori informazioni sulla personalizzazione delle proprietà RDP per un pool host mediante PowerShell o il portale di Azure, vedere [Proprietà RDP](customize-rdp-properties.md). Per l'elenco completo delle proprietà RDP supportate, vedere [impostazioni del file RDP supportate](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext).
 
 ## <a name="setup-device-redirections"></a>Configurare il reindirizzamento del dispositivo
 

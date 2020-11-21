@@ -12,12 +12,12 @@ ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 340f451080f43fab213a3afc69f2adfae83514d7
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1a08aa4261e8d2546d16bb60394829c83604b4cd
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837329"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019960"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedura: fornire attestazioni facoltative all'app
 
@@ -138,6 +138,9 @@ Questo oggetto OptionalClaims fa sì che il token ID restituito al client includ
 1. Selezionare le attestazioni facoltative da aggiungere.
 1. Selezionare **Aggiungi**.
 
+> [!NOTE]
+> Il pannello di **configurazione del token** di opzione dell'interfaccia utente non è attualmente disponibile per le app registrate in un tenant Azure ad B2C. Per le applicazioni registrate in un tenant B2C, le attestazioni facoltative possono essere configurate modificando il manifesto dell'applicazione. Per altre informazioni [, vedere aggiungere attestazioni e personalizzare l'input utente usando criteri personalizzati in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-configure-user-input) 
+
 **Configurazione di attestazioni facoltative tramite il manifesto dell'applicazione:**
 
 [![Mostra come configurare le attestazioni facoltative tramite il manifesto dell'app](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
@@ -176,13 +179,14 @@ Questo oggetto OptionalClaims fa sì che il token ID restituito al client includ
 
 2. Al termine, selezionare **Salva**. A questo punto, le attestazioni facoltative specificate verranno incluse nei token per l'applicazione.
 
+
 ### <a name="optionalclaims-type"></a>Tipo OptionalClaims
 
 Dichiara le attestazioni facoltative richieste da un'applicazione. Un'applicazione può configurare attestazioni facoltative da restituire in ognuno dei tre tipi di token (token ID, token di accesso, token SAML 2) che può ricevere dal servizio token di sicurezza. L'applicazione può configurare un set di attestazioni facoltative diverso da restituire in ogni tipo di token. La proprietà OptionalClaims dell'entità applicazione è un oggetto OptionalClaims.
 
 **Tabella 5: proprietà del tipo OptionalClaims**
 
-| Nome          | Type                       | Descrizione                                           |
+| Nome          | Tipo                       | Descrizione                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token ID JWT.     |
 | `accessToken` | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token di accesso JWT. |
@@ -195,7 +199,7 @@ Se supportato da un'attestazione specifica, è inoltre possibile modificare il c
 
 **Tabella 6: proprietà del tipo OptionalClaim**
 
-| Nome                   | Type                    | Descrizione                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Tipo                    | Descrizione                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nome dell'attestazione facoltativa.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | Origine (oggetto directory) dell'attestazione. Sono presenti attestazioni predefinite e attestazioni definite dall'utente dalla proprietà delle estensioni. Se il valore di origine è Null, l'attestazione è un'attestazione facoltativa predefinita. Se il valore di origine è user, il valore della proprietà name è la proprietà dell'estensione dall'oggetto utente. |

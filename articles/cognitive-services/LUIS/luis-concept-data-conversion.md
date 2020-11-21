@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: b305be693f59b65a62570f656a0132f4f03cf099
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42a9caff0433808734ee853cbad90a2088bf4e1e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541799"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019246"
 ---
 # <a name="convert-data-format-of-utterances"></a>Convertire il formato dati delle espressioni
 LUIS fornisce le seguenti conversioni di un enunciato utente prima della stima "
@@ -26,10 +26,10 @@ LUIS fornisce le seguenti conversioni di un enunciato utente prima della stima "
 Il riconoscimento vocale al testo viene fornito come integrazione con LUIS.
 
 ### <a name="intent-conversion-concepts"></a>Concetti relativi alla conversione Intent
-La conversione del riconoscimento vocale in LUIS consente di inviare espressioni vocali a un endpoint e ricevere una risposta di stima da LUIS. Il processo è un'integrazione del servizio [Voce](https://docs.microsoft.com/azure/cognitive-services/Speech) di LUIS. Per altre informazioni sul riconoscimento finalità voce, eseguire un'[esercitazione](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
+La conversione del riconoscimento vocale in LUIS consente di inviare espressioni vocali a un endpoint e ricevere una risposta di stima da LUIS. Il processo è un'integrazione del servizio [Voce](/azure/cognitive-services/Speech) di LUIS. Per altre informazioni sul riconoscimento finalità voce, eseguire un'[esercitazione](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
 
 ### <a name="key-requirements"></a>Requisiti chiave
-Per questa integrazione non è necessario creare una chiave **API Riconoscimento vocale Bing **. È sufficiente la chiave **Language Understanding** creata nel portale di Azure. Non usare la chiave di avvio LUIS.
+Per questa integrazione non è necessario creare una chiave **API Riconoscimento vocale Bing**. È sufficiente la chiave **Language Understanding** creata nel portale di Azure. Non usare la chiave di avvio LUIS.
 
 ### <a name="pricing-tier"></a>Piano tariffario
 Questa integrazione usa un modello [prezzi](luis-limits.md#key-limits) diverso rispetto ai normali piani tariffari di Language Understanding.
@@ -41,4 +41,3 @@ Per informazioni, vedere [Key limits](luis-limits.md#key-limits) (Limiti chiave)
 
 > [!div class="nextstepaction"]
 > [Estrazione di dati](luis-concept-data-extraction.md)
-

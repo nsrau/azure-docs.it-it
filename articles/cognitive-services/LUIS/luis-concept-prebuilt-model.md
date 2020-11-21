@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 32755ea9dccd2a7d4a0e727c7a006491d5ea3521
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6642e59c2957b298d54bc587853752b9fce74686
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535884"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019144"
 ---
 # <a name="prebuilt-models"></a>Modelli predefiniti
 
@@ -32,7 +32,7 @@ LUIS fornisce tre tipi di modelli predefiniti. Ogni modello può essere aggiunto
 
 ## <a name="prebuilt-domains"></a>Domini predefiniti
 
-Language Understanding (LUIS) fornisce *domini*predefiniti, ovvero modelli pre-sottoposti a training di [Intent](luis-how-to-add-intents.md) ed [entità](luis-concept-entity-types.md) che interagiscono per domini o categorie comuni di applicazioni client. 
+Language Understanding (LUIS) fornisce *domini* predefiniti, ovvero modelli pre-sottoposti a training di [Intent](luis-how-to-add-intents.md) ed [entità](luis-concept-entity-types.md) che interagiscono per domini o categorie comuni di applicazioni client. 
 
 I domini predefiniti sono stati sottoposti a training e possono essere aggiunti all'app LUIS. Gli Intent e le entità di un dominio predefinito sono completamente personalizzabili dopo essere stati aggiunti all'app. 
 
@@ -61,4 +61,4 @@ Quando si include un'entità predefinita nell'applicazione, le relative stime ve
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [aggiungere entità predefinite](luis-prebuilt-entities.md) all'app.
+Informazioni su come [aggiungere entità predefinite](./howto-add-prebuilt-models.md) all'app.

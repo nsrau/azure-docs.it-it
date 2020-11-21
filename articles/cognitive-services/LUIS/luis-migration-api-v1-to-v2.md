@@ -9,24 +9,24 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 04/02/2019
-ms.openlocfilehash: e1e9ac4ceef843712cc2e39f26ff0aca5341e201
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867ae2cc7567077786bb0840cd11c47b786be423
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541323"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018753"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guida alla migrazione delle API da v1 a v2 per le app LUIS
 L' [endpoint](https://aka.ms/v1-endpoint-api-docs) della versione 1 e le API di [creazione](https://aka.ms/v1-authoring-api-docs) sono deprecate. Usare questa guida per comprendere come eseguire la migrazione alle API per la [creazione](https://go.microsoft.com/fwlink/?linkid=2092087) e l' [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) della versione 2.
 
 ## <a name="new-azure-regions"></a>Nuove regioni di Azure
-LUIS offre nuove [regioni](https://aka.ms/LUIS-regions) per le API LUIS. LUIS fornisce un portale diverso per i gruppi di aree. L'applicazione deve essere creata nella stessa regione in cui si prevede di eseguire le query. Le applicazioni non eseguono automaticamente la migrazione delle regioni. Esportare l'app da una regione, quindi importarla in un'altra affinché sia disponibile in una nuova regione.
+LUIS offre nuove [regioni](./luis-reference-regions.md) per le API LUIS. LUIS fornisce un portale diverso per i gruppi di aree. L'applicazione deve essere creata nella stessa regione in cui si prevede di eseguire le query. Le applicazioni non eseguono automaticamente la migrazione delle regioni. Esportare l'app da una regione, quindi importarla in un'altra affinché sia disponibile in una nuova regione.
 
 ## <a name="authoring-route-changes"></a>Modifiche alla route di creazione
 L'API di creazione non è più basata sulla route **prog** ma sulla route **api**.
 
 
-| version | route |
+| Versione | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps|
 |2|/luis/**api**/v2.0/apps|
@@ -35,7 +35,7 @@ L'API di creazione non è più basata sulla route **prog** ma sulla route **api*
 ## <a name="endpoint-route-changes"></a>Modifiche alla route endpoint
 L'API dell'endpoint ha nuovi parametri della stringa di query e una risposta diversa. Se il flag verbose è true, tutte le finalità, indipendentemente dal punteggio, vengono restituite in una matrice di finalità denominate, oltre a topScoringIntent.
 
-| version | GET route |
+| Versione | GET route |
 |--|--|
 |1|/luis/v1/application?ID={appId}&q={q}|
 |2|/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]|
@@ -105,7 +105,7 @@ v2 endpoint success response:
 ## <a name="key-management-no-longer-in-api"></a>Gestione chiavi non più nell'API
 Le API chiavi endpoint di sottoscrizione sono deprecate e viene restituito l'errore 410 GONE.
 
-| version | route |
+| Versione | route |
 |--|--|
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
@@ -115,7 +115,7 @@ Le [chiavi endpoint](luis-how-to-azure-subscription.md) di Azure vengono generat
 ## <a name="new-versioning-route"></a>Nuova route controllo versioni
 Il modello v2 è ora contenuto in una [versione](luis-how-to-manage-versions.md). Il nome di una versione è dato da 10 caratteri nella route. La versione predefinita è "0.1".
 
-| version | route |
+| Versione | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities|
 |2|/luis/**api**/v2.0/apps/{appId}/**versions**/{versionId}/entities|
@@ -134,7 +134,7 @@ Diverse API restituiscono metadati LUIS presentano nuovi nomi.
 ## <a name="sample-renamed-to-suggest"></a>"Sample" rinominata in "suggest"
 LUIS suggerisce espressioni da [espressioni endpoint](luis-how-to-review-endpoint-utterances.md) esistenti che potrebbero migliorare il modello. Nella versione precedente il nome era **sample**. Nella nuova versione il nome è **suggest**. Si tratta della **[revisione delle espressioni endpoint](luis-how-to-review-endpoint-utterances.md)** nel sito Web LUIS.
 
-| version | route |
+| Versione | route |
 |--|--|
 |1|/luis/v1.0/**prog**/apps/{appId}/entities/{entityId}/**sample**|
 |1|/luis/v1.0/**prog**/apps/{appId}/intents/{intentId}/**sample**|
@@ -143,7 +143,7 @@ LUIS suggerisce espressioni da [espressioni endpoint](luis-how-to-review-endpoin
 
 
 ## <a name="create-app-from-prebuilt-domains"></a>Creare app da domini predefiniti
-I [domini predefiniti](luis-how-to-use-prebuilt-domains.md) rappresentano modelli di dominio preimpostati. I domini predefiniti consentono di sviluppare rapidamente l'applicazione LUIS per domini comuni. Questa API consente di creare una nuova app in base a un dominio predefinito. La risposta è il nuovo appID.
+I [domini predefiniti](./howto-add-prebuilt-models.md) rappresentano modelli di dominio preimpostati. I domini predefiniti consentono di sviluppare rapidamente l'applicazione LUIS per domini comuni. Questa API consente di creare una nuova app in base a un dominio predefinito. La risposta è il nuovo appID.
 
 |v2 route|verb|
 |--|--|
@@ -154,7 +154,7 @@ I [domini predefiniti](luis-how-to-use-prebuilt-domains.md) rappresentano modell
 Alcune aree del JSON dell'app 1.x esportata devono essere modificate prima di importarlo in [LUIS][LUIS] 2.0.
 
 ### <a name="prebuilt-entities"></a>Entità predefinite
-Le [entità predefinite](luis-prebuilt-entities.md) sono cambiate. Assicurarsi di usare entità predefinite V2. È incluso l'uso di [datetimeV2](luis-reference-prebuilt-datetimev2.md) anziché datetime.
+Le [entità predefinite](./howto-add-prebuilt-models.md) sono cambiate. Assicurarsi di usare entità predefinite V2. È incluso l'uso di [datetimeV2](luis-reference-prebuilt-datetimev2.md) anziché datetime.
 
 ### <a name="actions"></a>Azioni
 La proprietà actions non è più valida. Deve essere vuota
@@ -169,4 +169,4 @@ Vedere [Codice risposta API LUIS](luis-reference-response-codes.md).
 
 Usare la documentazione API v2 per aggiornare le chiamate REST alle API [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) e [creazione](https://go.microsoft.com/fwlink/?linkid=2092087) a LUIS.
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[LUIS]: ./luis-reference-regions.md

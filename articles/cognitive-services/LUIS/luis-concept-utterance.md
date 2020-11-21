@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 4c3b5674fe039a89eb97b915d13b5d472a6a0568
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316393"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019076"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendere quali sono le espressioni ottimali per l'app LUIS
 
@@ -29,7 +29,7 @@ Raccogliere le espressioni che si ritiene verranno immesse dagli utenti. Include
 
 ## <a name="how-to-choose-varied-utterances"></a>Come scegliere espressioni varie
 
-Di seguito sono descritti alcuni principi da tenere a mente quando si inizia [aggiungendo espressioni di esempio](luis-how-to-add-example-utterances.md) al modello LUIS.
+Di seguito sono descritti alcuni principi da tenere a mente quando si inizia [aggiungendo espressioni di esempio](./luis-how-to-add-entities.md) al modello LUIS.
 
 ### <a name="utterances-arent-always-well-formed"></a>Le espressioni non sono sempre ben formate
 
@@ -147,5 +147,4 @@ Se si desidera che un'entità di evento trovi tutti i dati dell'evento, etichett
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Consultare [Add example utterances](luis-how-to-add-example-utterances.md) (Aggiungere espressioni di esempio) per informazioni su come insegnare a un'app LUIS a capire le espressioni degli utenti.
-
+Consultare [Add example utterances](./luis-how-to-add-entities.md) (Aggiungere espressioni di esempio) per informazioni su come insegnare a un'app LUIS a capire le espressioni degli utenti.

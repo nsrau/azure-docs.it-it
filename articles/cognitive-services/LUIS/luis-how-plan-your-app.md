@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 69f2048da0b4690d9de72e96e296edbd55c4cd9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66df23466694fe8b9caea4e56565cde6d8fd7416
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309456"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018957"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Pianificare lo schema dell'app LUIS con dominio soggetto ed estrazione dei dati
 
@@ -21,7 +21,7 @@ Uno schema di app LUIS contiene [Intent](luis-glossary.md#intent) ed [entità](l
 Un'app LUIS è incentrata su un dominio soggetto. Ad esempio, è possibile avere un'app di viaggio che gestisce la prenotazione di biglietti, voli, Alberghi e automobili di noleggio. Un'altra app potrebbe fornire contenuti relativi ad allenamento fisico, monitoraggio degli sforzi e impostazione degli obiettivi. L'identificazione del dominio consente di trovare parole o frasi rilevanti per il dominio.
 
 > [!TIP]
-> LUIS offre [domini predefiniti](luis-how-to-use-prebuilt-domains.md) per molti scenari comuni. Verificare se è possibile utilizzare un dominio predefinito come punto di partenza per l'app.
+> LUIS offre [domini predefiniti](./howto-add-prebuilt-models.md) per molti scenari comuni. Verificare se è possibile utilizzare un dominio predefinito come punto di partenza per l'app.
 
 ## <a name="identify-your-intents"></a>Identificare le finalità
 
@@ -49,7 +49,7 @@ Nelle espressioni di esempio individuare le entità che si intende estrarre. Per
 Quando si determinano le entità da usare nell'app, tenere presente che esistono tipi diversi di entità per l'acquisizione delle relazioni tra i tipi di oggetto. L'articolo [Entità in LUIS](luis-concept-entity-types.md) fornisce maggiori dettagli su questi diversi tipi.
 
 > [!TIP]
-> LUIS offre [entità predefinite](luis-prebuilt-entities.md) per scenari utente comuni e di conversazione. Prendere in considerazione l'uso di entità predefinite come punto di partenza per lo sviluppo di applicazioni.
+> LUIS offre [entità predefinite](./howto-add-prebuilt-models.md) per scenari utente comuni e di conversazione. Prendere in considerazione l'uso di entità predefinite come punto di partenza per lo sviluppo di applicazioni.
 
 ## <a name="resolution-with-intent-or-entity"></a>Risoluzione con finalità o entità?
 
@@ -69,7 +69,7 @@ Invece di avere due finalità separate, creare una singola finalità con un'enti
 L' `FlightAction` entità è strutturata nello pseudo-schema seguente dell'entità e delle sottoentità di Machine Learning:
 
 * FlightAction
-    * Azione
+    * Action
     * Origine
     * Destination
 
@@ -79,4 +79,3 @@ Per consentire all'estrazione di aggiungere funzionalità alle sottoentità. Si 
 
 > [!div class="nextstepaction"]
 > [Apprendimento della lifecylce di sviluppo LUIS](luis-concept-app-iteration.md)
-

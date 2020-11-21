@@ -11,16 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 99cde78f0944544941224927e84e117bd0e660d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81725a28102caf0d69a9fb303eaccdcf2151587d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667844"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020028"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c-sharp"></a>Eseguire query sui dati dall'ambiente Azure Time Series Insights Gen2 con C Sharp
 
-Questo esempio in C# illustra come eseguire query sui dati dalle [API di accesso ai dati di Gen2](https://docs.microsoft.com/rest/api/time-series-insights/reference-data-access-overview) in Azure Time Series Insights ambienti Gen2.
+Questo esempio in C# illustra come eseguire query sui dati dalle [API di accesso ai dati di Gen2](/rest/api/time-series-insights/reference-data-access-overview) in Azure Time Series Insights ambienti Gen2.
 
 > [!TIP]
 > Vedere gli esempi di codice C# Gen2 in [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample) .
@@ -33,22 +33,22 @@ Il codice di esempio seguente illustra le funzionalità seguenti:
 * Come acquisire un token di accesso da Azure Active Directory usando [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
 * Come passare il token di accesso acquisito nell'intestazione `Authorization` delle successive richieste API di accesso ai dati.
 * L'esempio fornisce un'interfaccia console che illustra come le richieste HTTP vengono apportate agli elementi seguenti:
-  * [API per ambienti Gen2](https://docs.microsoft.com/rest/api/time-series-insights/reference-environments-apis)
-    * [API GET di disponibilità degli ambienti](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability) e [API GET dello schema di eventi](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema)
-  * [API di query Gen2](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis)
-    * [API GET degli eventi](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents), [API GET delle serie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries) e [API GET delle serie di aggregazione](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
-  * [API modello della serie temporale](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
-    * [API GET delle gerarchie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies) e [API del batch di gerarchie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
-    * [API GET dei tipi](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes) e [API del batch di tipi](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
-    * [API GET delle istanze](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances) e [API del batch di istanze](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
+  * [API per ambienti Gen2](/rest/api/time-series-insights/reference-environments-apis)
+    * [API GET di disponibilità degli ambienti](/rest/api/time-series-insights/dataaccessgen2/query/getavailability) e [API GET dello schema di eventi](/rest/api/time-series-insights/dataaccessgen2/query/geteventschema)
+  * [API di query Gen2](/rest/api/time-series-insights/reference-query-apis)
+    * [API GET degli eventi](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents), [API GET delle serie](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries) e [API GET delle serie di aggregazione](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
+  * [API modello della serie temporale](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
+    * [API GET delle gerarchie](/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies) e [API del batch di gerarchie](/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
+    * [API GET dei tipi](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes) e [API del batch di tipi](/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
+    * [API GET delle istanze](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances) e [API del batch di istanze](/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
 
-* Funzionalità avanzate di [ricerca](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#search-features) e [TSX](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
+* Funzionalità avanzate di [ricerca](/rest/api/time-series-insights/reference-model-apis#search-features) e [TSX](/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 ## <a name="prerequisites-and-setup"></a>Prerequisiti e configurazione
 
 Prima di compilare ed eseguire lo script di esempio, completare questa procedura:
 
-1. Effettuare [il provisioning di un ambiente di Azure Time Series Insights Gen2](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-how-to-manage#create-the-environment) .
+1. Effettuare [il provisioning di un ambiente di Azure Time Series Insights Gen2](./how-to-provision-manage.md#create-the-environment) .
 1. Configurare l'ambiente di Azure Time Series Insights per Azure Active Directory come descritto in [Autenticazione e autorizzazione](time-series-insights-authentication-and-authorization.md).
 1. Eseguire il [GenerateCode.bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/GenerateCode.bat) come specificato in [Readme.MD](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClient/Readme.md) per generare le dipendenze del client di Azure Time Series Insights Gen2.
 1. Aprire la soluzione `TSIPreviewDataPlaneclient.sln` e impostare `DataPlaneClientSampleApp` come progetto predefinito in Visual Studio.
@@ -80,6 +80,6 @@ Per accedere al codice di esempio C#, vedere il repository [Azure Time Series In
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sull'esecuzione di query, vedere le [informazioni di riferimento sull'API di query](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis).
+* Per altre informazioni sull'esecuzione di query, vedere le [informazioni di riferimento sull'API di query](/rest/api/time-series-insights/reference-query-apis).
 
 * Leggere le informazioni su come [connettere un'app JavaScript usando l'SDK client](https://github.com/microsoft/tsiclient) per Azure Time Series Insights.

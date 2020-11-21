@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: a5760db2d6e453d631680d6154e6d9a03ce55cd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59cf250a9db5a1f6759495c1b5a3c48cb07cde15
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541340"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018787"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifiche all'endpoint di stima per V3
 
@@ -56,11 +56,11 @@ Se si usa bot Framework, Controllo ortografico Bing V7 o si vuole eseguire la mi
 Se non si conosce alcuna applicazione client o integrazione (bot Framework e Controllo ortografico Bing V7), si è interessati alla migrazione della creazione di app LUIS e dell'endpoint di stima allo stesso tempo, iniziare a usare l'endpoint di stima V3. L'endpoint di stima v2 sarà ancora disponibile ed è una corretta strategia di fallback.
 
 
-## <a name="not-supported"></a>Non supportato
+## <a name="not-supported"></a>Non supportate
 
 ### <a name="bing-spell-check"></a>Controllo ortografico Bing
 
-Questa API non è supportata nell'endpoint di stima V3-continuare a usare l'endpoint di stima dell'API v2 per le correzioni ortografiche. Se è necessaria la correzione ortografica quando si usa l'API V3, fare in modo che l'applicazione client chiami l'API [controllo ortografico Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/overview) e modifichi il testo con l'ortografia corretta, prima di inviare il testo all'API Luis.
+Questa API non è supportata nell'endpoint di stima V3-continuare a usare l'endpoint di stima dell'API v2 per le correzioni ortografiche. Se è necessaria la correzione ortografica quando si usa l'API V3, fare in modo che l'applicazione client chiami l'API [controllo ortografico Bing](../bing-spell-check/overview.md) e modifichi il testo con l'ortografia corretta, prima di inviare il testo all'API Luis.
 
 ## <a name="bot-framework-and-azure-bot-service-client-applications"></a>Bot Framework e applicazioni client del servizio Azure bot
 
@@ -109,7 +109,7 @@ Per eseguire una query in base alla versione, è prima di tutto necessario [pubb
 |`externalEntities`|array|Solo V3|Non obbligatorio.|Le [entità esterne](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) offrono all'app Luis la possibilità di identificare ed etichettare entità durante il runtime, che possono essere usate come funzionalità per le entità esistenti. |
 |`options.datetimeReference`|string|Solo V3|Nessun valore predefinito|Utilizzato per determinare l' [offset del datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Il formato di datetimeReference è [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.preferExternalEntities`|boolean|Solo V3|false|Specifica se l' [entità esterna dell'utente (con lo stesso nome dell'entità esistente)](schema-change-prediction-runtime.md#override-existing-model-predictions) viene utilizzata o se per la stima viene utilizzata l'entità esistente del modello. |
-|`query`|string|Solo V3|Obbligatorio.|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3**la funzionalità viene passata nel `query` parametro.|
+|`query`|string|Solo V3|Obbligatorio.|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3** la funzionalità viene passata nel `query` parametro.|
 
 ## <a name="response-changes"></a>Modifiche della risposta
 
@@ -164,7 +164,7 @@ Le modifiche dello schema JSON della risposta consentono:
 
 **Nella versione V2**, un'entità è stata contrassegnata in un enunciato con `startIndex` e `endIndex` .
 
-**In V3**l'entità è contrassegnata con `startIndex` e `entityLength` .
+**In V3** l'entità è contrassegnata con `startIndex` e `entityLength` .
 
 #### <a name="access-instance-for-entity-metadata"></a>Accesso `$instance` per i metadati dell'entità
 

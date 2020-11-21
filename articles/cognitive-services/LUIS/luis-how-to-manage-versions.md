@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.openlocfilehash: 3cf4ce5dc7061065ea501ae1c00cd5b9e5404770
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b93e9fd4047ee3731ef6fe4652bb92ce5145987d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540864"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018821"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Usare le versioni per eseguire modifiche e test senza conseguenze per le app di staging o produzione
 
-Le versioni consentono di compilare e pubblicare modelli diversi. Una procedura consigliata consiste nel clonare il modello attualmente attivo in una [versione](luis-concept-version.md) diversa dell'app prima di apportare modifiche al modello.
+Le versioni consentono di compilare e pubblicare modelli diversi. Una procedura consigliata consiste nel clonare il modello attualmente attivo in una [versione](./luis-concept-app-iteration.md) diversa dell'app prima di apportare modifiche al modello.
 
 La versione attiva è la versione che si sta modificando nella sezione **Build** del portale Luis con Intent, entità, funzionalità e modelli. Quando si usano le API di creazione, non è necessario impostare la versione attiva perché le chiamate all'API REST specifiche della versione includono la versione nella route.
 
@@ -66,4 +66,3 @@ Selezionare una versione dall'elenco e quindi selezionare **Activate (attiva** )
 * Per **eliminare** una versione, selezionare una versione dall'elenco, quindi selezionare **Elimina** nella barra degli strumenti. Selezionare **OK**.
 * Per **eliminare** una versione, selezionare una versione dall'elenco, quindi selezionare **Rinomina** nella barra degli strumenti. Immettere un nuovo nome e selezionare **Fatto**.
 * Per **esportare** una versione, selezionare una versione dall'elenco, quindi selezionare **Esporta app** nella barra degli strumenti. Scegliere JSON o LU per esportare un backup o salvarlo nel controllo del codice sorgente, scegliere **Esporta per contenitore** per [usare questa app in un contenitore Luis](luis-container-howto.md).
-

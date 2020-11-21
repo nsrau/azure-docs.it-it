@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 12693fb11556380e62df277be093ce20c02ff372
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fd7499bd5e216f2a625d87ea13996da851a1889e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018033"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019212"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Archiviazione e rimozione dei dati nei Servizi cognitivi di LUIS (Language Understanding)
 LUIS archivia i dati crittografati in un archivio dati di Azure corrispondente alla regione specificata dalla chiave. Questi dati vengono archiviati per 30 giorni. 
@@ -27,7 +27,7 @@ Gli utenti hanno il controllo completo sull'[esportazione](luis-how-to-start-new
 Le espressioni possono essere archiviate in due posizioni diverse. 
 
 * Durante **il processo di creazione**, le espressioni vengono create e archiviate nello scopo. Le espressioni negli Intent sono necessarie per un'app LUIS riuscita. Dopo la pubblicazione dell'app e la ricezione di query sull'endpoint, la QueryString della richiesta dell'endpoint `log=false` determina se l'espressione dell'endpoint è archiviata. Se l'endpoint è archiviato, diventa parte delle espressioni di formazione attive disponibili nella sezione **Build** del portale, nella sezione **Review endpoint enunciations** . 
-* Quando si **esaminano le espressioni dell'endpoint**e si aggiunge un enunciato a un preventivo, l'espressione non viene più archiviata come parte delle espressioni di endpoint da rivedere. Viene aggiunto agli Intent dell'app. 
+* Quando si **esaminano le espressioni dell'endpoint** e si aggiunge un enunciato a un preventivo, l'espressione non viene più archiviata come parte delle espressioni di endpoint da rivedere. Viene aggiunto agli Intent dell'app. 
 
 <a name="utterances-in-an-intent"></a>
 
@@ -55,7 +55,7 @@ Se non si esegue la migrazione, è possibile eliminare l'account e tutte le app 
 L'eliminazione dell'account può essere eseguita nella pagina **Settings** (Impostazioni). Selezionare il nome dell'account nella barra di spostamento in alto a destra per andare alla pagina **Settings** (Impostazioni).
 
 ## <a name="delete-an-authoring-resource"></a>Eliminare una risorsa di creazione
-Se è stata [eseguita la migrazione a una risorsa di creazione](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring), l'eliminazione della risorsa stessa dal portale di Azure eliminerà tutte le applicazioni associate a tale risorsa, insieme alle espressioni e ai log di esempio. I dati vengono conservati per 90 giorni prima di essere eliminati in modo permanente.    
+Se è stata [eseguita la migrazione a una risorsa di creazione](./luis-migration-authoring.md), l'eliminazione della risorsa stessa dal portale di Azure eliminerà tutte le applicazioni associate a tale risorsa, insieme alle espressioni e ai log di esempio. I dati vengono conservati per 90 giorni prima di essere eliminati in modo permanente.    
 
 Per eliminare la risorsa, passare alla [portale di Azure](https://ms.portal.azure.com/#home) e selezionare la risorsa Luis authoring. Passare alla scheda **Panoramica** e fare clic sul pulsante **Elimina** nella parte superiore della pagina. Quindi verificare che la risorsa sia stata eliminata. 
 

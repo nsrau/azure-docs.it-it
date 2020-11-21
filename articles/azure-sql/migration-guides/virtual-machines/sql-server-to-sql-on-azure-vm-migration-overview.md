@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: d47abaade13958b4e28d3ad5f62b88e8a53e89a9
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: a910edfbbe1ad07dca806026396c506f7e90e6e7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917842"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95019433"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Panoramica della migrazione: SQL Server SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -75,9 +75,9 @@ La tabella seguente illustra in dettaglio il metodo disponibile per la strategia
 
 |**Metodo** | **Versione di origine minima** | **Versione minima di destinazione** | **Vincolo dimensioni backup di origine** |  **Note** |
 | --- | --- | --- | --- | --- |
-| [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  SQL Server esistenti da spostare così come sono nell'istanza di SQL Server in una macchina virtuale di Azure. Consente di ridimensionare i carichi di lavoro di migrazione fino a 35.000 VM. <br /><br /> I server di origine restano online e richiedono richieste durante la sincronizzazione dei dati del server, riducendo al minimo i tempi di inattività. <br /><br /> **Scripting & di automazione**: [Azure Site Recovery script](../../../migrate/how-to-migrate-at-scale.md) ed [esempio di migrazione e pianificazione con scalabilità per Azure](/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
+| [Azure Migrate](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Limite di archiviazione della macchina virtuale di Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  SQL Server esistenti da spostare così come sono nell'istanza di SQL Server in una macchina virtuale di Azure. Consente di ridimensionare i carichi di lavoro di migrazione fino a 35.000 VM. <br /><br /> I server di origine restano online e richiedono richieste durante la sincronizzazione dei dati del server, riducendo al minimo i tempi di inattività. <br /><br /> **Scripting & di automazione**: [Azure Site Recovery script](../../../migrate/how-to-migrate-at-scale.md) ed [esempio di migrazione e pianificazione con scalabilità per Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
-## <a name="migrate"></a>Migrazione  
+## <a name="migrate"></a>Migrate  
 
 A causa della semplicità di installazione, l'approccio di migrazione consigliato consiste nell'eseguire un [backup](/sql/t-sql/statements/backup-transact-sql) nativo SQL Server localmente e quindi copiare il file in Azure. Questo metodo supporta database di dimensioni maggiori (>1 TB) per tutte le versioni di SQL Server a partire da 2008 e backup di database di dimensioni maggiori (>1 TB). Tuttavia, per i database a partire da SQL Server 2014, che hanno dimensioni inferiori a 1 TB e che dispongono di una connettività adeguata ad Azure, [SQL Server backup su URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) è l'approccio migliore. 
 

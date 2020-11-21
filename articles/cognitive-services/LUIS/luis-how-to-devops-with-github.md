@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
 ms.author: anwigley
-ms.openlocfilehash: 6df65040277ac61cca5fb4bf7fce5b5a7b2f3afe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b733e90b69be4e2bd458be5486564747ed4cca78
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84783761"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018872"
 ---
 # <a name="apply-devops-to-luis-app-development-using-github-actions"></a>Applicare DevOps per lo sviluppo di app LUIS usando GitHub Actions
 
@@ -27,9 +27,9 @@ Passare al [repository del modello Luis DevOps](https://github.com/Azure-Samples
 Il [repository di modelli Luis DevOps](https://github.com/Azure-Samples/LUIS-DevOps-Template) illustra come eseguire le operazioni seguenti:
 
 * **Clonare il repository del modello** : copiare il modello nel repository GitHub.
-* **Configurare le risorse Luis** : creare le [risorse Luis Authoring and prediction in Azure](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription#create-resources-in-azure-cli) che verranno usate dai flussi di lavoro di integrazione continua.
+* **Configurare le risorse Luis** : creare le [risorse Luis Authoring and prediction in Azure](./luis-how-to-azure-subscription.md) che verranno usate dai flussi di lavoro di integrazione continua.
 * **Configurare i flussi di lavoro ci/CD** : configurare i parametri per i flussi di lavoro di integrazione continua/recapito continuo e archiviarli nei [segreti di GitHub](https://help.github.com/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
-* Illustra **il ["ciclo interno](https://mitchdenny.com/the-inner-loop/) ** di sviluppo": lo sviluppatore esegue gli aggiornamenti a un'app Luis di esempio mentre lavora in un ramo di sviluppo, verifica gli aggiornamenti e quindi genera una richiesta pull per proporre le modifiche e cercare l'approvazione della verifica.
+* Illustra **il ["ciclo interno](https://mitchdenny.com/the-inner-loop/)** di sviluppo": lo sviluppatore esegue gli aggiornamenti a un'app Luis di esempio mentre lavora in un ramo di sviluppo, verifica gli aggiornamenti e quindi genera una richiesta pull per proporre le modifiche e cercare l'approvazione della verifica.
 * **Eseguire flussi di lavoro ci/CD** -eseguire [flussi di lavoro di integrazione continua per compilare e testare un'app Luis usando le azioni di](luis-concept-devops-automation.md) github.
 * **Eseguire test automatizzati** : eseguire [test automatizzati in batch per un'app Luis](luis-concept-devops-testing.md) per valutare la qualità dell'app.
 * **Distribuire l'app Luis** : eseguire un [processo di recapito continuo (CD)](luis-concept-devops-automation.md#continuous-delivery-cd) per pubblicare l'app Luis.

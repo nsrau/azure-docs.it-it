@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: dc759bb9af852fab5313686ebaffefda9220f45a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d80d97a609aa3a464b9b114439fe7f4058e287c3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614241"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95020147"
 ---
 # <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Creare un set di dati di riferimento per l'ambiente Azure Time Series Insights Gen1 usando il portale di Azure
 
@@ -107,7 +107,7 @@ Non viene creato un join dei dati di riferimento in maniera retroattiva. In ques
     > [!WARNING]
     > Nelle colonne o nelle proprietà condivise tra set di dati di riferimento verrà visualizzato un errore di caricamento del **nome di proprietà duplicato** . L'errore non impedirà il completamento del caricamento dei set di dati di riferimento. Può essere rimossa combinando le righe che condividono il nome della proprietà duplicata.
 
-1. Selezionare **Aggiungi una riga**, **Importa righe**o **Aggiungi una colonna** per aggiungere altri valori dei dati di riferimento, in base alle esigenze.
+1. Selezionare **Aggiungi una riga**, **Importa righe** o **Aggiungi una colonna** per aggiungere altri valori dei dati di riferimento, in base alle esigenze.
 
     [![Aggiunta di una riga, importazione bulk di righe o aggiunta di una colonna.](media/add-reference-data-set/add-row-or-bulk-upload.png)](media/add-reference-data-set/add-row-or-bulk-upload.png#lightbox)
 
@@ -121,4 +121,4 @@ Non viene creato un join dei dati di riferimento in maniera retroattiva. In ques
 
 - [Gestire i dati di riferimento](time-series-insights-manage-reference-data-csharp.md) a livello di codice.
 
-- Per informazioni di riferimento complete sulle API, vedere il documento [API dati di riferimento](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) .
+- Per informazioni di riferimento complete sulle API, vedere il documento [API dati di riferimento](/rest/api/time-series-insights/gen1-reference-data-api) .

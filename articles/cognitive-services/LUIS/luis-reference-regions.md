@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: a591a8d0df751c071a17b1d77febdb3607a1b53d
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f7c6c3f9c3f468c7b55baf2b0cc45c094d693de5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555771"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95018651"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Creazione e pubblicazione di aree e chiavi associate
 
@@ -27,7 +27,7 @@ Sono disponibili tre portali per la creazione di LUIS, in base all'area. La crea
 |[au.luis.ai][au.luis.ai] |Australia| `australiaeast`|
 |[au.luis.ai][eu.luis.ai] |Europa|`westeurope`|
 
-Per le aree di creazione sono state [associate aree di failover](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Per le aree di creazione sono state [associate aree di failover](../../best-practices-availability-paired-regions.md).
 
 <a name="regions-and-azure-resources"></a>
 
@@ -102,7 +102,7 @@ Altre informazioni sugli [endpoint di creazione e stima](developer-reference-res
 
 Per ogni area è presente un'area secondaria in cui eseguire il failover. L'Europa esegue il failover all'interno dell'Europa e l'Australia esegue il failover in Australia.
 
-Per le aree di creazione sono state [associate aree di failover](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Per le aree di creazione sono state [associate aree di failover](../../best-practices-availability-paired-regions.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
