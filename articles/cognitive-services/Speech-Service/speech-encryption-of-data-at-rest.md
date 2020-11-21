@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: b9b76b2eb5e9536561f73a92b6911a2f82122a1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa0fe33dff0161767b74546aad49003d8fc70c16
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078096"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015257"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Crittografia dei dati inattivi per il servizio vocale
 
@@ -33,11 +33,11 @@ Quando si usa Riconoscimento vocale personalizzato e una voce personalizzata, il
 
 Per impostazione predefinita, i dati vengono archiviati nella risorsa di archiviazione di Microsoft e la sottoscrizione USA chiavi di crittografia gestite da Microsoft. È anche possibile preparare il proprio account di archiviazione. L'accesso all'archivio è gestito dall'identità gestita e il servizio di riconoscimento vocale non può accedere direttamente ai propri dati, ad esempio i dati di traccia vocale, i dati di training di personalizzazione e i modelli personalizzati.
 
-Per altre informazioni sull'identità gestita, vedere [che cosa sono le identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Per altre informazioni sull'identità gestita, vedere [che cosa sono le identità gestite](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="bring-your-own-storage-byos-for-customization-and-logging"></a>Bring your own Storage (BYOS) per la personalizzazione e la registrazione
 
-Per richiedere l'accesso all'archiviazione, compilare e inviare il [modulo di richiesta BYOS (Bring your own Storage)](https://aka.ms/cogsvc-cmk). Una volta approvata, è necessario creare un proprio account di archiviazione per archiviare i dati necessari per la personalizzazione e la registrazione. Quando si aggiunge un account di archiviazione, la risorsa del servizio vocale Abilita un'identità gestita assegnata dal sistema. Quando l'identità gestita assegnata dal sistema è abilitata, questa risorsa verrà registrata con Azure Active Directory (AAD). Dopo la registrazione, all'identità gestita verrà concesso l'accesso all'account di archiviazione. Altre informazioni sulle identità gestite sono disponibili qui. Per altre informazioni sull'identità gestita, vedere [che cosa sono le identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Per richiedere l'accesso all'archiviazione, compilare e inviare il [modulo di richiesta BYOS (Bring your own Storage)](https://aka.ms/cogsvc-cmk). Una volta approvata, è necessario creare un proprio account di archiviazione per archiviare i dati necessari per la personalizzazione e la registrazione. Quando si aggiunge un account di archiviazione, la risorsa del servizio vocale Abilita un'identità gestita assegnata dal sistema. Quando l'identità gestita assegnata dal sistema è abilitata, questa risorsa verrà registrata con Azure Active Directory (AAD). Dopo la registrazione, all'identità gestita verrà concesso l'accesso all'account di archiviazione. Altre informazioni sulle identità gestite sono disponibili qui. Per altre informazioni sull'identità gestita, vedere [che cosa sono le identità gestite](../../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
 > Se si disabilitano le identità gestite assegnate dal sistema, l'accesso all'account di archiviazione verrà rimosso. In questo modo, le parti del servizio di riconoscimento vocale che richiedono l'accesso all'account di archiviazione smetteranno di funzionare.  
@@ -50,4 +50,4 @@ Il servizio di riconoscimento vocale attualmente non supporta Customer Lockbox. 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Servizio di riconoscimento vocale-modulo di richiesta Bring your own Storage (BYOS)](https://aka.ms/cogsvc-cmk)
-* [Che cosa sono le identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+* [Che cosa sono le identità gestite](../../active-directory/managed-identities-azure-resources/overview.md).

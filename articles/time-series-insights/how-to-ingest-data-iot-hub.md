@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: 28a1990155e1406bf9b79572b3e5307cadfb8076
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09ee98bf8bbe0067f9c79ce4767f3cf68b83fb43
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665923"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016803"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Aggiungere un'origine evento dell'hub Internet all'ambiente Azure Time Series Insight
 
@@ -27,7 +27,7 @@ Questo articolo descrive come usare il portale di Azure per aggiungere all'ambie
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Creare un [ambiente Azure Time Series Insights](time-series-insights-update-create-environment.md).
+* Creare un [ambiente Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
 * Creare un [hub IoT usando il portale di Azure](../iot-hub/iot-hub-create-through-portal.md).
 * L'hub IoT deve ricevere eventi messaggio attivi.
 * Creare un gruppo di consumer dedicato nell'hub Internet per l'uso da parte dell'ambiente Azure Time Series Insight. Ogni origine evento Azure Time Series Insight deve avere un proprio gruppo di consumer dedicato che non è condiviso con altri consumer. Se più lettori utilizzano eventi dello stesso gruppo di consumer, è probabile che tutti i lettori mostrino errori. Per informazioni dettagliate, vedere la guida per gli [sviluppatori dell'hub Azure](../iot-hub/iot-hub-devguide.md).
@@ -40,7 +40,7 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT:
 
 1. Nella [portale di Azure](https://portal.azure.com)individuare e aprire l'hub Internet.
 
-1. In **Impostazioni**selezionare **endpoint predefiniti**, quindi selezionare l'endpoint **eventi** .
+1. In **Impostazioni** selezionare **endpoint predefiniti**, quindi selezionare l'endpoint **eventi** .
 
    [![Nella pagina Endpoint predefiniti selezionare il pulsante Eventi.](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-connect-iot-hub.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-connect-iot-hub.png#lightbox)
 
@@ -54,7 +54,7 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT:
 
 1. Nel menu a sinistra selezionare **Tutte le risorse**. Selezionare l'ambiente Azure Time Series Insights.
 
-1. In **Impostazioni**selezionare **origini eventi**, quindi selezionare **Aggiungi**.
+1. In **Impostazioni** selezionare **origini eventi**, quindi selezionare **Aggiungi**.
 
    [![Selezionare le origini eventi e quindi selezionare il pulsante Aggiungi.](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png#lightbox)
 
@@ -74,7 +74,7 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT:
 
        | Proprietà | Descrizione |
        | --- | --- |
-       | Subscription | Sottoscrizione a cui appartiene l'hub Internet. |
+       | Sottoscrizione | Sottoscrizione a cui appartiene l'hub Internet. |
        | Nome dell'hub IoT | Nome dell'hub di Internet delle cose selezionato. |
        | Nome criterio dell'hub IoT | Selezionare i criteri di accesso condiviso. È possibile trovare i criteri di accesso condiviso nella scheda Impostazioni hub Internet. Ogni criterio di accesso condiviso ha un nome, le autorizzazioni impostate e le chiavi di accesso. Il criterio di accesso condiviso per l'origine evento *deve* avere le autorizzazioni per la **connessione al servizio**. |
        | Chiave criteri hub IoT | La chiave è prepopolata. |
@@ -107,7 +107,7 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Definire criteri di accesso ai dati](time-series-insights-data-access.md) per proteggere i dati.
+* [Definire criteri di accesso ai dati](./concepts-access-policies.md) per proteggere i dati.
 
 * [Inviare eventi](time-series-insights-send-events.md) all'origine evento.
 

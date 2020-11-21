@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 24d4dd4d0caa49b9514bf19f707ea87b0b071a79
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 9b9390b498f28fc8f9029f1c11805b970aaca73d
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357097"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014561"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Procedura: distribuire un'applicazione Web per il conteggio di persone
 
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
-* Conoscenza di base delle configurazioni di distribuzione di Azure IoT Edge e di un [Hub Azure](https://docs.microsoft.com/azure/iot-hub/) .
+* Conoscenza di base delle configurazioni di distribuzione di Azure IoT Edge e di un [Hub Azure](../../iot-hub/index.yml) .
 * Un [computer host](spatial-analysis-container.md)configurato.
 
 ## <a name="deploy-the-spatial-analysis-container"></a>Distribuire il contenitore di analisi spaziale
@@ -65,7 +65,7 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 Distribuire il contenitore di analisi spaziale come modulo di Internet delle cose nel computer host usando l'interfaccia della riga di comando di Azure. Il processo di distribuzione richiede un file manifesto di distribuzione che descrive i contenitori, le variabili e le configurazioni necessari per la distribuzione. In GitHub è disponibile un esempio di un [manifesto di distribuzione specifico di Azure stack Edge](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) , oltre a un [manifesto di distribuzione specifico di un bordo non Azure stack](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) , che include una configurazione di distribuzione di base per il contenitore di *analisi spaziale* . 
 
-In alternativa, è possibile usare le estensioni Azure per Visual Studio Code per eseguire operazioni con l'hub Internet delle cose. Per altre informazioni, vedere [distribuire moduli Azure IOT Edge da Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode) .
+In alternativa, è possibile usare le estensioni Azure per Visual Studio Code per eseguire operazioni con l'hub Internet delle cose. Per altre informazioni, vedere [distribuire moduli Azure IOT Edge da Visual Studio Code](../../iot-edge/how-to-deploy-modules-vscode.md) .
 
 > [!NOTE] 
 > I contenitori *Spatial-Analysis-Telegraf* e *Spatial-Analysis-Diagnostics* sono facoltativi. È possibile decidere di rimuoverli dalla *DeploymentManifest.jssu* file. Per altre informazioni, vedere l'articolo [telemetria e risoluzione dei problemi](./spatial-analysis-logging.md) . È possibile trovare dueDeploymentManifest.jsdi esempio *sui* file in GitHub, per un [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o un altro [computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
@@ -172,7 +172,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-Per installare il contenitore, creare una nuova app Web per contenitori di Azure e specificare i parametri necessari. Passare quindi alla scheda **Docker** e selezionare **singolo contenitore** , quindi **container Registry di Azure**. Usare l'istanza di Azure Container Registry in cui è stato eseguito il push dell'immagine sopra.
+Per installare il contenitore, creare una nuova app Web per contenitori di Azure e specificare i parametri necessari. Passare quindi alla scheda **Docker** e selezionare **singolo contenitore**, quindi **container Registry di Azure**. Usare l'istanza di Azure Container Registry in cui è stato eseguito il push dell'immagine sopra.
 
 ![Immettere i dettagli dell'immagine](./media/spatial-analysis/solution-app-create-screen.png)
 

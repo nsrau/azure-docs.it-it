@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2b3e006f717ed1c66c7db29dbd70c226d2d75ea8
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 702de11abc274d1f4001df5b28498928fde71109
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127217"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014459"
 ---
 # <a name="build-end-to-end-solution-with-azure-iot-central-and-dynamics-365-field-service"></a>Creare una soluzione end-to-end con Azure IoT Central e Dynamics 365 for Field Service 
 
@@ -21,7 +21,7 @@ ms.locfileid: "92127217"
 Gli sviluppatori possono abilitare l'integrazione dell'applicazione Azure IoT Central con altri sistemi aziendali. 
 
 
-Ad esempio, in una soluzione di Gestione rifiuti connessa è possibile ottimizzare l'invio dei camion di raccolta rifiuti. L'ottimizzazione può essere eseguita in base ai dati dei sensori di Internet delle cose provenienti da contenitori di rifiuti connessi. Nell' [applicazione IoT Central Connected Waste Management](./tutorial-connected-waste-management.md) è possibile configurare regole e azioni e impostarla per attivare la creazione di avvisi nel servizio campo Dynamics. Questo scenario si realizza con Microsoft Flow, che verrà configurato direttamente in IoT Central per automatizzare i flussi di lavoro tra applicazioni e servizi. Inoltre, in base alle attività dei servizi in Field Service, è possibile restituire le informazioni ad Azure IoT Central. 
+Ad esempio, in una soluzione di Gestione rifiuti connessa è possibile ottimizzare l'invio dei camion di raccolta rifiuti. L'ottimizzazione può essere eseguita in base ai dati dei sensori di Internet delle cose provenienti da contenitori di rifiuti connessi. Nell' [applicazione IoT Central Connected Waste Management](./tutorial-connected-waste-management.md) è possibile configurare regole e azioni e impostarla per attivare la creazione di avvisi nel servizio campo Dynamics. Questo scenario viene eseguito tramite Power Automate, che verrà configurato direttamente in IoT Central per l'automazione dei flussi di lavoro tra le applicazioni e i servizi. Inoltre, in base alle attività dei servizi in Field Service, è possibile restituire le informazioni ad Azure IoT Central. 
 
 ## <a name="how-to-connect-your-azure-iot-central-application-with-dynamics-365-field-services"></a>Come connettere l'applicazione Azure IoT Central a Dynamics 365 for Field Service 
 

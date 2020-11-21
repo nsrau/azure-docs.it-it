@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 7408e3fb279536f61dd2e5cf1858476da57219d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1bd3c5796658663b6111723829cbe620346002c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665812"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016242"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticazione e autorizzazione per l'API Azure Time Series Insights
 
@@ -73,7 +73,7 @@ Come indicato nel **passaggio 3**, la separazione delle credenziali dell'applica
 1. Salvare il criterio selezionando **OK**.
 
    > [!TIP]
-   > Per le opzioni avanzate di accesso ai dati, vedere [Concessione dell'accesso ai dati](./time-series-insights-data-access.md).
+   > Per le opzioni avanzate di accesso ai dati, vedere [Concessione dell'accesso ai dati](./concepts-access-policies.md).
 
 ### <a name="client-app-initialization"></a>Inizializzazione dell'app client
 
@@ -90,18 +90,18 @@ Come indicato nel **passaggio 3**, la separazione delle credenziali dell'applica
    1. Il token può quindi essere passato nell' `Authorization` intestazione quando l'applicazione chiama l'API Azure Time Series Insights.
 
 > [!IMPORTANT]
-> Se si usa [Azure Active Directory Authentication Library (adal),](https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries) vedere la pagina relativa [alla migrazione a MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration).
+> Se si usa [Azure Active Directory Authentication Library (adal),](../active-directory/azuread-dev/active-directory-authentication-libraries.md) vedere la pagina relativa [alla migrazione a MSAL](../active-directory/develop/msal-net-migration.md).
 
 ## <a name="common-headers-and-parameters"></a>Intestazioni e parametri comuni
 
-Questa sezione descrive le intestazioni e i parametri della richiesta HTTP comuni usati per eseguire query sulle API Azure Time Series Insights Gen1 e Gen2. I requisiti specifici dell'API sono trattati più dettagliatamente nella [documentazione di riferimento dell'API REST di Azure Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/).
+Questa sezione descrive le intestazioni e i parametri della richiesta HTTP comuni usati per eseguire query sulle API Azure Time Series Insights Gen1 e Gen2. I requisiti specifici dell'API sono trattati più dettagliatamente nella [documentazione di riferimento dell'API REST di Azure Time Series Insights](/rest/api/time-series-insights/).
 
 > [!TIP]
-> Vedere [Informazioni di riferimento sull'API REST di Azure](https://docs.microsoft.com/rest/api/azure/) per altre informazioni su come usare le API REST, effettuare richieste HTTP e gestire le risposte HTTP.
+> Vedere [Informazioni di riferimento sull'API REST di Azure](/rest/api/azure/) per altre informazioni su come usare le API REST, effettuare richieste HTTP e gestire le risposte HTTP.
 
 ### <a name="authentication"></a>Authentication
 
-Per eseguire query autenticate sulle [API REST di Azure Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), è necessario passare un bearer token OAuth 2,0 valido nell' [intestazione dell'autorizzazione](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) usando un client REST di propria scelta (poster, JavaScript, C#).
+Per eseguire query autenticate sulle [API REST di Azure Time Series Insights](/rest/api/time-series-insights/), è necessario passare un bearer token OAuth 2,0 valido nell' [intestazione dell'autorizzazione](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) usando un client REST di propria scelta (poster, JavaScript, C#).
 
 > [!TIP]
 > Leggere la visualizzazione di esempio di Hosted Azure Time Series Insights [client SDK](https://tsiclientsample.azurewebsites.net/) per informazioni su come eseguire l'autenticazione con le api di Azure Time Series Insights a livello di codice usando [JavaScript client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) insieme a grafici e grafici.
@@ -140,7 +140,7 @@ Di seguito sono descritte le intestazioni della risposta facoltative ma consigli
 ### <a name="http-parameters"></a>Parametri HTTP
 
 > [!TIP]
-> Per approfondire le informazioni sulle query obbligatorie e facoltative, vedere la [documentazione di riferimento](https://docs.microsoft.com/rest/api/time-series-insights/).
+> Per approfondire le informazioni sulle query obbligatorie e facoltative, vedere la [documentazione di riferimento](/rest/api/time-series-insights/).
 
 I parametri della stringa di query dell'URL obbligatori dipendono dalla versione dell'API.
 
@@ -157,7 +157,7 @@ I parametri della stringa di query dell'URL facoltativi includono l'impostazione
 
 | Parametro di query facoltativo | Descrizione | Versione |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Timeout lato server per l'esecuzione di una richiesta HTTP. Applicabile solo alle API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) e [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api). Il valore di timeout deve essere nel formato di durata ISO 8601, ad esempio `"PT20S"`, e deve essere compreso nell'intervallo `1-30 s`. Il valore predefinito è `30 s`. | Prima generazione |
+| `timeout=<timeout>` | Timeout lato server per l'esecuzione di una richiesta HTTP. Applicabile solo alle API [Get Environment Events](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) e [Get Environment Aggregates](/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api). Il valore di timeout deve essere nel formato di durata ISO 8601, ad esempio `"PT20S"`, e deve essere compreso nell'intervallo `1-30 s`. Il valore predefinito è `30 s`. | Prima generazione |
 | `storeType=<storeType>` | Per gli ambienti Gen2 con warm Store abilitato, la query può essere eseguita in `WarmStore` o `ColdStore` . Questo parametro nella query definisce l'archivio in cui quest'ultima deve essere eseguita. Se non è definito, la query verrà eseguita nell'archivio ad accesso sporadico. Per eseguire la query nell'archivio ad accesso frequente, occorre impostare **storeType** su `WarmStore`. Se non è definito, la query verrà eseguita nell'archivio ad accesso sporadico. | Seconda generazione |
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -166,6 +166,6 @@ I parametri della stringa di query dell'URL facoltativi includono l'impostazione
 
 * Per il codice di esempio che chiama gli esempi di codice dell'API Azure Time Series Insights Gen2, vedere [eseguire query sui dati di Gen2 con C#](./time-series-insights-update-query-data-csharp.md).
 
-* Per le informazioni di riferimento sull'API, vedere la documentazione di [ riferimento sull'API di query](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api).
+* Per le informazioni di riferimento sull'API, vedere la documentazione di [ riferimento sull'API di query](/rest/api/time-series-insights/gen1-query-api).
 
 * Informazioni su come [creare un'entità servizio](../active-directory/develop/howto-create-service-principal-portal.md).

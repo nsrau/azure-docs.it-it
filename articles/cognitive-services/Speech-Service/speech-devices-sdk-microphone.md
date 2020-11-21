@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: eace63effdbd62d8f08395aa16683627b475a963
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 698a1d52af6c2472d6c025851ead1a0b6a6dff82
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86232526"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015342"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Suggerimenti per i dispositivi vocali SDK per array microfoni
 
@@ -41,7 +41,7 @@ I canali del microfono devono essere ordinati in base alla numerazione raffigura
 
 Le proprietà consigliate quando si selezionano i microfoni sono:
 
-| Parametro | Consigliato |
+| Parametro | Implementazione consigliata |
 | --------- | ----------- |
 | SNR | \>= 65 dB (1 kHz Signal 94 dBSPL, A-weighted Noise) |
 | Corrispondenza dell'ampiezza | ± 1 dB a 1 kHz |
@@ -60,7 +60,7 @@ Per evitare di compromettere le prestazioni dei componenti usati, è necessario 
 
 Le prestazioni dell'array di microfoni quando integrato in un dispositivo si differenziano dalla specifica del componente. È importante assicurarsi che i microfoni siano abbinati correttamente dopo l'integrazione. Pertanto, le prestazioni del dispositivo misurate dopo qualsiasi guadagno fisso o EQ devono soddisfare le raccomandazioni seguenti:
 
-| Parametro          | Consigliato                                        |
+| Parametro          | Implementazione consigliata                                        |
 | ------------------ | -------------------------------------------------- |
 | SNR                | \> 63 dB (1 kHz Signal 94 dBSPL, A-weighted Noise) |
 | Sensibilità output | -26 dBFS/PA a 1 kHz (scelta consigliata)                  |
@@ -76,7 +76,7 @@ Le prestazioni dell'array di microfoni quando integrato in un dispositivo si dif
 
 Poiché l'annullamento Echo è necessario per i dispositivi di riconoscimento vocale che contengono altoparlanti, vengono fornite indicazioni aggiuntive per la selezione e l'integrazione del relatore.
 
-| Parametro | Consigliato |
+| Parametro | Implementazione consigliata |
 | --------- | ----------- |
 | Considerazioni sulla linearità | Nessuna elaborazione non lineare dopo il riferimento del relatore; in caso contrario, è necessario un flusso di riferimento loopback basato su hardware |
 | Loopback altoparlante | Fornito tramite WASAPI, le API private, il plug-in ALSA personalizzato (Linux) o fornito tramite il canale del firmware |
@@ -97,7 +97,7 @@ Le linee guida seguenti per l'architettura sono necessarie quando si integrano i
 | Clock di campionamento      | L'audio del dispositivo deve essere privo di jitter e drop-out con una bassa deviazione |
 | Funzionalità di registrazione   | Il dispositivo deve essere in grado di registrare i singoli flussi RAW del canale simultaneamente |
 | USB                 | Tutti i dispositivi di input audio USB devono impostare i descrittori in base alla [specifica rev3 dispositivi audio USB](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
-| Geometria microfono | I driver devono implementare correttamente i [descrittori di geometria della matrice microfonica](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) |
+| Geometria microfono | I driver devono implementare correttamente i [descrittori di geometria della matrice microfonica](/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) |
 | Individuabilità     | I dispositivi non devono disporre di hardware, firmware o algoritmi di elaborazione audio non lineari basati su software di terze parti per/dal dispositivo |
 | Formato di acquisizione      | I formati di acquisizione devono usare una frequenza di campionamento minima di 16 kHz e la profondità consigliata a 24 bit |
 

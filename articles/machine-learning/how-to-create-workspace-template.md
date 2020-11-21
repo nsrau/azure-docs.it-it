@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 2c415fc92d2d338c568c422b1db2579563527839
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: f07efcc18f3eff7e40232941befb563cd236266b
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442056"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013036"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning
 
@@ -39,6 +39,10 @@ Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Ge
 
     Per altre informazioni, vedere [gestire e aumentare le quote](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
+## <a name="limitations"></a>Limitazioni
+
+* Quando si crea una nuova area di lavoro, è possibile consentire all'area di lavoro di creare i servizi di Azure richiesti automaticamente o fornire servizi esistenti. Quando si forniscono servizi esistenti, questi servizi devono trovarsi nella stessa sottoscrizione di Azure dell'area di lavoro.
+
 ## <a name="workspace-resource-manager-template"></a>Modello di Gestione risorse dell'area di lavoro
 
 Il modello di Azure Resource Manager usato in questo documento si trova nella directory [201-Machine-Learning-Advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json) del repository GitHub dei modelli di avvio rapido di Azure.
@@ -59,7 +63,7 @@ Il modello di esempio include due parametri **obbligatori** :
 
     Il modello utilizzerà la posizione selezionata per la maggior parte delle risorse. L'eccezione è il servizio Application Insights, che non è disponibile in tutte le posizioni in cui sono situati gli altri servizi. Se si seleziona una posizione in cui non è disponibile, il servizio verrà creato nella posizione Stati Uniti centro-meridionali.
 
-* **WorkspaceName** , ovvero il nome descrittivo dell'area di lavoro Azure Machine Learning.
+* **WorkspaceName**, ovvero il nome descrittivo dell'area di lavoro Azure Machine Learning.
 
     > [!NOTE]
     > Il nome dell'area di lavoro non rileva la distinzione tra maiuscole e minuscole.

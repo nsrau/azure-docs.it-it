@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: e54e8e9de1df4c8a1c870285d36e4580daaa698a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c38c57a8480ef2addde494b94d70bd2eb679373
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667827"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016769"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-gen2"></a>Effettuare il provisioning e gestire Azure Time Series Insights Gen2
 
@@ -31,8 +31,8 @@ Quando si esegue il provisioning di un ambiente Azure Time Series Insights Gen2,
 
 > [!TIP]
 >
-> * Vedere [come pianificare l'ambiente](./time-series-insights-update-plan.md).
-> * Leggere le informazioni su come [aggiungere un'origine Hub eventi](./time-series-insights-how-to-add-an-event-source-eventhub.md) o su come [aggiungere un'origine Hub](./time-series-insights-how-to-add-an-event-source-iothub.md)Internet.
+> * Vedere [come pianificare l'ambiente](./how-to-plan-your-environment.md).
+> * Leggere le informazioni su come [aggiungere un'origine Hub eventi](./how-to-ingest-data-event-hub.md) o su come [aggiungere un'origine Hub](./how-to-ingest-data-iot-hub.md)Internet.
 
 Si apprenderà come:
 
@@ -59,16 +59,16 @@ Per creare un ambiente Azure Time Series Insights generazione 2:
     >
     > * L'ID della serie temporale fa *distinzione tra maiuscole* e minuscole e non è *modificabile*. Non può essere modificato dopo averlo impostato.
     > * Gli ID delle serie temporali possono contenere fino a *tre* chiavi. Considerarlo come chiave primaria in un database, che rappresenta in modo univoco ogni sensore di dispositivo che invia i dati all'ambiente. Potrebbe trattarsi di una proprietà o di una combinazione di fino a tre proprietà.
-    > * Scopri di più su [come scegliere un ID Time Series](time-series-insights-update-how-to-id.md)
+    > * Scopri di più su [come scegliere un ID Time Series](./how-to-select-tsid.md)
 
-1. Creare un account di archiviazione di Azure selezionando il nome dell'account di archiviazione, il tipo di account e designando una scelta di [replica](https://docs.microsoft.com/azure/storage/common/redundancy-migration?tabs=portal) . In questo modo viene creato automaticamente un account di archiviazione di Azure. Per impostazione predefinita, verrà creato un account per [utilizzo generico V2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) . L'account viene creato nella stessa area dell'ambiente Azure Time Series Insights Gen2 selezionato in precedenza.
+1. Creare un account di archiviazione di Azure selezionando il nome dell'account di archiviazione, il tipo di account e designando una scelta di [replica](../storage/common/redundancy-migration.md?tabs=portal) . In questo modo viene creato automaticamente un account di archiviazione di Azure. Per impostazione predefinita, verrà creato un account per [utilizzo generico V2](../storage/common/storage-account-overview.md) . L'account viene creato nella stessa area dell'ambiente Azure Time Series Insights Gen2 selezionato in precedenza.
 In alternativa, è anche possibile usare l'archiviazione personalizzata (BYOS) tramite il [modello ARM](./time-series-insights-manage-resources-using-azure-resource-manager-template.md) quando si crea un nuovo ambiente Gen2 di Azure Time Series.
 
 1. **(Facoltativo)** Abilitare l'archivio a caldo per l'ambiente se si desiderano query più veloci e illimitate sui dati più recenti nell'ambiente in uso. È anche possibile creare o eliminare un archivio a caldo tramite l'opzione di **Configurazione archiviazione** nel riquadro di spostamento a sinistra, dopo aver creato un ambiente di Azure Time Series Insights Gen2.
 
 1. **(Facoltativo)** È ora possibile aggiungere un'origine evento. È anche possibile attendere fino al termine del provisioning dell'istanza.
 
-   * Azure Time Series Insights supporta l' [Hub Azure](./time-series-insights-how-to-add-an-event-source-iothub.md) e gli hub [eventi di Azure](./time-series-insights-how-to-add-an-event-source-eventhub.md) come opzioni di origine eventi. Sebbene sia possibile aggiungere una sola origine evento quando si crea l'ambiente, è possibile aggiungere un'altra origine evento in un secondo momento.
+   * Azure Time Series Insights supporta l' [Hub Azure](./how-to-ingest-data-iot-hub.md) e gli hub [eventi di Azure](./how-to-ingest-data-event-hub.md) come opzioni di origine eventi. Sebbene sia possibile aggiungere una sola origine evento quando si crea l'ambiente, è possibile aggiungere un'altra origine evento in un secondo momento.
 
      È possibile selezionare un gruppo di consumer esistente o creare un nuovo gruppo di consumer quando si aggiunge l'origine evento. Si noti che l'origine evento richiede un gruppo di consumer univoco per l'ambiente in cui leggere i dati.
 
@@ -92,19 +92,19 @@ In alternativa, è anche possibile usare l'archiviazione personalizzata (BYOS) t
   * La capacità viene rimossa perché non è applicabile agli ambienti Gen2.
   * Viene aggiunta la proprietà **ID della serie temporale** . che determina come vengono partizionati i dati.
   * I set di dati di riferimento vengono rimossi.
-  * L'URL visualizzato indica il [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md).
+  * L'URL visualizzato indica il [Azure Time Series Insights Explorer](./concepts-ux-panels.md).
   * Viene elencato il nome dell'account di archiviazione di Azure.
 
 * Il pannello **Configura** del portale di Azure viene rimosso perché le unità di scala non si applicano agli ambienti Azure Time Series Insights Gen2. Tuttavia, è possibile usare la **configurazione di archiviazione** per configurare l'archivio warm appena introdotto.
 
-* Il pannello **dei dati di riferimento** portale di Azure è stato rimosso in Azure Time Series Insights Gen2 perché il concetto di dati di riferimento è stato sostituito dal [modello Time Series (TSM)](/azure/time-series-insights/concepts-model-overview).
+* Il pannello **dei dati di riferimento** portale di Azure è stato rimosso in Azure Time Series Insights Gen2 perché il concetto di dati di riferimento è stato sostituito dal [modello Time Series (TSM)](./concepts-model-overview.md).
 
 [![Azure Time Series Insights ambiente Gen2 nell'portale di Azure](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni su Azure Time Series Insights ambienti disponibili a livello generale e sugli ambienti Gen2, vedere [pianificare l'ambiente](./time-series-insights-update-plan.md).
+* Per altre informazioni su Azure Time Series Insights ambienti disponibili a livello generale e sugli ambienti Gen2, vedere [pianificare l'ambiente](./how-to-plan-your-environment.md).
 
-* Informazioni su come [aggiungere un'origine di hub eventi](./time-series-insights-how-to-add-an-event-source-eventhub.md).
+* Informazioni su come [aggiungere un'origine di hub eventi](./how-to-ingest-data-event-hub.md).
 
-* Configurare un' [origine Hub](./time-series-insights-how-to-add-an-event-source-iothub.md)Internet delle cose.
+* Configurare un' [origine Hub](./how-to-ingest-data-iot-hub.md)Internet delle cose.

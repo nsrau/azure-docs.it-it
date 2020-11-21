@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: fb409673e028375812551ec146b43c27e3755d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3f6f6a5ac1068f2eabca351e85376b8e16d1058
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91595522"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016752"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedure consigliate per la scelta di un ID serie temporale
 
@@ -32,11 +32,11 @@ La selezione di un ID Time Series appropriato è fondamentale. Scegliere un ID s
 > * Una proprietà non *modificabile* : una volta creata, non può essere modificata.
 
 > [!TIP]
-> Se l'origine evento è un hub Internet delle cose, l'ID della serie temporale sarà probabilmente ***iothub-Connection-Device-ID***.
+> Se l'origine evento è un hub Internet delle cose, l'ID della serie temporale sarà probabilmente ***iothub-Connection-Device-ID** _.
 
 Di seguito sono riportate le principali procedure consigliate:
 
-* Selezionare una chiave di partizione con molti valori distinti (ad esempio, centinaia o migliaia). In molti casi, potrebbe trattarsi dell'ID del dispositivo, dell'ID del sensore o dell'ID tag in JSON.
+_ Selezionare una chiave di partizione con molti valori distinti (ad esempio, centinaia o migliaia). In molti casi, potrebbe trattarsi dell'ID del dispositivo, dell'ID del sensore o dell'ID tag in JSON.
 * L'ID serie temporale deve essere univoco a livello di nodo foglia del [modello serie temporale](./concepts-model-overview.md).
 * Il limite di caratteri per la stringa del nome di proprietà dell'ID della serie temporale è 128. Per il valore della proprietà dell'ID della serie temporale, il limite di caratteri è 1.024.
 * Se manca un valore di proprietà univoco per l'ID della serie temporale, questo viene considerato come un valore null e segue la stessa regola del vincolo di univocità.
@@ -59,9 +59,9 @@ Negli scenari seguenti viene descritto come selezionare più di una proprietà c
 ### <a name="example-2-time-series-id-with-a-composite-key"></a>Esempio 2: ID Time Series con una chiave composta
 
 * È necessario che più proprietà siano univoche nella stessa flotta di asset.
-* Sei un produttore di Smart Build e Distribuisci sensori in ogni chat room. In ogni stanza, in genere si hanno gli stessi valori per **sensorId**. Esempi sono **sensor1**, **SENSOR2**e **Sensor3**.
-* La compilazione presenta numeri di piano e spazio sovrapposti tra i siti nella proprietà **flrRm**. Questi numeri hanno valori quali **1a**, **2B**e **3A**.
-* Si dispone di una proprietà, **location**, che contiene valori quali **Redmond**, **Barcelona**e **Tokyo**. Per creare l'univocità, è necessario definire le tre proprietà seguenti come chiavi ID della serie temporale: **sensorId**, **flrRm**e **location**.
+* Sei un produttore di Smart Build e Distribuisci sensori in ogni chat room. In ogni stanza, in genere si hanno gli stessi valori per **sensorId**. Esempi sono **sensor1**, **SENSOR2** e **Sensor3**.
+* La compilazione presenta numeri di piano e spazio sovrapposti tra i siti nella proprietà **flrRm**. Questi numeri hanno valori quali **1a**, **2B** e **3A**.
+* Si dispone di una proprietà, **location**, che contiene valori quali **Redmond**, **Barcelona** e **Tokyo**. Per creare l'univocità, è necessario definire le tre proprietà seguenti come chiavi ID della serie temporale: **sensorId**, **flrRm** e **location**.
 
 Evento RAW di esempio:
 
@@ -86,4 +86,4 @@ Nella portale di Azure è quindi possibile immettere la chiave composta come ind
 
 * Leggere le [regole di escape e Flat JSON](./concepts-json-flattening-escaping-rules.md) per comprendere come verranno archiviati gli eventi.
 
-* Pianificare l' [ambiente di Azure Time Series Insights Gen2](./time-series-insights-update-plan.md).
+* Pianificare l' [ambiente di Azure Time Series Insights Gen2](./how-to-plan-your-environment.md).

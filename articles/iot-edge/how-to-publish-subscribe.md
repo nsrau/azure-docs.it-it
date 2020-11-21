@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: ef92895374f07c79f8ba8d626a0aab3d89733f40
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 1ace40098e1d53c6199accea755ffb6969781663
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629649"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015664"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Pubblicare e sottoscrivere con Azure IoT Edge
 
@@ -209,7 +209,7 @@ Ora che si è appreso come connettersi alla IoT Edge MQTT broker, è possibile v
 
 ## <a name="publish-and-subscribe-on-user-defined-topics"></a>Pubblicare e sottoscrivere argomenti definiti dall'utente
 
-In questo articolo si userà un client denominato **sub_client** che sottoscrive un argomento e un altro client denominato **pub_client** che pubblica in un argomento. Si userà l' [autenticazione con chiave simmetrica](how-to-authenticate-downstream-device.md#symmetric-key-authentication) , ma è possibile eseguire la stessa operazione con l'autenticazione [autofirmata x. 509](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) o con l' [autenticazione autofirmata x. 509](./how-to-authenticate-downstream-device.md#x509-self-signed-authentication).
+In questo articolo si userà un client denominato **sub_client** che sottoscrive un argomento e un altro client denominato **pub_client** che pubblica in un argomento. Si userà l' [autenticazione con chiave simmetrica](how-to-authenticate-downstream-device.md#symmetric-key-authentication) , ma è possibile eseguire la stessa operazione con l'autenticazione [autofirmata x. 509](how-to-authenticate-downstream-device.md#x509-self-signed-authentication) o con l' [autenticazione firmata dall'autorità di certificazione x. 509](./how-to-authenticate-downstream-device.md#x509-ca-signed-authentication).
 
 ### <a name="create-publisher-and-subscriber-clients"></a>Creazione di client di server di pubblicazione e Sottoscrittore
 

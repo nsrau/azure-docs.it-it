@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/17/2020
+ms.date: 11/20/2020
 ms.author: yohaddad
-ms.openlocfilehash: 5a5e448660583204d424358e571c4bfb74890e8d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: e84342bff0d2bbc3b034afc1b3c5e8a7dc4a9eb1
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94737830"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015528"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Il riporto degli aggiornamenti viene sempre eseguito per la [famiglia][family-explain] specifica in cui sono stati introdotti.
@@ -29,10 +29,10 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-|  Rel 20-11 |  [4586793]  |  Aggiornamento cumulativo più recente | 6,25 | 10 novembre 2020 |
+|  Rel 20-11 OOB |  [4594442]  |  Aggiornamento cumulativo più recente | 6,25 | 17 nov, 2020 |
+|  Rel 20-11 OOB |  [4594441]  |  Aggiornamento cumulativo più recente | 5,49 | 19 novembre 2020 |
 |  Rel 20-11 |  [4580325]  |  Aggiornamento Flash | 3,91, 4,84, 5,49, 6,25 | 13 ottobre 2020 |
 |  Rel 20-11 |  [4586768]  |  Aggiornamento cumulativo IE | 2,104, 3,91, 4,84 | 10 novembre 2020 |
-|  Rel 20-11 |  [4586830]  |  Aggiornamento cumulativo più recente | 5,49 | 10 novembre 2020 |
 |  Rel 20-11 |  [4578952]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | 2,104 | 10 novembre 2020 |
 |  Rel 20-11 |  [4578955]  |  .NET Framework di sicurezza e rollup della qualità di 4.5.2 | 2,104 | 10 novembre 2020 |
 |  Rel 20-11 |  [4578953]  |  Rollup di sicurezza e qualità .NET Framework 3,5 | 4,84 | 10 novembre 2020 |
@@ -52,10 +52,10 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 |  Rel 20-11 |  [4494175]  |  Microcodice | 5,49 | 1 ° settembre 2020 |
 |  Rel 20-11 |  [4494174]  |  Microcodice | 6,25 | 3 settembre 2020 |
 
-[4586793]: https://support.microsoft.com/kb/4586793
+[4594442]: https://support.microsoft.com/kb/4594442
+[4594441]: https://support.microsoft.com/kb/4594441
 [4580325]: https://support.microsoft.com/kb/4580325
 [4586768]: https://support.microsoft.com/kb/4586768
-[4586830]: https://support.microsoft.com/kb/4586830
 [4578952]: https://support.microsoft.com/kb/4578952
 [4578955]: https://support.microsoft.com/kb/4578955
 [4578953]: https://support.microsoft.com/kb/4578953

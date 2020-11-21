@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 2586b3aab9d1fb8e7ae12aea540df19ff6c37556
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 29f7e8bbf9a1b8d48940287a4845c2b55804b247
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553659"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015376"
 ---
 # <a name="speech-service-release-notes"></a>Note sulla versione del Servizio di riconoscimento vocale
 
@@ -26,7 +26,7 @@ ms.locfileid: "94553659"
 - Jenny supporta un nuovo `newscast` stile. Vedere [How to use the Speaking Styles in SSML](speech-synthesis-markup.md#adjust-speaking-styles).
 - **Voci neurali aggiornate a HiFiNet vocoder con maggiore fedeltà audio e velocità di sintesi più rapida**. Si tratta di vantaggi per i clienti il cui scenario si basa sull'audio Hi-Fi o sulle interazioni lunghe, tra cui il doppiaggio video, i libri audio o materiali di formazione online. [Scopri di più sulla storia e ascolta gli esempi di Voice nel Blog della community tecnica](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
 - ** &  [Studio per la creazione di contenuto audio](https://speech.microsoft.com/audiocontentcreation) vocale personalizzato localizzato a 17 impostazioni locali [Custom Voice](https://speech.microsoft.com/customvoice)**. Gli utenti possono passare facilmente l'interfaccia utente a una lingua locale per un'esperienza più intuitiva.   
-- **Creazione di contenuto audio** : aggiunto controllo del grado di stile per XiaoxiaoNeural; Perfezionata la funzionalità di interruzione personalizzata per includere interruzioni incrementali di 50 ms. 
+- **Creazione di contenuto audio**: aggiunto controllo del grado di stile per XiaoxiaoNeural; Perfezionata la funzionalità di interruzione personalizzata per includere interruzioni incrementali di 50 ms. 
 
 **Miglioramenti alla qualità della voce TTS generale**
 - Accuratezza della pronuncia a livello di parola migliorata `pl-PL` (riduzione della frequenza degli errori: 51%) e `fi-FI` (riduzione della frequenza degli errori: 58%)
@@ -36,45 +36,45 @@ ms.locfileid: "94553659"
 
 ## <a name="speech-sdk-1140-2020-october-release"></a>Speech SDK 1.14.0:2020-versione di ottobre
 
-**Nota** : l'SDK di riconoscimento vocale in Windows dipende dal Microsoft Visual C++ ridistribuibile condiviso per Visual Studio 2015, 2017 e 2019. Scaricarla [qui](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+**Nota**: l'SDK di riconoscimento vocale in Windows dipende dal Microsoft Visual C++ ridistribuibile condiviso per Visual Studio 2015, 2017 e 2019. Scaricarla [qui](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
 
 **Nuove funzionalità**
-- **Linux** : è stato aggiunto il supporto per Debian 10 e Ubuntu 20,04 LTS.
-- **Python/Objective-C** : è stato aggiunto il supporto per l' `KeywordRecognizer` API. La documentazione sarà disponibile [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-basics).
-- **C++/Java/C #** : è stato aggiunto il supporto per impostare qualsiasi `HttpHeader` chiave/valore tramite `ServicePropertyChannel::HttpHeader` .
-- **JavaScript** : è stato aggiunto il supporto per l' `ConversationTranscriber` API. Leggi la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript). 
-- **C++/c #** : aggiunto nuovo `AudioDataStream FromWavFileInput` Metodo (per la lettura. File WAV) [qui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) e [qui (C#)](
+- **Linux**: è stato aggiunto il supporto per Debian 10 e Ubuntu 20,04 LTS.
+- **Python/Objective-C**: è stato aggiunto il supporto per l' `KeywordRecognizer` API. La documentazione sarà disponibile [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-basics).
+- **C++/Java/C #**: è stato aggiunto il supporto per impostare qualsiasi `HttpHeader` chiave/valore tramite `ServicePropertyChannel::HttpHeader` .
+- **JavaScript**: è stato aggiunto il supporto per l' `ConversationTranscriber` API. Leggi la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript). 
+- **C++/c #**: aggiunto nuovo `AudioDataStream FromWavFileInput` Metodo (per la lettura. File WAV) [qui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) e [qui (C#)](
 https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet).
--  **C++/c #/Java/Python/Objective-C/Swift** : è stato aggiunto un `stopSpeakingAsync()` metodo per arrestare la sintesi da testo a discorso. Leggere qui la documentazione di riferimento [(C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), qui ( [C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), qui ( [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), [qui (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python)e [qui (Objective-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
-- **C#, C++, Java** : aggiunta `FromDialogServiceConnector()` di una funzione alla `Connection` classe che può essere usata per monitorare gli eventi di connessione e disconnessione per `DialogServiceConnector` . Leggere qui la documentazione di riferimento [(C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [qui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection)e [qui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable).
+-  **C++/c #/Java/Python/Objective-C/Swift**: è stato aggiunto un `stopSpeakingAsync()` metodo per arrestare la sintesi da testo a discorso. Leggere qui la documentazione di riferimento [(C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), qui ( [C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), qui ( [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), [qui (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python)e [qui (Objective-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+- **C#, C++, Java**: aggiunta `FromDialogServiceConnector()` di una funzione alla `Connection` classe che può essere usata per monitorare gli eventi di connessione e disconnessione per `DialogServiceConnector` . Leggere qui la documentazione di riferimento [(C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [qui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection)e [qui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable).
 <!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
 
 **Modifica di rilievo**
-- **JavaScript** : PullAudioOutputStream. Read () ha una modifica del tipo restituito da una promessa interna a una promessa JavaScript nativa.
+- **JavaScript**: PullAudioOutputStream. Read () ha una modifica del tipo restituito da una promessa interna a una promessa JavaScript nativa.
 
 **Correzioni di bug**
-- **All** : correzione della regressione 1,13 nel `SetServiceProperty` punto in cui i valori con determinati caratteri speciali sono stati ignorati.
-- **C#** : gli esempi di console di Windows corretti in Visual Studio 2019 non sono riusciti a trovare DLL native.
-- **C#** : correzione di un arresto anomalo con la gestione della memoria se il flusso viene usato come `KeywordRecognizer` input.
-- **ObjectiveC/Swift** : arresto anomalo del sistema con la gestione della memoria se il flusso viene usato come input del riconoscimento.
-- **Windows** : è stato risolto un problema di co-esistenza con BT HFP/A2DP in UWP.
-- **JavaScript** : correzione del mapping degli ID di sessione per migliorare la registrazione e facilitare le correlazioni di debug/servizio interne.
-- **JavaScript** : `DialogServiceConnector` è stata aggiunta la correzione per disabilitare `ListenOnce` le chiamate dopo la prima chiamata.
-- **JavaScript** : è stato risolto un problema per cui l'output dei risultati sarebbe sempre "semplice".
-- **JavaScript** : è stato risolto un problema di riconoscimento continuo in Safari in MacOS.
-- **JavaScript** : mitigazione del carico CPU per lo scenario di velocità effettiva elevata della richiesta.
-- **JavaScript** : consentire l'accesso ai dettagli del risultato della registrazione del profilo vocale.
-- **JavaScript** : aggiunta correzione per il riconoscimento continuo in `IntentRecognizer` .
-- **C++/c #/Java/Python/Swift/ObjectiveC** : correzione dell'URL errato per australiaeast e BrazilSouth in `IntentRecognizer` .
-- **C++/c #** : aggiunto `VoiceProfileType` come argomento durante la creazione di un `VoiceProfile` oggetto.
-- **C++/c #/Java/Python/Swift/ObjectiveC** : è stato corretto `SPX_INVALID_ARG` il potenziale durante il tentativo di lettura `AudioDataStream` da una posizione specificata.
-- **IOS** : correzione di un arresto anomalo del riconoscimento vocale in Unity
+- **All**: correzione della regressione 1,13 nel `SetServiceProperty` punto in cui i valori con determinati caratteri speciali sono stati ignorati.
+- **C#**: gli esempi di console di Windows corretti in Visual Studio 2019 non sono riusciti a trovare DLL native.
+- **C#**: correzione di un arresto anomalo con la gestione della memoria se il flusso viene usato come `KeywordRecognizer` input.
+- **ObjectiveC/Swift**: arresto anomalo del sistema con la gestione della memoria se il flusso viene usato come input del riconoscimento.
+- **Windows**: è stato risolto un problema di co-esistenza con BT HFP/A2DP in UWP.
+- **JavaScript**: correzione del mapping degli ID di sessione per migliorare la registrazione e facilitare le correlazioni di debug/servizio interne.
+- **JavaScript**: `DialogServiceConnector` è stata aggiunta la correzione per disabilitare `ListenOnce` le chiamate dopo la prima chiamata.
+- **JavaScript**: è stato risolto un problema per cui l'output dei risultati sarebbe sempre "semplice".
+- **JavaScript**: è stato risolto un problema di riconoscimento continuo in Safari in MacOS.
+- **JavaScript**: mitigazione del carico CPU per lo scenario di velocità effettiva elevata della richiesta.
+- **JavaScript**: consentire l'accesso ai dettagli del risultato della registrazione del profilo vocale.
+- **JavaScript**: aggiunta correzione per il riconoscimento continuo in `IntentRecognizer` .
+- **C++/c #/Java/Python/Swift/ObjectiveC**: correzione dell'URL errato per australiaeast e BrazilSouth in `IntentRecognizer` .
+- **C++/c #**: aggiunto `VoiceProfileType` come argomento durante la creazione di un `VoiceProfile` oggetto.
+- **C++/c #/Java/Python/Swift/ObjectiveC**: è stato corretto `SPX_INVALID_ARG` il potenziale durante il tentativo di lettura `AudioDataStream` da una posizione specificata.
+- **IOS**: correzione di un arresto anomalo del riconoscimento vocale in Unity
 
 **Esempi**
-- **ObjectiveC** : aggiunto esempio per [il riconoscimento delle](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/speech-samples)parole chiave.
-- **C#/JavaScript** : aggiunta di Guida introduttiva per la trascrizione delle conversazioni [qui (c#)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/conversation-transcription) e [qui (JavaScript)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/conversation-transcription).
+- **ObjectiveC**: aggiunto esempio per [il riconoscimento delle](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/speech-samples)parole chiave.
+- **C#/JavaScript**: aggiunta di Guida introduttiva per la trascrizione delle conversazioni [qui (c#)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/conversation-transcription) e [qui (JavaScript)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/conversation-transcription).
 <!-- - **C++/C#/Java/Python/Swift/ObjectiveC**: Added sample for pronunciation assessment [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples) -->
-- **Novell** : aggiornamento rapido aggiornato al modello più recente di Visual Studio [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin).
+- **Novell**: aggiornamento rapido aggiornato al modello più recente di Visual Studio [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin).
 
 **Problema noto**
 - Il certificato DigiCert Global Root G2 non è supportato per impostazione predefinita in HoloLens 2 e Android 4,4 (KitKat) e deve essere aggiunto al sistema per rendere funzionante l'SDK di riconoscimento vocale. Il certificato verrà aggiunto alle immagini del sistema operativo HoloLens 2 nel prossimo futuro. I clienti Android 4,4 devono aggiungere il certificato aggiornato al sistema.
@@ -152,7 +152,7 @@ Leggi l' [annuncio completo degli aggiornamenti TTS per ignite 2020](https://tec
     * Correzione di un problema di stabilità, incluso un errore di esportazione con il tag "break" ed errori di punteggiatura.
 
 ## <a name="new-speech-to-text-locales-2020-august-release"></a>Nuove impostazioni locali per sintesi vocale: 2020-versione di agosto
-Riconoscimento vocale rilasciate 26 nuove impostazioni locali nell'agosto: 2 lingue europee `cs-CZ` e `hu-HU` 5 impostazioni locali inglesi e 19 impostazioni locali in spagnolo che coprono la maggior parte dei paesi dell'America del sud. Di seguito è riportato un elenco delle nuove impostazioni locali. Vedere l'elenco completo della lingua [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
+Riconoscimento vocale rilasciate 26 nuove impostazioni locali nell'agosto: 2 lingue europee `cs-CZ` e `hu-HU` 5 impostazioni locali inglesi e 19 impostazioni locali in spagnolo che coprono la maggior parte dei paesi dell'America del sud. Di seguito è riportato un elenco delle nuove impostazioni locali. Vedere l'elenco completo della lingua [qui](./language-support.md).
 
 | Impostazioni locali  | Linguaggio                          |
 |---------|-----------------------------------|
@@ -186,29 +186,29 @@ Riconoscimento vocale rilasciate 26 nuove impostazioni locali nell'agosto: 2 lin
 
 ## <a name="speech-sdk-1130-2020-july-release"></a>Speech SDK 1.13.0:2020-versione luglio
 
-**Nota** : l'SDK di riconoscimento vocale in Windows dipende dal Microsoft Visual C++ ridistribuibile condiviso per Visual Studio 2015, 2017 e 2019. Scaricare e installare l'app da [qui](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+**Nota**: l'SDK di riconoscimento vocale in Windows dipende dal Microsoft Visual C++ ridistribuibile condiviso per Visual Studio 2015, 2017 e 2019. Scaricare e installare l'app da [qui](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
 
 **Nuove funzionalità**
-- **C#** : è stato aggiunto il supporto per la trascrizione di conversazioni asincrona. Vedere la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-async-conversation-transcription).  
-- **JavaScript** : aggiunta del supporto riconoscimento del parlante per [browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) e [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
-- **JavaScript** : è stato aggiunto il supporto per l'ID lingua e il rilevamento automatico della lingua. Vedere la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-javascript).
-- **Objective-C** : è stato aggiunto il supporto per la [trascrizione](https://docs.microsoft.com/azure/cognitive-services/speech-service/conversation-transcription)di conversazioni e conversazioni su più [dispositivi](https://docs.microsoft.com/azure/cognitive-services/speech-service/multi-device-conversation) . 
-- **Python** : è stato aggiunto il supporto audio compresso per Python in Windows e Linux. Vedere la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams). 
+- **C#**: è stato aggiunto il supporto per la trascrizione di conversazioni asincrona. Vedere la documentazione [qui](./how-to-async-conversation-transcription.md).  
+- **JavaScript**: aggiunta del supporto riconoscimento del parlante per [browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) e [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
+- **JavaScript**: è stato aggiunto il supporto per l'ID lingua e il rilevamento automatico della lingua. Vedere la documentazione [qui](./how-to-automatic-language-detection.md?pivots=programming-language-javascript).
+- **Objective-C**: è stato aggiunto il supporto per la [trascrizione](./conversation-transcription.md)di conversazioni e conversazioni su più [dispositivi](./multi-device-conversation.md) . 
+- **Python**: è stato aggiunto il supporto audio compresso per Python in Windows e Linux. Vedere la documentazione [qui](./how-to-use-codec-compressed-audio-input-streams.md). 
 
 **Correzioni di bug**
-- **All** : è stato risolto un problema che causava la mancata spostamento dei flussi da parte di KeywordRecognizer dopo un riconoscimento.
-- **All** : è stato risolto un problema che ha causato il flusso ottenuto da un KeywordRecognitionResult in modo che non contenga la parola chiave.
-- **All** : è stato risolto un problema a causa del quale il SendMessageAsync non invia effettivamente il messaggio in rete al termine dell'attesa da parte degli utenti.
-- **All** : correzione di un arresto anomalo nelle API riconoscimento del parlante quando gli utenti chiamano più volte il metodo VoiceProfileClient:: SpeakerRecEnrollProfileAsync e non attendono il completamento delle chiamate.
-- **All** : è stata corretta l'abilitazione della registrazione file nelle classi VoiceProfileClient e SpeakerRecognizer.
-- **JavaScript** : è stato risolto un [problema relativo](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/74) alla limitazione quando il browser è ridotto a icona.
-- **JavaScript** : è stato risolto un [problema](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) con una perdita di memoria nei flussi.
-- **JavaScript** : aggiunta della memorizzazione nella cache per le risposte OCSP da NodeJS.
-- **Java** : è stato risolto un problema che causava che i campi BigInteger restituivano sempre 0.
-- **iOS** : è stato risolto un [problema relativo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) alla pubblicazione di app basate su SDK vocale nell'App Store iOS.
+- **All**: è stato risolto un problema che causava la mancata spostamento dei flussi da parte di KeywordRecognizer dopo un riconoscimento.
+- **All**: è stato risolto un problema che ha causato il flusso ottenuto da un KeywordRecognitionResult in modo che non contenga la parola chiave.
+- **All**: è stato risolto un problema a causa del quale il SendMessageAsync non invia effettivamente il messaggio in rete al termine dell'attesa da parte degli utenti.
+- **All**: correzione di un arresto anomalo nelle API riconoscimento del parlante quando gli utenti chiamano più volte il metodo VoiceProfileClient:: SpeakerRecEnrollProfileAsync e non attendono il completamento delle chiamate.
+- **All**: è stata corretta l'abilitazione della registrazione file nelle classi VoiceProfileClient e SpeakerRecognizer.
+- **JavaScript**: è stato risolto un [problema relativo](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/74) alla limitazione quando il browser è ridotto a icona.
+- **JavaScript**: è stato risolto un [problema](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) con una perdita di memoria nei flussi.
+- **JavaScript**: aggiunta della memorizzazione nella cache per le risposte OCSP da NodeJS.
+- **Java**: è stato risolto un problema che causava che i campi BigInteger restituivano sempre 0.
+- **iOS**: è stato risolto un [problema relativo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) alla pubblicazione di app basate su SDK vocale nell'App Store iOS.
 
 **Esempi**
-- **C++** : aggiunta del codice di esempio per riconoscimento del parlante [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp).
+- **C++**: aggiunta del codice di esempio per riconoscimento del parlante [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp).
 
 **COVID-19 test abbreviato:** A causa del funzionamento remoto nelle ultime settimane, non è stato possibile eseguire il test di verifica manuale come in genere. Non sono state apportate modifiche che potrebbero essere state interrotte e i test automatizzati sono stati superati. Nel caso improbabile in cui si è verificato un problema, inviare informazioni su [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Rimanere integro.
@@ -217,9 +217,9 @@ Rimanere integro.
 
 ### <a name="new-features"></a>Nuove funzionalità
 
-* **TTS neurale, 15 nuove voci neurali** : le nuove voci aggiunte al portfolio TTS neurale sono salma in `ar-EG` arabo (Egitto), Zariyah in `ar-SA` arabo (Arabia Saudita), alba in `ca-ES` Catalano (Spagna), Christel in `da-DK` danese (Danimarca), Neerja in `es-IN` inglese (India), Noora in `fi-FI` finlandese (Finlandia), Swara in `hi-IN` Hindi (India), Colette in `nl-NL` olandese (Paesi Bassi), Zofia in `pl-PL` polacco (Polonia), Fernanda in `pt-PT` portoghese (Portogallo), Dariya in `ru-RU` russo (Russia), Hillevi in `sv-SE` svedese (Svezia), Achara in `th-TH` Thai (Tailandia), HiuGaai in `zh-HK` cinese (cantonese, tradizionale) e HsiaoYu in `zh-TW` cinese (Taiwan mandarino). Controllare tutte le [lingue supportate](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
+* **TTS neurale, 15 nuove voci neurali**: le nuove voci aggiunte al portfolio TTS neurale sono salma in `ar-EG` arabo (Egitto), Zariyah in `ar-SA` arabo (Arabia Saudita), alba in `ca-ES` Catalano (Spagna), Christel in `da-DK` danese (Danimarca), Neerja in `es-IN` inglese (India), Noora in `fi-FI` finlandese (Finlandia), Swara in `hi-IN` Hindi (India), Colette in `nl-NL` olandese (Paesi Bassi), Zofia in `pl-PL` polacco (Polonia), Fernanda in `pt-PT` portoghese (Portogallo), Dariya in `ru-RU` russo (Russia), Hillevi in `sv-SE` svedese (Svezia), Achara in `th-TH` Thai (Tailandia), HiuGaai in `zh-HK` cinese (cantonese, tradizionale) e HsiaoYu in `zh-TW` cinese (Taiwan mandarino). Controllare tutte le [lingue supportate](./language-support.md#neural-voices).  
 
-* **Voce personalizzata, testing vocale semplificato con il flusso di training per semplificare l'esperienza utente** : con la nuova funzionalità di test, ogni voce verrà automaticamente testata con un set di test predefinito ottimizzato per ogni lingua per coprire scenari generali e di Assistente vocale. Questi set di test vengono accuratamente selezionati e testati per includere casi d'uso e fonemi tipici nel linguaggio. Inoltre, gli utenti possono comunque selezionare di caricare i propri script di test durante il training di un modello.
+* **Voce personalizzata, testing vocale semplificato con il flusso di training per semplificare l'esperienza utente**: con la nuova funzionalità di test, ogni voce verrà automaticamente testata con un set di test predefinito ottimizzato per ogni lingua per coprire scenari generali e di Assistente vocale. Questi set di test vengono accuratamente selezionati e testati per includere casi d'uso e fonemi tipici nel linguaggio. Inoltre, gli utenti possono comunque selezionare di caricare i propri script di test durante il training di un modello.
 
 * **Creazione di contenuti audio: viene rilasciata una serie di nuove funzionalità per abilitare funzionalità di ottimizzazione vocale e di gestione audio più potenti**
 
@@ -290,18 +290,18 @@ Rimanere integro.
     -   `spx help csr examples`
 
 **Nuove funzionalità**
--   **C \# , C++** : riconoscimento del parlante anteprima: questa funzionalità consente l'identificazione dell'altoparlante (che parla?) e la verifica dell'altoparlante (è il relatore che affermano di essere?). Per una [Panoramica](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/speaker-recognition-overview), vedere l' [articolo Nozioni di base su riconoscimento del parlante](https://docs.microsoft.com/azure/cognitive-services/speech-service/speaker-recognition-basics)o la documentazione di riferimento per le [API](https://docs.microsoft.com/rest/api/speakerrecognition/).
+-   **C \# , C++**: riconoscimento del parlante anteprima: questa funzionalità consente l'identificazione dell'altoparlante (che parla?) e la verifica dell'altoparlante (è il relatore che affermano di essere?). Per una [Panoramica](./speaker-recognition-overview.md), vedere l' [articolo Nozioni di base su riconoscimento del parlante](./get-started-speaker-recognition.md)o la documentazione di riferimento per le [API](/rest/api/speakerrecognition/).
 
 **Correzioni di bug**
--   **C \# , C++** : la registrazione del microfono fisso non funzionava in 1,12 nel riconoscimento del parlante.
--   **JavaScript** : correzioni per sintesi vocale in Firefox e Safari in MacOS e iOS.
+-   **C \# , C++**: la registrazione del microfono fisso non funzionava in 1,12 nel riconoscimento del parlante.
+-   **JavaScript**: correzioni per sintesi vocale in Firefox e Safari in MacOS e iOS.
 -   Correzione dell'arresto anomalo della violazione di accesso di Windows Application Verifier durante la trascrizione delle conversazioni quando si usa il flusso a otto canali
 -   Correzione dell'arresto anomalo della violazione di accesso di Windows Application Verifier nella conversione di conversazioni per più dispositivi.
 
 **Esempi**
--   **C#** : [esempio di codice](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/speaker-recognition) per il riconoscimento del parlante.
--   **C++** : [esempio di codice](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/speaker-recognition) per il riconoscimento del parlante.
--   **Java** : [esempio di codice](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/intent-recognition) per il riconoscimento preventivo in Android. 
+-   **C#**: [esempio di codice](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/speaker-recognition) per il riconoscimento del parlante.
+-   **C++**: [esempio di codice](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows/speaker-recognition) per il riconoscimento del parlante.
+-   **Java**: [esempio di codice](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/intent-recognition) per il riconoscimento preventivo in Android. 
 
 **COVID-19 test abbreviato:** A causa del funzionamento remoto nelle ultime settimane, non è stato possibile eseguire il test di verifica manuale come in genere. Non sono state apportate modifiche che potrebbero essere state interrotte e i test automatizzati sono stati superati. Nel caso improbabile in cui si è verificato un problema, inviare informazioni su [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Rimanere integro.
@@ -309,33 +309,33 @@ Rimanere integro.
 
 ## <a name="speech-sdk-1120-2020-may-release"></a>Speech SDK 1.12.0:2020-versione di maggio
 **INTERFACCIA della riga di comando vocale (anche noto come SPX)**
-- **SPX** è un nuovo strumento da riga di comando che consente di eseguire operazioni di riconoscimento, sintesi, traduzione, trascrizione batch e gestione vocale personalizzata dalla riga di comando. Usarlo per testare il servizio di riconoscimento vocale o per generare script per le attività del servizio vocale che è necessario eseguire. Scaricare lo strumento e leggere la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-overview).
+- **SPX** è un nuovo strumento da riga di comando che consente di eseguire operazioni di riconoscimento, sintesi, traduzione, trascrizione batch e gestione vocale personalizzata dalla riga di comando. Usarlo per testare il servizio di riconoscimento vocale o per generare script per le attività del servizio vocale che è necessario eseguire. Scaricare lo strumento e leggere la documentazione [qui](./spx-overview.md).
 
 **Nuove funzionalità**
-- **Go** : nuovo supporto per il linguaggio Go per il [riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone?pivots=programming-language-go) e l' [Assistente vocale personalizzato](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-go). Configurare l'ambiente di sviluppo [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-go). Per il codice di esempio, vedere la sezione esempi riportata di seguito. 
-- **JavaScript** : aggiunto il supporto del browser per la sintesi vocale. Vedere la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech-audio-file?pivots=programming-language-JavaScript).
-- **C++, C#, Java** : nuovi `KeywordRecognizer` oggetti e API supportati in piattaforme Windows, Android, Linux & iOS. Leggi la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-overview). Per il codice di esempio, vedere la sezione esempi riportata di seguito. 
-- **Java** : è stata aggiunta la conversazione per più dispositivi con supporto per la traduzione. Vedere la documentazione di riferimento [qui](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription).
+- **Go**: nuovo supporto per il linguaggio Go per il [riconoscimento vocale](./get-started-speech-to-text.md?pivots=programming-language-go) e l' [Assistente vocale personalizzato](./quickstarts/voice-assistants.md?pivots=programming-language-go). Configurare l'ambiente di sviluppo [qui](./quickstarts/setup-platform.md?pivots=programming-language-go). Per il codice di esempio, vedere la sezione esempi riportata di seguito. 
+- **JavaScript**: aggiunto il supporto del browser per la sintesi vocale. Vedere la documentazione [qui](./get-started-text-to-speech.md?pivots=programming-language-JavaScript).
+- **C++, C#, Java**: nuovi `KeywordRecognizer` oggetti e API supportati in piattaforme Windows, Android, Linux & iOS. Leggi la documentazione [qui](./custom-keyword-overview.md). Per il codice di esempio, vedere la sezione esempi riportata di seguito. 
+- **Java**: è stata aggiunta la conversazione per più dispositivi con supporto per la traduzione. Vedere la documentazione di riferimento [qui](/java/api/com.microsoft.cognitiveservices.speech.transcription).
 
 **Miglioramenti & ottimizzazioni**
-- **JavaScript** : implementazione ottimizzata del microfono del browser miglioramento dell'accuratezza del riconoscimento vocale.
-- **Java** : binding sottoposti a refactoring usando l'implementazione JNI diretta senza sorso. Questa modifica riduce di 10 volte le dimensioni dei binding per tutti i pacchetti Java usati per Windows, Android, Linux e Mac e semplifica ulteriormente lo sviluppo dell'implementazione Java per l'SDK di riconoscimento vocale.
-- **Linux** : è stata aggiornata la [documentazione](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=linux) del supporto con le note specifiche più recenti di RHEL 7.
+- **JavaScript**: implementazione ottimizzata del microfono del browser miglioramento dell'accuratezza del riconoscimento vocale.
+- **Java**: binding sottoposti a refactoring usando l'implementazione JNI diretta senza sorso. Questa modifica riduce di 10 volte le dimensioni dei binding per tutti i pacchetti Java usati per Windows, Android, Linux e Mac e semplifica ulteriormente lo sviluppo dell'implementazione Java per l'SDK di riconoscimento vocale.
+- **Linux**: è stata aggiornata la [documentazione](./speech-sdk.md?tabs=linux) del supporto con le note specifiche più recenti di RHEL 7.
 - Logica di connessione migliorata per tentare di connettersi più volte quando si verificano errori di servizio e di rete.
 - È stata aggiornata la pagina introduttiva di [Portal.Azure.com](https://portal.azure.com) Speech per aiutare gli sviluppatori a eseguire il passaggio successivo nel percorso vocale di Azure.
 
 **Correzioni di bug**
-- **C#, Java** : è stato risolto un [problema](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/587) relativo al caricamento delle librerie SDK su ARM Linux (a 32 bit e a 64 bit).
-- **C#** : correzione dell'eliminazione esplicita degli handle nativi per gli oggetti TranslationRecognizer, IntentRecognizer e Connection.
-- **C#** : correzione della durata dell'input audio per l'oggetto ConversationTranscriber.
+- **C#, Java**: è stato risolto un [problema](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/587) relativo al caricamento delle librerie SDK su ARM Linux (a 32 bit e a 64 bit).
+- **C#**: correzione dell'eliminazione esplicita degli handle nativi per gli oggetti TranslationRecognizer, IntentRecognizer e Connection.
+- **C#**: correzione della durata dell'input audio per l'oggetto ConversationTranscriber.
 - Correzione di un problema `IntentRecognizer` per cui il motivo del risultato non è stato impostato correttamente quando si riconoscono gli Intent da frasi semplici.
 - Correzione di un problema per cui l' `SpeechRecognitionEventArgs` offset dei risultati non è stato impostato correttamente.
 - Correzione di un race condition in cui SDK stava tentando di inviare un messaggio di rete prima di aprire la connessione WebSocket. È stato riproducibile per mentre venivano `TranslationRecognizer` aggiunti i partecipanti.
 - Correzione di perdite di memoria nel motore di riconoscimento delle parole chiave.
 
 **Esempi**
-- **Go** : aggiunte guide introduttive per [riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone?pivots=programming-language-go) e [Assistente vocale personalizzato](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-go). Trovare il codice di esempio [qui](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples). 
-- **JavaScript** : aggiunte guide introduttive per [sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-javascript), [traduzione](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-translation?tabs=script&pivots=programming-language-csharp)e [riconoscimento finalità](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript).
+- **Go**: aggiunte guide introduttive per [riconoscimento vocale](./get-started-speech-to-text.md?pivots=programming-language-go) e [Assistente vocale personalizzato](./quickstarts/voice-assistants.md?pivots=programming-language-go). Trovare il codice di esempio [qui](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples). 
+- **JavaScript**: aggiunte guide introduttive per [sintesi vocale](./get-started-text-to-speech.md?pivots=programming-language-javascript), [traduzione](./get-started-speech-translation.md?pivots=programming-language-csharp&tabs=script)e [riconoscimento finalità](./quickstarts/intent-recognition.md?pivots=programming-language-javascript).
 - Esempi di riconoscimento delle parole chiave per [C \# ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) e [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer) (Android).  
 
 **COVID-19 test abbreviato:** A causa del funzionamento remoto nelle ultime settimane, non è stato possibile eseguire il test di verifica manuale come in genere. Non sono state apportate modifiche che potrebbero essere state interrotte e i test automatizzati sono stati superati. In caso di mancata risposta, inviaci informazioni su [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
@@ -343,20 +343,20 @@ Rimanere integro.
 
 ## <a name="speech-sdk-1110-2020-march-release"></a>Speech SDK 1.11.0:2020-versione di marzo
 **Nuove funzionalità**
-- Linux: è stato aggiunto il supporto per Red Hat Enterprise Linux (RHEL)/CentOS 7 x64 con [le istruzioni](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-rhel-centos-7) su come configurare il sistema per l'SDK di riconoscimento vocale.
-- Linux: è stato aggiunto il supporto per .NET Core C# in Linux ARM32 e ARM64. Altre informazioni sono disponibili [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=linux). 
-- C#, C++: aggiunto `UtteranceId` in `ConversationTranscriptionResult` , un ID coerente in tutti i risultati intermedi e riconoscimento vocale finale. Dettagli per [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?view=azure-dotnet&preserve-view=true), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult).
+- Linux: è stato aggiunto il supporto per Red Hat Enterprise Linux (RHEL)/CentOS 7 x64 con [le istruzioni](./how-to-configure-rhel-centos-7.md) su come configurare il sistema per l'SDK di riconoscimento vocale.
+- Linux: è stato aggiunto il supporto per .NET Core C# in Linux ARM32 e ARM64. Altre informazioni sono disponibili [qui](./speech-sdk.md?tabs=linux). 
+- C#, C++: aggiunto `UtteranceId` in `ConversationTranscriptionResult` , un ID coerente in tutti i risultati intermedi e riconoscimento vocale finale. Dettagli per [C#](/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?preserve-view=true&view=azure-dotnet), [C++](/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult).
 - Python: è stato aggiunto il supporto per `Language ID` . Vedere speech_sample. py nel [repository GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console).
-- Windows: aggiunta del supporto per il formato di input audio compresso nella piattaforma Windows per tutte le applicazioni console Win32. Dettagli [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams). 
+- Windows: aggiunta del supporto per il formato di input audio compresso nella piattaforma Windows per tutte le applicazioni console Win32. Dettagli [qui](./how-to-use-codec-compressed-audio-input-streams.md). 
 - JavaScript: supporto sintesi vocale (sintesi vocale) in NodeJS. Fare clic [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech) per altre informazioni. 
 - JavaScript: aggiungere nuove API per consentire l'ispezione di tutti i messaggi di trasmissione e ricezione. Fare clic [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript) per altre informazioni. 
         
 **Correzioni di bug**
-- C#, C++: è stato risolto un problema `SendMessageAsync` in modo che ora invii un messaggio binario come tipo binario. Dettagli per [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection).
-- C#, C++: è stato risolto un problema per cui l'uso dell' `Connection MessageReceived` evento può causare un arresto anomalo se `Recognizer` viene eliminato prima dell' `Connection` oggetto. Dettagli per [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?view=azure-dotnet&preserve-view=true), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection#messagereceived).
+- C#, C++: è stato risolto un problema `SendMessageAsync` in modo che ora invii un messaggio binario come tipo binario. Dettagli per [C#](/dotnet/api/microsoft.cognitiveservices.speech.connection.sendmessageasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Connection_SendMessageAsync_System_String_System_Byte___System_UInt32_), [C++](/cpp/cognitive-services/speech/connection).
+- C#, C++: è stato risolto un problema per cui l'uso dell' `Connection MessageReceived` evento può causare un arresto anomalo se `Recognizer` viene eliminato prima dell' `Connection` oggetto. Dettagli per [C#](/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?preserve-view=true&view=azure-dotnet), [C++](/cpp/cognitive-services/speech/connection#messagereceived).
 - Android: le dimensioni del buffer audio dal microfono sono diminuite da 800 MS a 100 ms per migliorare la latenza.
 - Android: è stato risolto un [problema](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/563) con l'emulatore Android x86 in Android Studio.
-- JavaScript: è stato aggiunto il supporto per le aree in Cina con l' `fromSubscription` API. Dettagli [qui](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#fromsubscription-string--string-). 
+- JavaScript: è stato aggiunto il supporto per le aree in Cina con l' `fromSubscription` API. Dettagli [qui](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?preserve-view=true&view=azure-node-latest#fromsubscription-string--string-). 
 - JavaScript: aggiungere altre informazioni sull'errore per gli errori di connessione da NodeJS.
         
 **Esempi**
@@ -373,7 +373,7 @@ Rimanere integro.
  - Sono stati aggiunti pacchetti Python per supportare la nuova versione 3,8 di Python.
  - Supporto Red Hat Enterprise Linux (RHEL)/CentOS 8 x64 (C++, C#, Java, Python).
    > [!NOTE] 
-   > I clienti devono configurare OpenSSL seguendo [queste istruzioni](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux).
+   > I clienti devono configurare OpenSSL seguendo [queste istruzioni](./how-to-configure-openssl-linux.md).
  - Supporto di Linux ARM32 per Debian e Ubuntu.
  - DialogServiceConnector supporta ora un parametro "ID bot" facoltativo in BotFrameworkConfig. Questo parametro consente l'uso di più bot per la comunicazione diretta con una sola risorsa di sintesi vocale di Azure. Senza il parametro specificato, verrà usato il bot predefinito, come determinato dalla pagina di configurazione del canale di riconoscimento vocale diretto.
  - DialogServiceConnector dispone ora di una proprietà SpeechActivityTemplate. Il contenuto di questa stringa JSON verrà usato da Direct Line Speech per pre-popolare un'ampia gamma di campi supportati in tutte le attività che raggiungono un bot Direct Line Speech, incluse le attività generate automaticamente in risposta a eventi come il riconoscimento vocale.
@@ -395,7 +395,7 @@ Rimanere integro.
 
 **Altre modifiche**
 
- - [Documentazione di configurazione di OpenSSL aggiornata per Linux](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux)
+ - [Documentazione di configurazione di OpenSSL aggiornata per Linux](./how-to-configure-openssl-linux.md)
 
 ## <a name="speech-sdk-190-2020-january-release"></a>Speech SDK 1.9.0:2020-versione di gennaio
 
@@ -403,9 +403,9 @@ Rimanere integro.
 
 - Conversazione a più dispositivi: connettere più dispositivi alla stessa conversazione vocale o basata su testo e, facoltativamente, convertire i messaggi inviati tra di essi. Altre informazioni sono disponibili in [questo articolo](multi-device-conversation.md). 
 - Aggiunta del supporto per il riconoscimento delle parole chiave per il pacchetto Android. Aar e aggiunta del supporto per le versioni x86 e x64. 
-- Objective-C: `SendMessage` e `SetMessageProperty` metodi aggiunti all' `Connection` oggetto. Vedere la documentazione [qui](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxconnection).
-- L'API TTS C++ supporta ora `std::wstring` come input di testo di sintesi, eliminando la necessità di convertire una wstring in stringa prima di passarla all'SDK. Vedere i dettagli [qui](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync). 
-- C#: l' [ID lingua](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) e la [configurazione della lingua di origine](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) sono ora disponibili.
+- Objective-C: `SendMessage` e `SetMessageProperty` metodi aggiunti all' `Connection` oggetto. Vedere la documentazione [qui](/objectivec/cognitive-services/speech/spxconnection).
+- L'API TTS C++ supporta ora `std::wstring` come input di testo di sintesi, eliminando la necessità di convertire una wstring in stringa prima di passarla all'SDK. Vedere i dettagli [qui](/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync). 
+- C#: l' [ID lingua](./how-to-automatic-language-detection.md?pivots=programming-language-csharp) e la [configurazione della lingua di origine](./how-to-specify-source-language.md?pivots=programming-language-csharp) sono ora disponibili.
 - JavaScript: aggiunta di una funzionalità all' `Connection` oggetto per passare i messaggi personalizzati dal servizio di riconoscimento vocale come callback `receivedServiceMessage` .
 - JavaScript: è stato aggiunto il supporto per `FromHost API` per semplificare l'uso con i contenitori locali e i cloud sovrani. Vedere la documentazione [qui](speech-container-howto.md).
 - JavaScript: ora è `NODE_TLS_REJECT_UNAUTHORIZED` possibile rispettare un contributo di [orgads](https://github.com/orgads). Vedere i dettagli [qui](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
@@ -545,8 +545,8 @@ Si tratta di una versione di correzione di bug che interessa solo l'SDK nativo/g
 **Nuove funzionalità**
 
 - L'individuazione delle parole chiave (KWS) è ora disponibile per Windows e Linux. La funzionalità KWS potrebbe funzionare con qualsiasi tipo di microfono, il supporto ufficiale di KWS, tuttavia, è attualmente limitato agli array di microfoni presenti nell'hardware Kinect DK di Azure o nell'SDK per i dispositivi vocali.
-- La funzionalità hint per la frase è disponibile tramite l'SDK. Per altre informazioni, vedere [qui](how-to-phrase-lists.md).
-- La funzionalità di trascrizione delle conversazioni è disponibile tramite l'SDK. Vedere [qui](conversation-transcription-service.md).
+- La funzionalità hint per la frase è disponibile tramite l'SDK. Per altre informazioni, vedere [qui](./get-started-speech-to-text.md).
+- La funzionalità di trascrizione delle conversazioni è disponibile tramite l'SDK. Vedere [qui](./conversation-transcription.md).
 - Aggiunta del supporto per gli assistenti vocali tramite il canale di riconoscimento vocale diretto.
 
 **Esempi**
@@ -615,7 +615,7 @@ Si tratta di una versione di correzione di bug che interessa solo l'SDK nativo/g
 **Nuove funzionalità**
 
 - Speech SDK supporta la selezione del microfono di input tramite la `AudioConfig` classe. In questo modo è possibile trasmettere i dati audio al servizio riconoscimento vocale da un microfono non predefinito. Per ulteriori informazioni, vedere la documentazione che descrive la [selezione del dispositivo di input audio](how-to-select-audio-input-devices.md). Questa funzionalità non è ancora disponibile in JavaScript.
-- Speech SDK supporta ora Unity in versione beta. Inviare commenti e suggerimenti tramite la sezione problema nel [repository di esempio GitHub](https://aka.ms/csspeech/samples). Questa versione supporta Unity in Windows x86 e x64 (applicazioni desktop o per la piattaforma UWP) e Android (ARM32/64, x86). Altre informazioni sono disponibili nell'[Avvio rapido di Unity](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=unity).
+- Speech SDK supporta ora Unity in versione beta. Inviare commenti e suggerimenti tramite la sezione problema nel [repository di esempio GitHub](https://aka.ms/csspeech/samples). Questa versione supporta Unity in Windows x86 e x64 (applicazioni desktop o per la piattaforma UWP) e Android (ARM32/64, x86). Altre informazioni sono disponibili nell'[Avvio rapido di Unity](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=unity).
 - Il file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (fornito nelle versioni precedenti) non è più necessario. La funzionalità è ora integrata nell'SDK di base.
 
 **Esempi**
@@ -673,7 +673,7 @@ Questa è una versione solo per JavaScript. Non sono state aggiunte funzionalit�
   - La versione beta del supporto di Python (versione 3.5 e successive) è disponibile con questa versione. Per ulteriori informazioni, vedere qui] (avvio rapido-python.md).
 - JavaScript
   - Speech SDK per JavaScript è ora open source. Il codice sorgente è disponibile in [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
-  - È ora supportato Node.js. Altre informazioni sono reperibili [qui](quickstart-js-node.md).
+  - È ora supportato Node.js. Altre informazioni sono reperibili [qui](./get-started-speech-to-text.md).
   - È stata rimossa la restrizione di lunghezza per le sessioni audio. La riconnessione avverrà automaticamente.
 - Oggetto `Connection`
   - Dalla `Recognizer` è possibile accedere a un `Connection` oggetto. Questo oggetto consente di avviare in modo esplicito la connessione al servizio e di aggiungere una sottoscrizione per connettere e disconnettere gli eventi.
@@ -755,8 +755,8 @@ Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un 
 
 **Nuove funzionalità**
 
-- Supporto per Objective-C in iOS. Vedere la [Guida introduttiva su Objective-C per iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
-- Supporto per JavaScript nel browser. Vedere la [Guida introduttiva su JavaScript](quickstart-js-browser.md).
+- Supporto per Objective-C in iOS. Vedere la [Guida introduttiva su Objective-C per iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios/from-microphone).
+- Supporto per JavaScript nel browser. Vedere la [Guida introduttiva su JavaScript](./get-started-speech-to-text.md).
 
 **Modifiche di rilievo**
 
@@ -768,10 +768,10 @@ Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un 
 **Nuove funzionalità**
 
 - Le app UWP compilate con Speech SDK ora possono superare il Kit di certificazione app Windows (WACK).
-  Consultare la [Guida introduttiva della piattaforma UWP](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp&tabs=uwp).
+  Consultare la [Guida introduttiva della piattaforma UWP](./get-started-speech-to-text.md?pivots=programming-language-chsarp&tabs=uwp).
 - Supporto per .NET Standard 2.0 in Linux (Ubuntu 16.04 x64).
 - Sperimentale: supporto di Java 8 in Windows (64 bit) e Linux (Ubuntu 16.04 x64).
-  Consultare la [Guida introduttiva di Java Runtime Environment](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre).
+  Consultare la [Guida introduttiva di Java Runtime Environment](./get-started-speech-to-text.md?pivots=programming-language-java&tabs=jre).
 
 **Modifica funzionale**
 
@@ -793,10 +793,10 @@ Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un 
 
 **Nuove funzionalità**
 
-- Supporto della piattaforma Android (API 23: Android Marshmallow 6.0 o versione successiva). Consultare la [Guida introduttiva di Android](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=android).
-- Supporto di .NET Standard 2.0 in Windows. Consultare la [Guida introduttiva di .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+- Supporto della piattaforma Android (API 23: Android Marshmallow 6.0 o versione successiva). Consultare la [Guida introduttiva di Android](./get-started-speech-to-text.md?pivots=programming-language-java&tabs=android).
+- Supporto di .NET Standard 2.0 in Windows. Consultare la [Guida introduttiva di .NET Core](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore).
 - Sperimentale: supporto di UWP in Windows (versione 1709 o successiva).
-  - Consultare la [Guida introduttiva della piattaforma UWP](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp).
+  - Consultare la [Guida introduttiva della piattaforma UWP](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp).
   - Nota: le app UWP compilate con Speech SDK non superano ancora il Kit di certificazione app Windows (WACK).
 - Supporto del riconoscimento a esecuzione prolungata con riconnessione automatica.
 

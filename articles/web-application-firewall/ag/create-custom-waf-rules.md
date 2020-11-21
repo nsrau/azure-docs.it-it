@@ -6,20 +6,22 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 11/20/2020
 ms.author: victorh
-ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f164418c29e9838928f3d03519342ebef40e16e7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77368311"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015698"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Creare e usare le regole personalizzate del Web Application Firewall v2 sul gateway applicazione
 
 Il Web Application Firewall (WAF) V2 in applicazione Azure gateway fornisce la protezione per le applicazioni Web. Questa protezione viene fornita dal set di regole di base (CRS) di Open Web Application Security Project (OWASP). In alcuni casi, potrebbe essere necessario creare regole personalizzate per soddisfare esigenze specifiche. Per ulteriori informazioni sulle regole personalizzate di WAF, vedere [custom Web Application Firewall Rules Overview](custom-waf-rules-overview.md).
 
 Questo articolo illustra alcune regole personalizzate di esempio che è possibile creare e usare con la WAF V2. Per informazioni su come distribuire un WAF con una regola personalizzata usando Azure PowerShell, vedere [configurare le regole personalizzate di Web Application Firewall usando Azure PowerShell](configure-waf-custom-rules.md).
+
+I frammenti di codice JSON illustrati in questo articolo sono derivati da una risorsa [ApplicationGatewayWebApplicationFirewallPolicies](/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies) .
 
 >[!NOTE]
 > Se il gateway applicazione non sta usando il livello WAF, l'opzione per aggiornare il gateway applicazione al livello WAF, come visualizzato nel riquadro a destra.
@@ -229,7 +231,7 @@ Regola CRS corrispondente: `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:70
 
 ## <a name="example-4"></a>Esempio 4
 
-Per questo esempio, si desidera bloccare User-Agent *evilbot*e il traffico nell'intervallo 192.168.5.0/24. A tale scopo, è possibile creare due condizioni di corrispondenza separate e inserirle entrambe nella stessa regola. In questo modo si garantisce che se si verifica la corrispondenza di *evilbot* nell'intestazione User-Agent **e** negli indirizzi IP dall'intervallo 192.168.5.0/24, la richiesta viene bloccata.
+Per questo esempio, si desidera bloccare User-Agent *evilbot* e il traffico nell'intervallo 192.168.5.0/24. A tale scopo, è possibile creare due condizioni di corrispondenza separate e inserirle entrambe nella stessa regola. In questo modo si garantisce che se si verifica la corrispondenza di *evilbot* nell'intestazione User-Agent **e** negli indirizzi IP dall'intervallo 192.168.5.0/24, la richiesta viene bloccata.
 
 Logica: p **e** q
 
@@ -301,7 +303,7 @@ Ecco il codice JSON corrispondente:
 
 ## <a name="example-5"></a>Esempio 5
 
-Per questo esempio, si vuole bloccare se la richiesta è esterna all'intervallo di indirizzi IP *192.168.5.0/24*oppure la stringa dell'agente utente non è *Chrome* (ovvero l'utente non usa il browser Chrome). Poiché questa logica USA **o**, le due condizioni sono in regole separate, come illustrato nell'esempio seguente. *Regola1* e *Regola2* devono corrispondere per bloccare il traffico.
+Per questo esempio, si vuole bloccare se la richiesta è esterna all'intervallo di indirizzi IP *192.168.5.0/24* oppure la stringa dell'agente utente non è *Chrome* (ovvero l'utente non usa il browser Chrome). Poiché questa logica USA **o**, le due condizioni sono in regole separate, come illustrato nell'esempio seguente. *Regola1* e *Regola2* devono corrispondere per bloccare il traffico.
 
 Logica: **not** (p **e** q) = **not** p **o not** q.
 
@@ -388,7 +390,7 @@ E il JSON corrispondente:
 
 ## <a name="example-6"></a>Esempio 6
 
-Si vuole bloccare il SQLI personalizzato. Poiché la logica usata qui è **o**e tutti i valori si trovano in *requestUri*, tutti i *MatchValues* possono trovarsi in un elenco delimitato da virgole.
+Si vuole bloccare il SQLI personalizzato. Poiché la logica usata qui è **o** e tutti i valori si trovano in *requestUri*, tutti i *MatchValues* possono trovarsi in un elenco delimitato da virgole.
 
 Logica: p **o** q **o** r
 

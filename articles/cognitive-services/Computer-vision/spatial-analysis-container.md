@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 6ebc1831b990b540bcb9a3856c380c28142af536
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 2f03746a6a5afc388db2beeff84b3ab4cbd393b5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357114"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014595"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installare ed eseguire il contenitore di analisi spaziale (anteprima)
 
@@ -34,7 +34,7 @@ Per eseguire il contenitore di analisi spaziale, è necessario un dispositivo di
 
 #### <a name="azure-stack-edge-device"></a>[Dispositivo Azure Stack Edge](#tab/azure-stack-edge)
 
-Azure Stack Edge è una soluzione hardware come servizio e un dispositivo di calcolo Edge abilitato per intelligenza artificiale con funzionalità di trasferimento dei dati di rete. Per istruzioni dettagliate sulla preparazione e la configurazione, vedere la [documentazione di Azure stack Edge](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-prep).
+Azure Stack Edge è una soluzione hardware come servizio e un dispositivo di calcolo Edge abilitato per intelligenza artificiale con funzionalità di trasferimento dei dati di rete. Per istruzioni dettagliate sulla preparazione e la configurazione, vedere la [documentazione di Azure stack Edge](../../databox-online/azure-stack-edge-deploy-prep.md).
 
 #### <a name="desktop-machine"></a>[Computer desktop](#tab/desktop-machine)
 
@@ -59,7 +59,7 @@ In questo articolo vengono scaricati e installati i pacchetti software seguenti.
 * [Driver NVIDIA graphics](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) e [NVIDIA CUDA Toolkit](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
 * Configurazioni per i [MP NVIDIA](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf) (servizio a più processi).
 * [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) e [NVIDIA-Docker2](https://github.com/NVIDIA/nvidia-docker) 
-* [Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) Runtime.
+* [Azure IOT Edge](../../iot-edge/how-to-install-iot-edge.md) Runtime.
 
 ---
 
@@ -93,7 +93,7 @@ Si consiglia di usare un dispositivo Azure Stack Edge per il computer host. Se s
  
 L'analisi spaziale USA le funzionalità di calcolo di Azure Stack Edge per eseguire una soluzione di intelligenza artificiale. Per abilitare le funzionalità di calcolo, verificare che: 
 
-* Il dispositivo Azure Stack Edge è stato [connesso e attivato](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-connect-setup-activate) . 
+* Il dispositivo Azure Stack Edge è stato [connesso e attivato](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md) . 
 * Si dispone di un sistema client Windows che esegue PowerShell 5,0 o versione successiva per accedere al dispositivo.  
 * Per distribuire un cluster Kubernetes, è necessario configurare il dispositivo Azure Stack Edge tramite l' **interfaccia utente locale** nel [portale di Azure](https://portal.azure.com/): 
   1. Abilitare la funzionalità di calcolo sul dispositivo Azure Stack Edge. Per abilitare il calcolo, passare alla pagina **calcolo** nell'interfaccia Web del dispositivo. 
@@ -117,7 +117,7 @@ Quando il ruolo di calcolo Edge è configurato nel dispositivo Edge, crea due di
 
 > [!NOTE]
 > * Attualmente è supportata solo la piattaforma Linux per i dispositivi IoT Edge. Per informazioni sulla risoluzione dei problemi relativi al dispositivo Azure Stack Edge, vedere l'articolo [registrazione e risoluzione dei problemi](spatial-analysis-logging.md) .
-> * Per altre informazioni su come configurare un dispositivo IoT Edge per la comunicazione tramite un server proxy, vedere [configurare un dispositivo IOT Edge per la comunicazione tramite un server proxy](https://docs.microsoft.com/azure/iot-edge/how-to-configure-proxy-support#azure-portal)
+> * Per altre informazioni su come configurare un dispositivo IoT Edge per la comunicazione tramite un server proxy, vedere [configurare un dispositivo IOT Edge per la comunicazione tramite un server proxy](../../iot-edge/how-to-configure-proxy-support.md#azure-portal)
 
 ###  <a name="enable-mps-on-azure-stack-edge"></a>Abilita MPS su Azure Stack Edge 
 
@@ -129,7 +129,7 @@ Quando il ruolo di calcolo Edge è configurato nel dispositivo Edge, crea due di
     winrm quickconfig
     ```
     
-    Se vengono visualizzati avvisi relativi a un'eccezione del firewall, controllare il tipo di connessione di rete e vedere la documentazione [gestione remota Windows](https://docs.microsoft.com/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) .
+    Se vengono visualizzati avvisi relativi a un'eccezione del firewall, controllare il tipo di connessione di rete e vedere la documentazione [gestione remota Windows](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management) .
 
 3. Assegnare una variabile all'indirizzo IP del dispositivo. 
     
@@ -246,7 +246,7 @@ sudo systemctl --now enable nvidia-mps.service
 
 ## <a name="configure-azure-iot-edge-on-the-host-computer"></a>Configurare Azure IoT Edge nel computer host
 
-Per distribuire il contenitore di analisi spaziale nel computer host, creare un'istanza di un servizio [Hub Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) per l'uso del piano tariffario standard (S1) o gratuito (F0). Se il computer host è un Azure Stack Edge, usare la stessa sottoscrizione e il gruppo di risorse usato dalla risorsa Azure Stack Edge.
+Per distribuire il contenitore di analisi spaziale nel computer host, creare un'istanza di un servizio [Hub Azure](../../iot-hub/iot-hub-create-through-portal.md) per l'uso del piano tariffario standard (S1) o gratuito (F0). Se il computer host è un Azure Stack Edge, usare la stessa sottoscrizione e il gruppo di risorse usato dalla risorsa Azure Stack Edge.
 
 Usare l'interfaccia della riga di comando di Azure per creare un'istanza dell'hub Azure. Sostituire i parametri laddove appropriato. In alternativa, è possibile creare l'hub Azure per la [portale di Azure](https://portal.azure.com/).
 
@@ -261,7 +261,7 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-Se il computer host non è un dispositivo Azure Stack Edge, sarà necessario installare [Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) versione 1.0.9. Per scaricare la versione corretta, attenersi alla procedura seguente:
+Se il computer host non è un dispositivo Azure Stack Edge, sarà necessario installare [Azure IOT Edge](../../iot-edge/how-to-install-iot-edge.md) versione 1.0.9. Per scaricare la versione corretta, attenersi alla procedura seguente:
 
 Server Ubuntu 18,04:
 ```bash
@@ -292,7 +292,7 @@ Installare la versione di 1.0.9:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Registrare quindi il computer host come dispositivo IoT Edge nell'istanza dell'hub Internet, usando una stringa di [connessione](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
+Registrare quindi il computer host come dispositivo IoT Edge nell'istanza dell'hub Internet, usando una stringa di [connessione](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06).
 
 È necessario connettere il dispositivo IoT Edge all'hub Azure. È necessario copiare la stringa di connessione dal dispositivo IoT Edge creato in precedenza. In alternativa, è possibile eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
 
@@ -306,7 +306,7 @@ Sul computer host aperto  `/etc/iotedge/config.yaml` per la modifica. Sostituire
 sudo systemctl restart iotedge
 ```
 
-Distribuire il contenitore di analisi spaziale come un modulo di Internet delle cose nel computer host, dall' [portale di Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) o dall'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli). Se si usa il portale, impostare l'URI dell'immagine sul percorso del Container Registry di Azure. 
+Distribuire il contenitore di analisi spaziale come un modulo di Internet delle cose nel computer host, dall' [portale di Azure](../../iot-edge/how-to-deploy-modules-portal.md) o dall'interfaccia della riga di comando di [Azure](../../iot-edge/how-to-deploy-modules-cli.md). Se si usa il portale, impostare l'URI dell'immagine sul percorso del Container Registry di Azure. 
 
 Usare i passaggi seguenti per distribuire il contenitore usando l'interfaccia della riga di comando di Azure.
 
@@ -335,7 +335,7 @@ La tabella seguente illustra le diverse variabili di ambiente usate dal modulo I
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing).
 
-Dopo aver aggiornato il manifesto di distribuzione per i [dispositivi Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o [un computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) con le proprie impostazioni e la selezione delle operazioni, è possibile usare il comando dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) seguente per distribuire il contenitore nel computer host, come modulo di IOT Edge.
+Dopo aver aggiornato il manifesto di distribuzione per i [dispositivi Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o [un computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) con le proprie impostazioni e la selezione delle operazioni, è possibile usare il comando dell'interfaccia della riga di comando di [Azure](../../iot-edge/how-to-deploy-modules-cli.md) seguente per distribuire il contenitore nel computer host, come modulo di IOT Edge.
 
 ```azurecli
 az login
@@ -366,14 +366,14 @@ Una volta completata la distribuzione e il contenitore è in esecuzione, il **co
 
 ## <a name="redeploy-or-delete-the-deployment"></a>Ridistribuire o eliminare la distribuzione
 
-Se è necessario aggiornare la distribuzione, è necessario assicurarsi che le distribuzioni precedenti siano state distribuite correttamente oppure è necessario eliminare IoT Edge le distribuzioni di dispositivi che non sono state completate. In caso contrario, le distribuzioni continueranno, lasciando il sistema in uno stato non valido. È possibile usare l'portale di Azure o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment).
+Se è necessario aggiornare la distribuzione, è necessario assicurarsi che le distribuzioni precedenti siano state distribuite correttamente oppure è necessario eliminare IoT Edge le distribuzioni di dispositivi che non sono state completate. In caso contrario, le distribuzioni continueranno, lasciando il sistema in uno stato non valido. È possibile usare l'portale di Azure o l'interfaccia della riga di comando di [Azure](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment).
 
 ## <a name="use-the-output-generated-by-the-container"></a>Usare l'output generato dal contenitore
 
 Se si desidera iniziare a utilizzare l'output generato dal contenitore, vedere gli articoli seguenti:
 
-*   Usare l'SDK di hub eventi di Azure per il linguaggio di programmazione scelto per connettersi all'endpoint dell'hub Azure Internet e ricevere gli eventi. Per altre informazioni, vedere [leggere i messaggi da dispositivo a cloud dall'endpoint predefinito](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) . 
-*   Configurare il routing dei messaggi nell'hub di Azure per l'invio degli eventi ad altri endpoint oppure salvare gli eventi nell'archiviazione BLOB di Azure e così via. Per ulteriori informazioni, vedere [routing dei messaggi dell'hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) Internet. 
+*   Usare l'SDK di hub eventi di Azure per il linguaggio di programmazione scelto per connettersi all'endpoint dell'hub Azure Internet e ricevere gli eventi. Per altre informazioni, vedere [leggere i messaggi da dispositivo a cloud dall'endpoint predefinito](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) . 
+*   Configurare il routing dei messaggi nell'hub di Azure per l'invio degli eventi ad altri endpoint oppure salvare gli eventi nell'archiviazione BLOB di Azure e così via. Per ulteriori informazioni, vedere [routing dei messaggi dell'hub](../../iot-hub/iot-hub-devguide-messages-d2c.md) Internet. 
 
 ## <a name="running-spatial-analysis-with-a-recorded-video-file"></a>Esecuzione dell'analisi spaziale con un file video registrato
 
@@ -381,7 +381,7 @@ Se si desidera iniziare a utilizzare l'output generato dal contenitore, vedere g
     1. Modificare il **trasferimento sicuro necessario** per **disabilitarlo**
     2. Modifica **Consenti accesso pubblico BLOB** su **abilitato**
 
-Passare alla sezione del **contenitore** e creare un nuovo contenitore o utilizzarne uno esistente. Caricare quindi il file video nel contenitore. Espandere le impostazioni del file caricato e selezionare **genera** firma di accesso condiviso. Assicurarsi di impostare la **Data di scadenza** abbastanza lunga per coprire il periodo di test. Impostare i **protocolli consentiti** su *http* ( *https* non è supportato).
+Passare alla sezione del **contenitore** e creare un nuovo contenitore o utilizzarne uno esistente. Caricare quindi il file video nel contenitore. Espandere le impostazioni del file caricato e selezionare **genera** firma di accesso condiviso. Assicurarsi di impostare la **Data di scadenza** abbastanza lunga per coprire il periodo di test. Impostare i **protocolli consentiti** su *http* (*https* non è supportato).
 
 Fare clic su **genera token SAS e URL** e copiare l'URL SAS BLOB. Sostituire l'oggetto iniziando `https` con `http` e testare l'URL in un browser che supporta la riproduzione video.
 
@@ -418,7 +418,7 @@ Il contenitore di analisi spaziale Invia le informazioni di fatturazione ad Azur
 I contenitori di servizi cognitivi di Azure non sono concessi in licenza per l'esecuzione senza essere connessi all'endpoint di misurazione/fatturazione. È necessario consentire ai contenitori di comunicare sempre le informazioni di fatturazione all'endpoint di fatturazione. I contenitori di servizi cognitivi non inviano dati del cliente, ad esempio il video o l'immagine da analizzare, a Microsoft.
 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo sono stati appresi concetti e flussi di lavoro per il download, l'installazione e l'esecuzione del contenitore di analisi spaziale. In sintesi:
 

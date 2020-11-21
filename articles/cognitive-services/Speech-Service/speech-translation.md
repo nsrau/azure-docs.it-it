@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: traduzione vocale
-ms.openlocfilehash: e54659b0d4504def272d3de40d5e953d98404a8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c2943d7cd5ce2c5c7c4a8501dc0033aa8c9cbc
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630071"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015206"
 ---
 # <a name="what-is-speech-translation"></a>Che cos'è la traduzione vocale?
 
@@ -36,7 +36,7 @@ Oggi Microsoft usa NMT per la traduzione in lingue più diffuse. Tutte le [lingu
 * Supporto per la conversione a più lingue di destinazione.
 * Risultati del riconoscimento provvisorio e della traduzione.
 
-## <a name="get-started"></a>Operazioni preliminari 
+## <a name="get-started"></a>Introduzione 
 
 Per iniziare a usare la traduzione vocale, vedere la [Guida introduttiva](get-started-speech-translation.md) . Il servizio di traduzione vocale è disponibile tramite l' [SDK vocale](speech-sdk.md) e l'interfaccia della riga di comando [vocale](spx-overview.md).
 
@@ -48,13 +48,13 @@ Il codice di esempio per l'SDK di riconoscimento vocale è disponibile su GitHub
 
 ## <a name="migration-guides"></a>Guide alla migrazione
 
-Se le applicazioni, gli strumenti o i prodotti usano la [API traduzione vocale](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), sono state create guide che consentono di eseguire la migrazione al servizio di riconoscimento vocale.
+Se le applicazioni, gli strumenti o i prodotti usano la [API traduzione vocale](./how-to-migrate-from-translator-speech-api.md), sono state create guide che consentono di eseguire la migrazione al servizio di riconoscimento vocale.
 
 * [Eseguire la migrazione dalla API Traduzione vocale al servizio riconoscimento vocale](how-to-migrate-from-translator-speech-api.md)
 
 ## <a name="reference-docs"></a>Documentazione di riferimento
 
-* [Speech SDK](speech-sdk-reference.md)
+* [Speech SDK](./speech-sdk.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
 * [API REST: Riconoscimento vocale](rest-speech-to-text.md)
 * [API REST: Sintesi vocale](rest-text-to-speech.md)

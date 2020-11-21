@@ -12,12 +12,12 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: riconoscimento del parlante, biometria vocale
-ms.openlocfilehash: 5001ac166b37f3a3852bc14261a5b5d199d778cd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d07a9960c8a586fa137b4b717afbf91740c265d3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844567"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015325"
 ---
 # <a name="what-is-speaker-recognition-preview"></a>Che cos'è Riconoscimento del parlante (anteprima)?
 
@@ -70,10 +70,10 @@ Come per tutte le risorse di servizi cognitivi, gli sviluppatori che usano il se
 | Quali sono i formati audio supportati? | Mono a 16 bit, WAV con codifica PCM 16kHz |
 | Le risposte **Accept** e **Reject** non sono accurate, come si ottimizza la soglia? | Poiché la soglia ottimale varia in base agli scenari, l'API decide se "accettare" o "rifiutare" semplicemente in base a una soglia predefinita di 0,5. Si consiglia agli utenti avanzati di sostituire la decisione predefinita e di ottimizzare il risultato in base al proprio scenario. |
 | È possibile registrare un altoparlante più volte? | Sì, per la verifica dipendente dal testo è possibile registrare un altoparlante per un massimo di 50 volte. Per la verifica indipendente dal testo o l'identificazione del parlante, è possibile eseguire la registrazione con un massimo di 300 secondi di audio. |
-| Quali dati vengono archiviati in Azure? | L'audio di registrazione viene archiviato nel servizio fino a quando non viene [eliminato](speaker-recognition-basics.md#deleting-voice-profile-enrollments)il profilo vocale. Gli esempi di riconoscimento audio non vengono conservati o archiviati. |
+| Quali dati vengono archiviati in Azure? | L'audio di registrazione viene archiviato nel servizio fino a quando non viene [eliminato](./get-started-speaker-recognition.md#deleting-voice-profile-enrollments)il profilo vocale. Gli esempi di riconoscimento audio non vengono conservati o archiviati. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> * Completare l' [articolo Nozioni di base](speaker-recognition-basics.md) su riconoscimento del parlante per un'esecuzione di modelli di progettazione comuni che è possibile usare nelle applicazioni.
+> * Completare l' [articolo Nozioni di base](./get-started-speaker-recognition.md) su riconoscimento del parlante per un'esecuzione di modelli di progettazione comuni che è possibile usare nelle applicazioni.
 > * Vedere l' [esercitazione video](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) per la verifica del relatore indipendente dal testo.

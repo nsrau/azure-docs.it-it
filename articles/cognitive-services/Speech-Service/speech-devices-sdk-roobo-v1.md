@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1a32e485dfc9cd465f6dd6d50abdb166737dc3aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73eb1225ffc5fd01f9a27ca99ad2b059d45a36cf
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387983"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015291"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>Dispositivo: Roobo smart audio Dev Kit
 
@@ -73,4 +73,4 @@ Roobo fornisce uno strumento che acquisisce tutti i file audio nella memoria fla
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Eseguire l'app di esempio Android](speech-devices-sdk-android-quickstart.md)
+* [Eseguire l'app di esempio Android](./speech-devices-sdk-quickstart.md?pivots=platform-android%253fpivots%253dplatform-android)

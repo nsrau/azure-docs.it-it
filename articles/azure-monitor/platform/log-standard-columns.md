@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 695b0b0ac06e63912ca0a471be3d96c148458c29
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dc3d119479d2dce45b286463f3d6a76410220dd0
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104241"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014221"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colonne standard nei log di monitoraggio di Azure
 I dati nei log di monitoraggio di Azure vengono [archiviati come set di record in un'area di lavoro log Analytics o in un'applicazione Application Insights](./data-platform-logs.md), ognuno con un particolare tipo di dati che dispone di un set univoco di colonne. Molti tipi di dati avranno colonne standard comuni tra più tipi. Questo articolo descrive queste colonne e fornisce esempi di come è possibile usarle nelle query.
@@ -48,7 +48,7 @@ exceptions
 ```
 
 ## <a name="_timereceived"></a>\_TimeReceived
-La colonna ** \_ TimeReceived** contiene la data e l'ora in cui il record è stato ricevuto dal punto di inserimento di monitoraggio di Azure nel cloud di Azure. Questa proprietà può essere utile per identificare i problemi di latenza tra l'origine dati e il cloud. Un esempio può essere un problema di rete che causa un ritardo durante l'invio dei dati da un agente. Per altri dettagli, vedere [Tempo di inserimento dei dati di log in Monitoraggio di Azure](data-ingestion-time.md).
+La colonna **\_ TimeReceived** contiene la data e l'ora in cui il record è stato ricevuto dal punto di inserimento di monitoraggio di Azure nel cloud di Azure. Questa proprietà può essere utile per identificare i problemi di latenza tra l'origine dati e il cloud. Un esempio può essere un problema di rete che causa un ritardo durante l'invio dei dati da un agente. Per altri dettagli, vedere [Tempo di inserimento dei dati di log in Monitoraggio di Azure](data-ingestion-time.md).
 
 La query seguente restituisce la latenza media per ora relativa ai record di evento inviati da un agente. Sono inclusi il tempo del trasferimento dall'agente al cloud e il tempo totale in cui il record sarà disponibile per le query sui log.
 
@@ -74,11 +74,11 @@ search *
 
 ```
 ## <a name="_itemid"></a>\_ItemId
-La colonna ** \_ ItemId** include un identificatore univoco per il record.
+La colonna **\_ ItemId** include un identificatore univoco per il record.
 
 
 ## <a name="_resourceid"></a>\_ResourceId
-La colonna ** \_ resourceId** include un identificatore univoco per la risorsa a cui è associato il record. In questo modo si ottiene una colonna standard da usare per definire l'ambito della query solo per i record di una determinata risorsa o per unire dati correlati tra più tabelle.
+La colonna **\_ resourceId** include un identificatore univoco per la risorsa a cui è associato il record. In questo modo si ottiene una colonna standard da usare per definire l'ambito della query solo per i record di una determinata risorsa o per unire dati correlati tra più tabelle.
 
 Per le risorse di Azure, il valore di **_ResourceId** è l'[URL dell'ID risorsa di Azure](../../azure-resource-manager/templates/template-functions-resource.md). La colonna è attualmente limitata alle risorse di Azure, ma verrà estesa a risorse esterne ad Azure, ad esempio computer locali.
 
@@ -124,7 +124,7 @@ union withsource = tt *
 Usare queste query `union withsource = tt *` solo se necessario, poiché le analisi tra tipi di dati sono costose.
 
 ## <a name="_isbillable"></a>\_IsBillable
-La colonna ** \_ fatturabile** specifica se i dati inseriti sono fatturabili. I dati con **\_IsBillable** uguali a `false` vengono raccolti gratuitamente e non fatturati nell'account Azure.
+La colonna **\_ fatturabile** specifica se i dati inseriti sono fatturabili. I dati con **\_IsBillable** uguali a `false` vengono raccolti gratuitamente e non fatturati nell'account Azure.
 
 ### <a name="examples"></a>Esempi
 Per ottenere un elenco di computer che inviano i tipi di dati fatturati, usare la query seguente:
@@ -151,10 +151,10 @@ union withsource = tt *
 ```
 
 ## <a name="_billedsize"></a>\_BilledSize
-La colonna ** \_ BilledSize** specifica la dimensione in byte dei dati che verranno addebitati all'account di Azure se la ** \_ fatturazione** è vera.
+La colonna **\_ BilledSize** specifica la dimensione in byte dei dati che verranno addebitati all'account di Azure se la **\_ fatturazione** è vera.
 
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 Per visualizzare le dimensioni degli eventi fatturabili inseriti per computer, utilizzare la `_BilledSize` colonna che fornisce le dimensioni in byte:
 
 ```Kusto
@@ -211,4 +211,4 @@ union withsource = tt *
 
 - Leggere altre informazioni su come [vengono archiviati i dati di log di Monitoraggio di Azure](../log-query/log-query-overview.md).
 - Seguire una lezione sulla [scrittura di query di log](../log-query/get-started-queries.md).
-- Seguire una lezione sul [join di tabelle nelle query di log](../log-query/joins.md).
+- Seguire una lezione sul [join di tabelle nelle query di log](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).

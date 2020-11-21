@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 64884f07bc59e5ff2b29eac645ddb469ef3db465
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b3fdf052ce7f0d6a5c3497aa1ac971d9249546a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325186"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015593"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali
 
@@ -51,7 +51,7 @@ Per gestire i costi e la complessità, i record di connessione non rappresentano
 |:--|:--|
 |Direzione |Direzione della connessione. Il valore è *inbound* o *outbound* |
 |Computer |FQDN del computer |
-|Processo |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
+|Process |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
 |SourceIp |Indirizzo IP dell'origine |
 |DestinationIp |Indirizzo IP della destinazione |
 |DestinationPort |Numero di porta della destinazione |
@@ -111,7 +111,7 @@ Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un s
 | Proprietà | Descrizione |
 |:--|:--|
 |MaliciousIp |Indirizzo RemoteIp |
-|IndicatorThreadType |L'indicatore di minaccia rilevato è uno dei valori seguenti, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos *, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
+|IndicatorThreadType |L'indicatore di minaccia rilevato è uno dei valori seguenti, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
 |Descrizione |Descrizione della minaccia osservata. |
 |TLPLevel |Il livello del protocollo di segnalazione del traffico è uno dei valori definiti: *Bianco*, *Verde*, *Ambra*, *Rosso*. |
 |Attendibilità |I valori sono *0 - 100*. |
@@ -130,7 +130,7 @@ Ogni record in VMBoundPort è identificato dai campi seguenti:
 
 | Proprietà | Descrizione |
 |:--|:--|
-|Processo | Identità del processo o dei gruppi di processi a cui è associata la porta.|
+|Process | Identità del processo o dei gruppi di processi a cui è associata la porta.|
 |IP | Indirizzo IP porta (può essere un IP con caratteri jolly, *0.0.0.0*) |
 |Porta |Numero di porta |
 |Protocollo | Protocollo.  Ad esempio *TCP* o *UDP* (attualmente è supportato solo *TCP* ).|
@@ -226,7 +226,7 @@ I record con un tipo di *VMProcess* includono dati di inventario per i processi 
 |Computer | FQDN del computer | 
 |AgentId | ID univoco dell'agente di Log Analytics |
 |Computer | Nome della risorsa Azure Resource Manager per il computer esposto da ServiceMap. Il formato è *m-{GUID}*, dove *GUID* è lo stesso GUID di AgentId. | 
-|Processo | Identificatore univoco del processo di Mapping dei servizi. Il formato è *p-{GUID}*. 
+|Process | Identificatore univoco del processo di Mapping dei servizi. Il formato è *p-{GUID}*. 
 |Eseguibile | Nome dell'eseguibile del processo | 
 |DisplayName | Nome visualizzato del processo |
 |Ruolo | Ruolo del processo: *webserver*, *appServer*, *databaseserver*, *ldapServer*, *smbServer* |
@@ -446,7 +446,7 @@ I record con un tipo di *InsightsMetrics* hanno dati sulle prestazioni del siste
 |Val | Valore raccolto | 
 |Tag | Dettagli correlati sul record. Vedere la tabella seguente per i tag usati con tipi di record diversi.  |
 |AgentId | Identificatore univoco per l'agente di ogni computer |
-|Type | *InsightsMetrics* |
+|Tipo | *InsightsMetrics* |
 |_ResourceId_ | ID risorsa della macchina virtuale |
 
 Nella tabella seguente sono elencati i contatori delle prestazioni attualmente raccolti nella tabella *InsightsMetrics* :
@@ -475,5 +475,5 @@ Nella tabella seguente sono elencati i contatori delle prestazioni attualmente r
 
 * Se non si ha familiarità con la scrittura di query di log in monitoraggio di Azure, vedere [come usare log Analytics](../log-query/get-started-portal.md) nel portale di Azure per scrivere query di log.
 
-* Informazioni sulla [scrittura di query di ricerca](../log-query/search-queries.md).
+* Informazioni sulla [scrittura di query di ricerca](/azure/azure-monitor/log-query/get-started-queries).
 

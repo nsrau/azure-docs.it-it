@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 11/09/2020
 ms.custom: how-to, seodec18, devx-track-azurecli, contperfq2
-ms.openlocfilehash: 6cd4bbec89e955c398f7cb6e37ba5c3dcc6427ea
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 90abd46e73ecb50b5e6de40218571d0ec899752e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961227"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012967"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire gli accessi all'area di lavoro di Azure Machine Learning
 
@@ -27,7 +27,7 @@ Questo articolo illustra come gestire l'accesso (autorizzazione) a un'area di la
 >
 > * [Controllare l'accesso alle risorse cluster di Azure Kubernetes](../aks/azure-ad-rbac.md)
 > * [Usa RBAC di Azure per l'autorizzazione Kubernetes](../aks/manage-azure-rbac.md)
-> * [Usare il controllo degli accessi in base al ruolo di Azure](/storage/common/storage-auth-aad-rbac-portal.md)
+> * [Usare il controllo degli accessi in base al ruolo di Azure](/azure/storage/common/storage-auth-aad-rbac-portal)
 
 > [!WARNING]
 > L'applicazione di alcuni ruoli può limitare la funzionalità dell'interfaccia utente in Azure Machine Learning Studio per altri utenti. Se, ad esempio, il ruolo di un utente non è in grado di creare un'istanza di calcolo, l'opzione per creare un'istanza di calcolo non sarà disponibile in studio. Questo comportamento è previsto e impedisce all'utente di provare a eseguire operazioni che restituiscono un errore di accesso negato.

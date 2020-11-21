@@ -10,16 +10,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: dpalled
-ms.openlocfilehash: c3948a5bdfce583384992fb87bf40e9e7251974d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d02a6e3eb2aef4a02c90360b2016e64af579081
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91344010"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014731"
 ---
 # <a name="model-synchronization-between-azure-digital-twins-and-time-series-insights-gen2"></a>Sincronizzazione dei modelli tra Gemelli digitali di Azure e Time Series Insights Gen2
 
-Questo articolo illustra le procedure consigliate e gli strumenti usati per tradurre il modello di asset in Azure Digital Twins (ADT) in modello di asset in Azure Time Series Insights (STI).  Questo articolo è la seconda parte di una serie di esercitazioni in due parti che illustra l'integrazione dei dispositivi gemelli digitali di Azure con Azure Time Series Insights. L'integrazione dei dispositivi gemelli digitali di Azure con Time Series Insights consente l'archiviazione e il rilevamento della cronologia delle telemetrie e delle proprietà calcolate dei dispositivi gemelli digitali. Questa serie di esercitazioni è destinata agli sviluppatori che lavorano per integrare Time Series Insights con i dispositivi gemelli digitali di Azure. La parte 1 illustra la  [creazione di una pipeline di dati che introduce i dati della serie temporale effettivi dai dispositivi gemelli digitali di Azure a Time Series Insights](https://docs.microsoft.com/azure/digital-twins/how-to-integrate-time-series-insights) e questa, secondo parte della serie di esercitazioni, spiega la sincronizzazione del modello di asset tra i dispositivi Time Series Insights gemelli digitali di Azure Questa esercitazione illustra le procedure consigliate per la scelta e la definizione della convenzione di denominazione per l'ID della serie temporale (ID TS) e la definizione manuale delle gerarchie nel modello Time Series (TSM).
+Questo articolo illustra le procedure consigliate e gli strumenti usati per tradurre il modello di asset in Azure Digital Twins (ADT) in modello di asset in Azure Time Series Insights (STI).  Questo articolo è la seconda parte di una serie di esercitazioni in due parti che illustra l'integrazione dei dispositivi gemelli digitali di Azure con Azure Time Series Insights. L'integrazione dei dispositivi gemelli digitali di Azure con Time Series Insights consente l'archiviazione e il rilevamento della cronologia delle telemetrie e delle proprietà calcolate dei dispositivi gemelli digitali. Questa serie di esercitazioni è destinata agli sviluppatori che lavorano per integrare Time Series Insights con i dispositivi gemelli digitali di Azure. La parte 1 illustra la  [creazione di una pipeline di dati che introduce i dati della serie temporale effettivi dai dispositivi gemelli digitali di Azure a Time Series Insights](../digital-twins/how-to-integrate-time-series-insights.md) e questa, secondo parte della serie di esercitazioni, spiega la sincronizzazione del modello di asset tra i dispositivi Time Series Insights gemelli digitali di Azure Questa esercitazione illustra le procedure consigliate per la scelta e la definizione della convenzione di denominazione per l'ID della serie temporale (ID TS) e la definizione manuale delle gerarchie nel modello Time Series (TSM).
 
 ## <a name="choosing-a-time-series-id"></a>Scelta di un ID di serie temporale
 
@@ -29,7 +29,7 @@ Time Series ID è un identificatore univoco usato per identificare gli asset in 
 
 ## <a name="contextualizing-time-series"></a>Serie temporale contestualizzazione
 
-La contestualizzazione dei dati (per la maggior parte della natura spaziale) in Time Series Insights viene ottenuta tramite gerarchie di asset e lo stesso viene usato per semplificare la navigazione dei dati tramite una visualizzazione albero in Time Series Insights Explorer. I tipi Time Series e le gerarchie vengono definiti tramite il modello Time Series (TSM) in Time Series Insights. I tipi in TSM consentono di definire le variabili, mentre i livelli di gerarchia e i valori dei campi di istanza vengono utilizzati per costruire la visualizzazione albero in Esplora Time Series Insights. Per ulteriori informazioni su TSM, vedere la [documentazione online Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/concepts-model-overview).
+La contestualizzazione dei dati (per la maggior parte della natura spaziale) in Time Series Insights viene ottenuta tramite gerarchie di asset e lo stesso viene usato per semplificare la navigazione dei dati tramite una visualizzazione albero in Time Series Insights Explorer. I tipi Time Series e le gerarchie vengono definiti tramite il modello Time Series (TSM) in Time Series Insights. I tipi in TSM consentono di definire le variabili, mentre i livelli di gerarchia e i valori dei campi di istanza vengono utilizzati per costruire la visualizzazione albero in Esplora Time Series Insights. Per ulteriori informazioni su TSM, vedere la [documentazione online Time Series Insights](./concepts-model-overview.md).
 
 Nei dispositivi gemelli digitali di Azure, la connessione tra gli asset viene espressa usando relazioni gemelle. Le relazioni gemelle sono semplicemente un grafico degli asset connessi. Tuttavia, nelle informazioni dettagliate sulle serie temporali, le relazioni tra gli asset sono di natura gerarchica. Ovvero gli asset condividono una relazione di tipo padre-figlio e sono rappresentati utilizzando una struttura ad albero. Per tradurre le informazioni sulle relazioni da dispositivi gemelli digitali di Azure in gerarchie di Time Series Insights, è necessario scegliere relazioni gerarchiche rilevanti da dispositivi gemelli digitali di Azure. I dispositivi gemelli digitali di Azure usano un linguaggio open standard e di modellazione denominato Digital Twin Definition Language (DTDL). Nei modelli DTDL vengono descritti usando una variante di JSON denominata JSON-LD. Vedere la [documentazione di DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) per i dettagli completi sulla specifica.
 
@@ -82,7 +82,7 @@ Il frammento di codice seguente mostra in che modo l'applicazione client è stat
 
 > [!Note]
 >
-> Questo esempio di frammento di codice presuppone che i lettori abbiano familiarità con la [parte 01](https://docs.microsoft.com/azure/digital-twins/tutorial-end-to-end#set-up-the-sample-function-app) dell'esercitazione e la modifica del codice è stata apportata all'interno della funzione "ProcessHubToDTEvents".
+> Questo esempio di frammento di codice presuppone che i lettori abbiano familiarità con la [parte 01](../digital-twins/tutorial-end-to-end.md#set-up-the-sample-function-app) dell'esercitazione e la modifica del codice è stata apportata all'interno della funzione "ProcessHubToDTEvents".
 
 ```csharp
 if (propertyPath.Equals("/Flow"))
@@ -114,7 +114,7 @@ relationship for " + twinId);
 
 ## <a name="updating-instance-fields-using-apis"></a>Aggiornamento di campi di istanza mediante le API
 
-Questa sezione dell'esercitazione illustra l'ascolto delle modifiche del modello nei dispositivi gemelli digitali di Azure, ad esempio la creazione, l'eliminazione di gemelli o la modifica delle relazioni tra i due gemelli e l'aggiornamento a livello di codice delle gerarchie e dei campi di istanza con Time Series Insights Questo metodo di aggiornamento Time Series Insights modello viene in genere eseguito tramite funzioni di Azure. Nei dispositivi gemelli digitali di Azure, le notifiche degli eventi, ad esempio l'aggiunta o l'eliminazione di un dispositivo gemello, possono essere indirizzate a servizi downstream come hub eventi che a loro volta possono essere inseriti in funzioni di Azure. Altre informazioni sul routing degli eventi e sul filtro sono illustrate [qui](https://docs.microsoft.com/azure/digital-twins/how-to-manage-routes-portal).  Questa sezione illustra come usare le API del modello di Time Series Insights in funzioni di Azure per aggiornare Time Series Insights modello in risposta all'aggiunta di dispositivi gemelli (un tipo di modifica del modello) in dispositivi gemelli digitali di Azure.
+Questa sezione dell'esercitazione illustra l'ascolto delle modifiche del modello nei dispositivi gemelli digitali di Azure, ad esempio la creazione, l'eliminazione di gemelli o la modifica delle relazioni tra i due gemelli e l'aggiornamento a livello di codice delle gerarchie e dei campi di istanza con Time Series Insights Questo metodo di aggiornamento Time Series Insights modello viene in genere eseguito tramite funzioni di Azure. Nei dispositivi gemelli digitali di Azure, le notifiche degli eventi, ad esempio l'aggiunta o l'eliminazione di un dispositivo gemello, possono essere indirizzate a servizi downstream come hub eventi che a loro volta possono essere inseriti in funzioni di Azure. Altre informazioni sul routing degli eventi e sul filtro sono illustrate [qui](../digital-twins/how-to-manage-routes-portal.md).  Questa sezione illustra come usare le API del modello di Time Series Insights in funzioni di Azure per aggiornare Time Series Insights modello in risposta all'aggiunta di dispositivi gemelli (un tipo di modifica del modello) in dispositivi gemelli digitali di Azure.
 
 ### <a name="receiving-and-identifying-twin-addition-event-notification"></a>Ricezione e identificazione della notifica degli eventi di aggiunta dei due
 
@@ -227,4 +227,4 @@ private async Task<TimeSeriesInstance> AddHierarchyToInstanceAsync(TimeSeriesIns
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Il terzo della serie di esercitazioni consiste nel mostrare come eseguire query sui dati cronologici dai dispositivi gemelli digitali di Azure usando API Time Series Insights. Si tratta di un lavoro in corso e la sezione verrà aggiornata al momento della preparazione. Nel frattempo, i lettori sono invitati a fare riferimento alla [documentazione dell'API di query dei dati Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/concepts-query-overview).
+Il terzo della serie di esercitazioni consiste nel mostrare come eseguire query sui dati cronologici dai dispositivi gemelli digitali di Azure usando API Time Series Insights. Si tratta di un lavoro in corso e la sezione verrà aggiornata al momento della preparazione. Nel frattempo, i lettori sono invitati a fare riferimento alla [documentazione dell'API di query dei dati Time Series Insights](./concepts-query-overview.md).

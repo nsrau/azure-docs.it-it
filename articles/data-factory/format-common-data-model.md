@@ -1,18 +1,18 @@
 ---
 title: Formato Common Data Model
 description: Trasformare i dati usando il sistema di metadati Common Data Model
-author: djpmsft
+author: kromerm
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/13/2020
-ms.author: daperlov
-ms.openlocfilehash: 452aa3406ac09dd8342d8ade0b56b126067b7582
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 11/20/2020
+ms.author: makromer
+ms.openlocfilehash: 7fc3a63f841a88451746d088a527a41d756e711f
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636409"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015172"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato Common Data Model in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -37,22 +37,26 @@ La tabella seguente elenca le proprietà supportate da un'origine CDM. È possib
 
 | Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formato | Il formato deve essere `cdm` | yes | `cdm` | format |
+| Formato | Il formato deve essere `cdm` | sì | `cdm` | format |
 | Formato metadati | Dove si trova il riferimento all'entità nei dati. Se si usa CDM versione 1,0, scegliere manifesto. Se si usa una versione CDM prima del 1,0, scegliere model.json. | Sì | `'manifest'` o `'model'` | manifestType |
-| Percorso radice: contenitore | Nome del contenitore della cartella CDM | yes | string | fileSystem |
-| Percorso radice: percorso cartella | Percorso cartella radice della cartella CDM | yes | string | folderPath |
-| File manifesto: percorso entità | Percorso della cartella dell'entità all'interno della cartella radice | no | string | entityPath |
+| Percorso radice: contenitore | Nome del contenitore della cartella CDM | sì | string | fileSystem |
+| Percorso radice: percorso cartella | Percorso cartella radice della cartella CDM | sì | string | folderPath |
+| File manifesto: percorso entità | Percorso della cartella dell'entità all'interno della cartella radice | No | string | entityPath |
 | File manifesto: nome del manifesto | Nome del file manifesto. Il valore predefinito è' default '  | No | string | manifestName |
-| Filtra per Ultima modifica | Scegliere di filtrare i file in base alla data dell'Ultima modifica | no | Timestamp | modifiedAfter <br> modifiedBefore | 
+| Filtra per Ultima modifica | Scegliere di filtrare i file in base alla data dell'Ultima modifica | No | Timestamp | modifiedAfter <br> modifiedBefore | 
 | Servizio collegato schema | Il servizio collegato in cui si trova il Corpus | Sì, se si usa il manifesto | `'adlsgen2'` o `'github'` | corpusStore | 
 | Contenitore di riferimento all'entità | Il corpo del contenitore è in | Sì, se si usano manifest e Corpus in ADLS Gen2 | string | adlsgen2_fileSystem |
 | Repository di riferimento all'entità | Nome repository GitHub | Sì, se si usano manifest e Corpus in GitHub | string | github_repository |
 | Ramo di riferimento all'entità | Ramo del repository GitHub | Sì, se si usano manifest e Corpus in GitHub | string |  github_branch |
 | Cartella Corpus | posizione radice del Corpus | Sì, se si usa il manifesto | string | corpusPath |
-| Entità Corpus | Percorso del riferimento all'entità | yes | string | Entità |
-| Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | no | `true` o `false` | ignoreNoFilesFound |
+| Entità Corpus | Percorso del riferimento all'entità | sì | string | Entità |
+| Consenti nessun file trovato | Se true, non viene generato alcun errore se non viene trovato alcun file | No | `true` o `false` | ignoreNoFilesFound |
 
-Se la definizione di entità che si desidera utilizzare nella trasformazione origine si trova nella stessa directory della cartella dati, è possibile deselezionare "utilizza entità da Corpus" e digitare semplicemente l'entità dell'entità che si desidera utilizzare come riferimento all'entità.
+Quando si seleziona "riferimento all'entità" nelle trasformazioni di origine e sink, è possibile selezionare una delle tre opzioni seguenti per il percorso del riferimento all'entità:
+
+* Local usa l'entità definita nel file manifesto già usato da ADF
+* Custom chiederà di puntare a un file manifesto dell'entità diverso dal file manifesto usato da ADF
+* Standard utilizzerà un riferimento a entità dalla libreria standard di entità CDM gestite in ```Github``` .
 
 ### <a name="sink-settings"></a>Impostazioni sink
 
@@ -116,22 +120,22 @@ La tabella seguente elenca le proprietà supportate da un sink CDM. È possibile
 
 | Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formato | Il formato deve essere `cdm` | yes | `cdm` | format |
-| Percorso radice: contenitore | Nome del contenitore della cartella CDM | yes | string | fileSystem |
-| Percorso radice: percorso cartella | Percorso cartella radice della cartella CDM | yes | string | folderPath |
-| File manifesto: percorso entità | Percorso della cartella dell'entità all'interno della cartella radice | no | string | entityPath |
+| Formato | Il formato deve essere `cdm` | sì | `cdm` | format |
+| Percorso radice: contenitore | Nome del contenitore della cartella CDM | sì | string | fileSystem |
+| Percorso radice: percorso cartella | Percorso cartella radice della cartella CDM | sì | string | folderPath |
+| File manifesto: percorso entità | Percorso della cartella dell'entità all'interno della cartella radice | No | string | entityPath |
 | File manifesto: nome del manifesto | Nome del file manifesto. Il valore predefinito è' default ' | No | string | manifestName |
-| Servizio collegato schema | Il servizio collegato in cui si trova il Corpus | yes | `'adlsgen2'` o `'github'` | corpusStore | 
+| Servizio collegato schema | Il servizio collegato in cui si trova il Corpus | sì | `'adlsgen2'` o `'github'` | corpusStore | 
 | Contenitore di riferimento all'entità | Il corpo del contenitore è in | Sì, se Corpus in ADLS Gen2 | string | adlsgen2_fileSystem |
 | Repository di riferimento all'entità | Nome repository GitHub | Sì, se Corpus in GitHub | string | github_repository |
 | Ramo di riferimento all'entità | Ramo del repository GitHub | Sì, se Corpus in GitHub | string |  github_branch |
-| Cartella Corpus | posizione radice del Corpus | yes | string | corpusPath |
-| Entità Corpus | Percorso del riferimento all'entità | yes | string | Entità |
-| Percorso partizione | Posizione in cui verrà scritta la partizione | no | string | partitionPath |
-| Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | no | `true` o `false` | truncate |
-| Tipo di formato | Scegliere di specificare il formato parquet | no | `parquet` Se specificato | sottoformati |
+| Cartella Corpus | posizione radice del Corpus | sì | string | corpusPath |
+| Entità Corpus | Percorso del riferimento all'entità | sì | string | Entità |
+| Percorso partizione | Posizione in cui verrà scritta la partizione | No | string | partitionPath |
+| Cancella la cartella | Se la cartella di destinazione viene cancellata prima della scrittura | No | `true` o `false` | truncate |
+| Tipo di formato | Scegliere di specificare il formato parquet | No | `parquet` Se specificato | sottoformati |
 | Delimitatore di colonna | Se si scrive in DelimitedText, come delimitare le colonne | Sì, se si scrive in DelimitedText | string | columnDelimiter |
-| Prima riga come intestazione | Se si usa DelimitedText, se i nomi delle colonne vengono aggiunti come intestazione | no | `true` o `false` | columnNamesAsHeader |
+| Prima riga come intestazione | Se si usa DelimitedText, se i nomi delle colonne vengono aggiunti come intestazione | No | `true` o `false` | columnNamesAsHeader |
 
 ### <a name="cdm-sink-data-flow-script-example"></a>Esempio di script del flusso di dati sink CDM
 

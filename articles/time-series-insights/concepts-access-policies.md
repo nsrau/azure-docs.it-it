@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3528ff790f16b5ec759989966ab35b8bad6565a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86b465d0b3c28c50a8aa85247a14e189d4586a47
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629455"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016276"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Concedere l'accesso ai dati in un ambiente
 
@@ -60,7 +60,7 @@ Per concedere l'accesso ai dati per un'entità utente, eseguire queste operazion
 
 ## <a name="provide-guest-access-from-another-azure-ad-tenant"></a>Fornire l'accesso Guest da un altro tenant Azure AD
 
-Il `Guest` ruolo non è un ruolo di gestione. Si tratta di un termine usato per un account che viene invitato da un tenant a un altro. Dopo che l'account Guest è stato invitato nella directory del tenant, è possibile che venga applicato lo stesso controllo di accesso come qualsiasi altro account. È possibile concedere l'accesso di gestione a un ambiente Azure Time Series Insights usando il pannello controllo di accesso (IAM). In alternativa, è possibile concedere l'accesso ai dati nell'ambiente tramite il pannello dei criteri di accesso ai dati. Per altre informazioni sull'accesso guest al tenant di Azure Active Directory (Azure AD), leggere [Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+Il `Guest` ruolo non è un ruolo di gestione. Si tratta di un termine usato per un account che viene invitato da un tenant a un altro. Dopo che l'account Guest è stato invitato nella directory del tenant, è possibile che venga applicato lo stesso controllo di accesso come qualsiasi altro account. È possibile concedere l'accesso di gestione a un ambiente Azure Time Series Insights usando il pannello controllo di accesso (IAM). In alternativa, è possibile concedere l'accesso ai dati nell'ambiente tramite il pannello dei criteri di accesso ai dati. Per altre informazioni sull'accesso guest al tenant di Azure Active Directory (Azure AD), leggere [Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure](../active-directory/external-identities/add-users-administrator.md).
 
 Seguire questa procedura per concedere l'accesso Guest a un ambiente Azure Time Series Insights a un utente Azure AD da un altro tenant.
 
@@ -124,4 +124,4 @@ Seguire questa procedura per concedere l'accesso Guest a un ambiente Azure Time 
 
 * Leggere [l'autenticazione e l'autorizzazione](time-series-insights-authentication-and-authorization.md) per la procedura di registrazione dell'app Azure Active Directory.
 
-* Visualizzare [l'ambiente in esplora Azure Time Series Insights](./time-series-insights-update-explorer.md).
+* Visualizzare [l'ambiente in esplora Azure Time Series Insights](./concepts-ux-panels.md).

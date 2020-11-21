@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0e4a6d9180d2a9949cebc40cf30edffac73ef9d0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6c899b4f0dd7a3b91521c6d78b531d1c804ac105
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94653539"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015308"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Domande frequenti sui contenitori di servizi vocali
 
@@ -324,7 +324,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 <b>Quale modalità è consigliabile utilizzare per diversi file audio?</b>
 </summary>
 
-**Risposta:** Ecco una [Guida introduttiva con Python](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-python). È possibile trovare le altre lingue collegate al sito docs.
+**Risposta:** Ecco una [Guida introduttiva con Python](./get-started-speech-to-text.md?pivots=programming-language-python). È possibile trovare le altre lingue collegate al sito docs.
 
 Solo per chiarire l'Interactive, la conversazione e la dettatura; si tratta di un metodo avanzato per specificare il modo in cui il servizio gestirà la richiesta di riconoscimento vocale. Sfortunatamente, per i contenitori locali è necessario specificare l'URI completo (poiché include il computer locale), quindi queste informazioni sono trapelate dall'astrazione. Stiamo lavorando con il team di SDK per renderlo più utilizzabile in futuro.
 
@@ -367,7 +367,7 @@ Il piano corrente consiste nel prendere un file audio esistente e suddividerlo i
 
 Il documento dice di esporre una porta diversa, ma il contenitore LUIS è ancora in ascolto sulla porta 5000?
 
-**Risposta:** Provare `-p <outside_unique_port>:5000` . Ad esempio, `-p 5001:5000`
+**Risposta:** Provare `-p <outside_unique_port>:5000` . Ad esempio: `-p 5001:5000`.
 
 
 <br>
@@ -397,25 +397,25 @@ Quante richieste simultanee sono gestite da 4 core, 4 GB di RAM? Se è necessari
 
 # <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
-| Contenitore      | Minima             | Consigliato         |
+| Contenitore      | Minima             | Implementazione consigliata         |
 |----------------|---------------------|---------------------|
 | Riconoscimento vocale | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
 
 # <a name="custom-speech-to-text"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
 
-| Contenitore             | Minima             | Consigliato         |
+| Contenitore             | Minima             | Implementazione consigliata         |
 |-----------------------|---------------------|---------------------|
 | Da Riconoscimento vocale personalizzato a testo | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
 
 # <a name="text-to-speech"></a>[Sintesi vocale](#tab/tts)
 
-| Contenitore      | Minima             | Consigliato         |
+| Contenitore      | Minima             | Implementazione consigliata         |
 |----------------|---------------------|---------------------|
 | Sintesi vocale | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
 
 # <a name="custom-text-to-speech"></a>[Sintesi vocale personalizzata](#tab/ctts)
 
-| Contenitore             | Minima             | Consigliato         |
+| Contenitore             | Minima             | Implementazione consigliata         |
 |-----------------------|---------------------|---------------------|
 | Sintesi vocale personalizzata | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
 

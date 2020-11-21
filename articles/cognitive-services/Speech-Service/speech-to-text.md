@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: riconoscimento vocale, software di riconoscimento vocale
-ms.openlocfilehash: f4392881c2f572b1e53d7c283ef5c1debc1d20ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f26d896397a950bc2c5f5d1f66dca6a01da045d7
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359937"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015223"
 ---
 # <a name="what-is-speech-to-text"></a>Che cos'è il riconoscimento vocale?
 
@@ -34,7 +34,7 @@ Con il testo di riferimento aggiuntivo come input, il servizio riconoscimento vo
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
 Per iniziare a usare la sintesi vocale, vedere la [Guida introduttiva](get-started-speech-to-text.md) . Il servizio è disponibile tramite l' [SDK vocale](speech-sdk.md), l' [API REST](rest-speech-to-text.md#pronunciation-assessment-parameters)e l'interfaccia della riga di comando [vocale](spx-overview.md).
 
@@ -48,7 +48,7 @@ Il codice di esempio per l'SDK di riconoscimento vocale è disponibile su GitHub
 
 ## <a name="customization"></a>Personalizzazione
 
-Oltre al modello di servizio vocale standard, è possibile creare modelli personalizzati. La personalizzazione consente di superare gli ostacoli al riconoscimento vocale, ad esempio lo stile di pronuncia, il vocabolario e il rumore di fondo, vedere [riconoscimento vocale personalizzato](how-to-custom-speech.md). Opzioni di personalizzazione variano in base a lingua/impostazioni locali, vedere le [lingue supportate](supported-languages.md) per verificare il supporto.
+Oltre al modello di servizio vocale standard, è possibile creare modelli personalizzati. La personalizzazione consente di superare gli ostacoli al riconoscimento vocale, ad esempio lo stile di pronuncia, il vocabolario e il rumore di fondo, vedere [riconoscimento vocale personalizzato](how-to-custom-speech.md). Opzioni di personalizzazione variano in base a lingua/impostazioni locali, vedere le [lingue supportate](./language-support.md) per verificare il supporto.
 
 ## <a name="batch-transcription"></a>Trascrizione Batch
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 546c53334b7700ab73c22edb2d82b324bfad61a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e0f1ea42aa2ba888b89dd652d3397a3a2163a3e
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569447"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016208"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Pianificare l'ambiente Gen1 Azure Time Series Insights
 
@@ -92,7 +92,7 @@ La limitazione e la latenza svolgono un ruolo nella capacità al minuto. Se si h
 
 Se, ad esempio, si dispone di un singolo SKU S1, i dati vengono ingresati a una velocità di 720 eventi al minuto e la velocità dei dati aumenta per meno di un'ora a una frequenza di 1.440 eventi o meno, non esiste una latenza evidente nell'ambiente. Tuttavia, se si superano 1.440 eventi al minuto per più di un'ora, è probabile che si verifichi una latenza nei dati visualizzati e disponibili per le query nell'ambiente in uso.
 
-Potrebbe non essere possibile conoscere in anticipo la quantità di dati che si prevede di inserire. In questo caso, è possibile trovare i dati di telemetria per l' [Hub di Azure](../iot-hub/iot-hub-metrics.md) e gli hub [eventi di Azure](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) nella sottoscrizione di portale di Azure. I dati di telemetria consentono di determinare come eseguire il provisioning dell'ambiente. Usare il riquadro **metriche** nel portale di Azure per la rispettiva origine evento per visualizzare i dati di telemetria. Se si conoscono le metriche dell'origine evento, è possibile pianificare ed eseguire il provisioning dell'ambiente Azure Time Series Insights in modo più efficace.
+Potrebbe non essere possibile conoscere in anticipo la quantità di dati che si prevede di inserire. In questo caso, è possibile trovare i dati di telemetria per l' [Hub di Azure](../iot-hub/monitor-iot-hub.md) e gli hub [eventi di Azure](/archive/blogs/cloud_solution_architect/using-the-azure-rest-apis-to-retrieve-event-hub-metrics) nella sottoscrizione di portale di Azure. I dati di telemetria consentono di determinare come eseguire il provisioning dell'ambiente. Usare il riquadro **metriche** nel portale di Azure per la rispettiva origine evento per visualizzare i dati di telemetria. Se si conoscono le metriche dell'origine evento, è possibile pianificare ed eseguire il provisioning dell'ambiente Azure Time Series Insights in modo più efficace.
 
 ### <a name="calculate-ingress-requirements"></a>Calcolare i requisiti del traffico in ingresso
 
@@ -128,6 +128,6 @@ Per altre informazioni su come creare, caricare e gestire i dati di riferimento 
 
 - Per iniziare, creare [un nuovo ambiente di Azure Time Series Insights nel portale di Azure](time-series-insights-get-started.md).
 
-- Informazioni su come [aggiungere un'origine evento di hub eventi](time-series-insights-how-to-add-an-event-source-eventhub.md) a Azure Time Series Insights.
+- Informazioni su come [aggiungere un'origine evento di hub eventi](./how-to-ingest-data-event-hub.md) a Azure Time Series Insights.
 
-- Leggere le informazioni su come [configurare un'origine evento dell'hub](time-series-insights-how-to-add-an-event-source-iothub.md)Internet.
+- Leggere le informazioni su come [configurare un'origine evento dell'hub](./how-to-ingest-data-iot-hub.md)Internet.

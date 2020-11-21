@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: cb12777a6a4fa1e75cd65bc597c87442d592aad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8d96d7b5952c020493af278ee1ea8ad5ff46716
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598108"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016786"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Pianificare l'ambiente in Azure Time Series Insights Gen2
 
@@ -45,7 +45,7 @@ Come parte del processo di provisioning, specificare se si vuole abilitare un ar
 Le query sull'archivio a caldo sono gratuite, mentre le query sull'archivio a freddo sono soggette a costi. È importante comprendere i modelli di query e pianificare la configurazione del negozio a caldo di conseguenza. È consigliabile che le analisi interattive sui dati più recenti risiedano nel negozio a caldo e l'analisi dei modelli e le tendenze a lungo termine risiedano a freddo.
 
 > [!NOTE]
-> Per altre informazioni su come eseguire query sui dati caldi, vedere le informazioni di [riferimento sulle API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters).
+> Per altre informazioni su come eseguire query sui dati caldi, vedere le informazioni di [riferimento sulle API](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters).
 
 Per iniziare, sono necessari altri tre elementi:
 
@@ -64,7 +64,7 @@ Per creare un nuovo ambiente di Azure Time Series Insights, selezionare un ID de
 > [!IMPORTANT]
 > Gli ID delle serie temporali *non possono essere modificati in seguito*. Verificare ognuno di essi prima della selezione finale e del primo uso.
 
-È possibile selezionare fino a tre chiavi per distinguere in modo univoco le risorse. Per ulteriori informazioni, leggere le [procedure consigliate per la scelta di un ID di serie temporali](./time-series-insights-update-how-to-id.md) e di [regole](concepts-json-flattening-escaping-rules.md)di inserimento.
+È possibile selezionare fino a tre chiavi per distinguere in modo univoco le risorse. Per ulteriori informazioni, leggere le [procedure consigliate per la scelta di un ID di serie temporali](./how-to-select-tsid.md) e di [regole](concepts-json-flattening-escaping-rules.md)di inserimento.
 
 Anche la proprietà **timestamp** è importante. È possibile definire questa proprietà quando si aggiungono origini evento. Ogni origine evento include una proprietà Timestamp facoltativa, usata per tenere traccia delle origini evento nel tempo. I valori di Timestamp fanno distinzione tra maiuscole/minuscole e devono essere formattati in base alle singole specifiche di ogni origine evento.
 
@@ -74,7 +74,7 @@ Quando viene lasciato vuoto, l'ora in cui l'evento è stato accodato nell'hub In
 
 È ora possibile configurare il modello Time Series dell'ambiente Azure Time Series Insights. Il nuovo modello semplifica l'individuazione e l'analisi dei dati IoT, consentendo la cura, la manutenzione e l'arricchimento dei dati Time Series e la preparazione di set di dati di livello consumer. Il modello usa ID Time Series, che esegue il mapping a un'istanza che associa la risorsa univoca a variabili, note come tipi, e gerarchie. Per altre informazioni, vedere Panoramica del [modello Time Series](./concepts-model-overview.md) .
 
-Il modello è dinamico, in modo da poter essere compilato in qualsiasi momento. Per iniziare rapidamente, compilare e caricarlo prima di eseguire il push dei dati in Azure Time Series Insights. Per compilare il modello, vedere [usare il modello Time Series](/azure/time-series-insights/concepts-model-overview).
+Il modello è dinamico, in modo da poter essere compilato in qualsiasi momento. Per iniziare rapidamente, compilare e caricarlo prima di eseguire il push dei dati in Azure Time Series Insights. Per compilare il modello, vedere [usare il modello Time Series](./concepts-model-overview.md).
 
 Per molti clienti, il modello Time Series esegue il mapping a un modello di risorse esistente o al sistema ERP già in uso. Se non si dispone di un modello esistente, viene [offerta](https://github.com/Microsoft/tsiclient) un'esperienza utente predefinita per ottenerlo rapidamente. Per conoscere i vantaggi di un modello, visualizzare l'[ambiente demo di esempio](https://insights.timeseries.azure.com/preview/demo).
 

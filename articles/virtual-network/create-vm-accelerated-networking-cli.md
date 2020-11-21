@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 0b0b2cbf3fc637d7ad53be911c0171f6bb971bc6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 31d833d1a6e9c7715ca13582c09f5f72564d683a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896124"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016140"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Creare una macchina virtuale Linux con rete accelerata usando l'interfaccia della riga di comando di Azure
 
@@ -51,7 +51,7 @@ Le distribuzioni seguenti sono supportate in modo nativo dalla raccolta di Azure
 * **Debian "Stretch" con kernel backport**
 * **Oracle Linux 7,4 e versioni successive con il kernel compatibile con Red Hat (RHCK)**
 * **Oracle Linux 7,5 e versioni successive con UEK versione 5**
-* **FreeBSD 10,4, 11,1 & 12,0**
+* **FreeBSD 10,4, 11,1 & 12,0 o versione successiva**
 
 ## <a name="limitations-and-constraints"></a>Limiti e vincoli
 
@@ -78,18 +78,18 @@ Le macchine virtuali (classiche) non possono essere distribuite con la funzional
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Creare una macchina virtuale Linux con Rete accelerata di Azure
 ## <a name="portal-creation"></a>Creazione nel portale
-Questo articolo illustra la procedura per creare una macchina virtuale con rete accelerata tramite l'interfaccia della riga di comando di Azure, ma è anche possibile [creare una macchina virtuale con rete accelerata usando il portale di Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando si crea una macchina virtuale nel portale, nel pannello **creare una macchina virtuale** scegliere la scheda **rete** .  In questa scheda è disponibile un'opzione per la **rete accelerata** .  Se è stato scelto un [sistema operativo supportato](#supported-operating-systems) e le [dimensioni della macchina virtuale](#supported-vm-instances), questa opzione verrà popolata automaticamente in "on".  In caso contrario, viene popolata l'opzione "off" per la rete accelerata e viene fornito all'utente un motivo per cui non è abilitata.   
+Questo articolo illustra la procedura per creare una macchina virtuale con rete accelerata tramite l'interfaccia della riga di comando di Azure, ma è anche possibile [creare una macchina virtuale con rete accelerata usando il portale di Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando si crea una macchina virtuale nel portale, nel pannello **creare una macchina virtuale** scegliere la scheda **rete** .  In questa scheda è disponibile un'opzione per la **rete accelerata**.  Se è stato scelto un [sistema operativo supportato](#supported-operating-systems) e le [dimensioni della macchina virtuale](#supported-vm-instances), questa opzione verrà popolata automaticamente in "on".  In caso contrario, viene popolata l'opzione "off" per la rete accelerata e viene fornito all'utente un motivo per cui non è abilitata.   
 
 * *Nota:* Solo i sistemi operativi supportati possono essere abilitati tramite il portale.  Se si usa un'immagine personalizzata e l'immagine supporta la rete accelerata, creare la VM usando l'interfaccia della riga di comando o PowerShell. 
 
 Dopo aver creato la macchina virtuale, è possibile verificare che la rete accelerata sia abilitata seguendo le istruzioni riportate nella pagina [verificare che la rete accelerata sia abilitata](#confirm-that-accelerated-networking-is-enabled).
 
 ## <a name="cli-creation"></a>Creazione dell'interfaccia della riga di comando
-### <a name="create-a-virtual-network"></a>Creare una rete virtuale
+### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-Installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e accedere all'account di Azure con il comando [az login](/cli/azure/reference-index). Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup* , *myNic* e *myVM* .
+Installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e accedere all'account di Azure con il comando [az login](/cli/azure/reference-index). Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNic* e *myVM*.
 
-Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *centralus* .
+Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *centralus*.
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -109,7 +109,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
-Creare un gruppo di sicurezza di rete con il comando [az network nsg create](/cli/azure/network/nsg). Nell'esempio seguente viene creato un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup* :
+Creare un gruppo di sicurezza di rete con il comando [az network nsg create](/cli/azure/network/nsg). Nell'esempio seguente viene creato un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -160,7 +160,7 @@ az network nic create \
 ### <a name="create-a-vm-and-attach-the-nic"></a>Creare una macchina virtuale e collegare le schede di interfaccia di rete
 Quando si crea la macchina virtuale, specificare la scheda di interfaccia di rete creata con `--nics`. Selezionare una dimensione e una distribuzione elencate nella [rete accelerata Linux](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
-Creare una VM con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una VM denominata *myVM* con l'immagine di UbuntuLTS e una dimensione che supporta la Rete accelerata ( *Standard_DS4_v2* ):
+Creare una VM con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una VM denominata *myVM* con l'immagine di UbuntuLTS e una dimensione che supporta la Rete accelerata (*Standard_DS4_v2*):
 
 ```azurecli
 az vm create \
@@ -175,7 +175,7 @@ az vm create \
 
 Per un elenco di tutte le dimensioni e le caratteristiche delle VM, vedere [Dimensioni per le macchine virtuali Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Dopo aver creato la macchina virtuale, viene restituito l'output simile al seguente output di esempio. Prendere nota di **publicIpAddress** . Questo indirizzo viene usato nei passaggi successivi per l'accesso alla macchina virtuale.
+Dopo aver creato la macchina virtuale, viene restituito l'output simile al seguente output di esempio. Prendere nota di **publicIpAddress**. Questo indirizzo viene usato nei passaggi successivi per l'accesso alla macchina virtuale.
 
 ```output
 {
@@ -200,10 +200,10 @@ ssh azureuser@<your-public-ip-address>
 
 Dalla shell Bash, immettere `uname -r` e verificare che la versione del kernel sia una delle seguenti versioni, o una versione successiva:
 
-* **Ubuntu 16.04** : 4.11.0-1013
-* **SLES SP3** : 4.4.92-6.18
-* **RHEL** : 7.4.2017120423
-* **CentOS** : 7.4.20171206
+* **Ubuntu 16.04**: 4.11.0-1013
+* **SLES SP3**: 4.4.92-6.18
+* **RHEL**: 7.4.2017120423
+* **CentOS**: 7.4.20171206
 
 
 Verificare che il dispositivo VF Mellanox sia esposto per la macchina virtuale con il comando `lspci`. L'output restituito è simile al seguente output:
@@ -230,7 +230,7 @@ La funzionalità di rete accelerata è ora abilitata per la VM.
 
 ## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Gestisci binding e revoca dinamica della funzione virtuale 
 Le applicazioni devono essere eseguite sulla scheda di interfaccia di rete sintetica esposta nella macchina virtuale. Se l'applicazione viene eseguita direttamente sulla scheda di interfaccia di rete VF, non riceve **tutti i** pacchetti destinati alla macchina virtuale, poiché alcuni pacchetti vengono visualizzati sull'interfaccia sintetica.
-Se un'applicazione viene eseguita sulla scheda di interfaccia di rete sintetica, garantisce che l'applicazione riceva **tutti i** pacchetti destinati a tale interfaccia. Inoltre, verifica che l'applicazione sia in esecuzione, anche se la VF viene revocata quando l'host è in fase di manutenzione. Le applicazioni che si collegano alla scheda di interfaccia di rete sintetica sono un requisito **obbligatorio** per tutte le applicazioni che sfruttano la **rete accelerata** .
+Se un'applicazione viene eseguita sulla scheda di interfaccia di rete sintetica, garantisce che l'applicazione riceva **tutti i** pacchetti destinati a tale interfaccia. Inoltre, verifica che l'applicazione sia in esecuzione, anche se la VF viene revocata quando l'host è in fase di manutenzione. Le applicazioni che si collegano alla scheda di interfaccia di rete sintetica sono un requisito **obbligatorio** per tutte le applicazioni che sfruttano la **rete accelerata**.
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>Abilitare la funzione Rete accelerata nelle macchine virtuali esistenti
 Se si è creata una macchina virtuale senza Rete accelerata, è possibile abilitare questa funzionalità in una macchina virtuale esistente.  Per il supporto di Rete accelerata, la macchina virtuale deve soddisfare i prerequisiti seguenti, descritti anche in precedenza:

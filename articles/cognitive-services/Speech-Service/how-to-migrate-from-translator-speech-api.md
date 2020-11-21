@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: d6b1085d51d7345b233087986127cbc97c0597e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fb03721baa80e77a5fd387600a272e6b1cfc7d3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362062"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013649"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Eseguire la migrazione dalla API Traduzione vocale al servizio riconoscimento vocale
 
@@ -37,7 +37,7 @@ Usare questo articolo per eseguire la migrazione delle applicazioni da Microsoft
 | Più lingue tradotte in una singola richiesta | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | SDK disponibili                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Vedere la [documentazione del servizio vocale](index.yml) per gli SDK disponibili.                                                                                                                                                    |
 | Connessioni WebSocket                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| API di lingue                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | Il servizio riconoscimento vocale supporta la stessa gamma di linguaggi descritti nell'articolo di riferimento per le [Lingue di traduzione](../translator-speech/languages-reference.md) . |
+| API di lingue                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | Il servizio riconoscimento vocale supporta la stessa gamma di linguaggi descritti nell'articolo di riferimento per le [Lingue di traduzione]() . |
 | Marcatore e filtro per contenuto volgare                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | .WAV/PCM come input                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Altri tipi di file come input                         | :heavy_minus_sign:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
@@ -62,9 +62,9 @@ Se l'utente o l'organizzazione dispone di applicazioni in fase di sviluppo o pro
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Prova gratuitamente il servizio vocale](overview.md#try-the-speech-service-for-free)
-* [Avvio rapido: Riconoscimento vocale in un'applicazione piattaforma UWP con Speech SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
+* [Avvio rapido: Riconoscimento vocale in un'applicazione piattaforma UWP con Speech SDK](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Informazioni sul servizio di riconoscimento vocale](overview.md)
-* [Documentazione per il servizio riconoscimento vocale e l'SDK vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)
+* [Documentazione per il servizio riconoscimento vocale e l'SDK vocale](./speech-devices-sdk-quickstart.md?pivots=platform-android)

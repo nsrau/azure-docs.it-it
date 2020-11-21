@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 089c59c041110209e55cc3fb10b1c5adf54bd13e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 6d85498b0e76997a1f0f989f4ea0f30acc0e8443
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538275"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013724"
 ---
 # <a name="face-detection-with-computer-vision"></a>Rilevamento volto con Visione artificiale
 
 Visione artificiale può rilevare i visi umani all'interno di un'immagine e generare l'età, il sesso e il rettangolo per ogni viso rilevato. 
 
 > [!NOTE]
-> Questa funzionalità è disponibile anche nel servizio [Viso](/azure/cognitive-services/face/). Vedere questa alternativa per analisi più dettagliate dei visi, tra cui l'identificazione dei visi e il rilevamento delle pose. 
+> Questa funzionalità è disponibile anche nel servizio [Viso](../face/index.yml). Vedere questa alternativa per analisi più dettagliate dei visi, tra cui l'identificazione dei visi e il rilevamento delle pose. 
 
 ## <a name="face-detection-examples"></a>Esempi di rilevamento di visi
 

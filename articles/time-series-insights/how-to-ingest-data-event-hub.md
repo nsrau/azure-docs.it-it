@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: c7f811991cdc325a3901a696216af21883f02fdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d672da30a4d81ead9115fc6b829c35aeab3ee6a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596235"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016820"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Aggiungere un'origine evento dell'hub eventi all'ambiente Azure Time Series Insights
 
@@ -27,7 +27,7 @@ Questo articolo descrive come usare il portale di Azure per aggiungere all'ambie
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Creare un ambiente di Azure Time Series Insights come descritto in [creare un ambiente Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+- Creare un ambiente di Azure Time Series Insights come descritto in [creare un ambiente Azure Time Series Insights](./tutorials-set-up-tsi-environment.md).
 - Creare un hub eventi. Leggere [creare uno spazio dei nomi di hub eventi e un hub eventi usando il portale di Azure](../event-hubs/event-hubs-create.md).
 - L'hub eventi deve ricevere eventi messaggio attivi. Informazioni su come [inviare eventi a hub eventi di Azure usando il .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Creare un gruppo di consumer dedicato nell'hub eventi da cui l'ambiente di Azure Time Series Insights può utilizzare. Ogni origine evento Azure Time Series Insights deve avere un proprio gruppo di consumer dedicato che non è condiviso con altri consumer. Se più lettori utilizzano eventi dello stesso gruppo di consumer, è probabile che tutti i lettori mostrino errori. È previsto un limite di 20 gruppi di consumer per hub eventi. Per informazioni dettagliate, vedere la [Guida alla programmazione di hub eventi](../event-hubs/event-hubs-programming-guide.md).
@@ -56,7 +56,7 @@ Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Individuare l'ambiente di Azure Time Series Insights esistente. Nel menu a sinistra selezionare **tutte le risorse**e quindi selezionare l'ambiente Azure Time Series Insights.
+1. Individuare l'ambiente di Azure Time Series Insights esistente. Nel menu a sinistra selezionare **tutte le risorse** e quindi selezionare l'ambiente Azure Time Series Insights.
 
 1. Selezionare **origini eventi**, quindi selezionare **Aggiungi**.
 
@@ -78,7 +78,7 @@ Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
        | Proprietà | Descrizione |
        | --- | --- |
-       | Subscription | Sottoscrizione a cui appartiene l'istanza e lo spazio dei nomi dell'hub eventi desiderato. |
+       | Sottoscrizione | Sottoscrizione a cui appartiene l'istanza e lo spazio dei nomi dell'hub eventi desiderato. |
        | Spazio dei nomi dell'hub eventi | Spazio dei nomi dell'hub eventi a cui appartiene l'istanza dell'hub eventi. |
        | Nome dell'hub eventi | Nome dell'istanza di hub eventi desiderata. |
        | Valore criterio Hub eventi | Selezionare i criteri di accesso condiviso desiderati. È possibile creare i criteri di accesso condiviso nella scheda **Configura** dell'hub eventi. Ogni criterio di accesso condiviso ha un nome, le autorizzazioni impostate e le chiavi di accesso. I criteri di accesso condiviso per l'origine evento *devono* disporre di autorizzazioni di **lettura**. |
@@ -113,7 +113,7 @@ Per aggiungere un nuovo gruppo di consumer nell'hub eventi:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Definire criteri di accesso ai dati](time-series-insights-data-access.md) per proteggere i dati.
+- [Definire criteri di accesso ai dati](./concepts-access-policies.md) per proteggere i dati.
 
 - [Inviare eventi](time-series-insights-send-events.md) all'origine evento.
 

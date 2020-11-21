@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: fbcc7ffbde49acfd9afc180418d618060eb923c1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6f777b605c5050b7fa4b3b9e3671f3638ad67372
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313529"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95016259"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gestire le librerie per Apache Spark in Azure sinapsi Analytics
 
@@ -92,9 +92,9 @@ Per installare una libreria in un pool Spark (anteprima) direttamente dal portal
 Per verificare se sono installate le versioni corrette delle librerie corrette, eseguire il codice seguente
 
 ```python
-import pip #needed to use the pip functions
-for i in pip.get_installed_distributions(local_only=True):
-    print(i)
+import pkg_resources
+for d in pkg_resources.working_set:
+     print(d)
 ```
 ### <a name="update-python-packages"></a>Aggiornare i pacchetti Python
 I pacchetti possono essere aggiunti o modificati in qualsiasi momento tra le sessioni. Quando viene caricato un nuovo file di configurazione del pacchetto, i pacchetti e le versioni esistenti vengono sovrascritti.  
@@ -112,7 +112,7 @@ Per aggiornare o disinstallare una libreria:
    
 
 > [!IMPORTANT]
-> Selezionando l'opzione per **forzare nuove impostazioni** , si terminano tutte le sessioni correnti per il pool Spark selezionato. Una volta terminate le sessioni, sarà necessario attendere il riavvio del pool. 
+> Selezionando l'opzione per **forzare nuove impostazioni**, si terminano tutte le sessioni correnti per il pool Spark selezionato. Una volta terminate le sessioni, sarà necessario attendere il riavvio del pool. 
 >
 > Se questa impostazione è deselezionata, sarà necessario attendere la fine della sessione Spark corrente o arrestarla manualmente. Al termine della sessione, sarà necessario consentire il riavvio del pool. 
 

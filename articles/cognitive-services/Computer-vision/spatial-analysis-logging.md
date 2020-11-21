@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 8154ef7a90011da8c15f52870eebb6c80ebaebca
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: dd1b6d216f6225a13d86aa2435b5b1c807547ec3
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496106"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95014578"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e risoluzione dei problemi
 
@@ -51,7 +51,7 @@ Input:
 Output:
 1. Monitoraggio di Azure
 
-Il modulo Telegraf di analisi spaziale fornito pubblicherà tutti i dati di telemetria emessi dal contenitore di analisi spaziale in monitoraggio di Azure. Per informazioni sull'aggiunta di monitoraggio di Azure alla sottoscrizione, vedere [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) .
+Il modulo Telegraf di analisi spaziale fornito pubblicherà tutti i dati di telemetria emessi dal contenitore di analisi spaziale in monitoraggio di Azure. Per informazioni sull'aggiunta di monitoraggio di Azure alla sottoscrizione, vedere [monitoraggio di Azure](../../azure-monitor/overview.md) .
 
 Dopo aver configurato monitoraggio di Azure, è necessario creare le credenziali che consentono al modulo di inviare i dati di telemetria. È possibile usare il portale di Azure per creare una nuova entità servizio oppure usare il comando dell'interfaccia della riga di comando di Azure seguente per crearne uno.
 
@@ -224,7 +224,7 @@ I log vengono caricati su richiesta con il `getRTCVLogs` metodo IOT Edge, nel `d
 >[!NOTE]
 > Se si richiama il `getRTCVLogs` metodo con un payload vuoto, viene restituito un elenco di tutti i contenitori distribuiti nel dispositivo. Per il nome del metodo si applica la distinzione tra maiuscole e minuscole. Si otterrà un errore 501 se viene specificato un nome di metodo non corretto.
 
-:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Report di telemetria di monitoraggio di Azure":::
+:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Richiamo del metodo getRTCVLogs ":::
 ![pagina Metodo diretto getRTCVLogs](./media/spatial-analysis/direct-log-collection.png)
 
  
@@ -245,7 +245,7 @@ Nella tabella seguente sono elencati gli attributi nella risposta alla query.
 
 | Parola chiave | Descrizione|
 |--|--|
-|DoPost| *True* o *false*. Indica se i log sono stati caricati. Quando si sceglie di non caricare i log, l'API restituisce le informazioni * in modo**sincrono**_. Quando si sceglie di caricare i log, l'API restituisce 200, se la richiesta è valida e inizia a caricare i log in _*_modo asincrono_*_.|
+|DoPost| *True* o *false*. Indica se i log sono stati caricati. Quando si sceglie di non caricare i log, l'API restituisce le informazioni * in modo **sincrono** _. Quando si sceglie di caricare i log, l'API restituisce 200, se la richiesta è valida e inizia a caricare i log in _*_modo asincrono_*_.|
 |TimeFilter| Filtro temporale applicato ai log.|
 |ValueFilters| I filtri delle parole chiave applicati ai log. |
 |TimeStamp| Ora di inizio dell'esecuzione del metodo. |
@@ -316,8 +316,8 @@ La sezione seguente è disponibile per informazioni sul debug e la verifica dell
 
 ### <a name="access-the-kubernetes-api-endpoint"></a>Accedere all'endpoint API Kubernetes. 
 
-1. Nell'interfaccia utente locale del dispositivo andare alla pagina _*Devices** (dispositivi). 
-2. In **endpoint dispositivo**copiare l'endpoint del servizio API Kubernetes. Questo endpoint è una stringa nel formato seguente: `https://compute..[device-IP-address]`.
+1. Nell'interfaccia utente locale del dispositivo andare alla pagina _ *Devices** (dispositivi). 
+2. In **endpoint dispositivo** copiare l'endpoint del servizio API Kubernetes. Questo endpoint è una stringa nel formato seguente: `https://compute..[device-IP-address]`.
 3. Salvare la stringa dell'endpoint. Questa operazione verrà usata in un secondo momento durante la configurazione `kubectl` di per accedere al cluster Kubernetes.
 
 ### <a name="connect-to-powershell-interface"></a>Connettersi all'interfaccia di PowerShell
@@ -326,12 +326,12 @@ Connettersi in remoto da un client Windows. Dopo la creazione del cluster Kubern
 
 > [!TIP]
 > * Prima di iniziare, verificare che il client Windows esegua Windows PowerShell 5,0 o versione successiva.
-> * PowerShell è [disponibile anche in Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux).
+> * PowerShell è [disponibile anche in Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
 
 1. Eseguire una sessione di Windows PowerShell come amministratore. 
     1. Verificare che il servizio Gestione remota Windows sia in esecuzione nel client. Al prompt dei comandi digitare `winrm quickconfig`.
 
-2. Assegnare una variabile per l'indirizzo IP del dispositivo. Ad esempio, `$ip = "<device-ip-address>"`
+2. Assegnare una variabile per l'indirizzo IP del dispositivo. Ad esempio: `$ip = "<device-ip-address>"`.
 
 3. Usare il comando seguente per aggiungere l'indirizzo IP del dispositivo all'elenco di host attendibili del client. 
 

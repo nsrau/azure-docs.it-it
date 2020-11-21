@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2bb66d8a197a33d6d0ad46502b510662f43ea1ca
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 89e5fa180b011cbedebc25a5e5d555a2190805f8
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94988562"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95015359"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST di riconoscimento vocale
 
@@ -30,7 +30,7 @@ Prima di usare l'API REST di sintesi vocale, tenere presente quanto segue:
 Se l'invio di audio più lungo è un requisito per l'applicazione, prendere in considerazione l'uso dell' [SDK di riconoscimento vocale](speech-sdk.md) o di un'API REST basata su file, come la [trascrizione batch](batch-transcription.md).
 
 > [!TIP]
-> Vedere la [documentazione](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) di Azure per enti pubblici per gli endpoint di Fairfax (Government cloud).
+> Vedere la [documentazione](../../azure-government/compare-azure-government-global-azure.md) di Azure per enti pubblici per gli endpoint di Fairfax (Government cloud).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -307,5 +307,5 @@ Risposta tipica per il riconoscimento con la valutazione della pronuncia:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Creare un account Azure gratuito](https://azure.microsoft.com/free/cognitive-services/)
-- [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
-- [Personalizzare modelli linguistici](how-to-customize-language-model.md)
+- [Personalizzare modelli acustici](./how-to-custom-speech-train-model.md)
+- [Personalizzare modelli linguistici](./how-to-custom-speech-train-model.md)

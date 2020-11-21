@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 4eb2835bd09e6548149ee90cb7232bf230de0300
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 73887515eea344e920455e3c24f3eae3d5ad515a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538751"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013746"
 ---
 # <a name="optical-character-recognition-ocr"></a>Riconoscimento ottico dei caratteri (OCR)
 
@@ -61,7 +61,7 @@ La [chiamata Read](https://westcentralus.dev.cognitive.microsoft.com/docs/servic
 
 Il secondo passaggio consiste nel chiamare [Get Read results](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) Operation. Questa operazione accetta come input l'ID operazione creato dall'operazione di lettura. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 1 a 2 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
-|Campo| Type | Valori possibili |
+|Campo| Tipo | Valori possibili |
 |:-----|:----:|:----|
 |status | string | notStarted: l'operazione non è stata avviata. |
 | |  | Running: l'operazione è in corso di elaborazione. |
@@ -138,7 +138,7 @@ Per iniziare a integrare le funzionalità OCR nelle applicazioni, iniziare a usa
 ## <a name="supported-languages-for-print-text"></a>Lingue supportate per il testo di stampa
 L' [API Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) supporta l'estrazione di testo stampato in lingua inglese, spagnolo, tedesco, francese, italiano, portoghese e olandese.
 
-Vedere le [lingue supportate](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) per l'elenco completo dei linguaggi supportati dall'OCR.
+Vedere le [lingue supportate](./language-support.md#optical-character-recognition-ocr) per l'elenco completo dei linguaggi supportati dall'OCR.
 
 ### <a name="read-32-preview-adds-simplified-chinese-and-japanese"></a>Read 3,2 Preview aggiunge cinese semplificato e giapponese
 L' [anteprima pubblica dell'API Read 3,2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) aggiunge il supporto per il cinese semplificato e il giapponese. Se lo scenario richiede il supporto di più lingue, vedere la sezione [API OCR](#ocr-api) . 
@@ -150,7 +150,7 @@ L'operazione di lettura supporta attualmente l'estrazione del testo scritto a ma
 L' [API REST Read 3. x](./QuickStarts/CSharp-hand-text.md) è l'opzione consigliata per la maggior parte dei clienti grazie alla facilità di integrazione e alla produttività rapida. Azure e il servizio Visione artificiale gestiscono la scalabilità, le prestazioni, la sicurezza dei dati e le esigenze di conformità pur concentrandosi sulla soddisfazione delle esigenze dei clienti.
 
 ## <a name="deploy-on-premise-with-docker-containers"></a>Distribuzione locale con contenitori Docker
-Il [contenitore Docker Read (anteprima)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) consente di distribuire le nuove funzionalità OCR nell'ambiente locale. I contenitori sono ottimi per requisiti specifici di sicurezza e governance dei dati.
+Il [contenitore Docker Read (anteprima)](./computer-vision-how-to-install-containers.md) consente di distribuire le nuove funzionalità OCR nell'ambiente locale. I contenitori sono ottimi per requisiti specifici di sicurezza e governance dei dati.
 
 ## <a name="example-outputs"></a>Output di esempio
 
@@ -186,7 +186,7 @@ L'API Read supporta immagini e documenti che contengono più linguaggi diversi, 
 
 ## <a name="ocr-api"></a>API OCR
 
-L' [API OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) usa un modello di riconoscimento precedente, supporta solo le immagini e viene eseguito in modo sincrono, restituendo immediatamente il testo rilevato. Vedere le [lingue supportate dall'OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) , quindi leggere l'API.
+L' [API OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) usa un modello di riconoscimento precedente, supporta solo le immagini e viene eseguito in modo sincrono, restituendo immediatamente il testo rilevato. Vedere le [lingue supportate dall'OCR](./language-support.md#optical-character-recognition-ocr) , quindi leggere l'API.
 
 ## <a name="data-privacy-and-security"></a>Sicurezza e privacy dei dati
 

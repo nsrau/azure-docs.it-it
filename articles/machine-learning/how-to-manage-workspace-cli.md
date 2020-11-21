@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 7de78a52482b2f07cb4e5e036509e0f9e402a3f4
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: aa85822b433e2d8128df9ae3664411ea3fcddec4
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576275"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95012934"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando di Azure
 
@@ -26,9 +26,13 @@ Questo articolo contiene informazioni su come creare un’area di lavoro di Azur
 
 * Una **sottoscrizione di Azure**. Se non se ne possiede una, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Per usare i comandi dell'interfaccia della riga di comando in questo documento dall' **ambiente locale** , è necessaria l' [interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* Per usare i comandi dell'interfaccia della riga di comando in questo documento dall'**ambiente locale**, è necessaria l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
     Se si usa [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), l'interfaccia della riga di comando è accessibile tramite il browser e si trova nel cloud.
+
+## <a name="limitations"></a>Limitazioni
+
+* Quando si crea una nuova area di lavoro, è possibile consentire all'area di lavoro di creare i servizi di Azure richiesti automaticamente o fornire servizi esistenti. Quando si forniscono servizi esistenti, questi servizi devono trovarsi nella stessa sottoscrizione di Azure dell'area di lavoro.
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Connettere l'interfaccia della riga di comando alla sottoscrizione di Azure
 
@@ -78,7 +82,7 @@ L'area di lavoro di Azure Machine Learning si basa sui servizi o sulle entità s
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-L’area di lavoro di Azure Machine Learning deve essere creata all'interno di un gruppo di risorse. È possibile usare un gruppo di risorse esistente o crearne uno nuovo. Per __creare un nuovo gruppo di risorse__ , usare il comando seguente. Sostituire `<resource-group-name>` con il nome da usare per questo gruppo di risorse. Sostituire `<location>` con l'area di Azure da usare per questo gruppo di risorse:
+L’area di lavoro di Azure Machine Learning deve essere creata all'interno di un gruppo di risorse. È possibile usare un gruppo di risorse esistente o crearne uno nuovo. Per __creare un nuovo gruppo di risorse__, usare il comando seguente. Sostituire `<resource-group-name>` con il nome da usare per questo gruppo di risorse. Sostituire `<location>` con l'area di Azure da usare per questo gruppo di risorse:
 
 > [!TIP]
 > È necessario selezionare un'area in cui è disponibile Azure Machine Learning. Per informazioni, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
@@ -107,7 +111,7 @@ Per altre informazioni sull'uso dei gruppi di risorse, vedere [az group](/cli/az
 
 ### <a name="automatically-create-required-resources"></a>Creare automaticamente le risorse necessarie
 
-Per creare una nuova area di lavoro in cui i __servizi vengono creati automaticamente__ , utilizzare il comando seguente:
+Per creare una nuova area di lavoro in cui i __servizi vengono creati automaticamente__, utilizzare il comando seguente:
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
@@ -189,7 +193,7 @@ Per creare un'area di lavoro che usa risorse esistenti, è necessario fornire l'
 > [!IMPORTANT]
 > Non è necessario specificare tutte le risorse esistenti. È sufficiente specificarne minimo una. Ad esempio, è possibile specificare un account di archiviazione esistente e l'area di lavoro creerà le altre risorse.
 
-+ **Account di archiviazione di Microsoft Azure** : `az storage account show --name <storage-account-name> --query "id"`
++ **Account di archiviazione di Microsoft Azure**: `az storage account show --name <storage-account-name> --query "id"`
 
     La risposta da questo comando è simile al testo seguente ed è l'ID dell'account di archiviazione:
 
@@ -198,7 +202,7 @@ Per creare un'area di lavoro che usa risorse esistenti, è necessario fornire l'
     > [!IMPORTANT]
     > Se si vuole usare un account di archiviazione di Azure esistente, non può essere un account Premium (Premium_LRS e Premium_GRS). Non può inoltre avere uno spazio dei nomi gerarchico (usato con Azure Data Lake Storage Gen2). Con l'account di archiviazione _predefinito_ dell'area di lavoro non sono supportati né archiviazione Premium né spazio dei nomi gerarchico. È possibile usare archiviazione Premium o uno spazio dei nomi gerarchico con account di archiviazione _non predefiniti_ .
 
-+ **Azure Application Insights** :
++ **Azure Application Insights**:
 
     1. Installare l'estensione Application Insights:
 
@@ -216,13 +220,13 @@ Per creare un'area di lavoro che usa risorse esistenti, è necessario fornire l'
 
         `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/microsoft.insights/components/<application-insight-name>"`
 
-+ **Azure Key Vault** : `az keyvault show --name <key-vault-name> --query "ID"`
++ **Azure Key Vault**: `az keyvault show --name <key-vault-name> --query "ID"`
 
     La risposta da questo comando è simile al testo seguente ed è l'ID dell'insieme di credenziali delle chiavi:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Registro Azure Container** : `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Registro Azure Container**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     La risposta da questo comando è simile al testo seguente ed è l'ID del registro contenitori:
 
