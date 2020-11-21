@@ -43,7 +43,7 @@
     - name: Blog sulle reti
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Pagina delle domande di Domande e risposte Microsoft relativa alle reti
-      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Feedback sulle reti
       href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
     - name: Prezzi
