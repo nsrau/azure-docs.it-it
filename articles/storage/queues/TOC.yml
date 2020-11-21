@@ -70,7 +70,7 @@
         - name: Autorizzazione di operazioni di gestione
           href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Criteri di sicurezza integrati
-          href: ../common/security-baseline.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json
+          href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Usare endpoint privati di Azure
           href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Controlli di sicurezza in base a Criteri di Azure

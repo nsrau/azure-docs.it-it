@@ -1,5 +1,5 @@
 - name: Azure Synapse (anteprima per aree di lavoro)
-  href: sql-data-warehouse/index.yml
+  href: overview-what-is.md
 - name: Passare ad Azure Synapse (in precedenza SQL Data Warehouse)
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Panoramica
@@ -7,10 +7,8 @@
     - name: Che cos'è Azure Synapse?
       href: overview-what-is.md
       displayName: overview
-    - name: Tabella di riepilogo
-      href: overview-cheat-sheet.md
-    - name: Domande frequenti
-      href: overview-faq.md
+    - name: Terminologia
+      href: overview-terminology.md
     - name: Note sulla versione
       href: release-notes.md
 - name: Avvi rapidi

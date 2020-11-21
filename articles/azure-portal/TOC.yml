@@ -81,6 +81,9 @@
       href: azure-portal-dashboards-structure.md
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/portal/portal
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Roadmap per Azure

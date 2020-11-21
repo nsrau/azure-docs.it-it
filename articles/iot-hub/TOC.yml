@@ -176,15 +176,15 @@
         - name: Baseline di sicurezza
           href: security-baseline.md
         - name: Consigli
-          href: ../iot-fundamentals/security-recommendations.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/security-recommendations.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Sicurezza sin dall'inizio
-          href: ../iot-fundamentals/iot-security-ground-up.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/iot-security-ground-up.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Procedure consigliate per la sicurezza
-          href: ../iot-fundamentals/iot-security-best-practices.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/iot-security-best-practices.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Architettura di sicurezza
-          href: ../iot-fundamentals/iot-security-architecture.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/iot-security-architecture.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Proteggere la distribuzione di IoT
-          href: ../iot-fundamentals/iot-security-deployment.md?context=azure%252fiot-hub%252frc%252frc
+          href: ../iot-fundamentals/iot-security-deployment.md?context=%2fazure%2fiot-hub%2frc%2frc
         - name: Controlli di sicurezza in base a Criteri di Azure
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md

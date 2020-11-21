@@ -21,6 +21,10 @@
       href: work-remotely-support.md
     - name: Bastion e peering di reti virtuali
       href: vnet-peering.md
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
 - name: Guide pratiche
   items:
     - name: Creare un host

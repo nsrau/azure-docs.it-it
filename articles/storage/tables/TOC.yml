@@ -90,7 +90,7 @@
     - name: Aggiornare un account di archiviazione
       href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Usare l'emulatore di archiviazione
-      href: ../common/storage-use-emulator.md?toc=%252fazure%252fstorage%252ftables%252ftoc.json
+      href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       maintainContext: true
     - name: Proteggere i dati delle tabelle
       items:

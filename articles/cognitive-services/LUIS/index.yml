@@ -12,12 +12,12 @@ metadata:
   title: Documentazione di Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
   description: Il servizio Language Understanding (LUIS) consente all'applicazione di riconoscere la finalità espressa da una persona usando il linguaggio naturale. Language Understanding usa LUIS usa Machine Learning per consentire agli sviluppatori di compilare applicazioni in grado di ricevere input dall'utente in linguaggio naturale ed estrarne il significato.
-  ms.openlocfilehash: 3bae2e6e0a79dbc0106dc71a9510aa4dc318650c
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.openlocfilehash: ff928f1879f8cfd356fa020ff6afaa68b72f63c5
+  ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92364185"
+  ms.lasthandoff: 11/21/2020
+  ms.locfileid: "95019382"
 landingContent:
 - title: Informazioni su Language Understanding (LUIS)
   linkLists:
@@ -70,7 +70,7 @@ landingContent:
     - text: Aggiungere la finalità con espressioni di esempio
       url: luis-how-to-add-intents.md
     - text: Aggiungi entità
-      url: luis-how-to-add-example-utterances.md
+      url: ./luis-how-to-add-entities.md
     - text: Aggiungere la funzionalità degli elenchi di frasi
       url: luis-how-to-add-features.md
 - title: Eseguire il controllo delle versioni, il training, il test e la pubblicazione
@@ -78,7 +78,7 @@ landingContent:
   - linkListType: concept
     links:
     - text: Controllo delle versioni
-      url: luis-concept-version.md
+      url: ./luis-concept-app-iteration.md
     - text: Test interattivi
       url: luis-concept-test.md
     - text: Test in batch
@@ -110,15 +110,15 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Con C# usando REST
-      url: luis-get-started-cs-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
     - text: Con Go usando REST
-      url: luis-get-started-go-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
     - text: Con Java usando REST
-      url: luis-get-started-java-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
     - text: Con Node.js usando REST
-      url: luis-get-started-node-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
     - text: Con Python usando REST
-      url: luis-get-started-python-get-intent.md
+      url: ./luis-get-started-get-intent-from-rest.md
 - title: Informazioni di riferimento
   linkLists:
   - linkListType: reference
