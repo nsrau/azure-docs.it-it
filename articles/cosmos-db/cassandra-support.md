@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: ae4281350efc96fab6c4e2898cbcddf83bf29cd8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ecf4229c95ff9103cd27fd161fdd19c9e7a0f76b
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073123"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94636963"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funzionalità di Apache Cassandra supportate dall'API Cassandra di Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -86,17 +86,24 @@ API Cassandra di Azure Cosmos DB supporta i tipi di funzioni CQL seguenti:
 | writetime | Sì |
 | Cast | No |
 
-\* L'API Cassandra supporta il token come proiezione/selettore e consente solo token(pk) sul lato sinistro di una clausola WHERE. Ad esempio, `WHERE token(pk) > 1024` è supportato, ma `WHERE token(pk) > token(100)` non lo è.
+> [!NOTE]
+> \* L'API Cassandra supporta il token come proiezione/selettore e consente solo token(pk) sul lato sinistro di una clausola WHERE. Ad esempio, `WHERE token(pk) > 1024` è supportato, ma `WHERE token(pk) > token(100)` **non** lo è.
+
 
 
 Funzioni di aggregazione:
 
 |Comando  |Supportato |
 |---------|---------|
-| Min | Sì |
-| max | Sì |
 | avg | Sì |
 | count | Sì |
+| Min | Sì |
+| max | Sì |
+| Sum | Sì |
+
+> [!NOTE]
+> Le funzioni di aggregazione possono essere usate su colonne normali, ma le aggregazioni su colonne di clustering **non** sono supportate.
+
 
 Funzioni di conversione BLOB:
  
@@ -260,7 +267,7 @@ API Cassandra di Azure Cosmos DB consente di scegliere la coerenza per le operaz
 
 ## <a name="permission-and-role-management"></a>Gestione di ruoli e privilegi
 
-Azure Cosmos DB supporta il controllo degli accessi in base al ruolo per il provisioning, la rotazione delle chiavi, la visualizzazione delle metriche e le chiavi/password di lettura/scrittura e sola lettura ottenibili tramite il [portale di Azure](https://portal.azure.com). Azure Cosmos DB non supporta i ruoli per le attività CRUD.
+Azure Cosmos DB supporta il controllo degli accessi in base al ruolo di Azure per il provisioning, la rotazione delle chiavi, la visualizzazione delle metriche e le chiavi/password di lettura/scrittura e sola lettura ottenibili tramite il [portale di Azure](https://portal.azure.com). Azure Cosmos DB non supporta i ruoli per le attività CRUD.
 
 ## <a name="keyspace-and-table-options"></a>Opzioni di Keyspace e tabella
 

@@ -2,15 +2,15 @@
 title: Creare e distribuire una specifica di modello
 description: Informazioni su come creare una specifica di modello da un modello di Resource Manager e quindi distribuire la specifica di modello in un gruppo di risorse nella sottoscrizione.
 author: tfitzmac
-ms.date: 11/10/2020
+ms.date: 11/17/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 96ef5796aac1d0ee02e6bbafc40b7d3bcdea4e2f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 8439b1de5a69b3e5bfc22e10f089938da921c1cb
+ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506363"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94747503"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Avvio rapido: Creare e distribuire una specifica di modello (anteprima)
 
@@ -21,9 +21,7 @@ Questo argomento di avvio rapido illustra come creare un pacchetto di un modello
 Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> La funzionalità Specifiche di modello è attualmente in anteprima. Per usarla, è necessario [iscriversi alla lista di attesa](https://aka.ms/templateSpecOnboarding).
->
-> Dopo aver ottenuto l'approvazione dalla lista di attesa, verranno visualizzate le istruzioni per l'installazione del modulo di anteprima di PowerShell e del modulo di anteprima dell'interfaccia della riga di comando.
+> La funzionalità Specifiche di modello è attualmente in anteprima. Per usarla, è necessario installare la versione più recente di PowerShell o dell'interfaccia della riga di comando di Azure. Per Azure PowerShell usare la [versione 5.0.0 o successiva](/powershell/azure/install-az-ps). Per l'interfaccia della riga di comando di Azure usare la [versione 2.14.2 o successiva](/cli/azure/install-azure-cli).
 
 ## <a name="create-template-spec"></a>Creare la specifica di modello
 

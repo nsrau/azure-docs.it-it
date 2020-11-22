@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 449f0a59cc8428ce8e19535d5cf0417bf4cf7ad0
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 5c8993bdf892ceb7d9886d0d2b97063dedec720c
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424975"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94635552"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Avvio rapido: Creare una funzione Java in Azure dalla riga di comando
 
@@ -163,11 +163,23 @@ La prima volta che si distribuisce il progetto di Funzioni, in Azure vengono cre
 > [!TIP]
 > Per creare un'app per le funzioni in esecuzione in Linux anziché in Windows, modificare l'elemento `runtime.os` nel file pom.xml da `windows` a `linux`. L'esecuzione di Linux in un piano a consumo è supportata in [queste aree](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions). Non è possibile avere nello stesso gruppo di risorse app eseguite in Linux e app eseguite in Windows.
 
-1. Prima di procedere alla distribuzione, è necessario usare il comando [az login](/cli/azure/authenticate-azure-cli) dell'interfaccia della riga di comando di Azure per accedere alla sottoscrizione di Azure. 
+1. Prima della distribuzione, accedere alla sottoscrizione di Azure usando l'interfaccia della riga di comando di Azure o Azure PowerShell. 
 
+    # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
     ```azurecli
     az login
     ```
+
+    Il comando [az login](/cli/azure/reference-index#az-login) consente di accedere all'account Azure.
+
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell) 
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+    Il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) consente di accedere all'account Azure.
+
+    ---
 
 1. Usare il comando seguente per distribuire il progetto in una nuova app per le funzioni.
 

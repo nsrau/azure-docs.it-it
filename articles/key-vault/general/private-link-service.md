@@ -3,17 +3,17 @@ title: Integrazione con il servizio Collegamento privato di Azure
 description: Informazioni su come integrare Azure Key Vault con il servizio Collegamento privato di Azure
 author: ShaneBala-keyvault
 ms.author: sudbalas
-ms.date: 03/08/2020
+ms.date: 11/17/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 74669036a40048ca21aae56856981197defe1c35
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: ec619681f1eebc51da85d31ad15f1db25cfd3cbc
+ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286528"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94917920"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrare Key Vault con Collegamento privato di Azure
 
@@ -36,6 +36,8 @@ L'endpoint privato e la rete virtuale devono trovarsi nella stessa area. Quando 
 
 L'endpoint privato usa un indirizzo IP privato nella rete virtuale.
 
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+
 ## <a name="establish-a-private-link-connection-to-key-vault-using-the-azure-portal"></a>Stabilire una connessione di collegamento privato a Key Vault con il portale di Azure 
 
 Creare prima di tutto una rete virtuale seguendo la procedura descritta nell'articolo [Creare una rete virtuale usando il portale di Azure](../../virtual-network/quick-create-portal.md).
@@ -44,14 +46,14 @@ Creare prima di tutto una rete virtuale seguendo la procedura descritta nell'art
 
 ### <a name="create-a-new-key-vault-and-establish-a-private-link-connection"></a>Creare un nuovo insieme di credenziali delle chiavi e stabilire una connessione di collegamento privato
 
-È possibile creare un nuovo insieme di credenziali delle chiavi seguendo la procedura descritta nell'articolo [Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure](../secrets/quick-create-portal.md).
+È possibile creare un nuovo insieme di credenziali delle chiavi con il [portale di Azure](../general/quick-create-portal.md), l'[interfaccia della riga di comando di Azure](../general/quick-create-cli.md) o [Azure PowerShell](../general/quick-create-powershell.md).
 
 Dopo aver configurato le informazioni di base dell'insieme di credenziali delle chiavi, selezionare la scheda Rete e seguire questa procedura:
 
 1. Selezionare il pulsante di opzione Endpoint privato nella scheda Rete.
 1. Fare clic sul pulsante "+ Aggiungi" per aggiungere un endpoint privato.
 
-    ![Screenshot che mostra la prima schermata durante la creazione di un insieme di credenziali delle chiavi.](../media/private-link-service-1.png)
+    ![Immagine](../media/private-link-service-1.png)
  
 1. Nel campo "Posizione" del pannello Crea endpoint privato selezionare l'area in cui si trova la rete virtuale. 
 1. Nel campo "Nome" creare un nome descrittivo che consentirà di identificare questo endpoint privato. 
@@ -59,7 +61,7 @@ Dopo aver configurato le informazioni di base dell'insieme di credenziali delle 
 1. Lasciare invariata l'opzione "Integra con la zona DNS privato".  
 1. Selezionare "Ok".
 
-    ![Screenshot che mostra i campi importanti per la configurazione di un endpoint privato.](../media/private-link-service-8.png)
+    ![Immagine](../media/private-link-service-8.png)
  
 Sarà ora possibile visualizzare l'endpoint privato configurato. È ora possibile eliminare e modificare questo endpoint privato. Selezionare il pulsante "Rivedi e crea" e creare l'insieme di credenziali delle chiavi. Il completamento della distribuzione richiederà 5-10 minuti. 
 
@@ -74,81 +76,12 @@ Se si dispone già di un insieme di credenziali delle chiavi, è possibile crear
 1. Selezionare la scheda Connessioni endpoint privato nella parte superiore della pagina.
 1. Selezionare il pulsante "+ Endpoint privato" nella parte superiore della pagina.
 
-    ![Screenshot che mostra il pulsante + Endpoint privato.](../media/private-link-service-3.png)
-    ![Screenshot che mostra la schermata per la creazione di un endpoint privato.](../media/private-link-service-4.png)
+    ![Immagine](../media/private-link-service-3.png) ![Immagine](../media/private-link-service-4.png)
 
 È possibile scegliere di creare un endpoint privato per qualsiasi risorsa di Azure usando questo pannello. È possibile usare i menu a discesa per selezionare un tipo di risorsa e selezionare una risorsa nella directory oppure è possibile connettersi a qualsiasi risorsa di Azure usando un ID risorsa. Lasciare invariata l'opzione "Integra con la zona DNS privato".  
 
-## <a name="establish-a-private-link-connection-to-key-vault-using-cli"></a>Stabilire una connessione di collegamento privato a Key Vault con l'interfaccia della riga di comando
-
-### <a name="login-to-azure-cli"></a>Accedere all'interfaccia della riga di comando di Azure
-```console
-az login 
-```
-### <a name="select-your-azure-subscription"></a>Selezionare la sottoscrizione di Azure 
-```console
-az account set --subscription {AZURE SUBSCRIPTION ID}
-```
-### <a name="create-a-new-resource-group"></a>Creare un nuovo gruppo di risorse 
-```console
-az group create -n {RG} -l {AZURE REGION}
-```
-### <a name="register-microsoftkeyvault-as-a-provider"></a>Registrare Microsoft.KeyVault come provider 
-```console
-az provider register -n Microsoft.KeyVault
-```
-### <a name="create-a-new-key-vault"></a>Creare una nuova istanza di Key Vault
-```console
-az keyvault create --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION}
-```
-### <a name="turn-on-key-vault-firewall"></a>Attivare il firewall di Key Vault
-```console
-az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --default-action deny
-```
-### <a name="create-a-virtual-network"></a>Creare una rete virtuale
-```console
-az network vnet create --resource-group {RG} --name {vNet NAME} --location {AZURE REGION}
-```
-### <a name="add-a-subnet"></a>Aggiungere una subnet
-```console
-az network vnet subnet create --resource-group {RG} --vnet-name {vNet NAME} --name {subnet NAME} --address-prefixes {addressPrefix}
-```
-### <a name="disable-virtual-network-policies"></a>Disabilitare i criteri della rete virtuale 
-```console
-az network vnet subnet update --name {subnet NAME} --resource-group {RG} --vnet-name {vNet NAME} --disable-private-endpoint-network-policies true
-```
-### <a name="add-a-private-dns-zone"></a>Creare una zona DNS privato 
-```console
-az network private-dns zone create --resource-group {RG} --name privatelink.vaultcore.azure.net
-```
-### <a name="link-private-dns-zone-to-virtual-network"></a>Collegare la zona DNS privato alla rete virtuale 
-```console
-az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
-```
-### <a name="add-private-dns-records"></a>Aggiungere record DNS privato
-```console
-# https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
-az network private-dns zone list -g $rg_name
-az network private-dns record-set a add-record -g $rg_name -z "privatelink.vaultcore.azure.net" -n $vault_name -a $kv_network_interface_private_ip
-az network private-dns record-set list -g $rg_name -z "privatelink.vaultcore.azure.net"
-
-# From home/public network, you wil get a public IP. If inside a vnet with private zone, nslookup will resolve to the private ip.
-nslookup $vault_name.vault.azure.net
-nslookup $vault_name.privatelink.vaultcore.azure.net
-```
-### <a name="create-a-private-endpoint-automatically-approve"></a>Creare un endpoint privato (approvazione automatica) 
-```console
-az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION}
-```
-### <a name="create-a-private-endpoint-manually-request-approval"></a>Creare un endpoint privato (richiesta manuale di approvazione) 
-```console
-az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION} --manual-request
-```
-### <a name="show-connection-status"></a>Visualizzare lo stato di connessione 
-```console
-az network private-endpoint show --resource-group {RG} --name {Private Endpoint Name}
-```
-## <a name="manage-private-link-connection"></a>Gestire una connessione di collegamento privato
+![Immagine](../media/private-link-service-3.png)
+![Immagine](../media/private-link-service-4.png)
 
 Quando si crea un endpoint privato, la connessione deve essere approvata. Se la risorsa per cui si sta creando un endpoint privato si trova nella directory, sarà possibile approvare la richiesta di connessione purché si disponga di autorizzazioni sufficienti. Se ci si connette a una risorsa di Azure in un'altra directory, è necessario attendere che il proprietario della risorsa approvi la richiesta di connessione.
 
@@ -160,8 +93,8 @@ Sono disponibili quattro stati di provisioning:
 | Approvazione | Approved | La connessione è stata approvata automaticamente o manualmente ed è pronta per essere usata. |
 | Rifiuto | Rifiutato | La connessione è stata rifiutata dal proprietario della risorsa di collegamento privato. |
 | Rimuovere | Disconnesso | La connessione è stata rimossa dal proprietario della risorsa di collegamento privato, l'endpoint privato diventa informativo e deve essere eliminato per la pulizia. |
- 
-###  <a name="how-to-manage-a-private-endpoint-connection-to-key-vault-using-the-azure-portal"></a>Come gestire una connessione di endpoint privato a Key Vault con il portale di Azure 
+
+### <a name="how-to-manage-a-private-endpoint-connection-to-key-vault-using-the-azure-portal"></a>Come gestire una connessione di endpoint privato a Key Vault con il portale di Azure 
 
 1. Accedere al portale di Azure.
 1. Nella barra di ricerca digitare "key vaults".
@@ -174,22 +107,72 @@ Sono disponibili quattro stati di provisioning:
 
     ![Immagine](../media/private-link-service-7.png)
 
-##  <a name="how-to-manage-a-private-endpoint-connection-to-key-vault-using-azure-cli"></a>Come gestire una connessione di endpoint privato a Key Vault con l'interfaccia della riga di comando di Azure
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/cli)
 
-### <a name="approve-a-private-link-connection-request"></a>Approvare una richiesta di connessione di Collegamento privato
+## <a name="establish-a-private-link-connection-to-key-vault-using-cli-initial-setup"></a>Stabilire una connessione di collegamento privato a Key Vault con l'interfaccia della riga di comando (Configurazione iniziale)
+
 ```console
+az login                                                         # Login to Azure CLI
+az account set --subscription {SUBSCRIPTION ID}                  # Select your Azure Subscription
+az group create -n {RESOURCE GROUP} -l {REGION}                  # Create a new Resource Group
+az provider register -n Microsoft.KeyVault                       # Register KeyVault as a provider
+az keyvault create -n {VAULT NAME} -g {RG} -l {REGION}           # Create a Key Vault
+az keyvault update -n {VAULT NAME} -g {RG} --default-action deny # Turn on Key Vault Firewall
+az network vnet create -g {RG} -n {vNet NAME} -location {REGION} # Create a Virtual Network
+
+    # Create a Subnet
+az network vnet subnet create -g {RG} --vnet-name {vNet NAME} --name {subnet NAME} --address-prefixes {addressPrefix}
+
+    # Disable Virtual Network Policies
+az network vnet subnet update --name {subnet NAME} --resource-group {RG} --vnet-name {vNet NAME} --disable-private-endpoint-network-policies true
+
+    # Create a Private DNS Zone
+az network private-dns zone create --resource-group {RG} --name privatelink.vaultcore.azure.net
+
+    # Link the Private DNS Zone to the Virtual Network
+az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
+
+```
+
+### <a name="add-private-dns-records"></a>Aggiungere record DNS privato
+```console
+# https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
+az network private-dns zone list -g $rg_name
+az network private-dns record-set a add-record -g $rg_name -z "privatelink.vaultcore.azure.net" -n $vault_name -a $kv_network_interface_private_ip
+az network private-dns record-set list -g $rg_name -z "privatelink.vaultcore.azure.net"
+
+# From home/public network, you wil get a public IP. If inside a vnet with private zone, nslookup will resolve to the private ip.
+nslookup $vault_name.vault.azure.net
+nslookup $vault_name.privatelink.vaultcore.azure.net
+```
+
+### <a name="create-a-private-endpoint-automatically-approve"></a>Creare un endpoint privato (approvazione automatica) 
+```console
+az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION}
+```
+
+### <a name="create-a-private-endpoint-manually-request-approval"></a>Creare un endpoint privato (richiesta manuale di approvazione) 
+```console
+az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION} --manual-request
+```
+
+### <a name="manage-private-link-connections"></a>Gestire connessioni di collegamento privato
+
+```console
+# Show Connection Status
+az network private-endpoint show --resource-group {RG} --name {Private Endpoint Name}
+
+# Approve a Private Link Connection Request
 az keyvault private-endpoint-connection approve --approval-description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --vault-name {KEY VAULT NAME} –name {PRIVATE LINK CONNECTION NAME}
-```
 
-### <a name="deny-a-private-link-connection-request"></a>Negare una richiesta di connessione di Collegamento privato
-```console
+# Deny a Private Link Connection Request
 az keyvault private-endpoint-connection reject --rejection-description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --vault-name {KEY VAULT NAME} –name {PRIVATE LINK CONNECTION NAME}
-```
 
-### <a name="delete-a-private-link-connection-request"></a>Eliminare una richiesta di connessione di Collegamento privato
-```console
+# Delete a Private Link Connection Request
 az keyvault private-endpoint-connection delete --resource-group {RG} --vault-name {KEY VAULT NAME} --name {PRIVATE LINK CONNECTION NAME}
 ```
+
+---
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Verificare il funzionamento della connessione di collegamento privato
 
@@ -243,14 +226,14 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 * Verificare che sia presente una risorsa Zona DNS privato. 
     1. Deve essere presente una risorsa Zona DNS privato con il nome esatto privatelink.vaultcore.azure.net. 
-    2. Per informazioni su come configurare questa risorsa, vedere il collegamento seguente. [Zone DNS privato](../../dns/private-dns-privatednszone.md)
+    2. Per informazioni su come configurare questa risorsa, vedere il collegamento seguente. [Zone DNS privato](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
     
 * Verificare che la zona DNS privato non sia collegata alla rete virtuale. Se continua a essere restituito l'indirizzo IP pubblico, la causa potrebbe essere questa. 
     1. Se il DNS della zona privata non è collegato alla rete virtuale, la query DNS originata dalla rete virtuale restituirà l'indirizzo IP pubblico dell'insieme di credenziali delle chiavi. 
     2. Passare alla risorsa Zona DNS privato nel portale di Azure e fare clic sull'opzione Collegamenti di rete virtuale. 
     4. La rete virtuale che effettuerà le chiamate all'insieme di credenziali delle chiavi deve essere elencata. 
     5. Se non lo è, aggiungerla. 
-    6. Per la procedura dettagliata, vedere [Collegare la rete virtuale alla zona DNS privato](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network).
+    6. Per la procedura dettagliata, vedere [Collegare la rete virtuale alla zona DNS privato](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network).
 
 * Verificare che nella zona DNS privato non manchi un record A per l'insieme di credenziali delle chiavi. 
     1. Passare alla pagina Zona DNS privato. 
@@ -259,7 +242,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
     4. Assicurarsi di specificare l'indirizzo IP privato corretto. 
     
 * Verificare che l'indirizzo IP del record A sia corretto. 
-    1. È possibile verificare l'indirizzo IP aprendo la risorsa Endpoint privato nel portale di Azure. 
+    1. È possibile verificare l'indirizzo IP aprendo la risorsa Endpoint privato nel portale di Azure.
     2. Nel portale di Azure passare alla risorsa Microsoft.Network/privateEndpoints (non alla risorsa Key Vault).
     3. Nella pagina di panoramica cercare Interfaccia di rete e fare clic su tale collegamento. 
     4. Il collegamento visualizzerà la panoramica della risorsa Scheda di interfaccia di rete, che contiene la proprietà Indirizzo IP privato. 
@@ -272,11 +255,11 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 **Pricing** (Prezzi): per informazioni sui prezzi, vedere [Prezzi di Collegamento privato di Azure](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitazioni** :  l'endpoint privato per Azure Key Vault è disponibile solo nelle aree di Azure pubbliche.
+**Limitazioni**:  l'endpoint privato per Azure Key Vault è disponibile solo nelle aree di Azure pubbliche.
 
-**Numero massimo di endpoint privati per Key Vault** : 64.
+**Numero massimo di endpoint privati per Key Vault**: 64.
 
-**Numero predefinito di insiemi di credenziali delle chiavi con endpoint privati per ogni sottoscrizione** : 400.
+**Numero predefinito di insiemi di credenziali delle chiavi con endpoint privati per ogni sottoscrizione**: 400.
 
 Per altre informazioni, vedere [Servizio Collegamento privato di Azure: Limitazioni](../../private-link/private-link-service-overview.md#limitations)
 

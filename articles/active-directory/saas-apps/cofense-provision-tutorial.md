@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: configurare la sincronizzazione del destinatario Cofense per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
-description: Informazioni su come eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure AD alla sincronizzazione del destinatario Cofense.
+title: 'Esercitazione: Configurare Cofense Recipient Sync per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+description: Informazioni su come eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Cofense Recipient Sync.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: 69a9b9401f25893ec94b282f52730d92d372268d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b12a595c9b59b40ee6982f123baddaa818dd87ef
+ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355703"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94836292"
 ---
-# <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Esercitazione: configurare la sincronizzazione del destinatario Cofense per il provisioning utenti automatico
+# <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Esercitazione: Configurare Cofense Recipient Sync per il provisioning utenti automatico
 
-Questa esercitazione descrive i passaggi da eseguire sia nella sincronizzazione del destinatario Cofense che nella Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Se configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning degli utenti per la [sincronizzazione del destinatario Cofense](https://cofense.com/) tramite il servizio di provisioning Azure ad. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
+Questa esercitazione descrive le procedure da eseguire sia in Cofense Recipient Sync che in Azure Active Directory (Azure AD) per configurare il provisioning utenti automatico. Una volta configurato, Azure AD esegue automaticamente il provisioning e il deprovisioning di utenti e gruppi per [Cofense Recipient Sync](https://cofense.com/) usando il servizio di provisioning di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funzionalità supportate
 > [!div class="checklist"]
-> * Creare utenti nella sincronizzazione del destinatario Cofense
-> * Rimuovere gli utenti nella sincronizzazione del destinatario Cofense quando non sono più necessari per l'accesso
-> * Mantieni gli attributi utente sincronizzati tra Azure AD e la sincronizzazione del destinatario Cofense
+> * Creare utenti in Cofense Recipient Sync
+> * Rimuovere utenti in Cofense Recipient Sync quando l'accesso non è più necessario
+> * Mantenere gli attributi utente sincronizzati tra Azure AD e Cofense Recipient Sync
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,44 +44,44 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
 1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determinare quali dati eseguire il [mapping tra Azure ad e la sincronizzazione del destinatario Cofense](../app-provisioning/customize-application-attributes.md). 
+3. Determinare i dati di cui [eseguire il mapping tra Azure AD e Cofense Recipient Sync](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-cofense-recipient-sync-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare la sincronizzazione del destinatario Cofense per supportare il provisioning con Azure AD
+## <a name="step-2-configure-cofense-recipient-sync-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Cofense Recipient Sync per supportare il provisioning con Azure AD
 
-1. Accedere a Cofense PhishMe. Passare a **destinatari > sincronizzazione del destinatario**. 
-2. Accettare i termini e le condizioni e quindi **fare clic su inizia.**
+1. Accedere a Cofense PhishMe. Passare a **Recipients > Recipient Sync** (Destinatari > Recipient Sync). 
+2. Accettare le condizioni e quindi fare clic su **Get Started** (Inizia).
 
-    ![TNC sincronizzazione destinatario](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
+    ![Condizioni di Recipient Sync](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
 
-3. Copiare i valori dai campi **URL** e **token** .
+3. Copiare i valori dai campi **URL** e **Token**.
 
-    ![Sincronizzazione destinatario](media/cofense-provisioning-tutorial/recipient-sync-getting-started.png)
+    ![Recipient Sync](media/cofense-provisioning-tutorial/recipient-sync-getting-started.png)
 
 
-## <a name="step-3-add-cofense-recipient-sync-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere la sincronizzazione del destinatario Cofense dalla raccolta di applicazioni Azure AD
+## <a name="step-3-add-cofense-recipient-sync-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere Cofense Recipient Sync dalla raccolta di applicazioni di Azure AD
 
-Aggiungere la sincronizzazione del destinatario Cofense dalla raccolta di applicazioni Azure AD per iniziare a gestire il provisioning in sincronizzazione destinatari di Cofense. Se in precedenza è stata impostata la sincronizzazione del destinatario Cofense per SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md). 
+Aggiungere Cofense Recipient Sync dalla raccolta di applicazioni di Azure AD per iniziare a gestire il provisioning in Cofense Recipient Sync. Se Cofense Recipient Sync è stato configurato in precedenza per l'accesso SSO, è possibile usare la stessa applicazione. È tuttavia consigliabile creare un'app separata per il test iniziale dell'integrazione. Per altre informazioni su come aggiungere un'applicazione dalla raccolta, fare clic [qui](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passaggio 4. Definire gli utenti che verranno inclusi nell'ambito per il provisioning 
 
 Il servizio di provisioning di Azure AD consente di definire l'ambito per gli utenti di cui verrà eseguito il provisioning in base all'assegnazione all'applicazione e/o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile seguire questa [procedura](../manage-apps/assign-user-or-group-access-portal.md) per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning esclusivamente in base agli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Quando si assegnano utenti e gruppi alla sincronizzazione del destinatario Cofense, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli. 
+* Quando si assegnano utenti e gruppi a Cofense Recipient Sync, è necessario selezionare un ruolo diverso da **Accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli. 
 
 * Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti e gruppi prima di eseguire la distribuzione a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-cofense-recipient-sync"></a>Passaggio 5. Configurare il provisioning utenti automatico per la sincronizzazione del destinatario Cofense 
+## <a name="step-5-configure-automatic-user-provisioning-to-cofense-recipient-sync"></a>Passaggio 5. Configurare il provisioning utenti automatico per Cofense Recipient Sync 
 
-Questa sezione illustra i passaggi per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare gli utenti nella sincronizzazione del destinatario Cofense in base all'utente in Azure AD.
+Questa sezione descrive la procedura per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti in Cofense Recipient Sync in base all'utente in Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-cofense-recipient-sync-in-azure-ad"></a>Per configurare il provisioning utenti automatico per la sincronizzazione del destinatario Cofense in Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-cofense-recipient-sync-in-azure-ad"></a>Per configurare il provisioning utenti automatico per Cofense Recipient Sync in Azure AD:
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Cofense destinatario sincronizzazione**.
+2. Nell'elenco delle applicazioni selezionare **Cofense Recipient Sync**.
 
     ![Collegamento di Cofense nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -91,11 +91,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning automatica](common/provisioning-automatic.png)
+    ![Automatico nella scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere l'URL di **base scim 2,0 e** il valore del token di autenticazione scim recuperato in precedenza nel passaggio 2. Fare clic su **Test connessione** per assicurarsi che Azure ad possibile connettersi alla sincronizzazione del destinatario Cofense. Se la connessione non riesce, verificare che l'account di sincronizzazione del destinatario Cofense disponga delle autorizzazioni di amministratore e riprovare.
+5. Nella sezione **Credenziali amministratore** immettere il valore dell'**URL di base di SCIM 2.0 e del token di autenticazione SCIM** recuperato in precedenza dal Passaggio 2. Fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Cofense Recipient Sync. Se la connessione non riesce, verificare che l'account di Cofense Recipient Sync abbia autorizzazioni di amministratore e riprovare.
 
-    ![Token URL tenant](common/provisioning-testconnection-tenanturltoken.png)
+    ![Token dell'URL del tenant](common/provisioning-testconnection-tenanturltoken.png)
 
 6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
@@ -103,37 +103,37 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
 7. Selezionare **Salva**.
 
-8. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory Users to Cofense destinatario Sync**.
+8. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to Cofense Recipient Sync** (Sincronizza utenti di Azure Active Directory in Cofense Recipient Sync).
 
-9. Esaminare gli attributi utente sincronizzati da Azure AD alla sincronizzazione del destinatario Cofense nella sezione **attribute-mapping** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente nella sincronizzazione del destinatario Cofense per le operazioni di aggiornamento.  Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+9. Esaminare gli attributi utente sincronizzati da Azure AD a Cofense Recipient Sync nella sezione **Mapping attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Cofense Recipient Sync per le operazioni di aggiornamento.  Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-   |Attributo|Type|
-   |---|---|
+   |Attributo|Type|Supportato per il filtro|
+   |---|---|---|
+   |externalId|string|&check;|
    |userName|string|
-   |externalId|string|
    |active|Boolean|
    |displayName|string|
    |name.formatted|string|
    |name.givenName|string|
    |name.familyName|string|
-   |nome. honorificSuffix|string|
-   |phoneNumbers [digitare EQ "Work"]. Value|string|
-   |phoneNumbers [digitare EQ "Home"]. valore|string|
-   |phoneNumbers [digitare EQ "other"]. Value|string|
-   |phoneNumbers [digitare EQ "pager"]. valore|string|
-   |phoneNumbers [digitare EQ "mobile"]. valore|string|
-   |phoneNumbers [digitare EQ "fax"]. valore|string|
-   |indirizzi [tipo EQ "other"]. formattato|string|
-   |indirizzi [tipo EQ "lavoro"]. formattato|string|
-   |indirizzi [digitare EQ "Work"]. streetAddress|string|
-   |indirizzi [digitare EQ "Work"]. località|string|
-   |indirizzi [digitare EQ "Work"]. Region|string|
-   |indirizzi [digitare EQ "Work"]. postalCode|string|
-   |indirizzi [digitare EQ "Work"]. Country|string|
+   |name.honorificSuffix|string|
+   |phoneNumbers[type eq"work"].value|string|
+   |phoneNumbers[type eq"home"].value|string|
+   |phoneNumbers[type eq"other"].value|string|
+   |phoneNumbers[type eq"pager"].value|string|
+   |phoneNumbers[type eq"mobile"].value|string|
+   |phoneNumbers[type eq"fax"].value|string|
+   |addresses[type eq"other"].formatted|string|
+   |addresses[type eq"work"].formatted|string|
+   |addresses[type eq"work"].streetAddress|string|
+   |addresses[type eq"work"].locality|string|
+   |addresses[type eq"work"].region|string|
+   |addresses[type eq"work"].postalCode|string|
+   |addresses[type eq"work"].country|string|
    |title|string|
    |emails[type eq "work"].value|string|
-   |messaggi di posta elettronica [digitare EQ "Home"]. valore|string|
-   |messaggi di posta elettronica [digitare EQ "other"]. Value|string|
+   |emails[type eq "home"].value|string|
+   |emails[type eq "other"].value|string|
    |preferredLanguage|string|
    |nickName|string|
    |userType|string|
@@ -148,11 +148,11 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning d
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Per abilitare il servizio di provisioning Azure AD per la sincronizzazione del destinatario Cofense, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+11. Per abilitare il servizio di provisioning di Azure AD per Cofense Recipient Sync, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
     ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-12. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning per la sincronizzazione del destinatario Cofense scegliendo i valori desiderati in **ambito** nella sezione **Impostazioni** .
+12. Definire gli utenti e/o gruppi di cui si vuole eseguire il provisioning in Cofense Recipient Sync selezionando i valori desiderati in **Ambito** nella sezione **Impostazioni**.
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 

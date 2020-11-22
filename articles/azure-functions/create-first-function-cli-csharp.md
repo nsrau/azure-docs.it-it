@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-csharp
 - devx-track-azurecli
-ms.openlocfilehash: 036629bd72f8219c2d7b1877dd1672291ed3d98a
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: b87408669dbb9268d6e3cd47b410b888ef1a19c2
+ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424984"
+ms.lasthandoff: 11/15/2020
+ms.locfileid: "94637150"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Avvio rapido: Creare una funzione C# in Azure dalla riga di comando
 
@@ -28,6 +28,8 @@ Le procedure illustrate in questa guida di avvio rapido comportano l'addebito di
 Per eseguire le procedure descritte è necessario:
 
 + Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
++ [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
 
 + [Azure Functions Core Tools](functions-run-local.md#v2) versione 3.x.
 
@@ -49,6 +51,8 @@ Verificare i prerequisiti, che variano a seconda che si usi l'interfaccia della 
 
 + Eseguire `az login` per accedere ad Azure e verificare la presenza di una sottoscrizione attiva.
 
++ Eseguire `dotnet --list-sdks` per verificare che .NET Core SDK versione 3.1.x sia installato
+
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 + In una finestra di comando o di terminale eseguire `func --version` per verificare che la versione di Azure Functions Core Tools sia 3.x.
@@ -56,6 +60,8 @@ Verificare i prerequisiti, che variano a seconda che si usi l'interfaccia della 
 + Eseguire `(Get-Module -ListAvailable Az).Version` per verificare che la versione sia 5.0 o successiva. 
 
 + Eseguire `Connect-AzAccount` per accedere ad Azure e verificare la presenza di una sottoscrizione attiva.
+
++ Eseguire `dotnet --list-sdks` per verificare che .NET Core SDK versione 3.1.x sia installato
 
 ---
 

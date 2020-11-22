@@ -13,12 +13,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fcb6d4da3d9b044cf722c6333f61a0f8d38f1956
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a4c8f0c636e254c4afc2d6cd83a744939096233a
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91598012"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553625"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>Avvio rapido: Creare un'istanza di SQL Server in una macchina virtuale Windows con Azure PowerShell
 
@@ -150,9 +150,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="register-with-sql-vm-rp"></a>Eseguire la registrazione con il provider di risorse delle macchine virtuali SQL 
 
-Per ottenere l'integrazione del portale e le funzionalità della macchina virtuale SQL, è necessario eseguire la registrazione con il [provider di risorse della macchina virtuale di SQL](sql-vm-resource-provider-register.md).
+Per ottenere l'integrazione del portale e le funzionalità della macchina virtuale SQL, è necessario eseguire la registrazione con l'[estensione SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md).
 
-Per ottenere la funzionalità completa, è necessario eseguire la registrazione con il provider di risorse in modalità completa. Se si procede in questo modo, però, il servizio SQL Server viene riavviato, di conseguenza l'approccio consigliato consiste nell'eseguire la registrazione in modalità semplificata e quindi eseguire l'aggiornamento alla modalità completa durante una finestra di manutenzione. 
+Per ottenere la funzionalità completa, è necessario eseguire la registrazione con l'estensione in modalità completa. Se si procede in questo modo, però, il servizio SQL Server viene riavviato, di conseguenza l'approccio consigliato consiste nell'eseguire la registrazione in modalità semplificata e quindi eseguire l'aggiornamento alla modalità completa durante una finestra di manutenzione. 
 
 In primo luogo, registrare la macchina virtuale di SQL Server in modalità semplificata: 
 
@@ -171,7 +171,7 @@ Quindi, durante una finestra di manutenzione, eseguire l'aggiornamento alla moda
 # Get the existing Compute VM
 $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
       
-# Register with SQL VM resource provider in full mode
+# Register with SQL IaaS Agent extension in full mode
 Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
 ```
 

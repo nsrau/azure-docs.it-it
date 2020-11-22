@@ -4,12 +4,12 @@ description: "Esercitazione: Usare Griglia di eventi di Azure e l'interfaccia de
 ms.date: 07/07/2020
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 77633a717478ff143c3b084adc0b69019abb203f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c709d77827551860cc917c3c84c5a849d9fdc512
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832128"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566827"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Esercitazione: Instradare eventi personalizzati a Connessioni ibride di Inoltro di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
@@ -17,12 +17,11 @@ La griglia di eventi di Azure è un servizio di gestione degli eventi per il clo
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che l'utente disponga già di una connessione ibrida e di un'applicazione listener. Per iniziare a usare le connessioni ibride, vedere [Introduzione alle connessioni ibride di inoltro - .NET](../azure-relay/relay-hybrid-connections-dotnet-get-started.md) oppure [Introduzione alle connessioni ibride di inoltro - Node](../azure-relay/relay-hybrid-connections-node-get-started.md).
+- Questo articolo presuppone che l'utente disponga già di una connessione ibrida e di un'applicazione listener. Per iniziare a usare le connessioni ibride, vedere [Introduzione alle connessioni ibride di inoltro - .NET](../azure-relay/relay-hybrid-connections-dotnet-get-started.md) oppure [Introduzione alle connessioni ibride di inoltro - Node](../azure-relay/relay-hybrid-connections-node-get-started.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!NOTE]
-> Se si usa l'interfaccia della riga di comando di Azure nel computer locale, usare l'interfaccia della riga di comando di Azure versione 2.0.56 o successive. Per istruzioni sull'installazione della versione più recente dell'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+- Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.0.56 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

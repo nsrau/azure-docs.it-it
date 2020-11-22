@@ -11,16 +11,20 @@ ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 52cec861ba81a804081c4b879ab73333a3281e61
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 60c51de4e4549649c681c961c6ddc1acdb12e698
+ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360293"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94659693"
 ---
 # <a name="quickstart-send-an-sms-message"></a>Avvio rapido: Inviare un messaggio SMS
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+> [!IMPORTANT]
+> L'invio e la ricezione di SMS è consentita solo da numeri di telefono degli Stati Uniti. I numeri di telefono di altri paesi non sono ancora supportati con gli SMS di Servizi di comunicazione.
+> Per altre informazioni, vedere **[Pianificare l'uso della soluzione di telefonia e SMS](../../concepts/telephony-sms/plan-solution.md)** .
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send SMS with .NET client library](./includes/send-sms-net.md)]

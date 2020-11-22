@@ -5,22 +5,22 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 92990df3049f7fa1074d55fc34734e13d6673cd7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 27294f91fd6c79b10a85678a7acd60de56cf1ca4
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328820"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562339"
 ---
-# <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Eseguire il backup di una macchina virtuale in Azure con l'interfaccia della riga di comando
+# <a name="back-up-a-virtual-machine-in-azure-with-the-azure-cli"></a>Eseguire il backup di una macchina virtuale in Azure con l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. È possibile proteggere i dati eseguendo backup a intervalli regolari. Backup di Azure crea punti di ripristino che possono essere archiviati in insiemi di credenziali di ripristino con ridondanza geografica. Questo articolo illustra in modo dettagliato come eseguire il backup di una macchina virtuale (VM) in Azure con l'interfaccia della riga di comando di Azure. È anche possibile eseguire questa procedura con [Azure PowerShell](quick-backup-vm-powershell.md) o nel [portale di Azure](quick-backup-vm-portal.md).
 
 Questa guida introduttiva abilita il backup in una VM di Azure esistente. Se necessario, è possibile [creare una VM con l'interfaccia della riga di comando di Azure](../virtual-machines/linux/quick-create-cli.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Per installare e usare l'interfaccia della riga di comando in locale, è necessario eseguire l'interfaccia della riga di comando di Azure 2.0.18 o versioni successive Per determinare la versione dell'interfaccia della riga di comando, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+ - Questa guida di avvio rapido richiede l'interfaccia della riga di comando di Azure versione 2.0.18 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 

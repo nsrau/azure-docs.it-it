@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3e68e65a5c2ed73a8fb6d8e5d01c645e05ca5157
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b368048e5ea34ebfc073b1ae239cbb40724ae393
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320708"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94684373"
 ---
 # <a name="communication-services-notifications"></a>Notifiche di Servizi di comunicazione
 
@@ -36,7 +36,7 @@ Per altre informazioni, vedere [Gestione degli eventi in Servizi di comunicazion
 
 È possibile connettere un hub di notifica di Azure alla risorsa di Servizi di comunicazione per inviare automaticamente notifiche push al dispositivo mobile di un utente quando riceve una chiamata in arrivo. Queste notifiche push devono essere usate per riattivare l'applicazione dal background e visualizzare l'interfaccia utente che consente all'utente di accettare o rifiutare la chiamata. 
 
-:::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagramma che mostra l'integrazione di Servizi di comunicazione con Griglia di eventi.":::
+:::image type="content" source="./media/notifications/acs-anh-int.png" alt-text="Diagramma che mostra l'integrazione di Servizi di comunicazione con Hub di notifica di Azure.":::
 
 Servizi di comunicazione usa Hub di notifica di Azure come servizio pass-through per comunicare con i vari servizi di notifica push specifici della piattaforma usando l'API di [invio diretto](https://docs.microsoft.com/rest/api/notificationhubs/direct-send). Questo consente di riutilizzare le risorse e le configurazioni esistenti di Hub di notifica di Azure per recapitare alle applicazioni notifiche di chiamata affidabili e a bassa latenza.
 
@@ -53,7 +53,8 @@ Per recapitare le notifiche push ai dispositivi client tramite Hub di notifica, 
 Una volta configurato l'hub di notifica, è possibile associarlo alla risorsa di Servizi di comunicazione fornendo la stringa di connessione dell'hub tramite il client di Azure Resource Manager o il portale di Azure. La stringa di connessione deve contenere le autorizzazioni di invio. È consigliabile creare un altro criterio di accesso con le sole autorizzazioni di invio specificamente per l'hub. Per altre informazioni, vedere [Sicurezza di Hub di notifica](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-security).
 
 > [!IMPORTANT]
-> per abilitare le notifiche VOIP di Apple Push Notification Service, è necessario impostare il nome dell'hub di notifica in modo che corrisponda all'ID bundle dell'applicazione con il suffisso `.voip`. Vedere [Usare APNS VOIP tramite Hub di notifica](https://docs.microsoft.com/azure/notification-hubs/voip-apns).
+> Queste informazioni sono applicabili solo alla modalità di autenticazione tramite token. La modalità di autenticazione tramite certificato non è al momento supportata.  
+Per abilitare le notifiche di APNS VOIP, è necessario impostare il valore dell'ID bundle durante la configurazione dell'hub di notifica in modo che corrisponda all'ID bundle dell'applicazione con il suffisso `.voip`. Per maggiori dettagli, vedere [Usare APNS VOIP tramite Hub di notifica](https://docs.microsoft.com/azure/notification-hubs/voip-apns).
 
 #### <a name="using-the-azure-resource-manager-client-to-configure-the-notification-hub"></a>Uso del client di Azure Resource Manager per configurare l'hub di notifica
 
@@ -73,7 +74,7 @@ armclient POST /subscriptions/<sub_id>/resourceGroups/<resource_group>/providers
 
 Nel portale passare alla risorsa di Servizi di comunicazione di Azure. All'interno della risorsa di Servizi di comunicazione selezionare Notifiche push nel menu a sinistra della pagina di Servizi di comunicazione e connettere l'hub di notifica di cui è stato effettuato il provisioning in precedenza. È necessario specificare qui la stringa di connessione e l'ID della risorsa:
 
-:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Diagramma che mostra l'integrazione di Servizi di comunicazione con Griglia di eventi.":::
+:::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot che mostra le impostazioni di Notifiche push nel portale di Azure.":::
 
 > [!NOTE]
 > Se la stringa di connessione dell'hub di notifica di Azure viene aggiornata, è necessario aggiornare anche la risorsa di Servizi di comunicazione.

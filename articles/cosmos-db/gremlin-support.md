@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 10/13/2020
+ms.date: 11/11/2020
 ms.author: sngun
-ms.openlocfilehash: c1af35b754362a230e77c7a3326de8ddb8a09d62
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a149f0b331a77462aa53b948fedf25dd1331969e
+ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082998"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94683625"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Supporto dei grafi Gremlin in Azure Cosmos DB e compatibilità con le funzionalità di TinkerPop
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -32,6 +32,7 @@ La tabella seguente illustra i driver Gremlin noti che è possibile usare in Azu
 | [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript in GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Creare un'app Graph con Node.js](create-graph-nodejs.md) | 3.3.4+ |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python in GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Creare un'app Graph con Python](create-graph-python.md) | 3.2.7 |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP su GitHub](https://github.com/PommeVerte/gremlin-php) | [Creare un'app Graph con PHP](create-graph-php.md) | 3.1.0 |
+| [Go Lang](https://github.com/supplyon/gremcos/) | [Go Lang](https://github.com/supplyon/gremcos/) | | Questa libreria è creata da collaboratori esterni. Il team di Azure Cosmos DB non offre alcun supporto né gestisce la libreria. |
 | [Console Gremlin](https://tinkerpop.apache.org/downloads.html) | [Documenti TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Creare un'app Graph con la console Gremlin](create-graph-gremlin-console.md) | 3.2.0 + |
 
 ## <a name="supported-graph-objects"></a>Graph oggetti supportato
@@ -168,7 +169,7 @@ Il motore ottimizzato per la scrittura fornito da Azure Cosmos DB supporta l'ind
 
 ## <a name="behavior-differences"></a>Differenze di comportamento
 
-* Il motore Azure Cosmos DB Graph esegue l'attraversamento * **in ampiezza** , mentre quello di TinkerPop Gremlin è in profondità. Questo comportamento consente di ottenere prestazioni migliori in un sistema scalabile orizzontalmente, come Cosmos DB.
+* Il motore Azure Cosmos DB Graph esegue l'attraversamento ***in ampiezza**, mentre quello di TinkerPop Gremlin è in profondità. Questo comportamento consente di ottenere prestazioni migliori in un sistema scalabile orizzontalmente, come Cosmos DB.
 
 ## <a name="unsupported-features"></a>Funzionalità non supportate
 
@@ -178,15 +179,15 @@ _ La cardinalità set * **`property(set, 'xyz', 1)`** _ non è attualmente suppo
 
 _ Il passaggio * **`match()`** _ non è attualmente disponibile. Questo passaggio fornisce funzionalità di query dichiarative.
 
-_ Gli * **oggetti come proprietà** _ su vertici o archi non sono supportati. Le proprietà possono essere solo tipi primitivi o matrici.
+_ Gli ***oggetti come proprietà** _ su vertici o archi non sono supportati. Le proprietà possono essere solo tipi primitivi o matrici.
 
-_ L'* **ordinamento per proprietà di matrici** _ `order().by(<array property>)` non è supportato. L'ordinamento è supportato solo per tipi primitivi.
+_ L'***ordinamento per proprietà di matrici** _ `order().by(<array property>)` non è supportato. L'ordinamento è supportato solo per tipi primitivi.
 
-_ I * **tipi JSON non primitivi** _ non sono supportati. Usare i tipi `string`, `number` o `true`/`false`. I valori `null` non sono supportati. 
+_ I ***tipi JSON non primitivi** _ non sono supportati. Usare i tipi `string`, `number` o `true`/`false`. I valori `null` non sono supportati. 
 
-_ Il serializzatore * **GraphSONv3** _ non è attualmente supportato. Usare le classi Serializer, Reader e Writer di `GraphSONv2` nella configurazione della connessione. I risultati restituiti dall'API Gremlin di Azure Cosmos DB non hanno lo stesso formato di GraphSON. 
+_ Il serializzatore ***GraphSONv3** _ non è attualmente supportato. Usare le classi Serializer, Reader e Writer di `GraphSONv2` nella configurazione della connessione. I risultati restituiti dall'API Gremlin di Azure Cosmos DB non hanno lo stesso formato di GraphSON. 
 
-_ Le * **espressioni e le funzioni lambda** non sono attualmente supportate. Sono incluse le funzioni `.map{<expression>}`, `.by{<expression>}` e `.filter{<expression>}`. Per altre informazioni, anche su come riscriverle usando i passaggi di Gremlin, vedere le [note sulle espressioni lambda](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
+_ Le ***espressioni e le funzioni lambda** non sono attualmente supportate. Sono incluse le funzioni `.map{<expression>}`, `.by{<expression>}` e `.filter{<expression>}`. Per altre informazioni, anche su come riscriverle usando i passaggi di Gremlin, vedere le [note sulle espressioni lambda](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
 
 * Le ***transazioni** _ non sono supportate a causa della natura distribuita del sistema.  Configurare il modello di coerenza appropriato nell'account Gremlin per ottenere garanzie "read your own writes" e usare la concorrenza ottimistica per risolvere le scritture in conflitto.
 
