@@ -2,13 +2,13 @@
 title: Distribuire le risorse nel tenant
 description: Descrive come distribuire le risorse nell'ambito del tenant in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 854ccbd43509b6c0b5a04357844c78c32b7e6396
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/20/2020
+ms.openlocfilehash: 65a5e90616f8883b338d22fa31eee6932452b5fd
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668691"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95242662"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Distribuzioni tenant con modelli ARM
 
@@ -36,11 +36,19 @@ Per la creazione di gruppi di gestione, usare:
 
 * [managementGroups](/azure/templates/microsoft.management/managementgroups)
 
+Per la creazione di sottoscrizioni, usare:
+
+* [alias](/azure/templates/microsoft.subscription/aliases)
+
 Per la gestione dei costi, usare:
 
 * [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
 * [istruzioni](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
+
+Per la configurazione del portale, usare:
+
+* [tenantConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
 
 ## <a name="schema"></a>Schema
 
@@ -123,12 +131,12 @@ Per informazioni più dettagliate sui comandi e sulle opzioni di distribuzione p
 
 ## <a name="deployment-scopes"></a>Ambiti di distribuzione
 
-Quando si esegue la distribuzione in un gruppo di gestione, è possibile distribuire le risorse in:
+Quando si esegue la distribuzione in un tenant, è possibile distribuire le risorse in:
 
 * tenant
 * gruppi di gestione all'interno del tenant
 * subscriptions
-* gruppi di risorse (tramite due distribuzioni nidificate)
+* gruppi di risorse
 * [le risorse di estensione](scope-extension-resources.md) possono essere applicate alle risorse
 
 L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
@@ -155,81 +163,33 @@ Per fare riferimento a una sottoscrizione all'interno del tenant, usare una dist
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
 
+### <a name="scope-to-resource-group"></a>Ambito al gruppo di risorse
+
+È anche possibile fare riferimento ai gruppi di risorse all'interno del tenant. L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
+
+Per fare riferimento a un gruppo di risorse all'interno del tenant, usare una distribuzione nidificata. Impostare le proprietà `subscriptionId` e `resourceGroup`. Non impostare un percorso per la distribuzione annidata perché è distribuito nella posizione del gruppo di risorse.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-rg.json" highlight="9,10,18":::
+
 ## <a name="deployment-location-and-name"></a>Percorso e nome della distribuzione
 
 Per le distribuzioni a livello di tenant, è necessario specificare un percorso di distribuzione. Il percorso di distribuzione è separato dal percorso delle risorse distribuite e specifica dove archiviare i dati di distribuzione.
 
-È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy** .
+È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
 
 Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
 
 ## <a name="create-management-group"></a>Creare un gruppo di gestione
 
-Il [modello seguente](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg) crea un gruppo di gestione.
+Il modello seguente crea un gruppo di gestione.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "mgName": {
-      "type": "string",
-      "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2019-11-01",
-      "name": "[parameters('mgName')]",
-      "properties": {
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
 
-## <a name="assign-role"></a>Assegnare un ruolo
+## <a name="assign-role"></a>Assegnare il ruolo
 
-Il [modello seguente](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) assegna un ruolo nell'ambito del tenant.
+Il modello seguente assegna un ruolo nell'ambito del tenant.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "principalId": {
-      "type": "string",
-      "metadata": {
-        "description": "principalId if the user that will be given contributor access to the resourceGroup"
-      }
-    },
-    "roleDefinitionId": {
-      "type": "string",
-      "defaultValue": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
-      "metadata": {
-        "description": "roleDefinition for the assignment - default is owner"
-      }
-    }
-  },
-  "variables": {
-    // This creates an idempotent guid for the role assignment
-    "roleAssignmentName": "[guid('/', parameters('principalId'), parameters('roleDefinitionId'))]"
-  },
-  "resources": [
-    {
-      "name": "[variables('roleAssignmentName')]",
-      "type": "Microsoft.Authorization/roleAssignments",
-      "apiVersion": "2019-04-01-preview",
-      "properties": {
-        "roleDefinitionId": "[tenantResourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
-        "principalId": "[parameters('principalId')]",
-        "scope": "/"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/tenant-deployments/tenant-role-assignment/azuredeploy.json":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

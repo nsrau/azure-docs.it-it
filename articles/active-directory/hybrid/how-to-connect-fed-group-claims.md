@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb828eeb408a170b93ffc73b58f14b3f7a883cc4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265470"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95247235"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurare le attestazioni di gruppo per le applicazioni con Azure Active Directory
 
@@ -74,7 +74,7 @@ Per la configurazione di Azure Active Directory per la creazione di nomi di grup
 
 ## <a name="add-group-claims-to-tokens-for-saml-applications-using-sso-configuration"></a>Aggiungere attestazioni di gruppo ai token per le applicazioni SAML usando la configurazione SSO
 
-Per configurare le attestazioni di gruppo per una raccolta o un'applicazione SAML non raccolta, aprire **applicazioni aziendali**, fare clic sull'applicazione nell'elenco, selezionare **configurazione Single Sign-on**e quindi selezionare **attributi utente & attestazioni**.
+Per configurare le attestazioni di gruppo per una raccolta o un'applicazione SAML non raccolta, aprire **applicazioni aziendali**, fare clic sull'applicazione nell'elenco, selezionare **configurazione Single Sign-on** e quindi selezionare **attributi utente & attestazioni**.
 
 Fare clic su **Aggiungi un'attestazione di gruppo**  
 
@@ -144,8 +144,9 @@ I valori validi sono:
 |----------|-------------|
 | **Tutti** | Genera gruppi di sicurezza, elenchi di distribuzione e ruoli |
 | **"SecurityGroup"** | Emette i gruppi di sicurezza di cui l'utente è membro nell'attestazione dei gruppi |
-| **"DirectoryRole** | Se all'utente sono assegnati ruoli della directory, questi vengono emessi come attestazione "WIDS" (i gruppi non verranno emessi) |
-| **"ApplicationGroup** | Emette solo i gruppi assegnati in modo esplicito all'applicazione e l'utente è un membro di |
+| **"DirectoryRole"** | Se all'utente sono assegnati ruoli della directory, questi vengono emessi come attestazione "WIDS" (i gruppi non verranno emessi) |
+| **ApplicationGroup** | Emette solo i gruppi assegnati in modo esplicito all'applicazione e l'utente è un membro di |
+| **Nessuno** | Non viene restituito alcun gruppo. (Non è il caso-sensetive, quindi None funziona anche e può essere impostato direttamente nel manifesto dell'applicazione.) |
 
    Ad esempio:
 
@@ -191,7 +192,7 @@ I valori validi sono:
    > [!NOTE]
    > Se viene usata la proprietà "emit_as_roles", i ruoli applicazione configurati a cui l'utente è assegnato non verranno visualizzati nell'attestazione del ruolo
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 Creare gruppi come nomi di gruppo nei token di accesso OAuth in formato dnsDomainName\SAMAccountName
 

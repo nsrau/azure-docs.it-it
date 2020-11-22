@@ -6,23 +6,22 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 7d1990d6bc524a69de2b22b4f7c5aeec88c3ce9d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 668345da8bb89412f7b1dd36975c5bed6f229580
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424273"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95246385"
 ---
 # <a name="key-value-revisions"></a>Revisioni chiave-valore
 
-API-Version: 1,0
+Una *revisione chiave-valore* definisce la rappresentazione cronologica di una risorsa chiave-valore. Le revisioni scadono dopo 7 giorni per gli archivi di livello gratuito o 30 giorni per gli archivi di livello standard. Le revisioni supportano l' `List` operazione.
 
-Una **revisione chiave-valore** definisce la rappresentazione cronologica di una risorsa chiave-valore. Le revisioni scadono dopo 7 giorni per gli archivi di livello gratuito o 30 giorni per gli archivi di livello standard. Le revisioni supportano le operazioni seguenti:
+Per tutte le operazioni, ``key`` è un parametro facoltativo. Se omesso, implica qualsiasi chiave.
 
-- Elenco
+Per tutte le operazioni, ``label`` è un parametro facoltativo. Se omesso, implica qualsiasi etichetta.
 
-Per tutte le operazioni, ``key`` è un parametro facoltativo. Se omesso, implica **qualsiasi** chiave.
-Per tutte le operazioni, ``label`` è un parametro facoltativo. Se omesso, implica **qualsiasi** etichetta.
+Questo articolo si applica alla versione API 1,0.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -62,7 +61,7 @@ Accept-Ranges: items
 
 ## <a name="pagination"></a>Paginazione
 
-Il risultato viene impaginato se il numero di elementi restituiti supera il limite di risposta. Seguire l' ``Link`` intestazione di risposta facoltativa e usare ``rel="next"`` per la navigazione.  In alternativa, il contenuto fornisce un collegamento successivo sotto forma di ``@nextLink`` Proprietà.
+Il risultato viene impaginato se il numero di elementi restituiti supera il limite di risposta. Seguire l' ``Link`` intestazione di risposta facoltativa e usare ``rel="next"`` per la navigazione. In alternativa, il contenuto fornisce un collegamento successivo sotto forma di ``@nextLink`` Proprietà.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -88,7 +87,7 @@ Link: <{relative uri}>; rel="next"
 
 ## <a name="list-subset-of-revisions"></a>Elenco subset di revisioni
 
-Usare l' `Range` intestazione della richiesta. La risposta conterrà un' `Content-Range` intestazione. Se il server non è in grado di soddisfare l'intervallo richiesto, risponderà con HTTP `416` (RangeNotSatisfiable)
+Usare l' `Range` intestazione della richiesta. La risposta contiene un'intestazione `Content-Range`. Se il server non è in grado di soddisfare l'intervallo richiesto, risponde con HTTP `416` ( `RangeNotSatisfiable` ).
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -135,6 +134,8 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 ### <a name="reserved-characters"></a>Caratteri riservati
 
+I caratteri riservati sono:
+
 `*`, `\`, `,`
 
 Se un carattere riservato è parte del valore, deve essere preceduto da un carattere di escape usando `\{Reserved Character}` . I caratteri non riservati possono anche essere preceduti da un carattere di escape.
@@ -158,21 +159,21 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
-- Tutti
+- Tutto:
 
     ```http
     GET /revisions
     ```
 
-- Elementi in cui il nome della chiave inizia con **ABC**
+- Elementi in cui il nome della chiave inizia con **ABC**:
 
     ```http
     GET /revisions?key=abc*&api-version={api-version}
     ```
 
-- Gli elementi in cui il nome della chiave è **ABC** o **XYZ** ed etichette contengono **Prod**
+- Gli elementi in cui il nome della chiave è **ABC** o **XYZ** e le etichette contengono **Prod**:
 
     ```http
     GET /revisions?key=abc,xyz&label=*prod*&api-version={api-version}
@@ -180,15 +181,15 @@ Content-Type: application/problem+json; charset=utf-8
 
 ## <a name="request-specific-fields"></a>Campi specifici della richiesta
 
-Usare il `$select` parametro facoltativo della stringa di query e fornire un elenco delimitato da virgole dei campi richiesti. Se il `$select` parametro viene omesso, la risposta conterrà il set predefinito.
+Usare il parametro facoltativo della `$select` stringa di query e fornire un elenco delimitato da virgole dei campi richiesti. Se il `$select` parametro viene omesso, la risposta conterrà il set predefinito.
 
 ```http
 GET /revisions?$select=value,label,last_modified&api-version={api-version} HTTP/1.1
 ```
 
-## <a name="time-based-access"></a>Accesso Time-Based
+## <a name="time-based-access"></a>Accesso basato sul tempo
 
-Ottenere una rappresentazione del risultato in un momento precedente. Vedere la sezione [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1)
+Ottenere una rappresentazione del risultato in un momento precedente. Per altre informazioni, vedere [Framework http per l'accesso Time-Based agli Stati delle risorse--Memento](https://tools.ietf.org/html/rfc7089#section-2.1), sezione 2.1.1.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1

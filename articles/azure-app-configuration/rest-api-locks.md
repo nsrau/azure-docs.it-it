@@ -6,32 +6,30 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 4949db646c54d75f60d29d3c631d0f4ee8d7c26e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 7e63b48f2119c48cd43717acee7b13b1701e0032
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424309"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241268"
 ---
 # <a name="locks"></a>Locks
 
-API-Version: 1,0
-
-Questa API fornisce la semantica di blocco/sblocco per la risorsa chiave-valore. Supporta le operazioni seguenti:
+Questa API (versione 1,0) fornisce la semantica di blocco e sblocco per la risorsa chiave-valore. Supporta le operazioni seguenti:
 
 - Inserisci blocco
 - Rimuovi blocco
 
-Se presente, `label` deve essere un valore di etichetta esplicito ( **non** un carattere jolly). Per tutte le operazioni è un parametro facoltativo. Se omesso, non implica alcuna etichetta.
+Se presente, `label` deve essere un valore di etichetta esplicito (non un carattere jolly). Per tutte le operazioni, si tratta di un parametro facoltativo. Se omesso, non implica alcuna etichetta.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
-## <a name="lock-key-value"></a>Blocca Key-Value
+## <a name="lock-key-value"></a>Chiave-valore blocco
 
-- **Obbligatorio:** ``{key}`` , ``{api-version}``  
-- *Facoltativo:*``label``
+- Obbligatorio: ``{key}`` , ``{api-version}``  
+- Facoltativo: ``label``
 
 ```http
 PUT /locks/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -63,10 +61,10 @@ Se il valore della chiave non esiste, viene restituita la risposta seguente:
 HTTP/1.1 404 Not Found
 ```
 
-## <a name="unlock-key-value"></a>Sblocca Key-Value
+## <a name="unlock-key-value"></a>Chiave-valore di sblocco
 
-- **Obbligatorio:** ``{key}`` , ``{api-version}``  
-- *Facoltativo:*``label``
+- Obbligatorio: ``{key}`` , ``{api-version}``  
+- Facoltativo: ``label``
 
 ```http
 DELETE /locks/{key}?label={label}?api-version={api-version} HTTP/1.1
@@ -98,9 +96,9 @@ Se il valore della chiave non esiste, viene restituita la risposta seguente:
 HTTP/1.1 404 Not Found
 ```
 
-## <a name="conditional-lockunlock"></a>Blocco condizionale/sblocco
+## <a name="conditional-lock-and-unlock"></a>Blocco condizionale e sblocco
 
-Per evitare race condition, utilizzare `If-Match` o le `If-None-Match` intestazioni della richiesta. L' `etag` argomento fa parte della rappresentazione della chiave. Se `If-Match` `If-None-Match` l'oggetto o viene omesso, l'operazione sarà non condizionale.
+Per evitare race condition, utilizzare `If-Match` o le `If-None-Match` intestazioni della richiesta. L' `etag` argomento fa parte della rappresentazione della chiave. Se `If-Match` `If-None-Match` l'oggetto o viene omesso, l'operazione non è condizionale.
 
 La richiesta seguente applica l'operazione solo se la rappresentazione chiave-valore corrente corrisponde all'oggetto specificato `etag` :
 

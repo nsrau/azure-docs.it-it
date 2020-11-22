@@ -4,12 +4,12 @@ description: Batch supporta Azure AD per l'autenticazione dal servizio Batch. In
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 685b84f1e628ea67689d3de8bf64c9641edba6fc
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 784e92eaa2cd672d511177066befcfd7effc7ca4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920509"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95252641"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticare le soluzioni del servizio Batch con Active Directory
 
@@ -144,7 +144,7 @@ Un ruolo personalizzato concede l'autorizzazione granulare a un utente per l'inv
 - Microsoft.Batch/batchAccounts/read (per qualsiasi operazione di lettura)
 - Microsoft.Batch/batchAccounts/listKeys/action (per qualsiasi operazione)
 
-I ruoli personalizzati sono destinati agli utenti autenticati da Azure AD e non alle credenziali dell'account Batch (chiave condivisa). Si noti che le credenziali dell'account Batch forniscono le autorizzazioni complete per l'account Batch. Si noti anche che i processi che usano il pool automatico richiedono autorizzazioni a livello di pool.
+I ruoli personalizzati sono destinati agli utenti autenticati da Azure AD e non alle credenziali dell'account Batch (chiave condivisa). Si noti che le credenziali dell'account Batch forniscono le autorizzazioni complete per l'account Batch. Si noti anche che i processi che usano il [pool di connessioni](nodes-and-pools.md#autopools) richiedono autorizzazioni a livello di pool.
 
 > [!NOTE]
 > Alcune assegnazioni di ruolo devono essere specificate nel campo azione, mentre altre devono essere specificate nel campo dataaction. Per altre informazioni, vedere [operazioni del provider di risorse di Azure](../role-based-access-control/resource-provider-operations.md#microsoftbatch).

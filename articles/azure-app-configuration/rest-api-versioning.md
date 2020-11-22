@@ -6,28 +6,26 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 90d131cdc7c496853f2520951c95b9903d69f8fb
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 3a7f50b26d59501d2be3a0147fe89919819b50e6
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424265"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95246368"
 ---
 # <a name="versioning"></a>Controllo delle versioni
 
-API-Version: 1,0
-
-Ogni richiesta client deve fornire la versione API esplicita come parametro della stringa di query. ad esempio `https://{myconfig}.azconfig.io/kv?api-version=1.0`
+Ogni richiesta client deve fornire una versione API esplicita come parametro della stringa di query. Ad esempio: `https://{myconfig}.azconfig.io/kv?api-version=1.0`.
 
 `api-version` è espresso in formato SemVer (Major. minor). La negoziazione di intervallo o di versione non è supportata.
 
-## <a name="error-response"></a>Risposta di errore
+Questo articolo si applica alla versione API 1,0.
 
 Di seguito viene illustrato un riepilogo delle possibili risposte di errore restituite dal server quando non è possibile trovare una corrispondenza per la versione dell'API richiesta.
 
-### <a name="api-version-unspecified"></a>Versione API non specificata
+## <a name="api-version-unspecified"></a>Versione API non specificata
 
-Si verifica quando un client effettua una richiesta senza fornire una versione API.
+Questo errore si verifica quando un client effettua una richiesta senza fornire una versione API.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -41,9 +39,9 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-### <a name="unsupported-api-version"></a>Versione API non supportata
+## <a name="unsupported-api-version"></a>Versione API non supportata
 
-Si verifica quando una versione API richiesta dal client non corrisponde ad alcuna versione API supportata dal server.
+Questo errore si verifica quando una versione API richiesta dal client non corrisponde ad alcuna versione API supportata dal server.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -57,9 +55,9 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-### <a name="invalid-api-version"></a>Versione API non valida
+## <a name="invalid-api-version"></a>Versione API non valida
 
-Si verifica quando un client effettua una richiesta con una versione API, ma il valore non è valido o non può essere analizzato dal server.
+Questo errore si verifica quando un client effettua una richiesta con una versione API, ma il valore non è valido o non può essere analizzato dal server.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -73,9 +71,9 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-### <a name="ambiguous-api-version"></a>Versione API ambigua
+## <a name="ambiguous-api-version"></a>Versione API ambigua
 
-Si verifica quando un client richiede una versione API ambigua per il server. Ad esempio, più valori diversi.
+Questo errore si verifica quando un client richiede una versione API ambigua per il server (ad esempio, più valori diversi).
 
 ```http
 HTTP/1.1 400 Bad Request

@@ -3,12 +3,12 @@ title: Eliminazione temporanea per backup di Azure
 description: Informazioni su come usare le funzionalità di sicurezza in backup di Azure per rendere più sicuri i backup.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d7998c7f9def6ce9965ded3b6ec700f7975891eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da473b1d886ec2fe95a7baae76b09aff38fb3cd7
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271546"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254050"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Eliminazione temporanea per backup di Azure
 
@@ -37,7 +37,7 @@ Per disabilitare l'eliminazione temporanea, attenersi alla procedura seguente:
 
 1. Nel portale di Azure passare all'insieme di credenziali, quindi passare a **Impostazioni**  ->  **proprietà**.
 2. Nel riquadro Proprietà selezionare impostazioni di **sicurezza**  ->  **Aggiorna**.  
-3. Nel riquadro impostazioni di sicurezza, in **eliminazione**temporanea, selezionare **Disabilita**.
+3. Nel riquadro impostazioni di sicurezza, in **eliminazione** temporanea, selezionare **Disabilita**.
 
 ![Disabilitare l'eliminazione temporanea](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
 
@@ -73,7 +73,7 @@ Seguire questa procedura:
 
 1. Seguire i passaggi per [disabilitare l'eliminazione](#enabling-and-disabling-soft-delete)temporanea.
 
-2. Nel portale di Azure passare all'insieme di credenziali, passare a **elementi di backup**e scegliere l'elemento eliminato temporaneamente.
+2. Nel portale di Azure passare all'insieme di credenziali, passare a **elementi di backup** e scegliere l'elemento eliminato temporaneamente.
 
    ![Scegliere un elemento eliminato temporaneamente](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
@@ -87,11 +87,11 @@ Seguire questa procedura:
 
 5. Scegliere **Elimina dati di backup** per eliminare definitivamente i dati di backup.
 
-   ![Scegliere Elimina dati di backup](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Scegliere Elimina dati di backup](./media/backup-azure-manage-vms/delete-backup-button.png)
 
 6. Digitare il nome dell'elemento di backup per confermare che si desidera eliminare i punti di ripristino.
 
-   ![Digitare il nome dell'elemento di backup](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Digitare il nome dell'elemento di backup](./media/backup-azure-manage-vms/delete-backup-data.png)
 
 7. Per eliminare i dati di backup per l'elemento, selezionare **Elimina**. Un messaggio di notifica informa che i dati di backup sono stati eliminati.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: b-juche
-ms.openlocfilehash: 4df96f1c508df22e98a9c611ed04fecf6734970a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1e8ce2e4fe9ae81bc2299ae70e9ff83941b5b4
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278295"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95245875"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replica tra aree di volumi Azure NetApp Files
 
@@ -111,10 +111,11 @@ Il normale costo della capacità di archiviazione Azure NetApp Files per il mese
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Requisiti e considerazioni per l'uso della replica tra aree](cross-region-replication-requirements-considerations.md)
-* [Creare il peering di replica](cross-region-replication-create-peering.md)
+* [Creazione della replica del volume](cross-region-replication-create-peering.md)
 * [Visualizzare lo stato integrità della relazione di replica](cross-region-replication-display-health-status.md)
 * [Gestire il ripristino di emergenza](cross-region-replication-manage-disaster-recovery.md)
 * [Metriche di replica del volume](azure-netapp-files-metrics.md#replication)
+* [Elimina volumi o repliche di volumi](cross-region-replication-delete.md)
 * [Risolvere i problemi relativi alla replica tra più aree](troubleshoot-cross-region-replication.md)
 
 

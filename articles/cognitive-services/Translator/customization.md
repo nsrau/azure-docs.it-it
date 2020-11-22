@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 95cb4aa5827190abf125669f2423c808cf8c92a5
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 9c4410cb2b9550bc111da96204ada15313867fb1
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368934"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95238089"
 ---
 # <a name="customize-your-text-translations"></a>Personalizzare le traduzioni di testo
 
@@ -38,28 +38,6 @@ Il sistema personalizzato è quindi disponibile tramite una normale chiamata a T
 Usando Custom Translator, con il tipo e la quantità appropriati di dati di training, non è insolito prevedere guadagni compresi tra 5 e 10 o anche di più punti BLEU nella qualità della traduzione.
 
 Altre informazioni sui vari livelli di personalizzazione in base ai dati disponibili sono reperibili nel [manuale dell'utente di Custom Translator](./custom-translator/overview.md).
-
-
-## <a name="microsoft-translator-hub"></a>Hub di Microsoft Translator
-
-> [!NOTE]
-> L'Hub Microsoft Translator legacy verrà ritirato il 17 maggio 2019. [Visualizzare le informazioni e le date importanti per la migrazione](https://www.microsoft.com/translator/business/hub/).  
-
-## <a name="custom-translator-versus-hub"></a>Custom Translator e Hub
-
-| Funzionalità | Hub | Custom Translator |
-| ------- | :-: | :---------------: |
-|Stato delle funzionalità di personalizzazione    | Disponibilità generale    | Disponibilità generale |
-| Versione API per testo    | Solo V2    | Solo V3 |
-| Personalizzazione SMT    | Sì    | No |
-| Personalizzazione NMT    | No    | Sì |
-| Personalizzazione dei nuovi servizi voce unificati    | No    | Sì |
-| [Nessuna traccia](https://www.aka.ms/notrace) | Sì    | Sì |
-
-## <a name="collaborative-translations-framework"></a>Framework di Collaborative Translations
-
-> [!NOTE]
-> A partire dal 1 ° febbraio 2018, AddTranslation () e AddTranslationArray () non sono più disponibili per l'utilizzo con Translator v 2.0. Questi metodi non riusciranno e non verrà scritto nulla. Translator v 3.0 non supporta questi metodi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

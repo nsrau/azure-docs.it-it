@@ -3,12 +3,12 @@ title: Procedure consigliate
 description: Informazioni sulle procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
 ms.date: 11/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: a799aa7de19b9d5b0b8e085252cb172efebd05dc
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 6aaed76ad398b5278850dd66ce1da6d5bd33807f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916866"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95254664"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
@@ -38,7 +38,7 @@ I [pool](nodes-and-pools.md#pools) sono le risorse di calcolo per l'esecuzione d
 
 ### <a name="pool-lifetime-and-billing"></a>Durata e fatturazione del pool
 
-La durata del pool può variare a seconda del metodo di allocazione e delle opzioni applicate alla relativa configurazione. I pool possono avere una durata arbitraria e un numero variabile di nodi di calcolo in qualsiasi momento. È responsabilità dell'utente gestire i nodi di calcolo nel pool in modo esplicito o tramite le funzionalità fornite dal servizio (scalabilità automatica o pool automatici).
+La durata del pool può variare a seconda del metodo di allocazione e delle opzioni applicate alla relativa configurazione. I pool possono avere una durata arbitraria e un numero variabile di nodi di calcolo in qualsiasi momento. È responsabilità dell'utente gestire i nodi di calcolo nel pool in modo esplicito o tramite le funzionalità fornite dal servizio ([scalabilità](nodes-and-pools.md#automatic-scaling-policy) automatica o [pool](nodes-and-pools.md#autopools)automatico).
 
 - **Mantenere i pool aggiornati.**
     Ridimensionare i pool a zero ogni pochi mesi per assicurarsi di ottenere gli [aggiornamenti più recenti dell'agente del nodo e le correzioni di bug](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Il pool non riceverà gli aggiornamenti degli agenti dei nodi a meno che non venga ricreato o ridimensionato a 0 nodi di calcolo. Prima di ricreare o ridimensionare il pool, è consigliabile scaricare tutti i log degli agenti dei nodi a scopo di debug, come descritto nella sezione [Nodi](#nodes).
@@ -93,7 +93,7 @@ Le [attività](jobs-and-tasks.md#tasks) sono singole unità di lavoro che costit
 
 ### <a name="save-task-data"></a>Salvare i dati delle attività
 
-I nodi di calcolo sono per loro natura temporanei. Batch include molte funzionalità, come i pool automatici e la scalabilità automatica, per semplificano la rimozione dei nodi. Quando i nodi lasciano il pool (a causa di un ridimensionamento o di un'eliminazione del pool), vengono eliminati anche tutti i file al loro interno. Per questo motivo, l'output di un'attività deve essere spostato dal nodo in cui è in esecuzione in un archivio permanente prima del completamento. Analogamente, se un'attività non riesce, è necessario spostare i log necessari per diagnosticare l'errore in un archivio permanente.
+I nodi di calcolo sono per loro natura temporanei. Sono disponibili molte funzionalità in batch, ad esempio il [pool](nodes-and-pools.md#autopools) automatico e la [scalabilità](nodes-and-pools.md#automatic-scaling-policy) automatica, che possono semplificare la scomparsa dei nodi. Quando i nodi lasciano un pool (a causa di un ridimensionamento o di un'eliminazione del pool), vengono eliminati anche tutti i file presenti in tali nodi. Per questo motivo, l'output di un'attività deve essere spostato dal nodo in cui è in esecuzione in un archivio permanente prima del completamento. Analogamente, se un'attività non riesce, è necessario spostare i log necessari per diagnosticare l'errore in un archivio permanente.
 
 Batch offre il supporto integrato per Archiviazione di Azure per il caricamento dei dati tramite [OutputFiles](batch-task-output-files.md), oltre che per un'ampia gamma di file system condivisi. In alternativa, è possibile eseguire manualmente il caricamento delle attività.
 

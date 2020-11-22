@@ -1,5 +1,5 @@
 ---
-title: Eliminare le repliche per Azure NetApp Files la replica tra aree | Microsoft Docs
+title: Eliminare i volumi o le repliche del volume per Azure NetApp Files la replica tra aree | Microsoft Docs
 description: Viene descritto come eliminare una connessione di replica non più necessaria tra i volumi di origine e di destinazione.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,23 +12,41 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: e08b69271ba9d115c26418bc5e421ee6c94b031d
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 5ce7a591acd8203775808457219b0ec392cd696e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695708"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95249895"
 ---
-# <a name="delete-replications"></a>Eliminare le repliche
+# <a name="delete-volume-replications-or-volumes"></a>Elimina volumi o repliche di volumi
 
-È possibile terminare la connessione di replica tra i volumi di origine e di destinazione eliminando la replica del volume. È possibile eseguire l'operazione di eliminazione dal volume di origine o di destinazione. L'operazione Delete rimuove solo l'autorizzazione per la replica. non rimuove il volume di origine o di destinazione. 
+Questo articolo descrive come eliminare le repliche del volume. Viene inoltre descritto come eliminare il volume di origine o di destinazione.
 
-## <a name="steps"></a>Passaggi
+## <a name="delete-volume-replications"></a>Elimina repliche di volumi
 
-1. Verificare che il peering di replica sia stato danneggiato prima di eliminare la replica del volume.    
-    Vedere [visualizzare lo stato di integrità della relazione di replica](cross-region-replication-display-health-status.md) e [interrompere il peering di replica](cross-region-replication-manage-disaster-recovery.md#break-replication-peering-to-activate-the-destination-volume).  
+È possibile terminare la connessione di replica tra i volumi di origine e di destinazione eliminando la replica del volume. È necessario eliminare la replica dal volume di destinazione. L'operazione Delete rimuove solo l'autorizzazione per la replica. non rimuove il volume di origine o di destinazione. 
+
+1. Verificare che il peering di replica sia stato danneggiato prima di eliminare la replica del volume. Per interrompere il peering di replica: 
+
+    1. Selezionare il volume di *destinazione* . Fare clic su **replica** in servizio di archiviazione.  
+
+    2.  Prima di continuare, controllare i campi seguenti:  
+        * Verificare che lo stato del mirror indichi ***Mirrored** _.   
+            Non tentare di interrompere il peering della replica se lo stato del mirror indica _Uninitialized *.
+        * Verificare che lo stato della relazione sia visualizzato ***inattivo** _.   
+            Non tentare di interrompere il peering di replica se lo stato della relazione Mostra _Transferring *.   
+
+        Vedere [visualizzare lo stato di integrità della relazione di replica](cross-region-replication-display-health-status.md). 
+
+    3.  Fare clic su **Interrompi peering**.  
+
+    4.  Digitare **Yes** quando richiesto e fare clic su **Interrompi**. 
+
+        ![Interrompere il peering della replica](../media/azure-netapp-files/cross-region-replication-break-replication-peering.png)
+
 
 1. Per eliminare la replica del volume, selezionare **replica** dal volume di origine o di destinazione.  
 
@@ -37,6 +55,16 @@ ms.locfileid: "94695708"
 3. Confermare l'eliminazione digitando **Sì** e facendo clic su **Elimina**.   
 
     ![Elimina replica](../media/azure-netapp-files/cross-region-replication-delete-replication.png)
+
+## <a name="delete-source-or-destination-volumes"></a>Elimina volumi di origine o di destinazione
+
+Se si desidera eliminare il volume di origine o di destinazione, è necessario eseguire i passaggi seguenti nell'ordine descritto. In caso contrario, `Volume with replication cannot be deleted` si verifica l'errore.  
+
+1. Dal volume di destinazione, [eliminare la replica del volume](#delete-volume-replications).   
+
+2. Eliminare il volume di destinazione o di origine in base alle esigenze facendo clic con il pulsante destro del mouse sul nome del volume e scegliere **Elimina**.   
+
+    ![Screenshot che mostra il menu di scelta rapida di un volume.](../media/azure-netapp-files/cross-region-replication-delete-volume.png)
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

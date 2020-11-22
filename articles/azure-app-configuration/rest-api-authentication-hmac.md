@@ -6,33 +6,33 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 236670cb59a98ee097baaeb35174489d66e6e786
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 4171155f5a9f72ef0c021bd0e37fe4ec2f206646
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424190"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95253355"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Autenticazione HMAC: informazioni di riferimento sull'API REST
 
-È possibile autenticare le richieste HTTP usando lo schema di autenticazione **HMAC-SHA256** . Queste richieste devono essere trasmesse su TLS.
+È possibile autenticare le richieste HTTP usando lo schema di autenticazione HMAC-SHA256. Per HMAC si intende il codice di autenticazione messaggi basato su hash. Queste richieste devono essere trasmesse su TLS.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - **Credenziali** - \<Access Key ID\>
 - Valore della chiave di accesso con decodifica **Secret** -Base64. ``base64_decode(<Access Key Value>)``
 
-I valori per Credential (detti anche ' ID ') e Secret (detto anche ' value ') devono essere ottenuti dall'istanza di configurazione di app Azure, che può essere eseguita usando l' [portale di Azure](https://portal.azure.com) o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
+I valori per Credential (chiamato anche `id` ) e Secret (chiamato anche `value` ) devono essere ottenuti dall'istanza di app Azure configurazione. A tale scopo, è possibile usare l'interfaccia della riga di comando [portale di Azure](https://portal.azure.com) o [Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
 
 Fornire ogni richiesta con tutte le intestazioni HTTP necessarie per l'autenticazione. Il valore minimo richiesto è:
 
-|  Intestazione della richiesta | Description  |
+|  Intestazione della richiesta | Descrizione  |
 | --------------- | ------------ |
-| **Host** | Host Internet e numero di porta. Vedere la sezione  [3.2.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2.2) |
-| **Data** | Data e ora in cui è stata originata la richiesta. Non può superare i 15 minuti dall'GMT corrente. Il valore è una data HTTP, come descritto nella sezione [3.3.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1)
-| **x-ms-date** | Come ```Date``` sopra. Può essere utilizzato quando l'agente non è in grado di accedere direttamente all' ```Date``` intestazione della richiesta o se viene modificato da un proxy. Se ```x-ms-date``` e ```Date``` sono entrambi specificati, ```x-ms-date``` avrà la precedenza. |
+| **Host** | Host Internet e numero di porta. Per ulteriori informazioni, vedere la sezione  [3.2.2](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.2.2). |
+| **Data** | Data e ora in cui è stata originata la richiesta. Non può superare i 15 minuti dall'ora UTC (ora di Greenwich) corrente. Il valore è una data HTTP, come descritto nella sezione [3.3.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1).
+| **x-ms-date** | Come ```Date``` sopra. È invece possibile utilizzarlo quando l'agente non è in grado di accedere direttamente all' ```Date``` intestazione della richiesta o se viene modificato da un proxy. Se ```x-ms-date``` e ```Date``` sono entrambi specificati, ```x-ms-date``` avrà la precedenza. |
 | **x-ms-content-SHA256** | hash SHA256 con codifica Base64 del corpo della richiesta. Deve essere fornito anche se non è presente alcun corpo. ```base64_encode(SHA256(body))```|
-| **Autorizzazione** | Informazioni di autenticazione richieste dallo schema **HMAC-SHA256** . Il formato e i dettagli sono descritti di seguito. |
+| **Autorizzazione** | Informazioni di autenticazione richieste dallo schema HMAC-SHA256. Il formato e i dettagli sono descritti più avanti in questo articolo. |
 
 **Esempio:**
 
@@ -43,26 +43,26 @@ x-ms-content-sha256: {SHA256 hash of the request body}
 Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;host;x-ms-content-sha256&Signature={Signature}
 ```
 
-## <a name="authorization-header"></a>Intestazione dell'autorizzazione
+## <a name="authorization-header"></a>Authorization header (Intestazione dell'autorizzazione)
 
 ### <a name="syntax"></a>Sintassi
 
 ``Authorization``: **HMAC-SHA256**```Credential```=\<value\>&```SignedHeaders```=\<value\>&```Signature```=\<value\>
 
-|  Argomento | Description  |
+|  Argomento | Descrizione  |
 | ------ | ------ |
-| **HMAC-SHA256** | Schema di autorizzazione _(obbligatorio)_ |
+| **HMAC-SHA256** | Schema di autorizzazione. _necessaria_ |
 | **Credenziali** | ID della chiave di accesso utilizzata per calcolare la firma. _necessaria_ |
 | **SignedHeaders** | Intestazioni di richiesta HTTP aggiunte alla firma. _necessaria_ |
-| **Firma** | HMACSHA256 con codifica Base64 di **stringa da firmare**. _necessaria_|
+| **Firma** | HMACSHA256 con codifica Base64 di stringa da firmare. _necessaria_|
 
 ### <a name="credential"></a>Credenziale
 
-ID della chiave di accesso utilizzata per calcolare la **firma**.
+ID della chiave di accesso utilizzata per calcolare la firma.
 
 ### <a name="signed-headers"></a>Intestazioni firmate
 
-Nomi di intestazioni di richiesta HTTP separate da punto e virgola necessari per firmare la richiesta. Queste intestazioni HTTP devono essere fornite correttamente anche con la richiesta. **Non usare gli spazi vuoti**.
+Nomi di intestazione della richiesta HTTP, separati da punti e virgola, necessari per firmare la richiesta. Queste intestazioni HTTP devono essere fornite correttamente anche con la richiesta. Non usare gli spazi vuoti.
 
 ### <a name="required-http-request-headers"></a>Intestazioni richieste HTTP obbligatorie
 
@@ -76,7 +76,7 @@ x-ms-date; host; x-ms-content-SHA256; ```Content-Type``` ;```Accept```
 
 ### <a name="signature"></a>Firma
 
-Hash HMACSHA256 con codifica Base64 della **stringa da firmare** usando la chiave di accesso identificata da `Credential` .
+Hash HMACSHA256 con codifica Base64 della stringa da firmare. Usa la chiave di accesso identificata da `Credential` .
 ```base64_encode(HMACSHA256(String-To-Sign, Secret))```
 
 ### <a name="string-to-sign"></a>Stringa da firmare
@@ -87,11 +87,11 @@ _Stringa da firmare =_
 
 **HTTP_METHOD** +' \n ' + **path_and_query** +' \n ' + **signed_headers_values**
 
-|  Argomento | Description  |
+|  Argomento | Descrizione  |
 | ------ | ------ |
-| **HTTP_METHOD** | Nome del metodo HTTP in maiuscolo utilizzato con la richiesta. Vedere la [sezione 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) |
-|**path_and_query** | Concatenazione del percorso URI assoluto della richiesta e della stringa di query. Vedere la [sezione 3,3](https://tools.ietf.org/html/rfc3986#section-3.3).
-| **signed_headers_values** | Valori delimitati da punto e virgola di tutte le intestazioni di richiesta HTTP elencate in **SignedHeaders**. Il formato segue la semantica **SignedHeaders** . |
+| **HTTP_METHOD** | Nome del metodo HTTP in maiuscolo utilizzato con la richiesta. Per ulteriori informazioni, vedere la [sezione 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). |
+|**path_and_query** | Concatenazione del percorso URI assoluto della richiesta e della stringa di query. Per ulteriori informazioni, vedere la [sezione 3,3](https://tools.ietf.org/html/rfc3986#section-3.3).
+| **signed_headers_values** | Valori delimitati da punti e virgola di tutte le intestazioni di richiesta HTTP elencate in `SignedHeaders` . Il formato segue la `SignedHeaders` semantica. |
 
 **Esempio:**
 
@@ -111,15 +111,17 @@ WWW-Authenticate: HMAC-SHA256, Bearer
 ```
 
 **Motivo:** Non è stata specificata l'intestazione della richiesta di autorizzazione con lo schema HMAC-SHA256.
-**Soluzione:** Specificare un' ```Authorization``` intestazione di richiesta HTTP valida
+
+**Soluzione:** Specificare un' ```Authorization``` intestazione di richiesta HTTP valida.
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="The access token has expired", Bearer
 ```
 
-**Motivo:** ```Date``` o ```x-ms-date``` l'intestazione della richiesta è superiore a 15 minuti rispetto all'ora GMT corrente.
-**Soluzione:** Specificare la data e l'ora corrette
+**Motivo:** ```Date``` o ```x-ms-date``` l'intestazione della richiesta supera i 15 minuti dall'ora UTC (ora di Greenwich) corrente.
+
+**Soluzione:** Specificare la data e l'ora corrette.
 
 
 ```http
@@ -127,14 +129,14 @@ HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid access token date", Bearer
 ```
 
-**Motivo:** ```Date```Intestazione della richiesta mancante o non valida ```x-ms-date```
+**Motivo:** Intestazione della richiesta mancante o non valida ```Date``` ```x-ms-date``` .
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="[Credential][SignedHeaders][Signature] is required", Bearer
 ```
 
-**Motivo:** Manca un parametro obbligatorio dall' ```Authorization``` intestazione della richiesta
+**Motivo:** Manca un parametro obbligatorio dall' ```Authorization``` intestazione della richiesta.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -142,7 +144,8 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid C
 ```
 
 **Motivo:** Il [ ```Host``` ]/[ID chiave di accesso] specificato non è stato trovato.
-**Soluzione:** Verificare il ```Credential``` parametro dell' ```Authorization``` intestazione della richiesta e verificare che sia un ID valido per la chiave di accesso. Verificare che l' ```Host``` intestazione punti all'account registrato.
+
+**Soluzione:** Verificare il ```Credential``` parametro dell' ```Authorization``` intestazione della richiesta. Verificare che sia un ID valido per la chiave di accesso e assicurarsi che l' ```Host``` intestazione punti all'account registrato.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -150,15 +153,17 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Invalid S
 ```
 
 **Motivo:** L'oggetto ```Signature``` fornito non corrisponde a quello previsto dal server.
-**Soluzione:** Verificare che ```String-To-Sign``` sia corretto. Verificare che ```Secret``` sia corretto e utilizzato correttamente (decodifica Base64 prima di usare). Vedere la sezione **esempi** .
+
+**Soluzione:** Verificare che ```String-To-Sign``` sia corretto. Verificare che ```Secret``` sia corretto e utilizzato correttamente (decodifica Base64 prima di usare).
 
 ```http
 HTTP/1.1 401 Unauthorized
 WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="Signed request header 'xxx' is not provided", Bearer
 ```
 
-**Motivo:** Intestazione della richiesta mancante richiesta dal ```SignedHeaders``` parametro nell' ```Authorization``` intestazione.
-**Soluzione:** Specificare l'intestazione obbligatoria con un valore corretto.
+**Motivo:** Manca l'intestazione della richiesta richiesta dal ```SignedHeaders``` parametro nell'  ```Authorization``` intestazione.
+
+**Soluzione:** Specificare l'intestazione obbligatoria, con il valore corretto.
 
 ```http
 HTTP/1.1 401 Unauthorized
@@ -166,13 +171,14 @@ WWW-Authenticate: HMAC-SHA256 error="invalid_token" error_description="XXX is re
 ```
 
 **Motivo:** Manca il parametro in ```SignedHeaders``` .
-**Soluzione:** Verificare i requisiti minimi delle **intestazioni firmate** .
+
+**Soluzione:** Verificare i requisiti minimi delle intestazioni firmate.
 
 ## <a name="code-snippets"></a>Frammenti di codice
 
 ### <a name="javascript"></a>JavaScript
 
-*Prerequisiti* : [Crypto-JS](https://code.google.com/archive/p/crypto-js/)
+*Prerequisiti*: [Crypto-JS](https://code.google.com/archive/p/crypto-js/)
 
 ```js
 function signRequest(host, 
@@ -362,7 +368,7 @@ import (
     "time"
 )
 
-//SignRequest Setup the auth header for accessing Azure AppConfiguration service
+//SignRequest Setup the auth header for accessing Azure App Configuration service
 func SignRequest(id string, secret string, req *http.Request) error {
     method := req.Method
     host := req.URL.Host
@@ -537,7 +543,7 @@ Invoke-RestMethod -Uri $uri -Method $method -Headers $headers -Body $body
 
 ### <a name="bash"></a>Bash
 
-*Prerequisiti* :
+*Prerequisiti*:
 
 | Prerequisito | Comando | Versioni testate |
 | ------------ | ------- | --------------- |

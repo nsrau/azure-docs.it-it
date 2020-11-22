@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/30/2020
+ms.date: 11/20/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 66ad9f84985c7f35d410c6b1c3508efd33526c83
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 0b2d18165bf2c5a4f70f1cbc555db79020ce988f
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147723"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95250618"
 ---
 # <a name="create-a-service-sas-for-a-container-or-blob"></a>Creare una firma di accesso condiviso del servizio per un contenitore o un BLOB
 
@@ -32,7 +32,7 @@ L'esempio di codice seguente crea una firma di accesso condiviso per un contenit
 
 Una firma di accesso condiviso del servizio è firmata con la chiave di accesso dell'account. Utilizzare la classe [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) per creare le credenziali utilizzate per firmare la firma di accesso condiviso. Successivamente, creare un nuovo oggetto [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) e chiamare il [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) per ottenere la stringa del token SAS.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetContainerSasUri":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForContainer":::
 
 ### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
@@ -114,13 +114,13 @@ function getContainerSasUri(containerClient, sharedKeyCredential, storedPolicyNa
 
 L'esempio di codice seguente crea una firma di accesso condiviso su un BLOB. Se viene specificato il nome di un criterio di accesso archiviato esistente, tale criterio è associato alla firma di accesso condiviso. Se non viene specificato alcun criterio di accesso archiviato, il codice crea una firma di accesso condiviso ad hoc nel BLOB.
 
-### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
 Una firma di accesso condiviso del servizio è firmata con la chiave di accesso dell'account. Utilizzare la classe [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) per creare le credenziali utilizzate per firmare la firma di accesso condiviso. Successivamente, creare un nuovo oggetto [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) e chiamare il [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) per ottenere la stringa del token SAS.
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetBlobSasUri":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForBlob":::
 
-### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
 Per creare una firma di accesso condiviso del servizio per un BLOB, chiamare il metodo [CloudBlob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) .
 
@@ -203,6 +203,14 @@ function getBlobSasUri(containerClient, blobName, sharedKeyCredential, storedPol
 ```
 
 ---
+
+## <a name="create-a-service-sas-for-a-directory"></a>Creare una firma di accesso condiviso del servizio per una directory
+
+In un account di archiviazione con uno spazio dei nomi gerarchico abilitato è possibile creare una firma di accesso condiviso del servizio per una directory. Per creare la firma di accesso condiviso del servizio, assicurarsi di avere installato la versione 12.5.0 o successiva del pacchetto [Azure. storage. files. datalake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) .
+
+Nell'esempio seguente viene illustrato come creare una firma di accesso condiviso del servizio per una directory con la libreria client V12 per .NET:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetServiceSasUriForDirectory":::
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

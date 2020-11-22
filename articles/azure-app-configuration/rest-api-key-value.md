@@ -1,30 +1,30 @@
 ---
-title: API REST di configurazione di app Azure-Key-Value
-description: Pagine di riferimento per l'uso di valori di chiave con l'API REST di configurazione di app Azure
+title: API REST di configurazione app Azure-chiave-valore
+description: Pagine di riferimento per l'uso di valori di chiave tramite l'API REST di configurazione app Azure
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: 50d97a330507e9361674776acf29d1007ee5bf58
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f89b3f2fa4805eeb2fd9f9d511c8f228b98139ac
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424140"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241030"
 ---
-# <a name="key-values"></a>Key-Values
+# <a name="key-values"></a>Coppie chiave-valore
 
-API-Version: 1,0
+Un valore chiave è una risorsa identificata da una combinazione univoca di `key`  +  `label` . `label` è facoltativo. Per fare riferimento in modo esplicito a un valore chiave senza etichetta, usare "\ 0" (URL codificato come ``%00`` ). Vedere i dettagli per ogni operazione.
 
-Un valore chiave è una risorsa identificata da una combinazione univoca di `key`  +  `label` . `label` è facoltativo. Per fare riferimento in modo esplicito a un valore Key senza etichetta, usare "\ 0" (URL codificato come ``%00`` ). Vedere i dettagli per ogni operazione.
+Questo articolo si applica alla versione API 1,0.
 
-## <a name="operations"></a>Operazioni
+## <a name="operations"></a>Gestione operativa
 
 - Recupero
 - Elenca più
 - Set
-- Delete
+- Elimina
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -45,10 +45,10 @@ Un valore chiave è una risorsa identificata da una combinazione univoca di `key
 }
 ```
 
-## <a name="get-key-value"></a>Ottenere Key-Value
+## <a name="get-key-value"></a>Ottieni chiave-valore
 
-**Obbligatorio:** ``{key}`` , ``{api-version}``  
-*Facoltativo:* ``label`` -Se omesso, implica un valore chiave senza etichetta
+Obbligatorio: ``{key}`` , ``{api-version}``  
+Facoltativo: ``label`` (se omesso, implica un valore chiave senza etichetta).
 
 ```http
 GET /kv/{key}?label={label}&api-version={api-version}
@@ -87,7 +87,7 @@ HTTP/1.1 404 Not Found
 
 ## <a name="get-conditionally"></a>Get (in modo condizionale)
 
-Per migliorare la memorizzazione nella cache del client, utilizzare `If-Match` o le `If-None-Match` intestazioni della richiesta. L' `etag` argomento fa parte della rappresentazione della chiave. Vedere la [sezione 14,24 e 14,26](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+Per migliorare la memorizzazione nella cache del client, utilizzare `If-Match` o le `If-None-Match` intestazioni della richiesta. L' `etag` argomento fa parte della rappresentazione della chiave. Per ulteriori informazioni, vedere le [sezioni 14,24 e 14,26](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 La richiesta seguente recupera il valore della chiave solo se la rappresentazione corrente non corrisponde all'oggetto specificato `etag` :
 
@@ -109,12 +109,9 @@ oppure
 HTTP/1.1 200 OK
 ```
 
-## <a name="list-key-values"></a>Key-Values elenco
+## <a name="list-key-values"></a>Elenca valori chiave
 
-Vedere **filtro** per opzioni aggiuntive
-
-*Facoltativo:* ``key`` -Se non è specificato, implica **qualsiasi** chiave.
-*Facoltativo:* ``label`` -Se non è specificato, implica **qualsiasi** etichetta.
+Facoltativo: ``key`` (se non specificato, implica qualsiasi chiave). Facoltativo: ``label`` (se non specificato, implica qualsiasi etichetta).
 
 ```http
 GET /kv?label=*&api-version={api-version} HTTP/1.1
@@ -126,6 +123,8 @@ GET /kv?label=*&api-version={api-version} HTTP/1.1
 HTTP/1.1 200 OK
 Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 ```
+
+Per altre opzioni, vedere la sezione "filtro" più avanti in questo articolo.
 
 ## <a name="pagination"></a>Paginazione
 
@@ -232,9 +231,9 @@ Usare il parametro facoltativo della `$select` stringa di query e fornire un ele
 GET /kv?$select=key,value&api-version={api-version} HTTP/1.1
 ```
 
-## <a name="time-based-access"></a>Accesso Time-Based
+## <a name="time-based-access"></a>Accesso basato sul tempo
 
-Ottenere una rappresentazione del risultato in un momento precedente. Vedere la sezione [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1). La paginazione è ancora supportata come definito sopra.
+Ottenere una rappresentazione del risultato in un momento precedente. Per ulteriori informazioni, vedere la sezione [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1). La paginazione è ancora supportata come definito in precedenza in questo articolo.
 
 ```http
 GET /kv?api-version={api-version} HTTP/1.1
@@ -258,10 +257,10 @@ Link: <{relative uri}>; rel="original"
 }
 ```
 
-## <a name="set-key"></a>Chiave set
+## <a name="set-key"></a>Imposta chiave
 
-- **Obbligatorio:**``{key}``
-- *Facoltativo:* ``label`` -Se non è specificato o Label = %00, significa KV senza etichetta.
+- Obbligatorio: ``{key}``
+- Facoltativo: ``label`` (se non è specificato o etichetta = %00, significa che il valore della chiave non è un'etichetta).
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -323,9 +322,9 @@ Content-Type: application/problem+json; charset="utf-8"
 ## <a name="set-key-conditionally"></a>Imposta chiave (in modo condizionale)
 
 Per evitare race condition, utilizzare `If-Match` o le `If-None-Match` intestazioni della richiesta. L' `etag` argomento fa parte della rappresentazione della chiave.
-Se `If-Match` `If-None-Match` l'oggetto o viene omesso, l'operazione sarà non condizionale.
+Se `If-Match` `If-None-Match` l'oggetto o viene omesso, l'operazione non è condizionale.
 
-La risposta seguente aggiorna il valore solo se la rappresentazione corrente corrisponde all'oggetto specificato. `etag`
+La risposta seguente aggiorna il valore solo se la rappresentazione corrente corrisponde all'oggetto specificato `etag` :
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -333,7 +332,7 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json
 If-Match: "4f6dd610dd5e4deebc7fbaef685fb903"
 ```
 
-La risposta seguente aggiorna il valore solo se la rappresentazione corrente *non* corrisponde all'oggetto specificato `etag`
+La risposta seguente aggiorna il valore solo se la rappresentazione corrente non corrisponde all'oggetto specificato `etag` :
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -349,7 +348,7 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json;
 If-Match: "*"
 ```
 
-La richiesta seguente aggiunge il valore solo se *non* esiste già una rappresentazione:
+La richiesta seguente aggiunge il valore solo se non esiste già una rappresentazione:
 
 ```http
 PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -371,10 +370,10 @@ oppure
 HTTP/1.1 412 PreconditionFailed
 ```
 
-## <a name="delete"></a>Delete
+## <a name="delete"></a>Elimina
 
-- **Obbligatorio:** `{key}` , `{api-version}`
-- *Facoltativo:* `{label}` -Se non è specificato o Label = %00, significa KV senza etichetta.
+- Obbligatorio: `{key}` , `{api-version}`
+- Facoltativo: `{label}` (se non è specificato o etichetta = %00, significa che il valore della chiave non è un'etichetta).
 
 ```http
 DELETE /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
@@ -396,4 +395,4 @@ HTTP/1.1 204 No Content
 
 ## <a name="delete-key-conditionally"></a>Elimina chiave (in modo condizionale)
 
-Simile alla **chiave set (in modo condizionale)**
+Questa operazione è simile alla sezione "impostare la chiave (in modo condizionale)" più indietro in questo articolo.

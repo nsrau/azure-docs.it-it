@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3610fa5ea442e5ccb15255d8a1ddcee211871aeb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be72c2152bdb8e1155d2dd29547f93ba3605d462
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84463944"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95251094"
 ---
 # <a name="how-to-investigate-risk"></a>Procedura: Analizzare gli eventi di rischio
 
@@ -90,6 +90,10 @@ Con le informazioni contenute nel report rilevamenti di rischi gli amministrator
 - Collegamento a informazioni dettagliate in Microsoft Cloud App Security (MCAS).
 
 Gli amministratori possono quindi scegliere di tornare al report utenti a rischio o accessi a rischio per eseguire azioni in base alle informazioni raccolte.
+
+> [!NOTE] 
+> Il sistema potrebbe rilevare che l'evento di rischio che ha contribuito al Punteggio di rischio dell'utente di rischio è rappresentato da falsi positivi oppure il rischio dell'utente è stato risolto con l'applicazione dei criteri, ad esempio il completamento di una richiesta di autenticazione a più fattori o la modifica di una password sicura. Il sistema eliminerà pertanto lo stato di rischio e verrà esposto un dettaglio di rischio di "intelligenza artificiale confermata", che non contribuirà più al rischio dell'utente. 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

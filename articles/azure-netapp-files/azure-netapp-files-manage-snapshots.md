@@ -12,18 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: c64bc8bf265a8e3cc3c490827bdbd79661e3528a
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 03b7941385517fe694f0743194655a1b6a1c0e1e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591756"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95253559"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
 
 Azure NetApp Files supporta la creazione di snapshot su richiesta e l'uso di criteri snapshot per pianificare la creazione automatica di snapshot. È anche possibile ripristinare uno snapshot in un nuovo volume, ripristinare un singolo file usando un client oppure ripristinare un volume esistente usando uno snapshot.
+
+> [!NOTE] 
+> Per considerazioni sulla gestione degli snapshot nella replica tra aree, vedere [requisiti e considerazioni per l'uso della replica tra aree](cross-region-replication-requirements-considerations.md).
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Creare uno snapshot su richiesta per un volume
 
@@ -77,7 +80,7 @@ Un criterio di snapshot consente di specificare la frequenza di creazione dello 
 
 2.  Nella finestra criteri snapshot impostare stato criterio su **abilitato**. 
 
-3.  Fare clic sulla scheda **oraria** , **giornaliera** , **settimanale** o **mensile** per creare criteri di snapshot orari, giornalieri, settimanali o mensili. Consente di specificare il **numero di snapshot da memorizzare**.  
+3.  Fare clic sulla scheda **oraria**, **giornaliera**, **settimanale** o **mensile** per creare criteri di snapshot orari, giornalieri, settimanali o mensili. Consente di specificare il **numero di snapshot da memorizzare**.  
 
     Vedere [limiti delle risorse per Azure NetApp files](azure-netapp-files-resource-limits.md) sul numero massimo di snapshot consentiti per un volume. 
 
@@ -114,7 +117,7 @@ Non è possibile applicare un criterio snapshot a un volume di destinazione nell
 
     ![Menu di scelta rapida dei volumi](../media/azure-netapp-files/volume-right-cick-menu.png) 
 
-2.  Nella finestra modifica, in **criteri snapshot** , selezionare i criteri da usare per il volume.  Fare clic su **OK** per applicare i criteri.  
+2.  Nella finestra modifica, in **criteri snapshot**, selezionare i criteri da usare per il volume.  Fare clic su **OK** per applicare i criteri.  
 
     ![Modifica dei criteri di snapshot](../media/azure-netapp-files/snapshot-policy-edit.png) 
 
@@ -226,13 +229,13 @@ Se la directory snapshot non è visibile, è possibile che sia nascosta perché 
 
     ![Incolla il file da ripristinare](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
 
-4. È anche possibile fare clic con il pulsante destro del mouse sulla directory padre, scegliere **Proprietà** , fare clic sulla scheda **versioni precedenti** per visualizzare l'elenco degli snapshot e selezionare **Ripristina** per ripristinare un file.  
+4. È anche possibile fare clic con il pulsante destro del mouse sulla directory padre, scegliere **Proprietà**, fare clic sulla scheda **versioni precedenti** per visualizzare l'elenco degli snapshot e selezionare **Ripristina** per ripristinare un file.  
 
     ![Proprietà versioni precedenti](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
 
 ## <a name="revert-a-volume-using-snapshot-revert"></a>Ripristinare un volume utilizzando il ripristino dello snapshot
 
-La funzionalità di ripristino dello snapshot consente di ripristinare rapidamente un volume allo stato in cui si trovava quando è stato effettuato uno snapshot specifico. Nella maggior parte dei casi, il ripristino di un volume è molto più rapido rispetto al ripristino dei singoli file da uno snapshot al file system attivo. È anche più efficiente lo spazio rispetto al ripristino di uno snapshot in un nuovo volume. 
+La funzionalità di ripristino dello snapshot consente di ripristinare rapidamente un volume allo stato in cui si trovava quando è stato effettuato uno snapshot specifico. Nella maggior parte dei casi, il ripristino di un volume è molto più rapido rispetto al ripristino dei singoli file da uno snapshot al file system attivo. È anche più efficiente in termini di spazio rispetto al ripristino di uno snapshot in un nuovo volume. 
 
 È possibile trovare l'opzione Ripristina volume nel menu snapshot di un volume. Dopo aver selezionato uno snapshot per la riversione, Azure NetApp Files ripristina il volume ai dati e ai timestamp che contiene quando è stato eseguito lo snapshot selezionato. 
 

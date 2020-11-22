@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: f2a50872fdb71419a0c3f068712ec67523a098e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b664dcd1cb12808960ffacf91c6d02d58632c4e
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708786"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243138"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Requisiti e considerazioni per l'uso della replica tra aree 
 
@@ -38,12 +38,14 @@ Tenere presente i requisiti e le considerazioni seguenti sull'uso della funziona
 * La configurazione della replica del volume per i volumi di origine creati da uno snapshot non è supportata in questo momento.
 * Dopo aver configurato la replica tra aree, il processo di replica crea *snapshot SnapMirror* per fornire riferimenti tra il volume di origine e il volume di destinazione. Gli snapshot SnapMirror vengono automaticamente ciclati quando ne viene creato uno nuovo per ogni trasferimento incrementale. Non è possibile eliminare gli snapshot SnapMirror fino a quando non viene eliminata la relazione di replica e il volume. 
 * È possibile eliminare gli snapshot manuali nel volume di origine di una relazione di replica quando la relazione di replica è attiva o interruppe e anche dopo l'eliminazione della relazione di replica. Non è possibile eliminare gli snapshot manuali per il volume di destinazione fino a quando la relazione di replica non viene interruppe.
+* Non è possibile ripristinare uno snapshot creato prima della creazione del volume di destinazione della replica.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creare il peering di replica](cross-region-replication-create-peering.md)
+* [Creazione della replica del volume](cross-region-replication-create-peering.md)
 * [Visualizzare lo stato integrità della relazione di replica](cross-region-replication-display-health-status.md)
 * [Gestire il ripristino di emergenza](cross-region-replication-manage-disaster-recovery.md)
 * [Metriche di replica del volume](azure-netapp-files-metrics.md#replication)
+* [Elimina volumi o repliche di volumi](cross-region-replication-delete.md)
 * [Risolvere i problemi relativi alla replica tra più aree](troubleshoot-cross-region-replication.md)
 
 

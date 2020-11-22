@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a0d474208f11c203ca65e9ac296fa381d8633a8b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 12c9fd43933f9f54e013752c5fe482ce31650536
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663743"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95238395"
 ---
 # <a name="create-an-app-service-environment"></a>Creare una ambiente del servizio app
 
@@ -34,7 +34,7 @@ Dopo la creazione dell'ambiente del servizio app, non è possibile modificare:
 
 - Località
 - Sottoscrizione
-- Gruppo di risorse
+- Resource group
 - Rete virtuale di Azure (VNet) usata
 - Subnet utilizzate
 - Dimensioni della subnet
@@ -48,7 +48,7 @@ ASEv3 è disponibile solo in aree selezionate. Verranno aggiunte altre aree quan
 
 ## <a name="creating-an-ase-in-the-portal"></a>Creazione di un ambiente del servizio app nel portale
 
-1. Per creare un ASEv3, cercare **ambiente del servizio app V3** nel Marketplace.  
+1. Per creare un ASEv3, cercare **ambiente del servizio app (anteprima)** nel Marketplace.  
 2. Nozioni di base: selezionare la sottoscrizione, selezionare o creare il gruppo di risorse e immettere il nome dell'ambiente del servizio app.  Il nome dell'ambiente del servizio app verrà usato anche per il suffisso del dominio dell'ambiente del servizio app.  Se il nome dell'ambiente del servizio app è *Contoso* , il suffisso di dominio sarà *contoso.appserviceenvironment.NET*.  Questo nome verrà impostato automaticamente nella zona privata di DNS di Azure usata dal VNET in cui è distribuito l'ambiente del servizio app. 
 
     ![ambiente del servizio app scheda Crea nozioni di base](./media/creation/creation-basics.png)

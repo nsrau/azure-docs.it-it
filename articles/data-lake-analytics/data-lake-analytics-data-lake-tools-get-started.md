@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 08/30/2019
-ms.openlocfilehash: 83384dd24141cfeb7b03f388e6e3505fea8f496e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d3812cb27d2d9ea7a49038f566f8b4cc5d779172
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221078"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241693"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Sviluppare script U-SQL tramite Strumenti Data Lake per Visual Studio
 
@@ -51,11 +51,11 @@ Per questa esercitazione è necessario che sia installato Data Lake Tools per Vi
 
 1. Aprire Visual Studio.
 
-1. Aprire **Esplora server** selezionando **Visualizza**  >  **Esplora server**.
+1. Aprire **Esplora data Lake Analytics** selezionando **Visualizza**  >  **Data Lake Analytics Esplora**.
 
 1. Fare clic con il pulsante destro del mouse su **Azure**, quindi scegliere **Connetti a Microsoft Azure sottoscrizione**. **Per accedere al proprio account**, seguire le istruzioni.
 
-1. In **Esplora server**selezionare Data Lake Analytics di **Azure**  >  **Data Lake Analytics**. Verrà visualizzato un elenco degli account Data Lake Analytics.
+1. In **Esplora server** selezionare Data Lake Analytics di **Azure**  >  **Data Lake Analytics**. Verrà visualizzato un elenco degli account Data Lake Analytics.
 
 ## <a name="write-your-first-u-sql-script"></a>Scrivere il primo script U-SQL
 
@@ -80,15 +80,15 @@ OUTPUT @a
 
 1. In Visual Studio selezionare **File** > **Nuovo** > **Progetto**.
 
-1. Selezionare il tipo di **progetto U-SQL** e quindi fare clic su **Avanti**. In **Configura il nuovo progetto**selezionare **Crea**.
+1. Selezionare il tipo di **progetto U-SQL** e quindi fare clic su **Avanti**. In **Configura il nuovo progetto** selezionare **Crea**.
 
    Visual Studio crea una soluzione contenente un file **script. USQL** .
 
 1. Incollare lo script da [Scrivi il primo script U-SQL](#write-your-first-u-sql-script) nella finestra **script. USQL** .
 
-1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse su **script. USQL**e selezionare **Invia script**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **script. USQL** e selezionare **Invia script**.
 
-1. In **Invia processo**scegliere l'account data Lake Analytics e selezionare **Invia**.
+1. In **Invia processo** scegliere l'account data Lake Analytics e selezionare **Invia**.
 
    ![Invio progetto Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-submit-job-vs2019.png)
 
@@ -108,7 +108,7 @@ Per visualizzare lo stato del processo più recente e aggiornare la schermata, s
 
 ## <a name="check-job-status"></a>Controllare lo stato del processo
 
-1. In **Esplora server**selezionare Data Lake Analytics di **Azure**  >  **Data Lake Analytics**.
+1. In **Esplora server** selezionare Data Lake Analytics di **Azure**  >  **Data Lake Analytics**.
 
 1. Espandere il nome dell'account Data Lake Analytics.
 
@@ -118,7 +118,7 @@ Per visualizzare lo stato del processo più recente e aggiornare la schermata, s
 
 ## <a name="see-the-job-output"></a>Visualizzare l'output del processo
 
-1. In **Esplora server**passare al processo inviato.
+1. In **Esplora server** passare al processo inviato.
 
 1. Fare clic sulla scheda **Dati**.
 

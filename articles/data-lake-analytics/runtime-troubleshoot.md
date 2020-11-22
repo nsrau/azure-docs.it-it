@@ -5,12 +5,12 @@ ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/10/2019
-ms.openlocfilehash: c20333c83275edb90a266afec3ec3756ae1e0e7e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 41b7c80c85331f288343351749e6b2e5292b30c6
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216267"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95241608"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Informazioni su come risolvere gli errori di runtime di U-SQL a causa di modifiche di runtime
 
@@ -49,11 +49,25 @@ Ad esempio, release_20190318_adl_3394512_2 significa che la seconda versione del
 
 Esistono due possibili problemi di versione di runtime che possono verificarsi:
 
-1. Uno script o codice utente sta cambiando il comportamento da una versione a quella successiva. Tali modifiche di rilievo vengono in genere comunicate in anticipo con la pubblicazione delle note sulla versione. Se si verifica una modifica di rilievo di questo tipo, contattare supporto tecnico Microsoft per segnalare questo comportamento di suddivisione (nel caso in cui non sia ancora stato documentato) e inviare i processi alla versione precedente del runtime.
+1. Uno script o codice utente sta cambiando il comportamento da una versione a quella successiva. Tali modifiche di rilievo vengono in genere comunicate in anticipo con la pubblicazione delle note sulla versione. Se si verifica una modifica di rilievo di questo tipo, contattare supporto tecnico Microsoft per segnalare questo comportamento di suddivisione (nel caso in cui non sia ancora stato documentato) e inviare i processi alla versione di runtime precedente.
 
 2. Si è usato un runtime non predefinito in modo esplicito o implicito quando è stato aggiunto all'account e tale Runtime è stato rimosso in un secondo momento. Se si verificano runtime mancanti, aggiornare gli script per l'esecuzione con il runtime predefinito corrente. Se è necessario ulteriore tempo, contattare supporto tecnico Microsoft
 
-## <a name="see-also"></a>Vedere anche
+## <a name="known-issues"></a>Problemi noti
+
+* Se si fa riferimento Newtonsoft.Jsalla versione del file 12.0.3 o in uno script USQL, si verificherà un errore di compilazione seguente:
+
+    *"Ci dispiace. i processi in esecuzione nell'account di Data Lake Analytics probabilmente verranno eseguiti più lentamente o non verranno completati. Un problema imprevisto impedisce il ripristino automatico di questa funzionalità nell'account Azure Data Lake Analytics. I tecnici Azure Data Lake sono stati contattati per esaminare ".*  
+
+    Dove lo stack di chiamate conterrà:  
+    `System.IndexOutOfRangeException: Index was outside the bounds of the array.`  
+    `at Roslyn.Compilers.MetadataReader.PEFile.CustomAttributeTableReader.get_Item(UInt32 rowId)`  
+    `...`
+
+    **Soluzione**: usare Newtonsoft.Jsnel file 12.0.2 o versione precedente.
+
+
+## <a name="see-also"></a>Vedi anche
 
 - [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Gestire Azure Data Lake Analytics tramite portale di Azure](data-lake-analytics-manage-use-portal.md)

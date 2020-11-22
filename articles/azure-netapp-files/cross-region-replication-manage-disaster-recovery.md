@@ -14,34 +14,34 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: ad006279a656758ba856cd3f39c17b0410e525e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eab55f881c250c2e07717604d4ba00587a8b6031
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708789"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95243206"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>Gestire il ripristino di emergenza con la replica tra aree 
 
-Una replica in corso tra i volumi di origine e di destinazione (vedere [creare il peering di replica](cross-region-replication-create-peering.md)) prepara l'utente per un evento di ripristino di emergenza. 
+Una replica in corso tra i volumi di origine e di destinazione (vedere [creare la replica del volume](cross-region-replication-create-peering.md)) prepara l'utente per un evento di ripristino di emergenza. 
 
-Quando si verifica un evento di questo tipo, è possibile [eseguire il failover al volume di destinazione](#break-replication-peering-to-activate-the-destination-volume), consentendo al client di leggere e scrivere nel volume di destinazione. 
+Quando si verifica un evento di questo tipo, è possibile eseguire il [failover al volume di destinazione](#fail-over-to-destination-volume), consentendo al client di leggere e scrivere nel volume di destinazione. 
 
-Dopo il ripristino di emergenza, è possibile eseguire il failback nel volume di origine con un' [operazione di risincronizzazione](#resync-replication-to-reactivate-the-source-volume) che sovrascrive i dati del volume di origine con i dati del volume di destinazione.  È quindi possibile [ristabilire la replica da origine a destinazione](#reestablish-source-to-destination-replication) e rimontare il volume di origine affinché il client acceda a. 
+Dopo il ripristino di emergenza, è possibile eseguire un'operazione di [Risincronizzazione](#resync-replication) per eseguire il failback nel volume di origine. È quindi possibile [ristabilire la replica da origine a destinazione](#reestablish-source-to-destination-replication) e rimontare il volume di origine affinché il client acceda a. 
 
 I dettagli sono descritti di seguito. 
 
-## <a name="break-replication-peering-to-activate-the-destination-volume"></a>Interrompere il peering della replica per attivare il volume di destinazione
+## <a name="fail-over-to-destination-volume"></a>Failover al volume di destinazione
 
 Quando è necessario attivare il volume di destinazione, ad esempio quando si desidera eseguire il failover nell'area di destinazione, è necessario interrompere il peering di replica e quindi montare il volume di destinazione.  
 
 1. Per interrompere il peering della replica, selezionare il volume di destinazione. Fare clic su **replica** in servizio di archiviazione.  
 
 2.  Prima di continuare, controllare i campi seguenti:  
-    * Verificare che lo stato del mirror indichi il ***mirroring***.   
-        Non tentare di interrompere il peering della replica se lo stato del mirror viene visualizzato come non *inizializzato*.
-    * Verificare che lo stato della relazione mostri ***inattivo***.   
-        Non tentare di interrompere il peering di replica se lo stato della relazione indica il *trasferimento*.   
+    * Verificare che lo stato del mirror indichi ***Mirrored** _.   
+        Non tentare di interrompere il peering della replica se lo stato del mirror indica _Uninitialized *.
+    * Verificare che lo stato della relazione sia visualizzato ***inattivo** _.   
+        Non tentare di interrompere il peering di replica se lo stato della relazione Mostra _Transferring *.   
 
     Vedere [visualizzare lo stato di integrità della relazione di replica](cross-region-replication-display-health-status.md). 
 
@@ -54,7 +54,7 @@ Quando è necessario attivare il volume di destinazione, ad esempio quando si de
 5.  Montare il volume di destinazione attenendosi alla procedura descritta in [montare o smontare un volume per le macchine virtuali Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).   
     Questo passaggio consente a un client di accedere al volume di destinazione.
 
-## <a name="resync-replication-to-reactivate-the-source-volume"></a>Risincronizzare la replica per riattivare il volume di origine   
+## <a name="resync-volumes-after-disaster-recovery"></a><a name="resync-replication"></a>Risincronizza i volumi dopo il ripristino di emergenza
 
 Dopo il ripristino di emergenza, è possibile riattivare il volume di origine eseguendo un'operazione di risincronizzazione.  L'operazione di risincronizzazione inverte il processo di replica e sincronizza i dati dal volume di destinazione al volume di origine.  
 
@@ -63,7 +63,7 @@ Dopo il ripristino di emergenza, è possibile riattivare il volume di origine es
 
 1. Per risincronizzare la replica, selezionare il volume di *origine* . Fare clic su **replica** in servizio di archiviazione. Quindi fare clic su **Risincronizza**.  
 
-2. Digitare **Yes** quando richiesto e fare clic sul pulsante **Risincronizza** . 
+2. Digitare **Yes** quando richiesto e fare clic su **Risincronizza**. 
  
     ![Risincronizzare la replica](../media/azure-netapp-files/cross-region-replication-resync-replication.png)
 
@@ -80,10 +80,10 @@ Al termine dell'operazione di risincronizzazione dalla destinazione all'origine,
 1. Interrompere il peering di replica:  
     a. Selezionare il volume di *destinazione* . Fare clic su **replica** in servizio di archiviazione.  
     b. Prima di continuare, controllare i campi seguenti:   
-    * Verificare che lo stato del mirror indichi il ***mirroring***.   
-    Non tentare di interrompere il peering della replica se lo stato del mirror viene visualizzato come non *inizializzato*.  
-    * Verificare che lo stato della relazione mostri ***inattivo***.   
-    Non tentare di interrompere il peering di replica se lo stato della relazione indica il *trasferimento*.    
+    * Verificare che lo stato del mirror indichi ***Mirrored** _.   
+    Non tentare di interrompere il peering della replica se lo stato del mirror indica _uninitialized *.  
+    * Verificare che lo stato della relazione sia visualizzato ***inattivo** _.   
+    Non tentare di interrompere il peering di replica se lo stato della relazione Mostra _transferring *.    
 
         Vedere [visualizzare lo stato di integrità della relazione di replica](cross-region-replication-display-health-status.md). 
 
@@ -103,5 +103,6 @@ Al termine dell'operazione di risincronizzazione dalla destinazione all'origine,
 * [Requisiti e considerazioni per l'uso della replica tra aree](cross-region-replication-requirements-considerations.md)
 * [Visualizzare lo stato integrità della relazione di replica](cross-region-replication-display-health-status.md)
 * [Metriche di replica del volume](azure-netapp-files-metrics.md#replication)
+* [Elimina volumi o repliche di volumi](cross-region-replication-delete.md)
 * [Risolvere i problemi relativi alla replica tra più aree](troubleshoot-cross-region-replication.md)
 

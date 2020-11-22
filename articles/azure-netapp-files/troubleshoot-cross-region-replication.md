@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 11/18/2020
 ms.author: b-juche
-ms.openlocfilehash: 6fbb9b054433905d41d0171ab08b4647618be466
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: b30ed0cca680013b85efe064d59fb7cb73d753d2
+ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94745684"
+ms.lasthandoff: 11/22/2020
+ms.locfileid: "95239551"
 ---
 # <a name="troubleshoot-cross-region-replication"></a>Risolvere i problemi relativi alla replica tra più aree
 
@@ -50,6 +50,12 @@ Questo articolo descrive i messaggi di errore e le risoluzioni che consentono di
 |-|-|
 |     `Replication   cannot be deleted, mirror state needs to be in status: Broken before deleting`    |     Verificare che la replica sia stata interruppe oppure che sia non inizializzata e inattiva (inizializzazione non riuscita).    |
 |     `Cannot delete   source replication`    |     L'eliminazione della replica dal lato di origine non è consentita. Assicurarsi di eliminare la replica dal lato di destinazione.    |
+
+## <a name="errors-deleting-volume"></a>Errori durante l'eliminazione del volume
+
+|     Messaggio di errore    |     Risoluzione    |
+|-|-|
+| `Volume is a member of an active volume replication relationship`  |  Eliminare la replica prima di eliminare il volume. Vedere [eliminare le repliche](cross-region-replication-delete.md). Per questa operazione è necessario interrompere il peering prima di eliminare la replica per il volume. |
 | `Volume with replication cannot be deleted`  |  Eliminare la replica prima di eliminare il volume. Vedere [eliminare le repliche](cross-region-replication-delete.md). Per questa operazione è necessario interrompere il peering prima di eliminare la replica per il volume. 
 
 ## <a name="errors-resyncing-volume"></a>Errori di risincronizzazione del volume
@@ -69,7 +75,7 @@ Questo articolo descrive i messaggi di errore e le risoluzioni che consentono di
 
 * [Replica tra più aree](cross-region-replication-introduction.md)
 * [Requisiti e considerazioni per l'uso della replica tra aree](cross-region-replication-requirements-considerations.md)
-* [Creare il peering di replica](cross-region-replication-create-peering.md)
+* [Creazione della replica del volume](cross-region-replication-create-peering.md)
 * [Visualizzare lo stato integrità della relazione di replica](cross-region-replication-display-health-status.md)
 * [Gestire il ripristino di emergenza](cross-region-replication-manage-disaster-recovery.md)
 * [Risolvere i problemi relativi alla replica tra più aree](troubleshoot-cross-region-replication.md)
