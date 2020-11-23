@@ -3,12 +3,12 @@ title: Domande frequenti - Backup di database SAP HANA in VM di Azure
 description: In questo articolo è possibile trovare le risposte ad alcune domande comuni sul backup di database SAP HANA tramite il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 24eb4abaaabe166ceb3e6bdb99f9446d398d03a1
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: bf662600bafcd18b00c8f8d3b673fc3f9c110aca
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686107"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95400208"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Domande frequenti - Backup di database SAP HANA in VM di Azure
 
@@ -52,6 +52,10 @@ L'esecuzione dello script di pre-registrazione consente di impostare le autorizz
 ### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>I backup funzionano dopo la migrazione di SAP HANA da SDC a MDC?
 
 Vedere [questa sezione](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid) della Guida alla risoluzione dei problemi.
+
+### <a name="what-should-be-done-while-upgrading-within-the-same-version"></a>Cosa si deve fare durante l'aggiornamento all'interno della stessa versione?
+
+Fare riferimento a [questa sezione](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm) nella Guida alla risoluzione dei problemi.
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>È possibile configurare il backup di HANA in Azure per un IP virtuale (bilanciamento del carico) e non per una macchina virtuale?
 
@@ -135,7 +139,7 @@ RPO (Recovery-Point-Objective) indica la quantità di perdita di dati accettabil
 
 RTO (Recovery-Time-Objective) indica la velocità con cui i dati devono essere ripristinati fino all'ultimo punto nel tempo disponibile dopo uno scenario di perdita dei dati. Questo dipende dalla strategia di ripristino utilizzata da HANA, che dipende in genere dal numero di file necessari per il ripristino. Questo ha anche implicazioni relative ai costi e la tabella seguente dovrebbe aiutare a comprendere tutti gli scenari e le relative implicazioni.
 
-|Criteri di backup  |RTO  |Cost  |
+|Criteri di backup  |RTO  |Costi  |
 |---------|---------|---------|
 |Log completi giornalieri +     |   Più veloce, poiché è necessaria una sola copia completa + log necessari per il ripristino temporizzato      |    Opzione costliest perché una copia completa viene eseguita giornalmente e un numero sempre maggiore di dati viene accumulato nel back-end fino al periodo di conservazione   |
 |Totale settimanale + differenziale giornaliera + log     |   Più lenta dell'opzione precedente, ma più veloce rispetto all'opzione successiva, perché è necessaria una copia completa + una copia differenziale + log per il ripristino temporizzato      |    Opzione meno costosa poiché il differenziale giornaliero è in genere inferiore a completo e una copia completa viene eseguita solo una volta alla settimana      |

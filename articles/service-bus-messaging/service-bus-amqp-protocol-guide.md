@@ -3,26 +3,26 @@ title: Guida al protocollo AMQP 1.0 in Hub eventi e nel bus di servizio di Azure
 description: Guida al protocollo per le espressioni e descrizione di AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32e71211ed1574cade0567f7944b154eea062b24
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064537"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95396876"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 
-AMQP (Advanced Message Queueing Protocol) 1.0 è un protocollo di frame e di trasferimento che consente di trasferire messaggi tra due parti in modo asincrono, sicuro e affidabile. È il protocollo principale della messaggistica del bus di servizio e di Hub eventi di Azure. Entrambi i servizi supportano anche HTTPS. Il protocollo SBMP proprietario supportato verrà gradualmente sostituito da AMQP.
+AMQP (Advanced Message Queueing Protocol) 1.0 è un protocollo di frame e di trasferimento che consente di trasferire messaggi tra due parti in modo asincrono, sicuro e affidabile. È il protocollo principale della messaggistica del bus di servizio e di Hub eventi di Azure.  
 
-AMQP 1.0 è il risultato di un'ampia collaborazione a livello di settore, tra fornitori di middleware, ad esempio Microsoft e Red Hat, e molti utenti di middleware di messaggistica, ad esempio JP Morgan Chase, che rappresenta il settore di servizi finanziari. Il forum relativo alla standardizzazione tecnica per il protocollo AMQP e le specifiche relative alle estensioni è OASIS e ha ottenuto l'approvazione formale come standard internazionale in base alle norme ISO/IEC 19494.
+AMQP 1.0 è il risultato di un'ampia collaborazione a livello di settore, tra fornitori di middleware, ad esempio Microsoft e Red Hat, e molti utenti di middleware di messaggistica, ad esempio JP Morgan Chase, che rappresenta il settore di servizi finanziari. Il forum di standardizzazione tecnica per il protocollo AMQP e le specifiche di estensione è OASIS e ha raggiunto l'approvazione formale come standard internazionale ISO/IEC 19494:2014. 
 
 ## <a name="goals"></a>Obiettivi
 
-Questo articolo riepiloga brevemente i concetti di base delle specifiche di messaggistica AMQP 1.0, oltre a un set ridotto di specifiche di estensioni provvisorie attualmente in fase di finalizzazione nel comitato tecnico di OASIS per AMQP, e spiega in che modo il bus di servizio di Azure implementa queste specifiche e si basa su di esse.
+Questo articolo riepiloga i concetti di base della specifica di messaggistica AMQP 1,0 insieme alle specifiche di estensione sviluppate dal [Comitato tecnico AMQP di Oasis](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=amqp) e spiega in che modo il bus di servizio di Azure implementa e si basa su queste specifiche.
 
 L'obiettivo consiste nel permettere a tutti gli sviluppatori che usano uno stack client AMQP 1.0 esistente su qualsiasi piattaforma di interagire con il bus di servizio di Azure tramite AMQP 1.0.
 
-Gli stack generici AMQP 1.0 comuni, ad esempio Apache Proton o AMQP.NET Lite, implementano già tutti i protocolli principali di AMQP 1.0. Questi gesti di base sono a volte inclusi in un'API di livello superiore. Apache Proton offre anche due API, ovvero l'essenziale Messenger API e l'API reattiva Reactor API.
+Gli stack AMQP 1,0 generici comuni, ad esempio [Apache Qpid Proton](https://qpid.apache.org/proton/index.html) o [AMQP.NET Lite](https://github.com/Azure/amqpnetlite), implementano tutti gli elementi del protocollo AMQP 1,0 principali, ad esempio le sessioni o i collegamenti. Gli elementi di base vengono talvolta racchiusi con un'API di livello superiore; Apache Proton offre anche due, l'API di Messenger imperativa e l'API reattiva reattore.
 
 Nella discussione che segue si presuppone che la gestione di connessioni, sessioni e collegamenti di AMQP e la gestione di trasferimenti di frame e del controllo di flusso siano a carico del rispettivo stack, ad esempio Apache Proton-C, e non richiedano attenzione specifica da parte degli sviluppatori di applicazioni. Si presuppone in modo astratto l'esistenza di alcune interfacce API primitive, ad esempio la possibilità di connettersi e di creare qualche genere di oggetti di astrazione *sender* e *receiver*, che includono rispettivamente un tipo di operazione `send()` e `receive()`.
 
@@ -77,14 +77,14 @@ I client che usano connessioni AMQP su TCP richiedono che le porte 5671 e 5672 s
 
 ![Elenco di porte di destinazione][4]
 
-Un client .NET avrà esito negativo con SocketException ("è stato effettuato un tentativo di accesso a un socket in modo non consentito dalle relative autorizzazioni di accesso") se queste porte sono bloccate dal firewall. La funzionalità può essere disabilitata impostando `EnableAmqpLinkRedirect=false` nella stringa connectiong, che impone ai client di comunicare con il servizio remoto sulla porta 5671.
+Un client .NET avrà esito negativo con SocketException ("è stato effettuato un tentativo di accesso a un socket in modo non consentito dalle relative autorizzazioni di accesso") se queste porte sono bloccate dal firewall. La funzionalità può essere disabilitata impostando `EnableAmqpLinkRedirect=false` nella stringa di connessione, che impone ai client di comunicare con il servizio remoto sulla porta 5671.
 
 
 ### <a name="links"></a>Collegamenti
 
 AMQP trasferisce i messaggi sui collegamenti. Un collegamento è un percorso di comunicazione creato su una sessione che consente il trasferimento di messaggi in una direzione. La negoziazione dello stato del trasferimento viene effettuata sul collegamento ed è bidirezionale tra le parti connesse.
 
-![Screenshot che mostra una sessione carryign una connessione di collegamento tra due contenitori.][2]
+![Screenshot che mostra una sessione che trasporta una connessione di collegamento tra due contenitori.][2]
 
 I collegamenti possono essere creati da uno dei contenitori in qualsiasi momento e su una sessione esistente. Ciò rende il protocollo AMQP diverso da molti altri protocolli, inclusi HTTP e MQTT, dove l'inizializzazione dei trasferimenti e il percorso di trasferimento sono un privilegio esclusivo della parte che crea la connessione socket.
 
@@ -120,9 +120,9 @@ Per compensare possibili invii duplicati, il bus di servizio supporta il rilevam
 
 Oltre al modello di controllo di flusso a livello di sessione illustrato in precedenza, ogni collegamento ha il proprio modello di controllo di flusso. Il controllo di flusso a livello di sessione protegge il contenitore dalla necessità di gestire un numero eccessivo di frame alla volta. Il controllo di flusso a livello di collegamento assegna all'applicazione la responsabilità di specificare il numero di messaggi da gestire da un collegamento e del momento in cui gestirli.
 
-![Screenshot di un log che mostra l'origine, la destinazione, la porta di origine, la porta di destinazione e il nome del protocollo. Nella riga di cui si trova la porta di destinazione 10401 (0x28 A 1) viene indicato in nero.][4]
+![Screenshot di un log che mostra l'origine, la destinazione, la porta di origine, la porta di destinazione e il nome del protocollo. Nella prima riga la porta di destinazione 10401 (0x28 A 1) viene descritta in nero.][4]
 
-In un collegamento, i trasferimenti possono verificarsi solo quando il mittente dispone di un *credito di collegamento*sufficiente. Il credito di collegamento è un contatore impostato dal ricevitore usando la performativa *flow*, che ha come ambito un collegamento. Quando riceve credito di collegamento, il mittente prova a usare completamente tale credito recapitando messaggi. Ogni recapito di messaggi riduce di 1 il credito di collegamento rimanente. Quando il credito di collegamento viene usato completamente, i recapiti si interrompono.
+In un collegamento, i trasferimenti possono verificarsi solo quando il mittente dispone di un *credito di collegamento* sufficiente. Il credito di collegamento è un contatore impostato dal ricevitore usando la performativa *flow*, che ha come ambito un collegamento. Quando riceve credito di collegamento, il mittente prova a usare completamente tale credito recapitando messaggi. Ogni recapito di messaggi riduce di 1 il credito di collegamento rimanente. Quando il credito di collegamento viene usato completamente, i recapiti si interrompono.
 
 Quando il bus di servizio ha il ruolo di ricevitore, fornisce immediatamente al mittente un credito di collegamento molto ampio per consentire l'invio immediato dei messaggi. Durante l'uso del credito di collegamento, il bus di servizio invia di tanto in tanto una performativa *flow* al mittente per aggiornare il saldo del credito di collegamento.
 
@@ -223,7 +223,7 @@ Eventuali proprietà che l’applicazione deve definire dovranno essere mappate 
 | message-id |Identificatore freeform definito dall'applicazione per questo messaggio. Usato per il rilevamento dei duplicati. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identificatore dell'utente definito dall'applicazione, non interpretato dal bus di servizio. |Non è accessibile tramite l'API del bus di servizio. |
 | to |Identificatore della destinazione definito dall'applicazione, non interpretato dal bus di servizio. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| subject |Identificatore dello scopo del messaggio definito dall'applicazione, non interpretato dal bus di servizio. |[Etichetta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Identificatore dello scopo del messaggio definito dall'applicazione, non interpretato dal bus di servizio. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |Indicatore del percorso di risposta definito dall'applicazione, non interpretato dal bus di servizio. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Identificatore della correlazione definito dall'applicazione, non interpretato dal bus di servizio. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-type |Indicatore del tipo di contenuto definito dall'applicazione per il corpo, non interpretato dal bus di servizio. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -357,10 +357,10 @@ Il gesto del protocollo è uno scambio di tipo richiesta/risposta, in base a qua
 
 Ecco le proprietà dell'applicazione per il messaggio di richiesta:
 
-| Chiave | Facoltativo | Tipo valore | Contenuti del valore |
+| Chiave | Facoltativo | Tipo di valore | Contenuti del valore |
 | --- | --- | --- | --- |
 | operation |No |string |**put-token** |
-| type |No |string |Tipo di token inserito. |
+| tipo |No |string |Tipo di token inserito. |
 | name |No |string |"Destinatari" a cui è applicabile il token. |
 | expiration |Sì | timestamp |Ora di scadenza del token. |
 
@@ -376,7 +376,7 @@ I token conferiscono diritti. Il bus di servizio riconosce tre diritti fondament
 
 Il messaggio di risposta ha i valori *application-properties* seguenti:
 
-| Chiave | Facoltativo | Tipo valore | Contenuti del valore |
+| Chiave | Facoltativo | Tipo di valore | Contenuti del valore |
 | --- | --- | --- | --- |
 | status-code |No |INT |Codice di risposta HTTP **[RFC2616]**. |
 | status-description |Sì |string |Descrizione dello stato. |

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: b03d559b8952a61896fa79a568fb8200b3618fed
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: ea0e8c148a847ecc23bab5e87a1dc60a626cf0c1
+ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968639"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95411615"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Immagini Red Hat Enterprise Linux (RHEL) disponibili in Azure
 Azure offre un'ampia gamma di immagini RHEL per diversi casi d'uso.
@@ -55,12 +55,14 @@ RHEL          | 6.7      | RAW    | Agente Linux | Supporto del ciclo di vita es
 |             | 8-LVM-Gen2| LVM    | Agente Linux | Famiglia di immagini Hyper-V Generation 2-RHEL 8. x. Collegato a repository regolari.
 |             | 8        | LVM    | Agente Linux | Immagini RHEL 8,0.
 |             | 8-Gen2   | LVM    | Agente Linux | Hyper-V Generation 2-RHEL 8,0 images.
-|             | 8.1      | LVM    | Agente Linux | Immagini RHEL 8,2. Attualmente collegato ai repository regolari.
-|             | 81gen2   | LVM    | Agente Linux | Hyper-V Generation 2-RHEL 8,1 images. Attualmente collegato ai repository regolari.
-|             | 8.1-ci   | LVM    | Agente Linux | Immagini RHEL 8,1 che usano cloud-init come agente di provisioning. Attualmente collegato ai repository regolari.
-|             | 81-ci-gen2| LVM    | Agente Linux | Hyper-V Generation 2-RHEL 8,1 immagini che usano cloud-init come agente di provisioning. Attualmente collegato ai repository regolari.
-|             | 8.2      | LVM    | Agente Linux | Immagini RHEL 8,2. Attualmente collegato ai repository regolari.
-|             | 82gen2   | LVM    | Agente Linux | Hyper-V Generation 2-RHEL 8,1 images. Attualmente collegato ai repository regolari.
+|             | 8.1      | LVM    | Agente Linux | Allegato ai repository EUS per impostazione predefinita.
+|             | 81gen2   | LVM    | Agente Linux | Hyper-V Generation 2: allegato a repository EUS a partire dal 2020 novembre.
+|             | 8.1-ci   | LVM    | Agente Linux | Allegato ai repository EUS a partire dal 2020 novembre.
+|             | 81-ci-gen2| LVM    | Agente Linux | Hyper-V Generation 2: allegato a repository EUS a partire dal 2020 novembre.
+|             | 8.2      | LVM    | Agente Linux | Allegato ai repository EUS a partire dal 2020 novembre.
+|             | 82gen2   | LVM    | Agente Linux | Hyper-V Generation 2: allegato a repository EUS a partire dal 2020 novembre.
+|             | 8.3   | LVM    | Agente Linux |  Allegati a repository regolari (EUS non disponibile per RHEL 8,3)
+|             | 83-Gen2   | LVM    | Agente Linux |Generazione 2 di Hyper-V-collegata a repository regolari (EUS non disponibile per RHEL 8,3)
 RHEL-SAP      | 7.4      | LVM    | Agente Linux | RHEL 7,4 per app aziendali e SAP HANA. Collegato ai repository E4S, addebiterà un Premium per SAP e RHEL, oltre alla tariffa di calcolo di base.
 |             | 74sap-Gen2| LVM    | Agente Linux | RHEL 7,4 per app aziendali e SAP HANA. Immagine di generazione 2. Collegato ai repository E4S, addebiterà un Premium per SAP e RHEL, oltre alla tariffa di calcolo di base.
 |             | 7,5       | LVM    | Agente Linux | RHEL 7,5 per app aziendali e SAP HANA. Collegato ai repository E4S, addebiterà un Premium per SAP e RHEL, oltre alla tariffa di calcolo di base.
@@ -76,6 +78,11 @@ RHEL-SAP-APPS | 6.8       | RAW    | Agente Linux | RHEL 6,8 per SAP Business Ap
 |             | 7.4       | LVM    | Agente Linux | RHEL 7,4 per SAP Business Applications.
 |             | 7.6       | LVM    | Agente Linux | RHEL 7,6 per SAP Business Applications.
 |             | 7.7       | LVM    | Agente Linux | RHEL 7,7 per SAP Business Applications.
+|             | 77-gen2       | LVM    | Agente Linux | RHEL 7,7 per SAP Business Applications. Immagine di generazione 2
+|             | 8.1       | LVM    | Agente Linux | RHEL 8,1 per SAP Business Applications.
+|             | 81-Gen2      | LVM    | Agente Linux | RHEL 8,1 per SAP Business Applications. Immagine di generazione 2.
+|             | 8.2       | LVM    | Agente Linux | RHEL 8,2 per SAP Business Applications.
+|             | 82-Gen2      | LVM    | Agente Linux | RHEL 8,2 per SAP Business Applications. Immagine di generazione 2.
 RHEL-HA       | 7.4       | LVM    | Agente Linux | RHEL 7,4 con componente aggiuntivo a disponibilità elevata. In viene addebitata una tariffa Premium per la disponibilità elevata e RHEL oltre alla tariffa di calcolo di base. Obsoleto a favore delle immagini RHEL-SAP-HA.
 |             | 7,5       | LVM    | Agente Linux | RHEL 7,5 con componente aggiuntivo a disponibilità elevata. In viene addebitata una tariffa Premium per la disponibilità elevata e RHEL oltre alla tariffa di calcolo di base. Obsoleto a favore delle immagini RHEL-SAP-HA.
 |             | 7.6       | LVM    | Agente Linux | RHEL 7,6 con componente aggiuntivo a disponibilità elevata. In viene addebitata una tariffa Premium per la disponibilità elevata e RHEL oltre alla tariffa di calcolo di base. Obsoleto a favore delle immagini RHEL-SAP-HA.
@@ -86,6 +93,10 @@ RHEL-SAP-HA   | 7.4          | LVM    | Agente Linux | RHEL 7,4 per SAP con disp
 |             | 76sapha-Gen2 | LVM    | Agente Linux | RHEL 7,6 per SAP con disponibilità elevata e servizi di aggiornamento. Immagine di generazione 2. Allegato ai repository E4S. Viene addebitata una tariffa Premium per i repository SAP e a disponibilità elevata, oltre a RHEL, oltre ai costi di calcolo di base.
 |             | 7.7          | LVM    | Agente Linux | RHEL 7,7 per SAP con disponibilità elevata e servizi di aggiornamento. Allegato ai repository E4S. Viene addebitata una tariffa Premium per i repository SAP e a disponibilità elevata, oltre a RHEL, oltre ai costi di calcolo di base.
 |             | 77sapha-Gen2 | LVM    | Agente Linux | RHEL 7,7 per SAP con disponibilità elevata e servizi di aggiornamento. Immagine di generazione 2. Allegato ai repository E4S. Viene addebitata una tariffa Premium per i repository SAP e a disponibilità elevata, oltre a RHEL, oltre ai costi di calcolo di base.
+|             | 8.1          | LVM    | Agente Linux | RHEL 8,1 per SAP con disponibilità elevata e servizi di aggiornamento. Allegato ai repository E4S. Viene addebitata una tariffa Premium per i repository SAP e a disponibilità elevata, oltre a RHEL, oltre ai costi di calcolo di base.
+|             | 81sapha-Gen2          | LVM    | Agente Linux | RHEL 8,1 per SAP con disponibilità elevata e servizi di aggiornamento. Immagini di generazione 2 collegate a repository E4S. Viene addebitata una tariffa Premium per i repository SAP e a disponibilità elevata, oltre a RHEL, oltre ai costi di calcolo di base.
+|             | 8.2          | LVM    | Agente Linux | RHEL 8,2 per SAP con disponibilità elevata e servizi di aggiornamento. Viene addebitata una tariffa Premium per i repository SAP e a disponibilità elevata, oltre a RHEL, oltre ai costi di calcolo di base.
+|             | 82sapha-Gen2          | LVM    | Agente Linux | RHEL 8,2 per SAP con disponibilità elevata e servizi di aggiornamento. Immagini di generazione 2 collegate a repository E4S. Viene addebitata una tariffa Premium per i repository SAP e a disponibilità elevata, oltre a RHEL, oltre ai costi di calcolo di base.
 rhel-byos     |RHEL-lvm74| LVM    | Agente Linux | Le immagini RHEL 7,4 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
 |             |RHEL-lvm75| LVM    | Agente Linux | Le immagini RHEL 7,5 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
 |             |RHEL-lvm76| LVM    | Agente Linux | Le immagini RHEL 7,6 BYOS, non associate ad alcuna origine di aggiornamenti, non addebiteranno un Premium RHEL.
