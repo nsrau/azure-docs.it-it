@@ -81,6 +81,8 @@
       href: /azure/data-explorer/security-baseline
     - name: Baseline di sicurezza di Azure Data Factory
       href: ../../data-factory/security-baseline.md
+    - name: Baseline di sicurezza di Condivisione dati di Azure
+      href: ../../data-share/security-baseline.md
     - name: Baseline di sicurezza di Database di Azure per MySQL
       href: ../../mysql/security-baseline.md
     - name: Baseline di sicurezza di Database di Azure per MariaDB
@@ -91,6 +93,8 @@
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Baseline di sicurezza di Azure Databricks
       href: /azure/databricks/scenarios/security-baseline
+    - name: Baseline di sicurezza di Azure Defender per IoT
+      href: ../../defender-for-iot/security-baseline.md
     - name: Baseline di sicurezza di DNS di Azure
       href: ../../dns/security-baseline.md
     - name: Baseline di sicurezza di Azure DevTest Labs
@@ -101,18 +105,24 @@
       href: ../../frontdoor/security-baseline.md
     - name: Baseline di sicurezza di Funzioni di Azure
       href: ../../azure-functions/security-baseline.md
+    - name: Baseline di sicurezza di Cache HPC di Azure
+      href: ../../hpc-cache/security-baseline.md
     - name: Baseline di sicurezza di Azure Information Protection
       href: /azure/information-protection/security-baseline
     - name: Baseline di sicurezza dell'hub IoT di Azure
       href: ../../iot-hub/security-baseline.md
     - name: Baseline di sicurezza del servizio Azure Kubernetes
       href: ../../aks/security-baseline.md
+    - name: Baseline di sicurezza di Azure Lighthouse
+      href: ../../lighthouse/security-baseline.md
     - name: Baseline di sicurezza di Azure Load Balancer
       href: ../../load-balancer/security-baseline.md
     - name: Baseline di sicurezza di Monitoraggio di Azure
       href: ../../azure-monitor/security-baseline.md
     - name: Baseline di sicurezza di Azure Machine Learning
       href: ../../machine-learning/security-baseline.md
+    - name: Baseline di sicurezza di Azure Migrate
+      href: ../../migrate/security-baseline.md
     - name: Baseline di sicurezza di Criteri di Azure
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
     - name: Baseline di sicurezza di collegamento privato di Azure
