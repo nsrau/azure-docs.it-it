@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 64dfc7400380505c882979e68a3bf0adcb8942a0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 048068a74151bb986392b5cb27787385fc0f5363
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107964"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95315533"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Regole di raccolta dati in monitoraggio di Azure (anteprima)
 Le regole di raccolta dati (DCR) definiscono i dati in arrivo in monitoraggio di Azure e specificano la posizione in cui devono essere inviati o archiviati i dati. Questo articolo fornisce una panoramica delle regole di raccolta dei dati, inclusi il contenuto e la struttura e il modo in cui è possibile crearli e utilizzarli.
@@ -30,7 +30,7 @@ Una regola di raccolta dati include i componenti seguenti.
 |:---|:---|
 | Origini dati | Origine univoca dei dati di monitoraggio con il proprio formato e metodo per esporre i dati. Esempi di un'origine dati includono registro eventi di Windows, contatori delle prestazioni e syslog. Ogni origine dati corrisponde a un determinato tipo di origine dati, come descritto di seguito. |
 | Flussi | Handle univoco che descrive un set di origini dati che verranno trasformate e schematizzato come un unico tipo. Ogni origine dati richiede uno o più flussi e un flusso può essere usato da più origini dati. Tutte le origini dati in un flusso condividono uno schema comune. Usare più flussi, ad esempio, quando si vuole inviare una determinata origine dati a più tabelle nella stessa area di lavoro Log Analytics. |
-| Destinations | Set di destinazioni in cui devono essere inviati i dati. Gli esempi includono Log Analytics area di lavoro, le metriche di monitoraggio di Azure e hub eventi di Azure. | 
+| Destinazioni | Set di destinazioni in cui devono essere inviati i dati. Gli esempi includono Log Analytics area di lavoro, le metriche di monitoraggio di Azure e hub eventi di Azure. | 
 | Flussi di dati | Definizione dei flussi da inviare a quali destinazioni. | 
 
 Il diagramma seguente illustra i componenti di una regola di raccolta dati e la relativa relazione
@@ -40,7 +40,7 @@ Il diagramma seguente illustra i componenti di una regola di raccolta dati e la 
 ### <a name="data-source-types"></a>Tipi di origini dati
 Ogni origine dati ha un tipo di origine dati. Ogni tipo definisce un set univoco di proprietà che devono essere specificate per ogni origine dati. I tipi di origine dati attualmente disponibili sono illustrati nella tabella seguente.
 
-| Tipo di origine dati | Description | 
+| Tipo di origine dati | Descrizione | 
 |:---|:---|
 | estensione | Origine dati basata sull'estensione della macchina virtuale |
 | performanceCounters | Contatori delle prestazioni per Windows e Linux |
@@ -49,19 +49,7 @@ Ogni origine dati ha un tipo di origine dati. Ogni tipo definisce un set univoco
 
 
 ## <a name="limits"></a>Limiti
-Nella tabella seguente sono elencati i limiti attualmente applicabili a ogni regola di raccolta dati.
-
-| Limite | valore |
-|:---|:---|
-| Numero massimo di origini dati | 10 |
-| Numero massimo di identificatori di contatori nel contatore delle prestazioni | 100 |
-| Numero massimo di nomi di strutture in syslog | 20 |
-| Numero massimo di query XPath nel registro eventi | 100 |
-| Numero massimo di flussi di dati | 10 |
-| Numero massimo di flussi di dati | 10 |
-| Numero massimo di estensioni | 10 |
-| Dimensioni massime delle impostazioni dell'estensione | 32 KB |
-| Numero massimo di aree di lavoro Log Analytics | 10 |
+Per i limiti che si applicano a ogni regola di raccolta dati, vedere [limiti del servizio di monitoraggio di Azure](../service-limits.md#data-collection-rules).
 
 
 ## <a name="create-a-dcr"></a>Creare un DCR
@@ -82,7 +70,7 @@ La regola di raccolta dati di esempio riportata di seguito è per le macchine vi
 - syslog
   - Raccoglie gli eventi di debug, critici e di emergenza dalla funzionalità cron.
   - Raccoglie gli eventi di avviso, critici e di emergenza dalla funzionalità syslog.
-- Destinations
+- Destinazioni
   - Invia tutti i dati a un'area di lavoro Log Analytics denominata centralWorkspace.
 
 ```json

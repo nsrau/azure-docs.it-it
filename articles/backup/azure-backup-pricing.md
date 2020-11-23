@@ -82,7 +82,7 @@ Per stimare i costi del backup di SQL Server in esecuzione in VM di Azure con Ba
 
 - Qual è la compressione prevista per i dati di backup di SQL Server?
 
-  - La maggior parte dei clienti di Backup di Azure nota che i dati di backup hanno una compressione dell'80% rispetto alle dimensioni di SQL Server quando la compressione di SQL è **abilitata** .
+  - La maggior parte dei clienti di Backup di Azure nota che i dati di backup hanno una compressione dell'80% rispetto alle dimensioni di SQL Server quando la compressione di SQL è **abilitata**.
 
   - Se si prevede che la compressione sia diversa, immettere un numero in questo campo
 
@@ -137,8 +137,8 @@ Per stimare i costi del backup di server SAP HANA in esecuzione in VM di Azure c
   - Se si conosce la percentuale di varianza, è possibile usare l'opzione **Enter your own%** (Immettere una percentuale personalizzata)
 - Scegliere i criteri di backup
   - Tipo di backup
-    - Il criterio più efficace che è possibile scegliere è **Daily differentials** (Differenziali giornalieri) con i backup completi **settimanali/mensili/annuali** . Backup di Azure consente di eseguire il ripristino dai backup differenziali anche tramite singolo clic.
-    - È inoltre possibile scegliere un criterio con backup completi **giornalieri/settimanali/mensili/annuali** . Questa opzione consumerà una quantità di spazio di archiviazione leggermente superiore a quella della prima opzione.
+    - Il criterio più efficace che è possibile scegliere è **Daily differentials** (Differenziali giornalieri) con i backup completi **settimanali/mensili/annuali**. Backup di Azure consente di eseguire il ripristino dai backup differenziali anche tramite singolo clic.
+    - È inoltre possibile scegliere un criterio con backup completi **giornalieri/settimanali/mensili/annuali**. Questa opzione consumerà una quantità di spazio di archiviazione leggermente superiore a quella della prima opzione.
   - Per quanto tempo si prevede di conservare i backup dei log? (in giorni) [7-35]
   - Per quanto tempo si prevede di conservare i backup giornalieri? (in giorni)
   - Per quanto tempo si prevede di conservare i backup settimanali? (in settimane)
@@ -155,7 +155,7 @@ Per stimare i costi del backup di server SAP HANA in esecuzione in VM di Azure c
 
 Per stimare i costi del backup delle condivisioni file di Azure usando la [soluzione di backup basata su snapshot](azure-file-share-backup-overview.md) offerta da Backup di Azure, sono necessari i parametri seguenti:
 
-- Dimensioni ( **in GB** ) delle condivisioni file di cui eseguire il backup.
+- Dimensioni (**in GB**) delle condivisioni file di cui eseguire il backup.
 
 - Per eseguire il backup di condivisioni file distribuite tra più account di archiviazione, specificare il numero di account di archiviazione che ospitano le condivisioni file con le suddette dimensioni.
 

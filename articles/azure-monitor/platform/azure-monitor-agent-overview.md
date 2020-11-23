@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: 76f541a45c56669d17103f16997f3d036955b773
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: cf64deb17bea508637debb5612231d355d523fbb
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94919685"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95315584"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Panoramica dell'agente di monitoraggio di Azure (anteprima)
 L'agente di monitoraggio di Azure raccoglie i dati di monitoraggio dal sistema operativo guest delle macchine virtuali e li recapita a monitoraggio di Azure. Questo articolo fornisce una panoramica dell'agente di monitoraggio di Azure, tra cui come installarlo e come configurare la raccolta dei dati.
@@ -54,7 +54,7 @@ Durante l'anteprima pubblica dell'agente di monitoraggio di Azure si applicano l
 
 - L'agente di monitoraggio di Azure non supporta soluzioni e informazioni dettagliate, ad esempio Monitoraggio di Azure per le macchine virtuali e il Centro sicurezza di Azure. L'unico scenario attualmente supportato è la raccolta di dati tramite le regole di raccolta dati configurate. 
 - È necessario creare regole di raccolta dati nella stessa area di qualsiasi area di lavoro Log Analytics utilizzata come destinazione.
-- Attualmente sono supportate solo macchine virtuali di Azure. Le macchine virtuali locali, i set di scalabilità di macchine virtuali, l'arco per i server, il servizio Azure Kubernetes e altri tipi di risorse di calcolo non sono attualmente supportati.
+- Le macchine virtuali di Azure e i server abilitati per Azure Arc sono attualmente supportati. I set di scalabilità di macchine virtuali, il servizio Azure Kubernetes e altri tipi di risorse di calcolo non sono attualmente supportati.
 - La macchina virtuale deve avere accesso agli endpoint HTTPS seguenti:
   - *.ods.opinsights.azure.com
   - *. ingest.monitor.azure.com
@@ -76,7 +76,7 @@ La tabella seguente elenca i tipi di dati che è attualmente possibile raccoglie
 
 L'agente di monitoraggio di Azure invia dati alle metriche di monitoraggio di Azure o a un'area di lavoro Log Analytics che supporta i log di monitoraggio di Azure.
 
-| origine dati | Destinazioni | Description |
+| origine dati | Destinazioni | Descrizione |
 |:---|:---|:---|
 | Prestazioni        | Metriche di Monitoraggio di Azure<br>Area di lavoro Log Analytics | Valori numerici che misurano le prestazioni di diversi aspetti del sistema operativo e dei carichi di lavoro. |
 | Registri eventi di Windows | Area di lavoro Log Analytics | Informazioni inviate al sistema di registrazione eventi di Windows. |
@@ -94,50 +94,8 @@ L'agente di monitoraggio di Azure non richiede chiavi, ma richiede invece un' [i
 ## <a name="networking"></a>Rete
 L'agente di monitoraggio di Azure supporta i tag dei servizi di Azure (sono necessari sia i tag AzureMonitor che AzureResourceManager) ma non funziona ancora con gli ambiti di collegamento privato di monitoraggio di Azure o con proxy diretti.
 
-## <a name="install-the-azure-monitor-agent"></a>Installare l'agente di monitoraggio di Azure
-L'agente di monitoraggio di Azure viene implementato come [estensione della macchina virtuale di Azure](../../virtual-machines/extensions/overview.md) con i dettagli nella tabella seguente. 
-
-| Proprietà | Windows | Linux |
-|:---|:---|:---|
-| Publisher | Microsoft. Azure. monitor  | Microsoft. Azure. monitor |
-| Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1.0 | 1.5 |
-
-Installare l'agente di monitoraggio di Azure usando uno dei metodi per installare gli agenti di macchine virtuali, inclusi i seguenti, usando PowerShell o l'interfaccia della riga di comando. In alternativa, è possibile installare l'agente e configurare la raccolta dei dati nelle macchine virtuali nella sottoscrizione di Azure usando il portale con la procedura descritta in [configurare la raccolta dati per l'agente di monitoraggio di Azure (anteprima)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal).
-
-### <a name="windows"></a>Windows
-
-# <a name="cli"></a>[CLI](#tab/CLI1)
-
-```azurecli
-az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
-
-```
-
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell1)
-
-```powershell
-Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
-```
----
-
-
-### <a name="linux"></a>Linux
-
-# <a name="cli"></a>[CLI](#tab/CLI2)
-
-```azurecli
-az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --ids {resource ID of the VM}
-
-```
-
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell2)
-
-```powershell
-Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus -TypeHandlerVersion 1.5
-```
----
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- [Installare l'agente di monitoraggio di Azure](azure-monitor-agent-install.md) in macchine virtuali Windows e Linux.
 - [Creare una regola di raccolta dati](data-collection-rule-azure-monitor-agent.md) per raccogliere dati dall'agente e inviarli a monitoraggio di Azure.

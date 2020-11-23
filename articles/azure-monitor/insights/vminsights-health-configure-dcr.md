@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: fd131798352aaccaea66c242e92d550c98d7c86f
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 2bbc57d8ddc004c1926da7e0037efdc1fcf2d76e
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94687014"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95318100"
 ---
 # <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-using-data-collection-rules-preview"></a>Configurare il monitoraggio in Monitoraggio di Azure per le macchine virtuali integrità Guest usando le regole di raccolta dati (anteprima)
 [Monitoraggio di Azure per le macchine virtuali integrità Guest](vminsights-health-overview.md) consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. Questo articolo descrive come è possibile modificare il monitoraggio predefinito tra più macchine virtuali usando le regole di raccolta dati.
@@ -49,15 +49,15 @@ Nella tabella seguente viene elencata la configurazione predefinita per ogni mon
 
 | Monitoraggio | Attivato | Creazione di avvisi | Avviso | Critico | Frequenza di valutazione | Lookback | Tipo di valutazione | Esempio minimo | Numero massimo di campioni |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| Uso della CPU  | Vero | Falso | Nessuno | \> 90%    | 60 secondi | 240 sec | Min | 2 | 3 |
-| Memoria disponibile | Vero | Falso | Nessuno | \< 100 MB | 60 secondi | 240 sec | Max | 2 | 3 |
-| File system      | Vero | Falso | Nessuno | \< 100 MB | 60 secondi | 120 sec | Max | 1 | 1 |
+| Uso della CPU  | True | False | nessuno | \> 90%    | 60 secondi | 240 sec | Min | 2 | 3 |
+| Memoria disponibile | True | False | nessuno | \< 100 MB | 60 secondi | 240 sec | Max | 2 | 3 |
+| File system      | True | False | nessuno | \< 100 MB | 60 secondi | 120 sec | Max | 1 | 1 |
 
 
 ## <a name="overrides"></a>Override
 Un *override* modifica una o più proprietà di un monitoraggio. Una sostituzione, ad esempio, potrebbe disabilitare un monitoraggio abilitato per impostazione predefinita, definire i criteri di avviso per il monitoraggio o modificare la soglia critica del monitoraggio. 
 
-Le sostituzioni sono definite in una [regola di raccolta dati (DCR)](../platform/data-collection-rule-overview.md). È possibile creare più DCR con diversi set di sostituzioni e applicarli a più macchine virtuali. Per applicare un DCR a una macchina virtuale, creare un'associazione, come descritto in [configurare la raccolta dati per l'agente di monitoraggio di Azure (anteprima)](../platform/data-collection-rule-azure-monitor-agent.md#dcr-associations).
+Le sostituzioni sono definite in una [regola di raccolta dati (DCR)](../platform/data-collection-rule-overview.md). È possibile creare più DCR con diversi set di sostituzioni e applicarli a più macchine virtuali. Per applicare un DCR a una macchina virtuale, creare un'associazione, come descritto in [configurare la raccolta dati per l'agente di monitoraggio di Azure (anteprima)](../platform/data-collection-rule-azure-monitor-agent.md#data-collection-rule-associations).
 
 
 ## <a name="multiple-overrides"></a>Più sostituzioni
@@ -74,8 +74,8 @@ La configurazione risultante è un monitoraggio che entra in uno stato di avviso
 Se due override definiscono la stessa proprietà nello stesso monitoraggio, un valore avrà la precedenza. Gli override verranno applicati in base al relativo [ambito](#scopes-element), dal più generale al più specifico. Ciò significa che le sostituzioni più specifiche avranno la maggiore probabilità di essere applicate. L'ordine specifico è il seguente:
 
 1. Globale 
-2. Subscription
-3. Gruppo di risorse
+2. Sottoscrizione
+3. Resource group
 4. Una macchina virtuale. 
 
 Se più sostituzioni con lo stesso livello di ambito definiscono la stessa proprietà nello stesso monitor, verranno applicate nell'ordine in cui sono visualizzate nel DCR. Se le sostituzioni si trovano in DCR diversi, vengono applicate in ordine alfabetico degli ID di risorsa DCR.
@@ -154,7 +154,7 @@ Ogni override ha uno o più ambiti che definiscono a quali macchine virtuali dev
 
 Nella tabella seguente vengono illustrati esempi di ambiti diversi.
 
-| Ambito | Esempio |
+| Scope | Esempio |
 |:---|:---|
 | Macchina virtuale singola | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-name/providers/Microsoft.Compute/virutalMachines/my-vm` |
 | Tutte le macchine virtuali in un gruppo di risorse | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-name` |

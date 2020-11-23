@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/20/2020
-ms.openlocfilehash: 66d420a902cbfb56ece75646ee39bbba774b6208
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 11/21/2020
+ms.openlocfilehash: 30521e85feda0fc19329364dcb710d322ae8cfc1
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312421"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95323234"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Panoramica degli agenti di monitoraggio di Azure
 
@@ -34,7 +34,7 @@ Le tabelle seguenti forniscono un rapido confronto degli agenti di monitoraggio 
 
 | | Agente di monitoraggio di Azure (anteprima) | Diagnostica<br>estensione (WAD) | Log Analytics<br>agente | Dipendenza<br>agente |
 |:---|:---|:---|:---|:---|
-| **Ambienti supportati** | Azure | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | 
+| **Ambienti supportati** | Azure<br>Altro cloud (Azure Arc)<br>Locale (Azure Arc)  | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | 
 | **Requisiti dell'agente**  | nessuno | nessuno | nessuno | Richiede Log Analytics Agent |
 | **Dati raccolti** | Log eventi<br>Prestazioni | Log eventi<br>eventi ETW<br>Prestazioni<br>Log basati su file<br>Log di IIS<br>Log delle app .NET<br>Dump di arresto anomalo<br>Log di diagnostica agente | Log eventi<br>Prestazioni<br>Log basati su file<br>Log di IIS<br>Informazioni dettagliate e soluzioni<br>Altri servizi | Dipendenze dei processi<br>Metriche della connessione di rete |
 | **Dati inviati a** | Log di Monitoraggio di Azure<br>Metriche di Monitoraggio di Azure | Archiviazione di Azure<br>Metriche di Monitoraggio di Azure<br>Hub eventi | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure<br>(tramite agente Log Analytics) |
@@ -44,7 +44,7 @@ Le tabelle seguenti forniscono un rapido confronto degli agenti di monitoraggio 
 
 | | Agente di monitoraggio di Azure (anteprima) | Diagnostica<br>estensione (LAD) | Telegraf<br>agente | Log Analytics<br>agente | Dipendenza<br>agente |
 |:---|:---|:---|:---|:---|:---|
-| **Ambienti supportati** | Azure | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale |
+| **Ambienti supportati** | Azure<br>Altro cloud (Azure Arc)<br>Locale (Arc Arc) | Azure | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale | Azure<br>Altro cloud<br>Locale |
 | **Requisiti dell'agente**  | nessuno | nessuno | nessuno | nessuno | Richiede Log Analytics Agent |
 | **Dati raccolti** | syslog<br>Prestazioni | syslog<br>Prestazioni | Prestazioni | syslog<br>Prestazioni| Dipendenze dei processi<br>Metriche della connessione di rete |
 | **Dati inviati a** | Log di Monitoraggio di Azure<br>Metriche di Monitoraggio di Azure | Archiviazione di Azure<br>Hub eventi | Metriche di Monitoraggio di Azure | Log di Monitoraggio di Azure | Log di Monitoraggio di Azure<br>(tramite agente Log Analytics) |
@@ -56,7 +56,7 @@ L' [agente di monitoraggio di Azure](azure-monitor-agent-overview.md) è attualm
 
 Usare l'agente di monitoraggio di Azure se è necessario:
 
-- Raccogliere i log e le metriche Guest da qualsiasi macchina virtuale in Azure, in altri cloud o in locale. (Solo Azure in anteprima).
+- Raccogliere i log e le metriche Guest da qualsiasi macchina virtuale in Azure, in altri cloud o in locale. Azure Arc è necessario per le macchine virtuali esterne ad Azure. 
 - Inviare dati ai log di monitoraggio di Azure e alle metriche di monitoraggio di Azure per l'analisi con monitoraggio di Azure. 
 - Inviare i dati ad archiviazione di Azure per l'archiviazione.
 - Inviare dati a strumenti di terze parti usando [Hub eventi di Azure](diagnostics-extension-stream-event-hubs.md).
@@ -147,7 +147,7 @@ Le tabelle seguenti elencano i sistemi operativi supportati dagli agenti di moni
 | Windows Server 2016 Core                                 |   |   |   | X |
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
-| Windows Server 2008 R2                                   |   | X | X | X |
+| Windows Server 2008 R2                                   |   | X | X | X |
 | Windows 10 Enterprise<br>(incluse la funzionalità multisessione) e Pro<br>(Solo scenari server)  | X | X | X | X |
 | Windows 8 Enterprise e Pro<br>(Solo scenari server)  |   | X | X |   |
 | Windows 7 SP1<br>(Solo scenari server)                 |   | X | X |   |
@@ -190,13 +190,13 @@ Poiché Dependency Agent funziona a livello di kernel, il supporto dipende anche
 | Distribuzione | Versione sistema operativo | Versione del kernel |
 |:---|:---|:---|
 |  Red Hat Linux 7   | 7.6     | 3.10.0-957  |
-|                    | 7.5     | 3.10.0-862  |
+|                    | 7,5     | 3.10.0-862  |
 |                    | 7.4     | 3.10.0-693  |
 | Red Hat Linux 6    | 6.10    | 2.6.32-754 |
 |                    | 6.9     | 2.6.32-696  |
 | CentOSPlus         | 6.10    | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
 |                    | 6.9     | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-| Ubuntu Server      | 18,04   | 5.3.0-1020<br>5,0 (include il kernel ottimizzato per Azure)<br>4,18* <br> 4,15* |
+| Ubuntu Server      | 18,04   | 5.3.0-1020<br>5,0 (include il kernel ottimizzato per Azure)<br>4,18 *<br> 4,15* |
 |                    | 16.04.3 | 4,15. * |
 |                    | 16.04   | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
 | SUSE Linux 12 Enterprise Server | 12 SP4 | 4,12. * (include il kernel ottimizzato per Azure) |

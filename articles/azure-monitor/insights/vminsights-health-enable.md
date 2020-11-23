@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
-ms.openlocfilehash: 6033ca5b0eaf6845d14407832c776dd8e006226b
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 647256949d1f8f13439a0a5db87f3b02d697d32b
+ms.sourcegitcommit: 5ae2f32951474ae9e46c0d46f104eda95f7c5a06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686977"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95318134"
 ---
 # <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Abilita Monitoraggio di Azure per le macchine virtuali integrità Guest (anteprima)
 Monitoraggio di Azure per le macchine virtuali integrità Guest consente di visualizzare l'integrità di una macchina virtuale in base a quanto definito da un set di misurazioni delle prestazioni campionate a intervalli regolari. Questo articolo descrive come abilitare questa funzionalità nella sottoscrizione e come abilitare il monitoraggio Guest per ogni macchina virtuale.
@@ -24,12 +24,18 @@ Monitoraggio di Azure per le macchine virtuali integrità Guest presenta le limi
   - Ubuntu 16,04 LTS, Ubuntu 18,04 LTS
   - Windows Server 2012 o versioni successive
 - La macchina virtuale deve trovarsi in una delle aree seguenti:
+  - Australia orientale
   - Australia sud-orientale
+  - India centrale
   - Stati Uniti centrali
   - Stati Uniti orientali
   - Stati Uniti orientali 2
   - Stati Uniti orientali 2 EUAP
+  - Germania centro-occidentale
+  - Giappone orientale
+  - Stati Uniti centro-settentrionali
   - Europa settentrionale
+  - Stati Uniti centro-meridionali
   - Asia sud-orientale
   - Regno Unito meridionale
   - Europa occidentale
