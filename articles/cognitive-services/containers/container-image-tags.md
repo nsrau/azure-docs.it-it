@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 11/17/2020
 ms.author: aahi
-ms.openlocfilehash: 90ac4891dbca34ff2d9bdb9653e27ad2a495b317
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 09a83c28d07540b8ecd813e7ab2f10ceee891d7a
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021253"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95792979"
 ---
 # <a name="azure-cognitive-services-container-image-tags-and-release-notes"></a>Tag di immagine del contenitore di servizi cognitivi di Azure e note sulla versione
 
@@ -52,6 +52,17 @@ Questa immagine del contenitore include i seguenti tag disponibili. È anche pos
 
 # <a name="latest-version"></a>[Versione più recente](#tab/current)
 
+Note sulla versione per `3.2-preview.1` :
+
+* Nuovo contenitore v 3.2
+
+| Tag immagine                    | Note |
+|-------------------------------|:------|
+| `latest`                      |       |
+| `3.2-preview.1` |  |
+
+# <a name="previous-versions"></a>[Versioni precedenti](#tab/previous)
+
 Note sulla versione per `v2.0.013250001-amd64-preview` :
 
 * Ridurre ulteriormente l'utilizzo della memoria per il contenitore.
@@ -59,13 +70,6 @@ Note sulla versione per `v2.0.013250001-amd64-preview` :
 * Corretti i risultati mancanti quando la cache Redis è configurata e `ResultExpirationPeriod` è impostata su 0.
 * Rimuovere la limitazione delle dimensioni del corpo della richiesta di 26MB. Il contenitore è ora in grado di accettare >file 26MB.
 * Aggiungere il timestamp e la versione di build alla registrazione della console.
-
-| Tag immagine                    | Note |
-|-------------------------------|:------|
-| `latest`                      |       |
-| `2.0.013250001-amd64-preview` |  |
-
-# <a name="previous-versions"></a>[Versioni precedenti](#tab/previous)
 
 Note sulla versione per `1.1.013050001-amd64-preview`
 
@@ -88,6 +92,7 @@ Note sulla versione per `1.1.013050001-amd64-preview`
 
 | Tag immagine                    | Note |
 |-------------------------------|:------|
+| `2.0.013250001-amd64-preview` |       |
 | `1.1.013050001-amd64-preview` |       |
 | `1.1.011580001-amd64-preview` |       |
 | `1.1.009920003-amd64-preview` |       |

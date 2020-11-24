@@ -1,22 +1,23 @@
 ---
-title: Informazioni di riferimento sulla sintassi di SQLFilter nel bus di servizio di Azure | Microsoft Docs
-description: Questo articolo fornisce informazioni dettagliate sulla grammatica di SqlFilter. Un SqlFilter supporta un sottoinsieme dello standard SQL-92.
+title: Sintassi del filtro SQL per la regola di sottoscrizione del bus di servizio di Azure | Microsoft Docs
+description: Questo articolo fornisce informazioni dettagliate sulla grammatica del filtro SQL. Un filtro SQL supporta un subset dello standard SQL-92.
 ms.topic: article
-ms.date: 11/17/2020
-ms.openlocfilehash: 7f3c744b691e678ef18c8fa721ccfaecaee9c1e2
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.date: 11/24/2020
+ms.openlocfilehash: bd263e8177652165376d4f6fe9e231af71ebdcbe
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888471"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95805623"
 ---
-# <a name="sqlfilter-syntax"></a>Sintassi di SQLFilter
+# <a name="subscription-rule-sql-filter-syntax"></a>Sintassi del filtro SQL per la regola di sottoscrizione
 
-Un oggetto *SqlFilter* è un'istanza della [classe SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)e rappresenta un'espressione di filtro basata sul linguaggio SQL, che viene valutata rispetto a [`BrokeredMessage`](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . Un SqlFilter supporta un sottoinsieme dello standard SQL-92.  
+Un *filtro SQL* è uno dei tipi di filtro disponibili per le sottoscrizioni dell'argomento del bus di servizio. Si tratta di un'espressione di testo che si basa su un subset dello standard SQL-92. Le espressioni di filtro vengono usate con l' `sqlExpression` elemento della proprietà' SqlFilter ' di un bus di servizio `Rule` in un [modello di Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)o dell'argomento del comando dell'interfaccia della riga di comando di Azure `az servicebus topic subscription rule create` [`--filter-sql-expression`](https://docs.microsoft.com/cli/azure/servicebus/topic/subscription/rule?view=azure-cli-latest&preserve-view=true#az_servicebus_topic_subscription_rule_create) e di diverse funzioni SDK che consentono di gestire le regole di sottoscrizione.
+
+Il bus di servizio Premium supporta anche la [sintassi del selettore dei messaggi JMS SQL](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html) tramite l'API JMS 2,0.
+
   
- Questo argomento offre informazioni dettagliate sulla grammatica di SqlFilter.  
-  
-```  
+``` 
 <predicate ::=  
       { NOT <predicate> }  
       | <predicate> AND <predicate>  
@@ -324,4 +325,7 @@ Per un esempio C#, vedere l' [argomento relativo ai filtri di esempio su GitHub]
 
 - [Classe SQLFilter (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [Classe SQLFilter (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
-- [Classe SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [Classe SqlFilter (Java)](/java/api/com.microsoft.azure.servicebus.rules.SqlFilter)
+- [SqlRuleFilter (JavaScript)](/javascript/api/@azure/service-bus/sqlrulefilter)
+- [AZ ServiceBus topic Subscription Rule](/cli/azure/servicebus/topic/subscription/rule)
+- [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

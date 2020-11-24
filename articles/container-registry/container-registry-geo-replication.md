@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: a26a3a0902b76359dc7441d97fa2516989ec7f0b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 636896edf8180052508f366bcc548efe13dec1e2
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486873"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95810057"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replica geografica nel servizio Registro Azure Container
 
@@ -18,9 +18,9 @@ Le aziende con esigenze di presenza online locale o di backup a caldo scelgono d
 
 Un registro con replica geografica è caratterizzato dai vantaggi seguenti:
 
-* I nomi di registro/immagine/tag singoli possono essere usati in più aree
-* Accesso al registro in una posizione di rete vicina da distribuzioni internazionali
-* Nessun costo aggiuntivo per il traffico in uscita perché viene eseguito il pull delle immagini da un registro replicato in locale nella stessa area dell'host del contenitore
+* Singoli nomi di registro, immagine e tag possono essere usati in più aree
+* Migliorare le prestazioni e l'affidabilità delle distribuzioni regionali con accesso al registro di sistema vicino alla rete
+* Ridurre i costi di trasferimento dei dati estraendo i livelli di immagine da un registro locale e replicato nella stessa area o nelle aree vicine dell'host contenitore
 * Gestione unica di registro in più aree
 
 > [!NOTE]
@@ -56,8 +56,9 @@ Le tipiche problematiche relative alla presenza di più registri sono descritte 
 L'uso della funzionalità di replica geografica di Registro Azure Container è caratterizzato dai vantaggi descritti di seguito:
 
 * Gestione di un unico registro per tutte le aree: `contoso.azurecr.io`
-* Gestione di un'unica configurazione per le distribuzioni delle immagini in quanto tutte le aree usano lo stesso URL immagine: `contoso.azurecr.io/public/products/web:1.2`
-* Esecuzione del push in un unico registro, mentre il servizio Registro Azure Container gestisce la replica geografica. È possibile configurare [webhook](container-registry-webhook.md) a livello di area per ricevere notifiche degli eventi in repliche specifiche.
+* Gestire una singola configurazione di distribuzioni di immagini perché tutte le aree utilizzano lo stesso URL di immagine: `contoso.azurecr.io/public/products/web:1.2`
+* Esecuzione del push in un unico registro, mentre il servizio Registro Azure Container gestisce la replica geografica. ACR replica solo i livelli univoci, riducendo il trasferimento dei dati tra le aree. 
+* Configurare [webhook](container-registry-webhook.md) regionali per notificare gli eventi in repliche specifiche.
 
 ## <a name="configure-geo-replication"></a>Configurare la replica geografica
 

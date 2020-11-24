@@ -3,12 +3,12 @@ title: Matrice di supporto per il ripristino di emergenza VMware/fisico in Azure
 description: Riepiloga il supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure tramite Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 5b511eeb99b70fd64a5366b7b54900166f06b4d7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e3130242e29b8d3886b585d56d33d0a9a2379ee3
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369319"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95800282"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -93,7 +93,8 @@ SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://s
 Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/), [8,2](https://support.microsoft.com/help/4573888/)  <br/> Con kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3, 4 e 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>In esecuzione su tutti i kernel UEK e RedHat kernel <= 3.10.0-1062. * sono supportati in [9,35](https://support.microsoft.com/help/4573888/) il supporto per il resto dei kernel RedHat è disponibile in [9,36](https://support.microsoft.com/help/4578241/)
 
 > [!Note]
-> Per ogni versione di Windows, Azure Site Recovery supporta solo le compilazioni [LTSC (Long-Term Servicing Channel)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) .  Al momento non sono attualmente supportate le versioni [semestrali del canale](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) .
+>- Per ogni versione di Windows, Azure Site Recovery supporta solo le compilazioni [LTSC (Long-Term Servicing Channel)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) .  Al momento non sono attualmente supportate le versioni [semestrali del canale](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) .
+>- Verificare che per le versioni di Linux Azure Site Recovery non supporti le immagini del sistema operativo personalizzate. Sono supportati solo i kernel di stock che fanno parte della distribuzione secondaria della versione.
 
 ### <a name="ubuntu-kernel-versions"></a>Versioni del kernel Ubuntu
 
@@ -150,7 +151,7 @@ SUSE Linux Enterprise Server 15 e 15 SP1 | [9,34](https://support.microsoft.com/
 
 ## <a name="linux-file-systemsguest-storage"></a>File system/archiviazione guest Linux
 
-**Componente** | **Supportato**
+**Componente** | **Supporto**
 --- | ---
 File system | ext3, ext4, XFS, BTRFS (condizioni applicabili in base a questa tabella)
 Provisioning di gestione volumi logici (LVM)| Provisioning Thick-Sì <br></br> Thin provisioning-No
@@ -177,7 +178,7 @@ Aggiunta del disco alla macchina virtuale replicata | Non supportata.<br/> Disab
 
 ## <a name="network"></a>Rete
 
-**Componente** | **Supportato**
+**Componente** | **Supporto**
 --- | ---
 Gruppo NIC della rete host | Supportato per le macchine virtuali VMware. <br/><br/>Non supportato per la replica di computer fisici.
 VLAN rete host | Sì.
@@ -194,7 +195,7 @@ Accesso a collegamento privato al servizio Site Recovery | Sì. [Altre informazi
 
 ## <a name="azure-vm-network-after-failover"></a>Rete VM di Azure (dopo il failover)
 
-**Componente** | **Supportato**
+**Componente** | **Supporto**
 --- | ---
 Azure ExpressRoute | Sì
 ILB | Sì
@@ -208,7 +209,7 @@ Endpoint servizio di rete virtuale di Azure<br/> | Sì
 Rete accelerata | No
 
 ## <a name="storage"></a>Archiviazione
-**Componente** | **Supportato**
+**Componente** | **Supporto**
 --- | ---
 Disco dinamico | Il disco del sistema operativo deve essere un disco di base. <br/><br/>I dischi dati possono essere dinamici
 Configurazione dei dischi Docker | No
@@ -239,7 +240,7 @@ Avvio EFI/UEFI Guest/server | -Supportato per tutti i [sistemi operativi UEFI di
 
 ## <a name="replication-channels"></a>Canali di replica
 
-|**Tipo di replica**   |**Supportato**  |
+|**Tipo di replica**   |**Supporto**  |
 |---------|---------|
 |Trasferimenti di dati con offload (ODX)    |       No  |
 |Seeding offline        |   No      |
@@ -247,7 +248,7 @@ Avvio EFI/UEFI Guest/server | -Supportato per tutti i [sistemi operativi UEFI di
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
 
-**Componente** | **Supportato**
+**Componente** | **Supporto**
 --- | ---
 Archiviazione con ridondanza locale | Sì
 Archiviazione con ridondanza geografica | Sì
@@ -266,7 +267,7 @@ Account di archiviazione per utilizzo generico V2 (livelli ad accesso frequente 
 
 ## <a name="azure-compute"></a>Calcolo di Azure
 
-**Funzionalità** | **Supportato**
+**Funzionalità** | **Supporto**
 --- | ---
 Set di disponibilità | Sì
 Zone di disponibilità | No
@@ -323,7 +324,7 @@ Varianza massima dei dati al giorno supportata da un server di elaborazione | 2 
 
 ## <a name="vault-tasks"></a>Attività di insieme di credenziali
 
-**Azione** | **Supportato**
+**Azione** | **Supporto**
 --- | ---
 Spostamento insieme di credenziali tra gruppi di risorse | No
 Spostare l'insieme di credenziali in e tra sottoscrizioni | No

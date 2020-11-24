@@ -5,12 +5,12 @@ description: Informazioni su come creare una connessione RDP con i nodi di Windo
 services: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.openlocfilehash: ed849ec928cc09cd0e8911929c4abc6ae54b1536
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c774e2287d0540c73cdd2234843d6766e7f2fb91
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82208041"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95792260"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Connettersi con RDP ai nodi di Windows Server del cluster di Azure Kubernetes Service (AKS) per la manutenzione o la risoluzione dei problemi
 
@@ -20,9 +20,9 @@ Questo articolo illustra come creare una connessione RDP con un nodo AKS usando 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster AKS esistente con un nodo di Windows Server. Se è necessario un cluster AKS, vedere l'articolo sulla [creazione di un cluster del servizio contenitore di Azure con un contenitore Windows usando l'interfaccia della riga di comando di Azure][aks-windows-cli]. Sono necessari il nome utente e la password dell'amministratore di Windows per il nodo di Windows Server di cui si desidera risolvere i problemi. È necessario anche un client RDP, ad esempio [Desktop remoto Microsoft][rdp-mac].
+Questo articolo presuppone che si disponga di un cluster AKS esistente con un nodo di Windows Server. Se è necessario un cluster AKS, vedere l'articolo sulla [creazione di un cluster del servizio contenitore di Azure con un contenitore Windows usando l'interfaccia della riga di comando di Azure][aks-windows-cli]. Sono necessari il nome utente e la password dell'amministratore di Windows per il nodo di Windows Server di cui si desidera risolvere i problemi. Se non si conoscono questi elementi, è possibile reimpostarli eseguendo la [reimpostazione Servizi Desktop remoto o la relativa password di amministratore in una macchina virtuale Windows ](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/reset-rdp). È necessario anche un client RDP, ad esempio [Desktop remoto Microsoft][rdp-mac].
 
-È necessaria anche l'interfaccia della riga di comando di Azure versione 2.0.61 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+È necessaria anche l'interfaccia della riga di comando di Azure versione 2.0.61 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ## <a name="deploy-a-virtual-machine-to-the-same-subnet-as-your-cluster"></a>Distribuire una macchina virtuale nella stessa subnet del cluster
 

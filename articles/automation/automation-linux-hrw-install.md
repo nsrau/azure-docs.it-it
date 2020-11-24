@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9b06024b7dc25f37f75c71b822f6aeea32c3e26a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 07c04274829530942bab0e3267200f6524c4ddc7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509062"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95793413"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -40,15 +40,15 @@ Il ruolo di lavoro ibrido per Runbook richiede l' [agente di log Analytics](../a
 
 ### <a name="supported-linux-operating-systems"></a>Sistemi operativi Linux supportati
 
-La funzionalità ruolo di lavoro ibrido per runbook supporta le distribuzioni seguenti:
+La funzionalità Hybrid Runbook Worker supporta le distribuzioni seguenti. Si presuppone che tutti i sistemi operativi siano x64. x86 non è supportato per alcun sistema operativo.
 
-* Amazon Linux da 2012,09 a 2015,09 (x64)
-* CentOS Linux 5, 6 e 7 (x64)
-* Oracle Linux 5, 6 e 7 (x64)
-* Server Red Hat Enterprise Linux 5, 6 e 7 (x64)
-* Debian GNU/Linux 6, 7 e 8 (x64)
-* Ubuntu 12,04 LTS, 14,04 LTS, 16,04 LTS e 18,04 (x64)
-* SUSE Linux Enterprise Server 12 (x64)
+* Amazon Linux da 2012,09 a 2015,09
+* CentOS Linux 5, 6 e 7
+* Oracle Linux 5, 6 e 7
+* Server Red Hat Enterprise Linux 5, 6 e 7
+* Debian GNU/Linux 6, 7 e 8
+* Ubuntu 12,04 LTS, 14,04 LTS, 16,04 LTS e 18,04 LTS
+* SUSE Linux Enterprise Server 12
 
 ### <a name="minimum-requirements"></a>Requisiti minimi
 

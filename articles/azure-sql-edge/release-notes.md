@@ -9,17 +9,32 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/22/2020
-ms.openlocfilehash: 543a71bc2a77f0a31f8ddaa0de13135b93db48ec
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.date: 11/24/2020
+ms.openlocfilehash: bb0c176ee8c145e1268827d79b453628e6f1bc28
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395037"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808615"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Note sulla versione di Azure SQL Edge 
 
 Questo articolo descrive le novità e le modifiche apportate a ogni nuova build di Azure SQL Edge.
+
+## <a name="azure-sql-edge---101"></a>Azure SQL Edge-1.0.1
+
+### <a name="sql-engine-build-number---15020001553"></a>Numero di build del motore SQL: 15.0.2000.1553
+
+### <a name="whats-new"></a>Novità
+
+- Consenti espressione Datebucket definita nelle colonne calcolate
+
+### <a name="fixes"></a>Correzioni
+
+- Correzione dei criteri di conservazione per l'eliminazione di una tabella con criteri di conservazione abilitati con timeout infinito
+- Supporto della distribuzione di DacFx per le funzionalità dei criteri di streaming e conservazione 
+- Correzione della distribuzione di DacFx per abilitare la distribuzione dalla cartella nidificata nell'URL SAS 
+- STIMA della correzione per supportare nomi di colonna lunghi nei messaggi di errore
 
 ## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge-1.0.0 (RTM)
 

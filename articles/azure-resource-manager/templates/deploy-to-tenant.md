@@ -2,13 +2,13 @@
 title: Distribuire le risorse nel tenant
 description: Descrive come distribuire le risorse nell'ambito del tenant in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/20/2020
-ms.openlocfilehash: 65a5e90616f8883b338d22fa31eee6932452b5fd
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.date: 11/24/2020
+ms.openlocfilehash: 5733c5d6eb6cbd86207589244c22badc17fe7073
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95242662"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95807642"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Distribuzioni tenant con modelli ARM
 
@@ -129,6 +129,14 @@ Per informazioni più dettagliate sui comandi e sulle opzioni di distribuzione p
 * [Usare un pulsante di distribuzione per distribuire i modelli dal repository GitHub](deploy-to-azure-button.md)
 * [Distribuire modelli ARM da Cloud Shell](deploy-cloud-shell.md)
 
+## <a name="deployment-location-and-name"></a>Percorso e nome della distribuzione
+
+Per le distribuzioni a livello di tenant, è necessario specificare un percorso di distribuzione. Il percorso di distribuzione è separato dal percorso delle risorse distribuite e specifica dove archiviare i dati di distribuzione. Le distribuzioni di [sottoscrizioni](deploy-to-subscription.md) e [gruppi di gestione](deploy-to-management-group.md) richiedono anche un percorso. Per le distribuzioni di [gruppi di risorse](deploy-to-resource-group.md) , il percorso del gruppo di risorse viene usato per archiviare i dati di distribuzione.
+
+È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
+
+Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se, ad esempio, si crea una distribuzione tenant con il nome **Deployment1** in **centralus**, non sarà possibile creare in un secondo momento un'altra distribuzione con il nome **Deployment1** ma un percorso di **westus**. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
+
 ## <a name="deployment-scopes"></a>Ambiti di distribuzione
 
 Quando si esegue la distribuzione in un tenant, è possibile distribuire le risorse in:
@@ -153,7 +161,7 @@ Le risorse definite all'interno della sezione Resources del modello vengono appl
 
 Per impostare come destinazione un gruppo di gestione all'interno del tenant, aggiungere una distribuzione annidata e specificare la `scope` Proprietà.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,18,22":::
 
 ### <a name="scope-to-subscription"></a>Ambito della sottoscrizione
 
@@ -161,7 +169,7 @@ Per impostare come destinazione un gruppo di gestione all'interno del tenant, ag
 
 Per fare riferimento a una sottoscrizione all'interno del tenant, usare una distribuzione annidata e la `subscriptionId` Proprietà.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="9,10,18":::
 
 ### <a name="scope-to-resource-group"></a>Ambito al gruppo di risorse
 
@@ -170,14 +178,6 @@ Per fare riferimento a una sottoscrizione all'interno del tenant, usare una dist
 Per fare riferimento a un gruppo di risorse all'interno del tenant, usare una distribuzione nidificata. Impostare le proprietà `subscriptionId` e `resourceGroup`. Non impostare un percorso per la distribuzione annidata perché è distribuito nella posizione del gruppo di risorse.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-rg.json" highlight="9,10,18":::
-
-## <a name="deployment-location-and-name"></a>Percorso e nome della distribuzione
-
-Per le distribuzioni a livello di tenant, è necessario specificare un percorso di distribuzione. Il percorso di distribuzione è separato dal percorso delle risorse distribuite e specifica dove archiviare i dati di distribuzione.
-
-È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
-
-Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
 
 ## <a name="create-management-group"></a>Creare un gruppo di gestione
 

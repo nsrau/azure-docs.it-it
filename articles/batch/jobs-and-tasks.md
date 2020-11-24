@@ -2,13 +2,13 @@
 title: Processi e attività in Azure Batch
 description: Informazioni sui processi e sulle attività e su come vengono usati in un flusso di lavoro Azure Batch dal punto di vista dello sviluppo.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 5120b76f34e81c2ceeba88767a656b5ee0d40c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/23/2020
+ms.openlocfilehash: e1ca721ec7527d9d042c129c22cf0266e57c32e9
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85955370"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95808583"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Processi e attività in Azure Batch
 
@@ -18,15 +18,17 @@ In Azure Batch, un'*attività* rappresenta un'unità di calcolo. Un *processo* �
 
 Un processo è una raccolta di attività. Gestisce la modalità di esecuzione dei calcoli da parte delle attività nei nodi di calcolo di un pool.
 
-Un processo specifica il [pool](nodes-and-pools.md#pools) in cui eseguire il lavoro. È possibile creare un nuovo pool per ogni processo o usare un pool per più processi. È possibile creare un pool per ogni processo associato a una pianificazione o per tutti i processi associati a una pianificazione.
+Un processo specifica il [pool](nodes-and-pools.md#pools) in cui eseguire il lavoro. È possibile creare un nuovo pool per ogni processo o usare un pool per più processi. È possibile creare un pool per ogni processo associato a una pianificazione di [processo](#scheduled-jobs)o un pool per tutti i processi associati a una pianificazione del processo.
 
 ### <a name="job-priority"></a>Priorità del processo
 
-È possibile assegnare a un processo la priorità facoltativa rispetto ai processi creati. Il servizio Batch usa il valore di priorità del processo per determinare l'ordine di programmazione dei processi in un account, da non confondere con un [processo pianificato](#scheduled-jobs). I valori di priorità sono compresi in un intervallo da -1000 a 1000, dove -1000 è la priorità più bassa e 1000 la più alta. Per aggiornare la priorità di un processo richiamare l'operazione [Aggiornare le proprietà di un processo](/rest/api/batchservice/job/update) (Batch REST) o modificare la proprietà [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (Batch .NET).
+È possibile assegnare a un processo la priorità facoltativa rispetto ai processi creati. Il servizio batch usa il valore di priorità del processo per determinare l'ordine di pianificazione (per tutte le attività all'interno del processo) wtihin ogni pool.
 
-All'interno dello stesso account i processi con priorità più alta hanno precedenza di pianificazione rispetto ai processi con priorità inferiori. Un processo con un valore di priorità più elevato in un account non ha tale precedenza di pianificazione rispetto a un altro processo con un valore di priorità inferiore in un account diverso. Le attività nei processi con priorità più bassa già in esecuzione non vengono messe in attesa.
+Per aggiornare la priorità di un processo, chiamare l' [aggiornamento delle proprietà di un'operazione del processo](/rest/api/batchservice/job/update) (batch Rest) o modificare [CloudJob. Priority](/dotnet/api/microsoft.azure.batch.cloudjob) (batch .NET). I valori di priorità sono compresi tra-1000 (priorità più bassa) e 1000 (priorità più alta).
 
-La pianificazione di attività dei pool è indipendente. Tra pool diversi, non è garantito che un processo con priorità più elevato venga pianificato per primo se il relativo pool associato non ha un numero sufficiente di nodi inattivi. Nello stesso pool i processi con lo stesso livello di priorità hanno la stessa probabilità di essere pianificati.
+All'interno dello stesso pool, i processi con priorità più alta hanno priorità di pianificazione rispetto ai processi con priorità più bassa. Le attività in processi con priorità più bassa già in esecuzione non verranno interrotte dalle attività in un processo con priorità più alta. I processi con lo stesso livello di priorità hanno la stessa probabilità di essere pianificati e l'ordine di esecuzione dell'attività non è definito.
+
+Un processo con un valore di priorità alta in esecuzione in un pool non influirà sulla pianificazione dei processi in esecuzione in un pool separato o in un account batch diverso. La priorità del processo non si applica ai [pool](nodes-and-pools.md#autopools), che vengono creati durante l'invio del processo.
 
 ### <a name="job-constraints"></a>Vincoli del processo
 
@@ -39,9 +41,9 @@ La pianificazione di attività dei pool è indipendente. Tra pool diversi, non �
 
 L'applicazione client può aggiungere attività a un processo oppure è possibile specificare un'[attività del gestore di processi](#job-manager-task). Un'attività del gestore di processi contiene le informazioni necessarie per creare le attività obbligatorie per un processo. L'attività del gestore di processi viene eseguita in uno dei nodi di calcolo del pool. L'attività del gestore di processi viene gestita in modo specifico da Batch, ovvero viene accodata non appena si crea il processo e viene riavviata se l'operazione non riesce. Un'attività del gestore di processi è obbligatoria per i processi creati da una [pianificazione di processi](#scheduled-jobs), perché è l'unico modo per definire le attività prima della creazione di istanze del processo.
 
-Per impostazione predefinita, i processi rimangono nello stato attivo dopo il completamento di tutte le attività del processo. È possibile modificare questo comportamento in modo che il processo venga terminato automaticamente una volta completate tutte le relative attività. Impostare la proprietà **onAllTasksComplete** del processo ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) in Batch .NET) su *terminatejob* per terminare automaticamente il processo quando tutte le relative attività risultano completate.
+Per impostazione predefinita, i processi rimangono nello stato attivo dopo il completamento di tutte le attività del processo. È possibile modificare questo comportamento in modo che il processo venga terminato automaticamente una volta completate tutte le relative attività. Impostare la proprietà **onAllTasksComplete** del processo ([onAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) in batch .NET) su `terminatejob` *' per terminare automaticamente il processo quando tutte le relative attività sono nello stato completato.
 
-Il servizio Batch considera un processo *senza* attività quando ha tutte le relative attività completate. Di conseguenza, questa opzione viene usata più comunemente con un' [attività del gestore di processi](#job-manager-task). Se si vuole usare la chiusura automatica di processi senza un gestore di processi, è necessario impostare inizialmente la proprietà **onAllTasksComplete** di un nuovo processo su *noaction*, quindi impostarlo su *terminatejob* solo dopo aver completato l'aggiunta di attività al processo.
+Il servizio Batch considera un processo *senza* attività quando ha tutte le relative attività completate. Di conseguenza, questa opzione viene usata più comunemente con un' [attività del gestore di processi](#job-manager-task). Se si vuole usare la terminazione automatica dei processi senza un gestore di processi, è necessario impostare inizialmente la proprietà **onAllTasksComplete** di un nuovo processo su `noaction` , quindi impostarla su `terminatejob` *' solo dopo aver completato l'aggiunta di attività al processo.
 
 ### <a name="scheduled-jobs"></a>Processi pianificati
 

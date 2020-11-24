@@ -1,14 +1,14 @@
 ---
 title: Configurare l'ambiente per l'operatore Blueprint
 description: Informazioni su come configurare l'ambiente Azure per l'uso con il ruolo predefinito operatore di Azure.
-ms.date: 08/27/2020
+ms.date: 11/24/2020
 ms.topic: how-to
-ms.openlocfilehash: ae881ac6d0714401f8c80e880b4d288f594b7cf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db8450516feab2fae4136f549959a29b006059aa
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535782"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95804914"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurare l'ambiente per un operatore di Blueprint
 
@@ -28,7 +28,9 @@ Il primo passaggio consiste nel concedere il ruolo di **operatore Blueprint** al
 
 Una definizione di progetto può usare identità gestite assegnate dal sistema o dall'utente. Tuttavia, quando si usa il ruolo **operatore progetto** , la definizione del progetto deve essere configurata in modo da usare un'identità gestita assegnata dall'utente. Inoltre, all'account o al gruppo di sicurezza a cui viene concesso il ruolo di **operatore Blueprint** deve essere concesso il ruolo di **operatore identità gestito** nell'identità gestita assegnata dall'utente. Senza questa autorizzazione, le assegnazioni di progetto hanno esito negativo a causa della mancanza di autorizzazioni.
 
-1. [Creare un'identità gestita assegnata dall'utente](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) per l'uso da un progetto assegnato
+1. [Creare un'identità gestita assegnata dall'utente](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) per l'uso da un progetto assegnato.
+
+1. Concedere all'identità gestita assegnata dall'utente tutti i ruoli o le autorizzazioni richieste dalla definizione di progetto per l'ambito previsto.
 
 1. [Aggiungere un'assegnazione di ruolo](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) dell' **operatore di identità gestito** all'account o al gruppo di sicurezza. Definire l'ambito dell'assegnazione di ruolo alla nuova identità gestita assegnata dall'utente.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: becaadda37cdc7cf25fb3881dda0961e8640ad12
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 64799013d8d71e63300a8b48e5ca5b0d4d02c634
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95538360"
+ms.locfileid: "95808020"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Raccomandazioni sulla sicurezza per archiviazione BLOB
 
@@ -73,5 +73,5 @@ Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Documentazione sulla sicurezza di Azure](//azure/security/)
+- [Documentazione sulla sicurezza di Azure](../../security/index.yml)
 - [Documentazione per lo sviluppo sicuro](../../security/develop/index.yml).

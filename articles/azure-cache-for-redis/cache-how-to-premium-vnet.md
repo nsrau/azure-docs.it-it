@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: f7b4a22c0473acb7da0708f095c25b4f3f78fe66
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5fd82105c94bb9be2d07c8843834465821acd8bc
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445592"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95803782"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Come configurare il supporto di una rete virtuale per una Cache Redis di Azure Premium
 Cache Redis di Azure include diverse soluzioni cache che offrono flessibilità di scelta riguardo alle dimensioni e alle funzionalità della cache, tra cui le funzionalità del livello Premium come clustering, persistenza e supporto per reti virtuali. Una rete virtuale è una rete privata nel cloud. Quando un'istanza di Cache Redis di Azure viene configurata con una rete virtuale, non è indirizzabile pubblicamente ed è accessibile solo da macchine virtuali e applicazioni all'interno della rete virtuale. Questo articolo descrive come configurare il supporto di una rete virtuale per un'istanza Premium di Cache Redis di Azure.
@@ -80,7 +80,7 @@ Il supporto della rete virtuale viene configurato nel pannello **Nuova cache Red
 
 11. Quando viene visualizzato il messaggio di convalida verde, selezionare **Crea**.
 
-La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione** , la cache è pronta per l'uso. Dopo aver creato la cache, è possibile visualizzare la configurazione della rete virtuale facendo clic su **Rete virtuale** dal **menu Risorse**.
+La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione**, la cache è pronta per l'uso. Dopo aver creato la cache, è possibile visualizzare la configurazione della rete virtuale facendo clic su **Rete virtuale** dal **menu Risorse**.
 
 ![Rete virtuale][redis-cache-vnet-info]
 
@@ -130,7 +130,7 @@ Sono previsti nove requisiti per le porte in uscita. Le richieste in uscita in q
 
 | Porte | Direzione | Protocollo di trasporto | Scopo | IP locale | IP remoto |
 | --- | --- | --- | --- | --- | --- |
-| 80, 443 |In uscita |TCP |Dipendenze Redis in Archiviazione di Azure/PKI (Internet) | (Subnet Redis) |* |
+| 80, 443 |In uscita |TCP |Dipendenze Redis in Archiviazione di Azure/PKI (Internet) | (Subnet Redis) |* <sup>4</sup> |
 | 443 | In uscita | TCP | Dipendenza Redis da Azure Key Vault e monitoraggio di Azure | (Subnet Redis) | AzureKeyVault, AzureMonitor <sup>1</sup> |
 | 53 |In uscita |TCP/UDP |Dipendenze Redis nel DNS (Internet/rete virtuale) | (Subnet Redis) | 168.63.129.16 e 169.254.169.254 <sup>2</sup> e qualsiasi server DNS personalizzato per la subnet <sup>3</sup> |
 | 8443 |In uscita |TCP |Comunicazioni interne per Redis | (Subnet Redis) | (Subnet Redis) |
@@ -146,6 +146,8 @@ Sono previsti nove requisiti per le porte in uscita. Le richieste in uscita in q
 
 <sup>3</sup> non necessario per le subnet senza server DNS personalizzato o cache Redis più recenti che ignorano il DNS personalizzato.
 
+<sup>4</sup> per ulteriori informazioni, vedere [requisiti di connettività di rete VNET aggiuntivi](#additional-vnet-network-connectivity-requirements).
+
 #### <a name="geo-replication-peer-port-requirements"></a>Requisiti per le porte peer per la replica geografica
 
 Se si usa la replica geografica tra le cache nelle reti virtuali di Azure, si noti che la configurazione consigliata prevede di sbloccare le porte 15000-15999 per l'intera subnet in entrambe le direzioni in ingresso e in uscita per entrambe le cache, in modo che tutti i componenti di replica nella subnet possano comunicare direttamente tra loro anche in caso di failover geografico futuro.
@@ -156,13 +158,13 @@ Vi sono otto requisiti delle porte in ingresso. Le richieste in ingresso in ques
 
 | Porte | Direzione | Protocollo di trasporto | Scopo | IP locale | IP remoto |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |In ingresso |TCP |Comunicazione tra client e Redis, bilanciamento del carico di Azure | (Subnet Redis) | (Subnet Redis), rete virtuale, Azure Load Balancer <sup>1</sup> |
+| 6379, 6380 |In ingresso |TCP |Comunicazione tra client e Redis, bilanciamento del carico di Azure | (Subnet Redis) | (Subnet Redis), (subnet client), AzureLoadBalancer <sup>1</sup> |
 | 8443 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
-| 8500 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure | (Subnet Redis) |Azure Load Balancer |
-| 10221-10231 |In ingresso |TCP |Comunicazione tra client e cluster Redis, comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis), Azure Load Balancer, (subnet client) |
-| 13000-13999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure | (Subnet Redis) |Rete virtuale, Bilanciamento carico di Azure |
-| 15000-15999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure e Geo-Replication | (Subnet Redis) |Rete virtuale, Azure Load Balancer, (subnet peer di replica geografica) |
-| 16001 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure | (Subnet Redis) |Azure Load Balancer |
+| 8500 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure | (Subnet Redis) | AzureLoadBalancer |
+| 10221-10231 |In ingresso |TCP |Comunicazione tra client e cluster Redis, comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis), AzureLoadBalancer, (subnet client) |
+| 13000-13999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure | (Subnet Redis) | (Subnet Redis), (subnet client), AzureLoadBalancer |
+| 15000-15999 |In ingresso |TCP |Comunicazione tra client e cluster Redis, bilanciamento del carico di Azure e Geo-Replication | (Subnet Redis) | (Subnet Redis), (subnet client), AzureLoadBalancer, (subnet peer di replica geografica) |
+| 16001 |In ingresso |TCP/UDP |Bilanciamento del carico di Azure | (Subnet Redis) | AzureLoadBalancer |
 | 20226 |In ingresso |TCP |Comunicazioni interne per Redis | (Subnet Redis) |(Subnet Redis) |
 
 <sup>1</sup> è possibile usare il tag di servizio ' AzureLoadBalancer ' (Gestione risorse) (o ' AZURE_LOADBALANCER ' per la distribuzione classica) per la creazione delle regole NSG.
@@ -171,10 +173,10 @@ Vi sono otto requisiti delle porte in ingresso. Le richieste in ingresso in ques
 
 Esistono requisiti di connettività di rete per Cache Redis di Azure che potrebbero non essere inizialmente soddisfatti in una rete virtuale. Per il corretto funzionamento se usato all'interno di una rete virtuale, Cache Redis di Azure richiede tutti gli elementi seguenti.
 
-* Connettività di rete in uscita per endpoint di archiviazione di Azure in tutto il mondo. Sono inclusi gli endpoint che si trovano nella stessa area dell'istanza di Cache Redis di Azure, nonché gli endpoint di archiviazione che si trovano in **altre** aree di Azure. Gli endpoint di archiviazione di Azure vengono risolti nei seguenti domini DNS: *Table.Core.Windows.NET* , *BLOB.Core.Windows.NET* , *queue.Core.Windows.NET* e *file.Core.Windows.NET*. 
-* Connettività di rete in uscita a *OCSP.DigiCert.com* , *CRL4.DigiCert.com* , *OCSP.msocsp.com* , *mscrl.Microsoft.com* , *crl3.DigiCert.com* , *cacerts.DigiCert.com* , *oneocsp.Microsoft.com* e *CRL.Microsoft.com*. Questa connettività è necessaria per supportare la funzionalità TLS/SSL.
+* Connettività di rete in uscita per endpoint di archiviazione di Azure in tutto il mondo. Sono inclusi gli endpoint che si trovano nella stessa area dell'istanza di Cache Redis di Azure, nonché gli endpoint di archiviazione che si trovano in **altre** aree di Azure. Gli endpoint di archiviazione di Azure vengono risolti nei seguenti domini DNS: *Table.Core.Windows.NET*, *BLOB.Core.Windows.NET*, *queue.Core.Windows.NET* e *file.Core.Windows.NET*. 
+* Connettività di rete in uscita a *OCSP.DigiCert.com*, *CRL4.DigiCert.com*, *OCSP.msocsp.com*, *mscrl.Microsoft.com*, *crl3.DigiCert.com*, *cacerts.DigiCert.com*, *oneocsp.Microsoft.com* e *CRL.Microsoft.com*. Questa connettività è necessaria per supportare la funzionalità TLS/SSL.
 * La configurazione DNS per la rete virtuale deve essere in grado di risolvere tutti gli endpoint e i domini indicati nei punti precedenti. Questi requisiti DNS possono essere soddisfatti garantendo che un'infrastruttura DNS valida venga configurata e mantenuta per la rete virtuale.
-* Connettività di rete in uscita agli endpoint di monitoraggio di Azure seguenti, che vengono risolti nei seguenti domini DNS: *shoebox2-Black.shoebox2.Metrics.nsatc.NET* , *North-prod2.prod2.Metrics.nsatc.NET* , *azglobal-Black.azglobal.Metrics.nsatc.NET* , *shoebox2-Red.shoebox2.Metrics.nsatc.NET* , *East-prod2.prod2.Metrics.nsatc.NET* , *azglobal-Red.azglobal.Metrics.nsatc.NET*.
+* Connettività di rete in uscita agli endpoint di monitoraggio di Azure seguenti, che vengono risolti nei seguenti domini DNS: *shoebox2-Black.shoebox2.Metrics.nsatc.NET*, *North-prod2.prod2.Metrics.nsatc.NET*, *azglobal-Black.azglobal.Metrics.nsatc.NET*, *shoebox2-Red.shoebox2.Metrics.nsatc.NET*, *East-prod2.prod2.Metrics.nsatc.NET*, *azglobal-Red.azglobal.Metrics.nsatc.NET*.
 
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>Come è possibile verificare che la cache funzioni in una rete virtuale?
 
@@ -187,7 +189,7 @@ Dopo aver configurato i requisiti delle porte come descritto nella sezione prece
 
 - [Riavviare](cache-administration.md#reboot) tutti i nodi della cache. Se non è possibile raggiungere tutte le dipendenze della cache richieste (come descritto in [Requisiti delle porte in ingresso](cache-how-to-premium-vnet.md#inbound-port-requirements) e [Requisiti delle porte in uscita](cache-how-to-premium-vnet.md#outbound-port-requirements)), la cache non sarà in grado di riavviarsi.
 - Dopo il riavvio dei nodi della cache (come riportato dallo stato della cache nel portale di Azure), è possibile eseguire i test seguenti:
-  - eseguire il ping dell'endpoint della cache (tramite la porta 6380) da un computer che si trova all'interno della stessa rete virtuale della cache tramite [tcping](https://www.elifulkerson.com/projects/tcping.php). Esempio:
+  - eseguire il ping dell'endpoint della cache (tramite la porta 6380) da un computer che si trova all'interno della stessa rete virtuale della cache tramite [tcping](https://www.elifulkerson.com/projects/tcping.php). Ad esempio:
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -210,7 +212,7 @@ Evitare di usare l'indirizzo IP simile alla stringa di connessione seguente:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-Se non si è in grado di risolvere il nome DNS, alcune librerie client includono delle opzioni di configurazione come `sslHost` che viene fornita dal client StackExchange.Redis. In questo modo è possibile sostituire il nome host usato per la convalida del certificato. Esempio:
+Se non si è in grado di risolvere il nome DNS, alcune librerie client includono delle opzioni di configurazione come `sslHost` che viene fornita dal client StackExchange.Redis. In questo modo è possibile sostituire il nome host usato per la convalida del certificato. Ad esempio:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 
@@ -218,19 +220,19 @@ Se non si è in grado di risolvere il nome DNS, alcune librerie client includono
 Le reti virtuali possono essere usate solo con cache Premium.
 
 ### <a name="why-does-creating-an-azure-cache-for-redis-fail-in-some-subnets-but-not-others"></a>Perché la creazione di una cache Redis di Azure ha esito negativo in alcune subnet e non in altre?
-Quando si distribuisce un'istanza di Cache Redis di Azure in una rete virtuale di Resource Manager, la cache deve trovarsi in una subnet dedicata che non contenga altri tipi di risorse. Se si tenta di distribuire un'istanza di Cache Redis di Azure in una rete virtuale di Resource Manager all'interno di una subnet contenente altre risorse, la distribuzione non riesce. Prima di poter creare una nuova cache Redis di Azure, è necessario eliminare le risorse esistenti all'interno della subnet.
+Se si distribuisce una cache di Azure per Redis in una VNet, la cache deve trovarsi in una subnet dedicata che non contiene altri tipi di risorse. Se viene effettuato un tentativo di distribuire una cache di Azure per Redis in una Gestione risorse subnet VNet che contiene altre risorse, ad esempio gateway applicazione, NAT in uscita e così via, la distribuzione non riuscirà in genere. Prima di poter creare una nuova cache di Azure per Redis, è necessario eliminare le risorse esistenti di altri tipi.
 
-È possibile distribuire più tipi di risorse in una rete virtuale classica, purché siano disponibili indirizzi IP sufficienti.
+È inoltre necessario disporre di un numero sufficiente di indirizzi IP disponibili nella subnet.
 
 ### <a name="what-are-the-subnet-address-space-requirements"></a>Quali sono i requisiti di spazio per gli indirizzi di subnet?
 Azure riserva alcuni indirizzi IP all'interno di ogni subnet e questi indirizzi non possono essere usati. Il primo e l'ultimo indirizzo IP delle subnet sono riservati per motivi di conformità al protocollo, insieme ad altri tre indirizzi usati per i servizi di Azure. Per altre informazioni, vedere [Esistono restrizioni sull'uso di indirizzi IP all'interno di tali subnet?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
-Oltre agli indirizzi IP usati dall'infrastruttura di rete virtuale di Azure, ogni istanza di Cache Redis nella subnet usa due indirizzi IP per partizione e un altro indirizzo IP per il bilanciamento del carico. Si presuppone che una cache non cluster includa una sola partizione.
+Oltre agli indirizzi IP usati dall'infrastruttura VNET di Azure, ogni istanza di redis nella subnet usa due indirizzi IP per ogni partizione del cluster (più indirizzi IP aggiuntivi per eventuali repliche aggiuntive) e un indirizzo IP aggiuntivo per il servizio di bilanciamento del carico. Si presuppone che una cache non cluster includa una sola partizione.
 
 ### <a name="do-all-cache-features-work-when-hosting-a-cache-in-a-vnet"></a>Tutte le funzionalità della cache funzionano quando si ospita una cache in una rete virtuale?
 Quando la cache fa parte di una rete virtuale, solo i client nella rete virtuale possono accedere alla cache. Di conseguenza, le seguenti funzionalità di gestione della cache non funzionano in questo momento.
 
-* Console Redis: poiché la console Redis viene eseguita nel browser locale, che si trova esternamente alla rete virtuale, non può connettersi alla cache.
+* Console redis: poiché la console Redis viene eseguita nel browser locale, che in genere si trova in un computer di sviluppo non connesso a VNET, non è in grado di connettersi alla cache.
 
 
 ## <a name="use-expressroute-with-azure-cache-for-redis"></a>Usare ExpressRoute con Cache Redis di Azure
@@ -239,7 +241,7 @@ I clienti possono connettere un circuito [Azure ExpressRoute](https://azure.micr
 
 Per impostazione predefinita, un circuito ExpressRoute appena creato non esegue il tunneling forzato (annuncio della route predefinita, 0.0.0.0/0) in una rete virtuale. Di conseguenza, la connettività Internet in uscita è consentita direttamente dalla rete virtuale e le applicazioni client sono in grado di connettersi agli altri endpoint di Azure tra cui la Cache Redis di Azure.
 
-Tuttavia, una configurazione comune dei clienti è quella di usare il tunneling forzato (segnalare una route predefinita) verso la quale viene forzato il traffico Internet in uscita invece di far passare il flusso localmente. Questo flusso di traffico interrompe la connettività con Cache Redis di Azure se il traffico in uscita viene quindi bloccato in locale in modo da impedire all'istanza di Cache Redis di Azure di comunicare con le proprie dipendenze.
+Tuttavia, una configurazione comune dei clienti prevede l'uso del tunneling forzato (annunciare una route predefinita) che forza il traffico Internet in uscita verso il flusso locale. Questo flusso di traffico interrompe la connettività con Cache Redis di Azure se il traffico in uscita viene quindi bloccato in locale in modo da impedire all'istanza di Cache Redis di Azure di comunicare con le proprie dipendenze.
 
 La soluzione consiste nel definire una o più route definite dall'utente (UDR, User Defined Route) nella subnet contenente la Cache Redis di Azure. Una route UDR definisce le route specifiche della subnet che verranno accettate invece della route predefinita.
 

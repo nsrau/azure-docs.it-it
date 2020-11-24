@@ -2,13 +2,13 @@
 title: Distribuire le risorse nei gruppi di risorse
 description: Viene descritto come distribuire le risorse in un modello di Azure Resource Manager. Mostra come definire come destinazione più di un gruppo di risorse.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 5e33f0d505759944ccaf2233aa122b6ab701c91f
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 11/24/2020
+ms.openlocfilehash: 9d0bec51fa55ee377eb647a11fb554ec3b81e9eb
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917427"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95807714"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Distribuzioni di gruppi di risorse con modelli ARM
 

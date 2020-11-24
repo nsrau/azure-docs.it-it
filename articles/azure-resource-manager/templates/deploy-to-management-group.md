@@ -2,13 +2,13 @@
 title: Distribuire le risorse al gruppo di gestione
 description: Viene descritto come distribuire le risorse nell'ambito del gruppo di gestione in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/23/2020
-ms.openlocfilehash: 54d4c096fab09bf31e121a7aae0eed3d2462e0c4
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 11/24/2020
+ms.openlocfilehash: 79cdb35de40501dfc0794155dcf807cced94bfa7
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95519881"
+ms.locfileid: "95798598"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Distribuzioni del gruppo di gestione con i modelli ARM
 
@@ -106,6 +106,14 @@ Per informazioni più dettagliate sui comandi e sulle opzioni di distribuzione p
 * [Usare un pulsante di distribuzione per distribuire i modelli dal repository GitHub](deploy-to-azure-button.md)
 * [Distribuire modelli ARM da Cloud Shell](deploy-cloud-shell.md)
 
+## <a name="deployment-location-and-name"></a>Percorso e nome della distribuzione
+
+Per le distribuzioni a livello di gruppo di gestione, è necessario specificare un percorso per la distribuzione. Il percorso di distribuzione è separato dal percorso delle risorse distribuite e specifica dove archiviare i dati di distribuzione. Per le distribuzioni di [sottoscrizione](deploy-to-subscription.md) e [tenant](deploy-to-tenant.md) è necessaria anche una località. Per le distribuzioni di [gruppi di risorse](deploy-to-resource-group.md) , il percorso del gruppo di risorse viene usato per archiviare i dati di distribuzione.
+
+È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
+
+Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se, ad esempio, si crea una distribuzione del gruppo di gestione con il nome **Deployment1** in **centralus**, non sarà possibile creare in un secondo momento un'altra distribuzione con il nome **Deployment1** ma un percorso di **westus**. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
+
 ## <a name="deployment-scopes"></a>Ambiti di distribuzione
 
 Quando si esegue la distribuzione in un gruppo di gestione, è possibile distribuire le risorse in:
@@ -131,7 +139,7 @@ Le risorse definite nella sezione Resources del modello vengono applicate al gru
 
 Per fare riferimento a un altro gruppo di gestione, aggiungere una distribuzione annidata e specificare la `scope` Proprietà. Impostare la `scope` proprietà su un valore nel formato `Microsoft.Management/managementGroups/<mg-name>` .
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,22":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,18,22":::
 
 ### <a name="scope-to-subscription"></a>Ambito della sottoscrizione
 
@@ -139,7 +147,7 @@ Per fare riferimento a un altro gruppo di gestione, aggiungere una distribuzione
 
 Per fare riferimento a una sottoscrizione all'interno del gruppo di gestione, usare una distribuzione annidata e la `subscriptionId` Proprietà.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="10,18":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="9,10,18":::
 
 ### <a name="scope-to-resource-group"></a>Ambito al gruppo di risorse
 
@@ -162,14 +170,6 @@ Per usare una distribuzione del gruppo di gestione per creare un gruppo di risor
 In alternativa, è possibile impostare l'ambito su `/` per alcuni tipi di risorse, ad esempio i gruppi di gestione.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-create-mg.json" highlight="12,15":::
-
-## <a name="deployment-location-and-name"></a>Percorso e nome della distribuzione
-
-Per le distribuzioni a livello di gruppo di gestione, è necessario specificare un percorso per la distribuzione. Il percorso di distribuzione è separato dal percorso delle risorse distribuite e specifica dove archiviare i dati di distribuzione.
-
-È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
-
-Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
 
 ## <a name="azure-policy"></a>Criteri di Azure
 

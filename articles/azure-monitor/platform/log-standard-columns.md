@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: dc3d119479d2dce45b286463f3d6a76410220dd0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 2370f76bacb8645f1b343da4f056c8bcf06a26dd
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014221"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95796729"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colonne standard nei log di monitoraggio di Azure
 I dati nei log di monitoraggio di Azure vengono [archiviati come set di record in un'area di lavoro log Analytics o in un'applicazione Application Insights](./data-platform-logs.md), ognuno con un particolare tipo di dati che dispone di un set univoco di colonne. Molti tipi di dati avranno colonne standard comuni tra più tipi. Questo articolo descrive queste colonne e fornisce esempi di come è possibile usarle nelle query.
@@ -80,7 +80,7 @@ La colonna **\_ ItemId** include un identificatore univoco per il record.
 ## <a name="_resourceid"></a>\_ResourceId
 La colonna **\_ resourceId** include un identificatore univoco per la risorsa a cui è associato il record. In questo modo si ottiene una colonna standard da usare per definire l'ambito della query solo per i record di una determinata risorsa o per unire dati correlati tra più tabelle.
 
-Per le risorse di Azure, il valore di **_ResourceId** è l'[URL dell'ID risorsa di Azure](../../azure-resource-manager/templates/template-functions-resource.md). La colonna è attualmente limitata alle risorse di Azure, ma verrà estesa a risorse esterne ad Azure, ad esempio computer locali.
+Per le risorse di Azure, il valore di **_ResourceId** è l'[URL dell'ID risorsa di Azure](../../azure-resource-manager/templates/template-functions-resource.md). La colonna è limitata alle risorse di Azure, incluse le risorse di [Azure Arc](../../azure-arc/overview.md) , oppure ai log personalizzati che indicano l'ID risorsa durante l'inserimento.
 
 > [!NOTE]
 > Alcuni tipi di dati dispongono già di campi che contengono l'ID risorsa di Azure o almeno una parte di esso, ad esempio l'ID sottoscrizione. Mentre questi campi vengono mantenuti per motivi di compatibilità con le versioni precedenti, è consigliabile usare _ResourceId per eseguire la correlazione incrociata dal momento che sarà più coerente.
@@ -111,17 +111,47 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-La query seguente analizza **_ResourceId** e aggrega i volumi di dati fatturati per ogni sottoscrizione di Azure.
+La query seguente analizza **_ResourceId** e aggrega i volumi di dati fatturati per ogni gruppo di risorse di Azure.
 
 ```Kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by resourceGroup | sort by Bytes nulls last 
 ```
 
 Usare queste query `union withsource = tt *` solo se necessario, poiché le analisi tra tipi di dati sono costose.
+
+È sempre più efficiente usare la \_ colonna SubscriptionId anziché estrarla analizzando la \_ colonna ResourceId.
+
+## <a name="_substriptionid"></a>\_SubstriptionId
+La colonna **\_ SubscriptionId** include l'ID sottoscrizione della risorsa a cui è associato il record. In questo modo si ottiene una colonna standard da usare per definire l'ambito della query solo per i record di una sottoscrizione specifica o per confrontare sottoscrizioni diverse.
+
+Per le risorse di Azure, il valore di **__SubscriptionId** è la parte relativa alla sottoscrizione dell' [URL dell'ID risorsa di Azure](../../azure-resource-manager/templates/template-functions-resource.md). La colonna è limitata alle risorse di Azure, incluse le risorse di [Azure Arc](../../azure-arc/overview.md) , oppure ai log personalizzati che indicano l'ID risorsa durante l'inserimento.
+
+> [!NOTE]
+> Per alcuni tipi di dati sono già presenti campi che contengono l'ID sottoscrizione di Azure. Sebbene questi campi siano conservati per la compatibilità con le versioni precedenti, è consigliabile usare la \_ colonna SubscriptionId per eseguire la correlazione incrociata poiché sarà più coerente.
+### <a name="examples"></a>Esempi
+Nella query seguente vengono esaminati i dati sulle prestazioni per i computer di una sottoscrizione specifica. 
+
+```Kusto
+Perf 
+| where TimeGenerated > ago(24h) and CounterName == "memoryAllocatableBytes"
+| where _SubscriptionId == "57366bcb3-7fde-4caf-8629-41dc15e3b352"
+| summarize avgMemoryAllocatableBytes = avg(CounterValue) by Computer
+```
+
+La query seguente analizza **_ResourceId** e aggrega i volumi di dati fatturati per ogni sottoscrizione di Azure.
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _SubscriptionId | sort by Bytes nulls last 
+```
+
+Usare queste query `union withsource = tt *` solo se necessario, poiché le analisi tra tipi di dati sono costose.
+
 
 ## <a name="_isbillable"></a>\_IsBillable
 La colonna **\_ fatturabile** specifica se i dati inseriti sono fatturabili. I dati con **\_IsBillable** uguali a `false` vengono raccolti gratuitamente e non fatturati nell'account Azure.
@@ -154,7 +184,7 @@ union withsource = tt *
 La colonna **\_ BilledSize** specifica la dimensione in byte dei dati che verranno addebitati all'account di Azure se la **\_ fatturazione** è vera.
 
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 Per visualizzare le dimensioni degli eventi fatturabili inseriti per computer, utilizzare la `_BilledSize` colonna che fornisce le dimensioni in byte:
 
 ```Kusto
@@ -168,8 +198,7 @@ Per visualizzare la quantità di eventi fatturabili inseriti per sottoscrizione,
 ```Kusto
 union withsource=table * 
 | where _IsBillable == true 
-| parse _ResourceId with "/subscriptions/" SubscriptionId "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId | sort by Bytes nulls last 
 ```
 
 Per visualizzare la quantità di eventi fatturabili inseriti per gruppo di risorse, usare la query seguente:
@@ -178,7 +207,7 @@ Per visualizzare la quantità di eventi fatturabili inseriti per gruppo di risor
 union withsource=table * 
 | where _IsBillable == true 
 | parse _ResourceId with "/subscriptions/" SubscriptionId "/resourcegroups/" ResourceGroupName "/" *
-| summarize Bytes=sum(_BilledSize) by  SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
+| summarize Bytes=sum(_BilledSize) by  _SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
 
 ```
 

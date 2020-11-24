@@ -3,12 +3,12 @@ title: Come abilitare la risorsa della soluzione VMware di Azure
 description: Informazioni su come inviare una richiesta di supporto per abilitare la risorsa della soluzione VMware di Azure. È anche possibile richiedere più host nel cloud privato della soluzione VMware di Azure esistente.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: cd58611f77c2f2fb1694597fc9ef049420093ccc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 68f8fe38c67ec5ddad7cf662a7996330ee2a1e73
+ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967364"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95794722"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Come abilitare la risorsa della soluzione VMware di Azure
 Informazioni su come inviare una richiesta di supporto per abilitare la risorsa della [soluzione VMware di Azure](introduction.md) . È anche possibile richiedere più host nel cloud privato della soluzione VMware di Azure esistente.
@@ -64,7 +64,7 @@ Prima di creare la risorsa della soluzione VMware di Azure, è necessario inviar
 I CSP devono usare il centro per i [partner Microsoft](https://partner.microsoft.com) per abilitare la soluzione VMware di Azure per i clienti. 
 
    >[!IMPORTANT] 
-   >Il servizio di soluzione VMware di Azure non offre un ambiente multi-tenant e pertanto i partner di hosting non sono ancora supportati. 
+   >Il servizio della soluzione VMware di Azure non fornisce un multi-tenant richiesto. I partner di hosting che lo richiedono non sono supportati. 
 
 1. In **centro** per i partner selezionare **CSP** per accedere all'area **clienti** .
 
@@ -113,13 +113,16 @@ Dopo aver configurato il piano di Azure e le autorizzazioni di vSphere RBAC nece
    >[!IMPORTANT] 
    >Se si dispone già di una soluzione VMware di Azure esistente e si richiede un host aggiuntivo, si noti che per l'assegnazione degli host sono necessari cinque giorni lavorativi. 
 
-1. Una volta aggiunto al piano Azure e con la quota abilitata, il cliente o l'amministratore partner può distribuire un cloud privato della soluzione VMware di Azure tramite il portale di Azure. Prima di poter effettuare il provisioning degli host, assicurarsi di registrare il provider di risorse **Microsoft. AVS** nella portale di Azure.  
+1. Se la sottoscrizione viene gestita dal provider di servizi, il team di amministrazione deve accedere portale di Azure usando di nuovo la procedura **di amministratore per conto di** (Aobo) dal centro per i partner. Una portale di Azure avviare un'istanza di [cloud Shell](../cloud-shell/overview.md) e registrare il provider di risorse **Microsoft. AVS** e procedere con la distribuzione del cloud privato della soluzione VMware di Azure.  
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
    ```
 
    Per informazioni su come registrare il provider di risorse in altri modi, vedere [Provider e tipi di risorse di Azure](../azure-resource-manager/management/resource-providers-and-types.md).
+
+1. Se la sottoscrizione viene gestita direttamente dal cliente, la registrazione del provider di risorse **Microsoft. AVS** deve essere eseguita da un utente che disponga di autorizzazioni sufficienti nella sottoscrizione. per informazioni dettagliate e per la registrazione del provider di risorse, vedere i [tipi e](../azure-resource-manager/management/resource-providers-and-types.md) i provider di risorse di Azure. 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 
