@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 06/03/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 2a35180e4c5ca26d53be135718e345f9657af6a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54a789aba793d9a6b44d5fe9a1e0f42023002b5a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88655254"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557113"
 ---
 | **Risorsa** | **Limite predefinito** | **Limite massimo** |
 | --- | --- | --- |
 | Account Azure Batch per area per sottoscrizione | 1-3 |50 |
 | Core dedicati per account Batch | 90-900 | Contattare il supporto tecnico |
 | Core a bassa priorità per account Batch | 10-100 | Contattare il supporto tecnico |
-| Processi **[attivi](https://docs.microsoft.com/rest/api/batchservice/job/get#jobstate)** e pianificazioni di processi per ogni account Batch (i **processi** completati non hanno limiti) | 100-300 | 1\.000<sup>1</sup> |
+| Processi **[attivi](/rest/api/batchservice/job/get#jobstate)** e pianificazioni di processi per ogni account Batch (i **processi** completati non hanno limiti) | 100-300 | 1\.000<sup>1</sup> |
 | Pool per account Batch | 20-100 | 500<sup>1</sup> |
 
 <sup>1</sup> Per richiedere un aumento oltre questo limite, contattare il supporto di Azure.
@@ -32,4 +32,4 @@ ms.locfileid: "88655254"
 > I limiti predefiniti variano a seconda del tipo di sottoscrizione usata per creare un account Batch. Le quote di core indicate sono per gli account in modalità servizio Batch. [Visualizzare le quote nell'account Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
 > [!IMPORTANT]
-> Per una migliore gestione della capacità durante la pandemia sanitaria, in alcune aree e per alcuni tipi di sottoscrizione le quote predefinite di core per i nuovi account Batch sono state ridotte rispetto all'intervallo di valori indicato sopra, in alcuni casi fino a zero core. Quando si crea un nuovo account Batch, [controllare la quota di core](../articles/batch/batch-quota-limit.md#view-batch-quotas) e [richiedere un aumento](../articles/batch/batch-quota-limit.md#increase-a-quota), se necessario. In alternativa, provare a riutilizzare gli account Batch che hanno già una quota sufficiente. 
+> Per una migliore gestione della capacità durante la pandemia sanitaria, in alcune aree e per alcuni tipi di sottoscrizione le quote predefinite di core per i nuovi account Batch sono state ridotte rispetto all'intervallo di valori indicato sopra, in alcuni casi fino a zero core. Quando si crea un nuovo account Batch, [controllare la quota di core](../articles/batch/batch-quota-limit.md#view-batch-quotas) e [richiedere un aumento](../articles/batch/batch-quota-limit.md#increase-a-quota), se necessario. In alternativa, provare a riutilizzare gli account Batch che hanno già una quota sufficiente.

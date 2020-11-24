@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a442b5de7a256dd8bcf47da741bd41894709c3a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74085252"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561714"
 ---
 Per diagnosticare i problemi con un servizio cloud di Microsoft Azure è necessario raccogliere i file di log del servizio nelle macchine virtuali non appena si verificano i problemi. È possibile usare l'estensione AzureLogCollector su richiesta per eseguire una raccolta occasionale di log da una o più macchine virtuali del servizio cloud (da ruoli Web e ruoli di lavoro) e trasferire i file raccolti in un account di archiviazione di Azure, senza accedere in modalità remota ad alcuna macchina virtuale.
 
@@ -44,7 +44,7 @@ In entrambe le modalità di raccolta, è possibile specificare cartelle di racco
 * Azure PowerShell. Per le istruzioni di installazione, vedere [install Azure PowerShell](/powershell/azure/install-az-ps)].
 
 ## <a name="add-the-extension"></a>Aggiungere l'estensione
-Per aggiungere l'estensione AzureLogCollector, è possibile usare i cmdlet di [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) o le [API REST di gestione dei servizi](https://msdn.microsoft.com/library/ee460799.aspx).
+Per aggiungere l'estensione AzureLogCollector, è possibile usare i cmdlet di [Microsoft Azure PowerShell](/previous-versions/azure/dn495240(v=azure.100)) o le [API REST di gestione dei servizi](/previous-versions/azure/ee460799(v=azure.100)).
 
 Per i servizi cloud è possibile usare il cmdlet di Azure Powershell esistente, **Set-AzureServiceExtension**, per abilitare l'estensione per le istanze del ruolo servizio cloud. Ogni volta che questa estensione viene abilitata tramite questo cmdlet, viene attivata la raccolta di log nelle istanze del ruolo selezionate dei ruoli specificati.
 
@@ -528,4 +528,3 @@ else
 
 ## <a name="next-steps"></a>Passaggi successivi
 È ora possibile esaminare o copiare i log da una posizione semplificata.
-

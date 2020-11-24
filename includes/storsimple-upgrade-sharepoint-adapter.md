@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: b2dec95e0258933b50d4437f1cb317639b62883d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3467a5d5daa300f82c7b81641ab7e262259d9285
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67180190"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559608"
 ---
 ### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Aggiornare SharePoint 2010 a SharePoint 2013 e quindi installare l'adattatore StorSomple per SharePoint
 > [!IMPORTANT]
@@ -20,7 +20,7 @@ ms.locfileid: "67180190"
 #### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>Per eseguire l'aggiornamento di SharePoint 2010 a SharePoint 2013 e quindi installare l'adattatore
 1. Nella farm di SharePoint 2010, annotare il percorso di archivio BLOB per i BLOB esternalizzati e i database del contenuto per cui RBS è abilitato. 
 2. Installare e configurare la nuova farm di SharePoint 2013. 
-3. Spostare database, applicazioni, raccolte siti, dalla farm SharePoint 2010 alla nuova farm di SharePoint 2013. Per istruzioni, vedere la [Panoramica del processo di aggiornamento a SharePoint 2013](https://technet.microsoft.com/library/cc262483.aspx).
+3. Spostare database, applicazioni, raccolte siti, dalla farm SharePoint 2010 alla nuova farm di SharePoint 2013. Per istruzioni, vedere la [Panoramica del processo di aggiornamento a SharePoint 2013](/SharePoint/upgrade-and-update/overview-of-the-upgrade-process).
 4. Installare l’adattatore StorSimple per SharePoint sulla nuova farm. Andare a [Installare l'adattatore StorSimple per SharePoint](#install-the-storsimple-adapter-for-sharepoint) per le procedure.
 5. Utilizzando le informazioni annotate nel passaggio 1, abilitare RBS per lo stesso set di database del contenuto e fornire lo stesso percorso di archivio BLOB utilizzato nell'installazione di SharePoint 2010. Andare a [Configurare RBS](#configure-rbs) per le procedure. Dopo aver completato questo passaggio, i file esternalizzati in precedenza dovrebbero essere accessibili dalla nuova farm. 
 
@@ -29,7 +29,7 @@ ms.locfileid: "67180190"
 > È consigliabile pianificare l'aggiornamento affinché si verifichi durante un’operazione di manutenzione pianificata per i motivi seguenti:
 > 
 > * I contenuti esternalizzati in precedenza non saranno disponibili fino a quando l'adattatore viene reinstallato.
-> * Qualsiasi contenuto caricato nel sito dopo avere disinstallato la versione precedente dell'adattatore StorSimple per SharePoint, ma prima di installare la nuova versione, verrà archiviato nel database del contenuto. È necessario spostare tale contenuto nel dispositivo StorSimple dopo aver installato il nuovo adattatore. `RBS Migrate()`Per eseguire la migrazione del contenuto, è possibile usare il cmdlet di Microsoft PowerShell incluso in SharePoint. Per ulteriori informazioni, vedere [Migrazione del contenuto in o da RBS](https://technet.microsoft.com/library/ff628255.aspx). 
+> * Qualsiasi contenuto caricato nel sito dopo avere disinstallato la versione precedente dell'adattatore StorSimple per SharePoint, ma prima di installare la nuova versione, verrà archiviato nel database del contenuto. È necessario spostare tale contenuto nel dispositivo StorSimple dopo aver installato il nuovo adattatore. `RBS Migrate()`Per eseguire la migrazione del contenuto, è possibile usare il cmdlet di Microsoft PowerShell incluso in SharePoint. Per ulteriori informazioni, vedere [Migrazione del contenuto in o da RBS](/previous-versions/office/sharepoint-foundation-2010/ff628255(v=office.14)). 
 > 
 > 
 
@@ -41,4 +41,3 @@ ms.locfileid: "67180190"
    > 
    > 
 2. Installare il nuovo adattatore StorSimple per SharePoint Il nuovo adattatore riconoscerà automaticamente i database del contenuto precedentemente abilitati o disabilitati per RBS e utilizzerà le impostazioni precedenti.
-

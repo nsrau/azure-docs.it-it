@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: mbullwin
 ms.custom: include file
-ms.openlocfilehash: bb9f398643007271935a434e22978e555e002232
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 76176c72ad77341d7db1c8f4158a90836b74a91c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779723"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562574"
 ---
 Esistono alcuni limiti sul numero di metriche e eventi per applicazione, ovvero per chiave di strumentazione. I limiti dipendono dal [piano tariffario](https://azure.microsoft.com/pricing/details/application-insights/) scelto.
 
@@ -21,7 +21,7 @@ Esistono alcuni limiti sul numero di metriche e eventi per applicazione, ovvero 
 | --- | --- | --- |
 | Totale dati al giorno | 100 GB | È possibile ridurre i dati impostando un limite. Se sono necessari più dati, è possibile aumentare il limite nel portale fino a 1.000 GB. Per capacità maggiori di 1.000 GB, inviare un messaggio di posta elettronica a AIDataCap@microsoft.com.
 | Limitazione | 32.000 eventi/secondo | Il limite viene misurato nell'arco di un minuto.
-| Conservazione dei dati | [30 - 730 giorni](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period)  | Questa risorsa è destinata a [Ricerca](../articles/azure-monitor/app/diagnostic-search.md), [Analisi](../articles/azure-monitor/app/analytics.md) e [Esplora metriche](../articles/azure-monitor/app/metrics-explorer.md).
+| Conservazione dei dati | [30 - 730 giorni](../articles/azure-monitor/app/pricing.md#change-the-data-retention-period)  | Questa risorsa è destinata a [Ricerca](../articles/azure-monitor/app/diagnostic-search.md), [Analisi](../articles/azure-monitor/log-query/log-query-overview.md) e [Esplora metriche](../articles/azure-monitor/platform/metrics-charts.md).
 | Conservazione dei risultati dettagliati di [test di disponibilità in più passi](../articles/azure-monitor/app/availability-multistep.md) | 90 giorni | Questa risorsa fornisce risultati dettagliati per ogni passaggio.
 | Dimensioni massime dei dati di telemetria | 64 KB |
 | Numero massimo di dati di telemetria per batch | 64 K |

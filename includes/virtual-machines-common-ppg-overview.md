@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: b5827d60b5968eb9f5e9e0a2ca5ec884366aea3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: daed8dc62fdfd86ecf785a0bfd83b2b6c0b4cc03
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91376540"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557254"
 ---
 L'inserimento di macchine virtuali in una singola area riduce la distanza fisica tra le istanze. L'inserimento di tali elementi all'interno di una singola zona di disponibilità li rende anche fisicamente più vicini. Tuttavia, man mano che il footprint di Azure cresce, una singola zona di disponibilità può estendersi su più data center fisici, causando una latenza di rete che influisca sull'applicazione. 
 
@@ -82,7 +82,7 @@ Se un gruppo di posizionamento di prossimità è `Not Aligned` , è possibile st
 Se si verifica un errore di allocazione a causa di vincoli di distribuzione, potrebbe essere necessario stop\deallocate tutte le risorse nel gruppo di posizionamento vicino interessato (incluse le risorse allineate) e quindi riavviarle per ripristinare l'allineamento.
 
 ## <a name="best-practices"></a>Procedure consigliate 
-- Per la latenza più bassa, usare i gruppi di posizionamento di prossimità insieme alla rete accelerata. Per altre informazioni, vedere [creare una macchina virtuale Linux con rete accelerata](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [creare una macchina virtuale Windows con rete accelerata](/azure/virtual-network/create-vm-accelerated-networking-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Per la latenza più bassa, usare i gruppi di posizionamento di prossimità insieme alla rete accelerata. Per altre informazioni, vedere [creare una macchina virtuale Linux con rete accelerata](../articles/virtual-network/create-vm-accelerated-networking-cli.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) o [creare una macchina virtuale Windows con rete accelerata](../articles/virtual-network/create-vm-accelerated-networking-powershell.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
 - Distribuire tutte le dimensioni delle macchine virtuali in un singolo modello. Per evitare di dover atterrare su hardware che non supporta tutti gli SKU e le dimensioni delle VM necessari, includere tutti i livelli applicazione in un singolo modello in modo che vengano distribuiti tutti nello stesso momento.
 - Se si crea uno script per la distribuzione usando PowerShell, l'interfaccia della riga di comando o l'SDK, è possibile che si verifichi un errore di allocazione `OverconstrainedAllocationRequest` . In questo caso, è necessario arrestare/deallocare tutte le macchine virtuali esistenti e modificare la sequenza nello script di distribuzione per iniziare con le dimensioni/SKU della macchina virtuale non riuscite. 
 - Quando si riutilizza un gruppo di posizionamento esistente dal quale sono state eliminate le macchine virtuali, attendere il completamento dell'eliminazione prima di aggiungere macchine virtuali.

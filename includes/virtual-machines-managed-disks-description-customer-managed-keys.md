@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c301ed2b612c2f3a7aca40ed5ed733800323adcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf79fe8766d36fe59595be43250341d49b5460c8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86231049"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95559484"
 ---
 È possibile scegliere di gestire la crittografia a livello di ogni disco gestito, con le proprie chiavi. La crittografia lato server per i dischi gestiti con chiavi gestite dal cliente offre un'esperienza integrata con Azure Key Vault. È possibile importare [le proprie chiavi RSA](../articles/key-vault/keys/hsm-protected-keys.md) nel proprio insieme di credenziali delle chiavi o generare nuove chiavi RSA in Azure Key Vault. 
 
@@ -44,4 +44,4 @@ L'elenco seguente illustra il diagramma in maggiore dettaglio:
 1. I dischi gestiti usano l'identità gestita per inviare richieste ad Azure Key Vault.
 1. Per la lettura o la scrittura di dati, i dischi gestiti inviano richieste ad Azure Key Vault per crittografare (eseguire il wrapping) e decrittografare (annullare il wrapping) la chiave di crittografia dei dati al fine di eseguire la crittografia e la decrittografia dei dati. 
 
-Per revocare l'accesso alle chiavi gestite dal cliente, vedere [PowerShell per Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) e [Interfaccia della riga di comando per Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La revoca dell'accesso blocca di fatto l'accesso a tutti i dati dell'account di archiviazione poiché il servizio Archiviazione di Azure non può accedere alla chiave di crittografia.
+Per revocare l'accesso alle chiavi gestite dal cliente, vedere [PowerShell per Azure Key Vault](/powershell/module/azurerm.keyvault/) e [Interfaccia della riga di comando per Azure Key Vault](/cli/azure/keyvault). La revoca dell'accesso blocca di fatto l'accesso a tutti i dati dell'account di archiviazione poiché il servizio Archiviazione di Azure non può accedere alla chiave di crittografia.

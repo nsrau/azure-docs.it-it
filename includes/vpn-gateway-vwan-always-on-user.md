@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b68fce603801c7bc1aee2af871df257b5f69197
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79500190"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554516"
 ---
 1. Installare i certificati client nel client Windows 10, come illustrato in questo articolo del [client VPN da punto a sito](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) . Il certificato deve trovarsi nell'archivio utente corrente.
 
-1. Configurare il client VPN Always On tramite PowerShell, Configuration Manager o Intune seguendo le istruzioni riportate in [configurare il client Windows 10 always on le connessioni VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+1. Configurare il client VPN Always On tramite PowerShell, Configuration Manager o Intune seguendo le istruzioni riportate in [configurare il client Windows 10 always on le connessioni VPN](/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
 ### <a name="example-configuration-for-the-user-tunnel"></a>Configurazione di esempio per il tunnel utente
 
@@ -128,6 +128,6 @@ Dopo aver configurato il gateway di rete virtuale e installato il certificato cl
    ```
    
    ![MachineCertTest](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
-1. In **Impostazioni VPN**cercare la voce **UserTest** , quindi selezionare **Connetti**.
+1. In **Impostazioni VPN** cercare la voce **UserTest** , quindi selezionare **Connetti**.
 
 1. Se la connessione ha esito positivo, il tunnel utente Always On è stato configurato correttamente.

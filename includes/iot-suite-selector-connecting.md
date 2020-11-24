@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4b93685160250a5abe7c050db89978ae8ceb1a9
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67180583"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554693"
 ---
 > [!div class="op_single_selector"]
 > * [C su Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -21,7 +21,7 @@ ms.locfileid: "67180583"
 > * [C su Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 > * [Node.js (generico)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
 > * [Node.js su Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
-> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
+> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md)
 
 In questa esercitazione viene implementato un dispositivo **Chiller** che invia i dati di telemetria seguenti all'[acceleratore di soluzioni](../articles/iot-accelerators/about-iot-accelerators.md) Monitoraggio remoto:
 
@@ -54,7 +54,7 @@ Al termine del processo di distribuzione della soluzione Monitoraggio remoto, fa
 ### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Aggiungere il dispositivo alla soluzione Monitoraggio remoto
 
 > [!NOTE]
-> Se è già stato aggiunto un dispositivo nella soluzione, è possibile saltare questo passaggio. Per il passaggio successivo sarà però necessaria la stringa di connessione del dispositivo. È possibile recuperare la stringa di connessione di un dispositivo dal [portale di Azure](https://portal.azure.com) oppure usando lo strumento [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) dell'interfaccia della riga di comando.
+> Se è già stato aggiunto un dispositivo nella soluzione, è possibile saltare questo passaggio. Per il passaggio successivo sarà però necessaria la stringa di connessione del dispositivo. È possibile recuperare la stringa di connessione di un dispositivo dal [portale di Azure](https://portal.azure.com) oppure usando lo strumento [az iot](/cli/azure/iot?view=azure-cli-latest) dell'interfaccia della riga di comando.
 
 Per connettere un dispositivo all'acceleratore di soluzioni, è necessario che identifichi se stesso nell'hub IoT mediante delle credenziali valide. Quando si aggiunge il dispositivo alla soluzione, si ha la possibilità di salvare la stringa di connessione del dispositivo che contiene queste credenziali. Le istruzioni per includere la stringa di connessione del dispositivo nell'applicazione client sono illustrate più avanti in questa esercitazione.
 

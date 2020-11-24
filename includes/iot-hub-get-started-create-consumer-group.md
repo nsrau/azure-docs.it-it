@@ -4,16 +4,16 @@ manager: philmea
 ms.author: robinsh
 ms.topic: include
 ms.date: 05/20/2019
-ms.openlocfilehash: c164433efc6a34a3a06676a3145feb18d3de80b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbb4e53e0047b9768a70c01aecfb7f31ae213b3f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "66248790"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558060"
 ---
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Aggiungere un gruppo di consumer dell'hub IoT
 
-I [gruppi di consumer](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) offrono visualizzazioni indipendenti nel flusso di eventi che consentono alle app e ai servizi di Azure di usare i dati in modo indipendente dallo stesso endpoint dell'hub eventi. In questa sezione si aggiunge un gruppo di consumer all'endpoint predefinito dell'hub Internet che verrà usato più avanti in questa esercitazione per eseguire il pull dei dati dall'endpoint.
+I [gruppi di consumer](../articles/event-hubs/event-hubs-features.md#event-consumers) offrono visualizzazioni indipendenti nel flusso di eventi che consentono alle app e ai servizi di Azure di usare i dati in modo indipendente dallo stesso endpoint dell'hub eventi. In questa sezione si aggiunge un gruppo di consumer all'endpoint predefinito dell'hub Internet che verrà usato più avanti in questa esercitazione per eseguire il pull dei dati dall'endpoint.
 
 Per aggiungere un gruppo di consumer all'hub IoT, seguire questa procedura:
 

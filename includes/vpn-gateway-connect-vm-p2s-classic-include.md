@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6d0737a7300b2a6025f776c1ed65a05cacf2141a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fc14083b0912cf18f98c229adcb297b89bc8971
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67180013"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558831"
 ---
 Creare una connessione Desktop remoto per connettersi a una macchina virtuale distribuita nella rete virtuale. Il modo migliore per verificare di potersi connettere alla macchina virtuale consiste nel connettersi con il suo indirizzo IP privato invece che con il nome del computer. Ciò consente di verificare se è possibile connettersi, non se la risoluzione dei nomi è configurata correttamente. 
 
@@ -32,4 +32,4 @@ Se si verificano problemi di connessione a una macchina virtuale tramite la conn
 - Se è possibile connettersi alla macchina virtuale usando l'indirizzo IP privato, ma non il nome del computer, verificare di avere configurato correttamente il valore per DNS. Per altre informazioni sul funzionamento della risoluzione dei nomi per le macchine virtuali, vedere [Risoluzione dei nomi per le macchine virtuali](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 - Verificare che il pacchetto di configurazione del client VPN sia stato generato dopo aver specificato gli indirizzi IP del server DNS per la rete virtuale. Se gli indirizzi IP del server DNS vengono aggiornati, generare e installare un nuovo pacchetto di configurazione del client VPN.
 
-Per altre informazioni sulla risoluzione dei problemi, vedere l'articolo su come [risolvere i problemi delle connessioni Desktop remoto a una VM](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md).
+Per altre informazioni sulla risoluzione dei problemi, vedere l'articolo su come [risolvere i problemi delle connessioni Desktop remoto a una VM](../articles/virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 726fc9cc0e4eb5a8f9bed5cca8dd4d3df588ac7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8a72640ebe8daffedb196456df7d40bc41b7b1b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79371554"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557686"
 ---
 Archiviazione di Azure offre diversi tipi di account di archiviazione. Ogni tipo supporta caratteristiche diverse e ha uno specifico modello di prezzi. È importante tenere in considerazione tali differenze prima di creare un account di archiviazione per determinare il tipo di account ottimale per le proprie applicazioni. I tipi di account di archiviazione sono i seguenti:
 
@@ -33,14 +33,14 @@ Nella tabella seguente sono descritti i tipi di account di archiviazione e le re
 | FileStorage   | Solo file | Premium                       | N/D                            | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Gestione risorse             | Crittografato              |
 | BlobStorage         | BLOB (solo BLOB in blocchi e BLOB di accodamento) | Standard                      | Frequente, sporadico, archivio<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS                  | Gestione risorse             | Crittografato              |
 
-<div id="deployment-model"><sup>1</sup>È consigliabile usare il modello di distribuzione Azure Resource Manager. Gli account di archiviazione che usano il modello di distribuzione classico possono comunque essere creati in alcune posizioni e gli account classici esistenti continuano a essere supportati. Per altre informazioni, vedere <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model">Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse</a>.</div><br/>
+<div id="deployment-model"><sup>1</sup>È consigliabile usare il modello di distribuzione Azure Resource Manager. Gli account di archiviazione che usano il modello di distribuzione classico possono comunque essere creati in alcune posizioni e gli account classici esistenti continuano a essere supportati. Per altre informazioni, vedere <a href="/azure/azure-resource-manager/resource-manager-deployment-model">Confronto tra distribuzione di Azure Resource Manager e classica: comprensione dei modelli di implementazione e dello stato delle risorse</a>.</div><br/>
 
-<div id="encryption"><sup>2</sup>Tutti gli account di archiviazione sono crittografati tramite Crittografia del servizio di archiviazione per i dati inattivi. Per altre informazioni, vedere <a href="https://docs.microsoft.com/azure/storage/common/storage-service-encryption">Crittografia del servizio di archiviazione di Azure per dati inattivi</a>.</div><br/>
+<div id="encryption"><sup>2</sup>Tutti gli account di archiviazione sono crittografati tramite Crittografia del servizio di archiviazione per i dati inattivi. Per altre informazioni, vedere <a href="/azure/storage/common/storage-service-encryption">Crittografia del servizio di archiviazione di Azure per dati inattivi</a>.</div><br/>
 
-<div id="archive"><sup>3</sup>Il livello di archiviazione archivio e l'organizzazione a livello di BLOB supportano solo BLOB in blocchi. Il livello di archiviazione archivio è disponibile solo a livello di singolo BLOB, non a livello di account di archiviazione. Per altre informazioni, vedere <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers">Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio</a>.</div><br/>
+<div id="archive"><sup>3</sup>Il livello di archiviazione archivio e l'organizzazione a livello di BLOB supportano solo BLOB in blocchi. Il livello di archiviazione archivio è disponibile solo a livello di singolo BLOB, non a livello di account di archiviazione. Per altre informazioni, vedere <a href="/azure/storage/blobs/storage-blob-storage-tiers">Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio</a>.</div><br/>
 
-<div id="zone-redundant-storage"><sup>4</sup>L'archiviazione con ridondanza della zona (ZRS) e l'archiviazione con ridondanza geografica della zona (GZRS/RA-GZRS) (anteprima) sono disponibili solo per gli account standard per utilizzo generico V2, BlockBlobStorage e FileStorage in determinate aree. Per altre informazioni sulle opzioni di ridondanza di Archiviazione di Azure, vedere <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Ridondanza dell'archiviazione</a>.</div><br/>
+<div id="zone-redundant-storage"><sup>4</sup>L'archiviazione con ridondanza della zona (ZRS) e l'archiviazione con ridondanza geografica della zona (GZRS/RA-GZRS) (anteprima) sono disponibili solo per gli account standard per utilizzo generico V2, BlockBlobStorage e FileStorage in determinate aree. Per altre informazioni sulle opzioni di ridondanza di Archiviazione di Azure, vedere <a href="/azure/storage/common/storage-redundancy">Ridondanza dell'archiviazione</a>.</div><br/>
 
 <div id="premium-performance"><sup>5</sup>Le prestazioni Premium per gli account per utilizzo generico V2 e per utilizzo generico V1 sono disponibili solo per i BLOB di pagine e dischi. Le prestazioni Premium per i BLOB in blocchi o di aggiunta sono disponibili solo per gli account BlockBlobStorage. Le prestazioni Premium per i file sono disponibili solo per gli account FileStorage.</div><br/>
 
-<div id="data-lake-gen2"><sup>6</sup>Azure Data Lake Storage Gen2 è un set di funzionalità dedicate all'analisi dei Big Data e integrate in Archiviazione BLOB di Azure. Data Lake Storage Gen2 è supportato solo per gli account di archiviazione per utilizzo generico V2 con lo spazio dei nomi gerarchico abilitato. Per altre informazioni su Data Lake Storage Gen2, vedere <a href="https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction">Introduzione ad Azure Data Lake Storage Gen2</a>.</div>
+<div id="data-lake-gen2"><sup>6</sup>Azure Data Lake Storage Gen2 è un set di funzionalità dedicate all'analisi dei Big Data e integrate in Archiviazione BLOB di Azure. Data Lake Storage Gen2 è supportato solo per gli account di archiviazione per utilizzo generico V2 con lo spazio dei nomi gerarchico abilitato. Per altre informazioni su Data Lake Storage Gen2, vedere <a href="/azure/storage/blobs/data-lake-storage-introduction">Introduzione ad Azure Data Lake Storage Gen2</a>.</div>

@@ -4,12 +4,12 @@ ms.service: api-management
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: vlvinogr
-ms.openlocfilehash: 3b42d5fbcfb19f08b46241dbe92e6a300bec1df6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1858317d40efa59b188ce894534be93a1f11b287
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81275432"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557703"
 ---
 ## <a name="how-apim-proxy-server-responds-with-ssl-certificates-in-the-tls-handshake"></a>Come il server proxy APIM risponde con certificati SSL nell'handshake TLS
 
@@ -20,9 +20,8 @@ Se il cliente ha uno o più domini personalizzati configurati per il proxy, APIM
 Se il cliente usa invece un client, che non invia l'intestazione [SNI](https://tools.ietf.org/html/rfc6066#section-3), APIM crea le risposte in base alla logica seguente:
 
 * Se il servizio ha un solo dominio personalizzato configurato per il proxy, il certificato predefinito è quello emesso per il dominio personalizzato del proxy.
-* Se nel servizio sono configurati più domini personalizzati per il proxy (scenario supportato solo nei livelli **Developer** e **Premium**), il cliente può scegliere quale deve essere il certificato predefinito. Per impostare il certificato predefinito, la proprietà [defaultSslBinding](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apimanagementservice/createorupdate#hostnameconfiguration) deve essere impostata su true ("defaultSslBinding":"true"). Se il cliente non imposta questa proprietà, il certificato predefinito è quello emesso per il dominio predefinito del proxy ospitato in *.azure-api.net.
+* Se nel servizio sono configurati più domini personalizzati per il proxy (scenario supportato solo nei livelli **Developer** e **Premium**), il cliente può scegliere quale deve essere il certificato predefinito. Per impostare il certificato predefinito, la proprietà [defaultSslBinding](/rest/api/apimanagement/2019-12-01/apimanagementservice/createorupdate#hostnameconfiguration) deve essere impostata su true ("defaultSslBinding":"true"). Se il cliente non imposta questa proprietà, il certificato predefinito è quello emesso per il dominio predefinito del proxy ospitato in *.azure-api.net.
 
 ## <a name="support-for-putpost-request-with-large-payload"></a>Supporto per una richiesta PUT/POST con payload di grandi dimensioni
 
-Il server proxy APIM supporta una richiesta con payload di grandi dimensioni se si usano certificati sul lato client in HTTPS (ad esempio, payload > 40 KB). Per impedire che la richiesta del server si blocchi, i clienti possono impostare la proprietà ["negotiateClientCertificate": "true"](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/ApiManagementService/CreateOrUpdate#hostnameconfiguration) sul nome host del proxy. Se la proprietà è impostata su true, il certificato client viene richiesto al momento della connessione SSL/TLS, prima di qualsiasi scambio di richieste HTTP. Poiché l'impostazione viene applicata al livello del **nome host del proxy**, tutte le richieste di connessione richiedono il certificato client. Per superare questa limitazione, i clienti possono configurare fino a 20 domini personalizzati per il proxy (scenario supportato solo nel livello **Premium**).
-
+Il server proxy APIM supporta una richiesta con payload di grandi dimensioni se si usano certificati sul lato client in HTTPS (ad esempio, payload > 40 KB). Per impedire che la richiesta del server si blocchi, i clienti possono impostare la proprietà ["negotiateClientCertificate": "true"](/rest/api/apimanagement/2019-12-01/ApiManagementService/CreateOrUpdate#hostnameconfiguration) sul nome host del proxy. Se la proprietà è impostata su true, il certificato client viene richiesto al momento della connessione SSL/TLS, prima di qualsiasi scambio di richieste HTTP. Poiché l'impostazione viene applicata al livello del **nome host del proxy**, tutte le richieste di connessione richiedono il certificato client. Per superare questa limitazione, i clienti possono configurare fino a 20 domini personalizzati per il proxy (scenario supportato solo nel livello **Premium**).

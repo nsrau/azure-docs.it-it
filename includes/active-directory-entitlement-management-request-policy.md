@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 239fcc1e57cb4bd56a8704f8a840689d44617fcf
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: b7029c5cdd004910caa83425536bbe481e4b01f3
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93029470"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557348"
 ---
 ## <a name="for-users-in-your-directory"></a>Per gli utenti nella directory
 
-Seguire questa procedura se si desidera consentire agli utenti della directory di richiedere questo pacchetto di accesso. Quando si definiscono i criteri di richiesta, è possibile specificare singoli utenti o più gruppi di utenti in genere. Ad esempio, è possibile che l'organizzazione disponga già di un gruppo come **tutti i dipendenti** .  Se tale gruppo viene aggiunto nei criteri per gli utenti che possono richiedere l'accesso, qualsiasi membro del gruppo potrà richiedere l'accesso.
+Seguire questa procedura se si desidera consentire agli utenti della directory di richiedere questo pacchetto di accesso. Quando si definiscono i criteri di richiesta, è possibile specificare singoli utenti o più gruppi di utenti in genere. Ad esempio, è possibile che l'organizzazione disponga già di un gruppo come **tutti i dipendenti**.  Se tale gruppo viene aggiunto nei criteri per gli utenti che possono richiedere l'accesso, qualsiasi membro del gruppo potrà richiedere l'accesso.
 
-1. Nella sezione **Utenti che possono richiedere l'accesso** fare clic su **Per gli utenti nella directory** .
+1. Nella sezione **Utenti che possono richiedere l'accesso** fare clic su **Per gli utenti nella directory**.
 
     Quando si seleziona questa opzione, vengono visualizzate le nuove opzioni per definire ulteriormente chi nella directory può richiedere questo pacchetto di accesso.
 
@@ -33,9 +33,9 @@ Seguire questa procedura se si desidera consentire agli utenti della directory d
     | **Tutti i membri (esclusi i guest)** | Scegliere questa opzione se si desidera che tutti gli utenti membro della directory siano in grado di richiedere questo pacchetto di accesso. Questa opzione non include gli utenti guest che potrebbero essere stati invitati nella directory. |
     | **Tutti gli utenti (inclusi i guest)** | Scegliere questa opzione se si desidera che tutti gli utenti membro e gli utenti guest nella directory siano in grado di richiedere questo pacchetto di accesso. |
 
-    Gli utenti Guest fanno riferimento a utenti esterni che sono stati invitati alla directory con [Azure ad B2B](../articles/active-directory/b2b/what-is-b2b.md). Per ulteriori informazioni sulle differenze tra utenti membro e utenti guest, vedere [quali sono le autorizzazioni utente predefinite in Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
+    Gli utenti Guest fanno riferimento a utenti esterni che sono stati invitati alla directory con [Azure ad B2B](../articles/active-directory/external-identities/what-is-b2b.md). Per ulteriori informazioni sulle differenze tra utenti membro e utenti guest, vedere [quali sono le autorizzazioni utente predefinite in Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
 
-1. Se sono stati selezionati **utenti e gruppi specifici** , fare clic su **Aggiungi utenti e gruppi** .
+1. Se sono stati selezionati **utenti e gruppi specifici**, fare clic su **Aggiungi utenti e gruppi**.
 
 1. Nel riquadro Seleziona utenti e gruppi selezionare gli utenti e i gruppi che si desidera aggiungere.
 
@@ -47,14 +47,14 @@ Seguire questa procedura se si desidera consentire agli utenti della directory d
 
 ## <a name="for-users-not-in-your-directory"></a>Per gli utenti che non si trovino nella directory
 
- **Gli utenti non inclusi nella directory** fanno riferimento agli utenti che si trovano in un altro Azure ad directory o dominio. Questi utenti potrebbero non essere ancora stati invitati alla directory. Le directory di Azure AD devono essere configurate in modo da consentire inviti in **restrizioni di collaborazione** . Per altre informazioni, vedere [abilitare la collaborazione esterna B2B e gestire gli utenti che possono invitare i guest](../articles/active-directory/b2b/delegate-invitations.md).
+ **Gli utenti non inclusi nella directory** fanno riferimento agli utenti che si trovano in un altro Azure ad directory o dominio. Questi utenti potrebbero non essere ancora stati invitati alla directory. Le directory di Azure AD devono essere configurate in modo da consentire inviti in **restrizioni di collaborazione**. Per altre informazioni, vedere [abilitare la collaborazione esterna B2B e gestire gli utenti che possono invitare i guest](../articles/active-directory/external-identities/delegate-invitations.md).
 
 > [!NOTE]
-> Verrà creato un account utente Guest per un utente non ancora presente nella directory la cui richiesta è approvata o approvata automaticamente. Il Guest verrà invitato ma non riceverà un messaggio di posta elettronica di invito. Riceveranno invece un messaggio di posta elettronica quando viene recapitata l'assegnazione del pacchetto di accesso. Per impostazione predefinita, in un secondo momento, quando tale utente Guest non dispone più di assegnazioni di pacchetti di accesso, perché l'ultima assegnazione è scaduta o annullata, l'account utente guest verrà bloccato dall'accesso e successivamente eliminato. Se si desidera che gli utenti Guest rimangano per la directory a tempo indeterminato, anche se non dispongono di assegnazioni di pacchetti di accesso, è possibile modificare le impostazioni per la configurazione di gestione dei diritti. Per ulteriori informazioni sull'oggetto utente Guest, vedere [proprietà di un utente di collaborazione B2B di Azure Active Directory](../articles/active-directory/b2b/user-properties.md).
+> Verrà creato un account utente Guest per un utente non ancora presente nella directory la cui richiesta è approvata o approvata automaticamente. Il Guest verrà invitato ma non riceverà un messaggio di posta elettronica di invito. Riceveranno invece un messaggio di posta elettronica quando viene recapitata l'assegnazione del pacchetto di accesso. Per impostazione predefinita, in un secondo momento, quando tale utente Guest non dispone più di assegnazioni di pacchetti di accesso, perché l'ultima assegnazione è scaduta o annullata, l'account utente guest verrà bloccato dall'accesso e successivamente eliminato. Se si desidera che gli utenti Guest rimangano per la directory a tempo indeterminato, anche se non dispongono di assegnazioni di pacchetti di accesso, è possibile modificare le impostazioni per la configurazione di gestione dei diritti. Per ulteriori informazioni sull'oggetto utente Guest, vedere [proprietà di un utente di collaborazione B2B di Azure Active Directory](../articles/active-directory/external-identities/user-properties.md).
 
 Se si desidera consentire agli utenti non inclusi nella directory di richiedere il pacchetto di accesso, attenersi alla procedura seguente:
 
-1. Nella sezione **utenti che possono richiedere l'accesso** fare clic su **per gli utenti non presenti nella directory** .
+1. Nella sezione **utenti che possono richiedere l'accesso** fare clic su **per gli utenti non presenti nella directory**.
 
     Quando si seleziona questa opzione, vengono visualizzate le nuove opzioni.
 
@@ -70,7 +70,7 @@ Se si desidera consentire agli utenti non inclusi nella directory di richiedere 
 
     Un'organizzazione connessa è una directory o un dominio di Azure AD esterno a cui è associata una relazione.
 
-1. Se sono state selezionate **organizzazioni connesse specifiche** , fare clic su **Aggiungi directory** per selezionare da un elenco di organizzazioni connesse che l'amministratore ha aggiunto in precedenza.
+1. Se sono state selezionate **organizzazioni connesse specifiche**, fare clic su **Aggiungi directory** per selezionare da un elenco di organizzazioni connesse che l'amministratore ha aggiunto in precedenza.
 
 1. Digitare il nome o il nome di dominio in cui eseguire la ricerca di un'organizzazione precedentemente connessa.
 
@@ -78,10 +78,10 @@ Se si desidera consentire agli utenti non inclusi nella directory di richiedere 
 
     Se l'organizzazione con cui si vuole collaborare non è presente nell'elenco, è possibile richiedere all'amministratore di aggiungerla come organizzazione connessa. Per altre informazioni, vedere [aggiungere un'organizzazione connessa](../articles/active-directory/governance/entitlement-management-organization.md).
 
-1. Dopo aver selezionato tutte le organizzazioni connesse, fare clic su **Seleziona** .
+1. Dopo aver selezionato tutte le organizzazioni connesse, fare clic su **Seleziona**.
 
     > [!NOTE]
-    > Tutti gli utenti delle organizzazioni connesse selezionate saranno in grado di richiedere questo pacchetto di accesso. Sono inclusi gli utenti in Azure AD da tutti i sottodomini associati all'organizzazione, a meno che tali domini non siano bloccati dall'elenco Consenti o nega di Azure B2B. Per altre informazioni, consultare [Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche](../articles/active-directory/b2b/allow-deny-list.md).
+    > Tutti gli utenti delle organizzazioni connesse selezionate saranno in grado di richiedere questo pacchetto di accesso. Sono inclusi gli utenti in Azure AD da tutti i sottodomini associati all'organizzazione, a meno che tali domini non siano bloccati dall'elenco Consenti o nega di Azure B2B. Per altre informazioni, consultare [Consentire o bloccare gli inviti agli utenti B2B da organizzazioni specifiche](../articles/active-directory/external-identities/allow-deny-list.md).
 
 1. Passare alla sezione [approvazione](#approval) .
 
@@ -89,7 +89,7 @@ Se si desidera consentire agli utenti non inclusi nella directory di richiedere 
 
 Seguire questa procedura se si vuole ignorare le richieste di accesso e consentire agli amministratori di assegnare direttamente utenti specifici a questo pacchetto di accesso. Gli utenti non dovranno richiedere il pacchetto di accesso. È comunque possibile impostare le impostazioni del ciclo di vita, ma non sono disponibili impostazioni della richiesta.
 
-1. Nella sezione **utenti che possono richiedere l'accesso** fare clic su **None (solo assegnazioni dirette all'amministratore** ).
+1. Nella sezione **utenti che possono richiedere l'accesso** fare clic su **None (solo assegnazioni dirette all'amministratore**).
 
     ![Access Package-requests-None solo assegnazioni dirette all'amministratore](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
@@ -117,9 +117,9 @@ Per una dimostrazione di come aggiungere un'approvazione in più fasi a un crite
 
 Per specificare le impostazioni di approvazione per le richieste per il pacchetto di accesso, attenersi alla procedura seguente:
 
-1. Per richiedere l'approvazione per le richieste degli utenti selezionati, impostare l'interruttore **Richiedi approvazione** su **Sì** . In alternativa, per fare in modo che le richieste vengano approvate automaticamente, impostare l'interruttore su **No** .
+1. Per richiedere l'approvazione per le richieste degli utenti selezionati, impostare l'interruttore **Richiedi approvazione** su **Sì**. In alternativa, per fare in modo che le richieste vengano approvate automaticamente, impostare l'interruttore su **No**.
 
-1. Per richiedere agli utenti di fornire una giustificazione per richiedere il pacchetto di accesso, impostare l'opzione **Richiedi giustificazione** del richiedente su **Sì** .
+1. Per richiedere agli utenti di fornire una giustificazione per richiedere il pacchetto di accesso, impostare l'opzione **Richiedi giustificazione** del richiedente su **Sì**.
     
 1. Determinare ora se le richieste richiedono l'approvazione a una o due fasi. Impostare il **numero di fasi** su **1** per l'approvazione della fase singola o impostare l'interruttore su **2** per l'approvazione in due fasi.
 
@@ -129,13 +129,13 @@ Usare la procedura seguente per aggiungere responsabili approvazione dopo aver s
 
 ### <a name="single-stage-approval"></a>Approvazione a fase singola
 
-1. Aggiungere il **primo responsabile approvazione** :
+1. Aggiungere il **primo responsabile approvazione**:
     
-    Se il criterio è impostato per gestire l'accesso per gli utenti nella directory, è possibile selezionare **Manager come responsabile approvazione** . In alternativa, aggiungere un utente specifico facendo clic su **Aggiungi responsabili approvazione** dopo aver selezionato Scegli responsabili approvazione specifici dal menu a discesa.
+    Se il criterio è impostato per gestire l'accesso per gli utenti nella directory, è possibile selezionare **Manager come responsabile approvazione**. In alternativa, aggiungere un utente specifico facendo clic su **Aggiungi responsabili approvazione** dopo aver selezionato Scegli responsabili approvazione specifici dal menu a discesa.
     
     ![Accedere ai pacchetti-richieste-per gli utenti nel responsabile dell'approvazione della directory](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
 
-    Se questo criterio è impostato per gestire l'accesso per gli utenti che non si trova nella directory, è possibile selezionare **sponsor esterno** o **sponsor interno** . In alternativa, aggiungere un utente specifico facendo clic su **Aggiungi responsabili approvazione** o gruppi in Scegli responsabili approvazione specifici.
+    Se questo criterio è impostato per gestire l'accesso per gli utenti che non si trova nella directory, è possibile selezionare **sponsor esterno** o **sponsor interno**. In alternativa, aggiungere un utente specifico facendo clic su **Aggiungi responsabili approvazione** o gruppi in Scegli responsabili approvazione specifici.
     
     ![Accedere al pacchetto-richieste-per gli utenti fuori dalla directory-primo responsabile approvazione](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
     
@@ -143,13 +143,13 @@ Usare la procedura seguente per aggiungere responsabili approvazione dopo aver s
 
     Il Manager è stato rilevato dalla gestione dei diritti utilizzando l'attributo **Manager** . L'attributo si trova nel profilo dell'utente in Azure AD. Per altre informazioni, vedere [aggiungere o aggiornare le informazioni sul profilo di un utente usando Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
-1. Se è stata selezionata l'opzione **Scegli responsabili approvazione specifici** , fare clic su **Aggiungi responsabili approvazione** per selezionare uno o più utenti o gruppi nella directory da approvatori.
+1. Se è stata selezionata l'opzione **Scegli responsabili approvazione specifici**, fare clic su **Aggiungi responsabili approvazione** per selezionare uno o più utenti o gruppi nella directory da approvatori.
 
 1. Nella casella in base alle **decisioni è necessario** specificare il numero di giorni per cui un responsabile approvazione deve esaminare una richiesta di questo pacchetto di accesso.
 
     Se una richiesta non viene approvata entro questo periodo di tempo, verrà negata automaticamente. L'utente dovrà inviare un'altra richiesta per il pacchetto di accesso.
 
-1. Per richiedere agli approvatori di fornire una giustificazione per la loro decisione, impostare Richiedi giustificazione del responsabile approvazione su **Sì** .
+1. Per richiedere agli approvatori di fornire una giustificazione per la loro decisione, impostare Richiedi giustificazione del responsabile approvazione su **Sì**.
 
     La giustificazione è visibile ad altri responsabili approvazione e al richiedente.
 
@@ -157,7 +157,7 @@ Usare la procedura seguente per aggiungere responsabili approvazione dopo aver s
 
 Se è stata selezionata un'approvazione a 2 fasi, sarà necessario aggiungere un secondo responsabile approvazione.
 
-1. Aggiungere il **secondo responsabile approvazione** : 
+1. Aggiungere il **secondo responsabile approvazione**: 
     
     Se gli utenti si trovano nella directory, aggiungere un utente specifico come secondo responsabile approvazione facendo clic su **Aggiungi responsabili approvazione** in Scegli responsabili approvazione specifici.
 
@@ -169,7 +169,7 @@ Se è stata selezionata un'approvazione a 2 fasi, sarà necessario aggiungere un
 
 1. Specificare il numero di giorni per cui il secondo responsabile approvazione deve approvare la richiesta nella casella in base alla **decisione deve essere effettuata** per il numero di giorni. 
 
-1. Impostare l'opzione Richiedi giustificazione del responsabile approvazione su **Sì** o **No** .
+1. Impostare l'opzione Richiedi giustificazione del responsabile approvazione su **Sì** o **No**.
 
 ### <a name="alternate-approvers"></a>Responsabili approvazione alternativi
 
@@ -182,11 +182,11 @@ Dopo l'invio della richiesta ai responsabili approvazione alternativi, il primo 
 È possibile elencare persone o gruppi di persone come responsabili approvazione e responsabili approvazione alternativi. Assicurarsi di elencare set diversi di persone come primo, secondo e responsabili approvazione alternativi.
 Se ad esempio sono stati elencati Alice e Bob come primo responsabile approvazione, elencare Carol e Dave come approvatori alternativi. Usare la procedura seguente per aggiungere responsabili approvazione alternativi a un pacchetto di accesso:
 
-1. Sotto il primo responsabile approvazione, secondo responsabile approvazione o entrambi, fare clic su **Mostra impostazioni richieste avanzate** .
+1. Sotto il primo responsabile approvazione, secondo responsabile approvazione o entrambi, fare clic su **Mostra impostazioni richieste avanzate**.
 
     ![Accedi ai criteri di pacchetto-Mostra impostazioni avanzate delle richieste](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
 
-1. Impostare **se non viene eseguita alcuna azione, procedere con l'invio a responsabili approvazione alternativi?** impostare su **Sì** .
+1. Impostare **se non viene eseguita alcuna azione, procedere con l'invio a responsabili approvazione alternativi?** impostare su **Sì**.
 
 1. Fare clic su **Aggiungi responsabili approvazione alternativi** e selezionare gli approvatori alternativi dall'elenco.
 
@@ -198,15 +198,15 @@ Se ad esempio sono stati elencati Alice e Bob come primo responsabile approvazio
 
 ## <a name="enable-requests"></a>Abilita richieste
 
-1. Se si vuole che il pacchetto di accesso venga reso immediatamente disponibile per gli utenti del criterio di richiesta da richiedere, spostare l'interruttore Abilita su **Sì** .
+1. Se si vuole che il pacchetto di accesso venga reso immediatamente disponibile per gli utenti del criterio di richiesta da richiedere, spostare l'interruttore Abilita su **Sì**.
 
     È sempre possibile abilitarla in futuro dopo aver completato la creazione del pacchetto di accesso.
 
-    Se è stata selezionata l'opzione **Nessuna (solo assegnazione diretta amministratore)** e si imposta Abilita su **No** , gli amministratori non potranno assegnare direttamente questo pacchetto di accesso.
+    Se è stata selezionata l'opzione **Nessuna (solo assegnazione diretta amministratore)** e si imposta Abilita su **No**, gli amministratori non potranno assegnare direttamente questo pacchetto di accesso.
 
     ![Screenshot che mostra l'opzione per l'abilitazione di nuove richieste e assegnazioni.](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
-1. Fare clic su **Avanti** .
+1. Fare clic su **Avanti**.
 
 ## <a name="add-requestor-information-preview-to-an-access-package"></a>Aggiungere le informazioni sul richiedente (anteprima) a un pacchetto di accesso
 
@@ -216,24 +216,24 @@ Se ad esempio sono stati elencati Alice e Bob come primo responsabile approvazio
 
     ![Accesso al pacchetto-criteri-Abilita impostazione informazioni sul richiedente](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
 
-1. Se si desidera aggiungere opzioni di localizzazione personalizzate, fare clic su **Aggiungi localizzazione** .
+1. Se si desidera aggiungere opzioni di localizzazione personalizzate, fare clic su **Aggiungi localizzazione**.
     1. Nel riquadro **Aggiungi localizzazioni per la domanda** selezionare il codice della **lingua** per la lingua in cui si sta localizzando la domanda.
     1. Nella lingua configurata digitare la domanda nella casella di **testo localizzata** .
-    1. Dopo aver aggiunto tutte le localizzazioni necessarie, fare clic su **Salva** .
+    1. Dopo aver aggiunto tutte le localizzazioni necessarie, fare clic su **Salva**.
 
     ![Accedere ai criteri di pacchetto-configurare il testo localizzato](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
 
-1. Selezionare il **formato di risposta** a cui si vogliono rispondere i richiedenti. I formati di risposta includono: *testo breve* , *scelta multipla* e *testo lungo* .
+1. Selezionare il **formato di risposta** a cui si vogliono rispondere i richiedenti. I formati di risposta includono: *testo breve*, *scelta multipla* e *testo lungo*.
  
     ![Accedere al pacchetto-criteri-selezionare Visualizza e modifica il formato di risposta a scelta multipla](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  
 1. Se si seleziona scelta multipla, fare clic sul pulsante **Visualizza e modifica** per configurare le opzioni di risposta.
     1. Dopo aver selezionato Visualizza e modifica, viene aperto il riquadro **Visualizza/modifica domanda** .
     1. Digitare le opzioni di risposta che si desidera assegnare al richiedente quando si risponde alla domanda nelle caselle **valori di risposta** .
-    1. Digitare il numero di risposte necessario, quindi fare clic su **Salva** .
+    1. Digitare il numero di risposte necessario, quindi fare clic su **Salva**.
     
     ![Access Package-policy-immettere le opzioni di scelta multipla](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
   
-1. Per richiedere ai richiedenti di rispondere a questa domanda quando si richiede l'accesso a un pacchetto di accesso, fare clic sulla casella di controllo in **required** .
+1. Per richiedere ai richiedenti di rispondere a questa domanda quando si richiede l'accesso a un pacchetto di accesso, fare clic sulla casella di controllo in **required**.
 
 1. Fare clic su Next (Avanti)

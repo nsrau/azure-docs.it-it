@@ -5,12 +5,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.date: 07/09/2020
-ms.openlocfilehash: de5d3f8f32e928c77ffd6028ec764793ab7229ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f25c335c568c112c05f81df51d69e83aeff423e2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86495339"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558327"
 ---
 ## <a name="business-disaster-recovery"></a>BCDR (Business disaster recovery)
 
@@ -22,10 +22,10 @@ In qualità di servizio di Azure, Azure Time Series Insights fornisce alcune fun
 
 Le funzionalità aggiuntive di disponibilità elevata fornite tramite Azure (e disponibili anche per qualsiasi istanza di Azure Time Series Insights) includono:
 
-- **Failover**: Azure fornisce la [replica geografica e il bilanciamento del carico](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
-- Ripristino **dei dati** e **ripristino dell'archiviazione**: Azure offre [diverse opzioni per mantenere e ripristinare i dati](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
-- **Azure Site Recovery**: Azure fornisce le funzionalità di Site Recovery tramite [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
-- **Backup**di Azure: [backup](https://docs.microsoft.com/azure/backup/backup-architecture) di Azure supporta il backup sia in locale che nel cloud di macchine virtuali di Azure.
+- **Failover**: Azure fornisce la [replica geografica e il bilanciamento del carico](/azure/architecture/resiliency/recovery-loss-azure-region).
+- Ripristino **dei dati** e **ripristino dell'archiviazione**: Azure offre [diverse opzioni per mantenere e ripristinare i dati](/azure/architecture/resiliency/recovery-data-corruption).
+- **Azure Site Recovery**: Azure fornisce le funzionalità di Site Recovery tramite [Azure Site Recovery](../articles/site-recovery/index.yml).
+- **Backup** di Azure: [backup](../articles/backup/backup-architecture.md) di Azure supporta il backup sia in locale che nel cloud di macchine virtuali di Azure.
 
 Assicurarsi di abilitare le funzionalità di Azure pertinenti per fornire la disponibilità elevata globale tra aree per i dispositivi e gli utenti.
 
@@ -36,9 +36,9 @@ Assicurarsi di abilitare le funzionalità di Azure pertinenti per fornire la dis
 
 Alcuni servizi di Azure e includono anche funzionalità di ripristino di emergenza aziendale predefinite:
 
-- [Ripristino di emergenza a disponibilità elevata dell'hub Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr), che include la ridondanza all'interno dell'area
-- [Criteri di hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
-- [Azure Storage redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy) (Ridondanza di Archiviazione di Azure)
+- [Ripristino di emergenza a disponibilità elevata dell'hub Azure](../articles/iot-hub/iot-hub-ha-dr.md), che include la ridondanza all'interno dell'area
+- [Criteri di hub eventi di Azure](../articles/event-hubs/event-hubs-geo-dr.md)
+- [Azure Storage redundancy](../articles/storage/common/storage-redundancy.md) (Ridondanza di Archiviazione di Azure)
 
 L'integrazione di Azure Time Series Insights con gli altri servizi offre opportunità aggiuntive per il ripristino di emergenza. Ad esempio, la telemetria inviata all'hub eventi potrebbe essere salvata in modo permanente in un database di archiviazione BLOB di Azure di backup.
 
@@ -55,10 +55,10 @@ In generale, il modo migliore per duplicare un ambiente di Azure Time Series Ins
 
 Per creare un ambiente duplicato:
 
-1. Creare un ambiente in una seconda area. Per ulteriori informazioni, vedere la pagina relativa alla [creazione di un nuovo ambiente Azure Time Series Insights nel portale di Azure](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+1. Creare un ambiente in una seconda area. Per ulteriori informazioni, vedere la pagina relativa alla [creazione di un nuovo ambiente Azure Time Series Insights nel portale di Azure](../articles/time-series-insights/time-series-insights-get-started.md).
 1. Creare un secondo gruppo di consumer dedicato per l'origine evento.
 1. Connettere tale origine eventi al nuovo ambiente. Assicurarsi di designare il secondo gruppo di consumer dedicato.
-1. Esaminare la documentazione relativa all' [hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) Azure Time Series Insights e agli hub [eventi](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access) .
+1. Esaminare la documentazione relativa all' [hub](../articles/time-series-insights/how-to-ingest-data-iot-hub.md) Azure Time Series Insights e agli hub [eventi](../articles/time-series-insights/concepts-access-policies.md) .
 
 Se si verifica un evento:
 
@@ -71,5 +71,4 @@ Se si verifica un evento:
 > * Potrebbe verificarsi anche un ritardo.
 > * Potrebbe verificarsi un picco temporaneo nell'elaborazione del messaggio, perché le operazioni vengono reindirizzate.
 > 
-> Per altre informazioni, vedere [attenuare la latenza in Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
-
+> Per altre informazioni, vedere [attenuare la latenza in Azure Time Series Insights](../articles/time-series-insights/time-series-insights-environment-mitigate-latency.md).

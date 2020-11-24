@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: File di inclusione
+description: File di inclusione
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: eeda43b972e30c573743c8c59f75cfae61d7ee85
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 26a5537496d9e881ece135437c403baf4a4fd67c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413145"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95558283"
 ---
 Per il momento, i dischi Ultra presentano limitazioni aggiuntive, come indicato di seguito:
 
@@ -67,7 +67,7 @@ La tabella seguente descrive le aree in cui sono disponibili i dischi Ultra, olt
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - Non tutte le dimensioni della macchina virtuale sono disponibili in ogni area supportata con dischi Ultra.
 - Sono disponibili solo come dischi dati. 
-- Supportare le dimensioni del settore fisico 4K per impostazione predefinita. le dimensioni del settore 512E sono disponibili come offerta disponibile a livello generale, ma è necessario [iscriversi](https://aka.ms/ultradisk512e). La maggior parte delle applicazioni è compatibile con le dimensioni del settore 4K, ma alcune richiedono dimensioni di settore a 512 byte. Un esempio è Oracle Database, che richiede la versione 12,2 o successiva per supportare i dischi nativi 4K. Per le versioni precedenti di Oracle DB, sono richieste dimensioni di settore di 512 byte.
+- Supportare le dimensioni del settore fisico 4K per impostazione predefinita. le dimensioni del settore 512E sono disponibili come offerta disponibile a livello generale (nessuna iscrizione necessaria) ma attualmente disponibile solo tramite l'interfaccia della riga di comando o PowerShell. La maggior parte delle applicazioni è compatibile con le dimensioni del settore 4K, ma alcune richiedono dimensioni di settore a 512 byte. Un esempio è Oracle Database, che richiede la versione 12,2 o successiva per supportare i dischi nativi 4K. Per le versioni precedenti di Oracle DB, sono richieste dimensioni di settore di 512 byte.
 - Può essere creato solo come dischi vuoti.
 - Attualmente non supporta gli snapshot del disco, le immagini di VM, i set di disponibilità, gli host dedicati di Azure o crittografia dischi di Azure.
 - Attualmente non supporta l'integrazione con backup di Azure o Azure Site Recovery.

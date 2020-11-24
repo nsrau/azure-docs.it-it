@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
-ms.openlocfilehash: 37a61e270f95ffdc420536046e0ce1eda1e489b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 826fccad043b067ce86d5f56eaebc6ee48b532d1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391485"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562437"
 ---
 | Risorsa |[Piano a consumo](../articles/azure-functions/functions-scale.md#consumption-plan)|[Piano Premium](../articles/azure-functions/functions-scale.md#premium-plan)|[Piano dedicato](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
@@ -19,7 +19,7 @@ ms.locfileid: "85391485"
 | Dimensioni massime della richiesta (MB)<sup>3</sup> | 100 | 100 | 100 | 100 | Dipende dal cluster |
 | Lunghezza massima della stringa di query<sup>3</sup> | 4096 | 4096 | 4096 | 4096 | Dipende dal cluster |
 | Lunghezza massima dell'URL della richiesta<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | Dipende dal cluster |
-|[Unità di calcolo di Azure](../articles/virtual-machines/windows/acu.md) per istanza | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [Prezzi del servizio Azure Kubernetes](https://azure.microsoft.com/pricing/details/container-service/) |
+|[Unità di calcolo di Azure](../articles/virtual-machines/acu.md) per istanza | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [Prezzi del servizio Azure Kubernetes](https://azure.microsoft.com/pricing/details/container-service/) |
 | Dimensioni massime della memoria (GB per istanza) | 1.5 | 3,5-14 | 1,75-14 | 3,5-14 | Qualsiasi nodo è supportato |
 | App per le funzioni per piano |100 |100 |Senza limiti<sup>4</sup> | unbounded | unbounded |
 | [Piani del servizio app](../articles/app-service/overview-hosting-plans.md) | 100 per [area](https://azure.microsoft.com/global-infrastructure/regions/) |100 per gruppo di risorse |100 per gruppo di risorse | - | - |

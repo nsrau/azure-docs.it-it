@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 489ee630deb56aef6c004067f29779053fbcd3e7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 3fe622d2ff4f6f8aff546452db0f475cfd44eb1b
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755972"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95561003"
 ---
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -63,8 +63,8 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 
 È possibile creare un insieme di credenziali delle chiavi anche usando il [modello di Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
-1. Nel modello di avvio rapido di Azure fare clic su **Deploy to Azure** .
-2. Selezionare la sottoscrizione, il gruppo di risorse, la località del gruppo di risorse, il nome dell'insieme di credenziali delle chiavi, l'ID oggetto, le condizioni legali e il contratto, quindi fare clic su **Acquista** . 
+1. Nel modello di avvio rapido di Azure fare clic su **Deploy to Azure**.
+2. Selezionare la sottoscrizione, il gruppo di risorse, la località del gruppo di risorse, il nome dell'insieme di credenziali delle chiavi, l'ID oggetto, le condizioni legali e il contratto, quindi fare clic su **Acquista**. 
 
 
 ##  <a name="set-key-vault-advanced-access-policies"></a>Impostare i criteri di accesso avanzati per l'insieme di credenziali delle chiavi
@@ -117,10 +117,10 @@ Usare [az keyvault update](/cli/azure/keyvault#az-keyvault-update) per abilitare
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-1. Selezionare l'insieme di credenziali delle chiavi, passare a **Criteri di accesso** e selezionare **Fare clic per visualizzare i criteri di accesso avanzati** .
-2. Selezionare la casella **Abilita l'accesso a Crittografia dischi di Azure per la crittografia dei volumi** .
-3. Selezionare **Abilita l'accesso alle macchine virtuali di Azure per la distribuzione** e/o **Abilita l'accesso ad Azure Resource Manager per la distribuzione dei modelli** , se necessario. 
-4. Fare clic su **Save** .
+1. Selezionare l'insieme di credenziali delle chiavi, passare a **Criteri di accesso** e selezionare **Fare clic per visualizzare i criteri di accesso avanzati**.
+2. Selezionare la casella **Abilita l'accesso a Crittografia dischi di Azure per la crittografia dei volumi**.
+3. Selezionare **Abilita l'accesso alle macchine virtuali di Azure per la distribuzione** e/o **Abilita l'accesso ad Azure Resource Manager per la distribuzione dei modelli**, se necessario. 
+4. Fare clic su **Save**.
 
     ![Criteri di accesso avanzati per l'insieme di credenziali delle chiavi di Azure](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 
@@ -131,7 +131,7 @@ Se si vuole usare una chiave di crittografia della chiave (KEK) per un livello a
 
 È possibile generare una nuova chiave di crittografia della chiave usando il comando [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) dell'interfaccia della riga di comando di Azure, il cmdlet di Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) o il [portale di Azure](https://portal.azure.com/). È necessario generare un tipo di chiave RSA. Crittografia dischi di Azure non supporta ancora l'uso delle chiavi a curva ellittica.
 
-Si può invece importare una chiave di crittografia della chiave dal modulo di protezione hardware di gestione delle chiavi locale. Per altre informazioni, vedere la [documentazione di Key Vault](/azure/key-vault/key-vault-hsm-protected-keys).
+Si può invece importare una chiave di crittografia della chiave dal modulo di protezione hardware di gestione delle chiavi locale. Per altre informazioni, vedere la [documentazione di Key Vault](../articles/key-vault/keys/hsm-protected-keys.md).
 
 È necessario applicare il controllo delle versioni all'URL della chiave di crittografia della chiave dell'insieme di credenziali delle chiavi. Azure applica questa restrizione relativa al controllo delle versioni. Per informazioni sugli URL del segreto e della chiave di crittografia della chiave validi, vedere gli esempi seguenti:
 

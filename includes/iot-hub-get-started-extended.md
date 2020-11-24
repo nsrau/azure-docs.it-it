@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: iot-hub
 author: dominicbetts
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: bd08812f83413a997ce655d68d866b145b20dcef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b9b540e53c46eae0dfbe9dd9c3ed91cd7506a9d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75912491"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555773"
 ---
 ## <a name="extended-iot-scenarios"></a>Scenari IoT estesi
 
@@ -24,7 +24,7 @@ Usare altri servizi e strumenti di Azure. Dopo la connessione del dispositivo al
 | [Gestire i messaggi dell'hub IoT](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)                  | Estensione dell'hub Azure Internet VS Code|
 | [Gestire un dispositivo IoT](../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md)                        | Interfaccia della riga di comando di Azure ed estensione IoT    |
 | [Gestire un dispositivo IoT](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)                | Estensione dell'hub Azure Internet VS Code|
-| [Salvare i messaggi dell'hub IoT nell'archiviazione di Azure](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)  | Archiviazione tabelle di Azure                |
+| [Salvare i messaggi dell'hub IoT nell'archiviazione di Azure](../articles/iot-hub/tutorial-routing.md#route-to-a-storage-account)  | Archiviazione tabelle di Azure                |
 | [Visualizzare i dati dei sensori](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)                      | Microsoft Power BI                 |
 | [Visualizzare i dati dei sensori](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)                      | App Web di Azure                     |
 | [Previsioni meteorologiche con i dati dei sensori](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)      | Azure Machine Learning             |
@@ -32,4 +32,4 @@ Usare altri servizi e strumenti di Azure. Dopo la connessione del dispositivo al
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver completato queste esercitazioni, è possibile esplorare ulteriormente le funzionalità dell'hub IoT nella [Guida per gli sviluppatori](../articles/iot-hub/iot-hub-devguide.md). 
+Dopo aver completato queste esercitazioni, è possibile esplorare ulteriormente le funzionalità dell'hub IoT nella [Guida per gli sviluppatori](../articles/iot-hub/iot-hub-devguide.md).

@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a2eafd6bb34b897f3492ddcffd6841f0fabc4ca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28609ad27330ae4ea5ea7c0d02d5a61181fbe0df
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73034547"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95555033"
 ---
 Quando si progetta un sistema, è importante comprendere le potenziali minacce e aggiungere le difese appropriate di conseguenza, perché il sistema è definito da una progettazione e un'architettura specifiche. È importante progettare il prodotto tenendo conto della sicurezza, perché comprendere in che modo un utente malintenzionato potrebbe compromettere un sistema aiuta ad implementare le misure appropriate fin dall'inizio.
 
@@ -72,7 +72,7 @@ I quattro elementi principali di un modello di rischio sono i seguenti:
 
 * Entità esterne (tutto ciò che interagisce con il sistema, ma non è sotto il controllo dell'applicazione, ad esempio utenti e immagini satellitari)
 
-Tutti gli elementi nel diagramma dell'architettura sono soggetti a varie minacce; in questo articolo viene usato l'elemento mnemonico STRIDE. Per altre informazioni sugli elementi STRIDE, leggere il post di blog [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) (Nuova modellazione delle minacce, STRIDE).
+Tutti gli elementi nel diagramma dell'architettura sono soggetti a varie minacce; in questo articolo viene usato l'elemento mnemonico STRIDE. Per altre informazioni sugli elementi STRIDE, leggere il post di blog [Threat Modeling Again, STRIDE](/archive/blogs/larryosterman/threat-modeling-again-stride) (Nuova modellazione delle minacce, STRIDE).
 
 Diversi elementi del diagramma applicazioni sono soggetti a determinate minacce STRIDE:
 

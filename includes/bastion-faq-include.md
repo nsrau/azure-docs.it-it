@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5d14068f6be4717f74e4917d6fccf1082cd0efd3
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 48a7912b1a6375111b6f9af1496cbbd41966202c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331759"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95560483"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Quali aree sono disponibili?
 
@@ -89,7 +89,7 @@ Una sessione deve essere avviata solo dal portale di Azure. Accedere al portale 
 
 ### <a name="how-do-i-handle-deployment-failures"></a><a name="udr"></a>Come si gestiscono gli errori di distribuzione?
 
-Esaminare gli eventuali messaggi di errore e, se necessario, [aprire una richiesta di supporto nel portale di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Gli errori di distribuzione possono derivare da [limiti, quote e vincoli della sottoscrizione di Azure](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). In particolare, i clienti potrebbero riscontrare un limite sul numero di indirizzi IP pubblici consentiti per ogni sottoscrizione, che causa un errore della distribuzione di Azure Bastion.
+Esaminare gli eventuali messaggi di errore e, se necessario, [aprire una richiesta di supporto nel portale di Azure](../articles/azure-portal/supportability/how-to-create-azure-support-request.md). Gli errori di distribuzione possono derivare da [limiti, quote e vincoli della sottoscrizione di Azure](../articles/azure-resource-manager/management/azure-subscription-service-limits.md). In particolare, i clienti potrebbero riscontrare un limite sul numero di indirizzi IP pubblici consentiti per ogni sottoscrizione, che causa un errore della distribuzione di Azure Bastion.
 
 ### <a name="how-do-i-incorporate-azure-bastion-in-my-disaster-recovery-plan"></a><a name="dr"></a>Come si incorpora Azure Bastion nel piano di ripristino di emergenza?
 

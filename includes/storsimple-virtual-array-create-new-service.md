@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 7bdbfd8ffd44f9515ae4df20c55b09c8a0adcaef
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 1be6a654962b513cfcf755d45e562b86067e7b25
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376252"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95556222"
 ---
 #### <a name="to-create-a-new-service"></a>Per creare un nuovo servizio
 
@@ -29,13 +29,13 @@ ms.locfileid: "93376252"
 
     2.  Selezionare una sottoscrizione nell'elenco a discesa **Sottoscrizione**. La sottoscrizione viene collegata all'account di fatturazione. Questo campo non è presente se si dispone di una sola sottoscrizione.
 
-    3.  Per **Gruppo di risorse** selezionare un gruppo esistente o creare un nuovo gruppo. Per altre informazioni, vedere [Azure resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal) (Gruppi di risorse di Azure).
+    3.  Per **Gruppo di risorse** selezionare un gruppo esistente o creare un nuovo gruppo. Per altre informazioni, vedere [Azure resource groups](../articles/azure-resource-manager/management/manage-resource-groups-portal.md) (Gruppi di risorse di Azure).
 
     4.  In **Località** specificare una località per il servizio. Per altre informazioni sui servizi disponibili in aree specifiche, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services) . In generale, scegliere la **posizione** più vicina all'area geografica in cui si vuole distribuire il dispositivo. È inoltre possibile tenere in considerazione quanto segue:
 
         -   Se sono presenti altri carichi di lavoro in Azure che si intende distribuire con il dispositivo StorSimple, è consigliabile usare il data center specifico.
 
-        -   Gestione dispositivi StorSimple e Archiviazione di Azure possono trovarsi in due posizioni distinte. In tal caso, è necessario creare l'account di Gestione dispositivi StorSimple e di Archiviazione di Azure separatamente. Per creare un account di archiviazione di Azure, passare ad Archiviazione di Azure nel portale di Azure e seguire i passaggi descritti in [Creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). Dopo aver creato l'account, aggiungerlo al servizio Gestione dispositivi StorSimple seguendo la procedura descritta in [Configurare un nuovo account di archiviazione per il servizio](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#configure-a-new-storage-account-for-the-service).
+        -   Gestione dispositivi StorSimple e Archiviazione di Azure possono trovarsi in due posizioni distinte. In tal caso, è necessario creare l'account di Gestione dispositivi StorSimple e di Archiviazione di Azure separatamente. Per creare un account di archiviazione di Azure, passare ad Archiviazione di Azure nel portale di Azure e seguire i passaggi descritti in [Creare un account di archiviazione](../articles/storage/common/storage-account-create.md). Dopo aver creato l'account, aggiungerlo al servizio Gestione dispositivi StorSimple seguendo la procedura descritta in [Configurare un nuovo account di archiviazione per il servizio](../articles/storsimple/storsimple-virtual-array-manage-storage-accounts.md#add-a-storage-account-credential).
 
         -   Se si esegue la distribuzione del dispositivo virtuale nel portale per enti pubblici, il servizio Gestione dispositivi StorSimple è disponibile nelle località statunitensi dell'Iowa e della Virginia.
 
@@ -48,5 +48,3 @@ ms.locfileid: "93376252"
         ![Crea nuovo servizio 2](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
 Si viene indirizzati alla pagina di destinazione **Servizio**. La creazione del servizio richiede alcuni minuti. Al termine della creazione del servizio, viene inviata una notifica all'utente e lo stato del servizio viene modificato in **Attivo**.
-
-

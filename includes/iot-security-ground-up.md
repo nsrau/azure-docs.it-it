@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 4f7ec9bbf7877d8067b3d8b1566a5cd2c2075281
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 234407e6973657ba3ad0d78189e7cb1d363c15e2
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86050496"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95554530"
 ---
 L'Internet of Things (IoT) pone numerose difficoltà in termini di sicurezza, privacy e conformità per le aziende di tutto il mondo. A differenza delle tecnologie informatiche tradizionali in cui questi problemi riguardano il software e la relativa implementazione, l'IoT riguarda le sfide poste dalla convergenza tra il mondo fisico e quello informatico. Per proteggere le soluzioni IoT, è necessario garantire il provisioning sicuro dei dispositivi, la connettività protetta tra questi dispositivi e il cloud e la protezione dei dati nel cloud durante l'elaborazione e l'archiviazione. A sfavore di queste funzionalità, tuttavia, giocano fattori quali dispositivi con risorse limitate, la distribuzione geografica delle implementazioni e un numero elevato di dispositivi all'interno di un'unica soluzione.
 
@@ -39,11 +39,11 @@ Il [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/) fornis
 
 Microsoft Azure offre una soluzione cloud completa, che combina una raccolta in continua crescita di servizi cloud integrati (analisi, machine learning, archiviazione, protezione, rete e web) con l'impegno, leader nel settore, verso la protezione e la privacy dei dati. La strategia di [presunta violazione](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) definita da Microsoft usa un *red team* dedicato, composto da esperti di sicurezza software che simulano attacchi, verificano la capacità di rilevamento di Azure, proteggono dalle minacce emergenti e ripristinano l'operatività a seguito di violazioni della sicurezza. Il team Microsoft per la [risposta globale agli eventi imprevisti](https://www.microsoft.com/en-us/TrustCenter/Security/DesignOpSecurity) lavora giorno e notte per mitigare gli effetti di attacchi e attività dannose. Il team segue procedure stabilite per la gestione degli incidenti, delle comunicazioni e del ripristino e usa interfacce individuabili e prevedibili con partner interni ed esterni.
 
-I sistemi Microsoft offrono prevenzione e rilevamento intrusione continui, prevenzione da attacchi ai servizi, test di penetrazione regolari e strumenti forensi che permettono di identificare e mitigare le minacce. [Multi-Factor Authentication](../articles/active-directory/authentication/multi-factor-authentication.md) fornisce un livello di sicurezza aggiuntivo per l'accesso alla rete da parte degli utenti finali. Per il provider dell'applicazione e dell'host, Microsoft offre controllo di accesso, monitoraggio, anti-malware, analisi delle vulnerabilità, patch e gestione della configurazione.
+I sistemi Microsoft offrono prevenzione e rilevamento intrusione continui, prevenzione da attacchi ai servizi, test di penetrazione regolari e strumenti forensi che permettono di identificare e mitigare le minacce. [Multi-Factor Authentication](../articles/active-directory/authentication/concept-mfa-howitworks.md) fornisce un livello di sicurezza aggiuntivo per l'accesso alla rete da parte degli utenti finali. Per il provider dell'applicazione e dell'host, Microsoft offre controllo di accesso, monitoraggio, anti-malware, analisi delle vulnerabilità, patch e gestione della configurazione.
 
 Solution Accelerator consente di sfruttare la sicurezza e la privacy integrate nella piattaforma di Azure insieme ai processi SDL e OSA per lo sviluppo e il funzionamento sicuro di tutti i software Microsoft. Queste procedure forniscono funzionalità di protezione dell'infrastruttura, protezione della rete, identità e gestione, essenziali per la sicurezza di qualsiasi soluzione.
 
-L'[hub IoT di Azure](../articles/iot-hub/about-iot-hub.md), compreso in [Solution Accelerator di IoT](../articles/iot-fundamentals/iot-introduction.md), offre un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra i dispositivi IoT e i servizi di Azure, ad esempio [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) e [Analisi di flusso di Azure](../articles/stream-analytics/stream-analytics-introduction.md) usando credenziali di sicurezza e controllo di accesso specifici per ogni dispositivo.
+L'[hub IoT di Azure](../articles/iot-hub/about-iot-hub.md), compreso in [Solution Accelerator di IoT](../articles/iot-fundamentals/iot-introduction.md), offre un servizio completamente gestito che consente comunicazioni bidirezionali affidabili e sicure tra i dispositivi IoT e i servizi di Azure, ad esempio [Azure Machine Learning](../articles/machine-learning/classic/index.yml) e [Analisi di flusso di Azure](../articles/stream-analytics/stream-analytics-introduction.md) usando credenziali di sicurezza e controllo di accesso specifici per ogni dispositivo.
 
 Per descrivere al meglio le funzionalità di sicurezza e privacy incorporate in Solution Accelerator di Azure IoT, in questo articolo la soluzione è stata scomposta nelle tre principali aree di sicurezza.
 
@@ -89,15 +89,15 @@ Usando Azure Active Directory, ovvero AAD, per l'autenticazione e l'autorizzazio
 
 Una volta che i dati si trovano nel cloud, possono essere elaborati e archiviati in qualsiasi flusso di lavoro definito dall'utente. L'accesso a ogni parte dei dati viene controllato con Azure Active Directory, a seconda del servizio di archiviazione in uso.
 
-Tutte le chiavi usate dall'infrastruttura IoT vengono archiviate nel cloud in un archivio protetto, con la possibilità di eseguire il rollover nel caso in cui le chiavi debbano essere sottoposte a nuovo provisioning. I dati possono essere archiviati in [Azure Cosmos DB](../articles/cosmos-db/introduction.md) o nel [database SQL](../articles/sql-database/sql-database-faq.md), consentendo la definizione del livello di sicurezza desiderato. In aggiunta, Azure offre un modo per monitorare e controllare tutti gli accessi ai dati, ricevendo avvertenze su qualsiasi intrusione o accesso non autorizzato.
+Tutte le chiavi usate dall'infrastruttura IoT vengono archiviate nel cloud in un archivio protetto, con la possibilità di eseguire il rollover nel caso in cui le chiavi debbano essere sottoposte a nuovo provisioning. I dati possono essere archiviati in [Azure Cosmos DB](../articles/cosmos-db/introduction.md) o nel [database SQL](../articles/azure-sql/database/sql-database-paas-overview.md), consentendo la definizione del livello di sicurezza desiderato. In aggiunta, Azure offre un modo per monitorare e controllare tutti gli accessi ai dati, ricevendo avvertenze su qualsiasi intrusione o accesso non autorizzato.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 L'Internet of Things inizia dagli elementi più importanti per le aziende. L'IoT può offrire all'azienda un valore incredibile riducendo i costi, aumentando i ricavi e trasformando l'azienda stessa. Il successo di questa trasformazione dipende in larga misura dalla scelta del provider giusto per il software e i servizi IoT. Ciò significa che la ricerca di un provider non solo catalizza questa trasformazione per comprendere le esigenze e i requisiti dell'azienda, ma fornisce anche servizi e software realizzati tenendo conto di aspetti di importanza fondamentale quali sicurezza, privacy, trasparenza e conformità. Microsoft vanta una grande esperienza nello sviluppo e nella distribuzione di servizi e software protetti e continua ad attestarsi leader in questa nuova era dell'Internet of Things.
 
 Solution Accelerator include misure di sicurezza per impostazione predefinita e consente il monitoraggio sicuro delle risorse per aumentare l'efficienza, migliorare le prestazioni operative per consentirne l'innovazione e usare l'analisi avanzata dei dati per trasformare le aziende. Grazie all'approccio a più livelli verso la sicurezza, numerose funzionalità di sicurezza e modelli di progettazione, Solution Accelerator consente di distribuire un'infrastruttura che può essere considerata attendibile per trasformare qualsiasi azienda.
 
-## <a name="additional-information"></a>Altre informazioni
+## <a name="additional-information"></a>Informazioni aggiuntive
 
 Ciascun Solution Accelerator crea istanze dei servizi di Azure, ad esempio:
 

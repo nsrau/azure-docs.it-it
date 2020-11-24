@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: virtual-machines
 author: msmbaldwin
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: f2e95a53f7dd188e1103a47cba097716cfad9484
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1c1d438f0322942a1e68c0af74de8d5e2d77c77a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746225"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95557132"
 ---
 La funzionalità Crittografia dischi di Azure può essere abilitata e gestita tramite l'[interfaccia della riga di comando di Azure](/cli/azure) e [Azure PowerShell](/powershell/azure/new-azureps-module-az). A tale scopo, è necessario installare gli strumenti localmente e connettersi alla sottoscrizione di Azure.
 
@@ -43,7 +43,7 @@ az account set --subscription "<subscription name or ID>"
 Per altre informazioni, vedere [Azure Service Fabric e interfaccia della riga di comando di Azure 2.0](/cli/azure/get-started-with-azure-cli). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Il [modulo az di Azure PowerShell](/powershell/azure/new-azureps-module-az) offre un set di cmdlet che usano il modello [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) per la gestione delle risorse di Azure. È possibile usarlo nel browser con [Azure Cloud Shell](/azure/cloud-shell/overview) oppure installarlo nel computer locale seguendo le istruzioni disponibili in [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). 
+Il [modulo az di Azure PowerShell](/powershell/azure/new-azureps-module-az) offre un set di cmdlet che usano il modello [Azure Resource Manager](../articles/azure-resource-manager/management/overview.md) per la gestione delle risorse di Azure. È possibile usarlo nel browser con [Azure Cloud Shell](../articles/cloud-shell/overview.md) oppure installarlo nel computer locale seguendo le istruzioni disponibili in [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). 
 
 Se è già installato in locale, assicurarsi di usare la versione più recente di Azure PowerShell SDK per configurare Crittografia dischi di Azure. Scaricare la versione più recente di [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
@@ -66,4 +66,4 @@ Per controllare che i cmdlet di Crittografia dischi di Azure siano installati, u
 ```powershell
 Get-command *diskencryption*
 ```
-Per altre informazioni, vedere [Introduzione ad Azure PowerShell](/powershell/azure/get-started-azureps). 
+Per altre informazioni, vedere [Introduzione ad Azure PowerShell](/powershell/azure/get-started-azureps).
