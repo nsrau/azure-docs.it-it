@@ -77,9 +77,9 @@
         - name: Installare un'estensione di macchina virtuale
           items:
             - name: Windows
-              href: ../virtual-machines/extensions/network-watcher-windows.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json
+              href: ../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
             - name: Linux
-              href: ../virtual-machines/extensions/network-watcher-linux.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json
+              href: ../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
         - name: Diagnosticare un problema di routing
           items:
             - name: Azure PowerShell
@@ -184,7 +184,7 @@
     - name: Determinare la latenza relativa tra una posizione e un'area di Azure
       href: view-relative-latencies.md
     - name: Monitorare le prestazioni di rete
-      href: ../azure-monitor/insights/network-performance-monitor.md?toc=%252fazure%252fnetwork-watcher%252ftoc.json
+      href: ../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
     - name: Spostare le risorse
       items:
         - name: Spostare le risorse di Network Watcher

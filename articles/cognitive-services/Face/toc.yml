@@ -71,6 +71,16 @@
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
         - name: Documentazione dei contenitori di Servizi cognitivi
           href: ../containers/index.yml
+- name: Approfondimenti dello scenario
+  items:
+    - name: Registrazione di Viso
+      items:
+        - name: Panoramica
+          href: enrollment-overview.md
+        - name: Guide pratiche
+          items:
+            - name: Creare un'app di registrazione con React
+              href: build-enrollment-app.md
 - name: Informazioni di riferimento
   items:
     - name: API Viso

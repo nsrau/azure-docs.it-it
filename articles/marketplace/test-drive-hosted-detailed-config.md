@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/06/2020
-ms.openlocfilehash: 0765c05e08dda782c084775fb83b22a52558fa0d
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 9e8aecfe8b16d8af755d3f4c3c71b875d4e8ec40
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491614"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751250"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>Configurazione dettagliata per le unità di test ospitate
 
@@ -29,7 +29,7 @@ Questo articolo descrive come configurare un test drive ospitato per Dynamics 36
 
     - **Tipo di test drive** : scegliere **Microsoft Hosted (Dynamics 365 per Customer Engagement & PowerApps)**. Ciò indica che Microsoft ospiterà e gestirà il servizio che esegue il test drive provisioning e deprovisioning dell'utente.
 
-5. Concedere Microsoft AppSource autorizzazione per il provisioning e il deprovisioning di test drive utenti nel tenant seguendo [queste istruzioni](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md). In questo passaggio si genereranno i valori **app Azure ad ID** e **app Azure ad chiave** indicati di seguito.
+5. Concedere Microsoft AppSource autorizzazione per il provisioning e il deprovisioning di test drive utenti nel tenant seguendo [queste istruzioni](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup). In questo passaggio si genereranno i valori **app Azure ad ID** e **app Azure ad chiave** indicati di seguito.
 6. Completare questi campi nella pagina di **configurazione tecnica test drive** .
 
     [![Pagina di configurazione tecnica test drive.](media/test-drive/technical-config-details.png)](media/test-drive/technical-config-details.png#lightbox)

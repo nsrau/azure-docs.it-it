@@ -75,6 +75,8 @@
           href: spring-cloud-howto-launch-from-source.md
         - name: Usare IntelliJ per distribuire le app
           href: spring-cloud-tutorial-intellij-deploy-apps.md
+        - name: Distribuire Azure Spring Cloud con Azure PowerShell
+          href: spring-cloud-howto-deploy-powershell.md
     - name: Configurare
       items:
         - name: 'Avviare, arrestare ed eliminare un''app'

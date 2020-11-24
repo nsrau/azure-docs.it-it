@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: ed767055c1227d39fc29ac77a44c96b19030ad28
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8033117d9e3c31f8aa9bba06afb7c3b1b7bba67f
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535861"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751029"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versioni supportate del Database di Azure per il server MySQL
 
@@ -46,9 +46,9 @@ Per ulteriori informazioni sui miglioramenti e sulle correzioni in questa versio
 ## <a name="managing-updates-and-upgrades"></a>Gestire gli aggiornamenti
 Il servizio gestisce automaticamente l'applicazione di patch per gli aggiornamenti delle versioni di correzione dei bug. Ad esempio, da 5.7.20 a 5.7.21.  
 
-Attualmente, gli aggiornamenti di versioni principali e secondarie non sono supportati. Ad esempio l'aggiornamento da MySQL 5.6 a MySQL 5.7 non è supportato. Se si vuole eseguire l'aggiornamento dalla 5.6 alla 5.7, eseguire un [dump e ripristinarlo](./concepts-migrate-dump-restore.md) in un server creato con la nuova versione del motore.
+L'aggiornamento della versione principale è attualmente supportato dal servizio per gli aggiornamenti da MySQL v 5.6 a v 5.7. Per ulteriori informazioni, vedere [come eseguire gli aggiornamenti della versione principale](how-to-major-version-upgrade.md). Se si vuole eseguire l'aggiornamento da 5,7 a 8,0, è consigliabile eseguire il [dump e il ripristino](./concepts-migrate-dump-restore.md) in un server creato con la nuova versione del motore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni dettagliate sui criteri di controllo delle versioni di database di Azure per MySQL, vedere [questo documento](concepts-version-policy.md).
-- Per informazioni sulle quote di risorse e sulle limitazioni specifiche in base al **livello di servizio** , vedere livelli di [servizio](./concepts-pricing-tiers.md)
+- Per informazioni sulle quote di risorse e sulle limitazioni specifiche in base al **livello di servizio**, vedere livelli di [servizio](./concepts-pricing-tiers.md)

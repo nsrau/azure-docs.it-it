@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: d3bedfae88544d0b0ebd07868438559305279fed
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a4380ae7fdb523f8b2f5bc14fefa094b6d96e547
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95530115"
+ms.locfileid: "95750535"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurare l'area di lavoro Log Analytics per Monitoraggio di Azure per le macchine virtuali
 Monitoraggio di Azure per le macchine virtuali raccoglie i dati da una o più aree di lavoro Log Analytics in monitoraggio di Azure. Prima di caricare gli agenti, è necessario creare e configurare un'area di lavoro. Questo articolo descrive i requisiti dell'area di lavoro e per configurarlo per Monitoraggio di Azure per le macchine virtuali.
@@ -80,7 +80,7 @@ Prima di poter usare un'area di lavoro Log Analytics con Monitoraggio di Azure p
 ### <a name="azure-portal"></a>Portale di Azure
 Sono disponibili tre opzioni per la configurazione di un'area di lavoro esistente usando il portale di Azure. Ognuno di essi è descritto di seguito.
 
-Per configurare una singola area di lavoro, selezionare le **altre opzioni di onboarding** e quindi **configurare un'area di lavoro**. Selezionare una sottoscrizione e un'area di lavoro, quindi fare clic su **Configura**.
+Per configurare una singola area di lavoro, passare all'opzione **macchine virtuali** nel menu **monitoraggio di Azure** , selezionare le **altre opzioni di onboarding** e quindi **configurare un'area di lavoro**. Selezionare una sottoscrizione e un'area di lavoro, quindi fare clic su **Configura**.
 
 [![Configurare l'area di lavoro](media/vminsights-enable-at-scale-policy/configure-workspace.png)](media/vminsights-enable-at-scale-policy/configure-workspace.png#lightbox)
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: f628c2a4c2f8eb474bbc34ef2d3fd2f03f668992
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: de85e4eb553f623790b472e79f8f97487ba96b48
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629904"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95751114"
 ---
 # <a name="test-drive-technical-configuration"></a>Configurazione tecnica del test drive
 
@@ -34,11 +34,13 @@ Microsoft può rimuovere la complessità della configurazione di un test drive o
 
 - **URL istanza** (obbligatorio): l'URL in cui il cliente avvierà un test drive. È in genere l'URL dell'istanza di Dynamics 365 che esegue l'app con i dati di esempio installati, ad esempio `https://testdrive.crm.dynamics.com`.
 
-- **URL dell'API Web dell'istanza** (obbligatorio): recuperare l'URL dell'API Web per l'istanza di Dynamics 365 accedendo all'account Microsoft 365 e passando a **Impostazioni**  >  **personalizzazione**  >  **risorse per sviluppatori**  >  **istanza Web API (URL radice del servizio)** , copiare l'URL trovato qui (ad esempio, `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
+- **URL dell'API Web dell'istanza** (obbligatorio): recuperare l'URL dell'API Web per l'istanza di Dynamics 365 accedendo all'account Microsoft 365 e passando a **Impostazioni**  >  **personalizzazione**  >  **risorse per sviluppatori**  >  **istanza Web API (URL radice del servizio)**, copiare l'URL trovato qui (ad esempio, `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
 
 - **Nome ruolo** (obbligatorio): specificare il nome del ruolo di sicurezza definito nel test drive di Dynamics 365 personalizzato, che verrà assegnato all'utente durante il test drive (ad esempio, test-drive-role).
 
-Per informazioni su come configurare l'ambiente Dynamics 365 per test drive e concedere l'autorizzazione AppSource per il provisioning e il deprovisioning di test drive utenti nel tenant, seguire [queste istruzioni](https://github.com/Microsoft/AppSource/blob/patch-1/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md).
+Per informazioni su come configurare l'ambiente Dynamics 365 per test drive e concedere l'autorizzazione AppSource per il provisioning e il deprovisioning di test drive utenti nel tenant, seguire [queste istruzioni](https://docs.microsoft.com/azure/marketplace/test-drive-azure-subscription-setup).
+
+Per istruzioni dettagliate su come elencare e configurare la unità di test ospitata, vedere la pagina relativa alla [configurazione dettagliata per test drive ospitata](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config) .
 
 ## <a name="logic-app-test-drive"></a>test drive app per la logica
 
@@ -72,9 +74,9 @@ Per consentire a Microsoft di distribuire il test automaticamente, creare e spec
 
 - **Nome tenant di Azure AD** (obbligatorio per Dynamics 365): immettere il nome di Azure Active Directory (AD). Per trovare questo nome, accedere al [portale di Azure](https://portal.azure.com/): nell'angolo in alto a destra il nome del tenant verrà elencato sotto il nome dell'account.
 
-- **Azure ad ID app** (obbligatorio): immettere l' [id applicazione](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)di Azure Active Directory (ad). Per trovare questo ID, accedere al [portale di Azure](https://portal.azure.com/), selezionare la scheda Active Directory nel menu a sinistra, selezionare **registrazioni app** , quindi cercare il numero di **ID dell'applicazione** elencato (ad esempio `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **Azure ad ID app** (obbligatorio): immettere l' [id applicazione](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)di Azure Active Directory (ad). Per trovare questo ID, accedere al [portale di Azure](https://portal.azure.com/), selezionare la scheda Active Directory nel menu a sinistra, selezionare **registrazioni app**, quindi cercare il numero di **ID dell'applicazione** elencato (ad esempio `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **Azure ad segreto client App** (obbligatorio): immettere il [segreto client](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)dell'applicazione Azure ad. Per trovare questo valore, accedere al [portale di Azure](https://portal.azure.com/). Selezionare la scheda **Azure Active Directory** nel menu a sinistra, selezionare **registrazioni app** e selezionare l'app test drive. Selezionare quindi **certificati e segreti** , selezionare **nuovo segreto client** , immettere una descrizione, selezionare **mai** in **scadenza** e scegliere **Aggiungi**. Assicurarsi di copiare il valore. Non uscire dalla pagina prima di copiare il valore.
+- **Azure ad segreto client App** (obbligatorio): immettere il [segreto client](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)dell'applicazione Azure ad. Per trovare questo valore, accedere al [portale di Azure](https://portal.azure.com/). Selezionare la scheda **Azure Active Directory** nel menu a sinistra, selezionare **registrazioni app** e selezionare l'app test drive. Selezionare quindi **certificati e segreti**, selezionare **nuovo segreto client**, immettere una descrizione, selezionare **mai** in **scadenza** e scegliere **Aggiungi**. Assicurarsi di copiare il valore. Non uscire dalla pagina prima di copiare il valore.
 
 ## <a name="test-drive-listings"></a>Elenchi di test drive
 
@@ -92,6 +94,8 @@ L'opzione per gli **elenchi di test drive** disponibile nella scheda **test driv
   - **Anteprima** (533 x 324 pixel): l'immagine deve essere in formato png.
 
 Se si sta creando il test drive nel centro per i partner, selezionare **Salva bozza** prima di continuare.
+
+Per istruzioni dettagliate su come elencare e configurare la unità di test ospitata, vedere la pagina relativa alla [configurazione dettagliata per test drive ospitata](https://docs.microsoft.com/azure/marketplace/test-drive-hosted-detailed-config) .
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

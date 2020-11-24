@@ -6,7 +6,7 @@
       href: introduction.md
 - name: Avvio rapido
   items:
-    - name: 0- Pianificare la distribuzione
+    - name: 0 - Pianificare la distribuzione
       href: production-ready-deployment-steps.md
     - name: 1 - Distribuire la soluzione Azure VMware
       href: deploy-azure-vmware-solution.md

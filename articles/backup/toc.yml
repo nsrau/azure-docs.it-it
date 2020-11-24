@@ -4,6 +4,8 @@
   items:
     - name: Panoramica di Backup di Azure
       href: backup-overview.md
+    - name: Novità di Backup di Azure
+      href: whats-new.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/backup/'
 - name: Avvi rapidi

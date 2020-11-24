@@ -379,7 +379,7 @@
               href: dedicated-hosts-powershell.md
             - name: Portale
               href: ../dedicated-hosts-portal.md
-        - name: Distribuire VM Spot
+        - name: Distribuire VM spot
           items:
             - name: Portale
               href: ../spot-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json

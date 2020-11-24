@@ -270,9 +270,13 @@
     - name: Creare trasformazioni e processi
       items:
         - name: Creare trasformazioni
-          href: cli-create-transform.md
+          href: how-to-create-transform.md
         - name: Creare una trasformazione audio di base con REST
           href: how-to-create-basic-audio-transform.md
+        - name: Creare una trasformazione copyAllBitrateNonInterleaved con REST
+          href: how-to-create-copyallbitratenoninterleaved-transform.md
+        - name: Copia video senza codifica con REST
+          href: how-to-create-copy-video-audio-transform.md
         - name: Creare processi
           href: cli-create-jobs.md
         - name: Creare un input del processo con un file locale e .NET

@@ -3,12 +3,12 @@ title: Guida al protocollo AMQP 1.0 in Hub eventi e nel bus di servizio di Azure
 description: Guida al protocollo per le espressioni e descrizione di AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 32e71211ed1574cade0567f7944b154eea062b24
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: e001327c2c7da08cb9a3552f97fc9a7d8b7921a2
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95396876"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736715"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 
@@ -42,7 +42,7 @@ Il protocollo AMQP 1.0 è progettato in modo da essere estensibile e da supporta
 
 Questa sezione illustra l'uso di base di AMQP 1.0 con il bus di servizio di Azure, che include la creazione di connessioni, sessioni e collegamenti e il trasferimento di messaggi a e da entità del bus di servizio quali code, argomenti e sottoscrizioni.
 
-La fonte più autorevole per informazioni sul funzionamento di AMQP è costituita dalla specifica relativa ad AMQP 1.0, ma questa specifica è stata scritta in modo da illustrare l'implementazione, non per fornire istruzioni relative al protocollo. Questa sezione è incentrata sull'introduzione della terminologia necessaria per descrivere l'uso di AMQP 1.0 da parte del bus di servizio. Per un'introduzione più completa ad AMQP e per una discussione più ampia su AMQP 1.0, vedere [questa esercitazione video][this video course].
+L'origine più autorevole per apprendere il funzionamento di AMQP è la [specifica AMQP 1,0](http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-overview-v1.0.html), ma la specifica è stata scritta in base all'implementazione della guida precisa e non per insegnare il protocollo. Questa sezione è incentrata sull'introduzione della terminologia necessaria per descrivere l'uso di AMQP 1.0 da parte del bus di servizio. Per un'introduzione più completa ad AMQP e per una discussione più ampia su AMQP 1.0, vedere [questa esercitazione video][this video course].
 
 ### <a name="connections-and-sessions"></a>Connessioni e sessioni
 
@@ -67,7 +67,7 @@ Le sessioni hanno un modello di controllo del flusso basato su una finestra. Qua
 
 Il modello basato su finestra è quasi equivalente al concetto TCP del controllo di flusso basato su finestra, ma a livello di sessione all'interno del socket. Il concetto del protocollo che permette più sessioni contemporanee consente di dare la precedenza al traffico a priorità elevata rispetto al traffico normale con limitazioni.
 
-Il bus di servizio di Azure usa attualmente esattamente una sessione per ogni connessione. La dimensione massima di frame per il bus di servizio è di 262.144 byte (256 KB) per il bus di servizio Standard e gli Hub eventi. È pari a 1.048.576 (1 MB) per il bus di servizio Premium. Il bus di servizio non impone alcuna finestra di limitazione specifica a livello di sessione, ma reimposta regolarmente la finestra come parte del controllo di flusso a livello di collegamento. Vedere la [sezione successiva](#links).
+Il bus di servizio di Azure usa attualmente esattamente una sessione per ogni connessione. Il numero massimo di frame del bus di servizio è di 262.144 byte (256-K byte) per lo standard del bus di servizio. È 1.048.576 (1 MB) per gli hub eventi e Premium del bus di servizio. Il bus di servizio non impone alcuna finestra di limitazione specifica a livello di sessione, ma reimposta regolarmente la finestra come parte del controllo di flusso a livello di collegamento. Vedere la [sezione successiva](#links).
 
 Le connessioni, le sessioni e i canali sono temporanei. In caso di interruzione della connessione sottostante, è necessario ristabilire le connessioni, il tunnel TLS, il contesto di autorizzazione SASL e le sessioni.
 

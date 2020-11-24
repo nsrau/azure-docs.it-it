@@ -4,12 +4,12 @@ description: Modelli di scalabilità automatica in Azure per App Web, set di sca
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 414716fbbb36167e52c4f3b98c70ae7696ffea8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fdb3588833dd9bcf989e020cd1dd861c6e28f37
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327056"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95745317"
 ---
 # <a name="best-practices-for-autoscale"></a>Procedure consigliate per la scalabilità automatica
 La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Servizi cloud](https://azure.microsoft.com/services/cloud-services/), [app Web del servizio app](https://azure.microsoft.com/services/app-service/web/) e [servizi di gestione API](../../api-management/api-management-key-concepts.md).
@@ -73,6 +73,9 @@ In questo caso
 3. Si supponga che nel corso del tempo la percentuale di CPU scenda a 60.
 4. La regola di riduzione del numero di istanze della scalabilità automatica valuta lo stato finale se venisse applicata la riduzione del numero di istanze. Ad esempio, 60 x 3 (conteggio corrente delle istanze) = 180 / 2 (numero finale di istanze dopo la riduzione delle prestazioni) = 90. La scalabilità automatica quindi non riduce il numero di istanze perché dovrebbe aumentarlo di nuovo immediatamente. Al contrario, evita di ridurre le prestazioni.
 5. Al successivo controllo, la percentuale di CPU continua a scendere fino a 50. Viene quindi eseguita una nuova stima: 50 x 3 istanze = 150 / 2 istanze = 75, che è al di sotto della soglia di aumento del numero di istanze pari a 80, quindi il numero di istanze viene correttamente ridotto a 2.
+
+> [!NOTE]
+> Se il motore di scalabilità automatica rileva lo sbattimento potrebbe verificarsi in seguito al ridimensionamento del numero di istanze di destinazione, tenterà anche di ridimensionarsi a un numero diverso di istanze tra il conteggio corrente e il conteggio di destinazione. Se il problema non si verifica all'interno di questo intervallo, la scalabilità automatica continuerà l'operazione di ridimensionamento con la nuova destinazione.
 
 ### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Considerazioni sul ridimensionamento dei valori di soglia per le metriche speciali
  Per le metriche speciali, ad esempio la metrica di archiviazione o la metrica di lunghezza della coda del bus di servizio, la soglia è il numero medio di messaggi disponibile per il numero corrente di istanze. Scegliere con attenzione il valore di soglia per questa metrica.
@@ -143,6 +146,8 @@ La scalabilità automatica eseguirà la registrazione sul log attività se si ve
 * Il servizio di scalabilità automatica non riesce a eseguire un'azione di scalabilità.
 * Non sono disponibili metriche che consentono al servizio di scalabilità automatica di prendere una decisione sulla scalabilità.
 * Sono di nuovo disponibili metriche (ripristino) che consentono di prendere una decisione sulla scalabilità.
+* La scalabilità automatica rileva lo sbattimento e interrompe il tentativo di ridimensionamento. In questa situazione verrà visualizzato un tipo di log `Flapping` . Se si verifica questo problema, valutare se le soglie sono troppo strette.
+* La scalabilità automatica rileva lo sbattimento ma è ancora in grado di ridimensionare correttamente. In questa situazione verrà visualizzato un tipo di log `FlappingOccurred` . Se viene visualizzato questo risultato, il motore di scalabilità automatica ha provato a ridimensionare (ad esempio, da 4 istanze a 2), ma ha determinato che questa operazione potrebbe causare problemi. Al contrario, il motore di scalabilità automatica è stato ridimensionato a un numero di istanze diverso (ad esempio, usando 3 istanze anziché 2), che non causa più l'instabilità, quindi è stato ridimensionato a questo numero di istanze.
 
 Per monitorare l'integrità del motore di scalabilità automatica si può anche usare un avviso di log attività. Di seguito sono riportati esempi di come [creare un avviso di log attività per monitorare tutte le operazioni del motore di scalabilità automatica per la sottoscrizione](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) e per [creare un avviso di log attività per monitorare tutte le operazioni di scalabilità automatica in riduzione e in aumento non riuscite per la sottoscrizione](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
 

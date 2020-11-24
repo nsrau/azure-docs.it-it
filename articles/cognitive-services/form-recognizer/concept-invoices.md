@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 366826e591ed131ca63dc94eae994773217438d1
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: af3935bab5cd4d6a2aa4a9e3250f6beec19a8ea4
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511487"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736680"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modello di fattura precompilato del modulo di riconoscimento
 
@@ -107,7 +107,8 @@ Il servizio di fatturazione estrae i campi del testo, delle tabelle e dei 26 Inv
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Provare le proprie fatture ed esempi nell' [interfaccia utente di esempio di riconoscimento moduli](https://fott-preview.azurewebsites.net/).
-- In alternativa, seguire la Guida introduttiva [Estrai dati fattura](./QuickStarts/python-invoices.md) per implementare l'estrazione dei dati di fattura tramite Python e l'API REST.
+- Completare una [Guida introduttiva alla libreria client di riconoscimento moduli](quickstarts/client-library.md) per iniziare a scrivere un'app per l'elaborazione di fatture con il riconoscimento del modulo nel linguaggio preferito.
+- In alternativa, seguire la Guida introduttiva [Estrai dati fattura](./quickstarts/python-invoices.md) per implementare l'estrazione dei dati di fattura tramite Python e l'API REST.
 ## <a name="see-also"></a>Vedere anche
 
 * [Informazioni su Riconoscimento modulo](./overview.md)

@@ -1,26 +1,26 @@
 ---
 title: Verificare la presenza di errori relativi a processi e attività
-description: Errori da verificare per risolvere i problemi relativi a processi e attività
+description: Informazioni sugli errori da verificare e su come risolvere i problemi relativi a processi e attività.
 author: mscurrell
 ms.topic: how-to
-ms.date: 03/10/2019
+ms.date: 11/23/2020
 ms.author: markscu
-ms.openlocfilehash: ece0f1473b3c453ca5506f06b7ef094533d146aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8cf3b5e28d4455e00e0bdcbae2063771d3e8acd
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964329"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736800"
 ---
 # <a name="job-and-task-error-checking"></a>Verifica della presenza di errori relativi a processi e attività
 
-Quando si aggiungono processi e attività, possono verificarsi diversi errori. Il rilevamento degli errori che si verificano durante queste operazioni è semplice perché qualsiasi errore viene restituito immediatamente dall'API, dall'interfaccia della riga di comando o dall'interfaccia utente.  Tuttavia, alcuni errori potrebbero verificarsi in un secondo momento durante la pianificazione e l'esecuzione dei processi e delle attività.
+Quando si aggiungono processi e attività, possono verificarsi diversi errori. Il rilevamento degli errori che si verificano durante queste operazioni è semplice perché qualsiasi errore viene restituito immediatamente dall'API, dall'interfaccia della riga di comando o dall'interfaccia utente. Tuttavia, esistono anche errori che possono verificarsi in un secondo momento, quando i processi e le attività vengono pianificati ed eseguiti.
 
-Questo articolo descrive gli errori che possono verificarsi dopo l'avvio dei processi e delle attività. Vengono elencati e illustrati gli errori che è necessario verificare e gestire.
+Questo articolo descrive gli errori che possono verificarsi dopo l'invio di processi e attività e come verificarli e gestirli.
 
 ## <a name="jobs"></a>Processi
 
-Un processo consiste in un raggruppamento di una o più attività, ovvero delle attività che specificano effettivamente le righe di comando da eseguire.
+Un processo è un raggruppamento di una o più attività, con le attività che specificano effettivamente le righe di comando da eseguire.
 
 Nell'aggiunta di un processo è possibile specificare i parametri seguenti, che potrebbero determinare un esito negativo:
 
@@ -38,19 +38,21 @@ Verificare la presenza di errori nelle proprietà di processo seguenti:
 - [executionInfo](/rest/api/batchservice/job/get#jobexecutioninformation):
   - La proprietà `terminateReason` può includere valori che indicano se è stato superato il valore `maxWallClockTime` specificato nei vincoli di processo e se il processo è stato terminato. Se la proprietà `onTaskFailure` del processo è stata impostata in modo appropriato, è anche possibile impostare questa proprietà per indicare che un'attività ha avuto esito negativo.
   - La proprietà [schedulingError](/rest/api/batchservice/job/get#jobschedulingerror) viene impostata in caso di errore di pianificazione.
- 
+
 ### <a name="job-preparation-tasks"></a>Attività di preparazione del processo
 
 Se per un processo viene specificata un'attività di preparazione, la prima volta che in un nodo viene avviata un'attività del processo viene eseguita anche un'istanza dell'attività di preparazione. L'attività di preparazione configurata per il processo può essere considerata come un modello di attività in cui vengono eseguite più istanze di attività di preparazione, fino al numero di nodi di un pool.
 
 Verificare le istanze dell'attività di preparazione del processo per determinare se sono presenti errori:
-- Quando viene eseguita un'attività di preparazione del processo, l'attività che ne ha determinato l'attivazione passa allo [stato](/rest/api/batchservice/task/get#taskstate) di `preparing`. Se l'attività di preparazione ha esito negativo, l'attività trigger viene ripristinata allo stato `active` e non viene eseguita.  
+
+- Quando viene eseguita un'attività di preparazione del processo, l'attività che ne ha determinato l'attivazione passa allo [stato](/rest/api/batchservice/task/get#taskstate) di `preparing`. Se l'attività di preparazione ha esito negativo, l'attività trigger viene ripristinata allo stato `active` e non viene eseguita.
 - Tutte le istanze dell'attività di preparazione del processo eseguite possono essere ottenute dal processo tramite l'API dello [stato di attività di preparazione e rilascio dei processi](/rest/api/batchservice/job/listpreparationandreleasetaskstatus). Come per qualsiasi attività, le [informazioni sull'esecuzione](/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) sono disponibili con proprietà come `failureInfo`, `exitCode` e `result`.
 - Se le attività di preparazione del processo hanno esito negativo, le attività del processo di trigger non vengono eseguite, il processo non viene completato e rimane bloccato. Se non sono presenti altri processi con attività pianificabili, è possibile che il pool non venga usato.
 
 ### <a name="job-release-tasks"></a>Attività di rilascio del processo
 
-Se per un processo viene specificata un'attività di rilascio, quando un processo viene terminato, viene eseguita un'istanza dell'attività di rilascio in ogni nodo del pool in cui è stata eseguita un'attività di preparazione.  Verificare le istanze dell'attività di rilascio del processo per determinare se sono presenti errori:
+Se un'attività di rilascio del processo viene specificata per un processo, quando un processo viene terminato, viene eseguita un'istanza dell'attività di rilascio del processo in ogni nodo del pool in cui è stata eseguita un'attività di preparazione del processo. Verificare le istanze dell'attività di rilascio del processo per determinare se sono presenti errori:
+
 - Tutte le istanze dell'attività di rilascio del processo da eseguire possono essere ottenute dal processo tramite l'API dello [stato di attività di preparazione e rilascio dei processi](/rest/api/batchservice/job/listpreparationandreleasetaskstatus). Come per qualsiasi attività, le [informazioni sull'esecuzione](/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) sono disponibili con proprietà come `failureInfo`, `exitCode` e `result`.
 - Se una o più attività di rilascio del processo hanno esito negativo, il processo viene comunque terminato e passa allo stato `completed`.
 
@@ -59,15 +61,17 @@ Se per un processo viene specificata un'attività di rilascio, quando un process
 Le attività del processo possono avere esito negativo per diversi motivi:
 
 - La riga di comando dell'attività ha esito negativo e restituisce un codice di uscita diverso da zero.
-- Sono stati specificati `resourceFiles` per un'attività, ma si è verificato un errore che indica che uno o più file non sono stati scaricati.
-- Sono stati specificati `outputFiles` per un'attività, ma si è verificato un errore che indica che uno o più file non sono stati caricati.
+- Sono `resourceFiles` stati specificati per un'attività, ma si è verificato un errore che significava che uno o più file non sono stati scaricati.
+- Sono `outputFiles` stati specificati per un'attività, ma si è verificato un errore che significava che uno o più file non sono stati caricati.
 - È stato superato il limite di tempo trascorso per l'attività specificato dalla proprietà `maxWallClockTime` nei [vincoli](/rest/api/batchservice/task/add#taskconstraints) dell'attività.
 
 In tutti i casi, è necessario verificare la presenza di errori e informazioni sugli errori per le proprietà seguenti:
+
 - La proprietà [executionInfo](/rest/api/batchservice/task/get#taskexecutioninformation) delle attività contiene più proprietà che forniscono informazioni su un errore. [result](/rest/api/batchservice/task/get#taskexecutionresult) indica se l'attività ha avuto esito negativo per qualsiasi motivo, `exitCode` e `failureInfo` forniscono ulteriori informazioni sull'errore.
 - L'attività passa sempre allo [stato](/rest/api/batchservice/task/get#taskstate) `completed`, indipendentemente dal fatto che abbia avuto esito positivo o negativo.
 
-È necessario valutare l'effetto degli errori delle attività sul processo e sulle dipendenze delle attività.  Per configurare un'azione per le dipendenze e per il processo, è possibile specificare la proprietà [exitConditions](/rest/api/batchservice/task/add#exitconditions) per un'attività.
+È necessario valutare l'effetto degli errori delle attività sul processo e sulle dipendenze delle attività. Per configurare un'azione per le dipendenze e per il processo, è possibile specificare la proprietà [exitConditions](/rest/api/batchservice/task/add#exitconditions) per un'attività.
+
 - Per le dipendenze, [DependencyAction](/rest/api/batchservice/task/add#dependencyaction) controlla se le attività dipendenti dall'attività non riuscita vengono bloccate o eseguite.
 - Per il processo, [JobAction](/rest/api/batchservice/task/add#jobaction) controlla se il processo viene disabilitato, terminato o lasciato invariato in seguito all'attività con esito negativo.
 
@@ -77,11 +81,15 @@ Quando la riga di comando dell'attività viene eseguita, l'output viene scritto 
 
 Se il nodo del pool in cui è stata eseguita l'attività esiste ancora, è possibile recuperare e visualizzare i file di log. Ad esempio, nel portale di Azure è presente un elenco dei file di log che è possibile visualizzare per un'attività o un nodo del pool. Sono disponibili inoltre diverse API che consentono di visualizzare un elenco dei file delle attività e di recuperare tali file, ad esempio l'API [Get From Task](/rest/api/batchservice/file/getfromtask).
 
-I pool e i nodi dei pool sono spesso temporanei poiché i nodi vengono continuamente aggiunti o eliminati, pertanto, è consigliabile salvare i file di log in modo permanente. I [file di output delle attività](./batch-task-output-files.md) offrono un modo pratico per salvare i file di log nell'Archiviazione di Azure.
+Poiché i pool e i nodi del pool sono spesso temporanei, quando i nodi vengono continuamente aggiunti ed eliminati, è consigliabile salvare i file di log. I [file di output delle attività](./batch-task-output-files.md) offrono un modo pratico per salvare i file di log nell'Archiviazione di Azure.
+
+Le righe di comando eseguite dalle attività nei nodi di calcolo non vengono eseguite in una shell, quindi non possono sfruttare in modo nativo le funzionalità della shell, ad esempio l'espansione delle variabili di ambiente. Per sfruttare i vantaggi di tali funzionalità, è necessario [richiamare la shell nella riga di comando](batch-compute-node-environment-variables.md#command-line-expansion-of-environment-variables).
 
 ### <a name="output-file-failures"></a>Errori del file di output
+
 Per ogni caricamento di file, il servizio Batch scrive due file di log nel nodo di calcolo, `fileuploadout.txt` e `fileuploaderr.txt`. È possibile esaminare questi file di log per ottenere ulteriori informazioni su un errore specifico. Se il caricamento del file non è mai stato effettuato, ad esempio perché non è stato possibile eseguire l'attività, i file di log non sono presenti.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Assicurarsi che l'applicazione esegua il controllo completo degli errori, si tratta di un aspetto fondamentale per rilevare e diagnosticare tempestivamente i problemi.
+- Assicurarsi che l'applicazione esegua il controllo completo degli errori, si tratta di un aspetto fondamentale per rilevare e diagnosticare tempestivamente i problemi.
+- Altre informazioni sui [processi e le attività](jobs-and-tasks.md).

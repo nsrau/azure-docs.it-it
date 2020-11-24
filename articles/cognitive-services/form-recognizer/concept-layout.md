@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 3c2e691d673b385d597957cf5a4ce3c3f18ba466
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: b489964e5ef8ea483cbe203be1ff665078a6d66a
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95511476"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95741730"
 ---
 # <a name="form-recognizer-layout-service"></a>Servizio di layout riconoscimento moduli
 
@@ -86,11 +86,10 @@ Il layout estrae le tabelle da documenti (PDF, TIFF) e immagini (jpg, PNG, BMP).
 
 Il layout estrae anche i contrassegni di selezione dai documenti. I contrassegni di selezione estratti includono il rettangolo di selezione, la confidenza e lo stato (selezionato/deselezionato). Le informazioni sul contrassegno di selezione vengono estratte nella `"readResults"` sezione dell'output JSON. 
 
-Esempi di <<< aggiungere segni di selezione>>>
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Provare l'estrazione del layout usando l' [interfaccia utente di esempio di riconoscimento form](https://fott-preview.azurewebsites.net/)
+- Completare una [Guida introduttiva alla libreria client di riconoscimento moduli](quickstarts/client-library.md) per iniziare a estrarre i layout nel linguaggio preferito.
 - In alternativa, seguire la Guida introduttiva [estrarre i dati di layout](./QuickStarts/python-layout.md) per implementare l'estrazione dei dati di layout con Python e l'API REST.
 
 ## <a name="see-also"></a>Vedere anche

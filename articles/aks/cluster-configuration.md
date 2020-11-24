@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 4252e3a7f8c3ff9d0ec782a2a9222553c063463c
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 88774450fb196da5de24bcad047ecdb8c424f653
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95533277"
+ms.locfileid: "95736534"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurare un cluster del servizio Azure Kubernetes
 
@@ -276,7 +276,7 @@ az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-grou
 ```
 
 > [!IMPORTANT]
-> Con il sistema operativo temporaneo è possibile distribuire le immagini di macchine virtuali e istanze fino alla dimensione della cache VM. Nel caso di AKS, la configurazione del disco del sistema operativo del nodo predefinito usa 100GiB, il che significa che è necessario disporre di una dimensione della macchina virtuale con una cache maggiore di 100 GiB. Il Standard_DS2_v2 predefinito ha una dimensione della cache di 86 GiB, che non è sufficientemente grande. Il Standard_DS3_v2 ha una dimensione della cache di 172 GiB, che è sufficientemente grande. È anche possibile ridurre le dimensioni predefinite del disco del sistema operativo usando `--node-osdisk-size` . La dimensione minima per le immagini AKS è 30GiB. 
+> Con il sistema operativo temporaneo è possibile distribuire le immagini di macchine virtuali e istanze fino alla dimensione della cache VM. Nel caso di AKS, la configurazione del disco del sistema operativo del nodo predefinito usa 128GB, il che significa che è necessario disporre di una dimensione della macchina virtuale con una cache maggiore di 128GB. Il Standard_DS2_v2 predefinito ha una dimensione della cache di 86GB, che non è sufficientemente grande. Il Standard_DS3_v2 ha una dimensione della cache di 172GB, che è sufficientemente grande. È anche possibile ridurre le dimensioni predefinite del disco del sistema operativo usando `--node-osdisk-size` . La dimensione minima per le immagini AKS è 30 GB. 
 
 Se si desidera creare pool di nodi con dischi del sistema operativo collegati alla rete, è possibile specificare `--node-osdisk-type Managed` .
 

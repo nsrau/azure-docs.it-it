@@ -7,24 +7,24 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 09/04/2020
-ms.openlocfilehash: c52fabcfc2ff22df2de6dd93f2543d625310baef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/30/2020
+ms.openlocfilehash: 83c575aa40b80d9a8e39263e89a5e7860c8f8774
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484342"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95741662"
 ---
-# <a name="publishing-guide-for-container-offers"></a>Guida alla pubblicazione per le offerte di contenitori
+# <a name="publishing-guide-for-azure-container-offers"></a>Guida alla pubblicazione per le offerte di contenitori di Azure
 
-I contenitori offrono supporto per la pubblicazione dell'immagine del contenitore in Azure Marketplace. Usare questa guida per comprendere i requisiti per questa offerta. 
+Il contenitore di Azure consente di pubblicare l'immagine del contenitore in Azure Marketplace. Utilizzare questa guida per comprendere i requisiti per questo tipo di offerta.
 
-Le offerte di contenitori sono offerte di transazioni distribuite e fatturate tramite Azure Marketplace. L'opzione di elenco visualizzata dall'utente è "Get it Now".
+Le offerte di contenitori di Azure sono offerte di transazioni distribuite e fatturate tramite Azure Marketplace. L'opzione di elenco visualizzata dall'utente è "Get it Now".
 
-Usare il tipo di offerta del *contenitore* quando la soluzione è un'immagine del contenitore Docker configurata come istanza del servizio contenitore di Azure basata su Kubernetes. 
+Usare il tipo di offerta contenitore di Azure quando la soluzione è un'immagine del contenitore Docker configurata come istanza di contenitore di Azure basata su Kubernetes.
 
 > [!NOTE]
-> Esempi di istanze del servizio contenitore di Azure basate su Kubernetes sono il servizio Azure Kubernetes o istanze di contenitore di Azure, la scelta dei clienti di Azure per un runtime di contenitori basato su Kubernetes.  
+> Un'istanza di contenitore di Azure è un'istanza Docker in fase di esecuzione che fornisce il modo più semplice e rapido per eseguire un contenitore in Azure, senza dover gestire macchine virtuali e senza dover adottare un servizio di livello superiore. Le istanze di contenitore possono essere distribuite direttamente in Azure o orchestrate dai servizi di Azure Kubernetes o dal motore del servizio Kubernetes di Azure.  
 
 Microsoft supporta attualmente i modelli di licenza BYOL (Bring Your Own License) e gratuiti.
 
@@ -39,9 +39,6 @@ Microsoft supporta attualmente i modelli di licenza BYOL (Bring Your Own License
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non è già stato fatto, scoprire come [Aumentare il business sul cloud con Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+- Per preparare le risorse tecniche per un'offerta di contenitore, vedere [creare asset tecnici di contenitori di Azure](create-azure-container-technical-assets.md).
 
-Per eseguire la registrazione e iniziare a usare il Centro per i partner:
-
-- [Accedere al Centro per i partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare o completare l'offerta.
-- Per altre informazioni, vedere [creare un'offerta di contenitore di Azure](./partner-center-portal/create-azure-container-offer.md) .
+- Per creare un'offerta di contenitore di Azure, vedere [creare un'offerta di contenitore di Azure in Azure Marketplace](create-azure-container-offer.md) per altre informazioni.

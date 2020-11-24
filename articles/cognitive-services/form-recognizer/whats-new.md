@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 92eda77d03e547e814cac85f5ac8bb03b552d135
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ed6d3b927254d44863b7fd0a597528813be791cf
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95506553"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95736612"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novità di Riconoscimento modulo
 
@@ -38,13 +38,13 @@ Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare ques
   > [Altre informazioni sull'estrazione del layout](concept-layout.md)
 
 - **Nuovo linguaggio supportato: giapponese** : sono ora supportate le nuove lingue seguenti: per `AnalyzeLayout` e `AnalyzeCustomForm` : Japanese ( `ja` ). [Lingue supportate](language-support.md)
-- **Indicazione dello stile della linea di testo (scritta a mano/stampa) (solo lingue latine)** : il riconoscitore di form restituisce ora un `appearance` oggetto che classifica se ogni riga di testo è di tipo manoscritto o meno, insieme a un punteggio di confidenza. Questa funzionalità è supportata solo per le lingue latine.
+- **Indicazione dello stile della linea di testo (manoscritta/altro) (solo lingue latine)** : il riconoscitore di form ora restituisce un `appearance` oggetto che classifica se ogni riga di testo è di tipo manoscritto o meno, insieme a un punteggio di confidenza. Questa funzionalità è supportata solo per le lingue latine.
 - **Miglioramenti della qualità** : miglioramenti dell'estrazione, inclusi i miglioramenti dell'estrazione a una sola cifra.
 - **Nuova funzionalità try-it-out nel modulo Recognizer Sample Labeling Tool** : possibilità di provare i modelli predefiniti per la fatturazione, la ricezione e il business card e l'API di layout usando lo strumento per l'assegnazione di un esempio di riconoscimento moduli. Scopri in che modo i tuoi dati verranno estratti senza scrivere codice.
 
   > [Provare lo strumento di esempio del modulo Recognizer](https://fott-preview.azurewebsites.net/)
 
-  ![Esempio di FOTT](./media/fott-preview.jpg)
+  ![Esempio di FOTT](./media/ui-preview.jpg)
 
 ## <a name="august-2020"></a>Agosto 2020
 
@@ -85,7 +85,7 @@ I **nuovi esempi** sono disponibili in GitHub.
 * **Supporto della valuta** : rilevamento ed estrazione dei simboli di valuta globali.
 * Il sistema di riconoscimento del modulo **gov di Azure** è ora disponibile anche in Azure gov.
 * **Funzionalità di sicurezza avanzate**: 
-   * Il riconoscitore di form **chiave di Bring** consente di crittografare automaticamente i dati quando vengono salvati in modo permanente nel cloud per proteggerli e aiutarti a soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, la sottoscrizione usa chiavi di crittografia gestite da Microsoft. È ora possibile gestire la sottoscrizione anche con le proprie chiavi di crittografia. Le [chiavi gestite dal cliente (CMK), note anche come Bring your own key (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), offrono una maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati.  
+   * Il riconoscitore di form **chiave di Bring** consente di crittografare automaticamente i dati quando vengono salvati in modo permanente nel cloud per proteggerli e aiutarti a soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, la sottoscrizione usa chiavi di crittografia gestite da Microsoft. È ora possibile gestire la sottoscrizione anche con le proprie chiavi di crittografia. Le [chiavi gestite dal cliente, note anche come Bring your own key (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), offrono una maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati.  
    * **Endpoint privati** : consente di accedere in modo [sicuro ai dati tramite un collegamento privato](../../private-link/private-link-overview.md) in una rete virtuale (VNet).
 
 

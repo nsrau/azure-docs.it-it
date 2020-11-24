@@ -2,14 +2,14 @@
 title: Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch
 description: Abilitare il ridimensionamento automatico in un pool cloud per adeguare dinamicamente il numero di nodi di calcolo nel pool.
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 11/23/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 5774acbfc035ab61267dddb31b01b0e82689f690
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 033272f22b98b27c67e9a551bce952368d35a043
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849793"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95737293"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creare una formula di scalabilità automatica per i nodi di calcolo in un pool Batch
 
@@ -135,6 +135,9 @@ Le tabelle seguenti illustrano le variabili di lettura/scrittura e di sola lettu
 > [!TIP]
 > Queste variabili definite dal servizio di sola lettura sono *oggetti* che forniscono diversi metodi per accedere ai dati associati a ognuno di essi. Per altre informazioni, vedere [Ottenere dati di esempio](#obtain-sample-data) più avanti in questo articolo.
 
+> [!NOTE]
+> Usare il `$RunningTasks` ridimensionamento in base al numero di attività in esecuzione in un momento specifico e in `$ActiveTasks` caso di ridimensionamento in base al numero di attività accodate per l'esecuzione.
+
 ## <a name="types"></a>Tipi
 
 Le formule di scalabilità automatica supportano i tipi seguenti:
@@ -226,7 +229,7 @@ Quando si definisce una formula, è possibile usare metriche di risorse e di att
 
 <table>
   <tr>
-    <th>Metrica</th>
+    <th>Metric</th>
     <th>Descrizione</th>
   </tr>
   <tr>
@@ -381,7 +384,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 > [!NOTE]
-> Se si sceglie di, è possibile includere sia i commenti che le interruzioni di riga nelle stringhe della formula.
+> Se si sceglie di, è possibile includere sia i commenti che le interruzioni di riga nelle stringhe della formula. Tenere inoltre presente che i punti e virgola mancanti possono causare errori di valutazione.
 
 ## <a name="automatic-scaling-interval"></a>Intervallo di ridimensionamento automatico
 
@@ -625,7 +628,7 @@ In .NET di Batch la proprietà [CloudPool.AutoScaleRun](/dotnet/api/microsoft.az
 
 Nell'API REST la richiesta [Ottenere informazioni su un pool](/rest/api/batchservice/get-information-about-a-pool) restituisce informazioni relative al pool, che includono l'ultima esecuzione della scalabilità automatica nella proprietà [autoScaleRun](/rest/api/batchservice/get-information-about-a-pool).
 
-Nell'esempio C# seguente viene usata la libreria batch .NET per stampare informazioni sull'ultima esecuzione della scalabilità automatica nel _pool_di pool.
+Nell'esempio C# seguente viene usata la libreria batch .NET per stampare informazioni sull'ultima esecuzione della scalabilità automatica nel _pool_ di pool.
 
 ```csharp
 await Cloud pool = myBatchClient.PoolOperations.GetPoolAsync("myPool");

@@ -6,7 +6,7 @@
       href: v2-overview.md
     - name: Novità della documentazione
       href: whats-new-docs.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Configurare un tenant
@@ -539,6 +539,8 @@
           href: howto-handle-samesite-cookie-changes-chrome-browser.md
         - name: Gestire ITP in Safari
           href: reference-third-party-cookies-spas.md
+        - name: Usare le API Valutazione continua dell'accesso
+          href: app-resilience-continuous-access-evaluation.md
     - name: Configurazione dell'applicazione
       displayName: App configuration
       items:

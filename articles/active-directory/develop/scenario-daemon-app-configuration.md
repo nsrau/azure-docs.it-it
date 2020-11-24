@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 24e3841abc9c397ab307e55405bdcc208815570e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 6864502a9d338a786e1e77dbf9888a7818bb94e9
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444164"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95748649"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>App daemon che chiama API Web-configurazione del codice
 
@@ -36,9 +36,9 @@ Queste librerie Microsoft supportano le app daemon:
 
 Le applicazioni daemon utilizzano le autorizzazioni dell'applicazione anziché le autorizzazioni delegate. Il tipo di account supportato, quindi, non può essere un account in qualsiasi directory aziendale o qualsiasi account Microsoft personale (ad esempio, Skype, Xbox, Outlook.com). Non è disponibile alcun amministratore tenant per concedere il consenso a un'applicazione daemon per un account personale Microsoft. È necessario scegliere gli *account nell'organizzazione* o gli *account di qualsiasi organizzazione*.
 
-Quindi, l'autorità specificata nella configurazione dell'applicazione deve essere tenant (specificando un ID tenant o un nome di dominio associato all'organizzazione).
+L'autorità specificata nella configurazione dell'applicazione deve essere tenant (specificando un ID tenant o un nome di dominio associato all'organizzazione).
 
-Se si è un ISV e si vuole fornire uno strumento multi-tenant, è possibile usare `organizations` . Tenere tuttavia presente che è anche necessario spiegare ai clienti come concedere il consenso dell'amministratore. Per informazioni dettagliate, vedere [richiesta di consenso per un intero tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Inoltre, esiste attualmente una limitazione in MSAL: `organizations` è consentito solo quando le credenziali client sono un segreto dell'applicazione (non un certificato).
+Anche se si vuole fornire uno strumento multi-tenant, è necessario usare un ID tenant o un nome di dominio e **non** `common` oppure `organizations` con questo flusso, perché il servizio non può dedurre in modo affidabile quale tenant deve essere usato.
 
 ## <a name="configure-and-instantiate-the-application"></a>Configurare e creare un'istanza dell'applicazione
 

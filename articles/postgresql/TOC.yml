@@ -603,8 +603,14 @@
           href: reference-hyperscale-metadata.md
     - name: Guide pratiche
       items:
-        - name: Dimensionare un gruppo di server
-          href: howto-hyperscale-scaling.md
+        - name: Dimensioni del gruppo di server
+          items:
+            - name: Scegliere le dimensioni iniziali
+              href: howto-hyperscale-scale-initial.md
+            - name: Dimensionare un gruppo di server
+              href: howto-hyperscale-scale-grow.md
+            - name: Ribilanciare le partizioni
+              href: howto-hyperscale-scale-rebalance.md
         - name: Regole del firewall
           items:
             - name: Portale di Azure

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 08/17/2020
+ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6ff97e52d005ba1e91194b449377653317876163
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: ab251e9a156005d47a1516d23cb018fb1907ab6e
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912804"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95744773"
 ---
 # <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Esercitazione: Creare un'app Windows Presentation Framework (WPF) per visualizzare i dati relativi ai visi in un'immagine
 
@@ -41,7 +41,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
-* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="creare una risorsa Viso"  target="_blank">creare una risorsa Viso <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa** .
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="creare una risorsa Viso"  target="_blank">creare una risorsa Viso <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
     * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Viso. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
     * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 * [Creare le variabili di ambiente](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) per la chiave e per la stringa dell'endpoint di servizio, denominate rispettivamente `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`.
@@ -51,9 +51,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Seguire questa procedura per creare un nuovo progetto di applicazione WPF.
 
-1. In Visual Studio, aprire la finestra di dialogo Nuovo progetto. Espandere **Installato** , quindi **Visual C#** , quindi selezionare **App WPF (.NET Framework)** .
-1. Assegnare all'applicazione il nome **FaceTutorial** e fare clic su **OK** .
-1. Ottenere i pacchetti NuGet necessari. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet** , quindi trovare e installare il pacchetto seguente:
+1. In Visual Studio, aprire la finestra di dialogo Nuovo progetto. Espandere **Installato**, quindi **Visual C#** , quindi selezionare **App WPF (.NET Framework)** .
+1. Assegnare all'applicazione il nome **FaceTutorial** e fare clic su **OK**.
+1. Ottenere i pacchetti NuGet necessari. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**, quindi trovare e installare il pacchetto seguente:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.6.0-preview.1](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1)
 
 ## <a name="add-the-initial-code"></a>Aggiungere il codice iniziale
@@ -72,15 +72,15 @@ Aprire *MainWindow.xaml.cs* e aggiungere spazi dei nomi della libreria client, a
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_using)]
 
-Quindi, inserire il codice seguente nella classe **MainWindow** . Questo codice consente di creare un istanza di **FaceClient** usando l'endpoint e la chiave di sottoscrizione.
+Quindi, inserire il codice seguente nella classe **MainWindow**. Questo codice consente di creare un istanza di **FaceClient** usando l'endpoint e la chiave di sottoscrizione.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mainwindow_fields)]
 
-Aggiungere quindi il costruttore **MainWindow** . Verifica la stringa dell'URL dell'endpoint e quindi la associa all'oggetto client.
+Aggiungere quindi il costruttore **MainWindow**. Verifica la stringa dell'URL dell'endpoint e quindi la associa all'oggetto client.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mainwindow_constructor)]
 
-Infine, aggiungere i metodi **BrowseButton_Click** e **FacePhoto_MouseMove** alla classe. Questi metodi corrispondono ai gestori dell'evento dichiarati in *MainWindow.xaml* . Il metodo **BrowseButton_Click** crea un metodo **OpenFileDialog** , che consente all'utente di selezionare un'immagine JPG. L'immagine viene quindi visualizzata nella finestra principale. Nei passaggi successivi verrà inserito il codice residuo per i metodi **BrowseButton_Click** e **FacePhoto_MouseMove** . Si noti anche il riferimento `faceList`, ossia un elenco di oggetti **DetectedFace** . È da questo riferimento che l'app archivia e chiama i dati effettivi del viso.
+Infine, aggiungere i metodi **BrowseButton_Click** e **FacePhoto_MouseMove** alla classe. Questi metodi corrispondono ai gestori dell'evento dichiarati in *MainWindow.xaml*. Il metodo **BrowseButton_Click** crea un metodo **OpenFileDialog**, che consente all'utente di selezionare un'immagine JPG. L'immagine viene quindi visualizzata nella finestra principale. Nei passaggi successivi verrà inserito il codice residuo per i metodi **BrowseButton_Click** e **FacePhoto_MouseMove**. Si noti anche il riferimento `faceList`, ossia un elenco di oggetti **DetectedFace**. È da questo riferimento che l'app archivia e chiama i dati effettivi del viso.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_browsebuttonclick_start)]
 
@@ -92,33 +92,33 @@ Infine, aggiungere i metodi **BrowseButton_Click** e **FacePhoto_MouseMove** all
 
 ### <a name="try-the-app"></a>Provare l'app
 
-Scegliere **Avvia** dal menu per testare l'app. All'apertura della finestra dell'app fare clic su **Sfoglia** nell'angolo inferiore sinistro. Viene visualizzata una finestra di dialogo **Apri file** . Selezionare un'immagine dal file system e verificare che venga visualizzata nella finestra. Quindi, chiudere l'app e andare al passaggio successivo.
+Scegliere **Avvia** dal menu per testare l'app. All'apertura della finestra dell'app fare clic su **Sfoglia** nell'angolo inferiore sinistro. Viene visualizzata una finestra di dialogo **Apri file**. Selezionare un'immagine dal file system e verificare che venga visualizzata nella finestra. Quindi, chiudere l'app e andare al passaggio successivo.
 
 ![Screenshot che mostra un'immagine non modificata dei visi](../Images/getting-started-cs-ui.png)
 
 ## <a name="upload-image-and-detect-faces"></a>Caricare l'immagine e rilevare i visi
 
-L'app rileverà i visi chiamando il metodo **FaceClient.Face.DetectWithStreamAsync** , che esegue il wrapping dell'API REST [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) e per caricare un'immagine locale.
+L'app rileverà i visi chiamando il metodo **FaceClient.Face.DetectWithStreamAsync**, che esegue il wrapping dell'API REST [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) e per caricare un'immagine locale.
 
-Inserire il metodo seguente nella classe **MainWindow** sotto il metodo **FacePhoto_MouseMove** . Questo metodo consente di definire un elenco di attributi dei visi da recuperare e legge il file di immagine inviato in un elemento **Stream** . Quindi, passa entrambi gli oggetti alla chiamata al metodo **DetectWithStreamAsync** .
+Inserire il metodo seguente nella classe **MainWindow** sotto il metodo **FacePhoto_MouseMove**. Questo metodo consente di definire un elenco di attributi dei visi da recuperare e legge il file di immagine inviato in un elemento **Stream**. Quindi, passa entrambi gli oggetti alla chiamata al metodo **DetectWithStreamAsync**.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_uploaddetect)]
 
 ## <a name="draw-rectangles-around-faces"></a>Disegnare rettangoli attorno ai visi
 
-Quindi, aggiungere il codice per tracciare un rettangolo intorno a ogni viso rilevato nell'immagine. Nella classe **MainWindow** inserire il codice seguente alla fine dell'evento **BrowseButton_Click** , dopo la riga `FacePhoto.Source = bitmapSource`. Questo codice consente di popolare un elenco di visi rilevati dalla chiamata a **UploadAndDetectFaces** . Viene quindi tracciato un rettangolo intorno a ogni viso e l'immagine modificata viene visualizzata nella finestra principale.
+Quindi, aggiungere il codice per tracciare un rettangolo intorno a ogni viso rilevato nell'immagine. Nella classe **MainWindow** inserire il codice seguente alla fine dell'evento **BrowseButton_Click**, dopo la riga `FacePhoto.Source = bitmapSource`. Questo codice consente di popolare un elenco di visi rilevati dalla chiamata a **UploadAndDetectFaces**. Viene quindi tracciato un rettangolo intorno a ogni viso e l'immagine modificata viene visualizzata nella finestra principale.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_browsebuttonclick_mid)]
 
 ## <a name="describe-the-faces"></a>Descrivere i visi
 
-Aggiungere il metodo seguente alla classe **MainWindow** sotto il metodo **UploadAndDetectFaces** . Questo metodo consente di convertire gli attributi del viso recuperati in una stringa che descrive il viso.
+Aggiungere il metodo seguente alla classe **MainWindow** sotto il metodo **UploadAndDetectFaces**. Questo metodo consente di convertire gli attributi del viso recuperati in una stringa che descrive il viso.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_facedesc)]
 
 ## <a name="display-the-face-description"></a>Visualizzare la descrizione del viso
 
-Aggiungere il codice seguente al metodo **FacePhoto_MouseMove** . Questo gestore dell'evento mostra la stringa di descrizione del viso in `faceDescriptionStatusBar` quando il cursore si sofferma sopra il rettangolo del viso rilevato.
+Aggiungere il codice seguente al metodo **FacePhoto_MouseMove**. Questo gestore dell'evento mostra la stringa di descrizione del viso in `faceDescriptionStatusBar` quando il cursore si sofferma sopra il rettangolo del viso rilevato.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mousemove_mid)]
 

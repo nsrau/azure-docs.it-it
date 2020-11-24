@@ -3,12 +3,12 @@ title: Come eseguire query sui log da monitoraggio di Azure per i contenitori | 
 description: Il monitoraggio di Azure per i contenitori raccoglie le metriche e i dati di log e in questo articolo vengono descritti i record e sono incluse le query di esempio.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: a540ae828b14f231b3b327b714876550cc744a7e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 08c42fab84cb5180497f8da4f077b9bd82283ad4
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994012"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95747680"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Come eseguire query sui log da monitoraggio di Azure per i contenitori
 
@@ -16,7 +16,7 @@ Monitoraggio di Azure per i contenitori raccoglie le metriche delle prestazioni,
 
 ## <a name="container-records"></a>Record dei contenitori
 
-Nella tabella seguente vengono forniti i dettagli dei record raccolti da monitoraggio di Azure per i contenitori. 
+Nella tabella seguente vengono forniti i dettagli dei record raccolti da monitoraggio di Azure per i contenitori. Per un elenco delle descrizioni delle colonne, vedere il riferimento per le tabelle [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) e [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) .
 
 | Dati | Origine dati | Tipo di dati | Campi |
 |------|-------------|-----------|--------|

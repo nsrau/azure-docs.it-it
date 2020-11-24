@@ -69,8 +69,12 @@
       href: ../../automation/security-baseline.md
     - name: Baseline di sicurezza di Azure Advisor
       href: ../../advisor/security-baseline.md
+    - name: Baseline di sicurezza di Configurazione app di Azure
+      href: ../../azure-app-configuration/security-baseline.md
     - name: Baseline di sicurezza di Backup di Azure
       href: ../../backup/security-baseline.md
+    - name: Baseline di sicurezza di Azure Bastion
+      href: ../../bastion/security-baseline.md
     - name: Baseline di sicurezza di Cache di Azure per Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Baseline di sicurezza di Ricerca cognitiva di Azure
@@ -201,5 +205,7 @@
       href: ../../virtual-machines/windows/security-baseline.md
     - name: Baseline di sicurezza della rete virtuale
       href: ../../virtual-network/security-baseline.md
+    - name: Baseline di sicurezza di NAT della rete virtuale
+      href: ../../virtual-network/nat-security-baseline.md
     - name: Baseline di sicurezza del gateway VPN
       href: ../../vpn-gateway/security-baseline.md
