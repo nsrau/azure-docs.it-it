@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: c831e099eca3cd6e6da20f55ad19980ae8e9ddc5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 557f0a6a37747d3a461ced8de16fd1fcf0d1abab
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545923"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524114"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configurare l'appliance virtuale di rete in Azure HDInsight
 
@@ -22,7 +22,7 @@ ms.locfileid: "92545923"
 Il tag FQDN del firewall di Azure viene configurato automaticamente per consentire il traffico per molti degli FQDN importanti comuni. Se si usa un'altra appliance virtuale di rete, sarà necessario configurare una serie di funzionalità aggiuntive. Quando si configura l'appliance virtuale di rete, tenere presenti i seguenti fattori:
 
 * Gli endpoint di servizio che supportano i servizi possono essere configurati con gli endpoint di servizio, causando il bypass dell'appliance virtuale di dispositivo, in genere per considerazioni su costi o prestazioni
-* Se ResourceProviderConnection è impostato su in *uscita* , è possibile usare endpoint privati per l'archiviazione e i server SQL per i Metastore e non è necessario aggiungerli all'appliance virtuale di sistema.
+* Se ResourceProviderConnection è impostato su in *uscita*, è possibile usare endpoint privati per l'archiviazione e i server SQL per i Metastore e non è necessario aggiungerli all'appliance virtuale di sistema.
 * Le dipendenze degli indirizzi IP sono per il traffico non HTTP/S (traffico TCP e UDP).
 * Gli endpoint HTTP/HTTPS FQDN possono essere approvati nel dispositivo NVA.
 * Assegnare la tabella di route creata alla subnet HDInsight.
@@ -41,7 +41,7 @@ Facoltativamente, è possibile abilitare uno o più degli endpoint di servizio s
 
 | **Endpoint** | **Dettagli** |
 |---|---|
-| Indirizzi IP pubblicati [qui](hdinsight-management-ip-addresses.md) | Questi indirizzi IP sono per il provider di risorse HDInsight e devono essere inclusi nella UDR per evitare il routing asimmetrico. Questa regola è necessaria solo se ResourceProviderConnection è impostato su in *ingresso* . Se ResourceProviderConnection è impostato su in *uscita* , questi IP non sono necessari in UdR.  |
+| Indirizzi IP pubblicati [qui](hdinsight-management-ip-addresses.md) | Questi indirizzi IP sono per il provider di risorse HDInsight e devono essere inclusi nella UDR per evitare il routing asimmetrico. Questa regola è necessaria solo se ResourceProviderConnection è impostato su in *ingresso*. Se ResourceProviderConnection è impostato su in *uscita* , questi IP non sono necessari in UdR.  |
 | Indirizzi IP privati di AAD-DS | Necessaria solo per i cluster ESP, se non è stato reti virtuali il peering.|
 
 
@@ -57,6 +57,7 @@ L'elenco seguente fornisce solo alcuni FQDN che potrebbero essere necessari per 
 | security.ubuntu.com:80                                                |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
+| default.htm microsoft.com/pki/mscorp/cps/: 443                                      |
 | microsoft.com:80                                                      |
 |login.windows.net:443                                                  |
 |login.microsoftonline.com:443                                          |

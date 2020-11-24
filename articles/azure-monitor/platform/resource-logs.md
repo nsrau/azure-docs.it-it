@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: a9423069b917c37e77b70a4466e489918cd330c4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2f46440a4214e298bc6d2f3b9c2b5680437ead7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143917"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522703"
 ---
 # <a name="azure-resource-logs"></a>Log delle risorse di Azure
 I log delle risorse di Azure sono [log di piattaforma](platform-logs-overview.md) che forniscono informazioni dettagliate sulle operazioni eseguite all'interno di una risorsa di Azure. Il contenuto dei log delle risorse varia in base al servizio di Azure e al tipo di risorsa. I log delle risorse non vengono raccolti per impostazione predefinita. È necessario creare un'impostazione di diagnostica per ogni risorsa di Azure per inviare i log delle risorse a un'area di lavoro Log Analytics da usare con i [log di monitoraggio di Azure](data-platform-logs.md), Hub eventi di Azure da inoltrare all'esterno di Azure o ad archiviazione di Azure per l'archiviazione.
@@ -54,7 +54,7 @@ La tabella AzureDiagnostics sarà simile alla seguente:
 | ... |
 
 ### <a name="resource-specific"></a>Specifico della risorsa
-In questa modalità vengono create singole tabelle nell'area di lavoro selezionata per ogni categoria selezionata nell'impostazione di diagnostica. Questo metodo è consigliato perché rende molto più semplice lavorare con i dati nelle query di log, offre una migliore individuabilità degli schemi e della relativa struttura, migliora le prestazioni in base alla latenza di inserimento e ai tempi di query e alla possibilità di concedere diritti RBAC su una tabella specifica. Alla fine, tutti i servizi di Azure eseguiranno la migrazione alla modalità Resource-Specific. 
+In questa modalità vengono create singole tabelle nell'area di lavoro selezionata per ogni categoria selezionata nell'impostazione di diagnostica. Questo metodo è consigliato perché rende molto più semplice lavorare con i dati nelle query di log, offre una migliore individuabilità degli schemi e della relativa struttura, migliora le prestazioni in base alla latenza di inserimento e ai tempi di query e alla possibilità di concedere i diritti di controllo degli accessi in base al ruolo di Azure per una tabella specifica. Alla fine, tutti i servizi di Azure eseguiranno la migrazione alla modalità Resource-Specific. 
 
 L'esempio precedente comporterebbe la creazione di tre tabelle:
  

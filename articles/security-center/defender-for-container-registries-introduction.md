@@ -7,18 +7,20 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 989115224489ff8fff360a34b27c338ea3e33058
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d587c4dbdd8f46d6e098ff96f464d456fffc9ccf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145821"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95529987"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduzione ad Azure Defender per registri contenitori
 
 Registro Azure Container è un servizio di registri Docker privato e gestito che archivia e gestisce le immagini del contenitore per le distribuzioni di Azure in un registro centrale. È basato sull'applicazione open source Docker Registry 2.0.
 
 Per proteggere tutti i registri basati su Azure Resource Manager nella sottoscrizione, abilitare **Azure Defender per registri contenitori** a livello della sottoscrizione. Il Centro sicurezza analizzerà quindi le immagini che sono state inserite nel registro, importate nel registro o estratte negli ultimi 30 giorni. Questa funzionalità prevede un addebito per ogni immagine.
+
+[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-container-registries"></a>Quali sono i vantaggi di Azure Defender per registri contenitori?
 
@@ -43,11 +45,11 @@ Inviando notifiche solo in caso di problemi individuati, il Centro sicurezza rid
 
 L'analisi di un'immagine viene attivata da tre trigger:
 
-- **Inserimento** : ogni volta che un'immagine viene inserita nel registro, il Centro sicurezza la analizza automaticamente. Per attivare l'analisi di un'immagine, inserirla nel repository.
+- **Inserimento**: ogni volta che un'immagine viene inserita nel registro, il Centro sicurezza la analizza automaticamente. Per attivare l'analisi di un'immagine, inserirla nel repository.
 
-- **Estrazione recente** : poiché ogni giorno vengono rilevate nuove vulnerabilità, **Azure Defender per registri contenitori** analizza anche qualsiasi immagine estratta negli ultimi 30 giorni. Non sono previsti costi aggiuntivi per la ripetizione dell'analisi. Come accennato in precedenza, i costi vengono addebitati una sola volta per ogni immagine.
+- **Estrazione recente**: poiché ogni giorno vengono rilevate nuove vulnerabilità, **Azure Defender per registri contenitori** analizza anche qualsiasi immagine estratta negli ultimi 30 giorni. Non sono previsti costi aggiuntivi per la ripetizione dell'analisi. Come accennato in precedenza, i costi vengono addebitati una sola volta per ogni immagine.
 
-- **Importazione** : Registro Azure Container offre strumenti di importazione per inserire immagini nel registro da Docker Hub, Registro contenitori di Microsoft o un altro registro contenitori di Azure. **Azure Defender per registri contenitori** analizza le immagini supportate importate. Per altre informazioni, vedere [Importare immagini del contenitore in un registro contenitori](../container-registry/container-registry-import-images.md).
+- **Importazione**: Registro Azure Container offre strumenti di importazione per inserire immagini nel registro da Docker Hub, Registro contenitori di Microsoft o un altro registro contenitori di Azure. **Azure Defender per registri contenitori** analizza le immagini supportate importate. Per altre informazioni, vedere [Importare immagini del contenitore in un registro contenitori](../container-registry/container-registry-import-images.md).
  
 L'analisi viene completata in genere entro 2 minuti, ma può impiegare fino a 15 minuti. I risultati vengono resi disponibili in forma di raccomandazioni del Centro sicurezza, come la seguente:
 

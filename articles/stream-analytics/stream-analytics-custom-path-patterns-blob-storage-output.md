@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: b6d6838779d4f219a8ce10b2cf3ae6cd620762a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72718285ff83a23acd21a5e29001ea96e1f061c8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317855"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531356"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partizionamento dell'output dei BLOB personalizzato in Analisi di flusso di Azure
 
@@ -25,7 +25,7 @@ Gli attributi o i campi personalizzati migliorano i flussi di lavoro di elaboraz
 
 ### <a name="partition-key-options"></a>Opzioni per la chiave di partizione
 
-La chiave di partizione, o nome di colonna, usata per partizionare i dati di input può contenere caratteri alfanumerici con spazi, caratteri di sottolineatura e trattini. Non è possibile usare campi annidati come chiave di partizione, se non in combinazione con alias. La chiave di partizione deve essere NVARCHAR(MAX).
+La chiave di partizione, o nome di colonna, usata per partizionare i dati di input può contenere caratteri alfanumerici con spazi, caratteri di sottolineatura e trattini. Non è possibile usare campi annidati come chiave di partizione, se non in combinazione con alias. La chiave di partizione deve essere di tipo NVARCHAR (MAX), BIGINT, FLOAT o BIT (livello di compatibilità 1,2 o superiore). Per altre informazioni, vedere [tipi di dati di analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Esempio
 
@@ -62,6 +62,8 @@ Si noti che ogni record nel BLOB ha una colonna **client_id** corrispondente al 
 2. Le chiavi di partizione non fanno distinzione tra maiuscole e minuscole, quindi, ad esempio, "Gianni" e "gianni" sono equivalenti. Inoltre, le espressioni non possono essere usate come chiavi di partizione. Ad esempio, **{columnA + columnB}** non funziona.  
 
 3. Quando un flusso di input è costituito da record con una cardinalità della chiave di partizione inferiore a 8000, i record verranno aggiunti ai BLOB esistenti verranno creati nuovi BLOB solo quando è necessario. Se è la cardinalità è superiore a 8000 non esiste alcuna garanzia che i record vengano scritti nei BLOB esistenti e che non verranno creati nuovi BLOB per un numero arbitrario di record con la stessa chiave di partizione.
+
+4. Se l'output del BLOB è [configurato come non modificabile](../storage/blobs/storage-blob-immutable-storage.md), analisi di flusso creerà un nuovo BLOB ogni volta che vengono inviati i dati.
 
 ## <a name="custom-datetime-path-patterns"></a>Modelli di percorso di data/ora personalizzati
 

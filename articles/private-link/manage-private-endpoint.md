@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 20695d183ea8184f7ee2948b3897fa1f3a741411
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2987cd1ff8c678f7079e13e8b9bc657817c066f1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84737496"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531373"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Gestire una connessione endpoint privato
 Il collegamento privato di Azure funziona in un modello di flusso di chiamate di approvazione, in cui il consumer del servizio di collegamento privato può richiedere una connessione al provider di servizi per l'utilizzo del servizio. Il provider di servizi può quindi decidere se consentire al consumer di connettersi o meno. Il collegamento privato di Azure consente ai provider di servizi di gestire la connessione all'endpoint privato sulle risorse. Questo articolo fornisce istruzioni su come gestire le connessioni agli endpoint privati.
@@ -20,8 +20,8 @@ Il collegamento privato di Azure funziona in un modello di flusso di chiamate di
 ![Gestisci endpoint privati](media/manage-private-endpoint/manage-private-endpoint.png)
 
 Esistono due metodi di approvazione della connessione da cui un consumer del servizio di collegamento privato può scegliere:
-- **Automatico**: se l'utente del servizio dispone di autorizzazioni RBAC per la risorsa del provider di servizi, il consumer può scegliere il metodo di approvazione automatica. In questo caso, quando la richiesta raggiunge la risorsa del provider di servizi, non è richiesta alcuna azione da parte del provider di servizi e la connessione viene approvata automaticamente. 
-- **Manuale**: al contrario, se l'utente del servizio non ha autorizzazioni RBAC sulla risorsa del provider di servizi, il consumer può scegliere il metodo di approvazione manuale. In questo caso, la richiesta di connessione viene visualizzata nelle risorse del servizio come **in sospeso**. Il provider di servizi deve approvare manualmente la richiesta prima che sia possibile stabilire le connessioni. Nei casi manuali, il consumer del servizio può inoltre specificare un messaggio con la richiesta per fornire un contesto maggiore al provider di servizi. Il provider di servizi può scegliere tra le opzioni seguenti per tutte le connessioni a endpoint privati: **approvata**, **rifiutata**, **Rimuovi**.
+- **Automatica**: se il consumer del servizio dispone delle autorizzazioni RBAC di Azure per la risorsa del provider di servizi, il consumer può scegliere il metodo di approvazione automatica. In questo caso, quando la richiesta raggiunge la risorsa del provider di servizi, non è richiesta alcuna azione da parte del provider di servizi e la connessione viene approvata automaticamente. 
+- **Manuale**: al contrario, se l'utente del servizio non ha le autorizzazioni RBAC di Azure per la risorsa del provider di servizi, il consumer può scegliere il metodo di approvazione manuale. In questo caso, la richiesta di connessione viene visualizzata nelle risorse del servizio come **in sospeso**. Il provider di servizi deve approvare manualmente la richiesta prima che sia possibile stabilire le connessioni. Nei casi manuali, il consumer del servizio può inoltre specificare un messaggio con la richiesta per fornire un contesto maggiore al provider di servizi. Il provider di servizi può scegliere tra le opzioni seguenti per tutte le connessioni a endpoint privati: **approvata**, **rifiutata**, **Rimuovi**.
 
 La tabella seguente illustra le varie azioni del provider di servizi e gli Stati di connessione risultanti per gli endpoint privati.  Il provider di servizi può anche modificare lo stato di connessione della connessione all'endpoint privato in un secondo momento senza l'intervento dell'utente. L'azione aggiornerà lo stato dell'endpoint sul lato consumer. 
 
@@ -38,7 +38,7 @@ La tabella seguente illustra le varie azioni del provider di servizi e gli Stati
 Il portale è il metodo preferito per la gestione delle connessioni agli endpoint privati nelle risorse di Azure PaaS. Attualmente non è disponibile il supporto per PowerShell/CLI per la gestione delle connessioni nelle risorse di Azure PaaS.
 1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. Passare a private Link Center.
-3. In **risorse**selezionare il tipo di risorsa che si vuole gestire per le connessioni all'endpoint privato.
+3. In **risorse** selezionare il tipo di risorsa che si vuole gestire per le connessioni all'endpoint privato.
 4. Per ogni tipo di risorsa, è possibile visualizzare il numero di connessioni a endpoint privati associate. È possibile filtrare le risorse in base alle esigenze.
 5. Selezionare le connessioni all'endpoint privato.  In connessioni elencate selezionare la connessione che si desidera gestire. 
 6. È possibile modificare lo stato della connessione selezionando una delle opzioni nella parte superiore.

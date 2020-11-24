@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 716928761d23c2cf04ebcc72e253ad7884408065
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34064fe3fe88a34b0dd2430d7adec3ebcb17ebcc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061844"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95528228"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Spostare le risorse tra le aree (dal gruppo di risorse)
 
@@ -27,7 +27,7 @@ Questo articolo illustra come spostare le risorse in un gruppo di risorse specif
 - È necessario l'accesso del *proprietario* per la sottoscrizione in cui si trovano le risorse che si desidera spostare.
     - La prima volta che si aggiunge una risorsa per un mapping di origine e destinazione specifico in una sottoscrizione di Azure, il motore risorse crea un' [identità gestita assegnata dal sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (precedentemente nota come identità del servizio gestito) considerata attendibile dalla sottoscrizione.
     - Per creare l'identità e assegnarle il ruolo richiesto (Collaboratore o Amministratore Accesso utenti nella sottoscrizione di origine), l'account usato per aggiungere le risorse deve avere le autorizzazioni di *Proprietario* nella sottoscrizione. [Altre informazioni](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sui ruoli di Azure.
-- La sottoscrizione richiede una quota sufficiente per creare le risorse di origine nell'area di destinazione. In caso contrario, richiedere limiti aggiuntivi. [Altre informazioni](/azure/azure-resource-manager/management/azure-subscription-service-limits)
+- La sottoscrizione richiede una quota sufficiente per creare le risorse di origine nell'area di destinazione. In caso contrario, richiedere limiti aggiuntivi. [Altre informazioni](../azure-resource-manager/management/azure-subscription-service-limits.md)
 - Verificare i prezzi e gli addebiti associati all'area di destinazione in cui si intende spostare le macchine virtuali. Per facilitare l'operazione, usare il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/).
 - Controllare che le risorse che si vuole spostare siano supportate da Resource Mover:
     - Macchine virtuali di Azure e dischi associati
@@ -64,15 +64,15 @@ Selezionare le risorse da spostare. Si spostano le risorse in un'area di destina
 
     ![Selezione per lo trasferimento di risorse in un'area diversa](./media/move-region-within-resource-group/select-move-region.png)
     
-4. In **origine e destinazione**selezionare l'area di destinazione in cui si desidera spostare le risorse. Fare quindi clic su **Avanti**.
+4. In **origine e destinazione** selezionare l'area di destinazione in cui si desidera spostare le risorse. Fare quindi clic su **Avanti**.
 
 
     ![Pagina di origine e destinazione per selezionare l'area di destinazione](./media/move-region-within-resource-group/source-target.png)
 
 
-7. In **risorse da spostare**selezionare **Avanti**.  
-8. In **Seleziona risorse**selezionare la risorsa che si desidera spostare. È possibile aggiungere solo le risorse supportate per lo spostamento. Al termine selezionare **Done** (Fine).
-9. In **Sposta risorse**selezionare **Avanti**. 
+7. In **risorse da spostare** selezionare **Avanti**.  
+8. In **Seleziona risorse** selezionare la risorsa che si desidera spostare. È possibile aggiungere solo le risorse supportate per lo spostamento. Al termine selezionare **Done** (Fine).
+9. In **Sposta risorse** selezionare **Avanti**. 
 10. In verifica **+ Aggiungi**, controllare i dettagli di origine e destinazione.
 11. Verificare di aver compreso che i metadati relativi alle risorse spostate verranno archiviati in un gruppo di risorse creato a questo scopo e consentire a Resource Mover di creare un'identità gestita dal sistema per accedere alle risorse della sottoscrizione.
 1. Selezionare **procedi** per iniziare ad aggiungere le risorse.
@@ -115,7 +115,7 @@ Prima di poter preparare e spostare le risorse, il gruppo di risorse di origine 
 Eseguire la preparazione nel modo seguente:
 
 1. In **Tra aree** selezionare il gruppo di risorse di origine > **Prepara**.
-2. In **preparare le risorse**selezionare **prepara**.
+2. In **preparare le risorse** selezionare **prepara**.
 1. 
     ![Pulsante per preparare il gruppo di risorse di origine](./media/move-region-within-resource-group/prepare-source-resource-group.png)
 
@@ -131,15 +131,15 @@ Eseguire la preparazione nel modo seguente:
 Avviare lo spostamento come descritto di seguito:
 
 1. In **Tra aree** selezionare il gruppo di risorse di origine > **Avvia spostamento**.
-2. in **spostare le risorse**selezionare **Avvia spostamento**. Il gruppo di risorse passa allo stato *Avvio spostamento in corso*.
+2. in **spostare le risorse** selezionare **Avvia spostamento**. Il gruppo di risorse passa allo stato *Avvio spostamento in corso*.
 3. Dopo l'avvio dello spostamento, viene creato il gruppo di risorse di destinazione in base al modello di Resource Manager generato. Il gruppo di risorse di origine passa allo stato *Commit spostamento in sospeso*.
 
 ![Stato che mostra lo spostamento del commit](./media/move-region-availability-zone/commit-move-pending.png)
 
 Per eseguire il commit e terminare il processo di spostamento:
 
-1. In **aree diverse**selezionare il gruppo di risorse > **Sposta commit**
-2. in **spostare le risorse**selezionare **commit**.
+1. In **aree diverse** selezionare il gruppo di risorse > **Sposta commit**
+2. in **spostare le risorse** selezionare **commit**.
 
 > [!NOTE]
 > Dopo il commit dello spostamento il gruppo di risorse di origine si trova nello stato *Eliminazione origine in sospeso*.
@@ -183,7 +183,7 @@ Dopo aver spostato il gruppo di risorse di origine è possibile preparare lo spo
 Dopo aver preparato le risorse è ora possibile avviare lo spostamento.
 
 1. In **Tra aree** selezionare le risorse con lo stato *Avvio spostamento in sospeso*. Quindi selezionare **Avvia spostamento**.
-2. In **Sposta risorse**selezionare **Avvia spostamento**.
+2. In **Sposta risorse** selezionare **Avvia spostamento**.
 
     ![Selezionare per il pulsante Avvia spostamento](./media/move-region-within-resource-group/initiate-move.png)
 
@@ -210,8 +210,8 @@ Dopo lo spostamento iniziale è possibile decidere se si vuole rimuovere lo spos
 
 È possibile rimuovere lo spostamento come descritto di seguito:
 
-1. In **aree diverse**selezionare risorse con *spostamento commit*stato in sospeso e selezionare **Ignora spostamento**.
-2. In Rimuovi **spostamento**selezionare **Ignora**.
+1. In **aree diverse** selezionare risorse con *spostamento commit* stato in sospeso e selezionare **Ignora spostamento**.
+2. In Rimuovi **spostamento** selezionare **Ignora**.
 3. Tenere traccia dello stato di avanzamento dello spostamento nella barra delle notifiche.
 4. Quando le notifiche indicano che lo spostamento ha avuto esito positivo, selezionare **Aggiorna**. 
 
@@ -223,8 +223,8 @@ Dopo lo spostamento iniziale è possibile decidere se si vuole rimuovere lo spos
 Se si vuole completare il processo di spostamento, eseguire il commit dello spostamento. 
 
 
-1. In **aree diverse**selezionare risorse con *spostamento commit*stato in sospeso e selezionare **commit sposta**.
-2. In **risorse commit**selezionare **commit**.
+1. In **aree diverse** selezionare risorse con *spostamento commit* stato in sospeso e selezionare **commit sposta**.
+2. In **risorse commit** selezionare **commit**.
 
     ![Pagina per eseguire il commit delle risorse e finalizzare lo spostamento](./media/move-region-within-resource-group/commit-resources.png)
 
@@ -244,7 +244,7 @@ Se si vuole completare il processo di spostamento, eseguire il commit dello spos
 
 Facoltativamente, dopo lo spostamento è possibile eliminare le risorse nell'area di origine. 
 
-1. In **aree diverse**selezionare il nome di ogni risorsa di origine che si desidera eliminare.
+1. In **aree diverse** selezionare il nome di ogni risorsa di origine che si desidera eliminare.
 2. Nella pagina delle proprietà di ogni risorsa selezionare **Elimina**.
 
 ## <a name="delete-additional-resources-created-for-move"></a>Eliminare le risorse aggiuntive create per lo spostamento

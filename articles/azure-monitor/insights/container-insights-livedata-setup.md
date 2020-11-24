@@ -4,12 +4,12 @@ description: Questo articolo descrive come configurare la visualizzazione in tem
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: 6fdd2d0a97357a2126ff37c0840b1f7da2859da5
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 45ed931f734e874e81af837fff5c4a326349cb21
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682673"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95530183"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Come configurare la funzionalità dati in tempo reale (anteprima)
 
@@ -26,7 +26,7 @@ Queste istruzioni richiedono l'accesso amministrativo al cluster Kubernetes e, s
 
 Questo articolo illustra come configurare l'autenticazione per controllare l'accesso alla funzionalità dati in tempo reale (anteprima) dal cluster:
 
-- Cluster AKS abilitato per il controllo degli accessi in base al ruolo
+- Cluster AKS abilitato per il controllo degli accessi in base al ruolo Kubernetes (Kubernetes RBAC)
 - Azure Active Directory cluster AKS integrato.
 
 >[!NOTE]
@@ -39,20 +39,20 @@ Le funzionalità dei dati in tempo reale (anteprima) usano l'API Kubernetes, ide
 Il portale di Azure richiede di convalidare le credenziali di accesso per un cluster Azure Active Directory e di reindirizzare l'utente alla configurazione della registrazione del client durante la creazione del cluster e riconfigurata in questo articolo. Questo comportamento è simile al processo di autenticazione richiesto da `kubectl` .
 
 >[!NOTE]
->L'autorizzazione per il cluster viene gestita da Kubernetes e dal modello di sicurezza con cui è configurato. Per gli utenti che accedono a questa funzionalità è necessaria l'autorizzazione per scaricare la configurazione Kubernetes (*kubeconfig*), simile a in esecuzione `az aks get-credentials -n {your cluster name} -g {your resource group}` . Questo file di configurazione contiene il token di autorizzazione e di autenticazione per il **ruolo utente del cluster di servizi Kubernetes di Azure**, nel caso di cluster Azure e abilitati per il controllo degli accessi in base al ruolo, senza autorizzazione RBAC abilitata Contiene informazioni sui Azure AD e i dettagli di registrazione del client quando AKS è abilitato con l'accesso Single Sign-on basato su SAML di Azure Active Directory (AD).
+>L'autorizzazione per il cluster viene gestita da Kubernetes e dal modello di sicurezza con cui è configurato. Per gli utenti che accedono a questa funzionalità è necessaria l'autorizzazione per scaricare la configurazione Kubernetes (*kubeconfig*), simile a in esecuzione `az aks get-credentials -n {your cluster name} -g {your resource group}` . Questo file di configurazione contiene il token di autorizzazione e di autenticazione per il **ruolo utente del cluster di servizi Kubernetes di Azure**, nel caso di cluster Azure e abilitati per il controllo degli accessi in base al ruolo di Azure senza autorizzazione RBAC Kubernetes Contiene informazioni sui Azure AD e i dettagli di registrazione del client quando AKS è abilitato con l'accesso Single Sign-on basato su SAML di Azure Active Directory (AD).
 
 >[!IMPORTANT]
 >Per scaricare e usare questa funzionalità, gli utenti di questa funzionalità richiedono il [ruolo utente del cluster Kubernetes di Azure](../../role-based-access-control/built-in-roles.md) per il cluster `kubeconfig` . Per utilizzare questa funzionalità, gli utenti **non** necessitano dell'accesso come collaboratore al cluster.
 
-## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>Uso di clusterMonitoringUser con cluster abilitati per RBAC
+## <a name="using-clustermonitoringuser-with-kubernetes-rbac-enabled-clusters"></a>Uso di clusterMonitoringUser con cluster Kubernetes abilitati per RBAC
 
-Per eliminare la necessità di applicare modifiche di configurazione aggiuntive per consentire l'associazione del ruolo utente Kubernetes **clusterUser** l'accesso alla funzionalità dati in tempo reale (anteprima) dopo aver abilitato l'autorizzazione [RBAC](#configure-kubernetes-rbac-authorization) , AKS ha aggiunto una nuova associazione di ruoli del cluster Kubernetes denominata **clusterMonitoringUser**. Questa associazione di ruoli del cluster dispone di tutte le autorizzazioni necessarie predefinite per accedere all'API Kubernetes e agli endpoint per l'utilizzo della funzionalità dati in tempo reale (anteprima).
+Per eliminare la necessità di applicare modifiche di configurazione aggiuntive per consentire l'associazione del ruolo utente Kubernetes **clusterUser** l'accesso alla funzionalità dati in tempo reale (anteprima) dopo l' [Abilitazione dell'autorizzazione KUBERNETES RBAC](#configure-kubernetes-rbac-authorization) , AKS ha aggiunto una nuova associazione di ruoli del cluster Kubernetes denominata **clusterMonitoringUser**. Questa associazione di ruoli del cluster dispone di tutte le autorizzazioni necessarie predefinite per accedere all'API Kubernetes e agli endpoint per l'utilizzo della funzionalità dati in tempo reale (anteprima).
 
 Per usare la funzionalità dati in tempo reale (anteprima) con questo nuovo utente, è necessario essere un membro del ruolo [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) sulla risorsa cluster AKS. Il monitoraggio di Azure per i contenitori, se abilitato, è configurato per l'autenticazione con questo utente per impostazione predefinita. Se l'associazione di ruolo clusterMonitoringUser non esiste in un cluster, per l'autenticazione viene usato **clusterUser** .
 
 AKS ha rilasciato questa nuova associazione di ruolo nel 2020 gennaio, quindi i cluster creati prima di gennaio 2020 non lo hanno. Se si dispone di un cluster creato prima del 2020 gennaio, è possibile aggiungere il nuovo **clusterMonitoringUser** a un cluster esistente eseguendo un'operazione Put nel cluster o eseguendo qualsiasi altra operazione nel cluster che esegue un'operazione Put nel cluster, ad esempio l'aggiornamento della versione del cluster.
 
-## <a name="kubernetes-cluster-without-rbac-enabled"></a>Cluster Kubernetes con controllo degli accessi in base al ruolo abilitato
+## <a name="kubernetes-cluster-without-kubernetes-rbac-enabled"></a>Cluster Kubernetes senza Kubernetes RBAC abilitato
 
 Se si ha un cluster Kubernetes non configurato con l'autorizzazione del controllo degli accessi in base al ruolo di Kubernetes oppure integrato con il Single Sign-On di Azure AD, non è necessario eseguire la procedura seguente. Questo perché per impostazione predefinita sono disponibili autorizzazioni amministrative in una configurazione non RBAC.
 
@@ -108,7 +108,7 @@ Azure AD la registrazione client deve essere riconfigurata per consentire al por
 Per altre informazioni sulla configurazione della sicurezza avanzata in Kubernetes, vedere la [documentazione di Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 >[!NOTE]
->Se si sta creando un nuovo cluster abilitato per il controllo degli accessi in base al ruolo, vedere [integrare Azure Active Directory con il servizio Azure Kubernetes](../../aks/azure-ad-integration-cli.md) e seguire i passaggi per configurare l'autenticazione Azure ad. Durante i passaggi per creare l'applicazione client, una nota nella sezione evidenzia i due URL di reindirizzamento che è necessario creare per il monitoraggio di Azure per i contenitori corrispondenti a quelli specificati nel passaggio 3 riportato di seguito.
+>Se si sta creando un nuovo cluster Kubernetes abilitato per il controllo degli accessi in base al ruolo, vedere [integrare Azure Active Directory con il servizio Kubernetes di Azure](../../aks/azure-ad-integration-cli.md) e seguire la procedura per configurare l'autenticazione Azure ad. Durante i passaggi per creare l'applicazione client, una nota nella sezione evidenzia i due URL di reindirizzamento che è necessario creare per il monitoraggio di Azure per i contenitori corrispondenti a quelli specificati nel passaggio 3 riportato di seguito.
 
 ### <a name="client-registration-reconfiguration"></a>Riconfigurazione della registrazione client
 
@@ -134,7 +134,7 @@ Per altre informazioni sulla configurazione della sicurezza avanzata in Kubernet
 Per accedere alla funzionalità dei dati in tempo reale (anteprima), è necessario concedere a ogni account Azure AD le autorizzazioni per le API appropriate in Kubernetes. I passaggi per concedere il Azure Active Directory account sono simili ai passaggi descritti nella sezione [autenticazione RBAC di Kubernetes](#configure-kubernetes-rbac-authorization) . Prima di applicare il modello di configurazione YAML al cluster, sostituire **clusterUser** in **ClusterRoleBinding** con l'utente desiderato.
 
 >[!IMPORTANT]
->Se l'utente che si concede l'associazione RBAC per si trova nello stesso tenant Azure AD, assegnare le autorizzazioni in base a userPrincipalName. Se l'utente si trova in un tenant Azure AD diverso, eseguire una query per e utilizzare la proprietà objectId.
+>Se l'utente che si concede l'associazione RBAC Kubernetes per si trova nello stesso tenant Azure AD, assegnare le autorizzazioni in base a userPrincipalName. Se l'utente si trova in un tenant Azure AD diverso, eseguire una query per e utilizzare la proprietà objectId.
 
 Per ulteriori informazioni sulla configurazione del **ClusterRoleBinding** del cluster AKS, vedere [create Kubernetes RBAC binding](../../aks/azure-ad-integration-cli.md#create-kubernetes-rbac-binding).
 

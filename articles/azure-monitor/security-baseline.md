@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 15026c378c4c399915e99b0910f1e6518f5adfc8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c8ed791fc9496e67acdcfbfafddad9170ac47535
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151863"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522584"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Baseline della sicurezza di Azure per monitoraggio di Azure
 
@@ -324,7 +324,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
-**Indicazioni**: implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati. È possibile limitare il livello di accesso al monitoraggio di Azure e alle risorse correlate richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso a monitoraggio di Azure tramite Azure Active Directory il controllo degli accessi in base al ruolo.
+**Indicazioni**: implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati. È possibile limitare il livello di accesso al monitoraggio di Azure e alle risorse correlate richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso a monitoraggio di Azure tramite il controllo degli accessi in base al ruolo di Azure.
 
 - [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
@@ -361,7 +361,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
 
-**Linee guida**: usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso a monitoraggio di Azure.
+**Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per gestire l'accesso a monitoraggio di Azure.
 
 - [Ruoli, autorizzazioni e sicurezza in monitoraggio di Azure](platform/roles-permissions-security.md)
 
@@ -685,7 +685,7 @@ Usare il rilevamento delle minacce del Centro sicurezza di Azure per i servizi d
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: garantire la protezione dei backup e delle chiavi gestite dal cliente
 
-**Linee guida**: usare Azure DevOps per archiviare e gestire in modo sicuro il codice, ad esempio criteri personalizzati di Azure, Azure Resource Manager modelli. Per proteggere le risorse gestite in Azure DevOps, è possibile concedere o negare autorizzazioni a utenti specifici, gruppi di sicurezza incorporati o gruppi definiti in Azure Active Directory (Azure AD) se integrati con Azure DevOps oppure Active Directory se integrato con TFS.   Usare il controllo degli accessi in base al ruolo per proteggere le chiavi gestite dal cliente. 
+**Linee guida**: usare Azure DevOps per archiviare e gestire in modo sicuro il codice, ad esempio criteri personalizzati di Azure, Azure Resource Manager modelli. Per proteggere le risorse gestite in Azure DevOps, è possibile concedere o negare autorizzazioni a utenti specifici, gruppi di sicurezza incorporati o gruppi definiti in Azure Active Directory (Azure AD) se integrati con Azure DevOps oppure Active Directory se integrato con TFS.   Usare il controllo degli accessi in base al ruolo di Azure per proteggere le chiavi gestite dal cliente. 
 
 Inoltre, abilitare Soft-Delete ed eliminare la protezione in Key Vault per proteggere le chiavi da eliminazioni accidentali o dannose. Se l'archiviazione di Azure viene usata per archiviare i backup del modello di Azure Resource Manager, abilitare l'eliminazione temporanea per salvare e ripristinare i dati quando vengono eliminati BLOB o snapshot BLOB. 
 

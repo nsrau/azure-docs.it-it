@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 52f0db4086bac7c8131015114ea6ecfdc391a4af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bda92667cfc3afb44a55adf3f3c12798a734ddc
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612762"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522720"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schema degli eventi del log attività di Azure
 Il [log attività di Azure](platform-logs-overview.md) fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo descrive le categorie del log attività e lo schema per ciascuna di esse. 
@@ -40,7 +40,7 @@ Ogni evento nel log attività dispone di una categoria specifica descritta nella
 
 | Category | Descrizione |
 |:---|:---|
-| [Administrative](#administrative-category) | Contiene il record di tutte le operazioni di creazione, aggiornamento, eliminazione e azione eseguite tramite Resource Manager. Esempi di eventi amministrativi includono la _creazione di una macchina virtuale_ e l'_eliminazione di un gruppo di sicurezza di rete_.<br><br>Ogni azione eseguita da un utente o da un'applicazione che usa Resource Manager viene modellata come operazione su un particolare tipo di risorsa. Se l'operazione è di tipo _scrittura_, _eliminazione_ o _azione_, i record di avvio e riuscita o di non riuscita di tale operazione vengono registrati nella categoria Amministrativo. Gli eventi di tipo Amministrativo includono anche eventuali modifiche al controllo degli accessi in base al ruolo in una sottoscrizione. |
+| [Administrative](#administrative-category) | Contiene il record di tutte le operazioni di creazione, aggiornamento, eliminazione e azione eseguite tramite Resource Manager. Esempi di eventi amministrativi includono la _creazione di una macchina virtuale_ e l'_eliminazione di un gruppo di sicurezza di rete_.<br><br>Ogni azione eseguita da un utente o da un'applicazione che usa Resource Manager viene modellata come operazione su un particolare tipo di risorsa. Se l'operazione è di tipo _scrittura_, _eliminazione_ o _azione_, i record di avvio e riuscita o di non riuscita di tale operazione vengono registrati nella categoria Amministrativo. Gli eventi amministrativi includono anche eventuali modifiche al controllo degli accessi in base al ruolo di Azure in una sottoscrizione. |
 | [Integrità dei servizi](#service-health-category) | Contiene il record degli eventi imprevisti di integrità dei servizi che si sono verificati in Azure. Un esempio di evento di tipo Integrità dei servizi è _Tempo di inattività registrato in SQL Azure negli Stati Uniti orientali_. <br><br>Gli eventi di tipo Integrità dei servizi sono di cinque tipi: _Intervento necessario_, _Recupero assistito_, _Evento imprevisto_, _Manutenzione_, _Informazioni_ o _Sicurezza_. Questi eventi vengono creati solo se si dispone di una risorsa nella sottoscrizione che potrebbe essere interessata dall'evento.
 | [Integrità delle risorse](#resource-health-category) | Contiene il record degli eventi di integrità delle risorse che si sono verificati nelle risorse di Azure. Un esempio di evento di tipo Integrità delle risorse è _Lo stato di integrità della macchina virtuale è cambiato in non disponibile_.<br><br>Gli eventi di tipo Integrità delle risorse possono rappresentare uno dei quattro stati di integrità: _Disponibile_, _Non disponibile_, _Danneggiato_ e _Sconosciuto_. Inoltre, gli eventi di tipo Integrità delle risorse possono essere classificati come _avviati dalla piattaforma_ o _avviati dall'utente_. |
 | [Avviso](#alert-category) | Contiene il record delle attivazioni per gli avvisi di Azure. Un esempio di evento di tipo Avvisi è _% della CPU in myVM superiore a 80 negli ultimi 5 minuti_.|
@@ -50,7 +50,7 @@ Ogni evento nel log attività dispone di una categoria specifica descritta nella
 | [Criteri](#policy-category) | Include i record di tutte le operazioni relative ad azioni effetto eseguite da Criteri di Azure. Esempi di eventi di tipo Criteri includono _Controlla_ e _Nega_. Ogni azione eseguita da Criteri viene modellata come operazione su una risorsa. |
 
 ## <a name="administrative-category"></a>Categoria amministrativa
-Questa categoria contiene il record di tutte le operazioni di creazione, aggiornamento, eliminazione e azione eseguite tramite Resource Manager. Tra gli esempi dei tipi di eventi visualizzati in questa categoria sono inclusi "create virtual machine" e "delete network security group". Ogni azione eseguita da un utente o da un'applicazione usando Resource Manager viene modellata come operazione in un determinato tipo di risorsa. Se l'operazione è di tipo scrittura, eliminazione o azione, i record di avvio e riuscita o di non riuscita di tale operazione vengono registrati nella categoria Administrative. Questa categoria include anche eventuali modifiche al controllo degli accessi in base al ruolo in una sottoscrizione.
+Questa categoria contiene il record di tutte le operazioni di creazione, aggiornamento, eliminazione e azione eseguite tramite Resource Manager. Tra gli esempi dei tipi di eventi visualizzati in questa categoria sono inclusi "create virtual machine" e "delete network security group". Ogni azione eseguita da un utente o da un'applicazione usando Resource Manager viene modellata come operazione in un determinato tipo di risorsa. Se l'operazione è di tipo scrittura, eliminazione o azione, i record di avvio e riuscita o di non riuscita di tale operazione vengono registrati nella categoria Administrative. La categoria amministrativa include anche le modifiche apportate al controllo degli accessi in base al ruolo di Azure in una sottoscrizione.
 
 ### <a name="sample-event"></a>Evento di esempio
 ```json
@@ -141,9 +141,9 @@ Questa categoria contiene il record di tutte le operazioni di creazione, aggiorn
 ```
 
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Description |
+| Nome dell'elemento | Descrizione |
 | --- | --- |
-| authorization |BLOB delle proprietà RBAC dell'evento. In genere include le proprietà "action", "role" e "scope". |
+| authorization |BLOB delle proprietà RBAC di Azure dell'evento. In genere include le proprietà "action", "role" e "scope". |
 | caller |Indirizzo di posta elettronica dell'utente che ha eseguito l'operazione, attestazione UPN o attestazione SPN, a seconda della disponibilità. |
 | channels |Uno dei valori seguenti: "Admin" o "Operation". |
 | claims |Token JWT usato da Active Directory per l'autenticazione dell'utente o dall'applicazione per eseguire questa operazione in Resource Manager. |
@@ -288,7 +288,7 @@ Questa categoria contiene il record degli eventi di integrità delle risorse che
 ```
 
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Description |
+| Nome dell'elemento | Descrizione |
 | --- | --- |
 | channels | Sempre "Admin, Operation" |
 | correlationId | GUID in formato stringa. |
@@ -381,7 +381,7 @@ Questa categoria contiene il record di tutte le attivazioni degli avvisi di Azur
 ```
 
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Description |
+| Nome dell'elemento | Descrizione |
 | --- | --- |
 | caller | Sempre Microsoft.Insights/alertRules |
 | channels | Sempre "Admin, Operation" |
@@ -407,7 +407,7 @@ Questa categoria contiene il record di tutte le attivazioni degli avvisi di Azur
 Il campo delle proprietà conterrà valori diversi a seconda dell'origine dell'evento dell'avviso. Due comuni provider di eventi di avviso sono gli avvisi delle metriche e gli avvisi del log attività.
 
 #### <a name="properties-for-activity-log-alerts"></a>Proprietà degli avvisi del log attività
-| Nome dell'elemento | Description |
+| Nome dell'elemento | Descrizione |
 | --- | --- |
 | properties.subscriptionId | ID della sottoscrizione dall'evento del log attività che ha causato l'attivazione di questa regola di avviso del log attività. |
 | properties.eventDataId | ID dei dati dell'evento dall'evento del log attività che ha causato l'attivazione di questa regola di avviso del log attività. |
@@ -418,7 +418,7 @@ Il campo delle proprietà conterrà valori diversi a seconda dell'origine dell'e
 | properties.status | Stato dall'evento del log attività che ha causato l'attivazione di questa regola di avviso del log attività.|
 
 #### <a name="properties-for-metric-alerts"></a>Proprietà degli avvisi delle metriche
-| Nome dell'elemento | Description |
+| Nome dell'elemento | Descrizione |
 | --- | --- |
 | properties.RuleUri | ID risorsa della regola di avviso per la metrica. |
 | properties.RuleName | Nome della regola di avviso per la metrica. |
@@ -491,7 +491,7 @@ Questa categoria contiene il record degli eventi correlati all'operazione del mo
 ```
 
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Description |
+| Nome dell'elemento | Descrizione |
 | --- | --- |
 | caller | Sempre Microsoft.Insights/autoscaleSettings |
 | channels | Sempre "Admin, Operation" |
@@ -581,7 +581,7 @@ Questa categoria contiene il record degli avvisi generati dal Centro sicurezza d
 ```
 
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Description |
+| Nome dell'elemento | Descrizione |
 | --- | --- |
 | channels | Sempre "Operation" |
 | correlationId | GUID in formato stringa. |
@@ -662,7 +662,7 @@ Questa categoria include il record di tutte le nuove raccomandazioni che vengono
 
 ```
 ### <a name="property-descriptions"></a>Descrizioni delle proprietà
-| Nome dell'elemento | Description |
+| Nome dell'elemento | Descrizione |
 | --- | --- |
 | channels | Sempre "Operation" |
 | correlationId | GUID in formato stringa. |
@@ -772,9 +772,9 @@ Questa categoria include i record di tutte le operazioni relative ad azioni effe
 
 ### <a name="policy-event-property-descriptions"></a>Descrizioni delle proprietà degli eventi di Criteri
 
-| Nome dell'elemento | Description |
+| Nome dell'elemento | Descrizione |
 | --- | --- |
-| authorization | Matrice delle proprietà RBAC dell'evento. Per le nuove risorse, questa è l'azione e l'ambito della richiesta che ha attivato la valutazione. Per le risorse esistenti, l'azione è "Microsoft.Resources/checkPolicyCompliance/read". |
+| authorization | Matrice di proprietà RBAC di Azure dell'evento. Per le nuove risorse, questa è l'azione e l'ambito della richiesta che ha attivato la valutazione. Per le risorse esistenti, l'azione è "Microsoft.Resources/checkPolicyCompliance/read". |
 | caller | Per le nuove risorse, l'identità che ha avviato una distribuzione. Per le risorse esistenti, il GUID di Microsoft Azure Policy Insights RP. |
 | channels | Gli eventi di Criteri usano solo il canale "Operation". |
 | claims | Token JWT usato da Active Directory per l'autenticazione dell'utente o dall'applicazione per eseguire questa operazione in Resource Manager. |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: daa3f3b1687b01005f32cbd2665c84b933c993b8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 706fa1666dc327955294fb350b673aed40d6bf48
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837618"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520663"
 ---
 # <a name="continuous-access-evaluation"></a>Valutazione continua dell'accesso
 
@@ -26,7 +26,9 @@ I clienti hanno espresso dubbi sul ritardo tra le condizioni in cui cambiano le 
 
 Una risposta tempestiva alle violazioni dei criteri o ai problemi di sicurezza richiede effettivamente una "conversazione" tra l'emittente del token, ad esempio Azure AD e il relying party, ad esempio Exchange Online. Questa conversazione bidirezionale ci offre due importanti funzionalità. Il relying party può rilevare le modifiche apportate, ad esempio un client proveniente da una nuova posizione, e indicare all'emittente del token. Fornisce inoltre all'emittente del token un modo per indicare al relying party di arrestare il rispetto dei token per un determinato utente a causa di compromissione dell'account, disabilitazione o altre problematiche. Il meccanismo per questa conversazione è il CAE (Continuous Access Evaluation). L'obiettivo è quello di rispondere quasi in tempo reale, ma in alcuni casi è possibile che venga osservata una latenza di un massimo di 15 minuti a causa del tempo di propagazione dell'evento.
 
-L'implementazione iniziale della valutazione dell'accesso continuo è incentrata su Exchange, teams e SharePoint Online. 
+L'implementazione iniziale della valutazione dell'accesso continuo è incentrata su Exchange, teams e SharePoint Online.
+
+Per preparare le applicazioni per l'uso di CAE, vedere [come usare le API di valutazione dell'accesso continuo abilitate nelle applicazioni](/develop/app-resilience-continuous-access-evaluation.md).
 
 ### <a name="key-benefits"></a>Vantaggi principali
 
@@ -157,7 +159,7 @@ Se questo scenario è presente nell'ambiente per evitare cicli infiniti, Azure A
 | Canale di aggiornamento di Office | DisableADALatopWAMOverride | DisableAADWAM |
 | --- | --- | --- |
 | Canale Enterprise semestrale | Se impostato su abilitato o 1, CAE non è supportato. | Se impostato su abilitato o 1, CAE non è supportato. |
-| Canale corrente <br> o <br> Canale Enterprise mensile | CAE è supportato indipendentemente dall'impostazione | CAE è supportato indipendentemente dall'impostazione |
+| Canale corrente <br> oppure <br> Canale Enterprise mensile | CAE è supportato indipendentemente dall'impostazione | CAE è supportato indipendentemente dall'impostazione |
 
 Per una spiegazione dei canali di Office Update, vedere [Panoramica dei canali di aggiornamento per le app Microsoft 365](/deployoffice/overview-update-channels). Si consiglia alle organizzazioni di non disabilitare Web Account Manager (WAM).
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 404999cfac5037702eb61fdf74b2c5245ce9eb30
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74270216"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95526120"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Livelli di prestazioni per l'archiviazione BLOB in blocchi
 
@@ -83,6 +83,6 @@ Non è possibile spostare i dati archiviati in un account di archiviazione BLOB 
 Valutazione di accesso frequente, sporadico e archivio negli account di archiviazione BLOB e GPv2.
 
 - [Informazioni sulla reidratazione dei dati BLOB dal livello archivio](storage-blob-rehydration.md)
-- [Valutare l'utilizzo degli account di archiviazione attuali abilitando le metriche di Archiviazione di Azure](../common/storage-enable-and-view-metrics.md)
+- [Valutare l'utilizzo degli account di archiviazione attuali abilitando le metriche di Archiviazione di Azure](./monitor-blob-storage.md)
 - [Controllare i prezzi di accesso frequente, accesso sporadico e archivio negli account di archiviazione BLOB e per utilizzo generico v2 in base all'area](https://azure.microsoft.com/pricing/details/storage/)
 - [Verificare i prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/)

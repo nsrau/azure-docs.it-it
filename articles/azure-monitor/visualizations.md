@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9f95a5e85ec4eebf82cca707476750595331d73
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983597"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522669"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
 Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati di metrica e log archiviati in Monitoraggio di Azure.
@@ -49,7 +49,7 @@ Ecco una procedura dettagliata video sulla creazione di dashboard.
 - Integrazione avanzata in Azure. Le visualizzazioni possono essere aggiunte ai dashboard da più pagine di Azure, tra cui Esplora metriche, Log Analytics e Application Insights.
 - Supporto sia per le metriche sia per i log.
 - Combinazione dei dati provenienti da più origini, tra cui l'output da [Esplora metriche](platform/metrics-charts.md), [query di Log](log-query/log-query-overview.md), [mappe](app/app-map.md) e disponibilità in Application Insights.
-- Opzione per dashboard personali o condivisi, integrati con l'[autenticazione basata su ruoli (RBAC)](../role-based-access-control/overview.md) di Azure.
+- Opzione per dashboard personali o condivisi, Integrazione con il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md).
 - Aggiornamento automatico delle metriche in base a un intervallo di tempo con un valore minimo di cinque minuti I log si aggiornano ogni ora, con un'opzione di aggiornamento manuale su richiesta facendo clic sull'icona "Aggiorna" in una determinata visualizzazione o aggiornando il dashboard completo.
 - Dashboard delle metriche con parametri con timestamp e parametri personalizzati.
 - Opzioni di layout flessibili.

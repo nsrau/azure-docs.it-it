@@ -1,17 +1,17 @@
 ---
 title: Criteri di supporto per i cluster di Azure Red Hat OpenShift 4
-description: Informazioni sui requisiti dei criteri di supporto per Red Hat OpenShift 4.
+description: Informazioni sui requisiti dei criteri di supporto per Red Hat OpenShift 4
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 04/24/2020
-ms.openlocfilehash: e396cfa032a3030467b2e2318d61393713894cd4
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 11/23/2020
+ms.openlocfilehash: c8d52609043f173e896668eadeb8c59493739859
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628221"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521139"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Criteri di supporto di Azure Red Hat OpenShift
 
@@ -23,7 +23,7 @@ Alcune configurazioni per i cluster di Azure Red Hat OpenShift 4 possono influen
 ## <a name="cluster-configuration-requirements"></a>Requisiti di configurazione del cluster
 
 * Tutti gli operatori del cluster OpenShift devono rimanere in uno stato gestito. È possibile restituire l'elenco degli operatori del cluster eseguendo `oc get clusteroperators`.
-* Il cluster deve avere almeno un nodo del ruolo di lavoro. Non ridimensionare i ruoli di lavoro del cluster a zero.
+* Il cluster deve avere almeno due nodi del ruolo di lavoro. Non ridimensionare i ruoli di lavoro del cluster a zero o tentare un arresto del cluster normale.
 * Non rimuovere o modificare i servizi Prometheus e Alertmanager del cluster.
 * Non rimuovere le regole Alertmanager del servizio.
 * Non rimuovere o modificare la registrazione del servizio Azure Red Hat OpenShift (pod MDSD).

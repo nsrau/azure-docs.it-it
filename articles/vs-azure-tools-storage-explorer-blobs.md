@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
-ms.openlocfilehash: 07652f2ac88475664f30e8189204b5649f966d16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48f00d964a87790b8d8c9b1d8eceaed26d15199e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033615"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531968"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gestire le risorse di archiviazione BLOB di Azure con Storage Explorer
 
 ## <a name="overview"></a>Panoramica
 
-[Archiviazione BLOB di Azure](storage/blobs/storage-dotnet-how-to-use-blobs.md) è un servizio per l'archiviazione di grandi quantità di dati non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite http o HTTPS.
+[Archiviazione BLOB di Azure](./storage/blobs/storage-quickstart-blobs-dotnet.md) è un servizio per l'archiviazione di grandi quantità di dati non strutturati, ad esempio dati di testo o binari, a cui è possibile accedere da qualsiasi parte del mondo tramite http o HTTPS.
 L'archiviazione BLOB può essere usata per esporre dati pubblicamente a livello mondiale o archiviare privatamente i dati delle applicazioni. In questo articolo si apprenderà come usare Storage Explorer per l'uso di contenitori BLOB e BLOB.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -61,7 +61,7 @@ I passaggi seguenti illustrano come visualizzare il contenuto di un contenitore 
 
 1. Aprire Esplora archivi.
 2. Nel riquadro sinistro espandere l'account di archiviazione che include il contenitore BLOB da visualizzare.
-3. Espandere **contenitori BLOB**dell'account di archiviazione.
+3. Espandere **contenitori BLOB** dell'account di archiviazione.
 4. Fare clic con il pulsante destro del mouse sul contenitore BLOB che si vuole visualizzare e scegliere **Open Blob Container Editor**(Apri editor contenitori BLOB) dal menu di scelta rapida.
    È anche possibile fare doppio clic sul contenitore BLOB che si vuole visualizzare.
 
@@ -78,8 +78,8 @@ I passaggi seguenti illustrano come eliminare un contenitore BLOB all'interno di
 
 1. Aprire Esplora archivi.
 2. Nel riquadro sinistro espandere l'account di archiviazione che include il contenitore BLOB da visualizzare.
-3. Espandere **contenitori BLOB**dell'account di archiviazione.
-4. Fare clic con il pulsante destro del mouse sul contenitore BLOB che si vuole eliminare e scegliere **Elimina**dal menu di scelta rapida.
+3. Espandere **contenitori BLOB** dell'account di archiviazione.
+4. Fare clic con il pulsante destro del mouse sul contenitore BLOB che si vuole eliminare e scegliere **Elimina** dal menu di scelta rapida.
    È anche possibile premere **CANC** per eliminare il contenitore BLOB attualmente selezionato.
 
    ![Menu di scelta rapida Elimina per il contenitore BLOB][4]
@@ -95,7 +95,7 @@ I passaggi seguenti illustrano come copiare un contenitore BLOB da un account di
 
 1. Aprire Esplora archivi.
 2. Nel riquadro sinistro espandere l'account di archiviazione che include il contenitore BLOB da copiare.
-3. Espandere **contenitori BLOB**dell'account di archiviazione.
+3. Espandere **contenitori BLOB** dell'account di archiviazione.
 4. Fare clic con il pulsante destro del mouse sul contenitore BLOB che si vuole copiare e scegliere **Copy Blob Container**(Copia contenitore BLOB) dal menu di scelta rapida.
 
    ![Menu di scelta Copy Blob Container (Copia contenitore BLOB)][6]
@@ -105,14 +105,14 @@ I passaggi seguenti illustrano come copiare un contenitore BLOB da un account di
 
 ## <a name="get-the-sas-for-a-blob-container"></a>Ottenere la firma di accesso condiviso per un contenitore BLOB
 
-Una [firma di accesso condiviso (SAS)](storage/common/storage-dotnet-shared-access-signature-part-1.md) fornisce accesso delegato alle risorse nell'account di archiviazione.
+Una [firma di accesso condiviso (SAS)](./storage/common/storage-sas-overview.md) fornisce accesso delegato alle risorse nell'account di archiviazione.
 Questo significa che è possibile concedere a un client autorizzazioni limitate per BLOB, code o tabelle per un periodo di tempo specificato e con un set di autorizzazioni specificato senza dover condividere le chiavi di accesso dell'account.
 
 I passaggi seguenti illustrano come creare una firma di accesso condiviso per un contenitore BLOB:
 
 1. Aprire Esplora archivi.
 2. Nel riquadro sinistro espandere l'account di archiviazione che include il contenitore BLOB per cui si vuole ottenere una firma di accesso condiviso.
-3. Espandere **contenitori BLOB**dell'account di archiviazione.
+3. Espandere **contenitori BLOB** dell'account di archiviazione.
 4. Fare clic con il pulsante destro del mouse sul contenitore BLOB desiderato e scegliere **Get Shared Access Signature**(Ottieni firma di accesso condiviso) dal menu di scelta rapida.
 
    ![Menu di scelta rapida Get Shared Access Signature (Ottieni firma di accesso condiviso)][8]
@@ -132,7 +132,7 @@ I passaggi seguenti illustrano come gestire, ovvero aggiungere e rimuovere, crit
 
 1. Aprire Esplora archivi.
 2. Nel riquadro sinistro espandere l'account di archiviazione che include il contenitore BLOB di cui si vogliono gestire i criteri di accesso.
-3. Espandere **contenitori BLOB**dell'account di archiviazione.
+3. Espandere **contenitori BLOB** dell'account di archiviazione.
 4. Selezionare il contenitore BLOB desiderato e scegliere **Manage Access Policies**(Gestisci criteri di accesso) dal menu di scelta rapida.
 
    ![Menu di scelta rapida Manage Access Policies (Gestisci criteri di accesso)][11]
@@ -153,7 +153,7 @@ La procedura seguente illustra come specificare un livello di accesso pubblico p
 
 1. Aprire Esplora archivi.
 2. Nel riquadro sinistro espandere l'account di archiviazione che include il contenitore BLOB di cui si vogliono gestire i criteri di accesso.
-3. Espandere **contenitori BLOB**dell'account di archiviazione.
+3. Espandere **contenitori BLOB** dell'account di archiviazione.
 4. Selezionare il contenitore BLOB desiderato e scegliere **Set Public Access Level**(Imposta livello di accesso pubblico) dal menu di scelta rapida.
 
    ![Menu di scelta rapida Set Public Access Level (Imposta livello di accesso pubblico)][13]
@@ -170,7 +170,7 @@ I passaggi seguenti illustrano come gestire i BLOB e le cartelle all'interno di 
 
 1. Aprire Esplora archivi.
 2. Nel riquadro sinistro espandere l'account di archiviazione che include il contenitore BLOB da gestire.
-3. Espandere **contenitori BLOB**dell'account di archiviazione.
+3. Espandere **contenitori BLOB** dell'account di archiviazione.
 4. Fare doppio clic sul contenitore BLOB che si vuole visualizzare.
 5. Nel riquadro principale verrà visualizzato il contenuto del contenitore BLOB.
 
@@ -180,7 +180,7 @@ I passaggi seguenti illustrano come gestire i BLOB e le cartelle all'interno di 
 
    * **Caricare file in un contenitore BLOB**
 
-     1. Sulla barra degli strumenti del riquadro principale selezionare **carica**e quindi **Carica file** dal menu a discesa.
+     1. Sulla barra degli strumenti del riquadro principale selezionare **carica** e quindi **Carica file** dal menu a discesa.
 
         ![Menu Carica i file][15]
      2. Nella finestra di dialogo **Carica i file** scegliere il pulsante con i puntini di sospensione (**…**) a destra della casella **File** per selezionare i file da caricare.

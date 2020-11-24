@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: 9a28677063c6f6dd7bb7bcf6746dbc541308891f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cad25990d0ba7e27f4a90adc587f0c8a0a2c551a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87305908"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521071"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Come effettuare una chiamata tramite Twilio in un'applicazione Java in Azure
 Nell'esempio seguente viene illustrato come è possibile usare Twilio per effettuare una chiamata da una pagina Web ospitata in Azure. L'applicazione risultante chiederà all'utente i valori delle telefonate, come illustrato nello screenshot seguente.
@@ -177,7 +177,7 @@ Di seguito è riportata la procedura generica per eseguire l'applicazione. Per i
 3. Compilare l'applicazione per l'emulatore di calcolo.
 4. Avviare la distribuzione nell'emulatore di calcolo.
 5. Aprire un browser ed eseguire `http://localhost:8080/TwilioCloud/callform.jsp` .
-6. Immettere i valori nel modulo, fare clic su **Make this call**e quindi visualizzare i risultati in makecall.jsp.
+6. Immettere i valori nel modulo, fare clic su **Make this call** e quindi visualizzare i risultati in makecall.jsp.
 
 Quando si è pronti a distribuire l'applicazione in Azure, ricompilare per la distribuzione nel cloud, distribuire in Azure ed eseguire http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp nel browser, sostituendo *your_hosted_name* con il proprio valore.
 
@@ -186,7 +186,7 @@ Questo codice ha lo scopo di illustrare le funzionalità di base dell'utilizzo d
 
 * Anziché utilizzare un modulo Web, è possibile utilizzare l'archiviazione BLOB o un database SQL di Azure per l'archiviazione di numeri di telefono e testo delle chiamate. Per informazioni sull'uso dei BLOB di archiviazione di Azure in Java, vedere [Come usare il servizio di archiviazione BLOB da Java][howto_blob_storage_java]. 
 * È possibile usare **RoleEnvironment.getConfigurationSettings** per recuperare l'ID e il token di autenticazione dell'account Twilio dalle impostazioni di configurazione della distribuzione, anziché impostare i valori come hardcoded in makecall.jsp. Per informazioni sulla classe **RoleEnvironment** , vedere [uso della libreria di runtime del servizio Azure in JSP][azure_runtime_jsp].
-* Il codice makecall.jsp assegna un URL fornito da Twilio, [https://twimlets.com/message][twimlet_message_url] , alla variabile **URL** . Tale URL fornisce una risposta TwiML (Twilio Markup Language) che indica a Twilio in che modo eseguire la chiamata. Ad esempio, il valore di TwiML restituito può contenere un verbo ** &lt; Say &gt; ** che determina la pronuncia del testo nel destinatario della chiamata. Anziché usare l'URL fornito da Twilio, è possibile creare un servizio personalizzato per rispondere alla richiesta di Twilio. Per altre informazioni, vedere [Come usare Twilio per le funzionalità voce ed SMS in Java][howto_twilio_voice_sms_java]. Altre informazioni su TwiML sono disponibili in [https://www.twilio.com/docs/api/twiml][twiml] e altre informazioni su ** &lt; &gt; Say** e altri verbi Twilio sono disponibili in [https://www.twilio.com/docs/api/twiml/say][twilio_say] .
+* Il codice makecall.jsp assegna un URL fornito da Twilio, [https://twimlets.com/message][twimlet_message_url] , alla variabile **URL** . Tale URL fornisce una risposta TwiML (Twilio Markup Language) che indica a Twilio in che modo eseguire la chiamata. Ad esempio, il valore di TwiML restituito può contenere un verbo **&lt; Say &gt;** che determina la pronuncia del testo nel destinatario della chiamata. Anziché usare l'URL fornito da Twilio, è possibile creare un servizio personalizzato per rispondere alla richiesta di Twilio. Per altre informazioni, vedere [Come usare Twilio per le funzionalità voce ed SMS in Java][howto_twilio_voice_sms_java]. Altre informazioni su TwiML sono disponibili in [https://www.twilio.com/docs/api/twiml][twiml] e altre informazioni su **&lt; &gt; Say** e altri verbi Twilio sono disponibili in [https://www.twilio.com/docs/api/twiml/say][twilio_say] .
 * Leggere le linee guida sulla sicurezza di Twilio all'indirizzo [https://www.twilio.com/docs/security][twilio_docs_security] .
 
 Per ulteriori informazioni su Twilio, vedere [https://www.twilio.com/docs][twilio_docs] .
@@ -203,12 +203,12 @@ Per ulteriori informazioni su Twilio, vedere [https://www.twilio.com/docs][twili
 [twimlet_message_url]: https://twimlets.com/message
 [twiml]: https://www.twilio.com/docs/api/twiml
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: java-add-certificate-ca-store.md
-[azure_java_eclipse_hello_world]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app 
+[add_ca_cert]: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
+[azure_java_eclipse_hello_world]: /java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app
 [howto_twilio_voice_sms_java]: partner-twilio-java-how-to-use-voice-sms.md
 [howto_blob_storage_java]: https://www.windowsazure.com/develop/java/how-to-guides/blob-storage/
 [howto_sql_azure_java]: https://msdn.microsoft.com/library/windowsazure/hh749029.aspx
-[azure_runtime_jsp]: https://msdn.microsoft.com/library/windowsazure/hh690948.aspx
+[azure_runtime_jsp]: /previous-versions/azure/hh690948(v=azure.100)
 [twilio_docs_security]: https://www.twilio.com/docs/security
 [twilio_docs]: https://www.twilio.com/docs
 [twilio_say]: https://www.twilio.com/docs/api/twiml/say

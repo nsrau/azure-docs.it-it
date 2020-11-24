@@ -9,17 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: b7c442aaf6484e8e47bd6d00c91023fba43af75d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bca2f0229a15f44ff8f3589a9c1e80032036b97c
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325027"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95507201"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Introduzione a Azure Machine Learning Studio (classico) in R
 
-**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
-
+**si applica a:** ![ Si tratta di un segno di spunta, che indica che questo articolo si applica alla Machine Learning Studio (classica). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) si ![ tratta di una X, il che significa che questo articolo si applica al Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 <!-- Stephen F Elston, Ph.D. -->
 Questa esercitazione illustra come usare Azure Machine Learning Studio (classico) per creare, testare ed eseguire codice R. Alla fine, sarà presente una soluzione di previsione completa.
@@ -122,9 +121,9 @@ Se al momento non si riesce a comprendere l'ultima riga del codice, continuare a
 
 RStudio è un IDE ampiamente usato per R. RStudio verrà usato per modificare, testare ed eseguire il debug di parte del codice R usato in questa guida. Una volta testato e pronto il codice R, è possibile tagliare e incollare dall'editor RStudio in un modulo Machine Learning Studio (classico) [Execute R script][execute-r-script] .
 
-Se il linguaggio di programmazione R non è installato nel computer desktop, eseguirlo ora. Il download gratuito del linguaggio R Open Source è disponibile nella [rete di archiviazione r completa (Cran)](https://www.r-project.org/). Sono disponibili download per Windows, Mac OS e Linux/UNIX. Scegliere un mirror vicino e seguire le istruzioni per il download. Inoltre, CRAN contiene molti utili pacchetti di analisi e manipolazione dei dati.
+Se il linguaggio di programmazione R non è installato nel computer desktop, eseguirlo ora. Il download gratuito del linguaggio R Open Source è disponibile nella [rete di archiviazione r completa (Cran)](https://www.r-project.org/). Sono disponibili download per Windows, macOS e Linux/UNIX. Scegliere un mirror vicino e seguire le istruzioni per il download. Inoltre, CRAN contiene molti utili pacchetti di analisi e manipolazione dei dati.
 
-Se non si ha familiarità con RStudio, è necessario scaricare e installare la versione desktop. È possibile trovare i download di RStudio per Windows, Mac OS e Linux/UNIX in [rstudio](http://www.rstudio.com/products/RStudio/). Seguire le indicazioni fornite per installare RStudio sul proprio desktop.
+Se non si ha familiarità con RStudio, è necessario scaricare e installare la versione desktop. È possibile trovare i download di RStudio per Windows, macOS e Linux/UNIX in [rstudio](http://www.rstudio.com/products/RStudio/). Seguire le indicazioni fornite per installare RStudio sul proprio desktop.
 
 Un'esercitazione introduttiva a RStudio è disponibile in [uso dell'IDE di rstudio](https://support.rstudio.com/hc/sections/200107586-Using-RStudio).
 
@@ -159,7 +158,7 @@ Ora che sono presenti alcuni dati in Machine Learning Studio (classico), è nece
 1. Trascinare **csdairydata.csv set di dati** nell'esperimento.
 1. Nella casella **Cerca elementi dell'esperimento** nella parte superiore del riquadro sinistro, immettere [Esegui script R][execute-r-script]. Il modulo verrà visualizzato nell'elenco di ricerca.
 1. Trascinare il modulo [Execute R script][execute-r-script] sul pallet.
-1. Connettere l'output del **set di daticsdairydata.csv** all'input più a sinistra ( **DataSet1** ) dello [script Execute R][execute-r-script].
+1. Connettere l'output del **set di daticsdairydata.csv** all'input più a sinistra (**DataSet1**) dello [script Execute R][execute-r-script].
 1. Selezionare **Salva**.
 
 A questo punto, l'esperimento dovrebbe avere un aspetto simile a questo esempio.
@@ -1276,11 +1275,11 @@ Da questi risultati si evince che l'aggiunta di fattori stagionali al modello ri
 
 RStudio è ben documentato. Di seguito sono riportati alcuni collegamenti alle sezioni principali della documentazione di RStudio per iniziare.
 
-* **Creare progetti** : è possibile organizzare e gestire il codice R in progetti usando rstudio. Per ulteriori informazioni, vedere [utilizzo di progetti](https://support.rstudio.com/hc/articles/200526207-Using-Projects). Seguire queste istruzioni e creare un progetto per gli esempi di codice R in questo articolo.
-* **Modificare ed eseguire codice r** : rstudio fornisce un ambiente integrato per la modifica e l'esecuzione di codice r. Per altre informazioni, vedere [modifica ed esecuzione di codice](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code).
-* **Debug** : rstudio include potenti funzionalità di debug. Per ulteriori informazioni su queste funzionalità, vedere [debug con rstudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio). Per informazioni sulle funzionalità di risoluzione dei problemi, vedere [risoluzione dei problemi](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting)del punto di interruzione.
+* **Creare progetti**: è possibile organizzare e gestire il codice R in progetti usando rstudio. Per ulteriori informazioni, vedere [utilizzo di progetti](https://support.rstudio.com/hc/articles/200526207-Using-Projects). Seguire queste istruzioni e creare un progetto per gli esempi di codice R in questo articolo.
+* **Modificare ed eseguire codice r**: rstudio fornisce un ambiente integrato per la modifica e l'esecuzione di codice r. Per altre informazioni, vedere [modifica ed esecuzione di codice](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code).
+* **Debug**: rstudio include potenti funzionalità di debug. Per ulteriori informazioni su queste funzionalità, vedere [debug con rstudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio). Per informazioni sulle funzionalità di risoluzione dei problemi, vedere [risoluzione dei problemi](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting)del punto di interruzione.
 
-## <a name="further-reading"></a><a id="appendixb"></a>Altre letture
+## <a name="further-reading"></a><a id="appendixb"></a>Ulteriori informazioni
 
 Questa esercitazione sulla programmazione R illustra le nozioni di base di ciò che è necessario per usare il linguaggio R con Machine Learning Studio (classico). Se non si ha familiarità con R, sono disponibili due introduzioni in CRAN:
 

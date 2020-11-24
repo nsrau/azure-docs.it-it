@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.author: normesta
 ms.date: 04/07/2020
-ms.openlocfilehash: 02b7e02c33161db33420e2efe1ef4b70a138d127
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e458f98d82c910ec845ebf951b7f6470b6aba10d
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465219"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527327"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrare un sito Web statico con la rete CDN di Azure
 
@@ -47,7 +47,7 @@ Per informazioni sui prezzi della rete CDN, vedere [Prezzi della rete CDN Azure]
 
    ![Screenshot che mostra una configurazione di esempio dell'endpoint CDN](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
 
-1. Selezionare **Crea**e quindi attendere che la rete CDN effettui il provisioning. Dopo la creazione, l'endpoint verrà visualizzato nell'elenco di endpoint. Se nel form sono presenti errori, accanto a tale campo verrà visualizzato un punto esclamativo.
+1. Selezionare **Crea** e quindi attendere che la rete CDN effettui il provisioning. Dopo la creazione, l'endpoint verrà visualizzato nell'elenco di endpoint. Se nel form sono presenti errori, accanto a tale campo verrà visualizzato un punto esclamativo.
 
 1. Per verificare che l'endpoint CDN sia configurato correttamente, fare clic sull'endpoint per passare alle relative impostazioni. Nella panoramica della rete CDN per l'account di archiviazione individuare il nome host dell'endpoint e passare all'endpoint, come illustrato nell'immagine seguente. Il formato dell'endpoint CDN sarà simile a `https://staticwebsitesamples.azureedge.net`.
 
@@ -63,7 +63,7 @@ Per informazioni sui prezzi della rete CDN, vedere [Prezzi della rete CDN Azure]
 
 Se non si vuole più memorizzare un oggetto nella cache della rete CDN di Azure, è possibile eseguire una delle operazioni seguenti:
 
-* Rendere privato il contenitore, invece di pubblico. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](storage-manage-access-to-resources.md).
+* Rendere privato il contenitore, invece di pubblico. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](./anonymous-read-access-configure.md).
 * Disabilitare o eliminare l'endpoint della rete CDN usando il portale di Azure.
 * Modificare il servizio ospitato, in modo che non risponda più a richieste per l'oggetto.
 

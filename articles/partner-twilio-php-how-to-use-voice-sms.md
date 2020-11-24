@@ -12,12 +12,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 2ce0e34032d8f0d07af3a7dcd3c47558814be7bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf1ab01b39d594002bc5e677ffe6c3049fbb91ce
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826815"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521020"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Come usare Twilio per le funzionalità voce ed SMS in PHP
 In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per ulteriori informazioni su Twilio e sull'utilizzo di Voice and SMS nelle applicazioni, vedere la sezione [passaggi successivi](#NextSteps) .
@@ -38,20 +38,20 @@ L'API Twilio è un'API RESTful che fornisce funzionalità voce ed SMS per le app
 I concetti principali dell'API Twilio sono costituiti dai verbi Twilio e dal linguaggio di markup Twilio (Twilio Markup Language, TwiML).
 
 ### <a name="twilio-verbs"></a><a id="Verbs"></a>Verbi Twilio
-L'API usa i verbi Twilio; il verbo ** &lt; Say &gt; ** , ad esempio, indica a Twilio di recapitare in modo udibile un messaggio in una chiamata.
+L'API usa i verbi Twilio; il verbo **&lt; Say &gt;** , ad esempio, indica a Twilio di recapitare in modo udibile un messaggio in una chiamata.
 
 Di seguito è riportato un elenco dei verbi Twilio. Per altre informazioni su altri verbi e funzionalità, vedere la [documentazione relativa al linguaggio di markup Twilio](https://www.twilio.com/docs/api/twiml).
 
-* ** &lt; Dial &gt; **: connette il chiamante a un altro telefono.
-* ** &lt; Raccolta &gt; **: raccoglie le cifre numeriche immesse sul tastierino telefonico.
-* ** &lt; Hangup &gt; **: termina una chiamata.
-* ** &lt; Play &gt; **: riproduce un file audio.
-* ** &lt; Pause &gt; **: attende in modo invisibile all'utente un numero di secondi specificato.
-* ** &lt; Record &gt; **: registra la voce del chiamante e restituisce un URL di un file che contiene la registrazione.
-* ** &lt; Reindirizzamento &gt; **: trasferisce il controllo di una chiamata o di un SMS a TwiML in un URL diverso.
-* ** &lt; Rifiuta &gt; **: rifiuta una chiamata in ingresso al numero Twilio senza fatturazione
-* ** &lt; Say &gt; **: converte il testo in sintesi vocale eseguita in una chiamata.
-* ** &lt; SMS &gt; **: Invia un messaggio SMS.
+* **&lt; Dial &gt;**: connette il chiamante a un altro telefono.
+* **&lt; Raccolta &gt;**: raccoglie le cifre numeriche immesse sul tastierino telefonico.
+* **&lt; Hangup &gt;**: termina una chiamata.
+* **&lt; Play &gt;**: riproduce un file audio.
+* **&lt; Pause &gt;**: attende in modo invisibile all'utente un numero di secondi specificato.
+* **&lt; Record &gt;**: registra la voce del chiamante e restituisce un URL di un file che contiene la registrazione.
+* **&lt; Reindirizzamento &gt;**: trasferisce il controllo di una chiamata o di un SMS a TwiML in un URL diverso.
+* **&lt; Rifiuta &gt;**: rifiuta una chiamata in ingresso al numero Twilio senza fatturazione
+* **&lt; Say &gt;**: converte il testo in sintesi vocale eseguita in una chiamata.
+* **&lt; SMS &gt;**: Invia un messaggio SMS.
 
 ### <a name="twiml"></a><a id="TwiML"></a>TwiML
 TwiML è un set di istruzioni basate su XML e sui verbi Twilio che indicano a Twilio come elaborare una chiamata o un SMS.
@@ -262,7 +262,7 @@ Dopo aver appreso le nozioni di base sul servizio Twilio, utilizzare i collegame
 [howto_phonecall_php]: partner-twilio-php-make-phone-call.md
 [twilio_voice_request]: https://www.twilio.com/docs/api/twiml/twilio_request
 [twilio_sms_request]: https://www.twilio.com/docs/api/twiml/sms/twilio_request
-[misc_role_config_settings]: https://msdn.microsoft.com/library/windowsazure/hh690945.aspx
+[misc_role_config_settings]: /previous-versions/azure/hh690945(v=azure.100)
 [twimlet_message_url]: https://twimlets.com/message
 [twimlet_message_url_hello_world]: https://twimlets.com/message?Message%5B0%5D=Hello%20World
 [twiml_reference]: https://www.twilio.com/docs/api/twiml

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 282f13c89c527b096573b67b5d539de821e89032
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 82297b81ebe99301574e99ef438cc81c711dbeff
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900810"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533685"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Componenti e versioni di Apache disponibili per Azure HDInsight
 
@@ -32,7 +32,7 @@ Le versioni del componente associate alle versioni del cluster HDInsight sono el
 |------------------------|---------------|-----------------------------|
 | Apache Hadoop e YARN | 3.1.1         | 2.7.3                       |
 | Apache Tez             | 0.9.1         | 0.7.0                       |
-| Apache Pig             | 0.16.0        | 0.16.0                      |
+| Apache Pig             | 0.16.1        | 0.16.0                      |
 | Apache Hive            | 3.1.0         | 1.2.1 (2.1.0 in ESP Interactive Query) |
 | Apache Tez Hive2       | -             | 0.8.4                       |
 | Apache Ranger          | 1.1.0         | 0.7.0                       |
@@ -119,7 +119,7 @@ La tabella seguente elenca le versioni di HDInsight attualmente non disponibili 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Contratto di servizio per le versioni dei cluster HDInsight
 
-Il contratto di servizio viene definito come _finestra di supporto_ . Il termine finestra di supporto indica il periodo di tempo in cui una versione del cluster HDInsight è supportata dal servizio clienti e dal supporto tecnico Microsoft. Se la versione supera la _data di scadenza del supporto_ , il cluster HDInsight ricade al di fuori della finestra di supporto. La data di scadenza del supporto per una versione X di HDInsight (quando è disponibile una nuova versione X+1) viene calcolata come l'ultima delle date seguenti:
+Il contratto di servizio viene definito come _finestra di supporto_. Il termine finestra di supporto indica il periodo di tempo in cui una versione del cluster HDInsight è supportata dal servizio clienti e dal supporto tecnico Microsoft. Se la versione supera la _data di scadenza del supporto_, il cluster HDInsight ricade al di fuori della finestra di supporto. La data di scadenza del supporto per una versione X di HDInsight (quando è disponibile una nuova versione X+1) viene calcolata come l'ultima delle date seguenti:
 
 - **Formula 1:** aggiungere 180 giorni alla data di rilascio del cluster HDInsight versione X.
 - **Formula 2:** aggiungere 90 giorni alla data in cui nel portale di Azure viene resa disponibile la versione X+1 del cluster HDInsight.

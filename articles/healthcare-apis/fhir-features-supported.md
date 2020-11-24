@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 71097f13fffbbe5cb57a69c98fb0ab272e16af5c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 3aea2322129c383a385168c54001464da5dae276
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026302"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95520085"
 ---
 # <a name="features"></a>Funzionalità
 
@@ -59,7 +59,7 @@ Sono supportati tutti i tipi di parametro di ricerca.
 | Date/DateTime         | Sì       | Sì       | Sì       |         |
 | string                | Sì       | Sì       | Sì       |         |
 | token                 | Sì       | Sì       | Sì       |         |
-| Riferimento             | Sì       | Sì       | Sì       |         |
+| Informazioni di riferimento             | Sì       | Sì       | Sì       |         |
 | Composite             | Sì       | Sì       | Sì       |         |
 | Quantity              | Sì       | Sì       | Sì       |         |
 | URI                   | Sì       | Sì       | Sì       |         |
@@ -129,7 +129,7 @@ Cosmos DB è un database multimodello distribuito a livello globale (API SQL, AP
 
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 
-Il server FHIR USA [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) per il controllo di accesso. In particolare, viene applicato il controllo di accesso Role-Based (RBAC), se il `FhirServer:Security:Enabled` parametro di configurazione è impostato su `true` e tutte le richieste (eccetto `/metadata` ) al server FHIR devono avere l' `Authorization` intestazione della richiesta impostata su `Bearer <TOKEN>` . Il token deve contenere uno o più ruoli come definito nell' `roles` attestazione. Sarà consentita una richiesta se il token contiene un ruolo che consente l'azione specificata sulla risorsa specificata.
+Il server FHIR USA [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) per il controllo di accesso. In particolare, viene applicato il controllo degli accessi in base al ruolo (RBAC), se il `FhirServer:Security:Enabled` parametro di configurazione è impostato su `true` e tutte le richieste (eccetto `/metadata` ) al server FHIR devono avere l' `Authorization` intestazione della richiesta impostata su `Bearer <TOKEN>` . Il token deve contenere uno o più ruoli come definito nell' `roles` attestazione. Sarà consentita una richiesta se il token contiene un ruolo che consente l'azione specificata sulla risorsa specificata.
 
 Attualmente, le azioni consentite per un determinato ruolo vengono applicate a *livello globale* nell'API.
 

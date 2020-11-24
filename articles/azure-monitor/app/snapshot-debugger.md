@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: b439dcfc755f0113ffabf792850a2bd0fbcf322e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: cbbec71ff8ab762ea0da764a7db9459123850271
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996524"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95530234"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
 Quando si verifica un'eccezione, è possibile raccogliere automaticamente uno snapshot di debug dall'applicazione Web live. Lo snapshot mostra lo stato del codice sorgente e delle variabili nel momento in cui è stata generata l'eccezione. Il Snapshot Debugger in [applicazione Azure Insights](./app-insights-overview.md) monitora i dati di telemetria delle eccezioni dall'app Web. Raccoglie snapshot per le eccezioni generate più frequentemente in modo che l'utente possa avere le informazioni necessarie per diagnosticare i problemi nell'ambiente di produzione. Includere il [pacchetto NuGet snapshot Collector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) nell'applicazione e, facoltativamente, configurare i parametri di raccolta in [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Gli snapshot vengono visualizzati nelle [eccezioni](./asp-net-exceptions.md) nel portale di Application Insights.
@@ -39,7 +39,7 @@ Se è stato abilitato Snapshot Debugger ma non vengono visualizzati gli snapshot
 
 ## <a name="grant-permissions"></a>Concedere le autorizzazioni
 
-L'accesso agli snapshot è protetto dal controllo degli accessi in base al ruolo. Per ispezionare uno snapshot, è necessario prima essere aggiunti al ruolo necessario dal proprietario di una sottoscrizione.
+L'accesso agli snapshot è protetto dal controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Per ispezionare uno snapshot, è necessario prima essere aggiunti al ruolo necessario dal proprietario di una sottoscrizione.
 
 > [!NOTE]
 > Proprietari e collaboratori non hanno automaticamente questo ruolo. Per visualizzare gli snapshot, devono aggiungersi al ruolo.

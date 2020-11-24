@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
-ms.openlocfilehash: c62593251cb0e19c91d1c4877d1b33fe407ebd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 096e4e3ecbcedaec674e074a2baccbb336e03c94
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87847007"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524199"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>Configurare RBAC locale per FHIR 
 
@@ -23,7 +23,7 @@ Questo articolo illustra come configurare l'API di Azure per FHIR per usare un t
 
 ## <a name="add-service-principal"></a>Aggiunta di un'entità servizio
 
-Il controllo degli accessi in base al ruolo locale consente di usare un tenant di Azure Active Directory esterno con il server FHIR. Per consentire al sistema RBAC di controllare l'appartenenza a gruppi nel tenant, l'API di Azure per FHIR deve avere un'entità servizio nel tenant. Questa entità servizio verrà creata automaticamente nei tenant collegati alle sottoscrizioni che hanno distribuito l'API di Azure per FHIR, ma nel caso in cui il tenant non disponga di una sottoscrizione associata, un amministratore tenant dovrà creare questa entità servizio con uno dei comandi seguenti:
+Il controllo degli accessi in base al ruolo locale consente di usare un tenant di Azure Active Directory esterno con il server FHIR. Per consentire al sistema RBAC locale di controllare l'appartenenza a gruppi nel tenant, l'API di Azure per FHIR deve avere un'entità servizio nel tenant. Questa entità servizio verrà creata automaticamente nei tenant collegati alle sottoscrizioni che hanno distribuito l'API di Azure per FHIR, ma nel caso in cui il tenant non disponga di una sottoscrizione associata, un amministratore tenant dovrà creare questa entità servizio con uno dei comandi seguenti:
 
 Uso del `Az` modulo PowerShell:
 

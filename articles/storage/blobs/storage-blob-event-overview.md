@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: 62cd31ab6f63aec5ddeb675bca3621a329ab1f2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c6b5b23a0609a5d68eb72c614ce282ae04a817
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87826569"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519099"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reazione a eventi di Archiviazione BLOB di Azure
 
@@ -29,17 +29,17 @@ Per provare gli eventi di archiviazione BLOB, vedere gli articoli introduttivi s
 
 |Se si desidera utilizzare questo strumento:    |Vedere questo articolo: |
 |--|-|
-|Portale di Azure    |[Avvio rapido: Indirizzare gli eventi di archiviazione BLOB a un endpoint Web con il portale di Azure](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|PowerShell    |[Guida introduttiva: indirizzare gli eventi di archiviazione all'endpoint Web con PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Interfaccia della riga di comando di Azure    |[Guida introduttiva: indirizzare gli eventi di archiviazione all'endpoint Web con l'interfaccia della riga](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Portale di Azure    |[Avvio rapido: Indirizzare gli eventi di archiviazione BLOB a un endpoint Web con il portale di Azure](../../event-grid/blob-event-quickstart-portal.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)|
+|PowerShell    |[Guida introduttiva: indirizzare gli eventi di archiviazione all'endpoint Web con PowerShell](./storage-blob-event-quickstart-powershell.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)|
+|Interfaccia della riga di comando di Azure    |[Guida introduttiva: indirizzare gli eventi di archiviazione all'endpoint Web con l'interfaccia della riga](./storage-blob-event-quickstart.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json)|
 
 Per visualizzare esempi dettagliati di reagire agli eventi di archiviazione BLOB tramite funzioni di Azure, vedere gli articoli seguenti:
 
 - [Esercitazione: usare eventi Azure Data Lake storage Gen2 per aggiornare una tabella Delta di databricks](data-lake-storage-events.md).
-- [Esercitazione: Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
+- [Esercitazione: Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi](../../event-grid/resize-images-on-storage-blob-upload-event.md?tabs=dotnet)
 
 >[!NOTE]
-> Solo gli account di archiviazione di tipo **archiviazione V2 (utilizzo generico v2)**, **BlockBlobStorage**e **BlobStorage** supportano l'integrazione degli eventi. **Archiviazione (utilizzo generico V1)** *non* supporta l'integrazione con griglia di eventi.
+> Solo gli account di archiviazione di tipo **archiviazione V2 (utilizzo generico v2)**, **BlockBlobStorage** e **BlobStorage** supportano l'integrazione degli eventi. **Archiviazione (utilizzo generico V1)** *non* supporta l'integrazione con griglia di eventi.
 
 ## <a name="the-event-model"></a>Modello di eventi
 
@@ -60,7 +60,7 @@ Vedere l'articolo [dello schema degli eventi di archiviazione BLOB](../../event-
 
 [Gli eventi BLOB possono essere filtrati](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) in base al tipo di evento, al nome del contenitore o al nome dell'oggetto che è stato creato/eliminato. I filtri in griglia di eventi corrispondono all'inizio o alla fine dell'oggetto in modo che gli eventi con un oggetto corrispondente vadano al Sottoscrittore.
 
-Per altre informazioni su come applicare i filtri, vedere [Filtrare gli eventi per Griglia di eventi](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+Per altre informazioni su come applicare i filtri, vedere [Filtrare gli eventi per Griglia di eventi](../../event-grid/how-to-filter-events.md).
 
 L'oggetto di eventi di archiviazione BLOB usa il formato:
 
@@ -96,13 +96,13 @@ Per le applicazioni che gestiscono gli eventi di archiviazione BLOB è consiglia
 > [!div class="checklist"]
 > * Dal momento che vi possono essere più sottoscrizioni configurate per instradare gli eventi allo stesso gestore eventi, è importante non presupporre che gli eventi derivino da un'origine specifica, ma controllare l'argomento del messaggio per assicurarsi che provengano dall'account di archiviazione previsto.
 > * Controllare anche che il tipo di evento che si verifica, eventType, sia un oggetto che si è preparati a elaborare e non presupporre che tutti gli eventi che si ricevono siano dei tipi previsti.
-> * Poiché i messaggi possono arrivare dopo un certo ritardo, usare i campi eTag per capire se le informazioni sugli oggetti sono ancora aggiornate. Per informazioni su come usare il campo ETag, vedere [gestione della concorrenza nell'archivio BLOB](https://docs.microsoft.com/azure/storage/common/storage-concurrency?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage). 
+> * Poiché i messaggi possono arrivare dopo un certo ritardo, usare i campi eTag per capire se le informazioni sugli oggetti sono ancora aggiornate. Per informazioni su come usare il campo ETag, vedere [gestione della concorrenza nell'archivio BLOB](../common/storage-concurrency.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#managing-concurrency-in-blob-storage). 
 > * Poiché i messaggi possono arrivare senza ordine, utilizzare i campi di Sequencer per comprendere l'ordine degli eventi in un oggetto specifico. Il campo sequencer è un valore stringa che rappresenta la sequenza logica di eventi per un nome di BLOB particolare. È possibile usare il confronto di stringhe standard per comprendere la sequenza relativa di due eventi nello stesso nome di BLOB.
 > * Gli eventi di archiviazione garantiscono il recapito at-least-once ai sottoscrittori, che garantisce che tutti i messaggi vengano restituiti. Tuttavia, a causa di tentativi o disponibilità di sottoscrizioni, è possibile che si verifichino occasionalmente messaggi duplicati. Per ulteriori informazioni sul recapito dei messaggi e sui tentativi, vedere [recapito dei messaggi di griglia di eventi e riprovare](../../event-grid/delivery-and-retry.md).
 > * Usare il campo blobType per capire il tipo di operazioni consentite sul BLOB e quali tipi di librerie client è consigliabile usare per accedere al BLOB. I valori validi sono `BlockBlob` o `PageBlob`. 
 > * Usare il campo URL con i costruttori `CloudBlockBlob` e `CloudAppendBlob` per accedere al BLOB.
 > * Ignorare i campi che non si conoscono. Questa procedura consentirà di rimanere flessibili alle nuove funzionalità che potrebbero essere aggiunte in futuro.
-> * Per assicurarsi che l'evento **Microsoft. storage. BlobCreated** venga attivato solo quando viene eseguito il commit completo di un BLOB in blocchi, filtrare l'evento per le `CopyBlob` `PutBlob` chiamate all' `PutBlockList` `FlushWithClose` API REST, o. Queste chiamate API attivano l'evento **Microsoft. storage. BlobCreated** solo dopo che è stato eseguito il commit completo dei dati in un BLOB in blocchi. Per informazioni su come creare un filtro, vedere [filtrare gli eventi per griglia di eventi](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> * Per assicurarsi che l'evento **Microsoft. storage. BlobCreated** venga attivato solo quando viene eseguito il commit completo di un BLOB in blocchi, filtrare l'evento per le `CopyBlob` `PutBlob` chiamate all' `PutBlockList` `FlushWithClose` API REST, o. Queste chiamate API attivano l'evento **Microsoft. storage. BlobCreated** solo dopo che è stato eseguito il commit completo dei dati in un BLOB in blocchi. Per informazioni su come creare un filtro, vedere [filtrare gli eventi per griglia di eventi](../../event-grid/how-to-filter-events.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

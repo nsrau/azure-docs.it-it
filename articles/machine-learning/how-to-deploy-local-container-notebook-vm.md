@@ -11,12 +11,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 05d810928a71aec0e3314c32051e5f3565413564
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 17b2d717ac6f244cb3ddddfdbc2f29581aa1f59f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444606"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95527310"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuire un modello per Azure Machine Learning istanze di calcolo
 
@@ -40,11 +40,11 @@ Un notebook di esempio che illustra le distribuzioni locali è incluso nell'ista
 
 1. Da [Azure Machine Learning Studio](https://ml.azure.com)selezionare le istanze di calcolo Azure Machine Learning.
 
-1. Aprire la `samples-*` sottodirectory e quindi aprire `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb` . Una volta aperto, Esegui il notebook.
+1. Aprire la `samples-*` sottodirectory e quindi aprire `how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb` . Una volta aperto, Esegui il notebook.
 
     ![Screenshot del servizio locale in esecuzione nel notebook](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
-1. Il notebook Visualizza l'URL e la porta su cui è in esecuzione il servizio. Ad esempio, `https://localhost:6789` È anche possibile eseguire la cella che contiene `print('Local service port: {}'.format(local_service.port))` per visualizzare la porta.
+1. Il notebook Visualizza l'URL e la porta su cui è in esecuzione il servizio. Ad esempio: `https://localhost:6789`. È anche possibile eseguire la cella che contiene `print('Local service port: {}'.format(local_service.port))` per visualizzare la porta.
 
     ![Screenshot della porta del servizio locale in esecuzione](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
 

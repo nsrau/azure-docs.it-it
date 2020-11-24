@@ -2,13 +2,13 @@
 title: Distribuire risorse in una sottoscrizione
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: 7b0edde4f3571255e92c65d82429b4ddd1a689b8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/23/2020
+ms.openlocfilehash: c87f6fa590e1f769816fb0ee3cba3aad1997de15
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92668876"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95519864"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Distribuzioni di sottoscrizioni con modelli ARM
 
@@ -104,7 +104,7 @@ az deployment sub create \
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Come comando di distribuzione di PowerShell, usare [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) o **New-AzSubscriptionDeployment** . L'esempio seguente distribuisce un modello per creare un gruppo di risorse:
+Come comando di distribuzione di PowerShell, usare [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) o **New-AzSubscriptionDeployment**. L'esempio seguente distribuisce un modello per creare un gruppo di risorse:
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment `
@@ -131,20 +131,28 @@ Per informazioni più dettagliate sui comandi e sulle opzioni di distribuzione p
 Quando si esegue la distribuzione in una sottoscrizione, è possibile distribuire le risorse in:
 
 * sottoscrizione di destinazione dall'operazione
-* gruppi di risorse all'interno della sottoscrizione
+* qualsiasi sottoscrizione nel tenant
+* gruppi di risorse all'interno della sottoscrizione o di altre sottoscrizioni
+* tenant per la sottoscrizione
 * [le risorse di estensione](scope-extension-resources.md) possono essere applicate alle risorse
 
-Non è possibile eseguire la distribuzione in una sottoscrizione diversa dalla sottoscrizione di destinazione. L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
+L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
 
 In questa sezione viene illustrato come specificare ambiti diversi. È possibile combinare questi ambiti diversi in un singolo modello.
 
-### <a name="scope-to-subscription"></a>Ambito della sottoscrizione
+### <a name="scope-to-target-subscription"></a>Ambito della sottoscrizione di destinazione
 
 Per distribuire le risorse nella sottoscrizione di destinazione, aggiungere tali risorse alla sezione Resources del modello.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
 
 Per esempi di distribuzione nella sottoscrizione, vedere [creare gruppi di risorse](#create-resource-groups) e [assegnare la definizione dei criteri](#assign-policy-definition).
+
+### <a name="scope-to-other-subscription"></a>Ambito ad altra sottoscrizione
+
+Per distribuire le risorse in una sottoscrizione diversa dalla sottoscrizione dell'operazione, aggiungere una distribuzione nidificata. Impostare la `subscriptionId` proprietà sull'ID della sottoscrizione in cui si desidera eseguire la distribuzione. Impostare la `location` proprietà per la distribuzione nidificata.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-sub.json" highlight="9,10,14":::
 
 ### <a name="scope-to-resource-group"></a>Ambito al gruppo di risorse
 
@@ -154,11 +162,23 @@ Per distribuire le risorse in un gruppo di risorse all'interno della sottoscrizi
 
 Per un esempio di distribuzione in un gruppo di risorse, vedere [creare risorse e gruppi di risorse](#create-resource-group-and-resources).
 
+### <a name="scope-to-tenant"></a>Ambito al tenant
+
+È possibile creare risorse nel tenant impostando il `scope` valore su `/` . L'utente che distribuisce il modello deve avere l' [accesso necessario per la distribuzione nel tenant](deploy-to-tenant.md#required-access).
+
+È possibile usare una distribuzione annidata con `scope` e `location` set.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-to-tenant.json" highlight="9,10,14":::
+
+In alternativa, è possibile impostare l'ambito su `/` per alcuni tipi di risorse, ad esempio i gruppi di gestione.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
+
 ## <a name="deployment-location-and-name"></a>Percorso e nome della distribuzione
 
 Per le distribuzioni a livello di sottoscrizione, è necessario specificare un percorso di distribuzione. Il percorso di distribuzione è separato dal percorso delle risorse distribuite e specifica dove archiviare i dati di distribuzione.
 
-È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy** .
+È possibile specificare un nome per la distribuzione oppure usare il nome predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
 
 Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile creare una distribuzione in un percorso se esiste una distribuzione con lo stesso nome in un percorso diverso. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 3e87e3d59fec354ca3590a79accb45a74172793b
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1b76413bb78baa211fee3aebe37075188ec8c69e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167883"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95531951"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso di Storage Explorer con Archiviazione file di Azure
 
@@ -31,7 +31,7 @@ Per seguire la procedura descritta in questo articolo, è necessario eseguire qu
 
 - [Scaricare e installare Storage Explorer](https://www.storageexplorer.com/)
 
-- [Connettersi a un account o un servizio di archiviazione di Azure](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Connettersi a un account o un servizio di archiviazione di Azure](//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>Creare una condivisione file
 
@@ -47,7 +47,7 @@ La procedura seguente illustra come creare una condivisione file all'interno di 
 
     ![Crea condivisione file](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-1. Sotto la cartella **Condivisioni file** verrà visualizzata una casella di testo. Immettere il nome per la condivisione file. Per un elenco di regole e restrizioni relative alla denominazione delle condivisioni file, vedere la sezione relativa alle [regole di denominazione delle condivisioni](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs).
+1. Sotto la cartella **Condivisioni file** verrà visualizzata una casella di testo. Immettere il nome per la condivisione file. Per un elenco di regole e restrizioni relative alla denominazione delle condivisioni file, vedere la sezione relativa alle [regole di denominazione delle condivisioni](//azure/storage/storage-dotnet-how-to-use-blobs).
 
     ![Denominare la condivisione](media/vs-azure-tools-storage-explorer-files/image2.png)
 
@@ -77,7 +77,7 @@ La procedura seguente illustra come visualizzare il contenuto di una condivision
 
 ## <a name="delete-a-file-share"></a>Eliminare una condivisione file
 
-È possibile creare ed eliminare facilmente le condivisioni file in base alle esigenze. Per informazioni su come eliminare singoli file, vedere la sezione relativa alla [gestione dei file in una condivisione file](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).
+È possibile creare ed eliminare facilmente le condivisioni file in base alle esigenze. Per informazioni su come eliminare singoli file, vedere la sezione relativa alla [gestione dei file in una condivisione file](//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).
 
 La procedura seguente illustra come eliminare una condivisione file all'interno di Storage Explorer:
 
@@ -97,7 +97,7 @@ La procedura seguente illustra come eliminare una condivisione file all'interno 
 
 ## <a name="copy-a-file-share"></a>Copiare una condivisione file
 
-Storage Explorer consente di copiare una condivisione file negli Appunti e quindi incollarla in un altro account di archiviazione. Per informazioni su come copiare singoli file, vedere la sezione relativa alla [gestione dei file in una condivisione file](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).
+Storage Explorer consente di copiare una condivisione file negli Appunti e quindi incollarla in un altro account di archiviazione. Per informazioni su come copiare singoli file, vedere la sezione relativa alla [gestione dei file in una condivisione file](//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).
 
 La procedura seguenti illustra come copiare una condivisione file da un account di archiviazione a un altro.
 
@@ -117,7 +117,7 @@ La procedura seguenti illustra come copiare una condivisione file da un account 
 
 ## <a name="get-the-sas-for-a-file-share"></a>Ottenere la firma di accesso condiviso per una condivisione file
 
-Una [firma di accesso condiviso (SAS)](https://docs.microsoft.com//azure/storage/storage-dotnet-shared-access-signature-part-1) fornisce accesso delegato alle risorse nell'account di archiviazione. Questo significa che è possibile concedere a un client autorizzazioni limitate per BLOB, code o tabelle per un periodo di tempo specificato e con un set di autorizzazioni specificato senza dover condividere le chiavi di accesso dell'account.
+Una [firma di accesso condiviso (SAS)](//azure/storage/storage-dotnet-shared-access-signature-part-1) fornisce accesso delegato alle risorse nell'account di archiviazione. Questo significa che è possibile concedere a un client autorizzazioni limitate per BLOB, code o tabelle per un periodo di tempo specificato e con un set di autorizzazioni specificato senza dover condividere le chiavi di accesso dell'account.
 
 La procedura seguente illustra come creare una firma di accesso condiviso per una condivisione file.
 
@@ -199,7 +199,7 @@ La procedura seguente illustra come gestire i file e le cartelle all'interno di 
 
     - **Caricare file in una condivisione file**
 
-        a.  Sulla barra degli strumenti del riquadro principale selezionare **carica**e quindi **Carica file** dal menu a discesa.
+        a.  Sulla barra degli strumenti del riquadro principale selezionare **carica** e quindi **Carica file** dal menu a discesa.
 
         ![Caricare file](media/vs-azure-tools-storage-explorer-files/image18.png)
         

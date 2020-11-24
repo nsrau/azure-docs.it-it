@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 19d20a208672667e5a4354fd1b7d185d0c00f8d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 984fb00e163a090534da1fb41850dcfef6c5d516
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399126"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521530"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Gestire le proprietà e i metadati dei BLOB con .NET
 
@@ -126,7 +126,7 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
 ---
 
-Le coppie nome/valore dei metadati sono intestazioni HTTP valide e devono essere conformi a tutte le restrizioni che regolano le intestazioni HTTP. I nomi dei metadati devono essere nomi di intestazioni HTTP validi e identificatori C# validi, possono contenere solo caratteri ASCII e devono essere considerati senza distinzione tra maiuscole e minuscole. Valori di metadati con [codifica Base64](https://docs.microsoft.com/dotnet/api/system.convert.tobase64string) o con [codifica URL](https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode) che contengono caratteri non ASCII.
+Le coppie nome/valore dei metadati sono intestazioni HTTP valide e devono essere conformi a tutte le restrizioni che regolano le intestazioni HTTP. I nomi dei metadati devono essere nomi di intestazioni HTTP validi e identificatori C# validi, possono contenere solo caratteri ASCII e devono essere considerati senza distinzione tra maiuscole e minuscole. Valori di metadati con [codifica Base64](/dotnet/api/system.convert.tobase64string) o con [codifica URL](/dotnet/api/system.web.httputility.urlencode) che contengono caratteri non ASCII.
 
 Il nome dei metadati deve essere conforme alle convenzioni di denominazione degli identificatori C#. I nomi dei metadati mantengono il caso usato al momento della creazione, ma non fanno distinzione tra maiuscole e minuscole durante l'impostazione o la lettura. Se vengono inviate due o più intestazioni di metadati con lo stesso nome per una risorsa, archiviazione BLOB di Azure restituisce il codice di errore HTTP 400 (richiesta non valida).
 
