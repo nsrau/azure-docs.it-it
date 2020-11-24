@@ -5,18 +5,18 @@ ms.subservice: pod
 ms.topic: include
 ms.date: 09/git14/2020
 ms.author: alkohli
-ms.openlocfilehash: 91f91b1260cc445f90c2608fc5259ad61acd37ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25c2ea04cd062554a975c63aae9b97846e646d68
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90533275"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95562674"
 ---
-Di seguito è riportato un elenco degli account di archiviazione e dei tipi di archiviazione supportati per il dispositivo Data Box. Per l'intero elenco dei diversi tipi di account di archiviazione e delle funzionalità complete, vedere [Tipi di account di archiviazione](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
+Di seguito è riportato un elenco degli account di archiviazione e dei tipi di archiviazione supportati per il dispositivo Data Box. Per l'intero elenco dei diversi tipi di account di archiviazione e delle funzionalità complete, vedere [Tipi di account di archiviazione](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 Per gli ordini di importazione, la tabella seguente Mostra gli account di archiviazione supportati.
 
-| **Account di archiviazione/Tipi di account di archiviazione supportati** | **BLOB in blocchi** |**BLOB di pagine*** |**File di Azure** |**Note**|
+| **Account di archiviazione/Tipi di account di archiviazione supportati** | **BLOB in blocchi** |**BLOB di pagine** _ |_ *File di Azure** |**Note**|
 | --- | --- | -- | -- | -- |
 | Versione classica Standard | S | S | S |
 | Utilizzo generico v1 Standard  | S | S | S | Sono supportati BLOB sia ad accesso frequente che sporadico.|
@@ -29,7 +29,7 @@ Per gli ordini di importazione, la tabella seguente Mostra gli account di archiv
 
 Per gli ordini di esportazione, la tabella seguente Mostra gli account di archiviazione supportati.
 
-| **Account di archiviazione/Tipi di account di archiviazione supportati** | **BLOB in blocchi** |**BLOB di pagine*** |**File di Azure** |**Livelli di accesso supportati**|
+| **Account di archiviazione/Tipi di account di archiviazione supportati** | **BLOB in blocchi** |**BLOB di pagine** _ |_ *File di Azure** |**Livelli di accesso supportati**|
 | --- | --- | -- | -- | -- |
 | Versione classica Standard | S | S | S | |
 | Utilizzo generico v1 Standard  | S | S | S | Frequente, ad accesso sporadico|
@@ -47,5 +47,3 @@ Per gli ordini di esportazione, la tabella seguente Mostra gli account di archiv
 > - I dati caricati nei BLOB di pagine devono essere allineati a 512 byte, ad esempio VHD.
 > - È possibile esportare un massimo di 80 TB.
 > - La cronologia file e gli snapshot BLOB non vengono esportati.
-
-
