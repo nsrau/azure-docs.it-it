@@ -5,18 +5,18 @@ description: Descrizione delle restrizioni e delle limitazioni relative al forma
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 10/29/2020
+ms.date: 11/23/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: a2838e40844b83d1e90789439ce286f2738e22c4
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 30ea74b249937544a0bf9811cad60f02c1ca45c7
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331856"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95752788"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Limitazioni e limitazioni dell'URI di reindirizzamento (URL di risposta)
 
@@ -51,25 +51,32 @@ Per aggiungere gli URI di reindirizzamento con uno schema HTTP alle registrazion
 
 Per le [sezioni RFC 8252 8,3](https://tools.ietf.org/html/rfc8252#section-8.3) e [7,3](https://tools.ietf.org/html/rfc8252#section-7.3), gli URI di reindirizzamento "loopback" o "localhost" vengono fornite con due considerazioni speciali:
 
-1. `http` Gli schemi URI sono accettabili perché il reindirizzamento non lascia mai il dispositivo. Di conseguenza, entrambi sono accettabili:
-    - `http://127.0.0.1/myApp`
-    - `https://127.0.0.1/myApp`
-1. A causa degli intervalli di porte effimeri richiesti spesso dalle applicazioni native, il componente della porta, ad esempio `:5001` o, `:443` viene ignorato ai fini della corrispondenza di un URI di reindirizzamento. Di conseguenza, tutti questi sono considerati equivalenti:
-    - `http://127.0.0.1/MyApp`
-    - `http://127.0.0.1:1234/MyApp`
-    - `http://127.0.0.1:5000/MyApp`
-    - `http://127.0.0.1:8080/MyApp`
+1. `http` Gli schemi URI sono accettabili perché il reindirizzamento non lascia mai il dispositivo. Di conseguenza, entrambi questi URI sono accettabili:
+    - `http://localhost/myApp`
+    - `https://localhost/myApp`
+1. A causa degli intervalli di porte effimeri richiesti spesso dalle applicazioni native, il componente della porta, ad esempio `:5001` o, `:443` viene ignorato ai fini della corrispondenza di un URI di reindirizzamento. Di conseguenza, tutti questi URI sono considerati equivalenti:
+    - `http://localhost/MyApp`
+    - `http://localhost:1234/MyApp`
+    - `http://localhost:5000/MyApp`
+    - `http://localhost:8080/MyApp`
 
 Dal punto di vista dello sviluppo, questo significa che:
 
 * Non registrare più URI di reindirizzamento in cui è diversa solo la porta. Il server di accesso ne sceglierà uno arbitrario e utilizzerà il comportamento associato a tale URI di reindirizzamento (ad esempio, se si tratta di un `web` Reindirizzamento di tipo-, `native` -o `spa` ).
 
     Questo è particolarmente importante quando si vogliono usare flussi di autenticazione diversi nella stessa registrazione dell'applicazione, ad esempio sia la concessione del codice di autorizzazione che il flusso implicito. Per associare il comportamento corretto della risposta a ogni URI di reindirizzamento, il server di accesso deve essere in grado di distinguere gli URI di reindirizzamento e non può farlo quando solo la porta è diversa.
-* Se è necessario registrare più URI di reindirizzamento in localhost per testare flussi diversi durante lo sviluppo, distinguerli usando il componente *path* dell'URI. Ad esempio, `http://127.0.0.1/MyWebApp` non corrisponde a `http://127.0.0.1/MyNativeApp` .
+* Se è necessario registrare più URI di reindirizzamento in localhost per testare flussi diversi durante lo sviluppo, distinguerli usando il componente *path* dell'URI. Ad esempio, `http://localhost/MyWebApp` non corrisponde a `http://localhost/MyNativeApp` .
 * L'indirizzo di loopback IPv6 ( `[::1]` ) non è attualmente supportato.
-* Per impedire che l'app venga interruppe da firewall o interfacce di rete rinominate in modo errato, usare l'indirizzo di loopback del valore letterale IP `127.0.0.1` nell'URI di reindirizzamento anziché `localhost` .
 
-    Per utilizzare lo `http` schema con l'indirizzo di loopback valore letterale IP `127.0.0.1` , è necessario attualmente modificare l'attributo [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) nel [manifesto dell'applicazione](reference-app-manifest.md).
+#### <a name="prefer-127001-over-localhost"></a>Preferisci 127.0.0.1 su localhost
+
+Per impedire che l'app venga interruppe da firewall o interfacce di rete rinominate in modo errato, usare l'indirizzo di loopback del valore letterale IP `127.0.0.1` nell'URI di reindirizzamento anziché `localhost` . Ad esempio: `https://127.0.0.1`.
+
+Tuttavia, non è possibile utilizzare la casella di testo **URI di reindirizzamento** nel portale di Azure per aggiungere un URI di reindirizzamento basato su loopback che utilizza lo `http` schema:
+
+:::image type="content" source="media/reply-url/portal-01-no-http-loopback-redirect-uri.png" alt-text="Finestra di dialogo di errore in portale di Azure che mostra l'URI di reindirizzamento del loopback basato su http non consentito":::
+
+Per aggiungere un URI di reindirizzamento che usa lo `http` schema con l' `127.0.0.1` indirizzo di loopback, è necessario attualmente modificare l'attributo [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) nel [manifesto dell'applicazione](reference-app-manifest.md).
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Restrizioni relative ai caratteri jolly negli URI di Reindirizzamento
 

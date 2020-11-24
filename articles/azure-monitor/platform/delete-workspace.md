@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 2ce048ea8c9a4414b1c9f049569251c39d931c9a
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 0858d448cf768dbe6ea48f07247725fac30da860
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174157"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95758905"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminare e ripristinare l'area di lavoro di Azure Log Analytics
 
@@ -41,14 +41,16 @@ L'operazione di eliminazione dell'area di lavoro consente di rimuovere la risors
 > [!NOTE] 
 > Le soluzioni installate e i servizi collegati, ad esempio l'account di Automazione di Azure, vengono rimossi definitivamente dall'area di lavoro al momento dell'eliminazione e non possono essere recuperati. Queste devono essere riconfigurate dopo l'operazione di ripristino per portare l'area di lavoro allo stato configurato in precedenza.
 
-È possibile eliminare un'area di lavoro usando [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), l'[API REST](/rest/api/loganalytics/workspaces/delete) o nel [portale di Azure](https://portal.azure.com).
+È possibile eliminare un'area di lavoro usando [PowerShell](/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0&preserve-view=true), l'[API REST](/rest/api/loganalytics/workspaces/delete) o nel [portale di Azure](https://portal.azure.com).
 
 ### <a name="azure-portal"></a>Portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
 2. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Aree di lavoro di Log Analytics**.
 3. Nell'elenco delle aree di lavoro di Log Analytics selezionare un'area di lavoro e quindi fare clic su **Elimina** nella parte superiore del riquadro centrale.
-4. Viene visualizzata una pagina di conferma che mostra l'inserimento dei dati nell'area di lavoro nell'ultima settimana. Digitare il nome dell'area di lavoro da confermare, quindi fare clic su **Elimina**.
+4. Viene visualizzata una pagina di conferma che mostra l'inserimento dei dati nell'area di lavoro nell'ultima settimana. 
+5. Se si desidera eliminare definitivamente l'area di lavoro rimuovendo l'opzione per ripristinarla in un secondo momento, selezionare la casella di controllo **Elimina definitivamente l'area di lavoro** .
+6. Digitare il nome dell'area di lavoro da confermare, quindi fare clic su **Elimina**.
 
    ![Confermare l'eliminazione dell'area di lavoro](media/delete-workspace/workspace-delete.png)
 
@@ -60,11 +62,12 @@ PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-
 ## <a name="permanent-workspace-delete"></a>Eliminazione permanente dell'area di lavoro
 Il metodo di eliminazione temporanea potrebbe non rientrare in alcuni scenari, ad esempio sviluppo e test, in cui è necessario ripetere una distribuzione con le stesse impostazioni e il nome dell'area di lavoro. In questi casi è possibile eliminare definitivamente l'area di lavoro ed "eseguire l'override" del periodo di eliminazione temporanea. L'operazione di eliminazione permanente dell'area di lavoro rilascia il nome dell'area di lavoro ed è possibile creare una nuova area di lavoro con lo stesso nome.
 
-
 > [!IMPORTANT]
 > Usare l'operazione di eliminazione permanente dell'area di lavoro con cautela poiché è irreversibile e non sarà possibile ripristinare l'area di lavoro e i relativi dati.
 
-Aggiungere il tag '-ForceDelete ' per eliminare definitivamente l'area di lavoro. L'opzione '-ForceDelete ' è attualmente disponibile con AZ. OperationalInsights 2.3.0 o versione successiva. 
+Per eliminare definitivamente un'area di lavoro usando il portale di Azure, selezionare la casella di controllo **Elimina definitivamente l'area di lavoro** prima di fare clic sul pulsante **Elimina** .
+
+Per eliminare definitivamente un'area di lavoro usando PowerShell, aggiungere il tag '-ForceDelete ' per eliminare definitivamente l'area di lavoro. L'opzione '-ForceDelete ' è attualmente disponibile con AZ. OperationalInsights 2.3.0 o versione successiva. 
 
 ```powershell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete
