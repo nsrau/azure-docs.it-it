@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 4e79fef08af8ff73ce63ab4732c9efd77e3a5d3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51dc04fbef8d09878f33d7fda6f15039d3afba3e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67180102"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563350"
 ---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Configurare un'etichetta DNS per l'indirizzo IP pubblico
 
@@ -28,13 +28,13 @@ Per creare un'etichetta DNS, selezionare prima di tutto **Macchine virtuali** ne
 
 1. Immettere un nome per l'etichetta DNS. Il nome è un record A che consente di connettersi alla macchina virtuale di SQL Server usando il nome, anziché tramite l'indirizzo IP.
 
-1. Fare clic sul pulsante **Salva**.
+1. Fare clic sul pulsante **Salva** .
 
     ![etichetta dns](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
 ### <a name="connect-to-the-database-engine-from-another-computer"></a>Eseguire la connessione al motore di database da un altro computer
 
-1. In un computer connesso a Internet aprire SQL Server Management Studio (SSMS). Se SQL Server Management Studio non è installato, è possibile scaricarlo [qui](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+1. In un computer connesso a Internet aprire SQL Server Management Studio (SSMS). Se SQL Server Management Studio non è installato, è possibile scaricarlo [qui](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database** modificare il valore di **Nome server**. Immettere l'indirizzo IP o il nome DNS completo della macchina virtuale, determinato nell'attività precedente. È anche possibile aggiungere una virgola e specificare la porta TCP di SQL Server. Ad esempio: `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
 

@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: b17480c1a2a0bd8588289627a51780999e1f311c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 29cbb2f6a7f0faf91852e520f15b779b3fe229c8
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897818"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95564339"
 ---
 Raccolta immagini condivise è un servizio che consente di compilare la struttura e l'organizzazione per le immagini. Raccolte di immagini condivise fornisce:
 
@@ -45,7 +45,7 @@ La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
 
 Le definizioni dell'immagine rappresentano un raggruppamento logico per le versioni di un'immagine. La definizione dell'immagine detiene informazioni sui motivi per cui è stata creata l'immagine, sul sistema operativo per cui è stata creata e altre informazioni sull'uso. Una definizione dell'immagine è simile a un piano per tutti i dettagli che riguardano la creazione di un'immagine specifica. Non si distribuisce una macchina virtuale da una definizione dell'immagine, ma da versioni dell'immagine create dalla definizione.
 
-Sono disponibili tre parametri per ogni definizione dell'immagine usati in combinazione: **Editore** , **Offerta** e **SKU**. Questi parametri vengono usati per trovare una specifica definizione dell'immagine. È possibile avere versioni delle immagini che condividono uno o due, ma non tutti e tre i valori.  Di seguito, un esempio di tre definizioni di immagini con i relativi valori:
+Sono disponibili tre parametri per ogni definizione dell'immagine usati in combinazione: **Editore**, **Offerta** e **SKU**. Questi parametri vengono usati per trovare una specifica definizione dell'immagine. È possibile avere versioni delle immagini che condividono uno o due, ma non tutti e tre i valori.  Di seguito, un esempio di tre definizioni di immagini con i relativi valori:
 
 |Definizione delle immagini|Editore|Offerta|Sku|
 |---|---|---|---|
@@ -71,7 +71,7 @@ Di seguito sono elencati altri parametri che è possibile impostare nella defini
 - Tag: quando si crea la definizione dell'immagine è possibile aggiungere tag. Per altre informazioni sui tag, vedere [Usare i tag per organizzare le risorse](../articles/azure-resource-manager/management/tag-resources.md)
 - Elementi consigliati per la CPU virtuale e memoria minime e massime: se l'immagine presenta CPU virtuale ed elementi consigliati per la memoria, è possibile allegare tali informazioni alla definizione dell'immagine.
 - Tipi di dischi non consentiti: è possibile fornire informazioni sulle esigenze di archiviazione per la macchina virtuale. Se, ad esempio, l'immagine non è adatta per dischi HDD standard, è necessario aggiungerli all'elenco di quelli non consentiti.
-- Informazioni sui piani di acquisto per immagini del Marketplace - `-PurchasePlanPublisher`, `-PurchasePlanName` e `-PurchasePlanProduct`. Per un approfondimento delle informazioni sui piani di acquisto, vedere [Trovare immagini in Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) e [Fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](../articles/virtual-machines/marketplace-images.md).
+- Informazioni sui piani di acquisto per immagini del Marketplace - `-PurchasePlanPublisher`, `-PurchasePlanName` e `-PurchasePlanProduct`. Per un approfondimento delle informazioni sui piani di acquisto, vedere [Trovare immagini in Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) e [Fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](../articles/virtual-machines/marketplace-images.md).
 
 
 ## <a name="image-versions"></a>Versioni dell'immagine
@@ -80,7 +80,7 @@ La **versione dell'immagine** è quella che si usa per creare una VM. È possibi
 
 Le proprietà di una versione dell'immagine sono:
 
-- Numero di versione. Viene usato come nome della versione dell'immagine. È sempre nel formato MajorVersion.MinorVersion.Patch. Quando si specifica di usare l' **ultima** versione quando si crea una VM, viene scelta l'immagine più recente in base al valore più alto di MajorVersion, quindi a quello di MinorVersion e infine a quello di Patch. 
+- Numero di versione. Viene usato come nome della versione dell'immagine. È sempre nel formato MajorVersion.MinorVersion.Patch. Quando si specifica di usare l'**ultima** versione quando si crea una VM, viene scelta l'immagine più recente in base al valore più alto di MajorVersion, quindi a quello di MinorVersion e infine a quello di Patch. 
 - Origine. L'origine può essere una VM, un disco gestito, uno snapshot, un'immagine gestita o un'altra versione di immagine. 
 - Escludi da versione più recente. È possibile impedire l'uso di una versione come versione più recente dell'immagine. 
 - Data di scadenza. La data dopo la quale non è possibile creare macchine virtuali da questa immagine.
@@ -110,7 +110,7 @@ Sono previsti limiti, per sottoscrizione, per la distribuzione delle risorse tra
 - 10 repliche di versioni di immagini, per ogni sottoscrizione, per area
 - Qualsiasi disco collegato all'immagine deve essere di dimensioni minori o uguali a 1 TB
 
-Per altre informazioni, vedere [Controllare l'utilizzo delle risorse rispetto ai limiti](https://docs.microsoft.com/azure/networking/check-usage-against-limits) per esempi su come controllare l'utilizzo corrente.
+Per altre informazioni, vedere [Controllare l'utilizzo delle risorse rispetto ai limiti](../articles/networking/check-usage-against-limits.md) per esempi su come controllare l'utilizzo corrente.
  
 ## <a name="scaling"></a>Scalabilità
 Raccolta di immagini condivise consente di specificare il numero di repliche delle immagini che si desidera vengano conservate da Azure. Questa possibilità è particolarmente utile in scenari di distribuzione di più macchine virtuali, poiché le distribuzioni di macchine virtuali possono essere estese a diverse repliche, riducendo le possibilità che il processo di creazione di istanze venga limitato a causa dell'overload di una singola replica.
@@ -128,7 +128,7 @@ Si consiglia sempre di eseguire il provisioning eccessivo del numero di repliche
 
 [Archiviazione di Azure con ridondanza della zona (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) garantisce resilienza in caso di errore della zona di disponibilità nell'area. Con la disponibilità generale di Raccolta immagini condivise è possibile scegliere di archiviare le immagini in account ZRS in aree con zone di disponibilità. 
 
-È inoltre possibile scegliere il tipo di account per ogni area di destinazione. Il tipo di account di archiviazione predefinito è 	Archiviazione con ridondanza locale Standard, tuttavia è anche possibile scegliere Archiviazione con ridondanza della zona Standard per le aree con zone di disponibilità. Controllare [qui](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) la disponibilità a livello di area dell'archiviazione con ridondanza della zona.
+È inoltre possibile scegliere il tipo di account per ogni area di destinazione. Il tipo di account di archiviazione predefinito è 	Archiviazione con ridondanza locale Standard, tuttavia è anche possibile scegliere Archiviazione con ridondanza della zona Standard per le aree con zone di disponibilità. Controllare [qui](../articles/storage/common/storage-redundancy.md) la disponibilità a livello di area dell'archiviazione con ridondanza della zona.
 
 ![Immagine che mostra l'archiviazione con ridondanza della zona](./media/shared-image-galleries/zrs.png)
 
@@ -183,11 +183,11 @@ Versione immagine:
 
 Gli SDK seguenti supportano la creazione di raccolte di immagini condivise:
 
-- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
-- [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.js](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
-- [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Go](https://docs.microsoft.com/azure/go/)
+- [.NET](/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
+- [Java](/java/azure/?view=azure-java-stable)
+- [Node.js](/javascript/api/@azure/arm-compute)
+- [Python](/python/api/overview/azure/virtualmachines?view=azure-python)
+- [Go](/azure/go/)
 
 ## <a name="templates"></a>Modelli
 
@@ -232,20 +232,20 @@ Per elencare tutte le risorse della raccolta di immagini condivise tra le sottos
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
 ```
 
-Per altre informazioni, vedere **Gestire le risorse della raccolta** con l' [interfaccia della riga di comando di Azure](../articles/virtual-machines/update-image-resources-cli.md) o [PowerShell](../articles/virtual-machines/update-image-resources-powershell.md).
+Per altre informazioni, vedere **Gestire le risorse della raccolta** con l'[interfaccia della riga di comando di Azure](../articles/virtual-machines/update-image-resources-cli.md) o [PowerShell](../articles/virtual-machines/update-image-resources-powershell.md).
 
 ### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>È possibile spostare l'immagine esistente nella raccolta di immagini condivise?
  
 Sì. Esistono tre scenari in base ai tipi di immagini che si possono avere.
 
- Scenario 1: se si dispone di un'immagine gestita, è possibile creare una definizione di immagine e una versione dell'immagine a partire da essa. Per altre informazioni, vedere **Eseguire la migrazione da un'immagine gestita a una versione dell'immagine** con l' [interfaccia della riga di comando di Azure](../articles/virtual-machines/image-version-managed-image-cli.md) o [PowerShell](../articles/virtual-machines/image-version-managed-image-powershell.md).
+ Scenario 1: se si dispone di un'immagine gestita, è possibile creare una definizione di immagine e una versione dell'immagine a partire da essa. Per altre informazioni, vedere **Eseguire la migrazione da un'immagine gestita a una versione dell'immagine** con l'[interfaccia della riga di comando di Azure](../articles/virtual-machines/image-version-managed-image-cli.md) o [PowerShell](../articles/virtual-machines/image-version-managed-image-powershell.md).
 
  Scenario 2: se si dispone di un'immagine non gestita, è possibile creare un'immagine gestita da quest'ultima e quindi creare una definizione di immagine e la versione dell'immagine da essa. 
 
  Scenario 3: se si dispone di un disco rigido virtuale nel file system locale, è necessario caricare il disco rigido virtuale su un'immagine gestita; quindi è possibile creare una definizione di immagine e una versione dell'immagine da quest'ultima.
 
-- Se il disco rigido virtuale è di una macchina virtuale Windows, vedere [Caricare un disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-- Se il disco rigido virtuale è per una macchina virtuale Linux, vedere [Caricare un disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+- Se il disco rigido virtuale è di una macchina virtuale Windows, vedere [Caricare un disco rigido virtuale](../articles/virtual-machines/windows/upload-generalized-managed.md).
+- Se il disco rigido virtuale è per una macchina virtuale Linux, vedere [Caricare un disco rigido virtuale](../articles/virtual-machines/linux/upload-vhd.md#option-1-upload-a-vhd)
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>È possibile creare una versione di immagine da un disco specializzato?
 
@@ -310,4 +310,4 @@ Per le distribuzioni di macchine virtuali e set di scalabilità di macchine virt
 
 ### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>È possibile aggiornare il set di scalabilità di macchine virtuali creato con un'immagine gestita per usare immagini di Raccolta immagini condivise?
 
-Sì, è possibile aggiornare il riferimento all'immagine del set di scalabilità da un'immagine gestita a un'immagine della raccolta immagini condivise, purché il tipo di sistema operativo, la generazione Hyper-V e il layout del disco dati corrispondano tra le immagini. 
+Sì, è possibile aggiornare il riferimento all'immagine del set di scalabilità da un'immagine gestita a un'immagine della raccolta immagini condivise, purché il tipo di sistema operativo, la generazione Hyper-V e il layout del disco dati corrispondano tra le immagini.

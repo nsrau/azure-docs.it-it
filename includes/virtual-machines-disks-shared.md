@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7831eaaa478a3f28ff158d5c9599abaf8a107c15
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 74c77356df4f35461a8b9f1459712cdcf7f77cbf
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684432"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563051"
 ---
 Azure Shared disks è una nuova funzionalità di Azure Managed disks che consente di aggiungere contemporaneamente un disco gestito a più macchine virtuali (VM). Collegando un disco gestito a più macchine virtuali è possibile distribuire nuove applicazioni in cluster o eseguire la migrazione di quelle esistenti in Azure.
 
@@ -41,7 +41,7 @@ I dischi condivisi supportano diversi sistemi operativi. Vedere le sezioni [Wind
 
 ### <a name="windows"></a>Windows
 
-I dischi condivisi di Azure sono supportati in Windows Server 2008 e versioni successive. La maggior parte del clustering basato su Windows si basa su WSFC, che gestisce tutta l'infrastruttura di base per la comunicazione del nodo cluster, consentendo alle applicazioni di sfruttare i vantaggi dei modelli di accesso parallelo. WSFC abilita le opzioni basate e non su CSV a seconda della versione di Windows Server in uso. Per i dettagli, fare riferimento a [Creare un cluster di failover](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+I dischi condivisi di Azure sono supportati in Windows Server 2008 e versioni successive. La maggior parte del clustering basato su Windows si basa su WSFC, che gestisce tutta l'infrastruttura di base per la comunicazione del nodo cluster, consentendo alle applicazioni di sfruttare i vantaggi dei modelli di accesso parallelo. WSFC abilita le opzioni basate e non su CSV a seconda della versione di Windows Server in uso. Per i dettagli, fare riferimento a [Creare un cluster di failover](/windows-server/failover-clustering/create-failover-cluster).
 
 Tra le applicazioni più comuni in esecuzione su WSFC ci sono:
 

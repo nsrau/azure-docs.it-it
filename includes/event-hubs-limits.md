@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 320fa542f2b786f0a256c22f2d2eb299c476dcae
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 1b5905046fdde4d5574fd4d39f40dce1bbf11e32
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94362732"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563449"
 ---
 Le tabelle seguenti forniscono le quote e i limiti specifici di [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/). Per informazioni sui prezzi di Hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -42,12 +42,12 @@ La tabella seguente illustra i limiti che possono essere diversi per i livelli B
 | Numero di gruppi consumer per hub eventi | &nbsp; |1 |20 |
 | Numero di connessioni AMQP per spazio dei nomi | Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. |100 |5\.000|
 | Periodo di conservazione massimo dei dati dell'evento | &nbsp; |1 giorno |1-7 giorni |
-| Numero massimo di unità di velocità effettiva |Il superamento di questo limite causa la limitazione dei dati e la generazione di un'[eccezione di server occupato](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Per richiedere un numero maggiore di unità elaborate per un livello Standard, inviare una [richiesta di supporto](/azure/azure-portal/supportability/how-to-create-azure-support-request). Le [unità elaborate aggiuntive](../articles/event-hubs/event-hubs-auto-inflate.md) sono disponibili in blocchi da 20 in base a un acquisto con impegno. |20 | 20 | 
+| Numero massimo di unità di velocità effettiva |Il superamento di questo limite causa la limitazione dei dati e la generazione di un'[eccezione di server occupato](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Per richiedere un numero maggiore di unità elaborate per un livello Standard, inviare una [richiesta di supporto](../articles/azure-portal/supportability/how-to-create-azure-support-request.md). Le [unità elaborate aggiuntive](../articles/event-hubs/event-hubs-auto-inflate.md) sono disponibili in blocchi da 20 in base a un acquisto con impegno. |20 | 20 | 
 
 ## <a name="dedicated-tier-vs-standard-tier"></a>Livello Dedicato e Standard
 L'offerta Hub eventi Dedicato viene fatturata a un prezzo mensile fisso, con un minimo di 4 ore di utilizzo. Il livello Dedicato offre tutte le funzionalità del piano Standard, ma con capacità e limiti su scala aziendale per i clienti con carichi di lavoro intensi. 
 
-Fare riferimento a questo [documento](https://docs.microsoft.com/azure/event-hubs/event-hubs-dedicated-cluster-create-portal) per informazioni su come creare un cluster di Hub eventi dedicato usando il portale di Azure.
+Fare riferimento a questo [documento](../articles/event-hubs/event-hubs-dedicated-cluster-create-portal.md) per informazioni su come creare un cluster di Hub eventi dedicato usando il portale di Azure.
 
 | Funzionalità | Standard | Dedicato |
 | --- |:---|:---|
@@ -83,8 +83,3 @@ Fare riferimento a questo [documento](https://docs.microsoft.com/azure/event-hub
 | Dimensioni del registro schemi (spazio dei nomi) in megabyte | 25 |  1024 |
 | Numero di gruppi di schemi in un registro schemi o spazio dei nomi | 1 - escluso il gruppo predefinito | 1000 |
 | Numero di versioni dello schema in tutti i gruppi di schemi | 25 | 10000 |
-
-
-
-
-

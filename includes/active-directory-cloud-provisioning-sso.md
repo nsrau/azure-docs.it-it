@@ -5,12 +5,12 @@ ms.subservice: cloud-provisioning
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
-ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d95e40623f17a39145778a2fc067dccc68fd872
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79504386"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563841"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Passaggi per abilitare l'accesso Single Sign-on
 Il provisioning Cloud funziona con Single Sign-on.  Attualmente non è disponibile un'opzione per abilitare SSO durante l'installazione dell'agente, tuttavia è possibile utilizzare la procedura seguente per abilitare l'accesso SSO e utilizzarlo. 
@@ -23,7 +23,7 @@ Il provisioning Cloud funziona con Single Sign-on.  Attualmente non è disponibi
 
 ### <a name="step-2-import-the-seamless-sso-powershell-module"></a>Passaggio 2: importare il modulo di PowerShell seamless SSO
 
-1. Scaricare e installare [Azure ad PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+1. Scaricare e installare [Azure ad PowerShell](/powershell/azure/active-directory/overview).
 2. Passare alla cartella `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importare il modulo di PowerShell Seamless SSO usando il comando seguente: `Import-Module .\AzureADSSO.psd1`.
 

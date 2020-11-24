@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/14/2020
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 5c36a541c9380596884252efcba4a9c0ca2be33f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: cf051d96651161658796689639b5d268230d4b5a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92082241"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563363"
 ---
 | Risorsa | Limite |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -44,4 +44,4 @@ ms.locfileid: "92082241"
 <sup>7</sup>I certificati CA non sono supportati nel livello A consumo.<br/>
 <sup>8</sup>Questo limite si applica solo al livello A consumo. Per gli altri livelli non sono previsti limiti in queste categorie.<br/>
 <sup>9</sup>Si applica solo al livello A consumo. Include fino a 2048 byte di lunghezza per la stringa di query.<br/>
-<sup>10</sup>I gateway self-hosted sono supportati solo nei livelli Developer e Premium. Il limite si applica al numero di [risorse gateway self-hosted](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/gateway). Per aumentare questo limite, contattare il [supporto](https://azure.microsoft.com/support/options/). Si noti che il numero di nodi (o repliche) associati a una risorsa gateway self-hosted è illimitato nel livello Premium e limitato a un singolo nodo nel livello Developer.
+<sup>10</sup>I gateway self-hosted sono supportati solo nei livelli Developer e Premium. Il limite si applica al numero di [risorse gateway self-hosted](/rest/api/apimanagement/2019-12-01/gateway). Per aumentare questo limite, contattare il [supporto](https://azure.microsoft.com/support/options/). Si noti che il numero di nodi (o repliche) associati a una risorsa gateway self-hosted è illimitato nel livello Premium e limitato a un singolo nodo nel livello Developer.

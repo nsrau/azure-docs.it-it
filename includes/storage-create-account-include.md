@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 11/20/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 1295160beac83351f3f5243054f91558ad6e0191
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 193cd8ff83eeabcf155dba91dd69a6eba72febd6
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87020977"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563751"
 ---
 ## <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 
 Il modo più semplice per creare il primo account di archiviazione di Azure consiste nell'usare il [portale di Azure](https://portal.azure.com). Per altre informazioni, vedere [Creare un account di archiviazione](../articles/storage/common/storage-account-create.md).
 
-È anche possibile creare un account di archiviazione di Azure usando [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), l'[interfaccia della riga di comando di Azure](../articles/storage/common/storage-azure-cli.md) o il [provider di risorse di archiviazione di Azure per .NET](https://azure.microsoft.com/resources/samples/storage-dotnet-resource-provider-getting-started/).
+È anche possibile creare un account di archiviazione di Azure usando [Azure PowerShell](/powershell/module/az.storage/), l'[interfaccia della riga di comando di Azure](../articles/storage/blobs/storage-quickstart-blobs-cli.md) o il [provider di risorse di archiviazione di Azure per .NET](https://azure.microsoft.com/resources/samples/storage-dotnet-resource-provider-getting-started/).
 
 Se si preferisce non creare un account di archiviazione in Azure al momento, è anche possibile usare l'emulatore di archiviazione azzurrite per eseguire e testare il codice in un ambiente locale. Per altre informazioni, vedere [usare l'emulatore di azzurrite per lo sviluppo locale di archiviazione di Azure](../articles/storage/common/storage-use-azurite.md).

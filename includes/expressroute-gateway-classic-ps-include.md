@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0c05eb88df27ba9e71c0f61bad75457d893a7ce
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67179881"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95563133"
 ---
 > [!NOTE]
 > Questi esempi non sono validi per la configurazione di connessioni con coesistenza S2S/ExpressRoute.
@@ -25,7 +25,7 @@ Quando si aggiunge un gateway a una rete virtuale usando il modello di risorsa c
 
 ### <a name="download-the-network-configuration-file"></a>Scaricare il file di configurazione di rete
 
-1. Scaricare il file di configurazione di rete tramite la procedura descritta nell'articolo [File di configurazione di rete](../articles/virtual-network/virtual-networks-using-network-configuration-file.md). Aprire il file in un editor di testo.
+1. Scaricare il file di configurazione di rete tramite la procedura descritta nell'articolo [File di configurazione di rete](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file). Aprire il file in un editor di testo.
 2. Aggiungere al file un sito di rete locale. È possibile usare qualsiasi prefisso di indirizzo valido. È possibile aggiungere qualsiasi indirizzo IP valido per il gateway VPN. I valori di indirizzo riportati in questa sezione non vengono usati per le operazioni di ExpressRoute, ma sono necessari per la convalida dei file. Nell'esempio, "branch1" è il nome del sito. È possibile usare un nome diverso, ma è necessario assicurarsi che venga usato lo stesso valore nella sezione Gateway del file.
 
    ```

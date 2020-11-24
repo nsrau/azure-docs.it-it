@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 5b60082db53b458adc53ac23d98731ad1c97b52b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 5c2763112b1aa2d58f5dc57cea72a3d0bdea961e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94563648"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545670"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Domande frequenti sul servizio Web Application Firewall di Azure nel servizio front door di Azure
 
@@ -57,6 +57,17 @@ Quando integrato con la porta anteriore, WAF è una risorsa globale. La stessa c
 
 Sono disponibili due opzioni per l'applicazione di criteri WAF in Azure. WAF con Azure front door è una soluzione di sicurezza perimetrale distribuita a livello globale. WAF con il gateway applicazione è una soluzione a livello di area dedicata. Si consiglia di scegliere una soluzione basata sui requisiti generali di prestazioni e sicurezza. Per altre informazioni, vedere [bilanciamento del carico con la suite di distribuzione delle applicazioni di Azure](../../frontdoor/front-door-lb-with-azure-app-delivery-suite.md).
 
+## <a name="whats-the-recommended-approach-to-enabling-waf-on-front-door"></a>Qual è l'approccio consigliato per l'abilitazione di WAF sulla porta anteriore?
+
+Quando si Abilita WAF in un'applicazione esistente, è comune avere rilevamenti falsi positivi in cui le regole WAF rilevano il traffico legittimo come minaccia. Per ridurre al minimo il rischio di un effetto sugli utenti, si consiglia il processo seguente:
+
+* Abilitare WAF in modalità di [ **rilevamento**](./waf-front-door-create-portal.md#change-mode) per assicurarsi che WAF non blocchi le richieste mentre si sta lavorando al processo.
+  > [!IMPORTANT]
+  > Questo processo descrive come abilitare WAF in una soluzione nuova o esistente quando la priorità è ridurre al minimo il disturbo per gli utenti dell'applicazione. In caso di attacco o minaccia imminente, è consigliabile distribuire immediatamente il WAF in modalità di **prevenzione** e usare il processo di ottimizzazione per monitorare e ottimizzare il WAF nel tempo. Questo potrebbe causare il blocco del traffico legittimo, motivo per cui si consiglia di eseguire questa operazione solo quando si è in condizione di minaccia.
+* Seguire le [linee guida per l'ottimizzazione del WAF](./waf-front-door-tuning.md). Per questo processo è necessario abilitare la registrazione diagnostica, esaminare regolarmente i registri e aggiungere le esclusioni delle regole e altre mitigazioni.
+* Ripetere l'intero processo, controllando regolarmente i log, fino a quando non si è certi che non è stato bloccato alcun traffico legittimo. L'intero processo può richiedere alcune settimane. Idealmente dovrebbe essere visibile un minor numero di rilevamenti falsi positivi dopo ogni modifica apportata all'ottimizzazione.
+* Infine, abilitare WAF in **modalità di prevenzione**.
+* Anche dopo aver eseguito il WAF in produzione, è necessario tenere il monitoraggio dei log per identificare eventuali altri rilevamenti falsi positivi. La revisione regolare dei log consente inoltre di identificare eventuali tentativi di attacco reali bloccati.
 
 ## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Sono supportate le stesse funzionalità WAF in tutte le piattaforme integrate?
 

@@ -9,19 +9,19 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: a416c22c5b8e09104b20a17bc5042302fa56d8ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f74d4ffdd724039354a311234317dac889cd7cfe
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035145"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545934"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Riattivare i dati BLOB dal livello archivio
 
 Quando un BLOB si trova nel livello di accesso archivio, viene considerato offline e non può essere letto o modificato. I metadati del BLOB rimangono tuttavia online e disponibili ed è quindi possibile visualizzare il BLOB e le relative proprietà. La lettura e la modifica dei dati BLOB sono consentite solo con livelli online, come i livelli di archiviazione di accesso frequente o sporadico. Sono disponibili due opzioni per recuperare e accedere ai dati archiviati nel livello di accesso archivio.
 
-1. [Riattivare un BLOB archiviato in un livello online](#rehydrate-an-archived-blob-to-an-online-tier) - Riattivare un BLOB dal livello archivio al livello di accesso frequente o sporadico modificandone il livello tramite l'operazione [Impostare il livello di BLOB](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier).
-2. [Copiare un BLOB archiviato in un livello online](#copy-an-archived-blob-to-an-online-tier) - Creare una nuova copia di un BLOB di archivio usando l'operazione [Copia BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob). Specificare un nome di BLOB diverso e un livello di destinazione di accesso frequente o sporadico.
+1. [Riattivare un BLOB archiviato in un livello online](#rehydrate-an-archived-blob-to-an-online-tier) - Riattivare un BLOB dal livello archivio al livello di accesso frequente o sporadico modificandone il livello tramite l'operazione [Impostare il livello di BLOB](/rest/api/storageservices/set-blob-tier).
+2. [Copiare un BLOB archiviato in un livello online](#copy-an-archived-blob-to-an-online-tier) - Creare una nuova copia di un BLOB di archivio usando l'operazione [Copia BLOB](/rest/api/storageservices/copy-blob). Specificare un nome di BLOB diverso e un livello di destinazione di accesso frequente o sporadico.
 
  Per altre informazioni sui livelli di accesso, vedere [Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md).
 
@@ -31,7 +31,7 @@ Quando un BLOB si trova nel livello di accesso archivio, viene considerato offli
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Copiare un BLOB archiviato in un livello online
 
-Se non si vuole riattivare il BLOB di archivio, è possibile scegliere di eseguire l'operazione [Copia BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob). Il BLOB originale rimarrà invariato nell'archivio, mentre nel livello di accesso frequente o sporadico verrà creato un nuovo BLOB su cui poter operare. Nell'operazione di copia del BLOB è possibile anche impostare la proprietà facoltativa *x-ms-rehydrate-priority* su Standard o Alta per specificare la priorità in base alla quale si vuole creare la copia BLOB.
+Se non si vuole riattivare il BLOB di archivio, è possibile scegliere di eseguire l'operazione [Copia BLOB](/rest/api/storageservices/copy-blob). Il BLOB originale rimarrà invariato nell'archivio, mentre nel livello di accesso frequente o sporadico verrà creato un nuovo BLOB su cui poter operare. Nell'operazione di copia del BLOB è possibile anche impostare la proprietà facoltativa *x-ms-rehydrate-priority* su Standard o Alta per specificare la priorità in base alla quale si vuole creare la copia BLOB.
 
 Per completare la copia di un BLOB dall'archivio possono essere necessarie alcune ore, a seconda della priorità di riattivazione selezionata. Dietro le quinte, l'operazione **Copia BLOB** legge il BLOB di origine dell'archivio per creare un nuovo BLOB online nel livello di destinazione selezionato. È possibile che il nuovo BLOB sia visibile quando si elencano i BLOB, ma i dati non risultano disponibili finché non viene completata la lettura dal BLOB di archiviazione di origine e la scrittura dei dati nel nuovo BLOB di destinazione online. Il nuovo BLOB è una copia indipendente e, pertanto, qualsiasi modifica o eliminazione apportata non viene riprodotta nel BLOB di archiviazione di origine.
 
