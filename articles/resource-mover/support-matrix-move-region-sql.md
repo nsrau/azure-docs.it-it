@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: fda41a22c9bd9c66dd691b283ece10ac044db3ed
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 573d52b836aef36063dd288bf5a5016b98d220ef
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324573"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95524131"
 ---
 # <a name="support-for-moving-azure-sql-resources-between-azure-regions"></a>Supporto per lo trasferimento di risorse SQL di Azure tra aree di Azure
 
@@ -22,21 +22,21 @@ Questo articolo riepiloga il supporto e i prerequisiti per lo spostamento delle 
 
 I requisiti sono riepilogati nella tabella seguente.
 
-**Funzionalità** | **Supportato/Non supportato** | **Informazioni dettagliate**
+**Funzionalità** | **Supportato/Non supportato** | **Dettagli**
 --- | --- | ---
-**Hyperscale nel database SQL di Azure** | Non supportato | Non è possibile spostare i database nel livello di servizio dell'iperscalabilità SQL di Azure con il motore di risorse.
+**Hyperscale nel database SQL di Azure** | Non supportate | Non è possibile spostare i database nel livello di servizio dell'iperscalabilità SQL di Azure con il motore di risorse.
 **Ridondanza della zona** | Supportato |  Opzioni di spostamento supportate:<br/><br/> -Tra aree che supportano la ridondanza della zona.<br/><br/> -Tra aree che non supportano la ridondanza della zona.<br/><br/> -Tra un'area che supporta la ridondanza della zona in un'area che non supporta la ridondanza della zona.<br/><br/> -Tra un'area che non supporta la ridondanza della zona in un'area che supporta la ridondanza della zona. 
 **Sincronizzazione dati** | Database hub/Sync: non supportato<br/><br/> Membro di sincronizzazione: supportato. | Se un membro di sincronizzazione viene spostato, è necessario configurare la sincronizzazione dei dati per il nuovo database di destinazione.
-**Replica geografica esistente** | Supportato | Le repliche geografiche esistenti vengono mappate nuovamente al nuovo database primario nell'area di destinazione.<br/><br/> Il seeding deve essere inizializzato dopo lo spostamento. [Altre informazioni](/azure/sql-database/sql-database-active-geo-replication-portal)
+**Replica geografica esistente** | Supportato | Le repliche geografiche esistenti vengono mappate nuovamente al nuovo database primario nell'area di destinazione.<br/><br/> Il seeding deve essere inizializzato dopo lo spostamento. [Altre informazioni](../azure-sql/database/active-geo-replication-configure-portal.md)
 **Transparent Data Encryption (Transparent Data Encryption) con Bring Your Own Key (BYOK)** | Supportato | [Altre](../key-vault/general/move-region.md) informazioni sullo trasferimento di insiemi di credenziali delle chiavi tra le aree.
 **Transparent Data Encryption con chiave gestita dal servizio** | Supportata. |  [Altre](../key-vault/general/move-region.md) informazioni sullo trasferimento di insiemi di credenziali delle chiavi tra le aree.
-**Regole per la maschera dati dinamica** | Supportata. | Le regole vengono copiate automaticamente nell'area di destinazione come parte dello spostamento. [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started-portal)
-**Sicurezza dei dati avanzata** | Non supportata. | Soluzione alternativa: configurare a livello di SQL Server nell'area di destinazione. [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
-**Regole del firewall** | Non supportata. | Soluzione alternativa: configurare le regole del firewall per SQL Server nell'area di destinazione. Le regole del firewall a livello di database vengono copiate dal server di origine al server di destinazione. [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-server-level-firewall-rule)
-**Criteri di controllo** | Non supportata. | I criteri vengono reimpostati su default dopo lo spostamento. [Informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) su come eseguire la reimpostazione.
-**Conservazione dei backup** | Supportata. | I criteri di conservazione backup per il database di origine vengono trasferiti al database di destinazione. [Informazioni](/azure/sql-database/sql-database-long-term-backup-retention-configure) su come modificare le impostazioni dopo lo spostamento.
-**Ottimizzazione automatica** | Non supportata. | Soluzione alternativa: impostare le impostazioni di ottimizzazione automatica dopo lo spostamento. [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning-enable)
-**Avvisi del database** | Non supportata. | Soluzione temporanea: impostare gli avvisi dopo lo spostamento. [Altre informazioni](https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-portal)
+**Regole per la maschera dati dinamica** | Supportata. | Le regole vengono copiate automaticamente nell'area di destinazione come parte dello spostamento. [Altre informazioni](../azure-sql/database/dynamic-data-masking-configure-portal.md)
+**Sicurezza dei dati avanzata** | Non supportata. | Soluzione alternativa: configurare a livello di SQL Server nell'area di destinazione. [Altre informazioni](../azure-sql/database/azure-defender-for-sql.md)
+**Regole del firewall** | Non supportata. | Soluzione alternativa: configurare le regole del firewall per SQL Server nell'area di destinazione. Le regole del firewall a livello di database vengono copiate dal server di origine al server di destinazione. [Altre informazioni](../azure-sql/database/firewall-create-server-level-portal-quickstart.md)
+**Criteri di controllo** | Non supportata. | I criteri vengono reimpostati su default dopo lo spostamento. [Informazioni](../azure-sql/database/auditing-overview.md) su come eseguire la reimpostazione.
+**Conservazione dei backup** | Supportata. | I criteri di conservazione backup per il database di origine vengono trasferiti al database di destinazione. [Informazioni](../azure-sql/database/long-term-backup-retention-configure.md) su come modificare le impostazioni dopo lo spostamento.
+**Ottimizzazione automatica** | Non supportata. | Soluzione alternativa: impostare le impostazioni di ottimizzazione automatica dopo lo spostamento. [Altre informazioni](../azure-sql/database/automatic-tuning-enable.md)
+**Avvisi del database** | Non supportata. | Soluzione temporanea: impostare gli avvisi dopo lo spostamento. [Altre informazioni](../azure-sql/database/alerts-insights-configure-portal.md)
 **stretch database SQL Server di Azure** | Non supportato | Non è possibile spostare SQL Server stretch database con il motore di risorse.
 **Azure Synapse Analytics** | Non supportato | Non è possibile spostare l'analisi sinapsi (in precedenza SQL Data Warehouse) con il motore di risorse.
 ## <a name="next-steps"></a>Passaggi successivi

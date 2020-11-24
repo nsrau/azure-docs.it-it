@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 352c057a74d1be5f440041b9f13127e8730edf82
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4252e3a7f8c3ff9d0ec782a2a9222553c063463c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698071"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533277"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurare un cluster del servizio Azure Kubernetes
 
@@ -237,47 +237,28 @@ az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myR
 Se si desidera creare pool di nodi Gen1 normali, è possibile omettere il `--aks-custom-headers` tag personalizzato.
 
 
-## <a name="ephemeral-os-preview"></a>Sistema operativo temporaneo (anteprima)
+## <a name="ephemeral-os"></a>Sistema operativo temporaneo
 
-Per impostazione predefinita, il disco del sistema operativo per una macchina virtuale di Azure viene replicato automaticamente in archiviazione di Azure per evitare la perdita di dati se la macchina virtuale deve essere rilocata in un altro host. Tuttavia, poiché i contenitori non sono progettati per lo stato locale in modo permanente, questo comportamento offre un valore limitato, offrendo alcuni svantaggi, tra cui il provisioning di nodi più lenti e una latenza di lettura/scrittura superiore.
+Per impostazione predefinita, Azure replica automaticamente il disco del sistema operativo per una macchina virtuale in archiviazione di Azure, in modo da evitare la perdita di dati se la VM deve essere rilocata in un altro host. Tuttavia, poiché i contenitori non sono progettati per lo stato locale in modo permanente, questo comportamento offre un valore limitato, offrendo alcuni svantaggi, tra cui il provisioning di nodi più lenti e una latenza di lettura/scrittura superiore.
 
 Al contrario, i dischi del sistema operativo temporanei vengono archiviati solo nel computer host, proprio come un disco temporaneo. Questo garantisce una latenza di lettura/scrittura più bassa, oltre a un aumento più rapido dei nodi e agli aggiornamenti del cluster.
 
 Come il disco temporaneo, un disco del sistema operativo temporaneo è incluso nel prezzo della macchina virtuale, pertanto non si verificano costi di archiviazione aggiuntivi.
 
-Registrare la funzionalità `EnableEphemeralOSDiskPreview`:
+> [!IMPORTANT]
+>Quando un utente non richiede in modo esplicito i dischi gestiti per il sistema operativo, AKS utilizzerà per impostazione predefinita il sistema operativo temporaneo, se possibile, per una determinata configurazione nodepool.
 
-```azurecli
-az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
-```
+Quando si usa il sistema operativo temporaneo, il disco del sistema operativo deve adattarsi alla cache della VM. Le dimensioni della cache VM sono disponibili nella [documentazione di Azure](../virtual-machines/dv3-dsv3-series.md) tra parentesi accanto alla velocità effettiva di i/o ("dimensioni della cache in Gib").
 
-Potrebbero essere necessari alcuni minuti prima che lo stato venga visualizzato come **Registrato**. È possibile controllare lo stato di registrazione con il comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true):
+Usando le dimensioni della macchina virtuale AKS predefinite Standard_DS2_v2 con le dimensioni del disco del sistema operativo predefinite di 100 GB come esempio, questa dimensione della VM supporta il sistema operativo temporaneo, ma ha solo 86GB di dimensioni della cache. Per impostazione predefinita, questa configurazione gestirà i dischi se l'utente non specifica in modo esplicito. Se un utente ha richiesto in modo esplicito il sistema operativo temporaneo, riceverebbe un errore di convalida.
 
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
-```
+Se un utente richiede lo stesso Standard_DS2_v2 con un disco del sistema operativo da 60 GB, questa configurazione per impostazione predefinita è il sistema operativo temporaneo: la dimensione richiesta di 60 GB è inferiore alla dimensione massima della cache di 86GB.
 
-Quando lo stato diventa Registrato, aggiornare la registrazione del provider di risorse `Microsoft.ContainerService` usando il comando [ az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true):
+Usando Standard_D8s_v3 con il disco del sistema operativo 100 GB, questa dimensione della VM supporta il sistema operativo temporaneo e ha 200 GB di spazio nella cache. Se un utente non specifica il tipo di disco del sistema operativo, per impostazione predefinita il nodepool riceverà il sistema operativo temporaneo. 
 
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```
+Il sistema operativo temporaneo richiede almeno la versione 2.15.0 dell'interfaccia della riga di comando di Azure.
 
-Il sistema operativo temporaneo richiede almeno la versione 0.4.63 dell'estensione dell'interfaccia della riga di comando AKS-Preview.
-
-Per installare l'estensione dell'interfaccia della riga di comando AKS-Preview, usare i seguenti comandi dell'interfaccia della riga di comando
-
-```azurecli
-az extension add --name aks-preview
-```
-
-Per aggiornare l'estensione aks-preview dell'interfaccia della riga di comando, usare i comandi seguenti dell'interfaccia della riga di comando di Azure:
-
-```azurecli
-az extension update --name aks-preview
-```
-
-### <a name="use-ephemeral-os-on-new-clusters-preview"></a>Usare il sistema operativo temporaneo nei nuovi cluster (anteprima)
+### <a name="use-ephemeral-os-on-new-clusters"></a>Usare il sistema operativo temporaneo nei nuovi cluster
 
 Configurare il cluster per l'uso di dischi del sistema operativo temporanei quando viene creato il cluster. Usare il `--node-osdisk-type` flag per impostare il sistema operativo temporaneo come tipo di disco del sistema operativo per il nuovo cluster.
 
@@ -285,9 +266,9 @@ Configurare il cluster per l'uso di dischi del sistema operativo temporanei quan
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-Se si vuole creare un cluster normale usando dischi del sistema operativo collegati alla rete, è possibile omettere il `--node-osdisk-type` tag personalizzato o specificare `--node-osdisk-type=Managed` . È anche possibile scegliere di aggiungere più pool di nodi del sistema operativo temporanei come indicato di seguito.
+Se si vuole creare un cluster normale usando dischi del sistema operativo collegati alla rete, è possibile specificare `--node-osdisk-type=Managed` . È anche possibile scegliere di aggiungere più pool di nodi del sistema operativo temporanei come indicato di seguito.
 
-### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>USA sistema operativo temporaneo nei cluster esistenti (anteprima)
+### <a name="use-ephemeral-os-on-existing-clusters"></a>USA sistema operativo temporaneo nei cluster esistenti
 Configurare un nuovo pool di nodi per l'uso di dischi del sistema operativo temporanei. Usare il `--node-osdisk-type` flag per impostare come tipo di disco del sistema operativo come tipo di disco del sistema operativo per il pool di nodi.
 
 ```azurecli
@@ -297,7 +278,7 @@ az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-grou
 > [!IMPORTANT]
 > Con il sistema operativo temporaneo è possibile distribuire le immagini di macchine virtuali e istanze fino alla dimensione della cache VM. Nel caso di AKS, la configurazione del disco del sistema operativo del nodo predefinito usa 100GiB, il che significa che è necessario disporre di una dimensione della macchina virtuale con una cache maggiore di 100 GiB. Il Standard_DS2_v2 predefinito ha una dimensione della cache di 86 GiB, che non è sufficientemente grande. Il Standard_DS3_v2 ha una dimensione della cache di 172 GiB, che è sufficientemente grande. È anche possibile ridurre le dimensioni predefinite del disco del sistema operativo usando `--node-osdisk-size` . La dimensione minima per le immagini AKS è 30GiB. 
 
-Se si desidera creare pool di nodi con dischi del sistema operativo collegati alla rete, è possibile omettere il tag personalizzato `--node-osdisk-type` .
+Se si desidera creare pool di nodi con dischi del sistema operativo collegati alla rete, è possibile specificare `--node-osdisk-type Managed` .
 
 ## <a name="custom-resource-group-name"></a>Nome del gruppo di risorse personalizzato
 

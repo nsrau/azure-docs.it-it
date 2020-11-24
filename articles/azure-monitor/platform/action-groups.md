@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a5d685e49d941d7b6febbc220cdbfbcb631c4496
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 17e01844463b6d18bd7d2c3b56ee86d938682b8e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94746364"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536320"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente. In una sottoscrizione è possibile configurare fino a 2000 gruppi di azioni.
@@ -149,6 +149,10 @@ Un Gruppo di azioni può contenere un numero limitato di azioni di gestione dei 
 Un Gruppo di azioni può contenere un numero limitato di azioni dell'app per la logica.
 
 ### <a name="secure-webhook"></a>Webhook protetto
+
+> [!NOTE]
+> L'uso dell'azione webhook richiede che l'endpoint del webhook di destinazione non richieda i dettagli dell'avviso per funzionare correttamente o che sia in grado di analizzare le informazioni sul contesto dell'avviso fornite come parte dell'operazione POST. Se l'endpoint del webhook non è in grado di gestire le informazioni sul contesto dell'avviso in modo autonomo, è possibile usare una soluzione come un' [azione dell'app](./action-groups-logic-app.md) per la logica per una manipolazione personalizzata delle informazioni sul contesto degli avvisi in modo che corrispondano al formato dati previsto del webhook.
+
 L'azione Webhook dei gruppi di azione consente di sfruttare Azure Active Directory per proteggere la connessione tra il gruppo di azioni e l'API Web protetta (endpoint webhook). Di seguito è descritto il flusso di lavoro generale per sfruttare questa funzionalità. Per una panoramica delle applicazioni Azure AD e delle entità servizio, vedere [Panoramica di Microsoft Identity Platform (v 2.0)](../../active-directory/develop/v2-overview.md).
 
 1. Creare un'applicazione Azure AD per l'API Web protetta. Vedere [API Web protetta: registrazione dell'app](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
@@ -259,6 +263,10 @@ Un Gruppo di azioni può contenere un numero limitato di azioni Voce.
 I prezzi per i paesi/regioni supportati sono elencati nella [pagina relativa ai prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>webhook
+
+> [!NOTE]
+> L'uso dell'azione webhook richiede che l'endpoint del webhook di destinazione non richieda i dettagli dell'avviso per funzionare correttamente o che sia in grado di analizzare le informazioni sul contesto dell'avviso fornite come parte dell'operazione POST. Se l'endpoint del webhook non è in grado di gestire le informazioni sul contesto dell'avviso in modo autonomo, è possibile usare una soluzione come un' [azione dell'app](./action-groups-logic-app.md) per la logica per una manipolazione personalizzata delle informazioni sul contesto degli avvisi in modo che corrispondano al formato dati previsto del webhook.
+
 I webhook vengono elaborati usando le regole seguenti
 - Una chiamata al webhook viene tentata un massimo di 3 volte.
 - La chiamata verrà ritentata se non viene ricevuta una risposta entro il periodo di timeout o viene restituito uno dei codici di stato HTTP seguenti: 408, 429, 503 o 504.

@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: bab74a1db04bb557aa6604fe76c05ba3d087f8c0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d231de8e262194cd7dda2462a3f54d7d531eb63c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540791"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542083"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitoraggio del riferimento ai dati di Azure Machine Learning
 
@@ -24,9 +24,9 @@ Informazioni sui dati e sulle risorse raccolti da monitoraggio di Azure dall'are
 
 Questa sezione elenca tutte le metriche della piattaforma raccolte automaticamente raccolte per Azure Machine Learning. Il provider di risorse per queste metriche è [Microsoft. MachineLearningServices/Workspaces](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces).
 
-**Modellare**
+**Modello**
 
-| Metrica | Unità | Descrizione |
+| Metric | Unità | Descrizione |
 | ----- | ----- | ----- |
 | Distribuzione del modello non riuscita | Conteggio | Numero di distribuzioni di modelli non riuscite. |
 | Distribuzione modello avviata | Conteggio | Numero di distribuzioni di modelli avviate. |
@@ -38,7 +38,7 @@ Questa sezione elenca tutte le metriche della piattaforma raccolte automaticamen
 
 Le informazioni sulle quote sono destinate solo ai Azure Machine Learning di calcolo.
 
-| Metrica | Unità | Descrizione |
+| Metric | Unità | Descrizione |
 | ----- | ----- | ----- |
 | Core attivi | Conteggio | Numero di core di calcolo attivi. |
 | Nodi attivi | Conteggio | Numero di nodi attivi. |
@@ -56,7 +56,7 @@ Le informazioni sulle quote sono destinate solo ai Azure Machine Learning di cal
 
 **Risorsa**
 
-| Metrica | Unità | Descrizione |
+| Metric | Unità | Descrizione |
 | ----- | ----- | ----- |
 | CpuUtilization | Percentuale | Percentuale di utilizzo della CPU per un determinato nodo durante un'esecuzione o un processo. Questa metrica viene pubblicata solo quando un processo è in esecuzione in un nodo. Un processo può usare uno o più nodi. Questa metrica è pubblicata per ogni nodo. |
 | GpuUtilization | Percentuale | Percentuale di utilizzo della GPU per un determinato nodo durante un'esecuzione o un processo. Un nodo può avere una o più GPU. Questa metrica è pubblicata per ogni GPU per ogni nodo. |
@@ -65,7 +65,7 @@ Le informazioni sulle quote sono destinate solo ai Azure Machine Learning di cal
 
 Informazioni sulle esecuzioni di training.
 
-| Metrica | Unità | Descrizione |
+| Metric | Unità | Descrizione |
 | ----- | ----- | ----- |
 | Esecuzioni completate | Conteggio | Numero di esecuzioni completate. |
 | Esecuzioni non riuscite | Conteggio | Numero di esecuzioni non riuscite. |
@@ -77,9 +77,9 @@ Per altre informazioni sulle dimensioni della metrica, vedere [metriche multidim
 
 Azure Machine Learning presenta le dimensioni seguenti associate alle metriche.
 
-| Dimensione | Descrizione |
+| Dimension | Descrizione |
 | ---- | ---- |
-| Cluster Name | Nome dell'istanza di calcolo. Disponibile per tutte le metriche delle quote. |
+| Cluster Name | Nome della risorsa cluster di calcolo. Disponibile per tutte le metriche delle quote. |
 | Nome della famiglia di macchine virtuali | Nome della famiglia di macchine virtuali usata dal cluster. Disponibile per la percentuale di utilizzo della quota. |
 | Priorità VM | Priorità della macchina virtuale. Disponibile per la percentuale di utilizzo della quota.
 | CreatedTime | Disponibile solo per CpuUtilization e GpuUtilization. |
@@ -93,7 +93,7 @@ Azure Machine Learning presenta le dimensioni seguenti associate alle metriche.
 
 I valori validi per la dimensione RunType sono i seguenti:
 
-| valore | Descrizione |
+| Valore | Descrizione |
 | ----- | ----- |
 | Esperimento | Esecuzioni non pipeline. |
 | PipelineRun | Esecuzione di una pipeline, che è l'elemento padre di un StepRun. |
@@ -178,7 +178,7 @@ Gli schemi seguenti sono utilizzati da Azure Machine Learning
 | MinimumNodeCount | Numero minimo di nodi del cluster |
 | MaximumNodeCount | Numero massimo di nodi del cluster |
 | NodeDeallocationOption | Come deallocare il nodo |
-| Publisher | Server di pubblicazione del tipo di cluster |
+| Editore | Server di pubblicazione del tipo di cluster |
 | Offerta | Offerta con cui viene creato il cluster |
 | Sku | SKU del nodo/VM creato nel cluster |
 | Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |
@@ -214,7 +214,7 @@ Gli schemi seguenti sono utilizzati da Azure Machine Learning
 | VmSize | Dimensioni della macchina virtuale del nodo |
 | VmFamilyName | Famiglia di macchine virtuali a cui appartiene il nodo |
 | VmPriority | Priorità del nodo creato/LowPriority dedicato |
-| Publisher | Autore dell'immagine della macchina virtuale. Ad esempio, Microsoft-dsvm |
+| Editore | Autore dell'immagine della macchina virtuale. Ad esempio, Microsoft-dsvm |
 | Offerta | Offerta associata alla creazione della macchina virtuale |
 | Sku | SKU del nodo o della macchina virtuale creata |
 | Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: ca22def6bc152d03c3992ed7e94ac2b5ccf179e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27e7c899f0d22789c10541fc98a0d2c63a7843ec
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604479"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95533056"
 ---
 # <a name="modify-target-settings"></a>Modificare le impostazioni di destinazione
 
@@ -41,11 +41,11 @@ Le impostazioni di configurazione che è possibile modificare sono riepilogate n
 **SKU di VM** | Il [tipo di macchina virtuale](https://azure.microsoft.com/pricing/details/virtual-machines/series/) , disponibile nell'area di destinazione, che verrà usato per la macchina virtuale di destinazione.<br/><br/> La macchina virtuale di destinazione selezionata non deve essere inferiore alla VM di origine.
 **Risorse di rete** | Opzioni per le reti virtuali (reti virtuali)/Network gruppi di sicurezza/interfacce di rete:<br/><br/> -Creare una nuova risorsa con lo stesso nome nell'area di destinazione.<br/><br/> -Creare una nuova risorsa con un nome diverso nell'area di destinazione.<br/><br/> -Usare una risorsa di rete esistente nell'area di destinazione.<br/><br/> Se si crea una nuova risorsa di destinazione, ad eccezione delle impostazioni modificate, vengono assegnate le stesse impostazioni della risorsa di origine.
 **Nome indirizzo IP pubblico** | Specificare il nome.
-**SKU indirizzo IP pubblico** | Specificare lo [SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku).
-**Area indirizzi IP pubblici** | Specificare la [zona](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) per gli indirizzi IP pubblici standard.<br/><br/> Se si vuole che la zona sia ridondante, immettere come **ridondanza**della zona.
+**SKU indirizzo IP pubblico** | Specificare lo [SKU](../virtual-network/public-ip-addresses.md#sku).
+**Area indirizzi IP pubblici** | Specificare la [zona](../virtual-network/public-ip-addresses.md#standard) per gli indirizzi IP pubblici standard.<br/><br/> Se si vuole che la zona sia ridondante, immettere come **ridondanza** della zona.
 **Nome del servizio di bilanciamento del carico** | Specificare il nome.
 **SKU del servizio di bilanciamento del carico** | Basic o Standard. Si consiglia di usare standard.
-**Area del servizio di bilanciamento del carico** | Specificare una zona per il servizio di bilanciamento del carico. <br/><br/> Se si vuole che la zona sia ridondante, immettere come **ridondanza**della zona.
+**Area del servizio di bilanciamento del carico** | Specificare una zona per il servizio di bilanciamento del carico. <br/><br/> Se si vuole che la zona sia ridondante, immettere come **ridondanza** della zona.
 **Dipendenze delle risorse** | Opzioni per ogni dipendenza:<br/><br/>-La risorsa usa risorse dipendenti dall'origine che si sposteranno nell'area di destinazione.<br/><br/> -La risorsa usa risorse dipendenti diverse che si trovano nell'area di destinazione. In questo caso, è possibile scegliere tra le risorse simili nell'area di destinazione.
 
 ### <a name="edit-vm-target-settings"></a>Modificare le impostazioni di destinazione della macchina virtuale
@@ -62,7 +62,7 @@ Si modificano le impostazioni di destinazione per una risorsa usando la voce di 
 Per modificare un'impostazione: 
 
 1. Nella pagina **tra aree** > colonna **configurazione di destinazione** fare clic sul collegamento per la voce risorsa.
-2. In **impostazioni di configurazione**è possibile creare una nuova macchina virtuale nell'area di destinazione.
+2. In **impostazioni di configurazione** è possibile creare una nuova macchina virtuale nell'area di destinazione.
 3. Assegnare una nuova zona di disponibilità, un set di disponibilità o uno SKU alla macchina virtuale di destinazione. **Zona di disponibilità** e **SKU**.
 
 Le modifiche vengono apportate solo per la risorsa che si sta modificando. È necessario aggiornare le risorse dipendenti separatamente.
@@ -91,7 +91,7 @@ Quando si spostano le risorse del database SQL di Azure, è possibile modificare
 Modificare le impostazioni di destinazione per una risorsa del database SQL di Azure come indicato di seguito: 
 
 1. In **tra le aree**, per la risorsa che si vuole modificare, fare clic sulla voce di **configurazione di destinazione** .
-2. In **impostazioni di configurazione**specificare le impostazioni di destinazione riepilogate nella tabella precedente.
+2. In **impostazioni di configurazione** specificare le impostazioni di destinazione riepilogate nella tabella precedente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

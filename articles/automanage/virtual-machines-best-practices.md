@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 2b8009d6d571a9daf7163d2126b6d52edfc4bfdd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 001721ac0fdbbaaf808b962a79353369ab1dddb5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521085"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95521955"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices"></a>Procedure consigliate per la gestione delle macchine virtuali di Azure
 
@@ -33,6 +33,7 @@ Per tutti questi servizi, verrà eseguito automaticamente il caricamento, la con
 |Antimalware Microsoft    |Microsoft Antimalware per Azure è una funzionalità di protezione in tempo reale gratuita che aiuta a identificare e rimuovere virus, spyware e altro software dannoso e genera avvisi quando un software dannoso o indesiderato tenta l'installazione o l'esecuzione nei sistemi di Azure. [Altre](../security/fundamentals/antimalware.md)informazioni. |Procedure consigliate per le VM di Azure-produzione, procedure consigliate per le VM di Azure-sviluppo/test    |Sì    |
 |Gestione degli aggiornamenti    |È possibile usare Gestione aggiornamenti in automazione di Azure per gestire gli aggiornamenti del sistema operativo per le macchine virtuali. È possibile valutare rapidamente lo stato degli aggiornamenti disponibili in tutti i computer agente e gestire il processo di installazione degli aggiornamenti necessari per i server. [Altre](../automation/update-management/update-mgmt-overview.md)informazioni.    |Procedure consigliate per le VM di Azure-produzione, procedure consigliate per le VM di Azure-sviluppo/test    |No    |
 |Inventario Rilevamento modifiche &    |Rilevamento modifiche e inventario combina le funzioni di rilevamento delle modifiche e di inventario per consentire di tenere traccia delle modifiche apportate all'infrastruttura di macchine virtuali e server. Il servizio supporta il rilevamento delle modifiche tra i servizi, il software DAEMONS, il registro di sistema e i file nell'ambiente per facilitare la diagnosi delle modifiche indesiderate e la generazione di avvisi. Il supporto dell'inventario consente di eseguire query sulle risorse nel guest per ottenere la visibilità delle applicazioni installate e di altri elementi di configurazione.  [Altre](../automation/change-tracking/overview.md)informazioni.    |Procedure consigliate per le VM di Azure-produzione, procedure consigliate per le VM di Azure-sviluppo/test    |No    |
+|Configurazione Guest di Azure    | I criteri di configurazione Guest vengono usati per monitorare la configurazione e creare report sulla conformità del computer. Il servizio di gestione automatica installerà le [linee di base di sicurezza di Windows](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines) usando l'estensione di configurazione Guest. [Altre](../governance/policy/concepts/guest-configuration.md)informazioni.    |Procedure consigliate per le VM di Azure-produzione, procedure consigliate per le VM di Azure-sviluppo/test    |No    |
 |Account di automazione di Azure    |Automazione di Azure supporta la gestione per tutto il ciclo di vita dell'infrastruttura e delle applicazioni. [Altre](../automation/automation-intro.md)informazioni.    |Procedure consigliate per le VM di Azure-produzione, procedure consigliate per le VM di Azure-sviluppo/test    |No    |
 |Area di lavoro Log Analytics    |Monitoraggio di Azure archivia i dati di log in un'area di lavoro Log Analytics, ovvero una risorsa di Azure e un contenitore in cui i dati vengono raccolti, aggregati e utilizzati come limite amministrativo. [Altre](../azure-monitor/platform/design-logs-deployment.md)informazioni.    |Procedure consigliate per le VM di Azure-produzione, procedure consigliate per le VM di Azure-sviluppo/test    |No    |
 

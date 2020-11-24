@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: 3174dbd36d9bb39ce606ec12f88397f795e91526
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4f84c3c2f6fc671a8cb6ac70313361540e3dd815
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832433"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95523281"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gestire e trovare i dati BLOB di Azure con i tag degli indici BLOB (anteprima)
 
@@ -51,7 +51,7 @@ Questi BLOB sono separati usando un prefisso di *contenitore/cartella virtuale/n
 I tag dell'indice BLOB sono attributi chiave-valore che possono essere applicati a oggetti nuovi o esistenti all'interno dell'account di archiviazione. È possibile specificare i tag di indice durante il processo di caricamento usando le operazioni [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list)o [Copy Blob](/rest/api/storageservices/copy-blob) e l'intestazione facoltativa `x-ms-tags` . Se si dispone già di BLOB nell'account di archiviazione, chiamare [set BLOB Tags](/rest/api/storageservices/set-blob-tags) passando un documento XML formattato con i tag di indice nel corpo della richiesta.
 
 > [!IMPORTANT]
-> L'impostazione dei tag degli indici BLOB può essere eseguita dal [proprietario dei dati del BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) e da chiunque disponga di una firma di accesso condiviso con l'autorizzazione per accedere ai tag del BLOB ( `t` autorizzazione SAS).
+> L'impostazione dei tag degli indici BLOB può essere eseguita dal [proprietario dei dati del BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) e da chiunque disponga di una firma di accesso condiviso con l'autorizzazione per accedere ai tag del BLOB ( `t` autorizzazione SAS).
 >
 > Inoltre, gli utenti RBAC con l' `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` autorizzazione possono eseguire questa operazione.
 
@@ -87,7 +87,7 @@ Ai tag di indice BLOB si applicano i limiti seguenti:
 I tag degli indici BLOB vengono archiviati come sottorisorse insieme ai dati BLOB e possono essere recuperati in modo indipendente dal contenuto dei dati BLOB sottostante. I tag di indice BLOB per un singolo BLOB possono essere recuperati con l'operazione [Get BLOB Tags](/rest/api/storageservices/get-blob-tags) . L'operazione [List Blobs](/rest/api/storageservices/list-blobs) con il `include:tags` parametro restituirà anche tutti i BLOB all'interno di un contenitore insieme ai relativi tag di indice BLOB.
 
 > [!IMPORTANT]
-> Il recupero e l'elenco dei tag degli indici BLOB possono essere eseguiti dal [proprietario dei dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) e da chiunque disponga di una firma di accesso condiviso con l'autorizzazione per accedere ai tag del BLOB ( `t` autorizzazione SAS).
+> Il recupero e l'elenco dei tag degli indici BLOB possono essere eseguiti dal [proprietario dei dati BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) e da chiunque disponga di una firma di accesso condiviso con l'autorizzazione per accedere ai tag del BLOB ( `t` autorizzazione SAS).
 >
 > Inoltre, gli utenti RBAC con l' `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` autorizzazione possono eseguire questa operazione.
 
@@ -100,7 +100,7 @@ Il motore di indicizzazione espone gli attributi chiave-valore in un indice mult
 L'operazione [trova BLOB per tag](/rest/api/storageservices/find-blobs-by-tags) consente di ottenere un set filtrato di BLOB i cui tag di indice corrispondono a un'espressione di query specificata. `Find Blobs by Tags` supporta l'applicazione di filtri a tutti i contenitori all'interno dell'account di archiviazione oppure è possibile definire l'ambito del filtro solo per un singolo contenitore. Poiché tutte le chiavi e i valori dei tag di indice sono stringhe, gli operatori relazionali utilizzano un ordinamento lessicografico.
 
 > [!IMPORTANT]
-> La ricerca di dati tramite tag di indice BLOB può essere eseguita dal [proprietario dei dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) e da chiunque disponga di una firma di accesso condiviso con l'autorizzazione per individuare i BLOB in base ai tag ( `f` autorizzazione SAS).
+> La ricerca di dati tramite tag di indice BLOB può essere eseguita dal [proprietario dei dati BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) e da chiunque disponga di una firma di accesso condiviso con l'autorizzazione per individuare i BLOB in base ai tag ( `f` autorizzazione SAS).
 >
 > Inoltre, gli utenti RBAC con l' `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` autorizzazione possono eseguire questa operazione.
 
@@ -235,7 +235,7 @@ Ai chiamanti che usano un' [identità Azure ad](../common/storage-auth-aad.md) p
 | [Ottieni Tag BLOB](/rest/api/storageservices/get-blob-tags)           | Microsoft. storage/storageAccounts/blobServices/Containers/BLOB/Tag/lettura     |
 | [Trovare i BLOB in base ai tag](/rest/api/storageservices/find-blobs-by-tags) | Microsoft. storage/storageAccounts/blobServices/Containers/BLOB/filtro/azione |
 
-Per le operazioni sui tag di indice sono necessarie autorizzazioni aggiuntive, separate dai dati BLOB sottostanti. Al ruolo [proprietario dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) vengono concesse le autorizzazioni per tutte e tre le operazioni sui tag di indice BLOB. Al [lettore di dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) vengono concesse solo `Find Blobs by Tags` le autorizzazioni per `Get Blob Tags` le operazioni e.
+Per le operazioni sui tag di indice sono necessarie autorizzazioni aggiuntive, separate dai dati BLOB sottostanti. Al ruolo [proprietario dati BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) vengono concesse le autorizzazioni per tutte e tre le operazioni sui tag di indice BLOB. Al [lettore di dati BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) vengono concesse solo `Find Blobs by Tags` le autorizzazioni per `Get Blob Tags` le operazioni e.
 
 ### <a name="sas-permissions"></a>Autorizzazioni SAS
 

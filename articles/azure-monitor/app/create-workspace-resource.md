@@ -3,18 +3,18 @@ title: Creare una nuova risorsa di Application Insights basata sull'area di lavo
 description: Informazioni sui passaggi necessari per abilitare le nuove risorse di Application Insights basate sull'area di lavoro in Monitoraggio di Azure.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 9b91e5065729bee6af3f8018c36930e132eb1a15
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ecbac02bcb4d9b4f0db36eab854a91366c774d6c
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945414"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536915"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Risorse di Application Insights basate sull’area di lavoro
 
 Le risorse basate sull'area di lavoro supportano l'integrazione completa tra Application Insights e Log Analytics. È ora possibile scegliere di inviare i dati di telemetria di Application Insights a un'area di lavoro Log Analytics comune, che consente l'accesso completo a tutte le funzionalità di Log Analytics mantenendo al tempo stesso i log dell'applicazione, dell'infrastruttura e della piattaforma in un'unica posizione consolidata.
 
-Ciò consente anche un controllo degli accessi in base al ruolo comune tra le risorse ed elimina la necessità di eseguire query tra app e aree di lavoro.
+Questo consente anche il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) tra le risorse ed elimina la necessità di eseguire query tra app e aree di lavoro.
 
 > [!NOTE]
 > L'inserimento e la conservazione di dati per le risorse di Application Insights basate sull'area di lavoro vengono fatturate tramite l'area di lavoro Log Analytics in cui si trovano i dati. [Altre informazioni]( ./pricing.md#workspace-based-application-insights) sulla fatturazione per le risorse di Application Insights basate sull'area di lavoro.
@@ -207,7 +207,7 @@ La funzionalità di esportazione continua legacy non è supportata per risorse b
 
 > [!NOTE]
 > Non sono attualmente previsti addebiti aggiuntivi per l'esportazione dei dati di telemetria. Le informazioni sui prezzi per questa funzionalità saranno disponibili nella [pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).  Prima dell'inizio della fatturazione, verranno inviate le notifiche. Se si sceglie di continuare a usare <feature name> dopo il periodo di preavviso, l'addebito verrà addebitato alla tariffa applicabile. 
- 
+ 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

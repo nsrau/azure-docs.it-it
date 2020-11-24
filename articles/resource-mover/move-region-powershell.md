@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 3236e0a95c6a4b4f57ac38ed067011c3d6848b5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 176f12a0a06a5bcae601463e30189bc139d3531f
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89670543"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543851"
 ---
 # <a name="move-resources-across-regions-in-powershell"></a>Spostare le risorse tra le aree in PowerShell
 
@@ -25,7 +25,7 @@ Informazioni su come spostare le risorse di Azure in un'area diversa usando Powe
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-- La sottoscrizione di Azure deve avere accesso a Resource Mover ed è necessario disporre delle autorizzazioni di [amministratore di accesso utente](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) o [proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) per la sottoscrizione.
+- La sottoscrizione di Azure deve avere accesso a Resource Mover ed è necessario disporre delle autorizzazioni di [amministratore di accesso utente](../role-based-access-control/built-in-roles.md#user-access-administrator) o [proprietario](../role-based-access-control/built-in-roles.md#owner) per la sottoscrizione.
 - Il motore di risorse non tiene traccia delle modifiche e degli aggiornamenti, quindi apportare le modifiche necessarie alle risorse prima di iniziare a spostarli.
 - Quando si spostano le risorse con PowerShell, non è attualmente possibile modificare le impostazioni dell'area di destinazione. Modificare queste impostazioni direttamente nel portale.
 - Quando si aggiungono risorse a una raccolta di spostamento, in preparazione per spostarle in un'altra area, i metadati relativi allo spostamento vengono archiviati in un gruppo di risorse creato per lo scopo. Attualmente questo gruppo di risorse può trovarsi nelle aree Stati Uniti orientali 2 o Europa settentrionale. Le risorse di Azure possono essere spostate tra le aree pubbliche usando i metadati presenti in una di queste aree.
@@ -269,7 +269,7 @@ Nell'area di origine preparare le risorse prima di spostarle. Il processo di pre
 
 Prima di poter preparare le risorse di origine, è necessario preparare e spostare il gruppo di risorse di origine.
 
-### <a name="prepare"></a>Preparazione
+### <a name="prepare"></a>Preparare
 
 ```azurepowershell-interactive
 # Prepare the source resource group

@@ -12,12 +12,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: 19372b30a5e56738230216777897c08b07a0a86a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49203195bf7746d0bff1b9543d1641f69ab23359
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86170701"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95542678"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Come usare Twilio per le funzionalità voce ed SMS in Ruby
 In questa guida viene illustrato come eseguire attività di programmazione comuni con il servizio API Twilio in Azure. Gli scenari presentati includono la composizione di una chiamata telefonica e l'invio di un messaggio SMS (Short Message Service). Per ulteriori informazioni su Twilio e sull'utilizzo di Voice and SMS nelle applicazioni, vedere la sezione [passaggi successivi](#NextSteps) .
@@ -48,20 +48,20 @@ Ad esempio, il codice TwiML seguente effettua la sintesi vocale del testo **Hell
 Tutti i documenti TwiML dispongono di un elemento radice `<Response>`, da cui è possibile utilizzare i verbi Twilio per definire il comportamento dell'applicazione.
 
 ### <a name="twiml-verbs"></a><a id="Verbs"></a>Verbi TwiML
-I verbi Twilio sono tag XML che indicano a Twilio le **azioni da eseguire**. Il verbo ** &lt; Say &gt; ** , ad esempio, indica a Twilio di recapitare in modo udibile un messaggio in una chiamata. 
+I verbi Twilio sono tag XML che indicano a Twilio le **azioni da eseguire**. Il verbo **&lt; Say &gt;** , ad esempio, indica a Twilio di recapitare in modo udibile un messaggio in una chiamata. 
 
 Di seguito è riportato un elenco dei verbi Twilio.
 
-* ** &lt; Dial &gt; **: connette il chiamante a un altro telefono.
-* ** &lt; Raccolta &gt; **: raccoglie le cifre numeriche immesse sul tastierino telefonico.
-* ** &lt; Hangup &gt; **: termina una chiamata.
-* ** &lt; Play &gt; **: riproduce un file audio.
-* ** &lt; Pause &gt; **: attende in modo invisibile all'utente un numero di secondi specificato.
-* ** &lt; Record &gt; **: registra la voce del chiamante e restituisce un URL di un file che contiene la registrazione.
-* ** &lt; Reindirizzamento &gt; **: trasferisce il controllo di una chiamata o di un SMS a TwiML in un URL diverso.
-* ** &lt; Rifiuta &gt; **: rifiuta una chiamata in ingresso al numero Twilio senza fatturazione
-* ** &lt; Say &gt; **: converte il testo in sintesi vocale eseguita in una chiamata.
-* ** &lt; SMS &gt; **: Invia un messaggio SMS.
+* **&lt; Dial &gt;**: connette il chiamante a un altro telefono.
+* **&lt; Raccolta &gt;**: raccoglie le cifre numeriche immesse sul tastierino telefonico.
+* **&lt; Hangup &gt;**: termina una chiamata.
+* **&lt; Play &gt;**: riproduce un file audio.
+* **&lt; Pause &gt;**: attende in modo invisibile all'utente un numero di secondi specificato.
+* **&lt; Record &gt;**: registra la voce del chiamante e restituisce un URL di un file che contiene la registrazione.
+* **&lt; Reindirizzamento &gt;**: trasferisce il controllo di una chiamata o di un SMS a TwiML in un URL diverso.
+* **&lt; Rifiuta &gt;**: rifiuta una chiamata in ingresso al numero Twilio senza fatturazione
+* **&lt; Say &gt;**: converte il testo in sintesi vocale eseguita in una chiamata.
+* **&lt; SMS &gt;**: Invia un messaggio SMS.
 
 Per altre informazioni sui verbi Twilio, i relativi attributi e il codice TwiML, vedere [TwiML][twiml]. Per altre informazioni sull'API Twilio, vedere [Twilio API][twilio_api] (API Twilio).
 
@@ -206,4 +206,4 @@ Dopo aver appreso le nozioni di base sul servizio Twilio, utilizzare i collegame
 [twilio_support]: https://www.twilio.com/help/contact
 [twilio_quickstarts]: https://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
-[azure_vm_setup]: https://docs.microsoft.com/azure/virtual-machines/linux/classic/ruby-rails-web-app
+[azure_vm_setup]: /previous-versions/azure/virtual-machines/linux/classic/ruby-rails-web-app

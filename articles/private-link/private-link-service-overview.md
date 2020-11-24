@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27dba675f82c4d34ec793cf492c18b293a6c8c77
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87760949"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544259"
 ---
 # <a name="what-is-azure-private-link-service"></a>Che cos'è il servizio di collegamento privato di Azure?
 
-Il servizio Collegamento privato di Azure è il riferimento a un servizio personalizzato basato su Collegamento privato di Azure. Il servizio in esecuzione dietro [Azure Load Balancer standard](../load-balancer/load-balancer-standard-overview.md) può essere abilitato per l'accesso ai collegamenti privati, in modo che i consumer del servizio possano accedervi privatamente dalla propria reti virtuali. I clienti possono creare un endpoint privato all'interno della VNet ed eseguirne il mapping a questo servizio. Questo articolo illustra i concetti correlati al lato del provider di servizi. 
+Il servizio Collegamento privato di Azure è il riferimento a un servizio personalizzato basato su Collegamento privato di Azure. Il servizio in esecuzione dietro [Azure Load Balancer standard](../load-balancer/load-balancer-overview.md) può essere abilitato per l'accesso ai collegamenti privati, in modo che i consumer del servizio possano accedervi privatamente dalla propria reti virtuali. I clienti possono creare un endpoint privato all'interno della VNet ed eseguirne il mapping a questo servizio. Questo articolo illustra i concetti correlati al lato del provider di servizi. 
 
 :::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="Flusso di lavoro del servizio di collegamento privato" border="true":::
 
@@ -57,7 +57,7 @@ Un servizio di collegamento privato specifica le proprietà seguenti:
 |---------|---------|
 |Stato provisioning (provisioningState)  |Proprietà di sola lettura che elenca lo stato di provisioning corrente per il servizio di collegamento privato. Gli Stati di provisioning applicabili sono: "eliminazione; Fallito Completata Aggiornamento di ". Quando lo stato di provisioning è "succeeded", è stato effettuato il provisioning del servizio di collegamento privato.        |
 |Alias (alias)     | Alias è una stringa di sola lettura univoca globale per il servizio. Consente di mascherare i dati del cliente per il servizio e allo stesso tempo di creare un nome di facile condivisione per il servizio. Quando si crea un servizio di collegamento privato, Azure genera l'alias per il servizio che è possibile condividere con i clienti. I clienti possono usare questo alias per richiedere una connessione al servizio.          |
-|Visibilità (visibilità)     | Visibility è la proprietà che controlla le impostazioni di esposizione per il servizio di collegamento privato. I provider di servizi possono scegliere di limitare l'esposizione al servizio alle sottoscrizioni con autorizzazioni di controllo degli accessi in base al ruolo (RBAC), un set limitato di sottoscrizioni o tutte le sottoscrizioni di Azure.          |
+|Visibilità (visibilità)     | Visibility è la proprietà che controlla le impostazioni di esposizione per il servizio di collegamento privato. I provider di servizi possono scegliere di limitare l'esposizione al servizio agli abbonamenti con le autorizzazioni di controllo degli accessi in base al ruolo di Azure (RBAC di Azure), un set limitato di sottoscrizioni o tutte le sottoscrizioni di Azure.          |
 |Approvazione automatica (autoapprovazione)    |   L'approvazione automatica controlla l'accesso automatico al servizio di collegamento privato. Le sottoscrizioni specificate nell'elenco di approvazione automatica vengono approvate automaticamente quando viene richiesta una connessione da endpoint privati in tali sottoscrizioni.          |
 |Configurazione IP Front-End Load Balancer (loadBalancerFrontendIpConfigurations)    |    Il servizio di collegamento privato è associato all'indirizzo IP front-end di un Load Balancer Standard. Tutto il traffico destinato al servizio raggiungerà il front-end del SLB. È possibile configurare le regole di SLB per indirizzare il traffico ai pool back-end appropriati in cui le applicazioni sono in esecuzione. Le configurazioni IP front-end del servizio di bilanciamento del carico sono diverse dalle configurazioni IP NAT.      |
 |Configurazione IP NAT (ipConfigurations)    |    Questa proprietà fa riferimento alla configurazione IP NAT (Network Address Translation) per il servizio di collegamento privato. È possibile scegliere l'indirizzo IP NAT da qualsiasi subnet nella rete virtuale di un provider di servizi. Il servizio di collegamento privato esegue la NAT sul lato di destinazione sul traffico dei collegamenti privati. In questo modo si garantisce che non esistano conflitti IP tra l'origine (lato utente) e lo spazio degli indirizzi di destinazione (provider di servizi). Sul lato di destinazione (lato provider di servizi), l'indirizzo IP NAT viene visualizzato come IP di origine per tutti i pacchetti ricevuti dal servizio e dall'IP di destinazione per tutti i pacchetti inviati dal servizio.       |
@@ -76,7 +76,7 @@ Un servizio di collegamento privato specifica le proprietà seguenti:
  
 - È possibile accedere a un singolo servizio di collegamento privato da più endpoint privati appartenenti a reti virtuali, sottoscrizioni e/o Active Directory tenant diversi. La connessione viene stabilita tramite un flusso di lavoro di connessione. 
  
-- È possibile creare più servizi di collegamento privato nella stessa Load Balancer Standard usando diverse configurazioni IP front-end. Sono previsti limiti al numero di servizi di collegamento privato che è possibile creare per ogni Load Balancer Standard e per sottoscrizione. Per informazioni dettagliate, vedere  [Limiti di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- È possibile creare più servizi di collegamento privato nella stessa Load Balancer Standard usando diverse configurazioni IP front-end. Sono previsti limiti al numero di servizi di collegamento privato che è possibile creare per ogni Load Balancer Standard e per sottoscrizione. Per informazioni dettagliate, vedere  [Limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
  
 - Il servizio di collegamento privato può avere più di una configurazione IP NAT collegata. La scelta di più configurazioni IP NAT può aiutare i provider di servizi a eseguire la scalabilità. Attualmente, i provider di servizi possono assegnare fino a otto indirizzi IP NAT per ogni servizio di collegamento privato. Con ogni indirizzo IP NAT è possibile assegnare più porte per le connessioni TCP e quindi aumentare il numero di porte. Dopo aver aggiunto più indirizzi IP NAT a un servizio di collegamento privato, non è possibile eliminare gli indirizzi IP NAT. Questa operazione viene eseguita per garantire che le connessioni attive non siano interessate durante l'eliminazione degli indirizzi IP NAT.
 
@@ -95,7 +95,7 @@ Alias completo:  *prefisso*. {GUID}. *Region*. Azure. privatelinkservice
 
 ## <a name="control-service-exposure"></a>Controllare l'esposizione del servizio
 
-Il servizio di collegamento privato offre le opzioni per controllare l'esposizione del servizio tramite l'impostazione "visibilità". È possibile rendere privato il servizio per l'utilizzo da reti virtuali diversi di cui si è proprietari (solo autorizzazioni RBAC), limitare l'esposizione a un set limitato di sottoscrizioni attendibili o renderlo pubblico in modo che tutte le sottoscrizioni di Azure possano richiedere connessioni al servizio di collegamento privato. Le impostazioni di visibilità decidono se un consumer può connettersi al servizio o meno. 
+Il servizio di collegamento privato offre le opzioni per controllare l'esposizione del servizio tramite l'impostazione "visibilità". È possibile rendere il servizio privato per l'uso da reti virtuali diversi di cui si è proprietari (solo autorizzazioni di Azure RBAC), limitare l'esposizione a un set limitato di sottoscrizioni attendibili o renderlo pubblico in modo che tutte le sottoscrizioni di Azure possano richiedere connessioni al servizio di collegamento privato. Le impostazioni di visibilità decidono se un consumer può connettersi al servizio o meno. 
 
 ## <a name="control-service-access"></a>Controllare l'accesso al servizio
 

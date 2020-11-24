@@ -3,12 +3,12 @@ title: 'Come progettare la distribuzione di Application Insights: una o più ris
 description: Telemetria diretta a risorse diverse per indicatori di sviluppo, test e produzione.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 264cbe35e7af50577b345d686b639e47760f428d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49e9b8920af7333e0d95e23e6e5cf0828d448609
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258713"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536354"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Quante risorse Application Insights è necessario distribuire
 
@@ -26,7 +26,7 @@ Ogni risorsa di Application Insights viene fornita con metriche disponibili. Se 
 
 -   Per i componenti dell'applicazione distribuiti insieme. In genere sviluppata da un singolo team, gestita dallo stesso gruppo di utenti DevOps/ITOps.
 -   Se è opportuno aggregare gli indicatori di prestazioni chiave (KPI), ad esempio le durate di risposta, le percentuali di errore nel dashboard e così via, per impostazione predefinita. È possibile scegliere di segmentare in base al nome del ruolo nell'esperienza Esplora metriche.
--   Se non è necessario gestire il controllo degli accessi in base al ruolo in modo diverso tra i componenti dell'applicazione.
+-   Se non è necessario gestire il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) in modo diverso tra i componenti dell'applicazione.
 -   Se non sono necessari criteri di avviso per le metriche diversi tra i componenti.
 -   Se non è necessario gestire le esportazioni continue in modo diverso tra i componenti.
 -   Se non è necessario gestire la fatturazione e le quote in modo diverso tra i componenti.

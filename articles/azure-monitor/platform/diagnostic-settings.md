@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 517de5c4003655c5fea2f2e7949fb513b1a3c381
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 950fcdc5cd6a5bbf3fa61ebd5e23be89691c4370
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842431"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95535793"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creare le impostazioni di diagnostica per inviare le metriche e i log della piattaforma a destinazioni diverse
 I [log della piattaforma](platform-logs-overview.md) in Azure, inclusi i log attività e i log delle risorse di Azure, forniscono informazioni dettagliate di diagnostica e controllo per le risorse di Azure e la piattaforma Azure da cui dipendono. Le [metriche della piattaforma](data-platform-metrics.md) vengono raccolte per impostazione predefinita e vengono in genere archiviate nel database di metriche di monitoraggio di Azure. Questo articolo fornisce informazioni dettagliate sulla creazione e la configurazione delle impostazioni di diagnostica per inviare le metriche della piattaforma e i log della piattaforma a destinazioni diverse.
@@ -52,7 +52,7 @@ Le metriche e i log della piattaforma possono essere inviati alle destinazioni n
 
 ### <a name="destination-requirements"></a>Requisiti di destinazione
 
-Prima di creare le impostazioni di diagnostica, è necessario creare tutte le destinazioni per l'impostazione di diagnostica. Non è necessario che la destinazione si trovi nella stessa sottoscrizione della risorsa che invia i log, purché l'utente che configura l'impostazione disponga dell'accesso RBAC appropriato a entrambe le sottoscrizioni. Nella tabella seguente vengono forniti i requisiti univoci per ogni destinazione, incluse eventuali restrizioni a livello di area.
+Prima di creare le impostazioni di diagnostica, è necessario creare tutte le destinazioni per l'impostazione di diagnostica. Non è necessario che la destinazione si trovi nella stessa sottoscrizione della risorsa che invia i log, purché l'utente che configura l'impostazione disponga dell'accesso RBAC di Azure appropriato a entrambe le sottoscrizioni. Nella tabella seguente vengono forniti i requisiti univoci per ogni destinazione, incluse eventuali restrizioni a livello di area.
 
 | Destination | Requisiti |
 |:---|:---|

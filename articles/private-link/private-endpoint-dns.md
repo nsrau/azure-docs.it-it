@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: bb1f4b5e37cecc33cef115f26c44ad6375c7e327
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: d682495cb7add446adf1634de6e9ed6756d1468e
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734379"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544378"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configurazione DNS dell'endpoint privato di Azure
 
@@ -125,7 +125,7 @@ Questo modello può essere esteso a più reti virtuali con peering associate all
 > [!IMPORTANT]
 > Se si usa un endpoint privato in un modello hub e spoke da una sottoscrizione diversa, riusare la stessa zona DNS privata nell'hub.
 
-In questo scenario è presente una topologia di rete [hub-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) con le reti spoke che condividono un endpoint privato comune e tutte le reti virtuali spoke sono collegate alla stessa zona DNS privata. 
+In questo scenario è presente una topologia di rete [hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) con le reti spoke che condividono un endpoint privato comune e tutte le reti virtuali spoke sono collegate alla stessa zona DNS privata. 
 
 :::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Hub-spoke con DNS fornito da Azure":::
 
@@ -141,7 +141,7 @@ Lo scenario seguente è adatto a una rete locale che dispone di un server di un 
 Per configurare correttamente, sono necessarie le risorse seguenti:
 
 - Rete locale
-- Rete virtuale [connessa a locale](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Rete virtuale [connessa a locale](/azure/architecture/reference-architectures/hybrid-networking/)
 - Server d'inoltro DNS distribuito in Azure 
 - DNS privato zone [privatelink.database.Windows.NET](../dns/private-dns-privatednszone.md) con [record di tipo a](../dns/dns-zones-records.md#record-types)
 - Informazioni sull'endpoint privato (nome del record FQDN e indirizzo IP privato)
@@ -158,7 +158,7 @@ Questa configurazione può essere estesa per una rete locale in cui è già pres
 Per configurare correttamente, sono necessarie le risorse seguenti:
 
 - Rete locale con una soluzione DNS personalizzata 
-- Rete virtuale [connessa a locale](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Rete virtuale [connessa a locale](/azure/architecture/reference-architectures/hybrid-networking/)
 - Server d'inoltro DNS distribuito in Azure
 - DNS privato zone [privatelink.database.Windows.NET](../dns/private-dns-privatednszone.md)  con [record di tipo a](../dns/dns-zones-records.md#record-types)
 - Informazioni sull'endpoint privato (nome del record FQDN e indirizzo IP privato)
@@ -187,7 +187,7 @@ Questo server d'inoltre DNS è responsabile della risoluzione di tutte le query 
 Per configurare correttamente, sono necessarie le risorse seguenti:
 
 - Rete locale
-- Rete virtuale [connessa a locale](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- Rete virtuale [connessa a locale](/azure/architecture/reference-architectures/hybrid-networking/)
 - [Rete virtuale con peering](../virtual-network/virtual-network-peering-overview.md) 
 - Server d'inoltro DNS distribuito in Azure
 - DNS privato zone [privatelink.database.Windows.NET](../dns/private-dns-privatednszone.md)  con [record di tipo a](../dns/dns-zones-records.md#record-types)

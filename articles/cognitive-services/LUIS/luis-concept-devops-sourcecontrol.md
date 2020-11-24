@@ -4,13 +4,13 @@ description: Come gestire l'app Language Understanding (LUIS) nel controllo del 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/28/2020
-ms.openlocfilehash: 9e322ac89d8ecad93c2002aa302c155f895911f4
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 11/18/2020
+ms.openlocfilehash: cf5c88df4e2ac6b95e99a3a78b1bf1e45bf534ed
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019195"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95535555"
 ---
 # <a name="devops-practices-for-luis"></a>Procedure della metodologia DevOps per LUIS
 
@@ -53,7 +53,7 @@ Per salvare un'app LUIS nel `.lu` formato e inserirla nel controllo del codice s
 - In alternativa, usare un editor di testo per creare un `.lu` file per un'app Luis e aggiungerlo al repository del controllo del codice sorgente
 
 > [!TIP]
-> Se si lavora con l'esportazione JSON di un'app LUIS, è possibile [convertirla in LUDown](https://github.com/microsoft/botframework-cli/tree/master/packages/luis#bf-luisconvert) usando l'interfaccia della riga di comando di [BOTBUILDER-Tools Luis](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS). Usare l' `--sort` opzione per assicurarsi che gli Intent e le espressioni siano ordinati alfabeticamente.  
+> Se si utilizza l'esportazione JSON di un'app LUIS, è possibile [convertirla in LUDown](https://github.com/microsoft/botframework-cli/tree/master/packages/luis#bf-luisconvert).  Usare l' `--sort` opzione per assicurarsi che gli Intent e le espressioni siano ordinati alfabeticamente.  
 > Si noti che **.** La funzionalità di esportazione Lu incorporata nel portale Luis Ordina già l'output.
 
 ### <a name="build-the-luis-app-from-source"></a>Compilare l'app LUIS dall'origine

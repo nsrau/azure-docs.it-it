@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 6ee6d88b5247209d5628c7f85f1985507d53811d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 2e5edb0ccf20ab0dba14864487f2b2ddef7d57e7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913722"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544208"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Domande frequenti sul collegamento privato di Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "92913722"
 ### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>Che cos'è l'endpoint privato di Azure e il servizio di collegamento privato di Azure?
 
 - **[Endpoint privato](private-endpoint-overview.md)** di Azure: l'endpoint privato di Azure è un'interfaccia di rete che si connette privatamente e in modo sicuro a un servizio basato su collegamento privato di Azure. È possibile usare endpoint privati per connettersi a un servizio Azure PaaS che supporta il collegamento privato o al servizio di collegamento privato.
-- **[Servizio di collegamento privato di Azure](private-link-service-overview.md)** : il servizio di collegamento privato di Azure è un servizio creato da un provider di servizi. Attualmente, un servizio di collegamento privato può essere collegato alla configurazione IP front-end di un Load Balancer Standard. 
+- **[Servizio di collegamento privato di Azure](private-link-service-overview.md)**: il servizio di collegamento privato di Azure è un servizio creato da un provider di servizi. Attualmente, un servizio di collegamento privato può essere collegato alla configurazione IP front-end di un Load Balancer Standard. 
 
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Come viene inviato il traffico quando si usa un collegamento privato?
 Il traffico viene inviato privatamente usando la backbone Microsoft. Non attraversa Internet. Il collegamento privato di Azure non archivia i dati dei clienti.
@@ -69,8 +69,8 @@ Sì. Un servizio di collegamento privato può ricevere connessioni da più endpo
 ### <a name="how-should-i-control-the-exposure-of-my-private-link-service"></a>Come è possibile controllare l'esposizione del servizio di collegamento privato?
 È possibile controllare l'esposizione usando la configurazione di visibilità nel servizio di collegamento privato. Visibility supporta tre impostazioni:
 
-- Le sottoscrizioni solo **None** con accesso RBAC possono individuare il servizio. 
-- Le sottoscrizioni solo **restrittive** approvate e con accesso RBAC possono individuare il servizio. 
+- Le sottoscrizioni solo **None** con accesso RBAC di Azure possono individuare il servizio. 
+- Le sottoscrizioni solo **restrittive** approvate e con accesso RBAC di Azure possono individuare il servizio. 
 - **Tutti** : tutti gli utenti possono individuare il servizio. 
  
 ### <a name="can-i-create-a-private-link-service-with-basic-load-balancer"></a>È possibile creare un servizio di collegamento privato con il servizio di bilanciamento del carico di base? 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 1e5253d617c87d5869cebc817da6d265ebfdfa7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45a7a146dd929408b50a0045fe2598726ee05505
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77539468"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544310"
 ---
 # <a name="troubleshoot-azure-private-link-connectivity-problems"></a>Risolvere i problemi di connettività del collegamento privato di Azure
 
@@ -37,7 +37,7 @@ Ecco gli scenari di connettività disponibili con collegamento privato:
 
 ## <a name="deployment-troubleshooting"></a>Risoluzione dei problemi di distribuzione
 
-Esaminare le informazioni sulla [disabilitazione dei criteri di rete nel servizio di collegamento privato](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) per i casi in cui non si è in grado di selezionare l'indirizzo IP di origine dalla subnet scelta per il servizio di collegamento privato.
+Esaminare le informazioni sulla [disabilitazione dei criteri di rete nel servizio di collegamento privato](./disable-private-link-service-network-policy.md) per i casi in cui non si è in grado di selezionare l'indirizzo IP di origine dalla subnet scelta per il servizio di collegamento privato.
 
 Assicurarsi che l'impostazione **privateLinkServiceNetworkPolicies** sia disabilitata per la subnet da cui si sta selezionando l'indirizzo IP di origine.
 
@@ -87,7 +87,7 @@ Se si verificano problemi di connettività con la configurazione del collegament
        ![Verificare le informazioni del servizio di bilanciamento del carico](./media/private-link-tsg/pls-overview-pane-ilb.png)
 
      - Assicurarsi che le impostazioni del servizio di bilanciamento del carico siano configurate in base alle aspettative.
-       - Esaminare la **configurazione IP**front-end.
+       - Esaminare la **configurazione IP** front-end.
        - Esaminare i **pool back-end**.
        - Esaminare **le regole di bilanciamento del carico**.
 
@@ -99,7 +99,7 @@ Se si verificano problemi di connettività con la configurazione del collegament
        - Se la connessione lo rende il pool back-end in base alle regole di bilanciamento del carico, il servizio di bilanciamento del carico è operativo.
        - È anche possibile esaminare la metrica di bilanciamento del carico tramite monitoraggio di Azure per verificare se i dati passano attraverso il servizio di bilanciamento del carico.
 
-1. Usare [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) per verificare se i dati vengono propagati.
+1. Usare [monitoraggio di Azure](../azure-monitor/overview.md) per verificare se i dati vengono propagati.
 
     a. Nella risorsa servizio di collegamento privato selezionare **metriche**.
      - Selezionare **byte in** uscita o in **byte**.
@@ -111,5 +111,5 @@ Se si verificano problemi di connettività con la configurazione del collegament
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- * [Creare un servizio di collegamento privato (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
+ * [Creare un servizio di collegamento privato (CLI)](./create-private-link-service-cli.md)
  * [Guida alla risoluzione dei problemi dell'endpoint privato di Azure](troubleshoot-private-endpoint-connectivity.md)

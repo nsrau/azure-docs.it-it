@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 7e1deb11eb8ae754198cae5be7ecf7150262a61e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: a817c12a367d7c14f693389920e49b368a35cc06
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411389"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522873"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Ottimizzare le query di log in monitoraggio di Azure
 Log di monitoraggio di Azure usa [Esplora dati di Azure (ADX)](/azure/data-explorer/) per archiviare i dati di log ed eseguire query per l'analisi di tali dati. Crea, gestisce e gestisce i cluster ADX per l'utente e li ottimizza per il carico di lavoro di analisi dei log. Quando si esegue una query, questa viene ottimizzata e indirizzata al cluster ADX appropriato che archivia i dati dell'area di lavoro. Sia i log di monitoraggio di Azure che Azure Esplora dati usano molti meccanismi di ottimizzazione automatica delle query. Sebbene le ottimizzazioni automatiche offrano un notevole incremento, in alcuni casi è possibile migliorare notevolmente le prestazioni delle query. Questo articolo illustra le considerazioni sulle prestazioni e alcune tecniche per risolverle.
@@ -131,7 +131,7 @@ SecurityEvent
 
 Mentre alcuni comandi di aggregazione come [Max ()](/azure/kusto/query/max-aggfunction), [Sum ()](/azure/kusto/query/sum-aggfunction), [Count ()](/azure/kusto/query/count-aggfunction)e [AVG ()](/azure/kusto/query/avg-aggfunction) hanno un basso effetto sulla CPU dovuti alla logica, altri sono più complessi e includono euristiche e stime che ne consentono l'esecuzione in modo efficiente. [DCount ()](/azure/kusto/query/dcount-aggfunction) , ad esempio, usa l'algoritmo HyperLogLog per fornire una stima di chiusura per il conteggio distinto di set di dati di grandi dimensioni senza contare effettivamente ogni valore. le funzioni percentile eseguono approssimazioni simili usando l'algoritmo percentile di rango più vicino. Molti dei comandi includono parametri facoltativi per ridurne l'effetto. Ad esempio, la funzione [maket ()](/azure/kusto/query/makeset-aggfunction) dispone di un parametro facoltativo per definire la dimensione massima del set, che influiscono significativamente sulla CPU e sulla memoria.
 
-I comandi di [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) e [Riepilogo](/azure/kusto/query/summarizeoperator) possono causare un utilizzo elevato della CPU durante l'elaborazione di un set di dati di grandi dimensioni. La loro complessità è direttamente correlata al numero di valori possibili, denominati *cardinalità* , delle colonne utilizzate come `by` in riepilogo o come attributi di join. Per la spiegazione e l'ottimizzazione di join e riepilogo, vedere gli articoli della documentazione e i suggerimenti per l'ottimizzazione.
+I comandi di [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) e [Riepilogo](/azure/kusto/query/summarizeoperator) possono causare un utilizzo elevato della CPU durante l'elaborazione di un set di dati di grandi dimensioni. La loro complessità è direttamente correlata al numero di valori possibili, denominati *cardinalità*, delle colonne utilizzate come `by` in riepilogo o come attributi di join. Per la spiegazione e l'ottimizzazione di join e riepilogo, vedere gli articoli della documentazione e i suggerimenti per l'ottimizzazione.
 
 Ad esempio, le query seguenti producono esattamente lo stesso risultato perché **CounterPath** è sempre un mapping uno-a-uno con **counterName** e **nomeoggetto**. Il secondo è più efficiente perché la dimensione di aggregazione è più piccola:
 
@@ -463,7 +463,7 @@ I comportamenti di query che possono ridurre il parallelismo includono:
 - Utilizzo di funzioni di serializzazione e finestra come l' [operatore Serialize](/azure/kusto/query/serializeoperator), [Next ()](/azure/kusto/query/nextfunction), [Prev ()](/azure/kusto/query/prevfunction)e le funzioni [Row](/azure/kusto/query/rowcumsumfunction) . In alcuni di questi casi è possibile usare le funzioni Time Series e analisi utente. La serializzazione inefficiente può verificarsi anche se vengono usati gli operatori seguenti non alla fine della query: [Range](/azure/kusto/query/rangeoperator), [Sort](/azure/kusto/query/sortoperator), [Order](/azure/kusto/query/orderoperator), [Top](/azure/kusto/query/topoperator), [Top-battitor](/azure/kusto/query/tophittersoperator), [GetSchema](/azure/kusto/query/getschemaoperator).
 -    L'utilizzo della funzione di aggregazione [DCount ()](/azure/kusto/query/dcount-aggfunction) impone al sistema la copia centrale dei valori distinti. Quando la scala dei dati è elevata, è consigliabile usare i parametri facoltativi della funzione DCount per ridurre la precisione.
 -    In molti casi, l'operatore di [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) abbassa il parallelismo generale. Esaminare il join casuale come alternativa quando le prestazioni sono problematiche.
--    Nelle query con ambito di risorse, i controlli di pre-esecuzione RBAC possono rimanere in situazioni in cui è presente un numero molto elevato di assegnazioni di ruolo di Azure. Questa operazione può comportare controlli più lunghi che comporterebbero un parallelismo inferiore. Ad esempio, una query viene eseguita su una sottoscrizione in cui sono presenti migliaia di risorse e ogni risorsa ha numerose assegnazioni di ruolo a livello di risorsa, non nella sottoscrizione o nel gruppo di risorse.
+-    Nelle query con ambito di risorse, i controlli controllo degli accessi in base al ruolo o controllo degli accessi in base al ruolo di Azure possono rimanere in situazioni in cui è presente un numero molto elevato di assegnazioni di ruolo Questa operazione può comportare controlli più lunghi che comporterebbero un parallelismo inferiore. Ad esempio, una query viene eseguita su una sottoscrizione in cui sono presenti migliaia di risorse e ogni risorsa ha numerose assegnazioni di ruolo a livello di risorsa, non nella sottoscrizione o nel gruppo di risorse.
 -    Se una query elabora piccoli blocchi di dati, il suo parallelismo sarà basso perché il sistema non lo distribuisce in molti nodi di calcolo.
 
 

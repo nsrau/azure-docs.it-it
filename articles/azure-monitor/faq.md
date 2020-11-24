@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: b52cc38c40d8b6a39961ab28d9f0600ea7ee2201
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 391d9562bc73265a10976f485c78e3966aa4fe83
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841904"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536286"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure
 
@@ -412,7 +412,7 @@ Le personalizzazioni univoche che in genere devono essere ricreate o aggiornate 
 - Ricreare dashboard e cartelle di lavoro personalizzati. 
 - Ricreare o aggiornare l'ambito di qualsiasi avviso di log/metrica personalizzato. 
 - Ricreare gli avvisi di disponibilità.
-- Ricreare le impostazioni di controllo di accesso Role-Based personalizzate (RBAC) necessarie per consentire agli utenti di accedere alla nuova risorsa. 
+- Ricreare le impostazioni personalizzate di controllo degli accessi in base al ruolo di Azure (RBAC) necessarie per consentire agli utenti di accedere alla nuova risorsa. 
 - Replicare le impostazioni che coinvolgono il campionamento di inserimento, la conservazione dei dati, il limite giornaliero e l'abilitazione delle metriche personalizzate. Queste impostazioni vengono controllate tramite il riquadro **utilizzo e costi stimati** .
 - Qualsiasi integrazione basata su chiavi API, ad esempio le [annotazioni sulla versione](/azure/azure-monitor/app/annotations), il [canale di controllo sicuro di metriche attive](app/live-stream.md#secure-the-control-channel) e così via. Sarà necessario generare nuove chiavi API e aggiornare l'integrazione associata. 
 - È necessario configurare nuovamente l'esportazione continua nelle risorse classiche.
@@ -680,9 +680,9 @@ La tabella ContainerInventory contiene informazioni sia sui contenitori arrestat
 
 Se viene visualizzato l'errore **Registrazione della sottoscrizione mancante per Microsoft.OperationsManagement**, è possibile risolverlo registrando il provider di risorse **Microsoft.OperationsManagement** nella sottoscrizione in cui è definita l'area di lavoro. La documentazione che illustra come eseguire questa operazione è disponibile [qui](../azure-resource-manager/templates/error-register-resource-provider.md).
 
-### <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>È previsto il supporto per i cluster del servizio Azure Kubernetes abilitati per il Controllo degli accessi in base al ruolo?
+### <a name="is-there-support-for-kubernetes-rbac-enabled-aks-clusters"></a>È previsto il supporto per i cluster AKS abilitati per Kubernetes RBAC?
 
-La soluzione di monitoraggio per i contenitori non supporta il Controllo degli accessi in base al ruolo, ma è supportata con Monitoraggio di Azure per i contenitori. Le informazioni presenti nei pannelli che visualizzano i dati relativi a tali cluster all'interno della pagina dei dettagli della soluzione possono non essere corrette.
+La soluzione di monitoraggio dei contenitori non supporta il controllo degli accessi in base al ruolo Kubernetes, ma è supportato con monitoraggio di Azure per contenitori Le informazioni presenti nei pannelli che visualizzano i dati relativi a tali cluster all'interno della pagina dei dettagli della soluzione possono non essere corrette.
 
 ### <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Come si abilita la raccolta di log per i contenitori nello spazio dei nomi kube-system tramite Helm?
 

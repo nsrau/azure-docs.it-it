@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 315ea9b683ccd583f5c29c7527013f0d924336f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88006fb354af2673496c6476090d7f73c8a005e6
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061878"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543001"
 ---
 # <a name="move-azure-vms-to-an-availability-zone-in-another-region"></a>Spostare le macchine virtuali di Azure in una zona di disponibilità in un'altra area
 
@@ -35,7 +35,7 @@ Se si vuole spostare le macchine virtuali in una zona di disponibilità diversa 
 - Accesso *proprietario* per la sottoscrizione in cui si trovano le risorse che si desidera spostare.
     - La prima volta che si aggiunge una risorsa per un mapping di origine e destinazione specifico in una sottoscrizione di Azure, il motore risorse crea un' [identità gestita assegnata dal sistema](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (precedentemente nota come identità del servizio gestito) considerata attendibile dalla sottoscrizione.
     - Per creare l'identità e assegnarle il ruolo richiesto (Collaboratore o Amministratore Accesso utenti nella sottoscrizione di origine), l'account usato per aggiungere le risorse deve avere le autorizzazioni di *Proprietario* nella sottoscrizione. [Altre informazioni](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) sui ruoli di Azure.
-- La sottoscrizione richiede una quota sufficiente per creare le risorse di origine nell'area di destinazione. In caso contrario, richiedere limiti aggiuntivi. [Altre informazioni](/azure/azure-resource-manager/management/azure-subscription-service-limits)
+- La sottoscrizione richiede una quota sufficiente per creare le risorse di origine nell'area di destinazione. In caso contrario, richiedere limiti aggiuntivi. [Altre informazioni](../azure-resource-manager/management/azure-subscription-service-limits.md)
 - Verificare i prezzi e gli addebiti associati all'area di destinazione in cui si intende spostare le macchine virtuali. Per facilitare l'operazione, usare il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/).
     
 
@@ -66,7 +66,7 @@ Selezionare le risorse da spostare.
 
     ![Cercare il motore delle risorse](./media/move-region-availability-zone/search.png)
 
-2. In **Panoramica**selezionare **inizia**.
+2. In **Panoramica** selezionare **inizia**.
 
     ![Pulsante per iniziare](./media/move-region-availability-zone/get-started.png)
 
@@ -142,7 +142,7 @@ Avviare lo spostamento come descritto di seguito:
 
 Per eseguire il commit e terminare il processo di spostamento:
 
-1. In **aree diverse**selezionare il gruppo di risorse > **Sposta commit**
+1. In **aree diverse** selezionare il gruppo di risorse > **Sposta commit**
 2. In **Sposta risorse** fare clic su **Commit**.
 
 > [!NOTE]
@@ -157,16 +157,16 @@ Prima di spostare il resto delle risorse, si imposterà una zona di disponibilit
 
     ![Proprietà VM](./media/move-region-availability-zone/select-vm-settings.png)
 
-3. In **impostazioni di configurazione**specificare l'impostazione per la macchina virtuale di destinazione. È possibile configurare una macchina virtuale nell'area di destinazione nel modo seguente:
+3. In **impostazioni di configurazione** specificare l'impostazione per la macchina virtuale di destinazione. È possibile configurare una macchina virtuale nell'area di destinazione nel modo seguente:
     -  Creare una nuova risorsa equivalente nell'area di destinazione. Ad eccezione delle impostazioni specificate, la risorsa di destinazione viene creata con le stesse impostazioni dell'origine.
     - Selezionare una macchina virtuale esistente nell'area di destinazione. 
 
-4. In **zone**selezionare la zona in cui si desidera posizionare la VM quando viene spostata.
+4. In **zone** selezionare la zona in cui si desidera posizionare la VM quando viene spostata.
 
     Le modifiche vengono apportate solo per la risorsa che si sta modificando. È necessario aggiornare le risorse dipendenti separatamente.
 
-5. In **SKU**specificare il [livello di Azure](..//virtual-machines/sizes.md) che si vuole assegnare alla macchina virtuale di destinazione.
-6. In **set di disponibilità**selezionare un set di disponibilità se si vuole che la macchina virtuale di destinazione venga eseguita all'interno di un set di disponibilità nella zona di disponibilità.
+5. In **SKU** specificare il [livello di Azure](..//virtual-machines/sizes.md) che si vuole assegnare alla macchina virtuale di destinazione.
+6. In **set di disponibilità** selezionare un set di disponibilità se si vuole che la macchina virtuale di destinazione venga eseguita all'interno di un set di disponibilità nella zona di disponibilità.
 7. Selezionare **Save changes** (Salva modifiche).
 
     ![Impostazioni della VM](./media/move-region-availability-zone/vm-settings.png)

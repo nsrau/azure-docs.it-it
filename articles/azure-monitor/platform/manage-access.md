@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 7acd287964d25cc7e98c11ec1986c73d8ae265da
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 79e5b1ddde0ff5f0d09dc1c20e3b20ec4de3d925
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104139"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95536677"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gestire l'accesso ai dati di log e alle aree di lavoro in Monitoraggio di Azure
 
@@ -23,7 +23,7 @@ Questo articolo illustra come gestire l'accesso ai log e come amministrare le ar
 * Utenti che devono accedere ai dati di log da risorse specifiche usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), noto anche come [contesto di risorsa](design-logs-deployment.md#access-mode)
 * Utenti che devono accedere ai dati di log in una tabella specifica nell'area di lavoro usando il controllo degli accessi in base al ruolo
 
-Per comprendere i concetti relativi ai log relativi alle strategie di accesso e RBAC, vedere [progettazione della distribuzione dei log di monitoraggio di Azure](design-logs-deployment.md)
+Per comprendere i concetti relativi ai log relativi alle strategie di accesso e RBAC di Azure, vedere [progettazione della distribuzione dei log di monitoraggio di Azure](design-logs-deployment.md)
 
 ## <a name="configure-access-control-mode"></a>Configurare la modalità di controllo di accesso
 
@@ -48,7 +48,7 @@ Per comprendere i concetti relativi ai log relativi alle strategie di accesso e 
 
 ![Modificare la modalità di accesso all'area di lavoro](media/manage-access/change-access-control-mode.png)
 
-### <a name="using-powershell"></a>Uso di PowerShell
+### <a name="using-powershell"></a>Utilizzo di PowerShell
 
 Usare il comando seguente per esaminare la modalità di controllo di accesso per tutte le aree di lavoro nella sottoscrizione:
 
@@ -134,7 +134,7 @@ I membri del ruolo *Lettore di Log Analytics* possono eseguire queste operazioni
 
 Il ruolo di lettore di Log Analytics include le azioni di Azure seguenti:
 
-| Tipo    | Autorizzazione | Descrizione |
+| Type    | Autorizzazione | Descrizione |
 | ------- | ---------- | ----------- |
 | Azione | `*/read`   | Consente di visualizzare tutte le risorse di Azure e la configurazione delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse. <br> Per le aree di lavoro, consente autorizzazioni complete senza restrizioni per leggere le impostazioni dell'area di lavoro ed eseguire query sui dati. Vedere le opzioni più granulari precedenti. |
 | Azione | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecato, non è necessario assegnarli agli utenti. |
@@ -194,9 +194,9 @@ Quando gli utenti eseguono query sui log da un'area di lavoro usando l'accesso a
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Esempi:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Possibilità di visualizzare tutti i dati di log per la risorsa.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Possibilità di configurare l'impostazione di diagnostica per consentire l'impostazione dei log per questa risorsa. |
 
-`/read`l'autorizzazione viene in genere concessa da un ruolo che include _ \* /Read o_ _\*_ autorizzazioni quali i ruoli predefiniti [Reader](../../role-based-access-control/built-in-roles.md#reader) e [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) . I ruoli personalizzati che includono azioni specifiche o ruoli predefiniti dedicati potrebbero non includere questa autorizzazione.
+`/read`l'autorizzazione viene in genere concessa da un ruolo che include _\* /Read o_ _\*_ autorizzazioni quali i ruoli predefiniti [Reader](../../role-based-access-control/built-in-roles.md#reader) e [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) . I ruoli personalizzati che includono azioni specifiche o ruoli predefiniti dedicati potrebbero non includere questa autorizzazione.
 
-Per creare un controllo di accesso diverso per diverse tabelle, vedere [definizione del controllo degli accessi per tabella](#table-level-rbac) .
+Per creare un controllo di accesso diverso per diverse tabelle, vedere [definizione del controllo degli accessi per tabella](#table-level-azure-rbac) .
 
 ## <a name="custom-role-examples"></a>Esempi di ruoli personalizzati
 
@@ -239,7 +239,7 @@ Per creare un controllo di accesso diverso per diverse tabelle, vedere [definizi
 
     * Concedere agli utenti le seguenti autorizzazioni per le risorse: `*/read` , assegnate al ruolo Reader o `Microsoft.Insights/logs/*/read` . 
 
-## <a name="table-level-rbac"></a>RBAC a livello di tabella
+## <a name="table-level-azure-rbac"></a>Controllo RBAC di Azure a livello di tabella
 
 Il controllo degli accessi in base al **livello di tabella** consente di definire un controllo più granulare dei dati in un'area di lavoro log Analytics, oltre alle altre autorizzazioni. Questo controllo consente di definire tipi di dati specifici accessibili solo a un set specifico di utenti.
 
@@ -247,7 +247,7 @@ Implementare il controllo di accesso alle tabelle con i [ruoli personalizzati di
 
 Creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md) con le azioni seguenti per definire l'accesso al controllo di accesso alla tabella.
 
-* Per concedere l'accesso a una tabella, includerlo nella sezione **azioni** della definizione di ruolo. Per sottrarre l'accesso dalle **azioni**consentite, includerlo nella sezione **notacts** .
+* Per concedere l'accesso a una tabella, includerlo nella sezione **azioni** della definizione di ruolo. Per sottrarre l'accesso dalle **azioni** consentite, includerlo nella sezione **notacts** .
 * Usare Microsoft. OperationalInsights/Workspaces/query/* per specificare tutte le tabelle.
 
 Per creare un ruolo con accesso alle tabelle _heartbeat_ e _AzureActivity_ , ad esempio, creare un ruolo personalizzato utilizzando le azioni seguenti:
@@ -302,7 +302,7 @@ Talvolta i log personalizzati provengono da origini non direttamente associate a
 
 ### <a name="considerations"></a>Considerazioni
 
-* Se a un utente viene concessa l'autorizzazione di lettura globale con i ruoli Reader o collaboratore standard che includono l'azione _ \* /Read_ , eseguirà l'override del controllo di accesso per ogni tabella e consentirà l'accesso a tutti i dati di log.
+* Se a un utente viene concessa l'autorizzazione di lettura globale con i ruoli Reader o collaboratore standard che includono l'azione _\* /Read_ , eseguirà l'override del controllo di accesso per ogni tabella e consentirà l'accesso a tutti i dati di log.
 * Se a un utente viene concesso l'accesso per tabella ma non altre autorizzazioni, potranno accedere ai dati di log dall'API ma non dal portale di Azure. Per fornire l'accesso dalla portale di Azure, utilizzare Log Analytics Reader come ruolo di base.
 * Gli amministratori e i proprietari della sottoscrizione avranno accesso a tutti i tipi di dati indipendentemente dalle altre impostazioni di autorizzazione.
 * I proprietari dell'area di lavoro vengono trattati come qualsiasi altro utente per il controllo di accesso per tabella.

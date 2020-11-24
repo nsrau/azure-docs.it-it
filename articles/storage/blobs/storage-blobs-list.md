@@ -9,12 +9,12 @@ ms.date: 11/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 906df01587201561fbbfea0661d0885864042925
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: ddd19c90c8c47016497e2c3b00e04595a94e7715
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701314"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95543069"
 ---
 # <a name="list-blobs-with-net"></a>Elencare BLOB con .NET
 
@@ -61,7 +61,7 @@ Per filtrare l'elenco di BLOB, specificare una stringa per il `prefix` parametro
 
 È possibile restituire i metadati dei BLOB con i risultati.
 
-- Se si usa .NET V12 SDK, specificare il valore **dei metadati** per l'enumerazione [BlobTraits](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobtraits) .
+- Se si usa .NET V12 SDK, specificare il valore **dei metadati** per l'enumerazione [BlobTraits](/dotnet/api/azure.storage.blobs.models.blobtraits) .
 
 - Se si usa .NET V11 SDK, specificare il valore **dei metadati** per l'enumerazione [BlobListingDetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) . Archiviazione di Azure include i metadati con ogni BLOB restituito, pertanto non è necessario chiamare uno dei metodi **FetchAttributes** in questo contesto per recuperare i metadati dei BLOB.
 

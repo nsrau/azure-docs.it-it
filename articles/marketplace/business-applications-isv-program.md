@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 7/14/2020
-ms.openlocfilehash: 653e6aad7f57b4d683f2f71ed22e402ed5d1fca8
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 11/19/2020
+ms.openlocfilehash: a20c495553dfe9a16c34a2972575d21cc95eef44
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630295"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537136"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Guida all'onboarding del programma Business Applications ISV Connect
 
@@ -38,7 +38,7 @@ La partecipazione al programma richiede la revisione e l'accettazione del [Busin
 > Questo passaggio richiede un ruolo *proprietario* o *Manager* nel centro per i partner per l'account per la firma di contratti legali.
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard).
-1. Selezionare **Impostazioni** (icona a forma di ingranaggio) e quindi **Impostazioni sviluppatore**.
+1. Selezionare **Impostazioni** (icona a forma di ingranaggio) > **Impostazioni account**.
 1. Selezionare **contratti**.
 1. Selezionare il collegamento versione e visualizzare l'accordo.
 1. Per accettare il contratto, selezionare **accetta accordo**.
@@ -51,8 +51,8 @@ Configurare le informazioni di fatturazione per il programma Business Applicatio
 > Per aggiornare le informazioni di fatturazione, questo passaggio richiede un ruolo *proprietario* o *Manager* nel centro per i partner per l'account.
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard).
-1. Selezionare **Impostazioni** (icona a forma di ingranaggio) e quindi **Impostazioni sviluppatore**.
-1. In **Impostazioni account** selezionare **profilo di fatturazione**.
+1. Selezionare **Impostazioni** (icona a forma di ingranaggio) > **Impostazioni account**.
+1. In **profilo organizzazione** selezionare **profilo di fatturazione** e quindi la scheda **sviluppatore** .
 1. Esaminare il contatto principale e le informazioni di fatturazione compilate dall'entità legale.
 1. Per apportare modifiche, selezionare **Aggiorna**.
 1. Se applicabile, specificare le impostazioni dell'ID IVA/IVA.

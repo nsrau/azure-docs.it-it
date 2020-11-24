@@ -3,12 +3,12 @@ title: Distribuire Horizon in una soluzione VMware di Azure
 description: Informazioni su come distribuire VMware Horizon in una soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: fb5e5b4c5f5da4c140f8d3575b963545f3a57db8
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6d5d8e12e358e2289128af9840660be18f5f217a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423104"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95537442"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Distribuire Horizon in una soluzione VMware di Azure 
 
@@ -139,22 +139,6 @@ Le tabelle mostrano i carichi di lavoro comuni per i carichi di lavoro del Knowl
 #### <a name="power-worker-workloads"></a>Carichi di lavoro di Power Worker
 
 :::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Tabella dei profili VDI comuni per VMware Horizon per i carichi di lavoro di Power Worker VSI di login" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
-
-### <a name="azure-vmware-solution-host-instance"></a>Istanza host della soluzione VMware di Azure
-
-* Server r640 PowerEdge-DSS con restrizioni
-
-* 36 core a \@ 2,3 GHz
-
-* 576 GB DI RAM
-
-* Controller HBA SAS a 12 Gbps HBA330 (NON RAID)
-
-* la combinazione SATA SSD 1,92 TB USA 6 Gbps 512 2.5 in unità di disponibilità a caldo, 3 DWPD, 10512 TBW
-
-* Intel 1,6 TB, NVMe, mixed use Express Flash, 2,5 SFF Drive, U. 2, P4600 with Carrier
-
-* 2 gruppi di dischi rete VSAN: 1,6 x 4 (1.92 TB)
 
 ### <a name="horizon-sizing-inputs"></a>Input di ridimensionamento dell'orizzonte
 

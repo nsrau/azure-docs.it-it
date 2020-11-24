@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: fcc482e6231bbd925fd500a37989052765dede58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f861f9efa6ecc1886647ed6c460b6718ff97e8a1
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77538535"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522329"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Risolvere i problemi di connettività all'endpoint privato di Azure
 
@@ -56,7 +56,7 @@ Esaminare questi passaggi per assicurarsi che tutte le configurazioni usuali sia
     
        ![Rete virtuale e configurazione DNS](./media/private-endpoint-tsg/vnet-dns-configuration.png)
     
-1. Usare [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) per verificare se i dati vengono propagati.
+1. Usare [monitoraggio di Azure](../azure-monitor/overview.md) per verificare se i dati vengono propagati.
 
     a. Nella risorsa endpoint privato selezionare **monitoraggio**.
      - Consente **di selezionare i dati in** uscita o in **uscita**. 
@@ -80,7 +80,7 @@ Esaminare questi passaggi per assicurarsi che tutte le configurazioni usuali sia
      - Incollare il nome di dominio completo dalla risorsa endpoint privato.
      - Specificare una porta. In genere, usare 443 per archiviazione di Azure o Azure Cosmos DB e 1336 per SQL.
 
-    e. Selezionare **test**e convalidare i risultati del test.
+    e. Selezionare **test** e convalidare i risultati del test.
     
       ![Risultati del test Network Watcher](./media/private-endpoint-tsg/network-watcher-test-results.png)
     
@@ -93,7 +93,7 @@ Esaminare questi passaggi per assicurarsi che tutte le configurazioni usuali sia
        - Verificare che sia presente il record della zona DNS privata. Se non esiste, crearlo.
      - Se si usa il DNS personalizzato:
        - Verificare le impostazioni DNS personalizzate e verificare che la configurazione DNS sia corretta.
-       Per istruzioni, vedere [Cenni preliminari sugli endpoint privati: configurazione DNS](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
+       Per istruzioni, vedere [Cenni preliminari sugli endpoint privati: configurazione DNS](./private-endpoint-overview.md#dns-configuration).
 
     b. Se la connettività ha esito negativo a causa di gruppi di sicurezza di rete (gruppi) o route definite dall'utente:
      - Esaminare le regole in uscita NSG e creare le regole in uscita appropriate per consentire il traffico.
@@ -107,5 +107,5 @@ Esaminare questi passaggi per assicurarsi che tutte le configurazioni usuali sia
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- * [Creare un endpoint privato nella subnet aggiornata (portale di Azure)](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
+ * [Creare un endpoint privato nella subnet aggiornata (portale di Azure)](./create-private-endpoint-portal.md)
  * [Guida alla risoluzione dei problemi del collegamento privato di Azure](troubleshoot-private-link-connectivity.md)

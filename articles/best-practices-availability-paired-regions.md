@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: barbkess
 ms.custom: references_regions
-ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d42eabe3afeb738b0cbb011881678839fe0ba2d7
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194326"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95539057"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
@@ -43,7 +43,7 @@ No. Anche se un determinato servizio di Azure può basarsi su una coppia di aree
 
 ## <a name="must-i-use-azure-regional-pairs"></a>È necessario usare le coppie di aree di Azure?
 
-No. I clienti possono sfruttare i servizi di Azure per progettare un servizio resiliente senza basarsi sulle coppie di aree di Azure.  Tuttavia, è consigliabile configurare il ripristino di emergenza per la continuità aziendale (BCDR) tra coppie di aree per trarre vantaggio dall' [isolamento](./security/fundamentals/isolation-choices.md) e migliorare la [disponibilità](./availability-zones/az-overview.md). Per le applicazioni che supportano più aree attive, è consigliabile usare entrambe le aree di una coppia, dove possibile. In questo modo si garantisce la disponibilità ottimale per le applicazioni e il tempo di recupero ridotto in caso di emergenza. Quando possibile, progettare l'applicazione per la [resilienza massima](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) e la facilità di [ripristino di emergenza](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery).
+No. I clienti possono sfruttare i servizi di Azure per progettare un servizio resiliente senza basarsi sulle coppie di aree di Azure.  Tuttavia, è consigliabile configurare il ripristino di emergenza per la continuità aziendale (BCDR) tra coppie di aree per trarre vantaggio dall' [isolamento](./security/fundamentals/isolation-choices.md) e migliorare la [disponibilità](./availability-zones/az-overview.md). Per le applicazioni che supportano più aree attive, è consigliabile usare entrambe le aree di una coppia, dove possibile. In questo modo si garantisce la disponibilità ottimale per le applicazioni e il tempo di recupero ridotto in caso di emergenza. Quando possibile, progettare l'applicazione per la [resilienza massima](/azure/architecture/framework/resiliency/overview) e la facilità di [ripristino di emergenza](/azure/architecture/framework/resiliency/backup-and-recovery).
 
 ## <a name="azure-regional-pairs"></a>Coppie di aree di Azure
 
@@ -94,9 +94,9 @@ Come indicato nella figura 2.
 
 1. **Calcolo di Azure (IaaS)** : è necessario effettuare il provisioning di risorse di calcolo aggiuntive in anticipo per garantire che le risorse siano disponibili in un'altra area durante un'emergenza. Per altre informazioni, vedere [Informazioni tecniche sulla resilienza di Azure](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md). 
 
-2. **Archiviazione di Azure** : se si usa Managed disks, è possibile ottenere informazioni sui [backup tra più aree](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) con backup di Azure e [replicare le macchine virtuali](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) da un'area a un'altra con Azure Site Recovery. Se si usano gli account di archiviazione, l'archiviazione con ridondanza geografica (GRS) viene configurata per impostazione predefinita quando viene creato un account di archiviazione di Azure. Con questa opzione di replica, i dati vengono replicati per tre volte all'interno dell'area primaria e per tre volte nell'area abbinata. Per altre informazioni, vedere [Opzioni di ridondanza di archiviazione di Azure](storage/common/storage-redundancy.md).
+2. **Archiviazione di Azure** : se si usa Managed disks, è possibile ottenere informazioni sui [backup tra più aree](/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) con backup di Azure e [replicare le macchine virtuali](./site-recovery/azure-to-azure-tutorial-enable-replication.md) da un'area a un'altra con Azure Site Recovery. Se si usano gli account di archiviazione, l'archiviazione con ridondanza geografica (GRS) viene configurata per impostazione predefinita quando viene creato un account di archiviazione di Azure. Con questa opzione di replica, i dati vengono replicati per tre volte all'interno dell'area primaria e per tre volte nell'area abbinata. Per altre informazioni, vedere [Opzioni di ridondanza di archiviazione di Azure](storage/common/storage-redundancy.md).
 
-3. **Database SQL di Azure** : con la replica geografica del database SQL di Azure, è possibile configurare la replica asincrona delle transazioni in qualsiasi area del mondo; Tuttavia, è consigliabile distribuire queste risorse in un'area abbinata per la maggior parte degli scenari di ripristino di emergenza. Per altre informazioni, vedere l'articolo relativo alla [replica geografica nel database SQL di Azure](sql-database/sql-database-geo-replication-overview.md).
+3. **Database SQL di Azure** : con la replica geografica del database SQL di Azure, è possibile configurare la replica asincrona delle transazioni in qualsiasi area del mondo; Tuttavia, è consigliabile distribuire queste risorse in un'area abbinata per la maggior parte degli scenari di ripristino di emergenza. Per altre informazioni, vedere l'articolo relativo alla [replica geografica nel database SQL di Azure](./azure-sql/database/auto-failover-group-overview.md).
 
 4. **Azure Resource Manager**: Resource Manager fornisce implicitamente l'isolamento logico dei componenti tra le aree. In questo modo, è meno probabile che gli errori logici in un'area abbiano un impatto su un'altra.
 

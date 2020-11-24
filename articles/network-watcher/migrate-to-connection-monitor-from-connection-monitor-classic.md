@@ -1,5 +1,5 @@
 ---
-title: Esegui migrazione a monitoraggio connessione (anteprima) da monitoraggio connessione
+title: Esegui migrazione a monitoraggio connessione da monitoraggio connessione
 titleSuffix: Azure Network Watcher
 description: Informazioni su come eseguire la migrazione a monitoraggio connessione da monitoraggio connessione.
 services: network-watcher
@@ -10,22 +10,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: d785ecd48816150cd33d8e2f5fcce2ff36f1603f
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: eed68ff7e6b002e7a5985b336686b646a1a9acee
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985791"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95522952"
 ---
-# <a name="migrate-to-connection-monitor-preview-from-connection-monitor-classic"></a>Esegui migrazione a monitoraggio connessione (anteprima) da monitoraggio connessione (versione classica)
+# <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Esegui migrazione a monitoraggio connessione da monitoraggio connessione (versione classica)
 
-È possibile eseguire la migrazione dei monitoraggi connessione esistenti a un nuovo monitoraggio della connessione migliorato (anteprima) con pochi clic e senza tempi di inattività. Per ulteriori informazioni sui vantaggi, vedere [Connection Monitor](./connection-monitor-overview.md).
-
-> [!IMPORTANT]
-> Il monitoraggio connessione è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+È possibile eseguire la migrazione dei monitoraggi connessione esistenti a un nuovo monitoraggio della connessione migliorato con pochi clic e senza tempi di inattività. Per ulteriori informazioni sui vantaggi, vedere [Connection Monitor](./connection-monitor-overview.md).
 
 ## <a name="key-points-to-note"></a>Punti chiave da notare
 
@@ -33,7 +29,7 @@ La migrazione contribuisce a produrre i risultati seguenti:
 
 * Gli agenti e le impostazioni del firewall funzionano così come sono. Non sono necessarie modifiche. 
 * I monitoraggi connessioni esistenti vengono mappati a monitoraggio connessione > gruppo di test > formato di test. Se si seleziona **modifica**, è possibile visualizzare e modificare le proprietà del nuovo monitoraggio della connessione, scaricare un modello per apportare modifiche al monitoraggio della connessione e inviarlo tramite Azure Resource Manager. 
-* Le macchine virtuali di Azure con l'estensione Network Watcher inviano i dati all'area di lavoro e alle metriche. Il monitoraggio della connessione rende disponibili i dati tramite le nuove metriche (ChecksFailedPercent [Preview] e RoundTripTimeMs [Preview]) anziché le metriche precedenti (ProbesFailedPercent e AverageRoundtripMs). 
+* Le macchine virtuali di Azure con l'estensione Network Watcher inviano i dati all'area di lavoro e alle metriche. Il monitoraggio della connessione rende disponibili i dati tramite le nuove metriche (ChecksFailedPercent e RoundTripTimeMs) anziché le metriche precedenti (ProbesFailedPercent e AverageRoundtripMs). 
 * Monitoraggio dei dati:
    * **Avvisi**: la migrazione viene eseguita automaticamente nelle nuove metriche.
    * **Dashboard e integrazioni**: è necessario modificare manualmente il set di metriche. 
