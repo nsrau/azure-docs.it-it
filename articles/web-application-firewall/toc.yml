@@ -67,6 +67,8 @@
           href: ./ag/application-gateway-waf-faq.md
     - name: Frontdoor
       items:
+        - name: Ottimizzazione
+          href: ./afds/waf-front-door-tuning.md
         - name: Regole personalizzate
           href: ./afds/waf-front-door-custom-rules.md
         - name: Elenchi di esclusione
