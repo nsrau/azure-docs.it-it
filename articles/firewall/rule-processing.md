@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 11/18/2020
 ms.author: victorh
-ms.openlocfilehash: 84110e749dac9267e994385aa5f6d05e3ba224a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f7aa61d3bfb3c712320bbf138160a7ff8197c7
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87087544"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95502196"
 ---
 # <a name="configure-azure-firewall-rules"></a>Configurare le regole del firewall di Azure
 È possibile configurare le regole NAT, le regole di rete e le regole delle applicazioni nel firewall di Azure. Le raccolte di regole vengono elaborate in base al tipo di regola in ordine di priorità, con numeri più alti da 100 a 65.000. Il nome di una raccolta di regole può includere solo lettere, numeri, caratteri di sottolineatura, punti o trattini. Deve iniziare con una lettera o un numero e terminare con una lettera, un numero o un carattere di sottolineatura. La lunghezza massima del nome è di 80 caratteri.
@@ -26,7 +26,13 @@ ms.locfileid: "87087544"
 
 ### <a name="network-rules-and-applications-rules"></a>Regole di rete e di applicazione
 
-Se si configurano le regole di rete e le regole dell'applicazione, le regole di rete vengono applicate in ordine di priorità prima delle regole dell'applicazione. L'elaborazione delle regole non avviene a ciclo continuo. Quindi, se viene trovata una corrispondenza in una regola di rete, non vengono elaborate altre regole.  Se non è presente alcuna corrispondenza della regola di rete e se il protocollo è HTTP, HTTPS o MSSQL, il pacchetto viene quindi valutato dalle regole dell'applicazione in ordine di priorità. Se non viene trovata alcuna corrispondenza, il pacchetto viene valutato rispetto alla [raccolta di regole dell'infrastruttura](infrastructure-fqdns.md). Se non è ancora presente alcuna corrispondenza, il pacchetto viene rifiutato per impostazione predefinita.
+Se si configurano le regole di rete e le regole dell'applicazione, le regole di rete vengono applicate in ordine di priorità prima delle regole dell'applicazione. L'elaborazione delle regole non avviene a ciclo continuo. Quindi, se viene trovata una corrispondenza in una regola di rete, non vengono elaborate altre regole.  Se non è presente alcuna regola di rete corrispondente e se il protocollo è HTTP, HTTPS o MSSQL, il pacchetto viene quindi valutato dalle regole dell'applicazione in ordine di priorità. Se non viene trovata alcuna corrispondenza, il pacchetto viene valutato rispetto alla [raccolta di regole dell'infrastruttura](infrastructure-fqdns.md). Se non è ancora presente alcuna corrispondenza, il pacchetto viene negato per impostazione predefinita.
+
+#### <a name="network-rule-protocol"></a>Protocollo della regola di rete
+
+Le regole di rete possono essere configurate per **TCP**, **UDP**, **ICMP** o **qualsiasi** protocollo IP. Qualsiasi protocollo IP include tutti i protocolli IP definiti nel documento relativo ai [numeri di protocollo IANA (Internet Assigned Numbers Authority)](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) . Se una porta di destinazione è configurata in modo esplicito, la regola viene convertita in una regola TCP + UDP.
+
+Prima del 9 novembre 2020 **qualsiasi** **protocollo TCP**, **UDP** o **ICMP**. Quindi, è possibile che sia stata configurata una regola prima di tale data con Protocol = any e porte di destinazione =' *'. Se non si prevede effettivamente di consentire il protocollo IP come attualmente definito, modificare la regola per configurare in modo esplicito i protocolli desiderati (TCP, UDP o ICMP).
 
 ## <a name="inbound-connectivity"></a>Connettività in ingresso
 
@@ -57,7 +63,7 @@ La connessione a google.com è consentita a causa di una regola di rete corrispo
 
 - Azione: Nega
 
-|name  |Tipo di origine  |Source (Sorgente)  |Protocollo: porta|FQDN di destinazione|
+|name  |Tipo di origine  |Source (Sorgente)  |Protocol:Port|FQDN di destinazione|
 |---------|---------|---------|---------|----------|----------|
 |Nega-Google     |Indirizzo IP|*|http: 80, https: 443|google.com
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: d13f401fab126f57d07d405ab5d6ce461c26e139
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 60e86c7c849bf09b3a5577453a6935466ab447f6
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658945"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95483914"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Estendere Azure Sentinel tra più aree di lavoro e tenant
 
@@ -34,10 +34,10 @@ Usando un'unica area di lavoro è possibile sfruttare tutti i vantaggi offerti d
 | Sovranità e conformità alle normative | Un'area di lavoro è associata a un'area specifica. Se i dati devono essere conservati in diverse aree [geografiche di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) per soddisfare i requisiti normativi, devono essere suddivisi in aree di lavoro separate. |  |
 | Proprietà dei dati | I limiti della proprietà dei dati, ad esempio da filiali o società affiliate, sono meglio delineati con aree di lavoro separate. |  |
 | Più tenant di Azure | Azure Sentinel supporta la raccolta di dati da Microsoft e risorse SaaS di Azure solo all'interno del proprio Azure Active Directory (Azure AD) limite del tenant. Ogni tenant di Azure AD richiede pertanto un'area di lavoro separata. |  |
-| Controllo granulare dell'accesso ai dati | Un'organizzazione potrebbe avere la necessità di consentire a gruppi diversi, all'interno o all'esterno dell'organizzazione, di accedere ad alcuni dei dati raccolti da Sentinel di Azure. Ad esempio:<br><ul><li>Accesso dei proprietari delle risorse ai dati relativi alle risorse</li><li>SOC regionale o sussidiario "accesso ai dati relativi alle parti dell'organizzazione</li></ul> | USA [controllo](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) degli accessi in base al ruolo o [RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
+| Controllo granulare dell'accesso ai dati | Un'organizzazione potrebbe avere la necessità di consentire a gruppi diversi, all'interno o all'esterno dell'organizzazione, di accedere ad alcuni dei dati raccolti da Sentinel di Azure. Ad esempio:<br><ul><li>Accesso dei proprietari delle risorse ai dati relativi alle risorse</li><li>SOC regionale o sussidiario "accesso ai dati relativi alle parti dell'organizzazione</li></ul> | Usare il controllo degli accessi in base al ruolo [di Azure](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) [Resource](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) |
 | Impostazioni di conservazione granulari | In passato, le aree di lavoro erano l'unico modo per impostare periodi di conservazione diversi per tipi di dati diversi. Questa operazione non è più necessaria in molti casi, grazie all'introduzione delle impostazioni di conservazione a livello di tabella. | Usare [le impostazioni di conservazione a livello di tabella](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) o automatizzare l' [eliminazione dei dati](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
 | Suddivisione della fatturazione | Inserendo le aree di lavoro in sottoscrizioni separate, è possibile fatturarle a diverse parti. | Report di utilizzo e addebito incrociato |
-| Architettura legacy | L'uso di più aree di lavoro può derivare da una progettazione cronologica che prende in considerazione le limitazioni o le procedure consigliate che non contengono più il vero. Si potrebbe trattare anche di una scelta di progettazione arbitraria che può essere modificata per supportare meglio Azure Sentinel.<br><br>Tra gli esempi sono inclusi:<br><ul><li>Uso di un'area di lavoro predefinita per sottoscrizione quando si distribuisce il Centro sicurezza di Azure</li><li>La necessità di impostazioni di conservazione o controllo degli accessi granulari, le soluzioni per le quali sono relativamente nuove</li></ul> | Riprogettare le aree di lavoro |
+| Architettura legacy | L'uso di più aree di lavoro può derivare da una progettazione cronologica che prende in considerazione le limitazioni o le procedure consigliate che non contengono più il vero. Si potrebbe trattare anche di una scelta di progettazione arbitraria che può essere modificata per supportare meglio Azure Sentinel.<br><br>Alcuni esempi:<br><ul><li>Uso di un'area di lavoro predefinita per sottoscrizione quando si distribuisce il Centro sicurezza di Azure</li><li>La necessità di impostazioni di conservazione o controllo degli accessi granulari, le soluzioni per le quali sono relativamente nuove</li></ul> | Riprogettare le aree di lavoro |
 
 ### <a name="managed-security-service-provider-mssp"></a>Provider di servizi di sicurezza gestito (MSSP)
 

@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: fc405c56538ab305d6e0b8a22c1095458cb1264e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: eacc7adae16785049022cd05f04904d97b0b3a6d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309874"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95486127"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Condividere e scoprire risorse in Azure AI Gallery
 
-**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**si applica a:** ![ Si tratta di un segno di spunta, che indica che questo articolo si applica alla Machine Learning Studio (classica). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) si ![ tratta di una X, il che significa che questo articolo si applica al Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 
@@ -28,11 +28,11 @@ Questo sito include diverse risorse che è possibile usare per sviluppare soluzi
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Che cosa è disponibile all'interno di Cortana Intelligence Gallery?
 
-Azure AI Gallery contiene diverse risorse di vario tipo fornite come contributo da Microsoft e da membri della community di data science, Sono inclusi:
+Azure AI Gallery contiene diverse risorse di vario tipo fornite come contributo da Microsoft e da membri della community di data science, Queste includono:
 
 * **Esperimenti** : la raccolta contiene un'ampia gamma di esperimenti sviluppati in Azure Machine Learning Studio (classico). da veloci esperimenti di prova che illustrano una tecnica di apprendimento automatico specifica a soluzioni complete per la risoluzione di problemi di apprendimento automatico complessi.
-* **Esercitazioni** : sono disponibili diverse esercitazioni che illustrano concetti e tecnologie di Machine Learning e metodi avanzati per la risoluzione di vari problemi di Machine Learning.
-* **Raccolte** : una raccolta consente di raggruppare esperimenti, API e altre risorse di Gallery dedicati a un concetto o una soluzione specifici.
+* **Esercitazioni**: sono disponibili diverse esercitazioni che illustrano concetti e tecnologie di Machine Learning e metodi avanzati per la risoluzione di vari problemi di Machine Learning.
+* **Raccolte**: una raccolta consente di raggruppare esperimenti, API e altre risorse di Gallery dedicati a un concetto o una soluzione specifici.
 * **Moduli personalizzati** : è possibile scaricare moduli personalizzati nell'area di lavoro di studio (classica) da usare nei propri esperimenti.
 
 ## <a name="discover-and-contribute"></a>Scoprire e contribuire
@@ -48,12 +48,12 @@ Nella pagina di ogni risorsa è disponibile una sezione dedicata ai commenti in 
 
 Quando si esegue l'accesso si diventa membri della community di Cortana Intelligence Gallery. Questo permette di scaricare le risorse o di pubblicare i propri elementi di Gallery e consentire agli altri di trarre vantaggio dalle soluzioni scoperte.
 
-È possibile scaricare gli **esperimenti** , i **moduli personalizzati** da usare per lo sviluppo di soluzioni di analisi personalizzate.
-È possibile contribuire con **esperimenti** , **esercitazioni** e **raccolte** pubblicandoli in Gallery.
+È possibile scaricare gli **esperimenti**, i **moduli personalizzati** da usare per lo sviluppo di soluzioni di analisi personalizzate.
+È possibile contribuire con **esperimenti**, **esercitazioni** e **raccolte** pubblicandoli in Gallery.
 
 ## <a name="download-experiments-modules"></a>Scarica esperimenti, moduli
 
-È possibile scaricare **esperimenti** , **moduli personalizzati** nell'area di lavoro Machine Learning Studio (classica) da usare per lo sviluppo di soluzioni personalizzate.
+È possibile scaricare **esperimenti**, **moduli personalizzati** nell'area di lavoro Machine Learning Studio (classica) da usare per lo sviluppo di soluzioni personalizzate.
 
 Per scaricare una risorsa da AI Gallery:
 
@@ -65,7 +65,7 @@ Per scaricare una risorsa da AI Gallery:
 Per scaricare una risorsa da studio (classico):
 
 1. In studio (classico) selezionare **nuovo**.
-1. Selezionare **Modulo** , **Esperimento** o **Notebook**.
+1. Selezionare **Modulo**, **Esperimento** o **Notebook**.
 1. Sfogliare o cercare una risorsa di Gallery.
 1. Spostare il mouse sulla risorsa e quindi selezionare **Open in Studio** (Apri in Studio).
     ![Aprire l'esperimento della raccolta dall'interno Machine Learning Studio (classico)](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
@@ -108,7 +108,7 @@ Gli utenti possono anche aggiungere commenti e condividere il contributo con alt
 
 1. Nella pagina **Selezione immagine** scegliere un'immagine di anteprima per l'esperimento. L'immagine di anteprima viene visualizzata nella parte superiore della pagina dei dettagli dell'esperimento e nel riquadro dell'esperimento. Gli altri utenti vedranno un'immagine di anteprima mentre esplorano Gallery. È possibile caricare un'immagine dal computer oppure selezionarne una da Gallery.
 
-1. Nella pagina **Impostazioni** , in **Visibilità** , scegliere se pubblicare il contenuto con l'impostazione **Public** (Pubblico) o se renderlo accessibile solo agli utenti dotati di un collegamento alla pagina con l'impostazione **Unlisted** (Non in elenco).
+1. Nella pagina **Impostazioni**, in **Visibilità**, scegliere se pubblicare il contenuto con l'impostazione **Public** (Pubblico) o se renderlo accessibile solo agli utenti dotati di un collegamento alla pagina con l'impostazione **Unlisted** (Non in elenco).
 
    > [!TIP]
    > Per assicurarsi che la documentazione sia corretta prima di pubblicarla, è possibile usare l'opzione **Unlisted** (Non in elenco) prima di rendere pubblico l'esperimento. In un secondo momento sarà possibile modificare l'impostazione di visibilità su **Public** (Pubblico) nella pagina dei dettagli dell'esperimento. Si noti che, dopo aver impostato un esperimento su **Public** (Pubblico), successivamente non è possibile impostarlo su **Unlisted** (Non in elenco).
@@ -144,7 +144,7 @@ Queste modifiche o eliminazioni possono essere apportate in Gallery dalla pagina
 
 ## <a name="contribute-tutorials-and-collections"></a>Contribuire con esercitazioni e raccolte
 
-È possibile aiutare gli altri utenti scrivendo in Gallery un' **esercitazione** che illustri i concetti di Machine Learning o creando una **raccolta** che raggruppi più risorse relative a una specifica soluzione.
+È possibile aiutare gli altri utenti scrivendo in Gallery un'**esercitazione** che illustri i concetti di Machine Learning o creando una **raccolta** che raggruppi più risorse relative a una specifica soluzione.
 
 1. Accedere a Gallery con il proprio account Microsoft.
 
@@ -152,16 +152,16 @@ Queste modifiche o eliminazioni possono essere apportate in Gallery dalla pagina
 
 1. Selezionare **Nuovo elemento**.
 
-1. Nella pagina **Descrizione** , per **Tipo di elemento** , selezionare **Esercitazione** o **Raccolta**. Immettere un nome, un breve riepilogo e una descrizione dettagliata, oltre a eventuali tag che potrebbero aiutare gli utenti a trovare il contributo in questione. Quindi fare clic su **Next**.
+1. Nella pagina **Descrizione**, per **Tipo di elemento**, selezionare **Esercitazione** o **Raccolta**. Immettere un nome, un breve riepilogo e una descrizione dettagliata, oltre a eventuali tag che potrebbero aiutare gli utenti a trovare il contributo in questione. Quindi fare clic su **Next**.
 
 1. Nella pagina **Selezione immagine** selezionare un'immagine visualizzata con il contributo. È possibile caricare il proprio file di immagine oppure selezionarne una. Scegliere un'immagine che possa aiutare gli utenti a identificare il contenuto e lo scopo del contributo. Quindi fare clic su **Next**.
 
-1. Nella pagina **Impostazioni** , per **Visibilità** , selezionare se il contributo è **Public** (Pubblico) e quindi visibile a tutti gli utenti oppure **Unlisted** (Non in elenco), ovvero visibile solo agli utenti con un collegamento diretto.
+1. Nella pagina **Impostazioni**, per **Visibilità**, selezionare se il contributo è **Public** (Pubblico) e quindi visibile a tutti gli utenti oppure **Unlisted** (Non in elenco), ovvero visibile solo agli utenti con un collegamento diretto.
 
    > [!TIP]
    > Per assicurarsi che la documentazione sia corretta prima di pubblicarla, è possibile usare l'opzione **Unlisted** (Non in elenco) prima di rendere pubblico l'esperimento. In un secondo momento sarà possibile modificare l'impostazione di visibilità su **Public** (Pubblico) nella pagina dei dettagli dell'esperimento. Si noti che, dopo aver impostato un esperimento su **Public** (Pubblico), successivamente non è possibile impostarlo su **Unlisted** (Non in elenco).
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 Il contributo si trova ora in Azure AI Gallery. I contributi vengono elencati nella pagina del proprio account, all'interno della scheda **Elementi**.
 
@@ -202,6 +202,6 @@ Dopo aver inserito un tag, premere il tasto TAB per inserirne un altro.
 
 La raccolta è stata concepita per essere creata dagli utenti per gli utenti. Per specificare gli aspetti della raccolta che più si apprezzano o che si ritiene possano essere migliorati, è possibile usare gli emoticon.  
 
-![Commenti e suggerimenti](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![Una finestra di feedback consente di inviare Smile, inviare faccia imbronciata o immettere testo. È disponibile un pulsante Invia.](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
 **[VAI A CORTANA INTELLIGENCE GALLERY &gt;&gt;](https://gallery.azure.ai)**

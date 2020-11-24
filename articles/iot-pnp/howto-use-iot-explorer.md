@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: contperfq2
-ms.openlocfilehash: 8482ba608ee5fcefb006234b339cd9b711a38020
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 55607527ced2e5d93a61cfd85477758482f18daa
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445303"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495424"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installare e usare Azure Internet Explorer
 
@@ -40,13 +40,13 @@ Passare ad [Azure Internet Explorer releases](https://github.com/Azure/azure-iot
 
 ## <a name="use-azure-iot-explorer"></a>Usare Esplora risorse di Azure
 
-Per un dispositivo, è possibile connettere il proprio dispositivo o usare uno dei dispositivi simulati di esempio. Per alcuni dispositivi simulati di esempio scritti in linguaggi diversi, vedere le guide introduttive sull' [applicazione per la connessione di un esempio plug and Play dispositivo ad hub](quickstart-connect-device-node.md) .
+Per un dispositivo, è possibile connettere il proprio dispositivo o usare uno dei dispositivi simulati di esempio. Per alcuni dispositivi simulati di esempio scritti in linguaggi diversi, vedere la Guida introduttiva all' [applicazione per la connessione di un dispositivo Plug and Play dispositivo a un hub](quickstart-connect-device.md) .
 
 ### <a name="connect-to-your-hub"></a>Connettersi all'hub
 
 La prima volta che si esegue Azure Internet Explorer, viene richiesta la stringa di connessione dell'hub. Dopo aver aggiunto la stringa di connessione, selezionare **Connetti**. È possibile usare le impostazioni dello strumento per passare a un altro hub delle cose aggiornando la stringa di connessione.
 
-La definizione del modello per un dispositivo Plug and Play viene archiviata sia nel repository pubblico, nel dispositivo connesso o in una cartella locale. Per impostazione predefinita, lo strumento Cerca la definizione del modello nel repository pubblico e nel dispositivo connesso. È possibile aggiungere e rimuovere origini oppure configurare la priorità delle origini nelle **Impostazioni** :
+La definizione del modello per un dispositivo Plug and Play viene archiviata sia nel repository pubblico, nel dispositivo connesso o in una cartella locale. Per impostazione predefinita, lo strumento Cerca la definizione del modello nel repository pubblico e nel dispositivo connesso. È possibile aggiungere e rimuovere origini oppure configurare la priorità delle origini nelle **Impostazioni**:
 
 Per aggiungere un'origine:
 
@@ -78,7 +78,7 @@ Nella pagina elenco **dispositivi** selezionare un valore nella colonna **ID dis
 
 ### <a name="device"></a>Dispositivo
 
-Questa sezione include le schede **identità dispositivo** ,  **dispositivo gemello** , **telemetria** , **metodo diretto** , **messaggio da cloud a dispositivo** , **identità modulo**  .
+Questa sezione include le schede **identità dispositivo**,  **dispositivo gemello**, **telemetria**, **metodo diretto**, **messaggio da cloud a dispositivo**, **identità modulo**  .
 
 - È possibile visualizzare e aggiornare le informazioni sull' [identità del dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md) nella scheda **identità dispositivo** .
 - È possibile accedere alle informazioni sul [dispositivo gemello](../iot-hub/iot-hub-devguide-device-twins.md) nella scheda del **dispositivo gemello** .
@@ -89,7 +89,7 @@ Questa sezione include le schede **identità dispositivo** ,  **dispositivo geme
 
 ### <a name="iot-plug-and-play-components"></a>Componenti Plug and Play
 
-Se il dispositivo è connesso all'hub usando un **ID modello** , lo strumento Mostra la scheda **componenti plug and Play** , in cui è possibile visualizzare l' **ID modello**.
+Se il dispositivo è connesso all'hub usando un **ID modello**, lo strumento Mostra la scheda **componenti plug and Play** , in cui è possibile visualizzare l' **ID modello**.
 
 Se l' **ID del modello** è disponibile in una delle origini configurate, ovvero il repository pubblico o la cartella locale, viene visualizzato l'elenco dei componenti. Selezionando un componente vengono visualizzate le proprietà, i comandi e i dati di telemetria disponibili.
 
@@ -109,9 +109,9 @@ Nella pagina **componente** è possibile visualizzare le proprietà di sola lett
 1. Visualizzare in anteprima il payload da inviare al dispositivo.
 1. Inviare la modifica.
 
-Dopo aver inviato una modifica, è possibile tenere traccia dello stato di aggiornamento: **sincronizzazione** , **esito positivo** o **errore**. Al termine della sincronizzazione, viene visualizzato il nuovo valore della proprietà nella colonna delle **proprietà restituita** . Se si passa ad altre pagine prima del completamento della sincronizzazione, lo strumento continua a notificare il completamento dell'aggiornamento. È anche possibile usare il centro notifiche dello strumento per visualizzare la cronologia delle notifiche.
+Dopo aver inviato una modifica, è possibile tenere traccia dello stato di aggiornamento: **sincronizzazione**, **esito positivo** o **errore**. Al termine della sincronizzazione, viene visualizzato il nuovo valore della proprietà nella colonna delle **proprietà restituita** . Se si passa ad altre pagine prima del completamento della sincronizzazione, lo strumento continua a notificare il completamento dell'aggiornamento. È anche possibile usare il centro notifiche dello strumento per visualizzare la cronologia delle notifiche.
 
-#### <a name="commands"></a>Comandi
+#### <a name="commands"></a>Comandi:
 
 Per inviare un comando a un dispositivo, passare alla scheda **comandi** :
 

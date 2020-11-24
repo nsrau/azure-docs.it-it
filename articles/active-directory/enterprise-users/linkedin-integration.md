@@ -6,19 +6,18 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: enterprise-users
 ms.topic: how-to
 ms.date: 11/15/2020
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d70676e117a71fbd194e921b4755ba5d196871c7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 158d8731965533b20917a25b72227a92c9638fa7
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94650309"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95488454"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrare le connessioni dell'account LinkedIn in Azure Active Directory
 
@@ -94,7 +93,7 @@ Per usare il gruppo dal passaggio 2 come gruppo selezionato nell'impostazione de
 1. Creare un oggetto Criteri di gruppo con l'impostazione seguente: **Configurazione utente**  >  **modelli amministrativi**  >  **Microsoft Office 2016**  >  **varie**  >  **Mostra le funzionalità di LinkedIn nelle applicazioni di Office**.
 1. Selezionare **Abilitato** o **Disabilitato**.
   
-   Stato | Effetto
+   State | Effetto
    ------ | ------
    **Enabled** | L'impostazione **Visualizza funzionalità di LinkedIn nelle applicazioni di Office** è abilitata nelle Opzioni di Office 2016. Gli utenti dell'organizzazione possono usare le funzionalità di LinkedIn nelle applicazioni Office 2016.
    **Disabilitato** | L'impostazione **Visualizza funzionalità di LinkedIn nelle applicazioni di Office** è disabilitata nelle Opzioni di Office 2016 e gli utenti finali non possono modificare questa impostazione. Gli utenti dell'organizzazione non possono usare le funzionalità di LinkedIn nelle applicazioni di Office 2016.

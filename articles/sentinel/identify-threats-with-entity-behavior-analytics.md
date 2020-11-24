@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 657221a2acbf592a56cb4659ced2199023bc5e5b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: a0a677342534cd92d5530199076e3d2e7084134d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658792"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95494778"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificare le minacce avanzate con l'analisi del comportamento dell'utente e dell'entità (offrono dati) in Sentinel di Azure
 
@@ -92,7 +92,7 @@ In Sentinel di Azure sono attualmente identificati i tipi di entità seguenti:
 - Indirizzo IP (IP)
 - Malware
 - File
-- Process
+- Processo
 - Applicazione cloud (CloudApplication)
 - Nome di dominio (DNS)
 - Risorsa di Azure
@@ -205,7 +205,7 @@ Azure Sentinel calcola e classifica i peer di un utente, in base all'appartenenz
 
 L'analisi delle autorizzazioni consente di determinare il potenziale impatto della compromissione di un asset aziendale da parte di un utente malintenzionato. Questo effetto è noto anche come "raggio di esplosione" dell'asset. Gli analisti della sicurezza possono usare queste informazioni per definire la priorità delle indagini e della gestione degli eventi imprevisti.
 
-Azure Sentinel determina i diritti di accesso diretti e transitivi conservati da un determinato utente per le risorse di Azure, valutando le sottoscrizioni di Azure a cui l'utente può accedere direttamente o tramite gruppi o entità servizio. Queste informazioni, nonché l'elenco completo delle Azure AD appartenenza al gruppo di sicurezza dell'utente, vengono quindi archiviate nella tabella **UserAccessAnalytics** . La schermata seguente mostra una riga di esempio nella tabella UserAccessAnalytics, per l'utente Alex Johnson. L' **entità di origine** è l'account utente o dell'entità servizio e l'entità di **destinazione** è la risorsa a cui l'entità di origine ha accesso. I valori del **livello di accesso** e del **tipo di accesso** dipendono dal modello di controllo di accesso dell'entità di destinazione. Si noterà che Alex ha l'accesso collaboratore al tenant di *Contoso Hotels* della sottoscrizione di Azure. Il modello di controllo di accesso della sottoscrizione è RBAC.   
+Azure Sentinel determina i diritti di accesso diretti e transitivi conservati da un determinato utente per le risorse di Azure, valutando le sottoscrizioni di Azure a cui l'utente può accedere direttamente o tramite gruppi o entità servizio. Queste informazioni, nonché l'elenco completo delle Azure AD appartenenza al gruppo di sicurezza dell'utente, vengono quindi archiviate nella tabella **UserAccessAnalytics** . La schermata seguente mostra una riga di esempio nella tabella UserAccessAnalytics, per l'utente Alex Johnson. L' **entità di origine** è l'account utente o dell'entità servizio e l'entità di **destinazione** è la risorsa a cui l'entità di origine ha accesso. I valori del **livello di accesso** e del **tipo di accesso** dipendono dal modello di controllo di accesso dell'entità di destinazione. Si noterà che Alex ha l'accesso collaboratore al tenant di *Contoso Hotels* della sottoscrizione di Azure. Il modello di controllo di accesso della sottoscrizione è RBAC di Azure.   
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Screenshot della tabella di analisi dell'accesso utente":::
 

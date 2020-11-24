@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 61bff59114d25b2f3167a34100ec2f742036bb90
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: d39d72a79d4b273918986d0d350df4706592c77d
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94663707"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95503179"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Single Sign-On basata su intestazione per le app locali con App Azure AD proxy (anteprima)
 
@@ -85,7 +85,7 @@ Prima di iniziare a usare Single Sign-On per le applicazioni basate su intestazi
 ## <a name="test-your-app"></a>Test dell'app 
 
 Dopo aver completato tutti questi passaggi, l'app deve essere in esecuzione e disponibile. Per testare l'app: 
-1. Aprire un browser e passare all' **URL esterno**   dalle impostazioni del proxy di applicazione. 
+1. Aprire una nuova finestra del browser o del browser privato per assicurarsi che le intestazioni precedentemente memorizzate nella cache siano deselezionate. Passare quindi all' **URL esterno**   dalle impostazioni del proxy di applicazione.
 2. Accedere con l'account di test assegnato all'app. Se è possibile caricare ed eseguire l'accesso all'applicazione tramite SSO, si è pronti. 
 
 

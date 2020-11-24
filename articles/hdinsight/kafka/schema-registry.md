@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 7e17cdca508db81551d988c795bd1235fa729e82
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: bb46bc18469638416ff76f84516498e0076c85fd
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636861"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95500323"
 ---
 # <a name="apache-kafka-with-confluent-schema-registry-in-azure-hdinsight"></a>Apache Kafka con registro dello schema Confluent in Azure HDInsight
 
@@ -34,7 +34,7 @@ In questa sezione viene distribuito un cluster Kafka gestito da HDInsight con un
 
 1. Selezionare il pulsante **Distribuisci in Azure** seguente per accedere ad Azure e aprire il modello di Resource Manager.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json" target="_blank">:::image type="icon" source="media/schema-registry/hdi-deploy-to-azure1.png":::</a>
+    [![Distribuzione in Azure](./media/schema-registry/hdi-deploy-to-azure1.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Farnabganguly%2FKafkaschemaregistry%2Fmaster%2Fazuredeploy.json)
 
 1. Nel modello di distribuzione personalizzata compilare i campi come descritto di seguito:
 
@@ -113,7 +113,7 @@ Il registro dello schema deve essere a conoscenza del servizio Zookeeper che pu√
     debug=true
     ```
 
-1. Per salvare il file, usare **Ctrl + X** , **Y** e **INVIO**.
+1. Per salvare il file, usare **Ctrl + X**, **Y** e **INVIO**.
 
 1. Avviare il registro dello schema e puntare a usare il file delle propriet√† del registro di sistema aggiornato. Eseguire i comandi seguenti:
 
@@ -215,7 +215,7 @@ In questa sezione i dati verranno letti dall'input standard e scritti in un argo
     }
     ```
 
-    Usare il comando seguente per avviare il **Producer della console Kafka avro** :
+    Usare il comando seguente per avviare il **Producer della console Kafka avro**:
 
     ```bash
     /usr/bin/kafka-avro-console-producer     --broker-list $KAFKABROKERS     --topic agkafkaschemareg     --property parse.key=true --property key.schema='{"type" : "int", "name" : "id"}'     --property value.schema='{ "type" : "record", "name" : "example_schema", "namespace" : "com.example", "fields" : [ { "name" : "cust_id", "type" : "int", "doc" : "Id of the customer account" }, { "name" : "year", "type" : "int", "doc" : "year of expense" }, { "name" : "expenses", "type" : {"type": "array", "items": "float"}, "doc" : "Expenses for the year" } ], "doc:" : "A basic schema for storing messages" }'

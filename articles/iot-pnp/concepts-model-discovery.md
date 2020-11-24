@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: dda0e3d6739e94df4ce5910938c164e3db336bce
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5f82206a7c86c5ae1e6477419faee0dca88ef883
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445575"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495288"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Usare i modelli Plug and Play in una soluzione Internet delle cose
 
@@ -125,7 +125,7 @@ Dopo aver identificato l'ID modello per una nuova connessione del dispositivo, a
 
 1. Utilizzando la definizione del modello del dispositivo connesso, è possibile enumerare le funzionalità del dispositivo.
 
-1. Usando le funzionalità enumerate del dispositivo, è possibile consentire agli utenti di [interagire con il dispositivo](quickstart-service-node.md).
+1. Usando le funzionalità enumerate del dispositivo, è possibile consentire agli utenti di [interagire con il dispositivo](quickstart-service.md).
 
 ### <a name="custom-store"></a>Archivio personalizzato
 
@@ -137,12 +137,12 @@ Dopo aver identificato l'ID modello per una nuova connessione del dispositivo, a
 
 1. Utilizzando la definizione del modello del dispositivo connesso, è possibile enumerare le funzionalità del dispositivo. 
 
-1. Usando le funzionalità enumerate del dispositivo, è possibile consentire agli utenti di [interagire con il dispositivo](quickstart-service-node.md).  
+1. Usando le funzionalità enumerate del dispositivo, è possibile consentire agli utenti di [interagire con il dispositivo](quickstart-service.md).  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Ora che si è appreso come integrare i modelli Plug and Play in una soluzione Internet delle cose, alcuni passaggi successivi suggeriti sono:
 
-- [Interagire con un dispositivo dalla soluzione](quickstart-service-node.md)
+- [Interagire con un dispositivo dalla soluzione](quickstart-service.md)
 - [API REST Digital Twin](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT Explorer](howto-use-iot-explorer.md)

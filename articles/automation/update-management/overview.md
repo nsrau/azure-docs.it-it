@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09bd82225fb7d8a6eefe84b5a70660e4553a3070
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: abcc2b60fd796a80342fe48c3c9027388660476a
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360786"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95488148"
 ---
 # <a name="update-management-overview"></a>Panoramica di Gestione aggiornamenti
 
@@ -20,7 +20,7 @@ ms.locfileid: "93360786"
 > Non è possibile usare un computer configurato con Gestione aggiornamenti per l'esecuzione di script personalizzati da Automazione di Azure. Questo computer può eseguire solo lo script di aggiornamento firmato da Microsoft.
 
 > [!NOTE]
-> A questo punto, l'abilitazione di Gestione aggiornamenti direttamente da un server abilitato per Arc non è supportata. Per informazioni sui requisiti e su come abilitare per il server, vedere [abilitare Gestione aggiornamenti dall'account di automazione](../../automation/update-management/enable-from-automation-account.md) .
+> Al momento, l'abilitazione di Gestione aggiornamenti direttamente da un server con abilitazione di Arc non è supportata. Per informazioni sui requisiti e su come eseguire l'abilitazione per il server, vedere [Abilitare Gestione aggiornamenti dal proprio account di Automazione](../../automation/update-management/enable-from-automation-account.md).
 
 Per scaricare e installare automaticamente le patch di *sicurezza* e *critici* disponibili nella macchina virtuale di Azure, vedere applicazione [automatica delle patch Guest](../../virtual-machines/windows/automatic-vm-guest-patching.md) per VM Windows.
 
@@ -132,7 +132,7 @@ Gestione aggiornamenti usa le risorse descritte in questa sezione. Queste risors
 
 Dopo l'abilitazione di Gestione aggiornamenti, qualsiasi computer Windows direttamente connesso all'area di lavoro Log Analytics viene configurato automaticamente come ruolo di lavoro ibrido per runbook per supportare i runbook che supportano Gestione aggiornamenti.
 
-Ogni computer Windows gestito da Gestione aggiornamenti è elencato nella pagina dei gruppi di ruoli di lavoro ibridi come gruppo di ruoli di lavoro ibridi per il sistema per l'account di Automazione. I gruppi usano la convenzione di denominazione `Hostname FQDN_GUID`. Non è possibile applicare runbook a questi gruppi nell'account. Se si prova, il tentativo avrà esito negativo. Questi gruppi sono destinati solo al supporto di Gestione aggiornamenti. Per altre informazioni sulla visualizzazione dell'elenco dei computer Windows configurati come ruolo di lavoro ibrido per Runbook, vedere visualizzare i ruoli di lavoro [ibridi per Runbook](../automation-hybrid-runbook-worker.md#view-hybrid-runbook-workers).
+Ogni computer Windows gestito da Gestione aggiornamenti è elencato nella pagina dei gruppi di ruoli di lavoro ibridi come gruppo di ruoli di lavoro ibridi per il sistema per l'account di Automazione. I gruppi usano la convenzione di denominazione `Hostname FQDN_GUID`. Non è possibile applicare runbook a questi gruppi nell'account. Se si prova, il tentativo avrà esito negativo. Questi gruppi sono destinati solo al supporto di Gestione aggiornamenti. Per altre informazioni sulla visualizzazione dell'elenco dei computer Windows configurati come ruolo di lavoro ibrido per Runbook, vedere visualizzare i ruoli di lavoro [ibridi per Runbook](../automation-hybrid-runbook-worker.md#view-system-hybrid-runbook-workers).
 
 È possibile aggiungere i computer Windows a un gruppo di ruoli di lavoro ibridi per runbook nell'account di Automazione per supportare i runbook di Automazione, se si usa lo stesso account sia per Gestione aggiornamenti che per l'appartenenza al gruppo di ruoli di lavoro ibridi per runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
 

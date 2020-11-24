@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 5125fff0ef8987d313c6611e4d5de08d090f2263
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 769dea079339af2c6307d9230e047a654dc3d5dd
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913195"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95492211"
 ---
 # <a name="receipt-concepts"></a>Concetti relativi alle ricevute
 
@@ -57,6 +57,13 @@ L'API di ricezione restituisce anche le informazioni seguenti:
 * Testo non elaborato OCR (output di testo estratto dall'OCR per l'intera ricezione)
 * Rettangolo di delimitazione per ogni valore, riga e parola
 
+## <a name="try-it-out"></a>Provare questa operazione
+
+Per provare il servizio di ricezione del modulo di riconoscimento, passare allo strumento dell'interfaccia utente di esempio online:
+
+> [!div class="nextstepaction"]
+> [Prova modelli predefiniti](https://fott-preview.azurewebsites.net/)
+
 ## <a name="input-requirements"></a>Requisiti di input
 
 [!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
@@ -64,7 +71,7 @@ L'API di ricezione restituisce anche le informazioni seguenti:
 ## <a name="supported-locales"></a>Impostazioni locali supportate 
 
 * La **ricezione precompilata v 2.0** (GA) supporta le ricevute di vendita nelle impostazioni locali en-US
-* **Ricezione precompilata v 2.1-Preview. 1** (anteprima pubblica) aggiunge ulteriore supporto per le impostazioni locali di ricezione seguenti: 
+* **Ricezione precompilata v 2.1-Preview. 2** (anteprima pubblica) aggiunge ulteriore supporto per le impostazioni locali di ricezione seguenti: 
   * IT-AU 
   * EN-CA 
   * IT-GB 
@@ -73,12 +80,12 @@ L'API di ricezione restituisce anche le informazioni seguenti:
   > [!NOTE]
   > Input lingua 
   >
-  > La ricezione precompilata v 2.1-Preview. 1 include un parametro request facoltativo per specificare le impostazioni locali di ricezione da altri mercati in lingua inglese. Per le ricevute di vendita in inglese da Australia (EN-AU), Canada (EN-CA), Gran Bretagna (EN-GB) e India (EN-IN), è possibile specificare le impostazioni locali per ottenere risultati migliori. Se non è specificata alcuna impostazione locale in v 2.1-Preview. 1, per impostazione predefinita il modello verrà impostato sul modello EN-US.
+  > Ricezione precompilata v 2.1-Preview. 2 include un parametro request facoltativo per specificare le impostazioni locali di ricezione da altri mercati in lingua inglese. Per le ricevute di vendita in inglese da Australia (EN-AU), Canada (EN-CA), Gran Bretagna (EN-GB) e India (EN-IN), è possibile specificare le impostazioni locali per ottenere risultati migliori. Se non è specificata alcuna impostazione locale in v 2.1-Preview. 2, per impostazione predefinita il modello verrà impostato sul modello EN-US.
 
 
 ## <a name="the-analyze-receipt-operation"></a>Operazione di ricezione dell'analisi
 
-La [ricezione dell'analisi](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) accetta un'immagine o un PDF di una ricevuta come input ed estrae i valori di interesse e testo. La chiamata restituisce un campo di intestazione della risposta denominato `Operation-Location` . Il `Operation-Location` valore è un URL che contiene l'ID risultato da usare nel passaggio successivo.
+La [ricezione dell'analisi](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync) accetta un'immagine o un PDF di una ricevuta come input ed estrae i valori di interesse e testo. La chiamata restituisce un campo di intestazione della risposta denominato `Operation-Location` . Il `Operation-Location` valore è un URL che contiene l'ID risultato da usare nel passaggio successivo.
 
 |Intestazione risposta| URL risultato |
 |:-----|:----|
@@ -86,7 +93,7 @@ La [ricezione dell'analisi](https://westcentralus.dev.cognitive.microsoft.com/do
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>Operazione Get Analyze result result
 
-Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze result result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult) . Questa operazione accetta come input l'ID del risultato creato dall'operazione di ricezione dell'analisi. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
+Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze result result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) . Questa operazione accetta come input l'ID del risultato creato dall'operazione di ricezione dell'analisi. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
 |Campo| Type | Valori possibili |
 |:-----|:----:|:----|

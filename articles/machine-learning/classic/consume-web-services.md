@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.date: 05/29/2020
-ms.openlocfilehash: 9922ddf0859e4f28d5759108581f5ef538f0c294
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: eaf0131877e7a333fe2a6f157523da5ad7bcf07b
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305566"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95500000"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Come utilizzare un servizio Web di Machine Learning Studio (classico)
 
-**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**si applica a:** ![ Si tratta di un segno di spunta, che indica che questo articolo si applica alla Machine Learning Studio (classica).  ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) si   ![ tratta di una X, il che significa che questo articolo si applica al Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Una volta distribuito un modello predittivo di Azure Machine Learning Studio (classico) come servizio Web, è possibile usare un'API REST per inviare dati e ottenere stime. È possibile inviare i dati in tempo reale o in modalità batch.
@@ -51,7 +51,7 @@ Per recuperare la chiave API per un nuovo servizio Web Machine Learning:
 
 1. Nel portale Servizi Web di Machine Learning di Azure, fare clic sul menu **Web Services** (Servizi Web) nel menu in alto.
 2. Selezionare il servizio Web per il quale si desidera recuperare la chiave.
-3. Nel menu in alto fare clic su **Consume** (Uso).
+3. Nel menu in alto fare clic su **Consume**(Uso).
 4. Copiare e salvare la **Chiave primaria**.
 
 Per recuperare la chiave API per un nuovo servizio Web Machine Learning di tipo classico:
@@ -59,7 +59,7 @@ Per recuperare la chiave API per un nuovo servizio Web Machine Learning di tipo 
 1. Nel portale Servizi Web di Machine Learning di Azure, fare clic sul menu **Classic Web Services** (Servizi Web classici) nel menu in alto.
 2. Fare clic sul servizio Web in uso.
 3. Selezionare l'endpoint per il quale si desidera recuperare la chiave.
-4. Nel menu in alto fare clic su **Consume** (Uso).
+4. Nel menu in alto fare clic su **Consume**(Uso).
 5. Copiare e salvare la **Chiave primaria**.
 
 ### <a name="classic-web-service"></a>Servizio Web classico
@@ -77,7 +77,7 @@ La Guida per l'API di Machine Learning contiene i dettagli su un servizio Web di
 
 1. Fare clic sul servizio Web in uso.
 2. Selezionare l'endpoint per il quale si desidera visualizzare la pagina della guida alle API.
-3. Nel menu in alto fare clic su **Consume** (Uso).
+3. Nel menu in alto fare clic su **Consume**(Uso).
 4. Fare clic sulla pagina della **guida alle API** negli endpoint Request-Response o Esecuzione batch.
 
 **Per visualizzare la guida alle API di Machine Learning per un nuovo servizio Web**

@@ -7,12 +7,12 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5f1c52b764634f8086763aca67dfc32b507d2edd
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 51bd073b6f84f3378b91091e04f2f278ea2f49b6
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042848"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95495270"
 ---
 # <a name="manage-iot-plug-and-play-digital-twins"></a>Gestisci le cose Plug and Play i dispositivi gemelli digitali
 
@@ -193,6 +193,6 @@ Gli aggiornamenti possono avere esito negativo se i valori segnalati di un dispo
 
 Ora che sono state apprese informazioni sui dispositivi gemelli digitali, di seguito sono riportate alcune risorse aggiuntive:
 
-- [Interagire con un dispositivo dalla soluzione](quickstart-service-node.md)
+- [Interagire con un dispositivo dalla soluzione](quickstart-service.md)
 - [API REST Digital Twin](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT Explorer](howto-use-iot-explorer.md)

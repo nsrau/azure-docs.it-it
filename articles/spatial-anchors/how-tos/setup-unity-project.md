@@ -1,19 +1,19 @@
 ---
 title: Installare gli ancoraggi spaziali di Azure per Unity
 description: Configurare un progetto Unity per l'uso di ancoraggi spaziali di Azure
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: crtreasu
-ms.date: 09/29/2020
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: da983719dc66656aa28cab4aea0bae558c2a7162
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2330310b0bf4e165af71208477db128650a787cf
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530418"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "95496945"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-unity-project"></a>Configurazione di ancoraggi spaziali di Azure in un progetto Unity
 
@@ -55,7 +55,7 @@ Gli ancoraggi spaziali di Azure per Unity vengono attualmente distribuiti usando
 #### <a name="android-only-configure-the-maintemplategradle-file"></a>Solo Android: configurare il file mainTemplate. Gradle
 
 1. Andare a **Modifica** > **Impostazioni progetto** > **Lettore**.
-2. Nel **pannello Inspector** per **le impostazioni del lettore**selezionare l'icona **Android** .
+2. Nel **pannello Inspector** per **le impostazioni del lettore** selezionare l'icona **Android** .
 3. Nella sezione **compilazione** selezionare la casella di controllo **modello principale personalizzato Gradle** per generare un modello Gradle personalizzato in `Assets\Plugins\Android\mainTemplate.gradle` .
 4. Apri il file `mainTemplate.gradle` in un editor di testo.
 5. Nella `dependencies` sezione incollare le dipendenze seguenti:
