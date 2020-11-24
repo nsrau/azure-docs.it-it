@@ -1,5 +1,5 @@
 ---
-title: Creazione di monitoraggio connessione (anteprima)-PowerShell
+title: Creazione di un monitoraggio della connessione-PowerShell
 titleSuffix: Azure Network Watcher
 description: Informazioni su come creare un monitoraggio della connessione tramite PowerShell.
 services: network-watcher
@@ -10,22 +10,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2020
+ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: b1ffce75d5c38177c70db3ec1fc024a01821d3ab
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 1a554177bf7084b9a7f4c413dbe82271b3ab6b3a
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984244"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95545534"
 ---
-# <a name="create-a-connection-monitor-preview-using-powershell"></a>Creare un monitoraggio connessione (anteprima) con PowerShell
+# <a name="create-a-connection-monitor-using-powershell"></a>Creare un monitoraggio della connessione tramite PowerShell
 
 Informazioni su come creare un monitoraggio della connessione per monitorare la comunicazione tra le risorse usando PowerShell.
 
-> [!IMPORTANT]
-> Il monitoraggio connessione è attualmente disponibile in anteprima pubblica.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="before-you-begin"></a>Prima di iniziare 
 

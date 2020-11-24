@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a3395873d7655118e3fcc9c36cdfc3855f8f000
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14da8b6cb695703f1881b6b0b9858772bde386c5
+ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714806"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95544752"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Elenco di controllo di prestazioni e scalabilità dell'archiviazione BLOB
 
@@ -59,7 +59,7 @@ Questo articolo organizza procedure comprovate per le prestazioni in un elenco d
 
 Se l'applicazione raggiunge o supera uno o più obiettivi di scalabilità, può verificarsi un aumento delle latenze o delle limitazioni della transazione. Quando Archiviazione di Azure limita l'applicazione, il servizio inizia a restituire i codici di errore "503 Server occupato" o "500 Timeout operazione". Evitare questi errori rispettando i limiti degli obiettivi di scalabilità è una parte importante del miglioramento delle prestazioni dell'applicazione.
 
-Per altre informazioni sugli obiettivi di scalabilità per il Servizio di accodamento, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
+Per altre informazioni sugli obiettivi di scalabilità per il Servizio di accodamento, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../queues/scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Numero massimo di account di archiviazione
 
@@ -100,7 +100,7 @@ Comprendere il modo in cui archiviazione di Azure partiziona i dati BLOB è util
 
 L'archiviazione BLOB usa uno schema di partizionamento basato su intervalli per la scalabilità e il bilanciamento del carico. Ogni BLOB ha una chiave di partizione costituita dal nome del BLOB completo (account + contenitore + BLOB). La chiave di partizione viene utilizzata per partizionare i dati BLOB in intervalli. Gli intervalli vengono quindi sottoposte a bilanciamento del carico nell'archivio BLOB.
 
-Il partizionamento basato su intervalli significa che le convenzioni di denominazione che usano l'ordinamento lessicale (ad esempio, *Payroll*, le *prestazioni*, i *dipendenti*e così via) o i timestamp (*log20160101*, *log20160102*, *log20160102*e così via) hanno più probabilità che le partizioni si trovino nello stesso server di partizione. , fino a quando l'incremento del carico richiede la suddivisione in intervalli più piccoli. La condivisione dei BLOB nello stesso server di partizione migliora le prestazioni, quindi una parte importante del miglioramento delle prestazioni prevede la denominazione dei BLOB in modo da organizzarli in modo più efficace.
+Il partizionamento basato su intervalli significa che le convenzioni di denominazione che usano l'ordinamento lessicale (ad esempio, *Payroll*, le *prestazioni*, i *dipendenti* e così via) o i timestamp (*log20160101*, *log20160102*, *log20160102* e così via) hanno più probabilità che le partizioni si trovino nello stesso server di partizione. , fino a quando l'incremento del carico richiede la suddivisione in intervalli più piccoli. La condivisione dei BLOB nello stesso server di partizione migliora le prestazioni, quindi una parte importante del miglioramento delle prestazioni prevede la denominazione dei BLOB in modo da organizzarli in modo più efficace.
 
 Ad esempio, tutti i BLOB in un contenitore possono essere serviti da un singolo server fino a quando il carico di questi BLOB richiede un ulteriore bilanciamento degli intervalli di partizione. Analogamente, un gruppo di account con caricamento leggero con i rispettivi nomi disposti in ordine lessicale può essere servito da un singolo server fino a quando il carico su uno o tutti questi account non richiede la suddivisione in più server di partizione.
 
@@ -195,7 +195,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 Per altri linguaggi di programmazione, vedere la documentazione per determinare come impostare il limite di connessione.  
 
-Per altre informazioni, vedere il post del blog [Servizi Web: connessioni simultanee](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Per altre informazioni, vedere il post del blog [Servizi Web: connessioni simultanee](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentare il numero minimo di thread
 
@@ -213,7 +213,7 @@ Sebbene il parallelismo possa essere ideale per le prestazioni, prestare attenzi
 
 ## <a name="client-libraries-and-tools"></a>Librerie e strumenti client dell'archiviazione
 
-Per ottenere le migliori prestazioni, usare sempre l'ultima versione delle librerie e degli strumenti client forniti da Microsoft. Le librerie client di Archiviazione di Azure sono disponibili per diversi linguaggi. Archiviazione di Azure supporta anche PowerShell e l'interfaccia della riga di comando di Azure. Microsoft sviluppa attivamente questi strumenti e librerie client concentrandosi sulle prestazioni, li mantiene aggiornati con le ultime versioni del servizio e verifica che siano in grado di gestire internamente gran parte delle procedure comprovate relative alle prestazioni. Per altre informazioni, vedere la [documentazione di riferimento di Archiviazione di Azure](/azure/storage/#reference).
+Per ottenere le migliori prestazioni, usare sempre l'ultima versione delle librerie e degli strumenti client forniti da Microsoft. Le librerie client di Archiviazione di Azure sono disponibili per diversi linguaggi. Archiviazione di Azure supporta anche PowerShell e l'interfaccia della riga di comando di Azure. Microsoft sviluppa attivamente questi strumenti e librerie client concentrandosi sulle prestazioni, li mantiene aggiornati con le ultime versioni del servizio e verifica che siano in grado di gestire internamente gran parte delle procedure comprovate relative alle prestazioni.
 
 ## <a name="handle-service-errors"></a>Gestire gli errori del servizio
 
@@ -243,11 +243,11 @@ Per copiare i dati all'interno dello stesso account di archiviazione, usare l'op
 
 ### <a name="use-azcopy"></a>Usare AzCopy
 
-L'utilità da riga di comando AzCopy è un'opzione semplice ed efficiente per il trasferimento bulk di BLOB in, da e tra account di archiviazione. AzCopy è ottimizzato per questo scenario e può ottenere velocità di trasferimento elevate. AzCopy versione 10 usa l' `Put Block From URL` operazione per copiare i dati BLOB tra gli account di archiviazione. Per altre informazioni, vedere [copiare o spostare dati in archiviazione di Azure tramite AzCopy V10](/azure/storage/common/storage-use-azcopy-v10).  
+L'utilità da riga di comando AzCopy è un'opzione semplice ed efficiente per il trasferimento bulk di BLOB in, da e tra account di archiviazione. AzCopy è ottimizzato per questo scenario e può ottenere velocità di trasferimento elevate. AzCopy versione 10 usa l' `Put Block From URL` operazione per copiare i dati BLOB tra gli account di archiviazione. Per altre informazioni, vedere [copiare o spostare dati in archiviazione di Azure tramite AzCopy V10](../common/storage-use-azcopy-v10.md).  
 
 ### <a name="use-azure-data-box"></a>USA Azure Data Box
 
-Per l'importazione di grandi volumi di dati nell'archiviazione BLOB, è consigliabile usare la famiglia di Azure Data Box per i trasferimenti offline. I dispositivi Data Box forniti da Microsoft sono la scelta ideale per lo spostamento di grandi quantità di dati in Azure quando si è limitati a tempo, disponibilità di rete o costi. Per ulteriori informazioni, vedere la [documentazione di Azure databox](/azure/databox/).
+Per l'importazione di grandi volumi di dati nell'archiviazione BLOB, è consigliabile usare la famiglia di Azure Data Box per i trasferimenti offline. I dispositivi Data Box forniti da Microsoft sono la scelta ideale per lo spostamento di grandi quantità di dati in Azure quando si è limitati a tempo, disponibilità di rete o costi. Per ulteriori informazioni, vedere la [documentazione di Azure databox](../../databox/index.yml).
 
 ## <a name="content-distribution"></a>Distribuzione di contenuti
 
