@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 9c522d870a25b3df34ab6a0cf1c1e944a6462685
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284491"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013990"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Usare App per la logica per ricevere messaggi di posta elettronica sulle modifiche dello stato dei segreti dell'insieme di credenziali delle chiavi
 
@@ -60,7 +60,7 @@ Per creare una sottoscrizione di Griglia di eventi di Azure, seguire questa proc
 
 1. Creare il modello di messaggio di posta elettronica:
     - **A:** immettere l'indirizzo di posta elettronica per ricevere i messaggi di notifica. Per questa esercitazione, usare un account di posta elettronica a cui è possibile accedere per i test.
-    - **Oggetto** e **Corpo** : scrivere il testo del messaggio di posta elettronica. Selezionare le proprietà JSON dallo strumento selettore per includere il contenuto dinamico in base ai dati dell'evento. È possibile recuperare i dati dell'evento usando `@{triggerBody()?['Data']}`.
+    - **Oggetto** e **Corpo**: scrivere il testo del messaggio di posta elettronica. Selezionare le proprietà JSON dallo strumento selettore per includere il contenuto dinamico in base ai dati dell'evento. È possibile recuperare i dati dell'evento usando `@{triggerBody()?['Data']}`.
 
     Il modello di messaggio di posta elettronica creato sarà simile all'esempio seguente.
 

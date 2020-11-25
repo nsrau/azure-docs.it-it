@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: mbaldwin
 ms.openlocfilehash: 018570019b306dced76760fefa4441ee7d86ad2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88189829"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013956"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Guida alla migrazione e note sulla versione .NET 2.0 per l'insieme di credenziali delle chiavi di Azure
 Le informazioni seguenti consentono la migrazione alla versione 2.0 della libreria di Azure Key Vault per C# e .NET.  È necessario che le app scritte per le versioni precedenti siano aggiornate per supportare la versione più recente.  Queste modifiche sono necessarie per supportare completamente le funzionalità nuove e migliorate, come ad esempio i **certificati Key Vault**.
@@ -99,7 +99,7 @@ Quando un client elabora una dipendenza Key Vault, vengono scaricati i pacchetti
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* Per le operazioni che hanno restituito un *insieme di credenziali, il*tipo restituito era una classe che conteneva **una proprietà dell'insieme di credenziali** . Il tipo restituito è ora *Vault*.
+* Per le operazioni che hanno restituito un *insieme di credenziali, il* tipo restituito era una classe che conteneva **una proprietà dell'insieme di credenziali** . Il tipo restituito è ora *Vault*.
 * *PermissionsToKeys* e *PermissionsToSecrets* ora sono *Permissions.Keys* e *Permissions.Secrets*
 * Alcune delle modifiche che riguardano i tipi restituiti si applicano anche al piano di controllo.
 

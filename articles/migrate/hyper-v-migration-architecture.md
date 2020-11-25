@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 390a8a49e9a47ee5e6845d85fe4fe02f514708e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362198"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013616"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Funzionamento della replica Hyper-V
 
@@ -70,9 +70,9 @@ Le prestazioni di replica per Hyper-V sono influenzate da fattori che includono 
 
 
 1. Accedere all'host o al nodo del cluster Hyper-V.
-2. Eseguire **C:\Programmi\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc**per aprire lo snap-in MMC di Windows Azure Backup.
+2. Eseguire **C:\Programmi\Microsoft Azure Recovery Services Agent\bin\wabadmin.msc** per aprire lo snap-in MMC di Windows Azure Backup.
 3. Nello snap-in selezionare **Modifica proprietà**.
-4. In **limitazione**selezionare **Abilita limitazione all'utilizzo della larghezza di banda Internet per le operazioni di backup**. Impostare i limiti per le ore lavorative e non lavorative. Gli intervalli validi sono compresi tra 512 Kbps e 1.023 Mbps.
+4. In **limitazione** selezionare **Abilita limitazione all'utilizzo della larghezza di banda Internet per le operazioni di backup**. Impostare i limiti per le ore lavorative e non lavorative. Gli intervalli validi sono compresi tra 512 Kbps e 1.023 Mbps.
 I
 
 ### <a name="influence-upload-efficiency"></a>Influenza l'efficienza del caricamento

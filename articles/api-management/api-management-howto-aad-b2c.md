@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7b586edd7adce8bcea61419005a3ce8cfc814fb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254946"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013549"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Come autorizzare gli account per sviluppatore usando Azure Active Directory B2C in Gestione API di Azure
 
@@ -60,7 +60,7 @@ Azure Active Directory B2C è una soluzione di gestione delle identità cloud pe
 
    ![Registrare una nuova applicazione 3][api-management-howto-aad-b2c-app-details]
 
-1. Se si usa il nuovo portale per sviluppatori (non il portale per sviluppatori Legacy), includere il nome, il **Cognome**e l' **ID oggetto dell'utente** **specificati**nelle attestazioni dell'applicazione.
+1. Se si usa il nuovo portale per sviluppatori (non il portale per sviluppatori Legacy), includere il nome, il **Cognome** e l' **ID oggetto dell'utente** **specificati** nelle attestazioni dell'applicazione.
 
     ![Attestazioni dell'applicazione](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
 

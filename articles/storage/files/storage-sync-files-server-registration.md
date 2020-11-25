@@ -8,11 +8,11 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 194b0f2ff94197fe11c189e97dbc65c9d0367932
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630584"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013922"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gestire i server registrati con Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
@@ -20,7 +20,7 @@ Sincronizzazione file di Azure consente di centralizzare le condivisioni file de
 L'articolo seguente illustra come registrare e gestire un server con un servizio di sincronizzazione archiviazione. Per informazioni sulla distribuzione di Sincronizzazione file di Azure end-to-end, vedere [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Eseguire/annullare la registrazione di un server nel servizio di sincronizzazione archiviazione
-La registrazione di un server in Sincronizzazione file di Azure stabilisce una relazione di trust tra Windows Server e Azure. Questa relazione può quindi essere usata per creare nel server *endpoint server* che rappresentano le cartelle specifiche che dovranno essere sincronizzate con una condivisione file di Azure (denominata anche *endpoint cloud* ). 
+La registrazione di un server in Sincronizzazione file di Azure stabilisce una relazione di trust tra Windows Server e Azure. Questa relazione può quindi essere usata per creare nel server *endpoint server* che rappresentano le cartelle specifiche che dovranno essere sincronizzate con una condivisione file di Azure (denominata anche *endpoint cloud*). 
 
 ### <a name="prerequisites"></a>Prerequisiti
 Per registrare un server in un servizio di sincronizzazione archiviazione, è prima necessario preparare il server con i prerequisiti necessari:

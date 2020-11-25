@@ -9,11 +9,11 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ee3029de9826aee17dc76d0e69f08b3c1068423b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847167"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014502"
 ---
 # <a name="create-a-virtual-machine-in-azure-using-vm-templates-on-the-vmware-infrastructure"></a>Creare una macchina virtuale in Azure usando i modelli di VM nell'infrastruttura VMware
 
@@ -76,7 +76,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
     | Nome | Immettere un nome per identificare il disco.  |
     | Dimensione | Selezionare una delle dimensioni disponibili.  |
     | Controller SCSI | Selezionare un controller SCSI per il disco.  |
-    | Modalità | Determina la modalità di partecipazione del disco negli snapshot. Scegliere una delle opzioni seguenti: <br> -Permanente indipendente: tutti i dati scritti sul disco vengono scritti in modo permanente.<br> -Indipendente non persistente: le modifiche scritte nel disco vengono eliminate quando si spegne o si reimposta la macchina virtuale.  La modalità indipendente non permanente consente di riavviare la macchina virtuale sempre nello stesso stato. Per altre informazioni, vedere la [documentazione di VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html).
+    | Mode | Determina la modalità di partecipazione del disco negli snapshot. Scegliere una delle opzioni seguenti: <br> -Permanente indipendente: tutti i dati scritti sul disco vengono scritti in modo permanente.<br> -Indipendente non persistente: le modifiche scritte nel disco vengono eliminate quando si spegne o si reimposta la macchina virtuale.  La modalità indipendente non permanente consente di riavviare la macchina virtuale sempre nello stesso stato. Per altre informazioni, vedere la [documentazione di VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html).
 
 7. Al termine della convalida, rivedere le impostazioni e fare clic su **Crea**. Per apportare modifiche, fare clic sulle schede nella parte superiore o fare clic su.
 

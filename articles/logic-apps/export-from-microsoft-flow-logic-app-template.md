@@ -7,11 +7,11 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.openlocfilehash: 1c2f0a2c54be7adbc7b8babd596f18e08c67a024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269557"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014415"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Esportare flussi da Power Automate e distribuirli in App per la logica di Azure
 
@@ -32,7 +32,7 @@ Per estendere ed espandere le funzionalità del flusso, è possibile eseguire la
 
 ## <a name="export-your-flow"></a>Esportare il flusso
 
-1. Accedere a [Power automatizzate](https://flow.microsoft.com)e selezionare **flussi personali**. Trovare e selezionare il flusso. Sulla barra degli strumenti, selezionare il pulsante con i puntini di sospensione (**...**) > **esportare**il modello di app per la  >  **logica (. Json)**.
+1. Accedere a [Power automatizzate](https://flow.microsoft.com)e selezionare **flussi personali**. Trovare e selezionare il flusso. Sulla barra degli strumenti, selezionare il pulsante con i puntini di sospensione (**...**) > **esportare** il modello di app per la  >  **logica (. Json)**.
 
    ![Esporta flusso da Power automatizza](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
@@ -48,7 +48,7 @@ Per altre informazioni, vedere [crescita fino ad app per la logica di Azure](htt
 
    ![Trovare e selezionare "Distribuzione modelli"](./media/export-from-microsoft-flow-logic-app-template/select-template-deployment.png)
 
-1. In **distribuzione personalizzata**selezionare **Compila un modello personalizzato nell'editor**.
+1. In **distribuzione personalizzata** selezionare **Compila un modello personalizzato nell'editor**.
 
    ![Selezionare "Compila un modello personalizzato nell'editor"](./media/export-from-microsoft-flow-logic-app-template/build-template-in-editor.png)
 
@@ -88,7 +88,7 @@ Per altre informazioni, vedere [crescita fino ad app per la logica di Azure](htt
 
 1. Tutte le app per la logica di cui si esegue la migrazione da Power automatizzate vengono distribuite in uno stato disabilitato. Prima di abilitare l'app per la logica, autorizzare le nuove connessioni attenendosi alla procedura seguente:
 
-   1. Nella portale di Azure aprire l'app per la logica creata. Nel menu dell'app per la logica selezionare **progettazione app**per la logica.
+   1. Nella portale di Azure aprire l'app per la logica creata. Nel menu dell'app per la logica selezionare **progettazione app** per la logica.
 
       Ogni connessione che richiede l'autorizzazione Visualizza un'icona di avviso:
 
@@ -102,7 +102,7 @@ Per altre informazioni, vedere [crescita fino ad app per la logica di Azure](htt
 
    1. Dopo aver aggiornato le connessioni, sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
-1. Quando si è pronti per attivare l'app per la logica, scegliere **Panoramica**dal menu dell'app per la logica e quindi fare clic su **Abilita**.
+1. Quando si è pronti per attivare l'app per la logica, scegliere **Panoramica** dal menu dell'app per la logica e quindi fare clic su **Abilita**.
 
    ![Abilitare l'app per la logica](./media/export-from-microsoft-flow-logic-app-template/enable-logic-app.png)
 
@@ -166,7 +166,7 @@ Se Visual Studio è stato configurato con i [prerequisiti](../logic-apps/quickst
 
    Al termine della distribuzione, l'app per la logica viene pubblicata ma non è attivata nel portale di Azure.
 
-1. Quando si è pronti per attivare l'app per la logica nella portale di Azure, trovare e aprire l'app per la logica nella finestra di progettazione dell'app per la logica. Scegliere **Panoramica**dal menu dell'app per la logica e quindi selezionare **Abilita**.
+1. Quando si è pronti per attivare l'app per la logica nella portale di Azure, trovare e aprire l'app per la logica nella finestra di progettazione dell'app per la logica. Scegliere **Panoramica** dal menu dell'app per la logica e quindi selezionare **Abilita**.
 
 1. Per evitare l'esecuzione di flussi di lavoro duplicati, assicurarsi di disattivare o eliminare il flusso originale.
 

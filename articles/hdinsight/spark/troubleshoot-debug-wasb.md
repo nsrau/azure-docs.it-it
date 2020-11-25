@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/18/2020
 ms.openlocfilehash: 85e974d51f49bbb6742683ed253c077bb3ff69de
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545549"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014653"
 ---
 # <a name="debug-wasb-file-operations-in-azure-hdinsight"></a>Operazioni di debug di file WASB in Azure HDInsight
 
@@ -28,13 +28,13 @@ Un log prodotto sarà simile al seguente:
 
 1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs` , dove `CLUSTERNAME` è il nome del cluster Spark.
 
-1. Passare a **Advanced spark2-log4j-Properties** .
+1. Passare a **Advanced spark2-log4j-Properties**.
 
     1. Modificare `log4j.appender.console.Threshold=INFO` in `log4j.appender.console.Threshold=DEBUG` .
 
     1. Aggiungere `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`.
 
-1. Passare a **Advanced livy2-log4j-Properties** .
+1. Passare a **Advanced livy2-log4j-Properties**.
 
     Aggiungere `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`.
 
@@ -65,4 +65,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Contattare [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Mette in contatto la community di Azure con le risorse giuste: risposte, supporto ed esperti.
 
-* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto**. Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

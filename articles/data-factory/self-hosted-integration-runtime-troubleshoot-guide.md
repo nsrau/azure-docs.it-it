@@ -2,17 +2,17 @@
 title: Risolvere i problemi relativi al runtime di integrazione self-hosted in Azure Data Factory
 description: Informazioni su come risolvere i problemi relativi al runtime di integrazione self-hosted in Azure Data Factory.
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/17/2020
 ms.author: lle
-ms.openlocfilehash: e3a517497a480995b8ce63d36d0427e3bfadfe43
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 93c35828444ec93a974769ed3a2f1981c0ec4368
+ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844098"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96013461"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Risolvere i problemi relativi al runtime di integrazione self-hosted
 
@@ -320,7 +320,7 @@ Se l'errore si presenta come sopra *UnauthorizedAccessException*, seguire le ist
         1. Pulisci Disinstalla il runtime di integrazione self-hosted corrente.
         1. Installare i bit del runtime di integrazione self-hosted.
         1. Per modificare l'account del servizio, seguire le istruzioni seguenti: 
-            1. Passare alla cartella di installazione di selfhosted IR, passare alla cartella: *Microsoft Integration Runtime\4.0\Shared*.
+            1. Passare alla cartella di installazione del runtime di integrazione self-hosted, passare alla cartella: *Microsoft Integration Runtime\4.0\Shared*.
             1. Avviare una riga di comando utilizzando privilegi elevati. Sostituire *\<user>* e *\<password>* con il nome utente e la password e quindi eseguire il comando seguente:
                        
                 ```
@@ -731,7 +731,7 @@ Due possibili motivi per questo problema:
 - La CA radice del certificato del server del servizio ADF non è attendibile nel computer in cui è installato il server di Azure. 
 - Si sta usando il proxy nel proprio ambiente e il certificato del server del servizio ADF viene sostituito dal proxy, mentre il certificato server sostituito non è considerato attendibile dal computer in cui è installato.
 
-#### <a name="solution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 - Per il motivo 1, verificare che il certificato del server ADF e la relativa catena di certificati siano considerati attendibili dal computer in cui è installato.
 - Per il motivo 2, considerare attendibile la CA radice sostituita nel computer di una macchina virtuale o configurare il proxy in modo che non sostituisca il certificato del server ADF.
@@ -744,6 +744,7 @@ Per informazioni dettagliate su come considerare attendibile un certificato in W
   ![DigiCert Global Root G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
 
 In caso contrario, scaricarlo da [qui](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
+
 
 ## <a name="self-hosted-ir-sharing"></a>Condivisione del runtime di integrazione self-hosted
 

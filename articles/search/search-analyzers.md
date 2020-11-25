@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 544509a8c90c9273b748591509b1fa86510d71c3
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421737"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013820"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizzatori per l'elaborazione del testo in Azure ricerca cognitiva
 
@@ -47,11 +47,11 @@ Nell'elenco seguente vengono descritti gli analizzatori disponibili in Azure ric
 
 | Category | Descrizione |
 |----------|-------------|
-| [Analizzatore Lucene standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Valore predefinito. Non è necessaria alcun specifica o configurazione. Questo analizzatore di utilizzo generico è adatto per molti linguaggi e scenari.|
-| Analizzatori predefiniti | Offerto come prodotto finito, da usare così com'è. <br/>Ne esistono due tipi: specializzato e del linguaggio. Ciò che li rende "predefiniti" è il fatto di farvi riferimento in base al nome, senza alcuna configurazione né personalizzazione. <br/><br/>Gli [analizzatori specializzati (indipendenti dal linguaggio)](index-add-custom-analyzers.md#AnalyzerTable) vengono usati quando gli input di testo richiedono un'elaborazione minima o specializzata. Gli analizzatori predefiniti indipendenti dal linguaggio includono **Asciifolding** , **Keyword** , **Pattern** , **Simple** , **Stop** e **Whitespace**.<br/><br/>Gli [analizzatori del linguaggio](index-add-language-analyzers.md) vengono usati quando è necessario un supporto linguistico avanzato per i singoli linguaggi. Azure ricerca cognitiva supporta gli analizzatori del linguaggio 35 Lucene e 50 gli analizzatori di elaborazione del linguaggio naturale Microsoft. |
+| [Analizzatore Lucene standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Predefinita. Non è necessaria alcun specifica o configurazione. Questo analizzatore di utilizzo generico è adatto per molti linguaggi e scenari.|
+| Analizzatori predefiniti | Offerto come prodotto finito, da usare così com'è. <br/>Ne esistono due tipi: specializzato e del linguaggio. Ciò che li rende "predefiniti" è il fatto di farvi riferimento in base al nome, senza alcuna configurazione né personalizzazione. <br/><br/>Gli [analizzatori specializzati (indipendenti dal linguaggio)](index-add-custom-analyzers.md#AnalyzerTable) vengono usati quando gli input di testo richiedono un'elaborazione minima o specializzata. Gli analizzatori predefiniti indipendenti dal linguaggio includono **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop** e **Whitespace**.<br/><br/>Gli [analizzatori del linguaggio](index-add-language-analyzers.md) vengono usati quando è necessario un supporto linguistico avanzato per i singoli linguaggi. Azure ricerca cognitiva supporta gli analizzatori del linguaggio 35 Lucene e 50 gli analizzatori di elaborazione del linguaggio naturale Microsoft. |
 |[Analizzatori personalizzati](/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Si riferisce a una configurazione definita dall'utente di una combinazione di elementi esistenti, costituiti da un tokenizer (obbligatorio) e da filtri facoltativi (char o token).|
 
-Alcuni analizzatori predefiniti, ad esempio, **Pattern** o **Stop** , supportano un insieme limitato di opzioni di configurazione. Per impostare queste opzioni, creare un analizzatore personalizzato, costituito dall'analizzatore predefinito e una delle opzioni alternative documentate nelle [Informazioni di riferimento sugli analizzatori predefiniti](index-add-custom-analyzers.md#AnalyzerTable). Come per qualsiasi configurazione personalizzata, attribuire un nome alla nuova configurazione, ad esempio *myPatternAnalyzer* , per distinguerla dall'analizzatore Pattern Lucene.
+Alcuni analizzatori predefiniti, ad esempio, **Pattern** o **Stop**, supportano un insieme limitato di opzioni di configurazione. Per impostare queste opzioni, creare un analizzatore personalizzato, costituito dall'analizzatore predefinito e una delle opzioni alternative documentate nelle [Informazioni di riferimento sugli analizzatori predefiniti](index-add-custom-analyzers.md#AnalyzerTable). Come per qualsiasi configurazione personalizzata, attribuire un nome alla nuova configurazione, ad esempio *myPatternAnalyzer*, per distinguerla dall'analizzatore Pattern Lucene.
 
 ## <a name="how-to-specify-analyzers"></a>Come specificare gli analizzatori
 
@@ -375,7 +375,7 @@ Creare un oggetto [CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.mo
 
 + [Configurare gli analizzatori personalizzati](index-add-custom-analyzers.md) per un'elaborazione minima o specializzata per settori specifici.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
  [Search Documents REST API](/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti) 
 

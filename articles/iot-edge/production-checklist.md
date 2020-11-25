@@ -12,11 +12,11 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7cabae837656611813d44017ce2e1112f06066ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669613"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013293"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparare la distribuzione della soluzione IoT Edge alla produzione
 
@@ -132,7 +132,7 @@ Il valore predefinito del parametro timeToLiveSecs è 7200 secondi, che equivale
 
 ### <a name="do-not-use-debug-versions-of-module-images"></a>Non usare le versioni di debug delle immagini del modulo
 
-Quando si passa da scenari di test a scenari di produzione, ricordarsi di rimuovere le configurazioni di debug dai manifesti di distribuzione. Verificare che nessuna delle immagini del modulo nei manifesti di distribuzione disponga del suffisso ** \. debug** . Se sono state aggiunte opzioni di creazione per esporre le porte nei moduli per il debug, rimuovere anche queste opzioni di creazione.
+Quando si passa da scenari di test a scenari di produzione, ricordarsi di rimuovere le configurazioni di debug dai manifesti di distribuzione. Verificare che nessuna delle immagini del modulo nei manifesti di distribuzione disponga del suffisso **\. debug** . Se sono state aggiunte opzioni di creazione per esporre le porte nei moduli per il debug, rimuovere anche queste opzioni di creazione.
 
 ## <a name="container-management"></a>Gestione di contenitori
 
@@ -163,7 +163,7 @@ Per eseguire l'autenticazione tramite un'entità servizio, specificare l'ID e la
 * Per la password o il segreto client, specificare la password dell'entità servizio.
 
 > [!NOTE]
-> Dopo l'implementazione di un'autenticazione di sicurezza avanzata, disabilitare l'impostazione **utente amministratore** in modo che l'accesso predefinito di nome utente/password non sia più disponibile. Nel registro contenitori del portale di Azure, dal menu riquadro a sinistra in **Impostazioni**selezionare **chiavi di accesso**.
+> Dopo l'implementazione di un'autenticazione di sicurezza avanzata, disabilitare l'impostazione **utente amministratore** in modo che l'accesso predefinito di nome utente/password non sia più disponibile. Nel registro contenitori del portale di Azure, dal menu riquadro a sinistra in **Impostazioni** selezionare **chiavi di accesso**.
 
 ### <a name="use-tags-to-manage-versions"></a>Usare tag per gestire le versioni
 

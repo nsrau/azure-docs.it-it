@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
 ms.openlocfilehash: 0863ccda9f292f3da9f7064a78ba700ab5962eb2
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533464"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014636"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Usare gli endpoint servizio e le regole di rete virtuale per Database di Azure per MariaDB
 
@@ -34,7 +34,7 @@ Per creare una regola di rete virtuale, devono innanzitutto essere disponibili u
 
 **Subnet:** una rete virtuale contiene **subnet**. Le macchine virtuali (VM) di Azure esistenti vengono assegnate a subnet. Una subnet può contenere varie VM o altri nodi di calcolo. I nodi di calcolo esterni alla rete virtuale non possono accedervi, a meno che non si configuri la sicurezza in modo da consentirne l'accesso.
 
-**Endpoint servizio di rete virtuale:** un [endpoint servizio di rete virtuale][vm-virtual-network-service-endpoints-overview-649d] è una subnet in cui i valori delle proprietà includono uno o più nomi formali di tipi di servizi di Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql** , che fa riferimento al servizio Azure denominato Database SQL. Questo tag di servizio si applica ai servizi di Database di Azure per MariaDB, MySQL e PostgreSQL. È importante tenere presente che, quando si applica il tag di servizio **Microsoft.Sql** a un endpoint di servizio di rete virtuale, viene configurato il traffico dell'endpoint per tutti i server di Database SQL di Azure, Database di Azure per MariaDB, Database di Azure per MySQL e Database di Azure per PostgreSQL nella subnet.
+**Endpoint servizio di rete virtuale:** un [endpoint servizio di rete virtuale][vm-virtual-network-service-endpoints-overview-649d] è una subnet in cui i valori delle proprietà includono uno o più nomi formali di tipi di servizi di Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL. Questo tag di servizio si applica ai servizi di Database di Azure per MariaDB, MySQL e PostgreSQL. È importante tenere presente che, quando si applica il tag di servizio **Microsoft.Sql** a un endpoint di servizio di rete virtuale, viene configurato il traffico dell'endpoint per tutti i server di Database SQL di Azure, Database di Azure per MariaDB, Database di Azure per MySQL e Database di Azure per PostgreSQL nella subnet.
 
 **Regola di rete virtuale:** una regola di rete virtuale per il server di Database di Azure per MariaDB è una subnet presente nell'elenco di controllo di accesso (ACL) del server di Database di Azure per MariaDB. Per essere inclusa nell'elenco ACL del server di Database di Azure per MariaDB, la subnet deve contenere il nome tipo **Microsoft.Sql**.
 

@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/06/2017
 ms.custom: devx-track-js
 ms.openlocfilehash: dfd1fe9db54925bc17a53a7686fa34d5ea53cd5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614105"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013599"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Ospitare un'applicazione Node.js in Azure Service Fabric
 
@@ -98,13 +98,13 @@ Selezionare il profilo di destinazione **PublishProfiles\Cloud.xml**.
 
 Se questa operazione non è stata eseguita in precedenza, scegliere un account Azure in cui effettuare la distribuzione. Se non si ha ancora un account, è possibile [iscriversi per ottenerne uno][create-account].
 
-In **Endpoint connessione** selezionare il cluster di Service Fabric in cui eseguire la distribuzione. Se non è disponibile, selezionare ** &lt; Crea nuovo cluster. &gt; ** verrà visualizzata la finestra del browser Web per la portale di Azure. Per altre informazioni, vedere [Creare un cluster nel portale](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+In **Endpoint connessione** selezionare il cluster di Service Fabric in cui eseguire la distribuzione. Se non è disponibile, selezionare **&lt; Crea nuovo cluster. &gt;** verrà visualizzata la finestra del browser Web per la portale di Azure. Per altre informazioni, vedere [Creare un cluster nel portale](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 Quando si crea il cluster di Service Fabric, assicurarsi di impostare **Endpoint personalizzati** su **80**.
 
 ![Configurazione del tipo di nodo di Service Fabric con endpoint personalizzato][custom-endpoint]
 
-Il completamento della creazione di un nuovo cluster di Service Fabric richiede tempo. Una volta creata, tornare alla finestra di dialogo pubblica e selezionare ** &lt; Aggiorna &gt; **. Il nuovo cluster sarà incluso nella casella di riepilogo a discesa. Selezionare il cluster.
+Il completamento della creazione di un nuovo cluster di Service Fabric richiede tempo. Una volta creata, tornare alla finestra di dialogo pubblica e selezionare **&lt; Aggiorna &gt;**. Il nuovo cluster sarà incluso nella casella di riepilogo a discesa. Selezionare il cluster.
 
 Fare clic su **Pubblica** e attendere il completamento della distribuzione.
 

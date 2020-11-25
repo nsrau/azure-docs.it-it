@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 899bc3fdc94b8232acd3edf3e0cbab3c481ff8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081849"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013727"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Associazioni per Funzioni permanenti (Funzioni di Azure)
 
@@ -533,7 +533,7 @@ Se si usano linguaggi di scripting, ad esempio file con *estensione CSX* o *JS* 
 
 Nelle funzioni .NET, in genere si esegue `IDurableEntityClient` l'associazione a, che consente l'accesso completo a tutte le API client supportate da entità durevoli. È anche possibile eseguire l'associazione all' `IDurableOrchestrationClient` interfaccia, che fornisce l'accesso alle API client per le entità e le orchestrazioni. Le API per l'oggetto client includono:
 
-* **ReadEntityStateAsync \<T> **: legge lo stato di un'entità. Restituisce una risposta che indica se l'entità di destinazione esiste e, in caso affermativo, qual è il suo stato.
+* **ReadEntityStateAsync \<T>**: legge lo stato di un'entità. Restituisce una risposta che indica se l'entità di destinazione esiste e, in caso affermativo, qual è il suo stato.
 * **SignalEntityAsync**: Invia un messaggio unidirezionale a un'entità e ne attende l'accodamento.
 * **ListEntitiesAsync**: esegue una query per lo stato di più entità. È possibile eseguire query sulle entità in base al *nome* e all' *ora dell'ultima operazione*.
 

@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/19/2020
 ms.openlocfilehash: 043020abd44bc1f8e671cf386149d6a818136de9
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94700155"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014364"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creare un endpoint privato per una connessione sicura ad Azure ricerca cognitiva
 
@@ -44,10 +44,10 @@ In questa sezione si creeranno una rete virtuale e una subnet per ospitare la ma
 
     | Impostazione | Valore |
     | ------- | ----- |
-    | Sottoscrizione | Selezionare la propria sottoscrizione|
-    | Gruppo di risorse | Selezionare **Crea nuovo**, immettere *myResourceGroup*, quindi fare clic su **OK** . |
+    | Subscription | Selezionare la propria sottoscrizione|
+    | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup*, quindi fare clic su **OK** . |
     | Nome | Immettere *MyVirtualNetwork* |
-    | Area | Selezionare l'area geografica desiderata |
+    | Region | Selezionare l'area geografica desiderata |
     |||
 
 1. Lasciare le impostazioni predefinite per le altre impostazioni. Fare clic su **Verifica + crea** e quindi su **Crea**
@@ -216,7 +216,7 @@ Quando l'endpoint del servizio di ricerca è privato, alcune funzionalità del p
 
 1. Per verificare che il servizio non sia accessibile in un endpoint pubblico, aprire il post nella workstation locale e provare le prime attività nella Guida introduttiva. Se viene visualizzato un errore che segnala che il server remoto non esiste, è stato configurato correttamente un endpoint privato per il servizio di ricerca.
 
-## <a name="clean-up-resources"></a>Pulire le risorse 
+## <a name="clean-up-resources"></a>Pulizia delle risorse 
 Al termine dell'operazione, eliminare il gruppo di risorse e tutte le risorse in esso contenute usando l'endpoint privato, il servizio di ricerca e la macchina virtuale:
 1. Immettere  *myResourceGroup*   nella casella di **ricerca** nella parte superiore del portale e selezionare  *myResourceGroup* nei   Risultati della ricerca. 
 1. Selezionare **Elimina gruppo di risorse**. 

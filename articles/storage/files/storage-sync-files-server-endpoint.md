@@ -8,11 +8,11 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: f75f0d1ae12db11590f8ce62f3c7b4c0f3e12817
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541493"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013939"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Aggiungere e rimuovere un endpoint server di Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
@@ -38,7 +38,7 @@ Inserire le informazioni seguenti in **Aggiungi endpoint server**:
 - **Server registrato**: il nome del server o del cluster in cui creare l'endpoint server.
 - **Path**: percorso del server Windows da sincronizzare come parte del gruppo di sincronizzazione.
 - **Suddivisione in livelli cloud**: l'opzione che abilita o disabilita la suddivisione in livelli cloud, Se la suddivisione in livelli cloud è abilitata, i file vengono *suddivisi in livelli* nelle condivisioni file di Azure. Ciò converte le condivisioni file locali in una cache, invece di una copia completa del set di dati, per aiutare a gestire l'efficienza dello spazio nel server.
-- **Spazio**disponibile nel volume: la quantità di spazio disponibile da riservare nel volume in cui si trova l'endpoint server. Ad esempio, se lo spazio disponibile nel volume è impostato su 50% per un volume con un singolo endpoint server, circa la metà dei dati verrà archiviata a livelli in File di Azure. A prescindere dall'abilitazione o meno della suddivisione in livelli nel cloud, per la condivisione file di Azure è sempre disponibile una copia completa dei dati nel gruppo di sincronizzazione.
+- **Spazio** disponibile nel volume: la quantità di spazio disponibile da riservare nel volume in cui si trova l'endpoint server. Ad esempio, se lo spazio disponibile nel volume è impostato su 50% per un volume con un singolo endpoint server, circa la metà dei dati verrà archiviata a livelli in File di Azure. A prescindere dall'abilitazione o meno della suddivisione in livelli nel cloud, per la condivisione file di Azure è sempre disponibile una copia completa dei dati nel gruppo di sincronizzazione.
 
 Selezionare **Crea** per aggiungere l'endpoint server. I file all'interno di uno spazio dei nomi di un gruppo di sincronizzazione ora rimangono sincronizzati. 
 

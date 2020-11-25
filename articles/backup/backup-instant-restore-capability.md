@@ -4,12 +4,12 @@ description: Funzionalità Ripristino istantaneo di Azure e domande frequenti pe
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 95de22d8493181f098e480afc4f319c44c633e42
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 147fadc92429157ed2f9ba3eb68297a3e1d08d24
+ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173919"
+ms.lasthandoff: 11/23/2020
+ms.locfileid: "96014449"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ottenere prestazioni migliori per backup e ripristino con la funzionalità Ripristino istantaneo di Backup di Azure
 
@@ -117,3 +117,8 @@ Se il punto di ripristino dispone di uno snapshot ed è il punto di ripristino p
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Non è necessaria la funzionalità di ripristino immediato. Può essere disabilitato?
 
 La funzionalità di ripristino istantaneo è abilitata per tutti e non può essere disabilitata. È possibile ridurre la conservazione degli snapshot fino a un minimo di un giorno.
+
+### <a name="is-it-safe-to-restart-the-vm-during-the-transfer-process-which-can-take-many-hours-will-restarting-the-vm-interrupt-or-slow-down-the-transfer"></a>Il riavvio della macchina virtuale durante il processo di trasferimento può richiedere diverse ore? Riavviare l'interrupt della macchina virtuale o rallentare il trasferimento?
+
+Sì, è sicuro e non c'è assolutamente alcun effetto sulla velocità di trasferimento dei dati.
+

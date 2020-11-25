@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: 44de30438d59252a431bf37ac6919a9bc186c8ed
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315753"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013547"
 ---
 > [!NOTE]
 > Questo contenuto della documentazione riguarda il portale per sviluppatori deprecato. È possibile continuare a usarlo come al solito fino al ritiro nell'ottobre 2023, quando verrà rimosso da tutti i servizi di Gestione API. Il portale deprecato riceverà solo gli aggiornamenti della sicurezza critici. Per altre informazioni, vedere gli articoli seguenti:

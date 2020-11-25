@@ -8,11 +8,11 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: bff930153dc8941fbfe561edf963d5b1c1e7811f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708017"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014619"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Risolvere i problemi di connessione al database di Azure per PostgreSQL-server singolo
 
@@ -48,7 +48,7 @@ Se l'applicazione continua a non riuscire a connettersi a Database di Azure per 
 
 * Configurazione del firewall del server: assicurarsi che il firewall del server di database di Azure per PostgreSQL sia configurato per consentire le connessioni dal client, inclusi i server proxy e i gateway.
 * Configurazione del firewall client: il firewall del client deve consentire le connessioni al server di database. È necessario consentire gli indirizzi IP e le porte del server, nonché i nomi di applicazioni, ad esempio PostgreSQL, in alcuni firewall.
-* Errore dell'utente: è possibile che i parametri di connessione, ad esempio il nome del server nella stringa di connessione o un suffisso * \@ ServerName* mancante nel nome utente, non siano stati digitati.
+* Errore dell'utente: è possibile che i parametri di connessione, ad esempio il nome del server nella stringa di connessione o un suffisso *\@ ServerName* mancante nel nome utente, non siano stati digitati.
 * Se il _server di errore non è configurato per consentire le connessioni IPv6_, si noti che il livello Basic non supporta gli endpoint del servizio VNet. È necessario rimuovere l'endpoint Microsoft. SQL dalla subnet che tenta di connettersi al server di base.
 * Se viene visualizzato l'errore _di connessione sslmode valore "* * *" non valido quando il supporto SSL non è compilato in_ errore, significa che il client PostgreSQL non supporta SSL. Probabilmente, il libpq sul lato client non è stato compilato con il flag "--with-OpenSSL". Provare a connettersi con un client PostgreSQL con supporto SSL. 
 

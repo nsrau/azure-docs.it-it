@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: d890f73ea8b2294755b14055cb11904d50160cc4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632125"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014007"
 ---
 # <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Elaborare i dati eseguendo gli script U-SQL in Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -26,7 +26,7 @@ ms.locfileid: "92632125"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Una pipeline in un'istanza di Data factory di Azure elabora i dati nei servizi di archiviazione collegati usando i servizi di calcolo collegati. Contiene una sequenza di attività in cui ogni attività esegue una specifica operazione di elaborazione. Questo articolo descrive l' **attività U-SQL di Data Lake Analytics** che esegue uno script **U-SQL** in un servizio di calcolo collegato di **Azure Data Lake Analytics** . 
+Una pipeline in un'istanza di Data factory di Azure elabora i dati nei servizi di archiviazione collegati usando i servizi di calcolo collegati. Contiene una sequenza di attività in cui ogni attività esegue una specifica operazione di elaborazione. Questo articolo descrive l'**attività U-SQL di Data Lake Analytics** che esegue uno script **U-SQL** in un servizio di calcolo collegato di **Azure Data Lake Analytics**. 
 
 Creare un account di Azure Data Lake Analytics prima di creare una pipeline con un'attività U-SQL di Data Lake Analytics. Per altre informazioni su Azure Data Lake Analytics, vedere [Introduzione ad Azure Data Lake con l'SDK .NET](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
@@ -38,7 +38,7 @@ La tabella seguente fornisce le descrizioni delle proprietà generiche usate nel
 
 | Proprietà                 | Descrizione                              | Obbligatoria                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | La proprietà type deve essere impostata su: **AzureDataLakeAnalytics** . | Sì                                      |
+| **type**                 | La proprietà type deve essere impostata su: **AzureDataLakeAnalytics**. | Sì                                      |
 | **accountName**          | Nome dell'account di Azure Data Lake Analytics.  | Sì                                      |
 | **dataLakeAnalyticsUri** | URI di Azure Data Lake Analytics.           | No                                       |
 | **subscriptionId**       | ID sottoscrizione di Azure                    | No                                       |
@@ -123,7 +123,7 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 | :------------------ | :--------------------------------------- | :------- |
 | name                | Nome dell'attività nella pipeline     | Sì      |
 | description         | Testo che descrive l'attività.  | No       |
-| type                | Per l'attività U-SQL di Data Lake Analytics, il tipo corrisponde a **DataLakeAnalyticsU-SQL** . | Sì      |
+| type                | Per l'attività U-SQL di Data Lake Analytics, il tipo corrisponde a **DataLakeAnalyticsU-SQL**. | Sì      |
 | linkedServiceName   | Servizio collegato ad Azure Data Lake Analytics. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  |Sì       |
 | scriptPath          | Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. | Sì      |
 | scriptLinkedService | Servizio collegato che collega alla data factory l'archivio **Azure Data Lake Store** o **Archiviazione di Azure** contenente lo script | Sì      |
@@ -164,7 +164,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Nello script di esempio sopra riportato i valori di input e di output dello script sono definiti nei parametri **\@in** e **\@out** . I valori dei parametri **\@in** e **\@out** dello script U-SQL vengono passati in modo dinamico da Data Factory nella sezione parametri. 
+Nello script di esempio sopra riportato i valori di input e di output dello script sono definiti nei parametri **\@in** e **\@out**. I valori dei parametri **\@in** e **\@out** dello script U-SQL vengono passati in modo dinamico da Data Factory nella sezione parametri. 
 
 È possibile specificare anche altre proprietà come degreeOfParallelism e priorità nella definizione della pipeline per i processi in esecuzione sul servizio Azure Data Lake Analytics.
 

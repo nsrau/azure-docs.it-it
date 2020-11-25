@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445133"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013973"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -56,11 +56,11 @@ Key Vault usa l'autenticazione Azure AD che richiede Azure AD entità di sicurez
 Si consiglia di usare l'identità gestita per le applicazioni distribuite in Azure. Se si usano i servizi di Azure, che non supportano l'identità gestita o se le applicazioni vengono distribuite in locale, l' [entità servizio con un certificato](../../active-directory/develop/howto-create-service-principal-portal.md) è un'alternativa possibile. In questo scenario, il certificato deve essere archiviato in Key Vault e ruotato spesso. L'entità servizio con segreto può essere usata per ambienti di sviluppo e test e in locale o in Cloud Shell usando l'entità utente è consigliata.
 
 Entità di sicurezza consigliate per ambiente:
-- **Ambiente di produzione** :
+- **Ambiente di produzione**:
   - Identità gestita o entità servizio con un certificato
-- **Ambienti di test e sviluppo** :
+- **Ambienti di test e sviluppo**:
   - Identità gestita, entità servizio con certificato o entità servizio con segreto
-- **Sviluppo locale** :
+- **Sviluppo locale**:
   - Entità utente o entità servizio con segreto
 
 Gli scenari di autenticazione precedenti sono supportati dalla **libreria client di identità di Azure** e sono integrati con Key Vault SDK. La libreria di identità di Azure può essere usata in diversi ambienti e piattaforme senza modificare il codice. Anche l'identità di Azure recupera automaticamente il token di autenticazione da connesso all'utente di Azure con l'interfaccia della riga di comando di Azure, Visual Studio, Visual Studio Code e altri. 

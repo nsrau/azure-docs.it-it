@@ -6,11 +6,11 @@ ms.topic: conceptual
 description: Descrive i processi di esecuzione del codice nel servizio Azure Kubernetes con Azure Dev Spaces
 keywords: azds. YAML, Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori
 ms.openlocfilehash: 1cace325f9415d46210636e5c04cc2d75589cc11
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975468"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014432"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Funzionamento del codice con Azure Dev Spaces
 
@@ -64,13 +64,13 @@ Mentre un servizio è in esecuzione, Azure Dev Spaces è in grado di aggiornare 
 
 Alcuni file di progetto che sono asset statici, ad esempio file HTML, CSS e cshtml, possono essere aggiornati direttamente nel contenitore dell'applicazione senza riavviare nulla. Se un asset statico viene modificato, il nuovo file viene sincronizzato con lo spazio di sviluppo e quindi usato dal contenitore in esecuzione.
 
-È possibile applicare modifiche ai file, ad esempio il codice sorgente o i file di configurazione dell'applicazione, riavviando il processo dell'applicazione all'interno del contenitore in esecuzione. Una volta sincronizzati questi file, il processo dell'applicazione viene riavviato all'interno del contenitore in esecuzione usando il processo *devhostagent* . Quando inizialmente si crea il contenitore dell'applicazione, il controller sostituisce il comando di avvio per l'applicazione con un processo diverso denominato *devhostagent*. Il processo effettivo dell'applicazione viene quindi eseguito come processo figlio in *devhostagent*e l'output viene reindirizzato tramite l'output di *devhostagent*. Il processo *devhostagent* fa anche parte di spazi di sviluppo ed è in grado di eseguire comandi nel contenitore in esecuzione per conto di spazi di sviluppo. Quando si esegue un riavvio, *devhostagent*:
+È possibile applicare modifiche ai file, ad esempio il codice sorgente o i file di configurazione dell'applicazione, riavviando il processo dell'applicazione all'interno del contenitore in esecuzione. Una volta sincronizzati questi file, il processo dell'applicazione viene riavviato all'interno del contenitore in esecuzione usando il processo *devhostagent* . Quando inizialmente si crea il contenitore dell'applicazione, il controller sostituisce il comando di avvio per l'applicazione con un processo diverso denominato *devhostagent*. Il processo effettivo dell'applicazione viene quindi eseguito come processo figlio in *devhostagent* e l'output viene reindirizzato tramite l'output di *devhostagent*. Il processo *devhostagent* fa anche parte di spazi di sviluppo ed è in grado di eseguire comandi nel contenitore in esecuzione per conto di spazi di sviluppo. Quando si esegue un riavvio, *devhostagent*:
 
 * Arresta il processo o i processi correnti associati all'applicazione
 * Ricompila l'applicazione
 * Riavvia il processo o i processi associati all'applicazione
 
-Il modo in cui *devhostagent* esegue i passaggi precedenti è [configurato `azds.yaml` in ][azds-yaml-section].
+Il modo in cui *devhostagent* esegue i passaggi precedenti è [configurato `azds.yaml` in][azds-yaml-section].
 
 Per gli aggiornamenti dei file di progetto, ad esempio Dockerfile, file csproj o qualsiasi parte del grafico Helm, è necessario ricompilare e ridistribuire il contenitore dell'applicazione. Quando uno di questi file viene sincronizzato con lo spazio di sviluppo, il controller esegue il comando [Helm upgrade][helm-upgrade] e il contenitore dell'applicazione viene ricompilato e ridistribuito.
 
@@ -132,11 +132,11 @@ La proprietà *Install. set* consente di configurare uno o più valori che devon
 
 Nell'esempio precedente, la proprietà *Install. set. replicaCount* indica al controller il numero di istanze dell'applicazione da eseguire nello spazio di sviluppo. A seconda dello scenario, è possibile aumentare questo valore, ma avrà un effetto sull'associazione di un debugger al Pod dell'applicazione. Per ulteriori informazioni, vedere l' [articolo sulla risoluzione dei problemi][troubleshooting].
 
-Nel grafico Helm generato l'immagine del contenitore è impostata su *{{. Values. image. repository}}: {{. Values. image. Tag}}*. `azds.yaml`Per impostazione predefinita, il file definisce la proprietà *Install. set. image. Tag* come *$ (tag)* , che viene usata come valore per *{{. Values. image. Tag}}*. Impostando la proprietà *Install. set. image. Tag* in questo modo, l'immagine del contenitore per l'applicazione deve essere contrassegnata in modo distinto durante l'esecuzione di Azure Dev Spaces. In questo caso specifico, l'immagine è contrassegnata come * \<value from image.repository> : $ (tag)*. È necessario usare la variabile *$ (tag)* come valore di   *Install. set. image. Tag* affinché gli spazi di sviluppo riconoscano e trovino il contenitore nel cluster AKS.
+Nel grafico Helm generato l'immagine del contenitore è impostata su *{{. Values. image. repository}}: {{. Values. image. Tag}}*. `azds.yaml`Per impostazione predefinita, il file definisce la proprietà *Install. set. image. Tag* come *$ (tag)* , che viene usata come valore per *{{. Values. image. Tag}}*. Impostando la proprietà *Install. set. image. Tag* in questo modo, l'immagine del contenitore per l'applicazione deve essere contrassegnata in modo distinto durante l'esecuzione di Azure Dev Spaces. In questo caso specifico, l'immagine è contrassegnata come *\<value from image.repository> : $ (tag)*. È necessario usare la variabile *$ (tag)* come valore di   *Install. set. image. Tag* affinché gli spazi di sviluppo riconoscano e trovino il contenitore nel cluster AKS.
 
 Nell'esempio precedente, `azds.yaml` definisce *Install. set. ingress. hosts*. La proprietà *Install. set. ingress. hosts* definisce un formato del nome host per gli endpoint pubblici. Questa proprietà usa anche *$ (spacePrefix)*, *$ (rootSpacePrefix)* e *$ (hostSuffix)*, che sono valori forniti dal controller.
 
-*$ (SpacePrefix)* è il nome dello spazio di sviluppo figlio, che assume la forma di *spazioname. s*. *$ (RootSpacePrefix)* è il nome dello spazio padre. Se ad esempio *azureuser* è uno spazio figlio di *default*, il valore di *$ (rootSpacePrefix)* è *default* e il valore di *$ (spacePrefix)* è *azureuser. s*. Se lo spazio non è uno spazio figlio, *$ (spacePrefix)* è vuoto. Ad esempio, se lo spazio *predefinito* non dispone di spazio padre, il valore per *$ (rootSpacePrefix)* è *predefinito* e il valore di *$ (spacePrefix)* è vuoto. *$ (HostSuffix)* è un suffisso DNS che punta al controller di ingresso del Azure Dev Spaces in esecuzione nel cluster AKS. Questo suffisso DNS corrisponde a una voce DNS con caratteri jolly, ad esempio * \* . RANDOM_VALUE. EUS. azds. io*, creato quando è stato aggiunto il controller Azure Dev Spaces al cluster AKS.
+*$ (SpacePrefix)* è il nome dello spazio di sviluppo figlio, che assume la forma di *spazioname. s*. *$ (RootSpacePrefix)* è il nome dello spazio padre. Se ad esempio *azureuser* è uno spazio figlio di *default*, il valore di *$ (rootSpacePrefix)* è *default* e il valore di *$ (spacePrefix)* è *azureuser. s*. Se lo spazio non è uno spazio figlio, *$ (spacePrefix)* è vuoto. Ad esempio, se lo spazio *predefinito* non dispone di spazio padre, il valore per *$ (rootSpacePrefix)* è *predefinito* e il valore di *$ (spacePrefix)* è vuoto. *$ (HostSuffix)* è un suffisso DNS che punta al controller di ingresso del Azure Dev Spaces in esecuzione nel cluster AKS. Questo suffisso DNS corrisponde a una voce DNS con caratteri jolly, ad esempio *\* . RANDOM_VALUE. EUS. azds. io*, creato quando è stato aggiunto il controller Azure Dev Spaces al cluster AKS.
 
 Nel file precedente `azds.yaml` , è anche possibile aggiornare *Install. set. ingress. hosts* per modificare il nome host dell'applicazione. Ad esempio, se si vuole semplificare il nome host dell'applicazione da *$ (spacePrefix) $ (rootSpacePrefix) WebFrontEnd $ (hostSuffix)* a *$ (spacePrefix) $ (rootSpacePrefix) Web $ (hostSuffix*).
 

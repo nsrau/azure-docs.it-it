@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
 ms.openlocfilehash: 7252a6ccd77212f75f5db54e5f3fcad7aa2df50a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339731"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96013803"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
 Questo articolo illustra come gestire il comportamento di sicurezza dell'organizzazione su larga scala applicando criteri di sicurezza a tutte le sottoscrizioni di Azure collegate al tenant di Azure Active Directory.
@@ -48,7 +48,7 @@ Per una panoramica dettagliata dei gruppi di gestione, vedere l'articolo [Organi
     - L'**ID del gruppo di gestione** è l'identificatore univoco della directory usato per inviare i comandi per questo gruppo di gestione. Questo identificatore non è modificabile dopo la creazione, perché è usato all'interno dell'intero sistema Azure per identificare il gruppo. 
     - Il nome visualizzato è il nome che viene visualizzato nel portale di Azure. Un nome visualizzato separato è un campo facoltativo al momento della creazione del gruppo di gestione e può essere modificato in qualsiasi momento.  
 
-      ![Create](./media/security-center-management-groups/create_context_menu.png)  
+      ![Crea](./media/security-center-management-groups/create_context_menu.png)  
 5.  Selezionare **Salva**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Visualizzare i gruppi di gestione nel portale di Azure
@@ -161,7 +161,7 @@ Una volta assegnati i ruoli di Azure agli utenti, l'amministratore tenant deve r
 
 2. Nell'elenco di navigazione fare clic su **Azure Active Directory** e quindi su **Proprietà**.
 
-3. In **gestione accessi per le risorse di Azure**impostare l'opzione su **No**.
+3. In **gestione accessi per le risorse di Azure** impostare l'opzione su **No**.
 
 4. Fare clic su **Salva** per salvare l'impostazione.
 

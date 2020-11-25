@@ -8,11 +8,11 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/31/2019
 ms.openlocfilehash: 089eab563c83384bdb7e1681044fa89f5eb7f6c0
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289046"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96014670"
 ---
 # <a name="scenario-unable-to-add-nodes-to-azure-hdinsight-cluster"></a>Scenario: non è possibile aggiungere nodi al cluster Azure HDInsight
 
@@ -26,7 +26,7 @@ Non è possibile aggiungere nodi al cluster HDInsight di Azure.
 
 I motivi possono variare.
 
-## <a name="resolution"></a>Soluzione
+## <a name="resolution"></a>Risoluzione
 
 Usando la funzionalità [dimensioni cluster](../hdinsight-scaling-best-practices.md) , calcolare il numero di core aggiuntivi necessari per il cluster. Questo valore si basa sul numero totale di core nei nuovi nodi del ruolo di lavoro. Quindi, provare uno o più dei passaggi seguenti:
 
