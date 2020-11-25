@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
-ms.date: 04/16/2020
-ms.openlocfilehash: 569cf130b464d97e0ac10904ffd86365b57610a5
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 11/25/2020
+ms.openlocfilehash: af7ac49fd6c1a31a8363c4ba0bf925787613ecc2
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420836"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030408"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Eccezioni e codici di errore per la finestra di progettazione
 
@@ -281,11 +281,18 @@ Se è stato eseguito il training del modello usando uno dei moduli di training s
 
  Questo errore si verifica quando una colonna contiene troppi valori univoci.  Ad esempio, è possibile visualizzare questo errore se si specifica che una colonna deve essere gestita come dati di categoria, ma nella colonna sono presenti troppi valori univoci per consentire il completamento dell'elaborazione. Questo errore può essere visualizzato anche in caso di mancata corrispondenza tra il numero di valori univoci in due input.   
 
+L'errore di valori univoci è maggiore di quanto consentito si verificherà se si soddisfano **entrambe** le condizioni seguenti:
+
+- Più del 97% di istanze di una colonna sono valori univoci, il che significa che quasi tutte le categorie sono diverse l'una dall'altra.
+- Una colonna ha più di 1000 valori univoci.
+
 **Risoluzione:**
 
 Aprire il modulo che ha generato l'errore e identificare le colonne usate come input. Per alcuni moduli, è possibile fare clic con il pulsante destro del mouse sull'input del set di dati e selezionare **Visualizza** per vedere le statistiche sulle singole colonne, insieme al numero di valori univoci e alla loro distribuzione.
 
 Per le colonne che si desidera usare per il raggruppamento o la categorizzazione, adottare le misure necessarie per ridurre il numero di valori univoci nelle colonne. È possibile ridurlo in modi diversi, a seconda del tipo di dati della colonna. 
+
+In genere, in questo scenario, la colonna che raggiunge l'errore non ha alcun significato come funzionalità per il training dei modelli. Pertanto, è possibile utilizzare [Modifica metadati](../algorithm-module-reference/edit-metadata.md) per contrassegnare la colonna come **funzionalità non crittografata** e non verrà utilizzata durante il training di un modello. 
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  
@@ -1111,7 +1118,7 @@ Vedere gli articoli seguenti per informazioni sull'esecuzione di query di Hive p
 
  Se è presente un messaggio generato da SQL segnalato dall'eccezione del modulo, intervenire in base all'errore segnalato. I messaggi di errore, ad esempio, includono a volte istruzioni specifiche sul probabile errore:
 + *No such column or missing database* (Questa colonna non è presente oppure manca il database), indica che è possibile che sia stato digitato un nome di colonna errato. Se si è certi che il nome della colonna è corretto, provare a usare le parentesi quadre o le virgolette per racchiudere l'identificatore di colonna.
-+ *\<SQL keyword\> Errore della logica SQL* , che indica che è possibile che sia presente un errore di sintassi prima della parola chiave specificata
++ *\<SQL keyword\> Errore della logica SQL*, che indica che è possibile che sia presente un errore di sintassi prima della parola chiave specificata
 
   
 |Messaggi di eccezione|

@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: 78573cfe00d8e2e7ddcbf705dffdd5530f82c4e0
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998595"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96024198"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuire localmente l'acceleratore di soluzioni di monitoraggio remoto - IntelliJ
 
@@ -95,10 +95,10 @@ Se non sono ancora state create le risorse di Azure necessarie, seguire questa p
 
    Lo script crea un gruppo di risorse in Azure con il nome della soluzione. Questo gruppo di risorse contiene le risorse di Azure utilizzate dall'acceleratore di soluzioni. È possibile eliminare questo gruppo di risorse dopo che non sono più necessarie le risorse corrispondenti.
 
-   Lo script aggiunge anche un set di variabili di ambiente nel computer locale. Il prefisso dei **PC**è il nome di ogni variabile. Queste variabili di ambiente forniscono dettagli che consentono al monitoraggio remoto di leggere i valori di configurazione da una risorsa Azure Key Vault.
+   Lo script aggiunge anche un set di variabili di ambiente nel computer locale. Il prefisso dei **PC** è il nome di ogni variabile. Queste variabili di ambiente forniscono dettagli che consentono al monitoraggio remoto di leggere i valori di configurazione da una risorsa Azure Key Vault.
 
    > [!TIP]
-   > Al termine dell'esecuzione dello script, le variabili di ambiente vengono salvate in un file denominato ** \<your home folder\> \\ . PCS \\ \<solution name\> . env**. È possibile usarli per distribuzioni future di Solution Accelerator. Si noti che tutte le variabili di ambiente impostate nel computer locale sostituiscono i valori nel file ** \\ \\ Local \\ . env degli script dei servizi** quando si esegue **Docker-compose**.
+   > Al termine dell'esecuzione dello script, le variabili di ambiente vengono salvate in un file denominato **\<your home folder\> \\ . PCS \\ \<solution name\> . env**. È possibile usarli per distribuzioni future di Solution Accelerator. Si noti che tutte le variabili di ambiente impostate nel computer locale sostituiscono i valori nel file **\\ \\ Local \\ . env degli script dei servizi** quando si esegue **Docker-compose**.
 
 1. Chiudere l'ambiente della riga di comando.
 
@@ -109,7 +109,7 @@ Se sono già state create le risorse di Azure necessarie, impostare le variabili
 * **PCS_AAD_APPID**: l'ID applicazione Azure Active Directory (Azure ad).
 * **PCS_AAD_APPSECRET**: il segreto dell'applicazione Azure ad.
 
-I valori di configurazione verranno letti da questa risorsa Key Vault. Queste variabili di ambiente possono essere salvate nel file con ** \<your home folder\> \\ estensione PCS \\ \<solution name\> . env** dalla distribuzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
+I valori di configurazione verranno letti da questa risorsa Key Vault. Queste variabili di ambiente possono essere salvate nel file con **\<your home folder\> \\ estensione PCS \\ \<solution name\> . env** dalla distribuzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
 
 Parte della configurazione richiesta dal microservizio è archiviata in un'istanza di Key Vault creata durante la distribuzione iniziale. Le variabili corrispondenti nell'insieme di credenziali delle chiavi devono essere modificate in base alle esigenze.
 
@@ -176,7 +176,7 @@ Nell'immagine seguente, ad esempio, viene illustrato come aggiungere una configu
 
 #### <a name="create-a-compound-configuration"></a>Creare una configurazione composta
 
-1. Per eseguire tutti i servizi insieme, selezionare **Aggiungi nuovo**  >  **composto**di configurazione.
+1. Per eseguire tutti i servizi insieme, selezionare **Aggiungi nuovo**  >  **composto** di configurazione.
 1. Immettere **nome**, quindi selezionare **Aggiungi attività SBT**.
 1. Selezionare **applica**  >  **OK** per salvare le scelte.
 

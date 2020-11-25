@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 746257195220d26ad5d011a39022a3957e8cb1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40529df5195a29fbf2ff4887311932c2ffbf471d
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021783"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029896"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Applicazione .NET multilivello che usa code del bus di servizio
 
@@ -63,7 +63,7 @@ Aggiungere quindi il codice per inviare elementi a una coda del bus di servizio 
 
 ### <a name="create-the-project"></a>Creare il progetto
 
-1. Avviare Visual Studio con privilegi di amministratore: fare clic con il pulsante destro del mouse sull'icona del programma **Visual Studio** e quindi scegliere **Esegui come amministratore**. Per l'emulatore di calcolo di Azure, illustrato più avanti in questo articolo, è necessario che Visual Studio sia avviato con privilegi di amministratore.
+1. Avviare Visual Studio con privilegi di amministratore: fare clic con il pulsante destro del mouse sull'icona del programma **Visual Studio** e quindi scegliere **Esegui come amministratore**. Nell'emulatore di calcolo di Azure, illustrato più avanti in questo articolo, è necessario che Visual Studio venga avviato con privilegi di amministratore.
    
    In Visual Studio scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**.
 2. Da **Modelli installati** in **Visual C#** fare clic su **Cloud** e quindi su **Servizio cloud di Azure**. Assegnare al progetto il nome **MultiTierApp**. Fare quindi clic su **OK**.
@@ -317,7 +317,7 @@ Verrà ora creato il ruolo di lavoro che elabora l'invio dell'ordine. In questo 
    
    ![Screenshot della finestra di dialogo Proprietà con la scheda Impostazioni selezionata e la riga della tabella Microsoft. ServiceBus. ConnectionString delineata in rosso.][25]
 9. Creare una classe **OnlineOrder** che rappresenti gli ordini elaborati dalla coda. È possibile riutilizzare una classe creata in precedenza. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla classe **OrderProcessingRole**. È necessario fare clic con il pulsante destro del mouse sull'icona della classe, non sul ruolo. Fare clic su **Aggiungi**, quindi su **Elemento esistente**.
-10. Selezionare la sottocartella per **FrontendWebRole\Models**e fare doppio clic su **OnlineOrder.cs** per aggiungerlo al progetto corrente.
+10. Selezionare la sottocartella per **FrontendWebRole\Models** e fare doppio clic su **OnlineOrder.cs** per aggiungerlo al progetto corrente.
 11. In **WorkerRole.cs** modificare il valore della variabile **QueueName** da `"ProcessingQueue"` in `"OrdersQueue"` come illustrato nel codice seguente.
     
     ```csharp

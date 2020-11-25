@@ -4,16 +4,16 @@ description: Problemi comuni relativi agli avvisi delle metriche di monitoraggio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/05/2020
+ms.date: 11/25/2020
 ms.subservice: alerts
-ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 5a57e8b7f3bf2c3e820a3befee0ee69c48a2afa9
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342128"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029877"
 ---
-# <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di monitoraggio di Azure 
+# <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di Monitoraggio di Azure 
 
 Questo articolo illustra i problemi comuni negli [avvisi delle metriche](alerts-metric-overview.md) di monitoraggio di Azure e come risolverli.
 
@@ -44,7 +44,7 @@ Se si ritiene che un avviso di metrica debba essere stato attivato ma non è sta
 
 Se si ritiene che l'avviso della metrica non debba essere stato attivato ma è stato fatto, i passaggi seguenti potrebbero aiutare a risolvere il problema.
 
-1. Esaminare l' [elenco degli avvisi](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) attivati per individuare l'avviso attivato e fare clic per visualizzarne i dettagli. Esaminare le informazioni fornite in **perché questo avviso** è stato attivato? per visualizzare il grafico delle metriche, il **valore della metrica**e il **valore soglia** nel momento in cui è stato attivato l'avviso.
+1. Esaminare l' [elenco degli avvisi](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/alertsV2) attivati per individuare l'avviso attivato e fare clic per visualizzarne i dettagli. Esaminare le informazioni fornite in **perché questo avviso** è stato attivato? per visualizzare il grafico delle metriche, il **valore della metrica** e il **valore soglia** nel momento in cui è stato attivato l'avviso.
 
     > [!NOTE] 
     > Se si usa un tipo di condizione per le soglie dinamiche e si ritiene che le soglie usate non siano corrette, fornire commenti e suggerimenti tramite l'icona imbronciata. Questo feedback avrà un effetto sulla ricerca algoritmica di machine learning e contribuirà a migliorare i rilevamenti futuri.
@@ -142,7 +142,7 @@ L'esportazione del modello di Gestione risorse di una regola di avviso per le me
 2. Nella sezione Panoramica selezionare la casella di controllo **Mostra tipi nascosti** .
 3. Nel filtro dei **tipi** selezionare *Microsoft. Insights/metricalerts*.
 4. Selezionare la regola di avviso pertinente per visualizzare i relativi dettagli.
-5. In **Impostazioni**selezionare **Esporta modello**.
+5. In **Impostazioni** selezionare **Esporta modello**.
 
 ## <a name="metric-alert-rules-quota-too-small"></a>Quota regole di avviso metrica troppo piccola
 
@@ -241,6 +241,8 @@ Prendere in considerazione le restrizioni seguenti per i nomi delle regole di av
 - I nomi delle regole di avviso per la metrica non possono contenere i caratteri seguenti: * # & +:  < > ? @ % { } \ / 
 - I nomi delle regole di avviso della metrica non possono terminare con uno spazio o un punto
 
+> [!NOTE] 
+> Se il nome della regola di avviso contiene caratteri che non sono alfabetici o numerici, ad esempio spazi, segni di punteggiatura o simboli, questi caratteri possono essere codificati in URL quando vengono recuperati da determinati client.
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Restrizioni relative all'uso di dimensioni in una regola di avviso metrica con più condizioni
 

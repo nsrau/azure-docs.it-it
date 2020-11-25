@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 8710e0cdd6c930338009fb2b7f3bd98fafcfad3e
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 18ece47187e3f83277d7d925ad958d2ede7cb337
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95411564"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96030017"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Eseguire query sui dati esportati da monitoraggio di Azure con Esplora dati di Azure (anteprima)
 L'esportazione di dati da monitoraggio di Azure a un account di archiviazione di Azure consente la conservazione a basso costo e la possibilità di riallocare i log in aree diverse. Usare Esplora dati di Azure per eseguire query sui dati esportati dalle aree di lavoro di Log Analytics. Una volta configurate, le tabelle supportate inviate dalle aree di lavoro a un account di archiviazione di Azure saranno disponibili come origine dati per Esplora dati di Azure.
@@ -122,7 +122,7 @@ Nell'immagine seguente viene illustrato un esempio dell'output.
 
 >[!TIP]
 >* Copiare, incollare e quindi eseguire l'output dello script nello strumento client di Azure Esplora dati per creare la tabella e il mapping.
->* Se si desidera utilizzare tutti i dati all'interno del contenitore, è possibile modificare lo script e modificare l'URL in modo che sia " https://your.blob.core.windows.net/containername ; SecKey'
+>* Per usare tutti i dati all'interno del contenitore, modificare lo script e modificare l'URL in modo che sia " https://your.blob.core.windows.net/containername ; SecKey'
 
 ## <a name="query-the-exported-data-from-azure-data-explorer"></a>Eseguire query sui dati esportati da Azure Esplora dati 
 

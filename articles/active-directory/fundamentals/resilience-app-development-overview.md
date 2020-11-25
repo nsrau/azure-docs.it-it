@@ -11,18 +11,16 @@ author: knicholasa
 ms.author: nichola
 manager: martinco
 ms.date: 11/23/2020
-ms.openlocfilehash: f6078ed96106d6a53b55195ee950e2165334221d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c2c2f9d0ad7bfa50f543b57326b9fc8dab0069c6
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919684"
+ms.locfileid: "96029303"
 ---
 # <a name="increase-resilience-of-authentication-and-authorization-applications-you-develop"></a>Aumentare la resilienza delle applicazioni di autenticazione e autorizzazione sviluppate
 
 Microsoft Identity usa l'autenticazione e l'autorizzazione moderne basate su token. Ciò significa che un'applicazione acquisisce i token da un provider di identità per autenticare l'utente e autorizzare l'applicazione a chiamare le API protette.
-
-![Immagine dell'applicazione che chiama Microsoft Identity](media/resilience-app-development-overview/app-overview.png)
 
 Un token è valido per un determinato periodo di tempo prima che l'app debba acquisirne una nuova. Raramente, una chiamata per recuperare un token potrebbe non riuscire a causa di un problema, ad esempio errori di rete o infrastruttura o interruzione del servizio di autenticazione. In questo documento vengono illustrati i passaggi che uno sviluppatore può adottare per aumentare la resilienza nelle applicazioni se si verifica un errore di acquisizione di token.
 

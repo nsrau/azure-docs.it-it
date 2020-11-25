@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: storage
 author: roygara
 ms.service: storage
@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: a662598efdca05769c7da9fbeecdf692dccdacb5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95561067"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028561"
 ---
 ## <a name="overview"></a>Panoramica
 Archiviazione di Azure offre la possibilità di creare snapshot di BLOB. Gli snapshot acquisiscono lo stato del BLOB in un dato momento. Questo articolo illustra uno scenario che permette di mantenere backup dei dischi delle macchine virtuali tramite snapshot. Quando si sceglie di non utilizzare Backup di Azure e il servizio di ripristino e si desidera creare una strategia di backup personalizzata per i dischi delle macchine virtuali, è possibile utilizzare questa metodologia. Per le macchine virtuali che eseguono carichi di lavoro aziendali o mission-critical, è consigliabile usare [backup di Azure](../articles/backup/backup-azure-vms-introduction.md) come parte della strategia di backup.  

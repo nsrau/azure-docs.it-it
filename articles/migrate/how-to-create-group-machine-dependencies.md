@@ -2,13 +2,13 @@
 title: Configurare l'analisi delle dipendenze basate su agente in Azure Migrate server Assessment
 description: Questo articolo descrive come configurare l'analisi delle dipendenze basate su agente in Azure Migrate server assessment.
 ms.topic: how-to
-ms.date: 6/09/2020
-ms.openlocfilehash: c5c019ec995f59b61fb96917bed50bd8ba3f61d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/25/2020
+ms.openlocfilehash: 17c6e3e24596727350b11946bdf6896e22d41529
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022378"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96028963"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurare la visualizzazione delle dipendenze
 
@@ -39,12 +39,12 @@ Questo articolo descrive come configurare l'analisi delle dipendenze senza agent
 ## <a name="associate-a-workspace"></a>Associare un'area di lavoro
 
 1. Dopo aver individuato i computer per la valutazione, in **Server**  >  **Azure migrate: server Assessment**, fare clic su **Panoramica**.  
-2. In **Azure migrate: server Assessment**fare clic su **Essentials**.
-3. Nell' **area di lavoro di OMS**fare clic su **richiede la configurazione**.
+2. In **Azure migrate: server Assessment** fare clic su **Essentials**.
+3. Nell' **area di lavoro di OMS** fare clic su **richiede la configurazione**.
 
      ![Configurare un'area di lavoro Log Analytics](./media/how-to-create-group-machine-dependencies/oms-workspace-select.png)   
 
-4. In **Configura area di lavoro OMS**specificare se si desidera creare una nuova area di lavoro o utilizzarne una esistente.
+4. In **Configura area di lavoro OMS** specificare se si desidera creare una nuova area di lavoro o utilizzarne una esistente.
     - È possibile selezionare un'area di lavoro esistente da tutte le aree di lavoro nella sottoscrizione migrate Project.
     - È necessario l'accesso in lettura all'area di lavoro per associarlo.
 5. Se si crea una nuova area di lavoro, selezionarne il percorso.
@@ -59,10 +59,10 @@ Installare gli agenti in ogni computer che si desidera analizzare.
 > [!NOTE]
 > Per i computer monitorati da System Center Operations Manager 2012 R2 o versione successiva, non è necessario installare l'agente MMA. Mapping dei servizi si integra con Operations Manager. [Seguire](../azure-monitor/insights/service-map-scom.md#prerequisites) le linee guida per l'integrazione.
 
-1. In **Azure migrate: server Assessment**fare clic su **server individuati**.
+1. In **Azure migrate: server Assessment** fare clic su **server individuati**.
 2. Per ogni computer che si vuole analizzare con la visualizzazione delle dipendenze, nella colonna **dipendenze** fare clic su **richiede l'installazione dell'agente**.
 3. Nella pagina **dipendenze** scaricare MMA e Dependency Agent per Windows o Linux.
-4. In **Configura agente MMA**copiare l'ID e la chiave dell'area di lavoro. Sono necessari quando si installa l'agente MMA.
+4. In **Configura agente MMA** copiare l'ID e la chiave dell'area di lavoro. Sono necessari quando si installa l'agente MMA.
 
     ![Installare gli agenti](./media/how-to-create-group-machine-dependencies/dependencies-install.png)
 
@@ -83,7 +83,7 @@ Per installare l'agente in un computer Windows:
 
 È possibile installare l'agente dalla riga di comando o usando un metodo automatizzato, ad esempio Configuration Manager o [Intigua](https://www.intigua.com/intigua-for-azure-migration).
 - [Altre informazioni](../azure-monitor/platform/log-analytics-agent.md#installation-options) sull'uso di questi metodi per installare l'agente MMA.
-- L'agente MMA può essere installato anche usando questo [script](https://go.microsoft.com/fwlink/?linkid=2104394).
+- L'agente MMA può essere installato anche usando questo [script](https://github.com/brianbar-MSFT/Install-MMA).
 - [Altre](../azure-monitor/platform/agents-overview.md#supported-operating-systems) informazioni sui sistemi operativi Windows supportati da MMA.
 
 ### <a name="install-mma-on-a-linux-machine"></a>Installare MMA in un computer Linux
@@ -116,7 +116,7 @@ A questo punto, creare un gruppo per la valutazione.
 > [!NOTE]
 > I gruppi per i quali si vuole visualizzare le dipendenze non devono includere più di 10 computer. Se sono presenti più di 10 computer, suddividerli in gruppi più piccoli.
 
-1. In **Azure migrate: server Assessment**fare clic su **server individuati**.
+1. In **Azure migrate: server Assessment** fare clic su **server individuati**.
 2. Nella colonna **dipendenze** fare clic su **Visualizza dipendenze** per ogni computer che si desidera esaminare.
 3. Nella mappa delle dipendenze è possibile vedere quanto segue:
     - Connessioni TCP in ingresso (client) e in uscita (Server), da e verso il computer.
@@ -153,7 +153,7 @@ Eseguire una query per i dati di dipendenza come segue:
 
 1. Dopo aver installato gli agenti, accedere al portale e fare clic su **Panoramica**.
 2. In **Azure migrate: server Assessment**, fare clic su **Panoramica**. Per espandere **Essentials**, fare clic sulla freccia verso il basso.
-3. Nell' **area di lavoro di OMS**fare clic sul nome dell'area di lavoro.
+3. Nell' **area di lavoro di OMS** fare clic sul nome dell'area di lavoro.
 3. Nella pagina Log Analytics area di lavoro > **generale**, fare clic su **log**.
 4. Scrivere la query e fare clic su **Esegui**.
 

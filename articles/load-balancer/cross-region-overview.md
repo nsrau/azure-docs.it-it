@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 8b2f8e82cac1d26689659286a5a0f81f06fb68ca
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: f0630599c7c52f11a4cf3153bae38ad2d515b6bc
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695062"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029762"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Bilanciamento del carico tra aree (anteprima)
 
@@ -35,7 +35,7 @@ Azure Load Balancer Standard supporta il bilanciamento del carico tra aree che c
 * Crea una soluzione di [bilanciamento del carico esistente](#build-cross-region-solution-on-existing-azure-load-balancer) senza alcuna curva di apprendimento
 
 > [!IMPORTANT]
-> Il servizio di bilanciamento del carico tra aree è attualmente disponibile in anteprima e non è disponibile a livello generale.  Per accedere all'anteprima per il servizio di bilanciamento del carico tra aree, contattare: [crossregionlb@microsoft.com](mailto:crossregionlb@microsoft.com) . </br> </br>
+> Il servizio di bilanciamento del carico tra aree è attualmente disponibile in anteprima e nascosto nel portale di anteprima. Accedere a **https://preview.portal.azure.com/?feature.globallb=true** per visualizzare e distribuire la funzionalità. </br> </br>
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il bilanciamento del carico tra aree offre gli stessi vantaggi di prestazioni elevate e bassa latenza del servizio Load Balancer standard regionale. 
@@ -149,6 +149,6 @@ Il servizio di bilanciamento del carico tra aree, condivide il [contratto](https
  
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per iniziare a usare un servizio di bilanciamento del carico, vedere [Creare un servizio di bilanciamento del carico Standard pubblico](quickstart-load-balancer-standard-public-portal.md).
+- Vedere [esercitazione: creare un servizio di bilanciamento del carico tra aree usando il portale di Azure](tutorial-cross-region-portal.md) per creare un servizio di bilanciamento del carico tra aree diverse.
+- Vedere [creare un servizio di bilanciamento del carico standard pubblico](quickstart-load-balancer-standard-public-portal.md) per creare un servizio di bilanciamento del carico a livello di area standard.
 - Altre informazioni su [Azure Load Balancer](load-balancer-overview.md).
-- [Domande frequenti](load-balancer-faqs.md) sul servizio di bilanciamento del carico

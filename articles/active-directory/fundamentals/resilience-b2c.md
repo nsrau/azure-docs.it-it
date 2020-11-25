@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda9378a41e0d98276957a6fad75db2c20e6e4e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ba7b8ff2555fd7014cf16f66745721c6425ff868
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919661"
+ms.locfileid: "96029524"
 ---
 # <a name="build-resilience-in-your-customer-identity-and-access-management-with-azure-active-directory-b2c"></a>Resilienza della compilazione nella gestione delle identità e dell'accesso dei clienti con Azure Active Directory B2C
 
@@ -46,10 +46,6 @@ Quando si sviluppa l'applicazione, è consigliabile considerare come [aumentare 
 
 - [Monitoraggio e analisi](resilience-with-monitoring-alerting.md): valutare l'integrità del servizio monitorando gli indicatori chiave e rilevare gli errori e le interruzioni delle prestazioni tramite gli avvisi.
 
-- Risorse di resilienza per sviluppatori Azure AD B2C
-  - [Esperienza utente finale resiliente](resilient-end-user-experience.md)
-  - [Interfacce resilienti con processi esterni](resilient-external-processes.md)
-  - [Resilienza tramite le procedure consigliate per gli sviluppatori](resilience-b2c-developer-best-practices.md)
-  - [Resilienza tramite monitoraggio e analisi](resilience-with-monitoring-alerting.md)
 - [Resilienza di compilazione nell'infrastruttura di autenticazione](resilience-in-infrastructure.md)
+
 - [Aumentare la resilienza dell'autenticazione e dell'autorizzazione nelle applicazioni](resilience-app-development-overview.md)

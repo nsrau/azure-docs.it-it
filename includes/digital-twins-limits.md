@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: fe3c737e0cbf6831e3abc37443e27926ed5e62b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 183d12b5e9d32c777c8acf01177c8cbbe1b6ca00
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091777"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96026624"
 ---
 ### <a name="functional-limits"></a>Limiti funzionali
 
@@ -29,7 +29,7 @@ La tabella seguente elenca i limiti funzionali dei dispositivi gemelli digitali 
 | Modelli | Numero di modelli all'interno di una singola istanza di Azure Digital Twins | 10,000 | Sì |
 | Modelli | Numero di modelli che possono essere caricati in una singola chiamata API | 250 | No |
 | Modelli | Numero di elementi restituiti in una singola pagina | 100 | No |
-| Query | Numero di elementi restituiti in una singola pagina | 100 | No |
+| Query | Numero di elementi restituiti in una singola pagina | 100 | Sì |
 | Query | Numero di `AND`  /  `OR` espressioni in una query | 50 | Sì |
 | Query | Numero di elementi di matrice in una `IN`  /  `NOT IN` clausola | 50 | Sì |
 | Query | Numero di caratteri in una query | 8\.000 | Sì |

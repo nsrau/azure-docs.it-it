@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9020e364a5c8d7a59dad5549e88036dc9edaad7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089667"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029348"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identità del dispositivo e virtualizzazione desktop
 
@@ -56,12 +56,11 @@ Prima di configurare le identità del dispositivo in Azure AD per l'ambiente VDI
 |   |   | Dispositivi Windows di livello inferiore | Non persistente | Sì<sup>6</sup> |
 | Aggiunta ad Azure AD | Federato | Windows corrente | Persistente | No |
 |   |   |   | Non persistente | No |
-|   | Gestiti | Windows corrente | Persistente | No |
+|   | Gestita | Windows corrente | Persistente | No |
 |   |   |   | Non persistente | No |
-| Registrazione in Azure AD | Federato/gestito | Windows corrente/Windows di livello inferiore | Persistente/non persistente | Non applicabile |
+| Registrato con AAD | Federato/gestito | Windows corrente/Windows di livello inferiore | Persistente/non persistente | Non applicabile |
 
-<sup>1</sup> i dispositivi **Windows correnti** rappresentano Windows 10, Windows Server 2016 e Windows Server 2019.
-
+<sup>1</sup> i dispositivi **Windows correnti** rappresentano Windows 10, Windows Server 2016 v1803 o versione successiva e Windows Server 2019.
 <sup>2</sup> i dispositivi **Windows di livello inferiore** rappresentano Windows 7, Windows 8.1, Windows Server 2008 r2, Windows Server 2012 e Windows Server 2012 R2. Per informazioni di supporto su Windows 7, vedere la pagina relativa al [supporto per Windows 7](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support). Per informazioni di supporto su Windows Server 2008 R2, vedere [preparare la fine del supporto tecnico di Windows server 2008](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 <sup>3</sup> un ambiente **federato** di infrastruttura di identità rappresenta un ambiente con un provider di identità, ad esempio ad FS o un altro IDP di terze parti.

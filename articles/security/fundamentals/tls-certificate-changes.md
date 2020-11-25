@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 11/10/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 955990ed9209ea1e12eed824241e8a5a456ed73b
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 4e64d866b5bd2f725db3be31d0fdd2f8663cfd7c
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444878"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029694"
 ---
 # <a name="azure-tls-certificate-changes"></a>Modifiche ai certificati TLS di Azure  
 
@@ -30,6 +30,7 @@ Dettagli specifici del servizio:
 - L'[hub IoT di Azure](https://azure.microsoft.com/services/iot-hub) e il [servizio Device Provisioning](../../iot-dps/index.yml) rimarranno di competenza della CA Baltimore CyberTrust Root, ma le relative CA intermedie cambieranno. [Fare clic qui per i dettagli](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).
 - I servizio [Archiviazione di Azure](../../storage/index.yml) rimarrà di competenza della CA Baltimore CyberTrust Root, ma le relative CA intermedie cambieranno. [Fare clic qui per i dettagli](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 - [Cache di Azure per Redis](../../azure-cache-for-redis/index.yml) rimarrà nell'autorità di certificazione radice Baltimore Cybertrust, ma le autorità di certificazione intermedie cambieranno. [Fare clic qui per i dettagli](../../azure-cache-for-redis/cache-whats-new.md).
+- Il servizio metadati dell'istanza di Azure rimarrà nell'autorità di certificazione radice Baltimore CyberTrust, ma le autorità di certificazione intermedie cambieranno. [Fare clic qui per i dettagli](https://docs.microsoft.com/answers/questions/172717/action-required-for-attested-data-tls-with-azure-i.html).
 
 > [!IMPORTANT]
 > Dopo questa modifica, è possibile che i clienti debbano aggiornare le loro applicazioni per evitare problemi di connettività quando provano a connettersi ai servizi di Azure.
@@ -70,11 +71,11 @@ Ecco come rilevare se un'applicazione è interessata:
 - Se un'applicazione si integra con API di Azure o con altri servizi di Azure e non si sa se usa l'associazione di certificati, contattare il fornitore dell'applicazione.
 
 - Per sistemi operativi e runtime di linguaggi diversi che comunicano con i servizi di Azure può essere necessario eseguire passaggi aggiuntivi per creare correttamente la catena di certificati con queste nuove radici:
-    - **Linux** : per molte distribuzioni è necessario aggiungere le CA e in /etc/ssl/certs. Per istruzioni specifiche, fare riferimento alla documentazione della distribuzione.
-    - **Java** : verificare che l'archivio chiavi Java contenga le CA elencate sopra.
-    - **Windows in esecuzione in ambienti disconnessi** : per i sistemi in esecuzione in ambienti disconnessi sarà necessario aggiungere le nuove radici all'archivio di autorità di certificazione radice attendibili e le CA intermedie all'archivio di autorità di certificazione intermedie.
-    - **Android** : controllare la documentazione relativa al dispositivo e alla versione di Android.
-    - **Altri dispositivi hardware, soprattutto IoT** : contattare il produttore del dispositivo.
+    - **Linux**: per molte distribuzioni è necessario aggiungere le CA e in /etc/ssl/certs. Per istruzioni specifiche, fare riferimento alla documentazione della distribuzione.
+    - **Java**: verificare che l'archivio chiavi Java contenga le CA elencate sopra.
+    - **Windows in esecuzione in ambienti disconnessi**: per i sistemi in esecuzione in ambienti disconnessi sarà necessario aggiungere le nuove radici all'archivio di autorità di certificazione radice attendibili e le CA intermedie all'archivio di autorità di certificazione intermedie.
+    - **Android**: controllare la documentazione relativa al dispositivo e alla versione di Android.
+    - **Altri dispositivi hardware, soprattutto IoT**: contattare il produttore del dispositivo.
 
 - Se l'ambiente include regole del firewall impostate per consentire le chiamate in uscita solo a specifiche posizioni CRL (Certificate Revocation List) e/o OCSP (Online Certificate Status Protocol), sarà necessario autorizzare gli URL CRL e OCSP seguenti:
 

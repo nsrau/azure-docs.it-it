@@ -7,22 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1bf0a4a86ccc36960f218fabebda5bc82eb29019
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 5b498b8f49f2f0636b010e3c4d86f13ad44ac090
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426171"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029014"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Aggiungere il completamento automatico e suggerimenti alle app client
 
-Il tipo di ricerca è una tecnica comune per migliorare la produttività delle query avviate dall'utente. In Azure ricerca cognitiva questa esperienza è supportata tramite il *completamento automatico* , che completa un termine o una frase basata sull'input parziale (completando "micro" con "Microsoft"). Un altro modulo è costituito da *suggerimenti* : un breve elenco di documenti corrispondenti (che restituiscono titoli di libro con un ID per potersi collegare a una pagina di dettaglio). Il completamento automatico e i suggerimenti vengono predicati in base a una corrispondenza nell'indice. Il servizio non offrirà query che restituiscono zero risultati.
+Il tipo di ricerca è una tecnica comune per migliorare la produttività delle query avviate dall'utente. In Azure ricerca cognitiva questa esperienza è supportata tramite il *completamento automatico*, che completa un termine o una frase basata sull'input parziale (completando "micro" con "Microsoft"). Una seconda esperienza utente è costituita da *suggerimenti* o da un breve elenco di documenti corrispondenti (che restituiscono titoli di libro con un ID per potersi collegare a una pagina di dettaglio relativa a tale libro). Il completamento automatico e i suggerimenti vengono predicati in base a una corrispondenza nell'indice. Il servizio non offrirà query che restituiscono zero risultati.
 
 Per implementare queste esperienze in Azure ricerca cognitiva, sarà necessario:
 
-+ Un *Suggerimento* sul back-end.
++ Definizione del *Suggerimento* incorporata nello schema dell'indice.
 + *Query* che specifica l'API di [completamento automatico](/rest/api/searchservice/autocomplete) o [suggerimenti](/rest/api/searchservice/suggestions) per la richiesta.
 + Un *controllo dell'interfaccia utente* per gestire le interazioni di tipo ricerca in una propria app client. A questo scopo, è consigliabile usare una libreria JavaScript esistente.
 

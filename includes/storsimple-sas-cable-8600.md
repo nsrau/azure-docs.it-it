@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f08a6b3f7abfc79bff6baff2a339053905612535
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67180181"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027181"
 ---
 #### <a name="to-attach-the-sas-cables"></a>Per collegare i cavi SAS
 1. Identificare l'enclosure principale e l'enclosure EBOD. Le due enclosure possono essere identificate osservandone il retro. Per indicazioni, vedere la seguente figura. 
@@ -22,7 +22,7 @@ ms.locfileid: "67180181"
    |:--- |:--- |
    | 1 |Enclosure principale |
    | 2 |Chassis EBOD |
-2. Individuare i numeri di serie sulle enclosure principale ed EBOD. L'adesivo con il numero di serie è attaccato alla sporgenza posteriore di ogni enclosure. I due numeri di serie delle enclosure devono essere identici. [Supporto Tecnico Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) . Per individuare i numeri di serie più facilmente, vedere la seguente figura.
+2. Individuare i numeri di serie sulle enclosure principale ed EBOD. L'adesivo con il numero di serie è attaccato alla sporgenza posteriore di ogni enclosure. I due numeri di serie delle enclosure devono essere identici. [Supporto Tecnico Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) . Per individuare i numeri di serie più facilmente, vedere la seguente figura.
    
     ![Vista posteriore dell’enclosure con la posizione del numero di serie](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
    
@@ -51,4 +51,3 @@ ms.locfileid: "67180181"
       | 4 |Controller 1 EBOD |
       | 5, 6 |Porte SAS sull'enclosure principale (contrassegnate con la dicitura EBOD) |
       | 7, 8 |Porte SAS sull'enclosure EBOD (Porta A) |
-

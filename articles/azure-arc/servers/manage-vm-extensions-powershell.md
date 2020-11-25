@@ -1,14 +1,14 @@
 ---
 title: Abilitare l'estensione della macchina virtuale usando Azure PowerShell
 description: Questo articolo descrive come distribuire le estensioni delle macchine virtuali nei server abilitati per Azure Arc in esecuzione in ambienti cloud ibridi usando Azure PowerShell.
-ms.date: 11/06/2020
+ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5ed9db23cd19814ff05c2f142f51cea869f2c2d4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 40f3d6ab98411d5b8e42f4f79817c66f56fdaaef
+ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359069"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96029031"
 ---
 # <a name="enable-azure-vm-extensions-using-azure-powershell"></a>Abilitare le estensioni VM di Azure usando Azure PowerShell
 
@@ -56,14 +56,14 @@ Nell'esempio seguente viene abilitata l'estensione della macchina virtuale Key V
 # Build settings
     $settings = @{
       secretsManagementSettings = @{
-       observedCertificates = @{
+       observedCertificates = @(
         "observedCert1"
-       }
+       )
       certificateStoreLocation = "myMachineName" # For Linux use "/var/lib/waagent/Microsoft.Azure.KeyVault.Store/"
       certificateStore = "myCertificateStoreName"
       pollingIntervalInS = "pollingInterval"
       }
-    authenticationLocationSettings = @{
+    authenticationSettings = @{
      msiEndpoint = "http://localhost:40342/metadata/identity"
      }
     }

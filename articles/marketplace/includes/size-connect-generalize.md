@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: ecbafe0d3f39b1bd6f7c494695ea17e067f0c79e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6c7536e38a0d2cf7d4e906947aff645c74e459c0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129279"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96027102"
 ---
 ## <a name="generalize-the-image"></a>Generalizzare l'immagine
 
@@ -41,13 +41,13 @@ Il processo seguente generalizza una macchina virtuale Linux e la ridistribuisce
 ### <a name="take-a-snapshot-of-the-vm-disk"></a>Eseguire uno snapshot del disco della macchina virtuale
 
 1. Accedere al [portale di Azure](https://ms.portal.azure.com/).
-2. A partire dall'angolo in alto a sinistra, selezionare **Crea una risorsa** , quindi cercare e selezionare **snapshot** .
-3. Nel pannello snapshot selezionare  **Crea** .
+2. A partire dall'angolo in alto a sinistra, selezionare **Crea una risorsa**, quindi cercare e selezionare **snapshot**.
+3. Nel pannello snapshot selezionare  **Crea**.
 4. Immettere un **Nome** per lo snapshot.
 5. Selezionare un gruppo di risorse esistente o immettere il nome per un nuovo gruppo.
-6. Per **Disco di origine** , selezionare il disco gestito di cui creare lo snapshot.
+6. Per **Disco di origine**, selezionare il disco gestito di cui creare lo snapshot.
 7. Selezionare il **tipo di account** da usare per archiviare lo snapshot. Usare il tipo **Standard HDD** a meno che non sia necessario archiviare lo snapshot su un'unità SSD a prestazioni elevate.
-8. Selezionare **Crea** .
+8. Selezionare **Crea**.
 
 #### <a name="extract-the-vhd"></a>Estrarre il disco rigido virtuale
 
@@ -81,7 +81,7 @@ destinationVHDFileName=myvhdfilename.vhd
 
 az account set --subscription $subscriptionId
 
-sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $ snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
+sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $snapshotName --duration-in-seconds $sasExpiryDuration --query [accessSas] -o tsv)
 
 az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
 ```
