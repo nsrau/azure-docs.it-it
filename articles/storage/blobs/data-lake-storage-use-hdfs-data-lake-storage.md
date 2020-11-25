@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 1d720aed44358dd314bc4226adb9ad517139cd18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2b36dd600efa864913e0087c49bffd556e8330d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836310"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912400"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Uso dell'interfaccia della riga di comando di Hadoop Distributed File System con Anteprima di Azure Data Lake Storage Gen2
 
@@ -29,7 +29,7 @@ Per altre informazioni sull'interfaccia della riga di comando di HDFS, vedere la
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Usare l’infrastruttura CLI di HDFS con un cluster Hadoop di HDInsight in Linux
 
-Per prima cosa stabilire l’[accesso remoto ai servizi](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-information#remote-access-to-services). Selezionando [SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix), il codice di PowerShell di esempio si presenta come segue:
+Per prima cosa stabilire l’[accesso remoto ai servizi](../../hdinsight/hdinsight-hadoop-linux-information.md#remote-access-to-services). Selezionando [SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md), il codice di PowerShell di esempio si presenta come segue:
 
 ```powershell
 #Connect to the cluster via SSH.
@@ -120,4 +120,4 @@ Vedere [chmod](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-
 
 * [Usare un account con supporto di Azure Data Lake Storage Gen2 in Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
 
-* [Informazioni sugli elenchi di controllo di accesso in file e directory](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
+* [Informazioni sugli elenchi di controllo di accesso in file e directory](./data-lake-storage-access-control.md)

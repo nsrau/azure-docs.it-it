@@ -2,13 +2,13 @@
 title: Struttura e sintassi del modello
 description: Descrive la struttura e le proprietà dei modelli di Azure Resource Manager con la sintassi dichiarativa JSON.
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: ae2c5a5fe1440c3adbae475cd4c7652a3b01c285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: b7cf30741cfd2b85046f64fddf01c414676a97e4
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86116540"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911499"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Comprendere la struttura e la sintassi dei modelli di Resource Manager
 
@@ -45,6 +45,62 @@ La struttura più semplice di un modello è costituita dagli elementi seguenti:
 | [outputs](#outputs) |No |Valori restituiti dopo la distribuzione. |
 
 Ogni elemento ha proprietà che è possibile impostare. In questo articolo le sezioni del modello vengono esaminate in modo dettagliato.
+
+## <a name="data-types"></a>Tipi di dati
+
+All'interno di un modello ARM, è possibile usare questi tipi di dati:
+
+* string
+* securestring
+* INT
+* bool
+* object
+* secureObject
+* array
+
+Nel modello seguente viene illustrato il formato per i tipi di dati di. Ogni tipo ha un valore predefinito nel formato corretto.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringParameter": {
+      "type": "string",
+      "defaultValue": "option 1"
+    },
+    "intParameter": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "boolParameter": {
+        "type": "bool",
+        "defaultValue": true
+    },
+    "objectParameter": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b"
+      }
+    },
+    "arrayParameter": {
+      "type": "array",
+      "defaultValue": [ 1, 2, 3 ]
+    }
+  },
+  "resources": [],
+  "outputs": {}
+}
+```
+
+La stringa protetta usa lo stesso formato di stringa e l'oggetto protetto usa lo stesso formato dell'oggetto. Quando si imposta un parametro su una stringa sicura o un oggetto protetto, il valore del parametro non viene salvato nella cronologia di distribuzione e non viene registrato. Tuttavia, se si imposta il valore sicuro su una proprietà che non prevede un valore sicuro, il valore non è protetto. Se, ad esempio, si imposta una stringa sicura su un tag, tale valore viene archiviato come testo normale. Usare le stringhe sicure per le password e i segreti.
+
+Per i numeri interi passati come parametri inline, l'intervallo di valori può essere limitato dall'SDK o dallo strumento da riga di comando usato per la distribuzione. Ad esempio, quando si usa PowerShell per distribuire un modello, i tipi integer possono variare da-2147483648 a 2147483647. Per evitare questa limitazione, specificare valori integer di grandi dimensioni in un [file di parametri](parameter-files.md). I tipi di risorsa applicano i propri limiti per le proprietà Integer.
+
+Quando si specificano valori booleani e Integer nel modello, non racchiudere il valore tra virgolette. Valori stringa iniziale e finale con virgolette doppie.
+
+Gli oggetti iniziano con una parentesi graffa sinistra e terminano con una parentesi graffa destra. Le matrici iniziano con una parentesi quadra aperta e terminano con una parentesi quadra chiusa.
 
 ## <a name="parameters"></a>Parametri
 
@@ -83,21 +139,9 @@ Le proprietà disponibili per un parametro sono:
 
 Per esempi relativi all'uso dei parametri, vedere [parametri nei modelli Azure Resource Manager](template-parameters.md).
 
-### <a name="data-types"></a>Tipi di dati
-
-Per i numeri interi passati come parametri inline, l'intervallo di valori può essere limitato dall'SDK o dallo strumento da riga di comando usato per la distribuzione. Ad esempio, quando si usa PowerShell per distribuire un modello, i tipi integer possono variare da-2147483648 a 2147483647. Per evitare questa limitazione, specificare valori integer di grandi dimensioni in un [file di parametri](parameter-files.md). I tipi di risorsa applicano i propri limiti per le proprietà Integer.
-
-Quando si specificano valori booleani e Integer nel modello, non racchiudere il valore tra virgolette. Valori stringa iniziale e finale con virgolette doppie.
-
-Gli oggetti iniziano con una parentesi graffa sinistra e terminano con una parentesi graffa destra. Le matrici iniziano con una parentesi quadra aperta e terminano con una parentesi quadra chiusa.
-
-Quando si imposta un parametro su una stringa sicura o un oggetto protetto, il valore del parametro non viene salvato nella cronologia di distribuzione e non viene registrato. Tuttavia, se si imposta il valore sicuro su una proprietà che non prevede un valore sicuro, il valore non è protetto. Se, ad esempio, si imposta una stringa sicura su un tag, tale valore viene archiviato come testo normale. Usare le stringhe sicure per le password e i segreti.
-
-Per esempi di formattazione dei tipi di dati, vedere [formati di tipo di parametro](parameter-files.md#parameter-type-formats).
-
 ## <a name="variables"></a>Variabili
 
-Nella sezione variables è possibile costruire valori da usare in tutto il modello. Non è obbligatorio definire le variabili. Queste tuttavia consentono spesso di semplificare il modello, riducendo le espressioni complesse.
+Nella sezione variables è possibile costruire valori da usare in tutto il modello. Non è obbligatorio definire le variabili. Queste tuttavia consentono spesso di semplificare il modello, riducendo le espressioni complesse. Il formato di ogni variabile corrisponde a uno dei [tipi di dati](#data-types).
 
 Nell'esempio seguente vengono illustrate le opzioni disponibili per la definizione di una variabile:
 
@@ -277,7 +321,7 @@ L'esempio seguente illustra la struttura di una definizione di output:
 | nome di output |Sì |Nome del valore di output. Deve essere un identificatore JavaScript valido. |
 | condizione |No | Valore booleano che indica se questo valore di output viene restituito. Quando è `true`, il valore è incluso nell'output per la distribuzione. Quando è `false`, il valore dell'output viene ignorato per questa distribuzione. Quando non è specificato, il valore predefinito è `true`. |
 | tipo |Sì |Tipo del valore di output. I valori di output supportano gli stessi tipi dei parametri di input del modello. Se si specifica **SecureString** per il tipo di output, il valore non viene visualizzato nella cronologia di distribuzione e non può essere recuperato da un altro modello. Per usare un valore segreto in più di un modello, archiviare il segreto in un Key Vault e fare riferimento al segreto nel file dei parametri. Per altre informazioni, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](key-vault-parameter.md). |
-| value |No |Espressione del linguaggio di modello valutata e restituita come valore di output. Specificare un **valore** o una **copia**. |
+| Valore |No |Espressione del linguaggio di modello valutata e restituita come valore di output. Specificare un **valore** o una **copia**. |
 | copy |No | Utilizzato per restituire più di un valore per un output. Specificare il **valore** o la **copia**. Per altre informazioni, vedere [iterazione di output nei modelli Azure Resource Manager](copy-outputs.md). |
 
 Per esempi relativi all'uso degli output, vedere [output nel modello di Azure Resource Manager](template-outputs.md).

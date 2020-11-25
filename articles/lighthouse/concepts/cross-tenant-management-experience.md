@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 11/09/2020
+ms.date: 11/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: dfb92e3f4f02e693ae5e4bba57e5344288c4615a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 95b9bcf6bb9530afc9f6a23c323b6931e8975ad1
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413123"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905124"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -81,6 +81,8 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 [Servizio Azure Kubernetes](../../aks/index.yml):
 
 - Gestire gli ambienti Kubernetes ospitati e distribuire e gestire le applicazioni in contenitori nei tenant dei clienti
+- Distribuire e gestire i cluster nei tenant dei clienti
+-   Usare monitoraggio di Azure per i contenitori per monitorare le prestazioni tra i tenant dei clienti
 
 [Azure migrate](../../migrate/index.yml):
 

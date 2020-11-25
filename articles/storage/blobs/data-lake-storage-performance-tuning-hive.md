@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: fb908fe94f940073753ea8e1cde3da2b2a0c4b6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b1e5dd3c72122ade2fd4d4092bb18a7acf215f5
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88034771"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912944"
 ---
 # <a name="tune-performance-hive-hdinsight--azure-data-lake-storage-gen2"></a>Ottimizzare le prestazioni: hive, HDInsight & Azure Data Lake Storage Gen2
 
@@ -22,9 +22,9 @@ Le impostazioni predefinite sono state impostate per fornire buone prestazioni p
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account di Data Lake Storage Gen2**. Per istruzioni su come crearne uno, vedere [Guida introduttiva: creare un account di archiviazione Azure Data Lake storage Gen2](data-lake-storage-quickstart-create-account.md)
-* Un **cluster Azure HDInsight** con accesso a un account Data Lake Storage Gen2. Vedere [usare Azure Data Lake storage Gen2 con i cluster HDInsight di Azure](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
-* **Esecuzione di Hive in HDInsight**.  Per informazioni sull'esecuzione di processi Hive in HDInsight, vedere [Usare Hive in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Un account di Data Lake Storage Gen2**. Per istruzioni su come crearne uno, vedere [Guida introduttiva: creare un account di archiviazione Azure Data Lake storage Gen2](../common/storage-account-create.md)
+* Un **cluster Azure HDInsight** con accesso a un account Data Lake Storage Gen2. Vedere [usare Azure Data Lake storage Gen2 con i cluster HDInsight di Azure](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* **Esecuzione di Hive in HDInsight**.  Per informazioni sull'esecuzione di processi Hive in HDInsight, vedere [Usare Hive in HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md)
 * **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen2**.  Per i concetti generali relativi alle prestazioni, vedere [Data Lake storage Gen2 linee guida per l'ottimizzazione delle prestazioni](data-lake-storage-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>Parametri
@@ -51,7 +51,7 @@ Di seguito sono elencate le impostazioni più importanti da ottimizzare per otte
 
 **Set hive.exec.reducer.bytes.per.reducer**: il valore predefinito funziona bene quando i dati non sono compressi.  In caso di dati compressi, è consigliabile ridurre la dimensione del riduttore.  
 
-**Set hive.tez.container.size**: in ciascun nodo, la memoria viene specificata da yarn.nodemanager.resource.memory-mb e dovrebbe essere impostata correttamente nel cluster HDI per impostazione predefinita.  Per altre informazioni sull'impostazione della memoria appropriata in YARN, vedere questo [post](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
+**Set hive.tez.container.size**: in ciascun nodo, la memoria viene specificata da yarn.nodemanager.resource.memory-mb e dovrebbe essere impostata correttamente nel cluster HDI per impostazione predefinita.  Per altre informazioni sull'impostazione della memoria appropriata in YARN, vedere questo [post](../../hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom.md).
 
 I carichi di lavoro con numerose operazioni di I/O possono trarre vantaggi da un maggiore parallelismo riducendo la dimensione del contenitore Tez. In questo modo l'utente dispone di più contenitori e, quindi, di più concorrenza.  Tuttavia, alcune query di Hive richiedono una notevole quantità di memoria (ad esempio MapJoin).  Se l'attività non dispone di sufficiente memoria, si otterrà un'eccezione di memoria insufficiente durante la fase di runtime.  Se si ricevono eccezioni di memoria insufficiente, è necessario aumentare la memoria.   
 
@@ -73,6 +73,6 @@ Si supponga di disporre di un cluster D14 a 8 nodi.
 ## <a name="further-information-on-hive-tuning"></a>Ulteriori informazioni sull'ottimizzazione di Hive
 
 Ecco alcuni articoli di blog che consentiranno di ottimizzare le query di Hive:
-* [Ottimizzare le query Hive per Hadoop in HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
-* [Ottimizzare le query Apache Hive in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query)
+* [Ottimizzare le query Hive per Hadoop in HDInsight](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md)
+* [Ottimizzare le query Apache Hive in Azure HDInsight](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md)
 * [Discussione Ignite sull'ottimizzazione di Hive in HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a779fee89d52442207358cf90c8cf87e7ef221c2
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5ef2d233024ab3e9cd086e8285e681dc9f42f3f7
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94837652"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904019"
 ---
 # <a name="conditional-access-grant"></a>Accesso condizionale: Concedi
 
@@ -70,7 +70,7 @@ Quando si usa il [flusso OAuth del codice del dispositivo](../develop/v2-oauth2-
 
 Le organizzazioni possono richiedere che venga eseguito un tentativo di accesso alle app Cloud selezionate da un'app client approvata. Queste app client approvate supportano i [criteri di protezione delle app di Intune](/intune/app-protection-policy) in modo indipendente da qualsiasi soluzione di gestione di dispositivi mobili (MDM).
 
-Per sfruttare questo controllo di concessione, l'accesso condizionale richiede che il dispositivo sia registrato in Azure Active Directory che richiede l'uso di un'app Broker. L'app broker può essere il Microsoft Authenticator per iOS o il Microsoft Authenticator o il portale aziendale Microsoft per i dispositivi Android. Se un'app Broker non è installata nel dispositivo quando l'utente tenta di eseguire l'autenticazione, l'utente viene reindirizzato all'app/Play Store appropriata per installare l'app broker richiesta.
+Per sfruttare questo controllo di concessione, l'accesso condizionale richiede che il dispositivo sia registrato in Azure Active Directory che richiede l'uso di un'app Broker. L'app broker può essere il Microsoft Authenticator per iOS o il Microsoft Authenticator o il portale aziendale Microsoft per i dispositivi Android. Se un'app Broker non è installata nel dispositivo quando l'utente tenta di eseguire l'autenticazione, l'utente viene reindirizzato all'App Store appropriata per installare l'app broker richiesta.
 
 Questa impostazione si applica alle app iOS e Android seguenti:
 

@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: dcf34d896deafad77d16619f3883ddd103fc55d4
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: c35ee7bcdefa5091d9c887430182638f066cb9fa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95790752"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95900892"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Creare, sviluppare e gestire i notebook di sinapsi Studio (anteprima) in Azure sinapsi Analytics
 
@@ -399,68 +399,6 @@ df = spark.read.option("header", "true") \
 
 ![data-to-cell](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
-## <a name="visualize-data-in-a-notebook"></a>Visualizzare i dati in un notebook
-
-### <a name="produce-rendered-table-view"></a>Genera visualizzazione tabella sottoposta a rendering
-
-Viene fornita una visualizzazione tabulare dei risultati con l'opzione per creare un grafico a barre, un grafico a linee, un grafico a torta, un grafico a dispersione e un grafico ad area. È possibile visualizzare i dati senza dover scrivere codice. I grafici possono essere personalizzati nelle **Opzioni del grafico**. 
-
-Per impostazione predefinita, l'output dei comandi magic **%%sql** appare nella visualizzazione tabella di cui è stato eseguito il rendering. <code>display(df)</code>Per produrre la visualizzazione della tabella di cui è stato eseguito il rendering, è possibile chiamare sui frame di frame di Spark, i Dataframe Pandas, l'elenco o la funzione RDD (Resilient Distributed DataSets).
-
-   [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
-
-### <a name="visualize-built-in-charts-from-large-scale-dataset"></a>Visualizza i grafici predefiniti dal set di dati su larga scala 
-
-Per impostazione predefinita, la <code>display(df)</code> funzione utilizzerà solo le prime 1000 righe dei dati per eseguire il rendering dei grafici. Controllare l' **aggregazione su tutti i risultati** e selezionare **applica** pulsante. la generazione del grafico viene applicata dall'intero set di dati. Un processo Spark viene attivato quando viene modificata l'impostazione del grafico, il completamento del calcolo e il rendering del grafico richiedono un po' di tempo. 
-    [![Builtin-grafici-aggregazione-tutti](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
-
-
-
-### <a name="visualize-data-statistic-information"></a>Visualizzare le informazioni statistiche sui dati
-È possibile usare <code>display(df, summary = True)</code> per controllare il riepilogo delle statistiche di un frame di dati Spark specifico che include il nome della colonna, il tipo di colonna, i valori univoci e i valori mancanti per ogni colonna. È anche possibile selezionare una colonna specifica per visualizzare il valore minimo, il valore massimo, il valore medio e la deviazione standard.
-    [![Builtin-grafici-riepilogo ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
-
-### <a name="render-html-or-interactive-libraries"></a>Eseguire il rendering di HTML o di librerie interattive
-
-È possibile eseguire il rendering del codice HTML, incluse le librerie JavaScript, CSS, D3 o interattive, ad esempio **bokeh**, usando **displayHTML ()**.
-
-L'immagine seguente è un esempio di glifi tracciati su una mappa che usa **bokeh**.
-
-   ![bokeh-example](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
-   
-
-Eseguire questo codice di esempio per disegnare l'immagine precedente.
-
-```python
-from bokeh.plotting import figure, output_file
-from bokeh.tile_providers import get_provider, Vendors
-from bokeh.embed import file_html
-from bokeh.resources import CDN
-from bokeh.models import ColumnDataSource
-
-tile_provider = get_provider(Vendors.CARTODBPOSITRON)
-
-# range bounds supplied in web mercator coordinates
-p = figure(x_range=(-9000000,-8000000), y_range=(4000000,5000000),
-           x_axis_type="mercator", y_axis_type="mercator")
-p.add_tile(tile_provider)
-
-# plot datapoints on the map
-source = ColumnDataSource(
-    data=dict(x=[ -8800000, -8500000 , -8800000],
-              y=[4200000, 4500000, 4900000])
-)
-
-p.circle(x="x", y="y", size=15, fill_color="blue", fill_alpha=0.8, source=source)
-
-# create an html document that embeds the Bokeh plot
-html = file_html(p, CDN, "my plot1")
-
-# display this html
-displayHTML(html)
-
-```
-
 ## <a name="save-notebooks"></a>Salvare i notebook
 
 È possibile salvare un singolo notebook o tutti i notebook nell'area di lavoro.
@@ -539,11 +477,11 @@ Analogamente a Jupyter Notebook, i notebook di Azure Synapse Studio hanno un'int
 
 1. Una cella è in modalità di comando quando non è presente un cursore di testo che richiede di digitare. Quando una cella è in modalità di comando, è possibile modificare il notebook nel suo complesso, ma non digitare in singole celle. Immettere la modalità comando premendo `ESC` o usando il mouse per selezionare all'esterno dell'area dell'editor di una cella.
 
-   ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
+   ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode-2.png)
 
 2. La modalità di modifica è indicata da un cursore di testo che richiede di digitare nell'area dell'editor. Quando una cella è in modalità di modifica, è possibile digitare nella cella. Per passare alla modalità di modifica, premere `Enter` o usare il mouse per selezionare l'area dell'editor di una cella.
    
-   ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
+   ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode-2.png)
 
 ### <a name="shortcut-keys-under-command-mode"></a>Combinazione di tasti in modalità comando
 

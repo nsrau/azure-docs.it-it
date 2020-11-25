@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: ed6d3b927254d44863b7fd0a597528813be791cf
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 10ae9e1356cea954435d15441d74f4f86a804578
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736612"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95893981"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novità di Riconoscimento modulo
 
@@ -40,11 +40,14 @@ Il servizio di riconoscimento form viene aggiornato in modo continuo. Usare ques
 - **Nuovo linguaggio supportato: giapponese** : sono ora supportate le nuove lingue seguenti: per `AnalyzeLayout` e `AnalyzeCustomForm` : Japanese ( `ja` ). [Lingue supportate](language-support.md)
 - **Indicazione dello stile della linea di testo (manoscritta/altro) (solo lingue latine)** : il riconoscitore di form ora restituisce un `appearance` oggetto che classifica se ogni riga di testo è di tipo manoscritto o meno, insieme a un punteggio di confidenza. Questa funzionalità è supportata solo per le lingue latine.
 - **Miglioramenti della qualità** : miglioramenti dell'estrazione, inclusi i miglioramenti dell'estrazione a una sola cifra.
-- **Nuova funzionalità try-it-out nel modulo Recognizer Sample Labeling Tool** : possibilità di provare i modelli predefiniti per la fatturazione, la ricezione e il business card e l'API di layout usando lo strumento per l'assegnazione di un esempio di riconoscimento moduli. Scopri in che modo i tuoi dati verranno estratti senza scrivere codice.
+- **Nuova funzionalità try-it-out nell'esempio form Recognizer e strumento** per l'assegnazione di etichette: possibilità di provare i modelli predefiniti di fattura, ricezione e business card e l'API di layout usando lo strumento per l'assegnazione di etichette di esempio form Recognizer. Scopri in che modo i tuoi dati verranno estratti senza scrivere codice.
 
   > [Provare lo strumento di esempio del modulo Recognizer](https://fott-preview.azurewebsites.net/)
 
   ![Esempio di FOTT](./media/ui-preview.jpg)
+  
+- **Loop di feedback** : quando si analizzano i file tramite lo strumento di assegnazione di etichette di esempio, è ora possibile aggiungerlo anche al set di training e adujst le etichette, se necessario, e eseguire il training per migliorare il modello.
+- **Auto label Documets** -Automitcally contrassegna i documenti aggiuntivi in base ai precedenti documenti con etichetta nel progetto. 
 
 ## <a name="august-2020"></a>Agosto 2020
 

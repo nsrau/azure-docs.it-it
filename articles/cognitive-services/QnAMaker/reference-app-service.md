@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: d2095919d6f6be482390250fd8d0ee20e9015237
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 1dfe14d96efd37e3dec7faeae1dfff21122958bc
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444861"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95894202"
 ---
 # <a name="service-configuration"></a>Configurazione del servizio
 
@@ -18,11 +18,11 @@ Ogni versione di QnA Maker usa un insieme diverso di risorse di Azure (servizi).
 
 ## <a name="app-service"></a>Servizio app
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 QnA Maker usa il servizio app per fornire il runtime di query usato dall' [API generateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker4.0/runtime/generateanswer).
 
-Queste impostazioni sono disponibili nella portale di Azure per il servizio app. Le impostazioni sono disponibili selezionando **Impostazioni** , quindi **configurazione**.
+Queste impostazioni sono disponibili nella portale di Azure per il servizio app. Le impostazioni sono disponibili selezionando **Impostazioni**, quindi **configurazione**.
 
 È possibile impostare una singola impostazione tramite l'elenco delle impostazioni dell'applicazione o modificare diverse impostazioni selezionando **modifica avanzata**.
 
@@ -37,7 +37,7 @@ Queste impostazioni sono disponibili nella portale di Azure per il servizio app.
 
 Dopo aver apportato le modifiche, è necessario **riavviare** il servizio dalla pagina **Panoramica** del portale di Azure.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
 Le personalizzazioni del servizio app non si applicano ai QnA Maker gestiti (anteprima).
 
@@ -47,7 +47,7 @@ Le personalizzazioni del servizio app non si applicano ai QnA Maker gestiti (ant
 
 Il servizio QnA Maker fornisce la configurazione per consentire agli utenti seguenti di collaborare in un singolo servizio QnA Maker e in tutte le Knowledge base.
 
-Informazioni [su come aggiungere collaboratori](./how-to/collaborate-knowledge-base.md) al servizio.
+Informazioni [su come aggiungere collaboratori](./reference-role-based-access-control.md) al servizio.
 
 ## <a name="change-azure-cognitive-search"></a>Modificare ricerca cognitiva di Azure
 
@@ -59,11 +59,11 @@ Informazioni [su come modificare il testo delle risposte predefinite](How-To/cha
 
 ## <a name="telemetry"></a>Telemetria
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versione stabile)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/v1)
 
 Application Insights viene usato per il monitoraggio dei dati di telemetria con QnA Maker GA. Non sono disponibili impostazioni di configurazione specifiche per QnA Maker.
 
-# <a name="qna-maker-managed-preview-release"></a>[Gestione QnA Maker (versione di anteprima)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/v2)
 
 Informazioni [su come aggiungere dati di telemetria al servizio QnA Maker gestito (anteprima)](How-To/get-analytics-knowledge-base.md). 
 

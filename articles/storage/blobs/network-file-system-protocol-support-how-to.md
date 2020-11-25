@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 09206b8189f03a37f8bd7d073238609a3f1bd3ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7419e8667f07eec03e860634c7b3fddcac0e186b
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816100"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95901554"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montare l'archiviazione BLOB usando il protocollo NFS (Network File System) 3,0 (anteprima)
 
@@ -71,7 +71,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName PremiumH
 
 ## <a name="step-3-create-an-azure-virtual-network-vnet"></a>Passaggio 3: creare una rete virtuale di Azure (VNet)
 
-L'account di archiviazione deve essere contenuto all'interno di un VNet. Un VNet consente ai client di connettersi in modo sicuro all'account di archiviazione. Per ulteriori informazioni su VNet e su come crearne uno, vedere la [documentazione relativa alla rete virtuale](https://docs.microsoft.com/azure/virtual-network/).
+L'account di archiviazione deve essere contenuto all'interno di un VNet. Un VNet consente ai client di connettersi in modo sicuro all'account di archiviazione. Per ulteriori informazioni su VNet e su come crearne uno, vedere la [documentazione relativa alla rete virtuale](../../virtual-network/index.yml).
 
 > [!NOTE]
 > I client nella stessa VNet possono montare i contenitori nell'account. È anche possibile montare un contenitore da un client in esecuzione in una rete locale, ma è necessario prima connettere la rete locale alla VNet. Vedere [connessioni di rete supportate](network-file-system-protocol-support.md#supported-network-connections).
@@ -94,7 +94,7 @@ Quando si configura l'account, scegliere i valori seguenti:
 |----|---|
 |Location|Una delle aree seguenti: Stati Uniti orientali, Stati Uniti centrali, Stati Uniti centro-occidentali, Australia sudorientale, Europa settentrionale, Regno Unito occidentale, Corea centrale, Corea meridionale e Canada centrale |
 |Prestazioni|Premium|
-|Tipologia account|BlockBlobStorage|
+|Tipo di account|BlockBlobStorage|
 |Replica|Archiviazione con ridondanza locale|
 |Metodo di connettività|Endpoint pubblico (reti selezionate) o endpoint privato|
 |Trasferimento sicuro obbligatorio|Disabled|
@@ -113,7 +113,7 @@ Creare un contenitore nell'account di archiviazione usando uno di questi strumen
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Interfaccia della riga di comando di Azure](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-||[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+||[REST](/rest/api/storageservices/create-container)|
 
 ## <a name="step-7-mount-the-container"></a>Passaggio 7: montare il contenitore
 
@@ -144,7 +144,7 @@ Creare una directory nel sistema Windows o Linux e quindi montare un contenitore
 
    ![Funzionalità client per file System di rete](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
 
-2. Montare un contenitore usando il comando [Mount](https://docs.microsoft.com/windows-server/administration/windows-commands/mount) .
+2. Montare un contenitore usando il comando [Mount](/windows-server/administration/windows-commands/mount) .
 
    ```
    mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
@@ -167,18 +167,11 @@ Creare una directory nel sistema Windows o Linux e quindi montare un contenitore
 
 ## <a name="resolve-common-issues"></a>Risolvere i problemi comuni
 
-|Problema/errore | Soluzione|
+|Problema/errore | Risoluzione|
 |---|---|
 |`Access denied by server while mounting`|Verificare che il client sia in esecuzione all'interno di una subnet supportata. Vedere i [percorsi di rete supportati](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Verificare che il contenitore che si sta montando sia stato creato dopo aver verificato la registrazione della funzionalità. Vedere [passaggio 2: verificare che la funzionalità sia registrata](#step-2-verify-that-the-feature-is-registered). Assicurarsi anche di digitare il comando di montaggio e i relativi parametri direttamente nel terminale. Se si copiano e si incollano tutte le parti di questo comando nel terminale da un'altra applicazione, i caratteri nascosti nelle informazioni incollate potrebbero causare la visualizzazione di questo errore.|
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Supporto del protocollo NFS (Network File System) 3,0 nell'archivio BLOB di Azure (anteprima)](network-file-system-protocol-support.md)
-
-
-
-
-
-
-

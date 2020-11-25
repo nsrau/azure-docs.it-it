@@ -3,14 +3,14 @@ title: Abilitare Gestione aggiornamenti di Automazione di Azure da un runbook
 description: Questo articolo illustra come abilitare Gestione aggiornamenti da un runbook.
 services: automation
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 11/24/2020
 ms.custom: mvc
-ms.openlocfilehash: ec102015355e3312f5dc15fa526fa543da75e0de
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 5a9f12a823a22bfb48ccb4482d3402464aa77fea
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222669"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908362"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Abilitare Gestione aggiornamenti da un runbook
 
@@ -34,7 +34,7 @@ Questo metodo usa due manuali operativi:
     * *LASolutionSubscriptionId*: ID sottoscrizione in cui si trova l'area di lavoro log Analytics.
     * *LASolutionWorkspaceId*: ID area di lavoro dell'area di lavoro log Analytics collegata all'account di automazione.
 
-    Queste variabili vengono usate per configurare l'area di lavoro della VM caricata. Se questi non vengono specificati, lo script cerca innanzitutto una macchina virtuale caricata in Gestione aggiornamenti nella propria sottoscrizione, seguita dalla sottoscrizione in cui si trova l'account di automazione, seguito da tutte le altre sottoscrizioni a cui l'account utente ha accesso. Se non è configurato correttamente, è possibile che i computer vengano caricati in un'area di lavoro di Log Analytics casuale.
+    Queste variabili vengono usate per configurare l'area di lavoro della macchina virtuale onboarded ed è necessario crearle manualmente. Se questi non vengono specificati, lo script cerca innanzitutto una macchina virtuale caricata in Gestione aggiornamenti nella propria sottoscrizione, seguita dalla sottoscrizione in cui si trova l'account di automazione, seguito da tutte le altre sottoscrizioni a cui l'account utente ha accesso. Se non è configurato correttamente, è possibile che i computer vengano caricati in un'area di lavoro di Log Analytics casuale.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -52,7 +52,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="install-and-update-modules"></a>Installare e aggiornare i moduli
 
-È necessario eseguire l'aggiornamento ai moduli di Azure più recenti e importare il modulo [AZ. OperationalInsights](/powershell/module/az.operationalinsights) per abilitare correttamente gestione aggiornamenti per le macchine virtuali con il Runbook.
+È necessario eseguire l'aggiornamento ai moduli di Azure più recenti e importare il modulo [AzureRM. OperationalInsights](/powershell/module/azurerm.operationalinsights) per abilitare correttamente gestione aggiornamenti per le macchine virtuali con Runbook.
 
 1. Nell'account di Automazione selezionare **Moduli** in **Risorse condivise**.
 
@@ -66,9 +66,9 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 5. Selezionare **Esplora raccolta** per aprire la raccolta di moduli.
 
-6. Cercare `Az.OperationalInsights` e importare questo modulo nell'account di Automazione.
+6. Cercare `AzureRM.OperationalInsights` e importare questo modulo nell'account di Automazione.
 
-    ![Importare il modulo OperationalInsights](media/enable-from-runbook/import-operational-insights-module.png)
+    ![Importare il modulo OperationalInsights](media/enable-from-runbook/import-operational-insights-module-azurerm.png)
 
 ## <a name="select-azure-vm-to-manage"></a>Selezionare la macchina virtuale di Azure da gestire
 

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 46e3521a54f6bfdfbfb25634a09b8c8e0cfdcac0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: fe347983e2143c7a4bdf00ca0207356c881c66ac
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93343107"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95891283"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di attestazione Microsoft Azure
 
@@ -45,7 +45,7 @@ At line:1 char:1
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Attestation.SetAzureAttestationPolicy
   ```
 
-**Passaggi per la risoluzione dei problemi**
+**Procedura per la risoluzione dei problemi**
 
 Per visualizzare i criteri di attestazione/firmatari dei criteri, un utente Azure AD richiede l'autorizzazione per "azioni":
 - Microsoft.Attestation/attestationProviders/attestation/read
@@ -64,7 +64,7 @@ Per verificare i ruoli in PowerShell, eseguire di seguito:
 
 a. Avviare PowerShell e accedere ad Azure tramite il cmdlet "Connect-AzAccount"
 
-b. Verificare le impostazioni di assegnazione di ruolo RBAC
+b. Verificare le impostazioni di assegnazione di ruolo di Azure
 
 
   ```powershell
@@ -134,7 +134,7 @@ Vedere [esempi di criteri di attestazione](/azure/attestation/policy-examples)
 - Il preventivo specificato non è valido perché il dispositivo in cui è stata generata l'offerta non soddisfa i requisiti di base di Azure
 - Il preventivo specificato non è valido perché il TCBInfo o QEID fornito dal servizio cache PCK non è valido
 
-**Passaggi per la risoluzione dei problemi**
+**Procedura per la risoluzione dei problemi**
 
 Microsoft Azure attestazione supporta l'attestazione di virgolette SGX generate da Intel SDK e Open enclave SDK.
 

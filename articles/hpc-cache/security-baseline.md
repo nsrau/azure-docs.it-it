@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dc695cc36113430cb1820d978ed41f5250cad33e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3e040146673ba16c07856f30b88771d0063713e9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94974820"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95896884"
 ---
 # <a name="azure-security-baseline-for-azure-hpc-cache"></a>Baseline della sicurezza di Azure per la cache HPC di Azure
 
@@ -305,7 +305,7 @@ Azure Advanced Threat Protection (ATP) è una soluzione di sicurezza che può us
 
 **Linee guida**: la cache HPC USA il controllo degli accessi in base al ruolo di Azure per isolare l'accesso ai sistemi cruciali per l'azienda limitando a quali account viene concesso l'accesso con privilegi alle sottoscrizioni e ai gruppi di gestione
 
-Creare procedure operative standard per l'utilizzo di account amministrativi dedicati. Per creare una cache, la cache HPC richiede che gli utenti dispongano di privilegi sufficienti nella sottoscrizione per creare schede di rete. Se si usa l'archiviazione BLOB, per l'accesso alla risorsa di archiviazione sono necessari il collaboratore per l'account di archiviazione dei ruoli RBAC e il collaboratore dati BLOB di archiviazione. 
+Creare procedure operative standard per l'utilizzo di account amministrativi dedicati. Per creare una cache, la cache HPC richiede che gli utenti dispongano di privilegi sufficienti nella sottoscrizione per creare schede di rete. Se si usa l'archiviazione BLOB, per l'accesso alla risorsa di archiviazione sono necessari il collaboratore per l'account di archiviazione dei ruoli di Azure e il collaboratore dati BLOB di archiviazione. 
 
 Assicurarsi di limitare anche l'accesso ai sistemi di gestione, identità e sicurezza che dispongono di accesso amministrativo agli asset cruciali per l'azienda, ad esempio controller di Dominio di Active Directory, strumenti di sicurezza e strumenti di gestione del sistema con agenti installati nei sistemi aziendali critici. Gli utenti malintenzionati che compromettono questi sistemi di gestione e sicurezza possono weaponizerli immediatamente per compromettere asset aziendali cruciali.
 

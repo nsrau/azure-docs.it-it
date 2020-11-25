@@ -4,12 +4,12 @@ description: Viene illustrato come distribuire modelli di Azure Resource Manager
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: adb0b9d9a7da19c45904a5d222573e1880915b12
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 3dcb246956aae274f17cf938ee3d406562b22941
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94841683"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95905260"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Distribuire modelli di Azure Resource Manager tramite GitHub Actions
 
@@ -112,7 +112,7 @@ Il file del flusso di lavoro deve essere archiviato nella cartella **. github/wo
         steps:
 
           # Checkout code
-        - uses: actions/checkout@master
+        - uses: actions/checkout@main
 
           # Log into Azure
         - uses: azure/login@v1
@@ -137,10 +137,10 @@ Il file del flusso di lavoro deve essere archiviato nella cartella **. github/wo
     La prima sezione del file del flusso di lavoro include:
 
     - **name**: Nome del flusso di lavoro.
-    - **on**: Nome degli eventi GitHub che attivano il flusso di lavoro. Il flusso di lavoro viene attivato quando si verifica un evento push nel ramo master che modifica almeno uno dei due file specificati. I due file sono il file del flusso di lavoro e il file di modello.
+    - **on**: Nome degli eventi GitHub che attivano il flusso di lavoro. Il flusso di lavoro viene attivato quando si verifica un evento push sul ramo principale, che modifica almeno uno dei due file specificati. I due file sono il file del flusso di lavoro e il file di modello.
 
 1. Selezionare **Start commit** (Avvia commit).
-1. Selezionare **Commit directly to the master branch** (Esegui il commit direttamente nel ramo master).
+1. Selezionare **commit direttamente nel branch principale**.
 1. Selezionare **Commit new file** (Commit nuovo file) (o **Commit modifiche**).
 
 Dato che il flusso di lavoro è configurato per essere attivato dal file del flusso di lavoro o dal file di modello da aggiornare, il flusso di lavoro viene avviato subito dopo il commit delle modifiche.
@@ -151,8 +151,7 @@ Dato che il flusso di lavoro è configurato per essere attivato dal file del flu
 1. Selezionare il flusso di lavoro per aprirlo.
 1. Selezionare **Esegui ARM deploy** dal menu per verificare la distribuzione.
 
-## <a name="clean-up-resources"></a>Pulire le risorse
-
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 Quando il gruppo di risorse e il repository non sono più necessari, pulire le risorse distribuite eliminando il gruppo di risorse e il repository GitHub. 
 
 ## <a name="next-steps"></a>Passaggi successivi

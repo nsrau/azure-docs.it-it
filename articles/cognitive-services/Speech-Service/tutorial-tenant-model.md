@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e861182ee57a0b49d3e62a858fc97dbf0890ea3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48cde51ee9941f705aa848d121c419a8f0c9ad1a
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399704"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95013715"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Esercitazione: Creare un modello di tenant (anteprima)
 
@@ -105,7 +105,7 @@ Quando l'istanza del modello di tenant è pronta, eseguire questa procedura per 
 
 Ora che è stato distribuito il modello, è possibile usarlo con Speech SDK. In questa sezione viene usato un codice di esempio per chiamare il servizio Voce usando l'autenticazione di Azure Active Directory (Azure AD).
 
-Verrà ora esaminato il codice che verrà usato per chiamare Speech SDK in C#. In questo esempio si esegue il riconoscimento vocale usando il modello di tenant. Questa guida presuppone che la piattaforma sia già configurata. Se è necessaria assistenza per la configurazione, vedere [Avvio rapido: Riconoscimento vocale, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+Verrà ora esaminato il codice che verrà usato per chiamare Speech SDK in C#. In questo esempio si esegue il riconoscimento vocale usando il modello di tenant. Questa guida presuppone che la piattaforma sia già configurata. Se è necessaria assistenza per la configurazione, vedere [Avvio rapido: Riconoscimento vocale, C# (.NET Core)](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore).
 
 Copiare questo codice nel progetto:
 

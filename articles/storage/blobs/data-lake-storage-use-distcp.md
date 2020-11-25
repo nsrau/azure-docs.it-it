@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 734ad2d45dbb27894e5da4fbeb11c0e8b60df8bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e69a97a86a357fb36dde572f292b5cac7963d14a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035672"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912485"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Usare DistCp per copiare dati tra i BLOB del servizio di Archiviazione di Azure e Azure Data Lake Storage Gen2
 
@@ -27,7 +27,7 @@ DistCp fornisce una serie di parametri della riga di comando e si consiglia di l
 * Un account di archiviazione di Azure senza le funzionalità di Data Lake Storage Gen2 (spazio dei nomi gerarchico) abilitate.
 * Un account di archiviazione di Azure con le funzionalità di Data Lake Storage Gen2 (spazio dei nomi gerarchico) abilitate. Per istruzioni su come crearne uno, vedere [Creare un account di archiviazione di Azure](../common/storage-account-create.md)
 * Un contenitore creato nell'account di archiviazione con lo spazio dei nomi gerarchico abilitato.
-* Un cluster Azure HDInsight con accesso a un account di archiviazione con la funzionalità dello spazio dei nomi gerarchico abilitata. Vedere [Usare Archiviazione Azure Data Lake Storage Gen2 con cluster Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Assicurarsi di abilitare il Desktop remoto per il cluster.
+* Un cluster Azure HDInsight con accesso a un account di archiviazione con la funzionalità dello spazio dei nomi gerarchico abilitata. Vedere [Usare Archiviazione Azure Data Lake Storage Gen2 con cluster Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Assicurarsi di abilitare il Desktop remoto per il cluster.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Usare DistCp da un cluster HDInsight Linux
 

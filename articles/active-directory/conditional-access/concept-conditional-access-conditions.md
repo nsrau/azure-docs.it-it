@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96d1eaff4d1b93ad3bb489f177020c351fe4d13d
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91818347"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904036"
 ---
 # <a name="conditional-access-conditions"></a>Accesso condizionale: Condizioni
 
@@ -115,8 +115,8 @@ Questa impostazione funziona con tutti i browser. Tuttavia, per soddisfare un cr
 | Windows Phone | Microsoft Edge, Internet Explorer |
 | Windows Server 2019 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows Server 2016 | Internet Explorer |
-| R2 per Windows Server 2012 | Internet Explorer |
-| Windows Server 2008 R2 | Internet Explorer |
+| Windows Server 2012 R2 | Internet Explorer |
+| Windows Server 2008 R2 | Internet Explorer |
 | macOS | Chrome, Safari |
 
 > [!NOTE]
@@ -174,7 +174,7 @@ Questa impostazione interessa i tentativi di accesso eseguiti dalle app per disp
 
 ### <a name="exchange-activesync-clients"></a>Client Exchange ActiveSync
 
-- Le organizzazioni possono selezionare solo i client di Exchange ActiveSync quando assegnano criteri a utenti o gruppi. Se si seleziona **tutti gli**utenti, tutti gli utenti **guest ed External**o i **ruoli della directory** , tutti gli utenti verranno bloccati.
+- Le organizzazioni possono selezionare solo i client di Exchange ActiveSync quando assegnano criteri a utenti o gruppi. Se si seleziona **tutti gli** utenti, tutti gli utenti **guest ed External** o i **ruoli della directory** , tutti gli utenti verranno bloccati.
 - Quando si crea un criterio assegnato ai client di Exchange ActiveSync, **Exchange Online** deve essere l'unica applicazione cloud assegnata ai criteri. 
 - Le organizzazioni possono limitare l'ambito di questo criterio a piattaforme specifiche usando la condizione per le **piattaforme del dispositivo** .
 
@@ -194,7 +194,7 @@ Selezionando **Altri client** è possibile specificare una condizione che influi
 La condizione di stato del dispositivo può essere usata per escludere i dispositivi ibridi Azure AD aggiunti e/o i dispositivi contrassegnati come conformi ai criteri di conformità di Microsoft Intune dai criteri di accesso condizionale di un'organizzazione.
 
 Ad esempio, *tutti gli utenti* che accedono all'app Cloud *Microsoft Azure Management* , incluso **lo stato del dispositivo** , escluso il dispositivo **Azure ad ibrido aggiunto** e **il dispositivo contrassegnato come conforme** e per i *controlli di accesso*, **blocca**. 
-   - Questo esempio crea un criterio che consente l'accesso solo a Microsoft Azure Management da dispositivi ibridi Azure AD Uniti e/o dispositivi contrassegnati come conformi.
+   - Questo esempio crea un criterio che consente solo l'accesso alla gestione dei Microsoft Azure da dispositivi ibridi Azure AD aggiunti o da dispositivi contrassegnati come conformi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 888ed2fa24b82c0dda3361df1c63bb802e58f5fe
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88055378"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95904104"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Uso della condizione location in un criterio di accesso condizionale 
 
@@ -64,13 +64,13 @@ Questa opzione può includere i criteri di accesso condizionale in cui è possib
 Alcune organizzazioni possono scegliere di definire interi paesi o aree geografiche per i confini IP come località denominate per i criteri di accesso condizionale. Questi percorsi possono essere usati quando si blocca il traffico non necessario quando si conoscono utenti validi che non proverranno mai da una località come la Corea del Nord. Questi mapping dell'indirizzo IP al paese vengono aggiornati periodicamente. 
 
 > [!NOTE]
-> I paesi non includono intervalli di indirizzi IPv6, solo intervalli di indirizzi IPv4 noti e non possono essere contrassegnati come attendibili.
+> Non è possibile eseguire il mapping degli intervalli di indirizzi IPv6 ai paesi. Solo gli indirizzi IPv4 vengono mappati ai paesi.
 
 ![Creare una nuova località basata su paese o area geografica nella portale di Azure](./media/location-condition/new-named-location-country-region.png)
 
 #### <a name="include-unknown-areas"></a>Includi aree sconosciute
 
-Alcuni indirizzi IP non sono mappati a un paese o a un'area specifica. Per acquisire questi percorsi IP, selezionare la casella **Includi aree sconosciute** durante la definizione di un percorso. Questa opzione consente di scegliere se questi indirizzi IP devono essere inclusi nella posizione specifica. Usare questa impostazione quando i criteri che usano la posizione specifica devono essere applicati a posizioni sconosciute.
+Alcuni indirizzi IP non sono mappati a un paese o a un'area specifica, inclusi tutti gli indirizzi IPv6. Per acquisire questi percorsi IP, selezionare la casella **Includi aree sconosciute** durante la definizione di un percorso. Questa opzione consente di scegliere se questi indirizzi IP devono essere inclusi nella posizione specifica. Usare questa impostazione quando i criteri che usano la posizione specifica devono essere applicati a posizioni sconosciute.
 
 ### <a name="configure-mfa-trusted-ips"></a>Configurare gli indirizzi IP attendibili a più fattori
 
@@ -114,7 +114,7 @@ Con l'anteprima sono ora disponibili due opzioni di creazione:
 - **Percorso degli intervalli IP**
 
 > [!NOTE]
-> I paesi non includono intervalli di indirizzi IPv6, solo intervalli di indirizzi IPv4 noti e non possono essere contrassegnati come attendibili.
+> Non è possibile eseguire il mapping degli intervalli di indirizzi IPv6 ai paesi. Solo gli indirizzi IPv4 vengono mappati ai paesi.
 
 ![Interfaccia di anteprima località denominate](./media/location-condition/named-location-preview.png)
 
@@ -157,7 +157,7 @@ La maggior parte del traffico IPv6 che viene inoltrato a Azure AD deriva da Micr
 Questi sono i motivi più comuni per cui potrebbe essere necessario configurare gli intervalli IPv6 nelle località denominate. Inoltre, se si usa Azure reti virtuali, si disporrà di traffico proveniente da un indirizzo IPv6. Se il traffico VNet è bloccato da un criterio di accesso condizionale, controllare il log di accesso Azure AD. Una volta identificato il traffico, è possibile ottenere l'indirizzo IPv6 usato ed escluderlo dal criterio. 
 
 > [!NOTE]
-> Se si desidera specificare un intervallo di CIDR IP per un singolo indirizzo, applicare la maschera di bit/32. Se si dice che l'indirizzo IPv6 2607: FB90: b27a: 6f69: f8d5: dea0: FB39:74A e si vuole escludere tale indirizzo singolo come intervallo, usare 2607: FB90: b27a: 6f69: f8d5: dea0: FB39:74a/32.
+> Se si desidera specificare un intervallo di CIDR IP per un singolo indirizzo, applicare la maschera di bit/128. Se si dice l'indirizzo IPv6 2607: FB90: b27a: 6f69: f8d5: dea0: FB39:74A e si vuole escludere tale indirizzo singolo come intervallo, usare 2607: FB90: b27a: 6f69: f8d5: dea0: FB39:74a/128.
 
 ### <a name="identifying-ipv6-traffic-in-the-azure-ad-sign-in-activity-reports"></a>Identificazione del traffico IPv6 nei report delle attività di accesso Azure AD
 

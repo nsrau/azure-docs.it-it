@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: a50f85e76f16f1e5ba8823adb1ea1aa02157fcee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e58137dd680ff9a2be2bd657f0969304b526873f
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88032561"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913114"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Eseguire la migrazione da un archivio HDFS locale ad archiviazione di Azure con Azure Data Box
 
@@ -37,9 +37,9 @@ Queste operazioni sono necessarie per completare la migrazione.
 
 * Un [dispositivo Azure Data Box](https://azure.microsoft.com/services/storage/databox/).
 
-  * [Ordinare il data box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) o [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). 
+  * [Ordinare il data box](../../databox/data-box-deploy-ordered.md) o [Data Box Heavy](../../databox/data-box-heavy-deploy-ordered.md). 
 
-  * Cablare e connettere il [Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) o [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) a una rete locale.
+  * Cablare e connettere il [Data Box](../../databox/data-box-deploy-set-up.md) o [Data Box Heavy](../../databox/data-box-heavy-deploy-set-up.md) a una rete locale.
 
 Se si è pronti, iniziamo.
 
@@ -53,13 +53,13 @@ Per copiare i dati dall'archivio HDFS locale a un dispositivo Data Box, è neces
 
 Seguire questa procedura per copiare i dati tramite le API REST di archiviazione BLOB/oggetti nel dispositivo Data Box. L'interfaccia API REST renderà il dispositivo visualizzato come archivio HDFS nel cluster.
 
-1. Prima di copiare i dati tramite REST, identificare le primitive di sicurezza e connessione per connettersi all'interfaccia REST nell'Data Box o Data Box Heavy. Accedere all'interfaccia utente Web locale del Data Box e passare alla pagina **Connetti e copia** . Nell'account di archiviazione di Azure per il dispositivo, in **impostazioni di accesso**individuare e selezionare **Rest**.
+1. Prima di copiare i dati tramite REST, identificare le primitive di sicurezza e connessione per connettersi all'interfaccia REST nell'Data Box o Data Box Heavy. Accedere all'interfaccia utente Web locale del Data Box e passare alla pagina **Connetti e copia** . Nell'account di archiviazione di Azure per il dispositivo, in **impostazioni di accesso** individuare e selezionare **Rest**.
 
     ![Pagina "Connetti e copia"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
 2. Nella finestra di dialogo Access Storage account and upload data copiare l' **endpoint del servizio BLOB** e la **chiave dell'account di archiviazione**. Dall'endpoint del servizio BLOB, omettere `https://` e la barra finale.
 
-    In questo caso, l'endpoint è: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/` . La parte host dell'URI da usare è: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com` . Per un esempio, vedere come [connettersi a Rest su http](/azure/databox/data-box-deploy-copy-data-via-rest). 
+    In questo caso, l'endpoint è: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/` . La parte host dell'URI da usare è: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com` . Per un esempio, vedere come [connettersi a Rest su http](../../databox/data-box-deploy-copy-data-via-rest.md). 
 
      ![Finestra di dialogo "accedi a account di archiviazione e carica dati"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
@@ -161,7 +161,7 @@ Seguire questa procedura per copiare i dati tramite le API REST di archiviazione
 
 Seguire questa procedura per preparare e spedire il dispositivo Data Box a Microsoft.
 
-1. Per prima cosa,  [prepara per la spedizione nel data box o data box Heavy](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest).
+1. Per prima cosa,  [prepara per la spedizione nel data box o data box Heavy](../../databox/data-box-deploy-copy-data-via-rest.md).
 
 2. Al termine della preparazione del dispositivo, scaricare i file DBA. Questi file DBA o manifesto vengono usati in un secondo momento per verificare i dati caricati in Azure.
 
@@ -169,9 +169,9 @@ Seguire questa procedura per preparare e spedire il dispositivo Data Box a Micro
 
 4. Pianificare un ritiro con UPS.
 
-    * Per Data Box dispositivi, vedere [spedire il data box](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
+    * Per Data Box dispositivi, vedere [spedire il data box](../../databox/data-box-deploy-picked-up.md).
 
-    * Per Data Box Heavy dispositivi, vedere [spedire il data box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up).
+    * Per Data Box Heavy dispositivi, vedere [spedire il data box Heavy](../../databox/data-box-heavy-deploy-picked-up.md).
 
 5. Al termine della ricezione, il dispositivo è connesso alla rete data center e i dati vengono caricati nell'account di archiviazione specificato quando è stato inserito l'ordine del dispositivo. Verificare in base ai file DBA che tutti i dati vengono caricati in Azure. 
 
@@ -184,11 +184,11 @@ I dati sono già presenti nell'account di archiviazione di Azure. A questo punto
 
 ### <a name="create-a-service-principal-for-your-azure-data-lake-storage-gen2-account"></a>Creare un'entità servizio per l'account Azure Data Lake Storage Gen2
 
-Per creare un'entità servizio, vedere [procedura: usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Per creare un'entità servizio, vedere [procedura: usare il portale per creare un'applicazione Azure ad e un'entità servizio che possano accedere alle risorse](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-* Quando si esegue la procedura descritta nella sezione [Assegnare l'applicazione a un ruolo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) dell'articolo, assicurarsi di assegnare il ruolo **Collaboratore ai dati del BLOB di archiviazione** all'entità servizio.
+* Quando si esegue la procedura descritta nella sezione [Assegnare l'applicazione a un ruolo](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) dell'articolo, assicurarsi di assegnare il ruolo **Collaboratore ai dati del BLOB di archiviazione** all'entità servizio.
 
-* Quando si eseguono i passaggi nella sezione [ottenere i valori per l'accesso](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) dell'articolo, salvare i valori di ID applicazione e segreto client in un file di testo. Saranno necessari a breve.
+* Quando si eseguono i passaggi nella sezione [ottenere i valori per l'accesso](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) dell'articolo, salvare i valori di ID applicazione e segreto client in un file di testo. Saranno necessari a breve.
 
 ### <a name="generate-a-list-of-copied-files-with-their-permissions"></a>Genera un elenco di file copiati con le relative autorizzazioni
 

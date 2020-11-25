@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/30/2020
+ms.date: 11/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fba2610b3343744c448e390bc2d713b38da481d
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 25c6ccb4661fde1efb088cd8535bf2759f2057b3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94839472"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95902761"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Abilitare la chiave di sicurezza senza password accesso ai dispositivi Windows 10 con Azure Active Directory (anteprima)
 
@@ -33,13 +33,13 @@ Questo documento è incentrato sull'abilitazione dell'autenticazione senza passw
 | [Anteprima di registrazione delle informazioni di sicurezza combinata](concept-registration-mfa-sspr-combined.md) | X | X |
 | [Chiavi di sicurezza FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibili | X | X |
 | Webauthn richiede Windows 10 versione 1903 o successiva | X | X |
-| [Azure ad dispositivi aggiunti](../devices/concept-azure-ad-join.md) richiedono Windows 10 versione 1909 o successiva | x |   |
-| [Azure ad ibrido dispositivi aggiunti](../devices/concept-azure-ad-join-hybrid.md) richiedono Windows 10 versione 2004 o successiva |   | x |
-| Controller di dominio Windows Server 2016/2019 con patch complete. |   | x |
-| [Azure ad Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) versione 1.4.32.0 o successiva |   | x |
+| [Azure ad dispositivi aggiunti](../devices/concept-azure-ad-join.md) richiedono Windows 10 versione 1909 o successiva | X |   |
+| [Azure ad ibrido dispositivi aggiunti](../devices/concept-azure-ad-join-hybrid.md) richiedono Windows 10 versione 2004 o successiva |   | X |
+| Controller di dominio Windows Server 2016/2019 con patch complete. |   | X |
+| [Azure ad Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) versione 1.4.32.0 o successiva |   | X |
 | [Microsoft Intune](/intune/fundamentals/what-is-intune) (facoltativo) | X | X |
 | Pacchetto di provisioning (facoltativo) | X | X |
-| Criteri di gruppo (facoltativo) |   | x |
+| Criteri di gruppo (facoltativo) |   | X |
 
 ### <a name="unsupported-scenarios"></a>Scenari non supportati
 
@@ -134,7 +134,7 @@ Per i **dispositivi ibridi Azure ad aggiunti**, le organizzazioni possono config
 - L'impostazione di questo criterio su **abilitato** consente agli utenti di accedere con chiavi di sicurezza.
 - L'impostazione di questo criterio su **disabilitato** o **non configurato** impedisce agli utenti di accedere con le chiavi di sicurezza.
 
-Questa impostazione di Criteri di gruppo richiede una versione aggiornata del `credentialprovider.admx` modello di criteri di gruppo. Questo nuovo modello è disponibile con la versione successiva di Windows Server e con Windows 10 20H1. Questa impostazione può essere gestita con un dispositivo che esegue una delle versioni più recenti di Windows o in modo centralizzato seguendo le istruzioni disponibili nell'argomento del supporto, [come creare e gestire l'archivio centrale per Criteri di gruppo modelli amministrativi in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
+Questa impostazione di Criteri di gruppo richiede una versione aggiornata del `CredentialProviders.admx` modello di criteri di gruppo. Questo nuovo modello è disponibile con la versione successiva di Windows Server e con Windows 10 20H1. Questa impostazione può essere gestita con un dispositivo che esegue una delle versioni più recenti di Windows o in modo centralizzato seguendo le istruzioni disponibili nell'argomento del supporto, [come creare e gestire l'archivio centrale per Criteri di gruppo modelli amministrativi in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## <a name="sign-in-with-fido2-security-key"></a>Accedi con la chiave di sicurezza FIDO2
 

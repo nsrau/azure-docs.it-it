@@ -2,17 +2,19 @@
 title: Output nei modelli
 description: Viene descritto come definire i valori di output in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: 203bfc66e9515ef14a5fe1315ef5b9ee07075041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/24/2020
+ms.openlocfilehash: 8f782a78e523ebc55faac98344643982172476fa
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79460025"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911431"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Output nel modello di Azure Resource Manager
 
 Questo articolo descrive come definire i valori di output nel modello di Azure Resource Manager. Gli output vengono usati quando è necessario restituire valori dalle risorse distribuite.
+
+Il formato di ogni valore di output deve corrispondere a uno dei [tipi di dati](template-syntax.md#data-types).
 
 ## <a name="define-output-values"></a>Definire i valori di output
 

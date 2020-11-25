@@ -9,12 +9,12 @@ ms.date: 09/09/2020
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: b7f566f85ebdb6b481797823cba78aa968747e9f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b02f5a7c390c5594a7c5692798a0691c8d9a42d0
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746416"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912774"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrare i dati tramite Azure Data Lake Storage accelerazione query
 
@@ -26,7 +26,7 @@ L'accelerazione delle query consente alle applicazioni e ai Framework di analisi
 
 - Per accedere ad Archiviazione di Azure è necessaria una sottoscrizione di Azure. Se non si ha già una sottoscrizione, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-- Un account di archiviazione per **utilizzo generico V2** . vedere [creare un account di archiviazione](../common/storage-quickstart-create-account.md).
+- Un account di archiviazione per **utilizzo generico V2** . vedere [creare un account di archiviazione](../common/storage-account-create.md).
 
 - Scegliere una scheda per visualizzare i prerequisiti specifici dell'SDK.
 
@@ -92,7 +92,7 @@ Per utilizzare l'accelerazione delle query, è innanzitutto necessario registrar
 
 #### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-1. Aprire [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)o aprire un'applicazione console comando come Windows PowerShell, se è stata [installata](https://docs.microsoft.com/cli/azure/install-azure-cli) l'interfaccia della riga di comando di Azure in locale.
+1. Aprire [Azure Cloud Shell](../../cloud-shell/overview.md)o aprire un'applicazione console comando come Windows PowerShell, se è stata [installata](/cli/azure/install-azure-cli) l'interfaccia della riga di comando di Azure in locale.
 
 2. Se l'identità è associata a più di una sottoscrizione, impostare la sottoscrizione attiva sulla sottoscrizione dell'account di archiviazione.
 
@@ -328,7 +328,7 @@ Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Heming
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Il metodo asincrono `BlobQuickQueryClient.QueryAsync` Invia la query all'API di accelerazione della query e quindi trasmette nuovamente i risultati all'applicazione come oggetto [flusso](https://docs.microsoft.com/dotnet/api/system.io.stream) .
+Il metodo asincrono `BlobQuickQueryClient.QueryAsync` Invia la query all'API di accelerazione della query e quindi trasmette nuovamente i risultati all'applicazione come oggetto [flusso](/dotnet/api/system.io.stream) .
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)

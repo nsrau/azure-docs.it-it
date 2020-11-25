@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 406371325ddf8b555ede481582e19635b85abe49
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 10a2ae71d8c26d82a4a730bab3ba16e7c62d1243
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461567"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95911737"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Raccogliere log personalizzati con Log Analytics Agent in monitoraggio di Azure
 
@@ -30,6 +30,7 @@ I file di log da raccogliere devono soddisfare i criteri seguenti.
 
 - Il file di log non deve consentire registrazioni circolari o rotazioni dei log in cui il file viene sovrascritto con le nuove voci.
 - Il file di log deve usare la codifica ASCII o UTF-8.  Non sono supportati altri formati, ad esempio UTF-16.
+- Per Linux, il fuso orario converesion non è supportato per gli indicatori temporali nei log.
 
 >[!NOTE]
 > Se sono presenti voci duplicate nel file di log, Monitoraggio di Azure le raccoglierà. Tuttavia, i risultati delle query non saranno coerenti se i risultati del filtro mostrano più eventi rispetto al numero di risultati. È importante convalidare il log per determinare se l'applicazione che lo crea è la causa di questo comportamento e indirizzarlo se possibile prima di creare la definizione della raccolta dei log personalizzati.  
@@ -57,7 +58,7 @@ La procedura guidata per i log personalizzati viene eseguita nel portale di Azur
 3. Per impostazione predefinita, viene eseguito automaticamente il push di tutte le modifiche di configurazione in tutti gli agenti. Per gli agenti Linux, viene inviato un file di configurazione all'agente di raccolta dati Fluentd.
 4. Fare clic su **Aggiungi+** per aprire la procedura guidata per i log personalizzati.
 
-### <a name="step-2-upload-and-parse-a-sample-log"></a>Passaggio 2. Caricare e analizzare un log di esempio
+### <a name="step-2-upload-and-parse-a-sample-log"></a>Passaggio 2: Caricare e analizzare un log di esempio
 Per iniziare, caricare un esempio del log personalizzato.  La procedura guidata analizza e visualizza le voci nel file da convalidare.  Monitoraggio di Azure usa il delimitatore specificato per identificare ciascun record.
 
 **Nuova riga** è il delimitatore predefinito e viene usato per i file di log con una sola voce per riga.  Se la riga inizia con una data e ora in uno dei formati disponibili, è possibile specificare un delimitatore **Timestamp** che supporta le voci che si estendono su più righe.
@@ -91,8 +92,8 @@ La tabella seguente fornisce esempi di percorsi validi per specificare file di l
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Passaggio 4. Specificare un nome e una descrizione per il log
 Il nome specificato viene usato per il tipo di log come descritto in precedenza.  Termina sempre con _CL per definirlo come log personalizzato.
 
-1. Digitare un nome per il log.  Il suffisso ** \_ CL** viene specificato automaticamente.
-2. Aggiungere una **Descrizione**facoltativa.
+1. Digitare un nome per il log.  Il suffisso **\_ CL** viene specificato automaticamente.
+2. Aggiungere una **Descrizione** facoltativa.
 3. Fare clic su **Avanti** per salvare la definizione del log personalizzato.
 
 ### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Passaggio 5. Verificare che i log personalizzati vengano raccolti

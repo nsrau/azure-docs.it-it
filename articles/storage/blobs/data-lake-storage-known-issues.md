@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 909d64d3d32e8b9a314f7afb06b9c0121f624cec
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 32f8ab3f7e222108bec4ec81b14c113705370096
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358484"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95913063"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -41,21 +41,21 @@ Le API BLOB e le API di Data Lake Storage Gen2 possono operare sugli stessi dati
 
 Questa sezione descrive i problemi e le limitazioni delle API BLOB e delle API di Data Lake Storage Gen2 quando vengono usate per operare sugli stessi dati.
 
-* Non è possibile usare l'API BLOB e le API Data Lake Storage per scrivere nella stessa istanza di un file. Se si scrive in un file usando le API di Data Lake Storage Gen2, i blocchi di tale file non saranno visibili alle chiamate all'API BLOB [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list). L'unica eccezione è quando si usa la sovrascrittura. È possibile sovrascrivere un file o un BLOB usando una delle due API.
+* Non è possibile usare l'API BLOB e le API Data Lake Storage per scrivere nella stessa istanza di un file. Se si scrive in un file usando le API di Data Lake Storage Gen2, i blocchi di tale file non saranno visibili alle chiamate all'API BLOB [Get Block List](/rest/api/storageservices/get-block-list). L'unica eccezione è quando si usa la sovrascrittura. È possibile sovrascrivere un file o un BLOB usando una delle due API.
 
-* Quando si usa l'operazione [Elenca BLOB](https://docs.microsoft.com/rest/api/storageservices/list-blobs) senza specificare un delimitatore, i risultati includeranno sia le directory che i BLOB. Se si sceglie di specificare un delimitatore, usare solo una barra (`/`). Si tratta dell'unico delimitatore supportato.
+* Quando si usa l'operazione [Elenca BLOB](/rest/api/storageservices/list-blobs) senza specificare un delimitatore, i risultati includeranno sia le directory che i BLOB. Se si sceglie di specificare un delimitatore, usare solo una barra (`/`). Si tratta dell'unico delimitatore supportato.
 
-* Se si usa l'API [Delete Blob](https://docs.microsoft.com/rest/api/storageservices/delete-blob) per eliminare una directory, tale directory verrà eliminata solo se vuota. Ciò significa che non è possibile usare le directory di eliminazione dell'API BLOB in modo ricorsivo.
+* Se si usa l'API [Delete Blob](/rest/api/storageservices/delete-blob) per eliminare una directory, tale directory verrà eliminata solo se vuota. Ciò significa che non è possibile usare le directory di eliminazione dell'API BLOB in modo ricorsivo.
 
 Le API REST per i BLOB seguenti non sono supportate:
 
-* [Put Blob (Page)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Put Page](https://docs.microsoft.com/rest/api/storageservices/put-page)
-* [Get Page Ranges](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
-* [Incremental Copy Blob](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
-* [Put Page from URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Append Block](https://docs.microsoft.com/rest/api/storageservices/append-block)
-* [Append Block from URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+* [Put Blob (Page)](/rest/api/storageservices/put-blob)
+* [Put Page](/rest/api/storageservices/put-page)
+* [Get Page Ranges](/rest/api/storageservices/get-page-ranges)
+* [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob)
+* [Put Page from URL](/rest/api/storageservices/put-page-from-url)
+* [Append Block](/rest/api/storageservices/append-block)
+* [Append Block from URL](/rest/api/storageservices/append-block-from-url)
 
 
 I dischi non gestiti delle macchine virtuali non sono supportati negli account che hanno uno spazio dei nomi gerarchico. Se si intende abilitare uno spazio dei nomi gerarchico in un account di archiviazione, inserire i dischi non gestiti delle macchine virtuali in un account di archiviazione in cui non è abilitata la funzionalità dello spazio dei nomi gerarchico.
@@ -70,7 +70,7 @@ La possibilità di applicare le modifiche ACL in modo ricorsivo dalla directory 
 
 ## <a name="azcopy"></a>AzCopy
 
-Usare solo la versione più recente di AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)).  Le versioni precedenti di AzCopy, ad esempio AzCopy v 8.1, non sono supportate.
+Usare solo la versione più recente di AzCopy ([AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)).  Le versioni precedenti di AzCopy, ad esempio AzCopy v 8.1, non sono supportate.
 
 <a id="storage-explorer"></a>
 
@@ -92,7 +92,7 @@ Le applicazioni di terze parti che usano le API REST continueranno a funzionare 
 
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>Elenchi di controllo di accesso (ACL) e accesso in lettura anonimo
 
-Se è stato concesso l'[accesso in lettura anonimo](storage-manage-access-to-resources.md) a un contenitore, gli elenchi di controllo di accesso non avranno alcun effetto su quel contenitore o sui file che contiene.
+Se è stato concesso l'[accesso in lettura anonimo](./anonymous-read-access-configure.md) a un contenitore, gli elenchi di controllo di accesso non avranno alcun effetto su quel contenitore o sui file che contiene.
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
 

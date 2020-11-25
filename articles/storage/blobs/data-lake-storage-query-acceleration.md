@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: ae92828f08ae4abf9cc28f18872cca27ce747be4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc1d217dba64c36aa219abbd4d2220a494347689
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657648"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95912757"
 ---
 # <a name="azure-data-lake-storage-query-acceleration"></a>Accelerazione query Azure Data Lake Storage
 
@@ -50,7 +50,7 @@ Il diagramma seguente illustra il modo in cui un'applicazione tipica usa l'accel
 
 L'accelerazione delle query ottimizza le prestazioni riducendo la quantità di dati che vengono trasferiti ed elaborati dall'applicazione.
 
-Per calcolare un valore aggregato, le applicazioni recuperano in genere **tutti** i dati da un file, quindi elaborano e filtrano i dati localmente. Un'analisi dei modelli di input/output per i carichi di lavoro di analisi rivela che in genere le applicazioni richiedono solo il 20% dei dati letti per eseguire qualsiasi calcolo. Questa statistica è vera anche dopo aver applicato le tecniche, ad esempio l' [eliminazione delle partizioni](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). Ciò significa che il 80% dei dati viene inutilmente trasferito in rete, analizzato e filtrato dalle applicazioni. Questo modello, sostanzialmente progettato per rimuovere i dati non necessari, comporta un costo di calcolo significativo.  
+Per calcolare un valore aggregato, le applicazioni recuperano in genere **tutti** i dati da un file, quindi elaborano e filtrano i dati localmente. Un'analisi dei modelli di input/output per i carichi di lavoro di analisi rivela che in genere le applicazioni richiedono solo il 20% dei dati letti per eseguire qualsiasi calcolo. Questa statistica è vera anche dopo aver applicato le tecniche, ad esempio l' [eliminazione delle partizioni](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md#hive-partitioning). Ciò significa che il 80% dei dati viene inutilmente trasferito in rete, analizzato e filtrato dalle applicazioni. Questo modello, sostanzialmente progettato per rimuovere i dati non necessari, comporta un costo di calcolo significativo.  
 
 Anche se Azure offre una rete leader del settore, in termini di velocità effettiva e latenza, il trasferimento inutilmente dei dati attraverso la rete è ancora costoso per le prestazioni dell'applicazione. Filtrando i dati indesiderati durante la richiesta di archiviazione, l'accelerazione delle query elimina questo costo.
 
@@ -76,5 +76,3 @@ Nonostante la modifica apportata al modello di fatturazione, il modello di deter
 
 - [Filtrare i dati tramite Azure Data Lake Storage accelerazione query](data-lake-storage-query-acceleration-how-to.md)
 - [Informazioni di riferimento sul linguaggio SQL di accelerazione query](query-acceleration-sql-reference.md)
-
-

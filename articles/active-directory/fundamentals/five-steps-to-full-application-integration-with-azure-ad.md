@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: 26dd255e6edff7c339ab9766bb71889cf4e2deaa
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8f184de8953e8e8bfe982d2502ca476fb54a66c9
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577644"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95903713"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Cinque passaggi per l'integrazione di tutte le app con Azure AD
 
@@ -46,7 +46,7 @@ Infine, è anche possibile integrare le app sviluppate internamente. Questa proc
 
 Successivamente, individuare i dipendenti delle applicazioni che usano spesso e assegnare priorità al lavoro per integrarli con Azure AD.
 
-È possibile iniziare usando Microsoft Cloud App Security&#39;s [cloud Discovery Tools](/cloud-app-security/tutorial-shadow-it) per individuare e gestire &quot; shadow &quot; it nella rete (ovvero app non gestite dal reparto IT). È possibile [utilizzare Microsoft Defender Advanced Threat Protection (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) per semplificare ed estendere il processo di individuazione.
+È possibile iniziare usando gli strumenti di [cloud Discovery](/cloud-app-security/tutorial-shadow-it) di Microsoft cloud app Security per individuarli e gestirli nella rete (ovvero le app non gestite dal reparto IT). È possibile [utilizzare Microsoft Defender Advanced Threat Protection (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) per semplificare ed estendere il processo di individuazione.
 
 Inoltre, è possibile usare il [report attività ad FS applicazioni](../manage-apps/migrate-adfs-application-activity.md) nel portale di Azure per individuare tutte le app ad FS dell'organizzazione, il numero di utenti univoci che hanno eseguito l'accesso e la compatibilità per l'integrazione con Azure ad.
 
@@ -66,7 +66,7 @@ Durante il processo di individuazione, è possibile che siano state trovate appl
 - Risparmia denaro evitando la necessità di provisioning e autenticazione per gli utenti locali, oltre ai costi di licenza pagati ad altri provider di identità cloud per lo stesso servizio.
 - Ridurre il sovraccarico amministrativo e garantire una sicurezza più stretta con meno ridondanze nel processo di gestione delle identità e dell'accesso.
 - Consentire ai dipendenti di ottenere l'accesso sicuro Single Sign-On a tutte le applicazioni necessarie tramite il [portale app](../manage-apps/access-panel-collections.md).
-- Migliorare l'intelligence dei servizi correlati a Azure AD&#39;s [Identity Protection](../identity-protection/overview-identity-protection.md) , ad esempio l'accesso condizionale aumentando la quantità di dati ottenuti dall'utilizzo dell'app e estendendo i vantaggi alle app appena aggiunte.
+- Migliorare l'intelligence dei servizi correlati alla [protezione delle identità](../identity-protection/overview-identity-protection.md) di Azure ad come l'accesso condizionale aumentando la quantità di dati ottenuti dall'utilizzo dell'app e estendendo i vantaggi alle app appena aggiunte.
 
 Sono state pubblicate informazioni aggiuntive per la gestione del processo di business per l'integrazione di app con Azure AD, tra cui un [poster](https://aka.ms/AppOnePager) e una [presentazione](https://aka.ms/AppGuideline) che è possibile usare per rendere i proprietari aziendali e delle applicazioni consapevoli e interessati. È possibile modificare questi esempi con una personalizzazione personalizzata e pubblicarli nell'organizzazione tramite il portale aziendale, la newsletter o un altro supporto per il completamento di questo processo.
 
@@ -103,7 +103,7 @@ Inoltre, è possibile integrare i controller di distribuzione delle applicazioni
 
 Per le app compilate nell'azienda, gli sviluppatori possono usare la [piattaforma di identità Microsoft](../develop/index.yml) per implementare l'autenticazione e l'autorizzazione. Le applicazioni integrate con la piattaforma possono essere [registrate con Azure ad](../develop/quickstart-register-app.md) e gestite esattamente come qualsiasi altra app nel portfolio.
 
-Gli sviluppatori possono usare la piattaforma per le app per uso interno e per le app rivolte ai clienti e sono disponibili altri vantaggi grazie alla piattaforma. [Microsoft Authentication Libraries (MSAL)](../develop/msal-overview.md), che fa parte della piattaforma, consente agli sviluppatori di abilitare esperienze moderne come l'autenticazione a più fattori e l'uso di chiavi di sicurezza per accedere alle proprie app senza che sia necessario implementarle autonomamente. Inoltre, le app integrate con la piattaforma Microsoft Identity possono accedere a [Microsoft Graph](../develop/microsoft-graph-intro.md) un endpoint API unificato fornendo i dati Microsoft 365 che descrivono i modelli di produttività, identità e sicurezza in un'organizzazione. Gli sviluppatori possono utilizzare queste informazioni per implementare funzionalità che aumentano la produttività degli utenti. Ad esempio, identificando le persone con cui l'utente interagisce recentemente e mostrandole nell'interfaccia utente di&#39;.
+Gli sviluppatori possono usare la piattaforma per le app per uso interno e per le app rivolte ai clienti e sono disponibili altri vantaggi grazie alla piattaforma. [Microsoft Authentication Libraries (MSAL)](../develop/msal-overview.md), che fa parte della piattaforma, consente agli sviluppatori di abilitare esperienze moderne come l'autenticazione a più fattori e l'uso di chiavi di sicurezza per accedere alle proprie app senza che sia necessario implementarle autonomamente. Inoltre, le app integrate con la piattaforma Microsoft Identity possono accedere a [Microsoft Graph](../develop/microsoft-graph-intro.md) un endpoint API unificato fornendo i dati Microsoft 365 che descrivono i modelli di produttività, identità e sicurezza in un'organizzazione. Gli sviluppatori possono utilizzare queste informazioni per implementare funzionalità che aumentano la produttività degli utenti. Ad esempio, identificando le persone con cui l'utente interagisce recentemente e mostrandole nell'interfaccia utente dell'app.
 
 Abbiamo una [serie di video](https://www.youtube.com/watch?v=zjezqZPPOfc&amp;list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX) che fornisce un'introduzione completa alla piattaforma, nonché [molti esempi di codice](../develop/sample-v2-code.md) in linguaggi e piattaforme supportate.
 

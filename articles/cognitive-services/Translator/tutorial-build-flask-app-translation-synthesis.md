@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: devx-track-python, devx-track-js
-ms.openlocfilehash: 41d7fe8e22b39d8755f86e5ee490aa6e7dff97fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cbe4d44f5e1c8b34a3d7bb9d05b9546f320b81c
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330622"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95023470"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Esercitazione: Creare un'app Flask con Servizi cognitivi di Azure
 
@@ -64,7 +64,7 @@ Come accennato in precedenza, è necessario avere tre chiavi di sottoscrizione p
 * Text Analytics
 * Servizi Voce
 
-Per le istruzioni dettagliate su come creare le risorse, vedere [Creare un account di Servizi cognitivi nel portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+Per le istruzioni dettagliate su come creare le risorse, vedere [Creare un account di Servizi cognitivi nel portale di Azure](../cognitive-services-apis-create-account.md).
 
 > [!IMPORTANT]
 > Per questa esercitazione, creare le risorse nell'area Stati Uniti occidentali. Se si usa un'area diversa, sarà necessario modificare l'URL di base per ogni file Python.
@@ -475,7 +475,7 @@ Premere **CTRL +C** per terminare l'app e passare alla sezione successiva.
 
 ## <a name="analyze-sentiment"></a>Analizzare la valutazione
 
-L'[API Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) consente di eseguire l'analisi del sentiment, estrarre frasi chiave dal testo o rilevare la lingua di origine. In questa app verrà usata l'analisi del sentiment per determinare se il giudizio sul testo fornito è positivo, neutro o negativo. L'API restituisce un punteggio numerico compreso tra 0 e 1. I punteggi vicini all'1 indicano una valutazione positiva e i punteggi vicini allo 0 indicano una valutazione negativa.
+L'[API Analisi del testo](../text-analytics/overview.md) consente di eseguire l'analisi del sentiment, estrarre frasi chiave dal testo o rilevare la lingua di origine. In questa app verrà usata l'analisi del sentiment per determinare se il giudizio sul testo fornito è positivo, neutro o negativo. L'API restituisce un punteggio numerico compreso tra 0 e 1. I punteggi vicini all'1 indicano una valutazione positiva e i punteggi vicini allo 0 indicano una valutazione negativa.
 
 In questa sezione verranno eseguite queste operazioni:
 
@@ -659,7 +659,7 @@ Premere **CTRL +C** per terminare l'app e passare alla sezione successiva.
 
 ## <a name="convert-text-to-speech"></a>Conversione sintesi vocale
 
-L'[API Sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) consente all'app di convertire il testo in una voce sintetizzata naturale simile a quella umana. Il servizio supporta voci standard, neurali e personalizzate. Nell'app di esempio vengono usate alcune voci disponibili. Per l'elenco completo vedere le [lingue supportate](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech).
+L'[API Sintesi vocale](../speech-service/text-to-speech.md) consente all'app di convertire il testo in una voce sintetizzata naturale simile a quella umana. Il servizio supporta voci standard, neurali e personalizzate. Nell'app di esempio vengono usate alcune voci disponibili. Per l'elenco completo vedere le [lingue supportate](../speech-service/language-support.md#text-to-speech).
 
 In questa sezione verranno eseguite queste operazioni:
 
@@ -954,7 +954,7 @@ Passare all'indirizzo del server fornito. Digitare un testo nell'area di input, 
 > [!TIP]
 > Se le modifiche apportate non vengono visualizzate oppure se l'app non funziona come previsto, provare a cancellare la cache o ad aprire una finestra privata/in incognito.
 
-A questo punto è disponibile un'app funzionante che esegue traduzioni, analizza il sentiment e sintetizza la voce. Premere **CTRL+C** per terminare l'app. Assicurarsi di esaminare gli altri [Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/).
+A questo punto è disponibile un'app funzionante che esegue traduzioni, analizza il sentiment e sintetizza la voce. Premere **CTRL+C** per terminare l'app. Assicurarsi di esaminare gli altri [Servizi cognitivi di Azure](../index.yml).
 
 ## <a name="get-the-source-code"></a>Ottenere il codice sorgente
 
@@ -962,6 +962,6 @@ Il codice sorgente di questo progetto è disponibile in [GitHub](https://github.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni di riferimento su Translator](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Informazioni di riferimento su Translator](./reference/v3-0-reference.md)
 * [Informazioni di riferimento sull'API Analisi del testo](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
-* [Informazioni di riferimento sull'API Sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)
+* [Informazioni di riferimento sull'API Sintesi vocale](../speech-service/rest-text-to-speech.md)

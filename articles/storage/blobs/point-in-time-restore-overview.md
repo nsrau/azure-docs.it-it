@@ -10,12 +10,12 @@ ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: aed3116976d57df81da399495fd9da3722ba770a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ca09e41e6d5b83f14d2dfee4107135585b7e945a
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960678"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908796"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Ripristino temporizzato per BLOB in blocchi
 
@@ -49,7 +49,7 @@ L'operazione **Restore Ranges BLOB** restituisce un ID di ripristino che identif
 
 Il ripristino temporizzato richiede che le funzionalità di archiviazione di Azure seguenti siano abilitate prima che sia possibile abilitare il ripristino temporizzato:
 
-- [Eliminazione temporanea](soft-delete-overview.md)
+- [Eliminazione temporanea](./soft-delete-blob-overview.md)
 - [Feed delle modifiche](storage-blob-change-feed.md)
 - [Controllo delle versioni dei BLOB](versioning-overview.md)
 
@@ -92,5 +92,5 @@ Per altre informazioni sui prezzi per il ripristino temporizzato, vedere prezzi 
 
 - [Eseguire un ripristino temporizzato sui dati BLOB in blocchi](point-in-time-restore-manage.md)
 - [Supporto del feed delle modifiche nell'archiviazione BLOB di Azure](storage-blob-change-feed.md)
-- [Abilitare l'eliminazione temporanea per i BLOB](soft-delete-enable.md)
+- [Abilitare l'eliminazione temporanea per i BLOB](./soft-delete-blob-enable.md)
 - [Abilitare e gestire il controllo delle versioni dei BLOB](versioning-enable.md)

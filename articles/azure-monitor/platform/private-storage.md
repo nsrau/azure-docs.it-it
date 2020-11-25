@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: a487e6989792c63aaf5baf9ddb3875df549561a4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7cb427c83345a4603c6fe7727c1cc42c1943c456
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143995"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95908252"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Uso di account di archiviazione gestiti dal cliente in monitoraggio di Azure Log Analytics
 
-Log Analytics si basa su archiviazione di Azure in diversi scenari. Questo utilizzo viene in genere gestito automaticamente. Tuttavia, in alcuni casi è necessario fornire e gestire il proprio account di archiviazione, noto anche come account di archiviazione gestito dal cliente. Questo documento illustra in dettaglio l'uso dell'archiviazione gestita dal cliente per l'inserimento di log WAD/LAD, scenari specifici di collegamento privato e crittografia CMK. 
+Log Analytics si basa su archiviazione di Azure in diversi scenari. Questo utilizzo viene in genere gestito automaticamente. Tuttavia, in alcuni casi è necessario fornire e gestire il proprio account di archiviazione, noto anche come account di archiviazione gestito dal cliente. Questo documento illustra in dettaglio l'uso dell'archiviazione gestita dal cliente per l'inserimento di log WAD/LAD, scenari specifici del collegamento privato e crittografia della chiave gestita dal cliente (CMK). 
 
 > [!NOTE]
 > Si consiglia di non assumere una dipendenza dal contenuto Log Analytics caricamenti nell'archiviazione gestita dal cliente, dato che la formattazione e il contenuto possono cambiare.

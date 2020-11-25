@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2350177373bc99907c437d814d8f01193f18f3fd
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91280471"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95895724"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Eseguire un ripristino temporizzato sui dati BLOB in blocchi
 
@@ -29,7 +29,7 @@ Per altre informazioni sul ripristino temporizzato, vedere [ripristino temporizz
 
 Prima di abilitare e configurare il ripristino temporizzato, abilitare i relativi prerequisiti per l'account di archiviazione: eliminazione temporanea, feed delle modifiche e controllo delle versioni dei BLOB. Per altre informazioni su come abilitare queste funzionalità, vedere gli articoli seguenti:
 
-- [Abilitare l'eliminazione temporanea per i BLOB](soft-delete-enable.md)
+- [Abilitare l'eliminazione temporanea per i BLOB](./soft-delete-blob-enable.md)
 - [Abilitare e disabilitare il feed di modifiche](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Abilitare e gestire il controllo delle versioni dei BLOB](versioning-enable.md)
 
@@ -41,7 +41,7 @@ Prima di abilitare e configurare il ripristino temporizzato, abilitare i relativ
 Per configurare il ripristino temporizzato con il portale di Azure, attenersi alla procedura seguente:
 
 1. Passare all'account di archiviazione nel portale di Azure.
-1. In **Impostazioni**scegliere **protezione dati**.
+1. In **Impostazioni** scegliere **protezione dati**.
 1. Selezionare **Attiva ripristino temporizzato** . Quando si seleziona questa opzione, vengono abilitati anche l'eliminazione temporanea per i BLOB, il controllo delle versioni e il feed delle modifiche.
 1. Impostare il punto di ripristino massimo per il ripristino temporizzato, in giorni. Questo numero deve essere almeno un giorno inferiore rispetto al periodo di memorizzazione specificato per l'eliminazione temporanea del BLOB.
 1. Salvare le modifiche.
@@ -122,7 +122,7 @@ Per ripristinare tutti i contenitori e i BLOB nell'account di archiviazione con 
 1. Confermare che si desidera procedere selezionando la casella.
 1. Selezionare **Ripristina** per avviare l'operazione di ripristino.
 
-    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Screenshot che illustra come configurare il ripristino temporizzato nel portale di Azure":::
+    :::image type="content" source="media/point-in-time-restore-manage/restore-all-containers-portal.png" alt-text="Screenshot che illustra come ripristinare tutti i contenitori in un punto di ripristino specificato":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -169,19 +169,19 @@ Per ripristinare un intervallo di BLOB in uno o più contenitori con la portale 
 1. Specificare gli intervalli da ripristinare. Usare una barra (/) per delineare il nome del contenitore dal prefisso del BLOB.
 1. Per impostazione predefinita, il riquadro **Ripristina contenitori selezionati** specifica un intervallo che include tutti i BLOB nel contenitore. Eliminare questo intervallo se non si desidera ripristinare l'intero contenitore. L'intervallo predefinito è illustrato nell'immagine seguente.
 
-    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Screenshot che illustra come configurare il ripristino temporizzato nel portale di Azure":::
+    :::image type="content" source="media/point-in-time-restore-manage/delete-default-blob-range.png" alt-text="Screenshot che mostra l'intervallo di BLOB predefinito da eliminare prima di specificare un intervallo personalizzato":::
 
 1. Confermare che si desidera procedere selezionando la casella.
 1. Selezionare **Ripristina** per avviare l'operazione di ripristino.
 
 Nell'immagine seguente viene illustrata un'operazione di ripristino in un set di intervalli.
 
-:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Screenshot che illustra come configurare il ripristino temporizzato nel portale di Azure":::
+:::image type="content" source="media/point-in-time-restore-manage/restore-multiple-container-ranges-portal.png" alt-text="Screenshot che illustra come ripristinare intervalli di BLOB in uno o più contenitori":::
 
 L'operazione di ripristino mostrata nell'immagine esegue le azioni seguenti:
 
 - Ripristina il contenuto completo di *container1*.
-- Ripristina i BLOB nell'intervallo lessicografico *blob1* tramite *blob5* in *container2*. Questo intervallo consente di ripristinare i BLOB con nomi come *blob1*, *blob11*, *blob100*, *blob2*e così via. Poiché la fine dell'intervallo è esclusiva, ripristina i BLOB i cui nomi iniziano con *blob4*, ma non ripristina i BLOB i cui nomi iniziano con *blob5*.
+- Ripristina i BLOB nell'intervallo lessicografico *blob1* tramite *blob5* in *container2*. Questo intervallo consente di ripristinare i BLOB con nomi come *blob1*, *blob11*, *blob100*, *blob2* e così via. Poiché la fine dell'intervallo è esclusiva, ripristina i BLOB i cui nomi iniziano con *blob4*, ma non ripristina i BLOB i cui nomi iniziano con *blob5*.
 - Ripristina tutti i BLOB in *container3* e *container4*. Poiché la fine dell'intervallo è esclusiva, questo intervallo non consente di ripristinare *container5*.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
@@ -248,6 +248,6 @@ Per eseguire l'operazione di ripristino in modo sincrono e bloccarsi in fase di 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Ripristino temporizzato per BLOB in blocchi](point-in-time-restore-overview.md)
-- [Eliminazione temporanea](soft-delete-overview.md)
+- [Eliminazione temporanea](./soft-delete-blob-overview.md)
 - [Feed delle modifiche](storage-blob-change-feed.md)
 - [Controllo delle versioni dei BLOB](versioning-overview.md)

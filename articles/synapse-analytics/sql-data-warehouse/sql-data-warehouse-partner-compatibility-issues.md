@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 11/18/2020
 ms.author: procha
 ms.reviewer: jrasnick
-ms.openlocfilehash: 27f6f0b1ece7cd1f890d76e912b5e304af46b0cd
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 861b963922d64926266b42a23f85e9dc30fda7a3
+ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95819269"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "95903985"
 ---
 # <a name="compatibility-issues-with-third-party-applications-and-azure-synapse-analytics"></a>Problemi di compatibilità con le applicazioni di terze parti e Azure sinapsi Analytics
 
@@ -43,7 +43,6 @@ I clienti che vedono questo particolare problema quando si usa Tableau connesso 
 Nell'esempio seguente viene illustrato un file Tableau TDC che passa il parametro FMTONLY = YES alla stringa di connessione SQL:
 
 ```json
-
 <connection-customization class='azure_sql_dw' enabled='true' version='18.1'>
     <vendor name='azure_sql_dw' />
     <driver name='azure_sql_dw' />
@@ -54,7 +53,7 @@ Nell'esempio seguente viene illustrato un file Tableau TDC che passa il parametr
 ```
 Per ulteriori informazioni sull'utilizzo dei file TDC, contattare il supporto tableau. 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Elementi del linguaggio T-SQL per pool SQL dedicato in Azure sinapsi Analytics.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 * [Istruzioni T-SQL supportate per il pool SQL dedicato in Azure sinapsi Analytics.](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)

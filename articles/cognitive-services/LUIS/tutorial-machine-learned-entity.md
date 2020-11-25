@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: 1f85ba0c64db23e156f384fadcc5ca7bf84a58d4
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: aa2783abe86b90a907510dec8d7eb40162820ad5
+ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130744"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95025260"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Esercitazione: Estrarre dati strutturati da un'espressione dell'utente con entità basate su Machine Learning in Language Understanding (LUIS)
 
@@ -173,7 +173,7 @@ Viene creata l'entità basata su machine Learning e le sottoentità dispongono d
 
 1. Selezionare **Intents** (Finalità) nel riquadro di spostamento a sinistra, quindi selezionare la finalità **OrderPizza**.
 
-1. Per aprire l' **Entity Palette** (Tavolozza entità) selezionare il simbolo **@** sulla barra degli strumenti contestuale.
+1. Per aprire l'**Entity Palette** (Tavolozza entità) selezionare il simbolo **@** sulla barra degli strumenti contestuale.
 
 1. Selezionare ogni riga di entità nella tavolozza, quindi usare il cursore della tavolozza per selezionare l'entità in ogni espressione di esempio. Al termine, l'elenco di entità avrà un aspetto simile all'immagine seguente.
 
@@ -297,7 +297,7 @@ Per ottenere una previsione di Language Understanding Intelligent Service (LUIS)
 
 ## <a name="related-information"></a>Informazioni correlate
 
-* [Esercitazione - Finalità](luis-quickstart-intents-only.md)
+* [Esercitazione - Finalità](./tutorial-intents-only.md)
 * Informazioni concettuali su [Concetto - entità](luis-concept-entity-types.md)
 * Informazioni concettuali su [Concetto - funzionalità](luis-concept-feature.md)
 * [Come eseguire il training](luis-how-to-train.md)
@@ -309,4 +309,4 @@ Per ottenere una previsione di Language Understanding Intelligent Service (LUIS)
 In questa esercitazione l'app usa un'entità basata su Machine Learning per trovare la finalità dell'espressione di un utente ed estrarre i dettagli dall'espressione. L'uso dell'entità basata su Machine Learning consente di scomporre i dettagli dell'entità.
 
 > [!div class="nextstepaction"]
-> [Aggiungere un'entità KeyPhrase predefinita](luis-quickstart-intent-and-key-phrase.md)
+> [Aggiungere un'entità KeyPhrase predefinita](./luis-reference-prebuilt-keyphrase.md)
